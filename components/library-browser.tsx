@@ -38,15 +38,15 @@ const isDraftProfile = (item: BrowserItem): boolean => {
 
 const getPreview = (item: BrowserItem): string => {
   const text = normalizeText(item.summary)
-  if (isDraftProfile(item)) return 'More workbook data is available, but this profile still needs a clean public summary.'
-  return text.length > 132 ? `${text.slice(0, 131).trimEnd()}…` : text
+  if (isDraftProfile(item)) return 'Needs a clean public summary, but metadata may still be searchable.'
+  return text.length > 110 ? `${text.slice(0, 109).trimEnd()}…` : text
 }
 
 const formatChip = (value: string): string =>
   value
     .split(/[-_,]/)
     .filter(Boolean)
-    .slice(0, 3)
+    .slice(0, 2)
     .map(part => part.trim().charAt(0).toUpperCase() + part.trim().slice(1))
     .join(' ')
 
@@ -71,7 +71,7 @@ export default function LibraryBrowser({
   const [sortMode, setSortMode] = useState<SortMode>('best')
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setDebouncedQuery(query), 180)
+    const timer = window.setTimeout(() => setDebouncedQuery(query), 160)
     return () => window.clearTimeout(timer)
   }, [query])
 
@@ -114,14 +114,14 @@ export default function LibraryBrowser({
   }
 
   return (
-    <div className='mx-auto w-full max-w-6xl space-y-5 py-2'>
-      <section className='rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-6'>
+    <div className='mx-auto w-full max-w-6xl space-y-4 py-2'>
+      <section className='rounded-2xl border border-white/10 bg-white/[0.025] p-5'>
         <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100/60'>{eyebrow}</p>
         <h1 className='mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl'>{title}</h1>
         {description ? <p className='mt-3 max-w-2xl text-sm leading-6 text-white/60 sm:text-base'>{description}</p> : null}
         <div className='mt-4 flex flex-wrap gap-2 text-xs font-bold text-white/55'>
           <span className='rounded-full border border-white/10 px-3 py-1.5'><span className='text-white'>{stats.total}</span> profiles</span>
-          <span className='rounded-full border border-white/10 px-3 py-1.5'><span className='text-white'>{stats.ready}</span> with summaries</span>
+          <span className='rounded-full border border-white/10 px-3 py-1.5'><span className='text-white'>{stats.ready}</span> useful summaries</span>
           {stats.aTier > 0 ? <span className='rounded-full border border-amber-200/20 px-3 py-1.5 text-amber-100'>{stats.aTier} A-tier</span> : null}
         </div>
       </section>
@@ -136,7 +136,7 @@ export default function LibraryBrowser({
           />
           <select value={qualityFilter} onChange={event => setQualityFilter(event.target.value as QualityFilter)} className='rounded-xl border border-white/10 bg-[#101418] px-3 py-3 text-sm text-white'>
             <option value='all'>All profiles</option>
-            <option value='ready'>Summaries only</option>
+            <option value='ready'>Useful only</option>
             <option value='drafts'>Needs summary</option>
           </select>
           <select value={sortMode} onChange={event => setSortMode(event.target.value as SortMode)} className='rounded-xl border border-white/10 bg-[#101418] px-3 py-3 text-sm text-white'>
@@ -162,26 +162,27 @@ export default function LibraryBrowser({
       </section>
 
       {filteredItems.length > 0 ? (
-        <div className='grid gap-3 md:grid-cols-2 xl:grid-cols-3'>
+        <div className='overflow-hidden rounded-2xl border border-white/10 bg-white/[0.018]'>
           {filteredItems.map(item => {
             const draft = isDraftProfile(item)
-            const meta = (item.meta ?? []).filter(Boolean).slice(0, 3)
+            const meta = (item.meta ?? []).filter(Boolean).slice(0, 4)
             return (
-              <Link key={item.slug} href={item.href} className='group rounded-2xl border border-white/10 bg-white/[0.025] p-4 text-white transition hover:border-emerald-200/30 hover:bg-white/[0.04]'>
-                <div className='flex flex-wrap items-center gap-2 text-[0.7rem] font-bold text-white/45'>
-                  {item.typeLabel ? <span className='rounded-full border border-white/10 px-2.5 py-1'>{item.typeLabel}</span> : null}
-                  {item.domain ? <span className='rounded-full border border-emerald-200/15 px-2.5 py-1 text-emerald-100/70'>{formatChip(item.domain)}</span> : null}
-                  {item.isATier ? <span className='rounded-full border border-amber-200/20 px-2.5 py-1 text-amber-100/75'>A-tier</span> : null}
-                  {draft ? <span className='rounded-full border border-white/10 px-2.5 py-1'>Needs summary</span> : null}
-                </div>
-                <h2 className='mt-4 text-xl font-black leading-tight tracking-tight text-white group-hover:text-emerald-100'>{item.title}</h2>
-                <p className='mt-2 line-clamp-3 text-sm leading-6 text-white/62'>{getPreview(item)}</p>
-                {meta.length > 0 ? (
-                  <div className='mt-3 flex flex-wrap gap-1.5'>
-                    {meta.map(value => <span key={value} className='rounded-full bg-white/[0.04] px-2.5 py-1 text-xs text-white/52'>{value}</span>)}
+              <Link key={item.slug} href={item.href} className='group block border-b border-white/8 px-4 py-3.5 text-white transition last:border-b-0 hover:bg-white/[0.035]'>
+                <div className='flex items-start justify-between gap-4'>
+                  <div className='min-w-0 flex-1'>
+                    <div className='flex flex-wrap items-center gap-2'>
+                      <h2 className='text-base font-black leading-tight tracking-tight text-white group-hover:text-emerald-100 sm:text-lg'>{item.title}</h2>
+                      {item.isATier ? <span className='rounded-full border border-amber-200/20 px-2 py-0.5 text-[0.68rem] font-bold text-amber-100/75'>A-tier</span> : null}
+                      {draft ? <span className='rounded-full border border-white/10 px-2 py-0.5 text-[0.68rem] font-bold text-white/35'>Needs summary</span> : null}
+                    </div>
+                    <p className='mt-1 line-clamp-2 text-sm leading-5 text-white/58'>{getPreview(item)}</p>
+                    <div className='mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/45'>
+                      {item.domain ? <span className='text-emerald-100/65'>{formatChip(item.domain)}</span> : null}
+                      {meta.map(value => <span key={value}>{value}</span>)}
+                    </div>
                   </div>
-                ) : null}
-                <span className='mt-4 inline-flex text-sm font-bold text-emerald-200 transition group-hover:translate-x-1'>Open profile →</span>
+                  <span className='mt-0.5 shrink-0 text-sm font-bold text-emerald-200 transition group-hover:translate-x-1'>View →</span>
+                </div>
               </Link>
             )
           })}
