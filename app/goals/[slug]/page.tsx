@@ -61,6 +61,7 @@ export default async function GoalPage({ params }: { params: { slug: string } })
   const relatedStacks = stacks.filter((stack) =>
     goal.stackSlugs.includes(stack.slug) || normalize(stack.goal ?? '') === normalize(goal.slug)
   )
+  const recommendedStack = relatedStacks[0]
 
   const goalCompounds = goal.compoundCandidates
     .map((candidate) => compoundLookup.get(candidate) ?? compoundLookup.get(normalize(candidate)))
@@ -83,6 +84,23 @@ export default async function GoalPage({ params }: { params: { slug: string } })
         <h1 className="mt-3 text-4xl font-black text-white">{goal.title}</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-white/75">{goal.summary}</p>
       </section>
+
+      {recommendedStack ? (
+        <section className="rounded-3xl border border-emerald-300/30 bg-emerald-300/[0.08] p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-200">Start here</p>
+          <div className="mt-3 grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <h2 className="text-2xl font-black text-white">{recommendedStack.title}</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-white/75">
+                {recommendedStack.short_description ?? 'Use this as the first decision path for this goal, then compare individual compounds below.'}
+              </p>
+            </div>
+            <Link href={`/stacks/${recommendedStack.slug}`} className="inline-flex rounded-full bg-emerald-300 px-5 py-3 text-sm font-black text-slate-950 hover:bg-emerald-200">
+              Follow this stack →
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       <section>
         <h2 className="text-2xl font-bold text-white">Related stacks</h2>
