@@ -1,19 +1,28 @@
 # Source of Truth Inventory
 
-| Path | Contains real production content? | Classification | Action |
-|---|---|---|---|
-| `archive/` | No (missing) | UNRELATED_UI_OR_CONFIG | No action (path not present). |
-| `content/` | Yes (published markdown/MDX content) | UNRELATED_UI_OR_CONFIG | Keep; active editorial content for app features. |
-| `data/` | Mixed (identity maps + legacy imports + misc config) | OBSOLETE_DUPLICATE_SOURCE | Delete duplicate content sources under `data/import/` (removed `citations.xlsx` + `Blank`); keep non-content config/identity maps used by scripts. |
-| `data-sources/` | Yes (workbook source) | CANONICAL_WORKBOOK | Keep; workbook remains authoritative source. |
-| `public/data` | Yes (runtime payload used by app) | GENERATED_OUTPUT | Keep; generated deterministically from workbook via `data:build`. |
-| `public/data-next` | Yes (duplicate generated runtime payload) | OBSOLETE_DUPLICATE_SOURCE | Deleted folder as duplicate scaffold store. |
-| `public/data/projections` | No (missing) | OBSOLETE_DUPLICATE_SOURCE | No action (path not present). |
-| `scripts/` | No (code) | GENERATOR_OR_VALIDATOR_CODE | Keep; update scripts to stop referencing deleted duplicate outputs. |
-| `src/data` | No (missing) | UNRELATED_UI_OR_CONFIG | No action (path not present). |
+## Source of Truth Rules
 
-## Deleted duplicate sources
+- Workbook = data authority (`data-sources/herb_monograph_master.xlsx`)
+- Scripts = transformation layer
+- `public/data/` = runtime output
+- Site = read-only consumer
 
-- `public/data-next/` (entire duplicate generated dataset tree).
-- `data/import/citations.xlsx` (duplicate import source outside canonical workbook flow).
-- `data/import/Blank` (legacy import placeholder).
+## Active Data Paths
+
+| Path | Role | Classification |
+|---|---|---|
+| `data-sources/` | Workbook source | CANONICAL_WORKBOOK |
+| `public/data/` | Runtime payload used by app | GENERATED_OUTPUT |
+| `scripts/` | Data generation and validation | GENERATOR_OR_VALIDATOR_CODE |
+| `content/` | Editorial/static content | STATIC_SITE_COPY |
+
+## Rules
+
+- All production data MUST originate from the workbook
+- Scripts transform workbook data into runtime JSON
+- The site MUST ONLY read from `public/data/`
+- No duplicate or parallel data sources are allowed
+
+## Deleted / Deprecated Sources
+
+- Any legacy or duplicate datasets outside the workbook pipeline should be removed or ignored
