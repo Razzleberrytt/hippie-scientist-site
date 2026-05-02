@@ -170,6 +170,12 @@ function entitySummary(record) {
   )
 }
 
+function hasValidSlug(record) {
+  const slug = toText(record?.slug)
+  const badIdentityTokens = new Set(['[object object]', 'unknown', 'nan', 'undefined'])
+  return slug.length >= 2 && !badIdentityTokens.has(slug.toLowerCase())
+}
+
 function isDeployableEntity(record) {
   if (!record || typeof record !== 'object') return false
   const slug = toText(record.slug)
@@ -183,6 +189,21 @@ function isDeployableEntity(record) {
     !badIdentityTokens.has(slug.toLowerCase()) &&
     !badIdentityTokens.has(label.toLowerCase())
   )
+}
+
+function isDeployableCompound(record) {
+  if (!record || typeof record !== 'object') return false
+  if (!hasValidSlug(record)) return false
+
+  const label = entityLabel(record)
+  const summary = entitySummary(record)
+  const hasAnyCompoundContext =
+    label.length >= 2 ||
+    summary.length > 0 ||
+    supportingFieldCount(record) > 0 ||
+    Object.keys(record).some(key => !['slug', 'id'].includes(key) && toText(record[key]).length > 0)
+
+  return hasAnyCompoundContext
 }
 
 function isPublishableHerb(record, thresholds) {
@@ -377,7 +398,7 @@ function main() {
       errors.push('public/data/compounds.json contains zero compounds.')
     }
 
-    const deployableCompounds = compoundsData.value.filter(isDeployableEntity).length
+    const deployableCompounds = compoundsData.value.filter(isDeployableCompound).length
     if (deployableCompounds < minPublishableCompounds) {
       errors.push(
         `Deployable compound count below threshold: ${deployableCompounds} < ${minPublishableCompounds} (set MIN_PUBLISHABLE_COMPOUNDS to override).`,
