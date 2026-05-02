@@ -2,6 +2,7 @@ export const PUBLIC_ROUTES = {
   home: '/',
   herbs: '/herbs',
   compounds: '/compounds',
+  goals: '/goals',
   build: '/build',
   blog: '/blog',
   learning: '/learning',
