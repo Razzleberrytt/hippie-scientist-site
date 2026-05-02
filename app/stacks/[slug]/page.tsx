@@ -1,65 +1,90 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getStacks } from '@/lib/runtime-data'
 import StackCard from '@/components/StackCard'
 import AffiliateBlock from '@/components/AffiliateBlock'
+import { generatedComparisons } from '@/data/generated-comparisons'
+
+const formatGoal = (value?: string) =>
+  String(value || 'wellness')
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase())
+
+const stackGoal = (stack: any) => stack?.goal_slug || stack?.goal || stack?.slug
 
 export async function generateStaticParams() {
   const stacks = await getStacks()
   return stacks.map(s => ({ slug: s.slug }))
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }): Promise<Metadata> {
   const { slug } = await params
   const stacks = await getStacks()
   const stack = stacks.find(s => s.slug === slug)
+  const goal = formatGoal(stackGoal(stack))
+  const title = stack ? `Best Supplements for ${goal}: ${stack.title} | The Hippie Scientist` : 'Best Supplement Stack | The Hippie Scientist'
+  const description = stack
+    ? `Discover the best supplement stack for ${goal.toLowerCase()}. Includes dosages, safety notes, key ingredients, and product options.`
+    : 'Evidence-aware supplement stack guide with dosages, safety notes, and product options.'
+
   return {
-    title: stack?.title || 'Stack',
-    description: stack?.summary || ''
+    title,
+    description,
+    alternates: { canonical: `/stacks/${slug}` },
+    openGraph: { title, description, type: 'article', url: `/stacks/${slug}` },
   }
 }
 
 export default async function StackPage({ params }) {
   const { slug } = await params
   const stacks = await getStacks()
-
   const stack = stacks.find(s => s.slug === slug)
   if (!stack) return notFound()
 
   const items = stack.compounds || stack.stack || []
-
-  const bundleQuery = items.map(i => i.compound_slug || i.compound).join('+')
+  const goal = formatGoal(stackGoal(stack))
+  const itemSlugs = items.map(i => i.compound_slug || i.compound).filter(Boolean)
+  const bundleQuery = itemSlugs.join('+')
+  const relatedComparisons = generatedComparisons
+    .filter(compareSlug => itemSlugs.some(itemSlug => compareSlug.includes(itemSlug)))
+    .slice(0, 4)
 
   return (
     <div className="space-y-10">
-
       <section className="space-y-4">
+        <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-200/70">Best supplements for {goal}</p>
         <h1 className="text-4xl font-black text-white">{stack.title}</h1>
-        <p className="text-white/70">{stack.summary}</p>
+        <p className="text-white/70">{stack.summary || stack.short_description}</p>
 
-        {/* 🔥 FULL STACK BUNDLE */}
+        <section className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          <h2 className="text-xl font-bold text-white">Why this stack works</h2>
+          <ul className="mt-3 grid gap-2 text-sm text-white/70">
+            <li>Targets multiple pathways for stronger real-world support.</li>
+            <li>Combines evidence-aware compounds instead of random supplement picks.</li>
+            <li>Keeps dosage, timing, and safety context visible before buying.</li>
+          </ul>
+        </section>
+
+        <section className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-5">
+          <h2 className="text-xl font-bold text-white">Best supplements for {goal}</h2>
+          <p className="mt-2 text-sm text-white/70">This stack includes the key supplement options for people trying to improve {goal.toLowerCase()} without guessing compound by compound.</p>
+        </section>
+
         <div className="rounded-2xl border border-amber-300/20 bg-amber-300/[0.05] p-5">
-          <h2 className="text-xl font-bold text-white">Buy full stack</h2>
-          <a
-            href={`https://www.amazon.com/s?k=${bundleQuery}+supplement&tag=razzleberry02-20`}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            className="mt-3 block rounded-xl bg-amber-300 py-3 text-center font-black text-black"
-          >
+          <h2 className="text-xl font-bold text-white">Buy full stack (Top picks)</h2>
+          <p className="text-sm text-white/60">Often bought together for best results.</p>
+          <a href={`https://www.amazon.com/s?k=${bundleQuery}+supplement&tag=razzleberry02-20`} target="_blank" rel="noopener noreferrer sponsored" className="mt-3 block rounded-xl bg-amber-300 py-3 text-center font-black text-black">
             Shop full stack →
           </a>
+          <p className="mt-2 text-center text-xs text-white/40">Popular choices right now. Prices and availability may change.</p>
         </div>
 
-        {/* 🔥 PRIMARY CTA */}
-        <div className="rounded-2xl border border-emerald-300/20 p-5 bg-emerald-300/[0.05]">
+        <div className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-5">
           <h2 className="text-xl font-bold text-white">Top picks from this stack</h2>
           <div className="mt-3 grid gap-3">
             {items.slice(0, 3).map((item, i) => (
-              <AffiliateBlock
-                key={i}
-                compound={item.compound_slug || item.compound}
-                intentLabel={i === 0 ? 'Primary (most effective)' : undefined}
-              />
+              <AffiliateBlock key={i} compound={item.compound_slug || item.compound} intentLabel={i === 0 ? 'Primary (most effective)' : undefined} />
             ))}
           </div>
         </div>
@@ -71,17 +96,24 @@ export default async function StackPage({ params }) {
           {items.map((item, i) => (
             <div key={i} className="space-y-3">
               <StackCard item={item} />
-
-              <AffiliateBlock
-                compound={item.compound_slug || item.compound}
-                intentLabel={item.role === 'anchor' ? 'Core compound' : undefined}
-                compact
-              />
+              <AffiliateBlock compound={item.compound_slug || item.compound} intentLabel={item.role === 'anchor' ? 'Core compound' : undefined} compact />
             </div>
           ))}
         </div>
       </section>
 
+      {relatedComparisons.length > 0 && (
+        <section className="rounded-2xl border border-white/10 p-5">
+          <h2 className="text-xl font-bold text-white">Compare key ingredients</h2>
+          <div className="mt-3 flex flex-wrap gap-3">
+            {relatedComparisons.map(compareSlug => (
+              <Link key={compareSlug} href={`/compare/${compareSlug}`} className="text-sm font-bold text-emerald-300">
+                {compareSlug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()).replace(' Vs ', ' vs ')} →
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )
 }
