@@ -1,29 +1,31 @@
 # Generated Data Policy
 
+## Source of Truth Rules
+
+- Workbook = data authority (`data-sources/herb_monograph_master.xlsx`)
+- Scripts = transformation layer
+- `public/data/` = runtime output
+- Site = read-only consumer
+
+## Runtime Data Rules
+
+- All runtime data is generated into `public/data/`
+- This is the ONLY source consumed by the site
+- No manual editing of files in `public/data/` is allowed
+
 ## Canonical Source Rule
 
-- `data-sources/herb_monograph_master.xlsx` is the sole canonical source of truth.
+- `data-sources/herb_monograph_master.xlsx` is the sole canonical source of truth
 
 ## Generated Output Rules
 
-- `public/data-next` is migration output and must not be hand-edited.
-- `public/data` is final runtime output and must not be hand-edited.
-- Only approved scripts may write generated runtime data.
+- Only approved scripts may write generated runtime data
+- Generated files must always be reproducible from the workbook
 
 ## Legacy Data Caution
 
-- Legacy datasets are suspicious unless proven generated from the workbook.
-
-## Migration Write Boundary
-
-- During migration, scripts must write only to `public/data-next`.
+- Any dataset outside the workbook → scripts → `public/data` pipeline is considered unsafe unless explicitly documented
 
 ## Commit Policy for Generated Files
 
-- Do not commit generated files unless explicitly required by the repo’s deployment model.
-
-## Related Docs
-
-- [SPEC-1: Hippie Scientist Rebuild](./SPEC-1-Hippie-Scientist-Rebuild.md)
-- [Import Boundaries](./import-boundaries.md)
-- [Contractor Onboarding](./contractor-onboarding.md)
+- Do not commit generated files unless explicitly required by the repo’s deployment model
