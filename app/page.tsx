@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getCompounds, getHerbs } from '@/lib/runtime-data'
 import stacksData from '@/public/data/stacks.json'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
-import { seoEntryPages } from './seo-entry-pages'
 
 const stacks = stacksData as any[]
 
@@ -13,10 +11,7 @@ export const metadata: Metadata = {
   description: 'Evidence-aware supplement decisions made simple.',
 }
 
-export default async function HomePage() {
-  const herbs = await getHerbs()
-  const compounds = await getCompounds()
-
+export default function HomePage() {
   return (
     <main className="space-y-12">
       <section className="relative overflow-hidden rounded-[2rem] border border-emerald-300/20 p-6 shadow-2xl shadow-black/30 sm:p-8 lg:p-10">
