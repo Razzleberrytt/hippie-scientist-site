@@ -54,6 +54,29 @@ const PLACEHOLDER_PATTERNS = [
   /^tbd$/i,
 ]
 
+const HIGH_VALUE_SLUGS = new Set([
+  'creatine',
+  'creatine-monohydrate',
+  'magnesium',
+  'magnesium-glycinate',
+  'magnesium-threonate',
+  'omega-3',
+  'omega-3-fatty-acids',
+  'fish-oil',
+  'caffeine',
+  'l-theanine',
+  'ashwagandha',
+  'melatonin',
+  'protein',
+  'whey-protein',
+  'vitamin-d',
+  'vitamin-d3',
+  'zinc',
+  'psyllium-husk',
+  'berberine',
+  'green-tea-extract-egcg',
+])
+
 const clean = (value: unknown): string => {
   if (value === null || value === undefined) return ''
   if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(', ')
@@ -116,6 +139,38 @@ const getMeta = (compound: CompoundListItem): string[] => {
   return meta.filter(Boolean).slice(0, 4)
 }
 
+const scoreCompound = (compound: CompoundListItem, aTierSlugs: Set<string>): number => {
+  let score = 0
+  const slug = compound.slug || ''
+  const evidence = getEvidence(compound).toLowerCase()
+  const summary = getCompoundSummary(compound)
+  const meta = getMeta(compound)
+  const domain = getDomain(compound)
+  const numericScore = Number(getScore(compound))
+
+  if (HIGH_VALUE_SLUGS.has(slug)) score += 20
+  if (aTierSlugs.has(slug)) score += 18
+
+  if (/strong|high|human|rct|meta|tier\s*1/.test(evidence)) score += 12
+  else if (/moderate|tier\s*2/.test(evidence)) score += 8
+  else if (/limited|low|tier\s*3/.test(evidence)) score += 3
+
+  if (summary) score += 8
+  if (summary.length > 80) score += 4
+  if (domain) score += 4
+  if (usable(compound.best_for)) score += 4
+  if (usable(compound.time_to_effect)) score += 3
+  if (usable(compound.duration)) score += 2
+  if (usable(compound.dosage_range)) score += 2
+  if (usable(compound.safety_summary) || usable(compound.safety_notes) || usable(compound.avoid_if)) score += 3
+  if (meta.length >= 3) score += 3
+  if (Number.isFinite(numericScore)) score += Math.max(-5, Math.min(10, numericScore / 10))
+
+  if (!summary && meta.length === 0) score -= 8
+
+  return score
+}
+
 const readATierSlugs = async (): Promise<Set<string>> => {
   const filePath = path.join(process.cwd(), 'public/data/a-tier-index.json')
   try {
@@ -135,7 +190,12 @@ export default async function CompoundsPage() {
   const compounds = (await getCompounds()) as CompoundListItem[]
   const aTierSlugs = await readATierSlugs()
 
-  const items: BrowserItem[] = compounds.map(compound => ({
+  const prioritized = [...compounds].sort((a, b) => {
+    const scoreDiff = scoreCompound(b, aTierSlugs) - scoreCompound(a, aTierSlugs)
+    return scoreDiff || getCompoundTitle(a).localeCompare(getCompoundTitle(b))
+  })
+
+  const items: BrowserItem[] = prioritized.map(compound => ({
     slug: compound.slug,
     title: getCompoundTitle(compound),
     summary: getCompoundSummary(compound),
@@ -150,7 +210,7 @@ export default async function CompoundsPage() {
     <LibraryBrowser
       eyebrow='Library'
       title='Compounds'
-      description='Browse compounds by effect, evidence, timing, safety, and practical use.'
+      description='High-value, evidence-rich compounds are prioritized first. Search still includes the full library.'
       searchPlaceholder='Search compounds, effects, timing, evidence, or use case'
       emptyLabel='Try a different compound or clear filters.'
       items={items}
