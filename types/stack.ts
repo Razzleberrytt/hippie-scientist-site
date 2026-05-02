@@ -21,10 +21,20 @@ export type Stack = {
 export type CompoundSummary = {
   slug?: string
   name?: string
+  displayName?: string
   primary_effect?: string
   primary_effects?: string[]
   mechanism_summary?: string
   safety_notes?: string
+  evidence_grade?: string
+  evidenceTier?: string
+  summary_quality?: string
+  profile_status?: string
+  scispace_primary_fact_v2?: string
+  scispace_key_facts_v2?: string[] | string
+  fact_score_v2?: number | string
+  tier_level?: string
+  tier3_priority_v1?: string | number | boolean
 }
 
 export type AffiliateProduct = {
