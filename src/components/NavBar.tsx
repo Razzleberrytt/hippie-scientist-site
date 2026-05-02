@@ -20,12 +20,10 @@ export default function NavBar() {
     <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/40 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         
-        {/* Logo / Brand */}
         <Link href={PUBLIC_ROUTES.home} className="text-sm font-semibold tracking-wide text-white">
           The Hippie Scientist
         </Link>
 
-        {/* Desktop Nav */}
         <div className="hidden items-center gap-1.5 md:flex">
           <Link href={PUBLIC_ROUTES.herbs} className={navClass(pathname, PUBLIC_ROUTES.herbs)}>
             Herbs
@@ -35,12 +33,15 @@ export default function NavBar() {
             Compounds
           </Link>
 
+          <Link href={PUBLIC_ROUTES.goals} className={navClass(pathname, PUBLIC_ROUTES.goals)}>
+            Goals
+          </Link>
+
           <Link href={PUBLIC_ROUTES.blog} className={navClass(pathname, PUBLIC_ROUTES.blog)}>
             Blog
           </Link>
         </div>
 
-        {/* Right Side */}
         <div className="flex items-center gap-2">
           <Link
             href={PUBLIC_ROUTES.build}
