@@ -6,94 +6,206 @@ import { getCompounds } from '@/lib/runtime-data'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
 
-const stacks = stacksData as any[]
-
-const normalize = (v: string) => v.toLowerCase().replace(/[^a-z0-9]/g, '')
-
-export function generateStaticParams(){
-  return goalConfigs.map(g=>({slug:g.slug}))
+type CompoundRecord = {
+  slug: string
+  name?: string
+  displayName?: string
+  summary?: string
+  description?: string
+  safety_notes?: string
+  safetyNotes?: string
+  fact_score_v2?: number | string
+  factScore?: number | string
+  net_score?: number | string
+  evidence_grade?: string
+  evidenceTier?: string | number
+  tier_level?: string | number
 }
 
-export function generateMetadata({params}:{params:{slug:string}}):Metadata{
-  const goal=goalConfigs.find(g=>g.slug===params.slug)
-  if(!goal)return{title:'Goal Guide'}
-  return{
-    title:`${goal.title} | The Hippie Scientist`,
-    description:goal.summary
+type StackRecord = {
+  slug: string
+  title?: string
+  short_description?: string
+  goal?: string
+  stack?: Array<{ compound?: string }>
+}
+
+const stacks = stacksData as StackRecord[]
+
+const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '')
+const normalizeGoal = (value?: string) => (value ?? '').replace(/_/g, '-').toLowerCase()
+const toNumber = (value: unknown) => {
+  const number = Number(value)
+  return Number.isFinite(number) ? number : 0
+}
+
+const compoundName = (compound: CompoundRecord) =>
+  compound.displayName || compound.name || compound.slug.split('-').map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
+
+const compoundSummary = (compound: CompoundRecord) =>
+  compound.summary || compound.description || compound.safety_notes || compound.safetyNotes || 'Open the compound profile for evidence, safety, and practical context.'
+
+const evidenceScore = (compound: CompoundRecord) => {
+  const text = `${compound.evidence_grade ?? ''} ${compound.evidenceTier ?? ''} ${compound.tier_level ?? ''}`.toLowerCase()
+  if (/strong|high|tier\s*1|\ba\b/.test(text)) return 4
+  if (/moderate|tier\s*2|\bb\b/.test(text)) return 3
+  if (/limited|low|tier\s*3|\bc\b/.test(text)) return 2
+  return 1
+}
+
+const factScore = (compound: CompoundRecord) =>
+  Math.max(toNumber(compound.fact_score_v2), toNumber(compound.factScore), toNumber(compound.net_score))
+
+const decisionScore = (compound: CompoundRecord) => evidenceScore(compound) * 100 + factScore(compound)
+
+const pickUnique = (items: Array<CompoundRecord | undefined>) => {
+  const seen = new Set<string>()
+  return items.filter((item): item is CompoundRecord => {
+    if (!item?.slug || seen.has(item.slug)) return false
+    seen.add(item.slug)
+    return true
+  })
+}
+
+export function generateStaticParams() {
+  return goalConfigs.map((goal) => ({ slug: goal.slug }))
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const goal = goalConfigs.find((item) => item.slug === params.slug)
+  if (!goal) return { title: 'Goal Guide | The Hippie Scientist' }
+
+  return {
+    title: `${goal.title} Decision Guide | The Hippie Scientist`,
+    description: goal.summary,
   }
 }
 
-export default async function Page({params}:{params:{slug:string}}){
-  const goal=goalConfigs.find(g=>g.slug===params.slug)
-  if(!goal) return notFound()
+export default async function GoalPage({ params }: { params: { slug: string } }) {
+  const goal = goalConfigs.find((item) => item.slug === params.slug)
+  if (!goal) return notFound()
 
-  const compounds=await getCompounds()
-  const map=new Map()
-  for(const c of compounds as any[]){
-    if(!c?.slug)continue
-    map.set(c.slug,c)
-    if(c.name)map.set(normalize(c.name),c)
+  const compounds = (await getCompounds()) as CompoundRecord[]
+  const compoundLookup = new Map<string, CompoundRecord>()
+
+  for (const compound of compounds) {
+    if (!compound?.slug) continue
+    compoundLookup.set(compound.slug, compound)
+    compoundLookup.set(normalize(compound.slug), compound)
+    if (compound.name) compoundLookup.set(normalize(compound.name), compound)
+    if (compound.displayName) compoundLookup.set(normalize(compound.displayName), compound)
   }
 
-  const relatedStacks=stacks.filter(s=>
-    goal.stackSlugs.includes(s.slug) || normalize(s.goal||'')===goal.slug
+  const relatedStacks = stacks.filter((stack) =>
+    goal.stackSlugs.includes(stack.slug) || normalizeGoal(stack.goal) === goal.slug
   )
 
-  const goalCompounds=goal.compoundCandidates
-    .map(c=>map.get(c)||map.get(normalize(c)))
-    .filter(Boolean)
-
-  const ranked=[...goalCompounds].sort((a:any,b:any)=>
-    (b.fact_score_v2||0)-(a.fact_score_v2||0)
+  const goalCompounds = pickUnique(
+    goal.compoundCandidates.map((candidate) =>
+      compoundLookup.get(candidate) ?? compoundLookup.get(normalize(candidate))
+    )
   )
 
-  const best=ranked[0]
-  const budget=ranked.find((c:any)=>['caffeine','creatine','magnesium'].includes(c.slug))||ranked[1]
-  const studied=[...ranked].sort((a:any,b:any)=>(b.evidenceTier||0)-(a.evidenceTier||0))[0]
+  const rankedCompounds = [...goalCompounds].sort((a, b) => decisionScore(b) - decisionScore(a))
+  const bestOverall = rankedCompounds[0]
+  const strongestEvidence = [...goalCompounds].sort((a, b) => evidenceScore(b) - evidenceScore(a) || factScore(b) - factScore(a))[0]
+  const practicalPick = rankedCompounds.find((compound) => factScore(compound) > 0 && evidenceScore(compound) >= 2) ?? rankedCompounds[1]
 
-  const comparisons=supplementComparisons.filter(c=>goal.comparisonSlugs.includes(c.slug))
+  const decisionCards = pickUnique([bestOverall, strongestEvidence, practicalPick]).map((compound, index) => ({
+    compound,
+    label: index === 0 ? 'Best Overall' : index === 1 ? 'Strongest Evidence' : 'Practical Pick',
+  }))
 
-  return(
+  const relatedComparisons = supplementComparisons.filter((comparison) =>
+    goal.comparisonSlugs.includes(comparison.slug) ||
+    goal.compoundCandidates.some((candidate) =>
+      comparison.a.candidates.includes(candidate) || comparison.b.candidates.includes(candidate)
+    )
+  )
+
+  return (
     <main className="space-y-10">
-      <section>
-        <h1 className="text-4xl font-black text-white">{goal.title}</h1>
-        <p className="text-white/80">{goal.summary}</p>
+      <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Goal decision guide</p>
+        <h1 className="mt-3 text-4xl font-black text-white">{goal.title}</h1>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-white/75">{goal.summary}</p>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-3">
-        {best&&<Link href={`/compounds/${best.slug}`} className="p-5 border border-emerald-300/30 rounded-2xl">Best Overall: {best.displayName||best.name}</Link>}
-        {budget&&<Link href={`/compounds/${budget.slug}`} className="p-5 border border-white/10 rounded-2xl">Best Budget: {budget.displayName||budget.name}</Link>}
-        {studied&&<Link href={`/compounds/${studied.slug}`} className="p-5 border border-white/10 rounded-2xl">Most Studied: {studied.displayName||studied.name}</Link>}
-      </section>
+      {decisionCards.length > 0 && (
+        <section>
+          <h2 className="text-2xl font-bold text-white">Best picks</h2>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            {decisionCards.map(({ compound, label }) => (
+              <Link
+                key={`${label}-${compound.slug}`}
+                href={`/compounds/${compound.slug}`}
+                className="rounded-2xl border border-emerald-300/25 bg-emerald-300/[0.06] p-5 hover:border-emerald-300/50"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">{label}</p>
+                <h3 className="mt-2 text-lg font-bold text-white">{compoundName(compound)}</h3>
+                <p className="mt-2 line-clamp-3 text-sm leading-6 text-white/65">{compoundSummary(compound)}</p>
+                <p className="mt-3 text-xs text-white/50">Evidence score {evidenceScore(compound)} · Fact score {factScore(compound)}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section>
-        <h2 className="text-xl font-bold text-white">Stacks</h2>
-        <div className="flex gap-3 flex-wrap">
-          {relatedStacks.map(s=> <Link key={s.slug} href={`/stacks/${s.slug}`}>{s.title}</Link>)}
+        <h2 className="text-2xl font-bold text-white">Related stacks</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          {relatedStacks.length > 0 ? (
+            relatedStacks.map((stack) => (
+              <Link key={stack.slug} href={`/stacks/${stack.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-emerald-300/40">
+                <h3 className="font-bold text-white">{stack.title ?? stack.slug}</h3>
+                <p className="mt-2 text-sm text-white/65">{stack.short_description ?? 'Open this stack for dosage, timing, and compound context.'}</p>
+                <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">View stack →</span>
+              </Link>
+            ))
+          ) : (
+            <div className="rounded-2xl border border-white/10 p-5 text-sm text-white/65">No dedicated stack is published for this goal yet. Start with the compounds below.</div>
+          )}
         </div>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-white">Top Compounds</h2>
-        <div className="flex gap-3 flex-wrap">
-          {ranked.slice(0,6).map(c=> <Link key={c.slug} href={`/compounds/${c.slug}`}>{c.displayName||c.name}</Link>)}
+        <h2 className="text-2xl font-bold text-white">Top related compounds</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {rankedCompounds.slice(0, 9).map((compound) => (
+            <Link key={compound.slug} href={`/compounds/${compound.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-emerald-300/40">
+              <h3 className="font-bold text-white">{compoundName(compound)}</h3>
+              <p className="mt-2 line-clamp-3 text-sm leading-6 text-white/65">{compoundSummary(compound)}</p>
+              <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">View compound →</span>
+            </Link>
+          ))}
         </div>
       </section>
 
       <section>
-        <h2 className="text-xl font-bold text-white">Comparisons</h2>
-        <div className="flex gap-3 flex-wrap">
-          {comparisons.map(c=> <Link key={c.slug} href={`/compare/${c.slug}`}>{c.title}</Link>)}
+        <h2 className="text-2xl font-bold text-white">Related comparisons</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {relatedComparisons.length > 0 ? (
+            relatedComparisons.map((comparison) => (
+              <Link key={comparison.slug} href={`/compare/${comparison.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-emerald-300/40">
+                <h3 className="font-bold text-white">{comparison.title}</h3>
+                <p className="mt-2 text-sm text-white/65">{comparison.summary}</p>
+                <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">Compare →</span>
+              </Link>
+            ))
+          ) : (
+            <div className="rounded-2xl border border-white/10 p-5 text-sm text-white/65">No direct comparison page is published for this goal yet.</div>
+          )}
         </div>
       </section>
 
-      <section className="border border-amber-300/20 p-4 rounded-2xl">
-        <p className="text-white/70">{goal.safetyNote}</p>
+      <section className="rounded-3xl border border-amber-300/20 bg-amber-300/[0.06] p-5">
+        <h2 className="font-bold text-amber-100">Safety note</h2>
+        <p className="mt-2 text-sm leading-6 text-white/75">{goal.safetyNote}</p>
       </section>
 
-      <section className="flex gap-4">
-        <Link href="/stacks">Browse stacks</Link>
-        <Link href="/compounds">Browse compounds</Link>
+      <section className="flex flex-wrap gap-3">
+        <Link href="/stacks" className="rounded-full border border-emerald-300/40 px-4 py-2 text-sm font-semibold text-emerald-200 hover:bg-emerald-300/10">Browse stacks</Link>
+        <Link href="/compounds" className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white/75 hover:bg-white/10">Browse compounds</Link>
       </section>
     </main>
   )
