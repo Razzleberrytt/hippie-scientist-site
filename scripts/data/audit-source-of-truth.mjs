@@ -15,7 +15,7 @@ const TEST_FIXTURE_HINTS = ['fixture', '__fixtures__', 'test', 'spec', 'mock', '
 const CODE_HINT_EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.mjs'])
 const DATA_FILE_EXTENSIONS = new Set(['.json', '.csv', '.yaml', '.yml', '.txt'])
 const NEVER_BLOCK_PATHS = new Set(['AGENTS.md', 'CHANGELOG.md', 'README.md', 'package-lock.json', 'next-env.d.ts', 'eslint.config.js'])
-const NEVER_BLOCK_PREFIXES = ['src/lib/', 'scripts/', '.github/']
+const NEVER_BLOCK_PREFIXES = ['src/lib/', 'scripts/', '.github/', 'types/', 'utils/']
 const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'src/content/', 'content/', 'reports/', 'data/blog/']
 const EXPLICIT_BLOCK_PATHS = new Set([
   'public/database.json',
