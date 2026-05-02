@@ -7,13 +7,16 @@ import { generatedComparisons } from '@/data/generated-comparisons'
 
 type Params = { params: Promise<{ slug: string }> }
 
-const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, '')
+const formatSlug = (value: string) =>
+  value
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase())
+    .replace(/\bVs\b/g, 'vs')
+    .replace(/\bL\b/g, 'L')
+    .replace(/\bD3\b/g, 'D3')
 
-const displayName = (compound: any) =>
-  compound?.displayName || compound?.name || compound?.slug || 'Compound'
-
-const summary = (compound: any) =>
-  compound?.summary || compound?.description || 'Open the compound profile for more detail.'
+const displayName = (compound: any) => compound?.displayName || compound?.name || formatSlug(compound?.slug || 'Compound')
+const summary = (compound: any) => compound?.summary || compound?.description || 'Open the compound profile for more detail.'
 
 const evidenceScore = (compound: any) => {
   const text = `${compound?.evidence_grade ?? ''} ${compound?.evidenceTier ?? ''} ${compound?.tier_level ?? ''} ${compound?.evidence ?? ''}`.toLowerCase()
@@ -30,94 +33,79 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const [aSlug, bSlug] = slug.split('-vs-')
+  const aName = formatSlug(aSlug)
+  const bName = formatSlug(bSlug)
+  const title = `${aName} vs ${bName}: Which Is Better? | The Hippie Scientist`
+  const description = `Compare ${aName} vs ${bName} for benefits, safety, evidence, best use cases, and supplement buying options.`
 
   return {
-    title: `${aSlug} vs ${bSlug} | Which is better?`,
-    description: `Compare ${aSlug} vs ${bSlug} for effectiveness, safety, and best use cases.`,
+    title,
+    description,
+    alternates: { canonical: `/compare/${slug}` },
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url: `/compare/${slug}`,
+    },
   }
 }
 
 export default async function Page({ params }: Params) {
   const { slug } = await params
-
   const [aSlug, bSlug] = slug.split('-vs-')
-
-  const [compounds, stacks] = await Promise.all([
-    getCompounds(),
-    getStacks(),
-  ])
+  const [compounds, stacks] = await Promise.all([getCompounds(), getStacks()])
 
   const a = compounds.find((c: any) => c.slug === aSlug)
   const b = compounds.find((c: any) => c.slug === bSlug)
-
   if (!a || !b) return notFound()
 
   const winner = evidenceScore(a) >= evidenceScore(b) ? a : b
-
   const relatedStack = stacks.find((s: any) =>
     (s.compounds || s.stack || []).some((i: any) => {
-      const slug = i.compound_slug || i.compound
-      return slug === aSlug || slug === bSlug
+      const compoundSlug = i.compound_slug || i.compound
+      return compoundSlug === aSlug || compoundSlug === bSlug
     })
   )
 
   return (
     <div className="space-y-10">
-
-      <section>
-        <h1 className="text-4xl font-black text-white">
-          {displayName(a)} vs {displayName(b)}
-        </h1>
+      <section className="rounded-3xl border border-emerald-300/15 bg-emerald-300/[0.04] p-6">
+        <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-200/70">Supplement comparison</p>
+        <h1 className="mt-3 text-4xl font-black text-white">{displayName(a)} vs {displayName(b)}</h1>
+        <p className="mt-3 max-w-3xl text-white/72">Compare benefits, evidence, safety, and best use cases before choosing what to buy.</p>
       </section>
 
-      {/* 🏆 WINNER */}
-      <section className="rounded-2xl border border-emerald-300/20 p-5 bg-emerald-300/[0.05]">
+      <section className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-5">
         <h2 className="text-xl font-bold text-white">Best choice</h2>
-        <p className="text-white mt-2 font-semibold">
-          {displayName(winner)} is the better default option.
-        </p>
-
+        <p className="mt-2 font-semibold text-white">{displayName(winner)} is the better default option based on available evidence signals.</p>
         <AffiliateBlock compound={winner.slug} intentLabel="Shop winner" />
       </section>
 
-      {/* ⚖️ COMPARISON */}
-      <section className="grid md:grid-cols-2 gap-4">
+      <section className="grid gap-4 md:grid-cols-2">
         {[a, b].map((compound: any) => (
-          <div key={compound.slug} className="border rounded-xl p-4 text-white">
-            <h3 className="font-bold text-lg">{displayName(compound)}</h3>
-            <p className="text-white/70 text-sm mt-2">{summary(compound)}</p>
-
+          <div key={compound.slug} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-white">
+            <h3 className="text-lg font-bold">{displayName(compound)}</h3>
+            <p className="mt-2 text-sm text-white/70">{summary(compound)}</p>
             <div className="mt-4">
               <AffiliateBlock compound={compound.slug} compact />
             </div>
-
-            <Link
-              href={`/compounds/${compound.slug}`}
-              className="text-emerald-300 text-sm font-bold mt-2 inline-block"
-            >
-              View full profile →
+            <Link href={`/compounds/${compound.slug}`} className="mt-2 inline-block text-sm font-bold text-emerald-300">
+              View full evidence profile →
             </Link>
           </div>
         ))}
       </section>
 
-      {/* 🔗 STACK CTA */}
       {relatedStack && (
-        <section className="border border-amber-300/20 p-5 rounded-2xl">
-          <h2 className="text-white font-bold">Better together</h2>
-          <p className="text-white/70 text-sm">
-            These compounds often work best in a stack.
-          </p>
-
-          <Link
-            href={`/stacks/${relatedStack.slug}`}
-            className="text-amber-300 font-bold mt-3 inline-block"
-          >
+        <section className="rounded-2xl border border-amber-300/20 p-5">
+          <h2 className="font-bold text-white">Better together</h2>
+          <p className="text-sm text-white/70">These compounds may fit better as part of a goal-based stack.</p>
+          <Link href={`/stacks/${relatedStack.slug}`} className="mt-3 inline-block font-bold text-amber-300">
             View stack →
           </Link>
         </section>
       )}
-
     </div>
   )
 }
