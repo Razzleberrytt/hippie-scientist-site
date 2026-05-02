@@ -25,6 +25,11 @@ export const getHerbCompoundMap = cache(async () => {
   return Array.isArray(rows) ? rows : []
 })
 
+export const getStacks = cache(async () => {
+  const stacks = await readJsonFile('stacks.json')
+  return Array.isArray(stacks) ? stacks : []
+})
+
 export const getClaims = cache(async () => {
   try {
     const rows = await readJsonFile('claims.json')
@@ -42,4 +47,9 @@ export async function getHerbBySlug(slug) {
 export async function getCompoundBySlug(slug) {
   const compounds = await getCompounds()
   return compounds.find(compound => compound.slug === slug)
+}
+
+export async function getStackBySlug(slug) {
+  const stacks = await getStacks()
+  return stacks.find(stack => stack.slug === slug)
 }
