@@ -4,6 +4,7 @@ import { getCompounds, getHerbs } from '@/lib/runtime-data'
 import stacksData from '@/public/data/stacks.json'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
+import { seoEntryPages } from './seo-entry-pages'
 
 const stacks = stacksData as any[]
 
@@ -24,6 +25,7 @@ export default async function HomePage() {
           Evidence-aware herbs, compounds, and supplement stacks—built for real decisions, not marketing fluff.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
+          <Link href="/goals" className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">Explore Goals</Link>
           <Link href="/stacks" className="rounded-full border border-emerald-300/40 px-4 py-2 text-sm font-semibold text-emerald-200 hover:bg-emerald-300/10">Browse Stacks</Link>
           <Link href="/compounds" className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white/75 hover:bg-white/10">Browse Compounds</Link>
         </div>
@@ -31,6 +33,19 @@ export default async function HomePage() {
           <span>{herbs.length} herbs</span>
           <span>{compounds.length} compounds</span>
           <span>{stacks.length} stacks</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 className="text-2xl font-bold text-white">Popular supplement guides</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {seoEntryPages.slice(0, 8).map((page) => (
+            <Link key={page.route} href={`/${page.route}`} className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-5 hover:border-emerald-300/50">
+              <h3 className="font-bold text-white">{page.h1}</h3>
+              <p className="mt-2 line-clamp-3 text-sm text-white/65">{page.intro}</p>
+              <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">Read guide →</span>
+            </Link>
+          ))}
         </div>
       </section>
 
