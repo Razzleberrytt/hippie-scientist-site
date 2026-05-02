@@ -2,77 +2,103 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import compoundsData from '@/public/data/compounds.json'
-import herbsData from '@/public/data/herbs.json'
-
-const comparisons = [
-  'creatine-vs-beta-alanine',
-  'magnesium-vs-glycine',
-  'caffeine-vs-l-theanine',
-  'ashwagandha-vs-rhodiola-rosea',
-  'cdp-choline-vs-alpha-gpc',
-]
+import stacksData from '@/public/data/stacks.json'
+import { supplementComparisons } from '@/data/comparisons'
 
 const compounds = Array.isArray(compoundsData) ? compoundsData : []
-const herbs = Array.isArray(herbsData) ? herbsData : []
+const stacks = Array.isArray(stacksData) ? stacksData : []
 
-const format = (s: string) =>
-  s.split('-').map(p => p[0].toUpperCase() + p.slice(1)).join(' ')
-
-const get = (slug: string) =>
-  compounds.find((c: any) => c?.slug === slug) ||
-  herbs.find((h: any) => h?.slug === slug)
+const findCompound = (candidates: string[]) => {
+  for (const c of candidates) {
+    const found = compounds.find((x: any) => x?.slug === c)
+    if (found) return found
+  }
+  return null
+}
 
 export function generateStaticParams() {
-  return comparisons.map(slug => ({ slug }))
+  return supplementComparisons.map(c => ({ slug: c.slug }))
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const [a, b] = params.slug.split('-vs-')
+  const config = supplementComparisons.find(c => c.slug === params.slug)
+  if (!config) return {}
+
   return {
-    title: `${format(a)} vs ${format(b)} — Which is better?`,
-    description: `Compare ${format(a)} vs ${format(b)}: effects, mechanisms, and safety.`,
+    title: `${config.title} — Which is better?`,
+    description: config.summary,
   }
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
-  if (!comparisons.includes(params.slug)) return notFound()
+  const config = supplementComparisons.find(c => c.slug === params.slug)
+  if (!config) return notFound()
 
-  const [aSlug, bSlug] = params.slug.split('-vs-')
-  const a = get(aSlug)
-  const b = get(bSlug)
+  const a = findCompound(config.a.candidates)
+  const b = findCompound(config.b.candidates)
 
   if (!a || !b) return notFound()
 
+  const relatedStacks = stacks.filter((s: any) =>
+    s.stack?.some((item: any) =>
+      config.a.candidates.includes(item.compound) || config.b.candidates.includes(item.compound)
+    )
+  )
+
   return (
     <div className='space-y-8'>
-      <h1 className='text-4xl font-black text-white'>
-        {format(aSlug)} vs {format(bSlug)}
-      </h1>
+      <h1 className='text-4xl font-black text-white'>{config.title}</h1>
+      <p className='text-white/80'>{config.summary}</p>
+
+      <section className='overflow-hidden rounded-2xl border border-white/10'>
+        <table className='w-full text-left text-sm'>
+          <thead className='text-white/60'>
+            <tr>
+              <th className='p-4'>Compound</th>
+              <th className='p-4'>Primary fact</th>
+              <th className='p-4'>Tier</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[a, b].map((c: any) => (
+              <tr key={c.slug} className='border-t border-white/10 text-white/80'>
+                <td className='p-4 font-bold'>{c.displayName || c.name}</td>
+                <td className='p-4'>{c.scispace_primary_fact_v2 || 'See compound page'}</td>
+                <td className='p-4'>{c.tier_level || 'Unranked'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
 
       <section className='grid gap-4 sm:grid-cols-2'>
-        {[a, b].map((c: any, i) => (
-          <div key={i} className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-            <h2 className='text-xl font-bold text-white'>{c.displayName || c.name || c.slug}</h2>
-            {c.summary && <p className='mt-2 text-white/80'>{c.summary}</p>}
-            {c.mechanism_summary && <p className='mt-2 text-white/70'>{c.mechanism_summary}</p>}
+        {[a, b].map((c: any) => (
+          <div key={c.slug} className='rounded-2xl border border-white/10 p-5'>
+            <h2 className='font-bold text-white'>{c.displayName || c.name}</h2>
+            <p className='text-sm text-white/70 mt-2'>{c.safety_notes || 'Review compound page for safety context.'}</p>
+            <Link href={`/compounds/${c.slug}`} className='text-emerald-300 text-sm mt-3 inline-block'>
+              View details →
+            </Link>
           </div>
         ))}
       </section>
 
-      <section className='flex gap-3'>
-        <Link href={`/compounds/${a.slug}`} className='rounded-2xl bg-emerald-300 px-4 py-2 font-bold text-black'>View {a.slug}</Link>
-        <Link href={`/compounds/${b.slug}`} className='rounded-2xl bg-emerald-300 px-4 py-2 font-bold text-black'>View {b.slug}</Link>
-      </section>
+      {relatedStacks.length > 0 && (
+        <section>
+          <h2 className='text-xl font-bold text-white'>Related stacks</h2>
+          <div className='mt-2 flex flex-wrap gap-3'>
+            {relatedStacks.map((s: any) => (
+              <Link key={s.slug} href={`/stacks/${s.slug}`} className='text-emerald-300 text-sm'>
+                {s.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
-      <section className='rounded-3xl border border-white/10 p-5'>
-        <h2 className='text-xl font-bold text-white'>Related Comparisons</h2>
-        <div className='mt-3 flex flex-wrap gap-3'>
-          {comparisons.filter(c => c !== params.slug).map(slug => (
-            <Link key={slug} href={`/compare/${slug}`} className='text-sm text-white/70 hover:text-white'>
-              {format(slug.replace('-vs-', ' vs '))}
-            </Link>
-          ))}
-        </div>
+      <section className='flex gap-4'>
+        <Link href={`/compounds/${a.slug}`} className='bg-emerald-300 text-black px-4 py-2 rounded-xl font-bold'>View {a.slug}</Link>
+        <Link href={`/compounds/${b.slug}`} className='bg-emerald-300 text-black px-4 py-2 rounded-xl font-bold'>View {b.slug}</Link>
       </section>
     </div>
   )
