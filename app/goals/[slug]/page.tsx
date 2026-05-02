@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import stacksData from '@/public/data/stacks.json'
+import { getCompoundSearchLinks } from '@/lib/affiliate'
 import { getCompounds } from '@/lib/runtime-data'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
@@ -66,6 +67,8 @@ const pickUnique = (items: Array<CompoundRecord | undefined>) => {
     return true
   })
 }
+
+const searchLinksFor = (compound: CompoundRecord) => getCompoundSearchLinks(compoundName(compound)).slice(0, 2)
 
 export function generateStaticParams() {
   return goalConfigs.map((goal) => ({ slug: goal.slug }))
@@ -133,19 +136,40 @@ export default async function GoalPage({ params }: { params: { slug: string } })
 
       {decisionCards.length > 0 && (
         <section>
-          <h2 className="text-2xl font-bold text-white">Best picks</h2>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold text-white">Best picks</h2>
+              <p className="mt-1 text-sm text-white/55">Decision-ranked picks with product-search CTAs.</p>
+            </div>
+            <p className="text-xs text-white/45">Affiliate links may support the site at no extra cost.</p>
+          </div>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
             {decisionCards.map(({ compound, label }) => (
-              <Link
+              <article
                 key={`${label}-${compound.slug}`}
-                href={`/compounds/${compound.slug}`}
-                className="rounded-2xl border border-emerald-300/25 bg-emerald-300/[0.06] p-5 hover:border-emerald-300/50"
+                className="rounded-2xl border border-emerald-300/25 bg-emerald-300/[0.06] p-5"
               >
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-200">{label}</p>
                 <h3 className="mt-2 text-lg font-bold text-white">{compoundName(compound)}</h3>
                 <p className="mt-2 line-clamp-3 text-sm leading-6 text-white/65">{compoundSummary(compound)}</p>
                 <p className="mt-3 text-xs text-white/50">Evidence score {evidenceScore(compound)} · Fact score {factScore(compound)}</p>
-              </Link>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Link href={`/compounds/${compound.slug}`} className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/75 hover:border-emerald-300/40 hover:text-emerald-200">
+                    View evidence
+                  </Link>
+                  {searchLinksFor(compound).map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.url}
+                      className="rounded-full bg-emerald-300 px-3 py-1.5 text-xs font-bold text-black hover:bg-emerald-200"
+                      rel="nofollow sponsored noopener noreferrer"
+                      target="_blank"
+                    >
+                      Search {link.label}
+                    </a>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </section>
@@ -172,11 +196,21 @@ export default async function GoalPage({ params }: { params: { slug: string } })
         <h2 className="text-2xl font-bold text-white">Top related compounds</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {rankedCompounds.slice(0, 9).map((compound) => (
-            <Link key={compound.slug} href={`/compounds/${compound.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-emerald-300/40">
+            <article key={compound.slug} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-emerald-300/40">
               <h3 className="font-bold text-white">{compoundName(compound)}</h3>
               <p className="mt-2 line-clamp-3 text-sm leading-6 text-white/65">{compoundSummary(compound)}</p>
-              <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">View compound →</span>
-            </Link>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Link href={`/compounds/${compound.slug}`} className="text-sm font-semibold text-emerald-300">View compound →</Link>
+                <a
+                  href={searchLinksFor(compound)[0]?.url}
+                  className="text-sm font-semibold text-white/65 hover:text-emerald-200"
+                  rel="nofollow sponsored noopener noreferrer"
+                  target="_blank"
+                >
+                  Search supplement →
+                </a>
+              </div>
+            </article>
           ))}
         </div>
       </section>
