@@ -96,7 +96,7 @@ function main() {
 
   write(outDir, 'herbs.json', herbs)
   write(outDir, 'compounds.json', compounds)
-  write(outDir, 'relationships.json', map)
+  write(outDir, 'herb-compound-map.json', map)
 
   console.log('[data] build complete')
 }
