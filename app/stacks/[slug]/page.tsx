@@ -8,6 +8,8 @@ import { goalConfigs } from '@/data/goals'
 import StackCard from '@/components/StackCard'
 import { getCompoundSearchLinks } from '@/lib/affiliate'
 
+type Params = { params: Promise<{ slug: string }> }
+
 const stacks = stacksData as any[]
 const compounds = ((compoundsData as any[]) || []).filter(Boolean)
 
@@ -30,8 +32,9 @@ export function generateStaticParams() {
   return stacks.map((stack) => ({ slug: stack.slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const stack = stacks.find((item) => item.slug === params.slug)
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params
+  const stack = stacks.find((item) => item.slug === slug)
   if (!stack) return { title: 'Stack Guide | Benefits, Facts, Safety' }
 
   const name = stack.title
@@ -48,8 +51,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default function StackPage({ params }: { params: { slug: string } }) {
-  const stack = stacks.find((item) => item.slug === params.slug)
+export default async function StackPage({ params }: Params) {
+  const { slug } = await params
+  const stack = stacks.find((item) => item.slug === slug)
   if (!stack) return notFound()
 
   const stackItems = Array.isArray(stack.stack) ? stack.stack : []
