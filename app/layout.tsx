@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import MobileNav from '@/components/mobile-nav'
-import { PUBLIC_ROUTES } from '@/lib/public-routes'
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/500.css'
 import '@fontsource/inter/600.css'
@@ -10,27 +9,12 @@ import '@fontsource/inter/700.css'
 import './globals.css'
 
 const navLinks = [
-  { href: PUBLIC_ROUTES.home, label: 'Home' },
-  { href: PUBLIC_ROUTES.herbs, label: 'Browse Herbs' },
-  { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
+  { href: '/goals', label: 'Goals' },
   { href: '/stacks', label: 'Stacks' },
-  { href: '/sleep-supplements', label: 'Sleep' },
-  { href: '/stress-supplements', label: 'Stress' },
-  { href: '/fat-loss-supplements', label: 'Fat Loss' },
-  { href: '/cognition-supplements', label: 'Cognition' },
-  { href: '/performance-supplements', label: 'Performance' },
+  { href: '/compounds', label: 'Compounds' },
 ]
 
-const footerLinks = [
-  { href: '/stacks', label: 'Stacks' },
-  { href: '/sleep-supplements', label: 'Sleep' },
-  { href: '/stress-supplements', label: 'Stress' },
-  { href: '/fat-loss-supplements', label: 'Fat Loss' },
-  { href: '/cognition-supplements', label: 'Cognition' },
-  { href: '/performance-supplements', label: 'Performance' },
-  { href: '/compare/creatine-vs-beta-alanine', label: 'Creatine vs Beta-Alanine' },
-  { href: '/compare/caffeine-vs-l-theanine', label: 'Caffeine vs L-Theanine' },
-]
+const footerLinks = navLinks
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thehippiescientist.net'),
@@ -66,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <footer className='border-t border-white/10'>
             <div className='container-page py-8 text-sm text-white/60'>
               <p>© The Hippie Scientist — Educational use only</p>
-              <p className='mt-1 text-xs text-white/45'>Official site branding stays in the footer only.</p>
+              <p className='mt-1 text-xs text-white/45'>Start with a goal, review the stack, then compare compounds and products.</p>
               <div className='mt-4 flex flex-wrap gap-4'>
                 {footerLinks.map(link => (
                   <Link key={link.href} href={link.href} className='hover:text-white'>
