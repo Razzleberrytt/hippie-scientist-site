@@ -7,6 +7,8 @@ import { getCompounds } from '@/lib/runtime-data'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
 
+type Params = { params: Promise<{ slug: string }> }
+
 type CompoundRecord = {
   slug: string
   name?: string
@@ -74,8 +76,9 @@ export function generateStaticParams() {
   return goalConfigs.map((goal) => ({ slug: goal.slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const goal = goalConfigs.find((item) => item.slug === params.slug)
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params
+  const goal = goalConfigs.find((item) => item.slug === slug)
   if (!goal) return { title: 'Goal Guide | The Hippie Scientist' }
 
   return {
@@ -84,8 +87,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default async function GoalPage({ params }: { params: { slug: string } }) {
-  const goal = goalConfigs.find((item) => item.slug === params.slug)
+export default async function GoalPage({ params }: Params) {
+  const { slug } = await params
+  const goal = goalConfigs.find((item) => item.slug === slug)
   if (!goal) return notFound()
 
   const compounds = (await getCompounds()) as CompoundRecord[]
