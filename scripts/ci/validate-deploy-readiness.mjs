@@ -23,7 +23,13 @@ function toArray(value) {
 }
 
 function toText(value) {
-  return typeof value === 'string' ? value.trim() : ''
+  if (typeof value === 'string') return value.trim()
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value).trim()
+  if (Array.isArray(value)) return value.map(toText).filter(Boolean).join(', ')
+  if (value && typeof value === 'object') {
+    return toText(value.value ?? value.text ?? value.label ?? value.name ?? value.title ?? value.summary)
+  }
+  return ''
 }
 
 function readJson(relativePath) {
@@ -98,10 +104,7 @@ function supportingFieldCount(record) {
     record?.primaryDomain,
   ]
 
-  return fields.reduce((count, field) => {
-    if (Array.isArray(field)) return count + (field.some(item => toText(item).length > 0) ? 1 : 0)
-    return count + (toText(field).length > 0 ? 1 : 0)
-  }, 0)
+  return fields.reduce((count, field) => count + (toText(field).length > 0 ? 1 : 0), 0)
 }
 
 function hasLinkedContext(record) {
@@ -118,7 +121,17 @@ function hasLinkedContext(record) {
 }
 
 function hasValidName(record) {
-  const name = toText(record?.name || record?.displayName || record?.commonName || record?.latin)
+  const name = toText(
+    record?.name ||
+      record?.displayName ||
+      record?.display_name ||
+      record?.commonName ||
+      record?.common_name ||
+      record?.canonicalName ||
+      record?.canonical_name ||
+      record?.compound_name ||
+      record?.latin,
+  )
   const slug = toText(record?.slug)
   const badIdentityTokens = new Set(['[object object]', 'unknown', 'nan', 'undefined'])
   const lowerName = name.toLowerCase()
@@ -127,11 +140,41 @@ function hasValidName(record) {
   return name.length >= 2 && slug.length >= 2
 }
 
+function entityLabel(record) {
+  return toText(
+    record?.displayName ||
+      record?.display_name ||
+      record?.name ||
+      record?.commonName ||
+      record?.common_name ||
+      record?.canonicalName ||
+      record?.canonical_name ||
+      record?.compound_name ||
+      record?.latin,
+  )
+}
+
+function entitySummary(record) {
+  return stripCitationBrackets(
+    record?.summary ||
+      record?.description ||
+      record?.mechanism_summary ||
+      record?.scispace_primary_fact_v2 ||
+      record?.primary_fact ||
+      record?.evidence_summary ||
+      record?.safety_summary ||
+      record?.safety_notes ||
+      record?.best_for ||
+      record?.time_to_effect ||
+      record?.duration,
+  )
+}
+
 function isDeployableEntity(record) {
   if (!record || typeof record !== 'object') return false
   const slug = toText(record.slug)
-  const label = toText(record.displayName || record.name || record.commonName || record.latin)
-  const summary = stripCitationBrackets(record.summary || record.description || record.mechanism_summary)
+  const label = entityLabel(record)
+  const summary = entitySummary(record)
   const badIdentityTokens = new Set(['[object object]', 'unknown', 'nan', 'undefined'])
   return (
     slug.length >= 2 &&
