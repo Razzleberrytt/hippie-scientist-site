@@ -16,10 +16,11 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const goal = goalConfigs.find((item) => item.slug === params.slug)
-  if (!goal) return { title: 'Goal Guide | The Hippie Scientist' }
+  if (!goal) return { title: 'Goal Supplements and Stacks | The Hippie Scientist' }
 
-  const title = `${goal.title} | The Hippie Scientist`
-  const description = `Evidence-informed supplements and stacks for ${goal.slug.replace('-', ' ')} support.`
+  const goalName = goal.title
+  const title = `${goalName} Supplements and Stacks | The Hippie Scientist`
+  const description = `Evidence-based supplements, stacks, and comparisons for ${goalName.toLowerCase()}. Explore key facts, safety notes, and practical options.`
 
   return {
     title,
