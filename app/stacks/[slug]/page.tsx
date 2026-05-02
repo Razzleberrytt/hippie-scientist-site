@@ -68,7 +68,7 @@ const factsArray = (value: unknown): string[] => {
   }
 
   return trimmed
-    .split(/\n|\|/) 
+    .split(/\n|\|/)
     .map(fact => fact.trim())
     .filter(Boolean)
 }
@@ -131,6 +131,7 @@ export default function StackPage({ params }: { params: { slug: string } }) {
     item,
     compound: compoundMap.get(item.compound),
   }))
+  const relatedCompounds = stackCompounds.filter(({ compound }: any) => compound?.slug)
   const allFacts = stackCompounds.flatMap(({ compound }) => factsArray(compound?.scispace_key_facts_v2))
   const noticeFacts = allFacts.slice(0, 2)
   const timeToEffect = inferTimeToEffect(allFacts, stack)
@@ -248,25 +249,32 @@ export default function StackPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      <section className='grid gap-4 md:grid-cols-2'>
+      <section className='grid gap-4 md:grid-cols-3'>
         <div className='rounded-2xl border border-white/10 p-5'>
-          <h2 className='font-bold text-white'>Compound pages</h2>
+          <h2 className='font-bold text-white'>Related compounds</h2>
           <div className='mt-3 flex flex-wrap gap-3'>
-            {stackCompounds.map(({ item, compound }: any) => compound?.slug ? (
+            {relatedCompounds.length > 0 ? relatedCompounds.map(({ item, compound }: any) => (
               <Link key={compound.slug} href={`/compounds/${compound.slug}`} className='text-sm text-emerald-300 hover:text-emerald-100'>
                 {compound.displayName || compound.name || formatName(item.compound)}
               </Link>
-            ) : null)}
+            )) : <Link href='/compounds' className='text-sm text-emerald-300 hover:text-emerald-100'>Browse compounds</Link>}
           </div>
         </div>
         <div className='rounded-2xl border border-white/10 p-5'>
-          <h2 className='font-bold text-white'>Related stack guides</h2>
+          <h2 className='font-bold text-white'>Related goals</h2>
           <div className='mt-3 flex flex-wrap gap-3'>
-            {relatedStacks.map((related: any) => (
+            {relatedStacks.length > 0 ? relatedStacks.map((related: any) => (
               <Link key={related.slug} href={`/stacks/${related.slug}`} className='text-sm text-emerald-300 hover:text-emerald-100'>
                 {related.title}
               </Link>
-            ))}
+            )) : <Link href='/stacks' className='text-sm text-emerald-300 hover:text-emerald-100'>Browse all stacks</Link>}
+          </div>
+        </div>
+        <div className='rounded-2xl border border-white/10 p-5'>
+          <h2 className='font-bold text-white'>Keep exploring</h2>
+          <div className='mt-3 flex flex-wrap gap-3'>
+            <Link href='/stacks' className='text-sm text-white/70 hover:text-white'>All stacks</Link>
+            <Link href='/compounds' className='text-sm text-white/70 hover:text-white'>Compound index</Link>
           </div>
         </div>
       </section>
