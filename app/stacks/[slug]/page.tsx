@@ -6,6 +6,8 @@ import StackCard from '@/components/StackCard'
 import AffiliateBlock from '@/components/AffiliateBlock'
 import { generatedComparisons } from '@/data/generated-comparisons'
 
+type Params = { params: Promise<{ slug: string }> }
+
 const formatGoal = (value?: string) =>
   String(value || 'wellness')
     .replace(/[-_]/g, ' ')
@@ -39,7 +41,7 @@ export async function generateStaticParams() {
   return stacks.map(s => ({ slug: s.slug }))
 }
 
-export async function generateMetadata({ params }): Promise<Metadata> {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const stacks = await getStacks()
   const stack = stacks.find(s => s.slug === slug)
@@ -57,7 +59,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   }
 }
 
-export default async function StackPage({ params }) {
+export default async function StackPage({ params }: Params) {
   const { slug } = await params
   const stacks = await getStacks()
   const stack = stacks.find(s => s.slug === slug)
