@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
+import stacksData from '@/public/data/stacks.json'
 
 type LibraryRecord = {
   slug: string
@@ -9,6 +10,26 @@ type LibraryRecord = {
   summary?: string | null
   description?: string | null
 }
+
+type StackRecord = {
+  slug: string
+  title: string
+  goal?: string
+  short_description?: string
+}
+
+const stacks = stacksData as StackRecord[]
+
+const goalCards = [
+  { title: 'Better Sleep', href: '/stacks/sleep', note: 'Wind-down, sleep timing, and evening routine support.' },
+  { title: 'Stress Support', href: '/stacks/stress', note: 'Calm-focused support for daily stress load.' },
+  { title: 'Focus & Energy', href: '/stacks/cognition', note: 'Attention, mental effort, and cleaner energy.' },
+  { title: 'Fat Loss', href: '/stacks/fat-loss', note: 'Energy, thermogenesis, and appetite support.' },
+  { title: 'Blood Pressure', href: '/compounds', note: 'Compare cardiovascular compounds and safety notes.' },
+  { title: 'Gut Health', href: '/herbs', note: 'Explore digestive herbs and related compounds.' },
+  { title: 'Joint Support', href: '/herbs', note: 'Find inflammation and mobility support profiles.' },
+  { title: 'Testosterone Support', href: '/compounds', note: 'Review evidence carefully before buying hype.' },
+]
 
 const pickFeatured = (items: LibraryRecord[], preferred: string[], count: number): LibraryRecord[] => {
   const bySlug = new Map(items.map(item => [item.slug, item]))
@@ -36,6 +57,8 @@ const getSummary = (item: LibraryRecord): string => {
   const text = item.summary?.trim() || item.description?.trim() || 'Profile summary coming soon.'
   return text.length > 116 ? `${text.slice(0, 115).trimEnd()}…` : text
 }
+
+const stackCards = stacks.slice(0, 6)
 
 export const metadata: Metadata = {
   title: 'The Hippie Scientist',
@@ -65,20 +88,19 @@ export default async function HomePage() {
         <div className='grid gap-7 lg:grid-cols-[1.25fr_0.75fr] lg:items-center'>
           <div>
             <span className='inline-flex rounded-full border border-emerald-300/25 bg-emerald-300/10 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-emerald-100'>
-              Evidence-aware plant intelligence
+              Evidence-backed supplement paths
             </span>
 
             <h1 className='mt-4 max-w-4xl text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl'>
-              Find what actually matters in herbs and compounds.
+              Start with your goal, then compare the evidence.
             </h1>
 
             <p className='mt-4 max-w-2xl text-base leading-7 text-white/72 sm:text-lg'>
-              Browse a workbook-built research library with plain-English summaries,
-              safety context, active constituents, and practical discovery paths.
+              Built from human evidence, practical facts, and conservative safety notes.
             </p>
 
             <div className='mt-6 grid gap-3 sm:flex sm:flex-wrap'>
-              <Link href='/herbs' className='rounded-2xl bg-emerald-300 px-6 py-3 text-center text-sm font-black text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-200'>Browse herbs</Link>
+              <Link href='/stacks' className='rounded-2xl bg-emerald-300 px-6 py-3 text-center text-sm font-black text-slate-950 shadow-lg shadow-emerald-950/20 transition hover:-translate-y-0.5 hover:bg-emerald-200'>Choose a stack</Link>
               <Link href='/compounds' className='rounded-2xl border border-white/15 bg-white/[0.04] px-5 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.08]'>Browse compounds</Link>
             </div>
           </div>
@@ -103,61 +125,64 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
+          <div>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-emerald-100/65'>Choose your goal</p>
+            <h2 className='mt-1 text-2xl font-bold text-white sm:text-3xl'>What are you trying to improve?</h2>
+          </div>
+        </div>
+        <div className='mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4'>
+          {goalCards.map(goal => (
+            <Link key={goal.title} href={goal.href} className='group rounded-2xl border border-white/10 bg-black/15 p-4 transition hover:-translate-y-0.5 hover:border-emerald-300/35 hover:bg-white/[0.06]'>
+              <h3 className='font-black text-white group-hover:text-emerald-100'>{goal.title}</h3>
+              <p className='mt-2 text-sm leading-6 text-white/58'>{goal.note}</p>
+              <span className='mt-3 inline-flex text-sm font-bold text-emerald-200 transition group-hover:translate-x-1'>Start here →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className='rounded-3xl border border-emerald-300/20 bg-emerald-300/[0.06] p-5 sm:p-6'>
+        <div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
+          <div>
+            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-emerald-100/65'>Start with evidence-backed stacks</p>
+            <h2 className='mt-1 text-2xl font-bold text-white sm:text-3xl'>Simple guides for real-world decisions</h2>
+          </div>
+          <Link href='/stacks' className='text-sm font-bold text-emerald-200'>View all stacks →</Link>
+        </div>
+        <div className='mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
+          {stackCards.map(stack => (
+            <Link key={stack.slug} href={`/stacks/${stack.slug}`} className='group rounded-2xl border border-white/10 bg-black/20 p-4 transition hover:-translate-y-0.5 hover:border-emerald-300/35 hover:bg-white/[0.055]'>
+              <h3 className='font-black text-white group-hover:text-emerald-100'>{stack.title}</h3>
+              <p className='mt-2 text-sm leading-6 text-white/62'>{stack.short_description || 'Evidence-backed stack guide.'}</p>
+              <span className='mt-3 inline-flex text-sm font-bold text-emerald-200 transition group-hover:translate-x-1'>Open stack →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className='grid gap-3 md:grid-cols-3'>
         <Link href='/herbs' className='group rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.025] p-5 transition hover:-translate-y-0.5 hover:border-emerald-300/35 hover:bg-white/[0.07]'>
-          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-emerald-100/65'>Start here</p>
+          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-emerald-100/65'>Database</p>
           <h2 className='mt-3 text-2xl font-bold text-white'>Herb library</h2>
-          <p className='mt-2 text-sm leading-6 text-white/62'>Plant profiles you can search, scan, and compare without digging through messy notes.</p>
+          <p className='mt-2 text-sm leading-6 text-white/62'>Plant profiles you can search, scan, and compare after choosing a goal.</p>
           <span className='mt-4 inline-flex text-sm font-bold text-emerald-200 transition group-hover:translate-x-1'>Open herbs →</span>
         </Link>
 
         <Link href='/compounds' className='group rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.025] p-5 transition hover:-translate-y-0.5 hover:border-blue-300/35 hover:bg-white/[0.07]'>
-          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-blue-100/65'>Dig deeper</p>
+          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-blue-100/65'>Database</p>
           <h2 className='mt-3 text-2xl font-bold text-white'>Compound index</h2>
           <p className='mt-2 text-sm leading-6 text-white/62'>Follow active constituents, mechanisms, and research notes across the library.</p>
           <span className='mt-4 inline-flex text-sm font-bold text-blue-200 transition group-hover:translate-x-1'>Open compounds →</span>
         </Link>
 
-        <Link href='/top/sleep' className='group rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.025] p-5 transition hover:-translate-y-0.5 hover:border-violet-300/35 hover:bg-white/[0.07]'>
-          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-violet-100/65'>Use case</p>
-          <h2 className='mt-3 text-2xl font-bold text-white'>Sleep support</h2>
-          <p className='mt-2 text-sm leading-6 text-white/62'>A focused path for people who want practical discovery instead of endless browsing.</p>
-          <span className='mt-4 inline-flex text-sm font-bold text-violet-200 transition group-hover:translate-x-1'>Explore sleep →</span>
+        <Link href='/a-tier' className='group rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.025] p-5 transition hover:-translate-y-0.5 hover:border-amber-300/35 hover:bg-white/[0.07]'>
+          <p className='text-xs font-semibold uppercase tracking-[0.2em] text-amber-100/65'>Highest confidence</p>
+          <h2 className='mt-3 text-2xl font-bold text-white'>A-tier picks</h2>
+          <p className='mt-2 text-sm leading-6 text-white/62'>Use A-tier picks to focus on the cleanest, highest-confidence entries.</p>
+          <span className='mt-4 inline-flex text-sm font-bold text-amber-200 transition group-hover:translate-x-1'>See A-tier →</span>
         </Link>
-      </section>
-
-      <section className='rounded-3xl border border-amber-300/20 bg-amber-300/10 p-5 sm:p-6'>
-        <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-          <div>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-amber-100/70'>Curated picks</p>
-            <h2 className='mt-1 text-2xl font-bold text-white'>Want the strongest profiles first?</h2>
-            <p className='mt-2 max-w-2xl text-sm leading-6 text-white/65'>After browsing the library, use A-tier picks to focus on the cleanest, highest-confidence entries.</p>
-          </div>
-          <Link href='/a-tier' className='rounded-2xl border border-amber-300/30 bg-black/20 px-5 py-3 text-center text-sm font-bold text-amber-100 transition hover:bg-amber-300/15'>See A-tier picks</Link>
-        </div>
-      </section>
-
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between'>
-          <div>
-            <p className='text-xs font-semibold uppercase tracking-[0.2em] text-white/45'>Explore by goal</p>
-            <h2 className='mt-1 text-2xl font-bold text-white'>Start with what you want help with</h2>
-          </div>
-        </div>
-        <div className='mt-4 grid gap-3 md:grid-cols-3'>
-          <Link href='/top/sleep' className='rounded-2xl border border-violet-300/20 bg-violet-300/10 p-4 transition hover:bg-violet-300/15'>
-            <h3 className='font-bold text-white'>Sleep support</h3>
-            <p className='mt-1 text-sm leading-6 text-white/60'>Ranked herbs connected to rest, calm, and sleep context.</p>
-          </Link>
-          <Link href='/top/stress' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 transition hover:bg-emerald-300/15'>
-            <h3 className='font-bold text-white'>Stress support</h3>
-            <p className='mt-1 text-sm leading-6 text-white/60'>Herbs connected to stress, calm, cortisol, and adaptogen context.</p>
-          </Link>
-          <Link href='/top/focus' className='rounded-2xl border border-blue-300/20 bg-blue-300/10 p-4 transition hover:bg-blue-300/15'>
-            <h3 className='font-bold text-white'>Focus support</h3>
-            <p className='mt-1 text-sm leading-6 text-white/60'>Compounds and research anchors for cognition and focus discovery.</p>
-          </Link>
-        </div>
       </section>
 
       <section className='grid gap-4 lg:grid-cols-2'>
