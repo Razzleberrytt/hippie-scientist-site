@@ -17,6 +17,18 @@ const SHEETS = {
   stackGenerator: 'Stack Generator V1',
 }
 
+const STACK_VARIANTS = new Set(['starter', 'advanced', 'aggressive'])
+const STACK_ROLES = new Set(['anchor', 'amplifier', 'support', 'optional'])
+const STARTER_EXCLUDED_SAFETY_FLAGS = new Set([
+  'pregnancy',
+  'uncontrolled-blood-pressure',
+  'heart-rhythm',
+  'sedative-interaction',
+  'anticoagulant-interaction',
+  'renal-impairment',
+  'liver-injury-concern',
+])
+
 function clean(v) {
   if (!v) return ''
   return String(v).trim()
@@ -27,6 +39,42 @@ function slug(v) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
+}
+
+function titleCase(v) {
+  return clean(v)
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ')
+}
+
+function splitList(v) {
+  return clean(v)
+    .split(/[|;,]/)
+    .map(item => clean(item))
+    .filter(Boolean)
+}
+
+function unique(values) {
+  return [...new Set(values.filter(Boolean))]
+}
+
+function toNumber(v) {
+  const n = Number(clean(v))
+  return Number.isFinite(n) ? n : 0
+}
+
+function evidenceScore(v) {
+  const text = clean(v).toLowerCase()
+  if (/^(high|strong|a|tier\s*1|1)$/.test(text)) return 4
+  if (/^(moderate|b|tier\s*2|2)$/.test(text)) return 3
+  if (/^(limited|low|c|tier\s*3|3)$/.test(text)) return 2
+  return 1
+}
+
+function isEligible(v) {
+  return ['yes', 'true', '1', 'y', 'eligible'].includes(clean(v).toLowerCase())
 }
 
 function read(workbook, name) {
@@ -56,6 +104,141 @@ function dedupe(rows) {
 function write(outDir, name, data) {
   fs.mkdirSync(outDir, { recursive: true })
   fs.writeFileSync(path.join(outDir, name), JSON.stringify(data, null, 2))
+}
+
+function normalizeStackRow(r) {
+  const variant = clean(r.stack_variant || r.variant).toLowerCase() || 'starter'
+  const role = clean(r.role_override || r.role).toLowerCase()
+
+  return {
+    goal_slug: slug(r.goal_slug || r.goal),
+    effect_slug: slug(r.effect_slug || r.effect),
+    mechanism_slug: slug(r.mechanism_slug || r.mechanism),
+    compound_slug: slug(r.compound_slug || r.compound),
+    stack_variant: STACK_VARIANTS.has(variant) ? variant : 'starter',
+    eligible: clean(r.eligible).toLowerCase(),
+    role_override: STACK_ROLES.has(role) ? role : '',
+    dosage: clean(r.dosage),
+    timing: clean(r.timing),
+    evidence_tier: clean(r.evidence_tier || r.evidence),
+    safety_flags: splitList(r.safety_flags).map(slug),
+    avoid_if: splitList(r.avoid_if),
+    caution_notes: splitList(r.caution_notes),
+    time_to_effect: clean(r.time_to_effect),
+    duration: clean(r.duration),
+    affiliate_priority: toNumber(r.affiliate_priority),
+    stack_priority: toNumber(r.stack_priority),
+    source_fields: splitList(r.source_fields),
+    notes: clean(r.notes),
+  }
+}
+
+function scoreStackRow(row) {
+  const safetyPenalty = row.safety_flags.length * 10
+  return evidenceScore(row.evidence_tier) * 100 + row.stack_priority * 10 + row.affiliate_priority - safetyPenalty
+}
+
+function assignRole(row, index) {
+  if (row.role_override) return row.role_override
+  if (index === 0) return 'anchor'
+  if (index === 1) return 'amplifier'
+  if (index <= 3) return 'support'
+  return 'optional'
+}
+
+function maxCompoundsForVariant(variant) {
+  if (variant === 'aggressive') return 6
+  if (variant === 'advanced') return 5
+  return 3
+}
+
+function shouldKeepRowForVariant(row) {
+  if (!row.goal_slug || !row.compound_slug || !isEligible(row.eligible)) return false
+  if (row.stack_variant !== 'starter') return true
+  return !row.safety_flags.some(flag => STARTER_EXCLUDED_SAFETY_FLAGS.has(flag))
+}
+
+function buildStackSlug(goalSlug, variant) {
+  return variant === 'starter' ? goalSlug : `${goalSlug}-${variant}`
+}
+
+function buildStackTitle(goalSlug, variant) {
+  const goalTitle = titleCase(goalSlug)
+  const variantTitle = titleCase(variant)
+  return variant === 'starter'
+    ? `${goalTitle} Support Stack`
+    : `${goalTitle} ${variantTitle} Stack`
+}
+
+function buildStackSummary(goalSlug, variant) {
+  if (variant === 'aggressive') return `A higher-intensity ${titleCase(goalSlug).toLowerCase()} stack generated from workbook eligibility, evidence, and safety fields.`
+  if (variant === 'advanced') return `A broader ${titleCase(goalSlug).toLowerCase()} stack generated from workbook eligibility, evidence, and safety fields.`
+  return `A conservative ${titleCase(goalSlug).toLowerCase()} stack generated from workbook eligibility, evidence, and safety fields.`
+}
+
+function buildGeneratedStacks(stackRows, compoundMap) {
+  const grouped = new Map()
+
+  stackRows.filter(shouldKeepRowForVariant).forEach(row => {
+    if (!compoundMap.has(row.compound_slug)) return
+    const key = `${row.goal_slug}::${row.stack_variant}`
+    if (!grouped.has(key)) grouped.set(key, [])
+    grouped.get(key).push(row)
+  })
+
+  return [...grouped.entries()].map(([key, rows]) => {
+    const [goalSlug, variant] = key.split('::')
+    const selected = rows
+      .sort((a, b) => scoreStackRow(b) - scoreStackRow(a))
+      .slice(0, maxCompoundsForVariant(variant))
+
+    const compounds = selected.map((row, index) => {
+      const compound = compoundMap.get(row.compound_slug)
+      const displayName = clean(compound?.name) || titleCase(row.compound_slug)
+      const role = assignRole(row, index)
+
+      return {
+        compound_slug: row.compound_slug,
+        display_name: displayName,
+        role,
+        dosage: row.dosage || clean(compound?.dosage),
+        timing: row.timing,
+        evidence_tier: row.evidence_tier || clean(compound?.evidence),
+        safety_flags: row.safety_flags,
+        affiliate_priority: row.affiliate_priority,
+        source_trace: {
+          sheet: SHEETS.stackGenerator,
+          fields: row.source_fields.length > 0 ? row.source_fields : ['goal_slug', 'compound_slug', 'dosage', 'timing', 'evidence_tier', 'safety_flags'],
+        },
+      }
+    })
+
+    return {
+      slug: buildStackSlug(goalSlug, variant),
+      goal_slug: goalSlug,
+      goal: goalSlug,
+      title: buildStackTitle(goalSlug, variant),
+      summary: buildStackSummary(goalSlug, variant),
+      short_description: buildStackSummary(goalSlug, variant),
+      variant,
+      compounds,
+      stack: compounds.map(compound => ({
+        compound: compound.compound_slug,
+        dosage: compound.dosage,
+        timing: compound.timing,
+        role: compound.role,
+      })),
+      avoid_if: unique(selected.flatMap(row => row.avoid_if)),
+      caution_notes: unique(selected.flatMap(row => row.caution_notes)),
+      expected_time_to_effect: unique(selected.map(row => row.time_to_effect)).join(' / '),
+      duration: unique(selected.map(row => row.duration)).join(' / '),
+      source_trace: {
+        sheet: SHEETS.stackGenerator,
+        goal_slug: goalSlug,
+        variant,
+      },
+    }
+  }).filter(stack => stack.compounds.length > 0)
 }
 
 function main() {
@@ -90,27 +273,7 @@ function main() {
     compound: slug(r.compound_slug || r.compound),
   }))
 
-  const stackGeneratorRows = readOptional(wb, SHEETS.stackGenerator).map(r => ({
-    goal_slug: slug(r.goal_slug || r.goal),
-    effect_slug: slug(r.effect_slug || r.effect),
-    mechanism_slug: slug(r.mechanism_slug || r.mechanism),
-    compound_slug: slug(r.compound_slug || r.compound),
-    stack_variant: clean(r.stack_variant || r.variant).toLowerCase(),
-    eligible: clean(r.eligible).toLowerCase(),
-    role_override: clean(r.role_override || r.role).toLowerCase(),
-    dosage: clean(r.dosage),
-    timing: clean(r.timing),
-    evidence_tier: clean(r.evidence_tier || r.evidence),
-    safety_flags: clean(r.safety_flags),
-    avoid_if: clean(r.avoid_if),
-    caution_notes: clean(r.caution_notes),
-    time_to_effect: clean(r.time_to_effect),
-    duration: clean(r.duration),
-    affiliate_priority: clean(r.affiliate_priority),
-    stack_priority: clean(r.stack_priority),
-    source_fields: clean(r.source_fields),
-    notes: clean(r.notes),
-  }))
+  const stackGeneratorRows = readOptional(wb, SHEETS.stackGenerator).map(normalizeStackRow)
 
   if (stackGeneratorRows.length > 0) {
     console.log(`[data] stack generator rows: ${stackGeneratorRows.length}`)
@@ -129,9 +292,18 @@ function main() {
     c.herbs.push(h.slug)
   })
 
+  const generatedStacks = buildGeneratedStacks(stackGeneratorRows, compMap)
+
   write(outDir, 'herbs.json', herbs)
   write(outDir, 'compounds.json', compounds)
   write(outDir, 'herb-compound-map.json', map)
+
+  if (generatedStacks.length > 0) {
+    write(outDir, 'stacks.json', generatedStacks)
+    console.log(`[data] generated stacks: ${generatedStacks.length}`)
+  } else {
+    console.log('[data] no workbook-generated stacks; preserving existing stacks.json')
+  }
 
   console.log('[data] build complete')
 }
