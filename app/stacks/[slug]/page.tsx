@@ -83,6 +83,11 @@ export default async function StackPage({ params }) {
         <section className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-5">
           <h2 className="text-xl font-bold text-white">Best supplements for {goal}</h2>
           <p className="mt-2 text-sm text-white/70">This stack includes the key supplement options for people trying to improve {goal.toLowerCase()} without guessing compound by compound.</p>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm font-bold">
+            <Link href="/goals" className="text-emerald-300">Browse goals →</Link>
+            <Link href="/herbs" className="text-emerald-300">Explore herb sources →</Link>
+            <Link href="/compounds" className="text-emerald-300">Research compounds →</Link>
+          </div>
         </section>
 
         <div className="rounded-2xl border border-amber-300/20 bg-amber-300/[0.05] p-5">
@@ -108,12 +113,22 @@ export default async function StackPage({ params }) {
       <section className="space-y-6">
         <h2 className="text-2xl font-bold text-white">Stack Breakdown</h2>
         <div className="grid gap-5">
-          {items.map((item, i) => (
-            <div key={i} className="space-y-3">
-              <StackCard item={item} />
-              <AffiliateBlock compound={item.compound_slug || item.compound} intentLabel={item.role === 'anchor' ? 'Core compound' : undefined} compact />
-            </div>
-          ))}
+          {items.map((item, i) => {
+            const compoundSlug = item.compound_slug || item.compound
+            return (
+              <div key={i} className="space-y-3">
+                <StackCard item={item} />
+                <div className="flex flex-wrap gap-3 rounded-2xl border border-white/10 bg-white/[0.025] p-3 text-xs font-bold">
+                  {compoundSlug ? (
+                    <Link href={`/compounds/${compoundSlug}`} className="text-emerald-300">View compound profile →</Link>
+                  ) : null}
+                  <Link href="/herbs" className="text-emerald-300">Find herb sources →</Link>
+                  <Link href="/compare" className="text-emerald-300">Compare alternatives →</Link>
+                </div>
+                <AffiliateBlock compound={compoundSlug} intentLabel={item.role === 'anchor' ? 'Core compound' : undefined} compact />
+              </div>
+            )
+          })}
         </div>
       </section>
 
