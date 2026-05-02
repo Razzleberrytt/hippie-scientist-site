@@ -14,6 +14,7 @@ const SHEETS = {
   herbs: 'Herb Master V3',
   compounds: 'Compound Master V3',
   herbCompoundMap: 'Herb Compound Map V3',
+  stackGenerator: 'Stack Generator V1',
 }
 
 function clean(v) {
@@ -34,6 +35,12 @@ function read(workbook, name) {
     console.warn(`[data] Missing sheet: ${name}`)
     return []
   }
+  return XLSX.utils.sheet_to_json(sheet, { defval: '' })
+}
+
+function readOptional(workbook, name) {
+  const sheet = workbook.Sheets[name]
+  if (!sheet) return []
   return XLSX.utils.sheet_to_json(sheet, { defval: '' })
 }
 
@@ -82,6 +89,34 @@ function main() {
     herb: slug(r.herb_slug || r.herb),
     compound: slug(r.compound_slug || r.compound),
   }))
+
+  const stackGeneratorRows = readOptional(wb, SHEETS.stackGenerator).map(r => ({
+    goal_slug: slug(r.goal_slug || r.goal),
+    effect_slug: slug(r.effect_slug || r.effect),
+    mechanism_slug: slug(r.mechanism_slug || r.mechanism),
+    compound_slug: slug(r.compound_slug || r.compound),
+    stack_variant: clean(r.stack_variant || r.variant).toLowerCase(),
+    eligible: clean(r.eligible).toLowerCase(),
+    role_override: clean(r.role_override || r.role).toLowerCase(),
+    dosage: clean(r.dosage),
+    timing: clean(r.timing),
+    evidence_tier: clean(r.evidence_tier || r.evidence),
+    safety_flags: clean(r.safety_flags),
+    avoid_if: clean(r.avoid_if),
+    caution_notes: clean(r.caution_notes),
+    time_to_effect: clean(r.time_to_effect),
+    duration: clean(r.duration),
+    affiliate_priority: clean(r.affiliate_priority),
+    stack_priority: clean(r.stack_priority),
+    source_fields: clean(r.source_fields),
+    notes: clean(r.notes),
+  }))
+
+  if (stackGeneratorRows.length > 0) {
+    console.log(`[data] stack generator rows: ${stackGeneratorRows.length}`)
+  } else {
+    console.log('[data] Stack Generator V1 not found; skipping stack generator prep')
+  }
 
   const herbMap = new Map(herbs.map(h => [h.slug, h]))
   const compMap = new Map(compounds.map(c => [c.slug, c]))
