@@ -6,6 +6,8 @@ import stacksData from '@/public/data/stacks.json'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
 
+type Params = { params: Promise<{ slug: string }> }
+
 const compounds = Array.isArray(compoundsData) ? compoundsData : []
 const stacks = Array.isArray(stacksData) ? stacksData : []
 
@@ -21,8 +23,9 @@ export function generateStaticParams() {
   return supplementComparisons.map((comparison) => ({ slug: comparison.slug }))
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const config = supplementComparisons.find((comparison) => comparison.slug === params.slug)
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params
+  const config = supplementComparisons.find((comparison) => comparison.slug === slug)
   if (!config) return {}
 
   return {
@@ -31,8 +34,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   }
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const config = supplementComparisons.find((comparison) => comparison.slug === params.slug)
+export default async function Page({ params }: Params) {
+  const { slug } = await params
+  const config = supplementComparisons.find((comparison) => comparison.slug === slug)
   if (!config) return notFound()
 
   const a = findCompound(config.a.candidates)
