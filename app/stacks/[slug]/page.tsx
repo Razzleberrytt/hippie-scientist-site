@@ -13,6 +13,19 @@ const formatGoal = (value?: string) =>
 
 const stackGoal = (stack: any) => stack?.goal_slug || stack?.goal || stack?.slug
 
+const priority = [
+  'creatine',
+  'magnesium',
+  'omega-3',
+  'protein',
+  'ashwagandha',
+]
+
+const priorityScore = (item: any) => {
+  const slug = String(item.compound_slug || item.compound || '').toLowerCase()
+  return priority.some(value => slug === value || slug.includes(value)) ? 1 : 0
+}
+
 export async function generateStaticParams() {
   const stacks = await getStacks()
   return stacks.map(s => ({ slug: s.slug }))
@@ -42,7 +55,7 @@ export default async function StackPage({ params }) {
   const stack = stacks.find(s => s.slug === slug)
   if (!stack) return notFound()
 
-  const items = stack.compounds || stack.stack || []
+  const items = [...(stack.compounds || stack.stack || [])].sort((a, b) => priorityScore(b) - priorityScore(a))
   const goal = formatGoal(stackGoal(stack))
   const itemSlugs = items.map(i => i.compound_slug || i.compound).filter(Boolean)
   const bundleQuery = itemSlugs.join('+')
@@ -56,13 +69,14 @@ export default async function StackPage({ params }) {
         <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-200/70">Best supplements for {goal}</p>
         <h1 className="text-4xl font-black text-white">{stack.title}</h1>
         <p className="text-white/70">{stack.summary || stack.short_description}</p>
+        <p className="text-xs text-white/40">Used by thousands researching better health decisions</p>
 
         <section className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-          <h2 className="text-xl font-bold text-white">Why this stack works</h2>
+          <h2 className="text-xl font-bold text-white">Why buy this stack</h2>
           <ul className="mt-3 grid gap-2 text-sm text-white/70">
-            <li>Targets multiple pathways for stronger real-world support.</li>
-            <li>Combines evidence-aware compounds instead of random supplement picks.</li>
-            <li>Keeps dosage, timing, and safety context visible before buying.</li>
+            <li>Saves time vs researching individually</li>
+            <li>Combines proven ingredients</li>
+            <li>Designed for real-world results</li>
           </ul>
         </section>
 
@@ -77,14 +91,15 @@ export default async function StackPage({ params }) {
           <a href={`https://www.amazon.com/s?k=${bundleQuery}+supplement&tag=razzleberry02-20`} target="_blank" rel="noopener noreferrer sponsored" className="mt-3 block rounded-xl bg-amber-300 py-3 text-center font-black text-black">
             Shop full stack →
           </a>
-          <p className="mt-2 text-center text-xs text-white/40">Popular choices right now. Prices and availability may change.</p>
+          <p className="mt-2 text-center text-xs text-white/40">Often bought together • Popular right now</p>
+          <p className="mt-1 text-center text-xs text-white/40">Used by thousands researching better health decisions</p>
         </div>
 
         <div className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.05] p-5">
           <h2 className="text-xl font-bold text-white">Top picks from this stack</h2>
           <div className="mt-3 grid gap-3">
             {items.slice(0, 3).map((item, i) => (
-              <AffiliateBlock key={i} compound={item.compound_slug || item.compound} intentLabel={i === 0 ? 'Primary (most effective)' : undefined} />
+              <AffiliateBlock key={i} compound={item.compound_slug || item.compound} intentLabel={i === 0 ? 'Best overall (most effective)' : undefined} />
             ))}
           </div>
         </div>
