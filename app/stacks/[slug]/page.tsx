@@ -1,23 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import stacksData from '@/public/data/stacks.json'
-import compoundsData from '@/public/data/compounds.json'
+import { getStacks, getCompounds } from '@/lib/runtime-data'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
 import StackCard from '@/components/StackCard'
 import { getCompoundSearchLinks } from '@/lib/affiliate'
 
 type Params = { params: Promise<{ slug: string }> }
-
-const stacks = stacksData as any[]
-const compounds = ((compoundsData as any[]) || []).filter(Boolean)
-
-const compoundMap = new Map(
-  compounds
-    .filter((compound) => compound?.slug)
-    .map((compound) => [compound.slug as string, compound])
-)
 
 const formatName = (slug: string) =>
   slug
@@ -28,12 +18,14 @@ const formatName = (slug: string) =>
 
 const normalizeGoal = (goal?: string) => (goal || '').replace(/_/g, '-').toLowerCase()
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const stacks = await getStacks()
   return stacks.map((stack) => ({ slug: stack.slug }))
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
+  const stacks = await getStacks()
   const stack = stacks.find((item) => item.slug === slug)
   if (!stack) return { title: 'Stack Guide | Benefits, Facts, Safety' }
 
@@ -53,8 +45,18 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function StackPage({ params }: Params) {
   const { slug } = await params
+
+  const stacks = await getStacks()
+  const compounds = await getCompounds()
+
   const stack = stacks.find((item) => item.slug === slug)
   if (!stack) return notFound()
+
+  const compoundMap = new Map(
+    (compounds || [])
+      .filter((compound) => compound?.slug)
+      .map((compound) => [compound.slug, compound])
+  )
 
   const stackItems = Array.isArray(stack.stack) ? stack.stack : []
   const compoundSlugs = new Set(stackItems.map((item: any) => item.compound).filter(Boolean))
@@ -123,13 +125,7 @@ export default async function StackPage({ params }: Params) {
 
                 <div className="flex flex-wrap gap-2">
                   {links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.url}
-                      className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/70 hover:border-emerald-300/40 hover:text-emerald-300"
-                      rel="nofollow sponsored noopener noreferrer"
-                      target="_blank"
-                    >
+                    <a key={link.label} href={link.url} className="rounded-full border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/70 hover:border-emerald-300/40 hover:text-emerald-300" rel="nofollow sponsored noopener noreferrer" target="_blank">
                       {link.label}
                     </a>
                   ))}
