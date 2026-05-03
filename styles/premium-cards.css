@@ -1,0 +1,12 @@
+.library-card-premium {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.2s ease;
+}
+.library-card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border-color: rgba(16,185,129,0.4);
+}
