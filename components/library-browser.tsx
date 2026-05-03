@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
-import { supplementComparisons } from '@/data/comparisons'
 
 type BrowserItem = {
   slug: string
@@ -27,29 +26,10 @@ type LibraryBrowserProps = {
 type QualityFilter = 'ready' | 'all' | 'drafts'
 type SortMode = 'best' | 'a-z' | 'z-a'
 
-type GoalSignal = {
-  slug: string
-  label: string
-}
-
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
-
-const GOAL_PATTERNS: Array<GoalSignal & { pattern: RegExp }> = [
-  { slug: 'sleep', label: 'Sleep', pattern: /sleep|insomnia|melatonin|circadian|bedtime|rest/i },
-  { slug: 'stress', label: 'Stress', pattern: /stress|anxiety|calm|relax|cortisol|adaptogen|ashwagandha|theanine/i },
-  { slug: 'focus', label: 'Focus', pattern: /focus|attention|cognition|memory|alertness|caffeine|choline|bacopa|tyrosine/i },
-  { slug: 'fat-loss', label: 'Fat Loss', pattern: /fat loss|weight|metabolic|thermogenic|appetite|glucose|insulin/i },
-  { slug: 'blood-pressure', label: 'Blood Pressure', pattern: /blood pressure|hypertension|vascular|circulation|beet|nitrate|hawthorn/i },
-  { slug: 'gut-health', label: 'Gut Health', pattern: /gut|digestion|digestive|microbiome|probiotic|fiber|psyllium|bloating/i },
-  { slug: 'joint-support', label: 'Joint Support', pattern: /joint|cartilage|arthritis|inflammation|collagen|glucosamine|curcumin|boswellia/i },
-  { slug: 'testosterone-support', label: 'Testosterone', pattern: /testosterone|libido|fertility|male|zinc|boron|tongkat|ashwagandha/i },
-]
 
 const normalizeText = (value: unknown): string =>
   typeof value === 'string' ? value.trim() : ''
-
-const normalizeKey = (value?: string): string =>
-  (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 
 const isDraftProfile = (item: BrowserItem): boolean => {
   const summary = normalizeText(item.summary).toLowerCase()
@@ -58,8 +38,8 @@ const isDraftProfile = (item: BrowserItem): boolean => {
 
 const getPreview = (item: BrowserItem): string => {
   const text = normalizeText(item.summary)
-  if (isDraftProfile(item)) return 'Needs a clean public summary, but the profile may still include useful searchable metadata.'
-  return text.length > 150 ? `${text.slice(0, 149).trimEnd()}…` : text
+  if (isDraftProfile(item)) return 'Summary is still being refined, but this profile may include useful library context.'
+  return text.length > 165 ? `${text.slice(0, 164).trimEnd()}…` : text
 }
 
 const formatChip = (value: string): string =>
@@ -94,101 +74,19 @@ const getConversionBadge = (item: BrowserItem): string => {
   return 'Research profile'
 }
 
-const getBenefitSignals = (item: BrowserItem): string[] => {
-  const directMeta = (item.meta ?? [])
-    .map(value => value.replace(/^(best for|domain|effect|category):\s*/i, '').trim())
-    .filter(value => value && !/^(needs summary|a-tier)$/i.test(value))
-
-  const summarySignals = normalizeText(item.summary)
-    .split(/[.;]/)
-    .map(value => value.trim())
-    .filter(value => /support|help|improve|reduce|promote|benefit|sleep|stress|focus|energy|inflammation|blood pressure|gut|joint|testosterone/i.test(value))
-
-  return Array.from(new Set([...directMeta, ...summarySignals]))
-    .filter(value => value.length > 3)
-    .slice(0, 3)
-}
-
-const getMicroHook = (item: BrowserItem): string => {
-  const summary = normalizeText(item.summary)
-  const firstBenefit = getBenefitSignals(item)[0]
-  const firstSentence = summary
-    .split(/[.!?]/)
-    .map(value => value.trim())
-    .find(value => value.length > 24 && !/profile coming soon|coming soon/i.test(value))
-
-  const hook = firstBenefit || firstSentence || getBestFor(item)
-  if (!hook) return ''
-
-  const cleanHook = hook.replace(/^best for:\s*/i, '').trim()
-  return cleanHook.length > 94 ? `${cleanHook.slice(0, 93).trimEnd()}…` : cleanHook
-}
-
-const getFormSignals = (item: BrowserItem): string[] => {
-  const text = `${item.title} ${item.slug} ${item.domain ?? ''} ${item.summary ?? ''} ${(item.meta ?? []).join(' ')}`.toLowerCase()
-  const forms = new Set<string>()
-
-  if (/tea|infusion|leaf|leaves|herb|flower|root|bark|powder/.test(text)) forms.add('tea/powder')
-  if (/extract|standardized|adaptogen|mushroom|rhodiola|ashwagandha|ginseng|bacopa|reishi|turmeric|curcumin/.test(text)) forms.add('extract')
-  if (/oil|omega|fish oil|softgel|lipid|fatty acid/.test(text)) forms.add('softgel/oil')
-  if (/protein|whey|collagen|creatine|fiber|psyllium|electrolyte/.test(text)) forms.add('powder')
-  if (/capsule|tablet|compound|vitamin|mineral|magnesium|zinc|melatonin|theanine|caffeine|choline|carnitine/.test(text)) forms.add('capsule/tablet')
-
-  if (!forms.size && !isDraftProfile(item)) forms.add('supplement forms')
-  return Array.from(forms).slice(0, 3)
-}
-
-const getGoalSignals = (item: BrowserItem): GoalSignal[] => {
-  const text = `${item.title} ${item.slug} ${item.domain ?? ''} ${item.summary ?? ''} ${(item.meta ?? []).join(' ')}`
-  return GOAL_PATTERNS.filter(goal => goal.pattern.test(text)).map(({ slug, label }) => ({ slug, label })).slice(0, 3)
-}
-
-const getComparisonSignals = (item: BrowserItem) => {
-  const aliases = new Set([item.slug, item.title, normalizeKey(item.slug), normalizeKey(item.title)].filter(Boolean))
-
-  return supplementComparisons
-    .filter(comparison =>
-      comparison.a.candidates.some(candidate => aliases.has(candidate) || aliases.has(normalizeKey(candidate))) ||
-      comparison.b.candidates.some(candidate => aliases.has(candidate) || aliases.has(normalizeKey(candidate))),
-    )
-    .slice(0, 2)
-}
-
 const qualityRank = (item: BrowserItem): number => {
   if (item.isATier) return 0
   if (!isDraftProfile(item)) return 1
   return 2
 }
 
-const cardAccent = (item: BrowserItem): string => {
-  if (item.isATier) return 'from-amber-300/18 via-white/[0.045] to-white/[0.02] border-amber-200/25'
-  if (isDraftProfile(item)) return 'from-slate-300/8 via-white/[0.025] to-white/[0.015] border-white/10'
-  return 'from-emerald-300/14 via-white/[0.045] to-white/[0.02] border-emerald-200/18'
-}
-
-function MiniPickCard({ item }: { item: BrowserItem }) {
-  const goalSignals = getGoalSignals(item).slice(0, 2)
-
+function EvidenceDots({ score }: { score: number }) {
   return (
-    <Link href={item.href} className='group rounded-2xl border border-amber-100/15 bg-black/22 p-4 transition hover:-translate-y-0.5 hover:border-amber-100/35 hover:bg-black/30'>
-      <div className='flex flex-wrap items-center gap-2'>
-        <span className='rounded-full border border-amber-200/25 bg-amber-300/12 px-2.5 py-1 text-[0.68rem] font-black text-amber-100'>Top pick</span>
-        <span className='rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[0.68rem] font-black text-emerald-100'>{getEvidenceStrength(item)}/5 evidence</span>
-      </div>
-      <h3 className='mt-3 text-lg font-black text-white group-hover:text-amber-100'>{item.title}</h3>
-      <p className='mt-2 line-clamp-2 text-sm font-semibold leading-6 text-white/62'>{getMicroHook(item) || getPreview(item)}</p>
-      {goalSignals.length ? (
-        <div className='mt-3 flex flex-wrap gap-1.5'>
-          {goalSignals.map(goal => (
-            <span key={goal.slug} className='rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[0.68rem] font-black text-white/55'>{goal.label}</span>
-          ))}
-        </div>
-      ) : null}
-      <div className='mt-4 flex items-center justify-between border-t border-white/10 pt-3'>
-        <span className='text-xs font-semibold text-white/45'>Start here</span>
-        <span className='text-sm font-black text-amber-100 transition group-hover:translate-x-1'>View →</span>
-      </div>
-    </Link>
+    <div className='flex items-center gap-1.5' aria-label={`Evidence signal ${score} out of 5`}>
+      {[1, 2, 3, 4, 5].map(value => (
+        <span key={value} className={`h-1.5 w-7 rounded-full ${value <= score ? 'bg-emerald-500' : 'bg-slate-200'}`} />
+      ))}
+    </div>
   )
 }
 
@@ -255,67 +153,74 @@ export default function LibraryBrowser({
   }
 
   return (
-    <div className='mx-auto w-full max-w-7xl space-y-6 py-2'>
-      <section className='relative overflow-hidden rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_left,rgba(52,211,153,0.17),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.025))] p-6 shadow-2xl shadow-black/25 sm:p-8'>
-        <div className='absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-300/10 blur-3xl' />
-        <div className='relative'>
-          <p className='text-xs font-black uppercase tracking-[0.24em] text-emerald-100/70'>{eyebrow}</p>
-          <h1 className='mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl'>{title}</h1>
-          {description ? <p className='mt-4 max-w-3xl text-base leading-7 text-white/70 sm:text-lg'>{description}</p> : null}
-          <div className='mt-5 flex flex-wrap gap-2 text-xs font-black text-white/60'>
-            <span className='rounded-full border border-white/10 bg-black/20 px-3 py-1.5'><span className='text-white'>{stats.total}</span> profiles</span>
-            <span className='rounded-full border border-emerald-200/20 bg-emerald-300/10 px-3 py-1.5 text-emerald-100'><span className='text-white'>{stats.ready}</span> useful summaries</span>
-            {stats.aTier > 0 ? <span className='rounded-full border border-amber-200/25 bg-amber-300/10 px-3 py-1.5 text-amber-100'>{stats.aTier} A-tier</span> : null}
+    <div className='mx-auto w-full max-w-7xl space-y-8 py-2'>
+      <section className='relative overflow-hidden rounded-[2rem] bg-slate-950 p-6 text-white shadow-xl shadow-slate-900/15 sm:p-8'>
+        <div className='absolute -right-24 -top-24 h-72 w-72 rounded-full bg-emerald-400/20 blur-3xl' />
+        <div className='relative max-w-3xl'>
+          <p className='text-xs font-black uppercase tracking-[0.26em] text-emerald-200/70'>{eyebrow}</p>
+          <h1 className='mt-3 text-5xl font-black leading-[0.96] tracking-tight text-white sm:text-7xl'>{title}</h1>
+          {description ? <p className='mt-4 max-w-2xl text-base leading-7 text-white/72 sm:text-lg'>{description}</p> : null}
+          <div className='mt-6 flex flex-wrap gap-2 text-xs font-black'>
+            <span className='rounded-full bg-white px-4 py-2 text-slate-950'>{filteredItems.length} of {stats.total} shown</span>
+            <span className='rounded-full border border-white/10 bg-white/10 px-4 py-2 text-white/75'>{stats.ready} useful summaries</span>
+            {stats.aTier > 0 ? <span className='rounded-full border border-amber-200/25 bg-amber-300/15 px-4 py-2 text-amber-100'>{stats.aTier} A-tier</span> : null}
           </div>
         </div>
       </section>
 
-      <section className='rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-xl shadow-black/10'>
+      <section className='space-y-4'>
         <div className='grid gap-3 md:grid-cols-[1fr_auto_auto]'>
           <input
             value={query}
             onChange={event => setQuery(event.target.value)}
             placeholder={searchPlaceholder}
-            className='w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/35 focus:border-emerald-200/55 focus:bg-black/35'
+            className='w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10'
           />
-          <select value={qualityFilter} onChange={event => setQualityFilter(event.target.value as QualityFilter)} className='rounded-2xl border border-white/10 bg-black/25 px-3 py-3 text-sm font-bold text-white'>
+          <select value={qualityFilter} onChange={event => setQualityFilter(event.target.value as QualityFilter)} className='rounded-2xl border border-slate-300 bg-white px-3 py-3 text-sm font-black text-slate-800 shadow-sm'>
             <option value='all'>All profiles</option>
             <option value='ready'>Useful only</option>
             <option value='drafts'>Needs summary</option>
           </select>
-          <select value={sortMode} onChange={event => setSortMode(event.target.value as SortMode)} className='rounded-2xl border border-white/10 bg-black/25 px-3 py-3 text-sm font-bold text-white'>
+          <select value={sortMode} onChange={event => setSortMode(event.target.value as SortMode)} className='rounded-2xl border border-slate-300 bg-white px-3 py-3 text-sm font-black text-slate-800 shadow-sm'>
             <option value='best'>Best first</option>
             <option value='a-z'>A to Z</option>
             <option value='z-a'>Z to A</option>
           </select>
         </div>
 
-        <div className='mt-4 flex gap-1.5 overflow-x-auto pb-1'>
-          <button type='button' onClick={() => setLetter('')} className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-black transition ${!letter ? 'bg-emerald-200 text-slate-950' : 'border border-white/10 bg-black/20 text-white/55 hover:text-white'}`}>All</button>
+        <div className='flex gap-2 overflow-x-auto pb-1'>
+          <button type='button' onClick={() => setLetter('')} className={`shrink-0 rounded-full px-4 py-2 text-sm font-black transition ${!letter ? 'bg-emerald-500 text-white shadow-sm' : 'border border-slate-300 bg-white text-slate-600 hover:border-emerald-500 hover:text-emerald-700'}`}>All</button>
           {LETTERS.map(currentLetter => (
-            <button key={currentLetter} type='button' onClick={() => setLetter(activeLetter => activeLetter === currentLetter ? '' : currentLetter)} className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-black transition ${letter === currentLetter ? 'bg-emerald-200 text-slate-950' : 'border border-white/10 bg-black/20 text-white/55 hover:text-white'}`}>
+            <button key={currentLetter} type='button' onClick={() => setLetter(activeLetter => activeLetter === currentLetter ? '' : currentLetter)} className={`shrink-0 rounded-full px-4 py-2 text-sm font-black transition ${letter === currentLetter ? 'bg-emerald-500 text-white shadow-sm' : 'border border-slate-300 bg-white text-slate-500 hover:border-emerald-500 hover:text-emerald-700'}`}>
               {currentLetter}
             </button>
           ))}
         </div>
 
-        <div className='mt-4 flex items-center justify-between gap-3 text-xs text-white/45'>
-          <span>Showing <strong className='text-white'>{filteredItems.length}</strong> of {stats.total}</span>
-          <button type='button' onClick={resetFilters} className='rounded-full border border-white/10 bg-black/20 px-3 py-1.5 font-black text-white/60 hover:text-white'>Reset</button>
+        <div className='flex items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs text-slate-500'>
+          <span>Showing <strong className='text-slate-950'>{filteredItems.length}</strong> of {stats.total}</span>
+          <button type='button' onClick={resetFilters} className='rounded-full border border-slate-300 bg-white px-3 py-1.5 font-black text-slate-600 hover:border-emerald-500 hover:text-emerald-700'>Reset</button>
         </div>
       </section>
 
       {topPicks.length > 0 ? (
-        <section className='relative overflow-hidden rounded-[1.8rem] border border-amber-200/20 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.14),transparent_35%),rgba(255,255,255,0.035)] p-5 shadow-xl shadow-black/10'>
+        <section className='rounded-[1.75rem] border border-amber-200 bg-amber-50/80 p-5 shadow-sm'>
           <div className='flex flex-wrap items-end justify-between gap-3'>
             <div>
-              <p className='text-xs font-black uppercase tracking-[0.22em] text-amber-100/70'>Recommended first</p>
-              <h2 className='mt-1 text-2xl font-black text-white'>Top picks</h2>
+              <p className='text-xs font-black uppercase tracking-[0.22em] text-amber-700/70'>Recommended first</p>
+              <h2 className='mt-1 text-3xl font-black text-slate-950'>Top picks</h2>
             </div>
-            <p className='max-w-md text-sm leading-6 text-white/55'>High-confidence profiles worth checking before browsing the full library.</p>
+            <p className='max-w-md text-sm leading-6 text-slate-600'>Higher-confidence profiles worth checking before browsing the full library.</p>
           </div>
           <div className='mt-4 grid gap-3 md:grid-cols-3'>
-            {topPicks.map(item => <MiniPickCard key={item.slug} item={item} />)}
+            {topPicks.map(item => (
+              <Link key={item.slug} href={item.href} className='group rounded-2xl border border-amber-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md'>
+                <span className='rounded-full bg-amber-100 px-2.5 py-1 text-[0.68rem] font-black text-amber-800'>Top pick</span>
+                <h3 className='mt-3 text-lg font-black text-slate-950 group-hover:text-emerald-800'>{item.title}</h3>
+                <p className='mt-2 line-clamp-2 text-sm leading-6 text-slate-600'>{getPreview(item)}</p>
+                <span className='mt-3 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open profile →</span>
+              </Link>
+            ))}
           </div>
         </section>
       ) : null}
@@ -324,128 +229,56 @@ export default function LibraryBrowser({
         <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
           {filteredItems.map(item => {
             const draft = isDraftProfile(item)
-            const meta = (item.meta ?? []).filter(Boolean).slice(0, 3)
+            const meta = (item.meta ?? []).filter(Boolean).slice(0, 2)
             const bestFor = getBestFor(item)
             const evidenceStrength = getEvidenceStrength(item)
-            const benefitSignals = getBenefitSignals(item)
-            const microHook = getMicroHook(item)
-            const formSignals = getFormSignals(item)
-            const goalSignals = getGoalSignals(item)
-            const comparisonSignals = getComparisonSignals(item)
 
             return (
-              <div key={item.slug} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
-                <div className='pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-white/8 blur-2xl transition group-hover:bg-emerald-300/12' />
-                <Link href={item.href} className='absolute inset-0 z-0' aria-label={`View ${item.title}`} />
-                <div className='relative z-10 flex flex-wrap items-center gap-2'>
-                  <span className='rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[0.68rem] font-black text-emerald-100'>
-                    {getConversionBadge(item)}
-                  </span>
-                  <span className='rounded-full border border-white/10 bg-black/25 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.16em] text-white/50'>{item.typeLabel || 'Profile'}</span>
-                  {item.isATier ? <span className='rounded-full border border-amber-200/25 bg-amber-300/12 px-2.5 py-1 text-[0.68rem] font-black text-amber-100'>A-tier</span> : null}
-                  {draft ? <span className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.68rem] font-black text-white/35'>Needs summary</span> : null}
+              <Link key={item.slug} href={item.href} className='group flex min-h-[220px] flex-col rounded-[1.6rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg'>
+                <div className='flex flex-wrap items-center gap-2'>
+                  <span className='rounded-full bg-emerald-50 px-2.5 py-1 text-[0.68rem] font-black text-emerald-700'>{getConversionBadge(item)}</span>
+                  <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.14em] text-slate-500'>{item.typeLabel || 'Profile'}</span>
+                  {item.isATier ? <span className='rounded-full bg-amber-100 px-2.5 py-1 text-[0.68rem] font-black text-amber-800'>A-tier</span> : null}
+                  {draft ? <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[0.68rem] font-black text-slate-500'>Being refined</span> : null}
                 </div>
 
-                <div className='relative z-10 mt-4 flex-1'>
-                  <h2 className='text-xl font-black leading-tight tracking-tight text-white group-hover:text-emerald-100'>{item.title}</h2>
-                  {microHook ? <p className='mt-2 line-clamp-2 text-sm font-bold leading-6 text-emerald-100/90'>{microHook}</p> : null}
-                  {item.domain ? <p className='mt-2 text-xs font-black uppercase tracking-[0.16em] text-emerald-100/60'>{formatChip(item.domain)}</p> : null}
+                <div className='mt-4 flex-1'>
+                  <h2 className='text-2xl font-black leading-tight tracking-tight text-slate-950 group-hover:text-emerald-800'>{item.title}</h2>
+                  {item.domain ? <p className='mt-2 text-xs font-black uppercase tracking-[0.16em] text-emerald-700/60'>{formatChip(item.domain)}</p> : null}
                   {bestFor ? (
-                    <p className='mt-2 rounded-xl border border-emerald-300/20 bg-emerald-300/10 px-3 py-2 text-xs font-bold text-emerald-100'>
+                    <p className='mt-3 rounded-2xl bg-emerald-50 px-3 py-2 text-sm font-bold leading-6 text-emerald-900'>
                       Best for: {bestFor}
                     </p>
                   ) : null}
-                  <p className='mt-3 line-clamp-4 text-sm leading-6 text-white/66'>{getPreview(item)}</p>
+                  <p className='mt-3 line-clamp-4 text-sm leading-6 text-slate-650 text-slate-600'>{getPreview(item)}</p>
                 </div>
-
-                {goalSignals.length ? (
-                  <div className='relative z-20 mt-4 rounded-2xl border border-emerald-300/15 bg-emerald-300/7 px-3 py-2'>
-                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-emerald-100/45'>Explore by goal</p>
-                    <div className='mt-2 flex flex-wrap gap-1.5'>
-                      {goalSignals.map(goal => (
-                        <Link key={goal.slug} href={`/goals/${goal.slug}`} className='rounded-full border border-emerald-100/15 bg-black/18 px-2.5 py-1 text-[0.7rem] font-black text-emerald-50/80 transition hover:border-emerald-200/40 hover:bg-emerald-300/14 hover:text-white'>
-                          {goal.label} →
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-
-                {comparisonSignals.length ? (
-                  <div className='relative z-20 mt-4 rounded-2xl border border-sky-200/15 bg-sky-300/7 px-3 py-2'>
-                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-sky-100/50'>Compare before choosing</p>
-                    <div className='mt-2 flex flex-wrap gap-1.5'>
-                      {comparisonSignals.map(comparison => (
-                        <Link key={comparison.slug} href={`/compare/${comparison.slug}`} className='rounded-full border border-sky-100/15 bg-black/18 px-2.5 py-1 text-[0.7rem] font-black text-sky-50/80 transition hover:border-sky-200/40 hover:bg-sky-300/14 hover:text-white'>
-                          {comparison.title} →
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-
-                {benefitSignals.length ? (
-                  <div className='relative z-10 mt-4 rounded-2xl border border-white/10 bg-black/18 p-3'>
-                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-white/35'>Fast scan</p>
-                    <ul className='mt-2 space-y-1.5'>
-                      {benefitSignals.map(value => (
-                        <li key={value} className='flex gap-2 text-xs font-semibold leading-5 text-white/62'>
-                          <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-300/80' />
-                          <span className='line-clamp-2'>{value}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
 
                 {meta.length ? (
-                  <div className='relative z-10 mt-4 flex flex-wrap gap-2'>
+                  <div className='mt-4 flex flex-wrap gap-2'>
                     {meta.map(value => (
-                      <span key={value} className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.72rem] font-semibold text-white/52'>{value}</span>
+                      <span key={value} className='rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[0.72rem] font-semibold text-slate-500'>{value}</span>
                     ))}
                   </div>
                 ) : null}
 
-                {formSignals.length ? (
-                  <div className='relative z-10 mt-4 rounded-2xl border border-amber-200/15 bg-amber-300/8 px-3 py-2'>
-                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-amber-100/55'>Common formats</p>
-                    <div className='mt-2 flex flex-wrap gap-1.5'>
-                      {formSignals.map(value => (
-                        <span key={value} className='rounded-full border border-amber-100/15 bg-black/18 px-2.5 py-1 text-[0.7rem] font-black text-amber-50/75'>{value}</span>
-                      ))}
-                    </div>
+                <div className='mt-5 border-t border-slate-200 pt-4'>
+                  <div className='flex items-center justify-between gap-3'>
+                    <span className='text-[0.7rem] font-black uppercase tracking-[0.14em] text-slate-400'>Evidence signal</span>
+                    <span className='text-xs font-black text-slate-500'>{evidenceStrength}/5</span>
                   </div>
-                ) : null}
-
-                <div className='relative z-10 mt-4'>
-                  <div className='flex items-center justify-between text-[0.7rem] font-bold uppercase tracking-[0.14em] text-white/40'>
-                    <span>Evidence signal</span>
-                    <span>{evidenceStrength}/5</span>
-                  </div>
-                  <div className='mt-2 grid grid-cols-5 gap-1'>
-                    {[1, 2, 3, 4, 5].map(score => (
-                      <span
-                        key={score}
-                        className={`h-1.5 rounded-full ${
-                          score <= evidenceStrength
-                            ? 'bg-emerald-300/80'
-                            : 'bg-white/10'
-                        }`}
-                      />
-                    ))}
-                  </div>
+                  <div className='mt-2'><EvidenceDots score={evidenceStrength} /></div>
                 </div>
 
-                <div className='relative z-10 mt-5 flex items-center justify-between gap-3 border-t border-white/10 pt-4'>
-                  <span className='text-xs font-semibold text-white/45'>Check benefits, safety, and forms</span>
-                  <span className='text-sm font-black text-emerald-200 transition group-hover:translate-x-1'>View →</span>
+                <div className='mt-5 flex items-center justify-between gap-3'>
+                  <span className='text-xs font-semibold text-slate-500'>Benefits, safety, and forms</span>
+                  <span className='text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open →</span>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>
       ) : (
-        <div className='rounded-2xl border border-white/10 bg-white/[0.025] p-8 text-center text-white/65'>
+        <div className='rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-600 shadow-sm'>
           <p>{emptyLabel}</p>
           <button type='button' onClick={resetFilters} className='mt-4 premium-button'>Clear filters</button>
         </div>
