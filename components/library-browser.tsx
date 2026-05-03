@@ -104,6 +104,20 @@ const getMicroHook = (item: BrowserItem): string => {
   return cleanHook.length > 94 ? `${cleanHook.slice(0, 93).trimEnd()}…` : cleanHook
 }
 
+const getFormSignals = (item: BrowserItem): string[] => {
+  const text = `${item.title} ${item.slug} ${item.domain ?? ''} ${item.summary ?? ''} ${(item.meta ?? []).join(' ')}`.toLowerCase()
+  const forms = new Set<string>()
+
+  if (/tea|infusion|leaf|leaves|herb|flower|root|bark|powder/.test(text)) forms.add('tea/powder')
+  if (/extract|standardized|adaptogen|mushroom|rhodiola|ashwagandha|ginseng|bacopa|reishi|turmeric|curcumin/.test(text)) forms.add('extract')
+  if (/oil|omega|fish oil|softgel|lipid|fatty acid/.test(text)) forms.add('softgel/oil')
+  if (/protein|whey|collagen|creatine|fiber|psyllium|electrolyte/.test(text)) forms.add('powder')
+  if (/capsule|tablet|compound|vitamin|mineral|magnesium|zinc|melatonin|theanine|caffeine|choline|carnitine/.test(text)) forms.add('capsule/tablet')
+
+  if (!forms.size && !isDraftProfile(item)) forms.add('supplement forms')
+  return Array.from(forms).slice(0, 3)
+}
+
 const qualityRank = (item: BrowserItem): number => {
   if (item.isATier) return 0
   if (!isDraftProfile(item)) return 1
@@ -233,6 +247,7 @@ export default function LibraryBrowser({
             const evidenceStrength = getEvidenceStrength(item)
             const benefitSignals = getBenefitSignals(item)
             const microHook = getMicroHook(item)
+            const formSignals = getFormSignals(item)
 
             return (
               <Link key={item.slug} href={item.href} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
@@ -277,6 +292,17 @@ export default function LibraryBrowser({
                     {meta.map(value => (
                       <span key={value} className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.72rem] font-semibold text-white/52'>{value}</span>
                     ))}
+                  </div>
+                ) : null}
+
+                {formSignals.length ? (
+                  <div className='relative mt-4 rounded-2xl border border-amber-200/15 bg-amber-300/8 px-3 py-2'>
+                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-amber-100/55'>Common formats</p>
+                    <div className='mt-2 flex flex-wrap gap-1.5'>
+                      {formSignals.map(value => (
+                        <span key={value} className='rounded-full border border-amber-100/15 bg-black/18 px-2.5 py-1 text-[0.7rem] font-black text-amber-50/75'>{value}</span>
+                      ))}
+                    </div>
                   </div>
                 ) : null}
 
