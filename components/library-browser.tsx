@@ -39,7 +39,7 @@ const isDraftProfile = (item: BrowserItem): boolean => {
 const getPreview = (item: BrowserItem): string => {
   const text = normalizeText(item.summary)
   if (isDraftProfile(item)) return 'Profile summary is still being refined; open it for available context.'
-  return text.length > 120 ? `${text.slice(0, 119).trimEnd()}…` : text
+  return text.length > 118 ? `${text.slice(0, 117).trimEnd()}…` : text
 }
 
 const getUsefulHook = (item: BrowserItem): string => {
@@ -79,7 +79,7 @@ const formatChip = (value: string): string =>
 
 const getBestFor = (item: BrowserItem): string => {
   const hook = getUsefulHook(item)
-  if (hook) return hook.length > 82 ? `${hook.slice(0, 81).trimEnd()}…` : hook
+  if (hook) return hook.length > 78 ? `${hook.slice(0, 77).trimEnd()}…` : hook
   if (item.domain) return formatChip(item.domain)
   return ''
 }
@@ -108,7 +108,7 @@ function EvidenceDots({ score }: { score: number }) {
   return (
     <div className='flex items-center gap-1' aria-label={`Evidence signal ${score} out of 5`}>
       {[1, 2, 3, 4, 5].map(value => (
-        <span key={value} className={`h-1.5 flex-1 rounded-full ${value <= score ? 'bg-emerald-500' : 'bg-slate-200'}`} />
+        <span key={value} className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${value <= score ? 'bg-emerald-500 group-hover:bg-emerald-400' : 'bg-slate-200'}`} />
       ))}
     </div>
   )
@@ -177,15 +177,16 @@ export default function LibraryBrowser({
   }
 
   return (
-    <div className='mx-auto w-full max-w-7xl space-y-6 py-2'>
-      <section className='relative overflow-hidden rounded-[2rem] bg-slate-950 p-5 text-white shadow-xl shadow-slate-900/15 sm:p-7'>
-        <div className='absolute -right-24 -top-24 h-72 w-72 rounded-full bg-emerald-400/20 blur-3xl' />
+    <div className='mx-auto w-full max-w-7xl space-y-7 py-2'>
+      <section className='relative isolate overflow-hidden rounded-[2rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-900/20 sm:p-7'>
+        <div className='absolute -right-24 -top-24 h-72 w-72 rounded-full bg-emerald-400/25 blur-3xl' />
+        <div className='absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent' />
         <div className='relative max-w-3xl'>
-          <p className='text-xs font-black uppercase tracking-[0.26em] text-emerald-200/70'>{eyebrow}</p>
+          <p className='text-xs font-black uppercase tracking-[0.26em] text-emerald-200/75'>{eyebrow}</p>
           <h1 className='mt-3 text-4xl font-black leading-[0.96] tracking-tight text-white sm:text-6xl'>{title}</h1>
           {description ? <p className='mt-4 max-w-2xl text-base leading-7 text-white/72'>{description}</p> : null}
           <div className='mt-5 flex flex-wrap gap-2 text-xs font-black'>
-            <span className='rounded-full bg-white px-4 py-2 text-slate-950'>{filteredItems.length} of {stats.total} shown</span>
+            <span className='rounded-full bg-white px-4 py-2 text-slate-950 shadow-sm'>{filteredItems.length} of {stats.total} shown</span>
             <span className='rounded-full border border-white/10 bg-white/10 px-4 py-2 text-white/75'>{stats.ready} useful</span>
             {stats.aTier > 0 ? <span className='rounded-full border border-amber-200/25 bg-amber-300/15 px-4 py-2 text-amber-100'>{stats.aTier} A-tier</span> : null}
           </div>
@@ -198,14 +199,14 @@ export default function LibraryBrowser({
             value={query}
             onChange={event => setQuery(event.target.value)}
             placeholder={searchPlaceholder}
-            className='w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10'
+            className='w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-950 shadow-sm outline-none transition-all duration-200 placeholder:text-slate-400 focus:border-emerald-500 focus:shadow-lg focus:shadow-emerald-500/10 focus:ring-4 focus:ring-emerald-500/10'
           />
-          <select value={qualityFilter} onChange={event => setQualityFilter(event.target.value as QualityFilter)} className='rounded-2xl border border-slate-300 bg-white px-3 py-3 text-sm font-black text-slate-800 shadow-sm'>
+          <select value={qualityFilter} onChange={event => setQualityFilter(event.target.value as QualityFilter)} className='rounded-2xl border border-slate-300 bg-white px-3 py-3 text-sm font-black text-slate-800 shadow-sm transition hover:border-emerald-400'>
             <option value='all'>All profiles</option>
             <option value='ready'>Useful only</option>
             <option value='drafts'>Needs summary</option>
           </select>
-          <select value={sortMode} onChange={event => setSortMode(event.target.value as SortMode)} className='rounded-2xl border border-slate-300 bg-white px-3 py-3 text-sm font-black text-slate-800 shadow-sm'>
+          <select value={sortMode} onChange={event => setSortMode(event.target.value as SortMode)} className='rounded-2xl border border-slate-300 bg-white px-3 py-3 text-sm font-black text-slate-800 shadow-sm transition hover:border-emerald-400'>
             <option value='best'>Best first</option>
             <option value='a-z'>A to Z</option>
             <option value='z-a'>Z to A</option>
@@ -213,9 +214,9 @@ export default function LibraryBrowser({
         </div>
 
         <div className='flex gap-2 overflow-x-auto pb-1'>
-          <button type='button' onClick={() => setLetter('')} className={`shrink-0 rounded-full px-4 py-2 text-sm font-black transition ${!letter ? 'bg-emerald-500 text-white shadow-sm' : 'border border-slate-300 bg-white text-slate-600 hover:border-emerald-500 hover:text-emerald-700'}`}>All</button>
+          <button type='button' onClick={() => setLetter('')} className={`shrink-0 rounded-full px-4 py-2 text-sm font-black transition-all duration-200 ${!letter ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20' : 'border border-slate-300 bg-white text-slate-600 hover:-translate-y-0.5 hover:border-emerald-500 hover:text-emerald-700 hover:shadow-sm'}`}>All</button>
           {LETTERS.map(currentLetter => (
-            <button key={currentLetter} type='button' onClick={() => setLetter(activeLetter => activeLetter === currentLetter ? '' : currentLetter)} className={`shrink-0 rounded-full px-4 py-2 text-sm font-black transition ${letter === currentLetter ? 'bg-emerald-500 text-white shadow-sm' : 'border border-slate-300 bg-white text-slate-500 hover:border-emerald-500 hover:text-emerald-700'}`}>
+            <button key={currentLetter} type='button' onClick={() => setLetter(activeLetter => activeLetter === currentLetter ? '' : currentLetter)} className={`shrink-0 rounded-full px-4 py-2 text-sm font-black transition-all duration-200 ${letter === currentLetter ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/20' : 'border border-slate-300 bg-white text-slate-500 hover:-translate-y-0.5 hover:border-emerald-500 hover:text-emerald-700 hover:shadow-sm'}`}>
               {currentLetter}
             </button>
           ))}
@@ -223,12 +224,12 @@ export default function LibraryBrowser({
 
         <div className='flex items-center justify-between gap-3 border-t border-slate-200 pt-3 text-xs text-slate-500'>
           <span>Showing <strong className='text-slate-950'>{filteredItems.length}</strong> of {stats.total}</span>
-          <button type='button' onClick={resetFilters} className='rounded-full border border-slate-300 bg-white px-3 py-1.5 font-black text-slate-600 hover:border-emerald-500 hover:text-emerald-700'>Reset</button>
+          <button type='button' onClick={resetFilters} className='rounded-full border border-slate-300 bg-white px-3 py-1.5 font-black text-slate-600 transition hover:border-emerald-500 hover:text-emerald-700 hover:shadow-sm'>Reset</button>
         </div>
       </section>
 
       {topPicks.length > 0 ? (
-        <section className='rounded-[1.5rem] border border-amber-200 bg-amber-50/80 p-4 shadow-sm'>
+        <section className='rounded-[1.5rem] border border-amber-200 bg-amber-50/90 p-4 shadow-md shadow-amber-900/5'>
           <div className='flex flex-wrap items-end justify-between gap-3'>
             <div>
               <p className='text-xs font-black uppercase tracking-[0.22em] text-amber-700/70'>Recommended first</p>
@@ -238,14 +239,14 @@ export default function LibraryBrowser({
           </div>
           <div className='mt-3 grid gap-3 md:grid-cols-3'>
             {topPicks.map(item => (
-              <Link key={item.slug} href={item.href} className='group rounded-2xl border border-amber-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md'>
+              <Link key={item.slug} href={item.href} className='group rounded-2xl border border-amber-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-500/10'>
                 <div className='flex items-center justify-between gap-3'>
                   <span className='rounded-full bg-amber-100 px-2.5 py-1 text-[0.68rem] font-black text-amber-800'>Top pick</span>
                   <span className='text-xs font-black text-emerald-700'>{getEvidenceStrength(item)}/5</span>
                 </div>
-                <h3 className='mt-3 text-lg font-black text-slate-950 group-hover:text-emerald-800'>{item.title}</h3>
+                <h3 className='mt-3 text-lg font-black text-slate-950 transition-colors duration-200 group-hover:text-emerald-700'>{item.title}</h3>
                 <p className='mt-2 line-clamp-2 text-sm leading-6 text-slate-600'>{getBestFor(item) || getPreview(item)}</p>
-                <span className='mt-3 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open →</span>
+                <span className='mt-3 inline-flex text-sm font-black text-emerald-700 transition-all duration-200 ease-out group-hover:translate-x-1'>Open →</span>
               </Link>
             ))}
           </div>
@@ -253,7 +254,7 @@ export default function LibraryBrowser({
       ) : null}
 
       {filteredItems.length > 0 ? (
-        <div className='grid gap-3 sm:grid-cols-2 xl:grid-cols-3'>
+        <div className='grid gap-4 md:gap-5 sm:grid-cols-2 xl:grid-cols-3'>
           {filteredItems.map(item => {
             const draft = isDraftProfile(item)
             const meta = (item.meta ?? []).filter(Boolean).slice(0, 1)
@@ -262,22 +263,22 @@ export default function LibraryBrowser({
             const useCase = getUseCase(item)
 
             return (
-              <Link key={item.slug} href={item.href} className='group flex min-h-[180px] flex-col rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg'>
+              <Link key={item.slug} href={item.href} className='library-card-premium group flex min-h-[178px] flex-col'>
                 <div className='flex items-start justify-between gap-3'>
                   <div className='min-w-0'>
-                    <p className='text-[0.68rem] font-black uppercase tracking-[0.14em] text-emerald-700/65'>{useCase}</p>
-                    <h2 className='mt-1 line-clamp-2 text-xl font-black leading-tight tracking-tight text-slate-950 group-hover:text-emerald-800'>{item.title}</h2>
+                    <p className='text-[0.65rem] font-black uppercase tracking-[0.12em] text-emerald-700/70'>{useCase}</p>
+                    <h2 className='mt-1 line-clamp-2 text-[1.15rem] font-black leading-tight tracking-tight text-slate-950 transition-colors duration-200 group-hover:text-emerald-700'>{item.title}</h2>
                   </div>
-                  <span className='shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[0.66rem] font-black text-slate-600'>{getConversionBadge(item)}</span>
+                  <span className={`shrink-0 rounded-full px-2.5 py-1 text-[0.64rem] font-black ${item.isATier ? 'bg-amber-100 text-amber-800' : draft ? 'bg-slate-100 text-slate-600' : 'bg-emerald-50 text-emerald-700'}`}>{getConversionBadge(item)}</span>
                 </div>
 
                 {bestFor ? (
-                  <p className='mt-3 line-clamp-2 rounded-xl bg-emerald-50 px-3 py-2 text-sm font-bold leading-5 text-emerald-900'>
+                  <p className='mt-3 line-clamp-2 rounded-xl bg-emerald-50 px-3 py-2 text-[0.9rem] font-bold leading-5 text-emerald-900'>
                     Best for: {bestFor}
                   </p>
                 ) : null}
 
-                <p className='mt-3 line-clamp-3 text-sm leading-6 text-slate-600'>{getPreview(item)}</p>
+                <p className='mt-3 line-clamp-3 text-[0.9rem] leading-6 text-slate-600'>{getPreview(item)}</p>
 
                 {meta.length ? (
                   <div className='mt-3 flex flex-wrap gap-2'>
@@ -290,7 +291,7 @@ export default function LibraryBrowser({
                 <div className='mt-auto pt-4'>
                   <div className='flex items-center justify-between gap-3'>
                     <div className='w-28'><EvidenceDots score={evidenceStrength} /></div>
-                    <span className='text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open →</span>
+                    <span className='text-sm font-black text-emerald-700 transition-all duration-200 ease-out group-hover:translate-x-1'>Open →</span>
                   </div>
                 </div>
               </Link>
