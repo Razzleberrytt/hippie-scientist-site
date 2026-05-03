@@ -4,19 +4,19 @@
 
 :root {
   --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --bg: #f6f1e8;
+  --bg: #f3eadc;
   --ink: #101815;
-  --surface-1: #fffaf0;
-  --surface-2: #eef8ef;
-  --surface-3: #172620;
+  --surface-1: #ffffff;
+  --surface-2: #f7fbf5;
+  --surface-3: #101815;
   --text-primary: #101815;
   --text-secondary: #33413c;
   --text-muted: #66736d;
-  --border-subtle: rgb(16 24 21 / 9%);
-  --border-default: rgb(16 24 21 / 13%);
-  --accent-primary: #13b981;
-  --accent-deep: #083f32;
-  --accent-soft: #dff8e9;
+  --border-subtle: rgb(16 24 21 / 10%);
+  --border-default: rgb(16 24 21 / 16%);
+  --accent-primary: #10b981;
+  --accent-deep: #064e3b;
+  --accent-soft: #dcfce7;
   --accent-warm: #f2c94c;
   --accent: var(--accent-primary);
 }
@@ -33,9 +33,9 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgb(19 185 129 / 16%), transparent 34rem),
-    radial-gradient(circle at 85% 10%, rgb(242 201 76 / 16%), transparent 28rem),
-    linear-gradient(180deg, #fff8eb 0%, #f6f1e8 42%, #edf7ef 100%);
+    radial-gradient(circle at top left, rgb(16 185 129 / 12%), transparent 28rem),
+    radial-gradient(circle at 85% 8%, rgb(242 201 76 / 13%), transparent 24rem),
+    linear-gradient(180deg, #fff7e8 0%, #f3eadc 45%, #edf7ef 100%);
   color: var(--text-primary);
   font-family: var(--font-body);
   text-rendering: optimizeLegibility;
@@ -44,12 +44,12 @@ body {
 }
 
 ::selection {
-  background: rgb(19 185 129 / 22%);
+  background: rgb(16 185 129 / 22%);
   color: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid rgb(19 185 129 / 75%);
+  outline: 2px solid rgb(16 185 129 / 80%);
   outline-offset: 3px;
 }
 
@@ -69,16 +69,19 @@ p {
   .container-page { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
 
   .ds-card {
-    @apply rounded-[1.5rem] border p-5 shadow-sm;
+    @apply rounded-[1.5rem] border bg-white p-5 shadow-sm;
     border-color: var(--border-default);
-    background: rgb(255 250 240 / 88%);
-    box-shadow: 0 20px 60px rgb(16 24 21 / 7%);
+    box-shadow: 0 18px 45px rgb(16 24 21 / 8%);
   }
 
   .premium-card {
-    @apply rounded-[1.5rem] border bg-white/80 shadow-sm backdrop-blur;
+    @apply rounded-[1.5rem] border bg-white shadow-sm;
     border-color: var(--border-default);
-    box-shadow: 0 18px 45px rgb(16 24 21 / 7%);
+    box-shadow: 0 18px 45px rgb(16 24 21 / 8%);
+  }
+
+  .premium-card:hover {
+    box-shadow: 0 24px 60px rgb(16 185 129 / 12%), 0 12px 30px rgb(16 24 21 / 8%);
   }
 
   .premium-link {
@@ -95,15 +98,28 @@ p {
 
   .hero-panel {
     @apply relative overflow-hidden rounded-[2rem] border p-6 shadow-xl sm:p-8;
-    border-color: rgb(8 63 50 / 14%);
+    border-color: rgb(8 63 50 / 16%);
     background:
-      radial-gradient(circle at top left, rgb(19 185 129 / 22%), transparent 32rem),
-      linear-gradient(135deg, rgb(255 255 255 / 92%), rgb(239 250 241 / 88%));
-    box-shadow: 0 28px 80px rgb(16 24 21 / 10%);
+      radial-gradient(circle at top left, rgb(16 185 129 / 20%), transparent 30rem),
+      linear-gradient(135deg, #ffffff 0%, #f1fbf3 100%);
+    box-shadow: 0 28px 80px rgb(16 24 21 / 11%);
   }
 
   .soft-section {
-    @apply rounded-[1.5rem] border bg-white/70 p-5 shadow-sm backdrop-blur;
+    @apply rounded-[1.5rem] border bg-white p-5 shadow-sm;
     border-color: var(--border-subtle);
+    box-shadow: 0 16px 40px rgb(16 24 21 / 7%);
+  }
+
+  .library-card-premium {
+    @apply rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-sm transition duration-200 ease-out;
+    color: #0f172a;
+    box-shadow: 0 14px 35px rgb(15 23 42 / 7%);
+  }
+
+  .library-card-premium:hover {
+    transform: translateY(-4px);
+    border-color: rgb(16 185 129 / 42%);
+    box-shadow: 0 28px 70px rgb(16 185 129 / 13%), 0 12px 32px rgb(15 23 42 / 10%);
   }
 }
