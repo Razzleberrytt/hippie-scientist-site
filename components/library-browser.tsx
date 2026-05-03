@@ -151,6 +151,32 @@ const cardAccent = (item: BrowserItem): string => {
   return 'from-emerald-300/14 via-white/[0.045] to-white/[0.02] border-emerald-200/18'
 }
 
+function MiniPickCard({ item }: { item: BrowserItem }) {
+  const goalSignals = getGoalSignals(item).slice(0, 2)
+
+  return (
+    <Link href={item.href} className='group rounded-2xl border border-amber-100/15 bg-black/22 p-4 transition hover:-translate-y-0.5 hover:border-amber-100/35 hover:bg-black/30'>
+      <div className='flex flex-wrap items-center gap-2'>
+        <span className='rounded-full border border-amber-200/25 bg-amber-300/12 px-2.5 py-1 text-[0.68rem] font-black text-amber-100'>Top pick</span>
+        <span className='rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[0.68rem] font-black text-emerald-100'>{getEvidenceStrength(item)}/5 evidence</span>
+      </div>
+      <h3 className='mt-3 text-lg font-black text-white group-hover:text-amber-100'>{item.title}</h3>
+      <p className='mt-2 line-clamp-2 text-sm font-semibold leading-6 text-white/62'>{getMicroHook(item) || getPreview(item)}</p>
+      {goalSignals.length ? (
+        <div className='mt-3 flex flex-wrap gap-1.5'>
+          {goalSignals.map(goal => (
+            <span key={goal.slug} className='rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[0.68rem] font-black text-white/55'>{goal.label}</span>
+          ))}
+        </div>
+      ) : null}
+      <div className='mt-4 flex items-center justify-between border-t border-white/10 pt-3'>
+        <span className='text-xs font-semibold text-white/45'>Start here</span>
+        <span className='text-sm font-black text-amber-100 transition group-hover:translate-x-1'>View →</span>
+      </div>
+    </Link>
+  )
+}
+
 export default function LibraryBrowser({
   eyebrow = 'Library',
   title,
@@ -199,6 +225,11 @@ export default function LibraryBrowser({
       return qualityRank(a) - qualityRank(b) || getEvidenceStrength(b) - getEvidenceStrength(a) || a.title.localeCompare(b.title)
     })
   }, [cleanItems, debouncedQuery, letter, qualityFilter, sortMode])
+
+  const topPicks = useMemo(
+    () => filteredItems.filter(item => !isDraftProfile(item) && (item.isATier || getEvidenceStrength(item) >= 5)).slice(0, 3),
+    [filteredItems],
+  )
 
   const resetFilters = () => {
     setQuery('')
@@ -258,6 +289,21 @@ export default function LibraryBrowser({
           <button type='button' onClick={resetFilters} className='rounded-full border border-white/10 bg-black/20 px-3 py-1.5 font-black text-white/60 hover:text-white'>Reset</button>
         </div>
       </section>
+
+      {topPicks.length > 0 ? (
+        <section className='relative overflow-hidden rounded-[1.8rem] border border-amber-200/20 bg-[radial-gradient(circle_at_top_left,rgba(251,191,36,0.14),transparent_35%),rgba(255,255,255,0.035)] p-5 shadow-xl shadow-black/10'>
+          <div className='flex flex-wrap items-end justify-between gap-3'>
+            <div>
+              <p className='text-xs font-black uppercase tracking-[0.22em] text-amber-100/70'>Recommended first</p>
+              <h2 className='mt-1 text-2xl font-black text-white'>Top picks</h2>
+            </div>
+            <p className='max-w-md text-sm leading-6 text-white/55'>High-confidence profiles worth checking before browsing the full library.</p>
+          </div>
+          <div className='mt-4 grid gap-3 md:grid-cols-3'>
+            {topPicks.map(item => <MiniPickCard key={item.slug} item={item} />)}
+          </div>
+        </section>
+      ) : null}
 
       {filteredItems.length > 0 ? (
         <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
