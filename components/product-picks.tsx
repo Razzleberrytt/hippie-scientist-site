@@ -1,5 +1,6 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import type { CompoundProductPicks } from '@/config/real-product-picks'
+import TrackedAffiliateLink from '@/components/tracked-affiliate-link'
 
 type Props = {
   picks: CompoundProductPicks
@@ -35,14 +36,21 @@ export default function ProductPicks({ picks }: Props) {
               <h3 className="mt-2 text-2xl font-black text-slate-950">{featured.productName}</h3>
               <p className="mt-1 text-sm font-bold text-slate-600">{featured.brand} · {featured.form}</p>
             </div>
-            <a
+            <TrackedAffiliateLink
               href={makeProductUrl(featured.searchQuery)}
               target="_blank"
               rel="noopener noreferrer sponsored"
               className="rounded-full bg-emerald-500 px-5 py-3 text-sm font-black text-white shadow-sm transition hover:bg-emerald-600"
+              tracking={{
+                compoundSlug: picks.compoundSlug,
+                productName: featured.productName,
+                productLabel: featured.label,
+                brand: featured.brand,
+                destination: 'amazon',
+              }}
             >
               Compare prices →
-            </a>
+            </TrackedAffiliateLink>
           </div>
 
           <div className="mt-4 grid gap-3 md:grid-cols-3">
@@ -80,14 +88,21 @@ export default function ProductPicks({ picks }: Props) {
               {pick.caution ? (
                 <p className="mt-3 text-sm font-semibold leading-6 text-amber-800">Safety check: {pick.caution}</p>
               ) : null}
-              <a
+              <TrackedAffiliateLink
                 href={makeProductUrl(pick.searchQuery)}
                 target="_blank"
                 rel="noopener noreferrer sponsored"
                 className="mt-4 inline-flex rounded-full border border-emerald-900/10 px-4 py-2 text-sm font-black text-emerald-700 transition hover:bg-emerald-50"
+                tracking={{
+                  compoundSlug: picks.compoundSlug,
+                  productName: pick.productName,
+                  productLabel: pick.label,
+                  brand: pick.brand,
+                  destination: 'amazon',
+                }}
               >
                 Compare options →
-              </a>
+              </TrackedAffiliateLink>
             </article>
           ))}
         </div>
