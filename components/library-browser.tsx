@@ -38,8 +38,8 @@ const isDraftProfile = (item: BrowserItem): boolean => {
 
 const getPreview = (item: BrowserItem): string => {
   const text = normalizeText(item.summary)
-  if (isDraftProfile(item)) return 'Needs a clean public summary, but metadata may still be searchable.'
-  return text.length > 110 ? `${text.slice(0, 109).trimEnd()}…` : text
+  if (isDraftProfile(item)) return 'Needs a clean public summary, but the profile may still include useful searchable metadata.'
+  return text.length > 150 ? `${text.slice(0, 149).trimEnd()}…` : text
 }
 
 const formatChip = (value: string): string =>
@@ -54,6 +54,12 @@ const qualityRank = (item: BrowserItem): number => {
   if (item.isATier) return 0
   if (!isDraftProfile(item)) return 1
   return 2
+}
+
+const cardAccent = (item: BrowserItem): string => {
+  if (item.isATier) return 'from-amber-300/18 via-white/[0.045] to-white/[0.02] border-amber-200/25'
+  if (isDraftProfile(item)) return 'from-slate-300/8 via-white/[0.025] to-white/[0.015] border-white/10'
+  return 'from-emerald-300/14 via-white/[0.045] to-white/[0.02] border-emerald-200/18'
 }
 
 export default function LibraryBrowser({
@@ -114,74 +120,87 @@ export default function LibraryBrowser({
   }
 
   return (
-    <div className='mx-auto w-full max-w-6xl space-y-4 py-2'>
-      <section className='rounded-2xl border border-white/10 bg-white/[0.025] p-5'>
-        <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100/60'>{eyebrow}</p>
-        <h1 className='mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl'>{title}</h1>
-        {description ? <p className='mt-3 max-w-2xl text-sm leading-6 text-white/60 sm:text-base'>{description}</p> : null}
-        <div className='mt-4 flex flex-wrap gap-2 text-xs font-bold text-white/55'>
-          <span className='rounded-full border border-white/10 px-3 py-1.5'><span className='text-white'>{stats.total}</span> profiles</span>
-          <span className='rounded-full border border-white/10 px-3 py-1.5'><span className='text-white'>{stats.ready}</span> useful summaries</span>
-          {stats.aTier > 0 ? <span className='rounded-full border border-amber-200/20 px-3 py-1.5 text-amber-100'>{stats.aTier} A-tier</span> : null}
+    <div className='mx-auto w-full max-w-7xl space-y-6 py-2'>
+      <section className='relative overflow-hidden rounded-[2rem] border border-emerald-300/20 bg-[radial-gradient(circle_at_top_left,rgba(52,211,153,0.17),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.025))] p-6 shadow-2xl shadow-black/25 sm:p-8'>
+        <div className='absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-300/10 blur-3xl' />
+        <div className='relative'>
+          <p className='text-xs font-black uppercase tracking-[0.24em] text-emerald-100/70'>{eyebrow}</p>
+          <h1 className='mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl'>{title}</h1>
+          {description ? <p className='mt-4 max-w-3xl text-base leading-7 text-white/70 sm:text-lg'>{description}</p> : null}
+          <div className='mt-5 flex flex-wrap gap-2 text-xs font-black text-white/60'>
+            <span className='rounded-full border border-white/10 bg-black/20 px-3 py-1.5'><span className='text-white'>{stats.total}</span> profiles</span>
+            <span className='rounded-full border border-emerald-200/20 bg-emerald-300/10 px-3 py-1.5 text-emerald-100'><span className='text-white'>{stats.ready}</span> useful summaries</span>
+            {stats.aTier > 0 ? <span className='rounded-full border border-amber-200/25 bg-amber-300/10 px-3 py-1.5 text-amber-100'>{stats.aTier} A-tier</span> : null}
+          </div>
         </div>
       </section>
 
-      <section className='rounded-2xl border border-white/10 bg-white/[0.02] p-3'>
-        <div className='grid gap-2 md:grid-cols-[1fr_auto_auto]'>
+      <section className='rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-xl shadow-black/10'>
+        <div className='grid gap-3 md:grid-cols-[1fr_auto_auto]'>
           <input
             value={query}
             onChange={event => setQuery(event.target.value)}
             placeholder={searchPlaceholder}
-            className='w-full rounded-xl border border-white/10 bg-[#101418] px-4 py-3 text-base text-white outline-none transition placeholder:text-white/35 focus:border-emerald-200/45'
+            className='w-full rounded-2xl border border-white/10 bg-black/25 px-4 py-3 text-base text-white outline-none transition placeholder:text-white/35 focus:border-emerald-200/55 focus:bg-black/35'
           />
-          <select value={qualityFilter} onChange={event => setQualityFilter(event.target.value as QualityFilter)} className='rounded-xl border border-white/10 bg-[#101418] px-3 py-3 text-sm text-white'>
+          <select value={qualityFilter} onChange={event => setQualityFilter(event.target.value as QualityFilter)} className='rounded-2xl border border-white/10 bg-black/25 px-3 py-3 text-sm font-bold text-white'>
             <option value='all'>All profiles</option>
             <option value='ready'>Useful only</option>
             <option value='drafts'>Needs summary</option>
           </select>
-          <select value={sortMode} onChange={event => setSortMode(event.target.value as SortMode)} className='rounded-xl border border-white/10 bg-[#101418] px-3 py-3 text-sm text-white'>
+          <select value={sortMode} onChange={event => setSortMode(event.target.value as SortMode)} className='rounded-2xl border border-white/10 bg-black/25 px-3 py-3 text-sm font-bold text-white'>
             <option value='best'>Best first</option>
             <option value='a-z'>A to Z</option>
             <option value='z-a'>Z to A</option>
           </select>
         </div>
 
-        <div className='mt-3 flex gap-1.5 overflow-x-auto pb-1'>
-          <button type='button' onClick={() => setLetter('')} className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-bold transition ${!letter ? 'bg-emerald-200 text-slate-950' : 'border border-white/10 text-white/55 hover:text-white'}`}>All</button>
+        <div className='mt-4 flex gap-1.5 overflow-x-auto pb-1'>
+          <button type='button' onClick={() => setLetter('')} className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-black transition ${!letter ? 'bg-emerald-200 text-slate-950' : 'border border-white/10 bg-black/20 text-white/55 hover:text-white'}`}>All</button>
           {LETTERS.map(currentLetter => (
-            <button key={currentLetter} type='button' onClick={() => setLetter(activeLetter => activeLetter === currentLetter ? '' : currentLetter)} className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-bold transition ${letter === currentLetter ? 'bg-emerald-200 text-slate-950' : 'border border-white/10 text-white/55 hover:text-white'}`}>
+            <button key={currentLetter} type='button' onClick={() => setLetter(activeLetter => activeLetter === currentLetter ? '' : currentLetter)} className={`shrink-0 rounded-full px-3 py-1.5 text-sm font-black transition ${letter === currentLetter ? 'bg-emerald-200 text-slate-950' : 'border border-white/10 bg-black/20 text-white/55 hover:text-white'}`}>
               {currentLetter}
             </button>
           ))}
         </div>
 
-        <div className='mt-3 flex items-center justify-between gap-3 text-xs text-white/45'>
+        <div className='mt-4 flex items-center justify-between gap-3 text-xs text-white/45'>
           <span>Showing <strong className='text-white'>{filteredItems.length}</strong> of {stats.total}</span>
-          <button type='button' onClick={resetFilters} className='rounded-full border border-white/10 px-3 py-1.5 font-bold text-white/60 hover:text-white'>Reset</button>
+          <button type='button' onClick={resetFilters} className='rounded-full border border-white/10 bg-black/20 px-3 py-1.5 font-black text-white/60 hover:text-white'>Reset</button>
         </div>
       </section>
 
       {filteredItems.length > 0 ? (
-        <div className='overflow-hidden rounded-2xl border border-white/10 bg-white/[0.018]'>
+        <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
           {filteredItems.map(item => {
             const draft = isDraftProfile(item)
-            const meta = (item.meta ?? []).filter(Boolean).slice(0, 4)
+            const meta = (item.meta ?? []).filter(Boolean).slice(0, 3)
             return (
-              <Link key={item.slug} href={item.href} className='group block border-b border-white/8 px-4 py-3.5 text-white transition last:border-b-0 hover:bg-white/[0.035]'>
-                <div className='flex items-start justify-between gap-4'>
-                  <div className='min-w-0 flex-1'>
-                    <div className='flex flex-wrap items-center gap-2'>
-                      <h2 className='text-base font-black leading-tight tracking-tight text-white group-hover:text-emerald-100 sm:text-lg'>{item.title}</h2>
-                      {item.isATier ? <span className='rounded-full border border-amber-200/20 px-2 py-0.5 text-[0.68rem] font-bold text-amber-100/75'>A-tier</span> : null}
-                      {draft ? <span className='rounded-full border border-white/10 px-2 py-0.5 text-[0.68rem] font-bold text-white/35'>Needs summary</span> : null}
-                    </div>
-                    <p className='mt-1 line-clamp-2 text-sm leading-5 text-white/58'>{getPreview(item)}</p>
-                    <div className='mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/45'>
-                      {item.domain ? <span className='text-emerald-100/65'>{formatChip(item.domain)}</span> : null}
-                      {meta.map(value => <span key={value}>{value}</span>)}
-                    </div>
+              <Link key={item.slug} href={item.href} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
+                <div className='pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-white/8 blur-2xl transition group-hover:bg-emerald-300/12' />
+                <div className='relative flex flex-wrap items-center gap-2'>
+                  <span className='rounded-full border border-white/10 bg-black/25 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.16em] text-white/50'>{item.typeLabel || 'Profile'}</span>
+                  {item.isATier ? <span className='rounded-full border border-amber-200/25 bg-amber-300/12 px-2.5 py-1 text-[0.68rem] font-black text-amber-100'>A-tier</span> : null}
+                  {draft ? <span className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.68rem] font-black text-white/35'>Needs summary</span> : null}
+                </div>
+
+                <div className='relative mt-4 flex-1'>
+                  <h2 className='text-xl font-black leading-tight tracking-tight text-white group-hover:text-emerald-100'>{item.title}</h2>
+                  {item.domain ? <p className='mt-2 text-xs font-black uppercase tracking-[0.16em] text-emerald-100/60'>{formatChip(item.domain)}</p> : null}
+                  <p className='mt-3 line-clamp-4 text-sm leading-6 text-white/66'>{getPreview(item)}</p>
+                </div>
+
+                {meta.length ? (
+                  <div className='relative mt-4 flex flex-wrap gap-2'>
+                    {meta.map(value => (
+                      <span key={value} className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.72rem] font-semibold text-white/52'>{value}</span>
+                    ))}
                   </div>
-                  <span className='mt-0.5 shrink-0 text-sm font-bold text-emerald-200 transition group-hover:translate-x-1'>View →</span>
+                ) : null}
+
+                <div className='relative mt-5 flex items-center justify-between border-t border-white/10 pt-4'>
+                  <span className='text-xs font-semibold text-white/45'>Open profile</span>
+                  <span className='text-sm font-black text-emerald-200 transition group-hover:translate-x-1'>View →</span>
                 </div>
               </Link>
             )
