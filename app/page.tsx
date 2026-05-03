@@ -46,6 +46,14 @@ export default function HomePage() {
       </section>
 
       <section>
+        <h2 className="text-2xl font-black text-white">Start with a goal</h2>
+        <div className="mt-3 flex flex-col gap-2">
+          <Link href="/goals/sleep" className="text-emerald-300 font-bold">Best supplements for sleep →</Link>
+          <Link href="/goals/focus" className="text-emerald-300 font-bold">Best supplements for focus →</Link>
+        </div>
+      </section>
+
+      <section>
         <div className="flex items-end justify-between gap-3">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.2em] text-emerald-100/55">Start here</p>
