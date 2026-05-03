@@ -38,8 +38,35 @@ const isDraftProfile = (item: BrowserItem): boolean => {
 
 const getPreview = (item: BrowserItem): string => {
   const text = normalizeText(item.summary)
-  if (isDraftProfile(item)) return 'Summary is still being refined, but this profile may include useful library context.'
-  return text.length > 165 ? `${text.slice(0, 164).trimEnd()}…` : text
+  if (isDraftProfile(item)) return 'Profile summary is still being refined; open it for available context.'
+  return text.length > 120 ? `${text.slice(0, 119).trimEnd()}…` : text
+}
+
+const getUsefulHook = (item: BrowserItem): string => {
+  const meta = item.meta ?? []
+  const bestFor = meta.find(value => value.toLowerCase().startsWith('best for:'))
+  if (bestFor) return bestFor.replace(/^best for:\s*/i, '').trim()
+
+  const summary = normalizeText(item.summary)
+  const sentence = summary
+    .split(/[.!?]/)
+    .map(value => value.trim())
+    .find(value => value.length > 22 && !/profile coming soon|coming soon/i.test(value))
+
+  return sentence || ''
+}
+
+const getUseCase = (item: BrowserItem): string => {
+  const text = `${item.title} ${item.slug} ${item.domain ?? ''} ${item.summary ?? ''} ${(item.meta ?? []).join(' ')}`.toLowerCase()
+  if (/sleep|insomnia|melatonin|bedtime|circadian/.test(text)) return 'Sleep support'
+  if (/stress|anxiety|calm|cortisol|adaptogen/.test(text)) return 'Stress support'
+  if (/focus|attention|memory|cognition|alertness|energy/.test(text)) return 'Focus support'
+  if (/joint|cartilage|arthritis|inflammation/.test(text)) return 'Joint support'
+  if (/gut|digestion|microbiome|fiber|bloating/.test(text)) return 'Gut support'
+  if (/fat loss|weight|metabolic|appetite|glucose/.test(text)) return 'Metabolic support'
+  if (/blood pressure|vascular|circulation|heart/.test(text)) return 'Cardio support'
+  if (/testosterone|libido|fertility|male/.test(text)) return 'Hormone support'
+  return item.domain ? formatChip(item.domain) : 'General profile'
 }
 
 const formatChip = (value: string): string =>
@@ -51,9 +78,8 @@ const formatChip = (value: string): string =>
     .join(' ')
 
 const getBestFor = (item: BrowserItem): string => {
-  const meta = item.meta ?? []
-  const bestFor = meta.find(value => value.toLowerCase().startsWith('best for:'))
-  if (bestFor) return bestFor.replace(/^best for:\s*/i, '').trim()
+  const hook = getUsefulHook(item)
+  if (hook) return hook.length > 82 ? `${hook.slice(0, 81).trimEnd()}…` : hook
   if (item.domain) return formatChip(item.domain)
   return ''
 }
@@ -67,11 +93,9 @@ const getEvidenceStrength = (item: BrowserItem): number => {
 }
 
 const getConversionBadge = (item: BrowserItem): string => {
-  const text = `${item.title} ${item.slug} ${item.domain ?? ''} ${(item.meta ?? []).join(' ')}`.toLowerCase()
-  if (item.isATier) return 'Top evidence pick'
-  if (/sleep|stress|focus|fat loss|blood pressure|gut|joint|testosterone/.test(text)) return 'Goal-ready'
-  if (/dose|onset|duration|best for/.test(text)) return 'Decision-ready'
-  return 'Research profile'
+  if (item.isATier) return 'Top pick'
+  if (isDraftProfile(item)) return 'Needs review'
+  return getEvidenceStrength(item) >= 4 ? 'Useful profile' : 'Research profile'
 }
 
 const qualityRank = (item: BrowserItem): number => {
@@ -82,9 +106,9 @@ const qualityRank = (item: BrowserItem): number => {
 
 function EvidenceDots({ score }: { score: number }) {
   return (
-    <div className='flex items-center gap-1.5' aria-label={`Evidence signal ${score} out of 5`}>
+    <div className='flex items-center gap-1' aria-label={`Evidence signal ${score} out of 5`}>
       {[1, 2, 3, 4, 5].map(value => (
-        <span key={value} className={`h-1.5 w-7 rounded-full ${value <= score ? 'bg-emerald-500' : 'bg-slate-200'}`} />
+        <span key={value} className={`h-1.5 flex-1 rounded-full ${value <= score ? 'bg-emerald-500' : 'bg-slate-200'}`} />
       ))}
     </div>
   )
@@ -153,22 +177,22 @@ export default function LibraryBrowser({
   }
 
   return (
-    <div className='mx-auto w-full max-w-7xl space-y-8 py-2'>
-      <section className='relative overflow-hidden rounded-[2rem] bg-slate-950 p-6 text-white shadow-xl shadow-slate-900/15 sm:p-8'>
+    <div className='mx-auto w-full max-w-7xl space-y-6 py-2'>
+      <section className='relative overflow-hidden rounded-[2rem] bg-slate-950 p-5 text-white shadow-xl shadow-slate-900/15 sm:p-7'>
         <div className='absolute -right-24 -top-24 h-72 w-72 rounded-full bg-emerald-400/20 blur-3xl' />
         <div className='relative max-w-3xl'>
           <p className='text-xs font-black uppercase tracking-[0.26em] text-emerald-200/70'>{eyebrow}</p>
-          <h1 className='mt-3 text-5xl font-black leading-[0.96] tracking-tight text-white sm:text-7xl'>{title}</h1>
-          {description ? <p className='mt-4 max-w-2xl text-base leading-7 text-white/72 sm:text-lg'>{description}</p> : null}
-          <div className='mt-6 flex flex-wrap gap-2 text-xs font-black'>
+          <h1 className='mt-3 text-4xl font-black leading-[0.96] tracking-tight text-white sm:text-6xl'>{title}</h1>
+          {description ? <p className='mt-4 max-w-2xl text-base leading-7 text-white/72'>{description}</p> : null}
+          <div className='mt-5 flex flex-wrap gap-2 text-xs font-black'>
             <span className='rounded-full bg-white px-4 py-2 text-slate-950'>{filteredItems.length} of {stats.total} shown</span>
-            <span className='rounded-full border border-white/10 bg-white/10 px-4 py-2 text-white/75'>{stats.ready} useful summaries</span>
+            <span className='rounded-full border border-white/10 bg-white/10 px-4 py-2 text-white/75'>{stats.ready} useful</span>
             {stats.aTier > 0 ? <span className='rounded-full border border-amber-200/25 bg-amber-300/15 px-4 py-2 text-amber-100'>{stats.aTier} A-tier</span> : null}
           </div>
         </div>
       </section>
 
-      <section className='space-y-4'>
+      <section className='space-y-3'>
         <div className='grid gap-3 md:grid-cols-[1fr_auto_auto]'>
           <input
             value={query}
@@ -204,21 +228,24 @@ export default function LibraryBrowser({
       </section>
 
       {topPicks.length > 0 ? (
-        <section className='rounded-[1.75rem] border border-amber-200 bg-amber-50/80 p-5 shadow-sm'>
+        <section className='rounded-[1.5rem] border border-amber-200 bg-amber-50/80 p-4 shadow-sm'>
           <div className='flex flex-wrap items-end justify-between gap-3'>
             <div>
               <p className='text-xs font-black uppercase tracking-[0.22em] text-amber-700/70'>Recommended first</p>
-              <h2 className='mt-1 text-3xl font-black text-slate-950'>Top picks</h2>
+              <h2 className='mt-1 text-2xl font-black text-slate-950'>Top picks</h2>
             </div>
-            <p className='max-w-md text-sm leading-6 text-slate-600'>Higher-confidence profiles worth checking before browsing the full library.</p>
+            <p className='max-w-md text-sm leading-6 text-slate-600'>Higher-confidence profiles worth checking first.</p>
           </div>
-          <div className='mt-4 grid gap-3 md:grid-cols-3'>
+          <div className='mt-3 grid gap-3 md:grid-cols-3'>
             {topPicks.map(item => (
               <Link key={item.slug} href={item.href} className='group rounded-2xl border border-amber-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md'>
-                <span className='rounded-full bg-amber-100 px-2.5 py-1 text-[0.68rem] font-black text-amber-800'>Top pick</span>
+                <div className='flex items-center justify-between gap-3'>
+                  <span className='rounded-full bg-amber-100 px-2.5 py-1 text-[0.68rem] font-black text-amber-800'>Top pick</span>
+                  <span className='text-xs font-black text-emerald-700'>{getEvidenceStrength(item)}/5</span>
+                </div>
                 <h3 className='mt-3 text-lg font-black text-slate-950 group-hover:text-emerald-800'>{item.title}</h3>
-                <p className='mt-2 line-clamp-2 text-sm leading-6 text-slate-600'>{getPreview(item)}</p>
-                <span className='mt-3 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open profile →</span>
+                <p className='mt-2 line-clamp-2 text-sm leading-6 text-slate-600'>{getBestFor(item) || getPreview(item)}</p>
+                <span className='mt-3 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open →</span>
               </Link>
             ))}
           </div>
@@ -226,52 +253,45 @@ export default function LibraryBrowser({
       ) : null}
 
       {filteredItems.length > 0 ? (
-        <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+        <div className='grid gap-3 sm:grid-cols-2 xl:grid-cols-3'>
           {filteredItems.map(item => {
             const draft = isDraftProfile(item)
-            const meta = (item.meta ?? []).filter(Boolean).slice(0, 2)
+            const meta = (item.meta ?? []).filter(Boolean).slice(0, 1)
             const bestFor = getBestFor(item)
             const evidenceStrength = getEvidenceStrength(item)
+            const useCase = getUseCase(item)
 
             return (
-              <Link key={item.slug} href={item.href} className='group flex min-h-[220px] flex-col rounded-[1.6rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg'>
-                <div className='flex flex-wrap items-center gap-2'>
-                  <span className='rounded-full bg-emerald-50 px-2.5 py-1 text-[0.68rem] font-black text-emerald-700'>{getConversionBadge(item)}</span>
-                  <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.14em] text-slate-500'>{item.typeLabel || 'Profile'}</span>
-                  {item.isATier ? <span className='rounded-full bg-amber-100 px-2.5 py-1 text-[0.68rem] font-black text-amber-800'>A-tier</span> : null}
-                  {draft ? <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[0.68rem] font-black text-slate-500'>Being refined</span> : null}
+              <Link key={item.slug} href={item.href} className='group flex min-h-[180px] flex-col rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-lg'>
+                <div className='flex items-start justify-between gap-3'>
+                  <div className='min-w-0'>
+                    <p className='text-[0.68rem] font-black uppercase tracking-[0.14em] text-emerald-700/65'>{useCase}</p>
+                    <h2 className='mt-1 line-clamp-2 text-xl font-black leading-tight tracking-tight text-slate-950 group-hover:text-emerald-800'>{item.title}</h2>
+                  </div>
+                  <span className='shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[0.66rem] font-black text-slate-600'>{getConversionBadge(item)}</span>
                 </div>
 
-                <div className='mt-4 flex-1'>
-                  <h2 className='text-2xl font-black leading-tight tracking-tight text-slate-950 group-hover:text-emerald-800'>{item.title}</h2>
-                  {item.domain ? <p className='mt-2 text-xs font-black uppercase tracking-[0.16em] text-emerald-700/60'>{formatChip(item.domain)}</p> : null}
-                  {bestFor ? (
-                    <p className='mt-3 rounded-2xl bg-emerald-50 px-3 py-2 text-sm font-bold leading-6 text-emerald-900'>
-                      Best for: {bestFor}
-                    </p>
-                  ) : null}
-                  <p className='mt-3 line-clamp-4 text-sm leading-6 text-slate-650 text-slate-600'>{getPreview(item)}</p>
-                </div>
+                {bestFor ? (
+                  <p className='mt-3 line-clamp-2 rounded-xl bg-emerald-50 px-3 py-2 text-sm font-bold leading-5 text-emerald-900'>
+                    Best for: {bestFor}
+                  </p>
+                ) : null}
+
+                <p className='mt-3 line-clamp-3 text-sm leading-6 text-slate-600'>{getPreview(item)}</p>
 
                 {meta.length ? (
-                  <div className='mt-4 flex flex-wrap gap-2'>
+                  <div className='mt-3 flex flex-wrap gap-2'>
                     {meta.map(value => (
-                      <span key={value} className='rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[0.72rem] font-semibold text-slate-500'>{value}</span>
+                      <span key={value} className='rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[0.7rem] font-semibold text-slate-500'>{value}</span>
                     ))}
                   </div>
                 ) : null}
 
-                <div className='mt-5 border-t border-slate-200 pt-4'>
+                <div className='mt-auto pt-4'>
                   <div className='flex items-center justify-between gap-3'>
-                    <span className='text-[0.7rem] font-black uppercase tracking-[0.14em] text-slate-400'>Evidence signal</span>
-                    <span className='text-xs font-black text-slate-500'>{evidenceStrength}/5</span>
+                    <div className='w-28'><EvidenceDots score={evidenceStrength} /></div>
+                    <span className='text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open →</span>
                   </div>
-                  <div className='mt-2'><EvidenceDots score={evidenceStrength} /></div>
-                </div>
-
-                <div className='mt-5 flex items-center justify-between gap-3'>
-                  <span className='text-xs font-semibold text-slate-500'>Benefits, safety, and forms</span>
-                  <span className='text-sm font-black text-emerald-700 transition group-hover:translate-x-1'>Open →</span>
                 </div>
               </Link>
             )
