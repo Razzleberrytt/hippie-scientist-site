@@ -54,7 +54,7 @@ const getSummary = (compound: any, label: string) =>
   usable(compound?.evidence_summary) ||
   usable(compound?.mechanism_summary) ||
   usable(compound?.safety_summary) ||
-  `${label} is in the compound library. Use the related stack, evidence snapshot, and safety notes before comparing products.`
+  `${label} is in the compound library. Use stack context, safety notes, and comparisons before choosing a product format.`
 
 const getSafety = (compound: any) =>
   usable(compound?.safety_summary) ||
@@ -62,10 +62,12 @@ const getSafety = (compound: any) =>
   usable(compound?.safetyNotes) ||
   usable(compound?.avoid_if) ||
   usable(compound?.contraindications_interactions) ||
-  'Review dosage, medication interactions, pregnancy status, medical conditions, and tolerance before using any supplement.'
+  'Review dose, medication interactions, pregnancy status, medical conditions, and tolerance before using any supplement.'
 
-const getEvidenceLabel = (compound: any) =>
-  usable(compound?.evidence_grade) || usable(compound?.evidenceTier) || usable(compound?.tier_level) || usable(compound?.summary_quality) || 'Needs review'
+const getEvidenceLabel = (compound: any) => {
+  const label = usable(compound?.evidence_grade) || usable(compound?.evidenceTier) || usable(compound?.tier_level) || usable(compound?.summary_quality)
+  return label && !/needs review/i.test(label) ? label : 'Still being evaluated'
+}
 
 const getFactScore = (compound: any) => {
   const value = Number(compound?.fact_score_v2 ?? compound?.factScore ?? compound?.net_score ?? 0)
@@ -79,6 +81,18 @@ const getDecisionFacts = (compound: any) => [
   usable(compound?.dosage_range) ? ['Typical dose', usable(compound.dosage_range)] : null,
   usable(compound?.oral_form) ? ['Common form', usable(compound.oral_form)] : null,
 ].filter(Boolean) as Array<[string, string]>
+
+const getQuickTake = (compound: any, decisionFacts: Array<[string, string]>) => {
+  const bestFor = decisionFacts.find(([name]) => name === 'Best for')?.[1]
+  const onset = decisionFacts.find(([name]) => name === 'Onset')?.[1]
+  const form = decisionFacts.find(([name]) => name === 'Common form')?.[1]
+
+  return [
+    bestFor ? `Best used when: ${bestFor}` : 'Best used after checking whether it fits your goal and safety context.',
+    onset ? `Expected timing: ${onset}` : 'Expected timing may vary, so compare it with more established options first.',
+    form ? `Common form: ${form}` : 'Check the product format before assuming dose or quality.',
+  ]
+}
 
 export async function generateStaticParams() {
   const compounds = await getCompounds()
@@ -109,6 +123,7 @@ export default async function Page({ params }: any) {
   const evidenceLabel = getEvidenceLabel(compound)
   const factScore = getFactScore(compound)
   const decisionFacts = getDecisionFacts(compound)
+  const quickTake = getQuickTake(compound, decisionFacts)
 
   const relatedStacks = stacks.filter((stack) =>
     Array.isArray(stack.stack) && stack.stack.some((item: any) => matchesCompound(item.compound, aliases))
@@ -129,53 +144,71 @@ export default async function Page({ params }: any) {
   const primaryProduct = links[0]
 
   return (
-    <main className="space-y-5">
-      <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-6">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-100/60">Compound guide</p>
-        <h1 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">{label}</h1>
-        <p className="mt-3 max-w-3xl text-base leading-7 text-white/68">{summary}</p>
-        <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold text-white/55">
-          <span className="rounded-full border border-white/10 px-3 py-1.5">Evidence: {String(evidenceLabel)}</span>
-          {relatedStacks.length > 0 ? <span className="rounded-full border border-white/10 px-3 py-1.5">{relatedStacks.length} stack{relatedStacks.length === 1 ? '' : 's'}</span> : null}
-          {factScore ? <span className="rounded-full border border-amber-200/20 px-3 py-1.5 text-amber-100">Score: {factScore}</span> : null}
+    <main className="space-y-8">
+      <section className="hero-panel">
+        <div className="relative max-w-4xl">
+          <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-800/70">Compound guide</p>
+          <h1 className="mt-3 text-5xl font-black leading-[0.95] tracking-tight text-slate-950 sm:text-7xl">{label}</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-700">{summary}</p>
+          <div className="mt-5 flex flex-wrap gap-2 text-xs font-black text-slate-600">
+            <span className="rounded-full border border-slate-900/10 bg-white/75 px-3 py-1.5">Evidence: {String(evidenceLabel)}</span>
+            {relatedStacks.length > 0 ? <span className="rounded-full border border-emerald-900/10 bg-emerald-50 px-3 py-1.5 text-emerald-800">{relatedStacks.length} stack{relatedStacks.length === 1 ? '' : 's'}</span> : null}
+            {factScore ? <span className="rounded-full border border-amber-900/10 bg-amber-100 px-3 py-1.5 text-amber-900">Score: {factScore}</span> : null}
+          </div>
         </div>
       </section>
 
-      <section className="rounded-2xl border border-emerald-200/15 bg-emerald-200/[0.045] p-5">
-        <h2 className="text-2xl font-black text-white">Best next step</h2>
-        <p className="mt-2 text-sm leading-6 text-white/66">
-          {primaryStack ? 'Use the full stack first so this compound fits into dosage, timing, and safety context.' : 'No stack is linked yet, so check the evidence and safety notes before comparing products.'}
-        </p>
-        <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-          {primaryStack ? <Link href={`/stacks/${primaryStack.slug}`} className="premium-button text-center">View best stack →</Link> : null}
-          {primaryGoal ? <Link href={`/goals/${primaryGoal.slug}`} className="rounded-xl border border-white/10 px-5 py-3 text-center text-sm font-black text-white/80 hover:bg-white/5">Open goal guide →</Link> : null}
-          {!primaryStack && primaryProduct ? <a href={primaryProduct.url} target="_blank" rel="nofollow sponsored noopener noreferrer" className="premium-button text-center">Compare products →</a> : null}
-        </div>
+      <section className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+        <article className="soft-section">
+          <h2 className="text-2xl font-black text-slate-950">Quick take</h2>
+          <ul className="mt-4 space-y-3">
+            {quickTake.map(item => (
+              <li key={item} className="flex gap-3 text-sm font-semibold leading-6 text-slate-700">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="soft-section bg-emerald-50/80">
+          <h2 className="text-2xl font-black text-slate-950">What to do next</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-600">
+            {primaryStack ? 'Start with the related routine so this compound has timing, dose, and safety context.' : 'This compound is best evaluated with broader routines, comparisons, and safety context first.'}
+          </p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            {primaryStack ? <Link href={`/stacks/${primaryStack.slug}`} className="premium-button text-center">View related stack →</Link> : null}
+            {primaryGoal ? <Link href={`/goals/${primaryGoal.slug}`} className="rounded-2xl border border-slate-900/10 bg-white px-5 py-3 text-center text-sm font-black text-slate-900 transition hover:bg-emerald-50">Open goal guide →</Link> : null}
+            {relatedComparisons[0] ? <Link href={`/compare/${relatedComparisons[0].slug}`} className="rounded-2xl border border-slate-900/10 bg-white px-5 py-3 text-center text-sm font-black text-slate-900 transition hover:bg-emerald-50">Compare options →</Link> : null}
+            {!primaryStack && !primaryGoal ? <Link href="/stacks" className="premium-button text-center">Browse routines →</Link> : null}
+            {!primaryStack && primaryProduct ? <a href={primaryProduct.url} target="_blank" rel="nofollow sponsored noopener noreferrer" className="rounded-2xl border border-slate-900/10 bg-white px-5 py-3 text-center text-sm font-black text-slate-900 transition hover:bg-emerald-50">Search products →</a> : null}
+          </div>
+        </article>
       </section>
 
       {decisionFacts.length > 0 ? (
-        <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
-          <h2 className="text-xl font-black text-white">Quick decision facts</h2>
+        <section className="soft-section">
+          <h2 className="text-2xl font-black text-slate-950">Decision facts</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {decisionFacts.slice(0, 6).map(([name, value]) => (
-              <div key={name} className="rounded-xl border border-white/10 bg-black/15 p-3">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/38">{name}</p>
-                <p className="mt-1 text-sm leading-6 text-white/75">{value}</p>
+              <div key={name} className="rounded-2xl border border-slate-900/10 bg-white/75 p-4">
+                <p className="text-xs font-black uppercase tracking-[0.14em] text-slate-500">{name}</p>
+                <p className="mt-1 text-sm leading-6 text-slate-700">{value}</p>
               </div>
             ))}
           </div>
         </section>
       ) : null}
 
-      <section className="grid gap-3 md:grid-cols-2">
-        <article className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
-          <h2 className="text-xl font-black text-white">Evidence snapshot</h2>
-          <p className="mt-3 text-sm leading-6 text-white/70"><span className="font-bold text-white">Evidence:</span> {String(evidenceLabel)}</p>
-          <p className="mt-2 text-sm leading-6 text-white/62"><span className="font-bold text-white">Best path:</span> stack first, product second.</p>
+      <section className="grid gap-4 md:grid-cols-2">
+        <article className="soft-section">
+          <h2 className="text-2xl font-black text-slate-950">Evidence context</h2>
+          <p className="mt-3 text-sm leading-6 text-slate-700"><span className="font-black text-slate-950">Status:</span> {String(evidenceLabel)}</p>
+          <p className="mt-2 text-sm leading-6 text-slate-600">Use comparisons and stack context to guide your decision while the evidence profile is refined.</p>
         </article>
-        <article className="rounded-2xl border border-amber-200/15 bg-amber-200/[0.04] p-5">
-          <h2 className="text-xl font-black text-white">Safety first</h2>
-          <p className="mt-3 text-sm leading-6 text-white/70">{safety}</p>
+        <article className="soft-section bg-amber-50/80">
+          <h2 className="text-2xl font-black text-slate-950">Safety first</h2>
+          <p className="mt-3 text-sm leading-6 text-slate-700">{safety}</p>
         </article>
       </section>
 
@@ -183,21 +216,21 @@ export default async function Page({ params }: any) {
         <section>
           <div className="flex items-end justify-between gap-3">
             <div>
-              <h2 className="text-2xl font-black text-white">Used in stacks</h2>
-              <p className="mt-1 text-sm text-white/50">The most practical way to use this compound.</p>
+              <h2 className="text-3xl font-black text-slate-950">Used in routines</h2>
+              <p className="mt-1 text-sm text-slate-600">The most practical way to use this compound.</p>
             </div>
-            <Link href="/stacks" className="text-sm font-bold text-emerald-200">All stacks →</Link>
+            <Link href="/stacks" className="text-sm font-black text-emerald-700">All stacks →</Link>
           </div>
-          <div className="mt-3 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {relatedStacks.slice(0, 3).map((stack) => {
               const stackItem = stack.stack.find((item: any) => matchesCompound(item.compound, aliases))
               return (
-                <Link key={stack.slug} href={`/stacks/${stack.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition hover:border-emerald-200/30 hover:bg-white/[0.04]">
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-100/55">{formatName(stack.goal || stack.slug)}</p>
-                  <h3 className="mt-2 text-lg font-black text-white">{stack.title}</h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/58">{stack.short_description}</p>
-                  {stackItem ? <p className="mt-3 text-xs text-white/52"><span className="font-bold text-white/75">{formatName(stackItem.role || 'included')}:</span> {stackItem.dosage || 'dose listed'} · {stackItem.timing || 'timing listed'}</p> : null}
-                  <span className="mt-3 inline-flex text-sm font-bold text-emerald-200">See stack →</span>
+                <Link key={stack.slug} href={`/stacks/${stack.slug}`} className="premium-card block p-5 transition hover:-translate-y-0.5 hover:bg-white">
+                  <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-700/60">{formatName(stack.goal || stack.slug)}</p>
+                  <h3 className="mt-2 text-lg font-black text-slate-950">{stack.title}</h3>
+                  <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600">{stack.short_description}</p>
+                  {stackItem ? <p className="mt-3 text-xs text-slate-500"><span className="font-black text-slate-700">{formatName(stackItem.role || 'included')}:</span> {stackItem.dosage || 'dose listed'} · {stackItem.timing || 'timing listed'}</p> : null}
+                  <span className="mt-3 inline-flex text-sm font-black text-emerald-700">See stack →</span>
                 </Link>
               )
             })}
@@ -206,26 +239,26 @@ export default async function Page({ params }: any) {
       ) : null}
 
       {relatedComparisons.length > 0 ? (
-        <section>
-          <h2 className="text-2xl font-black text-white">Compare before choosing</h2>
-          <div className="mt-3 grid gap-3 md:grid-cols-2">
+        <section className="rounded-[2rem] bg-slate-950 p-5 text-white sm:p-6">
+          <h2 className="text-3xl font-black text-white">Compare before choosing</h2>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
             {relatedComparisons.slice(0, 2).map((comparison) => (
-              <Link key={comparison.slug} href={`/compare/${comparison.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition hover:border-emerald-200/30 hover:bg-white/[0.04]">
+              <Link key={comparison.slug} href={`/compare/${comparison.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition hover:bg-white/[0.1]">
                 <h3 className="text-lg font-black text-white">{comparison.title}</h3>
-                <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/58">{comparison.summary}</p>
-                <span className="mt-3 inline-flex text-sm font-bold text-emerald-200">Compare →</span>
+                <p className="mt-2 line-clamp-2 text-sm leading-6 text-white/65">{comparison.summary}</p>
+                <span className="mt-3 inline-flex text-sm font-black text-emerald-200">Compare →</span>
               </Link>
             ))}
           </div>
         </section>
       ) : null}
 
-      <section className="rounded-2xl border border-white/10 bg-white/[0.025] p-5">
-        <h2 className="text-2xl font-black text-white">Product search</h2>
-        <p className="mt-2 text-sm leading-6 text-white/58">Use this after checking stack fit and safety context. Affiliate links may support the site at no extra cost.</p>
+      <section className="soft-section">
+        <h2 className="text-3xl font-black text-slate-950">Product search</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-600">Use this after checking stack fit and safety context. Affiliate links may support the site at no extra cost.</p>
         <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
           {links.map((link) => (
-            <a key={link.label} href={link.url} target="_blank" rel="nofollow sponsored noopener noreferrer" className="rounded-xl bg-emerald-200 px-4 py-3 text-center text-sm font-black text-slate-950 transition hover:bg-emerald-100">
+            <a key={link.label} href={link.url} target="_blank" rel="nofollow sponsored noopener noreferrer" className="premium-button text-center">
               Search {link.label} →
             </a>
           ))}
