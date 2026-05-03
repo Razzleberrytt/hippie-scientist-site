@@ -26,7 +26,23 @@ type LibraryBrowserProps = {
 type QualityFilter = 'ready' | 'all' | 'drafts'
 type SortMode = 'best' | 'a-z' | 'z-a'
 
+type GoalSignal = {
+  slug: string
+  label: string
+}
+
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+
+const GOAL_PATTERNS: Array<GoalSignal & { pattern: RegExp }> = [
+  { slug: 'sleep', label: 'Sleep', pattern: /sleep|insomnia|melatonin|circadian|bedtime|rest/i },
+  { slug: 'stress', label: 'Stress', pattern: /stress|anxiety|calm|relax|cortisol|adaptogen|ashwagandha|theanine/i },
+  { slug: 'focus', label: 'Focus', pattern: /focus|attention|cognition|memory|alertness|caffeine|choline|bacopa|tyrosine/i },
+  { slug: 'fat-loss', label: 'Fat Loss', pattern: /fat loss|weight|metabolic|thermogenic|appetite|glucose|insulin/i },
+  { slug: 'blood-pressure', label: 'Blood Pressure', pattern: /blood pressure|hypertension|vascular|circulation|beet|nitrate|hawthorn/i },
+  { slug: 'gut-health', label: 'Gut Health', pattern: /gut|digestion|digestive|microbiome|probiotic|fiber|psyllium|bloating/i },
+  { slug: 'joint-support', label: 'Joint Support', pattern: /joint|cartilage|arthritis|inflammation|collagen|glucosamine|curcumin|boswellia/i },
+  { slug: 'testosterone-support', label: 'Testosterone', pattern: /testosterone|libido|fertility|male|zinc|boron|tongkat|ashwagandha/i },
+]
 
 const normalizeText = (value: unknown): string =>
   typeof value === 'string' ? value.trim() : ''
@@ -116,6 +132,11 @@ const getFormSignals = (item: BrowserItem): string[] => {
 
   if (!forms.size && !isDraftProfile(item)) forms.add('supplement forms')
   return Array.from(forms).slice(0, 3)
+}
+
+const getGoalSignals = (item: BrowserItem): GoalSignal[] => {
+  const text = `${item.title} ${item.slug} ${item.domain ?? ''} ${item.summary ?? ''} ${(item.meta ?? []).join(' ')}`
+  return GOAL_PATTERNS.filter(goal => goal.pattern.test(text)).map(({ slug, label }) => ({ slug, label })).slice(0, 3)
 }
 
 const qualityRank = (item: BrowserItem): number => {
@@ -248,11 +269,13 @@ export default function LibraryBrowser({
             const benefitSignals = getBenefitSignals(item)
             const microHook = getMicroHook(item)
             const formSignals = getFormSignals(item)
+            const goalSignals = getGoalSignals(item)
 
             return (
-              <Link key={item.slug} href={item.href} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
+              <div key={item.slug} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
                 <div className='pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-white/8 blur-2xl transition group-hover:bg-emerald-300/12' />
-                <div className='relative flex flex-wrap items-center gap-2'>
+                <Link href={item.href} className='absolute inset-0 z-0' aria-label={`View ${item.title}`} />
+                <div className='relative z-10 flex flex-wrap items-center gap-2'>
                   <span className='rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2.5 py-1 text-[0.68rem] font-black text-emerald-100'>
                     {getConversionBadge(item)}
                   </span>
@@ -261,7 +284,7 @@ export default function LibraryBrowser({
                   {draft ? <span className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.68rem] font-black text-white/35'>Needs summary</span> : null}
                 </div>
 
-                <div className='relative mt-4 flex-1'>
+                <div className='relative z-10 mt-4 flex-1'>
                   <h2 className='text-xl font-black leading-tight tracking-tight text-white group-hover:text-emerald-100'>{item.title}</h2>
                   {microHook ? <p className='mt-2 line-clamp-2 text-sm font-bold leading-6 text-emerald-100/90'>{microHook}</p> : null}
                   {item.domain ? <p className='mt-2 text-xs font-black uppercase tracking-[0.16em] text-emerald-100/60'>{formatChip(item.domain)}</p> : null}
@@ -273,8 +296,21 @@ export default function LibraryBrowser({
                   <p className='mt-3 line-clamp-4 text-sm leading-6 text-white/66'>{getPreview(item)}</p>
                 </div>
 
+                {goalSignals.length ? (
+                  <div className='relative z-20 mt-4 rounded-2xl border border-emerald-300/15 bg-emerald-300/7 px-3 py-2'>
+                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-emerald-100/45'>Explore by goal</p>
+                    <div className='mt-2 flex flex-wrap gap-1.5'>
+                      {goalSignals.map(goal => (
+                        <Link key={goal.slug} href={`/goals/${goal.slug}`} className='rounded-full border border-emerald-100/15 bg-black/18 px-2.5 py-1 text-[0.7rem] font-black text-emerald-50/80 transition hover:border-emerald-200/40 hover:bg-emerald-300/14 hover:text-white'>
+                          {goal.label} →
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
                 {benefitSignals.length ? (
-                  <div className='relative mt-4 rounded-2xl border border-white/10 bg-black/18 p-3'>
+                  <div className='relative z-10 mt-4 rounded-2xl border border-white/10 bg-black/18 p-3'>
                     <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-white/35'>Fast scan</p>
                     <ul className='mt-2 space-y-1.5'>
                       {benefitSignals.map(value => (
@@ -288,7 +324,7 @@ export default function LibraryBrowser({
                 ) : null}
 
                 {meta.length ? (
-                  <div className='relative mt-4 flex flex-wrap gap-2'>
+                  <div className='relative z-10 mt-4 flex flex-wrap gap-2'>
                     {meta.map(value => (
                       <span key={value} className='rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-[0.72rem] font-semibold text-white/52'>{value}</span>
                     ))}
@@ -296,7 +332,7 @@ export default function LibraryBrowser({
                 ) : null}
 
                 {formSignals.length ? (
-                  <div className='relative mt-4 rounded-2xl border border-amber-200/15 bg-amber-300/8 px-3 py-2'>
+                  <div className='relative z-10 mt-4 rounded-2xl border border-amber-200/15 bg-amber-300/8 px-3 py-2'>
                     <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-amber-100/55'>Common formats</p>
                     <div className='mt-2 flex flex-wrap gap-1.5'>
                       {formSignals.map(value => (
@@ -306,7 +342,7 @@ export default function LibraryBrowser({
                   </div>
                 ) : null}
 
-                <div className='relative mt-4'>
+                <div className='relative z-10 mt-4'>
                   <div className='flex items-center justify-between text-[0.7rem] font-bold uppercase tracking-[0.14em] text-white/40'>
                     <span>Evidence signal</span>
                     <span>{evidenceStrength}/5</span>
@@ -325,11 +361,11 @@ export default function LibraryBrowser({
                   </div>
                 </div>
 
-                <div className='relative mt-5 flex items-center justify-between gap-3 border-t border-white/10 pt-4'>
+                <div className='relative z-10 mt-5 flex items-center justify-between gap-3 border-t border-white/10 pt-4'>
                   <span className='text-xs font-semibold text-white/45'>Check benefits, safety, and forms</span>
                   <span className='text-sm font-black text-emerald-200 transition group-hover:translate-x-1'>View →</span>
                 </div>
-              </Link>
+              </div>
             )
           })}
         </div>
