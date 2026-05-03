@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
+import { supplementComparisons } from '@/data/comparisons'
 
 type BrowserItem = {
   slug: string
@@ -46,6 +47,9 @@ const GOAL_PATTERNS: Array<GoalSignal & { pattern: RegExp }> = [
 
 const normalizeText = (value: unknown): string =>
   typeof value === 'string' ? value.trim() : ''
+
+const normalizeKey = (value?: string): string =>
+  (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 
 const isDraftProfile = (item: BrowserItem): boolean => {
   const summary = normalizeText(item.summary).toLowerCase()
@@ -137,6 +141,17 @@ const getFormSignals = (item: BrowserItem): string[] => {
 const getGoalSignals = (item: BrowserItem): GoalSignal[] => {
   const text = `${item.title} ${item.slug} ${item.domain ?? ''} ${item.summary ?? ''} ${(item.meta ?? []).join(' ')}`
   return GOAL_PATTERNS.filter(goal => goal.pattern.test(text)).map(({ slug, label }) => ({ slug, label })).slice(0, 3)
+}
+
+const getComparisonSignals = (item: BrowserItem) => {
+  const aliases = new Set([item.slug, item.title, normalizeKey(item.slug), normalizeKey(item.title)].filter(Boolean))
+
+  return supplementComparisons
+    .filter(comparison =>
+      comparison.a.candidates.some(candidate => aliases.has(candidate) || aliases.has(normalizeKey(candidate))) ||
+      comparison.b.candidates.some(candidate => aliases.has(candidate) || aliases.has(normalizeKey(candidate))),
+    )
+    .slice(0, 2)
 }
 
 const qualityRank = (item: BrowserItem): number => {
@@ -316,6 +331,7 @@ export default function LibraryBrowser({
             const microHook = getMicroHook(item)
             const formSignals = getFormSignals(item)
             const goalSignals = getGoalSignals(item)
+            const comparisonSignals = getComparisonSignals(item)
 
             return (
               <div key={item.slug} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
@@ -349,6 +365,19 @@ export default function LibraryBrowser({
                       {goalSignals.map(goal => (
                         <Link key={goal.slug} href={`/goals/${goal.slug}`} className='rounded-full border border-emerald-100/15 bg-black/18 px-2.5 py-1 text-[0.7rem] font-black text-emerald-50/80 transition hover:border-emerald-200/40 hover:bg-emerald-300/14 hover:text-white'>
                           {goal.label} →
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                {comparisonSignals.length ? (
+                  <div className='relative z-20 mt-4 rounded-2xl border border-sky-200/15 bg-sky-300/7 px-3 py-2'>
+                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-sky-100/50'>Compare before choosing</p>
+                    <div className='mt-2 flex flex-wrap gap-1.5'>
+                      {comparisonSignals.map(comparison => (
+                        <Link key={comparison.slug} href={`/compare/${comparison.slug}`} className='rounded-full border border-sky-100/15 bg-black/18 px-2.5 py-1 text-[0.7rem] font-black text-sky-50/80 transition hover:border-sky-200/40 hover:bg-sky-300/14 hover:text-white'>
+                          {comparison.title} →
                         </Link>
                       ))}
                     </div>
