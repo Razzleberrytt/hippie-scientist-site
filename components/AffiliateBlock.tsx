@@ -43,7 +43,8 @@ export default function AffiliateBlock({ compound, intentLabel, compact = false 
         >
           Shop {displayName} options →
         </a>
-        <p className='mt-2 text-center text-[0.7rem] text-white/40'>Prices and availability may change.</p>
+        <p className='mt-2 text-center text-xs text-white/40'>Often bought together • Popular right now</p>
+        <p className='mt-1 text-center text-[0.7rem] text-white/40'>Prices and availability may change.</p>
       </div>
     )
   }
@@ -60,6 +61,7 @@ export default function AffiliateBlock({ compound, intentLabel, compact = false 
           <AffiliateProductCard product={p} />
         </div>
       ))}
+      <p className='text-center text-xs text-white/40'>Often bought together • Popular right now</p>
       <p className='text-center text-[0.7rem] text-white/40'>Prices and availability may change.</p>
     </div>
   )
