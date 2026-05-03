@@ -74,6 +74,21 @@ const getConversionBadge = (item: BrowserItem): string => {
   return 'Research profile'
 }
 
+const getBenefitSignals = (item: BrowserItem): string[] => {
+  const directMeta = (item.meta ?? [])
+    .map(value => value.replace(/^(best for|domain|effect|category):\s*/i, '').trim())
+    .filter(value => value && !/^(needs summary|a-tier)$/i.test(value))
+
+  const summarySignals = normalizeText(item.summary)
+    .split(/[.;]/)
+    .map(value => value.trim())
+    .filter(value => /support|help|improve|reduce|promote|benefit|sleep|stress|focus|energy|inflammation|blood pressure|gut|joint|testosterone/i.test(value))
+
+  return Array.from(new Set([...directMeta, ...summarySignals]))
+    .filter(value => value.length > 3)
+    .slice(0, 3)
+}
+
 const qualityRank = (item: BrowserItem): number => {
   if (item.isATier) return 0
   if (!isDraftProfile(item)) return 1
@@ -131,7 +146,7 @@ export default function LibraryBrowser({
     return filtered.sort((a, b) => {
       if (sortMode === 'a-z') return a.title.localeCompare(b.title)
       if (sortMode === 'z-a') return b.title.localeCompare(a.title)
-      return qualityRank(a) - qualityRank(b) || a.title.localeCompare(b.title)
+      return qualityRank(a) - qualityRank(b) || getEvidenceStrength(b) - getEvidenceStrength(a) || a.title.localeCompare(b.title)
     })
   }, [cleanItems, debouncedQuery, letter, qualityFilter, sortMode])
 
@@ -201,6 +216,7 @@ export default function LibraryBrowser({
             const meta = (item.meta ?? []).filter(Boolean).slice(0, 3)
             const bestFor = getBestFor(item)
             const evidenceStrength = getEvidenceStrength(item)
+            const benefitSignals = getBenefitSignals(item)
 
             return (
               <Link key={item.slug} href={item.href} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
@@ -224,6 +240,20 @@ export default function LibraryBrowser({
                   ) : null}
                   <p className='mt-3 line-clamp-4 text-sm leading-6 text-white/66'>{getPreview(item)}</p>
                 </div>
+
+                {benefitSignals.length ? (
+                  <div className='relative mt-4 rounded-2xl border border-white/10 bg-black/18 p-3'>
+                    <p className='text-[0.68rem] font-black uppercase tracking-[0.16em] text-white/35'>Fast scan</p>
+                    <ul className='mt-2 space-y-1.5'>
+                      {benefitSignals.map(value => (
+                        <li key={value} className='flex gap-2 text-xs font-semibold leading-5 text-white/62'>
+                          <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-300/80' />
+                          <span className='line-clamp-2'>{value}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
 
                 {meta.length ? (
                   <div className='relative mt-4 flex flex-wrap gap-2'>
