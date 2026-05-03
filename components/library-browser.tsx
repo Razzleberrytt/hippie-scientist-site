@@ -89,6 +89,21 @@ const getBenefitSignals = (item: BrowserItem): string[] => {
     .slice(0, 3)
 }
 
+const getMicroHook = (item: BrowserItem): string => {
+  const summary = normalizeText(item.summary)
+  const firstBenefit = getBenefitSignals(item)[0]
+  const firstSentence = summary
+    .split(/[.!?]/)
+    .map(value => value.trim())
+    .find(value => value.length > 24 && !/profile coming soon|coming soon/i.test(value))
+
+  const hook = firstBenefit || firstSentence || getBestFor(item)
+  if (!hook) return ''
+
+  const cleanHook = hook.replace(/^best for:\s*/i, '').trim()
+  return cleanHook.length > 94 ? `${cleanHook.slice(0, 93).trimEnd()}…` : cleanHook
+}
+
 const qualityRank = (item: BrowserItem): number => {
   if (item.isATier) return 0
   if (!isDraftProfile(item)) return 1
@@ -217,6 +232,7 @@ export default function LibraryBrowser({
             const bestFor = getBestFor(item)
             const evidenceStrength = getEvidenceStrength(item)
             const benefitSignals = getBenefitSignals(item)
+            const microHook = getMicroHook(item)
 
             return (
               <Link key={item.slug} href={item.href} className={`group relative flex min-h-[245px] flex-col overflow-hidden rounded-[1.6rem] border bg-gradient-to-br p-5 text-white shadow-xl shadow-black/10 transition duration-200 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/20 ${cardAccent(item)}`}>
@@ -232,6 +248,7 @@ export default function LibraryBrowser({
 
                 <div className='relative mt-4 flex-1'>
                   <h2 className='text-xl font-black leading-tight tracking-tight text-white group-hover:text-emerald-100'>{item.title}</h2>
+                  {microHook ? <p className='mt-2 line-clamp-2 text-sm font-bold leading-6 text-emerald-100/90'>{microHook}</p> : null}
                   {item.domain ? <p className='mt-2 text-xs font-black uppercase tracking-[0.16em] text-emerald-100/60'>{formatChip(item.domain)}</p> : null}
                   {bestFor ? (
                     <p className='mt-2 rounded-xl border border-emerald-300/20 bg-emerald-300/10 px-3 py-2 text-xs font-bold text-emerald-100'>
