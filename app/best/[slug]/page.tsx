@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import LibraryBrowser from '@/components/library-browser'
 import { bestPages } from '@/data/best'
 import { getCompounds } from '@/lib/runtime-data'
+import { supplementComparisons } from '@/data/comparisons'
 
 export async function generateStaticParams() {
   return bestPages.map((page) => ({ slug: page.slug }))
@@ -26,11 +28,28 @@ export default async function Page({ params }: any) {
       meta: c.meta,
     }))
 
+  const relatedComparisons = supplementComparisons.filter((cmp) =>
+    cmp.a.candidates.some(c => config.compoundCandidates.includes(c)) ||
+    cmp.b.candidates.some(c => config.compoundCandidates.includes(c))
+  ).slice(0,3)
+
   return (
-    <LibraryBrowser
-      title={config.title}
-      description={config.description}
-      items={items}
-    />
+    <div className="space-y-6">
+      <LibraryBrowser
+        title={config.title}
+        description={config.description}
+        items={items}
+      />
+
+      {relatedComparisons.length > 0 && (
+        <div className="soft-section">
+          {relatedComparisons.map(c => (
+            <Link key={c.slug} href={`/compare/${c.slug}`} className="premium-link">
+              {c.title} →
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
   )
 }
