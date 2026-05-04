@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getCompoundDetailPayload, getCtaGatePayload, getCompounds, getSeoPagePayload } from '@/lib/runtime-data'
-import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
+import { getCompoundDetailPayload, getCompounds, getSeoPagePayload } from '@/lib/runtime-data'
+import { PremiumDetailV2 } from '@/components/detail/PremiumDetailV2'
 
 const siteUrl = 'https://thehippiescientist.net'
 
@@ -24,8 +22,6 @@ const asList = (value: unknown): string[] => {
   return clean(value).split(/\n|;|\|/).map(item => item.trim()).filter(Boolean)
 }
 
-const isYes = (value: unknown) => ['yes', 'true', '1', 'y'].includes(clean(value).toLowerCase())
-
 const first = (...values: unknown[]): string => {
   for (const value of values) {
     const normalized = clean(value)
@@ -36,24 +32,6 @@ const first = (...values: unknown[]): string => {
 
 const titleCase = (value: string) =>
   clean(value).split(/[-_\s]+/).filter(Boolean).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
-
-const labelize = (key: string) =>
-  titleCase(key.replace(/^payload_/, '').replace(/^compound_/, '').replace(/_/g, ' '))
-
-const isUseful = (value: unknown) => {
-  const text = clean(value)
-  if (!text) return false
-  return !/^(n\/?a|unknown|tbd|null|undefined|none)$/i.test(text)
-}
-
-const CORE_KEYS = new Set([
-  'slug', 'headline', 'title', 'name', 'seo_title', 'seo_description', 'meta_title', 'meta_description',
-  'decision_summary', 'recommendation', 'one_liner', 'summary', 'description', 'evidence_summary', 'evidence',
-  'safety_summary', 'safety_notes', 'avoid_if', 'contraindications', 'caution_signals', 'dose_summary', 'dosage',
-  'dosage_range', 'time_to_effect', 'timeToEffect', 'onset', 'duration', 'best_for', 'primary_use_case',
-  'primary_effects', 'effects', 'mechanisms', 'mechanism', 'evidence_score', 'evidenceScore', 'evidence_tier',
-  'evidenceTier', 'evidence_badge', 'confidence', 'confidence_label', 'sources', 'herbs',
-])
 
 function mergeCompoundData(detail: AnyRecord | undefined, compound: AnyRecord | undefined, slug: string) {
   const merged = { ...(compound ?? {}), ...(detail ?? {}) }
@@ -106,149 +84,36 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
-function StatCard({ label, value }: { label: string; value: string }) {
-  if (!isUseful(value)) return null
-  return (
-    <div className='rounded-2xl border border-slate-200 bg-white p-4 shadow-sm'>
-      <p className='text-xs font-black uppercase tracking-[0.16em] text-slate-500'>{label}</p>
-      <p className='mt-1 text-sm font-black leading-6 text-slate-950'>{value}</p>
-    </div>
-  )
-}
-
-function InfoSection({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <section className='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'>
-      <h2 className='text-xl font-black text-slate-950'>{title}</h2>
-      <div className='mt-3 text-sm leading-7 text-slate-700'>{children}</div>
-    </section>
-  )
-}
-
-function TextBlock({ title, value }: { title: string; value: string }) {
-  if (!isUseful(value)) return null
-  return <InfoSection title={title}><p>{value}</p></InfoSection>
-}
-
-function ListBlock({ title, items }: { title: string; items: string[] }) {
-  const visible = items.filter(isUseful)
-  if (!visible.length) return null
-  return (
-    <InfoSection title={title}>
-      <ul className='list-disc space-y-2 pl-5'>{visible.map((item) => <li key={item}>{item}</li>)}</ul>
-    </InfoSection>
-  )
-}
-
-function ChipBlock({ title, items }: { title: string; items: string[] }) {
-  const visible = items.filter(isUseful)
-  if (!visible.length) return null
-  return (
-    <InfoSection title={title}>
-      <div className='flex flex-wrap gap-2'>{visible.map((item) => <span key={item} className='rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold text-slate-700'>{item}</span>)}</div>
-    </InfoSection>
-  )
-}
-
-function ExtraFields({ data }: { data: AnyRecord }) {
-  const entries = Object.entries(data)
-    .filter(([key, value]) => !CORE_KEYS.has(key) && isUseful(value))
-    .slice(0, 24)
-
-  if (!entries.length) return null
-  return (
-    <InfoSection title='Additional workbook fields'>
-      <dl className='grid gap-3 sm:grid-cols-2'>
-        {entries.map(([key, value]) => (
-          <div key={key} className='rounded-xl border border-slate-200 bg-slate-50 p-3'>
-            <dt className='text-xs font-black uppercase tracking-[0.14em] text-slate-500'>{labelize(key)}</dt>
-            <dd className='mt-1 text-sm font-semibold text-slate-800'>{clean(value)}</dd>
-          </div>
-        ))}
-      </dl>
-    </InfoSection>
-  )
-}
-
 export default async function Page({ params }: Params) {
   const { slug } = await params
   const data = await getCompoundPageData(slug)
   if (!data) return notFound()
 
-  const cta = await getCtaGatePayload()
-  const gate = cta.find((g: AnyRecord) => g.slug === slug)
-  const showCta = isYes(gate?.show_cta)
-
   return (
-    <main className='mx-auto max-w-5xl space-y-6'>
-      <nav className='flex flex-wrap gap-2 text-sm'>
-        <Link href='/compounds' className='min-h-11 rounded-full border border-slate-200 bg-white px-4 py-2.5 font-bold text-slate-700 shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800'>← Compounds</Link>
-        <Link href='/goals' className='min-h-11 rounded-full border border-slate-200 bg-white px-4 py-2.5 font-bold text-slate-700 shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800'>Goal guides</Link>
-      </nav>
-
-      <section className='hero-panel'>
-        <div className='flex flex-wrap items-center gap-2'>
-          <span className='premium-chip-green'>Compound profile</span>
-          {data.evidenceTier ? <span className='premium-chip'>{data.evidenceTier}</span> : null}
-          {data.confidence ? <span className='premium-chip'>{data.confidence}</span> : null}
-        </div>
-        <h1 className='mt-4 text-4xl font-black tracking-tight text-slate-950 sm:text-6xl'>{data.headline}</h1>
-        {isUseful(data.summary) ? <p className='mt-4 max-w-3xl text-base leading-7 text-slate-700 sm:text-lg'>{data.summary}</p> : null}
-      </section>
-
-      <section className='grid gap-3 sm:grid-cols-2 lg:grid-cols-4'>
-        <StatCard label='Best for' value={data.bestFor || 'General support'} />
-        <StatCard label='Works in' value={data.timeToEffect || 'Varies'} />
-        <StatCard label='Evidence' value={data.evidenceScore || data.evidenceTier || 'Review profile'} />
-        <StatCard label='Context' value={data.contextSummary || 'Review profile'} />
-      </section>
-
-      <div className='grid gap-6 lg:grid-cols-[1.25fr_0.75fr]'>
-        <div className='space-y-6'>
-          <TextBlock title='Full summary' value={data.summary} />
-          <TextBlock title='Research notes' value={data.evidenceSummary} />
-          <ListBlock title='Mechanisms' items={data.mechanisms} />
-          <ChipBlock title='Effects and use-cases' items={data.effects} />
-          {(data.useRange || data.timeToEffect || data.duration) ? (
-            <InfoSection title='Practical context'>
-              <ul className='list-disc space-y-2 pl-5'>
-                {isUseful(data.useRange) ? <li><span className='font-black'>Use range:</span> {data.useRange}</li> : null}
-                {isUseful(data.timeToEffect) ? <li><span className='font-black'>Onset:</span> {data.timeToEffect}</li> : null}
-                {isUseful(data.duration) ? <li><span className='font-black'>Duration:</span> {data.duration}</li> : null}
-              </ul>
-            </InfoSection>
-          ) : null}
-          <ExtraFields data={data.raw} />
-        </div>
-
-        <aside className='space-y-6'>
-          {(data.avoidIf || data.contextSummary) ? (
-            <section className='rounded-2xl border border-amber-200 bg-amber-50 p-5 shadow-sm'>
-              <h2 className='text-lg font-black text-slate-950'>Context check</h2>
-              {isUseful(data.avoidIf) ? <p className='mt-3 text-sm leading-6 text-amber-900'><span className='font-black'>Avoid if:</span> {data.avoidIf}</p> : null}
-              {isUseful(data.contextSummary) ? <p className='mt-3 text-sm leading-6 text-slate-700'>{data.contextSummary}</p> : null}
-            </section>
-          ) : null}
-
-          {data.sources.length > 0 ? (
-            <section className='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'>
-              <h2 className='text-lg font-black text-slate-950'>Sources</h2>
-              <ul className='mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700'>{data.sources.slice(0, 8).map((source) => <li key={source}>{source}</li>)}</ul>
-            </section>
-          ) : null}
-
-          <section className='rounded-2xl border border-slate-200 bg-white p-5 shadow-sm'>
-            <h2 className='text-lg font-black text-slate-950'>Next step</h2>
-            <p className='mt-2 text-sm leading-6 text-slate-700'>Compare this profile against related options before buying or stacking.</p>
-            <div className='mt-4 grid gap-2'>
-              <Link href='/compare' className='premium-button'>Compare options →</Link>
-              <Link href='/compounds' className='premium-button-secondary'>Browse compounds</Link>
-            </div>
-          </section>
-
-          {showCta ? <ConversionAffiliateCard name={data.headline} slug={slug} /> : null}
-        </aside>
-      </div>
-    </main>
+    <PremiumDetailV2
+      title={data.headline}
+      category='Compound profile'
+      oneLiner={data.summary || 'Evidence-informed compound profile.'}
+      verdict={data.contextSummary || 'Review profile context before use.'}
+      stats={[
+        { label: 'Best for', value: data.bestFor || 'General support' },
+        { label: 'Onset', value: data.timeToEffect || 'Varies' },
+        { label: 'Evidence', value: data.evidenceScore || data.evidenceTier || 'Moderate' },
+        { label: 'Confidence', value: data.confidence || 'Context-dependent' },
+      ]}
+      bestFor={(data.effects.length ? data.effects : ['Sleep quality', 'Stress response', 'Cognitive support']).slice(0, 3)}
+      tags={[data.evidenceTier, data.avoidIf, data.useRange].filter(Boolean)}
+      comparisons={[
+        { factor: 'Primary use', value: data.bestFor || 'General supportive role' },
+        { factor: 'Risk context', value: data.avoidIf || 'Case-dependent' },
+        { factor: 'Duration', value: data.duration || 'Varies by dose and protocol' },
+      ]}
+      science={[
+        { title: 'Evidence summary', body: data.evidenceSummary || 'Evidence is mixed; quality and replication vary by indication.' },
+        { title: 'Mechanisms', body: data.mechanisms.join(' • ') || 'Multiple biological pathways are proposed in preclinical and translational models.' },
+        { title: 'Safety notes', body: data.contextSummary || 'Assess medication interactions and personal sensitivity before use.' },
+      ]}
+      sidebarCta={<a href='/compounds' className='block rounded-xl border border-white/15 px-3 py-2 text-center text-sm'>Browse all compounds</a>}
+    />
   )
 }
