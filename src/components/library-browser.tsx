@@ -14,8 +14,15 @@ type BrowserItem = {
   dosage?: string
   evidence?: string
   onset?: string
+  timeToEffect?: string
   duration?: string
   confidence?: string
+  bestFor?: string
+  avoidIf?: string
+  profile_status?: string
+  summary_quality?: string
+  evidenceScore?: number
+  evidenceTier?: string
   href: string
   typeLabel?: string
   domain?: string
@@ -44,6 +51,22 @@ const short = (value: unknown, max = 40): string => {
   return text.length > max ? `${text.slice(0, max - 1).trimEnd()}…` : text
 }
 
+const lower = (value: unknown) => normalizeText(value).toLowerCase()
+
+const decisionScore = (item: BrowserItem): number => {
+  let score = 0
+  if (item.evidenceScore) score += Number(item.evidenceScore) * 5
+  if (item.isATier) score += 25
+  if (lower(item.confidence).includes('high')) score += 18
+  if (lower(item.summary_quality).includes('strong')) score += 15
+  if (lower(item.profile_status).includes('complete')) score += 12
+  if (item.bestFor || item.domain) score += 8
+  if (item.safety) score += 6
+  if (item.onset || item.timeToEffect) score += 4
+  if (item.dosage) score += 4
+  return score
+}
+
 const getPreview = (item: BrowserItem): string => {
   const sources = [item.preview, item.summary, item.mechanism, item.effects, item.evidence, item.safety, item.dosage]
   const text = sources.map(normalizeText).find(Boolean) || ''
@@ -52,11 +75,19 @@ const getPreview = (item: BrowserItem): string => {
   return text.length > 160 ? `${text.slice(0, 159).trimEnd()}…` : text
 }
 
+const getDecisionLabel = (item: BrowserItem): string => {
+  if (item.bestFor) return `Best for: ${short(item.bestFor, 34)}`
+  if (item.domain) return `Use case: ${short(item.domain, 34)}`
+  if (item.effects) return `Effect: ${short(item.effects, 34)}`
+  return ''
+}
+
 const getMetaRows = (item: BrowserItem) => [
-  item.effects ? `Effect: ${short(item.effects, 34)}` : '',
-  item.onset ? `Onset: ${short(item.onset, 24)}` : '',
+  getDecisionLabel(item),
+  item.timeToEffect || item.onset ? `Onset: ${short(item.timeToEffect || item.onset, 24)}` : '',
   item.safety ? `Safety: ${short(item.safety, 30)}` : '',
   item.confidence ? `Confidence: ${short(item.confidence, 24)}` : '',
+  item.evidence ? `Evidence: ${short(item.evidence, 24)}` : '',
 ].filter(Boolean)
 
 export default function LibraryBrowser({
@@ -77,7 +108,13 @@ export default function LibraryBrowser({
   }, [query])
 
   const sortedItems = useMemo(
-    () => [...items].filter(item => normalizeText(item.slug) && normalizeText(item.title)).sort((a, b) => a.title.localeCompare(b.title)),
+    () => [...items]
+      .filter(item => normalizeText(item.slug) && normalizeText(item.title))
+      .sort((a, b) => {
+        const scoreDelta = decisionScore(b) - decisionScore(a)
+        if (scoreDelta !== 0) return scoreDelta
+        return a.title.localeCompare(b.title)
+      }),
     [items],
   )
 
@@ -95,7 +132,10 @@ export default function LibraryBrowser({
         item.safety,
         item.evidence,
         item.domain,
+        item.bestFor,
+        item.avoidIf,
         item.onset,
+        item.timeToEffect,
         item.confidence,
       ].map(normalizeText).join(' ').toLowerCase()
 
@@ -120,8 +160,9 @@ export default function LibraryBrowser({
 
       {filteredItems.length > 0 ? (
         <div className='grid gap-3 md:grid-cols-2 xl:grid-cols-3'>
-          {filteredItems.map(item => {
+          {filteredItems.map((item, index) => {
             const metaRows = getMetaRows(item)
+            const score = decisionScore(item)
 
             return (
               <Link
@@ -130,8 +171,8 @@ export default function LibraryBrowser({
                 className='group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md'
               >
                 <div className='flex flex-wrap items-center gap-2'>
+                  {index < 6 && score > 10 ? <span className='rounded-full bg-emerald-600 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-white'>Top match</span> : null}
                   {item.typeLabel ? <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-slate-600'>{item.typeLabel}</span> : null}
-                  {item.domain ? <span className='rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-emerald-800'>{item.domain}</span> : null}
                   {item.isATier ? <span className='rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-amber-800'>A-tier</span> : null}
                 </div>
 
@@ -152,6 +193,12 @@ export default function LibraryBrowser({
                 <p className='mt-3 line-clamp-3 text-sm leading-6 text-slate-600'>
                   {getPreview(item)}
                 </p>
+
+                {item.avoidIf ? (
+                  <p className='mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900'>
+                    <span className='font-black'>Avoid if:</span> {short(item.avoidIf, 90)}
+                  </p>
+                ) : null}
 
                 <span className='mt-3 inline-block text-sm font-bold text-emerald-700 transition group-hover:translate-x-0.5'>
                   {ctaLabel}
