@@ -23,31 +23,11 @@ const SHEETS = {
 }
 
 const OPTIONAL_PAYLOADS = [
-  {
-    sheet: SHEETS.compoundCardPayload,
-    fileName: 'compound-card-payload.json',
-    requiredHeaders: ['slug'],
-  },
-  {
-    sheet: SHEETS.compoundDetailPayload,
-    fileName: 'compound-detail-payload.json',
-    requiredHeaders: ['slug'],
-  },
-  {
-    sheet: SHEETS.seoPagePayload,
-    fileName: 'seo-page-payload.json',
-    requiredHeaders: ['slug', 'publish_ready'],
-  },
-  {
-    sheet: SHEETS.ctaGatePayload,
-    fileName: 'cta-gate-payload.json',
-    requiredHeaders: ['slug', 'show_cta'],
-  },
-  {
-    sheet: SHEETS.routeBuildManifest,
-    fileName: 'route-build-manifest.json',
-    requiredHeaders: ['slug'],
-  },
+  { sheet: SHEETS.compoundCardPayload, fileName: 'compound-card-payload.json', requiredHeaders: ['slug'] },
+  { sheet: SHEETS.compoundDetailPayload, fileName: 'compound-detail-payload.json', requiredHeaders: ['slug'] },
+  { sheet: SHEETS.seoPagePayload, fileName: 'seo-page-payload.json', requiredHeaders: ['slug', 'publish_ready'] },
+  { sheet: SHEETS.ctaGatePayload, fileName: 'cta-gate-payload.json', requiredHeaders: ['slug', 'show_cta'] },
+  { sheet: SHEETS.routeBuildManifest, fileName: 'route-build-manifest.json', requiredHeaders: ['slug'] },
 ]
 
 const STACK_VARIANTS = new Set(['starter', 'advanced', 'aggressive'])
@@ -67,11 +47,16 @@ function clean(v) {
   return String(v).trim()
 }
 
+function pick(row, keys) {
+  for (const key of keys) {
+    const value = clean(row[key])
+    if (value) return value
+  }
+  return ''
+}
+
 function slug(v) {
-  return clean(v)
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
+  return clean(v).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
 }
 
 function titleCase(v) {
@@ -83,10 +68,7 @@ function titleCase(v) {
 }
 
 function splitList(v) {
-  return clean(v)
-    .split(/[|;,]/)
-    .map(item => clean(item))
-    .filter(Boolean)
+  return clean(v).split(/[|;,]/).map(item => clean(item)).filter(Boolean)
 }
 
 function unique(values) {
@@ -141,9 +123,7 @@ function readOptionalPayload(workbook, config) {
     return []
   }
 
-  return rows
-    .map(row => normalizePayloadRow(row))
-    .filter(row => row.slug || row.route || row.path)
+  return rows.map(row => normalizePayloadRow(row)).filter(row => row.slug || row.route || row.path)
 }
 
 function normalizePayloadRow(row) {
@@ -154,19 +134,9 @@ function normalizePayloadRow(row) {
     normalized[normalizedKey] = typeof value === 'string' ? clean(value) : value
   }
 
-  const rowSlug = slug(
-    normalized.slug ||
-      normalized.compound_slug ||
-      normalized.page_slug ||
-      normalized.route_slug ||
-      normalized.name ||
-      normalized.title,
-  )
+  const rowSlug = slug(normalized.slug || normalized.compound_slug || normalized.page_slug || normalized.route_slug || normalized.name || normalized.title)
 
-  return {
-    ...normalized,
-    slug: rowSlug,
-  }
+  return { ...normalized, slug: rowSlug }
 }
 
 function dedupe(rows) {
@@ -242,9 +212,7 @@ function buildStackSlug(goalSlug, variant) {
 function buildStackTitle(goalSlug, variant) {
   const goalTitle = titleCase(goalSlug)
   const variantTitle = titleCase(variant)
-  return variant === 'starter'
-    ? `${goalTitle} Support Stack`
-    : `${goalTitle} ${variantTitle} Stack`
+  return variant === 'starter' ? `${goalTitle} Support Stack` : `${goalTitle} ${variantTitle} Stack`
 }
 
 function buildStackSummary(goalSlug, variant) {
@@ -265,9 +233,7 @@ function buildGeneratedStacks(stackRows, compoundMap) {
 
   return [...grouped.entries()].map(([key, rows]) => {
     const [goalSlug, variant] = key.split('::')
-    const selected = rows
-      .sort((a, b) => scoreStackRow(b) - scoreStackRow(a))
-      .slice(0, maxCompoundsForVariant(variant))
+    const selected = rows.sort((a, b) => scoreStackRow(b) - scoreStackRow(a)).slice(0, maxCompoundsForVariant(variant))
 
     const compounds = selected.map((row, index) => {
       const compound = compoundMap.get(row.compound_slug)
@@ -283,10 +249,7 @@ function buildGeneratedStacks(stackRows, compoundMap) {
         evidence_tier: row.evidence_tier || clean(compound?.evidence),
         safety_flags: row.safety_flags,
         affiliate_priority: row.affiliate_priority,
-        source_trace: {
-          sheet: SHEETS.stackGenerator,
-          fields: row.source_fields.length > 0 ? row.source_fields : ['goal_slug', 'compound_slug', 'dosage', 'timing', 'evidence_tier', 'safety_flags'],
-        },
+        source_trace: { sheet: SHEETS.stackGenerator, fields: row.source_fields.length > 0 ? row.source_fields : ['goal_slug', 'compound_slug', 'dosage', 'timing', 'evidence_tier', 'safety_flags'] },
       }
     })
 
@@ -299,21 +262,12 @@ function buildGeneratedStacks(stackRows, compoundMap) {
       short_description: buildStackSummary(goalSlug, variant),
       variant,
       compounds,
-      stack: compounds.map(compound => ({
-        compound: compound.compound_slug,
-        dosage: compound.dosage,
-        timing: compound.timing,
-        role: compound.role,
-      })),
+      stack: compounds.map(compound => ({ compound: compound.compound_slug, dosage: compound.dosage, timing: compound.timing, role: compound.role })),
       avoid_if: unique(selected.flatMap(row => row.avoid_if)),
       caution_notes: unique(selected.flatMap(row => row.caution_notes)),
       expected_time_to_effect: unique(selected.map(row => row.time_to_effect)).join(' / '),
       duration: unique(selected.map(row => row.duration)).join(' / '),
-      source_trace: {
-        sheet: SHEETS.stackGenerator,
-        goal_slug: goalSlug,
-        variant,
-      },
+      source_trace: { sheet: SHEETS.stackGenerator, goal_slug: goalSlug, variant },
     }
   }).filter(stack => stack.compounds.length > 0)
 }
@@ -321,42 +275,44 @@ function buildGeneratedStacks(stackRows, compoundMap) {
 function main() {
   const outDir = path.resolve(repoRoot, 'public/data')
   const workbookPath = resolveWorkbookPath(repoRoot)
-
   const wb = XLSX.readFile(workbookPath)
 
-  const herbs = dedupe(
-    read(wb, SHEETS.herbs).map(r => ({
-      slug: slug(r.slug || r.name),
-      name: clean(r.name),
-      summary: clean(r.summary),
-      compounds: [],
-    })),
-  )
+  const herbs = dedupe(read(wb, SHEETS.herbs).map(r => ({
+    slug: slug(r.slug || r.name),
+    name: clean(r.name),
+    displayName: pick(r, ['displayName', 'display_name', 'display name']),
+    summary: pick(r, ['summary', 'description', 'coreInsight', 'core_insight']),
+    mechanism: pick(r, ['mechanism_summary', 'mechanisms', 'mechanism']),
+    effects: splitList(pick(r, ['primary_effects', 'effects', 'best_for'])),
+    evidence: pick(r, ['evidence_grade', 'evidence_tier', 'summary_quality']),
+    dosage: pick(r, ['dosage_range', 'dosage', 'oral_form']),
+    safety: pick(r, ['safety_notes', 'contraindications_interactions', 'contraindications', 'interactions']),
+    confidence: pick(r, ['confidence_label', 'confidenceTier', 'confidence_tier', 'profile_status']),
+    time_to_effect: pick(r, ['time_to_effect', 'onset']),
+    duration: pick(r, ['duration']),
+    compounds: [],
+  })))
 
-  const compounds = dedupe(
-    read(wb, SHEETS.compounds).map(r => ({
-      slug: slug(r.slug || r.name),
-      name: clean(r.name),
-      mechanism: clean(r.mechanism_summary),
-      evidence: clean(r.evidence_grade),
-      dosage: clean(r.dosage_range),
-      safety: clean(r.safety_notes),
-      herbs: [],
-    })),
-  )
+  const compounds = dedupe(read(wb, SHEETS.compounds).map(r => ({
+    slug: slug(r.slug || r.name),
+    name: clean(r.name),
+    summary: pick(r, ['summary', 'coreInsight', 'core_insight', 'decision_summary', 'recommendation']),
+    mechanism: pick(r, ['mechanism_summary', 'mechanism', 'mechanisms']),
+    effects: splitList(pick(r, ['primary_effects', 'effects', 'best_for', 'primary_use_case'])),
+    evidence: pick(r, ['evidence_grade', 'evidence_tier', 'evidence', 'summary_quality']),
+    dosage: pick(r, ['dosage_range', 'dosage', 'dose_summary']),
+    safety: pick(r, ['safety_notes', 'safety_summary', 'contraindications_interactions', 'avoid_if']),
+    confidence: pick(r, ['confidence_label', 'confidenceTier', 'confidence_tier', 'profile_status']),
+    time_to_effect: pick(r, ['time_to_effect', 'onset']),
+    duration: pick(r, ['duration']),
+    herbs: [],
+  })))
 
-  const map = read(wb, SHEETS.herbCompoundMap).map(r => ({
-    herb: slug(r.herb_slug || r.herb),
-    compound: slug(r.compound_slug || r.compound),
-  }))
-
+  const map = read(wb, SHEETS.herbCompoundMap).map(r => ({ herb: slug(r.herb_slug || r.herb), compound: slug(r.compound_slug || r.compound) }))
   const stackGeneratorRows = readOptional(wb, SHEETS.stackGenerator).map(normalizeStackRow)
 
-  if (stackGeneratorRows.length > 0) {
-    console.log(`[data] stack generator rows: ${stackGeneratorRows.length}`)
-  } else {
-    console.log('[data] Stack Generator V1 not found; skipping stack generator prep')
-  }
+  if (stackGeneratorRows.length > 0) console.log(`[data] stack generator rows: ${stackGeneratorRows.length}`)
+  else console.log('[data] Stack Generator V1 not found; skipping stack generator prep')
 
   const herbMap = new Map(herbs.map(h => [h.slug, h]))
   const compMap = new Map(compounds.map(c => [c.slug, c]))
