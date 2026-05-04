@@ -32,12 +32,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang='en'>
       <body>
         <div className='min-h-screen bg-[var(--bg)] text-[var(--text-primary)]'>
-          <header className='border-b border-white/10'>
-            <div className='container-page flex min-h-16 items-center justify-between gap-4 py-4'>
-              <Link href='/' className='text-lg font-semibold tracking-tight'>The Hippie Scientist</Link>
-              <nav className='hidden md:flex gap-2'>
+          <header className='sticky top-0 z-40 border-b border-slate-200/70 bg-[#fff8ec]/88 backdrop-blur-xl supports-[backdrop-filter]:bg-[#fff8ec]/72'>
+            <div className='container-page flex min-h-16 items-center justify-between gap-4 py-3'>
+              <Link href='/' className='text-lg font-black tracking-tight text-slate-950 transition hover:text-emerald-800'>The Hippie Scientist</Link>
+              <nav className='hidden rounded-full border border-slate-200 bg-white/80 p-1 shadow-sm md:flex'>
                 {navLinks.map(link => (
-                  <Link key={link.href} href={link.href} className='rounded-full px-4 py-2 text-sm text-white/75 hover:bg-white/5 hover:text-white'>
+                  <Link key={link.href} href={link.href} className='rounded-full px-4 py-2 text-sm font-bold text-slate-650 transition hover:bg-emerald-50 hover:text-emerald-800'>
                     {link.label}
                   </Link>
                 ))}
@@ -46,15 +46,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page py-8'>{children}</main>
+          <main className='container-page py-6 sm:py-8'>{children}</main>
 
-          <footer className='border-t border-white/10'>
-            <div className='container-page py-8 text-sm text-white/60'>
-              <p>© The Hippie Scientist — Educational use only</p>
-              <p className='mt-1 text-xs text-white/45'>Start with a goal, review the stack, then compare herbs, compounds, and products.</p>
+          <footer className='mt-10 border-t border-slate-200/80 bg-white/45'>
+            <div className='container-page py-8 text-sm text-slate-600'>
+              <p className='font-bold text-slate-950'>© The Hippie Scientist — Educational use only</p>
+              <p className='mt-1 max-w-2xl text-xs leading-5 text-slate-500'>Start with a goal, review the stack, then compare herbs, compounds, and product-search paths with safety context first.</p>
               <div className='mt-4 flex flex-wrap gap-4'>
                 {footerLinks.map(link => (
-                  <Link key={link.href} href={link.href} className='hover:text-white'>
+                  <Link key={link.href} href={link.href} className='font-bold text-slate-600 transition hover:text-emerald-800'>
                     {link.label}
                   </Link>
                 ))}
