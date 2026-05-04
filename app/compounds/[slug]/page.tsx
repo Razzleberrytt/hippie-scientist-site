@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getCompoundDetailPayload, getCtaGatePayload, getCompounds, getSeoPagePayload } from '@/lib/runtime-data'
 import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
@@ -15,6 +16,14 @@ const clean = (value: unknown): string => {
 }
 
 const isYes = (value: unknown) => ['yes', 'true', '1', 'y'].includes(clean(value).toLowerCase())
+
+const first = (...values: unknown[]): string => {
+  for (const value of values) {
+    const normalized = clean(value)
+    if (normalized) return normalized
+  }
+  return ''
+}
 
 async function getCompoundPageData(slug: string) {
   const [payload, base] = await Promise.all([getCompoundDetailPayload(), getCompounds()])
@@ -57,81 +66,53 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: title ? `${title} | The Hippie Scientist` : 'Compound Profile | The Hippie Scientist',
     description: description || 'Evidence-aware compound profile with safety, dose, and decision context.',
-    alternates: {
-      canonical: `/compounds/${slug}`,
-    },
-    openGraph: {
-      title: title || 'Compound Profile',
-      description: description || 'Evidence-aware compound profile with safety, dose, and decision context.',
-      url: `${siteUrl}/compounds/${slug}`,
-      type: 'article',
-    },
   }
 }
 
 export default async function Page({ params }: Params) {
   const { slug } = await params
-  const data = await getCompoundPageData(slug)
+  const data: any = await getCompoundPageData(slug)
   if (!data) return notFound()
 
   const cta = await getCtaGatePayload()
   const gate = cta.find((g: any) => g.slug === slug)
   const showCta = isYes(gate?.show_cta)
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'MedicalWebPage',
-    name: clean(data.headline),
-    description: clean(data.decision_summary || data.evidence_summary || data.safety_summary),
-    url: `${siteUrl}/compounds/${slug}`,
-    isAccessibleForFree: true,
-    publisher: {
-      '@type': 'Organization',
-      name: 'The Hippie Scientist',
-      url: siteUrl,
-    },
-  }
+  const bestFor = first(data.primaryEffect, data.best_for, data.primary_effects?.[0], data.effects?.[0], 'General support')
+  const timeToEffect = first(data.time_to_effect, data.timeToEffect, 'Varies')
+  const evidence = first(data.evidenceScore ? `${data.evidenceScore}/10` : '', data.evidenceTier, 'Limited')
+  const safety = first(data.safety?.confidence, data.safety, 'Review')
+  const avoidIf = first(data.avoid_if, data.safety?.cautionSignals?.join(', '))
 
   return (
     <main className="mx-auto max-w-4xl space-y-6 p-6">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="rounded-[2rem] bg-slate-950 p-6 text-white shadow-xl shadow-slate-900/20">
-        <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-200/70">Compound profile</p>
-        <h1 className="mt-3 text-4xl font-black leading-tight sm:text-6xl">{clean(data.headline)}</h1>
-        {clean(data.decision_summary) ? <p className="mt-4 text-lg leading-8 text-white/72">{clean(data.decision_summary)}</p> : null}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="stat"><div>Best For</div><div>{bestFor}</div></div>
+        <div className="stat"><div>Works In</div><div>{timeToEffect}</div></div>
+        <div className="stat"><div>Evidence</div><div>{evidence}</div></div>
+        <div className="stat"><div>Safety</div><div>{safety}</div></div>
+      </div>
+
+      <section>
+        <h1 className="text-4xl font-black">{clean(data.headline)}</h1>
+        <p className="text-slate-600">{clean(data.decision_summary)}</p>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2">
-        {clean(data.evidence_summary) ? (
-          <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-700/70">Evidence</p>
-            <p className="mt-2 text-sm leading-6 text-slate-700">{clean(data.evidence_summary)}</p>
-          </article>
-        ) : null}
-
-        {clean(data.safety_summary) ? (
-          <article className="rounded-3xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-amber-800/80">Safety</p>
-            <p className="mt-2 text-sm leading-6 text-slate-800">{clean(data.safety_summary)}</p>
-          </article>
-        ) : null}
-      </section>
-
-      {(clean(data.dose_summary) || clean(data.time_to_effect)) ? (
-        <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-2xl font-black text-slate-950">Practical context</h2>
-          {clean(data.dose_summary) ? <p className="mt-3 text-sm leading-6 text-slate-700"><strong>Dose:</strong> {clean(data.dose_summary)}</p> : null}
-          {clean(data.time_to_effect) ? <p className="mt-2 text-sm leading-6 text-slate-700"><strong>Onset:</strong> {clean(data.time_to_effect)}</p> : null}
+      {avoidIf && (
+        <section className="rounded-2xl border border-red-500/20 bg-red-500/5 p-4">
+          <div className="text-sm font-medium text-red-400 mb-1">Avoid If</div>
+          <p className="text-sm text-slate-600">{avoidIf}</p>
         </section>
-      ) : null}
-
-      {showCta && (
-        <ConversionAffiliateCard
-          name={clean(data.headline)}
-          slug={slug}
-        />
       )}
+
+      <div className="flex gap-3">
+        <Link href="/compare" className="btn-primary">Compare Alternatives →</Link>
+        <Link href="/compounds" className="btn-secondary">View Best Options</Link>
+      </div>
+
+      {showCta && <ConversionAffiliateCard name={clean(data.headline)} slug={slug} />}
+
     </main>
   )
 }
