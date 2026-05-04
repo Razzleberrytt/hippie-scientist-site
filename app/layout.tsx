@@ -9,36 +9,32 @@ import '@fontsource/inter/700.css'
 import './globals.css'
 
 const navLinks = [
-  { href: '/goals', label: 'Goals' },
-  { href: '/stacks', label: 'Stacks' },
-  { href: '/herbs', label: 'Herbs' },
+  { href: '/best/sleep', label: 'Sleep' },
+  { href: '/best/focus', label: 'Focus' },
+  { href: '/best/fat-loss', label: 'Fat Loss' },
   { href: '/compounds', label: 'Compounds' },
 ]
 
-const footerLinks = navLinks
-
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thehippiescientist.net'),
   title: {
     default: 'The Hippie Scientist',
     template: '%s | The Hippie Scientist',
   },
-  description:
-    'Search herbs and compounds with plain-English summaries, safety context, active constituents, and evidence-aware discovery paths.',
+  description: 'Evidence-first supplement decision engine.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body>
-        <div className='min-h-screen bg-[var(--bg)] text-[var(--text-primary)]'>
-          <header className='sticky top-0 z-40 border-b border-slate-200/80 bg-[#fff8ec]/94 shadow-sm shadow-slate-900/[0.03] backdrop-blur-xl supports-[backdrop-filter]:bg-[#fff8ec]/86'>
-            <div className='container-page flex min-h-14 items-center justify-between gap-4 py-2.5 sm:min-h-16'>
-              <Link href='/' className='text-xl font-black tracking-[-0.03em] text-slate-950 transition hover:text-emerald-800'>The Hippie Scientist</Link>
-              <nav className='hidden rounded-full border border-slate-200 bg-white p-1 shadow-sm md:flex'>
-                {navLinks.map(link => (
-                  <Link key={link.href} href={link.href} className='rounded-full px-4 py-2 text-sm font-bold text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-800'>
-                    {link.label}
+        <div className='min-h-screen text-white'>
+          <header className='sticky top-0 z-50 border-b border-white/10 bg-black/40 backdrop-blur-xl'>
+            <div className='container-page flex items-center justify-between py-3'>
+              <Link href='/' className='text-lg font-black tracking-tight text-white'>Hippie Scientist</Link>
+              <nav className='hidden md:flex gap-2'>
+                {navLinks.map(l => (
+                  <Link key={l.href} href={l.href} className='px-4 py-2 rounded-xl text-sm font-bold text-white/70 hover:text-white hover:bg-white/10'>
+                    {l.label}
                   </Link>
                 ))}
               </nav>
@@ -46,19 +42,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page py-5 sm:py-7'>{children}</main>
+          <main className='container-page py-6'>{children}</main>
 
-          <footer className='mt-10 border-t border-slate-200/80 bg-white/55'>
-            <div className='container-page py-8 text-sm text-slate-600'>
-              <p className='font-bold text-slate-950'>© The Hippie Scientist — Educational use only</p>
-              <p className='mt-1 max-w-2xl text-xs leading-5 text-slate-500'>Start with a goal, review the stack, then compare herbs, compounds, and product-search paths with safety context first.</p>
-              <div className='mt-4 flex flex-wrap gap-4'>
-                {footerLinks.map(link => (
-                  <Link key={link.href} href={link.href} className='font-bold text-slate-600 transition hover:text-emerald-800'>
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+          <footer className='border-t border-white/10 mt-10 bg-black/30 backdrop-blur-xl'>
+            <div className='container-page py-8 text-sm text-white/50'>
+              <p className='font-bold text-white'>© The Hippie Scientist</p>
             </div>
           </footer>
         </div>
