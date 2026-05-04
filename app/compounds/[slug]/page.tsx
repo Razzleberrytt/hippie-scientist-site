@@ -1,61 +1,137 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getCompoundDetailPayload, getCtaGatePayload, getCompounds } from '@/lib/runtime-data'
+import { getCompoundDetailPayload, getCtaGatePayload, getCompounds, getSeoPagePayload } from '@/lib/runtime-data'
+
+const siteUrl = 'https://thehippiescientist.net'
+
+type Params = { params: { slug: string } }
+
+const clean = (value: unknown): string => {
+  if (value === null || value === undefined) return ''
+  if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(', ')
+  if (typeof value === 'object') return ''
+  return String(value).replace(/\s+/g, ' ').trim()
+}
+
+const isYes = (value: unknown) => ['yes', 'true', '1', 'y'].includes(clean(value).toLowerCase())
+
+async function getCompoundPageData(slug: string) {
+  const [payload, base] = await Promise.all([getCompoundDetailPayload(), getCompounds()])
+  const detail = payload.find((p: any) => p.slug === slug)
+  if (detail) return detail
+
+  const compound = base.find((c: any) => c.slug === slug)
+  if (!compound) return null
+
+  return {
+    slug: compound.slug,
+    headline: compound.name,
+    decision_summary: compound.mechanism,
+    evidence_summary: compound.evidence,
+    safety_summary: compound.safety,
+    dose_summary: compound.dosage,
+    time_to_effect: '',
+  }
+}
 
 export async function generateStaticParams() {
   const payload = await getCompoundDetailPayload()
   const base = await getCompounds()
 
-  if (payload.length > 0) {
-    return payload.map((p: any) => ({ slug: p.slug }))
-  }
-
-  // fallback if payload missing
-  return base.map((c: any) => ({ slug: c.slug }))
+  const source = payload.length > 0 ? payload : base
+  return source
+    .map((record: any) => clean(record.slug))
+    .filter(Boolean)
+    .map((slug) => ({ slug }))
 }
 
-export default async function Page({ params }: any) {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const slug = params.slug
+  const [seoRows, data] = await Promise.all([getSeoPagePayload(), getCompoundPageData(slug)])
+  const seo = seoRows.find((row: any) => row.slug === slug || row.route === `/compounds/${slug}`)
+
+  const title = clean(seo?.title || seo?.meta_title || data?.seo_title || data?.headline)
+  const description = clean(seo?.description || seo?.meta_description || data?.seo_description || data?.decision_summary || data?.evidence_summary)
+
+  return {
+    title: title ? `${title} | The Hippie Scientist` : 'Compound Profile | The Hippie Scientist',
+    description: description || 'Evidence-aware compound profile with safety, dose, and decision context.',
+    alternates: {
+      canonical: `/compounds/${slug}`,
+    },
+    openGraph: {
+      title: title || 'Compound Profile',
+      description: description || 'Evidence-aware compound profile with safety, dose, and decision context.',
+      url: `${siteUrl}/compounds/${slug}`,
+      type: 'article',
+    },
+  }
+}
+
+export default async function Page({ params }: Params) {
   const { slug } = params
+  const data = await getCompoundPageData(slug)
+  if (!data) return notFound()
 
-  const payload = await getCompoundDetailPayload()
-  const base = await getCompounds()
   const cta = await getCtaGatePayload()
+  const gate = cta.find((g: any) => g.slug === slug)
+  const showCta = isYes(gate?.show_cta)
 
-  let data = payload.find((p: any) => p.slug === slug)
-
-  // fallback to base compound
-  if (!data) {
-    const compound = base.find((c: any) => c.slug === slug)
-    if (!compound) return notFound()
-
-    data = {
-      headline: compound.name,
-      decision_summary: compound.mechanism,
-      evidence_summary: compound.evidence,
-      safety_summary: compound.safety,
-      dose_summary: compound.dosage,
-      time_to_effect: '',
-    }
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: clean(data.headline),
+    description: clean(data.decision_summary || data.evidence_summary || data.safety_summary),
+    url: `${siteUrl}/compounds/${slug}`,
+    isAccessibleForFree: true,
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Hippie Scientist',
+      url: siteUrl,
+    },
   }
 
-  const gate = cta.find((g: any) => g.slug === slug)
-
   return (
-    <div className="max-w-4xl mx-auto space-y-6 p-6">
-      <h1 className="text-3xl font-bold">{data.headline}</h1>
+    <main className="mx-auto max-w-4xl space-y-6 p-6">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <p>{data.decision_summary}</p>
-      <p>{data.evidence_summary}</p>
-      <p>{data.safety_summary}</p>
-      <p>{data.dose_summary}</p>
-      {data.time_to_effect && (
-        <p><strong>Onset:</strong> {data.time_to_effect}</p>
-      )}
+      <section className="rounded-[2rem] bg-slate-950 p-6 text-white shadow-xl shadow-slate-900/20">
+        <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-200/70">Compound profile</p>
+        <h1 className="mt-3 text-4xl font-black leading-tight sm:text-6xl">{clean(data.headline)}</h1>
+        {clean(data.decision_summary) ? <p className="mt-4 text-lg leading-8 text-white/72">{clean(data.decision_summary)}</p> : null}
+      </section>
 
-      {gate?.show_cta === 'yes' && (
-        <div className="p-4 border rounded">
-          <p>Recommended product</p>
-        </div>
+      <section className="grid gap-4 md:grid-cols-2">
+        {clean(data.evidence_summary) ? (
+          <article className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-700/70">Evidence</p>
+            <p className="mt-2 text-sm leading-6 text-slate-700">{clean(data.evidence_summary)}</p>
+          </article>
+        ) : null}
+
+        {clean(data.safety_summary) ? (
+          <article className="rounded-3xl border border-amber-200 bg-amber-50 p-5 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-amber-800/80">Safety</p>
+            <p className="mt-2 text-sm leading-6 text-slate-800">{clean(data.safety_summary)}</p>
+          </article>
+        ) : null}
+      </section>
+
+      {(clean(data.dose_summary) || clean(data.time_to_effect)) ? (
+        <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+          <h2 className="text-2xl font-black text-slate-950">Practical context</h2>
+          {clean(data.dose_summary) ? <p className="mt-3 text-sm leading-6 text-slate-700"><strong>Dose:</strong> {clean(data.dose_summary)}</p> : null}
+          {clean(data.time_to_effect) ? <p className="mt-2 text-sm leading-6 text-slate-700"><strong>Onset:</strong> {clean(data.time_to_effect)}</p> : null}
+        </section>
+      ) : null}
+
+      {showCta && (
+        <section className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5 shadow-sm">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800/80">Next step</p>
+          <h2 className="mt-2 text-2xl font-black text-slate-950">Recommended product</h2>
+          <p className="mt-2 text-sm leading-6 text-slate-700">Use the profile above to verify whether this compound fits your goal and safety context before buying anything.</p>
+        </section>
       )}
-    </div>
+    </main>
   )
 }
