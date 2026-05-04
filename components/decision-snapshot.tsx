@@ -57,7 +57,8 @@ function SnapshotStat({ label, value }: { label: string; value: string }) {
 
 export default function DecisionSnapshot({ verdict, bestFor, safety, timeToEffect, evidence }: DecisionSnapshotProps) {
   const computed = deriveVerdict(evidence, safety)
-  const finalVerdict = clean(verdict) && verdict.length < 10 ? verdict : computed
+  const providedVerdict = clean(verdict)
+  const finalVerdict = providedVerdict && providedVerdict.length < 10 ? providedVerdict : computed
   const percent = evidencePercent(evidence)
 
   return (
@@ -73,7 +74,7 @@ export default function DecisionSnapshot({ verdict, bestFor, safety, timeToEffec
         <SnapshotStat label="Works In" value={clean(timeToEffect) || 'Varies'} />
         <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-4">
           <p className="text-[11px] text-white/50">Evidence</p>
-          <p className="font-bold">{clean(evidence)}</p>
+          <p className="font-bold">{clean(evidence) || 'Limited'}</p>
           <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
             <div className="h-full bg-emerald-400" style={{ width: `${percent}%` }} />
           </div>
