@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { goalConfigs } from '@/data/goals'
+import { getCompounds } from '@/lib/runtime-data'
 
 type SeoEntryConfig = {
   route: string
@@ -18,7 +19,17 @@ type FaqItem = {
   answer: string
 }
 
-export const seoEntryPages: SeoEntryConfig[] = [
+type CompoundRecord = {
+  slug: string
+  name?: string
+  displayName?: string
+  summary?: string
+  mechanism?: string
+  evidence?: string
+  safety?: string
+}
+
+const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-sleep',
     goalSlug: 'sleep',
@@ -129,9 +140,61 @@ export const seoEntryPages: SeoEntryConfig[] = [
   },
 ]
 
+const guideTopics = [
+  ['sleep', 'natural sleep aids'], ['sleep', 'supplements for deep sleep'], ['sleep', 'supplements for insomnia'], ['sleep', 'melatonin alternatives'], ['sleep', 'calming supplements for sleep'], ['sleep', 'nighttime relaxation supplements'], ['sleep', 'sleep onset supplements'], ['sleep', 'sleep stack supplements'], ['sleep', 'non habit forming sleep aids'], ['sleep', 'magnesium for sleep'], ['sleep', 'glycine for sleep'], ['sleep', 'theanine for sleep'],
+  ['stress', 'natural anxiety supplements'], ['stress', 'herbs for stress relief'], ['stress', 'supplements for cortisol'], ['stress', 'adaptogens for anxiety'], ['stress', 'calming supplements'], ['stress', 'stress relief supplements'], ['stress', 'supplements for panic support'], ['stress', 'ashwagandha alternatives'], ['stress', 'rhodiola vs ashwagandha'], ['stress', 'kava alternatives'], ['stress', 'relaxation supplements'], ['stress', 'non sedating anxiety supplements'],
+  ['focus', 'supplements for brain fog'], ['focus', 'natural focus supplements'], ['focus', 'supplements for concentration'], ['focus', 'nootropics for studying'], ['focus', 'non stimulant nootropics'], ['focus', 'clean energy supplements'], ['focus', 'caffeine alternatives for focus'], ['focus', 'supplements for mental clarity'], ['focus', 'choline supplements for focus'], ['focus', 'alpha gpc vs citicoline'], ['focus', 'focus stack supplements'], ['focus', 'nootropics for work'],
+  ['fat-loss', 'thermogenic supplements'], ['fat-loss', 'appetite support supplements'], ['fat-loss', 'green tea extract for fat loss'], ['fat-loss', 'berberine for weight support'], ['fat-loss', 'fiber supplements for appetite'], ['fat-loss', 'caffeine for fat loss'], ['fat-loss', 'stimulant free fat loss supplements'], ['fat-loss', 'metabolism support supplements'], ['fat-loss', 'capsaicin for weight loss'], ['fat-loss', 'fat loss stack supplements'],
+  ['blood-pressure', 'magnesium for blood pressure'], ['blood-pressure', 'supplements for cardiovascular support'], ['blood-pressure', 'beetroot alternatives'], ['blood-pressure', 'fiber for cholesterol and blood pressure'], ['blood-pressure', 'plant sterols guide'], ['blood-pressure', 'citrulline for circulation'], ['blood-pressure', 'heart health supplements'], ['blood-pressure', 'blood pressure support without stimulants'],
+  ['gut-health', 'fiber supplements for gut health'], ['gut-health', 'supplements for bloating'], ['gut-health', 'prebiotics vs probiotics'], ['gut-health', 'digestive enzyme supplements'], ['gut-health', 'psyllium husk guide'], ['gut-health', 'inulin vs psyllium'], ['gut-health', 'gut health stack supplements'], ['gut-health', 'supplements for digestion'], ['gut-health', 'probiotic alternatives'], ['gut-health', 'prebiotic fiber supplements'],
+  ['joint-support', 'glucosamine vs chondroitin'], ['joint-support', 'curcumin for joint support'], ['joint-support', 'supplements for knee support'], ['joint-support', 'mobility supplements'], ['joint-support', 'joint support without nsaids'], ['joint-support', 'anti inflammatory supplements'], ['joint-support', 'collagen for joints'], ['joint-support', 'boswellia alternatives'],
+  ['testosterone-support', 'supplements for low testosterone'], ['testosterone-support', 'herbs that increase testosterone'], ['testosterone-support', 'testosterone support supplements'], ['testosterone-support', 'zinc for testosterone'], ['testosterone-support', 'magnesium for testosterone'], ['testosterone-support', 'ashwagandha for testosterone'], ['testosterone-support', 'natural energy boosters for men'], ['testosterone-support', 'testosterone booster alternatives'],
+] as const
+
+const titleCase = (value: string) =>
+  value.split(' ').map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
+
+const slugify = (value: string) =>
+  value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+
+const generatedSeoEntryPages: SeoEntryConfig[] = guideTopics.map(([goalSlug, topic]) => ({
+  route: `guides/${slugify(topic)}`,
+  goalSlug,
+  title: `${titleCase(topic)} | Evidence-Aware Guide`,
+  h1: titleCase(topic),
+  intro: `A practical, evidence-aware guide to ${topic}, with safety context, related compounds, and a clear path into ranked decision pages.`,
+  searchIntent: topic,
+  bullets: [
+    `Use this guide to compare ${topic} without treating every supplement claim as equal.`,
+    'Open the related goal page for ranked options, dose context, timing, and safety notes.',
+    'Review individual compound profiles before combining products or buying anything.',
+  ],
+}))
+
+export const seoEntryPages: SeoEntryConfig[] = [...manualSeoEntryPages, ...generatedSeoEntryPages]
+
 const siteUrl = 'https://thehippiescientist.net'
 
+const clean = (value: unknown): string => {
+  if (value === null || value === undefined) return ''
+  if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(', ')
+  if (typeof value === 'object') return ''
+  return String(value).replace(/\s+/g, ' ').trim()
+}
+
 const sentence = (text: string) => text.endsWith('.') ? text : `${text}.`
+
+const compoundLabel = (compound: CompoundRecord) =>
+  clean(compound.displayName) || clean(compound.name) || titleCase(compound.slug.replace(/-/g, ' '))
+
+const matchesAny = (compound: CompoundRecord, candidates: string[]) => {
+  const haystack = [compound.slug, compound.name, compound.displayName, compound.summary, compound.mechanism, compound.evidence]
+    .map(clean)
+    .join(' ')
+    .toLowerCase()
+
+  return candidates.some((candidate) => haystack.includes(candidate.toLowerCase().replace(/-/g, ' ')) || haystack.includes(candidate.toLowerCase()))
+}
 
 function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
   const plainGoal = goalTitle.toLowerCase()
@@ -155,7 +218,7 @@ function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
   ]
 }
 
-function faqSchema(page: SeoEntryConfig, faqs: FaqItem[]) {
+function faqSchema(faqs: FaqItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -175,24 +238,9 @@ function breadcrumbSchema(page: SeoEntryConfig) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: siteUrl,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Supplement Guides',
-        item: `${siteUrl}/goals`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: page.h1,
-        item: `${siteUrl}/${page.route}`,
-      },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Supplement Guides', item: `${siteUrl}/goals` },
+      { '@type': 'ListItem', position: 3, name: page.h1, item: `${siteUrl}/${page.route}` },
     ],
   }
 }
@@ -204,9 +252,7 @@ export function generateSeoEntryMetadata(route: string): Metadata {
   return {
     title: page.title,
     description: page.intro,
-    alternates: {
-      canonical: `/${page.route}`,
-    },
+    alternates: { canonical: `/${page.route}` },
     openGraph: {
       title: page.title,
       description: page.intro,
@@ -216,26 +262,28 @@ export function generateSeoEntryMetadata(route: string): Metadata {
   }
 }
 
-export function SeoEntryPage({ route }: { route: string }) {
+export async function SeoEntryPage({ route }: { route: string }) {
   const page = seoEntryPages.find((item) => item.route === route)
   if (!page) return notFound()
 
   const goal = goalConfigs.find((item) => item.slug === page.goalSlug)
   if (!goal) return notFound()
 
+  const compounds = (await getCompounds()) as CompoundRecord[]
+  const candidateTerms = [page.searchIntent, ...goal.compoundCandidates, goal.title]
+  const linkedCompounds = compounds
+    .filter((compound) => matchesAny(compound, candidateTerms))
+    .slice(0, 8)
+
   const faqs = buildFaqs(page, goal.title)
-  const relatedGuides = seoEntryPages.filter((item) => item.route !== page.route).slice(0, 4)
+  const relatedGuides = seoEntryPages
+    .filter((item) => item.route !== page.route && item.goalSlug === page.goalSlug)
+    .slice(0, 6)
 
   return (
     <main className="space-y-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(page, faqs)) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(page)) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(page)) }} />
 
       <section className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">Supplement guide</p>
@@ -243,28 +291,35 @@ export function SeoEntryPage({ route }: { route: string }) {
         <p className="mt-4 max-w-3xl text-base leading-7 text-white/75">{page.intro}</p>
         <p className="mt-3 text-xs text-white/45">Search intent: {page.searchIntent}</p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href={`/goals/${goal.slug}`} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">
-            View ranked picks
-          </Link>
-          <Link href="/compounds" className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white/75 hover:bg-white/10">
-            Browse compounds
-          </Link>
+          <Link href={`/goals/${goal.slug}`} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">View ranked picks</Link>
+          <Link href="/compounds" className="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-white/75 hover:bg-white/10">Browse compounds</Link>
         </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
         {page.bullets.map((bullet) => (
-          <div key={bullet} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/70">
-            {bullet}
-          </div>
+          <div key={bullet} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/70">{bullet}</div>
         ))}
       </section>
 
+      {linkedCompounds.length > 0 ? (
+        <section className="space-y-4 rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+          <h2 className="text-2xl font-bold text-white">Related compounds</h2>
+          <p className="max-w-3xl text-sm leading-6 text-white/70">These links are generated from the current compound dataset and goal mapping, so guides point users into real workbook-backed profiles instead of dead-end SEO pages.</p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {linkedCompounds.map((compound) => (
+              <Link key={compound.slug} href={`/compounds/${compound.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 hover:border-emerald-300/40">
+                <h3 className="font-bold text-white">{compoundLabel(compound)}</h3>
+                <p className="mt-2 line-clamp-2 text-xs leading-5 text-white/60">{clean(compound.summary || compound.mechanism || compound.evidence) || 'Open profile for evidence, dose, and safety context.'}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <section className="space-y-4 rounded-3xl border border-white/10 bg-white/[0.03] p-6">
         <h2 className="text-2xl font-bold text-white">How to choose supplements for {goal.title.toLowerCase()}</h2>
-        <p className="max-w-3xl leading-7 text-white/75">
-          Not all supplements targeting {goal.title.toLowerCase()} work the same way. Some are designed for short-term support, some require consistent use, and some only make sense for specific situations or populations. The goal is not to buy the most aggressive product. The goal is to match the compound, timing, and safety profile to the problem you are actually trying to solve.
-        </p>
+        <p className="max-w-3xl leading-7 text-white/75">Not all supplements targeting {goal.title.toLowerCase()} work the same way. Some are designed for short-term support, some require consistent use, and some only make sense for specific situations or populations. The goal is not to buy the most aggressive product. The goal is to match the compound, timing, and safety profile to the problem you are actually trying to solve.</p>
         <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-white/70">
           <li>Check whether the expected effect is acute, gradual, or dependent on baseline deficiency.</li>
           <li>Compare stimulant, calming, fiber, adaptogen, or nutrient-style approaches before stacking products.</li>
@@ -272,46 +327,17 @@ export function SeoEntryPage({ route }: { route: string }) {
         </ul>
       </section>
 
-      <section className="space-y-4 rounded-3xl border border-white/10 bg-white/[0.03] p-6">
-        <h2 className="text-2xl font-bold text-white">What actually works for {goal.title.toLowerCase()}?</h2>
-        <p className="max-w-3xl leading-7 text-white/75">
-          Evidence varies widely across the supplement market. Some compounds have stronger human evidence and clearer use-cases, while others rely on indirect mechanisms, small studies, or marketing language. The Hippie Scientist goal pages rank options by evidence and practical relevance so you can compare options without treating every claim as equal.
-        </p>
-        <div className="grid gap-4 md:grid-cols-3">
-          <div className="rounded-2xl border border-white/10 p-4 text-sm text-white/70">
-            <strong className="text-white">Evidence strength:</strong> human data and consistency matter more than hype.
-          </div>
-          <div className="rounded-2xl border border-white/10 p-4 text-sm text-white/70">
-            <strong className="text-white">Practical fit:</strong> timing, dose, and use-case decide whether an option makes sense.
-          </div>
-          <div className="rounded-2xl border border-white/10 p-4 text-sm text-white/70">
-            <strong className="text-white">Safety profile:</strong> interactions, side effects, and medical context stay visible.
-          </div>
-        </div>
-        <Link href={`/goals/${goal.slug}`} className="inline-block text-sm font-semibold text-emerald-300">
-          View the ranked {goal.title.toLowerCase()} decision guide →
-        </Link>
-      </section>
-
       <section className="rounded-3xl border border-amber-300/20 bg-amber-300/[0.06] p-5">
         <h2 className="font-bold text-amber-100">Safety considerations</h2>
-        <p className="mt-2 text-sm leading-6 text-white/75">
-          {sentence(goal.safetyNote)} Supplements are not risk-free, especially when combined with medications, medical conditions, pregnancy, surgery, sedatives, stimulants, or blood-pressure concerns.
-        </p>
-        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-300">
-          Review full safety guidance →
-        </Link>
+        <p className="mt-2 text-sm leading-6 text-white/75">{sentence(goal.safetyNote)} Supplements are not risk-free, especially when combined with medications, medical conditions, pregnancy, surgery, sedatives, stimulants, or blood-pressure concerns.</p>
+        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-300">Review full safety guidance →</Link>
       </section>
 
       <section className="rounded-3xl border border-emerald-300/20 bg-emerald-300/[0.06] p-5">
         <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-200/75">Buying checkpoint</p>
         <h2 className="mt-2 text-2xl font-bold text-white">Before you buy anything</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-white/75">
-          Use the ranked guide first, then open the individual compound profile. Product links should only come after the evidence, dose, timing, and safety context match your situation.
-        </p>
-        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">
-          Check ranked picks before buying
-        </Link>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-white/75">Use the ranked guide first, then open the individual compound profile. Product links should only come after the evidence, dose, timing, and safety context match your situation.</p>
+        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">Check ranked picks before buying</Link>
       </section>
 
       <section className="space-y-4 rounded-3xl border border-white/10 bg-white/[0.03] p-6">
@@ -326,18 +352,20 @@ export function SeoEntryPage({ route }: { route: string }) {
         </div>
       </section>
 
-      <section>
-        <h2 className="text-2xl font-bold text-white">Related supplement guides</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {relatedGuides.map((guide) => (
-            <Link key={guide.route} href={`/${guide.route}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-emerald-300/40">
-              <h3 className="font-bold text-white">{guide.h1}</h3>
-              <p className="mt-2 line-clamp-3 text-sm text-white/65">{guide.intro}</p>
-              <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">Read guide →</span>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {relatedGuides.length > 0 ? (
+        <section>
+          <h2 className="text-2xl font-bold text-white">Related supplement guides</h2>
+          <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {relatedGuides.map((guide) => (
+              <Link key={guide.route} href={`/${guide.route}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:border-emerald-300/40">
+                <h3 className="font-bold text-white">{guide.h1}</h3>
+                <p className="mt-2 line-clamp-3 text-sm text-white/65">{guide.intro}</p>
+                <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">Read guide →</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
     </main>
   )
 }
