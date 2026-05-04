@@ -9,9 +9,43 @@ type ConversionAffiliateCardProps = {
   variant?: 'light' | 'dark'
 }
 
+const PRODUCT_INTENT_MAP: Record<string, string> = {
+  magnesium: 'magnesium glycinate third party tested',
+  glycinate: 'magnesium glycinate third party tested',
+  omega: 'omega 3 fish oil triglyceride third party tested',
+  fish: 'omega 3 fish oil triglyceride third party tested',
+  creatine: 'creatine monohydrate third party tested',
+  ashwagandha: 'ashwagandha ksm-66 third party tested',
+  ksm: 'ashwagandha ksm-66 third party tested',
+  theanine: 'l-theanine third party tested',
+  melatonin: 'low dose melatonin third party tested',
+  glycine: 'glycine powder third party tested',
+  berberine: 'berberine hcl third party tested',
+  caffeine: 'caffeine l-theanine supplement third party tested',
+  citicoline: 'citicoline supplement third party tested',
+  alpha: 'alpha gpc supplement third party tested',
+  rhodiola: 'rhodiola rosea extract third party tested',
+  curcumin: 'curcumin phytosome third party tested',
+  turmeric: 'curcumin phytosome third party tested',
+  glucosamine: 'glucosamine sulfate third party tested',
+  chondroitin: 'chondroitin sulfate third party tested',
+  collagen: 'collagen peptides third party tested',
+  psyllium: 'psyllium husk powder third party tested',
+  inulin: 'inulin prebiotic fiber third party tested',
+  probiotic: 'probiotic supplement third party tested',
+  prebiotic: 'prebiotic fiber supplement third party tested',
+  zinc: 'zinc supplement third party tested',
+}
+
 const clean = (value: unknown): string => {
   if (value === null || value === undefined) return ''
   return String(value).replace(/\s+/g, ' ').trim()
+}
+
+const productQueryFor = (label: string, intent?: string): string => {
+  const haystack = `${label} ${intent ?? ''}`.toLowerCase()
+  const matchedKey = Object.keys(PRODUCT_INTENT_MAP).find(key => haystack.includes(key))
+  return matchedKey ? PRODUCT_INTENT_MAP[matchedKey] : `${label} supplement third party tested`
 }
 
 export default function ConversionAffiliateCard({
@@ -22,7 +56,7 @@ export default function ConversionAffiliateCard({
   variant = 'light',
 }: ConversionAffiliateCardProps) {
   const label = clean(name) || 'this supplement'
-  const query = encodeURIComponent(`${label} supplement third party tested`)
+  const query = encodeURIComponent(productQueryFor(label, intent))
   const amazonLink = `https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`
   const compoundHref = slug ? `/compounds/${slug}` : ''
   const isDark = variant === 'dark'
