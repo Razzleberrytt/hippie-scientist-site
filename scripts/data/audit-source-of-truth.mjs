@@ -11,6 +11,7 @@ const SCAN_EXTENSIONS = new Set(['.json', '.csv', '.yaml', '.yml', '.ts', '.tsx'
 const DATA_CODE_PREFIXES = ['src/', 'app/', 'components/', 'scripts/']
 const DOC_PREFIXES = ['docs/']
 const EDITORIAL_BLOG_PREFIX = 'content/blog/'
+const EDITORIAL_PAGE_PREFIXES = ['app/top/', 'app/guides/']
 const TEST_FIXTURE_HINTS = ['fixture', '__fixtures__', 'test', 'spec', 'mock', 'sample']
 const CODE_HINT_EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.mjs'])
 const DATA_FILE_EXTENSIONS = new Set(['.json', '.csv', '.yaml', '.yml', '.txt'])
@@ -102,6 +103,10 @@ function classifyFile(rel, text) {
 
   if (isTestFixture(rel)) {
     return { classification: 'SYNTHETIC_TEST_FIXTURE', allowed: true }
+  }
+
+  if (EDITORIAL_PAGE_PREFIXES.some((prefix) => rel.startsWith(prefix))) {
+    return { classification: 'STATIC_SITE_COPY', allowed: true }
   }
 
   if (DATA_CODE_PREFIXES.some((prefix) => rel.startsWith(prefix))) {
