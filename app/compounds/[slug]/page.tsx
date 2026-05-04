@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getCompoundDetailPayload, getCtaGatePayload, getCompounds, getSeoPagePayload } from '@/lib/runtime-data'
+import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
 
 const siteUrl = 'https://thehippiescientist.net'
 
@@ -126,11 +127,10 @@ export default async function Page({ params }: Params) {
       ) : null}
 
       {showCta && (
-        <section className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800/80">Next step</p>
-          <h2 className="mt-2 text-2xl font-black text-slate-950">Recommended product</h2>
-          <p className="mt-2 text-sm leading-6 text-slate-700">Use the profile above to verify whether this compound fits your goal and safety context before buying anything.</p>
-        </section>
+        <ConversionAffiliateCard
+          name={clean(data.headline)}
+          slug={slug}
+        />
       )}
     </main>
   )
