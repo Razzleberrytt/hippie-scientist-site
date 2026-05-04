@@ -1,19 +1,41 @@
 import { notFound } from 'next/navigation'
-import { getCompoundDetailPayload, getCtaGatePayload } from '@/lib/runtime-data'
+import { getCompoundDetailPayload, getCtaGatePayload, getCompounds } from '@/lib/runtime-data'
 
 export async function generateStaticParams() {
   const payload = await getCompoundDetailPayload()
-  return payload.map((p: any) => ({ slug: p.slug }))
+  const base = await getCompounds()
+
+  if (payload.length > 0) {
+    return payload.map((p: any) => ({ slug: p.slug }))
+  }
+
+  // fallback if payload missing
+  return base.map((c: any) => ({ slug: c.slug }))
 }
 
 export default async function Page({ params }: any) {
   const { slug } = params
 
   const payload = await getCompoundDetailPayload()
+  const base = await getCompounds()
   const cta = await getCtaGatePayload()
 
-  const data = payload.find((p: any) => p.slug === slug)
-  if (!data) return notFound()
+  let data = payload.find((p: any) => p.slug === slug)
+
+  // fallback to base compound
+  if (!data) {
+    const compound = base.find((c: any) => c.slug === slug)
+    if (!compound) return notFound()
+
+    data = {
+      headline: compound.name,
+      decision_summary: compound.mechanism,
+      evidence_summary: compound.evidence,
+      safety_summary: compound.safety,
+      dose_summary: compound.dosage,
+      time_to_effect: '',
+    }
+  }
 
   const gate = cta.find((g: any) => g.slug === slug)
 
@@ -25,7 +47,9 @@ export default async function Page({ params }: any) {
       <p>{data.evidence_summary}</p>
       <p>{data.safety_summary}</p>
       <p>{data.dose_summary}</p>
-      <p><strong>Onset:</strong> {data.time_to_effect}</p>
+      {data.time_to_effect && (
+        <p><strong>Onset:</strong> {data.time_to_effect}</p>
+      )}
 
       {gate?.show_cta === 'yes' && (
         <div className="p-4 border rounded">
