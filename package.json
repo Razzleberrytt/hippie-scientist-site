@@ -10,7 +10,7 @@
     "dev": "next dev",
     "start": "next start",
     "check": "npm run build",
-    "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
+    "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/postprocess-workbook-payloads.mjs",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
     "data:audit": "node scripts/data/audit-source-of-truth.mjs",
     "audit:source-of-truth": "STRICT_SOURCE_AUDIT=true node scripts/data/audit-source-of-truth.mjs",
