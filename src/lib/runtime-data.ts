@@ -36,7 +36,11 @@ export const getStacks = cache(async (): Promise<RuntimeRecord[]> => {
   return Array.isArray(stacks) ? stacks : []
 })
 
-// NEW PAYLOAD GETTERS
+export const getClaims = cache(async (): Promise<RuntimeRecord[]> => {
+  const claims = await readJsonFile('claims.json')
+  return Array.isArray(claims) ? claims : []
+})
+
 export const getCompoundCardPayload = cache(async (): Promise<RuntimeRecord[]> => {
   const rows = await readJsonFile('compound-card-payload.json')
   return Array.isArray(rows) ? rows : []
@@ -61,6 +65,11 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
   const rows = await readJsonFile('route-build-manifest.json')
   return Array.isArray(rows) ? rows : []
 })
+
+export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | undefined> {
+  const herbs = await getHerbs()
+  return herbs.find(herb => herb.slug === slug)
+}
 
 export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | undefined> {
   const compounds = await getCompounds()
