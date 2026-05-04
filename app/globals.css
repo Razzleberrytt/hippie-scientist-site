@@ -4,19 +4,19 @@
 
 :root {
   --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --bg: #f3eadc;
-  --ink: #101815;
+  --bg: #f6efe3;
+  --ink: #0f172a;
   --surface-1: #ffffff;
-  --surface-2: #f7fbf5;
-  --surface-3: #101815;
-  --text-primary: #101815;
-  --text-secondary: #33413c;
-  --text-muted: #66736d;
-  --border-subtle: rgb(16 24 21 / 10%);
-  --border-default: rgb(16 24 21 / 16%);
+  --surface-2: #f8faf7;
+  --surface-3: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-subtle: rgb(15 23 42 / 8%);
+  --border-default: rgb(15 23 42 / 12%);
   --accent-primary: #10b981;
-  --accent-deep: #064e3b;
-  --accent-soft: #dcfce7;
+  --accent-deep: #065f46;
+  --accent-soft: #dffbea;
   --accent-warm: #f2c94c;
   --accent: var(--accent-primary);
 }
@@ -33,9 +33,9 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgb(16 185 129 / 12%), transparent 28rem),
-    radial-gradient(circle at 85% 8%, rgb(242 201 76 / 13%), transparent 24rem),
-    linear-gradient(180deg, #fff7e8 0%, #f3eadc 45%, #edf7ef 100%);
+    radial-gradient(circle at top left, rgb(16 185 129 / 10%), transparent 30rem),
+    radial-gradient(circle at 85% 10%, rgb(242 201 76 / 11%), transparent 24rem),
+    linear-gradient(180deg, #fff8ec 0%, #f6efe3 50%, #eef8ef 100%);
   color: var(--text-primary);
   font-family: var(--font-body);
   text-rendering: optimizeLegibility;
@@ -43,41 +43,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-::selection {
-  background: rgb(16 185 129 / 22%);
-  color: var(--ink);
-}
+::selection { background: rgb(16 185 129 / 22%); color: var(--ink); }
 
 :focus-visible {
   outline: 2px solid rgb(16 185 129 / 80%);
   outline-offset: 3px;
 }
 
-a, button {
-  -webkit-tap-highlight-color: transparent;
-}
+a, button { -webkit-tap-highlight-color: transparent; }
+
+button, a { touch-action: manipulation; }
 
 h1, h2, h3 {
   letter-spacing: -0.045em;
+  text-wrap: balance;
 }
 
-p {
-  color: var(--text-secondary);
-}
+p { color: var(--text-secondary); }
 
 @keyframes hs-fade-up {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes hs-soft-scale {
-  from { opacity: 0; transform: scale(0.985) translateY(8px); }
+  from { opacity: 0; transform: scale(0.988) translateY(8px); }
   to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 @keyframes hs-glow-pulse {
-  0%, 100% { opacity: 0.18; transform: scale(1); }
-  50% { opacity: 0.28; transform: scale(1.04); }
+  0%, 100% { opacity: 0.16; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.04); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -92,43 +88,51 @@ p {
 @layer components {
   .container-page { @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8; }
 
-  .ds-card {
-    @apply rounded-[1.5rem] border bg-white p-5 shadow-sm;
+  .ds-card,
+  .soft-section,
+  .premium-card,
+  .library-card-premium {
+    @apply rounded-2xl border bg-white shadow-sm transition-all duration-300 ease-out;
     border-color: var(--border-default);
-    box-shadow: 0 18px 45px rgb(16 24 21 / 8%);
+    box-shadow: 0 1px 0 rgb(15 23 42 / 4%), 0 18px 45px rgb(15 23 42 / 7%);
   }
 
-  .premium-card {
-    @apply rounded-[1.5rem] border bg-white shadow-sm transition-all duration-300 ease-out;
-    border-color: var(--border-default);
-    box-shadow: 0 18px 45px rgb(16 24 21 / 8%);
-  }
+  .ds-card,
+  .soft-section { @apply p-5; }
 
-  .premium-card:hover {
+  .premium-card:hover,
+  .soft-section:hover,
+  .library-card-premium:hover {
     transform: translateY(-3px);
-    box-shadow: 0 24px 60px rgb(16 185 129 / 12%), 0 12px 30px rgb(16 24 21 / 8%);
+    border-color: rgb(16 185 129 / 42%);
+    box-shadow: 0 1px 0 rgb(15 23 42 / 4%), 0 26px 68px rgb(16 185 129 / 11%), 0 14px 34px rgb(15 23 42 / 8%);
+  }
+
+  .premium-card:active,
+  .library-card-premium:active {
+    transform: translateY(-1px) scale(0.997);
   }
 
   .premium-link {
-    @apply font-black text-emerald-700 transition-all duration-200 ease-out hover:translate-x-0.5 hover:text-emerald-900;
+    @apply inline-flex items-center font-black text-emerald-700 transition-all duration-200 ease-out hover:translate-x-0.5 hover:text-emerald-900;
   }
 
   .premium-button {
-    @apply rounded-2xl bg-emerald-500 px-5 py-3 text-sm font-black text-white shadow-lg shadow-emerald-900/10 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-emerald-600 hover:shadow-xl hover:shadow-emerald-500/20 active:scale-[0.99];
+    @apply inline-flex items-center justify-center rounded-xl bg-emerald-500 px-5 py-3 text-sm font-black text-white shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-emerald-600 hover:shadow-lg hover:shadow-emerald-500/20 active:translate-y-0 active:scale-[0.99];
   }
 
   .premium-button-warm {
-    @apply rounded-2xl bg-amber-300 px-5 py-3 text-sm font-black text-slate-950 shadow-lg shadow-amber-900/10 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-amber-200 hover:shadow-xl hover:shadow-amber-500/20 active:scale-[0.99];
+    @apply inline-flex items-center justify-center rounded-xl bg-amber-300 px-5 py-3 text-sm font-black text-slate-950 shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-amber-200 hover:shadow-lg hover:shadow-amber-500/20 active:translate-y-0 active:scale-[0.99];
   }
 
   .hero-panel {
-    @apply relative overflow-hidden rounded-[2rem] border p-6 shadow-xl sm:p-8;
-    border-color: rgb(8 63 50 / 16%);
+    @apply relative overflow-hidden rounded-3xl border bg-white p-6 shadow-sm sm:p-8;
+    border-color: var(--border-default);
     background:
-      radial-gradient(circle at top left, rgb(16 185 129 / 20%), transparent 30rem),
-      linear-gradient(135deg, #ffffff 0%, #f1fbf3 100%);
-    box-shadow: 0 28px 80px rgb(16 24 21 / 11%);
-    animation: hs-soft-scale 520ms ease-out both;
+      radial-gradient(circle at top left, rgb(16 185 129 / 14%), transparent 30rem),
+      linear-gradient(135deg, #ffffff 0%, #f7fff9 100%);
+    box-shadow: 0 1px 0 rgb(15 23 42 / 4%), 0 28px 80px rgb(15 23 42 / 9%);
+    animation: hs-soft-scale 420ms ease-out both;
   }
 
   .hero-panel::after {
@@ -136,42 +140,22 @@ p {
     position: absolute;
     inset: auto 12% 0 12%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgb(16 185 129 / 42%), transparent);
+    background: linear-gradient(90deg, transparent, rgb(16 185 129 / 38%), transparent);
   }
 
-  .soft-section {
-    @apply rounded-[1.5rem] border bg-white p-5 shadow-sm transition-all duration-300 ease-out;
-    border-color: var(--border-subtle);
-    box-shadow: 0 16px 40px rgb(16 24 21 / 7%);
-    animation: hs-fade-up 480ms ease-out both;
+  .premium-chip {
+    @apply inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-slate-600 shadow-sm;
   }
 
-  .soft-section:hover {
-    box-shadow: 0 22px 55px rgb(16 24 21 / 9%);
+  .premium-chip-green {
+    @apply inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-black uppercase tracking-[0.16em] text-emerald-800;
   }
 
-  .library-card-premium {
-    @apply rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 ease-out;
-    color: #0f172a;
-    box-shadow: 0 14px 35px rgb(15 23 42 / 7%);
-    animation: hs-fade-up 420ms ease-out both;
+  .premium-input {
+    @apply rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100;
   }
 
-  .library-card-premium:hover {
-    transform: translateY(-5px);
-    border-color: rgb(16 185 129 / 48%);
-    box-shadow: 0 30px 76px rgb(16 185 129 / 14%), 0 14px 34px rgb(15 23 42 / 11%);
-  }
-
-  .premium-glow-orb {
-    animation: hs-glow-pulse 5s ease-in-out infinite;
-  }
-
-  .animate-fade-up {
-    animation: hs-fade-up 460ms ease-out both;
-  }
-
-  .animate-soft-scale {
-    animation: hs-soft-scale 520ms ease-out both;
-  }
+  .premium-glow-orb { animation: hs-glow-pulse 5s ease-in-out infinite; }
+  .animate-fade-up { animation: hs-fade-up 360ms ease-out both; }
+  .animate-soft-scale { animation: hs-soft-scale 420ms ease-out both; }
 }
