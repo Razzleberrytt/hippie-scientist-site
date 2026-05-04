@@ -2,6 +2,14 @@ User-agent: *
 Allow: /
 Allow: /herbs
 Allow: /herbs/
+Allow: /compounds
+Allow: /compounds/
+Allow: /blog
+Allow: /blog/
+Allow: /stacks
+Allow: /stacks/
+Allow: /goals
+Allow: /goals/
 Allow: /best-herbs-for-
 Disallow: /analytics
 Disallow: /data-fix
