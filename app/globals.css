@@ -4,47 +4,176 @@
 
 :root {
   --bg: #06080a;
+  --surface-1: oklch(18% 0.02 220 / 0.78);
+  --surface-2: oklch(15% 0.02 220 / 0.88);
+  --surface-3: oklch(22% 0.03 220 / 0.72);
   --text-primary: #e6f1ef;
   --text-secondary: #9fb3ad;
+  --text-muted: #728781;
+  --border-subtle: oklch(100% 0 0 / 0.08);
+  --border-default: oklch(100% 0 0 / 0.12);
+  --accent-primary: oklch(72% 0.19 145);
+  --accent-deep: oklch(52% 0.18 145);
+  --accent-soft: oklch(72% 0.19 145 / 0.14);
+  --accent-warm: oklch(65% 0.18 55);
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--bg);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: radial-gradient(circle at 20% 10%, rgba(16,185,129,0.15), transparent 40%),
-              radial-gradient(circle at 80% 0%, rgba(34,197,94,0.12), transparent 40%),
-              #06080a;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 20% 8%, oklch(72% 0.19 145 / 0.16), transparent 34rem),
+    radial-gradient(circle at 85% 0%, oklch(65% 0.12 200 / 0.13), transparent 30rem),
+    radial-gradient(circle at 50% 100%, oklch(65% 0.18 55 / 0.08), transparent 34rem),
+    #06080a;
   color: var(--text-primary);
+  font-family: var(--font-body, Inter, system-ui, sans-serif);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+::selection { background: oklch(72% 0.19 145 / 0.28); color: white; }
+
+:focus-visible {
+  outline: 2px solid oklch(72% 0.19 145 / 0.88);
+  outline-offset: 3px;
+}
+
+a, button { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+button, input, textarea, select { font: inherit; }
+
+h1, h2, h3 { text-wrap: balance; letter-spacing: -0.045em; }
+p { color: var(--text-secondary); line-height: 1.65; }
+
 @keyframes shine {
-  0% { transform: translateX(-150%); }
-  100% { transform: translateX(300%); }
+  0% { transform: translateX(-160%); }
+  100% { transform: translateX(320%); }
+}
+
+@keyframes hs-glow-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.88; transform: scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-card,
+  .hero-panel,
+  .soft-section,
+  .premium-card,
+  .library-card-premium,
+  header,
+  footer {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: oklch(14% 0.02 220 / 0.98) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .glass-card,
+  .hero-panel,
+  .soft-section,
+  .premium-card,
+  .library-card-premium {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 @layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
   .glass-card {
-    @apply rounded-2xl backdrop-blur-xl border border-white/10;
+    @apply rounded-3xl border border-white/10 backdrop-blur-xl;
     background: oklch(18% 0.02 220 / 0.78);
-    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    box-shadow: 0 24px 80px rgb(0 0 0 / 0.35), inset 0 1px 0 oklch(100% 0 0 / 0.06);
   }
 
-  .glass-card-hover {
-    @apply transition-all duration-300;
+  .glass-card-hover { @apply transition-all duration-300; }
+  .glass-card-hover:hover { transform: translateY(-4px); box-shadow: 0 32px 100px rgb(0 0 0 / 0.45), inset 0 1px 0 oklch(100% 0 0 / 0.08); }
+
+  .card,
+  .ds-card,
+  .soft-section,
+  .premium-card,
+  .library-card-premium {
+    @apply rounded-3xl border border-white/10 bg-glass-standard text-white shadow-glass backdrop-blur-xl transition-all duration-300;
   }
 
-  .glass-card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 32px 100px rgba(0,0,0,0.45);
+  .card,
+  .ds-card,
+  .soft-section { @apply p-5; }
+
+  .card-hover:hover,
+  .premium-card:hover,
+  .soft-section:hover,
+  .library-card-premium:hover { transform: translateY(-3px); border-color: oklch(72% 0.19 145 / 0.28); }
+
+  .hero-panel {
+    @apply relative overflow-hidden rounded-[2rem] border border-brand/20 bg-glass-heavy p-5 text-white shadow-glass backdrop-blur-xl sm:p-8;
   }
+
+  .hero-panel::before {
+    content: '';
+    position: absolute;
+    inset: -25% -10% auto auto;
+    width: 22rem;
+    height: 22rem;
+    border-radius: 9999px;
+    background: oklch(72% 0.19 145 / 0.16);
+    filter: blur(64px);
+    pointer-events: none;
+  }
+
+  .premium-link { @apply inline-flex items-center font-bold text-brand transition hover:text-white; }
 
   .premium-button {
-    @apply px-5 py-3 rounded-xl font-bold;
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-3 text-sm font-black text-black shadow-glow transition active:scale-[0.99];
     background: linear-gradient(135deg, oklch(72% 0.19 145), oklch(65% 0.18 160));
-    color: black;
+  }
+
+  .premium-button-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-black text-white transition hover:bg-white/[0.1] active:scale-[0.99];
   }
 
   .premium-button-warm {
-    @apply px-5 py-3 rounded-xl font-bold;
+    @apply inline-flex min-h-11 items-center justify-center rounded-xl px-5 py-3 text-sm font-black text-black shadow-lg transition active:scale-[0.99];
     background: linear-gradient(135deg, oklch(70% 0.2 60), oklch(60% 0.18 45));
-    color: black;
   }
+
+  .premium-chip,
+  .premium-chip-green {
+    @apply inline-flex items-center rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.14em];
+  }
+
+  .premium-chip { @apply border-white/10 bg-white/[0.06] text-white/65; }
+  .premium-chip-green { @apply border-brand/30 bg-brand/15 text-brand; }
+
+  .premium-input {
+    @apply min-h-11 rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-brand/50 focus:ring-4 focus:ring-brand/10;
+  }
+
+  .section-stack { @apply space-y-8; }
+  .subsection-stack { @apply space-y-4; }
+  .premium-glow-orb { animation: hs-glow-pulse 5s ease-in-out infinite; }
 }
