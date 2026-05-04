@@ -12,28 +12,46 @@ export const goalConfigs: GoalConfig[] = [
   {
     slug: 'sleep',
     title: 'Sleep Support',
-    summary: 'Start here if you want practical help with winding down, sleep timing, and nighttime supplement decisions.',
+    summary: 'Wind down faster and improve sleep quality with evidence-aware options.',
     stackSlugs: ['sleep'],
     compoundCandidates: ['melatonin','l-theanine','magnesium','glycine','apigenin','valerian-root','lemon-balm'],
     comparisonSlugs: ['melatonin-vs-l-theanine'],
-    safetyNote: 'Sleep supplements can cause next-day grogginess and interactions. Review safety notes before use.'
+    safetyNote: 'Watch for grogginess and sedative interactions.'
   },
   {
     slug: 'anxiety',
     title: 'Anxiety & Calm',
-    summary: 'Compare calming compounds with safety and interaction context.',
+    summary: 'Calming compounds with safety and interaction context.',
     stackSlugs: ['stress','sleep'],
     compoundCandidates: ['l-theanine','magnesium','glycine','ashwagandha','lemon-balm','passionflower','kava'],
     comparisonSlugs: ['caffeine-vs-theanine'],
-    safetyNote: 'Calming supplements can interact with medications and alcohol.'
+    safetyNote: 'Avoid mixing with sedatives or alcohol.'
   },
   {
     slug: 'focus',
     title: 'Focus & Energy',
-    summary: 'Use this path for attention and performance decisions.',
+    summary: 'Attention and performance optimization with clean stimulation.',
     stackSlugs: ['cognition'],
     compoundCandidates: ['caffeine','l-theanine','alpha-gpc','citicoline','tyrosine','rhodiola','creatine'],
     comparisonSlugs: ['caffeine-vs-theanine'],
-    safetyNote: 'Stimulants can worsen anxiety and sleep issues.'
+    safetyNote: 'Stimulants can affect sleep and anxiety.'
+  },
+  {
+    slug: 'fat-loss',
+    title: 'Fat Loss',
+    summary: 'Support metabolism, appetite, and energy safely.',
+    stackSlugs: ['fat-loss'],
+    compoundCandidates: ['caffeine','green-tea-extract','capsaicin','berberine','psyllium'],
+    comparisonSlugs: [],
+    safetyNote: 'Avoid stimulant-heavy stacks if sensitive.'
+  },
+  {
+    slug: 'recovery',
+    title: 'Recovery',
+    summary: 'Muscle recovery and performance support.',
+    stackSlugs: ['recovery'],
+    compoundCandidates: ['creatine','protein','collagen','omega-3','magnesium'],
+    comparisonSlugs: ['creatine-vs-whey'],
+    safetyNote: 'Consider kidney and hydration status.'
   }
 ]
