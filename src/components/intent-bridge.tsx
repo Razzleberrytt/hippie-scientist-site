@@ -7,7 +7,9 @@ export default function IntentBridge({ intent }: { intent: string }) {
   useEffect(() => {
     try {
       localStorage.setItem(INTENT_STORAGE_KEY, intent)
-    } catch {}
+    } catch {
+      // localStorage can be unavailable in private browsing or restricted environments.
+    }
   }, [intent])
 
   return null
