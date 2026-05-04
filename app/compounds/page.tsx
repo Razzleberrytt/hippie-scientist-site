@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import LibraryBrowser from '@/components/library-browser'
+import CompoundsBrowserV2 from '@/components/compounds-browser-v2'
 import { getCompounds, getCompoundCardPayload } from '@/lib/runtime-data'
 import { compoundDetailRoute } from '@/lib/public-routes'
 
@@ -75,11 +75,5 @@ export default async function CompoundsPage() {
     }
   })
 
-  return (
-    <LibraryBrowser
-      title='Compounds'
-      description='Decision-ready compounds prioritized by evidence and use-case.'
-      items={items}
-    />
-  )
+  return <CompoundsBrowserV2 items={items} />
 }
