@@ -13,6 +13,8 @@ type CompoundRecord = {
   displayName?: string
   summary?: string
   description?: string
+  mechanism?: string
+  effects?: string | string[]
   best_for?: string
   bestFor?: string
   avoid_if?: string
@@ -36,6 +38,17 @@ type CompoundRecord = {
   summary_quality?: string
 }
 
+const INTENT_TERMS: Record<string, string[]> = {
+  sleep: ['sleep', 'insomnia', 'night', 'melatonin', 'glycine', 'theanine', 'magnesium', 'relax', 'sedative', 'calm'],
+  stress: ['stress', 'anxiety', 'calm', 'cortisol', 'adaptogen', 'ashwagandha', 'rhodiola', 'theanine', 'relax'],
+  focus: ['focus', 'cognition', 'brain fog', 'mental clarity', 'nootropic', 'energy', 'caffeine', 'choline', 'attention'],
+  'fat-loss': ['fat loss', 'weight', 'appetite', 'metabolism', 'thermogenic', 'berberine', 'fiber', 'caffeine'],
+  'gut-health': ['gut', 'digestion', 'bloating', 'fiber', 'probiotic', 'prebiotic', 'psyllium', 'inulin'],
+  'blood-pressure': ['blood pressure', 'cardiovascular', 'heart', 'circulation', 'magnesium', 'fiber', 'citrulline'],
+  'joint-support': ['joint', 'mobility', 'inflammation', 'collagen', 'glucosamine', 'chondroitin', 'curcumin'],
+  'testosterone-support': ['testosterone', 'libido', 'zinc', 'magnesium', 'ashwagandha', 'hormone', 'men'],
+}
+
 const clean = (value: unknown): string => {
   if (value === null || value === undefined) return ''
   if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(', ')
@@ -44,10 +57,22 @@ const clean = (value: unknown): string => {
 }
 
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
-
 const formatName = (slug: string) => slug.split('-').filter(Boolean).map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
-
 const getCompoundLabel = (compound: CompoundRecord) => clean(compound.displayName) || clean(compound.name) || formatName(compound.slug)
+
+const textBlob = (compound: CompoundRecord) => [
+  compound.slug,
+  compound.name,
+  compound.displayName,
+  compound.summary,
+  compound.description,
+  compound.mechanism,
+  compound.effects,
+  compound.best_for,
+  compound.bestFor,
+  compound.evidence_grade,
+  compound.evidenceGrade,
+].map(clean).join(' ').toLowerCase()
 
 const getScore = (compound: CompoundRecord) => {
   const value = Number(compound.evidence_score ?? compound.evidenceScore ?? compound.fact_score_v2 ?? compound.factScore ?? compound.net_score ?? 0)
@@ -81,8 +106,16 @@ const getSpeedRank = (compound: CompoundRecord) => {
   return 1
 }
 
-const decisionScore = (compound: CompoundRecord) => {
-  let score = 0
+const intentScore = (compound: CompoundRecord, goalSlug: string, candidates: string[]) => {
+  const blob = textBlob(compound)
+  const exact = candidates.some(candidate => normalize(compound.slug) === normalize(candidate) || normalize(compound.name) === normalize(candidate) || normalize(compound.displayName) === normalize(candidate))
+  const terms = INTENT_TERMS[goalSlug] ?? []
+  const termMatches = terms.reduce((total, term) => total + (blob.includes(term.toLowerCase()) ? 1 : 0), 0)
+  return (exact ? 80 : 0) + termMatches * 10
+}
+
+const decisionScore = (compound: CompoundRecord, goalSlug = '', candidates: string[] = []) => {
+  let score = intentScore(compound, goalSlug, candidates)
   score += getEvidenceRank(compound) * 3
   score += getSafetyRank(compound) * 2
   score += getSpeedRank(compound)
@@ -92,12 +125,15 @@ const decisionScore = (compound: CompoundRecord) => {
   return score
 }
 
-const matchesCompound = (compound: CompoundRecord, candidates: string[]) => {
+const matchesCompound = (compound: CompoundRecord, candidates: string[], goalSlug: string) => {
   const aliases = new Set([compound.slug, normalize(compound.slug), compound.name, compound.displayName, normalize(compound.name), normalize(compound.displayName)].filter(Boolean))
-  return candidates.some((candidate) => aliases.has(candidate) || aliases.has(normalize(candidate)))
+  const exact = candidates.some((candidate) => aliases.has(candidate) || aliases.has(normalize(candidate)))
+  return exact || intentScore(compound, goalSlug, candidates) >= 10
 }
 
-const getTopCompounds = (compounds: CompoundRecord[], candidates: string[]) => compounds.filter((compound) => matchesCompound(compound, candidates)).sort((a, b) => decisionScore(b) - decisionScore(a) || getCompoundLabel(a).localeCompare(getCompoundLabel(b)))
+const getTopCompounds = (compounds: CompoundRecord[], candidates: string[], goalSlug: string) => compounds
+  .filter((compound) => matchesCompound(compound, candidates, goalSlug))
+  .sort((a, b) => decisionScore(b, goalSlug, candidates) - decisionScore(a, goalSlug, candidates) || getCompoundLabel(a).localeCompare(getCompoundLabel(b)))
 
 const getEvidenceLabel = (compound: CompoundRecord) => {
   const raw = clean(compound.evidence_grade ?? compound.evidenceGrade ?? compound.evidenceTier ?? compound.tier_level)
@@ -114,12 +150,14 @@ const getBestFor = (compound: CompoundRecord) => clean(compound.best_for ?? comp
 const getAvoidIf = (compound: CompoundRecord) => clean(compound.avoid_if ?? compound.avoidIf)
 const getSafetySummary = (compound: CompoundRecord) => clean(compound.safety_summary ?? compound.safetySummary ?? compound.safety_notes ?? compound.safetyNotes)
 
-const getBestPickLabel = (compound: CompoundRecord, compounds: CompoundRecord[], index: number) => {
-  if (index === 0) return 'Best Overall'
+const getBestPickLabel = (compound: CompoundRecord, compounds: CompoundRecord[], index: number, goalSlug: string, candidates: string[]) => {
+  if (index === 0) return 'Best Match'
   const strongestEvidence = compounds.reduce((best, item) => getEvidenceRank(item) > getEvidenceRank(best) ? item : best, compounds[0])
   if (compound.slug === strongestEvidence.slug) return 'Strongest Evidence'
   const safest = compounds.reduce((best, item) => getSafetyRank(item) > getSafetyRank(best) ? item : best, compounds[0])
   if (compound.slug === safest.slug) return 'Best for Safety'
+  const strongestIntent = compounds.reduce((best, item) => intentScore(item, goalSlug, candidates) > intentScore(best, goalSlug, candidates) ? item : best, compounds[0])
+  if (compound.slug === strongestIntent.slug) return 'Best Intent Fit'
   const fastest = compounds.reduce((best, item) => getSpeedRank(item) > getSpeedRank(best) ? item : best, compounds[0])
   if (getSpeedRank(compound) > 0 && compound.slug === fastest.slug) return 'Fastest Acting'
   return ''
@@ -143,7 +181,7 @@ export default async function GoalPage({ params }: Params) {
 
   const compounds = (await getCompounds()) as CompoundRecord[]
   const stacks = await getStacks()
-  const topCompounds = getTopCompounds(compounds, goal.compoundCandidates)
+  const topCompounds = getTopCompounds(compounds, goal.compoundCandidates, goal.slug)
   const relatedStacks = stacks.filter((stack) => goal.stackSlugs.includes(stack.slug) || (stack.goal_slug || stack.goal) === goal.slug)
   const relatedComparisons = supplementComparisons.filter((comparison) => goal.comparisonSlugs.includes(comparison.slug))
 
@@ -161,9 +199,9 @@ export default async function GoalPage({ params }: Params) {
         <section className="soft-section">
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-emerald-700/60">Ranked picks</p>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-emerald-700/60">Intent-ranked picks</p>
               <h2 className="mt-1 text-3xl font-black text-slate-950">Best options for this goal</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Ranked by evidence, safety, speed, and completeness. Missing data is never guessed.</p>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Ranked by goal fit, evidence, safety, speed, and completeness. Missing data is never guessed.</p>
             </div>
             <Link href="/compounds" className="text-sm font-black text-emerald-700">All compounds →</Link>
           </div>
@@ -175,14 +213,14 @@ export default async function GoalPage({ params }: Params) {
               const avoidIf = getAvoidIf(compound)
               const safetySummary = getSafetySummary(compound)
               const summary = clean(compound.summary) || clean(compound.description)
-              const pickLabel = getBestPickLabel(compound, topCompounds, index)
+              const pickLabel = getBestPickLabel(compound, topCompounds, index, goal.slug, goal.compoundCandidates)
 
               return (
                 <Link key={compound.slug} href={`/compounds/${compound.slug}`} className={index === 0 ? "premium-card group block border-emerald-300 bg-emerald-50/70 p-5 transition hover:-translate-y-0.5 hover:bg-white" : "premium-card group block p-5 transition hover:-translate-y-0.5 hover:bg-white"}>
                   <div className="flex flex-wrap items-center gap-2">
                     {pickLabel ? <span className="rounded-full bg-emerald-600 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-white">{pickLabel}</span> : null}
                     <span className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-emerald-800 ring-1 ring-emerald-900/10">{getEvidenceLabel(compound)}</span>
-                    <span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-slate-600">Decision {decisionScore(compound)}</span>
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-black uppercase tracking-[0.14em] text-slate-600">Fit {intentScore(compound, goal.slug, goal.compoundCandidates)}</span>
                   </div>
 
                   <h3 className="mt-3 text-xl font-black text-slate-950 group-hover:text-emerald-800">{label}</h3>
@@ -207,7 +245,7 @@ export default async function GoalPage({ params }: Params) {
         <article className="soft-section">
           <h2 className="text-2xl font-black text-slate-950">How to choose</h2>
           <ul className="mt-4 space-y-3">
-            {['Start with Best Overall if you want the default pick.', 'Choose Best for Safety when caution matters most.', 'Use comparisons if you are unsure between two choices.'].map((item) => (
+            {['Start with Best Match if you want the default intent-aware pick.', 'Choose Best for Safety when caution matters most.', 'Use comparisons if you are unsure between two choices.'].map((item) => (
               <li key={item} className="flex gap-3 text-sm font-semibold leading-6 text-slate-700"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" /><span>{item}</span></li>
             ))}
           </ul>
