@@ -61,7 +61,7 @@ const decisionScore = (item: BrowserItem): number => {
   if (lower(item.summary_quality).includes('strong')) score += 15
   if (lower(item.profile_status).includes('complete')) score += 12
   if (item.bestFor || item.domain) score += 8
-  if (item.safety) score += 6
+  if (item.safety && !/^review$/i.test(normalizeText(item.safety))) score += 6
   if (item.onset || item.timeToEffect) score += 4
   if (item.dosage) score += 4
   return score
@@ -96,7 +96,7 @@ export default function LibraryBrowser({
   description,
   searchPlaceholder = 'Search by name or compound',
   emptyLabel = 'No matching profiles found.',
-  ctaLabel = 'View dosage & safety →',
+  ctaLabel = 'View profile →',
   items,
 }: LibraryBrowserProps) {
   const [query, setQuery] = useState('')
@@ -171,7 +171,7 @@ export default function LibraryBrowser({
                 className='group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md'
               >
                 <div className='flex flex-wrap items-center gap-2'>
-                  {index < 6 && score > 10 ? <span className='rounded-full bg-emerald-600 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-white'>Top match</span> : null}
+                  {index < 3 && score >= 40 ? <span className='rounded-full bg-emerald-600 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-white'>Top match</span> : null}
                   {item.typeLabel ? <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-slate-600'>{item.typeLabel}</span> : null}
                   {item.isATier ? <span className='rounded-full bg-amber-50 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-amber-800'>A-tier</span> : null}
                 </div>
