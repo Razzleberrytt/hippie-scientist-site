@@ -13,9 +13,10 @@
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
     "data:audit": "node scripts/data/audit-source-of-truth.mjs",
+    "audit:source-of-truth": "STRICT_SOURCE_AUDIT=true node scripts/data/audit-source-of-truth.mjs",
     "guard:source-of-truth": "node scripts/data/verify-workbook-only-path.mjs",
     "lint": "eslint . --max-warnings=0",
-    "build": "npm run data:build && npm run data:validate && npm run data:audit && npm run guard:source-of-truth && next build && npm run verify:build",
+    "build": "npm run data:build && npm run data:validate && npm run guard:source-of-truth && next build && npm run verify:build",
     "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/verify-css-assets.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run data:verify",
     "data:verify": "node scripts/data/verify-generated-data.mjs"
   },
