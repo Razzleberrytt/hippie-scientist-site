@@ -91,6 +91,42 @@ export const seoEntryPages: SeoEntryConfig[] = [
     searchIntent: 'natural testosterone boosters, testosterone support supplements',
     bullets: ['Be careful with hormone claims and proprietary booster blends.', 'Look for deficiency, sleep, training, and safety context before buying.', 'Use the goal decision page for ranked compounds and related comparisons.'],
   },
+  {
+    route: 'best-herbs-for-anxiety',
+    goalSlug: 'stress',
+    title: 'Best Herbs for Anxiety | Safety-First Herbal Guide',
+    h1: 'Best Herbs for Anxiety',
+    intro: 'A cautious guide to anxiety-related herbs and calming compounds that keeps evidence limits and interaction risks visible.',
+    searchIntent: 'best herbs for anxiety, natural anxiolytics, calming herbs',
+    bullets: ['Separate traditional calming herbs from compounds with stronger human data.', 'Check sedative, medication, pregnancy, bipolar, thyroid, and liver-safety concerns before use.', 'Use the stress guide for ranked options, comparisons, and safer starting points.'],
+  },
+  {
+    route: 'herbs-for-sleep',
+    goalSlug: 'sleep',
+    title: 'Herbs for Sleep | Evidence-Aware Nighttime Guide',
+    h1: 'Herbs for Sleep',
+    intro: 'A practical guide to sleep herbs and nighttime support options, organized by timing, safety, and real-world fit.',
+    searchIntent: 'herbs for sleep, natural sleep aids, calming herbs for sleep',
+    bullets: ['Compare onset support, nighttime relaxation, and next-day grogginess risk.', 'Avoid stacking sedative herbs without checking interaction and medication context.', 'Use the sleep guide to move from broad herb ideas into specific compound profiles.'],
+  },
+  {
+    route: 'best-nootropics-for-focus',
+    goalSlug: 'focus',
+    title: 'Best Nootropics for Focus | Evidence-Aware Focus Guide',
+    h1: 'Best Nootropics for Focus',
+    intro: 'A cleaner entry point for focus nootropics that separates stimulation, attention support, and overhyped claims.',
+    searchIntent: 'best nootropics for focus, focus supplements, nootropic stack',
+    bullets: ['Compare stimulant and non-stimulant options before building a stack.', 'Watch anxiety, sleep, blood-pressure, and stimulant-load tradeoffs.', 'Use the focus guide to review ranked compounds and full safety profiles.'],
+  },
+  {
+    route: 'best-adaptogens-for-stress',
+    goalSlug: 'stress',
+    title: 'Best Adaptogens for Stress | Evidence-Aware Guide',
+    h1: 'Best Adaptogens for Stress',
+    intro: 'A grounded adaptogen guide that separates long-term stress support from vague wellness marketing.',
+    searchIntent: 'best adaptogens for stress, adaptogen supplements, stress herbs',
+    bullets: ['Compare adaptogens by use-case, evidence strength, and safety profile.', 'Avoid assuming adaptogens are interchangeable or risk-free.', 'Use the stress guide for ranked options and safety-first decision support.'],
+  },
 ]
 
 const siteUrl = 'https://thehippiescientist.net'
@@ -264,6 +300,17 @@ export function SeoEntryPage({ route }: { route: string }) {
         </p>
         <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-300">
           Review full safety guidance →
+        </Link>
+      </section>
+
+      <section className="rounded-3xl border border-emerald-300/20 bg-emerald-300/[0.06] p-5">
+        <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-200/75">Buying checkpoint</p>
+        <h2 className="mt-2 text-2xl font-bold text-white">Before you buy anything</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-white/75">
+          Use the ranked guide first, then open the individual compound profile. Product links should only come after the evidence, dose, timing, and safety context match your situation.
+        </p>
+        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">
+          Check ranked picks before buying
         </Link>
       </section>
 
