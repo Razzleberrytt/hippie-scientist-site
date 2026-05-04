@@ -15,7 +15,40 @@ const SHEETS = {
   compounds: 'Compound Master V3',
   herbCompoundMap: 'Herb Compound Map V3',
   stackGenerator: 'Stack Generator V1',
+  compoundCardPayload: 'Compound Card Payload',
+  compoundDetailPayload: 'Compound Detail Payload',
+  seoPagePayload: 'SEO Page Payload',
+  ctaGatePayload: 'CTA Gate Payload',
+  routeBuildManifest: 'Route Build Manifest',
 }
+
+const OPTIONAL_PAYLOADS = [
+  {
+    sheet: SHEETS.compoundCardPayload,
+    fileName: 'compound-card-payload.json',
+    requiredHeaders: ['slug'],
+  },
+  {
+    sheet: SHEETS.compoundDetailPayload,
+    fileName: 'compound-detail-payload.json',
+    requiredHeaders: ['slug'],
+  },
+  {
+    sheet: SHEETS.seoPagePayload,
+    fileName: 'seo-page-payload.json',
+    requiredHeaders: ['slug', 'publish_ready'],
+  },
+  {
+    sheet: SHEETS.ctaGatePayload,
+    fileName: 'cta-gate-payload.json',
+    requiredHeaders: ['slug', 'show_cta'],
+  },
+  {
+    sheet: SHEETS.routeBuildManifest,
+    fileName: 'route-build-manifest.json',
+    requiredHeaders: ['slug'],
+  },
+]
 
 const STACK_VARIANTS = new Set(['starter', 'advanced', 'aggressive'])
 const STACK_ROLES = new Set(['anchor', 'amplifier', 'support', 'optional'])
@@ -90,6 +123,50 @@ function readOptional(workbook, name) {
   const sheet = workbook.Sheets[name]
   if (!sheet) return []
   return XLSX.utils.sheet_to_json(sheet, { defval: '' })
+}
+
+function readOptionalPayload(workbook, config) {
+  const sheet = workbook.Sheets[config.sheet]
+  if (!sheet) {
+    console.warn(`[data] Optional payload sheet missing: ${config.sheet}; writing empty ${config.fileName}`)
+    return []
+  }
+
+  const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' })
+  const headers = new Set(Object.keys(rows[0] || {}).map(header => clean(header).toLowerCase()))
+  const missingHeaders = config.requiredHeaders.filter(header => !headers.has(header.toLowerCase()))
+
+  if (missingHeaders.length > 0) {
+    console.warn(`[data] Optional payload sheet ${config.sheet} missing headers: ${missingHeaders.join(', ')}; writing empty ${config.fileName}`)
+    return []
+  }
+
+  return rows
+    .map(row => normalizePayloadRow(row))
+    .filter(row => row.slug || row.route || row.path)
+}
+
+function normalizePayloadRow(row) {
+  const normalized = {}
+  for (const [key, value] of Object.entries(row)) {
+    const normalizedKey = slug(key).replace(/-/g, '_')
+    if (!normalizedKey) continue
+    normalized[normalizedKey] = typeof value === 'string' ? clean(value) : value
+  }
+
+  const rowSlug = slug(
+    normalized.slug ||
+      normalized.compound_slug ||
+      normalized.page_slug ||
+      normalized.route_slug ||
+      normalized.name ||
+      normalized.title,
+  )
+
+  return {
+    ...normalized,
+    slug: rowSlug,
+  }
 }
 
 function dedupe(rows) {
@@ -297,6 +374,12 @@ function main() {
   write(outDir, 'herbs.json', herbs)
   write(outDir, 'compounds.json', compounds)
   write(outDir, 'herb-compound-map.json', map)
+
+  for (const payloadConfig of OPTIONAL_PAYLOADS) {
+    const payloadRows = readOptionalPayload(wb, payloadConfig)
+    write(outDir, payloadConfig.fileName, dedupe(payloadRows))
+    console.log(`[data] ${payloadConfig.fileName}: ${payloadRows.length} rows`)
+  }
 
   if (generatedStacks.length > 0) {
     write(outDir, 'stacks.json', generatedStacks)
