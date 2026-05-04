@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo, useState } from 'react'
 import Card from '@/components/Card'
 
 type BrowserItem = {
@@ -11,71 +12,112 @@ type BrowserItem = {
   domain?: string
   isATier?: boolean
   meta?: string[]
+  bestFor?: string
+  evidence?: string
+  safety?: string
+  timeToEffect?: string
+  profile_status?: string
+  summary_quality?: string
+  evidenceScore?: number
+  evidenceTier?: string
+  primary_effects?: string[]
+  effects?: string[]
+  tags?: string[]
 }
 
-type LibraryBrowserProps = {
+type Props = {
   eyebrow?: string
   title: string
   description?: string
-  emptyLabel?: string
   items: BrowserItem[]
 }
 
-const normalizeText = (value: unknown): string =>
-  typeof value === 'string' ? value.trim() : ''
+const goals = [
+  'All',
+  'Focus',
+  'Sleep',
+  'Anxiety',
+  'Energy',
+  'Fat Loss',
+  'Mood',
+  'Recovery',
+]
 
-const getSubtitle = (item: BrowserItem) =>
-  item.domain || item.typeLabel || 'Profile'
+function decisionScore(item: BrowserItem) {
+  let score = 0
+  if (item.profile_status === 'complete') score += 30
+  if (item.summary_quality === 'strong') score += 20
+  if (item.evidenceScore) score += item.evidenceScore
+  const tier = (item.evidenceTier || '').toLowerCase()
+  if (tier.includes('high')) score += 10
+  if (tier.includes('moderate')) score += 6
+  return score
+}
 
-const getDescription = (item: BrowserItem) =>
-  normalizeText(item.summary) || 'Open this profile for the available evidence, safety, and decision context.'
+export default function LibraryBrowser({ eyebrow = 'Library', title, description, items }: Props) {
+  const [activeGoal, setActiveGoal] = useState('All')
 
-const getBadge = (item: BrowserItem) =>
-  item.isATier ? 'Top pick' : item.typeLabel || undefined
+  const filtered = useMemo(() => {
+    let list = [...items]
 
-export default function LibraryBrowser({
-  eyebrow = 'Library',
-  title,
-  description,
-  emptyLabel = 'No matching profiles found.',
-  items,
-}: LibraryBrowserProps) {
-  const cleanItems = items.filter(item => normalizeText(item.slug) && normalizeText(item.title) && normalizeText(item.href))
+    if (activeGoal !== 'All') {
+      const goal = activeGoal.toLowerCase()
+      list = list.filter(item => {
+        const text = [
+          item.bestFor,
+          ...(item.primary_effects || []),
+          ...(item.effects || []),
+          ...(item.tags || []),
+        ]
+          .join(' ')
+          .toLowerCase()
+        return text.includes(goal)
+      })
+    }
+
+    list.sort((a, b) => decisionScore(b) - decisionScore(a))
+
+    return list
+  }, [items, activeGoal])
 
   return (
     <div className="mx-auto w-full max-w-7xl space-y-7 py-2">
-      <section className="relative isolate overflow-hidden rounded-[2rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-900/20 sm:p-7">
-        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-emerald-400/25 blur-3xl" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-300/50 to-transparent" />
-        <div className="relative max-w-3xl">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-emerald-200/75">{eyebrow}</p>
-          <h1 className="mt-3 text-4xl font-black leading-[0.96] tracking-tight text-white sm:text-6xl">{title}</h1>
-          {description ? <p className="mt-4 max-w-2xl text-base leading-7 text-white/72">{description}</p> : null}
-          <div className="mt-5 flex flex-wrap gap-2 text-xs font-black">
-            <span className="rounded-full bg-white px-4 py-2 text-slate-950 shadow-sm">{cleanItems.length} profiles</span>
-            <span className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-white/75">Decision cards</span>
-          </div>
+      <section className="rounded-[2rem] bg-slate-950 p-6 text-white">
+        <p className="text-xs font-black uppercase tracking-[0.26em] text-emerald-200/75">{eyebrow}</p>
+        <h1 className="mt-3 text-4xl font-black sm:text-6xl">{title}</h1>
+        {description ? <p className="mt-4 text-base text-white/70">{description}</p> : null}
+
+        <div className="mt-5 flex flex-wrap gap-2">
+          {goals.map(goal => (
+            <button
+              key={goal}
+              onClick={() => setActiveGoal(goal)}
+              className={`rounded-full px-4 py-2 text-xs font-black transition ${
+                activeGoal === goal ? 'bg-white text-black' : 'bg-white/10 text-white/70'
+              }`}
+            >
+              {goal}
+            </button>
+          ))}
         </div>
       </section>
 
-      {cleanItems.length > 0 ? (
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {cleanItems.map(item => (
-            <Card
-              key={item.slug}
-              title={item.title}
-              subtitle={getSubtitle(item)}
-              description={getDescription(item)}
-              href={item.href}
-              badge={getBadge(item)}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-slate-600 shadow-sm">
-          <p>{emptyLabel}</p>
-        </div>
-      )}
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {filtered.map(item => (
+          <Card
+            key={item.slug}
+            title={item.title}
+            subtitle={item.domain || item.typeLabel}
+            description={item.summary}
+            href={item.href}
+            badge={item.isATier ? 'Top pick' : item.typeLabel}
+            bestFor={item.bestFor}
+            evidence={item.evidence}
+            safety={item.safety}
+            timeToEffect={item.timeToEffect}
+          />
+        ))}
+      </div>
     </div>
   )
 }
