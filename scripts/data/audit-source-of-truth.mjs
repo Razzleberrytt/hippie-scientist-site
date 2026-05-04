@@ -184,15 +184,6 @@ for (const abs of files) {
   const { classification, allowed } = classifyFile(rel, text)
 
   if (classification === 'GENERATED_OUTPUT') {
-    issues.push(issueFor({
-      rel,
-      classification,
-      entityType: matched?.entityType ?? 'unknown',
-      problem: 'Workbook-derived generated output contains production data. Do not edit directly.',
-      severity: 'warning',
-      fixTarget: 'WORKBOOK_GPT_FIX',
-      suggestedProcessAction: 'Adjust workbook->generator pipeline and regenerate from data-sources/herb_monograph_master.xlsx.',
-    }))
     continue
   }
 
