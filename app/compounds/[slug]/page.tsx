@@ -39,8 +39,23 @@ export default function Page({ params }: any) {
     }
   ]
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faq.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
+  }
+
   return (
     <main className="max-w-3xl mx-auto px-4 space-y-10 pb-28">
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
