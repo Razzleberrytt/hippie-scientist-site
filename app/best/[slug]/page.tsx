@@ -1,5 +1,6 @@
 import compounds from '../../../public/data/compounds.json'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import SectionBlock from '@/components/ui/SectionBlock'
 import { getProductPicks, groupProductPicks } from '@/lib/product-ranking'
 import { generateAmazonProductPicks } from '@/lib/amazon-auto'
 
@@ -7,11 +8,11 @@ export async function generateStaticParams() {
   return [{ slug: 'best-supplements-for-focus' }]
 }
 
-export default function Page({ params }: any) {
+export default function Page() {
   const ranked = (compounds as any[]).slice(0, 10)
 
   const first = ranked[0]
-  let topPick: any = null
+  let topPick:any = null
 
   if (first) {
     let picks = groupProductPicks(getProductPicks(first.slug))
@@ -20,15 +21,18 @@ export default function Page({ params }: any) {
   }
 
   return (
-    <main className="mx-auto max-w-5xl space-y-10 px-4 pb-32">
+    <main className="max-w-5xl mx-auto px-4 space-y-12 pb-32">
+
       <h1 className="text-3xl font-bold">Best Supplements for Focus</h1>
 
       {topPick && (
-        <div className="rounded-2xl border bg-green-50 p-6">
-          <p className="text-sm font-semibold">Best overall</p>
+        <div className="bg-green-50 border rounded-2xl p-6 space-y-2">
+          <p className="text-xs font-semibold uppercase">Best overall</p>
           <h2 className="text-xl font-bold">{topPick.brand} — {topPick.name}</h2>
-          <p className="text-sm text-muted">{topPick.notes}</p>
-          <a href={topPick.url} className="mt-3 inline-block rounded-xl bg-black px-4 py-2 text-white">View top pick</a>
+          <p className="text-sm text-neutral-600">{topPick.notes}</p>
+          <a href={topPick.url} className="inline-block bg-black text-white px-4 py-2 rounded-xl">
+            Check price
+          </a>
         </div>
       )}
 
@@ -37,16 +41,29 @@ export default function Page({ params }: any) {
         if (!picks.top) picks = generateAmazonProductPicks(c.slug)
 
         return (
-          <div key={c.slug} className="space-y-3 rounded-xl border p-5">
-            <h2 className="text-xl font-semibold">#{i + 1} {c.name}</h2>
-            <p className="text-sm text-muted">{c.summary}</p>
+          <div key={c.slug} className="border rounded-xl p-5 space-y-4">
+
+            <h2 className="text-xl font-semibold flex items-center gap-2">
+              <span className="text-xs bg-black text-white px-2 py-1 rounded">
+                #{i + 1}
+              </span>
+              {c.name}
+            </h2>
+
+            <SectionBlock title="Summary">
+              {c.summary}
+            </SectionBlock>
+
+            <p className="text-xs text-neutral-500">
+              Ranked based on evidence strength, safety profile, and user selection trends.
+            </p>
 
             {picks.top && (
-              <div className="rounded-xl bg-green-50 p-3">
-                ⭐ {picks.top.brand}
-                <div className="text-xs">{picks.top.notes}</div>
+              <div className="bg-green-50 p-3 rounded-xl text-sm">
+                ⭐ {picks.top.brand} — {picks.top.notes}
               </div>
             )}
+
           </div>
         )
       })}
@@ -58,6 +75,7 @@ export default function Page({ params }: any) {
           href={topPick.url}
         />
       )}
+
     </main>
   )
 }
