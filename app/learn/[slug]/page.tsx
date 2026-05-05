@@ -2,8 +2,12 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { generateLearnPage } from '@/lib/learn-generator'
 
-export default async function LearnPost({ params }: { params: { slug: string } }) {
-  const post = await generateLearnPage(params.slug)
+type Params = Promise<{ slug: string }>
+
+export default async function LearnPost({ params }: { params: Params }) {
+  const { slug } = await params
+
+  const post = await generateLearnPage(slug)
   if (!post) return notFound()
 
   return (
@@ -20,7 +24,9 @@ export default async function LearnPost({ params }: { params: { slug: string } }
             <div key={c.slug} className="border rounded-xl p-4">
               <h3 className="font-semibold">{c.name}</h3>
               <p className="text-sm text-muted">{c.summary}</p>
-              <Link href={`/compounds/${c.slug}`} className="text-sm underline mt-2 inline-block">View details →</Link>
+              <Link href={`/compounds/${c.slug}`} className="text-sm underline mt-2 inline-block">
+                View details →
+              </Link>
             </div>
           ))}
         </div>
