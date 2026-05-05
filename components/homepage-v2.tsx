@@ -5,16 +5,16 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { springConfig } from '@/utils/springConfig'
 
 const goals = [
-  { title: 'Sleep better', href: '/best/sleep', description: 'Improve sleep latency and quality with evidence-based options.' },
-  { title: 'Improve focus', href: '/best/focus', description: 'Enhance attention and cognitive clarity without overstimulation.' },
-  { title: 'Reduce stress', href: '/best/stress', description: 'Calm the nervous system with well-studied compounds.' },
+  { title: 'Sleep', href: '/best/sleep', description: 'Anchor compounds for sleep onset, amplifiers for depth.' },
+  { title: 'Stress', href: '/best/stress', description: 'Calm baseline + adaptogen amplification.' },
+  { title: 'Focus', href: '/best/focus', description: 'Cognitive anchors with precision enhancers.' },
 ]
 
 export default function HomepageV2() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <main className="mx-auto w-full max-w-6xl space-y-10">
+    <main className="mx-auto w-full max-w-6xl space-y-14">
 
       <section className="space-y-6">
         <motion.div
@@ -22,30 +22,30 @@ export default function HomepageV2() {
           animate={{ opacity: 1, y: 0 }}
           transition={springConfig.gentle}
         >
-          <h1 className="text-4xl font-bold tracking-tight text-neutral-950 sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
             Find evidence-based supplement stacks for your goals
           </h1>
-          <p className="mt-3 max-w-2xl text-base text-neutral-600">
-            Explore supplements through a calm, evidence-first lens. Start with your goal, then evaluate safety, mechanisms, and real-world usefulness.
+          <p className="mt-3 max-w-2xl text-base text-muted">
+            Built around Anchor, Amplifier, and Support roles — so you know what works, why it works, and how to use it.
           </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {goals.map(goal => (
             <Link key={goal.href} href={goal.href}>
-              <div className="rounded-3xl border border-neutral-200 bg-white p-5 shadow-card hover:shadow-lg transition">
-                <h3 className="text-lg font-bold text-neutral-950">{goal.title}</h3>
-                <p className="mt-2 text-sm text-neutral-600">{goal.description}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-teal-700">Explore →</span>
+              <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft hover:shadow-lg transition">
+                <h3 className="text-lg font-bold text-ink">{goal.title}</h3>
+                <p className="mt-2 text-sm text-muted">{goal.description}</p>
+                <span className="mt-4 inline-block text-sm font-semibold text-brand">Explore →</span>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-4 text-sm text-neutral-500">
-          <span>✔ Evidence-based</span>
-          <span>✔ Safety-aware</span>
-          <span>✔ No hype</span>
+        <div className="flex flex-wrap gap-6 text-sm text-muted">
+          <span>100% cited</span>
+          <span>No industry bias</span>
+          <span>Decision-first structure</span>
         </div>
       </section>
 
