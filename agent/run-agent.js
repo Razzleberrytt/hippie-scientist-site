@@ -1,81 +1,79 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import OpenAI from 'openai'
+import crypto from 'node:crypto'
 
-const repoRoot = process.cwd()
-const patchDir = path.join(repoRoot, 'agent', 'patches')
+import { createOpenAIClient } from './lib/openai-client.js'
+import { runAgentQueue } from './lib/queue.js'
+import { writePatch } from './lib/patch-store.js'
+import { logError, logInfo, logSkip } from './lib/logger.js'
+import { pickCompound } from './lib/compound-picker.js'
 
-const compounds = [
-  'ashwagandha',
-  'l-theanine',
-  'rhodiola-rosea',
-  'creatine',
-  'magnesium-glycinate',
-]
-
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true })
-}
-
-function timestamp() {
-  return new Date().toISOString().replace(/[:.]/g, '-')
-}
+import { runDiscoveryAgent } from './agents/discovery-agent.js'
+import { runValidationAgent } from './agents/validation-agent.js'
+import { runClaimExtractionAgent } from './agents/claim-extraction-agent.js'
 
 async function main() {
-  const apiKey = process.env.OPENAI_API_KEY
+  const client = createOpenAIClient()
 
-  if (!apiKey) {
-    console.warn('[agent] OPENAI_API_KEY missing, skipping')
+  if (!client) {
+    logSkip('OPENAI_API_KEY missing; skipping agent run safely')
     process.exit(0)
   }
 
-  ensureDir(patchDir)
+  const slug = pickCompound()
 
-  const compound = compounds[Math.floor(Math.random() * compounds.length)]
+  const tasks = [
+    async () => {
+      const evidenceRows = await runDiscoveryAgent({ client, slug })
 
-  const client = new OpenAI({ apiKey })
+      const validation = runValidationAgent(evidenceRows)
 
-  const response = await client.chat.completions.create({
-    model: 'gpt-4.1-mini',
-    temperature: 0.2,
-    messages: [
-      {
-        role: 'system',
-        content:
-          'Return ONLY valid JSON. No markdown. No explanations. HUMAN studies only. Never invent PMIDs or sources. If unknown leave fields empty. Output must exactly match the requested array schema.',
-      },
-      {
-        role: 'user',
-        content: `Generate one structured human-study extraction entry for the compound ${compound}. Use this exact JSON schema: [{"compound_slug":"","effect_target":"","study_type":"","population":"","effect_direction":"","effect_size":"","sample_size":"","duration":"","dose":"","pmid_or_source":""}]`,
-      },
-    ],
+      const claims = await runClaimExtractionAgent({
+        client,
+        slug,
+        evidenceRows: validation.approved_rows,
+      })
+
+      const patch = {
+        patch_id: crypto.randomUUID(),
+        schema_version: '1.0',
+        source_agent: 'phase-1-5-pipeline',
+        agent_version: '1.5',
+        created_at: new Date().toISOString(),
+        slug,
+        patch_type: 'evidence',
+        evidence: validation.approved_rows,
+        claims,
+        validation: {
+          validation_status: validation.validation_status,
+          rejection_reasons: validation.rejection_reasons,
+        },
+      }
+
+      const file = writePatch({
+        slug,
+        sourceAgent: 'pipeline',
+        patchId: patch.patch_id,
+        data: patch,
+      })
+
+      logInfo('patch written', {
+        slug,
+        file,
+        evidence_rows: validation.approved_rows.length,
+        claims: claims.length,
+      })
+
+      return patch
+    },
+  ]
+
+  const results = await runAgentQueue(tasks)
+
+  logInfo('agent queue complete', {
+    completed: results.length,
   })
-
-  const raw = response.choices?.[0]?.message?.content || '[]'
-
-  let parsed = []
-
-  try {
-    parsed = JSON.parse(raw)
-  } catch {
-    console.warn('[agent] invalid JSON returned, skipping')
-    process.exit(0)
-  }
-
-  if (!Array.isArray(parsed)) {
-    console.warn('[agent] non-array response, skipping')
-    process.exit(0)
-  }
-
-  const fileName = `${compound}-${timestamp()}.json`
-  const filePath = path.join(patchDir, fileName)
-
-  fs.writeFileSync(filePath, JSON.stringify(parsed, null, 2))
-
-  console.log(`[agent] wrote ${fileName}`)
 }
 
 main().catch(error => {
-  console.error('[agent] failed', error)
+  logError('agent run failed', error)
   process.exit(0)
 })
