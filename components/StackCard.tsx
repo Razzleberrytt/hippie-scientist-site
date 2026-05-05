@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { EvidenceBadge } from '@/components/ui/Card'
+import { EvidenceBadge } from '@/components/ui'
 
 export type StackItem = {
   compound?: string
