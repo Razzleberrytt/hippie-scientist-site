@@ -1,44 +1,13 @@
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { generateLearnPage } from '@/lib/learn-generator'
-
-type Params = Promise<{ slug: string }>
+import compounds from '../../../public/data/compounds.json'
 
 export async function generateStaticParams() {
-  return [
-    { slug: 'cognitive-stack' },
-    { slug: 'anti-inflammatory-stack' },
-    { slug: 'adaptogens' },
-  ]
+  return (compounds as any[]).slice(0,50).map((c)=>({slug:c.slug}))
 }
 
-export default async function LearnPost({ params }: { params: Params }) {
-  const { slug } = await params
-
-  const post = await generateLearnPage(slug)
-  if (!post) return notFound()
-
+export default function Page({ params }: any) {
   return (
-    <article className="space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold">{post.title}</h1>
-        <p className="text-muted mt-3 max-w-2xl">{post.intro}</p>
-      </div>
-
-      <section>
-        <h2 className="text-xl font-semibold">Core Compounds</h2>
-        <div className="grid gap-4 md:grid-cols-2 mt-4">
-          {post.compounds.map((c:any) => (
-            <div key={c.slug} className="border rounded-xl p-4">
-              <h3 className="font-semibold">{c.name}</h3>
-              <p className="text-sm text-muted">{c.summary}</p>
-              <Link href={`/compounds/${c.slug}`} className="text-sm underline mt-2 inline-block">
-                View details →
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
-    </article>
+    <main className="max-w-3xl mx-auto px-4">
+      <h1 className="text-2xl font-bold">Learn: {params.slug}</h1>
+    </main>
   )
 }
