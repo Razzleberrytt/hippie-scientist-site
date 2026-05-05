@@ -2,6 +2,12 @@ import { getCompoundBySlug } from '@/lib/runtime-data'
 
 type Params = Promise<{ slug: string }>
 
+export async function generateStaticParams() {
+  const data = await import('@/public/data/compounds.json')
+  const compounds = data.default || data
+  return compounds.map((c: any) => ({ slug: c.slug }))
+}
+
 export default async function Page({ params }: { params: Params }) {
   const { slug } = await params
 
