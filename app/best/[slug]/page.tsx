@@ -3,6 +3,7 @@ import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 import SectionBlock from '@/components/ui/SectionBlock'
 import { getProductPicks, groupProductPicks } from '@/lib/product-ranking'
 import { generateAmazonProductPicks } from '@/lib/amazon-auto'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   return [{ slug: 'best-supplements-for-focus' }]
@@ -26,12 +27,12 @@ export default function Page() {
       <h1 className="text-3xl font-bold">Best Supplements for Focus</h1>
 
       {topPick && (
-        <div className="bg-green-50 border rounded-2xl p-6 space-y-2">
+        <div className="bg-green-50 border rounded-2xl p-6 space-y-3">
           <p className="text-xs font-semibold uppercase">Best overall</p>
           <h2 className="text-xl font-bold">{topPick.brand} — {topPick.name}</h2>
           <p className="text-sm text-neutral-600">{topPick.notes}</p>
-          <a href={topPick.url} className="inline-block bg-black text-white px-4 py-2 rounded-xl">
-            Check price
+          <a href={topPick.url} className="inline-block bg-black text-white px-5 py-2 rounded-xl font-semibold">
+            Check price on Amazon
           </a>
         </div>
       )}
@@ -57,6 +58,10 @@ export default function Page() {
             <p className="text-xs text-neutral-500">
               Ranked based on evidence strength, safety profile, and user selection trends.
             </p>
+
+            <Link href={`/compounds/${c.slug}`} className="text-sm underline">
+              View full breakdown →
+            </Link>
 
             {picks.top && (
               <div className="bg-green-50 p-3 rounded-xl text-sm">
