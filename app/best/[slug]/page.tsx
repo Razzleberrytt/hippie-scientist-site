@@ -16,56 +16,7 @@ const bestPageConfigs = [
 
 type Params = Promise<{ slug: string }>
 
-type Compound = {
-  slug: string
-  name?: string
-  summary?: string
-  mechanism?: string
-  effects?: string[]
-  evidence?: string
-  safety?: string
-  dosage?: string
-  confidence?: string
-  product_cta?: string
-}
-
-const compounds = compoundsData as Compound[]
-
-function textOf(compound: Compound) {
-  return [
-    compound.slug,
-    compound.name,
-    compound.summary,
-    compound.mechanism,
-    compound.evidence,
-    compound.safety,
-    compound.dosage,
-    compound.confidence,
-    ...(Array.isArray(compound.effects) ? compound.effects : []),
-  ].filter(Boolean).join(' ').toLowerCase()
-}
-
-function scoreCompound(compound: Compound, terms: string[]) {
-  const text = textOf(compound)
-  let score = 0
-
-  terms.forEach(term => {
-    if (text.includes(term)) score += 20
-  })
-
-  if (compound.dosage) score += 10
-  if (compound.safety) score += 8
-
-  return score
-}
-
-function getRankedCompounds(terms: string[]) {
-  return compounds
-    .map(compound => ({ compound, score: scoreCompound(compound, terms) }))
-    .filter(item => item.score > 20)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 10)
-}
+const compounds = compoundsData as any[]
 
 export async function generateStaticParams() {
   return bestPageConfigs.map(page => ({ slug: page.slug }))
@@ -76,14 +27,13 @@ export default async function Page({ params }: { params: Params }) {
   const page = bestPageConfigs.find(p => p.slug === slug)
   if (!page) return notFound()
 
-  const ranked = getRankedCompounds(page.terms)
+  const ranked = compounds.slice(0, 10)
 
   return (
-    <main className="space-y-8">
+    <main className="space-y-10">
       <h1 className="text-3xl font-bold">{page.title}</h1>
-      <p className="text-muted">{page.intro}</p>
 
-      {ranked.map(({ compound }, i) => {
+      {ranked.map((compound, i) => {
         let picks = groupProductPicks(getProductPicks(compound.slug))
 
         if (!picks.top && !picks.budget && !picks.premium) {
@@ -91,55 +41,59 @@ export default async function Page({ params }: { params: Params }) {
         }
 
         return (
-          <div key={compound.slug} className="border p-4 rounded-xl">
+          <div key={compound.slug} className="border p-5 rounded-xl space-y-4">
             <h2 className="text-xl font-semibold">#{i + 1} {compound.name}</h2>
-            <p className="text-sm text-muted">{compound.summary}</p>
 
-            <div className="flex gap-2 mt-3">
-              <Link href={`/compounds/${compound.slug}`} className="text-sm underline">
-                View details
-              </Link>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm border">
+                <thead>
+                  <tr className="bg-neutral-100">
+                    <th className="p-2 text-left">Type</th>
+                    <th className="p-2 text-left">Brand</th>
+                    <th className="p-2 text-left">Why</th>
+                    <th className="p-2"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {picks.top && (
+                    <tr className="border-t">
+                      <td className="p-2">⭐ Top</td>
+                      <td className="p-2">{picks.top.brand}</td>
+                      <td className="p-2">{picks.top.notes}</td>
+                      <td className="p-2">
+                        <a href={picks.top.url} target="_blank" className="bg-black text-white px-3 py-1 rounded">View</a>
+                      </td>
+                    </tr>
+                  )}
 
-              <a
-                href={getProductLink(compound)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl bg-black text-white px-4 py-2 text-sm font-semibold"
-              >
-                {compound.product_cta || 'Shop Options'}
-              </a>
+                  {picks.budget && (
+                    <tr className="border-t">
+                      <td className="p-2">💸 Budget</td>
+                      <td className="p-2">{picks.budget.brand}</td>
+                      <td className="p-2">{picks.budget.notes}</td>
+                      <td className="p-2">
+                        <a href={picks.budget.url} target="_blank" className="bg-black text-white px-3 py-1 rounded">View</a>
+                      </td>
+                    </tr>
+                  )}
+
+                  {picks.premium && (
+                    <tr className="border-t">
+                      <td className="p-2">🔬 Premium</td>
+                      <td className="p-2">{picks.premium.brand}</td>
+                      <td className="p-2">{picks.premium.notes}</td>
+                      <td className="p-2">
+                        <a href={picks.premium.url} target="_blank" className="bg-black text-white px-3 py-1 rounded">View</a>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             </div>
 
-            <div className="mt-4 space-y-2">
-              {picks.top && (
-                <a href={picks.top.url} target="_blank" className="block border p-3 rounded-xl">
-                  ⭐ <strong>Top Pick:</strong> {picks.top.brand} — {picks.top.name}
-                  <p className="text-xs text-muted">{picks.top.notes}</p>
-                </a>
-              )}
-
-              {picks.budget && (
-                <a href={picks.budget.url} target="_blank" className="block border p-3 rounded-xl">
-                  💸 <strong>Budget:</strong> {picks.budget.brand}
-                  <p className="text-xs text-muted">{picks.budget.notes}</p>
-                </a>
-              )}
-
-              {picks.premium && (
-                <a href={picks.premium.url} target="_blank" className="block border p-3 rounded-xl">
-                  🔬 <strong>Premium:</strong> {picks.premium.brand}
-                  <p className="text-xs text-muted">{picks.premium.notes}</p>
-                </a>
-              )}
-            </div>
-
-            <div className="mt-3 text-xs text-muted">
-              <strong>What to look for:</strong>
-              <ul className="list-disc pl-4 mt-1">
-                <li>Standardized extract</li>
-                <li>Clinically relevant dosage</li>
-                <li>Transparent labeling</li>
-              </ul>
+            <div className="flex gap-3">
+              <Link href={`/compounds/${compound.slug}`} className="underline text-sm">Details</Link>
+              <a href={getProductLink(compound)} target="_blank" className="bg-black text-white px-3 py-1 rounded text-sm">Compare All</a>
             </div>
           </div>
         )
