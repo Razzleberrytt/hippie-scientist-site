@@ -4,9 +4,16 @@ export default function EvidenceBadge({ level = 'moderate' }: any) {
     moderate: 'bg-yellow-100 text-yellow-800',
     limited: 'bg-red-100 text-red-800'
   }
+
+  const label:any = {
+    strong: 'Strong Evidence',
+    moderate: 'Moderate Evidence',
+    limited: 'Limited Evidence'
+  }
+
   return (
-    <span className={`text-xs px-2 py-1 rounded ${map[level] || map.moderate}`}>
-      {level}
-    </span>
+    <div className={`inline-block text-xs px-3 py-1 rounded-full font-semibold ${map[level]}`}>
+      {label[level] || label.moderate}
+    </div>
   )
 }
