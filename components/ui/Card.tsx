@@ -58,3 +58,6 @@ export function RoleBadge({ role = 'SUPPORT' }: { role?: string }) {
 
   return <span className={`inline-flex min-h-7 items-center rounded-full border px-3 py-1 text-xs font-bold tracking-wide ${tone}`}>{label}</span>
 }
+
+// Explicit re-exports to ensure TS resolution in Next.js builds
+export { Card as _CardExport, DetailCard, EvidenceBadge, RoleBadge }
