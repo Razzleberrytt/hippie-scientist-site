@@ -16,6 +16,19 @@ const SHEETS = {
   compoundDetailPayload: 'Compound Detail Payload',
 }
 
+const AGENT_PATCH_KEYS = [
+  'compound_slug',
+  'effect_target',
+  'study_type',
+  'population',
+  'effect_direction',
+  'effect_size',
+  'sample_size',
+  'duration',
+  'dose',
+  'pmid_or_source',
+]
+
 function clean(v) {
   return v ? String(v).trim() : ''
 }
@@ -73,6 +86,87 @@ function readOptionalPayload(workbook, config) {
   }).filter(r => r.slug)
 }
 
+function loadAgentPatches() {
+  const patchDir = path.resolve(repoRoot, 'agent/patches')
+
+  try {
+    if (!fs.existsSync(patchDir)) return []
+
+    const files = fs.readdirSync(patchDir).filter(file => file.endsWith('.json'))
+    if (files.length === 0) return []
+
+    return files.flatMap(file => {
+      try {
+        const parsed = JSON.parse(fs.readFileSync(path.join(patchDir, file), 'utf8'))
+        return Array.isArray(parsed) ? parsed : []
+      } catch {
+        return []
+      }
+    })
+  } catch {
+    return []
+  }
+}
+
+function normalizeAgentPatch(entry) {
+  if (!entry || typeof entry !== 'object' || Array.isArray(entry)) return null
+
+  const out = {}
+  for (const key of AGENT_PATCH_KEYS) out[key] = clean(entry[key])
+
+  out.compound_slug = slug(out.compound_slug)
+
+  if (!out.compound_slug || !out.study_type || !out.population) return null
+
+  return out
+}
+
+function dedupeAgentPatches(entries) {
+  const seen = new Set()
+
+  return entries.filter(entry => {
+    const key = JSON.stringify(entry)
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+}
+
+function mergeAgentEvidence(compoundDetailRows, patchRows) {
+  const normalizedPatches = dedupeAgentPatches(
+    patchRows.map(normalizeAgentPatch).filter(Boolean)
+  )
+
+  if (normalizedPatches.length === 0) return compoundDetailRows
+
+  const detailSlugs = new Set(compoundDetailRows.map(row => slug(row.slug)))
+  const patchesBySlug = new Map()
+
+  for (const patch of normalizedPatches) {
+    if (!detailSlugs.has(patch.compound_slug)) continue
+
+    const existing = patchesBySlug.get(patch.compound_slug) || []
+    existing.push(patch)
+    patchesBySlug.set(patch.compound_slug, existing)
+  }
+
+  if (patchesBySlug.size === 0) return compoundDetailRows
+
+  return compoundDetailRows.map(row => {
+    const rowSlug = slug(row.slug)
+    const patches = patchesBySlug.get(rowSlug)
+    if (!patches || patches.length === 0) return row
+
+    const currentEvidence = Array.isArray(row.agent_evidence) ? row.agent_evidence : []
+    const mergedEvidence = dedupeAgentPatches([...currentEvidence, ...patches])
+
+    return {
+      ...row,
+      agent_evidence: mergedEvidence,
+    }
+  })
+}
+
 function main() {
   const outDir = path.resolve(repoRoot, 'public/data')
   const workbookPath = resolveWorkbookPath(repoRoot)
@@ -122,6 +216,8 @@ function main() {
       dosage: c.dosage,
     }))
   }
+
+  compoundDetailRows = mergeAgentEvidence(compoundDetailRows, loadAgentPatches())
 
   write(outDir, 'compound-detail-payload.json', dedupe(compoundDetailRows))
 
