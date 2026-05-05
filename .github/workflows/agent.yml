@@ -9,8 +9,9 @@ permissions:
   contents: write
 
 jobs:
-  agent:
+  orchestrator:
     runs-on: ubuntu-latest
+    continue-on-error: true
 
     steps:
       - name: Checkout
@@ -24,10 +25,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run agent
+      - name: Run orchestrator
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: node agent/run-agent.js
+        run: npm run agent:run || true
 
       - name: Commit patches
         run: |
