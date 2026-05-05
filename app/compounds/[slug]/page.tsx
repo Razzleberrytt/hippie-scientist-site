@@ -4,6 +4,7 @@ import SafetyBadge from '@/components/ui/SafetyBadge'
 import SectionBlock from '@/components/ui/SectionBlock'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import TableOfContents from '@/components/ui/TableOfContents'
+import ScrollCTA from '@/components/ui/ScrollCTA'
 import data from '../../../public/data/compounds.json'
 import Link from 'next/link'
 
@@ -118,6 +119,8 @@ export default function Page({ params }: any) {
         </div>
 
       </div>
+
+      <ScrollCTA />
 
     </main>
   )
