@@ -5,6 +5,8 @@ import { getStacks } from '@/lib/runtime-data'
 import StackCard from '@/components/StackCard'
 
 type Params = { params: Promise<{ slug: string }> }
+type StackItemRecord = Record<string, any>
+type RoleGroups = { anchor: StackItemRecord[]; amplifier: StackItemRecord[]; support: StackItemRecord[] }
 
 const formatGoal = (value?: string) =>
   String(value || 'wellness')
@@ -13,8 +15,8 @@ const formatGoal = (value?: string) =>
 
 const stackGoal = (stack: any) => stack?.goal_slug || stack?.goal || stack?.slug
 
-const groupByRole = (items: any[]) => {
-  const groups = { anchor: [], amplifier: [], support: [] }
+const groupByRole = (items: StackItemRecord[]): RoleGroups => {
+  const groups: RoleGroups = { anchor: [], amplifier: [], support: [] }
   items.forEach(item => {
     const role = String(item.role || '').toLowerCase()
     if (role.includes('anchor') || role.includes('core')) groups.anchor.push(item)
@@ -47,7 +49,7 @@ export default async function StackPage({ params }: Params) {
   const stack = stacks.find(s => s.slug === slug)
   if (!stack) return notFound()
 
-  const items = [...(stack.compounds || stack.stack || [])]
+  const items: StackItemRecord[] = [...(stack.compounds || stack.stack || [])]
   const groups = groupByRole(items)
   const goal = formatGoal(stackGoal(stack))
 
