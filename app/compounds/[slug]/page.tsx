@@ -45,8 +45,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function Page({ params }: Params) {
   const { slug } = await params
-  const data: CompoundDetail = await getCompoundBySlug(slug)
-  if (!data) return notFound()
+
+  const raw = await getCompoundBySlug(slug)
+  if (!raw) return notFound()
+
+  const data = raw as CompoundDetail
 
   const name = data.displayName || data.name || slug
   const bestFor = list(data.effects || data.primary_effects).slice(0, 6)
