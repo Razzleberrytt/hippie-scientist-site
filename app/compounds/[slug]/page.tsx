@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Pill } from 'lucide-react'
 import { getCompoundBySlug, getCompounds } from '@/lib/runtime-data'
-import { DetailCard, EvidenceBadge, RoleBadge } from '@/components/ui/Card'
+import { DetailCard, EvidenceBadge, RoleBadge } from '@/components/ui'
 
 type Params = { params: Promise<{ slug: string }> }
 type CompoundDetail = Record<string, any>
