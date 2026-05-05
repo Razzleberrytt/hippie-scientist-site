@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["patch_id", "slug", "patch_type", "enrichment"],
+  "properties": {
+    "patch_id": { "type": "string" },
+    "slug": { "type": "string" },
+    "patch_type": { "type": "string" },
+    "enrichment": {
+      "type": "object",
+      "properties": {
+        "summary": { "type": "string" },
+        "best_for": { "type": "array", "items": { "type": "string" } },
+        "avoid_if": { "type": "array", "items": { "type": "string" } },
+        "mechanism_notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
