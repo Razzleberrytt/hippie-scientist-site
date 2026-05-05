@@ -1,7 +1,11 @@
 import { getCompoundBySlug } from '@/lib/runtime-data'
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const compound = await getCompoundBySlug(params.slug)
+type Params = Promise<{ slug: string }>
+
+export default async function Page({ params }: { params: Params }) {
+  const { slug } = await params
+
+  const compound = await getCompoundBySlug(slug)
 
   if (!compound) return null
 
