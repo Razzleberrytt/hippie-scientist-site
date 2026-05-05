@@ -1,42 +1,43 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { GlassCard } from '@/components/ui/GlassCard'
-import { listContainer, listItem, springConfig } from '@/utils/springConfig'
+import Fuse from 'fuse.js'
 import compounds from '@/public/data/compounds.json'
 
 export default function SearchPage() {
   const [query, setQuery] = useState('')
 
-  const results = compounds.filter((c: any) =>
-    c.name?.toLowerCase().includes(query.toLowerCase())
-  )
+  const fuse = useMemo(() => new Fuse(compounds as any[], {
+    keys: ['name', 'slug', 'effects', 'primary_effects'],
+    threshold: 0.35
+  }), [])
+
+  const results = useMemo(() => {
+    if (!query) return compounds.slice(0, 20)
+    return fuse.search(query).map(r => r.item)
+  }, [query, fuse])
 
   return (
-    <main className="max-w-6xl mx-auto px-4 space-y-6 text-white">
-      <GlassCard variant="heavy" className="p-6">
-        <h1 className="text-4xl font-black">Search compounds</h1>
+    <main className="max-w-6xl mx-auto px-4 space-y-6">
+      <section className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-card">
+        <h1 className="text-3xl font-bold text-ink">Search</h1>
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search magnesium, creatine..."
-          className="mt-4 w-full p-4 rounded-xl bg-black/30 border border-white/10"
+          className="mt-4 w-full rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm"
         />
-      </GlassCard>
+      </section>
 
-      <motion.div variants={listContainer} initial="hidden" animate="show" className="grid gap-4">
-        {results.map((c: any, i: number) => (
-          <motion.div key={c.slug} variants={listItem} transition={springConfig.gentle}>
-            <Link href={`/compounds/${c.slug}`}>
-              <GlassCard className="p-4">
-                <h2 className="font-bold">{c.name}</h2>
-              </GlassCard>
-            </Link>
-          </motion.div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {results.map((c: any) => (
+          <Link key={c.slug} href={`/compounds/${c.slug}`} className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-card hover:shadow-lg">
+            <h2 className="font-bold text-ink">{c.name}</h2>
+            <p className="text-sm text-muted">{c.effects?.[0] || 'General support'}</p>
+          </Link>
         ))}
-      </motion.div>
+      </div>
     </main>
   )
 }
