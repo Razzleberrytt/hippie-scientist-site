@@ -3,16 +3,19 @@ import EvidenceBadge from '@/components/ui/EvidenceBadge'
 import SafetyBadge from '@/components/ui/SafetyBadge'
 import SectionBlock from '@/components/ui/SectionBlock'
 import data from '../../../public/data/compounds.json'
+import Link from 'next/link'
 
 export async function generateStaticParams() {
   return (data as any[]).map((c)=>({ slug:c.slug }))
 }
 
 export default function Page({ params }: any) {
-  const compound = (data as any[]).find(c => c.slug === params.slug)
+  const compounds = data as any[]
+  const compound = compounds.find(c => c.slug === params.slug)
   if (!compound) return null
 
   const sources = compound.sources || []
+  const related = compounds.filter(c => c.slug !== compound.slug).slice(0,5)
 
   return (
     <main className="max-w-3xl mx-auto px-4 space-y-10 pb-28">
@@ -60,6 +63,16 @@ export default function Page({ params }: any) {
           </ul>
         </SectionBlock>
       )}
+
+      <SectionBlock title="Related Compounds">
+        <div className="flex flex-wrap gap-2">
+          {related.map((r:any)=>(
+            <Link key={r.slug} href={`/compounds/${r.slug}`} className="text-xs bg-neutral-200 px-2 py-1 rounded">
+              {r.name}
+            </Link>
+          ))}
+        </div>
+      </SectionBlock>
 
       <SectionBlock title="Research Note">
         <p className="text-neutral-500">
