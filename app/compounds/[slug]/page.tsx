@@ -28,6 +28,17 @@ export default function Page({ params }: any) {
   const sources = compound.sources || []
   const related = compounds.filter(c => c.slug !== compound.slug).slice(0,5)
 
+  const faq = [
+    {
+      q: `What is ${compound.name} used for?`,
+      a: compound.summary || 'Used for various health-related purposes depending on context.'
+    },
+    {
+      q: `Is ${compound.name} safe?`,
+      a: compound.safety || 'Generally well tolerated, but individual response may vary.'
+    }
+  ]
+
   return (
     <main className="max-w-3xl mx-auto px-4 space-y-10 pb-28">
 
@@ -80,6 +91,17 @@ export default function Page({ params }: any) {
           </ul>
         </SectionBlock>
       )}
+
+      <SectionBlock title="FAQ">
+        <div className="space-y-3">
+          {faq.map((f,i)=>(
+            <div key={i}>
+              <p className="font-semibold text-sm">{f.q}</p>
+              <p className="text-sm text-neutral-600">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </SectionBlock>
 
       <SectionBlock title="Related Compounds">
         <div className="flex flex-wrap gap-2">
