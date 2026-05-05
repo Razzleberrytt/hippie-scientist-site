@@ -6,6 +6,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import TableOfContents from '@/components/ui/TableOfContents'
 import ScrollCTA from '@/components/ui/ScrollCTA'
 import CompareBar from '@/components/ui/CompareBar'
+import TrustBar from '@/components/ui/TrustBar'
 import data from '../../../public/data/compounds.json'
 import Link from 'next/link'
 
@@ -48,6 +49,8 @@ export default function Page({ params }: any) {
           { label:'Compounds', href:'/compounds' },
           { label:compound.name }
         ]}/>
+
+        <TrustBar />
 
         <div className="space-y-2">
           <h1 className="text-3xl font-bold">{compound.name}</h1>
