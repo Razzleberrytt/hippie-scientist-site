@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import compoundsData from '../../../public/data/compounds.json'
 import { getProductLink } from '@/lib/product-resolver'
 import { getProductPicks, groupProductPicks } from '@/lib/product-ranking'
+import { generateAmazonProductPicks } from '@/lib/amazon-auto'
 
 const bestPageConfigs = [
   {
@@ -83,7 +84,11 @@ export default async function Page({ params }: { params: Params }) {
       <p className="text-muted">{page.intro}</p>
 
       {ranked.map(({ compound }, i) => {
-        const picks = groupProductPicks(getProductPicks(compound.slug))
+        let picks = groupProductPicks(getProductPicks(compound.slug))
+
+        if (!picks.top && !picks.budget && !picks.premium) {
+          picks = generateAmazonProductPicks(compound.slug)
+        }
 
         return (
           <div key={compound.slug} className="border p-4 rounded-xl">
