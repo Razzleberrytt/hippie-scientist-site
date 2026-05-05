@@ -102,7 +102,7 @@ function CompoundCard({ item, index }: { item: CompoundItem; index: number }) {
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-2.5">
               <p className="text-[9px] font-black uppercase tracking-[0.16em] text-white/35">Onset</p>
-              <p className="mt-1 truncate text-xs font-bold text-white/85">{item.timeToEffect || 'Varies'}</p>
+              <p className="mt-1 truncate text-xs font-bold text-white/85">{item.timeToEffect || 'See profile'}</p>
             </div>
           </div>
 

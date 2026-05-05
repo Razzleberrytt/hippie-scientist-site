@@ -69,9 +69,9 @@ export default function DecisionSnapshot({ verdict, bestFor, safety, timeToEffec
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
-        <SnapshotStat label="Best For" value={clean(bestFor) || 'General'} />
+        {clean(bestFor) ? <SnapshotStat label="Best For" value={clean(bestFor)} /> : null}
         <SnapshotStat label="Safety" value={clean(safety) || 'Review'} />
-        <SnapshotStat label="Works In" value={clean(timeToEffect) || 'Varies'} />
+        <SnapshotStat label="Works In" value={clean(timeToEffect) || 'See profile'} />
         <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-4">
           <p className="text-[11px] text-white/50">Evidence</p>
           <p className="font-bold">{clean(evidence) || 'Limited'}</p>
