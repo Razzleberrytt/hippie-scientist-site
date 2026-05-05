@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { Pill } from 'lucide-react'
 import { getCompoundBySlug, getCompounds } from '@/lib/runtime-data'
 import { DetailCard, EvidenceBadge, RoleBadge } from '@/components/ui'
+import { CompoundCompareButton } from '@/components/compound-compare-button'
 
 type Params = { params: Promise<{ slug: string }> }
 type CompoundDetail = Record<string, any>
@@ -30,6 +31,21 @@ const evidenceSentence = (value?: string) => {
 }
 
 const pmidUrl = (id: string) => `https://pubmed.ncbi.nlm.nih.gov/${id.replace(/\D/g, '')}`
+
+
+const getRelatedCompounds = async (slug: string, compound: CompoundDetail) => {
+  const compounds = await getCompounds()
+  const currentEffects = new Set(list(compound.effects || compound.primary_effects).map((item) => item.toLowerCase()))
+  return compounds
+    .filter((row: any) => row.slug && row.slug !== slug)
+    .map((row: any) => ({
+      slug: row.slug,
+      name: row.name || row.slug,
+      score: list(row.effects || row.primary_effects).reduce((acc: number, item: string) => acc + (currentEffects.has(item.toLowerCase()) ? 1 : 0), 0),
+    }))
+    .sort((a: any, b: any) => b.score - a.score || a.name.localeCompare(b.name))
+    .slice(0, 4)
+}
 
 export async function generateStaticParams() {
   const compounds = await getCompounds()
@@ -58,6 +74,7 @@ export default async function Page({ params }: Params) {
   const evidence = text(data.evidence_tier || data.evidenceTier || data.evidence_grade) || 'Limited'
   const pmids = list(data.pmid_list).filter((id: string) => /\d/.test(id)).slice(0, 10)
   const updatedAt = text(data.updated_at || data.last_updated || data.lastReviewedAt)
+  const relatedCompounds = await getRelatedCompounds(slug, data)
 
   const toc = [
     bestFor.length ? ['best-for', 'Best For'] : null,
@@ -91,6 +108,9 @@ export default async function Page({ params }: Params) {
           </div>
           {data.formula ? <p className="mt-2 text-sm font-semibold text-muted">{data.formula}</p> : null}
           {updatedAt ? <p className="mt-2 text-xs text-muted">Last updated {updatedAt}</p> : null}
+          <div className="mt-4">
+            <CompoundCompareButton slug={slug} />
+          </div>
         </DetailCard>
 
         {bestFor.length ? (
@@ -122,6 +142,20 @@ export default async function Page({ params }: Params) {
                 {mechanisms.map((item: string) => <li key={item}>• {item}</li>)}
               </ul>
             </details>
+          </DetailCard>
+        ) : null}
+
+
+
+        {relatedCompounds.length ? (
+          <DetailCard title="Compare with">
+            <div className="grid gap-2 sm:grid-cols-2">
+              {relatedCompounds.map((item: any) => (
+                <Link key={item.slug} href={`/compare?c=${slug},${item.slug}`} className="rounded-xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm font-medium text-neutral-800 hover:border-teal-200 hover:text-teal-700">
+                  Compare {name} vs {item.name}
+                </Link>
+              ))}
+            </div>
           </DetailCard>
         ) : null}
 
