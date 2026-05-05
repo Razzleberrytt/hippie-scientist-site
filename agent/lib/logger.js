@@ -1,24 +1,31 @@
-const LEVELS = new Set(['info', 'warn', 'error', 'skip'])
-
-function format(level, message, meta) {
-  const safeLevel = LEVELS.has(level) ? level : 'info'
+function emit(level, message, meta = null) {
   const suffix = meta ? ` ${JSON.stringify(meta)}` : ''
-  return `[agent:${safeLevel}] ${message}${suffix}`
+  console[level](`[agent:${level}] ${message}${suffix}`)
 }
 
-export function logInfo(message, meta) {
-  console.log(format('info', message, meta))
+export const logger = {
+  info(message, meta) {
+    emit('log', message, meta)
+  },
+
+  warn(message, meta) {
+    emit('warn', message, meta)
+  },
+
+  error(message, meta) {
+    emit('error', message, meta)
+  },
+
+  success(message, meta) {
+    emit('log', `SUCCESS: ${message}`, meta)
+  },
+
+  skip(message, meta) {
+    emit('warn', `SKIP: ${message}`, meta)
+  },
 }
 
-export function logWarn(message, meta) {
-  console.warn(format('warn', message, meta))
-}
-
-export function logSkip(message, meta) {
-  console.warn(format('skip', message, meta))
-}
-
-export function logError(message, error) {
-  const meta = error?.message ? { error: error.message } : error
-  console.error(format('error', message, meta))
-}
+export const logInfo = logger.info
+export const logWarn = logger.warn
+export const logError = logger.error
+export const logSkip = logger.skip
