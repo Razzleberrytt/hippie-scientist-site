@@ -10,6 +10,16 @@ export async function generateStaticParams() {
   return (data as any[]).map((c)=>({ slug:c.slug }))
 }
 
+export function generateMetadata({ params }: any) {
+  const compound = (data as any[]).find(c => c.slug === params.slug)
+  if (!compound) return {}
+
+  return {
+    title: `${compound.name} Benefits, Effects & Safety | Hippie Scientist`,
+    description: compound.summary || 'Detailed breakdown of effects, safety, and usage.'
+  }
+}
+
 export default function Page({ params }: any) {
   const compounds = data as any[]
   const compound = compounds.find(c => c.slug === params.slug)
