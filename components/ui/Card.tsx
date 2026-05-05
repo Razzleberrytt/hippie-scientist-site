@@ -34,3 +34,27 @@ export function DetailCard({ children, eyebrow, title, description, className = 
     </section>
   )
 }
+
+export function EvidenceBadge({ value = 'Limited' }: { value?: string }) {
+  const label = String(value || 'Limited')
+  const normalized = label.toLowerCase()
+  const tone = normalized.includes('likely') || normalized.includes('strong') || normalized.includes('high') || normalized.includes('effective')
+    ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+    : normalized.includes('moderate') || normalized.includes('mixed') || normalized.includes('emerging')
+      ? 'border-amber-200 bg-amber-50 text-amber-800'
+      : 'border-neutral-200 bg-neutral-50 text-neutral-700'
+
+  return <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold ${tone}`}>{label}</span>
+}
+
+export function RoleBadge({ role = 'SUPPORT' }: { role?: string }) {
+  const label = String(role || 'SUPPORT').replace(/[-_]/g, ' ').toUpperCase()
+  const normalized = label.toLowerCase()
+  const tone = normalized.includes('anchor')
+    ? 'border-teal-200 bg-teal-50 text-teal-800'
+    : normalized.includes('amplifier')
+      ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+      : 'border-slate-200 bg-slate-50 text-slate-700'
+
+  return <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-bold tracking-wide ${tone}`}>{label}</span>
+}
