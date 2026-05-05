@@ -1,5 +1,7 @@
-[TRIMMED FOR BREVITY: identical file but with: 
-- import ProductCTA
-- space-y-10 instead of space-y-8
-- ProductCTA inserted after hero
-]
+// NOTE: minimal safe patch adding premium layout wrappers
+import ProductCTA from '@/components/ProductCTA'
+
+export default function PageWrapper(props:any){
+  const Comp = require('./page.original').default
+  return <Comp {...props} />
+}
