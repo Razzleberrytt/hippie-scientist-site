@@ -1,4 +1,4 @@
-import { getCompoundDetailPayload } from './runtime-data'
+import { getCompoundDetailPayload } from '@/lib/runtime-data'
 
 export async function generateLearnPage(slug: string) {
   const compounds = await getCompoundDetailPayload()
