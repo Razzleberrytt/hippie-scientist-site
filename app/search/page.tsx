@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import Fuse from 'fuse.js'
-import { EvidenceBadge } from '@/components/ui/Card'
+import { EvidenceBadge } from '@/components/ui'
 import compounds from '@/public/data/compounds.json'
 
 const firstEffect = (compound: any) => {
