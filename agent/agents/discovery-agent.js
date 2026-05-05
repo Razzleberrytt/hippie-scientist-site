@@ -1,63 +1,67 @@
-const SYSTEM_PROMPT = `
-You are the Hippie Scientist Discovery Agent.
+import crypto from 'node:crypto'
 
-Mission:
-Extract ONLY conservative, structured human evidence.
+import { runJsonPrompt } from '../lib/openai-client.js'
+import { handleAgentError, AgentError } from '../lib/errors.js'
+import { logger } from '../lib/logger.js'
 
-Rules:
-- Human randomized controlled trials and meta-analyses preferred.
-- Never fabricate PMIDs.
-- Never invent effect sizes.
-- No mechanistic speculation.
-- No marketing language.
-- No summaries.
-- No markdown.
-- Output valid JSON only.
-- If information is uncertain, leave fields blank.
-- Reject animal and in vitro evidence.
+const SYSTEM_PROMPT = `You are the Discovery Agent for The Hippie Scientist.
+Extract ONLY human clinical evidence.
 
-Return an array using this exact schema:
-[
-  {
-    "compound_slug": "",
-    "effect_target": "",
-    "study_type": "",
-    "population": "",
-    "effect_direction": "",
-    "effect_size": "",
-    "sample_size": "",
-    "duration": "",
-    "dose": "",
-    "pmid_or_source": ""
-  }
-]
-`
+Allowed:
+- randomized controlled trials
+- meta-analyses
+- systematic reviews
 
-export async function runDiscoveryAgent({ client, slug }) {
-  if (!client) {
-    return []
-  }
+Forbidden:
+- invented PMIDs
+- invented effect sizes
+- animal studies
+- in vitro studies
+- marketing claims
+- mechanistic speculation
 
-  const response = await client.chat.completions.create({
-    model: 'gpt-4.1-mini',
-    temperature: 0.1,
-    messages: [
-      {
-        role: 'system',
-        content: SYSTEM_PROMPT,
-      },
-      {
-        role: 'user',
-        content: `Extract conservative structured human evidence for ${slug}.`,
-      },
-    ],
-  })
+Return strict JSON only.`
 
+export async function runDiscovery(compound) {
   try {
-    const parsed = JSON.parse(response.choices?.[0]?.message?.content || '[]')
+    logger.info(`Discovery started for ${compound.slug}`)
 
-    return Array.isArray(parsed) ? parsed : []
-  } catch {
-    return []
+    const userPrompt = `Find conservative human clinical evidence for ${compound.slug}.
+Focus on RCTs and meta-analyses only.
+Return structured JSON data only.`
+
+    const raw = await runJsonPrompt(SYSTEM_PROMPT, userPrompt, 0.1)
+
+    if (!raw?.entries?.length) {
+      throw new AgentError(
+        'No valid discovery entries returned',
+        'discovery',
+        {
+          slug: compound.slug,
+        }
+      )
+    }
+
+    const result = {
+      success: true,
+      data: {
+        patch_type: 'discovery_candidates',
+        patch_id: crypto.randomUUID(),
+        schema_version: '1.0',
+        source_agent: 'discovery-agent',
+        agent_version: '1.5',
+        slug: compound.slug,
+        created_at: new Date().toISOString(),
+        entries: raw.entries,
+      },
+    }
+
+    logger.success(`Discovery completed: ${raw.entries.length} entries`)
+
+    return result
+  } catch (error) {
+    return handleAgentError(error, 'discovery', {
+      slug: compound.slug,
+    })
   }
 }
