@@ -1,4 +1,13 @@
-export function runValidationAgent(rows) {
+const INVALID_TERMS = [
+  'mouse',
+  'mice',
+  'murine',
+  'rat',
+  'rodent',
+  'in vitro',
+]
+
+export function runValidationAgent(rows = []) {
   const approved = []
   const rejection_reasons = []
 
@@ -15,8 +24,15 @@ export function runValidationAgent(rows) {
       continue
     }
 
-    if (/mouse|mice|rat|murine/i.test(JSON.stringify(row))) {
-      rejection_reasons.push('animal_only_evidence')
+    const blob = JSON.stringify(row).toLowerCase()
+
+    if (INVALID_TERMS.some(term => blob.includes(term))) {
+      rejection_reasons.push('non_human_or_preclinical_evidence')
+      continue
+    }
+
+    if (/cure|proven|guaranteed|miracle/i.test(blob)) {
+      rejection_reasons.push('overconfident_language')
       continue
     }
 
@@ -25,7 +41,7 @@ export function runValidationAgent(rows) {
 
   return {
     validation_status: approved.length ? 'approved' : 'rejected',
-    rejection_reasons,
+    rejection_reasons: [...new Set(rejection_reasons)],
     approved_rows: approved,
   }
 }
