@@ -2,6 +2,7 @@ import DecisionCard from '@/components/ui/DecisionCard'
 import EvidenceBadge from '@/components/ui/EvidenceBadge'
 import SafetyBadge from '@/components/ui/SafetyBadge'
 import SectionBlock from '@/components/ui/SectionBlock'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import data from '../../../public/data/compounds.json'
 import Link from 'next/link'
 
@@ -19,6 +20,12 @@ export default function Page({ params }: any) {
 
   return (
     <main className="max-w-3xl mx-auto px-4 space-y-10 pb-28">
+
+      <Breadcrumbs items={[
+        { label: 'Home', href: '/' },
+        { label: 'Compounds', href: '/compounds' },
+        { label: compound.name }
+      ]} />
 
       <div className="space-y-2">
         <h1 className="text-3xl font-bold">{compound.name}</h1>
