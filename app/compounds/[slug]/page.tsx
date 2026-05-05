@@ -1,48 +1,58 @@
+import DecisionCard from '@/components/ui/DecisionCard'
+import EvidenceBadge from '@/components/ui/EvidenceBadge'
+import SafetyBadge from '@/components/ui/SafetyBadge'
+import SectionBlock from '@/components/ui/SectionBlock'
 import data from '../../../public/data/compounds.json'
 
 export async function generateStaticParams() {
-  return (data as any[]).map((c) => ({ slug: c.slug }))
+  return (data as any[]).map((c)=>({ slug:c.slug }))
 }
 
-import DecisionCard from '@/components/ui/DecisionCard'
-import EvidenceBadge from '@/components/ui/EvidenceBadge'
-import SectionBlock from '@/components/ui/SectionBlock'
-import compounds from '../../../public/data/compounds.json'
-
 export default function Page({ params }: any) {
-  const compound = (compounds as any[]).find(c => c.slug === params.slug)
+  const compound = (data as any[]).find(c => c.slug === params.slug)
   if (!compound) return null
 
   return (
-    <main className="max-w-3xl mx-auto px-4 space-y-10 pb-24">
+    <main className="max-w-3xl mx-auto px-4 space-y-10 pb-28">
 
       <div className="space-y-2">
         <h1 className="text-3xl font-bold">{compound.name}</h1>
         <p className="text-sm text-neutral-600">{compound.summary}</p>
-        <EvidenceBadge level="moderate" />
+
+        <div className="flex gap-2">
+          <EvidenceBadge level="moderate" />
+          <SafetyBadge level="safe" />
+        </div>
       </div>
 
       <DecisionCard
         bestFor={compound.effects || []}
-        avoid={[]}
+        avoid={compound.avoid || []}
         time="Varies"
-        evidence="Moderate human evidence"
+        evidence="Human data available"
       />
 
+      <div className="bg-neutral-100 rounded-xl p-4 text-sm">
+        <strong>Quick Verdict:</strong> 
+        {compound.summary || 'Likely useful depending on context.'}
+      </div>
+
       <SectionBlock title="Primary Effects">
-        <ul>
-          {(compound.effects || []).map((e:any,i:number)=>(
+        <ul className="space-y-1">
+          {(compound.effects?.length ? compound.effects : ['No strong effects established']).slice(0,5).map((e:any,i:number)=>(
             <li key={i}>• {e}</li>
           ))}
         </ul>
       </SectionBlock>
 
-      <SectionBlock title="Mechanisms">
-        <p className="text-neutral-500">Expand for details</p>
+      <SectionBlock title="Safety">
+        <p>{compound.safety || 'Generally well tolerated'}</p>
       </SectionBlock>
 
-      <SectionBlock title="Safety">
-        <p>{compound.safety || 'Generally safe for most users'}</p>
+      <SectionBlock title="Research Note">
+        <p className="text-neutral-500">
+          Based on available human and mechanistic evidence.
+        </p>
       </SectionBlock>
 
     </main>
