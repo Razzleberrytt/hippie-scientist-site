@@ -1,52 +1,54 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
-import { springConfig } from '@/utils/springConfig'
-
-const goals = [
-  { title: 'Sleep', href: '/best/sleep', description: 'Anchor compounds for sleep onset, amplifiers for depth.' },
-  { title: 'Stress', href: '/best/stress', description: 'Calm baseline + adaptogen amplification.' },
-  { title: 'Focus', href: '/best/focus', description: 'Cognitive anchors with precision enhancers.' },
-]
 
 export default function HomepageV2() {
-  const reduceMotion = useReducedMotion()
-
   return (
-    <main className="mx-auto w-full max-w-6xl space-y-14">
+    <main className="bg-white min-h-screen">
 
-      <section className="space-y-6">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={springConfig.gentle}
-        >
-          <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-            Find evidence-based supplement stacks for your goals
-          </h1>
-          <p className="mt-3 max-w-2xl text-base text-muted">
-            Built around Anchor, Amplifier, and Support roles — so you know what works, why it works, and how to use it.
-          </p>
-        </motion.div>
+      {/* HERO */}
+      <section className="max-w-4xl mx-auto px-4 pt-16 pb-10">
+        <h1 className="text-4xl font-bold tracking-tight text-neutral-900">
+          Find supplements that actually work
+        </h1>
+        <p className="mt-4 text-neutral-600 text-lg">
+          Evidence-based breakdowns of herbs and compounds — what they do, who they’re for, and what to buy.
+        </p>
+      </section>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {goals.map(goal => (
-            <Link key={goal.href} href={goal.href}>
-              <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft hover:shadow-lg transition">
-                <h3 className="text-lg font-bold text-ink">{goal.title}</h3>
-                <p className="mt-2 text-sm text-muted">{goal.description}</p>
-                <span className="mt-4 inline-block text-sm font-semibold text-brand">Explore →</span>
-              </div>
-            </Link>
-          ))}
+      {/* SEARCH */}
+      <div className="max-w-4xl mx-auto px-4 mt-4">
+        <input
+          placeholder="Search supplements (ashwagandha, magnesium, l-theanine)"
+          className="w-full p-4 rounded-xl border border-neutral-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+        />
+      </div>
+
+      {/* QUICK NAV */}
+      <div className="max-w-4xl mx-auto px-4 mt-10 grid grid-cols-2 gap-4">
+        {['Sleep','Anxiety','Focus','Testosterone'].map(item => (
+          <Link key={item} href={`/best/${item.toLowerCase()}`}>
+            <div className="p-4 border border-neutral-200 rounded-xl hover:border-neutral-400 transition">
+              <span className="text-sm font-medium text-neutral-900">{item}</span>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* FEATURED */}
+      <section className="max-w-4xl mx-auto px-4 mt-14">
+        <h2 className="text-lg font-semibold text-neutral-900">Popular right now</h2>
+        <div className="mt-4 grid gap-4">
+          {/* hook into compounds later */}
         </div>
+      </section>
 
-        <div className="flex flex-wrap gap-6 text-sm text-muted">
-          <span>100% cited</span>
-          <span>No industry bias</span>
-          <span>Decision-first structure</span>
-        </div>
+      {/* TRUST */}
+      <section className="max-w-4xl mx-auto px-4 mt-16 pb-16">
+        <p className="text-sm text-neutral-600">
+          All content is based on human studies and conservative evidence standards.
+          No hype. No filler. Just what actually works.
+        </p>
       </section>
 
     </main>
