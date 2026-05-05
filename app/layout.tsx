@@ -5,7 +5,9 @@ import MobileNav from '@/components/mobile-nav'
 import './globals.css'
 
 const navLinks = [
-  { href: '/#goals', label: 'Goals / Stacks' },
+  { href: '/', label: 'Home' },
+  { href: '/#goals', label: 'Goals' },
+  { href: '/stacks', label: 'Stacks' },
   { href: '/herbs', label: 'Herbs' },
   { href: '/compounds', label: 'Compounds' },
   { href: '/search', label: 'Search' },
@@ -21,18 +23,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body>
-        <div className='min-h-screen text-neutral-900'>
-          <header className='sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur-md'>
-            <div className='container-page flex items-center justify-between py-3'>
-              <Link href='/' className='text-lg font-bold tracking-tight text-neutral-950'>
+        <div className='min-h-screen bg-background text-ink'>
+          <header className='sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur-sm'>
+            <div className='container-page flex items-center justify-between py-4'>
+              <Link href='/' className='text-lg font-bold tracking-tight text-ink'>
                 Hippie Scientist
               </Link>
-              <nav className='hidden md:flex items-center gap-1'>
+              <nav className='hidden md:flex items-center gap-2'>
                 {navLinks.map(l => (
                   <Link
                     key={l.href}
                     href={l.href}
-                    className='rounded-xl px-4 py-2 text-sm font-semibold text-neutral-600 transition hover:bg-neutral-100 hover:text-neutral-900'
+                    className='rounded-xl px-4 py-2 text-sm font-semibold text-muted hover:bg-neutral-100 hover:text-ink'
                   >
                     {l.label}
                   </Link>
@@ -42,10 +44,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page py-8'>{children}</main>
+          <main className='container-page py-10'>{children}</main>
 
           <footer className='mt-10 border-t border-neutral-200 bg-neutral-50'>
-            <div className='container-page py-8 text-sm text-neutral-500'>
+            <div className='container-page py-8 text-sm text-muted'>
               <p className='font-semibold'>© The Hippie Scientist</p>
             </div>
           </footer>
