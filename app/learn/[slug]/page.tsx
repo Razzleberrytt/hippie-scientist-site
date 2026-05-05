@@ -4,6 +4,14 @@ import { generateLearnPage } from '@/lib/learn-generator'
 
 type Params = Promise<{ slug: string }>
 
+export async function generateStaticParams() {
+  return [
+    { slug: 'cognitive-stack' },
+    { slug: 'anti-inflammatory-stack' },
+    { slug: 'adaptogens' },
+  ]
+}
+
 export default async function LearnPost({ params }: { params: Params }) {
   const { slug } = await params
 
