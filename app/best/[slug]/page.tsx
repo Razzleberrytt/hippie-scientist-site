@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import compoundsData from '../../../public/data/compounds.json'
 import { getProductLink } from '@/lib/product-resolver'
+import { getProductPicks, groupProductPicks } from '@/lib/product-ranking'
 
 const bestPageConfigs = [
   {
@@ -81,36 +82,63 @@ export default async function Page({ params }: { params: Params }) {
       <h1 className="text-3xl font-bold">{page.title}</h1>
       <p className="text-muted">{page.intro}</p>
 
-      {ranked.map(({ compound }, i) => (
-        <div key={compound.slug} className="border p-4 rounded-xl">
-          <h2 className="text-xl font-semibold">#{i + 1} {compound.name}</h2>
-          <p className="text-sm text-muted">{compound.summary}</p>
+      {ranked.map(({ compound }, i) => {
+        const picks = groupProductPicks(getProductPicks(compound.slug))
 
-          <div className="flex gap-2 mt-3">
-            <Link href={`/compounds/${compound.slug}`} className="text-sm underline">
-              View details
-            </Link>
+        return (
+          <div key={compound.slug} className="border p-4 rounded-xl">
+            <h2 className="text-xl font-semibold">#{i + 1} {compound.name}</h2>
+            <p className="text-sm text-muted">{compound.summary}</p>
 
-            <a
-              href={getProductLink(compound)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl bg-black text-white px-4 py-2 text-sm font-semibold"
-            >
-              {compound.product_cta || 'Shop Options'}
-            </a>
+            <div className="flex gap-2 mt-3">
+              <Link href={`/compounds/${compound.slug}`} className="text-sm underline">
+                View details
+              </Link>
+
+              <a
+                href={getProductLink(compound)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl bg-black text-white px-4 py-2 text-sm font-semibold"
+              >
+                {compound.product_cta || 'Shop Options'}
+              </a>
+            </div>
+
+            <div className="mt-4 space-y-2">
+              {picks.top && (
+                <a href={picks.top.url} target="_blank" className="block border p-3 rounded-xl">
+                  ⭐ <strong>Top Pick:</strong> {picks.top.brand} — {picks.top.name}
+                  <p className="text-xs text-muted">{picks.top.notes}</p>
+                </a>
+              )}
+
+              {picks.budget && (
+                <a href={picks.budget.url} target="_blank" className="block border p-3 rounded-xl">
+                  💸 <strong>Budget:</strong> {picks.budget.brand}
+                  <p className="text-xs text-muted">{picks.budget.notes}</p>
+                </a>
+              )}
+
+              {picks.premium && (
+                <a href={picks.premium.url} target="_blank" className="block border p-3 rounded-xl">
+                  🔬 <strong>Premium:</strong> {picks.premium.brand}
+                  <p className="text-xs text-muted">{picks.premium.notes}</p>
+                </a>
+              )}
+            </div>
+
+            <div className="mt-3 text-xs text-muted">
+              <strong>What to look for:</strong>
+              <ul className="list-disc pl-4 mt-1">
+                <li>Standardized extract</li>
+                <li>Clinically relevant dosage</li>
+                <li>Transparent labeling</li>
+              </ul>
+            </div>
           </div>
-
-          <div className="mt-3 text-xs text-muted">
-            <strong>What to look for:</strong>
-            <ul className="list-disc pl-4 mt-1">
-              <li>Standardized extract</li>
-              <li>Clinically relevant dosage</li>
-              <li>Transparent labeling</li>
-            </ul>
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </main>
   )
 }
