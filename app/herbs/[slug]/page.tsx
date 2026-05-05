@@ -162,37 +162,38 @@ export default async function HerbDetailPage({ params }: Params) {
       {faqJsonLd ? <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} /> : null}
 
       <aside className='hidden lg:block'>
-        <nav className='sticky top-24 rounded-3xl border border-neutral-200 bg-white p-4 shadow-card'>
+        <nav className='sticky top-24 rounded-2xl border border-neutral-200/60 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)]'>
           <p className='text-xs font-bold uppercase tracking-[0.16em] text-teal-700'>On this page</p>
           <div className='mt-3 grid gap-2 text-sm'>
-            {toc.map(([href, title]) => <a key={href} href={`#${href}`} className='rounded-xl px-3 py-2 font-semibold text-muted hover:bg-neutral-50 hover:text-ink'>{title}</a>)}
+            {toc.map(([href, title]) => <a key={href} href={`#${href}`} className='rounded-lg px-3 py-2 font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black'>{title}</a>)}
           </div>
         </nav>
       </aside>
 
-      <main className='space-y-8'>
+      <main className='space-y-10'>
         <nav className='flex flex-wrap gap-2 text-sm'>
           <Link href='/herbs' className='min-h-11 rounded-full border border-neutral-200 bg-white px-4 py-2.5 font-bold text-muted shadow-sm hover:border-teal-200 hover:bg-teal-50 hover:text-teal-800'>← Herbs</Link>
           <Link href='/compounds' className='min-h-11 rounded-full border border-neutral-200 bg-white px-4 py-2.5 font-bold text-muted shadow-sm hover:border-teal-200 hover:bg-teal-50 hover:text-teal-800'>Compounds</Link>
         </nav>
 
         <nav className='flex gap-2 overflow-x-auto rounded-2xl border border-neutral-200 bg-white p-2 text-sm lg:hidden'>
-          {toc.map(([href, title]) => <a key={href} href={`#${href}`} className='min-h-10 shrink-0 rounded-xl px-3 py-2 font-semibold text-muted hover:bg-neutral-50'>{title}</a>)}
+          {toc.map(([href, title]) => <a key={href} href={`#${href}`} className='min-h-10 shrink-0 rounded-lg px-3 py-2 font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black'>{title}</a>)}
         </nav>
 
         <DetailCard>
           <div className='flex flex-wrap items-center gap-3'>
             <Leaf className='text-teal-600' aria-hidden='true' />
-            <h1 className='text-3xl font-bold text-ink sm:text-5xl'>{label}</h1>
+            <h1 className='text-4xl font-bold tracking-tight text-ink sm:text-5xl'>{label}</h1>
             <EvidenceBadge value={evidence} />
           </div>
-          <p className='mt-4 max-w-3xl text-base leading-7 text-muted'>{leadText}</p>
+          <p className='mt-4 max-w-3xl text-[15px] leading-7 text-muted'>{leadText}</p>
+          <p className='mt-3 text-xs text-neutral-500'>Evidence-based • Human data prioritized • No industry bias</p>
           {updatedAt ? <p className='mt-3 text-xs text-muted'>Last updated {updatedAt}</p> : null}
         </DetailCard>
 
         {bestFor.length ? (
           <DetailCard id='best-for' title='Best For'>
-            <div className='flex flex-wrap gap-2'>{bestFor.map(item => <span key={item} className='rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700'>{item}</span>)}</div>
+            <div className='flex flex-wrap gap-2'>{bestFor.map(item => <span key={item} className='rounded-full bg-neutral-100/80 px-3 py-1 text-xs font-medium text-neutral-700'>{item}</span>)}</div>
           </DetailCard>
         ) : null}
 
@@ -212,9 +213,9 @@ export default async function HerbDetailPage({ params }: Params) {
         ) : null}
 
         {(safety.avoidIf.length || safety.useCautionWith.length) ? (
-          <DetailCard id='safety' title='Safety & Side Effects' className='border-amber-200 bg-amber-50'>
+          <DetailCard id='safety' title='Safety & Side Effects' className='border-amber-200/70 bg-amber-50/60'>
             <div className='grid gap-4 sm:grid-cols-2'>
-              {safety.avoidIf.length ? <div><h3 className='text-sm font-bold text-red-800'>Avoid if</h3><ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700'>{safety.avoidIf.map(item => <li key={item}>{item}</li>)}</ul></div> : null}
+              {safety.avoidIf.length ? <div><h3 className='text-sm font-bold text-amber-800'>Avoid if</h3><ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700'>{safety.avoidIf.map(item => <li key={item}>{item}</li>)}</ul></div> : null}
               {safety.useCautionWith.length ? <div><h3 className='text-sm font-bold text-amber-800'>Use caution with</h3><ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700'>{safety.useCautionWith.map(item => <li key={item}>{item}</li>)}</ul></div> : null}
             </div>
           </DetailCard>

@@ -15,11 +15,11 @@ type GlassCardProps = HTMLMotionProps<'div'> & {
 }
 
 const variantClasses: Record<GlassVariant, string> = {
-  light: 'border-brand/15 bg-glass-light sm:backdrop-blur-md backdrop-blur-sm',
-  standard: 'border-brand/20 bg-glass-standard sm:backdrop-blur-xl backdrop-blur-md',
-  heavy: 'border-brand/25 bg-glass-heavy sm:backdrop-blur-2xl backdrop-blur-md shadow-glass',
-  glow: 'border-brand/35 bg-glass-glow sm:backdrop-blur-xl backdrop-blur-md shadow-glow',
-  frosted: 'border-white/15 bg-white/[0.045] sm:backdrop-blur-lg backdrop-blur-sm',
+  light: 'border-neutral-200/60 bg-white',
+  standard: 'border-neutral-200/60 bg-white',
+  heavy: 'border-neutral-200/60 bg-white',
+  glow: 'border-neutral-200/60 bg-white',
+  frosted: 'border-neutral-200/60 bg-white',
 }
 
 export function GlassCard({
@@ -39,15 +39,15 @@ export function GlassCard({
       ref={ref}
       initial={reduceMotion ? false : { opacity: 0, y: 14, scale: 0.985 }}
       animate={reduceMotion || inView ? { opacity: 1, y: 0, scale: 1 } : undefined}
-      whileHover={reduceMotion ? undefined : { y: -4, scale: 1.01 }}
+      whileHover={reduceMotion ? undefined : { y: -1 }}
       whileTap={reduceMotion ? undefined : { scale: 0.985 }}
       transition={{ ...springConfig.card, delay }}
-      className={`relative isolate overflow-hidden rounded-3xl border ${variantClasses[variant]} ${className}`}
+      className={`relative isolate overflow-hidden rounded-2xl border shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition duration-200 motion-safe:hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] ${variantClasses[variant]} ${className}`}
       {...props}
     >
       {enableShine ? (
         <span aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
-          <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-[160%] bg-gradient-to-r from-transparent via-white/10 to-transparent motion-safe:animate-[shine_3.8s_linear_infinite]" />
+          <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-[160%] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-40" />
         </span>
       ) : null}
       <div className="relative z-10">{children}</div>

@@ -31,7 +31,7 @@ export default function StackCard({ item }: { item: StackItem }) {
   const dosage = item.dosage_range || item.dosage || 'See profile'
 
   return (
-    <article className='rounded-2xl border border-neutral-200 bg-white p-4 shadow-card transition hover:border-teal-200 hover:shadow-lg'>
+    <article className='rounded-2xl border border-neutral-200/60 bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition duration-200 motion-safe:hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)]'>
       <div className='flex items-start justify-between gap-3'>
         <h3 className='text-base font-bold leading-tight text-ink'>{displayName}</h3>
         <EvidenceBadge value={evidence} />

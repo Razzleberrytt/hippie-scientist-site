@@ -70,17 +70,17 @@ export default async function Page({ params }: Params) {
   return (
     <div className="grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)]">
       <aside className="hidden lg:block">
-        <nav className="sticky top-24 rounded-3xl border border-neutral-200 bg-white p-4 shadow-card">
+        <nav className="sticky top-24 rounded-2xl border border-neutral-200/60 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-teal-700">On this page</p>
           <div className="mt-3 grid gap-2 text-sm">
-            {toc.map(([href, label]) => <a key={href} href={`#${href}`} className="rounded-xl px-3 py-2 font-semibold text-muted hover:bg-neutral-50 hover:text-ink">{label}</a>)}
+            {toc.map(([href, label]) => <a key={href} href={`#${href}`} className="rounded-lg px-3 py-2 font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black">{label}</a>)}
           </div>
         </nav>
       </aside>
 
-      <main className="space-y-8">
+      <main className="space-y-10">
         <nav className="flex gap-2 overflow-x-auto rounded-2xl border border-neutral-200 bg-white p-2 text-sm lg:hidden">
-          {toc.map(([href, label]) => <a key={href} href={`#${href}`} className="min-h-10 shrink-0 rounded-xl px-3 py-2 font-semibold text-muted hover:bg-neutral-50">{label}</a>)}
+          {toc.map(([href, label]) => <a key={href} href={`#${href}`} className="min-h-10 shrink-0 rounded-lg px-3 py-2 font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black">{label}</a>)}
         </nav>
 
         <DetailCard>
@@ -96,7 +96,7 @@ export default async function Page({ params }: Params) {
         {bestFor.length ? (
           <DetailCard id="best-for" title="Best For">
             <div className="flex flex-wrap gap-2">
-              {bestFor.map((item: string) => <span key={item} className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-semibold text-neutral-700">{item}</span>)}
+              {bestFor.map((item: string) => <span key={item} className="rounded-full bg-neutral-100/80 px-3 py-1 text-xs font-medium text-neutral-700">{item}</span>)}
             </div>
           </DetailCard>
         ) : null}
