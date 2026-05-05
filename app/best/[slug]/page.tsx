@@ -29,13 +29,33 @@ export default async function Page({ params }: { params: Params }) {
 
   const ranked = compounds.slice(0, 10)
 
+  const first = ranked[0]
+  let topPick = null
+  if (first) {
+    let picks = groupProductPicks(getProductPicks(first.slug))
+    if (!picks.top && !picks.budget && !picks.premium) {
+      picks = generateAmazonProductPicks(first.slug)
+    }
+    topPick = picks.top || picks.budget || picks.premium
+  }
+
   return (
-    <main className="space-y-10">
+    <main className="space-y-10 pb-24">
       <h1 className="text-3xl font-bold">{page.title}</h1>
+
+      {topPick && (
+        <div className="border-2 border-green-500 p-5 rounded-2xl bg-green-50">
+          <p className="text-sm font-semibold">🔥 Best Overall Choice</p>
+          <h2 className="text-xl font-bold mt-1">{topPick.brand} — {topPick.name}</h2>
+          <p className="text-sm text-muted mt-1">{topPick.notes}</p>
+          <a href={topPick.url} target="_blank" className="inline-block mt-3 bg-black text-white px-4 py-2 rounded-xl text-sm font-semibold">
+            View Top Pick
+          </a>
+        </div>
+      )}
 
       {ranked.map((compound, i) => {
         let picks = groupProductPicks(getProductPicks(compound.slug))
-
         if (!picks.top && !picks.budget && !picks.premium) {
           picks = generateAmazonProductPicks(compound.slug)
         }
@@ -46,58 +66,32 @@ export default async function Page({ params }: { params: Params }) {
 
             <div className="overflow-x-auto">
               <table className="w-full text-sm border">
-                <thead>
-                  <tr className="bg-neutral-100">
-                    <th className="p-2 text-left">Type</th>
-                    <th className="p-2 text-left">Brand</th>
-                    <th className="p-2 text-left">Why</th>
-                    <th className="p-2"></th>
-                  </tr>
-                </thead>
                 <tbody>
                   {picks.top && (
-                    <tr className="border-t">
-                      <td className="p-2">⭐ Top</td>
-                      <td className="p-2">{picks.top.brand}</td>
+                    <tr className="bg-green-50">
+                      <td className="p-2">⭐</td>
+                      <td className="p-2 font-semibold">{picks.top.brand}</td>
                       <td className="p-2">{picks.top.notes}</td>
-                      <td className="p-2">
-                        <a href={picks.top.url} target="_blank" className="bg-black text-white px-3 py-1 rounded">View</a>
-                      </td>
-                    </tr>
-                  )}
-
-                  {picks.budget && (
-                    <tr className="border-t">
-                      <td className="p-2">💸 Budget</td>
-                      <td className="p-2">{picks.budget.brand}</td>
-                      <td className="p-2">{picks.budget.notes}</td>
-                      <td className="p-2">
-                        <a href={picks.budget.url} target="_blank" className="bg-black text-white px-3 py-1 rounded">View</a>
-                      </td>
-                    </tr>
-                  )}
-
-                  {picks.premium && (
-                    <tr className="border-t">
-                      <td className="p-2">🔬 Premium</td>
-                      <td className="p-2">{picks.premium.brand}</td>
-                      <td className="p-2">{picks.premium.notes}</td>
-                      <td className="p-2">
-                        <a href={picks.premium.url} target="_blank" className="bg-black text-white px-3 py-1 rounded">View</a>
-                      </td>
+                      <td className="p-2"><a href={picks.top.url} target="_blank" className="bg-black text-white px-3 py-1 rounded">View</a></td>
                     </tr>
                   )}
                 </tbody>
               </table>
             </div>
-
-            <div className="flex gap-3">
-              <Link href={`/compounds/${compound.slug}`} className="underline text-sm">Details</Link>
-              <a href={getProductLink(compound)} target="_blank" className="bg-black text-white px-3 py-1 rounded text-sm">Compare All</a>
-            </div>
           </div>
         )
       })}
+
+      {topPick && (
+        <div className="fixed bottom-0 left-0 right-0 bg-white border-t p-3 flex justify-between items-center">
+          <div className="text-sm">
+            <strong>Top Pick:</strong> {topPick.brand}
+          </div>
+          <a href={topPick.url} target="_blank" className="bg-black text-white px-4 py-2 rounded-xl text-sm font-semibold">
+            Buy Now
+          </a>
+        </div>
+      )}
     </main>
   )
 }
