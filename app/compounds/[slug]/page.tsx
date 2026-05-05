@@ -3,6 +3,7 @@ import EvidenceBadge from '@/components/ui/EvidenceBadge'
 import SafetyBadge from '@/components/ui/SafetyBadge'
 import SectionBlock from '@/components/ui/SectionBlock'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import TableOfContents from '@/components/ui/TableOfContents'
 import data from '../../../public/data/compounds.json'
 import Link from 'next/link'
 
@@ -29,110 +30,94 @@ export default function Page({ params }: any) {
   const related = compounds.filter(c => c.slug !== compound.slug).slice(0,5)
 
   const faq = [
-    {
-      q: `What is ${compound.name} used for?`,
-      a: compound.summary || 'Used for various health-related purposes depending on context.'
-    },
-    {
-      q: `Is ${compound.name} safe?`,
-      a: compound.safety || 'Generally well tolerated, but individual response may vary.'
-    }
+    { q:`What is ${compound.name} used for?`, a:compound.summary||''},
+    { q:`Is ${compound.name} safe?`, a:compound.safety||''}
   ]
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faq.map(f => ({
-      "@type": "Question",
-      "name": f.q,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": f.a
-      }
-    }))
-  }
-
   return (
-    <main className="max-w-3xl mx-auto px-4 space-y-10 pb-28">
+    <main className="max-w-5xl mx-auto px-4 flex gap-10 pb-28">
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <TableOfContents />
 
-      <Breadcrumbs items={[
-        { label: 'Home', href: '/' },
-        { label: 'Compounds', href: '/compounds' },
-        { label: compound.name }
-      ]} />
+      <div className="flex-1 space-y-10">
 
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold">{compound.name}</h1>
-        <p className="text-sm text-neutral-600">{compound.summary}</p>
+        <Breadcrumbs items={[
+          { label:'Home', href:'/' },
+          { label:'Compounds', href:'/compounds' },
+          { label:compound.name }
+        ]}/>
 
-        <div className="flex gap-2">
-          <EvidenceBadge level="moderate" />
-          <SafetyBadge level="safe" />
+        <div className="space-y-2">
+          <h1 className="text-3xl font-bold">{compound.name}</h1>
+          <p className="text-sm text-neutral-600">{compound.summary}</p>
+
+          <div className="flex gap-2">
+            <EvidenceBadge level="moderate" />
+            <SafetyBadge level="safe" />
+          </div>
         </div>
-      </div>
 
-      <DecisionCard
-        bestFor={compound.effects || []}
-        avoid={compound.avoid || []}
-        time="Varies"
-        evidence="Human data available"
-      />
+        <DecisionCard
+          bestFor={compound.effects||[]}
+          avoid={compound.avoid||[]}
+          time="Varies"
+          evidence="Human data available"
+        />
 
-      <div className="bg-neutral-100 rounded-xl p-4 text-sm">
-        <strong>Quick Verdict:</strong> 
-        {compound.summary || 'Likely useful depending on context.'}
-      </div>
+        <div className="bg-neutral-100 rounded-xl p-4 text-sm">
+          <strong>Quick Verdict:</strong> {compound.summary}
+        </div>
 
-      <SectionBlock title="Primary Effects">
-        <ul className="space-y-1">
-          {(compound.effects?.length ? compound.effects : ['No strong effects established']).slice(0,5).map((e:any,i:number)=>(
-            <li key={i}>• {e}</li>
-          ))}
-        </ul>
-      </SectionBlock>
+        <div id="effects">
+          <SectionBlock title="Primary Effects">
+            <ul className="space-y-1">
+              {(compound.effects?.length?compound.effects:['No strong effects']).slice(0,5).map((e:any,i:number)=>(
+                <li key={i}>• {e}</li>
+              ))}
+            </ul>
+          </SectionBlock>
+        </div>
 
-      <SectionBlock title="Safety">
-        <p>{compound.safety || 'Generally well tolerated for most users. Monitor individual response.'}</p>
-      </SectionBlock>
+        <div id="safety">
+          <SectionBlock title="Safety">
+            <p>{compound.safety}</p>
+          </SectionBlock>
+        </div>
 
-      {sources.length > 0 && (
-        <SectionBlock title="Sources">
-          <ul className="space-y-1 text-xs">
-            {sources.slice(0,10).map((s:any,i:number)=>(
-              <li key={i}>• {typeof s === 'string' ? s : JSON.stringify(s)}</li>
+        {sources.length>0&&(
+          <SectionBlock title="Sources">
+            <ul className="text-xs">
+              {sources.slice(0,10).map((s:any,i:number)=>(
+                <li key={i}>• {typeof s==='string'?s:JSON.stringify(s)}</li>
+              ))}
+            </ul>
+          </SectionBlock>
+        )}
+
+        <div id="faq">
+          <SectionBlock title="FAQ">
+            {faq.map((f,i)=>(
+              <div key={i}>
+                <p className="font-semibold text-sm">{f.q}</p>
+                <p className="text-sm text-neutral-600">{f.a}</p>
+              </div>
             ))}
-          </ul>
-        </SectionBlock>
-      )}
+          </SectionBlock>
+        </div>
 
-      <SectionBlock title="FAQ">
-        <div className="space-y-3">
-          {faq.map((f,i)=>(
-            <div key={i}>
-              <p className="font-semibold text-sm">{f.q}</p>
-              <p className="text-sm text-neutral-600">{f.a}</p>
+        <div id="related">
+          <SectionBlock title="Related Compounds">
+            <div className="flex flex-wrap gap-2">
+              {related.map((r:any)=>(
+                <Link key={r.slug} href={`/compounds/${r.slug}`} className="text-xs bg-neutral-200 px-2 py-1 rounded">
+                  {r.name}
+                </Link>
+              ))}
             </div>
-          ))}
+          </SectionBlock>
         </div>
-      </SectionBlock>
 
-      <SectionBlock title="Related Compounds">
-        <div className="flex flex-wrap gap-2">
-          {related.map((r:any)=>(
-            <Link key={r.slug} href={`/compounds/${r.slug}`} className="text-xs bg-neutral-200 px-2 py-1 rounded">
-              {r.name}
-            </Link>
-          ))}
-        </div>
-      </SectionBlock>
-
-      <SectionBlock title="Research Note">
-        <p className="text-neutral-500">
-          Based on available human and mechanistic evidence. Interpret cautiously.
-        </p>
-      </SectionBlock>
+      </div>
 
     </main>
   )
