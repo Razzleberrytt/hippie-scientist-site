@@ -12,6 +12,8 @@ export default function Page({ params }: any) {
   const compound = (data as any[]).find(c => c.slug === params.slug)
   if (!compound) return null
 
+  const sources = compound.sources || []
+
   return (
     <main className="max-w-3xl mx-auto px-4 space-y-10 pb-28">
 
@@ -46,12 +48,22 @@ export default function Page({ params }: any) {
       </SectionBlock>
 
       <SectionBlock title="Safety">
-        <p>{compound.safety || 'Generally well tolerated'}</p>
+        <p>{compound.safety || 'Generally well tolerated for most users. Monitor individual response.'}</p>
       </SectionBlock>
+
+      {sources.length > 0 && (
+        <SectionBlock title="Sources">
+          <ul className="space-y-1 text-xs">
+            {sources.slice(0,10).map((s:any,i:number)=>(
+              <li key={i}>• {typeof s === 'string' ? s : JSON.stringify(s)}</li>
+            ))}
+          </ul>
+        </SectionBlock>
+      )}
 
       <SectionBlock title="Research Note">
         <p className="text-neutral-500">
-          Based on available human and mechanistic evidence.
+          Based on available human and mechanistic evidence. Interpret cautiously.
         </p>
       </SectionBlock>
 
