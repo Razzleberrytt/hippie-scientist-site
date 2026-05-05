@@ -6,7 +6,7 @@ import './globals.css'
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/#goals', label: 'Goals' },
+  { href: '/learn', label: 'Learn' },
   { href: '/stacks', label: 'Stacks' },
   { href: '/herbs', label: 'Herbs' },
   { href: '/compounds', label: 'Compounds' },
