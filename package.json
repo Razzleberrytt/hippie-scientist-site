@@ -10,6 +10,7 @@
     "dev": "next dev",
     "start": "next start",
     "check": "npm run build",
+    "agent:run": "node agent/orchestrator/run-orchestrator.js",
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/postprocess-workbook-payloads.mjs",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
     "data:audit": "node scripts/data/audit-source-of-truth.mjs",
