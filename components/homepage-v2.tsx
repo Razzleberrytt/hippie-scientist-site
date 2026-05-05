@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
-import { Card } from '@/components/ui/Card'
 import { springConfig } from '@/utils/springConfig'
 
 const goals = [
@@ -34,9 +33,11 @@ export default function HomepageV2() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {goals.map(goal => (
             <Link key={goal.href} href={goal.href}>
-              <Card title={goal.title} description={goal.description}>
-                <span className="text-sm font-semibold text-teal-700">Explore →</span>
-              </Card>
+              <div className="rounded-3xl border border-neutral-200 bg-white p-5 shadow-card hover:shadow-lg transition">
+                <h3 className="text-lg font-bold text-neutral-950">{goal.title}</h3>
+                <p className="mt-2 text-sm text-neutral-600">{goal.description}</p>
+                <span className="mt-4 inline-block text-sm font-semibold text-teal-700">Explore →</span>
+              </div>
             </Link>
           ))}
         </div>
