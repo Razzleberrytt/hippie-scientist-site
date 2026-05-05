@@ -11,6 +11,7 @@
     "start": "next start",
     "check": "npm run build",
     "agent:run": "node agent/orchestrator/run-orchestrator.js",
+    "agent:review": "node scripts/review-patches.mjs",
     "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/postprocess-workbook-payloads.mjs",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data",
     "data:audit": "node scripts/data/audit-source-of-truth.mjs",
@@ -24,8 +25,6 @@
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "@headlessui/react": "^2.2.10",
-    "ajv": "^8.18.0",
-    "ajv-formats": "^3.0.1",
     "clsx": "^2.1.1",
     "csv-parse": "^5.5.6",
     "framer-motion": "^10.18.0",
