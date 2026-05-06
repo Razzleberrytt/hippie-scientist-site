@@ -1,34 +1,36 @@
-export default function TimelineCard() {
-  const phases = [
-    {
-      title: 'Acute Effects',
-      text: 'Short-term effects may occur within hours depending on dosage and individual response.'
-    },
-    {
-      title: 'Adaptation',
-      text: 'Consistent use over days or weeks may influence long-term pathways and perceived benefits.'
-    },
-    {
-      title: 'Long-Term',
-      text: 'Long-term outcomes depend on dosage, consistency, genetics, lifestyle, and stack interactions.'
-    }
-  ]
+type Phase = {
+  title: string
+  text: string
+}
+
+export default function TimelineCard({ phases = [] }: { phases?: Phase[] }) {
+  const meaningfulPhases = phases.filter(
+    phase => phase?.title?.trim() && phase?.text?.trim()
+  )
+
+  if (meaningfulPhases.length === 0) {
+    return null
+  }
 
   return (
-    <div className="space-y-4">
-      {phases.map((p, i) => (
-        <div key={i} className="flex gap-4">
+    <div className="space-y-5">
+      {meaningfulPhases.map((phase, index) => (
+        <div key={index} className="flex gap-4">
           <div className="flex flex-col items-center">
-            <div className="w-3 h-3 rounded-full bg-black mt-2" />
-            {i !== phases.length - 1 && (
-              <div className="w-px flex-1 bg-neutral-300 mt-2" />
+            <div className="mt-2 h-3 w-3 rounded-full bg-brand-700" />
+
+            {index !== meaningfulPhases.length - 1 && (
+              <div className="mt-2 w-px flex-1 bg-brand-900/15" />
             )}
           </div>
 
           <div className="pb-6">
-            <div className="font-semibold text-sm">{p.title}</div>
-            <div className="text-sm leading-6 text-neutral-600 mt-1">
-              {p.text}
+            <div className="text-sm font-semibold tracking-tight text-ink">
+              {phase.title}
+            </div>
+
+            <div className="mt-1 text-sm leading-7 text-[#46574d]">
+              {phase.text}
             </div>
           </div>
         </div>
