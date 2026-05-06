@@ -8,6 +8,12 @@ import ScrollCTA from '@/components/ui/ScrollCTA'
 import CompareBar from '@/components/ui/CompareBar'
 import TrustBar from '@/components/ui/TrustBar'
 import data from '../../../public/data/compounds.json'
+import {
+  normalizeEvidenceLevel,
+  normalizeSafetyLevel,
+  getEffects,
+  getSources
+} from '@/lib/evidence-utils'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -29,12 +35,25 @@ export default function Page({ params }: any) {
   const compound = compounds.find(c => c.slug === params.slug)
   if (!compound) return null
 
-  const sources = compound.sources || []
-  const related = compounds.filter(c => c.slug !== compound.slug).slice(0,5)
+  const effects = getEffects(compound)
+  const sources = getSources(compound)
+
+  const related = compounds
+    .filter(c => c.slug !== compound.slug)
+    .slice(0,5)
+
+  const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier)
+  const safetyLevel = normalizeSafetyLevel(compound.safety)
 
   const faq = [
-    { q:`What is ${compound.name} used for?`, a:compound.summary||''},
-    { q:`Is ${compound.name} safe?`, a:compound.safety||''}
+    {
+      q:`What is ${compound.name} used for?`,
+      a:compound.summary || 'Used for a variety of wellness and performance-related goals.'
+    },
+    {
+      q:`Is ${compound.name} safe?`,
+      a:compound.safety || 'Generally well tolerated, though individual response varies.'
+    }
   ]
 
   return (
@@ -52,31 +71,35 @@ export default function Page({ params }: any) {
 
         <TrustBar />
 
-        <div className="space-y-2">
-          <h1 className="text-3xl font-bold">{compound.name}</h1>
-          <p className="text-sm text-neutral-600">{compound.summary}</p>
+        <div className="space-y-3">
+          <h1 className="text-3xl font-bold tracking-tight">{compound.name}</h1>
 
-          <div className="flex gap-2">
-            <EvidenceBadge level="moderate" />
-            <SafetyBadge level="safe" />
+          <p className="text-sm leading-6 text-neutral-600 max-w-2xl">
+            {compound.summary || 'Evidence-informed compound profile.'}
+          </p>
+
+          <div className="flex flex-wrap gap-2">
+            <EvidenceBadge level={evidenceLevel} />
+            <SafetyBadge level={safetyLevel} />
           </div>
         </div>
 
         <DecisionCard
-          bestFor={compound.effects||[]}
+          bestFor={effects}
           avoid={compound.avoid||[]}
           time="Varies"
-          evidence="Human data available"
+          evidence={compound.evidence_tier || 'Human data available'}
         />
 
-        <div className="bg-neutral-100 rounded-xl p-4 text-sm">
-          <strong>Quick Verdict:</strong> {compound.summary}
+        <div className="bg-neutral-100 rounded-2xl p-5 text-sm leading-6 border">
+          <strong>Quick Verdict:</strong>{' '}
+          {compound.summary || 'Likely useful depending on context and goals.'}
         </div>
 
         <div id="effects">
           <SectionBlock title="Primary Effects">
-            <ul className="space-y-1">
-              {(compound.effects?.length?compound.effects:['No strong effects']).slice(0,5).map((e:any,i:number)=>(
+            <ul className="space-y-2 text-sm">
+              {effects.map((e:any,i:number)=>(
                 <li key={i}>• {e}</li>
               ))}
             </ul>
@@ -85,13 +108,15 @@ export default function Page({ params }: any) {
 
         <div id="safety">
           <SectionBlock title="Safety">
-            <p>{compound.safety}</p>
+            <p className="text-sm leading-6">
+              {compound.safety || 'Generally well tolerated for most users. Use caution with medications or pre-existing conditions.'}
+            </p>
           </SectionBlock>
         </div>
 
         {sources.length>0&&(
           <SectionBlock title="Sources">
-            <ul className="text-xs">
+            <ul className="space-y-2 text-xs leading-5 text-neutral-600">
               {sources.slice(0,10).map((s:any,i:number)=>(
                 <li key={i}>• {typeof s==='string'?s:JSON.stringify(s)}</li>
               ))}
@@ -101,12 +126,14 @@ export default function Page({ params }: any) {
 
         <div id="faq">
           <SectionBlock title="FAQ">
-            {faq.map((f,i)=>(
-              <div key={i}>
-                <p className="font-semibold text-sm">{f.q}</p>
-                <p className="text-sm text-neutral-600">{f.a}</p>
-              </div>
-            ))}
+            <div className="space-y-4">
+              {faq.map((f,i)=>(
+                <div key={i} className="space-y-1">
+                  <p className="font-semibold text-sm">{f.q}</p>
+                  <p className="text-sm text-neutral-600 leading-6">{f.a}</p>
+                </div>
+              ))}
+            </div>
           </SectionBlock>
         </div>
 
@@ -114,7 +141,11 @@ export default function Page({ params }: any) {
           <SectionBlock title="Related Compounds">
             <div className="flex flex-wrap gap-2">
               {related.map((r:any)=>(
-                <Link key={r.slug} href={`/compounds/${r.slug}`} className="text-xs bg-neutral-200 px-2 py-1 rounded">
+                <Link
+                  key={r.slug}
+                  href={`/compounds/${r.slug}`}
+                  className="text-xs bg-neutral-100 hover:bg-neutral-200 transition px-3 py-2 rounded-full border"
+                >
                   {r.name}
                 </Link>
               ))}
