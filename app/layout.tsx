@@ -1,8 +1,21 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import { Inter, Fraunces } from 'next/font/google'
 import Link from 'next/link'
 import MobileNav from '@/components/mobile-nav'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-fraunces',
+  display: 'swap',
+})
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -22,7 +35,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
-      <body className="bg-[#fafaf9] text-[#111827] antialiased [font-family:Inter,system-ui,sans-serif]">
+      <body className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] text-[#111827] font-sans antialiased`}>
         <div className='min-h-screen bg-background text-ink'>
           <header className='sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur-sm'>
             <div className='container-page flex items-center justify-between py-4'>
@@ -44,7 +57,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page py-10 text-[15px] leading-7'>{children}</main>
+          <main className='container-page py-10 text-base leading-body'>{children}</main>
 
           <footer className='mt-10 border-t border-neutral-200 bg-neutral-50'>
             <div className='container-page py-8 text-sm text-muted'>
