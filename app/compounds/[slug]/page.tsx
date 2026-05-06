@@ -15,6 +15,7 @@ import TimelineCard from '@/components/ui/TimelineCard'
 import StackCompatibility from '@/components/ui/StackCompatibility'
 import ConfidencePanel from '@/components/ui/ConfidencePanel'
 import ReadingProgress from '@/components/ui/ReadingProgress'
+import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
 import data from '../../../public/data/compounds.json'
 import {
   normalizeEvidenceLevel,
@@ -22,6 +23,12 @@ import {
   getEffects,
   getSources
 } from '@/lib/evidence-utils'
+import {
+  getEvidenceSnapshot,
+  getRelatedCompounds,
+  getStackCandidates,
+  getComparisonCandidates,
+} from '@/lib/semantic-runtime'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -46,9 +53,10 @@ export default function Page({ params }: any) {
   const effects = getEffects(compound)
   const sources = getSources(compound)
 
-  const related = compounds
-    .filter(c => c.slug !== compound.slug)
-    .slice(0,5)
+  const related = getRelatedCompounds(compound)
+  const stackCandidates = getStackCandidates(compound)
+  const comparisonCandidates = getComparisonCandidates(compound)
+  const snapshot = getEvidenceSnapshot(compound)
 
   const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier)
   const safetyLevel = normalizeSafetyLevel(compound.safety)
@@ -89,6 +97,8 @@ export default function Page({ params }: any) {
             evidenceLevel={evidenceLevel}
             safetyLevel={safetyLevel}
           />
+
+          <EvidenceSnapshotCard snapshot={snapshot} />
 
           <div className="space-y-5">
 
@@ -139,7 +149,42 @@ export default function Page({ params }: any) {
           </div>
 
           <SectionBlock title="Potential Stack Pairings">
-            <StackCompatibility related={related} />
+            <div className="grid md:grid-cols-2 gap-4">
+              {stackCandidates.map((candidate:any)=>(
+                <div
+                  key={candidate.slug}
+                  className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-sm font-semibold text-white">
+                      {candidate.name}
+                    </h3>
+
+                    <span className="text-[10px] uppercase tracking-wide text-emerald-300">
+                      {candidate.confidence}
+                    </span>
+                  </div>
+
+                  <p className="mt-3 text-sm text-neutral-400 leading-6">
+                    {candidate.reason}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </SectionBlock>
+
+          <SectionBlock title="Compare Alternatives">
+            <div className="flex flex-wrap gap-3">
+              {comparisonCandidates.map((candidate:any)=>(
+                <Link
+                  key={candidate.slug}
+                  href={candidate.href}
+                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+                >
+                  {candidate.label}
+                </Link>
+              ))}
+            </div>
           </SectionBlock>
 
           <div id="safety">
