@@ -7,6 +7,8 @@ import TableOfContents from '@/components/ui/TableOfContents'
 import ScrollCTA from '@/components/ui/ScrollCTA'
 import CompareBar from '@/components/ui/CompareBar'
 import TrustBar from '@/components/ui/TrustBar'
+import EvidenceMeter from '@/components/ui/EvidenceMeter'
+import CompoundStats from '@/components/ui/CompoundStats'
 import data from '../../../public/data/compounds.json'
 import {
   normalizeEvidenceLevel,
@@ -57,7 +59,7 @@ export default function Page({ params }: any) {
   ]
 
   return (
-    <main className="max-w-5xl mx-auto px-4 flex gap-10 pb-28">
+    <main className="max-w-6xl mx-auto px-4 flex gap-10 pb-28">
 
       <TableOfContents />
 
@@ -71,17 +73,31 @@ export default function Page({ params }: any) {
 
         <TrustBar />
 
-        <div className="space-y-3">
-          <h1 className="text-3xl font-bold tracking-tight">{compound.name}</h1>
+        <div className="space-y-5">
 
-          <p className="text-sm leading-6 text-neutral-600 max-w-2xl">
-            {compound.summary || 'Evidence-informed compound profile.'}
-          </p>
+          <div className="space-y-3">
+            <h1 className="text-4xl font-bold tracking-tight leading-tight">
+              {compound.name}
+            </h1>
 
-          <div className="flex flex-wrap gap-2">
-            <EvidenceBadge level={evidenceLevel} />
-            <SafetyBadge level={safetyLevel} />
+            <p className="text-sm leading-7 text-neutral-600 max-w-3xl">
+              {compound.summary || 'Evidence-informed compound profile.'}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              <EvidenceBadge level={evidenceLevel} />
+              <SafetyBadge level={safetyLevel} />
+            </div>
           </div>
+
+          <EvidenceMeter level={evidenceLevel} />
+
+          <CompoundStats compound={{
+            ...compound,
+            effects,
+            sources
+          }} />
+
         </div>
 
         <DecisionCard
@@ -91,14 +107,14 @@ export default function Page({ params }: any) {
           evidence={compound.evidence_tier || 'Human data available'}
         />
 
-        <div className="bg-neutral-100 rounded-2xl p-5 text-sm leading-6 border">
+        <div className="bg-neutral-100 rounded-2xl p-5 text-sm leading-7 border">
           <strong>Quick Verdict:</strong>{' '}
           {compound.summary || 'Likely useful depending on context and goals.'}
         </div>
 
         <div id="effects">
           <SectionBlock title="Primary Effects">
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-3 text-sm leading-6">
               {effects.map((e:any,i:number)=>(
                 <li key={i}>• {e}</li>
               ))}
@@ -108,7 +124,7 @@ export default function Page({ params }: any) {
 
         <div id="safety">
           <SectionBlock title="Safety">
-            <p className="text-sm leading-6">
+            <p className="text-sm leading-7">
               {compound.safety || 'Generally well tolerated for most users. Use caution with medications or pre-existing conditions.'}
             </p>
           </SectionBlock>
@@ -116,7 +132,7 @@ export default function Page({ params }: any) {
 
         {sources.length>0&&(
           <SectionBlock title="Sources">
-            <ul className="space-y-2 text-xs leading-5 text-neutral-600">
+            <ul className="space-y-2 text-xs leading-6 text-neutral-600">
               {sources.slice(0,10).map((s:any,i:number)=>(
                 <li key={i}>• {typeof s==='string'?s:JSON.stringify(s)}</li>
               ))}
@@ -126,11 +142,11 @@ export default function Page({ params }: any) {
 
         <div id="faq">
           <SectionBlock title="FAQ">
-            <div className="space-y-4">
+            <div className="space-y-5">
               {faq.map((f,i)=>(
-                <div key={i} className="space-y-1">
+                <div key={i} className="space-y-2 border-b pb-4 last:border-none">
                   <p className="font-semibold text-sm">{f.q}</p>
-                  <p className="text-sm text-neutral-600 leading-6">{f.a}</p>
+                  <p className="text-sm text-neutral-600 leading-7">{f.a}</p>
                 </div>
               ))}
             </div>
