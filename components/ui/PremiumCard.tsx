@@ -19,7 +19,7 @@ const EVIDENCE_COPY: Record<EvidenceTone, { label: string; className: string; he
   strong: {
     label: 'Strong',
     className: 'border-emerald-700/15 bg-emerald-700/10 text-emerald-800',
-    help: 'Strong evidence: higher-confidence human evidence or consistent clinical support.',
+    help: 'Strong evidence: consistent human evidence or stronger clinical support.',
   },
   moderate: {
     label: 'Moderate',
@@ -29,12 +29,12 @@ const EVIDENCE_COPY: Record<EvidenceTone, { label: string; className: string; he
   limited: {
     label: 'Limited',
     className: 'border-amber-700/20 bg-amber-700/10 text-amber-800',
-    help: 'Limited evidence: preliminary, early, small, mechanistic, or incomplete human evidence.',
+    help: 'Limited evidence: preliminary or incomplete human evidence.',
   },
   theoretical: {
     label: 'Theoretical',
     className: 'border-slate-500/20 bg-slate-500/10 text-slate-700',
-    help: 'Theoretical evidence: traditional, mechanistic, or low-direct-human-evidence support.',
+    help: 'Traditional, mechanistic, or low-direct-human-evidence support.',
   },
 }
 
@@ -89,9 +89,11 @@ export default function PremiumCard({
   const visibleTags = tags.map(clean).filter(Boolean).slice(0, 3)
 
   return (
-    <article className="group flex h-full flex-col rounded-card border border-brand-900/10 bg-white/80 p-5 shadow-card backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
-      <div className="flex items-start justify-between gap-3">
-        <div className="eyebrow text-brand-700">{typeLabel}</div>
+    <article className="group flex h-full flex-col rounded-card border border-brand-900/10 bg-white/82 p-6 shadow-card backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
+      <div className="flex items-start justify-between gap-4">
+        <div className="eyebrow text-brand-700">
+          {typeLabel}
+        </div>
 
         <div className="flex shrink-0 flex-wrap justify-end gap-2">
           <Link
@@ -102,6 +104,7 @@ export default function PremiumCard({
           >
             {evidenceMeta.label}
           </Link>
+
           <span
             title={clean(safety) || 'Safety context should be reviewed before use.'}
             aria-label={`Safety indicator: ${safetyLabel(safetyTone)}`}
@@ -112,29 +115,34 @@ export default function PremiumCard({
         </div>
       </div>
 
-      <div className="mt-5 flex-1">
-        <Link href={href} className="block focus:outline-none focus:ring-4 focus:ring-brand-500/25 rounded-xl">
-          <h2 className="text-display text-3xl transition group-hover:text-brand-800">
+      <div className="mt-6 flex-1">
+        <Link href={href} className="block rounded-xl focus:outline-none focus:ring-4 focus:ring-brand-500/20">
+          <h2 className="text-display text-[2rem] leading-[1.02] transition group-hover:text-brand-800 sm:text-4xl">
             {title}
           </h2>
         </Link>
 
         {cleanSummary ? (
-          <p className="text-reading mt-4 line-clamp-4 text-muted-soft">
+          <p className="text-reading mt-5 line-clamp-4 text-base text-muted-soft">
             {cleanSummary}
           </p>
         ) : null}
 
         {cleanBestFor ? (
-          <p className="mt-4 text-sm leading-6 text-muted-soft">
-            <span className="font-semibold text-ink">Best for:</span> {cleanBestFor}
-          </p>
+          <div className="mt-5 rounded-2xl border border-brand-900/10 bg-paper-100/70 px-4 py-3">
+            <p className="text-sm leading-6 text-muted-soft">
+              <span className="font-semibold text-ink">Best for:</span> {cleanBestFor}
+            </p>
+          </div>
         ) : null}
 
         {visibleTags.length > 0 ? (
           <div className="mt-5 flex flex-wrap gap-2">
             {visibleTags.map((tag) => (
-              <span key={tag} className="rounded-full border border-brand-900/10 bg-paper-100 px-3 py-1 text-xs font-medium text-muted-soft">
+              <span
+                key={tag}
+                className="rounded-full border border-brand-900/10 bg-paper-100 px-3 py-1 text-xs font-medium tracking-wide text-muted-soft"
+              >
                 {tag}
               </span>
             ))}
@@ -142,7 +150,10 @@ export default function PremiumCard({
         ) : null}
       </div>
 
-      <Link href={href} className="mt-6 inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-1">
+      <Link
+        href={href}
+        className="mt-7 inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-1"
+      >
         {ctaLabel} →
       </Link>
     </article>
