@@ -8,16 +8,16 @@ export default function HomepageV2() {
 
       <section className="hero-shell overflow-hidden rounded-[2rem] border border-white/40 px-6 py-16 shadow-soft sm:px-10 lg:px-14 lg:py-24">
         <div className="max-w-4xl space-y-8">
-          <div className="inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-eyebrow text-brand-800">
+          <div className="eyebrow inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-brand-800">
             Evidence-first supplement intelligence
           </div>
 
           <div className="space-y-6">
-            <h1 className="max-w-4xl">
+            <h1 className="heading-premium max-w-4xl">
               Calm, evidence-aware guidance for herbs, compounds, and better decisions.
             </h1>
 
-            <p className="max-w-2xl text-lg leading-8 text-muted sm:text-xl">
+            <p className="text-reading max-w-2xl text-lg text-muted-soft sm:text-xl">
               Explore natural compounds through transparent evidence tiers, safety context, mechanisms, and practical decision support — without hype.
             </p>
           </div>
@@ -63,16 +63,16 @@ export default function HomepageV2() {
             className="card-premium p-6"
           >
             <div className="space-y-4">
-              <div className="text-eyebrow text-brand-700">
+              <div className="eyebrow text-brand-700">
                 Explore
               </div>
 
               <div>
-                <h2 className="text-2xl font-semibold text-ink">
+                <h2 className="font-sans text-2xl font-semibold tracking-tight text-ink">
                   {item.title}
                 </h2>
 
-                <p className="mt-3 text-sm leading-7 text-muted">
+                <p className="mt-3 text-sm leading-7 text-muted-soft">
                   {item.description}
                 </p>
               </div>
@@ -84,16 +84,16 @@ export default function HomepageV2() {
       <section className="mt-16 grid gap-6 lg:grid-cols-[1.3fr_.7fr]">
         <div className="card-premium p-7">
           <div className="space-y-5">
-            <div className="inline-flex rounded-full border border-emerald-700/10 bg-emerald-700/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-800">
+            <div className="eyebrow inline-flex rounded-full border border-emerald-700/10 bg-emerald-700/10 px-3 py-1 text-emerald-800">
               Human evidence prioritized
             </div>
 
             <div>
-              <h2>
+              <h2 className="max-w-3xl">
                 Decision support without wellness-blog hype.
               </h2>
 
-              <p className="mt-4 max-w-2xl text-base leading-8 text-muted">
+              <p className="text-reading mt-4 max-w-2xl text-muted-soft">
                 The Hippie Scientist blends natural wellness exploration with transparent evidence standards, safety context, and practical usability.
               </p>
             </div>
@@ -106,13 +106,13 @@ export default function HomepageV2() {
               ].map(([title, body]) => (
                 <div
                   key={title}
-                  className="rounded-3xl border border-brand-900/10 bg-white/60 p-5"
+                  className="rounded-3xl border border-brand-900/10 bg-white/65 p-5"
                 >
-                  <div className="text-sm font-semibold text-ink">
+                  <div className="text-sm font-semibold tracking-tight text-ink">
                     {title}
                   </div>
 
-                  <div className="mt-2 text-sm leading-7 text-muted">
+                  <div className="mt-2 text-sm leading-7 text-muted-soft">
                     {body}
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function HomepageV2() {
 
         <div className="safety-block">
           <div className="space-y-4">
-            <div className="text-eyebrow text-amber-700">
+            <div className="eyebrow text-amber-700">
               Safety-first philosophy
             </div>
 
@@ -131,7 +131,7 @@ export default function HomepageV2() {
               Evidence honesty builds long-term trust.
             </h3>
 
-            <p className="text-sm leading-7 text-amber-900/80">
+            <p className="text-sm leading-7 text-amber-950/85">
               Human evidence is prioritized. Mechanistic and traditional evidence are clearly labeled. Safety uncertainty is surfaced instead of hidden.
             </p>
 
