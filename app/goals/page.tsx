@@ -6,60 +6,101 @@ export default function GoalsIndex() {
   const featuredGuides = seoEntryPages.slice(0, 12)
 
   return (
-    <main className="space-y-8 px-1 sm:px-0">
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-        <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-700">Decision hub</p>
-        <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">Goals</h1>
-        <p className="mt-3 max-w-2xl text-base leading-7 text-slate-700">
-          Start with a goal. Then move into ranked guides, stacks, compounds, comparisons, and safety notes.
-        </p>
+    <main className="space-y-10 px-1 py-2 sm:px-0">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-soft sm:p-8 lg:p-10">
+        <div className="max-w-3xl space-y-5">
+          <div className="eyebrow inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-brand-700">
+            Decision hub
+          </div>
+
+          <div>
+            <h1 className="heading-premium text-ink">
+              Goals
+            </h1>
+
+            <p className="text-reading mt-4 text-lg text-muted-soft">
+              Start with a goal. Then move into structured guides, compounds, stacks, comparisons, and evidence-aware safety context.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section className="space-y-4">
+      <section className="space-y-5">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-700">Start here</p>
-          <h2 className="mt-1 text-3xl font-black text-slate-950">Supplement guides</h2>
+          <div className="eyebrow text-brand-700">
+            Start here
+          </div>
+
+          <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight text-ink">
+            Supplement guides
+          </h2>
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {featuredGuides.map((page, index) => (
             <Link
               key={page.route}
               href={`/${page.route}`}
               className={index === 0
-                ? 'group rounded-2xl border border-emerald-300 bg-white p-5 shadow-md shadow-emerald-900/10 transition hover:-translate-y-0.5 hover:shadow-lg md:col-span-2 lg:col-span-1'
-                : 'group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md'
+                ? 'group rounded-card border border-brand-700/20 bg-white/85 p-6 shadow-glow transition duration-300 hover:-translate-y-1 hover:bg-white'
+                : 'group rounded-card border border-brand-900/10 bg-white/80 p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white hover:shadow-glow'
               }
             >
-              <p className="text-[11px] font-black uppercase tracking-[0.18em] text-emerald-700">
-                {index === 0 ? 'Featured guide' : 'Guide'}
-              </p>
-              <h3 className="mt-2 text-xl font-black leading-snug text-slate-950 group-hover:text-emerald-800">{page.h1}</h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">{page.intro}</p>
-              <span className="mt-4 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1">View guide →</span>
+              <div className="space-y-4">
+                <div className="eyebrow text-brand-700">
+                  {index === 0 ? 'Featured guide' : 'Guide'}
+                </div>
+
+                <div>
+                  <h3 className="text-display text-3xl transition group-hover:text-brand-800">
+                    {page.h1}
+                  </h3>
+
+                  <p className="text-reading mt-4 line-clamp-4 text-sm text-muted-soft">
+                    {page.intro}
+                  </p>
+                </div>
+
+                <div className="inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-1">
+                  View guide →
+                </div>
+              </div>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="space-y-4">
+      <section className="space-y-5">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-700">Browse by outcome</p>
-          <h2 className="mt-1 text-3xl font-black text-slate-950">Goal paths</h2>
+          <div className="eyebrow text-brand-700">
+            Browse by outcome
+          </div>
+
+          <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight text-ink">
+            Goal paths
+          </h2>
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {goalConfigs.map((goal) => (
             <Link
               key={goal.slug}
               href={`/goals/${goal.slug}`}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
+              className="group rounded-card border border-brand-900/10 bg-white/80 p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white hover:shadow-glow"
             >
-              <h3 className="text-xl font-black text-slate-950 group-hover:text-emerald-800">{goal.title}</h3>
-              <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">{goal.summary}</p>
-              <span className="mt-4 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1">
-                Explore goal →
-              </span>
+              <div className="space-y-4">
+                <h3 className="text-display text-3xl transition group-hover:text-brand-800">
+                  {goal.title}
+                </h3>
+
+                <p className="text-reading line-clamp-4 text-sm text-muted-soft">
+                  {goal.summary}
+                </p>
+
+                <div className="inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-1">
+                  Explore goal →
+                </div>
+              </div>
             </Link>
           ))}
         </div>
