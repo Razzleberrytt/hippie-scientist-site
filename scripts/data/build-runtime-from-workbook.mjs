@@ -14,9 +14,18 @@ const repoRoot = path.resolve(__dirname, '../..')
 const ajv = new Ajv({ allErrors: true })
 
 const SHEETS = {
-  herbs: 'Herb Master V3',
-  compounds: 'Compound Master V3',
-  compoundDetailPayload: 'Compound Detail Payload',
+  herbs: [
+    'Herb Master V3',
+    'Herb Monographs',
+    'Site Export Herbs',
+  ],
+  compounds: [
+    'Compound Master V3',
+    'Site Export Compounds',
+  ],
+  compoundDetailPayload: [
+    'Compound Detail Payload',
+  ],
 }
 
 function clean(v) {
@@ -52,17 +61,34 @@ function write(outDir, name, data) {
   fs.writeFileSync(path.join(outDir, name), JSON.stringify(data, null, 2))
 }
 
-function read(workbook, name) {
-  const sheet = workbook.Sheets[name]
-  if (!sheet) return []
-  return XLSX.utils.sheet_to_json(sheet, { defval: '' })
+function resolveSheet(workbook, candidates) {
+  for (const candidate of candidates) {
+    if (workbook.Sheets[candidate]) {
+      console.log(`[data] Using sheet: ${candidate}`)
+      return candidate
+    }
+  }
+
+  console.warn(`[data] Missing sheets: ${candidates.join(', ')}`)
+  return null
+}
+
+function read(workbook, candidates) {
+  const resolved = resolveSheet(workbook, candidates)
+  if (!resolved) return []
+
+  return XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
+    defval: '',
+  })
 }
 
 function readOptionalPayload(workbook, config) {
-  const sheet = workbook.Sheets[config.sheet]
-  if (!sheet) return []
+  const resolved = resolveSheet(workbook, config.sheet)
+  if (!resolved) return []
 
-  const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' })
+  const rows = XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
+    defval: '',
+  })
 
   return rows
     .map(row => {
@@ -175,7 +201,7 @@ function main() {
       slug: slug(r.slug || r.name),
       name: clean(r.name),
       summary: clean(r.summary),
-      effects: splitList(r.primary_effects),
+      effects: splitList(r.primary_effects || r.effects),
     }))
   )
 
@@ -184,9 +210,9 @@ function main() {
       slug: slug(r.slug || r.name),
       name: clean(r.name),
       summary: clean(r.summary),
-      mechanism: clean(r.mechanism),
-      effects: splitList(r.primary_effects),
-      evidence: clean(r.evidence),
+      mechanism: clean(r.mechanism || r.mechanisms),
+      effects: splitList(r.primary_effects || r.effects),
+      evidence: clean(r.evidence || r.evidence_tier),
       safety: clean(r.safety),
       dosage: clean(r.dosage),
     }))
@@ -217,6 +243,8 @@ function main() {
   write(outDir, 'compound-detail-payload.json', dedupe(compoundDetailRows))
   write(outDir, 'agent-patches.json', loadAgentPatches())
 
+  console.log(`[data] herbs.json: ${herbs.length} rows`)
+  console.log(`[data] compounds.json: ${compounds.length} rows`)
   console.log(`[data] compound-detail-payload.json: ${compoundDetailRows.length} rows`)
   console.log('[data] build complete')
 }
