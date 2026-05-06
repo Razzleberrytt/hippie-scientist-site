@@ -1,13 +1,19 @@
-name: Agent Patch Generator
+name: Agent Metadata Harvester
 
 on:
   workflow_dispatch:
+
 permissions:
   contents: write
+
+concurrency:
+  group: metadata-harvest
+  cancel-in-progress: false
 
 jobs:
   orchestrator:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     continue-on-error: true
 
     steps:
@@ -18,20 +24,36 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci --prefer-offline --no-audit
 
-      - name: Run orchestrator
+      - name: Create patch directories
+        run: |
+          mkdir -p agent/patches
+          mkdir -p ops/agent-review
+
+      - name: Run metadata-first orchestrator
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: npm run agent:run || true
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          npm run agent:run -- --mode=fast --batch=50 || true
 
-      - name: Commit patches
+      - name: Review generated patches
+        run: |
+          node scripts/review-patches.mjs || true
+
+      - name: Commit standalone patches
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add agent/patches
+          git add ops/agent-review
+
           git diff --cached --quiet && exit 0
-          git commit -m "agent: add new data patches"
+
+          git commit -m "agent: metadata harvest patches"
           git push
