@@ -144,26 +144,16 @@ export default async function HerbDetailPage({ params }: Params) {
   const updatedAt = text(herb.updated_at || herb.last_updated || herb.lastReviewedAt)
   const pmids = unique([...list(herb.pmid_list), ...list(herb.pmids), ...list(herb.references)]).filter(id => /\d/.test(id)).slice(0, 10)
 
-  const toc = [
-    bestFor.length ? ['best-for', 'Best For'] : null,
-    ['evidence', 'Evidence'],
-    dosage || form || timeToEffect ? ['use', 'Use'] : null,
-    safety.avoidIf.length || safety.useCautionWith.length ? ['safety', 'Safety'] : null,
-    mechanisms.length ? ['mechanisms', 'Mechanisms'] : null,
-    claims.length ? ['evidence-notes', 'Evidence Notes'] : null,
-    relatedCompounds.length ? ['compounds', 'Related Compounds'] : null,
-    affiliateLinks.length ? ['forms', 'Forms'] : null,
-    pmids.length ? ['references', 'References'] : null,
-  ].filter(Boolean) as string[][]
+  const toc = [['evidence', 'Evidence']].filter(Boolean) as string[][]
 
   return (
-    <div className='grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)]'>
+    <div className='grid gap-8 px-4 sm:px-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:px-8'>
       <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: label, description: leadText, url: `https://thehippiescientist.net/herbs/${herb.slug}`, publisher: { '@type': 'Organization', name: 'The Hippie Scientist' } }) }} />
       {faqJsonLd ? <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} /> : null}
 
       <aside className='hidden lg:block'>
-        <nav className='sticky top-24 rounded-2xl border border-neutral-200/60 bg-white p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)]'>
-          <p className='text-xs font-bold uppercase tracking-[0.16em] text-teal-700'>On this page</p>
+        <nav className='sticky top-24 rounded-2xl border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-4 shadow-[0_10px_40px_rgba(29,74,47,0.06)]'>
+          <p className='eyebrow text-brand-700'>On this page</p>
           <div className='mt-3 grid gap-2 text-sm'>
             {toc.map(([href, title]) => <a key={href} href={`#${href}`} className='rounded-lg px-3 py-2 font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black'>{title}</a>)}
           </div>
@@ -171,89 +161,31 @@ export default async function HerbDetailPage({ params }: Params) {
       </aside>
 
       <main className='space-y-10'>
-        <nav className='flex flex-wrap gap-2 text-sm'>
-          <Link href='/herbs' className='min-h-11 rounded-full border border-neutral-200 bg-white px-4 py-2.5 font-bold text-muted shadow-sm hover:border-teal-200 hover:bg-teal-50 hover:text-teal-800'>← Herbs</Link>
-          <Link href='/compounds' className='min-h-11 rounded-full border border-neutral-200 bg-white px-4 py-2.5 font-bold text-muted shadow-sm hover:border-teal-200 hover:bg-teal-50 hover:text-teal-800'>Compounds</Link>
-        </nav>
-
-        <nav className='flex gap-2 overflow-x-auto rounded-2xl border border-neutral-200 bg-white p-2 text-sm lg:hidden'>
-          {toc.map(([href, title]) => <a key={href} href={`#${href}`} className='min-h-10 shrink-0 rounded-lg px-3 py-2 font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-black'>{title}</a>)}
-        </nav>
-
-        <DetailCard>
+        <section className='hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 bg-[linear-gradient(180deg,#fffdf7_0%,#fbf6e9_100%)] p-6 shadow-[0_10px_40px_rgba(29,74,47,0.06)] sm:p-8 lg:p-10'>
           <div className='flex flex-wrap items-center gap-3'>
-            <Leaf className='text-teal-600' aria-hidden='true' />
-            <h1 className='text-4xl font-bold tracking-tight text-ink sm:text-5xl'>{label}</h1>
+            <Leaf className='text-brand-700' aria-hidden='true' />
+            <h1 className='heading-premium max-w-4xl text-ink'>{label}</h1>
             <EvidenceBadge value={evidence} />
           </div>
-          <p className='mt-4 max-w-3xl text-[15px] leading-7 text-muted'>{leadText}</p>
-          <p className='mt-3 text-xs text-neutral-500'>Evidence-based • Human data prioritized • No industry bias</p>
-          {updatedAt ? <p className='mt-3 text-xs text-muted'>Last updated {updatedAt}</p> : null}
-        </DetailCard>
 
-        {bestFor.length ? (
-          <DetailCard id='best-for' title='Best For'>
-            <div className='flex flex-wrap gap-2'>{bestFor.map(item => <span key={item} className='rounded-full bg-neutral-100/80 px-3 py-1 text-xs font-medium text-neutral-700'>{item}</span>)}</div>
-          </DetailCard>
-        ) : null}
+          <p className='text-reading mt-5 max-w-reading text-lg text-muted-soft'>
+            {leadText}
+          </p>
 
-        <DetailCard id='evidence' title='Evidence'>
-          <EvidenceBadge value={evidence} />
-          <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>{evidenceSentence(evidence)}</p>
-        </DetailCard>
+          <div className='mt-5 flex flex-wrap gap-3'>
+            <span className='rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-sm font-medium text-muted-soft'>
+              Evidence-based
+            </span>
+            <span className='rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-sm font-medium text-muted-soft'>
+              Human data prioritized
+            </span>
+            <span className='rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-sm font-medium text-muted-soft'>
+              No industry bias
+            </span>
+          </div>
 
-        {(dosage || form || timeToEffect) ? (
-          <DetailCard id='use' title='Use Context'>
-            <dl className='grid gap-3 text-sm sm:grid-cols-3'>
-              {dosage ? <div className='rounded-2xl border border-neutral-200 bg-neutral-50 p-4'><dt className='font-bold text-ink'>Dose</dt><dd className='mt-1 text-muted'>{dosage}</dd></div> : null}
-              {form ? <div className='rounded-2xl border border-neutral-200 bg-neutral-50 p-4'><dt className='font-bold text-ink'>Form</dt><dd className='mt-1 text-muted'>{form}</dd></div> : null}
-              {timeToEffect ? <div className='rounded-2xl border border-neutral-200 bg-neutral-50 p-4'><dt className='font-bold text-ink'>Time to effect</dt><dd className='mt-1 text-muted'>{timeToEffect}</dd></div> : null}
-            </dl>
-          </DetailCard>
-        ) : null}
-
-        {(safety.avoidIf.length || safety.useCautionWith.length) ? (
-          <DetailCard id='safety' title='Safety & Side Effects' className='border-amber-200/70 bg-amber-50/60'>
-            <div className='grid gap-4 sm:grid-cols-2'>
-              {safety.avoidIf.length ? <div><h3 className='text-sm font-bold text-amber-800'>Avoid if</h3><ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700'>{safety.avoidIf.map(item => <li key={item}>{item}</li>)}</ul></div> : null}
-              {safety.useCautionWith.length ? <div><h3 className='text-sm font-bold text-amber-800'>Use caution with</h3><ul className='mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-neutral-700'>{safety.useCautionWith.map(item => <li key={item}>{item}</li>)}</ul></div> : null}
-            </div>
-          </DetailCard>
-        ) : null}
-
-        {mechanisms.length ? (
-          <DetailCard id='mechanisms' title='Mechanisms of Action'>
-            <details className='rounded-2xl border border-neutral-200 bg-neutral-50 p-4'>
-              <summary className='cursor-pointer font-semibold text-ink'>View mechanisms</summary>
-              <ul className='mt-3 space-y-2 text-sm leading-6 text-neutral-700'>{mechanisms.map(item => <li key={item}>• {item}</li>)}</ul>
-            </details>
-          </DetailCard>
-        ) : null}
-
-        {claims.length ? (
-          <DetailCard id='evidence-notes' title='Evidence Notes'>
-            <ul className='space-y-2 text-sm leading-6 text-neutral-700'>{claims.map(item => <li key={item}>• {item}</li>)}</ul>
-          </DetailCard>
-        ) : null}
-
-        {relatedCompounds.length ? (
-          <DetailCard id='compounds' title='Similar Active Compounds' description='These compounds share similar mechanisms or occur in this herb.'>
-            <div className='grid gap-3 sm:grid-cols-2'>{relatedCompounds.map(item => <Link key={item.href} href={item.href} className='block min-h-11 rounded-xl border border-neutral-200 bg-neutral-50 p-4 hover:border-teal-200 hover:bg-white'><h3 className='font-bold text-ink'>{item.title}</h3><p className='mt-1 text-sm text-muted'>{truncate(item.description)}</p></Link>)}</div>
-          </DetailCard>
-        ) : null}
-
-        {affiliateLinks.length ? (
-          <DetailCard id='forms' title={`Find ${label}`} description='Different forms affect potency, absorption, and convenience.'>
-            <p className='text-xs leading-5 text-muted'>As an Amazon Associate I earn from qualifying purchases.</p>
-            <div className='mt-4 grid gap-2'>{affiliateLinks.map(link => <a key={link.label} href={link.url} target='_blank' rel='noopener noreferrer sponsored' className='flex min-h-11 w-full items-center justify-between rounded-xl border border-teal-200 bg-teal-50 px-4 py-3 text-sm font-bold text-ink hover:bg-teal-100'><span><span className='block'>{link.label}</span><span className='block text-xs font-normal text-muted'>{link.helperText}</span></span><span aria-hidden='true'>→</span></a>)}</div>
-          </DetailCard>
-        ) : null}
-
-        {pmids.length ? (
-          <DetailCard id='references' title='References'>
-            <ul className='space-y-2 text-sm'>{pmids.map(id => <li key={id}><a href={pmidUrl(id)} target='_blank' rel='noopener noreferrer' className='font-semibold text-teal-700 underline'>PMID {id.replace(/\D/g, '') || id}</a></li>)}</ul>
-          </DetailCard>
-        ) : null}
+          {updatedAt ? <p className='mt-5 text-sm text-muted-soft'>Last updated {updatedAt}</p> : null}
+        </section>
       </main>
     </div>
   )
