@@ -7,23 +7,26 @@ export default function CompoundHero({
   safetyLevel
 }: any) {
   return (
-    <div className="rounded-3xl border border-brand-900/10 bg-gradient-to-br from-white via-neutral-50 to-paper-100 p-6 shadow-card sm:p-8">
-      <div className="space-y-5">
-        <div className="eyebrow text-brand-700">
-          Compound profile
+    <div className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-7 shadow-[0_18px_55px_rgba(16,32,24,0.08)] sm:p-9">
+      <div className="section-spacing">
+
+        <div className="flex flex-wrap items-center gap-3">
+          <div className="eyebrow-label">
+            Compound Profile
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <EvidenceBadge level={evidenceLevel} />
+            <SafetyBadge level={safetyLevel} />
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          <EvidenceBadge level={evidenceLevel} />
-          <SafetyBadge level={safetyLevel} />
-        </div>
-
-        <div>
-          <h1 className="heading-premium max-w-4xl">
+        <div className="space-y-6">
+          <h1 className="heading-premium max-w-4xl text-balance">
             {compound.name}
           </h1>
 
-          <p className="text-reading mt-5 max-w-3xl text-muted-soft">
+          <p className="text-reading max-w-3xl text-lg leading-relaxed text-muted-soft sm:text-[1.08rem]">
             {compound.summary || 'Evidence-informed compound profile.'}
           </p>
         </div>
