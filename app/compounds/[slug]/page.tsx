@@ -9,6 +9,8 @@ import CompareBar from '@/components/ui/CompareBar'
 import TrustBar from '@/components/ui/TrustBar'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import CompoundStats from '@/components/ui/CompoundStats'
+import MechanismGrid from '@/components/ui/MechanismGrid'
+import UseCases from '@/components/ui/UseCases'
 import data from '../../../public/data/compounds.json'
 import {
   normalizeEvidenceLevel,
@@ -46,6 +48,8 @@ export default function Page({ params }: any) {
 
   const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier)
   const safetyLevel = normalizeSafetyLevel(compound.safety)
+
+  const mechanisms = compound.mechanisms || []
 
   const faq = [
     {
@@ -98,6 +102,8 @@ export default function Page({ params }: any) {
             sources
           }} />
 
+          <UseCases effects={effects} />
+
         </div>
 
         <DecisionCard
@@ -111,6 +117,12 @@ export default function Page({ params }: any) {
           <strong>Quick Verdict:</strong>{' '}
           {compound.summary || 'Likely useful depending on context and goals.'}
         </div>
+
+        {mechanisms.length > 0 && (
+          <SectionBlock title="Mechanisms">
+            <MechanismGrid mechanisms={mechanisms} />
+          </SectionBlock>
+        )}
 
         <div id="effects">
           <SectionBlock title="Primary Effects">
