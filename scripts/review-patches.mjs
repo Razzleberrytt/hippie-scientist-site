@@ -34,6 +34,10 @@ function summarize(patch) {
   const evidence = Array.isArray(patch.evidence) ? patch.evidence : []
   const claims = Array.isArray(patch.claims) ? patch.claims : []
   const rejections = patch?.validation?.rejection_reasons || []
+  const metadataSources = patch?.metadata_sources || []
+  const confidenceNotes = patch?.confidence_notes || []
+  const reviewFlags = patch?.review_flags || []
+  const seoAssets = patch?.seo_assets || {}
 
   const issues = []
 
@@ -64,8 +68,13 @@ function summarize(patch) {
 
   return {
     slug: patch.slug,
+    research_depth: patch.research_depth || 'unknown',
     claims: claims.length,
     evidence_rows: evidence.length,
+    metadata_sources: metadataSources.length,
+    enrichment_assets: Object.keys(seoAssets).length,
+    uncertainty_flags: confidenceNotes.length,
+    conflicting_evidence_flags: reviewFlags.length,
     validation_status: patch?.validation?.validation_status || 'unknown',
     rejections,
     issues,
@@ -81,12 +90,17 @@ if (patches.length === 0) {
   process.exit(0)
 }
 
-for (const patch of patches.slice(-10)) {
+for (const patch of patches.slice(-20)) {
   const summary = summarize(patch)
 
   console.log(`Compound: ${summary.slug}`)
+  console.log(`Research Depth: ${summary.research_depth}`)
   console.log(`Evidence Rows: ${summary.evidence_rows}`)
   console.log(`Claims: ${summary.claims}`)
+  console.log(`Metadata Sources: ${summary.metadata_sources}`)
+  console.log(`SEO Assets: ${summary.enrichment_assets}`)
+  console.log(`Uncertainty Flags: ${summary.uncertainty_flags}`)
+  console.log(`Conflict Flags: ${summary.conflicting_evidence_flags}`)
   console.log(`Validation: ${summary.validation_status}`)
   console.log(`Rejections: ${summary.rejections.join(', ') || 'none'}`)
   console.log(`Issues: ${summary.issues.join(', ') || 'none'}`)
