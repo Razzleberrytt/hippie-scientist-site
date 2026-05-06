@@ -17,6 +17,12 @@ type EditorialCard = {
   text: string
 }
 
+type EvidenceFrame = {
+  maturity: string
+  summary: string
+  notes: string[]
+}
+
 const formatSlugLabel = (slug: string) => slug.split('-').filter(Boolean).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
 const getHerbLabel = (herb: HerbDetail) => formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatSlugLabel(herb.slug)
 
@@ -56,6 +62,59 @@ const getMechanismText = (label: string) => {
   if (/immune/.test(value)) return 'Immune-signaling context that should be interpreted conservatively.'
 
   return 'Mechanistic signal from the current profile data; not proof of a clinical outcome.'
+}
+
+const getEvidenceFrame = (evidence: string, pmidCount: number, claimCount: number, mechanismCount: number): EvidenceFrame => {
+  const level = evidence.toLowerCase()
+  const signalCount = pmidCount + claimCount + mechanismCount
+
+  if (/strong|high|human/.test(level) || signalCount >= 10) {
+    return {
+      maturity: 'Better studied',
+      summary: 'This profile has multiple visible evidence signals. Individual claims should still be interpreted by outcome, preparation, and study context.',
+      notes: [
+        'Use the strongest human-facing outcomes first when comparing benefits.',
+        'Mechanisms provide context, but they do not automatically prove real-world effects.',
+      ],
+    }
+  }
+
+  if (/moderate|limited|mixed/.test(level) || signalCount >= 5) {
+    return {
+      maturity: 'Moderate / emerging',
+      summary: 'This profile has enough signals for useful research navigation, but the strength likely varies by outcome and product form.',
+      notes: [
+        'Prioritize claims with human or source-backed context where available.',
+        'Treat broad wellness claims more cautiously than specific, repeated signals.',
+      ],
+    }
+  }
+
+  return {
+    maturity: 'Preliminary',
+    summary: 'This profile should be read as early-stage or context-building. It is useful for discovery, not as a settled clinical conclusion.',
+    notes: [
+      'Mechanistic or traditional-use signals may be present without strong human evidence.',
+      'Avoid over-interpreting sparse profiles or broad claims.',
+    ],
+  }
+}
+
+const groupMechanisms = (cards: EditorialCard[]) => {
+  const groups = [
+    { title: 'Nervous system', matcher: /gaba|glutamate|neurotransmitter|serotonin|dopamine|cortisol|hpa|stress|brain|cognition/i, items: [] as EditorialCard[] },
+    { title: 'Inflammatory / immune', matcher: /nf.?kb|inflamm|cytokine|immune/i, items: [] as EditorialCard[] },
+    { title: 'Metabolic / vascular', matcher: /ampk|glucose|insulin|metabolic|nitric|endothelial|vascular|blood pressure/i, items: [] as EditorialCard[] },
+    { title: 'Antioxidant / cellular defense', matcher: /antioxidant|oxidative|nrf2/i, items: [] as EditorialCard[] },
+    { title: 'Other mechanisms', matcher: /.*/, items: [] as EditorialCard[] },
+  ]
+
+  cards.forEach(card => {
+    const group = groups.find(item => item.matcher.test(card.title) || item.matcher.test(card.text)) || groups[groups.length - 1]
+    group.items.push(card)
+  })
+
+  return groups.filter(group => group.items.length > 0)
 }
 
 const splitSafety = (items: string[]) => {
@@ -156,6 +215,8 @@ export default async function HerbDetailPage({ params }: Params) {
     text: getMechanismText(item),
   })).filter(card => card.title && isClean(card.title))
 
+  const mechanismGroups = groupMechanisms(mechanismCards)
+
   const safetyNote = formatDisplayLabel(herb.safetyNotes)
 
   const safetyItems = unique([
@@ -184,6 +245,8 @@ export default async function HerbDetailPage({ params }: Params) {
     ...list(herb.references)
   ].filter(id => /\d/.test(id))).slice(0, 10)
 
+  const evidenceFrame = getEvidenceFrame(evidence, pmids.length, claims.length, mechanisms.length)
+
   const hasForms = Boolean(form || dosage || timeToEffect)
 
   const productGuidance = [
@@ -194,8 +257,9 @@ export default async function HerbDetailPage({ params }: Params) {
 
   const toc = [
     profileOverview ? ['overview', 'Overview'] : null,
+    ['evidence-framing', 'Evidence framing'],
     outcomeCards.length ? ['best-for', 'Best for'] : null,
-    mechanismCards.length ? ['mechanisms', 'Mechanisms'] : null,
+    mechanismGroups.length ? ['mechanisms', 'Mechanisms'] : null,
     safetyItems.length ? ['safety', 'Safety'] : null,
     hasForms ? ['forms', 'Forms & dosage'] : null,
     relatedCompounds.length ? ['related-compounds', 'Related compounds'] : null,
@@ -243,6 +307,23 @@ export default async function HerbDetailPage({ params }: Params) {
           </DetailCard>
         ) : null}
 
+        <DetailCard id="evidence-framing" eyebrow="Evidence Intelligence" title="Evidence framing" description="A conservative reading of the visible profile signals.">
+          <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="surface-depth rounded-2xl p-5">
+              <p className="eyebrow-label">Research maturity</p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-ink">{evidenceFrame.maturity}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#46574d]">{evidenceFrame.summary}</p>
+            </div>
+
+            <div className="surface-subtle rounded-2xl p-5">
+              <p className="eyebrow-label">How to read this profile</p>
+              <div className="mt-4">
+                <BulletList items={evidenceFrame.notes} />
+              </div>
+            </div>
+          </div>
+        </DetailCard>
+
         {outcomeCards.length > 0 ? (
           <DetailCard id="best-for" eyebrow="Use Cases" title="Best for" description="Signals surfaced from the current profile and linked claim data.">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -256,13 +337,20 @@ export default async function HerbDetailPage({ params }: Params) {
           </DetailCard>
         ) : null}
 
-        {mechanismCards.length > 0 ? (
-          <DetailCard id="mechanisms" eyebrow="Mechanism Context" title="Mechanisms" description="Mechanisms are interpreted conservatively and should not be read as guaranteed clinical effects.">
-            <div className="grid gap-4 md:grid-cols-2">
-              {mechanismCards.map(card => (
-                <div key={card.title} className="surface-subtle rounded-2xl p-5">
-                  <h3 className="text-base font-semibold text-ink">{card.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{card.text}</p>
+        {mechanismGroups.length > 0 ? (
+          <DetailCard id="mechanisms" eyebrow="Mechanism Context" title="Mechanisms" description="Mechanisms are grouped by theme and interpreted conservatively.">
+            <div className="space-y-6">
+              {mechanismGroups.map(group => (
+                <div key={group.title} className="space-y-3">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-700">{group.title}</h3>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {group.items.map(card => (
+                      <div key={card.title} className="surface-subtle rounded-2xl p-5">
+                        <h4 className="text-base font-semibold text-ink">{card.title}</h4>
+                        <p className="mt-3 text-sm leading-7 text-[#46574d]">{card.text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
