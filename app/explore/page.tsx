@@ -40,16 +40,16 @@ export default function ExplorePage() {
   return (
     <main className="mx-auto max-w-7xl px-4 py-16 space-y-14">
       <section className="space-y-5">
-        <div className="inline-flex rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-emerald-300">
+        <div className="inline-flex rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-emerald-600">
           Semantic Discovery
         </div>
 
         <div className="space-y-4">
-          <h1 className="text-5xl font-semibold tracking-tight text-white">
+          <h1 className="heading-premium max-w-4xl text-ink">
             Explore Compounds by Goal
           </h1>
 
-          <p className="max-w-3xl text-lg leading-8 text-neutral-400">
+          <p className="max-w-3xl text-lg leading-8 text-muted-soft">
             Navigate compounds through semantic relationships, archetypes, evidence patterns, mechanisms, and shared outcomes.
           </p>
         </div>
@@ -60,18 +60,18 @@ export default function ExplorePage() {
           <Link
             key={topic.slug}
             href={`/explore/${topic.slug}`}
-            className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-2xl"
+            className="card-premium group p-6"
           >
             <div className="space-y-4">
-              <div className="text-sm uppercase tracking-[0.2em] text-emerald-300">
+              <div className="eyebrow text-emerald-600">
                 Explore
               </div>
 
-              <h2 className="text-2xl font-semibold text-white group-hover:text-emerald-300 transition">
+              <h2 className="text-2xl font-semibold text-ink transition group-hover:text-emerald-700">
                 {topic.title}
               </h2>
 
-              <p className="text-sm leading-7 text-neutral-400">
+              <p className="text-sm leading-7 text-muted-soft">
                 {topic.description}
               </p>
             </div>
@@ -82,11 +82,11 @@ export default function ExplorePage() {
       <section className="space-y-6">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <div className="text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <div className="eyebrow text-neutral-500">
               Discovery Rail
             </div>
 
-            <h2 className="mt-2 text-3xl font-semibold text-white">
+            <h2 className="mt-2 text-3xl font-semibold text-ink">
               Trending Compounds
             </h2>
           </div>
@@ -97,18 +97,18 @@ export default function ExplorePage() {
             <Link
               key={compound.slug}
               href={`/compounds/${compound.slug}`}
-              className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition hover:bg-white/[0.08] hover:-translate-y-1"
+              className="card-premium group p-6"
             >
               <div className="space-y-4">
                 <div className="flex flex-wrap gap-2">
-                  <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] uppercase tracking-wide text-emerald-300">
+                  <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] uppercase tracking-wide text-emerald-700">
                     {compound.archetype}
                   </span>
 
                   {(compound.clusters || []).slice(0, 2).map((cluster:string) => (
                     <span
                       key={cluster}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-wide text-neutral-300"
+                      className="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-[10px] uppercase tracking-wide text-neutral-700"
                     >
                       {cluster}
                     </span>
@@ -116,11 +116,11 @@ export default function ExplorePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-semibold text-white group-hover:text-emerald-300 transition">
+                  <h3 className="text-xl font-semibold text-ink transition group-hover:text-emerald-700">
                     {compound.name}
                   </h3>
 
-                  <p className="mt-3 line-clamp-4 text-sm leading-7 text-neutral-400">
+                  <p className="mt-3 line-clamp-4 text-sm leading-7 text-muted-soft">
                     {compound.summary || 'Evidence-aware compound profile with semantic discovery support.'}
                   </p>
                 </div>
