@@ -10,59 +10,109 @@ type Props = {
   }
 }
 
+function formatLabel(value?: string) {
+  if (!value) return ''
+
+  const normalized = value.toLowerCase().trim()
+
+  if (normalized === 'research only') return ''
+
+  return normalized
+    .replace(/_/g, ' ')
+    .replace(/\bhealthy aging\b/g, 'Healthy aging')
+    .replace(/\bfat loss\b/g, 'Fat loss')
+    .replace(/\bstress mood\b/g, 'Stress & mood')
+    .replace(/\bsleep quality\b/g, 'Sleep quality')
+    .replace(/\bgeneral wellness\b/g, 'General wellness')
+    .replace(/\b\w/g, char => char.toUpperCase())
+}
+
+function freshnessLabel(score?: number) {
+  if (score === null || score === undefined) return null
+  if (score < 0.45) return null
+  if (score >= 0.85) return 'Very recent'
+  if (score >= 0.65) return 'Recent'
+  return 'Mixed recency'
+}
+
 export default function EvidenceSnapshotCard({ snapshot }: Props) {
   const items = [
-    {
-      label: 'Citation Density',
-      value: snapshot.citation_density ?? 0,
-    },
-    {
-      label: 'Sources',
-      value: snapshot.source_count ?? 0,
-    },
-    {
-      label: 'Effects',
-      value: snapshot.effect_count ?? 0,
-    },
-    {
-      label: 'Freshness',
-      value: snapshot.freshness_score ?? 0,
-    },
-  ]
+    snapshot.citation_density && snapshot.citation_density > 0
+      ? {
+          label: 'Citation density',
+          value: snapshot.citation_density.toFixed(1),
+        }
+      : null,
+
+    snapshot.source_count && snapshot.source_count > 0
+      ? {
+          label: 'Sources',
+          value: snapshot.source_count,
+        }
+      : null,
+
+    snapshot.effect_count && snapshot.effect_count > 0
+      ? {
+          label: 'Effects',
+          value: snapshot.effect_count,
+        }
+      : null,
+
+    freshnessLabel(snapshot.freshness_score)
+      ? {
+          label: 'Research recency',
+          value: freshnessLabel(snapshot.freshness_score),
+        }
+      : null,
+  ].filter(Boolean) as { label: string; value: string | number }[]
+
+  const clusters = (snapshot.clusters || [])
+    .map(cluster => formatLabel(cluster))
+    .filter(Boolean)
+
+  const archetype = formatLabel(snapshot.archetype || 'General wellness')
+
+  if (!archetype && items.length === 0 && clusters.length === 0) {
+    return null
+  }
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 space-y-5 shadow-2xl">
+    <div className="surface-depth card-spacing section-spacing">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-300">
-          {snapshot.archetype || 'General Wellness'}
-        </span>
+        {archetype ? (
+          <span className="evidence-pill-strong">
+            {archetype}
+          </span>
+        ) : null}
 
-        {(snapshot.clusters || []).map((cluster) => (
+        {clusters.map((cluster) => (
           <span
             key={cluster}
-            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300"
+            className="chip-readable"
           >
             {cluster}
           </span>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {items.map((item) => (
-          <div
-            key={item.label}
-            className="rounded-2xl border border-white/10 bg-black/20 p-4"
-          >
-            <div className="text-xs uppercase tracking-wide text-neutral-500">
-              {item.label}
-            </div>
+      {items.length > 0 ? (
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {items.map((item) => (
+            <div
+              key={item.label}
+              className="surface-subtle rounded-2xl p-5"
+            >
+              <div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#66756d]">
+                {item.label}
+              </div>
 
-            <div className="mt-2 text-2xl font-semibold text-white">
-              {item.value}
+              <div className="mt-2 text-xl font-semibold tracking-tight text-ink">
+                {item.value}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   )
 }
