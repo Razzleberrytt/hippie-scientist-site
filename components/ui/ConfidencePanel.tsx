@@ -17,16 +17,18 @@ export default function ConfidencePanel({ level = 'moderate' }: any) {
   const item = config[level] || config.moderate
 
   return (
-    <div className="rounded-3xl border bg-white/70 backdrop-blur p-6 space-y-3">
-      <div className="text-xs uppercase tracking-wider text-neutral-400">
-        Evidence Confidence
+    <div className="surface-subtle card-spacing section-spacing">
+      <div className="space-y-3">
+        <div className="eyebrow-label">
+          Evidence Confidence
+        </div>
+
+        <div className="text-2xl font-semibold tracking-tight text-ink">
+          {item.title}
+        </div>
       </div>
 
-      <div className="text-lg font-semibold">
-        {item.title}
-      </div>
-
-      <p className="text-sm leading-7 text-neutral-600">
+      <p className="max-w-2xl text-sm leading-7 text-muted-soft">
         {item.text}
       </p>
     </div>
