@@ -1,0 +1,66 @@
+name: Review Agent Patches
+
+on:
+  workflow_dispatch:
+    inputs:
+      merge_mode:
+        description: 'Patch merge mode'
+        required: false
+        default: 'all'
+      slug:
+        description: 'Optional slug when using single mode'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: review-agent-patches
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    continue-on-error: true
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: |
+          npm install --prefer-offline --no-audit
+
+      - name: Review patches
+        run: |
+          node scripts/review-patches.mjs || true
+
+      - name: Export approved patches (all)
+        if: ${{ github.event.inputs.merge_mode == 'all' }}
+        run: |
+          node scripts/merge-patches.mjs --all || true
+
+      - name: Export approved patch (single slug)
+        if: ${{ github.event.inputs.merge_mode == 'single' }}
+        run: |
+          node scripts/merge-patches.mjs --slug=${{ github.event.inputs.slug }} || true
+
+      - name: Commit review exports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add ops/agent-review
+
+          git diff --cached --quiet && exit 0
+
+          git commit -m "agent: review export updates"
+          git push
