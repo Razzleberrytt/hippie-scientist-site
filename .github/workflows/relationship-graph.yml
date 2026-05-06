@@ -1,0 +1,15 @@
+name: Relationship Graph Builder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --prefer-offline --no-audit
+      - run: npm run agent:run -- --mode=standard --batch=30 || true
