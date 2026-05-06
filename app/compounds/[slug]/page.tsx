@@ -1,6 +1,4 @@
 import DecisionCard from '@/components/ui/DecisionCard'
-import EvidenceBadge from '@/components/ui/EvidenceBadge'
-import SafetyBadge from '@/components/ui/SafetyBadge'
 import SectionBlock from '@/components/ui/SectionBlock'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import TableOfContents from '@/components/ui/TableOfContents'
@@ -11,6 +9,8 @@ import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import CompoundStats from '@/components/ui/CompoundStats'
 import MechanismGrid from '@/components/ui/MechanismGrid'
 import UseCases from '@/components/ui/UseCases'
+import ResearchHighlights from '@/components/ui/ResearchHighlights'
+import CompoundHero from '@/components/ui/CompoundHero'
 import data from '../../../public/data/compounds.json'
 import {
   normalizeEvidenceLevel,
@@ -63,7 +63,7 @@ export default function Page({ params }: any) {
   ]
 
   return (
-    <main className="max-w-6xl mx-auto px-4 flex gap-10 pb-28">
+    <main className="max-w-7xl mx-auto px-4 flex gap-10 pb-28">
 
       <TableOfContents />
 
@@ -77,22 +77,13 @@ export default function Page({ params }: any) {
 
         <TrustBar />
 
+        <CompoundHero
+          compound={compound}
+          evidenceLevel={evidenceLevel}
+          safetyLevel={safetyLevel}
+        />
+
         <div className="space-y-5">
-
-          <div className="space-y-3">
-            <h1 className="text-4xl font-bold tracking-tight leading-tight">
-              {compound.name}
-            </h1>
-
-            <p className="text-sm leading-7 text-neutral-600 max-w-3xl">
-              {compound.summary || 'Evidence-informed compound profile.'}
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              <EvidenceBadge level={evidenceLevel} />
-              <SafetyBadge level={safetyLevel} />
-            </div>
-          </div>
 
           <EvidenceMeter level={evidenceLevel} />
 
@@ -113,7 +104,7 @@ export default function Page({ params }: any) {
           evidence={compound.evidence_tier || 'Human data available'}
         />
 
-        <div className="bg-neutral-100 rounded-2xl p-5 text-sm leading-7 border">
+        <div className="bg-neutral-100 rounded-2xl p-6 text-sm leading-7 border shadow-sm">
           <strong>Quick Verdict:</strong>{' '}
           {compound.summary || 'Likely useful depending on context and goals.'}
         </div>
@@ -126,7 +117,7 @@ export default function Page({ params }: any) {
 
         <div id="effects">
           <SectionBlock title="Primary Effects">
-            <ul className="space-y-3 text-sm leading-6">
+            <ul className="space-y-3 text-sm leading-7">
               {effects.map((e:any,i:number)=>(
                 <li key={i}>• {e}</li>
               ))}
@@ -141,6 +132,12 @@ export default function Page({ params }: any) {
             </p>
           </SectionBlock>
         </div>
+
+        {sources.length>0&&(
+          <SectionBlock title="Research Highlights">
+            <ResearchHighlights sources={sources} />
+          </SectionBlock>
+        )}
 
         {sources.length>0&&(
           <SectionBlock title="Sources">
