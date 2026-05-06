@@ -4,25 +4,25 @@ import Link from 'next/link'
 
 export default function HomepageV2() {
   return (
-    <main className="min-h-screen text-ink">
+    <main className="min-h-screen text-ink section-spacing">
 
-      <section className="hero-shell overflow-hidden rounded-[2rem] border border-white/40 px-6 py-16 shadow-soft sm:px-10 lg:px-14 lg:py-24">
-        <div className="max-w-4xl space-y-8">
-          <div className="eyebrow inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-brand-800">
+      <section className="hero-shell overflow-hidden rounded-[2.25rem] border border-white/45 px-6 py-18 shadow-soft sm:px-10 lg:px-16 lg:py-28">
+        <div className="max-w-5xl section-spacing">
+          <div className="eyebrow-label inline-flex rounded-full border border-brand-700/10 bg-white/55 px-4 py-2 backdrop-blur-md">
             Evidence-first supplement intelligence
           </div>
 
-          <div className="space-y-6">
-            <h1 className="heading-premium max-w-4xl">
+          <div className="space-y-7">
+            <h1 className="heading-premium max-w-5xl text-balance">
               Calm, evidence-aware guidance for herbs, compounds, and better decisions.
             </h1>
 
-            <p className="text-reading max-w-2xl text-lg text-muted-soft sm:text-xl">
-              Explore natural compounds through transparent evidence tiers, safety context, mechanisms, and practical decision support — without hype.
+            <p className="text-reading max-w-2xl text-lg leading-relaxed text-muted-soft sm:text-xl">
+              Explore natural compounds through transparent evidence tiers, safety context, mechanisms, and practical decision support — without hype, noise, or affiliate-first recommendations.
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col gap-4 pt-2 sm:flex-row">
             <Link href="/explore" className="button-primary">
               Explore Goals
             </Link>
@@ -34,7 +34,7 @@ export default function HomepageV2() {
         </div>
       </section>
 
-      <section className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {[
           {
             title: 'Sleep Support',
@@ -60,19 +60,19 @@ export default function HomepageV2() {
           <Link
             key={item.slug}
             href={`/explore/${item.slug}`}
-            className="card-premium p-6"
+            className="card-premium card-spacing group"
           >
-            <div className="space-y-4">
-              <div className="eyebrow text-brand-700">
+            <div className="space-y-5">
+              <div className="eyebrow-label">
                 Explore
               </div>
 
-              <div>
-                <h2 className="font-sans text-2xl font-semibold tracking-tight text-ink">
+              <div className="space-y-3">
+                <h2 className="font-sans text-2xl font-semibold tracking-tight text-ink transition-colors duration-300 group-hover:text-brand-800">
                   {item.title}
                 </h2>
 
-                <p className="mt-3 text-sm leading-7 text-muted-soft">
+                <p className="text-sm leading-7 text-muted-soft">
                   {item.description}
                 </p>
               </div>
@@ -81,19 +81,19 @@ export default function HomepageV2() {
         ))}
       </section>
 
-      <section className="mt-16 grid gap-6 lg:grid-cols-[1.3fr_.7fr]">
-        <div className="card-premium p-7">
-          <div className="space-y-5">
-            <div className="eyebrow inline-flex rounded-full border border-emerald-700/10 bg-emerald-700/10 px-3 py-1 text-emerald-800">
+      <section className="grid gap-6 lg:grid-cols-[1.3fr_.7fr]">
+        <div className="surface-depth card-spacing">
+          <div className="section-spacing">
+            <div className="eyebrow-label inline-flex rounded-full border border-emerald-700/10 bg-emerald-700/10 px-3 py-1 text-emerald-800">
               Human evidence prioritized
             </div>
 
-            <div>
-              <h2 className="max-w-3xl">
+            <div className="space-y-5">
+              <h2 className="max-w-3xl text-balance">
                 Decision support without wellness-blog hype.
               </h2>
 
-              <p className="text-reading mt-4 max-w-2xl text-muted-soft">
+              <p className="text-reading max-w-2xl text-muted-soft">
                 The Hippie Scientist blends natural wellness exploration with transparent evidence standards, safety context, and practical usability.
               </p>
             </div>
@@ -106,13 +106,13 @@ export default function HomepageV2() {
               ].map(([title, body]) => (
                 <div
                   key={title}
-                  className="rounded-3xl border border-brand-900/10 bg-white/65 p-5"
+                  className="surface-subtle p-5"
                 >
                   <div className="text-sm font-semibold tracking-tight text-ink">
                     {title}
                   </div>
 
-                  <div className="mt-2 text-sm leading-7 text-muted-soft">
+                  <div className="mt-3 text-sm leading-7 text-muted-soft">
                     {body}
                   </div>
                 </div>
@@ -122,18 +122,20 @@ export default function HomepageV2() {
         </div>
 
         <div className="safety-block">
-          <div className="space-y-4">
-            <div className="eyebrow text-amber-700">
+          <div className="section-spacing">
+            <div className="eyebrow-label text-amber-700">
               Safety-first philosophy
             </div>
 
-            <h3>
-              Evidence honesty builds long-term trust.
-            </h3>
+            <div className="space-y-4">
+              <h3 className="max-w-sm text-balance">
+                Evidence honesty builds long-term trust.
+              </h3>
 
-            <p className="text-sm leading-7 text-amber-950/85">
-              Human evidence is prioritized. Mechanistic and traditional evidence are clearly labeled. Safety uncertainty is surfaced instead of hidden.
-            </p>
+              <p className="text-sm leading-7 text-amber-950/85">
+                Human evidence is prioritized. Mechanistic and traditional evidence are clearly labeled. Safety uncertainty is surfaced instead of hidden.
+              </p>
+            </div>
 
             <Link href="/evidence-standards" className="button-secondary w-full justify-center">
               View Evidence Standards
