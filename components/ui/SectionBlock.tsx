@@ -1,8 +1,17 @@
 export default function SectionBlock({ title, children }: any) {
   return (
-    <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/72 p-5 shadow-sm backdrop-blur-xl sm:p-6">
-      <h2 className="font-sans text-xl font-semibold tracking-tight text-ink">{title}</h2>
-      <div className="text-sm leading-7 text-neutral-700">
+    <section className="surface-subtle section-spacing card-spacing">
+      <div className="space-y-3 border-b border-brand-900/8 pb-4">
+        <div className="eyebrow-label">
+          Research Section
+        </div>
+
+        <h2 className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+          {title}
+        </h2>
+      </div>
+
+      <div className="content-prose muted-readable max-w-none">
         {children}
       </div>
     </section>
