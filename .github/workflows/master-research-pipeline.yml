@@ -1,0 +1,38 @@
+name: Master Research Pipeline
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  metadata_harvest:
+    uses: ./.github/workflows/agent.yml
+
+  patch_qa:
+    needs: metadata_harvest
+    uses: ./.github/workflows/patch-qa.yml
+
+  relationship_graph:
+    needs: patch_qa
+    uses: ./.github/workflows/relationship-graph.yml
+
+  seo_assets:
+    needs: relationship_graph
+    uses: ./.github/workflows/seo-assets.yml
+
+  product_intelligence:
+    needs: seo_assets
+    uses: ./.github/workflows/product-intelligence.yml
+
+  build_candidates:
+    needs: product_intelligence
+    uses: ./.github/workflows/build-candidates.yml
+
+  review_exports:
+    needs: build_candidates
+    uses: ./.github/workflows/review-patches.yml
+    with:
+      merge_mode: all
