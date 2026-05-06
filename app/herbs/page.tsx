@@ -4,7 +4,7 @@ import { getHerbs } from '@/lib/runtime-data'
 
 export const metadata: Metadata = {
   title: 'Herbs',
-  description: 'Browse herbs with clear effects, mechanisms, and safety context.',
+  description: 'Browse herbs with clear effects, mechanisms, evidence tiers, and safety context.',
 }
 
 const asList = (value: unknown): string[] => {
@@ -36,22 +36,19 @@ export default async function HerbsPage() {
 
   const items = herbs.map((herb: any) => {
     const effects = asList(herb.primary_effects)
-    const bestFor = first(herb.best_for, effects[0])
 
     return {
       slug: herb.slug,
       title: first(herb.displayName, herb.name, herb.slug),
-      summary: first(herb.summary, herb.description),
+      summary: first(herb.summary, herb.description, herb.coreInsight),
       href: `/herbs/${herb.slug}`,
       typeLabel: 'Herb',
-      domain: effects.slice(0, 2).join(', '),
-      bestFor: bestFor || 'General support',
+      bestFor: first(herb.best_for, herb.primaryDomain, effects[0]),
       evidence: first(herb.evidence_grade, herb.evidenceLevel) || 'Limited',
-      safety: first(herb.safetyNotes, herb.contraindications) || 'Review',
-      timeToEffect: first(herb.time_to_effect),
+      evidenceTier: first(herb.evidence_grade, herb.evidenceLevel) || 'Limited',
+      safety: first(herb.safety_summary, herb.safetyNotes, herb.contraindications) || 'Review interactions and contraindications before use.',
       profile_status: clean(herb.profile_status),
       summary_quality: clean(herb.summary_quality),
-      evidenceTier: clean(herb.evidence_grade),
       primary_effects: effects,
       effects,
       tags: effects,
@@ -60,9 +57,9 @@ export default async function HerbsPage() {
 
   return (
     <LibraryBrowser
-      eyebrow='Library'
+      eyebrow='Evidence-aware herb library'
       title='Herbs'
-      description='Clear, evidence-aware herb profiles without clutter.'
+      description='Browse structured herb profiles with transparent evidence tiers, practical context, and visible safety framing.'
       items={items}
     />
   )
