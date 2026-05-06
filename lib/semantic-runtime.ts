@@ -215,7 +215,7 @@ export function getRelatedCompounds(compound: RuntimeCompoundInput, limit = 6): 
       const evidenceWeight = candidate.evidence_tier ? 1 : 0
       const score = effectOverlap * 3 + mechanismOverlap * 2 + clusterOverlap * 2 + archetypeMatch + evidenceWeight + (explicitRelated ? 4 : 0)
 
-      const reasons = []
+      const reasons: string[] = []
       if (explicitRelated) reasons.push('explicit workbook relationship')
       if (effectOverlap) reasons.push('shared effects')
       if (mechanismOverlap) reasons.push('shared mechanisms')
