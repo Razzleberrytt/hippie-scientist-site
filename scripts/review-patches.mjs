@@ -2,6 +2,7 @@
 
 import fs from 'node:fs'
 import path from 'node:path'
+import { severityLevel } from '../agent/lib/qa-severity.js'
 
 const repoRoot = process.cwd()
 const patchRoot = path.join(repoRoot, 'agent', 'patches')
@@ -103,6 +104,12 @@ for (const patch of patches.slice(-20)) {
   console.log(`Conflict Flags: ${summary.conflicting_evidence_flags}`)
   console.log(`Validation: ${summary.validation_status}`)
   console.log(`Rejections: ${summary.rejections.join(', ') || 'none'}`)
-  console.log(`Issues: ${summary.issues.join(', ') || 'none'}`)
+
+  const issueSummary = summary.issues.map(issue => ({
+    issue,
+    severity: severityLevel(issue),
+  }))
+
+  console.log(`Issues: ${JSON.stringify(issueSummary) || 'none'}`)
   console.log('---')
 }
