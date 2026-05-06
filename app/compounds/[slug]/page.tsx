@@ -47,12 +47,29 @@ export function generateMetadata({ params }: any) {
   }
 }
 
+function cleanLabel(value: string = '') {
+  return value
+    .replace(/research[_\s-]*only/gi, '')
+    .replace(/_/g, ' ')
+    .replace(/\bhealthy aging\b/gi, 'Healthy aging')
+    .replace(/\bfat loss\b/gi, 'Fat loss')
+    .replace(/\bstress mood\b/gi, 'Stress & mood')
+    .replace(/\bsleep quality\b/gi, 'Sleep quality')
+    .replace(/\bgeneral wellness\b/gi, 'General wellness')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function normalizeText(value: string = '') {
+  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
+}
+
 export default function Page({ params }: any) {
   const compounds = data as any[]
   const compound = compounds.find(c => c.slug === params.slug)
   if (!compound) return null
 
-  const effects = getEffects(compound)
+  const effects = getEffects(compound).map((effect:string) => cleanLabel(effect)).filter(Boolean)
   const sources = getSources(compound)
 
   const related = getRelatedCompounds(compound).map((item:any)=>({
@@ -69,22 +86,43 @@ export default function Page({ params }: any) {
 
   const mechanisms = compound.mechanisms || []
 
+  const summary = cleanLabel(compound.summary || '')
+
+  const quickVerdict =
+    summary && summary.length > 140
+      ? `${summary.slice(0, 160).trimEnd()}…`
+      : ''
+
+  const showQuickVerdict =
+    quickVerdict && normalizeText(quickVerdict) !== normalizeText(summary)
+
   const faq = [
     {
       q:`What is ${compound.name} used for?`,
-      a:compound.summary || 'Used for a variety of wellness and performance-related goals.'
+      a: summary,
     },
     {
       q:`Is ${compound.name} safe?`,
-      a:compound.safety || 'Generally well tolerated, though individual response varies.'
+      a: cleanLabel(compound.safety || 'Generally well tolerated, though individual response varies.'),
     }
-  ]
+  ].filter(item => {
+    if (!item.a) return false
+    return normalizeText(item.a) !== normalizeText(summary)
+  })
+
+  const timelineData = Array.isArray(compound.timeline)
+    ? compound.timeline
+    : Array.isArray(compound.time_to_effect)
+      ? compound.time_to_effect
+      : []
+
+  const meaningfulTimeline = timelineData.filter((item:any) => item?.title && item?.text)
 
   return (
     <>
       <ReadingProgress />
 
-      <main className="max-w-7xl mx-auto px-4 flex gap-10 pb-28">
+      <main className="mx-auto flex max-w-7xl gap-10 px-4 pb-28">
 
         <TableOfContents />
 
@@ -118,7 +156,9 @@ export default function Page({ params }: any) {
               sources
             }} />
 
-            <UseCases effects={effects} />
+            {effects.length > 0 ? (
+              <UseCases effects={effects} />
+            ) : null}
 
           </div>
 
@@ -129,14 +169,18 @@ export default function Page({ params }: any) {
             evidence={compound.evidence_tier || 'Human data available'}
           />
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 text-sm leading-7 shadow-2xl text-neutral-200">
-            <strong className="text-white">Quick Verdict:</strong>{' '}
-            {compound.summary || 'Likely useful depending on context and goals.'}
-          </div>
+          {showQuickVerdict ? (
+            <div className="surface-depth card-spacing text-sm leading-7 text-[#46574d]">
+              <strong className="text-ink">Quick verdict:</strong>{' '}
+              {quickVerdict}
+            </div>
+          ) : null}
 
-          <SectionBlock title="Expected Timeline">
-            <TimelineCard />
-          </SectionBlock>
+          {meaningfulTimeline.length > 0 ? (
+            <SectionBlock title="Expected Timeline">
+              <TimelineCard phases={meaningfulTimeline} />
+            </SectionBlock>
+          ) : null}
 
           {mechanisms.length > 0 && (
             <SectionBlock title="Mechanisms">
@@ -145,69 +189,77 @@ export default function Page({ params }: any) {
           )}
 
           <div id="effects">
-            <SectionBlock title="Primary Effects">
-              <ul className="space-y-3 text-sm leading-7">
-                {effects.map((e:any,i:number)=>(
-                  <li key={i}>• {e}</li>
-                ))}
-              </ul>
-            </SectionBlock>
+            {effects.length > 0 ? (
+              <SectionBlock title="Primary Effects">
+                <ul className="space-y-3 text-sm leading-7 text-[#46574d]">
+                  {effects.map((effect:any,index:number)=>(
+                    <li key={index}>• {effect}</li>
+                  ))}
+                </ul>
+              </SectionBlock>
+            ) : null}
           </div>
 
-          <SectionBlock title="Potential Stack Pairings">
-            <div className="grid md:grid-cols-2 gap-4">
-              {stackCandidates.map((candidate:any)=>(
-                <div
-                  key={candidate.slug}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-sm font-semibold text-white">
-                      {candidate.name}
-                    </h3>
+          {stackCandidates.length > 0 ? (
+            <SectionBlock title="Potential Stack Pairings">
+              <div className="grid gap-4 md:grid-cols-2">
+                {stackCandidates.map((candidate:any)=>(
+                  <div
+                    key={candidate.slug}
+                    className="surface-subtle rounded-2xl p-5"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="text-sm font-semibold text-ink">
+                        {candidate.name}
+                      </h3>
 
-                    <span className="text-[10px] uppercase tracking-wide text-emerald-300">
-                      {candidate.confidence}
-                    </span>
+                      <span className="chip-readable text-[10px] uppercase tracking-wide">
+                        {cleanLabel(candidate.confidence || 'Exploratory')}
+                      </span>
+                    </div>
+
+                    <p className="mt-3 text-sm leading-7 text-[#46574d]">
+                      {candidate.reason}
+                    </p>
                   </div>
+                ))}
+              </div>
+            </SectionBlock>
+          ) : null}
 
-                  <p className="mt-3 text-sm text-neutral-400 leading-6">
-                    {candidate.reason}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </SectionBlock>
+          {comparisonCandidates.length > 0 ? (
+            <SectionBlock title="Compare Alternatives">
+              <div className="flex flex-wrap gap-3">
+                {comparisonCandidates.map((candidate:any)=>(
+                  <Link
+                    key={candidate.slug}
+                    href={candidate.href}
+                    className="chip-readable transition hover:text-brand-800"
+                  >
+                    {cleanLabel(candidate.label)}
+                  </Link>
+                ))}
+              </div>
+            </SectionBlock>
+          ) : null}
 
-          <SectionBlock title="Compare Alternatives">
-            <div className="flex flex-wrap gap-3">
-              {comparisonCandidates.map((candidate:any)=>(
-                <Link
-                  key={candidate.slug}
-                  href={candidate.href}
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
-                >
-                  {candidate.label}
-                </Link>
-              ))}
-            </div>
-          </SectionBlock>
-
-          <SectionBlock title="Recommended Related Compounds">
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-              {related.map((item:any)=>(
-                <SemanticRecommendationCard
-                  key={item.slug}
-                  item={item}
-                />
-              ))}
-            </div>
-          </SectionBlock>
+          {related.length > 0 ? (
+            <SectionBlock title="Recommended Related Compounds">
+              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {related.map((item:any)=>(
+                  <SemanticRecommendationCard
+                    key={item.slug}
+                    item={item}
+                  />
+                ))}
+              </div>
+            </SectionBlock>
+          ) : null}
 
           <div id="safety">
             <SectionBlock title="Safety">
-              <p className="text-sm leading-7">
-                {compound.safety || 'Generally well tolerated for most users. Use caution with medications or pre-existing conditions.'}
+              <p className="text-sm leading-7 text-[#46574d]">
+                {cleanLabel(compound.safety || 'No major cautions surfaced in the current profile.')}
               </p>
             </SectionBlock>
           </div>
@@ -220,25 +272,27 @@ export default function Page({ params }: any) {
 
           {sources.length>0&&(
             <SectionBlock title="Sources">
-              <ul className="space-y-2 text-xs leading-6 text-neutral-600">
-                {sources.slice(0,10).map((s:any,i:number)=>(
-                  <li key={i}>• {typeof s==='string'?s:JSON.stringify(s)}</li>
+              <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+                {sources.slice(0,10).map((source:any,index:number)=>(
+                  <li key={index}>• {typeof source==='string'?source:JSON.stringify(source)}</li>
                 ))}
               </ul>
             </SectionBlock>
           )}
 
           <div id="faq">
-            <SectionBlock title="FAQ">
-              <div className="space-y-5">
-                {faq.map((f,i)=>(
-                  <div key={i} className="space-y-2 border-b pb-4 last:border-none">
-                    <p className="font-semibold text-sm">{f.q}</p>
-                    <p className="text-sm text-neutral-600 leading-7">{f.a}</p>
-                  </div>
-                ))}
-              </div>
-            </SectionBlock>
+            {faq.length > 0 ? (
+              <SectionBlock title="FAQ">
+                <div className="space-y-5">
+                  {faq.map((item,index)=>(
+                    <div key={index} className="space-y-2 border-b border-brand-900/10 pb-4 last:border-none">
+                      <p className="font-semibold text-sm text-ink">{item.q}</p>
+                      <p className="text-sm leading-7 text-[#46574d]">{item.a}</p>
+                    </div>
+                  ))}
+                </div>
+              </SectionBlock>
+            ) : null}
           </div>
 
         </div>
