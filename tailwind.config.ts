@@ -2,6 +2,35 @@
 module.exports = {
   content: ['./app/**/*.{ts,tsx,js,jsx,mdx}', './components/**/*.{ts,tsx,js,jsx,mdx}', './src/**/*.{ts,tsx,js,jsx,mdx}'],
   theme: {
+    fontFamily: {
+      sans: ['var(--font-inter)', 'Inter', 'ui-sans-serif', 'system-ui'],
+      body: ['var(--font-inter)', 'Inter', 'ui-sans-serif', 'system-ui'],
+      display: ['var(--font-fraunces)', 'Fraunces', 'ui-serif', 'Georgia'],
+      mono: ['JetBrains Mono', 'monospace'],
+    },
+    fontWeight: {
+      thin: '100',
+      extralight: '200',
+      light: '300',
+      normal: '400',
+      medium: '500',
+      semibold: '600',
+      bold: '700',
+      extrabold: '800',
+    },
+    fontSize: {
+      xs: ['0.75rem', { lineHeight: '1.45', letterSpacing: '0.01em' }],
+      sm: ['0.875rem', { lineHeight: '1.6', letterSpacing: '-0.005em' }],
+      base: ['1rem', { lineHeight: '1.75', letterSpacing: '-0.011em' }],
+      lg: ['1.125rem', { lineHeight: '1.75', letterSpacing: '-0.014em' }],
+      xl: ['1.25rem', { lineHeight: '1.6', letterSpacing: '-0.018em' }],
+      '2xl': ['1.5rem', { lineHeight: '1.3', letterSpacing: '-0.025em' }],
+      '3xl': ['1.875rem', { lineHeight: '1.2', letterSpacing: '-0.03em' }],
+      '4xl': ['2.25rem', { lineHeight: '1.1', letterSpacing: '-0.04em' }],
+      '5xl': ['3rem', { lineHeight: '1', letterSpacing: '-0.05em' }],
+      '6xl': ['3.75rem', { lineHeight: '0.95', letterSpacing: '-0.06em' }],
+      eyebrow: ['0.72rem', { lineHeight: '1rem', letterSpacing: '0.16em', fontWeight: '700' }],
+    },
     extend: {
       colors: {
         brand: {
@@ -84,12 +113,21 @@ module.exports = {
         organic: '1.75rem',
         card: '1.5rem',
       },
-      fontFamily: {
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      letterSpacing: {
+        tighter: '-0.06em',
+        tight: '-0.03em',
+        relaxed: '0.01em',
+        wideish: '0.06em',
       },
-      fontSize: {
-        eyebrow: ['0.72rem', { lineHeight: '1rem', letterSpacing: '0.18em', fontWeight: '700' }],
+      lineHeight: {
+        display: '0.95',
+        heading: '1.05',
+        body: '1.75',
+        relaxed: '1.9',
+      },
+      maxWidth: {
+        prose: '72ch',
+        reading: '68ch',
       },
       backgroundImage: {
         'nature-radial': 'radial-gradient(circle at top left, rgba(141,170,120,.28), transparent 34%), radial-gradient(circle at top right, rgba(240,209,151,.34), transparent 30%), linear-gradient(180deg, #fffdf7 0%, #fbf6e9 100%)',
