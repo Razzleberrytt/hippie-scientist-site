@@ -179,6 +179,10 @@ body {
     @apply space-y-10 sm:space-y-12 lg:space-y-16;
   }
 
+  .detail-stack {
+    @apply space-y-12 sm:space-y-14 lg:space-y-16;
+  }
+
   .card-spacing {
     @apply p-6 sm:p-7 lg:p-8;
   }
@@ -216,6 +220,22 @@ body {
 
   .content-prose a {
     @apply font-semibold text-brand-800 underline decoration-brand-700/25 underline-offset-4 hover:decoration-brand-700/60;
+  }
+
+  .detail-reading {
+    @apply max-w-[74ch] text-[1rem] leading-[1.9] text-[#46574d] sm:text-[1.045rem];
+  }
+
+  .detail-grid {
+    @apply grid gap-5 sm:gap-6 lg:grid-cols-2;
+  }
+
+  .metadata-row {
+    @apply flex flex-wrap items-center gap-2.5 sm:gap-3;
+  }
+
+  .section-frame {
+    @apply rounded-[2rem] border border-brand-900/10 bg-white/80 p-6 shadow-card backdrop-blur-xl sm:p-8;
   }
 
   .muted-readable {
