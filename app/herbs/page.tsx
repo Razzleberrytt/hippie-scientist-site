@@ -1,66 +1,137 @@
-import type { Metadata } from 'next'
-import LibraryBrowser from '@/components/library-browser'
+import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
+import '@/styles/premium-cards.css'
 
-export const metadata: Metadata = {
-  title: 'Herbs',
-  description: 'Browse herbs with clear effects, mechanisms, evidence tiers, and safety context.',
+function getSummary(item: any) {
+  return (
+    item.short_earthy_summary ||
+    item.shortEarthySummary ||
+    item.summary ||
+    item.coreInsight ||
+    item.hero ||
+    'A research-backed botanical profile with evidence, safety notes, and practical context.'
+  )
 }
 
-const asList = (value: unknown): string[] => {
-  if (!value) return []
-  if (Array.isArray(value)) return value.map(item => String(item).trim()).filter(Boolean)
-  return String(value)
-    .split(/\n|;|\|/)
-    .map(item => item.trim())
-    .filter(Boolean)
+function getEvidence(item: any) {
+  return (
+    item.evidence_tier ||
+    item.evidenceTier ||
+    item.safety?.evidenceTier ||
+    item.summary_quality ||
+    'Moderate'
+  )
 }
 
-const clean = (value: unknown): string => {
-  if (value === null || value === undefined) return ''
-  if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(', ')
-  if (typeof value === 'object') return ''
-  return String(value).replace(/\s+/g, ' ').trim()
+function getSafety(item: any) {
+  return (
+    item.safety_level ||
+    item.safetyLevel ||
+    item.safety?.confidence ||
+    'Review'
+  )
 }
 
-const first = (...values: unknown[]): string => {
-  for (const value of values) {
-    const normalized = clean(value)
-    if (normalized) return normalized
+function evidenceClass(level: string) {
+  const value = level.toLowerCase()
+
+  if (value.includes('strong')) {
+    return 'bg-emerald-100 text-emerald-800 border border-emerald-200'
   }
-  return ''
+
+  if (value.includes('moderate')) {
+    return 'bg-amber-100 text-amber-800 border border-amber-200'
+  }
+
+  return 'bg-stone-100 text-stone-700 border border-stone-200'
+}
+
+function safetyClass(level: string) {
+  const value = level.toLowerCase()
+
+  if (value.includes('safe')) {
+    return 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+  }
+
+  if (value.includes('caution') || value.includes('review')) {
+    return 'bg-orange-100 text-orange-800 border border-orange-200'
+  }
+
+  return 'bg-red-100 text-red-800 border border-red-200'
 }
 
 export default async function HerbsPage() {
   const herbs = await getHerbs()
 
-  const items = herbs.map((herb: any) => {
-    const effects = asList(herb.primary_effects)
-
-    return {
-      slug: herb.slug,
-      title: first(herb.displayName, herb.name, herb.slug),
-      summary: first(herb.summary, herb.description, herb.coreInsight),
-      href: `/herbs/${herb.slug}`,
-      typeLabel: 'Herb',
-      bestFor: first(herb.best_for, herb.primaryDomain, effects[0]),
-      evidence: first(herb.evidence_grade, herb.evidenceLevel) || 'Limited',
-      evidenceTier: first(herb.evidence_grade, herb.evidenceLevel) || 'Limited',
-      safety: first(herb.safety_summary, herb.safetyNotes, herb.contraindications) || 'Review interactions and contraindications before use.',
-      profile_status: clean(herb.profile_status),
-      summary_quality: clean(herb.summary_quality),
-      primary_effects: effects,
-      effects,
-      tags: effects,
-    }
-  })
-
   return (
-    <LibraryBrowser
-      eyebrow='Evidence-aware herb library'
-      title='Herbs'
-      description='Browse structured herb profiles with transparent evidence tiers, practical context, and visible safety framing.'
-      items={items}
-    />
+    <main className="min-h-screen bg-[#f7f1e6] text-stone-900">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="max-w-3xl space-y-5">
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-stone-500">
+            Botanical Research Library
+          </p>
+
+          <h1 className="text-4xl font-semibold tracking-tight text-stone-900 sm:text-5xl">
+            Herbs
+          </h1>
+
+          <p className="text-base leading-8 text-stone-600 sm:text-lg">
+            Explore evidence-based herb profiles with mechanisms, safety context,
+            research summaries, and practical wellness applications.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {herbs.map((herb: any) => {
+            const evidence = getEvidence(herb)
+            const safety = getSafety(herb)
+
+            return (
+              <article
+                key={herb.slug}
+                className="group rounded-3xl border border-stone-200/80 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span
+                    className={`inline-flex rounded-full px-3 py-1 text-xs font-medium ${evidenceClass(
+                      evidence
+                    )}`}
+                  >
+                    {evidence}
+                  </span>
+
+                  <span
+                    className={`inline-flex rounded-full px-3 py-1 text-xs font-medium ${safetyClass(
+                      safety
+                    )}`}
+                  >
+                    {safety}
+                  </span>
+                </div>
+
+                <div className="mt-5 space-y-4">
+                  <h2 className="text-2xl font-semibold tracking-tight text-stone-900 transition-colors group-hover:text-emerald-700">
+                    {herb.name}
+                  </h2>
+
+                  <p className="line-clamp-4 text-sm leading-7 text-stone-600 sm:text-base">
+                    {getSummary(herb)}
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <Link
+                    href={`/herbs/${herb.slug}`}
+                    className="inline-flex items-center rounded-full border border-stone-300 bg-stone-50 px-4 py-2 text-sm font-medium text-stone-700 transition-all hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800"
+                  >
+                    View Profile
+                  </Link>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+      </section>
+    </main>
   )
 }
