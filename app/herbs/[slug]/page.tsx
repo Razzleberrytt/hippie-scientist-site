@@ -12,6 +12,11 @@ type Params = { params: Promise<{ slug: string }> }
 type HerbDetail = Record<string, any>
 type RelatedLinkItem = { href: string; title: string; description: string }
 
+type EditorialCard = {
+  title: string
+  text: string
+}
+
 const formatSlugLabel = (slug: string) => slug.split('-').filter(Boolean).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
 const getHerbLabel = (herb: HerbDetail) => formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatSlugLabel(herb.slug)
 
@@ -22,6 +27,35 @@ const getLeadText = (herb: HerbDetail) => {
   }
 
   return cleanSummary(text(herb.summary) || text(herb.description), 'herb')
+}
+
+const getOutcomeText = (label: string) => {
+  const value = label.toLowerCase()
+
+  if (/sleep/.test(value)) return 'Often explored for sleep quality, nighttime recovery, or stress-related rest support.'
+  if (/stress|mood|anxiety|calm/.test(value)) return 'Traditionally framed around resilience, calm, and adaptive stress-response support.'
+  if (/energy|fatigue|stamina|vitality/.test(value)) return 'Usually positioned around perceived energy, stamina, and daily vitality support.'
+  if (/digest|gut|bile|liver/.test(value)) return 'Most relevant to digestive comfort, preparation form, and context-specific use.'
+  if (/immune|respiratory/.test(value)) return 'Best read as immune or respiratory support context rather than disease treatment.'
+  if (/inflamm|joint|pain/.test(value)) return 'Connected to inflammatory-pathway or comfort-related support signals in the profile.'
+  if (/metabolic|glucose|weight|fat loss/.test(value)) return 'Most relevant to metabolic-support framing where the evidence context allows it.'
+  if (/cognition|focus|memory|brain/.test(value)) return 'Explored for cognitive, focus, or nervous-system support signals.'
+
+  return 'A profile signal surfaced from available effect, claim, or traditional-use data.'
+}
+
+const getMechanismText = (label: string) => {
+  const value = label.toLowerCase()
+
+  if (/nf.?kb|inflamm|cytokine/.test(value)) return 'Inflammatory pathway modulation signal.'
+  if (/gaba|glutamate|neurotransmitter|serotonin|dopamine/.test(value)) return 'Nervous-system and neurotransmitter signaling context.'
+  if (/cortisol|hpa|adrenal|stress/.test(value)) return 'Stress-response and neuroendocrine signaling context.'
+  if (/antioxidant|oxidative|nrf2/.test(value)) return 'Oxidative-stress and cellular defense pathway support.'
+  if (/ampk|glucose|insulin|metabolic/.test(value)) return 'Metabolic signaling and energy-balance pathway context.'
+  if (/nitric|endothelial|vascular|blood pressure/.test(value)) return 'Vascular or endothelial signaling context.'
+  if (/immune/.test(value)) return 'Immune-signaling context that should be interpreted conservatively.'
+
+  return 'Mechanistic signal from the current profile data; not proof of a clinical outcome.'
 }
 
 const splitSafety = (items: string[]) => {
@@ -38,6 +72,7 @@ const pmidUrl = (id: string) => `https://pubmed.ncbi.nlm.nih.gov/${id.replace(/\
 const getRelatedCompounds = async (herb: HerbDetail): Promise<RelatedLinkItem[]> => {
   const [compoundMap, compounds] = await Promise.all([getHerbCompoundMap(), getCompounds()])
   const validCompoundSlugs = new Set(compounds.map((compound: any) => compound.slug).filter(Boolean))
+  const seen = new Set<string>()
 
   return compoundMap
     .filter((entry: any) => (entry.herbSlug || entry.herb_slug) === herb.slug)
@@ -48,6 +83,11 @@ const getRelatedCompounds = async (herb: HerbDetail): Promise<RelatedLinkItem[]>
       slug: entry.canonicalCompoundId || entry.compound_slug,
     }))
     .filter((entry: any) => entry.slug && validCompoundSlugs.has(entry.slug))
+    .filter((entry: any) => {
+      if (seen.has(entry.slug)) return false
+      seen.add(entry.slug)
+      return true
+    })
     .slice(0, 6)
 }
 
@@ -101,10 +141,20 @@ export default async function HerbDetailPage({ params }: Params) {
     ...claims,
   ].filter(isClean)).slice(0, 6)
 
+  const outcomeCards: EditorialCard[] = bestFor.map(item => ({
+    title: formatDisplayLabel(item),
+    text: getOutcomeText(item),
+  })).filter(card => card.title && isClean(card.title))
+
   const mechanisms = unique([
     ...list(herb.mechanisms),
     formatDisplayLabel(herb.mechanism_summary)
   ].filter(isClean)).slice(0, 6)
+
+  const mechanismCards: EditorialCard[] = mechanisms.map(item => ({
+    title: formatDisplayLabel(item),
+    text: getMechanismText(item),
+  })).filter(card => card.title && isClean(card.title))
 
   const safetyNote = formatDisplayLabel(herb.safetyNotes)
 
@@ -116,10 +166,17 @@ export default async function HerbDetailPage({ params }: Params) {
 
   const safety = splitSafety(safetyItems)
 
-  const evidence = formatDisplayLabel(herb.evidence_grade) || 'Limited'
+  const evidence = formatDisplayLabel(herb.evidence_grade) || formatDisplayLabel(herb.evidenceLevel) || 'Limited'
   const dosage = formatDisplayLabel(herb.dosage_range) || formatDisplayLabel(herb.dosage)
   const form = formatDisplayLabel(herb.oral_form) || formatDisplayLabel(herb.preparation)
   const timeToEffect = formatDisplayLabel(herb.time_to_effect)
+  const overviewSummary = cleanSummary(text(herb.summary) || text(herb.description), 'herb')
+
+  const profileOverview = [
+    overviewSummary,
+    outcomeCards.length > 0 ? `The strongest visible profile signals center on ${outcomeCards.slice(0, 3).map(card => card.title.toLowerCase()).join(', ')}.` : '',
+    mechanismCards.length > 0 ? `Mechanistic notes point toward ${mechanismCards.slice(0, 2).map(card => card.title.toLowerCase()).join(' and ')}, which should be interpreted as context rather than a guaranteed outcome.` : '',
+  ].filter(item => item && isClean(item)).join(' ')
 
   const pmids = unique([
     ...list(herb.pmid_list),
@@ -127,11 +184,20 @@ export default async function HerbDetailPage({ params }: Params) {
     ...list(herb.references)
   ].filter(id => /\d/.test(id))).slice(0, 10)
 
+  const hasForms = Boolean(form || dosage || timeToEffect)
+
+  const productGuidance = [
+    form ? `Start by matching the product form to the preparation used in the profile: ${form}.` : '',
+    dosage ? `Compare serving sizes against the dosage note instead of assuming every extract is equivalent.` : '',
+    'Prefer transparent labels, clear plant part or extract details, and avoid vague proprietary blends when possible.',
+  ].filter(Boolean)
+
   const toc = [
-    bestFor.length ? ['best-for', 'Best for'] : null,
-    mechanisms.length ? ['mechanisms', 'Mechanisms'] : null,
+    profileOverview ? ['overview', 'Overview'] : null,
+    outcomeCards.length ? ['best-for', 'Best for'] : null,
+    mechanismCards.length ? ['mechanisms', 'Mechanisms'] : null,
     safetyItems.length ? ['safety', 'Safety'] : null,
-    (form || dosage || timeToEffect) ? ['forms', 'Forms & dosage'] : null,
+    hasForms ? ['forms', 'Forms & dosage'] : null,
     relatedCompounds.length ? ['related-compounds', 'Related compounds'] : null,
     pmids.length ? ['sources', 'Sources'] : null,
     affiliateLinks.length ? ['products', 'Product research'] : null,
@@ -169,21 +235,37 @@ export default async function HerbDetailPage({ params }: Params) {
           </p>
         </section>
 
-        {bestFor.length > 0 ? (
+        {profileOverview ? (
+          <DetailCard id="overview" eyebrow="Profile Overview" title="Scientific snapshot" description="A concise interpretation of the available profile fields without adding unsupported claims.">
+            <p className="detail-reading text-[#46574d]">
+              {profileOverview}
+            </p>
+          </DetailCard>
+        ) : null}
+
+        {outcomeCards.length > 0 ? (
           <DetailCard id="best-for" eyebrow="Use Cases" title="Best for" description="Signals surfaced from the current profile and linked claim data.">
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {bestFor.map(item => (
-                <div key={item} className="surface-subtle rounded-2xl p-4 text-sm font-semibold text-ink">
-                  {item}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {outcomeCards.map(card => (
+                <div key={card.title} className="surface-subtle rounded-2xl p-5">
+                  <h3 className="text-base font-semibold text-ink">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{card.text}</p>
                 </div>
               ))}
             </div>
           </DetailCard>
         ) : null}
 
-        {mechanisms.length > 0 ? (
-          <DetailCard id="mechanisms" eyebrow="Mechanism Context" title="Mechanisms">
-            <BulletList items={mechanisms} />
+        {mechanismCards.length > 0 ? (
+          <DetailCard id="mechanisms" eyebrow="Mechanism Context" title="Mechanisms" description="Mechanisms are interpreted conservatively and should not be read as guaranteed clinical effects.">
+            <div className="grid gap-4 md:grid-cols-2">
+              {mechanismCards.map(card => (
+                <div key={card.title} className="surface-subtle rounded-2xl p-5">
+                  <h3 className="text-base font-semibold text-ink">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{card.text}</p>
+                </div>
+              ))}
+            </div>
           </DetailCard>
         ) : null}
 
@@ -218,7 +300,7 @@ export default async function HerbDetailPage({ params }: Params) {
           </DetailCard>
         ) : null}
 
-        {(form || dosage || timeToEffect) ? (
+        {hasForms ? (
           <DetailCard id="forms" eyebrow="Practical Context" title="Forms & dosage">
             <div className="grid gap-4 md:grid-cols-3">
               {form ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Forms</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{form}</p></div> : null}
@@ -255,7 +337,16 @@ export default async function HerbDetailPage({ params }: Params) {
         ) : null}
 
         {affiliateLinks.length > 0 ? (
-          <DetailCard id="products" eyebrow="Product Research" title="Search product options">
+          <DetailCard id="products" eyebrow="Product Research" title="Search product options" description="Use these as research starting points; compare labels, standardization, serving size, and third-party testing before buying.">
+            {hasForms ? (
+              <div className="mb-6 rounded-2xl border border-brand-900/10 bg-white/80 p-5">
+                <h3 className="text-base font-semibold text-ink">What to look for</h3>
+                <div className="mt-4">
+                  <BulletList items={productGuidance} />
+                </div>
+              </div>
+            ) : null}
+
             <div className="grid gap-4 md:grid-cols-3">
               {affiliateLinks.map(link => (
                 <a key={link.url} href={link.url} target="_blank" rel="sponsored noreferrer" className="surface-subtle rounded-2xl p-5 transition hover:-translate-y-0.5 hover:bg-white">
