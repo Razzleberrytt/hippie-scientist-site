@@ -7,8 +7,8 @@
   --surface: #fbf6e9;
   --surface-elevated: rgba(255,255,255,0.72);
   --text-primary: #102018;
-  --text-secondary: #435246;
-  --text-muted: #66756b;
+  --text-secondary: #3f4f44;
+  --text-muted: #58685f;
   --border-soft: rgba(29,74,47,0.08);
   --ring-brand: rgba(53,143,82,.35);
 }
@@ -23,8 +23,8 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(141,170,120,.18), transparent 32%),
-    radial-gradient(circle at top right, rgba(234,216,172,.28), transparent 26%),
+    radial-gradient(circle at top left, rgba(141,170,120,.16), transparent 34%),
+    radial-gradient(circle at top right, rgba(234,216,172,.22), transparent 28%),
     linear-gradient(180deg, #fffdf7 0%, #fbf6e9 100%);
   color: var(--text-primary);
   font-family: var(--font-inter), Inter, system-ui, sans-serif;
@@ -81,6 +81,15 @@ body {
     @apply max-w-reading text-base leading-body text-muted;
   }
 
+  ul,
+  ol {
+    @apply space-y-2;
+  }
+
+  li {
+    @apply leading-7;
+  }
+
   a {
     @apply transition-colors duration-200;
   }
@@ -108,6 +117,18 @@ body {
     --tw-ring-color: var(--ring-brand);
   }
 
+  details {
+    @apply rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm;
+  }
+
+  summary {
+    @apply cursor-pointer text-sm font-semibold tracking-tight text-ink;
+  }
+
+  details[open] {
+    @apply bg-white/85 shadow-card;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation: none !important;
@@ -123,7 +144,7 @@ body {
   }
 
   .glass-card {
-    @apply rounded-card border border-white/40 bg-white/75 backdrop-blur-xl shadow-card;
+    @apply rounded-card border border-white/45 bg-white/78 backdrop-blur-xl shadow-card;
   }
 
   .card-premium {
@@ -131,26 +152,75 @@ body {
   }
 
   .card-premium:hover {
-    @apply -translate-y-1 shadow-glow;
+    @apply -translate-y-0.5 shadow-glow;
   }
 
   .hero-shell {
     background:
-      radial-gradient(circle at top left, rgba(141,170,120,.24), transparent 30%),
-      radial-gradient(circle at top right, rgba(221,193,127,.24), transparent 22%),
-      linear-gradient(180deg, rgba(255,255,255,.78), rgba(251,246,233,.86));
+      radial-gradient(circle at 12% 8%, rgba(141,170,120,.2), transparent 30%),
+      radial-gradient(circle at 88% 12%, rgba(221,193,127,.18), transparent 24%),
+      linear-gradient(180deg, rgba(255,255,255,.82), rgba(251,246,233,.88));
+  }
+
+  .section-spacing {
+    @apply space-y-8 sm:space-y-10 lg:space-y-12;
+  }
+
+  .card-spacing {
+    @apply p-5 sm:p-6 lg:p-7;
+  }
+
+  .content-prose {
+    @apply max-w-prose space-y-5 text-base leading-relaxed text-muted sm:text-[1.035rem];
+  }
+
+  .content-prose p {
+    @apply max-w-prose leading-relaxed text-muted;
+  }
+
+  .content-prose ul,
+  .content-prose ol {
+    @apply space-y-3 pl-5;
+  }
+
+  .content-prose li {
+    @apply pl-1 leading-7 text-muted;
+  }
+
+  .muted-readable {
+    @apply text-[#47584d];
+  }
+
+  .eyebrow-label {
+    @apply text-[0.72rem] font-bold uppercase leading-none tracking-[0.18em] text-brand-700;
+  }
+
+  .surface-subtle {
+    @apply rounded-card border border-brand-900/10 bg-white/70 shadow-sm backdrop-blur-xl;
+  }
+
+  .surface-depth {
+    @apply rounded-card border border-white/55 bg-white/82 shadow-card backdrop-blur-xl;
+  }
+
+  .chip-readable {
+    @apply inline-flex items-center rounded-full border border-brand-900/10 bg-white/75 px-3.5 py-1.5 text-xs font-semibold leading-none text-[#33443a] shadow-sm;
+  }
+
+  .accordion-readable {
+    @apply rounded-3xl border border-brand-900/10 bg-white/72 p-5 shadow-sm backdrop-blur-xl transition-all duration-300 open:bg-white/90 open:shadow-card;
   }
 
   .evidence-pill-strong {
-    @apply rounded-full border border-emerald-700/10 bg-emerald-700/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-800;
+    @apply rounded-full border border-emerald-700/15 bg-emerald-700/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-800;
   }
 
   .evidence-pill-moderate {
-    @apply rounded-full border border-blue-700/10 bg-blue-700/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-blue-800;
+    @apply rounded-full border border-blue-700/15 bg-blue-700/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-blue-800;
   }
 
   .safety-block {
-    @apply rounded-3xl border border-amber-600/20 bg-amber-50/90 p-5 shadow-sm;
+    @apply rounded-card border border-amber-600/20 bg-amber-50/90 p-6 shadow-sm;
   }
 
   .button-primary {
