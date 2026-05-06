@@ -13,6 +13,8 @@ import ResearchHighlights from '@/components/ui/ResearchHighlights'
 import CompoundHero from '@/components/ui/CompoundHero'
 import TimelineCard from '@/components/ui/TimelineCard'
 import StackCompatibility from '@/components/ui/StackCompatibility'
+import ConfidencePanel from '@/components/ui/ConfidencePanel'
+import ReadingProgress from '@/components/ui/ReadingProgress'
 import data from '../../../public/data/compounds.json'
 import {
   normalizeEvidenceLevel,
@@ -65,134 +67,140 @@ export default function Page({ params }: any) {
   ]
 
   return (
-    <main className="max-w-7xl mx-auto px-4 flex gap-10 pb-28">
+    <>
+      <ReadingProgress />
 
-      <TableOfContents />
+      <main className="max-w-7xl mx-auto px-4 flex gap-10 pb-28">
 
-      <div className="flex-1 space-y-10">
+        <TableOfContents />
 
-        <Breadcrumbs items={[
-          { label:'Home', href:'/' },
-          { label:'Compounds', href:'/compounds' },
-          { label:compound.name }
-        ]}/>
+        <div className="flex-1 space-y-10">
 
-        <TrustBar />
+          <Breadcrumbs items={[
+            { label:'Home', href:'/' },
+            { label:'Compounds', href:'/compounds' },
+            { label:compound.name }
+          ]}/>
 
-        <CompoundHero
-          compound={compound}
-          evidenceLevel={evidenceLevel}
-          safetyLevel={safetyLevel}
-        />
+          <TrustBar />
 
-        <div className="space-y-5">
+          <CompoundHero
+            compound={compound}
+            evidenceLevel={evidenceLevel}
+            safetyLevel={safetyLevel}
+          />
 
-          <EvidenceMeter level={evidenceLevel} />
+          <div className="space-y-5">
 
-          <CompoundStats compound={{
-            ...compound,
-            effects,
-            sources
-          }} />
+            <EvidenceMeter level={evidenceLevel} />
 
-          <UseCases effects={effects} />
+            <ConfidencePanel level={evidenceLevel} />
+
+            <CompoundStats compound={{
+              ...compound,
+              effects,
+              sources
+            }} />
+
+            <UseCases effects={effects} />
+
+          </div>
+
+          <DecisionCard
+            bestFor={effects}
+            avoid={compound.avoid||[]}
+            time="Varies"
+            evidence={compound.evidence_tier || 'Human data available'}
+          />
+
+          <div className="bg-neutral-100 rounded-2xl p-6 text-sm leading-7 border shadow-sm">
+            <strong>Quick Verdict:</strong>{' '}
+            {compound.summary || 'Likely useful depending on context and goals.'}
+          </div>
+
+          <SectionBlock title="Expected Timeline">
+            <TimelineCard />
+          </SectionBlock>
+
+          {mechanisms.length > 0 && (
+            <SectionBlock title="Mechanisms">
+              <MechanismGrid mechanisms={mechanisms} />
+            </SectionBlock>
+          )}
+
+          <div id="effects">
+            <SectionBlock title="Primary Effects">
+              <ul className="space-y-3 text-sm leading-7">
+                {effects.map((e:any,i:number)=>(
+                  <li key={i}>• {e}</li>
+                ))}
+              </ul>
+            </SectionBlock>
+          </div>
+
+          <SectionBlock title="Potential Stack Pairings">
+            <StackCompatibility related={related} />
+          </SectionBlock>
+
+          <div id="safety">
+            <SectionBlock title="Safety">
+              <p className="text-sm leading-7">
+                {compound.safety || 'Generally well tolerated for most users. Use caution with medications or pre-existing conditions.'}
+              </p>
+            </SectionBlock>
+          </div>
+
+          {sources.length>0&&(
+            <SectionBlock title="Research Highlights">
+              <ResearchHighlights sources={sources} />
+            </SectionBlock>
+          )}
+
+          {sources.length>0&&(
+            <SectionBlock title="Sources">
+              <ul className="space-y-2 text-xs leading-6 text-neutral-600">
+                {sources.slice(0,10).map((s:any,i:number)=>(
+                  <li key={i}>• {typeof s==='string'?s:JSON.stringify(s)}</li>
+                ))}
+              </ul>
+            </SectionBlock>
+          )}
+
+          <div id="faq">
+            <SectionBlock title="FAQ">
+              <div className="space-y-5">
+                {faq.map((f,i)=>(
+                  <div key={i} className="space-y-2 border-b pb-4 last:border-none">
+                    <p className="font-semibold text-sm">{f.q}</p>
+                    <p className="text-sm text-neutral-600 leading-7">{f.a}</p>
+                  </div>
+                ))}
+              </div>
+            </SectionBlock>
+          </div>
+
+          <div id="related">
+            <SectionBlock title="Related Compounds">
+              <div className="flex flex-wrap gap-2">
+                {related.map((r:any)=>(
+                  <Link
+                    key={r.slug}
+                    href={`/compounds/${r.slug}`}
+                    className="text-xs bg-neutral-100 hover:bg-neutral-200 transition px-3 py-2 rounded-full border"
+                  >
+                    {r.name}
+                  </Link>
+                ))}
+              </div>
+            </SectionBlock>
+          </div>
 
         </div>
 
-        <DecisionCard
-          bestFor={effects}
-          avoid={compound.avoid||[]}
-          time="Varies"
-          evidence={compound.evidence_tier || 'Human data available'}
-        />
+        <ScrollCTA />
+        <CompareBar items={related} />
 
-        <div className="bg-neutral-100 rounded-2xl p-6 text-sm leading-7 border shadow-sm">
-          <strong>Quick Verdict:</strong>{' '}
-          {compound.summary || 'Likely useful depending on context and goals.'}
-        </div>
-
-        <SectionBlock title="Expected Timeline">
-          <TimelineCard />
-        </SectionBlock>
-
-        {mechanisms.length > 0 && (
-          <SectionBlock title="Mechanisms">
-            <MechanismGrid mechanisms={mechanisms} />
-          </SectionBlock>
-        )}
-
-        <div id="effects">
-          <SectionBlock title="Primary Effects">
-            <ul className="space-y-3 text-sm leading-7">
-              {effects.map((e:any,i:number)=>(
-                <li key={i}>• {e}</li>
-              ))}
-            </ul>
-          </SectionBlock>
-        </div>
-
-        <SectionBlock title="Potential Stack Pairings">
-          <StackCompatibility related={related} />
-        </SectionBlock>
-
-        <div id="safety">
-          <SectionBlock title="Safety">
-            <p className="text-sm leading-7">
-              {compound.safety || 'Generally well tolerated for most users. Use caution with medications or pre-existing conditions.'}
-            </p>
-          </SectionBlock>
-        </div>
-
-        {sources.length>0&&(
-          <SectionBlock title="Research Highlights">
-            <ResearchHighlights sources={sources} />
-          </SectionBlock>
-        )}
-
-        {sources.length>0&&(
-          <SectionBlock title="Sources">
-            <ul className="space-y-2 text-xs leading-6 text-neutral-600">
-              {sources.slice(0,10).map((s:any,i:number)=>(
-                <li key={i}>• {typeof s==='string'?s:JSON.stringify(s)}</li>
-              ))}
-            </ul>
-          </SectionBlock>
-        )}
-
-        <div id="faq">
-          <SectionBlock title="FAQ">
-            <div className="space-y-5">
-              {faq.map((f,i)=>(
-                <div key={i} className="space-y-2 border-b pb-4 last:border-none">
-                  <p className="font-semibold text-sm">{f.q}</p>
-                  <p className="text-sm text-neutral-600 leading-7">{f.a}</p>
-                </div>
-              ))}
-            </div>
-          </SectionBlock>
-        </div>
-
-        <div id="related">
-          <SectionBlock title="Related Compounds">
-            <div className="flex flex-wrap gap-2">
-              {related.map((r:any)=>(
-                <Link
-                  key={r.slug}
-                  href={`/compounds/${r.slug}`}
-                  className="text-xs bg-neutral-100 hover:bg-neutral-200 transition px-3 py-2 rounded-full border"
-                >
-                  {r.name}
-                </Link>
-              ))}
-            </div>
-          </SectionBlock>
-        </div>
-
-      </div>
-
-      <ScrollCTA />
-      <CompareBar items={related} />
-
-    </main>
+      </main>
+    </>
   )
 }
