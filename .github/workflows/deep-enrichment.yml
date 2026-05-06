@@ -1,0 +1,19 @@
+name: Deep Enrichment
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch:
+        required: false
+        default: '3'
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --prefer-offline --no-audit
+      - run: npm run agent:run -- --mode=deep --batch=${{ github.event.inputs.batch }} || true
