@@ -1,7 +1,8 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import PremiumCard from '@/components/ui/PremiumCard'
+import HerbCard from '@/components/herbs/HerbCard'
+import CompoundCard from '@/components/compounds/CompoundCard'
 
 type BrowserItem = {
   slug: string
@@ -19,11 +20,9 @@ type BrowserItem = {
   tags?: string[]
 }
 
-const goals = ['All', 'Focus', 'Sleep', 'Stress', 'Energy', 'Mood', 'Recovery']
 const tiers = ['All', 'Strong', 'Moderate', 'Limited', 'Theoretical']
 
 export default function LibraryBrowser({ eyebrow, title, description, items }: any) {
-  const [goal, setGoal] = useState('All')
   const [tier, setTier] = useState('All')
   const [query, setQuery] = useState('')
 
@@ -36,87 +35,69 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
         return haystack.includes(query.toLowerCase())
       })
       .filter((i: BrowserItem) => {
-        if (goal === 'All') return true
-        return JSON.stringify(i).toLowerCase().includes(goal.toLowerCase())
-      })
-      .filter((i: BrowserItem) => {
         if (tier === 'All') return true
         return String(i.evidenceTier || i.evidence).toLowerCase().includes(tier.toLowerCase())
       })
-  }, [items, goal, tier, query])
+  }, [items, tier, query])
+
+  const isHerbs = title.toLowerCase().includes('herb')
 
   return (
-    <div className="mx-auto w-full max-w-7xl space-y-10 py-2">
-      <section className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-6 shadow-soft sm:p-8 lg:p-10">
-        <div className="max-w-3xl space-y-5">
+    <div className="container-page section-spacing py-8 sm:py-12 lg:py-14">
+      <section className="hero-shell overflow-hidden rounded-[2.2rem] border border-brand-900/10 card-spacing shadow-soft">
+        <div className="max-w-4xl section-spacing">
           {eyebrow ? (
-            <div className="eyebrow inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-brand-700">
+            <div className="eyebrow-label inline-flex rounded-full border border-brand-700/10 bg-white/60 px-4 py-2 backdrop-blur-md">
               {eyebrow}
             </div>
           ) : null}
 
-          <div>
-            <h1 className="heading-premium text-ink">
+          <div className="space-y-6">
+            <h1 className="heading-premium max-w-4xl text-balance text-ink">
               {title}
             </h1>
 
             {description ? (
-              <p className="text-reading mt-4 text-lg text-muted-soft">
+              <p className="text-reading max-w-2xl text-lg text-muted-soft sm:text-xl">
                 {description}
               </p>
             ) : null}
           </div>
+        </div>
+      </section>
 
-          <div className="flex flex-col gap-4 pt-4 lg:flex-row lg:flex-wrap">
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={`Search ${title.toLowerCase()}...`}
-              aria-label={`Search ${title.toLowerCase()}`}
-              className="w-full min-w-0 flex-1 rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm text-ink shadow-sm outline-none transition placeholder:text-muted-soft focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
-            />
+      <section className="surface-subtle card-spacing">
+        <div className="grid gap-4 lg:grid-cols-[1fr_220px_auto]">
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={`Search ${title.toLowerCase()}...`}
+            aria-label={`Search ${title.toLowerCase()}`}
+            className="rounded-2xl border border-brand-900/10 bg-white/80 px-5 py-3 text-sm text-ink shadow-sm outline-none transition placeholder:text-muted-soft focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
+          />
 
-            <select
-              value={goal}
-              onChange={(e) => setGoal(e.target.value)}
-              aria-label="Filter by goal"
-              className="rounded-2xl border border-brand-900/10 bg-white/85 px-4 py-3 text-sm font-medium text-ink shadow-sm outline-none transition focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
-            >
-              {goals.map((g) => <option key={g}>{g}</option>)}
-            </select>
+          <select
+            value={tier}
+            onChange={(e) => setTier(e.target.value)}
+            aria-label="Filter by evidence"
+            className="rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-3 text-sm font-medium text-ink shadow-sm outline-none transition focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
+          >
+            {tiers.map((t) => <option key={t}>{t}</option>)}
+          </select>
 
-            <select
-              value={tier}
-              onChange={(e) => setTier(e.target.value)}
-              aria-label="Filter by evidence"
-              className="rounded-2xl border border-brand-900/10 bg-white/85 px-4 py-3 text-sm font-medium text-ink shadow-sm outline-none transition focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
-            >
-              {tiers.map((t) => <option key={t}>{t}</option>)}
-            </select>
-
-            <div className="inline-flex items-center rounded-2xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm text-muted-soft shadow-sm">
-              {filtered.length} profiles
-            </div>
+          <div className="inline-flex items-center justify-center rounded-2xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm text-muted-soft shadow-sm">
+            {filtered.length} profiles
           </div>
         </div>
       </section>
 
-      <section className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
+      <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map((item: BrowserItem) => {
-          const tags = (item.primary_effects || item.effects || item.tags || []).slice(0, 3)
+          if (isHerbs) {
+            return <HerbCard key={item.slug} herb={item as any} />
+          }
 
-          return (
-            <PremiumCard
-              key={item.slug}
-              href={item.href}
-              title={item.title}
-              summary={item.summary}
-              evidence={item.evidenceTier || item.evidence}
-              safety={item.safety}
-              bestFor={item.bestFor}
-              tags={tags}
-            />
-          )
+          return <CompoundCard key={item.slug} compound={item as any} />
         })}
       </section>
     </div>
