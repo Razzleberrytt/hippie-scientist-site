@@ -6,7 +6,7 @@ import { DetailCard, EvidenceBadge } from '@/components/ui'
 import { getClaims, getCompounds, getHerbBySlug, getHerbCompoundMap, getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { commonSupplementFaqJsonLd } from '@/lib/seo'
-import { cleanSummary, formatDisplayLabel, hideInternalValue, isClean, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 
 type Params = { params: Promise<{ slug: string }> }
 type HerbDetail = Record<string, any>
@@ -15,34 +15,21 @@ type RelatedLinkItem = { href: string; title: string; description: string }
 const formatSlugLabel = (slug: string) => slug.split('-').filter(Boolean).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
 const getHerbLabel = (herb: HerbDetail) => formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatSlugLabel(herb.slug)
 
-const sentenceList = (items: string[]) => {
-  const clean = unique(items).slice(0, 3)
-  if (clean.length === 0) return ''
-  if (clean.length === 1) return clean[0]
-  if (clean.length === 2) return `${clean[0]} and ${clean[1]}`
-  return `${clean[0]}, ${clean[1]}, and ${clean[2]}`
-}
-
 const getLeadText = (herb: HerbDetail) => {
   const effects = unique(list(herb.primary_effects)).slice(0, 3)
-  if (effects.length) return `Traditionally used for ${sentenceList(effects)}.`
+  if (effects.length) {
+    return `Traditionally used for ${effects.join(', ')}.`
+  }
 
   return cleanSummary(text(herb.summary) || text(herb.description), 'herb')
 }
 
-const cleanMechanism = (item: string) => {
-  const cleaned = formatDisplayLabel(item).replace(/\([^)]*\)/g, '').replace(/\bmay\b/gi, '').replace(/\s+/g, ' ').trim()
-  if (!isClean(cleaned)) return ''
-  const lower = cleaned.charAt(0).toLowerCase() + cleaned.slice(1)
-  if (/^(supports|influences|modulates|helps|affects|promotes|inhibits|activates)\b/i.test(cleaned)) return cleaned.charAt(0).toUpperCase() + cleaned.slice(1)
-  return `Supports ${lower}`
-}
-
 const splitSafety = (items: string[]) => {
   const cleaned = unique(items.map(formatDisplayLabel).filter(isClean)).slice(0, 10)
+
   return {
-    avoidIf: cleaned.filter(item => /avoid|contraindicat|pregnan|allerg|do not|kidney disease|seizure|children/i.test(item)).slice(0, 5),
-    useCautionWith: cleaned.filter(item => !/avoid|contraindicat|pregnan|allerg|do not|kidney disease|seizure|children/i.test(item)).slice(0, 5),
+    avoidIf: cleaned.filter(item => /avoid|contraindicat|pregnan|allerg|do not/i.test(item)).slice(0, 5),
+    useCautionWith: cleaned.filter(item => !/avoid|contraindicat|pregnan|allerg|do not/i.test(item)).slice(0, 5),
   }
 }
 
@@ -51,29 +38,17 @@ const pmidUrl = (id: string) => `https://pubmed.ncbi.nlm.nih.gov/${id.replace(/\
 const getRelatedCompounds = async (herb: HerbDetail): Promise<RelatedLinkItem[]> => {
   const [compoundMap, compounds] = await Promise.all([getHerbCompoundMap(), getCompounds()])
   const validCompoundSlugs = new Set(compounds.map((compound: any) => compound.slug).filter(Boolean))
-  const seen = new Set<string>()
 
   return compoundMap
     .filter((entry: any) => (entry.herbSlug || entry.herb_slug) === herb.slug)
     .map((entry: any) => ({
-      slug: entry.canonicalCompoundId || entry.compound_slug || '',
-      name: entry.canonicalCompoundName || entry.compound_name || '',
-      reason: entry.relationship_reason || entry.reason || entry.mechanism,
+      href: `/compounds/${entry.canonicalCompoundId || entry.compound_slug}/`,
+      title: formatDisplayLabel(entry.canonicalCompoundName || entry.compound_name),
+      description: formatDisplayLabel(entry.relationship_reason || entry.reason || entry.mechanism || 'Related mechanism context'),
+      slug: entry.canonicalCompoundId || entry.compound_slug,
     }))
-    .filter(entry => entry.slug && validCompoundSlugs.has(entry.slug))
-    .filter(entry => {
-      if (seen.has(entry.slug)) return false
-      seen.add(entry.slug)
-      return true
-    })
+    .filter((entry: any) => entry.slug && validCompoundSlugs.has(entry.slug))
     .slice(0, 6)
-    .map(entry => ({
-      href: `/compounds/${entry.slug}/`,
-      title: formatDisplayLabel(entry.name) || formatSlugLabel(entry.slug),
-      description: isClean(entry.reason)
-        ? formatDisplayLabel(entry.reason)
-        : 'Occurs in this herb or shares related mechanism context.'
-    }))
 }
 
 const BulletList = ({ items, color = 'bg-brand-700' }: { items: string[], color?: string }) => (
@@ -100,7 +75,6 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: `${getHerbLabel(herb)} | Herb`,
     description: getLeadText(herb),
-    alternates: { canonical: `/herbs/${herb.slug}` }
   }
 }
 
@@ -124,14 +98,13 @@ export default async function HerbDetailPage({ params }: Params) {
 
   const bestFor = unique([
     ...list(herb.primary_effects),
-    formatDisplayLabel(herb.primaryDomain),
-    ...claims.map(claim => claim.replace(/^best for\s+/i, '')),
+    ...claims,
   ].filter(isClean)).slice(0, 6)
 
   const mechanisms = unique([
-    text(herb.mechanism_summary),
-    ...list(herb.mechanisms)
-  ].map(cleanMechanism).filter(isClean)).slice(0, 6)
+    ...list(herb.mechanisms),
+    formatDisplayLabel(herb.mechanism_summary)
+  ].filter(isClean)).slice(0, 6)
 
   const safetyNote = formatDisplayLabel(herb.safetyNotes)
 
@@ -139,16 +112,14 @@ export default async function HerbDetailPage({ params }: Params) {
     safetyNote,
     ...list(herb.contraindications),
     ...list(herb.interactions),
-    ...list(herb.contraindications_interactions)
   ].filter(isClean))
 
   const safety = splitSafety(safetyItems)
 
-  const evidence = formatDisplayLabel(herb.evidence_grade) || formatDisplayLabel(herb.evidenceLevel) || 'Limited'
+  const evidence = formatDisplayLabel(herb.evidence_grade) || 'Limited'
   const dosage = formatDisplayLabel(herb.dosage_range) || formatDisplayLabel(herb.dosage)
   const form = formatDisplayLabel(herb.oral_form) || formatDisplayLabel(herb.preparation)
   const timeToEffect = formatDisplayLabel(herb.time_to_effect)
-  const updatedAt = text(herb.updated_at || herb.last_updated || herb.lastReviewedAt)
 
   const pmids = unique([
     ...list(herb.pmid_list),
@@ -156,15 +127,11 @@ export default async function HerbDetailPage({ params }: Params) {
     ...list(herb.references)
   ].filter(id => /\d/.test(id))).slice(0, 10)
 
-  const hasSafety = Boolean(safetyNote || safety.avoidIf.length || safety.useCautionWith.length)
-  const hasForms = Boolean(form || dosage || timeToEffect)
-  const hasCta = relatedCompounds.length > 0 || affiliateLinks.length > 0
-
   const toc = [
     bestFor.length ? ['best-for', 'Best for'] : null,
     mechanisms.length ? ['mechanisms', 'Mechanisms'] : null,
-    hasSafety ? ['safety', 'Safety'] : null,
-    hasForms ? ['forms', 'Forms & dosage'] : null,
+    safetyItems.length ? ['safety', 'Safety'] : null,
+    (form || dosage || timeToEffect) ? ['forms', 'Forms & dosage'] : null,
     relatedCompounds.length ? ['related-compounds', 'Related compounds'] : null,
     pmids.length ? ['sources', 'Sources'] : null,
     affiliateLinks.length ? ['products', 'Product research'] : null,
@@ -172,7 +139,6 @@ export default async function HerbDetailPage({ params }: Params) {
 
   return (
     <div className="grid gap-8 px-4 pb-20 sm:px-6 lg:grid-cols-[220px_minmax(0,1fr)] lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: label, description: leadText, url: `https://thehippiescientist.net/herbs/${herb.slug}`, publisher: { '@type': 'Organization', name: 'The Hippie Scientist' } }) }} />
       {faqJsonLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} /> : null}
 
       <aside className="hidden lg:block">
@@ -201,15 +167,108 @@ export default async function HerbDetailPage({ params }: Params) {
           <p className="text-reading mt-5 max-w-reading text-lg text-muted-soft">
             {leadText}
           </p>
-
-          <div className="mt-5 flex flex-wrap gap-3">
-            <span className="chip-readable">Evidence-aware</span>
-            <span className="chip-readable">Human data prioritized</span>
-            <span className="chip-readable">Safety context included</span>
-          </div>
-
-          {updatedAt ? <p className="mt-5 text-sm text-muted-soft">Last updated {updatedAt}</p> : null}
         </section>
+
+        {bestFor.length > 0 ? (
+          <DetailCard id="best-for" eyebrow="Use Cases" title="Best for" description="Signals surfaced from the current profile and linked claim data.">
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {bestFor.map(item => (
+                <div key={item} className="surface-subtle rounded-2xl p-4 text-sm font-semibold text-ink">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </DetailCard>
+        ) : null}
+
+        {mechanisms.length > 0 ? (
+          <DetailCard id="mechanisms" eyebrow="Mechanism Context" title="Mechanisms">
+            <BulletList items={mechanisms} />
+          </DetailCard>
+        ) : null}
+
+        {safetyItems.length > 0 ? (
+          <DetailCard id="safety" eyebrow="Safety Context" title="Safety">
+            <div className="grid gap-6 lg:grid-cols-2">
+              {safety.avoidIf.length > 0 ? (
+                <div className="rounded-2xl border border-red-700/10 bg-red-50/70 p-5">
+                  <h3 className="text-base font-semibold text-ink">Avoid if</h3>
+                  <div className="mt-4">
+                    <BulletList items={safety.avoidIf} color="bg-red-700" />
+                  </div>
+                </div>
+              ) : null}
+
+              {safety.useCautionWith.length > 0 ? (
+                <div className="rounded-2xl border border-amber-700/10 bg-amber-50/70 p-5">
+                  <h3 className="text-base font-semibold text-ink">Use caution with</h3>
+                  <div className="mt-4">
+                    <BulletList items={safety.useCautionWith} color="bg-amber-600" />
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            {safetyNote ? (
+              <div className="mt-6 surface-subtle rounded-2xl p-5">
+                <h3 className="text-base font-semibold text-ink">General safety note</h3>
+                <p className="mt-3 text-sm leading-7 text-[#46574d]">{safetyNote}</p>
+              </div>
+            ) : null}
+          </DetailCard>
+        ) : null}
+
+        {(form || dosage || timeToEffect) ? (
+          <DetailCard id="forms" eyebrow="Practical Context" title="Forms & dosage">
+            <div className="grid gap-4 md:grid-cols-3">
+              {form ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Forms</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{form}</p></div> : null}
+              {dosage ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Dosage note</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{dosage}</p></div> : null}
+              {timeToEffect ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Time to effect</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{timeToEffect}</p></div> : null}
+            </div>
+          </DetailCard>
+        ) : null}
+
+        {relatedCompounds.length > 0 ? (
+          <DetailCard id="related-compounds" eyebrow="Compound Links" title="Related compounds">
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {relatedCompounds.map(item => (
+                <Link key={item.href} href={item.href} className="card-premium block p-5 hover:-translate-y-1">
+                  <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{item.description}</p>
+                  <p className="mt-4 text-sm font-semibold text-brand-800">Open compound →</p>
+                </Link>
+              ))}
+            </div>
+          </DetailCard>
+        ) : null}
+
+        {pmids.length > 0 ? (
+          <DetailCard id="sources" eyebrow="Research References" title="PubMed links">
+            <div className="flex flex-wrap gap-3">
+              {pmids.map(id => (
+                <a key={id} href={pmidUrl(id)} target="_blank" rel="noreferrer" className="chip-readable hover:text-brand-800">
+                  PMID {id.replace(/\D/g, '')}
+                </a>
+              ))}
+            </div>
+          </DetailCard>
+        ) : null}
+
+        {affiliateLinks.length > 0 ? (
+          <DetailCard id="products" eyebrow="Product Research" title="Search product options">
+            <div className="grid gap-4 md:grid-cols-3">
+              {affiliateLinks.map(link => (
+                <a key={link.url} href={link.url} target="_blank" rel="sponsored noreferrer" className="surface-subtle rounded-2xl p-5 transition hover:-translate-y-0.5 hover:bg-white">
+                  <h3 className="text-base font-semibold text-ink">{link.label}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{link.helperText}</p>
+                  <p className="mt-4 inline-flex items-center text-sm font-semibold text-brand-800">
+                    Search options <ExternalLink className="ml-1 h-3.5 w-3.5" />
+                  </p>
+                </a>
+              ))}
+            </div>
+          </DetailCard>
+        ) : null}
       </main>
     </div>
   )
