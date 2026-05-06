@@ -11,6 +11,8 @@ import MechanismGrid from '@/components/ui/MechanismGrid'
 import UseCases from '@/components/ui/UseCases'
 import ResearchHighlights from '@/components/ui/ResearchHighlights'
 import CompoundHero from '@/components/ui/CompoundHero'
+import TimelineCard from '@/components/ui/TimelineCard'
+import StackCompatibility from '@/components/ui/StackCompatibility'
 import data from '../../../public/data/compounds.json'
 import {
   normalizeEvidenceLevel,
@@ -109,6 +111,10 @@ export default function Page({ params }: any) {
           {compound.summary || 'Likely useful depending on context and goals.'}
         </div>
 
+        <SectionBlock title="Expected Timeline">
+          <TimelineCard />
+        </SectionBlock>
+
         {mechanisms.length > 0 && (
           <SectionBlock title="Mechanisms">
             <MechanismGrid mechanisms={mechanisms} />
@@ -124,6 +130,10 @@ export default function Page({ params }: any) {
             </ul>
           </SectionBlock>
         </div>
+
+        <SectionBlock title="Potential Stack Pairings">
+          <StackCompatibility related={related} />
+        </SectionBlock>
 
         <div id="safety">
           <SectionBlock title="Safety">
