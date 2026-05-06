@@ -43,7 +43,6 @@ export default function PremiumCard({
   href,
   title,
   summary,
-  typeLabel,
   evidence,
   safety,
   bestFor,
@@ -56,13 +55,11 @@ export default function PremiumCard({
   const visibleTags = tags.map(clean).filter(Boolean).slice(0, 3)
 
   return (
-    <article className="group flex h-full flex-col rounded-card border border-brand-900/10 bg-white/82 p-6 shadow-card backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
+    <article className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-6 sm:p-7 shadow-[0_10px_30px_rgba(29,74,47,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        {typeLabel ? (
-          <div className="eyebrow text-brand-700">
-            {typeLabel}
-          </div>
-        ) : <span aria-hidden="true" />}
+        <div className="eyebrow text-brand-700">
+          Evidence-aware profile
+        </div>
 
         <div className="flex shrink-0 flex-wrap justify-end gap-2">
           <EvidenceBadge tier={evidence} />
@@ -77,7 +74,7 @@ export default function PremiumCard({
         </div>
       </div>
 
-      <div className="mt-6 flex-1">
+      <div className="mt-7 flex-1">
         <Link href={href} className="block rounded-xl focus:outline-none focus:ring-4 focus:ring-brand-500/20">
           <h2 className="text-display text-[2rem] leading-[1.02] transition group-hover:text-brand-800 sm:text-4xl">
             {title}
@@ -85,13 +82,13 @@ export default function PremiumCard({
         </Link>
 
         {cleanSummary ? (
-          <p className="text-reading mt-5 line-clamp-4 text-base text-muted-soft">
+          <p className="text-reading mt-4 line-clamp-4 text-base text-muted-soft">
             {cleanSummary}
           </p>
         ) : null}
 
         {cleanBestFor ? (
-          <div className="mt-5 rounded-2xl border border-brand-900/10 bg-paper-100/70 px-4 py-3">
+          <div className="mt-5 rounded-2xl border border-brand-900/10 bg-[rgba(251,246,233,0.85)] px-4 py-3">
             <p className="text-sm leading-6 text-muted-soft">
               <span className="font-semibold text-ink">Best for:</span> {cleanBestFor}
             </p>
