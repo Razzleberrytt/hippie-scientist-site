@@ -1,8 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import Link from 'next/link'
-import { EvidenceBadge, RoleBadge } from '@/components/ui/Card'
+import PremiumCard from '@/components/ui/PremiumCard'
 
 type BrowserItem = {
   slug: string
@@ -12,7 +11,8 @@ type BrowserItem = {
   typeLabel?: string
   evidence?: string
   evidenceTier?: string
-  role?: string
+  safety?: string
+  bestFor?: string
   updatedAt?: string
   primary_effects?: string[]
   effects?: string[]
@@ -20,59 +20,91 @@ type BrowserItem = {
 }
 
 const goals = ['All', 'Focus', 'Sleep', 'Stress', 'Energy', 'Mood', 'Recovery']
-const tiers = ['All', 'High', 'Moderate', 'Limited']
+const tiers = ['All', 'Strong', 'Moderate', 'Limited', 'Theoretical']
 
-export default function LibraryBrowser({ title, description, items }: any) {
+export default function LibraryBrowser({ eyebrow, title, description, items }: any) {
   const [goal, setGoal] = useState('All')
   const [tier, setTier] = useState('All')
 
   const filtered = useMemo(() => {
     return items
-      .filter((i: any) => goal === 'All' || JSON.stringify(i).toLowerCase().includes(goal.toLowerCase()))
-      .filter((i: any) => tier === 'All' || String(i.evidenceTier || i.evidence).toLowerCase().includes(tier.toLowerCase()))
+      .filter((i: BrowserItem) => {
+        if (goal === 'All') return true
+        return JSON.stringify(i).toLowerCase().includes(goal.toLowerCase())
+      })
+      .filter((i: BrowserItem) => {
+        if (tier === 'All') return true
+        return String(i.evidenceTier || i.evidence).toLowerCase().includes(tier.toLowerCase())
+      })
   }, [items, goal, tier])
 
   return (
-    <div className="mx-auto w-full max-w-7xl space-y-8 py-2">
-      <section className="rounded-[2rem] border border-neutral-200 bg-white p-6 shadow-card">
-        <h1 className="text-4xl font-bold text-ink">{title}</h1>
-        {description && <p className="mt-2 text-muted">{description}</p>}
+    <div className="mx-auto w-full max-w-7xl space-y-10 py-2">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-soft sm:p-8 lg:p-10">
+        <div className="max-w-3xl space-y-5">
+          {eyebrow ? (
+            <div className="eyebrow inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-brand-700">
+              {eyebrow}
+            </div>
+          ) : null}
 
-        <div className="mt-5 flex gap-3 flex-wrap">
-          <select value={goal} onChange={e => setGoal(e.target.value)} className="rounded-xl border px-4 py-2">
-            {goals.map(g => <option key={g}>{g}</option>)}
-          </select>
-          <select value={tier} onChange={e => setTier(e.target.value)} className="rounded-xl border px-4 py-2">
-            {tiers.map(t => <option key={t}>{t}</option>)}
-          </select>
+          <div>
+            <h1 className="heading-premium text-ink">
+              {title}
+            </h1>
+
+            {description ? (
+              <p className="text-reading mt-4 text-lg text-muted-soft">
+                {description}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-2">
+            <select
+              value={goal}
+              onChange={(e) => setGoal(e.target.value)}
+              aria-label="Filter by goal"
+              className="rounded-2xl border border-brand-900/10 bg-white/85 px-4 py-3 text-sm font-medium text-ink shadow-sm outline-none transition focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
+            >
+              {goals.map((g) => <option key={g}>{g}</option>)}
+            </select>
+
+            <select
+              value={tier}
+              onChange={(e) => setTier(e.target.value)}
+              aria-label="Filter by evidence"
+              className="rounded-2xl border border-brand-900/10 bg-white/85 px-4 py-3 text-sm font-medium text-ink shadow-sm outline-none transition focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
+            >
+              {tiers.map((t) => <option key={t}>{t}</option>)}
+            </select>
+
+            <div className="inline-flex items-center rounded-2xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm text-muted-soft shadow-sm">
+              {filtered.length} profiles
+            </div>
+          </div>
         </div>
       </section>
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-        {filtered.map((item: any) => {
+      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {filtered.map((item: BrowserItem) => {
           const tags = (item.primary_effects || item.effects || item.tags || []).slice(0, 3)
+
           return (
-            <Link key={item.slug} href={item.href} className="rounded-3xl border border-neutral-200 bg-white p-5 shadow-card">
-              <div className="flex justify-between">
-                <h2 className="text-lg font-bold text-ink">{item.title}</h2>
-                <EvidenceBadge value={item.evidenceTier || item.evidence} />
-              </div>
-
-              {tags.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {tags.map((t: string) => <span key={t} className="text-xs bg-neutral-100 px-3 py-1 rounded-full">{t}</span>)}
-                </div>
-              )}
-
-              {item.updatedAt && (
-                <p className="mt-3 text-xs text-muted">Updated {item.updatedAt}</p>
-              )}
-
-              <p className="mt-4 text-sm font-bold text-teal-700">Open →</p>
-            </Link>
+            <PremiumCard
+              key={item.slug}
+              href={item.href}
+              title={item.title}
+              summary={item.summary}
+              typeLabel={item.typeLabel}
+              evidence={item.evidenceTier || item.evidence}
+              safety={item.safety}
+              bestFor={item.bestFor}
+              tags={tags}
+            />
           )
         })}
-      </div>
+      </section>
     </div>
   )
 }
