@@ -1,0 +1,57 @@
+{
+  "patch_id": "ff015aa0-aba1-4011-b741-6d5e0473a86a",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-05-06T02:05:08.483Z",
+  "slug": "magnesium-glycinate",
+  "patch_type": "evidence",
+  "research_depth": "metadata_only",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [
+    "Evidence confidence downgraded due to weak or conflicting support."
+  ],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is magnesium-glycinate used for?",
+      "Is magnesium-glycinate evidence-based?"
+    ],
+    "seo_topics": [
+      "magnesium-glycinate benefits",
+      "magnesium-glycinate safety",
+      "magnesium-glycinate evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "magnesium-glycinate vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [
+    "low_confidence"
+  ],
+  "evidence": [],
+  "validation": {},
+  "scoring": {
+    "confidence_score": 0.25,
+    "evidence_strength": "low",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language."
+    ]
+  }
+}
