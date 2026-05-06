@@ -47,7 +47,7 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
 
   return (
     <div className="mx-auto w-full max-w-7xl space-y-10 py-2">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-soft sm:p-8 lg:p-10">
+      <section className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-6 shadow-soft sm:p-8 lg:p-10">
         <div className="max-w-3xl space-y-5">
           {eyebrow ? (
             <div className="eyebrow inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-brand-700">
@@ -67,13 +67,13 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
             ) : null}
           </div>
 
-          <div className="flex flex-col gap-3 pt-2 lg:flex-row lg:flex-wrap">
+          <div className="flex flex-col gap-4 pt-4 lg:flex-row lg:flex-wrap">
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={`Search ${title.toLowerCase()}...`}
               aria-label={`Search ${title.toLowerCase()}`}
-              className="min-w-[240px] flex-1 rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm text-ink shadow-sm outline-none transition placeholder:text-muted-soft focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
+              className="w-full min-w-0 flex-1 rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm text-ink shadow-sm outline-none transition placeholder:text-muted-soft focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
             />
 
             <select
@@ -101,7 +101,7 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
         </div>
       </section>
 
-      <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <section className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map((item: BrowserItem) => {
           const tags = (item.primary_effects || item.effects || item.tags || []).slice(0, 3)
 
