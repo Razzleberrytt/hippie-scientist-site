@@ -16,6 +16,7 @@ import StackCompatibility from '@/components/ui/StackCompatibility'
 import ConfidencePanel from '@/components/ui/ConfidencePanel'
 import ReadingProgress from '@/components/ui/ReadingProgress'
 import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
+import SemanticRecommendationCard from '@/components/ui/SemanticRecommendationCard'
 import data from '../../../public/data/compounds.json'
 import {
   normalizeEvidenceLevel,
@@ -28,6 +29,7 @@ import {
   getRelatedCompounds,
   getStackCandidates,
   getComparisonCandidates,
+  classifyArchetype,
 } from '@/lib/semantic-runtime'
 import Link from 'next/link'
 
@@ -53,7 +55,11 @@ export default function Page({ params }: any) {
   const effects = getEffects(compound)
   const sources = getSources(compound)
 
-  const related = getRelatedCompounds(compound)
+  const related = getRelatedCompounds(compound).map((item:any)=>({
+    ...item,
+    archetype: classifyArchetype(item),
+  }))
+
   const stackCandidates = getStackCandidates(compound)
   const comparisonCandidates = getComparisonCandidates(compound)
   const snapshot = getEvidenceSnapshot(compound)
@@ -123,8 +129,8 @@ export default function Page({ params }: any) {
             evidence={compound.evidence_tier || 'Human data available'}
           />
 
-          <div className="bg-neutral-100 rounded-2xl p-6 text-sm leading-7 border shadow-sm">
-            <strong>Quick Verdict:</strong>{' '}
+          <div className="rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-xl p-6 text-sm leading-7 shadow-2xl text-neutral-200">
+            <strong className="text-white">Quick Verdict:</strong>{' '}
             {compound.summary || 'Likely useful depending on context and goals.'}
           </div>
 
@@ -187,6 +193,17 @@ export default function Page({ params }: any) {
             </div>
           </SectionBlock>
 
+          <SectionBlock title="Recommended Related Compounds">
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+              {related.map((item:any)=>(
+                <SemanticRecommendationCard
+                  key={item.slug}
+                  item={item}
+                />
+              ))}
+            </div>
+          </SectionBlock>
+
           <div id="safety">
             <SectionBlock title="Safety">
               <p className="text-sm leading-7">
@@ -219,22 +236,6 @@ export default function Page({ params }: any) {
                     <p className="font-semibold text-sm">{f.q}</p>
                     <p className="text-sm text-neutral-600 leading-7">{f.a}</p>
                   </div>
-                ))}
-              </div>
-            </SectionBlock>
-          </div>
-
-          <div id="related">
-            <SectionBlock title="Related Compounds">
-              <div className="flex flex-wrap gap-2">
-                {related.map((r:any)=>(
-                  <Link
-                    key={r.slug}
-                    href={`/compounds/${r.slug}`}
-                    className="text-xs bg-neutral-100 hover:bg-neutral-200 transition px-3 py-2 rounded-full border"
-                  >
-                    {r.name}
-                  </Link>
                 ))}
               </div>
             </SectionBlock>
