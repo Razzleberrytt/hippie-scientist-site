@@ -65,3 +65,5 @@ Return structured JSON data only.`
     })
   }
 }
+
+export const runDiscoveryAgent = runDiscovery
