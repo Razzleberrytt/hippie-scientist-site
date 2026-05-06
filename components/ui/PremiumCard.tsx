@@ -24,14 +24,14 @@ function normalizeSafety(value?: string): SafetyTone {
 }
 
 function safetyClasses(tone: SafetyTone) {
-  if (tone === 'avoid') return 'border-red-700/15 bg-red-50 text-red-800'
+  if (tone === 'avoid') return 'border-rose-700/15 bg-rose-50 text-rose-800'
   if (tone === 'caution') return 'border-amber-700/20 bg-amber-50 text-amber-800'
   if (tone === 'ok') return 'border-emerald-700/15 bg-emerald-50 text-emerald-800'
   return 'border-slate-300 bg-slate-50 text-slate-700'
 }
 
 function safetyLabel(tone: SafetyTone) {
-  if (tone === 'avoid') return 'Avoid flag'
+  if (tone === 'avoid') return 'Avoid'
   if (tone === 'caution') return 'Caution'
   if (tone === 'ok') return 'Low concern'
   return 'Review safety'
@@ -43,7 +43,7 @@ export default function PremiumCard({
   href,
   title,
   summary,
-  typeLabel = 'Profile',
+  typeLabel,
   evidence,
   safety,
   bestFor,
@@ -57,10 +57,12 @@ export default function PremiumCard({
 
   return (
     <article className="group flex h-full flex-col rounded-card border border-brand-900/10 bg-white/82 p-6 shadow-card backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
-      <div className="flex items-start justify-between gap-4">
-        <div className="eyebrow text-brand-700">
-          {typeLabel}
-        </div>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        {typeLabel ? (
+          <div className="eyebrow text-brand-700">
+            {typeLabel}
+          </div>
+        ) : <span aria-hidden="true" />}
 
         <div className="flex shrink-0 flex-wrap justify-end gap-2">
           <EvidenceBadge tier={evidence} />
