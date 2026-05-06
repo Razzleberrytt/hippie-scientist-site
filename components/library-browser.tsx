@@ -25,9 +25,16 @@ const tiers = ['All', 'Strong', 'Moderate', 'Limited', 'Theoretical']
 export default function LibraryBrowser({ eyebrow, title, description, items }: any) {
   const [goal, setGoal] = useState('All')
   const [tier, setTier] = useState('All')
+  const [query, setQuery] = useState('')
 
   const filtered = useMemo(() => {
     return items
+      .filter((i: BrowserItem) => {
+        if (!query.trim()) return true
+
+        const haystack = JSON.stringify(i).toLowerCase()
+        return haystack.includes(query.toLowerCase())
+      })
       .filter((i: BrowserItem) => {
         if (goal === 'All') return true
         return JSON.stringify(i).toLowerCase().includes(goal.toLowerCase())
@@ -36,7 +43,7 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
         if (tier === 'All') return true
         return String(i.evidenceTier || i.evidence).toLowerCase().includes(tier.toLowerCase())
       })
-  }, [items, goal, tier])
+  }, [items, goal, tier, query])
 
   return (
     <div className="mx-auto w-full max-w-7xl space-y-10 py-2">
@@ -60,7 +67,15 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
             ) : null}
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-2 lg:flex-row lg:flex-wrap">
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={`Search ${title.toLowerCase()}...`}
+              aria-label={`Search ${title.toLowerCase()}`}
+              className="min-w-[240px] flex-1 rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm text-ink shadow-sm outline-none transition placeholder:text-muted-soft focus:border-brand-700/30 focus:ring-4 focus:ring-brand-500/15"
+            />
+
             <select
               value={goal}
               onChange={(e) => setGoal(e.target.value)}
@@ -86,7 +101,7 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
         </div>
       </section>
 
-      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {filtered.map((item: BrowserItem) => {
           const tags = (item.primary_effects || item.effects || item.tags || []).slice(0, 3)
 
@@ -96,7 +111,6 @@ export default function LibraryBrowser({ eyebrow, title, description, items }: a
               href={item.href}
               title={item.title}
               summary={item.summary}
-              typeLabel={item.typeLabel}
               evidence={item.evidenceTier || item.evidence}
               safety={item.safety}
               bestFor={item.bestFor}
