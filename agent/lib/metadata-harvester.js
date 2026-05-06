@@ -1,5 +1,38 @@
+import fs from 'node:fs'
+import path from 'node:path'
+
+const cacheRoot = path.join(process.cwd(), 'agent', 'cache')
+
+function cachePath(slug, source) {
+  return path.join(cacheRoot, `${slug}-${source}.json`)
+}
+
+function loadCache(slug, source) {
+  const file = cachePath(slug, source)
+
+  if (!fs.existsSync(file)) return null
+
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'))
+  } catch {
+    return null
+  }
+}
+
+function saveCache(slug, source, data) {
+  fs.mkdirSync(cacheRoot, { recursive: true })
+  fs.writeFileSync(fileURL(slug, source), JSON.stringify(data, null, 2))
+}
+
+function fileURL(slug, source) {
+  return cachePath(slug, source)
+}
+
 export async function harvestPubMedMetadata({ slug }) {
-  return {
+  const cached = loadCache(slug, 'pubmed')
+  if (cached) return cached
+
+  const result = {
     source: 'pubmed',
     slug,
     pmids: [],
@@ -7,16 +40,27 @@ export async function harvestPubMedMetadata({ slug }) {
     study_types: [],
     harvested_at: new Date().toISOString(),
   }
+
+  saveCache(slug, 'pubmed', result)
+
+  return result
 }
 
 export async function harvestClinicalTrialsMetadata({ slug }) {
-  return {
+  const cached = loadCache(slug, 'clinicaltrials')
+  if (cached) return cached
+
+  const result = {
     source: 'clinicaltrials',
     slug,
     trial_ids: [],
     trial_metadata: [],
     harvested_at: new Date().toISOString(),
   }
+
+  saveCache(slug, 'clinicaltrials', result)
+
+  return result
 }
 
 export function classifyStudyType(text = '') {
