@@ -1,0 +1,57 @@
+{
+  "patch_id": "49d7efd6-998e-4fc1-88cb-2acb70d08c37",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-05-06T02:03:16.552Z",
+  "slug": "l-theanine",
+  "patch_type": "evidence",
+  "research_depth": "metadata_only",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [
+    "Evidence confidence downgraded due to weak or conflicting support."
+  ],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is l-theanine used for?",
+      "Is l-theanine evidence-based?"
+    ],
+    "seo_topics": [
+      "l-theanine benefits",
+      "l-theanine safety",
+      "l-theanine evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "l-theanine vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [
+    "low_confidence"
+  ],
+  "evidence": [],
+  "validation": {},
+  "scoring": {
+    "confidence_score": 0.25,
+    "evidence_strength": "low",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language."
+    ]
+  }
+}
