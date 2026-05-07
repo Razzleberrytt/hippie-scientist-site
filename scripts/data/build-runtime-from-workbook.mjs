@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
 import Ajv from 'ajv'
 import { resolveWorkbookPath } from '../workbook-source.mjs'
+import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
+import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -44,6 +46,57 @@ function splitList(v) {
     .split(/[|;,]/)
     .map(s => clean(s))
     .filter(Boolean)
+}
+
+function normalizeUndefined(value) {
+  if (value === undefined) return null
+
+  if (Array.isArray(value)) {
+    return value.map(normalizeUndefined)
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([k, v]) => [k, normalizeUndefined(v)])
+    )
+  }
+
+  return value
+}
+
+function removeEmptyInternalFields(obj) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([_, value]) => {
+      if (value === undefined) return false
+      if (value === null) return false
+
+      if (typeof value === 'string' && value.trim() === '') {
+        return false
+      }
+
+      if (Array.isArray(value) && value.length === 0) {
+        return false
+      }
+
+      return true
+    })
+  )
+}
+
+function pickRuntimeFields(record, allowedFields) {
+  if (!record || typeof record !== 'object') {
+    return {}
+  }
+
+  const picked = {}
+
+  for (const field of allowedFields) {
+    if (!(field in record)) continue
+
+    picked[field] = normalizeUndefined(record[field])
+  }
+
+  return removeEmptyInternalFields(picked)
 }
 
 function dedupe(rows) {
@@ -198,28 +251,56 @@ function main() {
 
   const herbs = dedupe(
     read(wb, SHEETS.herbs).map(r => ({
+      id: clean(r.id),
       slug: slug(r.slug || r.name),
       name: clean(r.name),
+      aliases: splitList(r.aliases),
       summary: clean(r.summary),
+      primary_effects: splitList(r.primary_effects),
       effects: splitList(r.primary_effects || r.effects),
+      related_compounds: splitList(r.related_compounds),
+      related_herbs: splitList(r.related_herbs),
+      mechanisms: splitList(r.mechanisms),
+      mechanism_targets: splitList(r.mechanism_targets),
+      evidence_tier: clean(r.evidence_tier),
+      safety: clean(r.safety),
+      profile_status: clean(r.profile_status),
+      summary_quality: clean(r.summary_quality),
     }))
   )
 
   const compounds = dedupe(
     read(wb, SHEETS.compounds).map(r => ({
+      id: clean(r.id),
       slug: slug(r.slug || r.name),
       name: clean(r.name),
+      aliases: splitList(r.aliases),
       summary: clean(r.summary),
       mechanism: clean(r.mechanism || r.mechanisms),
+      mechanisms: splitList(r.mechanisms),
       effects: splitList(r.primary_effects || r.effects),
+      primary_effects: splitList(r.primary_effects),
       evidence: clean(r.evidence || r.evidence_tier),
+      evidence_tier: clean(r.evidence_tier),
       safety: clean(r.safety),
       dosage: clean(r.dosage),
+      related_compounds: splitList(r.related_compounds),
+      related_herbs: splitList(r.related_herbs),
+      profile_status: clean(r.profile_status),
+      summary_quality: clean(r.summary_quality),
     }))
   )
 
-  write(outDir, 'herbs.json', herbs)
-  write(outDir, 'compounds.json', compounds)
+  const runtimeHerbs = herbs.map((herb) =>
+    pickRuntimeFields(herb, HERB_RUNTIME_FIELDS)
+  )
+
+  const runtimeCompounds = compounds.map((compound) =>
+    pickRuntimeFields(compound, COMPOUND_RUNTIME_FIELDS)
+  )
+
+  write(outDir, 'herbs.json', runtimeHerbs)
+  write(outDir, 'compounds.json', runtimeCompounds)
 
   let compoundDetailRows = readOptionalPayload(wb, {
     sheet: SHEETS.compoundDetailPayload,
@@ -228,23 +309,27 @@ function main() {
   if (!compoundDetailRows || compoundDetailRows.length === 0) {
     console.warn('[data] Using fallback compound-detail-payload from compounds.json')
 
-    compoundDetailRows = compounds.map(c => ({
+    compoundDetailRows = runtimeCompounds.map(c => ({
       slug: c.slug,
       name: c.name,
       summary: c.summary,
       mechanism: c.mechanism,
+      mechanisms: c.mechanisms,
       effects: c.effects,
       evidence: c.evidence,
+      evidence_tier: c.evidence_tier,
       safety: c.safety,
       dosage: c.dosage,
+      related_compounds: c.related_compounds,
+      related_herbs: c.related_herbs,
     }))
   }
 
   write(outDir, 'compound-detail-payload.json', dedupe(compoundDetailRows))
   write(outDir, 'agent-patches.json', loadAgentPatches())
 
-  console.log(`[data] herbs.json: ${herbs.length} rows`)
-  console.log(`[data] compounds.json: ${compounds.length} rows`)
+  console.log(`[data] herbs.json: ${runtimeHerbs.length} rows`)
+  console.log(`[data] compounds.json: ${runtimeCompounds.length} rows`)
   console.log(`[data] compound-detail-payload.json: ${compoundDetailRows.length} rows`)
   console.log('[data] build complete')
 }
