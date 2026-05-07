@@ -1,63 +1,7 @@
 import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
+import { cleanSummary, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import '@/styles/premium-cards.css'
-
-const INTERNAL_PATTERNS = [
-  /research[_\s-]*only/i,
-  /lean\s+(monograph\s+)?row/i,
-  /schema\s*artifact/i,
-  /bulk\s+enrichment/i,
-  /bulk\s+mode/i,
-  /placeholder/i,
-  /enriched\s+in\s+bulk/i,
-  /^n\/?a$/i,
-  /^unknown$/i,
-  /^tbd$/i,
-  /^none$/i,
-]
-
-function text(value: unknown): string {
-  if (value === null || value === undefined) return ''
-  if (Array.isArray(value)) return value.map(text).filter(Boolean).join(', ')
-  if (typeof value === 'object') {
-    const record = value as Record<string, unknown>
-    return text(record.label ?? record.name ?? record.title ?? record.text ?? record.value)
-  }
-  return String(value).replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
-}
-
-function isClean(value: unknown) {
-  const normalized = text(value)
-  return Boolean(normalized) && !INTERNAL_PATTERNS.some(pattern => pattern.test(normalized))
-}
-
-function list(value: unknown): string[] {
-  if (value === null || value === undefined) return []
-  const raw = Array.isArray(value) ? value : String(value).split(/\n|;|\|/)
-  return raw
-    .flatMap(item => text(item).split(/,(?=\s*[a-zA-Z])/))
-    .map(item => item.replace(/^[-*•]\s*/, '').trim())
-    .filter(isClean)
-}
-
-function unique(items: string[]) {
-  const seen = new Set<string>()
-  return items.filter(item => {
-    const key = item.toLowerCase()
-    if (seen.has(key)) return false
-    seen.add(key)
-    return true
-  })
-}
-
-function labelize(value: unknown, fallback = 'Review') {
-  const clean = text(value)
-  if (!isClean(clean)) return fallback
-  return clean
-    .split(' ')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ')
-}
 
 function getName(item: any) {
   return text(item.displayName) || text(item.name) || text(item.slug).replace(/-/g, ' ')
@@ -72,8 +16,7 @@ function getSummary(item: any) {
     item.hero ||
     item.description
 
-  if (isClean(summary)) return text(summary)
-  return 'A research-backed botanical profile with evidence, safety notes, mechanisms, and practical context.'
+  return cleanSummary(summary, 'herb')
 }
 
 function getEvidence(item: any) {
@@ -107,7 +50,7 @@ function getEffects(item: any) {
     ...list(item.primary_effects),
     ...list(item.primaryEffects),
     ...list(item.effects),
-    text(item.primaryDomain),
+    ...list(item.primaryDomain),
   ])
     .filter(isClean)
     .slice(0, 3)
