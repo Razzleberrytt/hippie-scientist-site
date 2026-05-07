@@ -126,16 +126,22 @@ const getRelatedCompounds = async (herb: HerbDetail): Promise<RelatedLinkItem[]>
     .slice(0, 6)
 }
 
-const BulletList = ({ items, color = 'bg-brand-700' }: { items: string[], color?: string }) => (
-  <ul className="space-y-3 text-sm leading-7 text-[#46574d]">
-    {items.map((item, index) => (
-      <li key={`${item}-${index}`} className="flex gap-3">
-        <span className={`mt-[0.55rem] h-1.5 w-1.5 flex-none rounded-full ${color}`} />
-        <span>{item}</span>
-      </li>
-    ))}
-  </ul>
-)
+const BulletList = ({ items, color = 'bg-brand-700' }: { items: string[], color?: string }) => {
+  const visibleItems = items.map(formatDisplayLabel).filter(isClean)
+
+  if (!visibleItems.length) return null
+
+  return (
+    <ul className="space-y-3 text-sm leading-7 text-[#46574d]">
+      {visibleItems.map((item, index) => (
+        <li key={`${item}-${index}`} className="flex gap-3">
+          <span className={`mt-[0.55rem] h-1.5 w-1.5 flex-none rounded-full ${color}`} />
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export async function generateStaticParams() {
   const herbs = await getHerbs()

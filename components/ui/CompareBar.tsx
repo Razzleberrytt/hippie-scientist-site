@@ -23,7 +23,7 @@ export default function CompareBar({ items = [] }: any) {
   if (!isSafeInternalHref(href)) return null
 
   return (
-    <aside className="fixed inset-x-3 bottom-[calc(0.75rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-md rounded-[1.25rem] border border-brand-900/10 bg-[#fffdf7]/95 p-3 shadow-[0_14px_40px_rgba(25,48,35,0.16)] backdrop-blur-xl sm:bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:p-3.5 lg:left-auto lg:right-5 lg:mx-0 lg:w-[22rem]">
+    <aside className="fixed inset-x-4 bottom-[calc(0.5rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-sm rounded-2xl border border-brand-900/10 bg-[#fffdf7]/95 p-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] shadow-[0_10px_28px_rgba(25,48,35,0.14)] backdrop-blur-xl sm:bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:max-w-md sm:p-3.5 lg:left-auto lg:right-5 lg:mx-0 lg:w-[22rem]">
       <div className="flex items-center gap-3">
         <div className="min-w-0 flex-1">
           <p className="eyebrow-label text-[0.62rem]">Compare</p>
@@ -34,7 +34,7 @@ export default function CompareBar({ items = [] }: any) {
 
         <Link
           href={href}
-          className="flex-none rounded-full bg-brand-800 px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-brand-700"
+          className="flex-none rounded-full bg-brand-800 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-brand-700 sm:px-4"
         >
           Open
         </Link>

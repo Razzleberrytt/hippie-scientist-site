@@ -1,6 +1,7 @@
 const INTERNAL_PATTERNS = [
   /research[_\s-]*only/i,
   /lean\s+row/i,
+  /lean\s+(?:herb|monograph)\s+row/i,
   /lean\s+herb\s+row/i,
   /lean\s+monograph\s+row/i,
   /high\s+speed\s+phytochemical\s+ingestion/i,
@@ -9,6 +10,7 @@ const INTERNAL_PATTERNS = [
   /keep\s+claims\s+tied/i,
   /source\s+backed\s+preparation\s+and\s+safety\s+context/i,
   /bulk\s+ingested\s+support\s+row/i,
+  /bulk\s+(?:mode|enrichment)/i,
   /sci\s*space\s+evidence\s+pass/i,
   /scispace\s+evidence\s+pass/i,
   /mechanism[-\s]*only\s+pending\s+stronger\s+human/i,
@@ -85,7 +87,7 @@ export function isClean(value: unknown): boolean {
 
 export function formatDisplayLabel(value: unknown): string {
   const raw = text(value)
-  if (!raw) return ''
+  if (!raw || hideInternalValue(raw)) return ''
 
   const normalized = raw.toLowerCase().trim()
 
@@ -155,13 +157,15 @@ export function editorialUseCaseLabel(value: unknown): string {
   if (!isClean(label)) return ''
 
   const lower = label.toLowerCase()
-  if (/metabolic|glucose|insulin|weight|fat loss/.test(lower)) return 'Most commonly explored for metabolic support.'
+  if (/metabolic|metabolism|glucose|insulin|weight|fat loss/.test(lower)) return 'Most commonly explored for metabolic support.'
   if (/sleep|insomnia|night/.test(lower)) return 'Most commonly explored for sleep and nighttime support.'
   if (/stress|mood|anxiety|calm/.test(lower)) return 'Most commonly explored for stress resilience and calm support.'
   if (/focus|cognition|memory|brain|attention/.test(lower)) return 'Most commonly explored for cognitive and focus support.'
   if (/recovery|performance|exercise|muscle/.test(lower)) return 'Most commonly explored for recovery and performance support.'
 
-  return `Most commonly explored for ${label.toLowerCase()} support.`
+  const editorialLabel = label.toLowerCase().replace(/^best\s+for\s+/, '').replace(/\s+support$/, '')
+
+  return `Most commonly explored for ${editorialLabel} support.`
 }
 
 export function isSafeInternalHref(value: unknown): value is string {

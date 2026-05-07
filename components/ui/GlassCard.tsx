@@ -47,7 +47,7 @@ export function GlassCard({
     >
       {enableShine ? (
         <span aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl">
-          <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-[160%] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-40" />
+          <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-[160%] bg-gradient-to-r from-transparent via-brand-100/40 to-transparent" />
         </span>
       ) : null}
       <div className="relative z-10">{children}</div>
