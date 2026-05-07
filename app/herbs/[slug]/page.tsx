@@ -3,10 +3,28 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ExternalLink, Leaf } from 'lucide-react'
 import { DetailCard, EvidenceBadge } from '@/components/ui'
+import CompareWithCard from '@/components/ui/CompareWithCard'
+import RelatedPathways from '@/components/ui/RelatedPathways'
+import ResearchConfidenceMatrix from '@/components/ui/ResearchConfidenceMatrix'
+import ResearchFocusAreas from '@/components/ui/ResearchFocusAreas'
+import ResearchGapsCard from '@/components/ui/ResearchGapsCard'
+import ResearchStyleBadge from '@/components/ui/ResearchStyleBadge'
+import ScientificConsensusCard from '@/components/ui/ScientificConsensusCard'
 import { getClaims, getCompounds, getHerbBySlug, getHerbCompoundMap, getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { commonSupplementFaqJsonLd } from '@/lib/seo'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import {
+  deriveComparisonFraming,
+  deriveConfidenceByTopic,
+  deriveEvidenceFraming,
+  derivePathwayClusters,
+  deriveResearchFocusAreas,
+  deriveResearchStyle,
+  generateScientificConsensusSummary,
+  inferEvidenceLimitations,
+  inferResearchGaps,
+} from '@/lib/research-intelligence'
 
 type Params = { params: Promise<{ slug: string }> }
 type HerbDetail = Record<string, any>
@@ -17,17 +35,11 @@ type EditorialCard = {
   text: string
 }
 
-type EvidenceFrame = {
-  maturity: string
-  summary: string
-  notes: string[]
-}
-
 const formatSlugLabel = (slug: string) => slug.split('-').filter(Boolean).map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ')
 const getHerbLabel = (herb: HerbDetail) => formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatSlugLabel(herb.slug)
 
 const getLeadText = (herb: HerbDetail) => {
-  const effects = unique(list(herb.primary_effects)).slice(0, 3)
+  const effects = unique([...list(herb.primary_effects), ...list(herb.primaryActions)]).slice(0, 3)
   if (effects.length) {
     return `Traditionally used for ${effects.join(', ')}.`
   }
@@ -62,42 +74,6 @@ const getMechanismText = (label: string) => {
   if (/immune/.test(value)) return 'Immune-signaling context that should be interpreted conservatively.'
 
   return 'Mechanistic signal from the current profile data; not proof of a clinical outcome.'
-}
-
-const getEvidenceFrame = (evidence: string, pmidCount: number, claimCount: number, mechanismCount: number): EvidenceFrame => {
-  const level = evidence.toLowerCase()
-  const signalCount = pmidCount + claimCount + mechanismCount
-
-  if (/strong|high|human/.test(level) || signalCount >= 10) {
-    return {
-      maturity: 'Better studied',
-      summary: 'This profile has multiple visible evidence signals. Individual claims should still be interpreted by outcome, preparation, and study context.',
-      notes: [
-        'Use the strongest human-facing outcomes first when comparing benefits.',
-        'Mechanisms provide context, but they do not automatically prove real-world effects.',
-      ],
-    }
-  }
-
-  if (/moderate|limited|mixed/.test(level) || signalCount >= 5) {
-    return {
-      maturity: 'Moderate / emerging',
-      summary: 'This profile has enough signals for useful research navigation, but the strength likely varies by outcome and product form.',
-      notes: [
-        'Prioritize claims with human or source-backed context where available.',
-        'Treat broad wellness claims more cautiously than specific, repeated signals.',
-      ],
-    }
-  }
-
-  return {
-    maturity: 'Preliminary',
-    summary: 'This profile should be read as early-stage or context-building. It is useful for discovery, not as a settled clinical conclusion.',
-    notes: [
-      'Mechanistic or traditional-use signals may be present without strong human evidence.',
-      'Avoid over-interpreting sparse profiles or broad claims.',
-    ],
-  }
 }
 
 const groupMechanisms = (cards: EditorialCard[]) => {
@@ -185,7 +161,11 @@ export default async function HerbDetailPage({ params }: Params) {
   const label = getHerbLabel(herb)
   const leadText = getLeadText(herb)
   const affiliateLinks = getHerbSearchLinks(label).filter(link => link.url && link.label)
-  const relatedCompounds = await getRelatedCompounds(herb)
+  const [relatedCompounds, allHerbs, allCompounds] = await Promise.all([
+    getRelatedCompounds(herb),
+    getHerbs(),
+    getCompounds(),
+  ])
   const faqJsonLd = commonSupplementFaqJsonLd(`/herbs/${herb.slug}`)
 
   const claims = unique(
@@ -245,7 +225,19 @@ export default async function HerbDetailPage({ params }: Params) {
     ...list(herb.references)
   ].filter(id => /\d/.test(id))).slice(0, 10)
 
-  const evidenceFrame = getEvidenceFrame(evidence, pmids.length, claims.length, mechanisms.length)
+  const researchInputs = { profile: herb, claims, pmids, mechanisms }
+  const evidenceFrame = deriveEvidenceFraming(researchInputs)
+  const researchStyle = deriveResearchStyle(researchInputs)
+  const consensusSummary = generateScientificConsensusSummary(researchInputs)
+  const confidenceTopics = deriveConfidenceByTopic(researchInputs)
+  const pathwayClusters = derivePathwayClusters(researchInputs)
+  const researchGaps = inferResearchGaps(researchInputs)
+  const evidenceLimitations = inferEvidenceLimitations(researchInputs)
+  const focusAreas = deriveResearchFocusAreas(researchInputs)
+  const comparisons = deriveComparisonFraming(herb, [
+    ...allHerbs.map((item: any) => ({ ...item, type: 'herb' })),
+    ...allCompounds.map((item: any) => ({ ...item, type: 'compound' })),
+  ])
 
   const hasForms = Boolean(form || dosage || timeToEffect)
 
@@ -258,8 +250,12 @@ export default async function HerbDetailPage({ params }: Params) {
   const toc = [
     profileOverview ? ['overview', 'Overview'] : null,
     ['evidence-framing', 'Evidence framing'],
+    consensusSummary || confidenceTopics.length > 1 ? ['research-intelligence', 'Research intelligence'] : null,
+    focusAreas.length > 1 || pathwayClusters.length ? ['semantic-signals', 'Semantic signals'] : null,
     outcomeCards.length ? ['best-for', 'Best for'] : null,
     mechanismGroups.length ? ['mechanisms', 'Mechanisms'] : null,
+    researchGaps.length > 1 || evidenceLimitations.length > 1 ? ['research-gaps', 'Research gaps'] : null,
+    comparisons.length > 1 ? ['compare-with', 'Compare with'] : null,
     safetyItems.length ? ['safety', 'Safety'] : null,
     hasForms ? ['forms', 'Forms & dosage'] : null,
     relatedCompounds.length ? ['related-compounds', 'Related compounds'] : null,
@@ -292,6 +288,7 @@ export default async function HerbDetailPage({ params }: Params) {
             <Leaf className="text-brand-700" aria-hidden="true" />
             <h1 className="heading-premium max-w-4xl text-ink">{label}</h1>
             <EvidenceBadge value={evidence} />
+            <ResearchStyleBadge style={researchStyle} />
           </div>
 
           <p className="text-reading mt-5 max-w-reading text-lg text-muted-soft">
@@ -324,6 +321,25 @@ export default async function HerbDetailPage({ params }: Params) {
           </div>
         </DetailCard>
 
+
+        {consensusSummary || confidenceTopics.length > 1 ? (
+          <DetailCard id="research-intelligence" eyebrow="Research Intelligence" title="Scientific interpretation" description="Reusable semantic framing derived from existing structured profile data.">
+            <div className="grid gap-5 lg:grid-cols-2">
+              <ScientificConsensusCard summary={consensusSummary} />
+              <ResearchConfidenceMatrix topics={confidenceTopics} />
+            </div>
+          </DetailCard>
+        ) : null}
+
+        {focusAreas.length > 1 || pathwayClusters.length ? (
+          <DetailCard id="semantic-signals" eyebrow="Semantic Discovery" title="Research focus & pathways" description="Semantic clusters for future browse-by-mechanism and comparative discovery experiences.">
+            <div className="grid gap-5">
+              <ResearchFocusAreas areas={focusAreas} />
+              <RelatedPathways pathways={pathwayClusters} />
+            </div>
+          </DetailCard>
+        ) : null}
+
         {outcomeCards.length > 0 ? (
           <DetailCard id="best-for" eyebrow="Use Cases" title="Best for" description="Signals surfaced from the current profile and linked claim data.">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -354,6 +370,18 @@ export default async function HerbDetailPage({ params }: Params) {
                 </div>
               ))}
             </div>
+          </DetailCard>
+        ) : null}
+
+        {researchGaps.length > 1 || evidenceLimitations.length > 1 ? (
+          <DetailCard id="research-gaps" eyebrow="Uncertainty" title="Research gaps & limitations" description="Important constraints that keep the profile scientifically conservative.">
+            <ResearchGapsCard gaps={researchGaps} limitations={evidenceLimitations} />
+          </DetailCard>
+        ) : null}
+
+        {comparisons.length > 1 ? (
+          <DetailCard id="compare-with" eyebrow="Comparative Framing" title="Compare with" description="Related herbs and compounds are selected by overlapping effect and mechanism language already present in the data.">
+            <CompareWithCard comparisons={comparisons} />
           </DetailCard>
         ) : null}
 
