@@ -1,22 +1,17 @@
-import type { PathwayCluster } from '@/lib/research-intelligence'
+type RelatedPathwaysProps = {
+  pathways: string[]
+}
 
-export default function RelatedPathways({ pathways = [] }: { pathways?: PathwayCluster[] }) {
-  const visible = pathways.filter(pathway => pathway.mechanisms?.length).slice(0, 5)
+export default function RelatedPathways({ pathways = [] }: RelatedPathwaysProps) {
+  const visible = pathways.filter(Boolean).slice(0, 6)
   if (!visible.length) return null
 
   return (
-    <div className="grid gap-4 md:grid-cols-2">
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {visible.map(pathway => (
-        <div key={pathway.title} className="surface-subtle rounded-2xl p-5">
-          <h3 className="text-base font-semibold text-ink">{pathway.title}</h3>
-          <p className="mt-2 text-sm leading-6 text-[#46574d]">{pathway.description}</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {pathway.mechanisms.slice(0, 4).map(mechanism => (
-              <span key={mechanism} className="rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-xs font-medium text-[#46574d]">
-                {mechanism}
-              </span>
-            ))}
-          </div>
+        <div key={pathway} className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
+          <p className="text-sm font-semibold leading-6 text-ink">{pathway}</p>
+          <p className="mt-2 text-xs leading-5 text-muted-readable">Related pathway context from listed mechanisms.</p>
         </div>
       ))}
     </div>

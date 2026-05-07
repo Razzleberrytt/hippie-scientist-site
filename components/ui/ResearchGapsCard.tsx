@@ -1,6 +1,11 @@
-export default function ResearchGapsCard({ gaps = [], limitations = [] }: { gaps?: string[]; limitations?: string[] }) {
-  const visible = [...limitations, ...gaps].filter(Boolean).slice(0, 6)
-  if (visible.length < 2) return null
+type ResearchGapsCardProps = {
+  gaps: string[]
+  limitations?: string[]
+}
+
+export default function ResearchGapsCard({ gaps = [], limitations = [] }: ResearchGapsCardProps) {
+  const visible = [...gaps, ...limitations].filter(Boolean).slice(0, 6)
+  if (!visible.length) return null
 
   return (
     <div className="surface-depth rounded-2xl p-5 sm:p-6">
