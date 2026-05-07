@@ -1,5 +1,5 @@
 // optimized runtime payload exporter
-// split index/detail generation added
+// centralized runtime visibility + SEO gating
 
 #!/usr/bin/env node
 
@@ -31,6 +31,8 @@ const INDEX_FIELDS = [
   'profile_status',
   'runtime_export_decision',
   'affiliate_ready',
+  'visibility_tier',
+  'robots',
 ]
 
 function clean(v) {
@@ -98,6 +100,60 @@ function pickRuntimeFields(record, allowedFields) {
   )
 }
 
+function determineVisibility(record) {
+  const profile = clean(record.profile_status).toLowerCase()
+  const quality = clean(record.summary_quality).toLowerCase()
+  const decision = clean(record.runtime_export_decision).toLowerCase()
+
+  if (decision === 'hide') {
+    return {
+      include: false,
+      visibility_tier: 'hidden',
+      robots: 'noindex,nofollow',
+      sitemap: false,
+    }
+  }
+
+  if (profile === 'complete' && quality === 'strong') {
+    return {
+      include: true,
+      visibility_tier: 'full_publish',
+      robots: 'index,follow',
+      sitemap: true,
+    }
+  }
+
+  if (
+    ['partial', 'moderate'].includes(profile) ||
+    ['moderate', 'medium'].includes(quality)
+  ) {
+    return {
+      include: true,
+      visibility_tier: 'limited',
+      robots: 'index,follow',
+      sitemap: true,
+    }
+  }
+
+  return {
+    include: true,
+    visibility_tier: 'noindex',
+    robots: 'noindex,follow',
+    sitemap: false,
+  }
+}
+
+function applyVisibilityMetadata(record) {
+  const visibility = determineVisibility(record)
+
+  return {
+    ...record,
+    visibility_tier: visibility.visibility_tier,
+    robots: visibility.robots,
+    sitemap_included: visibility.sitemap,
+  }
+}
+
 function createIndexPayload(record) {
   return pickRuntimeFields(record, INDEX_FIELDS)
 }
@@ -142,11 +198,12 @@ function main() {
   const workbookPath = resolveWorkbookPath(repoRoot)
   const wb = XLSX.readFile(workbookPath)
 
-  const herbs = dedupe(
+  const rawHerbs = dedupe(
     read(wb, SHEETS.herbs).map((r) => ({
       slug: slug(r.slug || r.name),
       name: clean(r.name),
       summary: clean(r.summary),
+      summary_quality: clean(r.summary_quality),
       primary_effects: splitList(r.primary_effects || r.effects),
       evidence_grade: clean(r.evidence_grade || r.evidence_tier),
       profile_status: clean(r.profile_status),
@@ -156,13 +213,14 @@ function main() {
       related_compounds: splitList(r.related_compounds),
       safety: clean(r.safety),
     }))
-  ).map((r) => pickRuntimeFields(r, HERB_RUNTIME_FIELDS))
+  )
 
-  const compounds = dedupe(
+  const rawCompounds = dedupe(
     read(wb, SHEETS.compounds).map((r) => ({
       slug: slug(r.slug || r.name),
       name: clean(r.name),
       summary: clean(r.summary),
+      summary_quality: clean(r.summary_quality),
       primary_effects: splitList(r.primary_effects || r.effects),
       evidence_grade: clean(r.evidence_grade || r.evidence_tier),
       profile_status: clean(r.profile_status),
@@ -172,7 +230,25 @@ function main() {
       dosage: clean(r.dosage),
       safety: clean(r.safety),
     }))
-  ).map((r) => pickRuntimeFields(r, COMPOUND_RUNTIME_FIELDS))
+  )
+
+  const herbs = rawHerbs
+    .map(applyVisibilityMetadata)
+    .filter((r) => determineVisibility(r).include)
+    .map((r) => pickRuntimeFields(r, HERB_RUNTIME_FIELDS.concat([
+      'visibility_tier',
+      'robots',
+      'sitemap_included',
+    ])))
+
+  const compounds = rawCompounds
+    .map(applyVisibilityMetadata)
+    .filter((r) => determineVisibility(r).include)
+    .map((r) => pickRuntimeFields(r, COMPOUND_RUNTIME_FIELDS.concat([
+      'visibility_tier',
+      'robots',
+      'sitemap_included',
+    ])))
 
   const herbIndex = herbs.map(createIndexPayload)
   const compoundIndex = compounds.map(createIndexPayload)
@@ -192,6 +268,7 @@ function main() {
   console.log(`[data] compounds-index: ${compoundIndex.length}`)
   console.log(`[data] herb-detail files: ${herbs.length}`)
   console.log(`[data] compound-detail files: ${compounds.length}`)
+  console.log('[data] centralized visibility gating enabled')
 }
 
 main()
