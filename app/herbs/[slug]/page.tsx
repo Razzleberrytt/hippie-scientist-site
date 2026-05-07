@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ExternalLink, Leaf } from 'lucide-react'
+import blogPosts from '../../../data/blog/posts.json'
 import { DetailCard, EvidenceBadge } from '@/components/ui'
 import CompareWithCard from '@/components/ui/CompareWithCard'
 import RelatedPathways from '@/components/ui/RelatedPathways'
@@ -10,6 +11,7 @@ import ResearchFocusAreas from '@/components/ui/ResearchFocusAreas'
 import ResearchGapsCard from '@/components/ui/ResearchGapsCard'
 import ResearchStyleBadge from '@/components/ui/ResearchStyleBadge'
 import ScientificConsensusCard from '@/components/ui/ScientificConsensusCard'
+import { EvidenceMaturityRibbon, ResearchContinuityBlock } from '@/components/scientific-discovery'
 import { getClaims, getCompounds, getHerbBySlug, getHerbCompoundMap, getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { commonSupplementFaqJsonLd } from '@/lib/seo'
@@ -25,6 +27,7 @@ import {
   inferEvidenceLimitations,
   inferResearchGaps,
 } from '@/lib/research-intelligence'
+import { buildSemanticTopics, findRelatedArticles } from '@/lib/editorial-discovery'
 
 type Params = { params: Promise<{ slug: string }> }
 type HerbDetail = Record<string, any>
@@ -226,6 +229,8 @@ export default async function HerbDetailPage({ params }: Params) {
   ].filter(id => /\d/.test(id))).slice(0, 10)
 
   const researchInputs = { profile: herb, claims, pmids, mechanisms }
+  const semanticTopics = buildSemanticTopics(herb)
+  const relatedArticles = findRelatedArticles(herb, blogPosts as any[], 4)
   const evidenceFrame = deriveEvidenceFraming(researchInputs)
   const researchStyle = deriveResearchStyle(researchInputs)
   const consensusSummary = generateScientificConsensusSummary(researchInputs)
@@ -258,6 +263,7 @@ export default async function HerbDetailPage({ params }: Params) {
     comparisons.length > 1 ? ['compare-with', 'Compare with'] : null,
     safetyItems.length ? ['safety', 'Safety'] : null,
     hasForms ? ['forms', 'Forms & dosage'] : null,
+    relatedArticles.length ? ['related-articles', 'Related articles'] : null,
     relatedCompounds.length ? ['related-compounds', 'Related compounds'] : null,
     pmids.length ? ['sources', 'Sources'] : null,
     affiliateLinks.length ? ['products', 'Product research'] : null,
@@ -289,22 +295,50 @@ export default async function HerbDetailPage({ params }: Params) {
             <h1 className="heading-premium max-w-4xl text-ink">{label}</h1>
             <EvidenceBadge value={evidence} />
             <ResearchStyleBadge style={researchStyle} />
+            <EvidenceMaturityRibbon label={semanticTopics.maturity} />
           </div>
 
           <p className="text-reading mt-5 max-w-reading text-lg text-muted-soft">
             {leadText}
           </p>
+
+          <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            {[
+              ['Most researched for', semanticTopics.effects[0] || 'General wellness context'],
+              ['Pathway cluster', semanticTopics.mechanisms[0] || 'Whole-system context'],
+              ['Research style', semanticTopics.researchStyle],
+            ].map(([title, value]) => (
+              <div key={title} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
+                <p className="identity-meta">{title}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-ink">{value}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {profileOverview ? (
           <DetailCard id="overview" eyebrow="Profile Overview" title="Scientific snapshot" description="A concise interpretation of the available profile fields without adding unsupported claims.">
-            <p className="detail-reading text-[#46574d]">
-              {profileOverview}
-            </p>
+            <div className="grid gap-5 lg:grid-cols-[1fr_.72fr]">
+              <p className="detail-reading text-[#46574d]">
+                {profileOverview}
+              </p>
+              <aside className="pull-quote-science">
+                Current evidence suggests this profile is best read as a set of signals — not a guaranteed outcome or treatment claim.
+              </aside>
+            </div>
           </DetailCard>
         ) : null}
 
         <DetailCard id="evidence-framing" eyebrow="Evidence Intelligence" title="Evidence framing" description="A conservative reading of the visible profile signals.">
+          <div className="mb-5 grid gap-4 sm:grid-cols-3">
+            {[
+              `Evidence maturity: ${semanticTopics.maturity}`,
+              `Primary cluster: ${semanticTopics.effects[0] || 'Context dependent'}`,
+              `Main pathway: ${semanticTopics.mechanisms[0] || 'Not yet specific'}`,
+            ].map(item => (
+              <div key={item} className="mobile-reading-card text-sm font-semibold leading-7 text-ink">{item}</div>
+            ))}
+          </div>
           <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
             <div className="surface-depth rounded-2xl p-5">
               <p className="eyebrow-label">Research maturity</p>
@@ -423,6 +457,16 @@ export default async function HerbDetailPage({ params }: Params) {
               {dosage ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Dosage note</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{dosage}</p></div> : null}
               {timeToEffect ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Time to effect</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{timeToEffect}</p></div> : null}
             </div>
+          </DetailCard>
+        ) : null}
+
+        {relatedArticles.length > 0 ? (
+          <DetailCard id="related-articles" eyebrow="Editorial Graph" title="Related articles" description="Research notes and explainers connected by title, profile language, mechanisms, and effect clusters.">
+            <ResearchContinuityBlock
+              title="Continue researching this topic"
+              description="Move from the profile into publication-style context, then return to related herbs and compounds."
+              items={relatedArticles}
+            />
           </DetailCard>
         ) : null}
 

@@ -317,3 +317,65 @@ body {
     @apply text-[0.72rem] font-bold uppercase leading-none tracking-[0.16em];
   }
 }
+
+@layer components {
+  .scientific-card {
+    @apply block rounded-[1.55rem] border border-brand-900/10 bg-white/75 p-5 shadow-sm backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-900/15 hover:bg-white hover:shadow-card;
+  }
+
+  .identity-herb {
+    @apply border-emerald-800/15;
+    background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(236,253,245,.42));
+  }
+
+  .identity-compound {
+    @apply border-blue-800/15;
+    background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(239,246,255,.48));
+  }
+
+  .identity-article {
+    @apply border-amber-800/15;
+    background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(254,243,199,.42));
+  }
+
+  .identity-path {
+    @apply border-purple-800/15;
+    background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(250,245,255,.46));
+  }
+
+  .identity-kicker {
+    @apply rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-800;
+  }
+
+  .identity-meta {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-[#64766b];
+  }
+
+  .pull-quote-science {
+    @apply rounded-[1.65rem] border-l-4 border-brand-700 bg-white/75 p-5 font-display text-2xl font-semibold leading-snug tracking-tight text-ink shadow-sm sm:p-6;
+  }
+
+  .mobile-reading-card {
+    @apply rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-5 shadow-sm sm:p-6;
+  }
+
+  @media (max-width: 640px) {
+    .detail-stack {
+      @apply space-y-8;
+    }
+
+    .card-spacing {
+      @apply p-5;
+    }
+
+    .scientific-card {
+      @apply p-4;
+    }
+
+    .detail-reading,
+    .text-reading,
+    .content-prose p {
+      line-height: 1.76;
+    }
+  }
+}
