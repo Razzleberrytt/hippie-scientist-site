@@ -1,5 +1,6 @@
 // optimized runtime payload exporter
 // centralized runtime visibility + SEO gating
+// affiliate runtime optimization enabled
 
 #!/usr/bin/env node
 
@@ -60,6 +61,89 @@ function ensureDir(dir) {
 function writeJson(filePath, data) {
   ensureDir(path.dirname(filePath))
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
+}
+
+function normalizeAffiliateQuery(value) {
+  return encodeURIComponent(
+    clean(value)
+      .replace(/-/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+  )
+}
+
+function buildAmazonSearchUrl(query) {
+  return `https://www.amazon.com/s?k=${normalizeAffiliateQuery(query)}`
+}
+
+function buildIHerbSearchUrl(query) {
+  return `https://www.iherb.com/search?kw=${normalizeAffiliateQuery(query)}`
+}
+
+function determineDefaultProductType(record) {
+  const effects = (record.primary_effects || []).join(' ').toLowerCase()
+
+  if (effects.includes('sleep') || effects.includes('sedative')) {
+    return 'capsules'
+  }
+
+  if (effects.includes('digestive')) {
+    return 'tea'
+  }
+
+  if (effects.includes('adaptogenic')) {
+    return 'extract'
+  }
+
+  return 'capsules'
+}
+
+function determineAvailableForms(record) {
+  if (record.available_forms?.length) {
+    return record.available_forms
+  }
+
+  return ['capsules', 'powder', 'extract']
+}
+
+function determineBuyingCriteria(record) {
+  if (clean(record.buying_criteria)) {
+    return record.buying_criteria
+  }
+
+  return [
+    'third-party tested',
+    'standardized extract',
+    'minimal fillers',
+    'transparent labeling',
+  ]
+}
+
+function applyAffiliateMetadata(record) {
+  const affiliate_query =
+    clean(record.affiliate_query) || clean(record.name)
+
+  const amazon_url =
+    clean(record.amazon_affiliate_url) ||
+    buildAmazonSearchUrl(affiliate_query)
+
+  const iherb_url =
+    clean(record.iherb_affiliate_url) ||
+    buildIHerbSearchUrl(affiliate_query)
+
+  return {
+    ...record,
+    affiliate_query,
+    default_product_type:
+      clean(record.default_product_type) ||
+      determineDefaultProductType(record),
+    buying_criteria: determineBuyingCriteria(record),
+    available_forms: determineAvailableForms(record),
+    amazon_affiliate_url: amazon_url,
+    iherb_affiliate_url: iherb_url,
+    affiliate_ready:
+      record.affiliate_ready || Boolean(affiliate_query),
+  }
 }
 
 function resolveSheet(workbook, candidates) {
@@ -209,6 +293,12 @@ function main() {
       profile_status: clean(r.profile_status),
       runtime_export_decision: clean(r.runtime_export_decision),
       affiliate_ready: Boolean(r.affiliate_ready),
+      affiliate_query: clean(r.affiliate_query),
+      default_product_type: clean(r.default_product_type),
+      buying_criteria: splitList(r.buying_criteria),
+      available_forms: splitList(r.available_forms),
+      amazon_affiliate_url: clean(r.amazon_affiliate_url),
+      iherb_affiliate_url: clean(r.iherb_affiliate_url),
       mechanisms: splitList(r.mechanisms),
       related_compounds: splitList(r.related_compounds),
       safety: clean(r.safety),
@@ -226,6 +316,12 @@ function main() {
       profile_status: clean(r.profile_status),
       runtime_export_decision: clean(r.runtime_export_decision),
       affiliate_ready: Boolean(r.affiliate_ready),
+      affiliate_query: clean(r.affiliate_query),
+      default_product_type: clean(r.default_product_type),
+      buying_criteria: splitList(r.buying_criteria),
+      available_forms: splitList(r.available_forms),
+      amazon_affiliate_url: clean(r.amazon_affiliate_url),
+      iherb_affiliate_url: clean(r.iherb_affiliate_url),
       mechanism: clean(r.mechanism || r.mechanisms),
       dosage: clean(r.dosage),
       safety: clean(r.safety),
@@ -233,21 +329,35 @@ function main() {
   )
 
   const herbs = rawHerbs
+    .map(applyAffiliateMetadata)
     .map(applyVisibilityMetadata)
     .filter((r) => determineVisibility(r).include)
     .map((r) => pickRuntimeFields(r, HERB_RUNTIME_FIELDS.concat([
       'visibility_tier',
       'robots',
       'sitemap_included',
+      'affiliate_query',
+      'default_product_type',
+      'buying_criteria',
+      'available_forms',
+      'amazon_affiliate_url',
+      'iherb_affiliate_url',
     ])))
 
   const compounds = rawCompounds
+    .map(applyAffiliateMetadata)
     .map(applyVisibilityMetadata)
     .filter((r) => determineVisibility(r).include)
     .map((r) => pickRuntimeFields(r, COMPOUND_RUNTIME_FIELDS.concat([
       'visibility_tier',
       'robots',
       'sitemap_included',
+      'affiliate_query',
+      'default_product_type',
+      'buying_criteria',
+      'available_forms',
+      'amazon_affiliate_url',
+      'iherb_affiliate_url',
     ])))
 
   const herbIndex = herbs.map(createIndexPayload)
@@ -259,7 +369,6 @@ function main() {
   writeDetailPayloads(herbDetailDir, herbs)
   writeDetailPayloads(compoundDetailDir, compounds)
 
-  // preserve legacy compatibility
   writeJson(path.join(outDir, 'herbs.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
   writeJson(path.join(outDir, 'agent-patches.json'), loadAgentPatches())
@@ -268,7 +377,7 @@ function main() {
   console.log(`[data] compounds-index: ${compoundIndex.length}`)
   console.log(`[data] herb-detail files: ${herbs.length}`)
   console.log(`[data] compound-detail files: ${compounds.length}`)
-  console.log('[data] centralized visibility gating enabled')
+  console.log('[data] affiliate runtime optimization enabled')
 }
 
 main()
