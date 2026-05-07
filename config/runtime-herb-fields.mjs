@@ -42,6 +42,7 @@ export const HERB_RUNTIME_FIELDS = [
 
   // Evidence / safety display
   'evidence',
+  'evidence_grade',
   'evidence_level',
   'evidence_tier',
   'evidence_summary',
@@ -59,6 +60,7 @@ export const HERB_RUNTIME_FIELDS = [
   'dosage',
   'typical_dosage',
   'forms',
+  'available_forms',
   'best_taken',
   'bioavailability_notes',
   'stacking_notes',
@@ -71,8 +73,13 @@ export const HERB_RUNTIME_FIELDS = [
   'keywords',
 
   // Affiliate/runtime product display
+  'affiliate_ready',
+  'affiliate_query',
+  'default_product_type',
   'preferred_vendor_url',
   'affiliate_url_template',
+  'amazon_affiliate_url',
+  'iherb_affiliate_url',
   'fallback_url',
   'product_cta',
   'buying_criteria',
@@ -80,6 +87,10 @@ export const HERB_RUNTIME_FIELDS = [
   // Runtime gating / SEO
   'profile_status',
   'summary_quality',
+  'runtime_export_decision',
+  'visibility_tier',
+  'robots',
+  'sitemap_included',
   'meta_title',
   'meta_description',
 ]
