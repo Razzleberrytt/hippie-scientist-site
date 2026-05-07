@@ -1,11 +1,7 @@
+import { editorialUseCaseLabel, formatDisplayLabel, isClean } from '@/lib/display-utils'
+
 function cleanLabel(value: string) {
-  return value
-    .replace(/_/g, ' ')
-    .replace(/\bhealthy aging\b/gi, 'Healthy aging')
-    .replace(/\bfat loss\b/gi, 'Fat loss')
-    .replace(/\bstress mood\b/gi, 'Stress & mood')
-    .replace(/\bsleep quality\b/gi, 'Sleep quality')
-    .replace(/\bgeneral wellness\b/gi, 'General wellness')
+  return formatDisplayLabel(value)
 }
 
 export default function DecisionCard({
@@ -15,12 +11,12 @@ export default function DecisionCard({
   evidence = ''
 }: any) {
   const cleanedBestFor = bestFor
-    .filter(Boolean)
-    .map((item:any) => cleanLabel(String(item)))
+    .filter(isClean)
+    .map((item:any) => editorialUseCaseLabel(item))
     .slice(0, 3)
 
   const cleanedAvoid = avoid
-    .filter(Boolean)
+    .filter(isClean)
     .map((item:any) => cleanLabel(String(item)))
 
   return (

@@ -4,6 +4,7 @@ import {
   classifyArchetype,
   getTopicClusters,
 } from '@/lib/semantic-runtime'
+import { cleanSummary, isClean } from '@/lib/display-utils'
 
 const TOPICS = [
   {
@@ -30,26 +31,24 @@ const TOPICS = [
 
 export default function ExplorePage() {
   const featured = (compounds as any[])
+    .filter((compound) => compound.slug && compound.name)
     .slice(0, 12)
     .map((compound) => ({
       ...compound,
       archetype: classifyArchetype(compound),
-      clusters: getTopicClusters(compound),
+      clusters: getTopicClusters(compound).filter(isClean),
     }))
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-16 space-y-14">
-      <section className="space-y-5">
-        <div className="inline-flex rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-emerald-600">
-          Semantic Discovery
-        </div>
-
-        <div className="space-y-4">
+    <main className="mx-auto max-w-7xl space-y-10 px-4 py-10 sm:py-14">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
+        <div className="max-w-4xl space-y-4">
+          <p className="eyebrow-label">Semantic Discovery</p>
           <h1 className="heading-premium max-w-4xl text-ink">
             Explore Compounds by Goal
           </h1>
 
-          <p className="max-w-3xl text-lg leading-8 text-muted-soft">
+          <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
             Navigate compounds through semantic relationships, archetypes, evidence patterns, mechanisms, and shared outcomes.
           </p>
         </div>
@@ -71,7 +70,7 @@ export default function ExplorePage() {
                 {topic.title}
               </h2>
 
-              <p className="text-sm leading-7 text-muted-soft">
+              <p className="text-sm leading-7 text-[#46574d]">
                 {topic.description}
               </p>
             </div>
@@ -82,7 +81,7 @@ export default function ExplorePage() {
       <section className="space-y-6">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <div className="eyebrow text-neutral-500">
+            <div className="eyebrow text-brand-700">
               Discovery Rail
             </div>
 
@@ -120,8 +119,8 @@ export default function ExplorePage() {
                     {compound.name}
                   </h3>
 
-                  <p className="mt-3 line-clamp-4 text-sm leading-7 text-muted-soft">
-                    {compound.summary || 'Evidence-aware compound profile with semantic discovery support.'}
+                  <p className="mt-3 line-clamp-4 text-sm leading-7 text-[#46574d]">
+                    {cleanSummary(compound.summary, 'compound')}
                   </p>
                 </div>
               </div>

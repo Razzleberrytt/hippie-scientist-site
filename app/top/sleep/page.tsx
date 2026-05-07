@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
+import { cleanSummary } from '@/lib/display-utils'
 
 type SleepHerb = {
   slug: string
@@ -12,6 +13,7 @@ type SleepHerb = {
   primary_effects?: string[] | string
   goal_tags?: string[] | string
   mechanism_summary?: string
+  summary?: string
 }
 
 const EVIDENCE_WEIGHT: Record<string, number> = { A: 3, B: 2, C: 1 }
@@ -96,7 +98,7 @@ export default async function TopSleepPage() {
               <article key={herb.slug} className='border p-4 rounded-xl'>
                 <h3 className='text-lg font-semibold'>{label}</h3>
                 <p className='mt-2 text-sm text-white/70'>
-                  {herb.mechanism_summary || 'Mechanism summary not yet available.'}
+                  {cleanSummary(herb.mechanism_summary || herb.summary, 'herb')}
                 </p>
                 <div className='mt-3 flex gap-2 flex-wrap'>
                   <Link href={`/herbs/${herb.slug}`}>Read {label} profile</Link>

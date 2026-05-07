@@ -4,6 +4,7 @@ import SectionBlock from '@/components/ui/SectionBlock'
 import { getProductPicks, groupProductPicks } from '@/lib/product-ranking'
 import { generateAmazonProductPicks } from '@/lib/amazon-auto'
 import Link from 'next/link'
+import { cleanSummary } from '@/lib/display-utils'
 
 export async function generateStaticParams() {
   return [{ slug: 'best-supplements-for-focus' }]
@@ -52,7 +53,7 @@ export default function Page() {
             </h2>
 
             <SectionBlock title="Summary">
-              {c.summary}
+              {cleanSummary(c.summary, 'compound')}
             </SectionBlock>
 
             <p className="text-xs text-neutral-500">

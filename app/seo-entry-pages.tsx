@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { goalConfigs } from '@/data/goals'
 import { getCompounds } from '@/lib/runtime-data'
 import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
+import { isClean } from '@/lib/display-utils'
 
 type SeoEntryConfig = {
   route: string
@@ -180,7 +181,8 @@ const clean = (value: unknown): string => {
   if (value === null || value === undefined) return ''
   if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(', ')
   if (typeof value === 'object') return ''
-  return String(value).replace(/\s+/g, ' ').trim()
+  const normalized = String(value).replace(/\s+/g, ' ').trim()
+  return isClean(normalized) ? normalized : ''
 }
 
 const sentence = (text: string) => text.endsWith('.') ? text : `${text}.`
@@ -396,7 +398,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
       {linkedCompounds.length > 0 ? (
         <section className="space-y-4 rounded-3xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-2xl font-bold text-white">Related compounds</h2>
-          <p className="max-w-3xl text-sm leading-6 text-white/70">These links are generated from the current compound dataset and goal mapping, so this guide points into real workbook-backed profiles.</p>
+          <p className="max-w-3xl text-sm leading-6 text-white/70">These links are generated from the current compound dataset and goal mapping, so this guide points into real dataset-linked profiles.</p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {linkedCompounds.map((compound) => (
               <Link key={compound.slug} href={`/compounds/${compound.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 hover:border-emerald-300/40">

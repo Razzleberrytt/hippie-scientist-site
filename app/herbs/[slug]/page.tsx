@@ -251,7 +251,7 @@ export default async function HerbDetailPage({ params }: Params) {
     consensusSummary ? ['scientific-consensus', 'Consensus'] : null,
     focusAreas.length ? ['research-focus', 'Research focus'] : null,
     relatedPathways.length ? ['related-pathways', 'Related pathways'] : null,
-    outcomeCards.length ? ['best-for', 'Best for'] : null,
+    outcomeCards.length ? ['best-for', 'Explored for'] : null,
     mechanismGroups.length ? ['mechanisms', 'Mechanisms'] : null,
     researchGaps.length || evidenceLimitations.length ? ['research-gaps', 'Research gaps'] : null,
     compareItems.length ? ['compare-with', 'Compare with'] : null,
@@ -292,7 +292,7 @@ export default async function HerbDetailPage({ params }: Params) {
             <EvidenceMaturityRibbon label={semanticTopics.maturity} />
           </div>
 
-          <p className="text-reading mt-5 max-w-reading text-lg text-muted-soft">
+          <p className="text-reading mt-5 max-w-reading text-lg text-[#46574d]">
             {leadText}
           </p>
 
@@ -382,7 +382,7 @@ export default async function HerbDetailPage({ params }: Params) {
 
 
         {outcomeCards.length > 0 ? (
-          <DetailCard id="best-for" eyebrow="Use Cases" title="Best for" description="Signals surfaced from the current profile and linked claim data.">
+          <DetailCard id="best-for" eyebrow="Use Cases" title="Commonly explored for" description="Conservative use-case signals surfaced from the current profile and linked claim data.">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {outcomeCards.map(card => (
                 <div key={card.title} className="surface-subtle rounded-2xl p-5">

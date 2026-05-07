@@ -1,9 +1,11 @@
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import compounds from '../../../public/data/compounds.json'
 import {
   classifyArchetype,
   getTopicClusters,
 } from '@/lib/semantic-runtime'
+import { cleanSummary, isClean } from '@/lib/display-utils'
 
 const TITLES: Record<string, string> = {
   sleep: 'Sleep Support',
@@ -13,22 +15,20 @@ const TITLES: Record<string, string> = {
 }
 
 export async function generateStaticParams() {
-  return [
-    { topic: 'sleep' },
-    { topic: 'focus' },
-    { topic: 'anxiety' },
-    { topic: 'recovery' },
-  ]
+  return Object.keys(TITLES).map((topic) => ({ topic }))
 }
 
 export default async function TopicExplorePage({ params }: any) {
   const topic = String(params.topic || '').toLowerCase()
 
+  if (!TITLES[topic]) notFound()
+
   const filtered = (compounds as any[])
+    .filter((compound) => compound.slug && compound.name)
     .map((compound) => ({
       ...compound,
       archetype: classifyArchetype(compound),
-      clusters: getTopicClusters(compound),
+      clusters: getTopicClusters(compound).filter(isClean),
     }))
     .filter((compound) => {
       return (compound.clusters || []).some((cluster: string) => {
@@ -45,57 +45,66 @@ export default async function TopicExplorePage({ params }: any) {
     .slice(0, 24)
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-16 space-y-10">
-      <div className="space-y-4">
-        <div className="text-xs uppercase tracking-[0.2em] text-emerald-300">
-          Semantic Explore Hub
+    <main className="mx-auto max-w-7xl space-y-9 px-4 py-10 sm:py-14">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
+        <div className="max-w-4xl space-y-4">
+          <p className="eyebrow-label">Semantic Explore Hub</p>
+
+          <h1 className="heading-premium text-ink">
+            {TITLES[topic]}
+          </h1>
+
+          <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
+            Discover compounds grouped by shared outcomes, relationship signals, mechanisms, and conservative evidence patterns.
+          </p>
+        </div>
+      </section>
+
+      <section className="space-y-5">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="eyebrow-label">Profiles</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">Related discovery cards</h2>
+          </div>
+          <span className="chip-readable">{filtered.length} matches</span>
         </div>
 
-        <h1 className="text-5xl font-semibold tracking-tight text-white">
-          {TITLES[topic] || 'Explore Compounds'}
-        </h1>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {filtered.map((compound) => (
+            <Link
+              key={compound.slug}
+              href={`/compounds/${compound.slug}`}
+              className="card-premium group p-6"
+            >
+              <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
+                  {isClean(compound.archetype) ? (
+                    <span className="evidence-pill-strong">
+                      {compound.archetype}
+                    </span>
+                  ) : null}
 
-        <p className="max-w-3xl text-lg leading-8 text-neutral-400">
-          Discover compounds grouped by shared outcomes, semantic relationships, mechanisms, and evidence-aware patterns.
-        </p>
-      </div>
+                  {(compound.clusters || []).slice(0, 2).map((cluster:string) => (
+                    <span key={cluster} className="chip-readable text-[10px] uppercase tracking-wide">
+                      {cluster}
+                    </span>
+                  ))}
+                </div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {filtered.map((compound) => (
-          <Link
-            key={compound.slug}
-            href={`/compounds/${compound.slug}`}
-            className="group rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[0.08]"
-          >
-            <div className="space-y-4">
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] uppercase tracking-wide text-emerald-300">
-                  {compound.archetype}
-                </span>
+                <div>
+                  <h2 className="text-2xl font-semibold text-ink transition group-hover:text-brand-800">
+                    {compound.name}
+                  </h2>
 
-                {(compound.clusters || []).slice(0, 2).map((cluster:string) => (
-                  <span
-                    key={cluster}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-wide text-neutral-300"
-                  >
-                    {cluster}
-                  </span>
-                ))}
+                  <p className="mt-3 line-clamp-4 text-sm leading-7 text-[#46574d]">
+                    {cleanSummary(compound.summary, 'compound')}
+                  </p>
+                </div>
               </div>
-
-              <div>
-                <h2 className="text-2xl font-semibold text-white group-hover:text-emerald-300 transition">
-                  {compound.name}
-                </h2>
-
-                <p className="mt-3 line-clamp-4 text-sm leading-7 text-neutral-400">
-                  {compound.summary || 'Semantic compound profile with evidence-aware discovery.'}
-                </p>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
+      </section>
     </main>
   )
 }

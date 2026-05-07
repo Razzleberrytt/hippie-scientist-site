@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
 import EvidenceBadge from '@/components/ui/EvidenceBadge'
+import { cleanSummary, editorialUseCaseLabel, isClean, list } from '@/lib/display-utils'
 
 type CompoundCardProps = {
   compound: {
@@ -25,7 +26,7 @@ const clean = (value?: string) => String(value || '').replace(/\s+/g, ' ').trim(
 export default function CompoundCard({ compound }: CompoundCardProps) {
   const reduceMotion = useReducedMotion()
 
-  const tags = (compound.primary_effects || compound.effects || compound.tags || []).map(clean).filter(Boolean).slice(0, 3)
+  const tags = list(compound.primary_effects || compound.effects || compound.tags).slice(0, 3)
 
   return (
     <motion.article
@@ -52,12 +53,12 @@ export default function CompoundCard({ compound }: CompoundCardProps) {
         </div>
 
         <p className="text-reading line-clamp-4 text-sm sm:text-base">
-          {clean(compound.summary) || 'Evidence-aware compound profile with mechanism and safety context.'}
+          {cleanSummary(compound.summary, 'compound')}
         </p>
 
-        {compound.bestFor ? (
-          <div className="rounded-2xl border border-brand-900/10 bg-paper-100/80 px-4 py-3 text-sm leading-6 text-muted-soft">
-            {clean(compound.bestFor)}
+        {isClean(compound.bestFor) ? (
+          <div className="rounded-2xl border border-brand-900/10 bg-paper-100/80 px-4 py-3 text-sm leading-6 text-[#46574d]">
+            {editorialUseCaseLabel(compound.bestFor)}
           </div>
         ) : null}
 

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { DiscoveryLink } from '@/lib/editorial-discovery'
+import { isClean, isSafeInternalHref } from '@/lib/display-utils'
 
 type SemanticBrowseModuleProps = {
   eyebrow?: string
@@ -18,6 +19,8 @@ const kindStyles: Record<string, string> = {
 export function ContentIdentityCard({ item }: { item: DiscoveryLink }) {
   const style = kindStyles[item.kind || 'path'] || kindStyles.path
 
+  if (!isSafeInternalHref(item.href) || !isClean(item.title)) return null
+
   return (
     <Link href={item.href} className={`scientific-card ${style} group`}>
       <div className="flex items-center justify-between gap-3">
@@ -31,18 +34,22 @@ export function ContentIdentityCard({ item }: { item: DiscoveryLink }) {
 }
 
 export function SemanticBrowseModule({ eyebrow = 'Semantic discovery', title, description, groups }: SemanticBrowseModuleProps) {
+  const visibleGroups = groups.filter(group => isSafeInternalHref(group.href) && isClean(group.title) && isClean(group.description))
+
+  if (!visibleGroups.length) return null
+
   return (
     <section className="surface-depth card-spacing">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="eyebrow-label">{eyebrow}</p>
-          <h2 className="mt-3 max-w-2xl text-balance">{title}</h2>
+          <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h2>
         </div>
         {description ? <p className="max-w-xl text-sm leading-7 text-[#46574d]">{description}</p> : null}
       </div>
 
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {groups.map(group => (
+        {visibleGroups.map(group => (
           <Link key={`${group.href}-${group.title}`} href={group.href} className="scientific-card group">
             <div className="flex items-center justify-between gap-3">
               <span className="identity-kicker">{group.meta || 'Explore'}</span>
@@ -58,7 +65,9 @@ export function SemanticBrowseModule({ eyebrow = 'Semantic discovery', title, de
 }
 
 export function ResearchContinuityBlock({ title = 'Continue researching', description, items }: { title?: string; description?: string; items: DiscoveryLink[] }) {
-  if (!items.length) return null
+  const visibleItems = items.filter(item => isSafeInternalHref(item.href) && isClean(item.title))
+
+  if (!visibleItems.length) return null
 
   return (
     <div className="space-y-5">
@@ -68,7 +77,7 @@ export function ResearchContinuityBlock({ title = 'Continue researching', descri
         {description ? <p className="mt-2 text-sm leading-7 text-[#46574d]">{description}</p> : null}
       </div>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {items.map(item => <ContentIdentityCard key={item.href} item={item} />)}
+        {visibleItems.map(item => <ContentIdentityCard key={item.href} item={item} />)}
       </div>
     </div>
   )

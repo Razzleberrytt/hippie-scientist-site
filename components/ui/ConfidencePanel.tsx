@@ -28,7 +28,7 @@ export default function ConfidencePanel({ level = 'moderate' }: any) {
         </div>
       </div>
 
-      <p className="max-w-2xl text-sm leading-7 text-muted-soft">
+      <p className="max-w-2xl text-sm leading-7 text-[#46574d]">
         {item.text}
       </p>
     </div>

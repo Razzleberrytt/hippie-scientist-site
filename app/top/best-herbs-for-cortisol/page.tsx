@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { AffiliateConversionCard } from '@/components/affiliate-conversion-card'
+import { cleanSummary } from '@/lib/display-utils'
 
 type Herb = {
   slug: string
@@ -54,7 +55,7 @@ const matches = (herb: Herb): boolean => {
 }
 
 const summaryFor = (herb: Herb): string => {
-  const value = text(herb.mechanism_summary) || text(herb.summary) || text(herb.description) || 'Profile details are still being expanded from the workbook.'
+  const value = cleanSummary(text(herb.mechanism_summary) || text(herb.summary) || text(herb.description), 'herb')
   return value.length > 220 ? `${value.slice(0, 219).trimEnd()}…` : value
 }
 

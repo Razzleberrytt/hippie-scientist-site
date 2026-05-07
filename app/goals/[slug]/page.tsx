@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getStacks, getCompounds } from '@/lib/runtime-data'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
+import { cleanSummary, editorialUseCaseLabel, formatDisplayLabel, isClean } from '@/lib/display-utils'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -146,18 +147,27 @@ const getEvidenceLabel = (compound: CompoundRecord) => {
   return `Evidence: ${raw}`
 }
 
-const getBestFor = (compound: CompoundRecord) => clean(compound.best_for ?? compound.bestFor)
-const getAvoidIf = (compound: CompoundRecord) => clean(compound.avoid_if ?? compound.avoidIf)
-const getSafetySummary = (compound: CompoundRecord) => clean(compound.safety_summary ?? compound.safetySummary ?? compound.safety_notes ?? compound.safetyNotes)
+const getBestFor = (compound: CompoundRecord) => {
+  const value = clean(compound.best_for ?? compound.bestFor)
+  return isClean(value) ? editorialUseCaseLabel(value) : ''
+}
+const getAvoidIf = (compound: CompoundRecord) => {
+  const value = clean(compound.avoid_if ?? compound.avoidIf)
+  return isClean(value) ? formatDisplayLabel(value) : ''
+}
+const getSafetySummary = (compound: CompoundRecord) => {
+  const value = clean(compound.safety_summary ?? compound.safetySummary ?? compound.safety_notes ?? compound.safetyNotes)
+  return isClean(value) ? value : ''
+}
 
 const getBestPickLabel = (compound: CompoundRecord, compounds: CompoundRecord[], index: number, goalSlug: string, candidates: string[]) => {
   if (index === 0) return 'Best Match'
   const strongestEvidence = compounds.reduce((best, item) => getEvidenceRank(item) > getEvidenceRank(best) ? item : best, compounds[0])
   if (compound.slug === strongestEvidence.slug) return 'Strongest Evidence'
   const safest = compounds.reduce((best, item) => getSafetyRank(item) > getSafetyRank(best) ? item : best, compounds[0])
-  if (compound.slug === safest.slug) return 'Best for Safety'
+  if (compound.slug === safest.slug) return 'Safety-forward'
   const strongestIntent = compounds.reduce((best, item) => intentScore(item, goalSlug, candidates) > intentScore(best, goalSlug, candidates) ? item : best, compounds[0])
-  if (compound.slug === strongestIntent.slug) return 'Best Intent Fit'
+  if (compound.slug === strongestIntent.slug) return 'Closest goal fit'
   const fastest = compounds.reduce((best, item) => getSpeedRank(item) > getSpeedRank(best) ? item : best, compounds[0])
   if (getSpeedRank(compound) > 0 && compound.slug === fastest.slug) return 'Fastest Acting'
   return ''
@@ -200,7 +210,7 @@ export default async function GoalPage({ params }: Params) {
           <div className="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.2em] text-emerald-700/60">Intent-ranked picks</p>
-              <h2 className="mt-1 text-3xl font-black text-slate-950">Best options for this goal</h2>
+              <h2 className="mt-1 text-3xl font-black text-slate-950">Most relevant options for this goal</h2>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Ranked by goal fit, evidence, safety, speed, and completeness. Missing data is never guessed.</p>
             </div>
             <Link href="/compounds" className="text-sm font-black text-emerald-700">All compounds →</Link>
@@ -212,7 +222,7 @@ export default async function GoalPage({ params }: Params) {
               const bestFor = getBestFor(compound)
               const avoidIf = getAvoidIf(compound)
               const safetySummary = getSafetySummary(compound)
-              const summary = clean(compound.summary) || clean(compound.description)
+              const summary = cleanSummary(compound.summary || compound.description, 'compound')
               const pickLabel = getBestPickLabel(compound, topCompounds, index, goal.slug, goal.compoundCandidates)
 
               return (
@@ -229,7 +239,7 @@ export default async function GoalPage({ params }: Params) {
                   {(avoidIf || safetySummary) ? (
                     <div className="mt-4 rounded-2xl bg-amber-50/90 p-3 ring-1 ring-amber-900/10">
                       <p className="text-xs font-black uppercase tracking-[0.16em] text-amber-800">Safety check</p>
-                      <p className="mt-1 line-clamp-2 text-sm font-semibold leading-6 text-slate-700">{avoidIf ? `Avoid if: ${avoidIf}` : safetySummary}</p>
+                      <p className="mt-1 line-clamp-2 text-sm font-semibold leading-6 text-slate-700">{avoidIf ? `Use caution with ${avoidIf}.` : safetySummary}</p>
                     </div>
                   ) : null}
 
@@ -254,11 +264,11 @@ export default async function GoalPage({ params }: Params) {
       </section>
 
       {relatedStacks.length > 0 || relatedComparisons.length > 0 ? (
-        <section className="rounded-[2rem] bg-slate-950 p-5 text-white shadow-xl shadow-slate-900/10 sm:p-6">
-          <h2 className="text-3xl font-black text-white">Next decision step</h2>
+        <section className="surface-depth rounded-[2rem] p-5 shadow-card sm:p-6">
+          <h2 className="text-3xl font-black text-ink">Next decision step</h2>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
-            {relatedStacks.slice(0, 2).map((stack) => <Link key={stack.slug} href={`/stacks/${stack.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5"><h3 className="text-xl font-black text-white">{stack.title}</h3><span className="mt-4 inline-flex text-sm font-black text-emerald-200">View routine →</span></Link>)}
-            {relatedComparisons.slice(0, 2).map((comparison) => <Link key={comparison.slug} href={`/compare/${comparison.slug}`} className="rounded-2xl border border-white/10 bg-white/[0.06] p-5"><h3 className="text-xl font-black text-white">{comparison.title}</h3><span className="mt-4 inline-flex text-sm font-black text-emerald-200">Compare →</span></Link>)}
+            {relatedStacks.slice(0, 2).map((stack) => <Link key={stack.slug} href={`/stacks/${stack.slug}`} className="rounded-2xl border border-brand-900/10 bg-white/75 p-5 transition hover:bg-white"><h3 className="text-xl font-black text-ink">{stack.title}</h3><span className="mt-4 inline-flex text-sm font-black text-emerald-700">View routine →</span></Link>)}
+            {relatedComparisons.slice(0, 2).map((comparison) => <Link key={comparison.slug} href={`/compare/${comparison.slug}`} className="rounded-2xl border border-brand-900/10 bg-white/75 p-5 transition hover:bg-white"><h3 className="text-xl font-black text-ink">{comparison.title}</h3><span className="mt-4 inline-flex text-sm font-black text-emerald-700">Compare →</span></Link>)}
           </div>
         </section>
       ) : null}

@@ -4,29 +4,31 @@ const INTERNAL_PATTERNS = [
   /lean\s+herb\s+row/i,
   /lean\s+monograph\s+row/i,
   /high\s+speed\s+phytochemical\s+ingestion/i,
-  /is\s+tracked\s+for/i,
-  /is\s+tracked\s+for\s+.*conservative\s+evidence\s+framing/i,
+  /(?:is\s+)?tracked\s+for/i,
   /conservative\s+evidence\s+framing/i,
   /keep\s+claims\s+tied/i,
   /source\s+backed\s+preparation\s+and\s+safety\s+context/i,
   /bulk\s+ingested\s+support\s+row/i,
   /sci\s*space\s+evidence\s+pass/i,
-  /mechanism\s+only\s+pending\s+stronger\s+human/i,
+  /scispace\s+evidence\s+pass/i,
+  /mechanism[-\s]*only\s+pending\s+stronger\s+human/i,
   /pmid\s+backed\s+human\s+evidence\s+is\s+present/i,
   /minimum\s+source\s+backed\s+intake/i,
   /bulk\s+mode/i,
   /bulk\s+enrichment/i,
+  /workbook\s+readiness\s+pass/i,
   /enriched\s+in\s+bulk\s+mode/i,
   /schema\s+artifact/i,
   /placeholder/i,
-  /internal\s+cross[-\s]*linking/i,
-  /internal\s+cross[-\s]*linking\s+supports/i,
+  /internal\s+cross[-\s]*linking(?:\s+supports)?/i,
   /treat\s+dosing\s+and\s+outcomes\s+as\s+review\s+gated/i,
   /added\s+as\s+site\s+safe\s+referenced\s+entity\s+during\s+workbook\s+readiness\s+pass/i,
   /^n\/?a$/i,
   /^unknown$/i,
   /^tbd$/i,
   /^none$/i,
+  /^no\s+major\s+flags$/i,
+  /^not\s+yet\s+available$/i,
 ]
 
 const LABEL_MAP: Record<string, string> = {
@@ -144,4 +146,30 @@ export function cleanSummary(value: unknown, type: 'herb' | 'compound' = 'compou
   }
 
   return 'Evidence-aware compound profile with mechanism, safety, and practical context.'
+}
+
+
+export function editorialUseCaseLabel(value: unknown): string {
+  const label = formatDisplayLabel(value)
+
+  if (!isClean(label)) return ''
+
+  const lower = label.toLowerCase()
+  if (/metabolic|glucose|insulin|weight|fat loss/.test(lower)) return 'Most commonly explored for metabolic support.'
+  if (/sleep|insomnia|night/.test(lower)) return 'Most commonly explored for sleep and nighttime support.'
+  if (/stress|mood|anxiety|calm/.test(lower)) return 'Most commonly explored for stress resilience and calm support.'
+  if (/focus|cognition|memory|brain|attention/.test(lower)) return 'Most commonly explored for cognitive and focus support.'
+  if (/recovery|performance|exercise|muscle/.test(lower)) return 'Most commonly explored for recovery and performance support.'
+
+  return `Most commonly explored for ${label.toLowerCase()} support.`
+}
+
+export function isSafeInternalHref(value: unknown): value is string {
+  const href = text(value)
+
+  if (!href || !href.startsWith('/') || href.includes('//')) return false
+  if (/\/(undefined|null|nan)(?:\/|$)/i.test(href)) return false
+  if (/\s/.test(href)) return false
+
+  return true
 }
