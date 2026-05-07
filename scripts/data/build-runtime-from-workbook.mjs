@@ -1,7 +1,3 @@
-// optimized runtime payload exporter
-// centralized runtime visibility + SEO gating
-// affiliate runtime optimization enabled
-
 #!/usr/bin/env node
 
 import fs from 'node:fs'
