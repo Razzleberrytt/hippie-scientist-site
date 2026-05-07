@@ -32,6 +32,8 @@ import {
   classifyArchetype,
 } from '@/lib/semantic-runtime'
 import Link from 'next/link'
+import { EvidenceMaturityRibbon, SemanticBrowseModule } from '@/components/scientific-discovery'
+import { buildSemanticTopics } from '@/lib/editorial-discovery'
 
 export async function generateStaticParams() {
   return (data as any[]).map((c)=>({ slug:c.slug }))
@@ -80,6 +82,7 @@ export default function Page({ params }: any) {
   const stackCandidates = getStackCandidates(compound)
   const comparisonCandidates = getComparisonCandidates(compound)
   const snapshot = getEvidenceSnapshot(compound)
+  const semanticTopics = buildSemanticTopics(compound)
 
   const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier)
   const safetyLevel = normalizeSafetyLevel(compound.safety)
@@ -136,11 +139,19 @@ export default function Page({ params }: any) {
 
           <TrustBar />
 
-          <CompoundHero
-            compound={compound}
-            evidenceLevel={evidenceLevel}
-            safetyLevel={safetyLevel}
-          />
+          <div className="space-y-4">
+            <CompoundHero
+              compound={compound}
+              evidenceLevel={evidenceLevel}
+              safetyLevel={safetyLevel}
+            />
+            <div className="flex flex-wrap gap-3">
+              <EvidenceMaturityRibbon label={semanticTopics.maturity} />
+              {[semanticTopics.researchStyle, ...semanticTopics.effects.slice(0, 2), ...semanticTopics.mechanisms.slice(0, 2)].map(item => (
+                <span key={item} className="chip-readable">{item}</span>
+              ))}
+            </div>
+          </div>
 
           <EvidenceSnapshotCard snapshot={snapshot} />
 
@@ -184,9 +195,23 @@ export default function Page({ params }: any) {
 
           {mechanisms.length > 0 && (
             <SectionBlock title="Mechanisms">
+              <div className="mb-5 pull-quote-science">
+                Current evidence suggests these pathways are best treated as a research map, not a promise of effect.
+              </div>
               <MechanismGrid mechanisms={mechanisms} />
             </SectionBlock>
           )}
+
+          <SemanticBrowseModule
+            eyebrow="Semantic recommendations"
+            title="Continue researching by relationship"
+            description="Move laterally through effect clusters, pathway families, evidence maturity, and comparison candidates."
+            groups={[
+              { title: semanticTopics.effects[0] || 'Effect cluster', description: 'Explore profiles with similar outcome language and practical intent.', href: '/goals', meta: 'Effect' },
+              { title: semanticTopics.mechanisms[0] || 'Pathway family', description: 'Follow mechanism families without treating mechanistic data as clinical proof.', href: '/explore', meta: 'Mechanism' },
+              { title: semanticTopics.maturity, description: 'Compare this profile against stronger, mixed, and early-stage evidence pages.', href: '/a-tier', meta: 'Evidence' },
+            ]}
+          />
 
           <div id="effects">
             {effects.length > 0 ? (
