@@ -5,6 +5,7 @@ import {
   getEvidenceSnapshot,
   getTopicClusters,
 } from '@/lib/semantic-runtime'
+import { cleanSummary, isClean } from '@/lib/display-utils'
 
 function findCompound(slug:string) {
   return (compounds as any[]).find((c)=>c.slug===slug)
@@ -33,7 +34,7 @@ export default function ComparePage({ params }: any) {
 
   if (!left || !right) {
     return (
-      <main className="mx-auto max-w-4xl px-4 py-24 text-center text-neutral-300">
+      <main className="mx-auto max-w-4xl px-4 py-24 text-center text-[#46574d]">
         Comparison not found.
       </main>
     )
@@ -50,8 +51,8 @@ export default function ComparePage({ params }: any) {
     },
     {
       label: 'Topical Clusters',
-      left: getTopicClusters(left).join(', '),
-      right: getTopicClusters(right).join(', '),
+      left: getTopicClusters(left).filter(isClean).join(', '),
+      right: getTopicClusters(right).filter(isClean).join(', '),
     },
     {
       label: 'Citation Density',
@@ -68,15 +69,15 @@ export default function ComparePage({ params }: any) {
   return (
     <main className="mx-auto max-w-7xl px-4 py-16 space-y-10">
       <div className="space-y-4">
-        <div className="text-xs uppercase tracking-[0.2em] text-emerald-300">
+        <div className="text-xs uppercase tracking-[0.2em] text-brand-700">
           Semantic Comparison Engine
         </div>
 
-        <h1 className="text-5xl font-semibold tracking-tight text-white">
+        <h1 className="text-5xl font-semibold tracking-tight text-ink">
           {left.name} vs {right.name}
         </h1>
 
-        <p className="max-w-3xl text-lg leading-8 text-neutral-400">
+        <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
           Evidence-aware semantic comparison across archetypes, topical clusters, source depth, and discovery context.
         </p>
       </div>
@@ -85,18 +86,18 @@ export default function ComparePage({ params }: any) {
         {[left, right].map((compound:any)=>(
           <div
             key={compound.slug}
-            className="rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-xl"
+            className="rounded-3xl border border-brand-900/10 bg-white/80 p-7 backdrop-blur-xl"
           >
             <div className="space-y-4">
               <div className="flex flex-wrap gap-2">
-                <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] uppercase tracking-wide text-emerald-300">
+                <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] uppercase tracking-wide text-brand-700">
                   {classifyArchetype(compound)}
                 </span>
 
                 {getTopicClusters(compound).slice(0,2).map((cluster:string)=>(
                   <span
                     key={cluster}
-                    className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-wide text-neutral-300"
+                    className="rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-[10px] uppercase tracking-wide text-[#46574d]"
                   >
                     {cluster}
                   </span>
@@ -104,18 +105,18 @@ export default function ComparePage({ params }: any) {
               </div>
 
               <div>
-                <h2 className="text-3xl font-semibold text-white">
+                <h2 className="text-3xl font-semibold text-ink">
                   {compound.name}
                 </h2>
 
-                <p className="mt-4 text-sm leading-7 text-neutral-400">
-                  {compound.summary || 'Evidence-aware compound profile.'}
+                <p className="mt-4 text-sm leading-7 text-[#46574d]">
+                  {cleanSummary(compound.summary, 'compound')}
                 </p>
               </div>
 
               <Link
                 href={`/compounds/${compound.slug}`}
-                className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-wide text-neutral-200 hover:bg-white/10 transition"
+                className="inline-flex rounded-full border border-brand-900/10 bg-white/75 px-4 py-2 text-xs uppercase tracking-wide text-[#33443a] hover:bg-white transition"
               >
                 Open Compound
               </Link>
@@ -124,17 +125,17 @@ export default function ComparePage({ params }: any) {
         ))}
       </div>
 
-      <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl overflow-hidden">
+      <div className="rounded-3xl border border-brand-900/10 bg-white/80 p-6 backdrop-blur-xl overflow-hidden">
         <table className="w-full text-left">
           <thead>
-            <tr className="border-b border-white/10">
-              <th className="py-4 text-xs uppercase tracking-[0.2em] text-neutral-500">
+            <tr className="border-b border-brand-900/10">
+              <th className="py-4 text-xs uppercase tracking-[0.2em] text-[#66756d]">
                 Metric
               </th>
-              <th className="py-4 text-xs uppercase tracking-[0.2em] text-neutral-500">
+              <th className="py-4 text-xs uppercase tracking-[0.2em] text-[#66756d]">
                 {left.name}
               </th>
-              <th className="py-4 text-xs uppercase tracking-[0.2em] text-neutral-500">
+              <th className="py-4 text-xs uppercase tracking-[0.2em] text-[#66756d]">
                 {right.name}
               </th>
             </tr>
@@ -144,17 +145,17 @@ export default function ComparePage({ params }: any) {
             {rows.map((row)=>(
               <tr
                 key={row.label}
-                className="border-b border-white/5 last:border-none"
+                className="border-b border-brand-900/10 last:border-none"
               >
-                <td className="py-5 text-sm font-medium text-white">
+                <td className="py-5 text-sm font-medium text-ink">
                   {row.label}
                 </td>
 
-                <td className="py-5 text-sm text-neutral-300">
+                <td className="py-5 text-sm text-[#46574d]">
                   {row.left}
                 </td>
 
-                <td className="py-5 text-sm text-neutral-300">
+                <td className="py-5 text-sm text-[#46574d]">
                   {row.right}
                 </td>
               </tr>

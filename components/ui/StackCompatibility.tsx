@@ -8,15 +8,15 @@ export default function StackCompatibility({ related = [] }: any) {
           key={i}
           className="rounded-2xl border p-4 bg-white/70 backdrop-blur"
         >
-          <div className="text-xs uppercase tracking-wide text-neutral-400 mb-2">
+          <div className="text-xs uppercase tracking-wide text-[#46574d] mb-2">
             Potential Stack Pairing
           </div>
 
-          <div className="font-semibold text-sm">
+          <div className="font-semibold text-sm text-ink">
             {item.name}
           </div>
 
-          <div className="text-xs text-neutral-500 mt-2 leading-5">
+          <div className="text-xs text-[#46574d] mt-2 leading-5">
             May complement related mechanisms, goals, or wellness contexts.
           </div>
         </div>

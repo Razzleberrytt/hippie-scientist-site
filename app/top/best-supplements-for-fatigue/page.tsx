@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
 import { buildAmazonSearchUrl, getHerbSearchLinks } from '@/lib/affiliate'
+import { cleanSummary } from '@/lib/display-utils'
 
 type RecordItem = {
   slug: string
@@ -20,7 +21,7 @@ const PICKS = [
 ]
 
 const label = (item: RecordItem): string => item.displayName || item.name || item.slug
-const summary = (item: RecordItem): string => item.mechanism_summary || item.summary || item.description || 'Profile details are still being expanded from the workbook.'
+const summary = (item: RecordItem): string => cleanSummary(item.mechanism_summary || item.summary || item.description, item.kind)
 const href = (item: RecordItem): string => item.kind === 'herb' ? `/herbs/${item.slug}/` : `/compounds/${item.slug}/`
 const affiliateUrl = (item: RecordItem): string => item.kind === 'herb' ? getHerbSearchLinks(label(item))[0]?.url || buildAmazonSearchUrl(label(item)) : buildAmazonSearchUrl(`${label(item)} supplement`)
 

@@ -1,4 +1,5 @@
 import compoundsData from '../public/data/compounds.json'
+import { cleanSummary, formatDisplayLabel, isClean, list as cleanList } from './display-utils'
 
 export type RuntimeCompoundInput = {
   slug?: string
@@ -58,21 +59,7 @@ function slugify(value: unknown): string {
 }
 
 function splitList(value: unknown): string[] {
-  if (!value) return []
-
-  if (Array.isArray(value)) {
-    return value
-      .flatMap((entry) => splitList(entry))
-      .map(clean)
-      .filter(Boolean)
-  }
-
-  if (typeof value === 'object') return []
-
-  return clean(value)
-    .split(/[|;,]/)
-    .map((entry) => entry.trim())
-    .filter(Boolean)
+  return cleanList(value)
 }
 
 function unique(values: string[]): string[] {
@@ -129,19 +116,20 @@ function inferClusters(record: Pick<RuntimeCompound, 'effects' | 'mechanisms' | 
 export function normalizeCompound(input: RuntimeCompoundInput): RuntimeCompound {
   const effects = unique(splitList(input.effects || input.primary_effects || input.effect))
   const mechanisms = unique(splitList(input.mechanisms || input.mechanism))
-  const summary = clean(input.summary || input.coreInsight)
+  const summary = cleanSummary(input.summary || input.coreInsight, 'compound')
 
   const base = {
     slug: slugify(input.slug || input.name || input.title),
-    name: clean(input.name || input.title || input.slug),
-    summary: summary || 'No summary available yet.',
+    name: formatDisplayLabel(input.name || input.title || input.slug),
+    summary,
     effects,
     mechanisms,
-    evidence_tier: clean(input.evidence_tier || input.evidence),
-    safety: clean(
+    evidence_tier: formatDisplayLabel(input.evidence_tier || input.evidence),
+    safety: cleanSummary(
       typeof input.safety === 'object' && input.safety && 'notes' in input.safety
         ? (input.safety as { notes?: unknown }).notes
-        : input.safety
+        : input.safety,
+      'compound'
     ),
     sources: sourceArray(input.sources || input.references),
     related_compounds: unique(splitList(input.related_compounds || input.relatedCompounds)),
@@ -162,7 +150,7 @@ export function normalizeCompound(input: RuntimeCompoundInput): RuntimeCompound 
 
 const compounds = (compoundsData as RuntimeCompoundInput[])
   .map(normalizeCompound)
-  .filter((compound) => compound.slug && compound.name)
+  .filter((compound) => compound.slug && compound.name && isClean(compound.name))
 
 export function getAllCompoundsRuntime() {
   return compounds

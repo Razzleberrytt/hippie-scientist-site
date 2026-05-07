@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getCompounds } from '@/lib/runtime-data'
 import { buildAmazonSearchUrl } from '@/lib/affiliate'
+import { cleanSummary } from '@/lib/display-utils'
 
 type CompoundRecord = {
   slug: string
@@ -61,7 +62,7 @@ export default async function FocusPage() {
         {ranked.map((c, i) => (
           <div key={c.slug} className='border p-4 rounded-xl'>
             <h2 className='font-bold'>#{i + 1} {titleFor(c)}</h2>
-            <p className='text-sm text-white/70'>{c.summary}</p>
+            <p className='text-sm text-white/70'>{cleanSummary(c.summary || c.description, 'compound')}</p>
             <a href={buildAmazonSearchUrl(c.slug)} target='_blank' className='mt-3 inline-block bg-emerald-300 text-black px-3 py-1 rounded'>Compare {titleFor(c)} products →</a>
             <Link href={`/compounds/${c.slug}`} className='block mt-2 text-sm'>Read full profile →</Link>
           </div>

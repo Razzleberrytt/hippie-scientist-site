@@ -139,7 +139,7 @@ export default function StacksPage() {
               <div className="mt-auto pt-4">
                 {s.avoid_if ? (
                   <p className="line-clamp-2 rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">
-                    <span className="font-black">Avoid if:</span> {s.avoid_if}
+                    <span className="font-black">Use caution with:</span> {s.avoid_if}
                   </p>
                 ) : null}
                 <span className="mt-4 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1">See dosage, timing & risks →</span>

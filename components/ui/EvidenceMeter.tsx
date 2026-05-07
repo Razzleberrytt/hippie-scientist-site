@@ -19,7 +19,7 @@ export default function EvidenceMeter({ level='moderate' }: any) {
             Evidence Strength
           </div>
 
-          <p className="max-w-md text-sm leading-7 text-muted-soft">
+          <p className="max-w-md text-sm leading-7 text-[#46574d]">
             Confidence estimate based on available human and mechanistic evidence.
           </p>
         </div>

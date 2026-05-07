@@ -3,10 +3,14 @@ import Link from 'next/link'
 import { useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { EvidenceBadge } from '@/components/ui'
+import { formatDisplayLabel, isClean, list as cleanList, text as cleanText } from '@/lib/display-utils'
 
 type Compound = Record<string, any>
-const text = (v: any) => Array.isArray(v) ? v.map(text).filter(Boolean).join(', ') : String(v || '').replace(/\s+/g, ' ').trim()
-const list = (v: any) => Array.isArray(v) ? v.map(text).filter(Boolean) : text(v).split(/\n|;|\|/).map((i:string)=>i.trim()).filter(Boolean)
+const text = (v: any) => {
+ const value = cleanText(v)
+ return isClean(value) ? formatDisplayLabel(value) : ''
+}
+const list = (v: any) => cleanList(v)
 const getUseCaseLabel = (c: Compound) => {
  const h=`${text(c.role)} ${list(c.primary_effects||c.effects).join(' ')}`.toLowerCase()
  if (/strength|power|performance|muscle/.test(h)) return 'Strength'

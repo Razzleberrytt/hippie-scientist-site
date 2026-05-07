@@ -30,7 +30,7 @@ type TierPayload = {
 export default function ATierPage() {
   const filePath = path.join(process.cwd(), 'public/data/a-tier-index.json')
   const data = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as TierPayload
-  const allItems = data.items ?? []
+  const allItems = (data.items ?? []).filter(item => item.slug)
 
   const grouped = DOMAIN_ORDER.reduce<Record<Domain, TierItem[]>>((acc, domain) => {
     acc[domain] = allItems
@@ -46,23 +46,26 @@ export default function ATierPage() {
   })
 
   return (
-    <main className='mx-auto max-w-6xl px-6 py-10 text-white'>
-      <h1 className='mb-2 text-3xl font-semibold'>A-Tier Compounds</h1>
-      <p className='mb-8 text-white/75'>Curated, high-trust compounds grouped by domain.</p>
+    <main className='mx-auto max-w-6xl space-y-9 px-4 py-10 text-ink sm:px-6'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Evidence explorer</p>
+        <h1 className='heading-premium mt-3 text-ink'>A-Tier Compounds</h1>
+        <p className='mt-4 max-w-3xl text-base leading-7 text-[#46574d]'>Curated, higher-trust compounds grouped by domain for conservative comparison.</p>
+      </section>
 
-      <div className='space-y-10'>
+      <div className='space-y-8'>
         {DOMAIN_ORDER.map(domain => (
           <section key={domain}>
-            <h2 className='mb-4 text-xl font-semibold'>{DOMAIN_LABELS[domain]}</h2>
+            <h2 className='mb-4 text-xl font-semibold text-ink'>{DOMAIN_LABELS[domain]}</h2>
             {grouped[domain].length === 0 ? (
-              <p className='text-sm text-white/60'>No A-tier entries yet.</p>
+              <p className='text-sm text-[#46574d]'>No A-tier entries surfaced yet.</p>
             ) : (
               <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
                 {grouped[domain].map(item => (
                   <Card key={`${domain}-${item.slug}`} className='p-4'>
                     <Link href={`/compounds/${item.slug}`} className='block'>
-                      <h3 className='text-base font-medium text-white'>{item.name ?? item.slug}</h3>
-                      <p className='mt-1 text-sm text-white/65'>/{item.slug}</p>
+                      <h3 className='text-base font-semibold text-ink'>{item.name ?? item.slug}</h3>
+                      <p className='mt-1 text-sm text-[#46574d]'>/{item.slug}</p>
                     </Link>
                   </Card>
                 ))}

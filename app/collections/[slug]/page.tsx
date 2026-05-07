@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { seoCollections } from '@/data/seoCollections'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
+import { cleanSummary } from '@/lib/display-utils'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -44,7 +45,7 @@ export default async function CollectionPage({ params }: Params) {
           return (
             <Link key={item.slug} href={href} className='ds-card block'>
               <h2 className='font-semibold text-white'>{item.displayName ?? item.name ?? item.slug}</h2>
-              <p className='mt-2 line-clamp-3 text-sm text-white/70'>{item.summary ?? item.description}</p>
+              <p className='mt-2 line-clamp-3 text-sm text-white/70'>{cleanSummary(item.summary ?? item.description, collection.itemType === 'compound' ? 'compound' : 'herb')}</p>
             </Link>
           )
         })}

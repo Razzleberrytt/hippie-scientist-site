@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
+import { cleanSummary } from '@/lib/display-utils'
 
 type HerbRecord = {
   slug: string
@@ -97,7 +98,7 @@ export default async function StressPage() {
                 <h2 className='text-xl font-bold text-white'>#{index + 1} {label}</h2>
                 <span className='rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/55'>Score {scoreFor(herb) || 'N/A'}</span>
               </div>
-              <p className='mt-3 text-sm leading-6 text-white/65'>{text(herb.summary) || text(herb.description) || 'Profile summary coming soon.'}</p>
+              <p className='mt-3 text-sm leading-6 text-white/65'>{cleanSummary(text(herb.summary) || text(herb.description), 'herb')}</p>
               <div className='mt-4 flex flex-wrap gap-2'>
                 <Link href={`/herbs/${herb.slug}/`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 transition hover:bg-white/5 hover:text-white'>Read {label} profile</Link>
                 {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-emerald-200'>Compare {label} products →</a> : null}

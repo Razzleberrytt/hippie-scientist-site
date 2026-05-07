@@ -34,6 +34,9 @@ import {
 import Link from 'next/link'
 import { EvidenceMaturityRibbon, SemanticBrowseModule } from '@/components/scientific-discovery'
 import { buildSemanticTopics } from '@/lib/editorial-discovery'
+import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref, list } from '@/lib/display-utils'
+import { generatedComparisons } from '@/data/generated-comparisons'
+import { supplementComparisons } from '@/data/comparisons'
 
 export async function generateStaticParams() {
   return (data as any[]).map((c)=>({ slug:c.slug }))
@@ -45,22 +48,18 @@ export function generateMetadata({ params }: any) {
 
   return {
     title: `${compound.name} Benefits, Effects & Safety | Hippie Scientist`,
-    description: compound.summary || 'Detailed breakdown of effects, safety, and usage.'
+    description: cleanSummary(compound.summary || compound.description, 'compound')
   }
 }
 
-function cleanLabel(value: string = '') {
-  return value
-    .replace(/research[_\s-]*only/gi, '')
-    .replace(/_/g, ' ')
-    .replace(/\bhealthy aging\b/gi, 'Healthy aging')
-    .replace(/\bfat loss\b/gi, 'Fat loss')
-    .replace(/\bstress mood\b/gi, 'Stress & mood')
-    .replace(/\bsleep quality\b/gi, 'Sleep quality')
-    .replace(/\bgeneral wellness\b/gi, 'General wellness')
-    .replace(/\s+/g, ' ')
-    .trim()
+function cleanLabel(value: unknown) {
+  return formatDisplayLabel(value)
 }
+
+const knownComparisonSlugs = new Set([
+  ...generatedComparisons,
+  ...supplementComparisons.map((comparison) => comparison.slug),
+])
 
 function normalizeText(value: string = '') {
   return value.toLowerCase().replace(/[^a-z0-9]/g, '')
@@ -71,25 +70,29 @@ export default function Page({ params }: any) {
   const compound = compounds.find(c => c.slug === params.slug)
   if (!compound) return null
 
-  const effects = getEffects(compound).map((effect:string) => cleanLabel(effect)).filter(Boolean)
-  const sources = getSources(compound)
+  const effects = getEffects(compound)
+    .map((effect:string) => cleanLabel(effect))
+    .filter((effect:string) => isClean(effect) && !/^no\s+strong\s+effects\s+established\s+yet$/i.test(effect))
+  const sources = getSources(compound).filter((source:any) => isClean(typeof source === 'string' ? source : JSON.stringify(source)))
 
-  const related = getRelatedCompounds(compound).map((item:any)=>({
-    ...item,
-    archetype: classifyArchetype(item),
-  }))
+  const related = getRelatedCompounds(compound)
+    .filter((item:any) => item.slug && item.name && isClean(item.name))
+    .map((item:any)=>({
+      ...item,
+      archetype: classifyArchetype(item),
+    }))
 
-  const stackCandidates = getStackCandidates(compound)
-  const comparisonCandidates = getComparisonCandidates(compound)
+  const stackCandidates = getStackCandidates(compound).filter((candidate:any) => candidate.slug && candidate.name && isClean(candidate.reason))
+  const comparisonCandidates = getComparisonCandidates(compound).filter((candidate:any) => candidate.slug && knownComparisonSlugs.has(candidate.slug) && isSafeInternalHref(candidate.href))
   const snapshot = getEvidenceSnapshot(compound)
   const semanticTopics = buildSemanticTopics(compound)
 
   const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier)
   const safetyLevel = normalizeSafetyLevel(compound.safety)
 
-  const mechanisms = compound.mechanisms || []
+  const mechanisms = list(compound.mechanisms)
 
-  const summary = cleanLabel(compound.summary || '')
+  const summary = cleanSummary(compound.summary || compound.description, 'compound')
 
   const quickVerdict =
     summary && summary.length > 140
@@ -119,7 +122,7 @@ export default function Page({ params }: any) {
       ? compound.time_to_effect
       : []
 
-  const meaningfulTimeline = timelineData.filter((item:any) => item?.title && item?.text)
+  const meaningfulTimeline = timelineData.filter((item:any) => isClean(item?.title) && isClean(item?.text))
 
   return (
     <>
@@ -141,13 +144,13 @@ export default function Page({ params }: any) {
 
           <div className="space-y-4">
             <CompoundHero
-              compound={compound}
+              compound={{ ...compound, summary }}
               evidenceLevel={evidenceLevel}
               safetyLevel={safetyLevel}
             />
             <div className="flex flex-wrap gap-3">
               <EvidenceMaturityRibbon label={semanticTopics.maturity} />
-              {[semanticTopics.researchStyle, ...semanticTopics.effects.slice(0, 2), ...semanticTopics.mechanisms.slice(0, 2)].map(item => (
+              {[semanticTopics.researchStyle, ...semanticTopics.effects.slice(0, 2), ...semanticTopics.mechanisms.slice(0, 2)].filter(isClean).map(item => (
                 <span key={item} className="chip-readable">{item}</span>
               ))}
             </div>
@@ -207,10 +210,10 @@ export default function Page({ params }: any) {
             title="Continue researching by relationship"
             description="Move laterally through effect clusters, pathway families, evidence maturity, and comparison candidates."
             groups={[
-              { title: semanticTopics.effects[0] || 'Effect cluster', description: 'Explore profiles with similar outcome language and practical intent.', href: '/goals', meta: 'Effect' },
-              { title: semanticTopics.mechanisms[0] || 'Pathway family', description: 'Follow mechanism families without treating mechanistic data as clinical proof.', href: '/explore', meta: 'Mechanism' },
-              { title: semanticTopics.maturity, description: 'Compare this profile against stronger, mixed, and early-stage evidence pages.', href: '/a-tier', meta: 'Evidence' },
-            ]}
+              { title: semanticTopics.effects[0] || 'Outcome pathways', description: 'Explore profiles with similar outcome language and practical intent.', href: '/goals', meta: 'Outcome' },
+              { title: semanticTopics.mechanisms[0] || 'Mechanism families', description: 'Follow pathway context without treating mechanisms as clinical proof.', href: '/explore', meta: 'Mechanism' },
+              { title: semanticTopics.maturity, description: 'Compare stronger, mixed, and early-stage evidence profiles.', href: '/a-tier', meta: 'Evidence' },
+            ].filter(group => isClean(group.title) && isSafeInternalHref(group.href))}
           />
 
           <div id="effects">
@@ -284,7 +287,7 @@ export default function Page({ params }: any) {
           <div id="safety">
             <SectionBlock title="Safety">
               <p className="text-sm leading-7 text-[#46574d]">
-                {cleanLabel(compound.safety || 'No major cautions surfaced in the current profile.')}
+                {isClean(compound.safety) ? cleanLabel(compound.safety) : 'No major cautions surfaced in the current profile.'}
               </p>
             </SectionBlock>
           </div>

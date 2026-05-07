@@ -6,6 +6,7 @@ import AffiliateBlock from '@/components/AffiliateBlock'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { bestPages } from '@/data/best'
+import { cleanSummary } from '@/lib/display-utils'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -20,7 +21,7 @@ const formatSlug = (value: string) =>
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 
 const displayName = (compound: any) => compound?.displayName || compound?.name || formatSlug(compound?.slug || 'Compound')
-const summary = (compound: any) => compound?.summary || compound?.description || 'Open the compound profile for more detail.'
+const summary = (compound: any) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the compound profile for more detail.'
 
 const evidenceScore = (compound: any) => {
   const text = `${compound?.evidence_grade ?? ''} ${compound?.evidenceTier ?? ''} ${compound?.tier_level ?? ''} ${compound?.evidence ?? ''} ${compound?.summary_quality ?? ''}`.toLowerCase()

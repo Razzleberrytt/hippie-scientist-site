@@ -18,7 +18,7 @@ export default function GoalsIndex() {
               Goals
             </h1>
 
-            <p className="text-reading mt-4 text-lg text-muted-soft">
+            <p className="text-reading mt-4 text-lg text-[#46574d]">
               Start with a goal. Then move into structured guides, compounds, stacks, comparisons, and evidence-aware safety context.
             </p>
           </div>
@@ -56,7 +56,7 @@ export default function GoalsIndex() {
                     {page.h1}
                   </h3>
 
-                  <p className="text-reading mt-4 line-clamp-4 text-sm text-muted-soft">
+                  <p className="text-reading mt-4 line-clamp-4 text-sm text-[#46574d]">
                     {page.intro}
                   </p>
                 </div>
@@ -93,7 +93,7 @@ export default function GoalsIndex() {
                   {goal.title}
                 </h3>
 
-                <p className="text-reading line-clamp-4 text-sm text-muted-soft">
+                <p className="text-reading line-clamp-4 text-sm text-[#46574d]">
                   {goal.summary}
                 </p>
 

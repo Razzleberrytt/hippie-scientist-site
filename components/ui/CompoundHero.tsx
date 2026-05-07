@@ -26,7 +26,7 @@ export default function CompoundHero({
             {compound.name}
           </h1>
 
-          <p className="text-reading max-w-3xl text-lg leading-relaxed text-muted-soft sm:text-[1.08rem]">
+          <p className="text-reading max-w-3xl text-lg leading-relaxed text-[#46574d] sm:text-[1.08rem]">
             {compound.summary || 'Evidence-informed compound profile.'}
           </p>
         </div>

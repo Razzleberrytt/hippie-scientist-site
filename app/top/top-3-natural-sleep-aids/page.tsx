@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
+import { cleanSummary } from '@/lib/display-utils'
 import { AffiliateConversionCard } from '@/components/affiliate-conversion-card'
 
 type Herb = {
@@ -14,7 +15,7 @@ type Herb = {
 
 const PICKS = ['valerian', 'lemon-balm', 'passionflower']
 const label = (h: Herb): string => h.displayName || h.name || h.slug
-const summary = (h: Herb): string => h.mechanism_summary || h.summary || 'Profile details are still being expanded from the workbook.'
+const summary = (h: Herb): string => cleanSummary(h.mechanism_summary || h.summary, 'herb')
 
 export const metadata: Metadata = {
   title: 'Top 3 Natural Sleep Aids (2026 Guide)',

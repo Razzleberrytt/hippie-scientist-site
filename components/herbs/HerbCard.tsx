@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
 import EvidenceBadge from '@/components/ui/EvidenceBadge'
+import { cleanSummary, editorialUseCaseLabel, isClean, list } from '@/lib/display-utils'
 
 type HerbCardProps = {
   herb: {
@@ -40,9 +41,9 @@ function safetyLabel(value?: string) {
 
 export default function HerbCard({ herb }: HerbCardProps) {
   const reduceMotion = useReducedMotion()
-  const tags = (herb.primary_effects || herb.effects || herb.tags || []).map(clean).filter(Boolean).slice(0, 3)
-  const summary = clean(herb.summary) || 'Evidence-aware herbal profile with mechanism and safety context.'
-  const context = clean(herb.bestFor) || tags[0]
+  const tags = list(herb.primary_effects || herb.effects || herb.tags).slice(0, 3)
+  const summary = cleanSummary(herb.summary, 'herb')
+  const context = isClean(herb.bestFor) ? editorialUseCaseLabel(herb.bestFor) : tags[0]
 
   return (
     <motion.article
@@ -75,7 +76,7 @@ export default function HerbCard({ herb }: HerbCardProps) {
         </p>
 
         {context ? (
-          <div className="rounded-2xl border border-brand-900/10 bg-paper-100/80 px-4 py-3 text-sm leading-6 text-muted-soft">
+          <div className="rounded-2xl border border-brand-900/10 bg-paper-100/80 px-4 py-3 text-sm leading-6 text-[#46574d]">
             {context}
           </div>
         ) : null}

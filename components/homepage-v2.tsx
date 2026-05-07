@@ -11,7 +11,7 @@ const learningPaths = [
 
 const evidenceTopics = [
   { href: '/blog/2026-03-18-research-digest-passionflower', title: 'How to read a research digest', description: 'A short editorial example of translating mechanisms and limitations without overclaiming.', meta: 'Article', kind: 'article' as const },
-  { href: '/herbs/ashwagandha', title: 'Ashwagandha profile', description: 'A depth-layer example combining traditional use, stress pathways, and conservative evidence framing.', meta: 'Herb profile', kind: 'herb' as const },
+  { href: '/herbs/ashwagandha', title: 'Ashwagandha profile', description: 'A depth-layer example combining traditional use, stress pathways, and cautious evidence context.', meta: 'Herb profile', kind: 'herb' as const },
   { href: '/compounds/theanine', title: 'Theanine profile', description: 'Compound-centered scanning for effects, safety, mechanisms, and related recommendations.', meta: 'Compound profile', kind: 'compound' as const },
 ]
 
