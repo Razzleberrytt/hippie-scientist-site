@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Fuse from 'fuse.js'
 import compoundsData from '@/public/data/compounds.json'
 import herbsData from '@/public/data/herbs.json'
+import { cleanSummary, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 
 type SearchType = 'Herb' | 'Compound'
 type SearchItem = {
@@ -20,65 +21,7 @@ type SearchItem = {
   searchText: string
 }
 
-const INTERNAL_PATTERNS = [
-  /research[_\s-]*only/i,
-  /lean\s+(monograph\s+)?row/i,
-  /schema\s*artifact/i,
-  /bulk\s+enrichment/i,
-  /bulk\s+mode/i,
-  /placeholder/i,
-  /enriched\s+in\s+bulk/i,
-  /internal\s+cross-linking/i,
-  /^n\/?a$/i,
-  /^unknown$/i,
-  /^tbd$/i,
-  /^none$/i,
-]
-
 const suggestedSearches = ['sleep', 'stress', 'inflammation', 'focus', 'digestion', 'metabolism']
-
-function text(value: unknown): string {
-  if (value === null || value === undefined) return ''
-  if (Array.isArray(value)) return value.map(text).filter(Boolean).join(', ')
-  if (typeof value === 'object') {
-    const record = value as Record<string, unknown>
-    return text(record.label ?? record.name ?? record.title ?? record.text ?? record.value)
-  }
-  return String(value).replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim()
-}
-
-function isClean(value: unknown) {
-  const normalized = text(value)
-  return Boolean(normalized) && !INTERNAL_PATTERNS.some(pattern => pattern.test(normalized))
-}
-
-function list(value: unknown): string[] {
-  if (value === null || value === undefined) return []
-  const raw = Array.isArray(value) ? value : String(value).split(/\n|;|\|/)
-  return raw
-    .flatMap(item => text(item).split(/,(?=\s*[a-zA-Z])/))
-    .map(item => item.replace(/^[-*•]\s*/, '').trim())
-    .filter(isClean)
-}
-
-function unique(items: string[]) {
-  const seen = new Set<string>()
-  return items.filter(item => {
-    const key = item.toLowerCase()
-    if (seen.has(key)) return false
-    seen.add(key)
-    return true
-  })
-}
-
-function labelize(value: unknown, fallback = 'Review') {
-  const clean = text(value)
-  if (!isClean(clean)) return fallback
-  return clean
-    .split(' ')
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ')
-}
 
 function getName(item: any) {
   return text(item.displayName) || text(item.name) || text(item.slug).replace(/-/g, ' ')
@@ -93,10 +36,7 @@ function getSummary(item: any, type: SearchType) {
     item.hero ||
     item.description
 
-  if (isClean(summary)) return text(summary)
-  return type === 'Herb'
-    ? 'A botanical profile with evidence notes, mechanism context, safety cautions, and practical research framing.'
-    : 'A compound profile with evidence notes, mechanism context, safety cautions, and practical scientific framing.'
+  return cleanSummary(summary, type === 'Herb' ? 'herb' : 'compound')
 }
 
 function getEffects(item: any) {
@@ -105,7 +45,7 @@ function getEffects(item: any) {
     ...list(item.primaryEffects),
     ...list(item.effects),
     ...list(item.mechanisms),
-    text(item.primaryDomain),
+    ...list(item.primaryDomain),
   ])
     .filter(isClean)
     .slice(0, 4)
