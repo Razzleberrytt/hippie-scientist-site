@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref } from '@/lib/display-utils'
 
 type CompareWithItem = {
   href: string
@@ -11,7 +12,14 @@ type CompareWithCardProps = {
 }
 
 export default function CompareWithCard({ items = [] }: CompareWithCardProps) {
-  const visible = items.filter(item => item.href && item.title && item.description).slice(0, 6)
+  const visible = items
+    .map(item => ({
+      href: item.href,
+      title: formatDisplayLabel(item.title),
+      description: cleanSummary(item.description, 'compound'),
+    }))
+    .filter(item => isSafeInternalHref(item.href) && item.title && item.description && isClean(item.title) && isClean(item.description))
+    .slice(0, 6)
   if (!visible.length) return null
 
   return (

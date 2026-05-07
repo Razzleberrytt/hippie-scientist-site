@@ -228,7 +228,13 @@ export default async function HerbDetailPage({ params }: Params) {
   ].filter(id => /\d/.test(id))).slice(0, 10)
 
   const researchInputs = { profile: herb, claims, pmids, mechanisms }
-  const semanticTopics = buildSemanticTopics(herb)
+  const rawSemanticTopics = buildSemanticTopics(herb)
+  const semanticTopics = {
+    maturity: formatDisplayLabel(rawSemanticTopics.maturity) || 'Evidence maturity',
+    researchStyle: formatDisplayLabel(rawSemanticTopics.researchStyle) || 'Research context',
+    effects: rawSemanticTopics.effects.map(formatDisplayLabel).filter(isClean),
+    mechanisms: rawSemanticTopics.mechanisms.map(formatDisplayLabel).filter(isClean),
+  }
   const relatedArticles = findRelatedArticles(herb, blogPosts as any[], 4)
   const evidenceFrame = deriveEvidenceFraming(researchInputs)
   const researchStyle = deriveResearchStyle(researchInputs)

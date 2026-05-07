@@ -1,25 +1,10 @@
-function formatLabel(value: string) {
-  if (!value) return ''
-
-  const normalized = value.toLowerCase().trim()
-
-  if (normalized === 'research only') return ''
-
-  return normalized
-    .replace(/_/g, ' ')
-    .replace(/\bhealthy aging\b/g, 'Healthy aging')
-    .replace(/\bfat loss\b/g, 'Fat loss')
-    .replace(/\bstress mood\b/g, 'Stress & mood')
-    .replace(/\bsleep quality\b/g, 'Sleep quality')
-    .replace(/\bgeneral wellness\b/g, 'General wellness')
-    .replace(/\b\w/g, char => char.toUpperCase())
-}
+import { formatDisplayLabel } from '@/lib/display-utils'
 
 export default function CompoundStats({ compound }: any) {
   const stats = [
     {
       label: 'Evidence',
-      value: formatLabel(compound.evidence_tier || compound.evidenceLevel || 'Moderate'),
+      value: formatDisplayLabel(compound.evidence_tier || compound.evidenceLevel || 'Moderate'),
     },
     {
       label: 'Effects',

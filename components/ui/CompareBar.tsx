@@ -23,18 +23,18 @@ export default function CompareBar({ items = [] }: any) {
   if (!isSafeInternalHref(href)) return null
 
   return (
-    <aside className="fixed inset-x-4 bottom-[calc(0.5rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-sm rounded-2xl border border-brand-900/10 bg-[#fffdf7]/95 p-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] shadow-[0_10px_28px_rgba(25,48,35,0.14)] backdrop-blur-xl sm:bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:max-w-md sm:p-3.5 lg:left-auto lg:right-5 lg:mx-0 lg:w-[22rem]">
-      <div className="flex items-center gap-3">
+    <aside className="fixed inset-x-3 bottom-[calc(0.35rem+env(safe-area-inset-bottom))] z-40 mx-auto max-w-[min(22rem,calc(100vw-1.5rem))] rounded-2xl border border-brand-900/10 bg-[#fffdf7]/95 p-2 shadow-[0_8px_22px_rgba(25,48,35,0.12)] backdrop-blur-xl sm:bottom-[calc(0.75rem+env(safe-area-inset-bottom))] sm:max-w-md sm:p-3 lg:left-auto lg:right-5 lg:mx-0 lg:w-[22rem]">
+      <div className="flex min-h-0 items-center gap-2.5">
         <div className="min-w-0 flex-1">
-          <p className="eyebrow-label text-[0.62rem]">Compare</p>
-          <p className="mt-1 truncate text-sm font-semibold text-ink">
+          <p className="eyebrow-label text-[0.58rem] leading-none">Compare</p>
+          <p className="mt-0.5 truncate text-xs font-semibold leading-5 text-ink sm:text-sm">
             {compareItems.map((item: any) => item.name).join(' vs ')}
           </p>
         </div>
 
         <Link
           href={href}
-          className="flex-none rounded-full bg-brand-800 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-brand-700 sm:px-4"
+          className="flex-none rounded-full bg-brand-800 px-3 py-1.5 text-[11px] font-bold text-[#fffdf7] shadow-sm transition hover:bg-brand-700 sm:px-4 sm:py-2 sm:text-xs"
         >
           Open
         </Link>

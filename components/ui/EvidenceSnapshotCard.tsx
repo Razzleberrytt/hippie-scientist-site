@@ -1,3 +1,5 @@
+import { formatDisplayLabel, isClean } from '@/lib/display-utils'
+
 type Props = {
   snapshot: {
     archetype?: string
@@ -10,22 +12,6 @@ type Props = {
   }
 }
 
-function formatLabel(value?: string) {
-  if (!value) return ''
-
-  const normalized = value.toLowerCase().trim()
-
-  if (normalized === 'research only') return ''
-
-  return normalized
-    .replace(/_/g, ' ')
-    .replace(/\bhealthy aging\b/g, 'Healthy aging')
-    .replace(/\bfat loss\b/g, 'Fat loss')
-    .replace(/\bstress mood\b/g, 'Stress & mood')
-    .replace(/\bsleep quality\b/g, 'Sleep quality')
-    .replace(/\bgeneral wellness\b/g, 'General wellness')
-    .replace(/\b\w/g, char => char.toUpperCase())
-}
 
 function freshnessLabel(score?: number) {
   if (score === null || score === undefined) return null
@@ -67,10 +53,10 @@ export default function EvidenceSnapshotCard({ snapshot }: Props) {
   ].filter(Boolean) as { label: string; value: string | number }[]
 
   const clusters = (snapshot.clusters || [])
-    .map(cluster => formatLabel(cluster))
-    .filter(Boolean)
+    .map(cluster => formatDisplayLabel(cluster))
+    .filter(isClean)
 
-  const archetype = formatLabel(snapshot.archetype || 'General wellness')
+  const archetype = formatDisplayLabel(snapshot.archetype || 'General wellness')
 
   if (!archetype && items.length === 0 && clusters.length === 0) {
     return null

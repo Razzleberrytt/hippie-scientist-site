@@ -1,12 +1,17 @@
+import { formatDisplayLabel, isClean, text } from '@/lib/display-utils'
+
 type Phase = {
   title: string
   text: string
 }
 
 export default function TimelineCard({ phases = [] }: { phases?: Phase[] }) {
-  const meaningfulPhases = phases.filter(
-    phase => phase?.title?.trim() && phase?.text?.trim()
-  )
+  const meaningfulPhases = phases
+    .map(phase => ({
+      title: formatDisplayLabel(phase?.title),
+      text: text(phase?.text),
+    }))
+    .filter(phase => isClean(phase.title) && isClean(phase.text))
 
   if (meaningfulPhases.length === 0) {
     return null

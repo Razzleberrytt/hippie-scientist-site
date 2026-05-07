@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref } from '@/lib/display-utils'
 
 type Props = {
   item: {
@@ -12,16 +13,9 @@ type Props = {
 }
 
 function cleanLabel(value?: string) {
-  if (!value) return ''
-
-  return value
-    .replace(/_/g, ' ')
-    .replace(/\bhealthy aging\b/gi, 'Healthy aging')
-    .replace(/\bfat loss\b/gi, 'Fat loss')
-    .replace(/\bstress mood\b/gi, 'Stress & mood')
-    .replace(/\bsleep quality\b/gi, 'Sleep quality')
-    .replace(/\bgeneral wellness\b/gi, 'General wellness')
+  return formatDisplayLabel(value)
 }
+
 
 export default function SemanticRecommendationCard({ item }: Props) {
   const confidence =
@@ -31,29 +25,38 @@ export default function SemanticRecommendationCard({ item }: Props) {
         ? 'Moderate confidence'
         : 'Exploratory'
 
+  const name = cleanLabel(item.name || item.slug)
+  const archetype = cleanLabel(item.archetype)
+  const evidenceTier = cleanLabel(item.evidence_tier)
+  const reason = cleanSummary(item.relationship_reason, 'compound')
+
+  const href = `/compounds/${item.slug}`
+
+  if (!isSafeInternalHref(href) || !name || !isClean(name)) return null
+
   return (
     <Link
-      href={`/compounds/${item.slug}`}
+      href={href}
       className="card-premium block p-5 transition-all duration-300 hover:-translate-y-1"
     >
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="text-base font-semibold text-ink transition group-hover:text-brand-700">
-            {item.name || item.slug}
+            {name}
           </div>
 
           <div className="mt-2 flex flex-wrap gap-2">
-            {item.archetype && (
+            {archetype ? (
               <span className="evidence-pill-strong">
-                {cleanLabel(item.archetype)}
+                {archetype}
               </span>
-            )}
+            ) : null}
 
-            {item.evidence_tier && (
+            {evidenceTier ? (
               <span className="chip-readable">
-                {cleanLabel(item.evidence_tier)}
+                {evidenceTier}
               </span>
-            )}
+            ) : null}
           </div>
         </div>
 
@@ -63,7 +66,7 @@ export default function SemanticRecommendationCard({ item }: Props) {
       </div>
 
       <div className="mt-4 text-sm leading-7 text-[#46574d]">
-        {item.relationship_reason || 'Related through shared mechanisms, pathways, or overlapping wellness targets.'}
+        {reason}
       </div>
 
       <div className="mt-5 h-2 overflow-hidden rounded-full bg-brand-900/10">
