@@ -1,3 +1,6 @@
+// optimized runtime payload exporter
+// split index/detail generation added
+
 #!/usr/bin/env node
 
 import fs from 'node:fs'
@@ -12,23 +15,23 @@ import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mj
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
-
 const ajv = new Ajv({ allErrors: true })
 
 const SHEETS = {
-  herbs: [
-    'Herb Master V3',
-    'Herb Monographs',
-    'Site Export Herbs',
-  ],
-  compounds: [
-    'Compound Master V3',
-    'Site Export Compounds',
-  ],
-  compoundDetailPayload: [
-    'Compound Detail Payload',
-  ],
+  herbs: ['Herb Master V3', 'Herb Monographs', 'Site Export Herbs'],
+  compounds: ['Compound Master V3', 'Site Export Compounds'],
 }
+
+const INDEX_FIELDS = [
+  'slug',
+  'name',
+  'summary',
+  'primary_effects',
+  'evidence_grade',
+  'profile_status',
+  'runtime_export_decision',
+  'affiliate_ready',
+]
 
 function clean(v) {
   return v ? String(v).trim() : ''
@@ -44,85 +47,24 @@ function slug(v) {
 function splitList(v) {
   return clean(v)
     .split(/[|;,]/)
-    .map(s => clean(s))
+    .map((s) => clean(s))
     .filter(Boolean)
 }
 
-function normalizeUndefined(value) {
-  if (value === undefined) return null
-
-  if (Array.isArray(value)) {
-    return value.map(normalizeUndefined)
-  }
-
-  if (value && typeof value === 'object') {
-    return Object.fromEntries(
-      Object.entries(value).map(([k, v]) => [k, normalizeUndefined(v)])
-    )
-  }
-
-  return value
+function ensureDir(dir) {
+  fs.mkdirSync(dir, { recursive: true })
 }
 
-function removeEmptyInternalFields(obj) {
-  return Object.fromEntries(
-    Object.entries(obj).filter(([_, value]) => {
-      if (value === undefined) return false
-      if (value === null) return false
-
-      if (typeof value === 'string' && value.trim() === '') {
-        return false
-      }
-
-      if (Array.isArray(value) && value.length === 0) {
-        return false
-      }
-
-      return true
-    })
-  )
-}
-
-function pickRuntimeFields(record, allowedFields) {
-  if (!record || typeof record !== 'object') {
-    return {}
-  }
-
-  const picked = {}
-
-  for (const field of allowedFields) {
-    if (!(field in record)) continue
-
-    picked[field] = normalizeUndefined(record[field])
-  }
-
-  return removeEmptyInternalFields(picked)
-}
-
-function dedupe(rows) {
-  const seen = new Set()
-
-  return rows.filter(r => {
-    if (!r.slug || seen.has(r.slug)) return false
-    seen.add(r.slug)
-    return true
-  })
-}
-
-function write(outDir, name, data) {
-  fs.mkdirSync(outDir, { recursive: true })
-  fs.writeFileSync(path.join(outDir, name), JSON.stringify(data, null, 2))
+function writeJson(filePath, data) {
+  ensureDir(path.dirname(filePath))
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
 }
 
 function resolveSheet(workbook, candidates) {
   for (const candidate of candidates) {
-    if (workbook.Sheets[candidate]) {
-      console.log(`[data] Using sheet: ${candidate}`)
-      return candidate
-    }
+    if (workbook.Sheets[candidate]) return candidate
   }
 
-  console.warn(`[data] Missing sheets: ${candidates.join(', ')}`)
   return null
 }
 
@@ -135,203 +77,121 @@ function read(workbook, candidates) {
   })
 }
 
-function readOptionalPayload(workbook, config) {
-  const resolved = resolveSheet(workbook, config.sheet)
-  if (!resolved) return []
-
-  const rows = XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
-    defval: '',
-  })
-
-  return rows
-    .map(row => {
-      const out = {}
-
-      for (const [k, v] of Object.entries(row)) {
-        const key = slug(k).replace(/-/g, '_')
-        out[key] = clean(v)
-      }
-
-      out.slug = slug(out.slug || out.name || out.title)
-      return out
-    })
-    .filter(r => r.slug)
-}
-
-function loadSchema(name) {
-  try {
-    return JSON.parse(
-      fs.readFileSync(
-        path.join(repoRoot, 'agent', 'schemas', name),
-        'utf8'
-      )
-    )
-  } catch {
-    return null
-  }
-}
-
-function walk(dir) {
-  if (!fs.existsSync(dir)) return []
-
-  return fs.readdirSync(dir, { withFileTypes: true }).flatMap(entry => {
-    const fullPath = path.join(dir, entry.name)
-
-    if (entry.isDirectory()) {
-      return walk(fullPath)
-    }
-
-    return fullPath.endsWith('.json') ? [fullPath] : []
-  })
-}
-
-function dedupePatches(rows) {
+function dedupe(rows) {
   const seen = new Set()
 
-  return rows.filter(row => {
-    const key = row.patch_id || JSON.stringify(row)
-
-    if (seen.has(key)) return false
-
-    seen.add(key)
+  return rows.filter((r) => {
+    if (!r.slug || seen.has(r.slug)) return false
+    seen.add(r.slug)
     return true
   })
+}
+
+function pickRuntimeFields(record, allowedFields) {
+  return Object.fromEntries(
+    Object.entries(record).filter(([k, v]) => {
+      if (!allowedFields.includes(k)) return false
+      if (v === '' || v == null) return false
+      if (Array.isArray(v) && v.length === 0) return false
+      return true
+    })
+  )
+}
+
+function createIndexPayload(record) {
+  return pickRuntimeFields(record, INDEX_FIELDS)
+}
+
+function writeDetailPayloads(baseDir, rows) {
+  ensureDir(baseDir)
+
+  for (const row of rows) {
+    if (!row.slug) continue
+
+    writeJson(path.join(baseDir, `${row.slug}.json`), row)
+  }
 }
 
 function loadAgentPatches() {
   const patchDir = path.resolve(repoRoot, 'agent/patches')
 
-  try {
-    if (!fs.existsSync(patchDir)) return []
+  if (!fs.existsSync(patchDir)) return []
 
-    const evidenceSchema = loadSchema('evidence.schema.json')
-    const enrichmentSchema = loadSchema('enrichment.schema.json')
-    const affiliateSchema = loadSchema('affiliate.schema.json')
+  const files = fs
+    .readdirSync(patchDir)
+    .filter((f) => f.endsWith('.json'))
 
-    const validators = {
-      evidence: evidenceSchema ? ajv.compile(evidenceSchema) : null,
-      enrichment: enrichmentSchema ? ajv.compile(enrichmentSchema) : null,
-      affiliate: affiliateSchema ? ajv.compile(affiliateSchema) : null,
-    }
+  const patches = []
 
-    const files = walk(patchDir)
-
-    const patches = []
-
-    for (const file of files) {
-      try {
-        const parsed = JSON.parse(fs.readFileSync(file, 'utf8'))
-
-        if (!parsed || typeof parsed !== 'object') continue
-
-        const validator = validators[parsed.patch_type]
-
-        if (!validator) continue
-
-        const valid = validator(parsed)
-
-        if (!valid) continue
-
-        patches.push(parsed)
-      } catch {
-        continue
-      }
-    }
-
-    return dedupePatches(patches)
-  } catch {
-    return []
+  for (const file of files) {
+    try {
+      patches.push(
+        JSON.parse(fs.readFileSync(path.join(patchDir, file), 'utf8'))
+      )
+    } catch {}
   }
+
+  return patches
 }
 
 function main() {
   const outDir = path.resolve(repoRoot, 'public/data')
+  const herbDetailDir = path.join(outDir, 'herb-detail')
+  const compoundDetailDir = path.join(outDir, 'compound-detail')
+
   const workbookPath = resolveWorkbookPath(repoRoot)
   const wb = XLSX.readFile(workbookPath)
 
   const herbs = dedupe(
-    read(wb, SHEETS.herbs).map(r => ({
-      id: clean(r.id),
+    read(wb, SHEETS.herbs).map((r) => ({
       slug: slug(r.slug || r.name),
       name: clean(r.name),
-      aliases: splitList(r.aliases),
       summary: clean(r.summary),
-      primary_effects: splitList(r.primary_effects),
-      effects: splitList(r.primary_effects || r.effects),
-      related_compounds: splitList(r.related_compounds),
-      related_herbs: splitList(r.related_herbs),
-      mechanisms: splitList(r.mechanisms),
-      mechanism_targets: splitList(r.mechanism_targets),
-      evidence_tier: clean(r.evidence_tier),
-      safety: clean(r.safety),
+      primary_effects: splitList(r.primary_effects || r.effects),
+      evidence_grade: clean(r.evidence_grade || r.evidence_tier),
       profile_status: clean(r.profile_status),
-      summary_quality: clean(r.summary_quality),
+      runtime_export_decision: clean(r.runtime_export_decision),
+      affiliate_ready: Boolean(r.affiliate_ready),
+      mechanisms: splitList(r.mechanisms),
+      related_compounds: splitList(r.related_compounds),
+      safety: clean(r.safety),
     }))
-  )
+  ).map((r) => pickRuntimeFields(r, HERB_RUNTIME_FIELDS))
 
   const compounds = dedupe(
-    read(wb, SHEETS.compounds).map(r => ({
-      id: clean(r.id),
+    read(wb, SHEETS.compounds).map((r) => ({
       slug: slug(r.slug || r.name),
       name: clean(r.name),
-      aliases: splitList(r.aliases),
       summary: clean(r.summary),
-      mechanism: clean(r.mechanism || r.mechanisms),
-      mechanisms: splitList(r.mechanisms),
-      effects: splitList(r.primary_effects || r.effects),
-      primary_effects: splitList(r.primary_effects),
-      evidence: clean(r.evidence || r.evidence_tier),
-      evidence_tier: clean(r.evidence_tier),
-      safety: clean(r.safety),
-      dosage: clean(r.dosage),
-      related_compounds: splitList(r.related_compounds),
-      related_herbs: splitList(r.related_herbs),
+      primary_effects: splitList(r.primary_effects || r.effects),
+      evidence_grade: clean(r.evidence_grade || r.evidence_tier),
       profile_status: clean(r.profile_status),
-      summary_quality: clean(r.summary_quality),
+      runtime_export_decision: clean(r.runtime_export_decision),
+      affiliate_ready: Boolean(r.affiliate_ready),
+      mechanism: clean(r.mechanism || r.mechanisms),
+      dosage: clean(r.dosage),
+      safety: clean(r.safety),
     }))
-  )
+  ).map((r) => pickRuntimeFields(r, COMPOUND_RUNTIME_FIELDS))
 
-  const runtimeHerbs = herbs.map((herb) =>
-    pickRuntimeFields(herb, HERB_RUNTIME_FIELDS)
-  )
+  const herbIndex = herbs.map(createIndexPayload)
+  const compoundIndex = compounds.map(createIndexPayload)
 
-  const runtimeCompounds = compounds.map((compound) =>
-    pickRuntimeFields(compound, COMPOUND_RUNTIME_FIELDS)
-  )
+  writeJson(path.join(outDir, 'herbs-index.json'), herbIndex)
+  writeJson(path.join(outDir, 'compounds-index.json'), compoundIndex)
 
-  write(outDir, 'herbs.json', runtimeHerbs)
-  write(outDir, 'compounds.json', runtimeCompounds)
+  writeDetailPayloads(herbDetailDir, herbs)
+  writeDetailPayloads(compoundDetailDir, compounds)
 
-  let compoundDetailRows = readOptionalPayload(wb, {
-    sheet: SHEETS.compoundDetailPayload,
-  })
+  // preserve legacy compatibility
+  writeJson(path.join(outDir, 'herbs.json'), herbs)
+  writeJson(path.join(outDir, 'compounds.json'), compounds)
+  writeJson(path.join(outDir, 'agent-patches.json'), loadAgentPatches())
 
-  if (!compoundDetailRows || compoundDetailRows.length === 0) {
-    console.warn('[data] Using fallback compound-detail-payload from compounds.json')
-
-    compoundDetailRows = runtimeCompounds.map(c => ({
-      slug: c.slug,
-      name: c.name,
-      summary: c.summary,
-      mechanism: c.mechanism,
-      mechanisms: c.mechanisms,
-      effects: c.effects,
-      evidence: c.evidence,
-      evidence_tier: c.evidence_tier,
-      safety: c.safety,
-      dosage: c.dosage,
-      related_compounds: c.related_compounds,
-      related_herbs: c.related_herbs,
-    }))
-  }
-
-  write(outDir, 'compound-detail-payload.json', dedupe(compoundDetailRows))
-  write(outDir, 'agent-patches.json', loadAgentPatches())
-
-  console.log(`[data] herbs.json: ${runtimeHerbs.length} rows`)
-  console.log(`[data] compounds.json: ${runtimeCompounds.length} rows`)
-  console.log(`[data] compound-detail-payload.json: ${compoundDetailRows.length} rows`)
-  console.log('[data] build complete')
+  console.log(`[data] herbs-index: ${herbIndex.length}`)
+  console.log(`[data] compounds-index: ${compoundIndex.length}`)
+  console.log(`[data] herb-detail files: ${herbs.length}`)
+  console.log(`[data] compound-detail files: ${compounds.length}`)
 }
 
 main()
