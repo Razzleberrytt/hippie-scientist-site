@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import EvidenceBadge from '@/components/ui/EvidenceBadge'
-import { cleanSummary as sanitizeSummary, editorialUseCaseLabel, isClean } from '@/lib/display-utils'
+import { cleanSummary as sanitizeSummary, editorialUseCaseLabel, formatDisplayLabel, isClean } from '@/lib/display-utils'
 
 type SafetyTone = 'ok' | 'caution' | 'avoid' | 'unknown'
 
@@ -38,7 +38,6 @@ function safetyLabel(tone: SafetyTone) {
   return 'Review safety'
 }
 
-const clean = (value?: string) => String(value || '').replace(/\s+/g, ' ').trim()
 
 export default function PremiumCard({
   href,
@@ -51,9 +50,9 @@ export default function PremiumCard({
   ctaLabel = 'Open profile',
 }: PremiumCardProps) {
   const safetyTone = normalizeSafety(safety)
-  const cleanSummary = isClean(summary) ? sanitizeSummary(summary, 'compound') : ''
+  const cleanSummary = sanitizeSummary(summary, 'compound')
   const cleanBestFor = isClean(bestFor) ? editorialUseCaseLabel(bestFor) : ''
-  const visibleTags = tags.map(clean).filter(isClean).slice(0, 3)
+  const visibleTags = tags.map(formatDisplayLabel).filter(isClean).slice(0, 3)
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-6 sm:p-7 shadow-[0_10px_30px_rgba(29,74,47,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
@@ -66,7 +65,7 @@ export default function PremiumCard({
           <EvidenceBadge tier={evidence} />
 
           <span
-            title={clean(safety) || 'Safety context should be reviewed before use.'}
+            title={formatDisplayLabel(safety) || 'Safety context should be reviewed before use.'}
             aria-label={`Safety indicator: ${safetyLabel(safetyTone)}`}
             className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold leading-none ${safetyClasses(safetyTone)}`}
           >

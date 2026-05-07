@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
-import { cleanSummary, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import '@/styles/premium-cards.css'
 
 function getName(item: any) {
-  return text(item.displayName) || text(item.name) || text(item.slug).replace(/-/g, ' ')
+  return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
 }
 
 function getSummary(item: any) {

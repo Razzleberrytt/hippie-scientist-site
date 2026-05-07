@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { DiscoveryLink } from '@/lib/editorial-discovery'
-import { isClean, isSafeInternalHref } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref } from '@/lib/display-utils'
 
 type SemanticBrowseModuleProps = {
   eyebrow?: string
@@ -19,7 +19,10 @@ const kindStyles: Record<string, string> = {
 export function ContentIdentityCard({ item }: { item: DiscoveryLink }) {
   const style = kindStyles[item.kind || 'path'] || kindStyles.path
 
-  if (!isSafeInternalHref(item.href) || !isClean(item.title)) return null
+  const title = formatDisplayLabel(item.title)
+  const description = cleanSummary(item.description, item.kind === 'herb' ? 'herb' : 'compound')
+
+  if (!isSafeInternalHref(item.href) || !title || !isClean(title)) return null
 
   return (
     <Link href={item.href} className={`scientific-card ${style} group`}>
@@ -27,14 +30,21 @@ export function ContentIdentityCard({ item }: { item: DiscoveryLink }) {
         <span className="identity-kicker">{item.kind || 'path'}</span>
         {item.meta ? <span className="identity-meta">{item.meta}</span> : null}
       </div>
-      <h3 className="mt-4 text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800">{item.title}</h3>
-      <p className="mt-3 text-sm leading-7 text-[#46574d]">{item.description}</p>
+      <h3 className="mt-4 text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800">{title}</h3>
+      <p className="mt-3 text-sm leading-7 text-[#46574d]">{description}</p>
     </Link>
   )
 }
 
 export function SemanticBrowseModule({ eyebrow = 'Semantic discovery', title, description, groups }: SemanticBrowseModuleProps) {
-  const visibleGroups = groups.filter(group => isSafeInternalHref(group.href) && isClean(group.title) && isClean(group.description))
+  const visibleGroups = groups
+    .map(group => ({
+      ...group,
+      title: formatDisplayLabel(group.title),
+      description: cleanSummary(group.description, 'compound'),
+      meta: formatDisplayLabel(group.meta),
+    }))
+    .filter(group => isSafeInternalHref(group.href) && isClean(group.title) && isClean(group.description))
 
   if (!visibleGroups.length) return null
 
@@ -84,10 +94,14 @@ export function ResearchContinuityBlock({ title = 'Continue researching', descri
 }
 
 export function EvidenceMaturityRibbon({ label }: { label: string }) {
+  const cleanLabel = formatDisplayLabel(label)
+
+  if (!cleanLabel) return null
+
   return (
     <div className="inline-flex items-center gap-2 rounded-full border border-emerald-800/10 bg-emerald-700/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-emerald-900">
       <span className="h-2 w-2 rounded-full bg-emerald-600" />
-      {label}
+      {cleanLabel}
     </div>
   )
 }

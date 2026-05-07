@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Fuse from 'fuse.js'
 import compoundsData from '@/public/data/compounds.json'
 import herbsData from '@/public/data/herbs.json'
-import { cleanSummary, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 
 type SearchType = 'Herb' | 'Compound'
 type SearchItem = {
@@ -24,7 +24,7 @@ type SearchItem = {
 const suggestedSearches = ['sleep', 'stress', 'inflammation', 'focus', 'digestion', 'metabolism']
 
 function getName(item: any) {
-  return text(item.displayName) || text(item.name) || text(item.slug).replace(/-/g, ' ')
+  return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
 }
 
 function getSummary(item: any, type: SearchType) {
@@ -105,6 +105,8 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
   if (!slug) return null
 
   const name = getName(item)
+  if (!name || !isClean(name)) return null
+
   const summary = getSummary(item, type)
   const effects = getEffects(item)
   const evidence = getEvidence(item)

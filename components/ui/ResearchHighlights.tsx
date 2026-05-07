@@ -1,9 +1,16 @@
+import { isClean, text } from '@/lib/display-utils'
+
 export default function ResearchHighlights({ sources = [] }: any) {
-  if (!sources?.length) return null
+  const visibleSources = sources
+    .map((source: any) => text(source))
+    .filter(isClean)
+    .slice(0, 3)
+
+  if (!visibleSources.length) return null
 
   return (
     <div className="grid gap-4">
-      {sources.slice(0, 3).map((source: any, i: number) => (
+      {visibleSources.map((source: string, i: number) => (
         <div
           key={i}
           className="surface-depth card-spacing space-y-4"
@@ -13,9 +20,7 @@ export default function ResearchHighlights({ sources = [] }: any) {
           </div>
 
           <div className="text-sm leading-7 text-[#435246] break-words">
-            {typeof source === 'string'
-              ? source
-              : JSON.stringify(source)}
+            {source}
           </div>
         </div>
       ))}

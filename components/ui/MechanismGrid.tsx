@@ -1,9 +1,13 @@
+import { formatDisplayLabel, isClean } from '@/lib/display-utils'
+
 export default function MechanismGrid({ mechanisms = [] }: any) {
-  if (!mechanisms?.length) return null
+  const visibleMechanisms = mechanisms.map(formatDisplayLabel).filter(isClean).slice(0, 6)
+
+  if (!visibleMechanisms.length) return null
 
   return (
     <div className="grid gap-4 sm:grid-cols-2">
-      {mechanisms.slice(0, 6).map((m: any, i: number) => (
+      {visibleMechanisms.map((m: string, i: number) => (
         <div
           key={i}
           className="surface-depth card-spacing space-y-4"
@@ -13,7 +17,7 @@ export default function MechanismGrid({ mechanisms = [] }: any) {
           </div>
 
           <div className="text-sm leading-7 text-[#435246]">
-            {typeof m === 'string' ? m : JSON.stringify(m)}
+            {m}
           </div>
         </div>
       ))}

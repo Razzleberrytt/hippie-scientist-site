@@ -73,6 +73,39 @@ export function hideInternalValue(value: unknown): boolean {
 
   if (!normalized) return true
 
+  const simplified = normalized
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  const compact = simplified.replace(/\s+/g, '')
+
+  const internalPhrases = [
+    'internal cross linking',
+    'workbook readiness pass',
+    'added as site safe referenced entity during workbook readiness pass',
+    'scispace evidence pass',
+    'conservative evidence framing',
+    'treat dosing and outcomes as review gated',
+    'is tracked for',
+    'tracked for',
+    'mechanism only pending stronger human',
+    'pmid backed human evidence is present',
+    'lean row',
+    'lean herb row',
+    'lean monograph row',
+    'high speed phytochemical ingestion',
+    'bulk enrichment',
+    'bulk mode',
+    'schema artifact',
+    'placeholder',
+  ]
+
+  if (internalPhrases.some(phrase => simplified.includes(phrase) || compact.includes(phrase.replace(/\s+/g, '')))) {
+    return true
+  }
+
   return INTERNAL_PATTERNS.some(pattern => pattern.test(normalized))
 }
 

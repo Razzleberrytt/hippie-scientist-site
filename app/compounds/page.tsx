@@ -4,7 +4,7 @@ import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique
 import '@/styles/premium-cards.css'
 
 function getName(item: any) {
-  return text(item.displayName) || text(item.name) || formatDisplayLabel(item.slug)
+  return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
 }
 
 function getSummary(item: any) {

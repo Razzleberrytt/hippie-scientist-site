@@ -34,7 +34,7 @@ import {
 import Link from 'next/link'
 import { EvidenceMaturityRibbon, SemanticBrowseModule } from '@/components/scientific-discovery'
 import { buildSemanticTopics } from '@/lib/editorial-discovery'
-import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref, list } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref, list, text } from '@/lib/display-utils'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 
@@ -73,24 +73,42 @@ export default function Page({ params }: any) {
   const effects = getEffects(compound)
     .map((effect:string) => cleanLabel(effect))
     .filter((effect:string) => isClean(effect) && !/^no\s+strong\s+effects\s+established\s+yet$/i.test(effect))
-  const sources = getSources(compound).filter((source:any) => isClean(typeof source === 'string' ? source : JSON.stringify(source)))
+  const sources = getSources(compound)
+    .map((source:any) => text(source))
+    .filter(isClean)
 
   const related = getRelatedCompounds(compound)
-    .filter((item:any) => item.slug && item.name && isClean(item.name))
-    .map((item:any)=>({
+    .map((item:any) => ({
       ...item,
-      archetype: classifyArchetype(item),
+      name: formatDisplayLabel(item.name || item.slug),
+      relationship_reason: cleanSummary(item.relationship_reason, 'compound'),
+      evidence_tier: formatDisplayLabel(item.evidence_tier),
+      archetype: formatDisplayLabel(classifyArchetype(item)),
     }))
+    .filter((item:any) => item.slug && item.name && isClean(item.name))
 
-  const stackCandidates = getStackCandidates(compound).filter((candidate:any) => candidate.slug && candidate.name && isClean(candidate.reason))
+  const stackCandidates = getStackCandidates(compound)
+    .map((candidate:any) => ({
+      ...candidate,
+      name: formatDisplayLabel(candidate.name || candidate.slug),
+      reason: text(candidate.reason) ? cleanSummary(candidate.reason, 'compound') : '',
+      confidence: formatDisplayLabel(candidate.confidence || 'Exploratory'),
+    }))
+    .filter((candidate:any) => candidate.slug && candidate.name && isClean(candidate.reason))
   const comparisonCandidates = getComparisonCandidates(compound).filter((candidate:any) => candidate.slug && knownComparisonSlugs.has(candidate.slug) && isSafeInternalHref(candidate.href))
   const snapshot = getEvidenceSnapshot(compound)
-  const semanticTopics = buildSemanticTopics(compound)
+  const rawSemanticTopics = buildSemanticTopics(compound)
+  const semanticTopics = {
+    maturity: formatDisplayLabel(rawSemanticTopics.maturity) || 'Evidence maturity',
+    researchStyle: formatDisplayLabel(rawSemanticTopics.researchStyle) || 'Research context',
+    effects: rawSemanticTopics.effects.map(formatDisplayLabel).filter(isClean),
+    mechanisms: rawSemanticTopics.mechanisms.map(formatDisplayLabel).filter(isClean),
+  }
 
   const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier)
   const safetyLevel = normalizeSafetyLevel(compound.safety)
 
-  const mechanisms = list(compound.mechanisms)
+  const mechanisms = list(compound.mechanisms).filter(isClean)
 
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
 
@@ -122,13 +140,18 @@ export default function Page({ params }: any) {
       ? compound.time_to_effect
       : []
 
-  const meaningfulTimeline = timelineData.filter((item:any) => isClean(item?.title) && isClean(item?.text))
+  const meaningfulTimeline = timelineData
+    .map((item:any) => ({
+      title: formatDisplayLabel(item?.title),
+      text: text(item?.text),
+    }))
+    .filter((item:any) => isClean(item.title) && isClean(item.text))
 
   return (
     <>
       <ReadingProgress />
 
-      <main className="mx-auto flex max-w-7xl gap-10 px-4 pb-40 sm:pb-32">
+      <main className="mx-auto flex max-w-7xl gap-10 px-4 pb-28 sm:pb-32">
 
         <TableOfContents />
 
@@ -150,9 +173,11 @@ export default function Page({ params }: any) {
             />
             <div className="flex flex-wrap gap-3">
               <EvidenceMaturityRibbon label={semanticTopics.maturity} />
-              {[semanticTopics.researchStyle, ...semanticTopics.effects.slice(0, 2), ...semanticTopics.mechanisms.slice(0, 2)].filter(isClean).map(item => (
-                <span key={item} className="chip-readable">{item}</span>
-              ))}
+              {[semanticTopics.researchStyle, ...semanticTopics.effects.slice(0, 2), ...semanticTopics.mechanisms.slice(0, 2)]
+                .filter(isClean)
+                .map(item => (
+                  <span key={item} className="chip-readable">{item}</span>
+                ))}
             </div>
           </div>
 
@@ -242,7 +267,7 @@ export default function Page({ params }: any) {
                       </h3>
 
                       <span className="chip-readable text-[10px] uppercase tracking-wide">
-                        {cleanLabel(candidate.confidence || 'Exploratory')}
+                        {candidate.confidence || 'Exploratory'}
                       </span>
                     </div>
 
@@ -302,7 +327,7 @@ export default function Page({ params }: any) {
             <SectionBlock title="Sources">
               <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
                 {sources.slice(0,10).map((source:any,index:number)=>(
-                  <li key={index}>• {typeof source==='string'?source:JSON.stringify(source)}</li>
+                  <li key={index}>• {source}</li>
                 ))}
               </ul>
             </SectionBlock>
