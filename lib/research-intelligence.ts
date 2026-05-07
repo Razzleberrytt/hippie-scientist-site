@@ -2,7 +2,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 
 export type ResearchMaturity = 'Better studied' | 'Moderate / emerging' | 'Preliminary' | 'Sparse profile'
 export type ResearchStyle = 'Human-clinical leaning' | 'Mechanism-heavy' | 'Traditional-use dominant' | 'Mixed evidence profile' | 'Emerging profile'
-export type TopicConfidence = 'Moderate' | 'Preliminary' | 'Limited'
+export type TopicConfidence = 'Limited' | 'Preliminary' | 'Moderate' | 'Stronger'
 
 export type ProfileRecord = Record<string, any>
 
@@ -28,7 +28,8 @@ export type PathwayCluster = {
 export type TopicConfidenceSummary = {
   topic: string
   confidence: TopicConfidence
-  rationale: string
+  note: string
+  rationale?: string
 }
 
 export type ComparisonCandidate = {
@@ -55,9 +56,10 @@ export type ComparisonFraming = {
 }
 
 const TOPIC_PATTERNS: Array<{ topic: string; matcher: RegExp }> = [
-  { topic: 'Stress & mood', matcher: /stress|mood|anxiety|calm|relax|cortisol|hpa|adrenal|resilien/i },
+  { topic: 'Stress resilience', matcher: /stress|mood|anxiety|calm|relax|cortisol|hpa|adrenal|resilien/i },
   { topic: 'Sleep quality', matcher: /sleep|insomnia|rest|night|sedat/i },
   { topic: 'Cognitive function', matcher: /cognit|focus|memory|brain|neuro|attention|clarity/i },
+  { topic: 'Neuroendocrine signaling', matcher: /cortisol|hpa|adrenal|neuroendocrine/i },
   { topic: 'Inflammatory signaling', matcher: /inflamm|nf.?kb|cytokine|cox|lox|joint|pain|immune/i },
   { topic: 'Metabolic health', matcher: /metabolic|glucose|insulin|weight|ampk|lipid|cholesterol|blood sugar/i },
   { topic: 'Athletic performance', matcher: /athletic|performance|stamina|endurance|exercise|strength|recovery|fatigue|energy/i },
@@ -160,18 +162,22 @@ export function deriveEvidenceFraming(inputs: EvidenceInputs): EvidenceFraming {
   }
 }
 
-export function inferEvidenceLimitations(inputs: EvidenceInputs): string[] {
-  const { claims, mechanisms, pmids, evidence } = normalizeResearchInputs(inputs)
-  const maturity = classifyResearchMaturity(inputs)
+export function deriveEvidenceLimitations(inputs: EvidenceInputs): string[] {
+  const { claims, mechanisms, pmids, evidence, profile, effects } = normalizeResearchInputs(inputs)
+  const hasPreparationContext = Boolean(clean(profile.dosage_range || profile.dosage || profile.oral_form || profile.preparation))
+  const broadClaimCount = [...claims, ...effects].filter(item => /wellness|support|balance|health|vitality|resilience|performance|stress|mood/i.test(item)).length
   const limitations = [
-    pmids.length < 3 ? 'Long-term human evidence is limited or not visible in the structured profile.' : '',
-    mechanisms.length > claims.length ? 'Mechanistic evidence exceeds clearly repeated outcome evidence.' : '',
-    /limited|prelim|emerging|mixed/i.test(evidence) || maturity !== 'Better studied' ? 'Clinical confidence likely varies by outcome, preparation, and dosage.' : '',
-    'Product standardization and preparation details may affect how evidence translates to real-world use.',
+    pmids.length < 3 ? 'Long-term human evidence may be limited.' : '',
+    mechanisms.length > claims.length + effects.length ? 'Mechanistic evidence should not be read as proof of clinical effect.' : '',
+    hasPreparationContext ? 'Outcomes may vary by preparation and extract type.' : '',
+    hasPreparationContext ? 'Product standardization can vary substantially.' : '',
+    broadClaimCount >= 2 || /limited|prelim|emerging|mixed/i.test(evidence) ? 'Evidence should be interpreted by preparation, dosage, and outcome.' : '',
   ]
 
-  return unique(limitations.filter(Boolean)).slice(0, 5)
+  return unique(limitations.filter(item => item && isClean(item))).slice(0, 5)
 }
+
+export const inferEvidenceLimitations = deriveEvidenceLimitations
 
 export function inferResearchGaps(inputs: EvidenceInputs): string[] {
   const { claims, mechanisms, pmids, effects } = normalizeResearchInputs(inputs)
@@ -185,24 +191,27 @@ export function inferResearchGaps(inputs: EvidenceInputs): string[] {
   return unique(gaps.filter(Boolean)).slice(0, 4)
 }
 
-export function generateScientificConsensusSummary(inputs: EvidenceInputs): string | null {
+export function deriveConsensusSummary(inputs: EvidenceInputs): string | null {
   const { claims, mechanisms, effects, pmids } = normalizeResearchInputs(inputs)
-  const focus = deriveResearchFocusAreas(inputs).slice(0, 2)
-  const maturity = classifyResearchMaturity(inputs)
+  const focus = deriveResearchFocusAreas(inputs)
   const style = deriveResearchStyle(inputs)
 
   if (!focus.length && !claims.length && !mechanisms.length && !effects.length) return null
-  if (maturity === 'Better studied') return `Current evidence appears most developed around ${focus.join(' and ') || 'the recurring outcomes in this profile'}, while interpretation still depends on preparation and dosage.`
-  if (style === 'Mechanism-heavy') return `Most visible signals are pathway-focused, especially around ${focus.join(' and ') || 'the listed mechanisms'}, so clinical conclusions should remain conservative.`
-  if (!pmids.length) return `The profile is best read as preliminary, with recurring interest in ${focus.join(' and ') || 'the listed use areas'} but limited visible source depth.`
-  return `Available evidence suggests recurring research interest in ${focus.join(' and ') || 'the listed outcomes'}, with confidence varying by endpoint and preparation.`
+  if (style === 'Mechanism-heavy') return 'This profile is mostly useful for mechanism and discovery context.'
+  if (focus.some(item => /stress|sleep|cognitive|inflammatory|metabolic/i.test(item))) return `Current profile signals are strongest around ${focus[0].toLowerCase()}.`
+  if (!pmids.length) return 'This profile should be interpreted as preliminary discovery context.'
+  return 'Evidence should be interpreted by preparation, dosage, and outcome.'
 }
+
+export const generateScientificConsensusSummary = deriveConsensusSummary
 
 export function deriveResearchFocusAreas(inputs: EvidenceInputs): string[] {
   const { claims, mechanisms, effects, traditionalUses } = normalizeResearchInputs(inputs)
   const haystacks = [...effects, ...claims, ...traditionalUses, ...mechanisms]
-  const focus = TOPIC_PATTERNS.filter(item => haystacks.some(value => item.matcher.test(value))).map(item => item.topic.toLowerCase())
-  return unique(focus.length ? focus : haystacks.map(item => item.toLowerCase()).filter(isClean)).slice(0, 6)
+  const focus = TOPIC_PATTERNS.filter(item => haystacks.some(value => item.matcher.test(value))).map(item => item.topic)
+  const fallback = haystacks.map(formatDisplayLabel).filter(isClean)
+
+  return unique(focus.length ? focus : fallback).slice(0, 6)
 }
 
 export function derivePathwayClusters(inputs: EvidenceInputs): PathwayCluster[] {
@@ -224,6 +233,27 @@ export function derivePathwayClusters(inputs: EvidenceInputs): PathwayCluster[] 
   return clusters.slice(0, 5)
 }
 
+
+export function deriveRelatedPathways(mechanisms: unknown): string[] {
+  const cleanMechanisms = cleanList(mechanisms)
+  if (!cleanMechanisms.length) return []
+
+  const supported = [
+    { title: 'Cortisol signaling', matcher: /cortisol|hpa|adrenal|stress/i },
+    { title: 'GABAergic signaling', matcher: /gaba/i },
+    { title: 'Oxidative stress pathways', matcher: /antioxidant|oxidative|nrf2|ros|radical/i },
+    { title: 'Inflammatory signaling', matcher: /nf.?kb|inflamm|cytokine|cox|lox|mapk|immune|tnf|interleukin|il-\d/i },
+    { title: 'Metabolic signaling', matcher: /ampk|glucose|insulin|metabolic|lipid|cholesterol|mitochond/i },
+    { title: 'Immune signaling', matcher: /immune|cytokine|interleukin|tnf/i },
+  ]
+
+  return unique(
+    supported
+      .filter(pathway => cleanMechanisms.some(mechanism => pathway.matcher.test(mechanism)))
+      .map(pathway => pathway.title)
+  ).slice(0, 6)
+}
+
 export function deriveConfidenceByTopic(inputs: EvidenceInputs): TopicConfidenceSummary[] {
   const normalized = normalizeResearchInputs(inputs)
   const haystacks = [...normalized.effects, ...normalized.claims, ...normalized.mechanisms, ...normalized.traditionalUses]
@@ -236,17 +266,28 @@ export function deriveConfidenceByTopic(inputs: EvidenceInputs): TopicConfidence
     const mechanismMatches = normalized.mechanisms.filter(value => matcher.test(value)).length
     const outcomeMatches = normalized.effects.concat(normalized.claims).filter(value => matcher.test(value)).length
     const hasSources = normalized.pmids.length >= 3
-    const isModerateEvidence = /moderate|strong|high|human|clinical/i.test(normalized.evidence) || hasSources
-    const confidence: TopicConfidence = outcomeMatches >= 2 && isModerateEvidence ? 'Moderate' : mechanismMatches > outcomeMatches || outcomeMatches >= 1 ? 'Preliminary' : 'Limited'
+    const isStrongerEvidence = /strong|high|well studied/i.test(normalized.evidence) && normalized.pmids.length >= 6
+    const isModerateEvidence = /moderate|human|clinical/i.test(normalized.evidence) || hasSources
+    const confidence: TopicConfidence = outcomeMatches >= 2 && isStrongerEvidence
+      ? 'Stronger'
+      : outcomeMatches >= 2 && isModerateEvidence
+        ? 'Moderate'
+        : mechanismMatches > outcomeMatches || outcomeMatches >= 1
+          ? 'Preliminary'
+          : 'Limited'
+    const note = confidence === 'Stronger'
+      ? 'Multiple visible signals exist, but certainty still depends on outcome and preparation.'
+      : confidence === 'Moderate'
+        ? 'Repeated outcome signals are visible, but certainty remains outcome- and preparation-specific.'
+        : confidence === 'Preliminary'
+          ? 'The signal appears in the profile, though support may be mechanistic or not yet consistent.'
+          : 'The topic is visible mainly as a limited or indirect profile signal.'
 
     return {
       topic,
       confidence,
-      rationale: confidence === 'Moderate'
-        ? 'Repeated outcome signals are visible, but certainty remains outcome- and preparation-specific.'
-        : confidence === 'Preliminary'
-          ? 'The signal appears in the profile, though support may be mechanistic or not yet consistent.'
-          : 'The topic is visible mainly as a limited or indirect profile signal.',
+      note,
+      rationale: note,
     }
   }).filter(Boolean).slice(0, 5) as TopicConfidenceSummary[]
 }

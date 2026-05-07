@@ -1,17 +1,19 @@
-export default function ResearchFocusAreas({ areas = [] }: { areas?: string[] }) {
+type ResearchFocusAreasProps = {
+  areas: string[]
+}
+
+export default function ResearchFocusAreas({ areas = [] }: ResearchFocusAreasProps) {
   const visible = areas.filter(Boolean).slice(0, 6)
-  if (visible.length < 2) return null
+  if (!visible.length) return null
 
   return (
-    <div className="surface-subtle rounded-2xl p-5 sm:p-6">
-      <p className="eyebrow-label">Research focus</p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {visible.map(area => (
-          <span key={area} className="rounded-full border border-brand-900/10 bg-white/80 px-3 py-1.5 text-sm font-medium capitalize text-[#46574d]">
-            {area}
-          </span>
-        ))}
-      </div>
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {visible.map(area => (
+        <div key={area} className="card-premium p-4">
+          <p className="eyebrow-label">Focus area</p>
+          <h3 className="mt-2 text-base font-semibold leading-6 text-ink">{area}</h3>
+        </div>
+      ))}
     </div>
   )
 }

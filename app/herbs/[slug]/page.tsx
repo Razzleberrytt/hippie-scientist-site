@@ -6,7 +6,6 @@ import blogPosts from '../../../data/blog/posts.json'
 import { DetailCard, EvidenceBadge } from '@/components/ui'
 import CompareWithCard from '@/components/ui/CompareWithCard'
 import RelatedPathways from '@/components/ui/RelatedPathways'
-import ResearchConfidenceMatrix from '@/components/ui/ResearchConfidenceMatrix'
 import ResearchFocusAreas from '@/components/ui/ResearchFocusAreas'
 import ResearchGapsCard from '@/components/ui/ResearchGapsCard'
 import ResearchStyleBadge from '@/components/ui/ResearchStyleBadge'
@@ -17,14 +16,12 @@ import { getHerbSearchLinks } from '@/lib/affiliate'
 import { commonSupplementFaqJsonLd } from '@/lib/seo'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import {
-  deriveComparisonFraming,
-  deriveConfidenceByTopic,
+  deriveConsensusSummary,
   deriveEvidenceFraming,
-  derivePathwayClusters,
+  deriveRelatedPathways,
   deriveResearchFocusAreas,
   deriveResearchStyle,
-  generateScientificConsensusSummary,
-  inferEvidenceLimitations,
+  deriveEvidenceLimitations,
   inferResearchGaps,
 } from '@/lib/research-intelligence'
 import { buildSemanticTopics, findRelatedArticles } from '@/lib/editorial-discovery'
@@ -164,11 +161,7 @@ export default async function HerbDetailPage({ params }: Params) {
   const label = getHerbLabel(herb)
   const leadText = getLeadText(herb)
   const affiliateLinks = getHerbSearchLinks(label).filter(link => link.url && link.label)
-  const [relatedCompounds, allHerbs, allCompounds] = await Promise.all([
-    getRelatedCompounds(herb),
-    getHerbs(),
-    getCompounds(),
-  ])
+  const relatedCompounds = await getRelatedCompounds(herb)
   const faqJsonLd = commonSupplementFaqJsonLd(`/herbs/${herb.slug}`)
 
   const claims = unique(
@@ -233,16 +226,16 @@ export default async function HerbDetailPage({ params }: Params) {
   const relatedArticles = findRelatedArticles(herb, blogPosts as any[], 4)
   const evidenceFrame = deriveEvidenceFraming(researchInputs)
   const researchStyle = deriveResearchStyle(researchInputs)
-  const consensusSummary = generateScientificConsensusSummary(researchInputs)
-  const confidenceTopics = deriveConfidenceByTopic(researchInputs)
-  const pathwayClusters = derivePathwayClusters(researchInputs)
+  const consensusSummary = deriveConsensusSummary(researchInputs)
+  const relatedPathways = deriveRelatedPathways(mechanisms)
   const researchGaps = inferResearchGaps(researchInputs)
-  const evidenceLimitations = inferEvidenceLimitations(researchInputs)
+  const evidenceLimitations = deriveEvidenceLimitations(researchInputs)
   const focusAreas = deriveResearchFocusAreas(researchInputs)
-  const comparisons = deriveComparisonFraming(herb, [
-    ...allHerbs.map((item: any) => ({ ...item, type: 'herb' })),
-    ...allCompounds.map((item: any) => ({ ...item, type: 'compound' })),
-  ])
+  const compareItems = relatedCompounds.map(item => ({
+    href: item.href,
+    title: item.title,
+    description: item.description,
+  }))
 
   const hasForms = Boolean(form || dosage || timeToEffect)
 
@@ -255,12 +248,13 @@ export default async function HerbDetailPage({ params }: Params) {
   const toc = [
     profileOverview ? ['overview', 'Overview'] : null,
     ['evidence-framing', 'Evidence framing'],
-    consensusSummary || confidenceTopics.length > 1 ? ['research-intelligence', 'Research intelligence'] : null,
-    focusAreas.length > 1 || pathwayClusters.length ? ['semantic-signals', 'Semantic signals'] : null,
+    consensusSummary ? ['scientific-consensus', 'Consensus'] : null,
+    focusAreas.length ? ['research-focus', 'Research focus'] : null,
+    relatedPathways.length ? ['related-pathways', 'Related pathways'] : null,
     outcomeCards.length ? ['best-for', 'Best for'] : null,
     mechanismGroups.length ? ['mechanisms', 'Mechanisms'] : null,
-    researchGaps.length > 1 || evidenceLimitations.length > 1 ? ['research-gaps', 'Research gaps'] : null,
-    comparisons.length > 1 ? ['compare-with', 'Compare with'] : null,
+    researchGaps.length || evidenceLimitations.length ? ['research-gaps', 'Research gaps'] : null,
+    compareItems.length ? ['compare-with', 'Compare with'] : null,
     safetyItems.length ? ['safety', 'Safety'] : null,
     hasForms ? ['forms', 'Forms & dosage'] : null,
     relatedArticles.length ? ['related-articles', 'Related articles'] : null,
@@ -356,23 +350,36 @@ export default async function HerbDetailPage({ params }: Params) {
         </DetailCard>
 
 
-        {consensusSummary || confidenceTopics.length > 1 ? (
-          <DetailCard id="research-intelligence" eyebrow="Research Intelligence" title="Scientific interpretation" description="Reusable semantic framing derived from existing structured profile data.">
-            <div className="grid gap-5 lg:grid-cols-2">
-              <ScientificConsensusCard summary={consensusSummary} />
-              <ResearchConfidenceMatrix topics={confidenceTopics} />
-            </div>
+        {consensusSummary ? (
+          <DetailCard id="scientific-consensus" eyebrow="Research Intelligence" title="Scientific consensus" description="A conservative summary derived from existing structured profile signals.">
+            <ScientificConsensusCard summary={consensusSummary} style={researchStyle} />
           </DetailCard>
         ) : null}
 
-        {focusAreas.length > 1 || pathwayClusters.length ? (
-          <DetailCard id="semantic-signals" eyebrow="Semantic Discovery" title="Research focus & pathways" description="Semantic clusters for future browse-by-mechanism and comparative discovery experiences.">
-            <div className="grid gap-5">
-              <ResearchFocusAreas areas={focusAreas} />
-              <RelatedPathways pathways={pathwayClusters} />
-            </div>
+        {focusAreas.length ? (
+          <DetailCard id="research-focus" eyebrow="Semantic Discovery" title="Research focus areas" description="Clean topic clusters surfaced from existing effects, claims, and mechanisms.">
+            <ResearchFocusAreas areas={focusAreas} />
           </DetailCard>
         ) : null}
+
+        {relatedPathways.length ? (
+          <DetailCard id="related-pathways" eyebrow="Mechanism Discovery" title="Related pathways" description="Pathway chips derived only from mechanisms already listed in this profile.">
+            <RelatedPathways pathways={relatedPathways} />
+          </DetailCard>
+        ) : null}
+
+        {researchGaps.length || evidenceLimitations.length ? (
+          <DetailCard id="research-gaps" eyebrow="Uncertainty" title="Research gaps & limitations" description="Important constraints that keep the profile scientifically conservative.">
+            <ResearchGapsCard gaps={researchGaps} limitations={evidenceLimitations} />
+          </DetailCard>
+        ) : null}
+
+        {compareItems.length ? (
+          <DetailCard id="compare-with" eyebrow="Compound Links" title="Compare with" description="Compounds shown here come from existing related compound data for this herb.">
+            <CompareWithCard items={compareItems} />
+          </DetailCard>
+        ) : null}
+
 
         {outcomeCards.length > 0 ? (
           <DetailCard id="best-for" eyebrow="Use Cases" title="Best for" description="Signals surfaced from the current profile and linked claim data.">
@@ -404,18 +411,6 @@ export default async function HerbDetailPage({ params }: Params) {
                 </div>
               ))}
             </div>
-          </DetailCard>
-        ) : null}
-
-        {researchGaps.length > 1 || evidenceLimitations.length > 1 ? (
-          <DetailCard id="research-gaps" eyebrow="Uncertainty" title="Research gaps & limitations" description="Important constraints that keep the profile scientifically conservative.">
-            <ResearchGapsCard gaps={researchGaps} limitations={evidenceLimitations} />
-          </DetailCard>
-        ) : null}
-
-        {comparisons.length > 1 ? (
-          <DetailCard id="compare-with" eyebrow="Comparative Framing" title="Compare with" description="Related herbs and compounds are selected by overlapping effect and mechanism language already present in the data.">
-            <CompareWithCard comparisons={comparisons} />
           </DetailCard>
         ) : null}
 
