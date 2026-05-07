@@ -128,7 +128,7 @@ export default function Page({ params }: any) {
     <>
       <ReadingProgress />
 
-      <main className="mx-auto flex max-w-7xl gap-10 px-4 pb-28">
+      <main className="mx-auto flex max-w-7xl gap-10 px-4 pb-40 sm:pb-32">
 
         <TableOfContents />
 

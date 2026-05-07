@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { ContentIdentityCard, SemanticBrowseModule } from '@/components/scientific-discovery'
 
 const learningPaths = [
-  { href: '/natural-anxiolytics-beyond-ashwagandha', title: 'Calm without flattening', description: 'Compare anxiolytic herbs by sedation, stress physiology, and evidence maturity.', meta: 'Learning path', kind: 'path' as const },
-  { href: '/sleep-herbs-vs-melatonin', title: 'Sleep herbs vs melatonin', description: 'Understand when sleep support is circadian, calming, restorative, or habit-driven.', meta: 'Comparison', kind: 'path' as const },
-  { href: '/psychedelic-adjacent-herbs', title: 'Psychedelic-adjacent herbs', description: 'A harm-reduction lens for dream, ritual, and perception-adjacent botanicals.', meta: 'Safety led', kind: 'path' as const },
+  { href: '/learn', title: 'Calm without flattening', description: 'Compare anxiolytic herbs by sedation, stress physiology, and evidence maturity.', meta: 'Learning path', kind: 'path' as const },
+  { href: '/sleep-supplements', title: 'Sleep herbs vs melatonin', description: 'Understand when sleep support is circadian, calming, restorative, or habit-driven.', meta: 'Comparison', kind: 'path' as const },
+  { href: '/herbs', title: 'Psychedelic-adjacent herbs', description: 'A harm-reduction lens for dream, ritual, and perception-adjacent botanicals.', meta: 'Safety led', kind: 'path' as const },
 ]
 
 const evidenceTopics = [
@@ -22,7 +22,7 @@ export default function HomepageV2() {
       <section className="hero-shell overflow-hidden rounded-[2.25rem] border border-white/45 px-6 py-16 shadow-soft sm:px-10 lg:px-16 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
           <div className="max-w-5xl section-spacing">
-            <div className="eyebrow-label inline-flex rounded-full border border-brand-700/10 bg-white/55 px-4 py-2 backdrop-blur-md">
+            <div className="eyebrow-label inline-flex rounded-full border border-brand-700/10 bg-white/85 px-4 py-2 backdrop-blur-md">
               Scientific editorial library for natural compounds
             </div>
 
@@ -110,7 +110,7 @@ export default function HomepageV2() {
         title="Browse the library semantically"
         description="Discovery is organized around why a compound is being explored, what pathway is proposed, and how mature the evidence appears."
         groups={[
-          { title: 'Neuroendocrine / nervous system', description: 'GABA, stress-response, mood, sleep, and cognition-adjacent pathways.', href: '/explore/stress', meta: 'Mechanism' },
+          { title: 'Neuroendocrine / nervous system', description: 'GABA, stress-response, mood, sleep, and cognition-adjacent pathways.', href: '/explore/anxiety', meta: 'Mechanism' },
           { title: 'Evidence maturity', description: 'Compare strong, mixed, early, and traditional-use-led profiles without flattening the nuance.', href: '/a-tier', meta: 'Evidence' },
           { title: 'Effect clusters', description: 'Move from sleep, stress, focus, recovery, or metabolic goals into the depth layer.', href: '/goals', meta: 'Effects' },
           { title: 'Research style', description: 'Distinguish clinical, mechanism-led, traditional-use-led, and editorial synthesis pages.', href: '/blog', meta: 'Method' },

@@ -13,7 +13,7 @@ export default function EvidenceConfidenceBar({ label, value = 0 }: Props) {
         <span>{percentage}%</span>
       </div>
 
-      <div className="h-2 overflow-hidden rounded-full bg-white/5">
+      <div className="h-2 overflow-hidden rounded-full bg-brand-900/10">
         <div
           className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-sky-400"
           style={{ width: `${percentage}%` }}

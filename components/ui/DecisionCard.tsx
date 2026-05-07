@@ -13,33 +13,33 @@ export default function DecisionCard({
   const cleanedBestFor = bestFor
     .filter(isClean)
     .map((item:any) => editorialUseCaseLabel(item))
+    .filter(isClean)
     .slice(0, 3)
 
   const cleanedAvoid = avoid
     .filter(isClean)
     .map((item:any) => cleanLabel(String(item)))
+    .filter(isClean)
 
   return (
     <div className="surface-depth card-spacing section-spacing">
 
       <div className="grid gap-6 md:grid-cols-2">
 
-        <div className="space-y-3">
-          <p className="eyebrow-label">Best for</p>
+        {cleanedBestFor.length > 0 ? (
+          <div className="space-y-3">
+            <p className="eyebrow-label">Commonly explored for</p>
 
-          <ul className="space-y-3 text-sm leading-7 text-[#435246]">
-            {cleanedBestFor.length > 0 ? cleanedBestFor.map((b:any,i:number)=>(
-              <li key={i} className="flex gap-3">
-                <span className="mt-[0.45rem] h-1.5 w-1.5 rounded-full bg-brand-700" />
-                <span>{b}</span>
-              </li>
-            )) : (
-              <li className="text-[#5a685f]">
-                General wellness and exploratory support.
-              </li>
-            )}
-          </ul>
-        </div>
+            <ul className="space-y-3 text-sm leading-7 text-[#435246]">
+              {cleanedBestFor.map((b:any,i:number)=>(
+                <li key={i} className="flex gap-3">
+                  <span className="mt-[0.45rem] h-1.5 w-1.5 rounded-full bg-brand-700" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         <div className="space-y-3">
           <p className="eyebrow-label">Safety context</p>

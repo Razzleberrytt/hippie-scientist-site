@@ -13,12 +13,12 @@ export default function Card({ title, description, href, bestFor }: any) {
         transition={springConfig.card}
         className="glass-card glass-card-hover p-5"
       >
-        <h3 className="text-lg font-bold text-white">{title}</h3>
+        <h3 className="text-lg font-bold text-ink">{title}</h3>
         {description && (
-          <p className="text-sm text-white/70 mt-2">{description}</p>
+          <p className="text-sm text-[#46574d] mt-2">{description}</p>
         )}
         {bestFor && (
-          <p className="text-xs text-white/60 mt-3">Best for: {bestFor}</p>
+          <p className="text-xs text-[#66756d] mt-3">Best for: {bestFor}</p>
         )}
       </motion.div>
     </Link>

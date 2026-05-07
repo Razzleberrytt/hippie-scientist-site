@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import EvidenceBadge from '@/components/ui/EvidenceBadge'
+import { cleanSummary as sanitizeSummary, editorialUseCaseLabel, isClean } from '@/lib/display-utils'
 
 type SafetyTone = 'ok' | 'caution' | 'avoid' | 'unknown'
 
@@ -50,9 +51,9 @@ export default function PremiumCard({
   ctaLabel = 'Open profile',
 }: PremiumCardProps) {
   const safetyTone = normalizeSafety(safety)
-  const cleanSummary = clean(summary)
-  const cleanBestFor = clean(bestFor)
-  const visibleTags = tags.map(clean).filter(Boolean).slice(0, 3)
+  const cleanSummary = isClean(summary) ? sanitizeSummary(summary, 'compound') : ''
+  const cleanBestFor = isClean(bestFor) ? editorialUseCaseLabel(bestFor) : ''
+  const visibleTags = tags.map(clean).filter(isClean).slice(0, 3)
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-6 sm:p-7 shadow-[0_10px_30px_rgba(29,74,47,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
@@ -90,7 +91,7 @@ export default function PremiumCard({
         {cleanBestFor ? (
           <div className="mt-5 rounded-2xl border border-brand-900/10 bg-[rgba(251,246,233,0.85)] px-4 py-3">
             <p className="text-sm leading-6 text-[#46574d]">
-              <span className="font-semibold text-ink">Best for:</span> {cleanBestFor}
+              <span className="font-semibold text-ink">Commonly explored for:</span> {cleanBestFor}
             </p>
           </div>
         ) : null}
