@@ -6,6 +6,7 @@ import {
   getTopicClusters,
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
+import { safeArray, safeIncludes, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
 
 const TITLES: Record<string, string> = {
   sleep: 'Sleep Support',
@@ -18,30 +19,45 @@ export async function generateStaticParams() {
   return Object.keys(TITLES).map((topic) => ({ topic }))
 }
 
+function safeClusters(compound: any) {
+  const seen = new Set<string>()
+
+  return safeArray<string>(getTopicClusters(compound))
+    .map((cluster) => safeTrim(cluster))
+    .filter(isClean)
+    .filter(Boolean)
+    .filter((cluster) => {
+      const key = safeLower(cluster)
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+}
+
+function matchesTopic(cluster: unknown, topic: string) {
+  if (topic === 'sleep') return safeIncludes(cluster, 'sleep')
+  if (topic === 'focus') return safeIncludes(cluster, 'focus')
+  if (topic === 'anxiety') return safeIncludes(cluster, 'stress')
+  if (topic === 'recovery') return safeIncludes(cluster, 'recovery')
+
+  return false
+}
+
 export default async function TopicExplorePage({ params }: any) {
-  const topic = String(params.topic || '').toLowerCase()
+  const topic = safeLower(params?.topic)
 
   if (!TITLES[topic]) notFound()
 
-  const filtered = (compounds as any[])
-    .filter((compound) => compound.slug && compound.name)
+  const filtered = safeArray<any>(compounds)
+    .filter((compound) => safeSlug(compound?.slug) && safeTrim(compound?.name))
     .map((compound) => ({
       ...compound,
+      slug: safeSlug(compound?.slug),
       archetype: classifyArchetype(compound),
-      clusters: getTopicClusters(compound).filter(isClean),
+      clusters: safeClusters(compound),
     }))
-    .filter((compound) => {
-      return (compound.clusters || []).some((cluster: string) => {
-        const normalized = cluster.toLowerCase()
-
-        if (topic === 'sleep') return normalized.includes('sleep')
-        if (topic === 'focus') return normalized.includes('focus')
-        if (topic === 'anxiety') return normalized.includes('stress')
-        if (topic === 'recovery') return normalized.includes('recovery')
-
-        return false
-      })
-    })
+    .filter((compound) => compound.clusters.some((cluster: string) => matchesTopic(cluster, topic)))
+    .sort((a, b) => safeLower(a?.name).localeCompare(safeLower(b?.name)))
     .slice(0, 24)
 
   return (
@@ -84,7 +100,7 @@ export default async function TopicExplorePage({ params }: any) {
                     </span>
                   ) : null}
 
-                  {(compound.clusters || []).slice(0, 2).map((cluster:string) => (
+                  {safeArray<string>(compound.clusters).slice(0, 2).map((cluster: string) => (
                     <span key={cluster} className="chip-readable text-[10px] uppercase tracking-wide">
                       {cluster}
                     </span>
