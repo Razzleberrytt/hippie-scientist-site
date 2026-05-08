@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
+import { safeArray, safeIncludes, safeJoin, safeLower, safeScore, safeTrim } from '@/lib/search-safe'
 
 type BrowserItem = {
   slug: string
@@ -39,32 +40,27 @@ type LibraryBrowserProps = {
   items: BrowserItem[]
 }
 
-const normalizeText = (value: unknown): string => {
-  if (value === null || value === undefined) return ''
-  if (Array.isArray(value)) return value.map(normalizeText).filter(Boolean).join(', ')
-  if (typeof value === 'object') return ''
-  return String(value).replace(/\s+/g, ' ').trim()
-}
+const normalizeText = (value: unknown): string => safeArray(value).map(safeTrim).filter(Boolean).join(', ')
 
 const short = (value: unknown, max = 40): string => {
   const text = normalizeText(value)
   return text.length > max ? `${text.slice(0, max - 1).trimEnd()}…` : text
 }
 
-const lower = (value: unknown) => normalizeText(value).toLowerCase()
+const lower = (value: unknown) => safeLower(normalizeText(value))
 
 const decisionScore = (item: BrowserItem): number => {
   let score = 0
-  if (item.evidenceScore) score += Number(item.evidenceScore) * 5
+  score += safeScore(item.evidenceScore) * 5
   if (item.isATier) score += 25
-  if (lower(item.confidence).includes('high')) score += 18
-  if (lower(item.summary_quality).includes('strong')) score += 15
-  if (lower(item.profile_status).includes('complete')) score += 12
-  if (item.bestFor || item.domain) score += 8
-  if (item.safety && !/^review$/i.test(normalizeText(item.safety))) score += 6
-  if (item.onset || item.timeToEffect) score += 4
-  if (item.dosage) score += 4
-  return score
+  if (safeIncludes(item.confidence, 'high')) score += 18
+  if (safeIncludes(item.summary_quality, 'strong')) score += 15
+  if (safeIncludes(item.profile_status, 'complete')) score += 12
+  if (safeTrim(item.bestFor) || safeTrim(item.domain)) score += 8
+  if (safeTrim(item.safety) && !/^review$/i.test(normalizeText(item.safety))) score += 6
+  if (safeTrim(item.onset) || safeTrim(item.timeToEffect)) score += 4
+  if (safeTrim(item.dosage)) score += 4
+  return safeScore(score)
 }
 
 const getPreview = (item: BrowserItem): string => {
@@ -76,18 +72,18 @@ const getPreview = (item: BrowserItem): string => {
 }
 
 const getDecisionLabel = (item: BrowserItem): string => {
-  if (item.bestFor) return `Best for: ${short(item.bestFor, 34)}`
-  if (item.domain) return `Use case: ${short(item.domain, 34)}`
-  if (item.effects) return `Effect: ${short(item.effects, 34)}`
+  if (safeTrim(item.bestFor)) return `Best for: ${short(item.bestFor, 34)}`
+  if (safeTrim(item.domain)) return `Use case: ${short(item.domain, 34)}`
+  if (safeTrim(item.effects)) return `Effect: ${short(item.effects, 34)}`
   return ''
 }
 
 const getMetaRows = (item: BrowserItem) => [
   getDecisionLabel(item),
-  item.timeToEffect || item.onset ? `Onset: ${short(item.timeToEffect || item.onset, 24)}` : '',
-  item.safety ? `Safety: ${short(item.safety, 30)}` : '',
-  item.confidence ? `Confidence: ${short(item.confidence, 24)}` : '',
-  item.evidence ? `Evidence: ${short(item.evidence, 24)}` : '',
+  safeTrim(item.timeToEffect) || safeTrim(item.onset) ? `Onset: ${short(item.timeToEffect || item.onset, 24)}` : '',
+  safeTrim(item.safety) ? `Safety: ${short(item.safety, 30)}` : '',
+  safeTrim(item.confidence) ? `Confidence: ${short(item.confidence, 24)}` : '',
+  safeTrim(item.evidence) ? `Evidence: ${short(item.evidence, 24)}` : '',
 ].filter(Boolean)
 
 export default function LibraryBrowser({
@@ -108,21 +104,21 @@ export default function LibraryBrowser({
   }, [query])
 
   const sortedItems = useMemo(
-    () => [...items]
-      .filter(item => normalizeText(item.slug) && normalizeText(item.title))
+    () => safeArray<BrowserItem>(items)
+      .filter(item => normalizeText(item?.slug) && normalizeText(item?.title) && normalizeText(item?.href))
       .sort((a, b) => {
         const scoreDelta = decisionScore(b) - decisionScore(a)
         if (scoreDelta !== 0) return scoreDelta
-        return a.title.localeCompare(b.title)
+        return lower(a?.title).localeCompare(lower(b?.title))
       }),
     [items],
   )
 
   const filteredItems = useMemo(() => {
-    const q = debouncedQuery.toLowerCase().trim()
+    const q = safeLower(debouncedQuery)
 
     return sortedItems.filter(item => {
-      const searchable = [
+      const searchable = safeJoin([
         item.title,
         item.slug,
         item.summary,
@@ -137,9 +133,9 @@ export default function LibraryBrowser({
         item.onset,
         item.timeToEffect,
         item.confidence,
-      ].map(normalizeText).join(' ').toLowerCase()
+      ])
 
-      return !q || searchable.includes(q)
+      return !q || safeIncludes(searchable, q)
     })
   }, [sortedItems, debouncedQuery])
 
