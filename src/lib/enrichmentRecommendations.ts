@@ -170,6 +170,49 @@ function describeSharedTheme(prefix: string, themes: string[]) {
   return `${prefix} (${themes.slice(0, 2).join(', ')}).`
 }
 
+
+function evidenceSensitivityScore(
+  source: GovernedRecommendationRow,
+  candidate: GovernedRecommendationRow,
+  signalType: RecommendationSignalType,
+) {
+  const sourceLabel = source.researchEnrichment.pageEvidenceJudgment.evidenceLabel
+  const candidateLabel = candidate.researchEnrichment.pageEvidenceJudgment.evidenceLabel
+  const sourceRank = EVIDENCE_LABEL_RANK[sourceLabel]
+  const candidateRank = EVIDENCE_LABEL_RANK[candidateLabel]
+  const sourceWeakOnly = WEAK_ONLY_LABELS.has(sourceLabel)
+  const sourceCaution = CAUTION_LABELS.has(sourceLabel)
+  const candidateCaution = CAUTION_LABELS.has(candidateLabel)
+
+  let score = 0
+
+  if (sourceRank >= 7 && candidateRank >= 7) score += 12
+  if (sourceRank >= 7 && candidateRank <= 3 && signalType !== 'shared_safety_theme') score -= 8
+
+  if (sourceWeakOnly && signalType === 'shared_mechanism_or_constituent') score += 10
+  if (sourceWeakOnly && signalType === 'shared_supported_use' && candidateRank >= 7) score -= 4
+  if (sourceWeakOnly && signalType === 'evidence_strength_comparison') score += 4
+
+  if (sourceCaution && candidateCaution && signalType === 'shared_safety_theme') score += 12
+  if (sourceCaution && signalType === 'contrast_conflicting_or_uncertain') score += 5
+
+  return score
+}
+
+function withEvidenceSensitiveScore(
+  recommendation: EnrichmentRecommendation,
+  source: GovernedRecommendationRow,
+  candidate: GovernedRecommendationRow,
+): EnrichmentRecommendation {
+  const adjustment = evidenceSensitivityScore(source, candidate, recommendation.signalType)
+  if (adjustment === 0) return recommendation
+
+  return {
+    ...recommendation,
+    score: recommendation.score + adjustment,
+  }
+}
+
 function evaluatePair(
   source: GovernedRecommendationRow,
   candidate: GovernedRecommendationRow,
@@ -291,7 +334,7 @@ function evaluatePair(
     })
   }
 
-  return recs
+  return recs.map(recommendation => withEvidenceSensitiveScore(recommendation, source, candidate))
 }
 
 function dedupeRecommendations(recommendations: EnrichmentRecommendation[]) {
@@ -329,15 +372,14 @@ function filterRelatedRecommendations(
     .filter(item => item.targetType === targetType)
     .filter(item => {
       if (item.signalType === 'herb_compound_relationship') return true
-      if (item.signalType === 'shared_supported_use') return true
-      if (
-        item.signalType === 'shared_safety_theme' ||
-        item.signalType === 'shared_mechanism_or_constituent'
-      ) {
+      if (item.signalType === 'shared_supported_use') {
         return !sourceWeakOnly
       }
+      if (item.signalType === 'shared_safety_theme') return true
+      if (item.signalType === 'shared_mechanism_or_constituent') return true
       return false
     })
+    .sort((a, b) => b.score - a.score || a.targetSlug.localeCompare(b.targetSlug))
     .slice(0, limit)
 }
 
