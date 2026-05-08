@@ -1,3 +1,6 @@
+import { getEvidenceMaturity, getMechanismDepth, getProfileCompleteness } from '@/lib/semantic-trust-badges'
+import { getSafetySensitivity } from '@/lib/safety-classification'
+
 export function calculateDiscoveryScore(base: any, candidate: any) {
   let score = 0
 
@@ -14,13 +17,35 @@ export function calculateDiscoveryScore(base: any, candidate: any) {
   score += overlapScore(baseMechanisms, candidateMechanisms) * 4
   score += overlapScore(basePathways, candidatePathways) * 2
 
-  if (/strong|moderate|clinical|human/i.test(String(candidate?.evidence_tier || ''))) {
+  if (/strong|moderate|clinical|human/i.test(String(candidate?.evidence_tier || candidate?.evidenceTier || ''))) {
     score += 3
   }
 
-  if (/complete/i.test(String(candidate?.profile_status || ''))) {
+  if (/complete/i.test(String(candidate?.profile_status || candidate?.review_status || ''))) {
     score += 2
   }
+
+  const baseMaturity = getEvidenceMaturity(base)
+  const candidateMaturity = getEvidenceMaturity(candidate)
+  const baseCompleteness = getProfileCompleteness(base)
+  const candidateCompleteness = getProfileCompleteness(candidate)
+  const baseSafety = getSafetySensitivity(base)
+  const candidateSafety = getSafetySensitivity(candidate)
+  const baseMechanismDepth = getMechanismDepth(base)
+  const candidateMechanismDepth = getMechanismDepth(candidate)
+
+  if (baseMaturity === candidateMaturity) score += baseMaturity === 'mature' ? 4 : 2
+  if (baseMaturity === 'mature' && candidateMaturity === 'mature') score += 2
+  if (baseMaturity === 'exploratory' && candidateMechanismDepth !== 'light') score += 3
+
+  if (baseCompleteness === candidateCompleteness) score += 2
+  if (baseCompleteness === 'complete' && candidateCompleteness === 'complete') score += 2
+
+  if (baseSafety === candidateSafety && baseSafety !== 'low') score += 3
+  if (baseSafety === 'high' && candidateSafety !== 'low') score += 2
+
+  if (baseMechanismDepth === candidateMechanismDepth) score += 2
+  if (baseMechanismDepth !== 'light' && candidateMechanismDepth !== 'light') score += 2
 
   return score
 }

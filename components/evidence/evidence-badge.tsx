@@ -1,10 +1,6 @@
-import {
-  getEvidenceLabel,
-  hasHumanEvidence,
-  hasMechanismEvidence,
-  hasStrongSafetyProfile,
-  isPreliminaryResearch,
-} from '@/lib/evidence'
+import { getEvidenceLabel, hasStrongSafetyProfile } from '@/lib/evidence'
+import { getSemanticTrustLabels } from '@/lib/semantic-trust-badges'
+import { getSafetyLabels } from '@/lib/safety-classification'
 
 type EvidenceBadgeKind =
   | 'Human Evidence'
@@ -13,6 +9,10 @@ type EvidenceBadgeKind =
   | 'Traditional Use'
   | 'Emerging Research'
   | 'Strong Safety Profile'
+  | 'Evidence-Limited'
+  | 'Mechanistic Focus'
+  | 'Interaction-Aware'
+  | 'Safety-Sensitive'
 
 type EvidenceBadgeProps = {
   label: EvidenceBadgeKind | string
@@ -26,6 +26,10 @@ const BADGE_STYLES: Record<string, string> = {
   'Traditional Use': 'border-stone-700/15 bg-stone-100/70 text-stone-800',
   'Emerging Research': 'border-violet-800/15 bg-violet-50/70 text-violet-900',
   'Strong Safety Profile': 'border-teal-800/15 bg-teal-50/75 text-teal-900',
+  'Evidence-Limited': 'border-amber-800/20 bg-amber-50/80 text-amber-900',
+  'Mechanistic Focus': 'border-blue-800/15 bg-blue-50/70 text-blue-900',
+  'Interaction-Aware': 'border-rose-800/15 bg-rose-50/75 text-rose-900',
+  'Safety-Sensitive': 'border-amber-800/20 bg-amber-50/80 text-amber-900',
 }
 
 export function EvidenceBadge({ label, className = '' }: EvidenceBadgeProps) {
@@ -44,16 +48,15 @@ export function getEvidenceBadges(record: any): string[] {
   const badges = new Set<string>()
   const label = getEvidenceLabel(record)
 
-  if (hasHumanEvidence(record)) badges.add('Human Evidence')
-  if (hasMechanismEvidence(record)) badges.add('Mechanism-Mapped')
-  if (isPreliminaryResearch(record)) badges.add('Preliminary Research')
+  getSemanticTrustLabels(record, 4).forEach(badge => badges.add(badge))
+  getSafetyLabels(record, 2).forEach(badge => badges.add(badge))
   if (/traditional/i.test(label)) badges.add('Traditional Use')
   if (/emerging/i.test(label)) badges.add('Emerging Research')
   if (hasStrongSafetyProfile(record)) badges.add('Strong Safety Profile')
 
   if (!badges.size) badges.add(label)
 
-  return Array.from(badges).slice(0, 3)
+  return Array.from(badges).slice(0, 4)
 }
 
 export function EvidenceBadgeGroup({
