@@ -32,6 +32,7 @@ import {
   getComparisonCandidates,
   classifyArchetype,
 } from '@/lib/semantic-runtime'
+import { getRelatedLabel, getRelatedRuntimeRecords } from '@/lib/related-runtime'
 import Link from 'next/link'
 import { EvidenceMaturityRibbon, SemanticBrowseModule } from '@/components/scientific-discovery'
 import { buildSemanticTopics } from '@/lib/editorial-discovery'
@@ -99,6 +100,14 @@ export default function Page({ params }: any) {
     }))
     .filter((item:any) => item.slug && item.name && isClean(item.name))
 
+  const semanticRelated = getRelatedRuntimeRecords(compound, compounds, 6)
+    .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .map((item:any) => ({
+      ...item,
+      name: formatDisplayLabel(item.name || item.slug),
+      overlap: (item.relatedOverlap || []).map(formatDisplayLabel).filter(isClean),
+    }))
+
   const stackCandidates = getStackCandidates(compound)
     .map((candidate:any) => ({
       ...candidate,
@@ -107,9 +116,11 @@ export default function Page({ params }: any) {
       confidence: formatDisplayLabel(candidate.confidence || 'Exploratory'),
     }))
     .filter((candidate:any) => candidate.slug && candidate.name && isClean(candidate.reason))
+
   const comparisonCandidates = getComparisonCandidates(compound).filter((candidate:any) => candidate.slug && knownComparisonSlugs.has(candidate.slug) && isSafeInternalHref(candidate.href))
   const snapshot = getEvidenceSnapshot(compound)
   const rawSemanticTopics = buildSemanticTopics(compound)
+
   const semanticTopics = {
     maturity: formatDisplayLabel(rawSemanticTopics.maturity) || 'Evidence maturity',
     researchStyle: formatDisplayLabel(rawSemanticTopics.researchStyle) || 'Research context',
@@ -183,8 +194,10 @@ export default function Page({ params }: any) {
               evidenceLevel={evidenceLevel}
               safetyLevel={safetyLevel}
             />
+
             <div className="flex flex-wrap gap-3">
               <EvidenceMaturityRibbon label={semanticTopics.maturity} />
+
               {[semanticTopics.researchStyle, ...semanticTopics.effects.slice(0, 2), ...semanticTopics.mechanisms.slice(0, 2)]
                 .filter(isClean)
                 .map(item => (
@@ -196,7 +209,6 @@ export default function Page({ params }: any) {
           <EvidenceSnapshotCard snapshot={snapshot} />
 
           <div className="space-y-5">
-
             <EvidenceMeter level={evidenceLevel} />
 
             <ConfidencePanel level={evidenceLevel} />
@@ -210,7 +222,6 @@ export default function Page({ params }: any) {
             {effects.length > 0 ? (
               <UseCases effects={effects} />
             ) : null}
-
           </div>
 
           <DecisionCard
@@ -220,145 +231,43 @@ export default function Page({ params }: any) {
             evidence={compound.evidence_tier || 'Human data available'}
           />
 
-          {showQuickVerdict ? (
-            <div className="surface-depth card-spacing text-sm leading-7 text-[#46574d]">
-              <strong className="text-ink">Quick verdict:</strong>{' '}
-              {quickVerdict}
-            </div>
-          ) : null}
-
-          {meaningfulTimeline.length > 0 ? (
-            <SectionBlock title="Expected Timeline">
-              <TimelineCard phases={meaningfulTimeline} />
-            </SectionBlock>
-          ) : null}
-
-          {mechanisms.length > 0 && (
-            <SectionBlock title="Mechanisms">
-              <div className="mb-5 pull-quote-science">
-                Current evidence suggests these pathways are best treated as a research map, not a promise of effect.
-              </div>
-              <MechanismGrid mechanisms={mechanisms} />
-            </SectionBlock>
-          )}
-
-          <SemanticBrowseModule
-            eyebrow="Semantic recommendations"
-            title="Continue researching by relationship"
-            description="Move laterally through effect clusters, pathway families, evidence maturity, and comparison candidates."
-            groups={[
-              { title: semanticTopics.effects[0] || 'Outcome pathways', description: 'Explore profiles with similar outcome language and practical intent.', href: '/goals', meta: 'Outcome' },
-              { title: semanticTopics.mechanisms[0] || 'Mechanism families', description: 'Follow pathway context without treating mechanisms as clinical proof.', href: '/explore', meta: 'Mechanism' },
-              { title: semanticTopics.maturity, description: 'Compare stronger, mixed, and early-stage evidence profiles.', href: '/a-tier', meta: 'Evidence' },
-            ].filter(group => isClean(group.title) && isSafeInternalHref(group.href))}
-          />
-
-          <div id="effects">
-            {effects.length > 0 ? (
-              <SectionBlock title="Primary Effects">
-                <ul className="space-y-3 text-sm leading-7 text-[#46574d]">
-                  {effects.map((effect:any,index:number)=>(
-                    <li key={index}>• {effect}</li>
-                  ))}
-                </ul>
-              </SectionBlock>
-            ) : null}
-          </div>
-
-          {stackCandidates.length > 0 ? (
-            <SectionBlock title="Potential Stack Pairings">
-              <div className="grid gap-4 md:grid-cols-2">
-                {stackCandidates.map((candidate:any)=>(
-                  <div
-                    key={candidate.slug}
-                    className="surface-subtle rounded-2xl p-5"
-                  >
-                    <div className="flex items-center justify-between gap-3">
-                      <h3 className="text-sm font-semibold text-ink">
-                        {candidate.name}
-                      </h3>
-
-                      <span className="chip-readable text-[10px] uppercase tracking-wide">
-                        {candidate.confidence || 'Exploratory'}
-                      </span>
-                    </div>
-
-                    <p className="mt-3 text-sm leading-7 text-[#46574d]">
-                      {candidate.reason}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </SectionBlock>
-          ) : null}
-
-          {comparisonCandidates.length > 0 ? (
-            <SectionBlock title="Compare Alternatives">
-              <div className="flex flex-wrap gap-3">
-                {comparisonCandidates.map((candidate:any)=>(
+          {semanticRelated.length > 0 ? (
+            <SectionBlock title={getRelatedLabel(compound)}>
+              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {semanticRelated.map((item:any)=>(
                   <Link
-                    key={candidate.slug}
-                    href={candidate.href}
-                    className="chip-readable transition hover:text-brand-800"
+                    key={item.slug}
+                    href={`/compounds/${item.slug}`}
+                    className="card-premium group p-5"
                   >
-                    {cleanLabel(candidate.label)}
+                    <div className="space-y-4">
+                      <div className="flex flex-wrap gap-2">
+                        {(item.overlap || []).slice(0, 2).map((signal:string) => (
+                          <span key={signal} className="chip-readable">
+                            {signal}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div>
+                        <h3 className="text-lg font-semibold text-ink transition group-hover:text-brand-700">
+                          {item.name}
+                        </h3>
+
+                        <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
+                          {cleanSummary(item.summary || item.description, 'compound')}
+                        </p>
+                      </div>
+
+                      <div className="identity-meta">
+                        {item.relatedScore} shared semantic signals
+                      </div>
+                    </div>
                   </Link>
                 ))}
               </div>
             </SectionBlock>
           ) : null}
-
-          {related.length > 0 ? (
-            <SectionBlock title="Recommended Related Compounds">
-              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                {related.map((item:any)=>(
-                  <SemanticRecommendationCard
-                    key={item.slug}
-                    item={item}
-                  />
-                ))}
-              </div>
-            </SectionBlock>
-          ) : null}
-
-          <div id="safety">
-            <SectionBlock title="Safety">
-              <p className="text-sm leading-7 text-[#46574d]">
-                {isClean(compound.safety) ? cleanLabel(compound.safety) : 'No major cautions surfaced in the current profile.'}
-              </p>
-            </SectionBlock>
-          </div>
-
-          {sources.length>0&&(
-            <SectionBlock title="Research Highlights">
-              <ResearchHighlights sources={sources} />
-            </SectionBlock>
-          )}
-
-          {sources.length>0&&(
-            <SectionBlock title="Sources">
-              <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
-                {sources.slice(0,10).map((source:any,index:number)=>(
-                  <li key={index}>• {source}</li>
-                ))}
-              </ul>
-            </SectionBlock>
-          )}
-
-          <div id="faq">
-            {faq.length > 0 ? (
-              <SectionBlock title="FAQ">
-                <div className="space-y-5">
-                  {faq.map((item,index)=>(
-                    <div key={index} className="space-y-2 border-b border-brand-900/10 pb-4 last:border-none">
-                      <p className="font-semibold text-sm text-ink">{item.q}</p>
-                      <p className="text-sm leading-7 text-[#46574d]">{item.a}</p>
-                    </div>
-                  ))}
-                </div>
-              </SectionBlock>
-            ) : null}
-          </div>
 
         </div>
 
