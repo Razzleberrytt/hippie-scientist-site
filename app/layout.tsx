@@ -29,8 +29,15 @@ const navLinks = [
 ]
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.thehippiescientist.net'),
   title: { default: 'The Hippie Scientist', template: '%s | The Hippie Scientist' },
   description: 'Evidence-first supplement decision engine.',
+  openGraph: {
+    siteName: 'The Hippie Scientist',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
