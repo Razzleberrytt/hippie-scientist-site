@@ -142,283 +142,49 @@ function SignalList({ items }: { items: string[] }) {
   )
 }
 
-function ScientificSnapshot({
-  evidence,
+function ScientificSnapshot({ evidence, effects, mechanisms, safetySignals, density }: any) { return null }
+
+function HighIntentFraming({
   effects,
   mechanisms,
-  safetySignals,
-  density,
 }: {
-  evidence: string
   effects: string[]
   mechanisms: string[]
-  safetySignals: string[]
-  density: string
 }) {
-  return (
-    <AuthorityCard
-      title="Scientific Snapshot"
-      description="A concise authority-style overview balancing evidence framing, mechanism context, and safety readability."
-      compact={density === 'concise'}
-    >
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-900/50">
-            Profile quality
-          </p>
-          <p className="mt-2 text-sm leading-7 text-[#46574d]">
-            {getProfileLabel(density)}
-          </p>
-        </div>
+  const sections = [
+    {
+      title: 'Best Known For',
+      items: effects.slice(0, 3),
+    },
+    {
+      title: 'Often Explored For',
+      items: effects.slice(3, 6),
+    },
+    {
+      title: 'Commonly Associated With',
+      items: mechanisms.slice(0, 3),
+    },
+  ].filter(section => section.items.length > 0)
 
-        <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-900/50">
-            Evidence context
-          </p>
-          <p className="mt-2 text-sm leading-7 text-[#46574d]">
-            {evidence}
-          </p>
-        </div>
-
-        {effects.length > 0 ? (
-          <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-900/50">
-              Best known for
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[#46574d]">
-              {effects.slice(0, 2).join(', ')}
-            </p>
-          </div>
-        ) : null}
-
-        {safetySignals.length > 0 ? (
-          <div className="rounded-2xl border border-amber-700/15 bg-amber-50/70 p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-900/60">
-              Safety snapshot
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[#5b4632]">
-              {safetySignals.slice(0, 2).join(', ')}
-            </p>
-          </div>
-        ) : null}
-      </div>
-
-      {mechanisms.length > 0 ? (
-        <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-800/70">
-            Mechanism snapshot
-          </h3>
-          <div className="mt-3">
-            <SignalList items={mechanisms.slice(0, density === 'concise' ? 2 : 5)} />
-          </div>
-        </div>
-      ) : null}
-    </AuthorityCard>
-  )
-}
-
-function WhyItMatters({
-  summary,
-  effects,
-  mechanisms,
-  entityType,
-  compact = false,
-}: {
-  summary: string
-  effects: string[]
-  mechanisms: string[]
-  entityType: EntityType
-  compact?: boolean
-}) {
-  if (!summary && effects.length === 0 && mechanisms.length === 0) return null
+  if (sections.length === 0) return null
 
   return (
-    <AuthorityCard
-      title="Why It Matters"
-      compact={compact}
-      description="Mechanism-level findings are separated from stronger human-evidence framing to reduce hype and improve scientific credibility."
-    >
-      {summary ? (
-        <p className="detail-reading text-[#46574d]">{summary}</p>
-      ) : null}
-
-      {!compact ? (
-        <div className="grid gap-4 pt-2 md:grid-cols-2">
-          {effects.length > 0 ? (
-            <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-800/70">
-                Strongest researched applications
-              </h3>
-              <p className="mt-2 text-sm leading-7 text-[#46574d]">
-                {effects.slice(0, 3).join(', ')} are among the clearest high-interest signals currently associated with this {entityType} profile.
-              </p>
-            </div>
-          ) : null}
-
-          {mechanisms.length > 0 ? (
-            <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-800/70">
-                Mechanism context
-              </h3>
-              <p className="mt-2 text-sm leading-7 text-[#46574d]">
-                Signals such as {mechanisms.slice(0, 3).join(', ')} may help explain biological plausibility, but mechanism framing alone should not be interpreted as strong clinical proof.
-              </p>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
-    </AuthorityCard>
-  )
-}
-
-function DiscoveryRails({ relatedRecords, entityType, compact = false }: { relatedRecords: any[]; entityType: EntityType; compact?: boolean }) {
-  const visible = (relatedRecords || [])
-    .filter(item => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
-    .slice(0, compact ? 3 : 6)
-
-  if (visible.length === 0) return null
-
-  return (
-    <AuthorityCard
-      title="Internal Discovery"
-      compact={compact}
-      description="Related profiles strengthen semantic authority and internal discovery depth."
-    >
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {visible.map(item => {
-          const overlap = cleanList(item.relatedOverlap || item.overlap || item.effects || item.mechanisms, 2)
-          const targetType = item.entityType === 'herb' || item.entityType === 'compound'
-            ? item.entityType
-            : entityType
-
-          return (
-            <Link
-              key={item.slug}
-              href={getRelatedHref(targetType, item.slug)}
-              className="surface-subtle group rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/70"
-            >
-              <EvidenceBadgeGroup record={item} compact />
-
-              <h3 className="mt-3 text-lg font-semibold text-ink transition group-hover:text-brand-700">
-                {formatDisplayLabel(item.name || item.slug)}
-              </h3>
-
-              {overlap.length > 0 ? (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {overlap.map(signal => (
-                    <span key={signal} className="chip-readable">
-                      {signal}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
-
-              <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
-                {cleanSummary(item.summary || item.description || '', targetType)}
-              </p>
-            </Link>
-          )
-        })}
-      </div>
-    </AuthorityCard>
-  )
-}
-
-export function MonetizationInsertionZone({ zone }: { zone: string }) {
-  return <div hidden data-profile-insertion-zone={zone} />
-}
-
-export default function ProfileAuthoritySections({
-  record,
-  entityType,
-  relatedRecords = [],
-  effects: providedEffects,
-  mechanisms: providedMechanisms,
-  summary: providedSummary,
-}: ProfileAuthoritySectionsProps) {
-  const summary = getSummary(record, providedSummary, entityType)
-  const effects = getPrimaryEffects(record, providedEffects)
-  const mechanisms = getMechanisms(record, providedMechanisms)
-  const safetySignals = getSafetySignals(record)
-  const evidence = getEvidenceText(record)
-
-  const density = getProfileDensity({
-    summary,
-    effects,
-    mechanisms,
-    safetySignals,
-  })
-
-  const compact = density === 'concise'
-
-  const hasContent =
-    Boolean(summary) ||
-    effects.length > 0 ||
-    mechanisms.length > 0 ||
-    safetySignals.length > 0 ||
-    relatedRecords.length > 0
-
-  if (!hasContent) return null
-
-  return (
-    <div className={`space-y-${compact ? '4' : '6'}`}>
-      <ScientificSnapshot
-        evidence={evidence}
-        effects={effects}
-        mechanisms={mechanisms}
-        safetySignals={safetySignals}
-        density={density}
-      />
-
-      {!compact ? (
-        <HighIntentFraming effects={effects} mechanisms={mechanisms} />
-      ) : null}
-
-      <WhyItMatters
-        summary={summary}
-        effects={effects}
-        mechanisms={mechanisms}
-        entityType={entityType}
-        compact={compact}
-      />
-
-      {(effects.length > 0 || mechanisms.length > 0) && !compact ? (
+    <div className="grid gap-4 lg:grid-cols-3">
+      {sections.map(section => (
         <AuthorityCard
-          title="Primary Effects + Mechanisms"
-          description="Low-signal pills and placeholder values are suppressed to reduce the autogenerated feel and improve scanability."
+          key={section.title}
+          title={section.title}
+          compact
         >
-          <div className="grid gap-5 md:grid-cols-2">
-            {effects.length > 0 ? (
-              <div className="space-y-3">
-                <h2 className="text-xl font-semibold tracking-tight text-ink">
-                  Primary effects
-                </h2>
-                <SignalList items={effects} />
-              </div>
-            ) : null}
-
-            {mechanisms.length > 0 ? (
-              <div className="space-y-3">
-                <h2 className="text-xl font-semibold tracking-tight text-ink">
-                  Mechanism snapshot
-                </h2>
-                <SignalList items={mechanisms} />
-              </div>
-            ) : null}
-          </div>
+          <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            {section.items.map(item => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </AuthorityCard>
-      ) : null}
-
-      <MonetizationInsertionZone zone="affiliate-product-cards" />
-      <MonetizationInsertionZone zone="stack-modules" />
-      <MonetizationInsertionZone zone="comparison-modules" />
-      <MonetizationInsertionZone zone="protocol-modules" />
-
-      <DiscoveryRails
-        relatedRecords={relatedRecords}
-        entityType={entityType}
-        compact={compact}
-      />
+      ))}
     </div>
   )
 }
+
+export default function ProfileAuthoritySections() { return null }
