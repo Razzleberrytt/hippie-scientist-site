@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import herbs from '../../../../public/data/herbs.json'
-import compounds from '../../../../public/data/compounds.json'
+import herbs from '../../../public/data/herbs.json'
+import compounds from '../../../public/data/compounds.json'
 import { rankRuntimeRecords } from '@/lib/runtime-ranking'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
