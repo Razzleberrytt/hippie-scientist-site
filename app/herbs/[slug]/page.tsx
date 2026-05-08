@@ -5,6 +5,7 @@ import { getHerbBySlug, getHerbs } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
+import { buildMeta } from '@/lib/seo'
 
 export async function generateStaticParams() {
   const herbs = await getHerbs()
@@ -24,10 +25,23 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   }
 
   const visibility = getRuntimeVisibility(herb)
-
-  return {
+  const meta = buildMeta({
     title: `${formatDisplayLabel(herb.name || herb.slug)} | Herb`,
     description: cleanSummary(herb.summary || herb.description || '', 'herb'),
+    path: `/herbs/${herb.slug}`,
+  })
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.url },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: 'article',
+      url: meta.url,
+      images: [meta.image],
+    },
     robots: visibility.canIndex
       ? undefined
       : {

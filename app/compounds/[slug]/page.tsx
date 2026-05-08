@@ -40,6 +40,7 @@ import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref, list, te
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
+import { buildMeta } from '@/lib/seo'
 
 export async function generateStaticParams() {
   return (data as any[])
@@ -52,10 +53,23 @@ export function generateMetadata({ params }: any) {
   if (!compound) return {}
 
   const visibility = getRuntimeVisibility(compound)
-
-  return {
+  const meta = buildMeta({
     title: `${compound.name} Benefits, Effects & Safety | Hippie Scientist`,
     description: cleanSummary(compound.summary || compound.description, 'compound'),
+    path: `/compounds/${compound.slug}`,
+  })
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.url },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: 'article',
+      url: meta.url,
+      images: [meta.image],
+    },
     robots: visibility.canIndex
       ? undefined
       : {
