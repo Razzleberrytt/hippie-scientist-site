@@ -1,6 +1,5 @@
 // UPDATED: Added safety note normalization for clean deduplicated herb safety arrays.
 import { useEffect, useState } from 'react'
-import { slugify } from '@/lib/slug'
 import type { Herb } from '@/types'
 import { calculateHerbConfidence } from '@/utils/calculateConfidence'
 import { cleanText, splitClean } from '@/lib/sanitize'
@@ -9,6 +8,7 @@ import { hasInvalidEntityName, sanitizeHerbRecord } from '@/utils/sanitizeData'
 import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
 import { getCuratedData, type CuratedData } from '@/lib/semanticCompression'
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
+import { safeArray, safeLower, safeNumber, safeObject, safeRelatedList, safeSlug, safeTrim } from '@/lib/search-safe'
 
 type SourceRef = { title: string; url?: string; note?: string }
 type ProductRecommendation = { label: string; type: string; url: string }
@@ -57,12 +57,26 @@ export type HerbSummary = {
   [key: string]: unknown
 }
 
+function uniqueValues(values: unknown[]): string[] {
+  const seen = new Set<string>()
+
+  return values
+    .flatMap(value => splitClean(value))
+    .map(safeTrim)
+    .filter(Boolean)
+    .filter(value => {
+      const key = safeLower(value)
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+}
+
 function normalizeEnrichmentSummary(value: unknown): PublishSafeEnrichmentSummary | undefined {
-  if (!value || typeof value !== 'object') return undefined
-  const summary = value as Record<string, unknown>
-  const evidenceLabel = String(summary.evidenceLabel || '').trim()
-  const evidenceLabelTitle = String(summary.evidenceLabelTitle || '').trim()
-  const lastReviewedAt = String(summary.lastReviewedAt || '').trim()
+  const summary = safeObject(value)
+  const evidenceLabel = safeTrim(summary.evidenceLabel)
+  const evidenceLabelTitle = safeTrim(summary.evidenceLabelTitle)
+  const lastReviewedAt = safeTrim(summary.lastReviewedAt)
   if (!evidenceLabel || !evidenceLabelTitle || !lastReviewedAt) return undefined
 
   return {
@@ -83,13 +97,23 @@ let herbSummariesPromise: Promise<HerbSummary[]> | null = null
 let canonicalHerbSummariesPromise: Promise<HerbSummary[]> | null = null
 const herbDetailPromiseBySlug = new Map<string, Promise<Herb | null>>()
 
-function normalizeSlugCandidate(value: string): string {
-  return value
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .replace(/\band\b/g, '')
-    .replace(/[^a-z0-9]+/g, '')
+function normalizeSlugCandidate(value: unknown): string {
+  return safeSlug(value).replace(/\band\b/g, '').replace(/-/g, '')
+}
+
+function normalizeHerbSummaryRows(payload: unknown): HerbSummary[] {
+  const seen = new Set<string>()
+
+  return safeArray(payload)
+    .map(row => normalizeHerbSummaryRow(safeObject(row)))
+    .filter(row => Boolean(row.slug))
+    .filter(row => {
+      const key = safeSlug(row.slug)
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    .sort((a, b) => safeLower(a.name).localeCompare(safeLower(b.name)))
 }
 
 function loadCanonicalHerbSummaryRows(): Promise<HerbSummary[]> {
@@ -99,10 +123,7 @@ function loadCanonicalHerbSummaryRows(): Promise<HerbSummary[]> {
         if (!response.ok) throw new Error('Failed to load /data/herbs-summary.json')
         return response.json()
       })
-      .then(payload => {
-        const rows = Array.isArray(payload) ? payload : []
-        return rows.map(row => normalizeHerbSummaryRow(row as Record<string, unknown>))
-      })
+      .then(payload => normalizeHerbSummaryRows(payload))
       .catch(error => {
         canonicalHerbSummariesPromise = null
         throw error
@@ -124,74 +145,50 @@ async function resolveCanonicalHerbDetailSlug(slug: string): Promise<string | nu
       item.common,
       item.scientific,
       item.name,
-      ...item.aliases,
+      ...safeArray(item.aliases),
     ]
     return candidates.some(candidate => normalizeSlugCandidate(candidate) === needle)
   })
 
-  return match?.slug || null
+  return safeSlug(match?.slug) || null
 }
 
 function normalizeSources(value: unknown): SourceRef[] {
-  if (!Array.isArray(value)) return []
-  return value
+  return safeArray(value)
     .map((source): SourceRef | null => {
       if (typeof source === 'string') {
-        const t = source.trim()
+        const t = safeTrim(source)
         return t ? { title: t, url: t } : null
       }
-      if (source && typeof source === 'object') {
-        const entry = source as Record<string, unknown>
-        const title = String(entry.title || entry.url || '').trim()
-        const url = String(entry.url || '').trim()
-        const note = String(entry.note || '').trim()
-        if (!title && !url) return null
-        const normalized: SourceRef = { title: title || url }
-        if (url) normalized.url = url
-        if (note) normalized.note = note
-        return normalized
-      }
-      return null
+
+      const entry = safeObject(source)
+      const title = safeTrim(entry.title || entry.url)
+      const url = safeTrim(entry.url)
+      const note = safeTrim(entry.note)
+      if (!title && !url) return null
+      const normalized: SourceRef = { title: title || url }
+      if (url) normalized.url = url
+      if (note) normalized.note = note
+      return normalized
     })
     .filter((entry): entry is SourceRef => entry !== null)
 }
 
-
 function normalizeSafetyNotes(...values: unknown[]): string[] {
-  const seen = new Set<string>()
-  const notes: string[] = []
-
-  values
-    .flatMap(value => splitClean(value))
-    .map(value => value.replace(/\s+/g, ' ').trim())
-    .filter(value => value.length >= 5)
-    .forEach(value => {
-      const key = value.toLowerCase()
-      if (!key || seen.has(key)) return
-      seen.add(key)
-      notes.push(value)
-    })
-
-  return notes
+  return uniqueValues(values).filter(value => value.length >= 5)
 }
 
 function normalizeMechanisms(...values: unknown[]): string[] {
-  const mechanisms = values.flatMap(value => splitClean(value))
-  if (mechanisms.length > 0) return mechanisms
-  return []
+  return uniqueValues(values)
 }
 
 function normalizeProductRecommendations(value: unknown): ProductRecommendation[] {
-  if (!Array.isArray(value)) return []
-  return value
+  return safeArray(value)
     .map(item => {
-      if (!item || typeof item !== 'object') return null
-      const rec = item as Record<string, unknown>
-      const label = String(rec.label || '').trim()
-      const type = String(rec.type || '')
-        .trim()
-        .toLowerCase()
-      const url = String(rec.url || '').trim()
+      const rec = safeObject(item)
+      const label = safeTrim(rec.label)
+      const type = safeLower(rec.type)
+      const url = safeTrim(rec.url)
       if (!label || !type) return null
       return { label, type, url }
     })
@@ -199,30 +196,34 @@ function normalizeProductRecommendations(value: unknown): ProductRecommendation[
     .slice(0, 2)
 }
 
-function normalizeHerbRow(raw: Record<string, unknown>): Herb {
+function normalizeHerbRow(raw: Record<string, unknown>): Herb | null {
   const { data } = sanitizeHerbRecord(raw, { debug: process.env.NODE_ENV !== 'production' })
+  if (hasInvalidEntityName(data)) return null
+
   const common = cleanText(data.name) || ''
   const scientific = cleanText(data.scientificName) || ''
-  const slug = String(data.slug || data.id || slugify(common || scientific || ''))
-    .trim()
-    .toLowerCase()
+  const slug = safeSlug(data.slug || data.id || common || scientific)
+  if (!slug) return null
 
-  const primaryActions = splitClean(
-    data.primaryActions ?? data.effects ?? data.actions ?? data.benefits,
-  )
-  const contraindications = splitClean(data.contraindications)
-  const interactions = splitClean(data.interactions)
-  const sideeffects = splitClean(data.sideEffects)
+  const primaryActions = uniqueValues([
+    data.primaryActions,
+    data.effects,
+    data.actions,
+    data.benefits,
+  ])
+  const contraindications = uniqueValues([data.contraindications])
+  const interactions = uniqueValues([data.interactions])
+  const sideeffects = uniqueValues([data.sideEffects])
   const safetyNotes = normalizeSafetyNotes(
     data.safetyNotes,
     data.contraindications,
     data.interactions,
     data.sideEffects,
   )
-  const rawInteractionTags = splitClean(data.interactionTags)
-  const rawInteractionNotes = splitClean(data.interactionNotes)
-  const traditionalUses = splitClean(data.traditionalUses ?? data.traditionalUse)
-  const activeCompounds = splitClean(data.activeCompounds)
+  const rawInteractionTags = uniqueValues([data.interactionTags])
+  const rawInteractionNotes = uniqueValues([data.interactionNotes])
+  const traditionalUses = uniqueValues([data.traditionalUses, data.traditionalUse])
+  const activeCompounds = uniqueValues([data.activeCompounds])
   const sources = normalizeSources(data.sources)
   const researchEnrichment = normalizeResearchEnrichment(data.researchEnrichment)
   const productRecommendations = normalizeProductRecommendations(data.productRecommendations)
@@ -243,22 +244,21 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
   const region = cleanText(data.region) || ''
   const category = cleanText(data.category) || ''
   const intensity = cleanText(data.intensity) || ''
-  const relatedEntities = splitClean(data.relatedEntities)
-  const relatedCompounds = splitClean(data.relatedCompounds)
-  const relatedHerbs = splitClean(data.relatedHerbs).concat(
-    relatedEntities
-      .filter(entry => entry.toLowerCase().startsWith('herb:'))
-      .map(entry => entry.split(':')[1] || '')
-      .filter(Boolean),
-  )
+  const relatedEntities = uniqueValues([data.relatedEntities])
+  const relatedCompounds = safeRelatedList(data.relatedCompounds)
+  const entityRelatedHerbs = relatedEntities
+    .filter(entry => safeLower(entry).startsWith('herb:'))
+    .map(entry => safeTrim(entry).split(':')[1] || '')
+    .filter(Boolean)
+  const relatedHerbs = safeRelatedList([data.relatedHerbs, entityRelatedHerbs])
   const identity = cleanText(data.identity) || ''
   const categoryUseContext = cleanText(data.categoryUseContext) || ''
   const evidenceLevel = cleanText(data.evidenceLevel) || ''
-  const benefits = splitClean(data.benefits ?? data.effects)
+  const benefits = uniqueValues([data.benefits, data.effects])
 
   return {
     ...(data as Herb),
-    id: String(data.id || slug),
+    id: safeTrim(data.id) || slug,
     slug,
     name: common || scientific,
     common,
@@ -277,8 +277,8 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
     contraindications,
     interactions,
     safetyNotes,
-    interactionTags: mergedInteraction.interactionTags,
-    interactionNotes: mergedInteraction.interactionNotes,
+    interactionTags: safeArray(mergedInteraction.interactionTags).map(safeTrim).filter(Boolean),
+    interactionNotes: safeArray(mergedInteraction.interactionNotes).map(safeTrim).filter(Boolean),
     dosage,
     duration,
     preparation,
@@ -300,7 +300,7 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
       summary: description,
       description,
       whyItMatters: cleanText(data.whyItMatters) || description,
-      primaryEffects: splitClean(data.primaryEffects ?? primaryActions),
+      primaryEffects: uniqueValues([data.primaryEffects, primaryActions]),
       effects: primaryActions,
       contraindications,
       interactions,
@@ -313,20 +313,18 @@ function normalizeHerbRow(raw: Record<string, unknown>): Herb {
 }
 
 function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
-  const slug = String(raw.slug || '')
-    .trim()
-    .toLowerCase()
   const common = cleanText(raw.name) || ''
   const scientific = cleanText(raw.scientificName) || ''
-  const primaryActions = splitClean(raw.primaryActions ?? raw.effects)
+  const slug = safeSlug(raw.slug || raw.id || common || scientific)
+  const primaryActions = uniqueValues([raw.primaryActions, raw.effects])
   const mechanisms = normalizeMechanisms(raw.mechanisms, raw.mechanism)
-  const activeCompounds = splitClean(raw.activeCompounds)
-  const confidence = String(raw.confidence || '').toLowerCase()
+  const activeCompounds = uniqueValues([raw.activeCompounds])
+  const confidence = safeLower(raw.confidence)
   const confidenceLevel: Herb['confidence'] =
     confidence === 'high' || confidence === 'medium' ? confidence : 'low'
 
   return {
-    id: String(raw.id || slug),
+    id: safeTrim(raw.id) || slug,
     slug,
     name: common || scientific || slug,
     common,
@@ -342,23 +340,23 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
     effects: primaryActions,
     activeCompounds,
     safetyNotes: cleanText(raw.safetyNotes) || '',
-    traditionalUses: splitClean(raw.traditionalUses),
+    traditionalUses: uniqueValues([raw.traditionalUses]),
     evidenceLevel: cleanText(raw.evidenceLevel ?? raw.confidence) || '',
-    relatedHerbs: splitClean(raw.relatedHerbs),
-    interactionTags: splitClean(raw.interactionTags),
-    interactionNotes: splitClean(raw.interactionNotes),
-    interactions: splitClean(raw.interactions),
-    contraindications: splitClean(raw.contraindications),
+    relatedHerbs: safeRelatedList(raw.relatedHerbs),
+    interactionTags: uniqueValues([raw.interactionTags]),
+    interactionNotes: uniqueValues([raw.interactionNotes]),
+    interactions: uniqueValues([raw.interactions]),
+    contraindications: uniqueValues([raw.contraindications]),
     safety: cleanText(raw.safety) || '',
     sideEffects: cleanText(raw.sideEffects) || '',
     toxicity: cleanText(raw.toxicity) || '',
-    tags: splitClean(raw.tags),
+    tags: uniqueValues([raw.tags]),
     region: cleanText(raw.region) || '',
-    sourceCount: Number.isFinite(Number(raw.sourceCount)) ? Number(raw.sourceCount) : undefined,
+    sourceCount: Number.isFinite(safeNumber(raw.sourceCount, Number.NaN)) ? safeNumber(raw.sourceCount) : undefined,
     hasInteractionData: Boolean(raw.hasInteractionData),
     hasEvidenceNotes: Boolean(raw.hasEvidenceNotes),
     image: cleanText(raw.image) || '',
-    aliases: splitClean(raw.aliases),
+    aliases: uniqueValues([raw.aliases]),
     researchEnrichmentSummary: normalizeEnrichmentSummary(raw.researchEnrichmentSummary),
     curatedData: getCuratedData(raw),
     rawData: raw,
@@ -367,7 +365,7 @@ function normalizeHerbSummaryRow(raw: Record<string, unknown>): HerbSummary {
 
 export function isRenderableHerbRow(raw: Record<string, unknown>): boolean {
   const { data } = sanitizeHerbRecord(raw)
-  return !hasInvalidEntityName(data)
+  return !hasInvalidEntityName(data) && Boolean(safeSlug(data.slug || data.id || data.name || data.scientificName))
 }
 
 export async function loadHerbSummaryData(): Promise<HerbSummary[]> {
@@ -377,10 +375,7 @@ export async function loadHerbSummaryData(): Promise<HerbSummary[]> {
         if (!response.ok) throw new Error('Failed to load /data/herbs-summary.json')
         return response.json()
       })
-      .then(payload => {
-        const rows = Array.isArray(payload) ? payload : []
-        return rows.map(row => normalizeHerbSummaryRow(row as Record<string, unknown>)).filter(row => Boolean(row.slug))
-      })
+      .then(payload => normalizeHerbSummaryRows(payload))
       .catch(error => {
         herbSummariesPromise = null
         throw error
@@ -391,7 +386,7 @@ export async function loadHerbSummaryData(): Promise<HerbSummary[]> {
 }
 
 export async function loadHerbDetailBySlug(slug: string): Promise<Herb | null> {
-  const slugKey = slug.trim().toLowerCase()
+  const slugKey = safeSlug(slug)
   if (!slugKey) return null
 
   const cached = herbDetailPromiseBySlug.get(slugKey)
