@@ -55,6 +55,7 @@ Document only active Next App Router routes:
 - `/compounds/:slug`
 - `/contact`
 - `/disclaimer`
+- `/explore`
 - `/faq`
 - `/guides/:slug`
 - `/herbs`
