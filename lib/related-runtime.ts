@@ -1,7 +1,8 @@
 import { list, text, unique } from '@/lib/display-utils'
+import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
 
 function normalize(value: unknown) {
-  return String(value || '').trim().toLowerCase()
+  return safeLower(value)
 }
 
 function collectSignals(record: any) {
@@ -17,25 +18,40 @@ function collectSignals(record: any) {
 }
 
 export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6) {
+  const sourceSlug = safeSlug(record?.slug)
   const sourceSignals = collectSignals(record)
 
   if (!sourceSignals.length) {
     return []
   }
 
-  return records
-    .filter((candidate) => {
-      if (!candidate || candidate.slug === record.slug) {
+  const seen = new Set<string>()
+
+  return safeArray(records)
+    .filter((candidate: any) => {
+      const candidateSlug = safeSlug(candidate?.slug)
+
+      if (!candidate || !candidateSlug || candidateSlug === sourceSlug) {
+        return false
+      }
+
+      if (seen.has(candidateSlug)) {
         return false
       }
 
       const candidateSignals = collectSignals(candidate)
 
-      return candidateSignals.some((signal) =>
+      const matched = candidateSignals.some((signal) =>
         sourceSignals.includes(signal)
       )
+
+      if (matched) {
+        seen.add(candidateSlug)
+      }
+
+      return matched
     })
-    .map((candidate) => {
+    .map((candidate: any) => {
       const candidateSignals = collectSignals(candidate)
 
       const overlap = candidateSignals.filter((signal) =>
@@ -45,11 +61,19 @@ export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6)
       return {
         ...candidate,
         relatedOverlap: overlap,
-        relatedScore: overlap.length,
+        relatedScore: safeScore(overlap.length),
       }
     })
-    .sort((a, b) => b.relatedScore - a.relatedScore)
-    .slice(0, limit)
+    .sort((a: any, b: any) => {
+      const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
+
+      if (scoreDelta !== 0) {
+        return scoreDelta
+      }
+
+      return safeLower(a?.name).localeCompare(safeLower(b?.name))
+    })
+    .slice(0, Math.max(0, safeScore(limit, 6)))
 }
 
 export function getRelatedLabel(record: any) {
