@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import postsData from '@/data/blog/posts.json'
 import stacksData from '@/public/data/stacks.json'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { bestPages } from '@/data/best'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
@@ -36,8 +37,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const stacks = stacksData as SlugRecord[]
   const posts = postsData as SlugRecord[]
-  const compoundSlugs = [...new Set(runtimeCompounds.map((c: any) => cleanSlug(c.slug)).filter(Boolean))]
-  const herbSlugs = [...new Set(herbs.map((h: any) => cleanSlug(h.slug)).filter(Boolean))]
+
+  const compoundSlugs = [
+    ...new Set(
+      runtimeCompounds
+        .filter((compound: any) => getRuntimeVisibility(compound).canIndex)
+        .map((c: any) => cleanSlug(c.slug))
+        .filter(Boolean)
+    ),
+  ]
+
+  const herbSlugs = [
+    ...new Set(
+      herbs
+        .filter((herb: any) => getRuntimeVisibility(herb).canIndex)
+        .map((h: any) => cleanSlug(h.slug))
+        .filter(Boolean)
+    ),
+  ]
 
   return [
     route('/'),
