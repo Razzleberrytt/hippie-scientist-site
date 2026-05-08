@@ -7,6 +7,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 
 export async function generateStaticParams() {
   const herbs = await getHerbs()
@@ -101,6 +102,8 @@ export default async function HerbDetailPage({ params }: any) {
           </div>
         </div>
       </section>
+
+      <CompactRelatedPathways record={herb} />
 
       {relatedHerbs.length > 0 ? (
         <section className="space-y-5">

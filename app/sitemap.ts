@@ -20,6 +20,12 @@ const route = (path: string): MetadataRoute.Sitemap[number] => ({
   lastModified: now,
 })
 
+const pathwayRoutes = [
+  '/pathways/gaba',
+  '/pathways/dopamine',
+  '/pathways/inflammation',
+]
+
 const clusterRoutes = [
   '/natural-anxiolytics-beyond-ashwagandha',
   '/sleep-herbs-vs-melatonin',
@@ -66,6 +72,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     ...seoEntryPages.map(page => route(`/${page.route}`)),
     ...clusterRoutes.map(route),
+    ...pathwayRoutes.map(route),
     ...goalConfigs.map(g => route(`/goals/${g.slug}`)),
     ...bestPages.map(p => route(`/best/${p.slug}`)),
     ...supplementComparisons.map(c => route(`/compare/${c.slug}`)),

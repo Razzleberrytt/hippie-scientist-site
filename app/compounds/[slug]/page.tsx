@@ -42,6 +42,7 @@ import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 
 export async function generateStaticParams() {
   return (data as any[])
@@ -224,6 +225,8 @@ export default function Page({ params }: any) {
           </div>
 
           <EvidenceSnapshotCard snapshot={snapshot} />
+
+          <CompactRelatedPathways record={compound} />
 
           <div className="space-y-5">
             <EvidenceMeter level={evidenceLevel} />
