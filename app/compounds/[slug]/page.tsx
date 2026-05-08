@@ -41,6 +41,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { buildMeta } from '@/lib/seo'
+import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 
 export async function generateStaticParams() {
   return (data as any[])
@@ -209,6 +210,8 @@ export default function Page({ params }: any) {
               safetyLevel={safetyLevel}
             />
 
+            <EvidenceBadgeGroup record={compound} />
+
             <div className="flex flex-wrap gap-3">
               <EvidenceMaturityRibbon label={semanticTopics.maturity} />
 
@@ -255,6 +258,8 @@ export default function Page({ params }: any) {
                     className="card-premium group p-5"
                   >
                     <div className="space-y-4">
+                      <EvidenceBadgeGroup record={item} compact />
+
                       <div className="flex flex-wrap gap-2">
                         {(item.overlap || []).slice(0, 2).map((signal:string) => (
                           <span key={signal} className="chip-readable">

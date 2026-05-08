@@ -3,6 +3,7 @@ import herbs from '../../../public/data/herbs.json'
 import compounds from '../../../public/data/compounds.json'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
+import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 
 function normalize(value: unknown) {
   return String(value || '').toLowerCase()
@@ -41,6 +42,7 @@ function buildCards(records: any[], type: 'herb' | 'compound') {
     })
     .slice(0, 12)
     .map((item: any) => ({
+      record: item,
       slug: item?.slug || '',
       name: formatDisplayLabel(item?.name || item?.slug),
       summary: cleanSummary(item?.summary || item?.description || '', type),
@@ -114,6 +116,8 @@ export default function SleepExplorePage() {
               className="card-premium group p-5"
             >
               <div className="space-y-4">
+                <EvidenceBadgeGroup record={item.record} compact />
+
                 <div className="flex flex-wrap gap-2">
                   {item.effects.map((effect) => (
                     <span key={effect} className="chip-readable">
@@ -156,6 +160,8 @@ export default function SleepExplorePage() {
               className="card-premium group p-5"
             >
               <div className="space-y-4">
+                <EvidenceBadgeGroup record={item.record} compact />
+
                 <div className="flex flex-wrap gap-2">
                   {item.effects.map((effect) => (
                     <span key={effect} className="chip-readable">

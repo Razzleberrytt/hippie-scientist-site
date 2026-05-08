@@ -18,6 +18,21 @@ const fraunces = Fraunces({
   display: 'swap',
 })
 
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'The Hippie Scientist',
+  url: 'https://www.thehippiescientist.net',
+  description: 'Evidence-organized research on herbs, compounds, pathways, and human health.',
+}
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'The Hippie Scientist',
+  url: 'https://www.thehippiescientist.net',
+}
+
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/learn', label: 'Learn' },
@@ -46,6 +61,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] text-[#111827] font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <div className='min-h-screen bg-background text-ink'>
           <header className='sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur-sm'>
             <div className='container-page flex items-center justify-between py-4'>
