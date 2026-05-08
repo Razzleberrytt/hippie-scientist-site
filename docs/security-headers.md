@@ -51,6 +51,6 @@ Header always set Content-Security-Policy "default-src 'self'; script-src 'self'
 
 ## Remaining CSP exceptions
 
-- `script-src 'unsafe-inline'` is still required because the app renders structured data (`<script type='application/ld+json'>`) via `react-helmet-async` in `src/components/Meta.tsx`.
+- `script-src 'unsafe-inline'` is still required because the app renders structured data (`<script type='application/ld+json'>`) through the current Next app routes and layout.
 - `style-src 'unsafe-inline'` is still required for current runtime style injection patterns used by the React/Tailwind stack.
 - `connect-src` is intentionally limited to same-origin plus GA collection endpoints. If forms are pointed at a cross-origin endpoint via `NEXT_PUBLIC_FORM_ENDPOINT`, that origin must be explicitly added before deploying with a stricter CSP.
