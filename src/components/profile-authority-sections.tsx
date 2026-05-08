@@ -68,6 +68,39 @@ function getEvidenceText(record: any) {
   )
 }
 
+function getAuthoritySignals(record: any, density: string) {
+  const signals = []
+
+  const evidence = text(record?.evidence_tier || record?.evidenceTier)
+  const safety = text(record?.safety?.confidence || record?.safety)
+
+  if (/human|clinical|moderate|strong/i.test(evidence)) {
+    signals.push('Clinically Studied')
+  }
+
+  if (/mechan/i.test(evidence) || density === 'concise') {
+    signals.push('Mechanistic Evidence')
+  }
+
+  if (/traditional|ayurveda|tcm/i.test(text(record?.traditional_use))) {
+    signals.push('Traditional Use Context')
+  }
+
+  if (/emerging|preliminary|limited/i.test(evidence)) {
+    signals.push('Emerging Research')
+  }
+
+  if (/caution|interaction|avoid|warning/i.test(safety)) {
+    signals.push('Safety Sensitive')
+  }
+
+  if (density === 'comprehensive') {
+    signals.push('High Confidence Profile')
+  }
+
+  return unique(signals).slice(0, 5)
+}
+
 function getProfileDensity({
   summary,
   effects,
@@ -142,18 +175,37 @@ function SignalList({ items }: { items: string[] }) {
   )
 }
 
+function AuthoritySignals({ signals }: { signals: string[] }) {
+  if (signals.length === 0) return null
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {signals.map(signal => (
+        <span
+          key={signal}
+          className="rounded-full border border-brand-900/10 bg-brand-50/60 px-3 py-1 text-xs font-semibold tracking-wide text-brand-900/70"
+        >
+          {signal}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 function ScientificSnapshot({
   evidence,
   effects,
   mechanisms,
   safetySignals,
   density,
+  authoritySignals,
 }: {
   evidence: string
   effects: string[]
   mechanisms: string[]
   safetySignals: string[]
   density: string
+  authoritySignals: string[]
 }) {
   return (
     <AuthorityCard
@@ -161,6 +213,8 @@ function ScientificSnapshot({
       description="A concise authority-style overview balancing evidence framing, mechanism context, and safety readability."
       compact={density === 'concise'}
     >
+      <AuthoritySignals signals={authoritySignals} />
+
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-900/50">
@@ -217,13 +271,7 @@ function ScientificSnapshot({
   )
 }
 
-function HighIntentFraming({
-  effects,
-  mechanisms,
-}: {
-  effects: string[]
-  mechanisms: string[]
-}) {
+function HighIntentFraming({ effects, mechanisms }: { effects: string[]; mechanisms: string[] }) {
   const sections = [
     {
       title: 'Best Known For',
@@ -252,19 +300,7 @@ function HighIntentFraming({
   )
 }
 
-function WhyItMatters({
-  summary,
-  effects,
-  mechanisms,
-  entityType,
-  compact = false,
-}: {
-  summary: string
-  effects: string[]
-  mechanisms: string[]
-  entityType: EntityType
-  compact?: boolean
-}) {
+function WhyItMatters({ summary, effects, mechanisms, entityType, compact = false }: any) {
   if (!summary && effects.length === 0 && mechanisms.length === 0) return null
 
   return (
@@ -273,9 +309,7 @@ function WhyItMatters({
       compact={compact}
       description="Mechanism-level findings are separated from stronger human-evidence framing to reduce hype and improve scientific credibility."
     >
-      {summary ? (
-        <p className="detail-reading text-[#46574d]">{summary}</p>
-      ) : null}
+      {summary ? <p className="detail-reading text-[#46574d]">{summary}</p> : null}
 
       {!compact ? (
         <div className="grid gap-4 pt-2 md:grid-cols-2">
@@ -306,9 +340,9 @@ function WhyItMatters({
   )
 }
 
-function DiscoveryRails({ relatedRecords, entityType, compact = false }: { relatedRecords: any[]; entityType: EntityType; compact?: boolean }) {
+function DiscoveryRails({ relatedRecords, entityType, compact = false }: any) {
   const visible = (relatedRecords || [])
-    .filter(item => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
+    .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
     .slice(0, compact ? 3 : 6)
 
   if (visible.length === 0) return null
@@ -320,7 +354,7 @@ function DiscoveryRails({ relatedRecords, entityType, compact = false }: { relat
       description="Related profiles strengthen semantic authority and internal discovery depth."
     >
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {visible.map(item => {
+        {visible.map((item: any) => {
           const overlap = cleanList(item.relatedOverlap || item.overlap || item.effects || item.mechanisms, 2)
           const targetType = item.entityType === 'herb' || item.entityType === 'compound'
             ? item.entityType
@@ -385,6 +419,7 @@ export default function ProfileAuthoritySections({
   })
 
   const compact = density === 'concise'
+  const authoritySignals = getAuthoritySignals(record, density)
 
   const hasContent =
     Boolean(summary) ||
@@ -396,13 +431,14 @@ export default function ProfileAuthoritySections({
   if (!hasContent) return null
 
   return (
-    <div className={`space-y-${compact ? '4' : '6'}`}>
+    <div className={compact ? 'space-y-4' : 'space-y-6'}>
       <ScientificSnapshot
         evidence={evidence}
         effects={effects}
         mechanisms={mechanisms}
         safetySignals={safetySignals}
         density={density}
+        authoritySignals={authoritySignals}
       />
 
       {!compact ? (
