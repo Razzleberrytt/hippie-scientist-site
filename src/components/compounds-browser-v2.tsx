@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { motion } from '@/lib/motion'
+import { safeArray, safeIncludes, safeJoin, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
 
 type CompoundItem = {
   slug: string
@@ -23,43 +24,46 @@ type Props = {
   items: CompoundItem[]
 }
 
-const norm = (value: unknown): string => {
-  if (!value) return ''
-  if (Array.isArray(value)) return value.map(norm).join(' ')
-  return String(value).replace(/\s+/g, ' ').trim()
-}
+const norm = (value: unknown): string => safeArray(value).map(safeTrim).filter(Boolean).join(' ')
+const visible = (value: unknown): string => safeTrim(value)
 
 export default function CompoundsBrowserV2({ items }: Props) {
   const [query, setQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState('All')
 
+  const safeItems = useMemo(
+    () => safeArray<CompoundItem>(items)
+      .filter(item => safeSlug(item?.slug) && safeTrim(item?.title) && safeTrim(item?.href))
+      .sort((a, b) => safeLower(a?.title).localeCompare(safeLower(b?.title))),
+    [items],
+  )
+
   const filters = useMemo(() => {
     const pool = new Set<string>(['All'])
-    for (const item of items) {
+    for (const item of safeItems) {
       const label = norm(item.bestFor || item.domain).split(',')[0]
       if (label) pool.add(label)
-      item.tags?.slice(0, 2).forEach(tag => pool.add(tag))
+      safeArray<string>(item.tags).slice(0, 2).map(safeTrim).filter(Boolean).forEach(tag => pool.add(tag))
     }
     return Array.from(pool).slice(0, 8)
-  }, [items])
+  }, [safeItems])
 
   const filtered = useMemo(() => {
-    const q = query.toLowerCase().trim()
-    return items.filter(item => {
-      const searchable = [item.title, item.summary, item.domain, item.bestFor, item.evidence, item.safety, item.tags]
-        .map(norm)
-        .join(' ')
-        .toLowerCase()
+    const q = safeLower(query)
+    const active = safeLower(activeFilter)
+
+    return safeItems.filter(item => {
+      const searchable = safeJoin([item.title, item.summary, item.domain, item.bestFor, item.evidence, item.safety, item.tags])
 
       const matchesFilter =
         activeFilter === 'All' ||
-        norm(item.bestFor).toLowerCase().includes(activeFilter.toLowerCase()) ||
-        norm(item.domain).toLowerCase().includes(activeFilter.toLowerCase()) ||
-        item.tags?.some(tag => norm(tag).toLowerCase() === activeFilter.toLowerCase())
+        safeIncludes(item.bestFor, active) ||
+        safeIncludes(item.domain, active) ||
+        safeArray<string>(item.tags).some(tag => safeLower(tag) === active)
 
-      return (!q || searchable.includes(q)) && matchesFilter
+      return (!q || safeIncludes(searchable, q)) && matchesFilter
     })
-  }, [items, query, activeFilter])
+  }, [safeItems, query, activeFilter])
 
   return (
     <main className='mx-auto w-full max-w-7xl px-4 py-4 sm:px-5 sm:py-6'>
@@ -107,16 +111,16 @@ export default function CompoundsBrowserV2({ items }: Props) {
               className='group flex h-full flex-col rounded-2xl border border-white/55 bg-white/70 p-4 shadow-[0_10px_30px_rgba(15,23,42,0.08)] backdrop-blur-lg transition duration-200 hover:border-emerald-300 hover:shadow-[0_12px_32px_rgba(16,185,129,0.20)] active:scale-[0.99]'
             >
               <div className='flex flex-wrap items-center gap-2'>
-                <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-700'>{item.typeLabel || 'Compound'}</span>
+                <span className='rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-700'>{visible(item.typeLabel) || 'Compound'}</span>
                 {item.isATier ? <span className='rounded-full bg-emerald-100 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.14em] text-emerald-800'>A-tier</span> : null}
               </div>
               <h2 className='mt-3 text-lg font-black leading-snug text-slate-900'>{item.title}</h2>
-              <p className='mt-2 line-clamp-3 text-sm leading-6 text-slate-600'>{item.summary || 'Open profile for mechanisms, evidence, and safety caveats.'}</p>
+              <p className='mt-2 line-clamp-3 text-sm leading-6 text-slate-600'>{visible(item.summary) || 'Open profile for mechanisms, evidence, and safety caveats.'}</p>
 
               <div className='mt-3 flex flex-wrap gap-1.5'>
-                {item.bestFor ? <span className='rounded-full bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200'>Best for: {item.bestFor}</span> : null}
-                {item.evidence ? <span className='rounded-full bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200'>Evidence: {item.evidence}</span> : null}
-                {item.timeToEffect ? <span className='rounded-full bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200'>Onset: {item.timeToEffect}</span> : null}
+                {visible(item.bestFor) ? <span className='rounded-full bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200'>Best for: {visible(item.bestFor)}</span> : null}
+                {visible(item.evidence) ? <span className='rounded-full bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200'>Evidence: {visible(item.evidence)}</span> : null}
+                {visible(item.timeToEffect) ? <span className='rounded-full bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200'>Onset: {visible(item.timeToEffect)}</span> : null}
               </div>
 
               <span className='mt-4 text-sm font-bold text-emerald-700 transition group-hover:translate-x-0.5'>Open compound profile →</span>
