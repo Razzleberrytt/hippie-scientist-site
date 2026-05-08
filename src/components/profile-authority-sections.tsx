@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+import { classifyDiscoveryGroups } from '@/lib/discovery-classification'
 import { clusterMechanisms } from '@/lib/mechanism-clusters'
 import {
   buildDiscoveryNarrative,
@@ -375,54 +376,82 @@ function WhyItMatters({
   )
 }
 
-function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '' }: any) {
+function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType }) {
+  const overlap = cleanList(item.relatedOverlap || item.overlap || item.effects || item.mechanisms, 2)
+  const targetType = item.entityType === 'herb' || item.entityType === 'compound'
+    ? item.entityType
+    : entityType
+
+  return (
+    <Link
+      key={item.slug}
+      href={getRelatedHref(targetType, item.slug)}
+      className="surface-subtle group rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/70"
+    >
+      <EvidenceBadgeGroup record={item} compact />
+
+      <h3 className="mt-3 text-lg font-semibold text-ink transition group-hover:text-brand-700">
+        {formatDisplayLabel(item.name || item.slug)}
+      </h3>
+
+      {overlap.length > 0 ? (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {overlap.map(signal => (
+            <span key={signal} className="chip-readable">
+              {signal}
+            </span>
+          ))}
+        </div>
+      ) : null}
+
+      <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
+        {cleanSummary(item.summary || item.description || '', targetType)}
+      </p>
+    </Link>
+  )
+}
+
+function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '', baseRecord }: any) {
   const visible = (relatedRecords || [])
     .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
-    .slice(0, compact ? 3 : 6)
+    .slice(0, compact ? 3 : 8)
 
   if (visible.length === 0) return null
 
+  const classifiedGroups = classifyDiscoveryGroups(baseRecord, visible)
+  const fallbackGroups = [
+    {
+      title: 'Research Context Profiles',
+      description: narrative || 'Related profiles strengthen semantic authority and internal discovery depth.',
+      items: visible,
+    },
+  ]
+  const groups = classifiedGroups.length > 0 ? classifiedGroups : fallbackGroups
+
   return (
     <AuthorityCard
-      title="Internal Discovery"
+      title="Semantic Discovery"
       compact={compact}
-      description={narrative || 'Related profiles strengthen semantic authority and internal discovery depth.'}
+      description={narrative || 'Related profiles are grouped by shared mechanisms, pathway context, evidence maturity, or adjacent research themes.'}
     >
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {visible.map((item: any) => {
-          const overlap = cleanList(item.relatedOverlap || item.overlap || item.effects || item.mechanisms, 2)
-          const targetType = item.entityType === 'herb' || item.entityType === 'compound'
-            ? item.entityType
-            : entityType
-
-          return (
-            <Link
-              key={item.slug}
-              href={getRelatedHref(targetType, item.slug)}
-              className="surface-subtle group rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/70"
-            >
-              <EvidenceBadgeGroup record={item} compact />
-
-              <h3 className="mt-3 text-lg font-semibold text-ink transition group-hover:text-brand-700">
-                {formatDisplayLabel(item.name || item.slug)}
+      <div className="space-y-5">
+        {groups.slice(0, compact ? 1 : 4).map(group => (
+          <section key={group.title} className="space-y-3">
+            <div className="space-y-1">
+              <h3 className="text-lg font-semibold tracking-tight text-ink">
+                {group.title}
               </h3>
-
-              {overlap.length > 0 ? (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {overlap.map(signal => (
-                    <span key={signal} className="chip-readable">
-                      {signal}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
-
-              <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
-                {cleanSummary(item.summary || item.description || '', targetType)}
+              <p className="text-sm leading-7 text-[#5b6b61]">
+                {group.description}
               </p>
-            </Link>
-          )
-        })}
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {group.items.slice(0, compact ? 3 : 4).map((item: any) => (
+                <DiscoveryCard key={item.slug} item={item} entityType={entityType} />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </AuthorityCard>
   )
@@ -543,6 +572,7 @@ export default function ProfileAuthoritySections({
         entityType={entityType}
         compact={compact}
         narrative={discoveryNarrative}
+        baseRecord={record}
       />
     </div>
   )
