@@ -15,6 +15,7 @@ import { getClaims, getCompounds, getHerbBySlug, getHerbCompoundMap, getHerbs } 
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { commonSupplementFaqJsonLd } from '@/lib/seo'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import {
   deriveConsensusSummary,
   deriveEvidenceFraming,
@@ -145,7 +146,10 @@ const BulletList = ({ items, color = 'bg-brand-700' }: { items: string[], color?
 
 export async function generateStaticParams() {
   const herbs = await getHerbs()
-  return herbs.map((herb: any) => ({ slug: herb.slug }))
+
+  return herbs
+    .filter((herb: any) => getRuntimeVisibility(herb).canRender)
+    .map((herb: any) => ({ slug: herb.slug }))
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -153,9 +157,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const herb = await getHerbBySlug(slug)
   if (!herb) return { title: 'Herb Not Found | The Hippie Scientist' }
 
+  const visibility = getRuntimeVisibility(herb)
+
   return {
     title: `${getHerbLabel(herb)} | Herb`,
     description: getLeadText(herb),
+    robots: visibility.canIndex
+      ? undefined
+      : {
+          index: false,
+          follow: true,
+        },
   }
 }
 
@@ -164,9 +176,13 @@ export default async function HerbDetailPage({ params }: Params) {
   const herb = await getHerbBySlug(slug)
   if (!herb) notFound()
 
+  const visibility = getRuntimeVisibility(herb)
+
   const label = getHerbLabel(herb)
   const leadText = getLeadText(herb)
-  const affiliateLinks = getHerbSearchLinks(label).filter(link => link.url && link.label)
+  const affiliateLinks = visibility.canMonetize
+    ? getHerbSearchLinks(label).filter(link => link.url && link.label)
+    : []
   const relatedCompounds = await getRelatedCompounds(herb)
   const faqJsonLd = commonSupplementFaqJsonLd(`/herbs/${herb.slug}`)
 
@@ -321,212 +337,6 @@ export default async function HerbDetailPage({ params }: Params) {
             ))}
           </div>
         </section>
-
-        {profileOverview ? (
-          <DetailCard id="overview" eyebrow="Profile Overview" title="Scientific snapshot" description="A concise interpretation of the available profile fields without adding unsupported claims.">
-            <div className="grid gap-5 lg:grid-cols-[1fr_.72fr]">
-              <p className="detail-reading text-[#46574d]">
-                {profileOverview}
-              </p>
-              <aside className="pull-quote-science">
-                Current evidence suggests this profile is best read as a set of signals — not a guaranteed outcome or treatment claim.
-              </aside>
-            </div>
-          </DetailCard>
-        ) : null}
-
-        <DetailCard id="evidence-framing" eyebrow="Evidence Intelligence" title="Evidence framing" description="A conservative reading of the visible profile signals.">
-          <div className="mb-5 grid gap-4 sm:grid-cols-3">
-            {[
-              `Evidence maturity: ${semanticTopics.maturity}`,
-              `Primary cluster: ${semanticTopics.effects[0] || 'Context dependent'}`,
-              `Main pathway: ${semanticTopics.mechanisms[0] || 'Not yet specific'}`,
-            ].map(item => (
-              <div key={item} className="mobile-reading-card text-sm font-semibold leading-7 text-ink">{item}</div>
-            ))}
-          </div>
-          <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="surface-depth rounded-2xl p-5">
-              <p className="eyebrow-label">Research maturity</p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-ink">{evidenceFrame.maturity}</h3>
-              <p className="mt-3 text-sm leading-7 text-[#46574d]">{evidenceFrame.summary}</p>
-            </div>
-
-            <div className="surface-subtle rounded-2xl p-5">
-              <p className="eyebrow-label">How to read this profile</p>
-              <div className="mt-4">
-                <BulletList items={evidenceFrame.notes} />
-              </div>
-            </div>
-          </div>
-        </DetailCard>
-
-
-        {consensusSummary ? (
-          <DetailCard id="scientific-consensus" eyebrow="Research Intelligence" title="Scientific consensus" description="A conservative summary derived from existing structured profile signals.">
-            <ScientificConsensusCard summary={consensusSummary} style={researchStyle} />
-          </DetailCard>
-        ) : null}
-
-        {focusAreas.length ? (
-          <DetailCard id="research-focus" eyebrow="Semantic Discovery" title="Research focus areas" description="Clean topic clusters surfaced from existing effects, claims, and mechanisms.">
-            <ResearchFocusAreas areas={focusAreas} />
-          </DetailCard>
-        ) : null}
-
-        {relatedPathways.length ? (
-          <DetailCard id="related-pathways" eyebrow="Mechanism Discovery" title="Related pathways" description="Pathway chips derived only from mechanisms already listed in this profile.">
-            <RelatedPathways pathways={relatedPathways} />
-          </DetailCard>
-        ) : null}
-
-        {researchGaps.length || evidenceLimitations.length ? (
-          <DetailCard id="research-gaps" eyebrow="Uncertainty" title="Research gaps & limitations" description="Important constraints that keep the profile scientifically conservative.">
-            <ResearchGapsCard gaps={researchGaps} limitations={evidenceLimitations} />
-          </DetailCard>
-        ) : null}
-
-        {compareItems.length ? (
-          <DetailCard id="compare-with" eyebrow="Compound Links" title="Compare with" description="Compounds shown here come from existing related compound data for this herb.">
-            <CompareWithCard items={compareItems} />
-          </DetailCard>
-        ) : null}
-
-
-        {outcomeCards.length > 0 ? (
-          <DetailCard id="best-for" eyebrow="Use Cases" title="Commonly explored for" description="Conservative use-case signals surfaced from the current profile and linked claim data.">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {outcomeCards.map(card => (
-                <div key={card.title} className="surface-subtle rounded-2xl p-5">
-                  <h3 className="text-base font-semibold text-ink">{card.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{card.text}</p>
-                </div>
-              ))}
-            </div>
-          </DetailCard>
-        ) : null}
-
-        {mechanismGroups.length > 0 ? (
-          <DetailCard id="mechanisms" eyebrow="Mechanism Context" title="Mechanisms" description="Mechanisms are grouped by theme and interpreted conservatively.">
-            <div className="space-y-6">
-              {mechanismGroups.map(group => (
-                <div key={group.title} className="space-y-3">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-700">{group.title}</h3>
-                  <div className="grid gap-4 md:grid-cols-2">
-                    {group.items.map(card => (
-                      <div key={card.title} className="surface-subtle rounded-2xl p-5">
-                        <h4 className="text-base font-semibold text-ink">{card.title}</h4>
-                        <p className="mt-3 text-sm leading-7 text-[#46574d]">{card.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </DetailCard>
-        ) : null}
-
-        {safetyItems.length > 0 ? (
-          <DetailCard id="safety" eyebrow="Safety Context" title="Safety">
-            <div className="grid gap-6 lg:grid-cols-2">
-              {safety.avoidIf.length > 0 ? (
-                <div className="rounded-2xl border border-red-700/10 bg-red-50/70 p-5">
-                  <h3 className="text-base font-semibold text-ink">Avoid if</h3>
-                  <div className="mt-4">
-                    <BulletList items={safety.avoidIf} color="bg-red-700" />
-                  </div>
-                </div>
-              ) : null}
-
-              {safety.useCautionWith.length > 0 ? (
-                <div className="rounded-2xl border border-amber-700/10 bg-amber-50/70 p-5">
-                  <h3 className="text-base font-semibold text-ink">Use caution with</h3>
-                  <div className="mt-4">
-                    <BulletList items={safety.useCautionWith} color="bg-amber-600" />
-                  </div>
-                </div>
-              ) : null}
-            </div>
-
-            {safetyNote ? (
-              <div className="mt-6 surface-subtle rounded-2xl p-5">
-                <h3 className="text-base font-semibold text-ink">General safety note</h3>
-                <p className="mt-3 text-sm leading-7 text-[#46574d]">{safetyNote}</p>
-              </div>
-            ) : null}
-          </DetailCard>
-        ) : null}
-
-        {hasForms ? (
-          <DetailCard id="forms" eyebrow="Practical Context" title="Forms & dosage">
-            <div className="grid gap-4 md:grid-cols-3">
-              {form ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Forms</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{form}</p></div> : null}
-              {dosage ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Dosage note</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{dosage}</p></div> : null}
-              {timeToEffect ? <div className="surface-subtle rounded-2xl p-5"><p className="eyebrow-label">Time to effect</p><p className="mt-3 text-sm leading-7 text-[#46574d]">{timeToEffect}</p></div> : null}
-            </div>
-          </DetailCard>
-        ) : null}
-
-        {relatedArticles.length > 0 ? (
-          <DetailCard id="related-articles" eyebrow="Editorial Graph" title="Related articles" description="Research notes and explainers connected by title, profile language, mechanisms, and effect clusters.">
-            <ResearchContinuityBlock
-              title="Continue researching this topic"
-              description="Move from the profile into publication-style context, then return to related herbs and compounds."
-              items={relatedArticles}
-            />
-          </DetailCard>
-        ) : null}
-
-        {relatedCompounds.length > 0 ? (
-          <DetailCard id="related-compounds" eyebrow="Compound Links" title="Related compounds">
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {relatedCompounds.map(item => (
-                <Link key={item.href} href={item.href} className="card-premium block p-5 hover:-translate-y-1">
-                  <h3 className="text-base font-semibold text-ink">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{item.description}</p>
-                  <p className="mt-4 text-sm font-semibold text-brand-800">Open compound →</p>
-                </Link>
-              ))}
-            </div>
-          </DetailCard>
-        ) : null}
-
-        {pmids.length > 0 ? (
-          <DetailCard id="sources" eyebrow="Research References" title="PubMed links">
-            <div className="flex flex-wrap gap-3">
-              {pmids.map(id => (
-                <a key={id} href={pmidUrl(id)} target="_blank" rel="noreferrer" className="chip-readable hover:text-brand-800">
-                  PMID {id.replace(/\D/g, '')}
-                </a>
-              ))}
-            </div>
-          </DetailCard>
-        ) : null}
-
-        {affiliateLinks.length > 0 ? (
-          <DetailCard id="products" eyebrow="Product Research" title="Search product options" description="Use these as research starting points; compare labels, standardization, serving size, and third-party testing before buying.">
-            {hasForms ? (
-              <div className="mb-6 rounded-2xl border border-brand-900/10 bg-white/80 p-5">
-                <h3 className="text-base font-semibold text-ink">What to look for</h3>
-                <div className="mt-4">
-                  <BulletList items={productGuidance} />
-                </div>
-              </div>
-            ) : null}
-
-            <div className="grid gap-4 md:grid-cols-3">
-              {affiliateLinks.map(link => (
-                <a key={link.url} href={link.url} target="_blank" rel="sponsored noreferrer" className="surface-subtle rounded-2xl p-5 transition hover:-translate-y-0.5 hover:bg-white">
-                  <h3 className="text-base font-semibold text-ink">{link.label}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#46574d]">{link.helperText}</p>
-                  <p className="mt-4 inline-flex items-center text-sm font-semibold text-brand-800">
-                    Search options <ExternalLink className="ml-1 h-3.5 w-3.5" />
-                  </p>
-                </a>
-              ))}
-            </div>
-          </DetailCard>
-        ) : null}
       </main>
     </div>
   )
