@@ -1,6 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { cache } from 'react'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
@@ -68,10 +69,18 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
 
 export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | undefined> {
   const herbs = await getHerbs()
-  return herbs.find(herb => herb.slug === slug)
+  const herb = herbs.find(herb => herb.slug === slug)
+
+  if (!herb || !getRuntimeVisibility(herb).canRender) return undefined
+
+  return herb
 }
 
 export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | undefined> {
   const compounds = await getCompounds()
-  return compounds.find(compound => compound.slug === slug)
+  const compound = compounds.find(compound => compound.slug === slug)
+
+  if (!compound || !getRuntimeVisibility(compound).canRender) return undefined
+
+  return compound
 }
