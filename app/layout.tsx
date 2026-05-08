@@ -4,6 +4,7 @@ import { Inter, Fraunces } from 'next/font/google'
 import Link from 'next/link'
 import MobileNav from '@/components/mobile-nav'
 import './globals.css'
+import '@/styles/foundation-readability.css'
 
 const inter = Inter({
   subsets: ['latin'],
