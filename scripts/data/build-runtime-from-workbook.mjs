@@ -14,6 +14,30 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
 const ajv = new Ajv({ allErrors: true })
 
+const REQUIRED_SHEETS = [
+  'Herb Master V3',
+  'Compound Master V3',
+  'Herb Compound Map V3',
+  'Affiliate Mapping',
+  'Product Top Picks System',
+  'Protocol Engine',
+  'SEO Page Targets',
+  'Canonical_Effects',
+  'Canonical_Mechanisms',
+  'Canonical_Theme_Palettes',
+  'Canonical_Compare_Groups',
+  'Affiliate Config',
+  'Study Registry',
+  'Effect Canonical Map',
+]
+
+const OPTIONAL_SHEETS = [
+  'Herb Monographs',
+  'Site Export Herbs',
+  'Site Export Compounds',
+  'Affiliate Experiments',
+]
+
 const SHEETS = {
   herbs: ['Herb Master V3', 'Herb Monographs', 'Site Export Herbs'],
   compounds: ['Compound Master V3', 'Site Export Compounds'],
@@ -31,6 +55,34 @@ const INDEX_FIELDS = [
   'visibility_tier',
   'robots',
 ]
+
+function validateWorkbookSheets(workbook) {
+  const sheetNames = workbook.SheetNames || []
+
+  const missingRequired = REQUIRED_SHEETS.filter(
+    (sheet) => !sheetNames.includes(sheet)
+  )
+
+  const missingOptional = OPTIONAL_SHEETS.filter(
+    (sheet) => !sheetNames.includes(sheet)
+  )
+
+  for (const sheet of missingOptional) {
+    console.warn(`[data] optional sheet missing: ${sheet}`)
+  }
+
+  if (missingRequired.length) {
+    for (const sheet of missingRequired) {
+      console.error(`[data] missing required sheet: ${sheet}`)
+    }
+
+    throw new Error(
+      `Workbook validation failed. Missing required sheets: ${missingRequired.join(', ')}`
+    )
+  }
+
+  console.log('[data] workbook sheets verified')
+}
 
 function clean(v) {
   return v ? String(v).trim() : ''
@@ -276,7 +328,16 @@ function main() {
   const compoundDetailDir = path.join(outDir, 'compound-detail')
 
   const workbookPath = resolveWorkbookPath(repoRoot)
+
+  if (!fs.existsSync(workbookPath)) {
+    throw new Error(`[data] workbook missing: ${workbookPath}`)
+  }
+
+  console.log(`[data] workbook loaded: ${path.basename(workbookPath)}`)
+
   const wb = XLSX.readFile(workbookPath)
+
+  validateWorkbookSheets(wb)
 
   const rawHerbs = dedupe(
     read(wb, SHEETS.herbs).map((r) => ({
