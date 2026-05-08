@@ -18,10 +18,7 @@ import {
   getEffects,
   getSources,
 } from '@/lib/evidence-utils'
-import {
-  getEvidenceSnapshot,
-  getRelatedCompounds,
-} from '@/lib/semantic-runtime'
+import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
@@ -92,10 +89,6 @@ export default function CompoundPage({ params }: any) {
   const semanticRelated = getRelatedRuntimeRecords(compound, compounds, 6)
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
-  const relatedCompounds = getRelatedCompounds(compound)
-    .filter((item:any) => item.slug)
-    .slice(0, 6)
-
   const featuredCollections = getFeaturedCollections(compound)
 
   const sources = getSources(compound)
@@ -106,7 +99,7 @@ export default function CompoundPage({ params }: any) {
     <>
       <ReadingProgress />
 
-      <main className="mx-auto max-w-7xl space-y-10 px-4 py-10 pb-28 sm:pb-32">
+      <main className="mx-auto max-w-7xl space-y-8 px-4 py-8 pb-24 sm:space-y-10 sm:py-10 sm:pb-32">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -126,13 +119,15 @@ export default function CompoundPage({ params }: any) {
 
           <EvidenceBadgeGroup record={compound} />
 
-          <div className="flex flex-wrap gap-2">
-            {effects.slice(0, 6).map((effect:string) => (
-              <span key={effect} className="chip-readable">
-                {effect}
-              </span>
-            ))}
-          </div>
+          {effects.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {effects.slice(0, 6).map((effect:string) => (
+                <span key={effect} className="chip-readable">
+                  {effect}
+                </span>
+              ))}
+            </div>
+          ) : null}
         </section>
 
         <ProfileAuthoritySections
@@ -158,34 +153,6 @@ export default function CompoundPage({ params }: any) {
                   className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60"
                 >
                   {collection.title}
-                </Link>
-              ))}
-            </div>
-          </SectionBlock>
-        ) : null}
-
-        {relatedCompounds.length > 0 ? (
-          <SectionBlock title="Related compounds and semantic neighbors">
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {relatedCompounds.map((item:any) => (
-                <Link
-                  key={item.slug}
-                  href={`/compounds/${item.slug}`}
-                  className="card-premium group p-5"
-                >
-                  <div className="space-y-4">
-                    <EvidenceBadgeGroup record={item} compact />
-
-                    <div>
-                      <h3 className="text-lg font-semibold text-ink transition group-hover:text-brand-700">
-                        {formatDisplayLabel(item.name || item.slug)}
-                      </h3>
-
-                      <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
-                        {cleanSummary(item.summary || item.description, 'compound')}
-                      </p>
-                    </div>
-                  </div>
                 </Link>
               ))}
             </div>
