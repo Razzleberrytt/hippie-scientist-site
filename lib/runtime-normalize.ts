@@ -64,3 +64,56 @@ export function asUniqueList<T = string>(value: unknown): T[] {
 
   return result
 }
+
+export type RuntimeSignalRecord = {
+  primary_effects?: unknown
+  effects?: unknown
+  mechanisms?: unknown
+  pathways?: unknown
+  summary?: unknown
+  description?: unknown
+}
+
+export function collectRuntimeSignals(
+  record: RuntimeSignalRecord | null | undefined,
+): string[] {
+  if (!record || typeof record !== 'object') {
+    return []
+  }
+
+  const collected: string[] = []
+
+  const append = (value: unknown) => {
+    for (const item of asList(value)) {
+      const normalized = asLowerText(item)
+
+      if (!hasText(normalized)) continue
+
+      collected.push(normalized)
+    }
+  }
+
+  append(record.primary_effects)
+  append(record.effects)
+  append(record.mechanisms)
+  append(record.pathways)
+  append(record.summary)
+  append(record.description)
+
+  return asUniqueList(collected)
+}
+
+export function includesSignal(
+  record: RuntimeSignalRecord | null | undefined,
+  signal: unknown,
+): boolean {
+  const normalizedSignal = asLowerText(signal)
+
+  if (!hasText(normalizedSignal)) {
+    return false
+  }
+
+  return collectRuntimeSignals(record).some((entry) =>
+    entry.includes(normalizedSignal),
+  )
+}
