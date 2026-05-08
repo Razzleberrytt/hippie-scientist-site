@@ -1,4 +1,5 @@
-import { formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { formatDisplayLabel, isClean, unique } from '@/lib/display-utils'
+import { asList, asLowerText, asText, collectRuntimeSignals } from '@/lib/runtime-normalize'
 
 export type PathwaySlug = 'gaba' | 'dopamine' | 'inflammation' | 'stress' | 'sleep' | 'recovery'
 
@@ -58,8 +59,7 @@ const PATHWAY_ALIASES: Record<string, PathwaySlug> = {
 export const pathwaySlugs = Object.keys(PATHWAY_DEFINITIONS) as PathwaySlug[]
 
 function normalizeToken(value: unknown) {
-  return text(value)
-    .toLowerCase()
+  return asLowerText(value)
     .replace(/[_/+-]+/g, ' ')
     .replace(/[^a-z0-9\s]/g, ' ')
     .replace(/\s+/g, ' ')
@@ -74,22 +74,21 @@ function getSignalValues(record: any) {
   if (!record || typeof record !== 'object') return []
 
   return unique([
-    text(record.slug),
-    text(record.name),
-    text(record.displayName),
-    text(record.pathway_bucket),
-    ...list(record.pathways),
-    ...list(record.pathwayTargets),
-    ...list(record.mechanisms),
-    ...list(record.mechanism),
-    ...list(record.primary_effects),
-    ...list(record.primaryEffects),
-    ...list(record.effects),
-    ...list(record.best_for),
-    ...list(record.bestFor),
-    ...list(record.population_tags),
-    text(record.summary),
-    text(record.description),
+    asText(record.slug),
+    asText(record.name),
+    asText(record.displayName),
+    asText(record.pathway_bucket),
+    ...asList(record.pathways),
+    ...asList(record.pathwayTargets),
+    ...asList(record.mechanisms),
+    ...asList(record.mechanism),
+    ...asList(record.primary_effects),
+    ...asList(record.primaryEffects),
+    ...asList(record.effects),
+    ...asList(record.best_for),
+    ...asList(record.bestFor),
+    ...asList(record.population_tags),
+    ...collectRuntimeSignals(record),
   ].filter(Boolean))
 }
 
