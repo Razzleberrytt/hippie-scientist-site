@@ -1,1 +1,1 @@
-export { Card, DetailCard, EvidenceBadge, RoleBadge } from './Card'
+export { EvidenceBadge } from './Card'
