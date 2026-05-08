@@ -67,8 +67,8 @@ function getMechanisms(item: any) {
     .slice(0, 2)
 }
 
-function evidenceClass(level: string) {
-  const value = level.toLowerCase()
+function evidenceClass(level?: string) {
+  const value = String(level || '').toLowerCase()
 
   if (value.includes('strong') || value.includes('high')) {
     return 'evidence-pill-strong'
@@ -81,8 +81,8 @@ function evidenceClass(level: string) {
   return 'chip-readable'
 }
 
-function safetyClass(level: string) {
-  const value = level.toLowerCase()
+function safetyClass(level?: string) {
+  const value = String(level || '').toLowerCase()
 
   if (value.includes('safe') || value.includes('complete') || value.includes('high')) {
     return 'evidence-pill-strong'
@@ -144,7 +144,6 @@ export default async function CompoundsPage() {
     <main className="min-h-screen bg-background text-ink">
       <section className="container-page py-12 sm:py-16 lg:py-20">
         <div className="section-spacing">
-
           <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
               <div className="max-w-3xl space-y-6">
@@ -316,8 +315,8 @@ export default async function CompoundsPage() {
                     </div>
                   </div>
                 </article>
-              )
-            })}
+              )}
+            )}
           </div>
         </div>
       </section>
