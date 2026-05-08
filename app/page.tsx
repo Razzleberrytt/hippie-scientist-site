@@ -5,13 +5,18 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 export default async function Page() {
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  herbs
+  const featuredHerbs = herbs
     .filter((item: any) => getRuntimeVisibility(item).canFeature)
     .slice(0, 3)
 
-  compounds
+  const featuredCompounds = compounds
     .filter((item: any) => getRuntimeVisibility(item).canFeature)
     .slice(0, 3)
 
-  return <HomepageV2 />
+  return (
+    <HomepageV2
+      featuredHerbs={featuredHerbs}
+      featuredCompounds={featuredCompounds}
+    />
+  )
 }
