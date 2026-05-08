@@ -6,6 +6,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/d
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
 import { buildMeta } from '@/lib/seo'
+import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 
 export async function generateStaticParams() {
   const herbs = await getHerbs()
@@ -85,6 +86,8 @@ export default async function HerbDetailPage({ params }: any) {
             {formatDisplayLabel(herb.name || herb.slug)}
           </h1>
 
+          <EvidenceBadgeGroup record={herb} />
+
           <p className="detail-reading text-lg text-[#46574d]">
             {cleanSummary(herb.summary || herb.description || '', 'herb')}
           </p>
@@ -119,6 +122,8 @@ export default async function HerbDetailPage({ params }: any) {
                 className="card-premium group p-5"
               >
                 <div className="space-y-4">
+                  <EvidenceBadgeGroup record={item} compact />
+
                   <div className="flex flex-wrap gap-2">
                     {(item.relatedOverlap || []).slice(0, 2).map((signal: string) => (
                       <span key={signal} className="chip-readable">
