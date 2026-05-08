@@ -1,6 +1,14 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+import { clusterMechanisms } from '@/lib/mechanism-clusters'
+import {
+  buildDiscoveryNarrative,
+  buildEvidenceContext,
+  buildMechanismContext,
+  buildPracticalRelevance,
+  buildScientificSummary,
+} from '@/lib/profile-synthesis'
 
 type EntityType = 'herb' | 'compound'
 
@@ -43,7 +51,7 @@ function getMechanisms(record: any, provided: string[] | undefined) {
     ...list(record?.mechanisms),
     ...list(record?.primary_mechanisms),
     ...list(record?.pathways),
-  ], 5)
+  ], 8)
 }
 
 function getSafetySignals(record: any) {
@@ -192,6 +200,30 @@ function AuthoritySignals({ signals }: { signals: string[] }) {
   )
 }
 
+function MechanismClusters({ mechanisms }: { mechanisms: string[] }) {
+  const clusters = clusterMechanisms(mechanisms)
+
+  if (clusters.length === 0) return null
+
+  return (
+    <div className="grid gap-3 md:grid-cols-2">
+      {clusters.slice(0, 4).map(group => (
+        <div
+          key={group.cluster}
+          className="surface-subtle rounded-2xl border border-brand-900/10 p-4"
+        >
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-800/70">
+            {group.cluster}
+          </h3>
+          <div className="mt-3">
+            <SignalList items={group.items.slice(0, 4)} />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function ScientificSnapshot({
   evidence,
   effects,
@@ -199,6 +231,7 @@ function ScientificSnapshot({
   safetySignals,
   density,
   authoritySignals,
+  synthesis,
 }: {
   evidence: string
   effects: string[]
@@ -206,11 +239,12 @@ function ScientificSnapshot({
   safetySignals: string[]
   density: string
   authoritySignals: string[]
+  synthesis: string
 }) {
   return (
     <AuthorityCard
       title="Scientific Snapshot"
-      description="A concise authority-style overview balancing evidence framing, mechanism context, and safety readability."
+      description={synthesis || 'A concise authority-style overview balancing evidence framing, mechanism context, and safety readability.'}
       compact={density === 'concise'}
     >
       <AuthoritySignals signals={authoritySignals} />
@@ -258,14 +292,7 @@ function ScientificSnapshot({
       </div>
 
       {mechanisms.length > 0 ? (
-        <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-800/70">
-            Mechanism snapshot
-          </h3>
-          <div className="mt-3">
-            <SignalList items={mechanisms.slice(0, density === 'concise' ? 2 : 5)} />
-          </div>
-        </div>
+        <MechanismClusters mechanisms={mechanisms.slice(0, density === 'concise' ? 3 : 8)} />
       ) : null}
     </AuthorityCard>
   )
@@ -300,14 +327,22 @@ function HighIntentFraming({ effects, mechanisms }: { effects: string[]; mechani
   )
 }
 
-function WhyItMatters({ summary, effects, mechanisms, entityType, compact = false }: any) {
+function WhyItMatters({
+  summary,
+  effects,
+  mechanisms,
+  entityType,
+  compact = false,
+  practicalRelevance,
+  mechanismContext,
+}: any) {
   if (!summary && effects.length === 0 && mechanisms.length === 0) return null
 
   return (
     <AuthorityCard
       title="Why It Matters"
       compact={compact}
-      description="Mechanism-level findings are separated from stronger human-evidence framing to reduce hype and improve scientific credibility."
+      description={practicalRelevance || 'Mechanism-level findings are separated from stronger human-evidence framing to reduce hype and improve scientific credibility.'}
     >
       {summary ? <p className="detail-reading text-[#46574d]">{summary}</p> : null}
 
@@ -319,7 +354,7 @@ function WhyItMatters({ summary, effects, mechanisms, entityType, compact = fals
                 Strongest researched applications
               </h3>
               <p className="mt-2 text-sm leading-7 text-[#46574d]">
-                {effects.slice(0, 3).join(', ')} are among the clearest high-interest signals currently associated with this {entityType} profile.
+                {practicalRelevance || `${effects.slice(0, 3).join(', ')} are among the clearest high-interest signals currently associated with this ${entityType} profile.`}
               </p>
             </div>
           ) : null}
@@ -330,7 +365,7 @@ function WhyItMatters({ summary, effects, mechanisms, entityType, compact = fals
                 Mechanism context
               </h3>
               <p className="mt-2 text-sm leading-7 text-[#46574d]">
-                Signals such as {mechanisms.slice(0, 3).join(', ')} may help explain biological plausibility, but mechanism framing alone should not be interpreted as strong clinical proof.
+                {mechanismContext || `Signals such as ${mechanisms.slice(0, 3).join(', ')} may help explain biological plausibility, but mechanism framing alone should not be interpreted as strong clinical proof.`}
               </p>
             </div>
           ) : null}
@@ -340,7 +375,7 @@ function WhyItMatters({ summary, effects, mechanisms, entityType, compact = fals
   )
 }
 
-function DiscoveryRails({ relatedRecords, entityType, compact = false }: any) {
+function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '' }: any) {
   const visible = (relatedRecords || [])
     .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
     .slice(0, compact ? 3 : 6)
@@ -351,7 +386,7 @@ function DiscoveryRails({ relatedRecords, entityType, compact = false }: any) {
     <AuthorityCard
       title="Internal Discovery"
       compact={compact}
-      description="Related profiles strengthen semantic authority and internal discovery depth."
+      description={narrative || 'Related profiles strengthen semantic authority and internal discovery depth.'}
     >
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {visible.map((item: any) => {
@@ -420,6 +455,21 @@ export default function ProfileAuthoritySections({
 
   const compact = density === 'concise'
   const authoritySignals = getAuthoritySignals(record, density)
+  const synthesisInput = {
+    summary,
+    evidenceTier: evidence,
+    effects,
+    mechanisms,
+    pathways: cleanList(record?.pathways, 5),
+    safety: safetySignals,
+    density,
+  }
+
+  const scientificSummary = buildScientificSummary(synthesisInput)
+  const evidenceContext = buildEvidenceContext(synthesisInput)
+  const practicalRelevance = buildPracticalRelevance(synthesisInput)
+  const mechanismContext = buildMechanismContext(synthesisInput)
+  const discoveryNarrative = buildDiscoveryNarrative(relatedRecords.length)
 
   const hasContent =
     Boolean(summary) ||
@@ -433,12 +483,13 @@ export default function ProfileAuthoritySections({
   return (
     <div className={compact ? 'space-y-4' : 'space-y-6'}>
       <ScientificSnapshot
-        evidence={evidence}
+        evidence={evidenceContext || evidence}
         effects={effects}
         mechanisms={mechanisms}
         safetySignals={safetySignals}
         density={density}
         authoritySignals={authoritySignals}
+        synthesis={scientificSummary}
       />
 
       {!compact ? (
@@ -451,12 +502,14 @@ export default function ProfileAuthoritySections({
         mechanisms={mechanisms}
         entityType={entityType}
         compact={compact}
+        practicalRelevance={practicalRelevance}
+        mechanismContext={mechanismContext}
       />
 
       {(effects.length > 0 || mechanisms.length > 0) && !compact ? (
         <AuthorityCard
           title="Primary Effects + Mechanisms"
-          description="Low-signal pills and placeholder values are suppressed to reduce the autogenerated feel and improve scanability."
+          description="Grouped mechanism clusters reduce flat tag walls and make the profile read more like a scientific monograph."
         >
           <div className="grid gap-5 md:grid-cols-2">
             {effects.length > 0 ? (
@@ -471,9 +524,9 @@ export default function ProfileAuthoritySections({
             {mechanisms.length > 0 ? (
               <div className="space-y-3">
                 <h2 className="text-xl font-semibold tracking-tight text-ink">
-                  Mechanism snapshot
+                  Mechanism clusters
                 </h2>
-                <SignalList items={mechanisms} />
+                <MechanismClusters mechanisms={mechanisms} />
               </div>
             ) : null}
           </div>
@@ -489,6 +542,7 @@ export default function ProfileAuthoritySections({
         relatedRecords={relatedRecords}
         entityType={entityType}
         compact={compact}
+        narrative={discoveryNarrative}
       />
     </div>
   )
