@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import DecisionCard from '@/components/ui/DecisionCard'
 import SectionBlock from '@/components/ui/SectionBlock'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
@@ -35,20 +36,31 @@ import Link from 'next/link'
 import { EvidenceMaturityRibbon, SemanticBrowseModule } from '@/components/scientific-discovery'
 import { buildSemanticTopics } from '@/lib/editorial-discovery'
 import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref, list, text } from '@/lib/display-utils'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 
 export async function generateStaticParams() {
-  return (data as any[]).map((c)=>({ slug:c.slug }))
+  return (data as any[])
+    .filter((compound) => getRuntimeVisibility(compound).canRender)
+    .map((c)=>({ slug:c.slug }))
 }
 
 export function generateMetadata({ params }: any) {
   const compound = (data as any[]).find(c => c.slug === params.slug)
   if (!compound) return {}
 
+  const visibility = getRuntimeVisibility(compound)
+
   return {
     title: `${compound.name} Benefits, Effects & Safety | Hippie Scientist`,
-    description: cleanSummary(compound.summary || compound.description, 'compound')
+    description: cleanSummary(compound.summary || compound.description, 'compound'),
+    robots: visibility.canIndex
+      ? undefined
+      : {
+          index: false,
+          follow: true,
+        },
   }
 }
 
@@ -68,7 +80,7 @@ function normalizeText(value: string = '') {
 export default function Page({ params }: any) {
   const compounds = data as any[]
   const compound = compounds.find(c => c.slug === params.slug)
-  if (!compound) return null
+  if (!compound || !getRuntimeVisibility(compound).canRender) notFound()
 
   const effects = getEffects(compound)
     .map((effect:string) => cleanLabel(effect))
