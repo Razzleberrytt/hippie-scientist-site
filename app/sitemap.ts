@@ -7,6 +7,7 @@ import { bestPages } from '@/data/best'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
 import { seoEntryPages } from './seo-entry-pages'
+import { scientificCollections } from '@/lib/collections'
 
 export const dynamic = 'force-static'
 
@@ -73,6 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...seoEntryPages.map(page => route(`/${page.route}`)),
     ...clusterRoutes.map(route),
     ...pathwayRoutes.map(route),
+    ...scientificCollections.map(collection => route(`/collections/${collection.slug}`)),
     ...goalConfigs.map(g => route(`/goals/${g.slug}`)),
     ...bestPages.map(p => route(`/best/${p.slug}`)),
     ...supplementComparisons.map(c => route(`/compare/${c.slug}`)),
