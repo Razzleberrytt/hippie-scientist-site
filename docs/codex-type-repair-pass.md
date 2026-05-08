@@ -17,7 +17,6 @@
 - `src/lib/ambientEffects.ts`
 - `src/lib/compound-data.ts`
 - `src/lib/compoundHerbRelations.ts`
-- `src/lib/fullCounts.ts`
 - `src/lib/governedResearch.ts`
 - `src/lib/herb-data.ts`
 - `src/lib/researchEnrichment.ts`

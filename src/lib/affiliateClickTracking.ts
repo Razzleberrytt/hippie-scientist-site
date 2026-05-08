@@ -46,7 +46,7 @@ export function trackAffiliateLinkClick({
     timestamp: Date.now(),
   })
 
-  if (import.meta.env.DEV) {
+  if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
     console.info('[affiliate-click]', {
       herbSlug,

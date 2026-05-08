@@ -2,7 +2,7 @@
 
 ## Build & Assets
 
-- Configured Vite to emit hashed entry, chunk, and asset filenames for long-term caching of built bundles.
+- Configured production bundles to emit cache-friendly hashed entry, chunk, and asset filenames.
 - Added a responsive image helper and updated herb hero components to generate sanitized src/srcset pairs for previews.
 
 ## SEO & Social
@@ -13,11 +13,11 @@
 ## A11y & Security
 
 - Herb data fetchers bypass cached manifests and normalize entities to avoid stale or malformed records.
-- Deployment rewrites enforce SPA fallbacks with strict security headers across assets and metadata.
+- Deployment headers enforce strict security policies across assets and metadata.
 
 ## CI & QA
 
-- Added a link checker that scans dist/ HTML for missing local asset references.
+- Added a link checker that scans exported HTML for missing local asset references.
 - Introduced an image budget audit that fails the build when raster assets exceed 250 KB unless allowlisted.
 
 ## How to verify

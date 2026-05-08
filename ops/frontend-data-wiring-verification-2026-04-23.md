@@ -41,7 +41,7 @@ Validated that published data artifacts are present and that frontend routes can
     - `7-hydroxybaruol`
 
 ## 5) Runtime/preview checks
-Using `vite preview`:
+Using the local preview server:
 - `/herbs` → HTTP 200
 - `/herbs/ashwagandha` → HTTP 200
 - `/compounds` → HTTP 200

@@ -6,5 +6,5 @@ Lead-capture/newsletter form infrastructure from legacy SPA flows is **deferred 
 
 ## Documentation guardrail
 
-- Do not treat Vite-era `VITE_FORM_ENDPOINT` wiring as canonical production architecture.
+- Do not treat legacy form endpoint wiring as canonical production architecture.
 - If form capture is reintroduced, document it as a scoped feature with explicit active route ownership and passing build verification.

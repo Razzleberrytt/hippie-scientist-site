@@ -37,6 +37,6 @@ for (const route of coreRoutes) {
   assertExists(routeToStaticPath(route), `static export output for route ${route}`)
 }
 
-assertExists(path.join(staticOutputRoot, '_redirects'), 'Cloudflare fallback redirects file')
+assertExists(path.join(staticOutputRoot, '_redirects'), 'Cloudflare redirects file')
 
 console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes and ${staticDir}/_redirects.`)

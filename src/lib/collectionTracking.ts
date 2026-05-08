@@ -49,7 +49,7 @@ export function trackCollectionEvent(name: CollectionEventName, payload: Collect
     variantId: typeof payload.variantId === 'string' ? payload.variantId : undefined,
   })
 
-  if (import.meta.env.DEV) {
+  if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
     console.info('[collection-funnel]', name, payload)
   }

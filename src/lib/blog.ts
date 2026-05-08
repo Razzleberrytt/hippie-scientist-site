@@ -28,7 +28,7 @@ export function ensureTrailingSlash(value: string): string {
 }
 
 export function resolveBlogIndexUrl(base?: string | null): string {
-  const normalized = ensureTrailingSlash(base ?? (import.meta.env.BASE_URL || '/'))
+  const normalized = ensureTrailingSlash(base ?? process.env.NEXT_PUBLIC_BASE_PATH ?? '/')
   return `${normalized}blogdata/index.json`
 }
 

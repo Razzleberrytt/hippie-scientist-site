@@ -18,11 +18,11 @@ Use these scripts as the canonical release pipeline:
 - [ ] Run `npm run build`
 - [ ] Run `npm run verify:build`
 - [ ] Confirm expected diffs in content/data outputs (if running data/blog generation)
-- [ ] Merge to `main` (GitHub Actions deploy workflow builds + optional Netlify hook)
+- [ ] Merge to `main` (Cloudflare Pages builds from the production branch)
 
 ## Deployment workflow reality
 
-- Canonical host: **Netlify**
+- Canonical host: **Cloudflare Pages**
 - CI workflow: `.github/workflows/deploy.yml`
 - Daily content workflow: `.github/workflows/daily-blog.yml`
 - Optional audit workflow: `.github/workflows/data-audit.yml`
