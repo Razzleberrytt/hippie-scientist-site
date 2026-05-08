@@ -9,6 +9,7 @@ import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getFeaturedCollections } from '@/lib/collections'
+import ProfileAuthoritySections from '@/components/profile-authority-sections'
 
 export async function generateStaticParams() {
   const herbs = await getHerbs()
@@ -76,6 +77,8 @@ export default async function HerbDetailPage({ params }: any) {
   const relatedHerbs = getRelatedRuntimeRecords(herb, herbs, 6)
     .filter((item: any) => getRuntimeVisibility(item).canRender)
   const featuredCollections = getFeaturedCollections(herb)
+  const effects = getEffects(herb)
+  const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
 
   return (
     <main className="mx-auto max-w-6xl space-y-10 px-4 py-10">
@@ -92,11 +95,11 @@ export default async function HerbDetailPage({ params }: any) {
           <EvidenceBadgeGroup record={herb} />
 
           <p className="detail-reading text-lg text-[#46574d]">
-            {cleanSummary(herb.summary || herb.description || '', 'herb')}
+            {summary}
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {getEffects(herb).map((effect: string) => (
+            {effects.map((effect: string) => (
               <span key={effect} className="chip-readable">
                 {effect}
               </span>
@@ -104,6 +107,14 @@ export default async function HerbDetailPage({ params }: any) {
           </div>
         </div>
       </section>
+
+      <ProfileAuthoritySections
+        record={herb}
+        entityType="herb"
+        relatedRecords={relatedHerbs}
+        effects={effects}
+        summary={summary}
+      />
 
       <CompactRelatedPathways record={herb} />
 
