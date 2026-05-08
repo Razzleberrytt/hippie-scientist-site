@@ -1,6 +1,6 @@
 # Zip Patch Merge Report — Part 1
 
-> Superseded note (2026-03-27): Deployment assumptions in this merge report were interim; canonical deploy path is Netlify static hosting with SPA rewrites.
+> Superseded note (2026-03-27): Deployment assumptions in this merge report were interim; canonical deploy path is Cloudflare Pages static export.
 
 Date: 2026-03-25
 Archive: `hippie-scientist-patch-part-1-code.zip`
@@ -18,7 +18,7 @@ Archive: `hippie-scientist-patch-part-1-code.zip`
 ## What was replaced
 
 - `.gitignore` updated with additional local artifact/archive ignore entries.
-- `src/main.tsx` updated from `HashRouter` to `BrowserRouter` per incoming patch.
+- A removed single-page-app entrypoint changed client-side routing mode in an incoming patch.
 - Replaced 58 blog source files under `content/blog/` with incoming patch versions (mostly metadata/content corrections for dated notes posts from `2025-08-16` through `2025-10-14`, plus updates to `2026-03-17`, `2026-03-19`, `2026-03-20`).
 
 ## What was skipped
@@ -30,7 +30,7 @@ Archive: `hippie-scientist-patch-part-1-code.zip`
 ## Conflicts / risky areas
 
 - No direct git merge conflicts occurred.
-- **Potential deployment risk to verify in part 2**: `src/main.tsx` now uses `BrowserRouter` instead of `HashRouter`. On static GitHub Pages setups, this can break hard-refresh/deep-link routes unless fallback routing is configured.
+- **Superseded deployment risk**: the current App Router export no longer depends on that removed client-side routing entrypoint.
 
 ## Workflow/path checks
 

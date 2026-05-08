@@ -3,6 +3,6 @@ function isEnabledFlag(value: string | undefined) {
 }
 
 export function isAnalyticsRouteEnabled() {
-  if (import.meta.env.DEV) return true
-  return isEnabledFlag(import.meta.env.VITE_ENABLE_ANALYTICS_ROUTE)
+  if (process.env.NODE_ENV !== 'production') return true
+  return isEnabledFlag(process.env.NEXT_PUBLIC_ENABLE_ANALYTICS_ROUTE)
 }

@@ -1,6 +1,6 @@
 # Security Header Configuration References
 
-This project ships ready-to-use configuration for Netlify via `public/_headers`. If you deploy to other platforms, adapt the following snippets to keep equivalent security and caching behavior.
+This project ships Cloudflare Pages-compatible header configuration via `public/_headers`. If you deploy to other platforms, adapt the following snippets to keep equivalent security and caching behavior.
 
 ## Nginx
 
@@ -53,4 +53,4 @@ Header always set Content-Security-Policy "default-src 'self'; script-src 'self'
 
 - `script-src 'unsafe-inline'` is still required because the app renders structured data (`<script type='application/ld+json'>`) via `react-helmet-async` in `src/components/Meta.tsx`.
 - `style-src 'unsafe-inline'` is still required for current runtime style injection patterns used by the React/Tailwind stack.
-- `connect-src` is intentionally limited to same-origin plus GA collection endpoints. If forms are pointed at a cross-origin endpoint via `VITE_FORM_ENDPOINT`, that origin must be explicitly added before deploying with a stricter CSP.
+- `connect-src` is intentionally limited to same-origin plus GA collection endpoints. If forms are pointed at a cross-origin endpoint via `NEXT_PUBLIC_FORM_ENDPOINT`, that origin must be explicitly added before deploying with a stricter CSP.

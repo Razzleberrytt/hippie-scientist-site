@@ -200,7 +200,7 @@ function readSafetyRecord(data: Record<string, unknown>): Record<string, unknown
 }
 
 function normalizeCompound(raw: Record<string, unknown>): CompoundRecord {
-  const { data } = sanitizeCompoundRecord(raw, { debug: import.meta.env.DEV })
+  const { data } = sanitizeCompoundRecord(raw, { debug: process.env.NODE_ENV !== 'production' })
   const context = readContextRecord(data)
   const safetyRecord = readSafetyRecord(data)
   const name = cleanText(data.name ?? data.commonName ?? data.id) || ''

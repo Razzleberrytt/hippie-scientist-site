@@ -200,7 +200,7 @@ function normalizeProductRecommendations(value: unknown): ProductRecommendation[
 }
 
 function normalizeHerbRow(raw: Record<string, unknown>): Herb {
-  const { data } = sanitizeHerbRecord(raw, { debug: import.meta.env.DEV })
+  const { data } = sanitizeHerbRecord(raw, { debug: process.env.NODE_ENV !== 'production' })
   const common = cleanText(data.name) || ''
   const scientific = cleanText(data.scientificName) || ''
   const slug = String(data.slug || data.id || slugify(common || scientific || ''))

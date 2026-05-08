@@ -2,12 +2,12 @@
 
 ## Scope inspected
 - `package.json` build/prebuild/postbuild chain.
-- `netlify.toml` deploy command/publish dir.
+- legacy deploy command/publish dir.
 - `.github/workflows/deploy.yml` and `.github/workflows/data-audit.yml`.
 - Data-generation and publication scripts:
   - `scripts/quality-gate-data.mjs`
   - `scripts/generate-homepage-data.mjs`
-  - `scripts/generate-sitemap.mjs`
+  - the removed sitemap helper
   - `scripts/generate-rss.mjs`
   - `scripts/sync-updated-datasets.mjs`
   - `scripts/dedupe-entities.mjs`
@@ -36,9 +36,9 @@
 - `nan/null/undefined` tokens still exist in source corpora and can leak to generated summaries without sanitization safeguards.
 
 ## Build/deploy blockers assessed
-- Netlify command (`npm ci && npm run build`) is correct and lifecycle runs `prebuild`/`postbuild`.
-- Deploy workflow triggers Netlify hook; generation quality depends on prebuild correctness.
-- Current primary blocker was generation order, not Netlify config itself.
+- The legacy static-host command was correct for its lifecycle at the time.
+- Deploy workflow triggered the legacy static-host hook; generation quality depended on prebuild correctness.
+- Current primary blocker was generation order, not static-host config itself.
 
 ## Safe fixes implemented
 1. Reordered `prebuild` so publication sources are generated first, then consumers:
@@ -47,7 +47,7 @@
 3. Expanded source counting logic in `quality-gate-data.mjs` to include additional source field patterns.
 4. Added publication-index fallback reads in:
    - `scripts/generate-homepage-data.mjs`
-   - `scripts/generate-sitemap.mjs`
+   - the removed sitemap helper
 5. Hardened publication entry description fallback in quality-gate to avoid shipping placeholder-like description text.
 
 ## Remaining risks / follow-ups

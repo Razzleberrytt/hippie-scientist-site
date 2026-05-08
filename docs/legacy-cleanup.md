@@ -16,7 +16,7 @@ The following feature groups are **not active MVP production behavior** and are 
 - Effect search explorer patterns
 - Governed enrichment authoring/runtime tooling
 - Dev analytics viewer patterns
-- Old SPA-era Vite/React Router entrypoint assumptions
+- Old single-page-app entrypoint assumptions
 
 ## Cleanup approach used
 

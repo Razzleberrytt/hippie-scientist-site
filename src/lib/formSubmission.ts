@@ -42,16 +42,7 @@ export function validateEmail(email: string): string | null {
 }
 
 function resolveFormEndpoint(): string {
-  const env = import.meta.env as unknown as Record<string, string | undefined>
-
-  if (env.VITE_FORM_ENDPOINT) {
-    return env.VITE_FORM_ENDPOINT
-  }
-
-  // Backward-compatible fallback for older deployments.
-  const legacyEndpoint = env.VITE_LEAD_CAPTURE_ENDPOINT || env.VITE_NEWSLETTER_ENDPOINT || ''
-
-  return legacyEndpoint
+  return process.env.NEXT_PUBLIC_FORM_ENDPOINT || ''
 }
 
 export async function submitFormPayload(
