@@ -11,27 +11,46 @@ const TOPICS = [
     slug: 'sleep',
     title: 'Sleep Support',
     description: 'Compounds commonly explored for sleep quality, latency, recovery, and nighttime relaxation.',
+    meta: 'Sleep pathways',
   },
   {
     slug: 'focus',
     title: 'Focus & Cognition',
     description: 'Nootropic and cognition-oriented compounds for attention, productivity, and mental performance.',
+    meta: 'Neurotransmitters',
   },
   {
     slug: 'anxiety',
     title: 'Stress & Mood',
     description: 'Calming, stress-supportive, and mood-oriented compounds.',
+    meta: 'Stress signaling',
   },
   {
     slug: 'recovery',
     title: 'Recovery & Performance',
     description: 'Exercise, recovery, hydration, and performance-supportive compounds.',
+    meta: 'Recovery support',
   },
 ]
+
+function scoreCompound(compound: any) {
+  let score = 0
+
+  const evidence = String(compound.evidence_tier || compound.evidence_grade || '').toLowerCase()
+  const quality = String(compound.profile_status || compound.summary_quality || '').toLowerCase()
+
+  if (/human|clinical|strong|high/.test(evidence)) score += 4
+  if (/complete|strong|high/.test(quality)) score += 4
+
+  score += getTopicClusters(compound).length
+
+  return score
+}
 
 export default function ExplorePage() {
   const featured = (compounds as any[])
     .filter((compound) => compound.slug && compound.name)
+    .sort((a, b) => scoreCompound(b) - scoreCompound(a))
     .slice(0, 12)
     .map((compound) => ({
       ...compound,
@@ -40,17 +59,54 @@ export default function ExplorePage() {
     }))
 
   return (
-    <main className="mx-auto max-w-7xl space-y-10 px-4 py-10 sm:py-14">
+    <main className="mx-auto max-w-7xl space-y-12 px-4 py-10 sm:space-y-16 sm:py-14">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
-        <div className="max-w-4xl space-y-4">
-          <p className="eyebrow-label">Semantic Discovery</p>
-          <h1 className="heading-premium max-w-4xl text-ink">
-            Explore Compounds by Goal
-          </h1>
+        <div className="max-w-4xl space-y-6">
+          <div className="space-y-3">
+            <p className="eyebrow-label">Semantic Discovery Layer</p>
+
+            <h1 className="heading-premium max-w-[11ch] text-ink">
+              Explore
+            </h1>
+          </div>
 
           <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
-            Navigate compounds through semantic relationships, archetypes, evidence patterns, mechanisms, and shared outcomes.
+            Navigate compounds through semantic relationships, archetypes, evidence maturity, mechanisms, and shared research pathways instead of simple alphabetical browsing.
           </p>
+
+          <div className="flex flex-wrap gap-2">
+            {['Human Evidence', 'Mechanism-Led', 'Sleep', 'Stress', 'Cognition', 'Recovery', 'Metabolism', 'Neurochemistry'].map((item) => (
+              <span key={item} className="chip-readable">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="surface-depth card-spacing">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl space-y-3">
+            <p className="eyebrow-label">
+              Guided research paths
+            </p>
+
+            <h2 className="max-w-[16ch]">
+              Start with an outcome or pathway.
+            </h2>
+
+            <p className="detail-reading text-base">
+              Discovery clusters surface related compounds, evidence-forward profiles, and overlapping mechanisms to improve scientific exploration quality.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {['Adaptogens', 'Neurotransmitters', 'Inflammatory Pathways', 'Mitochondrial Function'].map((item) => (
+              <span key={item} className="chip-readable">
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -62,33 +118,48 @@ export default function ExplorePage() {
             className="card-premium group p-6"
           >
             <div className="space-y-4">
-              <div className="eyebrow text-emerald-600">
-                Explore
+              <span className="identity-kicker">
+                {topic.meta}
+              </span>
+
+              <div>
+                <h2 className="text-2xl font-semibold text-ink transition group-hover:text-emerald-700">
+                  {topic.title}
+                </h2>
+
+                <p className="mt-3 text-sm leading-7 text-[#46574d]">
+                  {topic.description}
+                </p>
               </div>
 
-              <h2 className="text-2xl font-semibold text-ink transition group-hover:text-emerald-700">
-                {topic.title}
-              </h2>
-
-              <p className="text-sm leading-7 text-[#46574d]">
-                {topic.description}
-              </p>
+              <div className="pt-3">
+                <span className="button-secondary inline-flex rounded-full px-4 py-2 text-sm">
+                  Explore Cluster
+                </span>
+              </div>
             </div>
           </Link>
         ))}
       </section>
 
       <section className="space-y-6">
-        <div className="flex items-center justify-between gap-4">
-          <div>
+        <div className="flex items-end justify-between gap-4 flex-wrap">
+          <div className="space-y-2">
             <div className="eyebrow text-brand-700">
               Discovery Rail
             </div>
 
-            <h2 className="mt-2 text-3xl font-semibold text-ink">
-              Trending Compounds
+            <h2 className="text-3xl font-semibold text-ink max-w-[14ch]">
+              Evidence-forward compounds
             </h2>
           </div>
+
+          <Link
+            href="/compounds"
+            className="button-secondary rounded-full px-4 py-2 text-sm"
+          >
+            Browse All Compounds
+          </Link>
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -98,16 +169,16 @@ export default function ExplorePage() {
               href={`/compounds/${compound.slug}`}
               className="card-premium group p-6"
             >
-              <div className="space-y-4">
+              <div className="space-y-5">
                 <div className="flex flex-wrap gap-2">
-                  <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] uppercase tracking-wide text-emerald-700">
+                  <span className="evidence-pill-strong">
                     {compound.archetype}
                   </span>
 
                   {(compound.clusters || []).slice(0, 2).map((cluster:string) => (
                     <span
                       key={cluster}
-                      className="rounded-full border border-neutral-200 bg-neutral-100 px-3 py-1 text-[10px] uppercase tracking-wide text-neutral-700"
+                      className="chip-readable"
                     >
                       {cluster}
                     </span>
@@ -122,6 +193,16 @@ export default function ExplorePage() {
                   <p className="mt-3 line-clamp-4 text-sm leading-7 text-[#46574d]">
                     {cleanSummary(compound.summary, 'compound')}
                   </p>
+                </div>
+
+                <div className="flex items-center justify-between gap-4 border-t border-brand-900/10 pt-4">
+                  <span className="identity-meta">
+                    Semantic profile
+                  </span>
+
+                  <span className="button-secondary inline-flex rounded-full px-4 py-2 text-sm">
+                    Explore
+                  </span>
                 </div>
               </div>
             </Link>
