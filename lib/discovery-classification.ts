@@ -22,8 +22,59 @@ function overlap(a: string[], b: string[]) {
   return a.filter(item => b.includes(item)).length
 }
 
+function evidenceSensitiveAdjustment(base: any, candidate: any) {
+  const baseMaturity = getEvidenceMaturity(base)
+  const candidateMaturity = getEvidenceMaturity(candidate)
+  const baseSafety = getSafetySensitivity(base)
+  const candidateSafety = getSafetySensitivity(candidate)
+  const baseMechanismDepth = getMechanismDepth(base)
+  const candidateMechanismDepth = getMechanismDepth(candidate)
+  const candidateCompleteness = getProfileCompleteness(candidate)
+
+  let score = 0
+
+  if (baseMaturity === 'mature') {
+    if (candidateMaturity === 'mature') score += 8
+    if (candidateMaturity === 'exploratory') score -= 3
+  }
+
+  if (baseMaturity === 'moderate') {
+    if (candidateMaturity === 'moderate' || candidateMaturity === 'mature') score += 4
+  }
+
+  if (baseMaturity === 'exploratory') {
+    if (candidateMechanismDepth !== 'light') score += 7
+    if (candidateMaturity === 'mature' && baseMechanismDepth === 'light') score -= 2
+    if (candidateCompleteness === 'sparse') score -= 2
+  }
+
+  if (baseSafety !== 'low') {
+    if (candidateSafety !== 'low') score += 6
+    if (candidateSafety === 'low') score -= 2
+  }
+
+  return score
+}
+
 function sortByDiscoveryScore(base: any, items: any[]) {
-  return [...items].sort((a, b) => calculateDiscoveryScore(base, b) - calculateDiscoveryScore(base, a))
+  return [...items].sort((a, b) => {
+    const scoreB = calculateDiscoveryScore(base, b) + evidenceSensitiveAdjustment(base, b)
+    const scoreA = calculateDiscoveryScore(base, a) + evidenceSensitiveAdjustment(base, a)
+    return scoreB - scoreA
+  })
+}
+
+export function rankEvidenceSensitiveRelatedRecords(base: any, relatedRecords: any[] = [], limit = 8) {
+  const seen = new Set<string>()
+
+  return sortByDiscoveryScore(base, relatedRecords)
+    .filter(record => {
+      const key = `${record?.entityType || ''}:${record?.slug || record?.name || ''}`
+      if (!record?.slug || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    .slice(0, Math.max(0, limit))
 }
 
 export function classifyDiscoveryGroups(base: any, relatedRecords: any[] = []): DiscoveryGroup[] {

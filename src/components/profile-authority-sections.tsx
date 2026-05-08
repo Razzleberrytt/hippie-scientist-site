@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
-import { classifyDiscoveryGroups } from '@/lib/discovery-classification'
+import { classifyDiscoveryGroups, rankEvidenceSensitiveRelatedRecords } from '@/lib/discovery-classification'
 import { compressEditorialCopy } from '@/lib/editorial-compression'
 import {
   buildVariedEvidenceFraming,
@@ -10,6 +10,7 @@ import {
   buildVariedSummary,
 } from '@/lib/editorial-variation'
 import { getSafetyClassifications, getSafetyLabels } from '@/lib/safety-classification'
+import { buildSafetyNarratives, buildSafetyNarrativeSummary } from '@/lib/safety-narratives'
 import { getSemanticTrustBadges, getSemanticTrustLabels } from '@/lib/semantic-trust-badges'
 import { getEvidenceDisciplineSummary, getEvidenceStrata } from '@/lib/evidence-stratification'
 import { clusterMechanisms } from '@/lib/mechanism-clusters'
@@ -144,12 +145,12 @@ function AuthorityCard({
   children: React.ReactNode
 }) {
   return (
-    <section className={`card-premium ${compact ? 'p-4 sm:p-5' : 'p-5 sm:p-6'}`}>
-      <div className="space-y-3">
+    <section className={`card-premium ${compact ? 'p-4 sm:p-5' : 'p-5 sm:p-7'}`}>
+      <div className={compact ? 'space-y-3' : 'space-y-4'}>
         <div className="space-y-2">
           <p className="eyebrow-label">{title}</p>
           {description ? (
-            <p className="max-w-3xl text-sm leading-7 text-[#5b6b61]">
+            <p className="max-w-2xl text-sm leading-7 text-[#5b6b61]">
               {description}
             </p>
           ) : null}
@@ -216,6 +217,8 @@ function EvidenceOverview({ record }: { record: any }) {
   const disciplineSummary = getEvidenceDisciplineSummary(strata)
   const trustBadges = getSemanticTrustBadges(record, 4)
   const safetyClassifications = getSafetyClassifications(record, 4)
+  const safetyNarratives = buildSafetyNarratives(record, 3)
+  const narrativeSummary = buildSafetyNarrativeSummary(record)
 
   if (strata.length === 0) return null
 
@@ -227,7 +230,7 @@ function EvidenceOverview({ record }: { record: any }) {
   }
 
   return (
-    <AuthorityCard title="Evidence Overview" description={disciplineSummary} compact>
+    <AuthorityCard title="Evidence Overview" description={compressEditorialCopy(narrativeSummary || disciplineSummary)} compact>
       {trustBadges.length > 0 ? (
         <div className="flex flex-wrap gap-2">
           {trustBadges.map(signal => (
@@ -266,9 +269,13 @@ function EvidenceOverview({ record }: { record: any }) {
               </span>
             ))}
           </div>
-          <p className="mt-3 text-sm leading-7 text-[#5b4632]">
-            Safety labels are only shown when caution language is present in the profile data.
-          </p>
+          <div className="mt-3 space-y-2">
+            {(safetyNarratives.length > 0 ? safetyNarratives : [{ label: 'Safety context', narrative: 'Safety labels are only shown when caution language is present in the profile data.' }]).map(item => (
+              <p key={item.label} className="max-w-2xl text-sm leading-7 text-[#5b4632]">
+                {item.narrative}
+              </p>
+            ))}
+          </div>
         </div>
       ) : null}
     </AuthorityCard>
@@ -284,6 +291,7 @@ function ScientificSnapshot({
   authoritySignals,
   synthesis,
   safetyLabels,
+  safetyNarrative,
 }: {
   evidence: string
   effects: string[]
@@ -293,6 +301,7 @@ function ScientificSnapshot({
   authoritySignals: string[]
   synthesis: string
   safetyLabels: string[]
+  safetyNarrative: string
 }) {
   return (
     <AuthorityCard
@@ -324,7 +333,7 @@ function ScientificSnapshot({
           <div className="rounded-2xl border border-amber-700/15 bg-amber-50/70 p-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-900/60">Safety snapshot</p>
             <p className="mt-2 text-sm leading-7 text-[#5b4632]">
-              {(safetyLabels.length > 0 ? safetyLabels : safetySignals).slice(0, 2).join(', ')}
+              {compressEditorialCopy(safetyNarrative || (safetyLabels.length > 0 ? safetyLabels : safetySignals).slice(0, 2).join(', '))}
             </p>
           </div>
         ) : null}
@@ -368,13 +377,15 @@ function WhyItMatters({
 }: any) {
   if (!summary && effects.length === 0 && mechanisms.length === 0) return null
 
+  const displaySummary = compact ? compressEditorialCopy(summary).split(/(?<=[.!?])\s+/).slice(0, 1).join(' ') : summary
+
   return (
     <AuthorityCard
       title="Why It Matters"
       compact={compact}
       description={compressEditorialCopy(practicalRelevance || 'Mechanism-level findings are separated from stronger human-evidence framing to reduce hype and improve scientific credibility.')}
     >
-      {summary ? <p className="detail-reading text-[#46574d]">{summary}</p> : null}
+      {displaySummary ? <p className="detail-reading max-w-3xl text-[#46574d]">{displaySummary}</p> : null}
 
       {!compact ? (
         <div className="grid gap-4 pt-2 md:grid-cols-2">
@@ -439,9 +450,8 @@ function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType
 }
 
 function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '', baseRecord }: any) {
-  const visible = (relatedRecords || [])
+  const visible = rankEvidenceSensitiveRelatedRecords(baseRecord, relatedRecords || [], compact ? 3 : 8)
     .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
-    .slice(0, compact ? 3 : 8)
 
   if (visible.length === 0) return null
 
@@ -459,7 +469,7 @@ function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative
     <AuthorityCard
       title="Semantic Discovery"
       compact={compact}
-      description={compressEditorialCopy(narrative || 'Related profiles are grouped by shared mechanisms, pathway context, evidence maturity, or adjacent research themes.')}
+      description={compressEditorialCopy(narrative || 'Related profiles are filtered for evidence maturity, mechanism fit, and caution-aware context before they appear in this discovery rail.')}
     >
       <div className="space-y-5">
         {groups.slice(0, compact ? 1 : 4).map(group => (
@@ -525,7 +535,7 @@ export default function ProfileAuthoritySections({
   const practicalRelevance = buildVariedPracticalRelevance(variationInput) || buildPracticalRelevance(synthesisInput)
   const mechanismContext = buildVariedMechanismFraming(variationInput) || buildMechanismContext(synthesisInput)
   const safetyLabels = getSafetyLabels(record, 4)
-  const discoveryNarrative = buildDiscoveryNarrative(relatedRecords.length)
+  const discoveryNarrative = buildDiscoveryNarrative(relatedRecords.length, synthesisInput)
 
   const hasContent =
     Boolean(summary) ||
@@ -547,6 +557,7 @@ export default function ProfileAuthoritySections({
         authoritySignals={authoritySignals}
         synthesis={scientificSummary}
         safetyLabels={safetyLabels}
+        safetyNarrative={buildSafetyNarrativeSummary(record)}
       />
 
       <EvidenceOverview record={record} />
