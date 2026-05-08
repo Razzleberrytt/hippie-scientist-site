@@ -2,7 +2,7 @@
 
 ## Repo Purpose
 
-This repository hosts Hippie Scientist application and data migration tooling. Current governance emphasizes rebuild safety, canonical workbook sourcing, and controlled generation of runtime data.
+This repository hosts the Hippie Scientist application and workbook-only data tooling. Current governance emphasizes rebuild safety, canonical workbook sourcing, and controlled generation of runtime data.
 
 ## Canonical Workbook Rule
 
@@ -34,7 +34,6 @@ This repository hosts Hippie Scientist application and data migration tooling. C
 
 - `data-sources/herb_monograph_master.xlsx`
 - `public/data`
-- `public/data-next`
 
 ## Related Docs
 

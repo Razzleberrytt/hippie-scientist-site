@@ -1,7 +1,5 @@
 # Zip Patch Part 2 Merge Report
 
-> Superseded note (2026-03-27): Deployment assumptions in this merge report were interim; canonical deploy path is Cloudflare Pages static export.
-
 Date: 2026-03-25 (UTC)
 Archive: `hippie-scientist-patch-part-2-assets.zip`
 Temporary extract path: `/tmp/part2_patch`
@@ -44,7 +42,6 @@ The following files were updated/replaced from part 2 content:
 
 ## Build artifacts and generated outputs
 
-- Build artifacts generated during validation (`dist/`) were produced locally for verification.
 - No tracked source files were deleted in favor of generated output.
 - Deployment pattern remains static-site friendly with generated `sitemap`/`robots` outputs validated.
 
@@ -52,7 +49,6 @@ The following files were updated/replaced from part 2 content:
 
 - No direct merge conflicts occurred.
 - Risk area noted: part-2 zip includes broad site/output content; using full destructive sync could have removed valid app code from part 1. This was avoided with targeted checksum-based replacement.
-- `scripts/verifyGhPages.js` could not fully validate branch behavior in this environment because the local repo does not contain a `gh-pages` branch checkout target.
 
 ## Final validation results
 
@@ -60,7 +56,6 @@ The following files were updated/replaced from part 2 content:
 - `npm run lint` ✅ passed.
 - `npm test` ✅ passed (`No tests specified`).
 - `npm run verify:redirects` ✅ passed.
-- `node scripts/verifyGhPages.js` ⚠️ could not complete due to missing local `gh-pages` branch.
 
 ## Outcome
 

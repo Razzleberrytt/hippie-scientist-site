@@ -23,9 +23,8 @@ let body = `## Nightly data refresh
 This PR was created automatically by the nightly workflow.
 
 ### What’s included
-- Converted CSV → normalized JSON
-- Autofilled missing key fields (effects / description / legalstatus) as needed
-- Validated schema & audited coverage
+- Refreshed workbook-derived runtime JSON
+- Validated required fields and coverage artifacts
 - Coverage artifacts attached
 
 `;

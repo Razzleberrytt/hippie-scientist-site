@@ -1,7 +1,5 @@
 # Zip Patch Merge Report — Part 1
 
-> Superseded note (2026-03-27): Deployment assumptions in this merge report were interim; canonical deploy path is Cloudflare Pages static export.
-
 Date: 2026-03-25
 Archive: `hippie-scientist-patch-part-1-code.zip`
 
@@ -25,12 +23,10 @@ Archive: `hippie-scientist-patch-part-1-code.zip`
 
 - No deletions were applied from absence in zip (per part-1 safety requirement).
 - Build outputs generated during validation were intentionally not staged/kept (for example `public/blog*`, `public/blogdata*`, `public/data/*`, `public/feed.xml`, `public/rss.xml`, and `src/generated/site-counts.json`).
-- `dist/` was not committed.
 
 ## Conflicts / risky areas
 
 - No direct git merge conflicts occurred.
-- **Superseded deployment risk**: the current App Router export no longer depends on that removed client-side routing entrypoint.
 
 ## Workflow/path checks
 

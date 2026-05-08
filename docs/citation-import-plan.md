@@ -73,7 +73,7 @@
 2. **Require a citation-ready tabular schema before ingestion**
    - Ask for/derive a dedicated citation table (CSV/XLSX tab) with explicit citation identifiers and source metadata.
 3. **Add a dry-run normalizer**
-   - Build a script that maps rows into normalized JSON objects and reports validation errors only (no writes to herb/compound datasets yet).
+   - Build a script that maps rows into citation-review objects and reports validation errors only (no writes to herb/compound datasets yet).
 4. **Introduce schema validation**
    - Validate normalized records against explicit `Citation`, `Claim`, and `ClaimCitationLink` schemas.
 5. **Manual review checkpoint**
@@ -81,7 +81,7 @@
 
 This path keeps existing herb/compound data untouched and reduces risk of introducing unverifiable citations.
 
-## Proposed normalized schema
+## Proposed citation review schema
 
 ### 1) Citation
 
