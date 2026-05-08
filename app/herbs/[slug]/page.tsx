@@ -8,6 +8,7 @@ import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
+import { getFeaturedCollections } from '@/lib/collections'
 
 export async function generateStaticParams() {
   const herbs = await getHerbs()
@@ -74,6 +75,7 @@ export default async function HerbDetailPage({ params }: any) {
 
   const relatedHerbs = getRelatedRuntimeRecords(herb, herbs, 6)
     .filter((item: any) => getRuntimeVisibility(item).canRender)
+  const featuredCollections = getFeaturedCollections(herb)
 
   return (
     <main className="mx-auto max-w-6xl space-y-10 px-4 py-10">
@@ -104,6 +106,27 @@ export default async function HerbDetailPage({ params }: any) {
       </section>
 
       <CompactRelatedPathways record={herb} />
+
+      {featuredCollections.length > 0 ? (
+        <section className="card-premium space-y-4 p-5">
+          <div className="space-y-1">
+            <p className="eyebrow-label">Featured In Collections</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence-aware collection links</h2>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {featuredCollections.slice(0, 4).map((collection) => (
+              <Link
+                key={collection.slug}
+                href={collection.href}
+                className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60"
+              >
+                {collection.title}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {relatedHerbs.length > 0 ? (
         <section className="space-y-5">

@@ -43,6 +43,7 @@ import { supplementComparisons } from '@/data/comparisons'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
+import { getFeaturedCollections } from '@/lib/collections'
 
 export async function generateStaticParams() {
   return (data as any[])
@@ -123,6 +124,7 @@ export default function Page({ params }: any) {
       name: formatDisplayLabel(item.name || item.slug),
       overlap: (item.relatedOverlap || []).map(formatDisplayLabel).filter(isClean),
     }))
+  const featuredCollections = getFeaturedCollections(compound)
 
   const stackCandidates = getStackCandidates(compound)
     .map((candidate:any) => ({
@@ -227,6 +229,22 @@ export default function Page({ params }: any) {
           <EvidenceSnapshotCard snapshot={snapshot} />
 
           <CompactRelatedPathways record={compound} />
+
+          {featuredCollections.length > 0 ? (
+            <SectionBlock title="Featured In Collections">
+              <div className="flex flex-wrap gap-3">
+                {featuredCollections.slice(0, 4).map((collection:any) => (
+                  <Link
+                    key={collection.slug}
+                    href={collection.href}
+                    className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60"
+                  >
+                    {collection.title}
+                  </Link>
+                ))}
+              </div>
+            </SectionBlock>
+          ) : null}
 
           <div className="space-y-5">
             <EvidenceMeter level={evidenceLevel} />
