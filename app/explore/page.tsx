@@ -5,7 +5,6 @@ import {
   getTopicClusters,
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
-import { rankRuntimeRecords } from '@/lib/runtime-ranking'
 
 const TOPICS = [
   {
@@ -35,7 +34,7 @@ const TOPICS = [
 ]
 
 export default function ExplorePage() {
-  const featured = rankRuntimeRecords(compounds as any[])
+  const featured = (compounds as any[])
     .filter((compound) => compound.slug && compound.name)
     .slice(0, 12)
     .map((compound) => ({

@@ -113,7 +113,7 @@ function inferClusters(record: Pick<RuntimeCompound, 'effects' | 'mechanisms' | 
   return clusters.length ? clusters : ['General Wellness']
 }
 
-export function normalizeCompound(input: RuntimeCompoundInput): RuntimeCompound {
+function normalizeCompound(input: RuntimeCompoundInput): RuntimeCompound {
   const effects = unique(splitList(input.effects || input.primary_effects || input.effect))
   const mechanisms = unique(splitList(input.mechanisms || input.mechanism))
   const summary = cleanSummary(input.summary || input.coreInsight, 'compound')
@@ -151,23 +151,6 @@ export function normalizeCompound(input: RuntimeCompoundInput): RuntimeCompound 
 const compounds = (compoundsData as RuntimeCompoundInput[])
   .map(normalizeCompound)
   .filter((compound) => compound.slug && compound.name && isClean(compound.name))
-
-export function getAllCompoundsRuntime() {
-  return compounds
-}
-
-export function getCompoundRuntime(slug: string) {
-  const normalizedSlug = slugify(slug)
-  return compounds.find((compound) => compound.slug === normalizedSlug)
-}
-
-export function getCompoundEffects(compound: RuntimeCompoundInput) {
-  return normalizeCompound(compound).effects
-}
-
-export function getCompoundSources(compound: RuntimeCompoundInput) {
-  return normalizeCompound(compound).sources
-}
 
 export function classifyArchetype(compound: RuntimeCompoundInput) {
   return normalizeCompound(compound).archetype
