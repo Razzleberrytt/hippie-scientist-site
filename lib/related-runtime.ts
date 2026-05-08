@@ -1,5 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
+import { calculateDiscoveryScore } from '@/lib/discovery-score'
 
 function normalize(value: unknown) {
   return safeLower(value)
@@ -61,7 +62,7 @@ export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6)
       return {
         ...candidate,
         relatedOverlap: overlap,
-        relatedScore: safeScore(overlap.length),
+        relatedScore: safeScore(overlap.length) + calculateDiscoveryScore(record, candidate),
       }
     })
     .sort((a: any, b: any) => {

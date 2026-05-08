@@ -3,6 +3,14 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { classifyDiscoveryGroups } from '@/lib/discovery-classification'
 import { compressEditorialCopy } from '@/lib/editorial-compression'
+import {
+  buildVariedEvidenceFraming,
+  buildVariedMechanismFraming,
+  buildVariedPracticalRelevance,
+  buildVariedSummary,
+} from '@/lib/editorial-variation'
+import { getSafetyClassifications, getSafetyLabels } from '@/lib/safety-classification'
+import { getSemanticTrustBadges, getSemanticTrustLabels } from '@/lib/semantic-trust-badges'
 import { getEvidenceDisciplineSummary, getEvidenceStrata } from '@/lib/evidence-stratification'
 import { clusterMechanisms } from '@/lib/mechanism-clusters'
 import {
@@ -80,18 +88,16 @@ function getEvidenceText(record: any) {
 }
 
 function getAuthoritySignals(record: any, density: string) {
-  const signals: string[] = []
-  const evidence = text(record?.evidence_tier || record?.evidenceTier)
-  const safety = text(record?.safety?.confidence || record?.safety)
+  const signals = [
+    ...getSemanticTrustLabels(record, 5),
+    ...getSafetyLabels(record, 3),
+  ]
 
-  if (/human|clinical|moderate|strong/i.test(evidence)) signals.push('Clinically Studied')
-  if (/mechan/i.test(evidence) || density === 'concise') signals.push('Mechanistic Evidence')
-  if (/traditional|ayurveda|tcm/i.test(text(record?.traditional_use))) signals.push('Traditional Use Context')
-  if (/emerging|preliminary|limited/i.test(evidence)) signals.push('Emerging Research')
-  if (/caution|interaction|avoid|warning/i.test(safety)) signals.push('Safety Sensitive')
-  if (density === 'comprehensive') signals.push('High Confidence Profile')
+  if (density === 'comprehensive' && !signals.includes('Evidence-Limited')) {
+    signals.push('Publication-Ready Profile')
+  }
 
-  return unique(signals).slice(0, 5)
+  return unique(signals).slice(0, 7)
 }
 
 function getProfileDensity({
@@ -208,6 +214,8 @@ function MechanismClusters({ mechanisms }: { mechanisms: string[] }) {
 function EvidenceOverview({ record }: { record: any }) {
   const strata = getEvidenceStrata(record)
   const disciplineSummary = getEvidenceDisciplineSummary(strata)
+  const trustBadges = getSemanticTrustBadges(record, 4)
+  const safetyClassifications = getSafetyClassifications(record, 4)
 
   if (strata.length === 0) return null
 
@@ -220,6 +228,16 @@ function EvidenceOverview({ record }: { record: any }) {
 
   return (
     <AuthorityCard title="Evidence Overview" description={disciplineSummary} compact>
+      {trustBadges.length > 0 ? (
+        <div className="flex flex-wrap gap-2">
+          {trustBadges.map(signal => (
+            <span key={signal.label} className="chip-readable" title={signal.description}>
+              {signal.label}
+            </span>
+          ))}
+        </div>
+      ) : null}
+
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {strata.map(stratum => (
           <div
@@ -235,6 +253,24 @@ function EvidenceOverview({ record }: { record: any }) {
           </div>
         ))}
       </div>
+
+      {safetyClassifications.length > 0 ? (
+        <div className="rounded-2xl border border-amber-700/15 bg-amber-50/70 p-4">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-950">
+            Safety intelligence
+          </h3>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {safetyClassifications.map(classification => (
+              <span key={classification.label} className="rounded-full border border-amber-800/20 bg-white/55 px-3 py-1 text-xs font-semibold text-amber-950">
+                {classification.label}
+              </span>
+            ))}
+          </div>
+          <p className="mt-3 text-sm leading-7 text-[#5b4632]">
+            Safety labels are only shown when caution language is present in the profile data.
+          </p>
+        </div>
+      ) : null}
     </AuthorityCard>
   )
 }
@@ -247,6 +283,7 @@ function ScientificSnapshot({
   density,
   authoritySignals,
   synthesis,
+  safetyLabels,
 }: {
   evidence: string
   effects: string[]
@@ -255,6 +292,7 @@ function ScientificSnapshot({
   density: string
   authoritySignals: string[]
   synthesis: string
+  safetyLabels: string[]
 }) {
   return (
     <AuthorityCard
@@ -282,10 +320,12 @@ function ScientificSnapshot({
           </div>
         ) : null}
 
-        {safetySignals.length > 0 ? (
+        {safetySignals.length > 0 || safetyLabels.length > 0 ? (
           <div className="rounded-2xl border border-amber-700/15 bg-amber-50/70 p-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-900/60">Safety snapshot</p>
-            <p className="mt-2 text-sm leading-7 text-[#5b4632]">{safetySignals.slice(0, 2).join(', ')}</p>
+            <p className="mt-2 text-sm leading-7 text-[#5b4632]">
+              {(safetyLabels.length > 0 ? safetyLabels : safetySignals).slice(0, 2).join(', ')}
+            </p>
           </div>
         ) : null}
       </div>
@@ -384,6 +424,13 @@ function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType
           ))}
         </div>
       ) : null}
+      <div className="mt-3 flex flex-wrap gap-2">
+        {getSemanticTrustLabels(item, 2).map(label => (
+          <span key={label} className="rounded-full border border-brand-900/10 bg-white/55 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-brand-900/65">
+            {label}
+          </span>
+        ))}
+      </div>
       <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
         {cleanSummary(item.summary || item.description || '', targetType)}
       </p>
@@ -464,10 +511,20 @@ export default function ProfileAuthoritySections({
     density,
   }
 
-  const scientificSummary = buildScientificSummary(synthesisInput)
-  const evidenceContext = buildEvidenceContext(synthesisInput)
-  const practicalRelevance = buildPracticalRelevance(synthesisInput)
-  const mechanismContext = buildMechanismContext(synthesisInput)
+  const variationInput = {
+    name: formatDisplayLabel(record?.name || record?.slug),
+    evidenceTier: evidence,
+    effects,
+    mechanisms,
+    safety: safetySignals,
+    density,
+    seed: record?.slug,
+  }
+  const scientificSummary = buildVariedSummary(variationInput) || buildScientificSummary(synthesisInput)
+  const evidenceContext = buildVariedEvidenceFraming(variationInput) || buildEvidenceContext(synthesisInput)
+  const practicalRelevance = buildVariedPracticalRelevance(variationInput) || buildPracticalRelevance(synthesisInput)
+  const mechanismContext = buildVariedMechanismFraming(variationInput) || buildMechanismContext(synthesisInput)
+  const safetyLabels = getSafetyLabels(record, 4)
   const discoveryNarrative = buildDiscoveryNarrative(relatedRecords.length)
 
   const hasContent =
@@ -489,6 +546,7 @@ export default function ProfileAuthoritySections({
         density={density}
         authoritySignals={authoritySignals}
         synthesis={scientificSummary}
+        safetyLabels={safetyLabels}
       />
 
       <EvidenceOverview record={record} />
