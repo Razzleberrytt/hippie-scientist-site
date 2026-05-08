@@ -78,7 +78,7 @@ function getEvidenceText(record: any) {
 }
 
 function getAuthoritySignals(record: any, density: string) {
-  const signals = []
+  const signals: string[] = []
 
   const evidence = text(record?.evidence_tier || record?.evidenceTier)
   const safety = text(record?.safety?.confidence || record?.safety)
