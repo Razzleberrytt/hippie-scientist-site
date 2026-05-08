@@ -31,9 +31,11 @@ const navLinks = [
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.thehippiescientist.net'),
   title: { default: 'The Hippie Scientist', template: '%s | The Hippie Scientist' },
-  description: 'Evidence-first supplement decision engine.',
+  description: 'Evidence-organized research on herbs, compounds, pathways, and human health.',
   openGraph: {
+    type: 'website',
     siteName: 'The Hippie Scientist',
+    url: 'https://www.thehippiescientist.net',
   },
   twitter: {
     card: 'summary_large_image',
