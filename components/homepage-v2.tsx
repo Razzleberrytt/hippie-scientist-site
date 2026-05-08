@@ -2,6 +2,46 @@
 
 import Link from 'next/link'
 import { ContentIdentityCard, SemanticBrowseModule } from '@/components/scientific-discovery'
+import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
+
+type RuntimeFeature = Record<string, any>
+
+type HomepageV2Props = {
+  featuredHerbs?: RuntimeFeature[]
+  featuredCompounds?: RuntimeFeature[]
+}
+
+function getFeatureName(item: RuntimeFeature) {
+  return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
+}
+
+function getFeatureDescription(item: RuntimeFeature, type: 'herb' | 'compound') {
+  return cleanSummary(
+    item.short_earthy_summary ||
+      item.shortEarthySummary ||
+      item.summary ||
+      item.coreInsight ||
+      item.hero ||
+      item.description,
+    type
+  )
+}
+
+function toFeaturedCard(item: RuntimeFeature, type: 'herb' | 'compound') {
+  const title = getFeatureName(item)
+  const slug = formatDisplayLabel(item.slug)
+
+  if (!item.slug || !isClean(title)) return null
+
+  return {
+    href: `/${type === 'herb' ? 'herbs' : 'compounds'}/${item.slug}`,
+    title,
+    description: getFeatureDescription(item, type),
+    meta: type === 'herb' ? 'Featured herb' : 'Featured compound',
+    kind: type,
+    slug,
+  } as const
+}
 
 const learningPaths = [
   { href: '/learn', title: 'Calm without flattening', description: 'Compare anxiolytic herbs by sedation, stress physiology, and evidence maturity.', meta: 'Learning path', kind: 'path' as const },
@@ -15,7 +55,14 @@ const evidenceTopics = [
   { href: '/compounds/theanine', title: 'Theanine profile', description: 'Compound-centered scanning for effects, safety, mechanisms, and related recommendations.', meta: 'Compound profile', kind: 'compound' as const },
 ]
 
-export default function HomepageV2() {
+export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] }: HomepageV2Props) {
+  const featuredRuntimeTopics = [
+    ...featuredHerbs.map((item) => toFeaturedCard(item, 'herb')),
+    ...featuredCompounds.map((item) => toFeaturedCard(item, 'compound')),
+  ].filter(Boolean).slice(0, 3)
+
+  const visibleEvidenceTopics = featuredRuntimeTopics.length > 0 ? featuredRuntimeTopics : evidenceTopics
+
   return (
     <main className="min-h-screen text-ink section-spacing">
 
@@ -123,7 +170,7 @@ export default function HomepageV2() {
         <p className="eyebrow-label">Featured evidence topics</p>
         <h2 className="mt-3 max-w-3xl text-balance">Publication-style entry points into the research library.</h2>
         <div className="mt-7 grid gap-4 md:grid-cols-3">
-          {evidenceTopics.map(item => <ContentIdentityCard key={item.href} item={item} />)}
+          {visibleEvidenceTopics.map(item => <ContentIdentityCard key={item.href} item={item} />)}
         </div>
       </section>
 
