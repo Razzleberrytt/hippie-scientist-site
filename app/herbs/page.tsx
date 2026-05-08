@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import '@/styles/premium-cards.css'
 
 function getName(item: any) {
@@ -85,7 +86,8 @@ function safetyClass(level: string) {
 }
 
 export default async function HerbsPage() {
-  const herbs = await getHerbs()
+  const allHerbs = await getHerbs()
+  const herbs = allHerbs.filter((herb: any) => getRuntimeVisibility(herb).canRender)
   const totalProfiles = herbs.length
   const readyProfiles = herbs.filter((herb: any) => /complete|strong|high|ready/i.test(text(herb.profile_status || herb.summary_quality || herb.safety?.confidence))).length
 
