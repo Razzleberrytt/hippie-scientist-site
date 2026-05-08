@@ -76,13 +76,14 @@ export default async function HerbDetailPage({ params }: any) {
 
   const relatedHerbs = getRelatedRuntimeRecords(herb, herbs, 6)
     .filter((item: any) => getRuntimeVisibility(item).canRender)
+
   const featuredCollections = getFeaturedCollections(herb)
   const effects = getEffects(herb)
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
 
   return (
-    <main className="mx-auto max-w-6xl space-y-10 px-4 py-10">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-8 shadow-card">
+    <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:space-y-10 sm:py-10">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <div className="max-w-4xl space-y-5">
           <p className="eyebrow-label">
             Botanical Research Profile
@@ -94,17 +95,19 @@ export default async function HerbDetailPage({ params }: any) {
 
           <EvidenceBadgeGroup record={herb} />
 
-          <p className="detail-reading text-lg text-[#46574d]">
+          <p className="detail-reading text-base text-[#46574d] sm:text-lg">
             {summary}
           </p>
 
-          <div className="flex flex-wrap gap-2">
-            {effects.map((effect: string) => (
-              <span key={effect} className="chip-readable">
-                {effect}
-              </span>
-            ))}
-          </div>
+          {effects.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {effects.map((effect: string) => (
+                <span key={effect} className="chip-readable">
+                  {effect}
+                </span>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -122,7 +125,9 @@ export default async function HerbDetailPage({ params }: any) {
         <section className="card-premium space-y-4 p-5">
           <div className="space-y-1">
             <p className="eyebrow-label">Featured In Collections</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence-aware collection links</h2>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">
+              Evidence-aware collection links
+            </h2>
           </div>
 
           <div className="flex flex-wrap gap-3">
@@ -133,56 +138,6 @@ export default async function HerbDetailPage({ params }: any) {
                 className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60"
               >
                 {collection.title}
-              </Link>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {relatedHerbs.length > 0 ? (
-        <section className="space-y-5">
-          <div className="space-y-2">
-            <p className="eyebrow-label">
-              Semantic discovery
-            </p>
-
-            <h2 className="text-3xl font-semibold tracking-tight text-ink">
-              Related herbs and pathways
-            </h2>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {relatedHerbs.map((item: any) => (
-              <Link
-                key={item.slug}
-                href={`/herbs/${item.slug}`}
-                className="card-premium group p-5"
-              >
-                <div className="space-y-4">
-                  <EvidenceBadgeGroup record={item} compact />
-
-                  <div className="flex flex-wrap gap-2">
-                    {(item.relatedOverlap || []).slice(0, 2).map((signal: string) => (
-                      <span key={signal} className="chip-readable">
-                        {formatDisplayLabel(signal)}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-ink transition group-hover:text-brand-700">
-                      {formatDisplayLabel(item.name || item.slug)}
-                    </h3>
-
-                    <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
-                      {cleanSummary(item.summary || item.description || '', 'herb')}
-                    </p>
-                  </div>
-
-                  <div className="identity-meta">
-                    {item.relatedScore || 0} shared semantic signals
-                  </div>
-                </div>
               </Link>
             ))}
           </div>
