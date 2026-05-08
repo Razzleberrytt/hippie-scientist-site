@@ -5,6 +5,7 @@ import {
   getTopicClusters,
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
+import { rankRuntimeRecords } from '@/lib/runtime-ranking'
 
 const TOPICS = [
   {
@@ -33,24 +34,9 @@ const TOPICS = [
   },
 ]
 
-function scoreCompound(compound: any) {
-  let score = 0
-
-  const evidence = String(compound.evidence_tier || compound.evidence_grade || '').toLowerCase()
-  const quality = String(compound.profile_status || compound.summary_quality || '').toLowerCase()
-
-  if (/human|clinical|strong|high/.test(evidence)) score += 4
-  if (/complete|strong|high/.test(quality)) score += 4
-
-  score += getTopicClusters(compound).length
-
-  return score
-}
-
 export default function ExplorePage() {
-  const featured = (compounds as any[])
+  const featured = rankRuntimeRecords(compounds as any[])
     .filter((compound) => compound.slug && compound.name)
-    .sort((a, b) => scoreCompound(b) - scoreCompound(a))
     .slice(0, 12)
     .map((compound) => ({
       ...compound,
