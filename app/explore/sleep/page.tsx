@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import herbs from '../../../public/data/herbs.json'
 import compounds from '../../../public/data/compounds.json'
-import { rankRuntimeRecords } from '@/lib/runtime-ranking'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 
@@ -25,18 +24,30 @@ function isSleepRelated(record: any) {
 }
 
 function buildCards(records: any[], type: 'herb' | 'compound') {
-  return rankRuntimeRecords(records)
-    .filter((item: any) => getRuntimeVisibility(item).canRender)
-    .filter(isSleepRelated)
+  return records
+    .filter((item: any) => {
+      try {
+        return getRuntimeVisibility(item).canRender
+      } catch {
+        return false
+      }
+    })
+    .filter((item: any) => {
+      try {
+        return isSleepRelated(item)
+      } catch {
+        return false
+      }
+    })
     .slice(0, 12)
     .map((item: any) => ({
-      slug: item.slug,
-      name: formatDisplayLabel(item.name || item.slug),
-      summary: cleanSummary(item.summary || item.description || '', type),
-      href: `/${type === 'herb' ? 'herbs' : 'compounds'}/${item.slug}`,
+      slug: item?.slug || '',
+      name: formatDisplayLabel(item?.name || item?.slug),
+      summary: cleanSummary(item?.summary || item?.description || '', type),
+      href: `/${type === 'herb' ? 'herbs' : 'compounds'}/${item?.slug || ''}`,
       effects: unique([
-        ...list(item.primary_effects),
-        ...list(item.effects),
+        ...list(item?.primary_effects),
+        ...list(item?.effects),
       ])
         .filter(isClean)
         .slice(0, 3),
