@@ -1,0 +1,281 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { getCompounds, getHerbs } from '@/lib/runtime-data'
+import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import {
+  getPathwayLabel,
+  getPathwaySignals,
+  getRelatedPathwayRecords,
+  getSupportedPathways,
+  normalizePathway,
+  type PathwaySlug,
+} from '@/lib/pathways'
+import { buildMeta } from '@/lib/seo'
+import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+
+type RelatedPathwayLink = {
+  label: string
+  href: string
+  description: string
+}
+
+type PathwayConfig = {
+  slug: PathwaySlug
+  title: string
+  eyebrow: string
+  summary: string
+  clusters: string[]
+  related: RelatedPathwayLink[]
+}
+
+const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
+  gaba: {
+    slug: 'gaba',
+    title: 'GABA Pathway Hub',
+    eyebrow: 'Neurotransmitter cluster',
+    summary: 'Explore herbs and compounds with workbook signals around GABA, calming, inhibitory tone, relaxation, and sleep-adjacent mechanisms.',
+    clusters: ['GABAergic signaling', 'Inhibitory tone', 'Relaxation and sleep context', 'Calming botanicals and compounds'],
+    related: [
+      { label: 'Dopamine', href: '/pathways/dopamine', description: 'Motivation, focus, reward, and cognition-adjacent neurotransmitter signals.' },
+      { label: 'Stress', href: '/best-supplements-for-stress', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
+      { label: 'Sleep', href: '/goals/sleep', description: 'Decision guide for sleep quality, nighttime relaxation, and circadian support.' },
+      { label: 'Recovery', href: '/goals/recovery', description: 'Recovery-adjacent inflammation, repair, mobility, and oxidative-stress context.' },
+    ],
+  },
+  dopamine: {
+    slug: 'dopamine',
+    title: 'Dopamine Pathway Hub',
+    eyebrow: 'Neurotransmitter cluster',
+    summary: 'Explore records with existing signals around dopamine, reward, motivation, cognition, focus, and attention-related mechanisms.',
+    clusters: ['Dopaminergic signaling', 'Reward and motivation', 'Cognitive performance', 'Focus and attention context'],
+    related: [
+      { label: 'GABA', href: '/pathways/gaba', description: 'Calming and inhibitory signaling that often frames sleep and relaxation context.' },
+      { label: 'Inflammation', href: '/pathways/inflammation', description: 'Immune and oxidative-stress signals that can intersect with brain-health research.' },
+      { label: 'Focus', href: '/goals/focus', description: 'Decision guide for attention, brain fog, and cognitive-support supplements.' },
+    ],
+  },
+  inflammation: {
+    slug: 'inflammation',
+    title: 'Inflammation Pathway Hub',
+    eyebrow: 'Inflammatory systems cluster',
+    summary: 'Explore records with workbook signals around inflammatory tone, cytokines, immune activity, oxidative stress, and antioxidant mechanisms.',
+    clusters: ['Inflammatory signaling', 'Cytokine and immune context', 'Oxidative stress', 'Antioxidant-response mechanisms'],
+    related: [
+      { label: 'GABA', href: '/pathways/gaba', description: 'Neurotransmitter and sleep-adjacent signals with calming pathway context.' },
+      { label: 'Dopamine', href: '/pathways/dopamine', description: 'Motivation, focus, and cognition-adjacent neurotransmitter context.' },
+      { label: 'Joint support', href: '/best-supplements-for-joint-support', description: 'Goal guide for mobility and inflammation-adjacent supplement decisions.' },
+    ],
+  },
+}
+
+function getRecordName(record: any) {
+  return formatDisplayLabel(record?.displayName || record?.name || record?.slug)
+}
+
+function getMechanisms(record: any) {
+  return unique([
+    ...list(record?.mechanisms),
+    ...list(record?.mechanism),
+    ...list(record?.pathways),
+    ...list(record?.pathway_bucket),
+  ]).filter(isClean)
+}
+
+function getEffects(record: any) {
+  return unique([
+    ...list(record?.primary_effects),
+    ...list(record?.primaryEffects),
+    ...list(record?.effects),
+    ...list(record?.best_for),
+    ...list(record?.bestFor),
+  ]).filter(isClean)
+}
+
+function RecordCard({ record, href, type }: { record: any; href: string; type: 'herb' | 'compound' }) {
+  const name = getRecordName(record)
+  const signals = getPathwaySignals(record).slice(0, 3)
+  const summary = cleanSummary(record?.summary || record?.description || '', type)
+
+  if (!name) return null
+
+  return (
+    <Link href={href} className="card-premium group p-5">
+      <div className="space-y-4">
+        <EvidenceBadgeGroup record={record} compact />
+
+        <div className="flex flex-wrap gap-2">
+          {signals.map((signal) => (
+            <span key={signal} className="chip-readable">
+              {signal}
+            </span>
+          ))}
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold text-ink transition group-hover:text-brand-700">
+            {name}
+          </h3>
+
+          <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
+            {summary}
+          </p>
+        </div>
+      </div>
+    </Link>
+  )
+}
+
+export function generatePathwayMetadata(pathway: PathwaySlug): Metadata {
+  const config = configs[pathway]
+  const meta = buildMeta({
+    title: `${config.title} | The Hippie Scientist`,
+    description: config.summary,
+    path: `/pathways/${config.slug}`,
+  })
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.url },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: 'website',
+      url: meta.url,
+      images: [meta.image],
+    },
+  }
+}
+
+export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
+  const normalizedPathway = normalizePathway(pathway)
+  const config = configs[normalizedPathway as keyof typeof configs]
+  const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
+
+  const relatedHerbs = getRelatedPathwayRecords(herbs, pathway)
+    .filter((record: any) => getRuntimeVisibility(record).canRender)
+    .slice(0, 9)
+
+  const relatedCompounds = getRelatedPathwayRecords(compounds, pathway)
+    .filter((record: any) => getRuntimeVisibility(record).canRender)
+    .slice(0, 9)
+
+  const relatedRecords = [...relatedHerbs, ...relatedCompounds]
+  const mechanisms = unique(relatedRecords.flatMap(getMechanisms)).slice(0, 12)
+  const effects = unique(relatedRecords.flatMap(getEffects)).slice(0, 12)
+  const supportedRelated = config.related.filter((item) => item.href.startsWith('/pathways/') || item.href.startsWith('/goals/') || item.href.startsWith('/best-supplements-for-'))
+
+  return (
+    <main className="mx-auto max-w-6xl space-y-10 px-4 py-10">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-8 shadow-card">
+        <div className="max-w-4xl space-y-5">
+          <p className="eyebrow-label">{config.eyebrow}</p>
+
+          <h1 className="heading-premium text-ink">{config.title}</h1>
+
+          <p className="detail-reading text-lg text-[#46574d]">{config.summary}</p>
+
+          <div className="flex flex-wrap gap-2">
+            {config.clusters.map((cluster) => (
+              <span key={cluster} className="chip-readable">
+                {cluster}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="grid gap-5 md:grid-cols-2">
+        <div className="card-premium p-6">
+          <p className="eyebrow-label">Mechanism clusters</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {mechanisms.length > 0 ? mechanisms.map((mechanism) => (
+              <span key={mechanism} className="chip-readable">{mechanism}</span>
+            )) : <p className="text-sm leading-7 text-[#46574d]">Mechanism chips appear when matching workbook records expose clean pathway signals.</p>}
+          </div>
+        </div>
+
+        <div className="card-premium p-6">
+          <p className="eyebrow-label">Associated effects</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {effects.length > 0 ? effects.map((effect) => (
+              <span key={effect} className="chip-readable">{effect}</span>
+            )) : <p className="text-sm leading-7 text-[#46574d]">Effect chips appear when matching workbook records expose clean associated-effect signals.</p>}
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-5">
+        <div className="space-y-2">
+          <p className="eyebrow-label">Scientific discovery graph</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">Related pathways</h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {supportedRelated.map((item) => (
+            <Link key={item.href} href={item.href} className="surface-subtle rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/60">
+              <p className="text-sm font-semibold leading-6 text-ink">{item.label}</p>
+              <p className="mt-2 text-xs leading-5 text-muted-readable">{item.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {relatedHerbs.length > 0 ? (
+        <section className="space-y-5">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Botanical records</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-ink">Herbs related to {getPathwayLabel(pathway)}</h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {relatedHerbs.map((record: any) => (
+              <RecordCard key={record.slug} record={record} href={`/herbs/${record.slug}`} type="herb" />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {relatedCompounds.length > 0 ? (
+        <section className="space-y-5">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Compound records</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-ink">Compounds related to {getPathwayLabel(pathway)}</h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {relatedCompounds.map((record: any) => (
+              <RecordCard key={record.slug} record={record} href={`/compounds/${record.slug}`} type="compound" />
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </main>
+  )
+}
+
+export function CompactRelatedPathways({ record }: { record: any }) {
+  const pathways = getSupportedPathways(record)
+    .filter((pathway) => ['gaba', 'dopamine', 'inflammation'].includes(pathway))
+    .slice(0, 4)
+
+  if (!pathways.length) return null
+
+  return (
+    <section className="card-premium p-5">
+      <div className="space-y-2">
+        <p className="eyebrow-label">Mechanism graph</p>
+        <h2 className="text-xl font-semibold text-ink">Related Pathways</h2>
+      </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {pathways.map((pathway) => (
+          <Link key={pathway} href={`/pathways/${pathway}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
+            {getPathwayLabel(pathway)}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
