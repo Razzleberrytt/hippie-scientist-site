@@ -1,6 +1,7 @@
 import { getEvidenceTier, hasHumanEvidence, hasMechanismEvidence } from '@/lib/evidence'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { getPathwayLabel, getSupportedPathways } from '@/lib/pathways'
+import { collectRuntimeSignals, asList, asLowerText, asText } from '@/lib/runtime-normalize'
 import { buildMeta } from '@/lib/seo'
 
 export type CollectionKind = 'sleep' | 'stress' | 'cholinergic' | 'inflammation' | 'gaba' | 'recovery' | 'relaxation'
@@ -106,30 +107,29 @@ function asArray(records: unknown): any[] {
 }
 
 function safeLower(value: unknown) {
-  return text(value).toLowerCase()
+  return asLowerText(value)
 }
 
 function signalValues(record: any) {
   if (!record || typeof record !== 'object') return []
 
   return unique([
-    text(record.slug),
-    text(record.name),
-    text(record.displayName),
-    text(record.domain),
-    text(record.pathway_bucket),
-    ...list(record.pathways),
-    ...list(record.pathwayTargets),
-    ...list(record.mechanisms),
-    ...list(record.mechanism),
-    ...list(record.primary_effects),
-    ...list(record.primaryEffects),
-    ...list(record.effects),
-    ...list(record.best_for),
-    ...list(record.bestFor),
-    ...list(record.population_tags),
-    text(record.summary),
-    text(record.description),
+    asText(record.slug),
+    asText(record.name),
+    asText(record.displayName),
+    asText(record.domain),
+    asText(record.pathway_bucket),
+    ...asList(record.pathways),
+    ...asList(record.pathwayTargets),
+    ...asList(record.mechanisms),
+    ...asList(record.mechanism),
+    ...asList(record.primary_effects),
+    ...asList(record.primaryEffects),
+    ...asList(record.effects),
+    ...asList(record.best_for),
+    ...asList(record.bestFor),
+    ...asList(record.population_tags),
+    ...collectRuntimeSignals(record),
   ].filter(Boolean))
 }
 
