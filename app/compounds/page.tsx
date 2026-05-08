@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getCompounds } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import '@/styles/premium-cards.css'
 
 function getName(item: any) {
@@ -85,7 +86,8 @@ function safetyClass(level: string) {
 }
 
 export default async function CompoundsPage() {
-  const compounds = await getCompounds()
+  const allCompounds = await getCompounds()
+  const compounds = allCompounds.filter((compound: any) => getRuntimeVisibility(compound).canRender)
   const totalProfiles = compounds.length
   const readyProfiles = compounds.filter((compound: any) => /complete|strong|high|ready/i.test(text(compound.profile_status || compound.summary_quality || compound.safety?.confidence))).length
 
