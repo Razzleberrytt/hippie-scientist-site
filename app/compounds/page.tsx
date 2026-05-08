@@ -4,6 +4,14 @@ import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import '@/styles/premium-cards.css'
 
+function normalize(value: unknown) {
+  return String(value || '')
+}
+
+function normalizeLower(value: unknown) {
+  return normalize(value).toLowerCase()
+}
+
 function getName(item: any) {
   return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
 }
@@ -68,7 +76,7 @@ function getMechanisms(item: any) {
 }
 
 function evidenceClass(level?: string) {
-  const value = String(level || '').toLowerCase()
+  const value = normalizeLower(level)
 
   if (value.includes('strong') || value.includes('high')) {
     return 'evidence-pill-strong'
@@ -82,7 +90,7 @@ function evidenceClass(level?: string) {
 }
 
 function safetyClass(level?: string) {
-  const value = String(level || '').toLowerCase()
+  const value = normalizeLower(level)
 
   if (value.includes('safe') || value.includes('complete') || value.includes('high')) {
     return 'evidence-pill-strong'
@@ -98,8 +106,13 @@ function safetyClass(level?: string) {
 function scoreCompound(item: any) {
   let score = 0
 
-  const quality = text(item.profile_status || item.summary_quality || item.safety?.confidence).toLowerCase()
-  const evidence = text(item.evidence_tier || item.evidence_grade || item.evidenceLevel).toLowerCase()
+  const quality = normalizeLower(
+    text(item.profile_status || item.summary_quality || item.safety?.confidence)
+  )
+
+  const evidence = normalizeLower(
+    text(item.evidence_tier || item.evidence_grade || item.evidenceLevel)
+  )
 
   if (/complete|strong|high|ready/.test(quality)) score += 5
   if (/strong|human|clinical|high/.test(evidence)) score += 4
@@ -121,13 +134,13 @@ export default async function CompoundsPage() {
 
   const readyProfiles = compounds.filter((compound: any) =>
     /complete|strong|high|ready/i.test(
-      text(compound.profile_status || compound.summary_quality || compound.safety?.confidence)
+      normalize(text(compound.profile_status || compound.summary_quality || compound.safety?.confidence))
     )
   ).length
 
   const evidenceForward = compounds.filter((compound: any) =>
     /human|clinical|strong|high/i.test(
-      text(compound.evidence_tier || compound.evidence_grade || compound.evidenceLevel)
+      normalize(text(compound.evidence_tier || compound.evidence_grade || compound.evidenceLevel))
     )
   ).length
 
