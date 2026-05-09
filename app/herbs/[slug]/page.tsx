@@ -5,6 +5,7 @@ import { getCompounds, getHerbBySlug, getHerbs } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getComparisonRuntimeRecords, getRelatedRuntimeRecords, getStackRuntimeRecords } from '@/lib/related-runtime'
+import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
@@ -82,11 +83,17 @@ export default async function HerbDetailPage({ params }: any) {
     .filter((item: any) => getRuntimeVisibility(item).canRender)
     .map((item: any) => ({ ...item, entityType: 'compound' }))
 
-  const relatedProfiles = [...relatedHerbs, ...relatedCompounds].slice(0, 6)
   const graphCandidateRecords = [
     ...herbs.map((item: any) => ({ ...item, entityType: 'herb' })),
     ...compounds.map((item: any) => ({ ...item, entityType: 'compound' })),
   ]
+  const ecosystemContinuityRecords = getEcosystemContinuityRecords(herb, graphCandidateRecords, 6)
+    .filter((item: any) => getRuntimeVisibility(item).canRender)
+  const relatedProfiles = mergeEcosystemContinuityRecords(
+    [...relatedHerbs, ...relatedCompounds],
+    ecosystemContinuityRecords,
+    6,
+  )
   const comparisonRecords = getComparisonRuntimeRecords(herb, graphCandidateRecords, 8)
     .filter((item: any) => getRuntimeVisibility(item).canRender)
   const stackRecords = getStackRuntimeRecords(herb, graphCandidateRecords, 6)
