@@ -43,6 +43,17 @@ const SHEETS = {
   compounds: ['Compound Master V3', 'Site Export Compounds'],
 }
 
+const GRAPH_SHEETS = {
+  nodes: ['KG Nodes'],
+  relationships: ['Relationship Edges'],
+  topics: ['Topic Ecosystems'],
+  pathways: ['Pathway Ecosystems'],
+  comparisons: ['Comparison Candidates'],
+  stacks: ['Stack Synergy'],
+  supernodes: ['Authority Supernodes'],
+  sparseRecovery: ['Sparse Recovery'],
+}
+
 const INDEX_FIELDS = [
   'slug',
   'name',
@@ -71,6 +82,13 @@ function validateWorkbookSheets(workbook) {
     console.warn(`[data] optional sheet missing: ${sheet}`)
   }
 
+  for (const [key, candidates] of Object.entries(GRAPH_SHEETS)) {
+    const resolved = resolveLatestVersionedSheet(workbook, candidates)
+    if (!resolved) {
+      console.warn(`[data] graph sheet missing: ${key}`)
+    }
+  }
+
   if (missingRequired.length) {
     for (const sheet of missingRequired) {
       console.error(`[data] missing required sheet: ${sheet}`)
@@ -88,6 +106,10 @@ function clean(v) {
   return v ? String(v).trim() : ''
 }
 
+function lower(v) {
+  return clean(v).toLowerCase()
+}
+
 function slug(v) {
   return clean(v)
     .toLowerCase()
@@ -96,10 +118,24 @@ function slug(v) {
 }
 
 function splitList(v) {
+  if (Array.isArray(v)) {
+    return v.map(clean).filter(Boolean)
+  }
+
   return clean(v)
     .split(/[|;,]/)
     .map((s) => clean(s))
     .filter(Boolean)
+}
+
+function uniqueList(v) {
+  const seen = new Set()
+  return splitList(v).filter((item) => {
+    const key = lower(item)
+    if (!key || seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
 }
 
 function ensureDir(dir) {
@@ -202,10 +238,46 @@ function resolveSheet(workbook, candidates) {
   return null
 }
 
+function resolveLatestVersionedSheet(workbook, candidates) {
+  const sheetNames = workbook.SheetNames || []
+  const matches = []
+
+  for (const candidate of candidates) {
+    const exact = sheetNames.find(
+      (sheet) => lower(sheet) === lower(candidate)
+    )
+    if (exact) matches.push({ name: exact, version: 0 })
+
+    const prefix = `${lower(candidate)} v`
+    for (const sheet of sheetNames) {
+      const normalized = lower(sheet)
+      if (!normalized.startsWith(prefix)) continue
+      const version = Number.parseInt(normalized.slice(prefix.length), 10)
+      matches.push({
+        name: sheet,
+        version: Number.isFinite(version) ? version : 0,
+      })
+    }
+  }
+
+  matches.sort((a, b) => b.version - a.version || a.name.localeCompare(b.name))
+  return matches[0]?.name || null
+}
+
 function read(workbook, candidates) {
   const resolved = resolveSheet(workbook, candidates)
   if (!resolved) return []
 
+  return XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
+    defval: '',
+  })
+}
+
+function readGraph(workbook, candidates) {
+  const resolved = resolveLatestVersionedSheet(workbook, candidates)
+  if (!resolved) return []
+
+  console.log(`[data] graph sheet loaded: ${resolved}`)
   return XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
     defval: '',
   })
@@ -230,6 +302,294 @@ function pickRuntimeFields(record, allowedFields) {
       return true
     })
   )
+}
+
+function removeEmptyInternalFields(record) {
+  return Object.fromEntries(
+    Object.entries(record).filter(([key, value]) => {
+      if (key.startsWith('__')) return false
+      if (value == null || value === '') return false
+      if (Array.isArray(value) && value.length === 0) return false
+      if (
+        typeof value === 'object' &&
+        !Array.isArray(value) &&
+        Object.keys(value).length === 0
+      ) {
+        return false
+      }
+      return true
+    })
+  )
+}
+
+function compactText(value, maxLength = 420) {
+  const text = clean(value).replace(/\s+/g, ' ')
+  if (text.length <= maxLength) return text
+  return `${text.slice(0, maxLength - 1).trim()}…`
+}
+
+function firstValue(row, fields) {
+  for (const field of fields) {
+    if (row[field] != null && clean(row[field])) return row[field]
+  }
+
+  const normalizedFields = fields.map(lower)
+  for (const [key, value] of Object.entries(row)) {
+    const normalizedKey = lower(key).replace(/[_\s-]+/g, ' ')
+    if (normalizedFields.includes(normalizedKey) && clean(value)) {
+      return value
+    }
+  }
+
+  return ''
+}
+
+function normalizeGraphNode(row) {
+  const name = clean(firstValue(row, ['name', 'node name', 'label', 'title']))
+  const type = lower(firstValue(row, ['type', 'node type', 'entity type']))
+  const id = slug(firstValue(row, ['id', 'node id', 'key']) || name)
+  const profileSlug = slug(firstValue(row, [
+    'slug',
+    'profile slug',
+    'profile_slug',
+    'entity slug',
+    'entity_slug',
+  ]) || name)
+
+  if (!id && !name) return null
+
+  return removeEmptyInternalFields({
+    id: id || profileSlug,
+    slug: profileSlug || id,
+    name,
+    type,
+    aliases: uniqueList(firstValue(row, ['aliases', 'alias', 'synonyms'])),
+    topics: uniqueList(firstValue(row, ['topics', 'topic', 'topic cluster'])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'pathway'])),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms', 'mechanism'])),
+    effects: uniqueList(firstValue(row, ['effects', 'primary effects', 'primary_effects'])),
+    evidence_tier: clean(firstValue(row, ['evidence tier', 'evidence_tier', 'evidence grade'])),
+    authority_score: clean(firstValue(row, ['authority score', 'authority_score', 'score'])),
+    summary: compactText(firstValue(row, ['summary', 'semantic summary', 'graph summary'])),
+    retrieval_summary: compactText(firstValue(row, [
+      'retrieval summary',
+      'semantic summary',
+      'graph context summary',
+      'summary',
+    ])),
+  })
+}
+
+function normalizeRelationship(row) {
+  const source = slug(firstValue(row, ['source', 'source slug', 'source_slug', 'from', 'from slug']))
+  const target = slug(firstValue(row, ['target', 'target slug', 'target_slug', 'to', 'to slug']))
+  const relationshipType = lower(firstValue(row, [
+    'relationship',
+    'relationship type',
+    'edge type',
+    'type',
+  ]))
+
+  if (!source || !target) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id', 'edge id']) || `${source}-${relationshipType || 'related'}-${target}`),
+    source,
+    target,
+    type: relationshipType || 'related',
+    weight: clean(firstValue(row, ['weight', 'score', 'strength'])),
+    rationale: compactText(firstValue(row, ['rationale', 'reason', 'why', 'overlap rationale'])),
+    evidence_context: compactText(firstValue(row, [
+      'evidence context',
+      'evidence_context',
+      'evidence',
+    ])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'pathway overlap', 'pathway_overlap'])),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms', 'mechanism overlap', 'mechanism_overlap'])),
+    topics: uniqueList(firstValue(row, ['topics', 'topic overlap', 'topic_overlap'])),
+  })
+}
+
+function normalizeEcosystem(row, kind) {
+  const name = clean(firstValue(row, ['name', 'topic', 'pathway', 'ecosystem', 'title']))
+  const id = slug(firstValue(row, ['id', `${kind} id`, `${kind}_id`, 'slug']) || name)
+  if (!id && !name) return null
+
+  return removeEmptyInternalFields({
+    id: id || slug(name),
+    slug: slug(firstValue(row, ['slug']) || name || id),
+    name,
+    kind,
+    summary: compactText(firstValue(row, ['summary', 'ecosystem summary', 'semantic summary'])),
+    retrieval_summary: compactText(firstValue(row, [
+      'retrieval summary',
+      'ecosystem summary',
+      'semantic summary',
+      'summary',
+    ])),
+    anchors: uniqueList(firstValue(row, ['anchors', 'anchor profiles', 'authority anchors'])).map(slug),
+    herbs: uniqueList(firstValue(row, ['herbs', 'related herbs'])).map(slug),
+    compounds: uniqueList(firstValue(row, ['compounds', 'related compounds'])).map(slug),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms', 'mechanism themes'])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'pathway themes'])),
+    topics: uniqueList(firstValue(row, ['topics', 'topic themes'])),
+  })
+}
+
+function normalizeComparison(row) {
+  const source = slug(firstValue(row, ['source', 'source slug', 'profile a', 'a']))
+  const target = slug(firstValue(row, ['target', 'target slug', 'profile b', 'b']))
+  if (!source || !target) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id']) || `${source}-vs-${target}`),
+    source,
+    target,
+    rationale: compactText(firstValue(row, ['rationale', 'overlap rationale', 'why compare'])),
+    evidence_context: compactText(firstValue(row, ['evidence context', 'evidence_context', 'evidence framing'])),
+    mechanism_overlap: uniqueList(firstValue(row, ['mechanism overlap', 'mechanism_overlap', 'mechanisms'])),
+    pathway_overlap: uniqueList(firstValue(row, ['pathway overlap', 'pathway_overlap', 'pathways'])),
+    topic_overlap: uniqueList(firstValue(row, ['topic overlap', 'topic_overlap', 'topics'])),
+  })
+}
+
+function normalizeStack(row) {
+  const source = slug(firstValue(row, ['source', 'source slug', 'anchor', 'profile']))
+  const target = slug(firstValue(row, ['target', 'target slug', 'companion', 'candidate']))
+  if (!source || !target) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id']) || `${source}-stack-${target}`),
+    source,
+    target,
+    rationale: compactText(firstValue(row, ['rationale', 'why', 'stack rationale'])),
+    framing: compactText(firstValue(row, ['framing', 'evidence framing', 'exploratory framing'])),
+    mechanism_complementarity: uniqueList(firstValue(row, [
+      'mechanism complementarity',
+      'mechanism_complementarity',
+      'mechanisms',
+    ])),
+    pathway_complementarity: uniqueList(firstValue(row, [
+      'pathway complementarity',
+      'pathway_complementarity',
+      'pathways',
+    ])),
+  })
+}
+
+function normalizeSupernode(row) {
+  const name = clean(firstValue(row, ['name', 'supernode', 'anchor', 'title']))
+  const id = slug(firstValue(row, ['id', 'slug']) || name)
+  if (!id && !name) return null
+
+  return removeEmptyInternalFields({
+    id: id || slug(name),
+    slug: slug(firstValue(row, ['slug']) || name || id),
+    name,
+    summary: compactText(firstValue(row, ['summary', 'authority summary', 'semantic summary'])),
+    retrieval_summary: compactText(firstValue(row, [
+      'retrieval summary',
+      'authority summary',
+      'semantic summary',
+      'summary',
+    ])),
+    anchors: uniqueList(firstValue(row, ['anchors', 'profiles', 'members'])).map(slug),
+    topics: uniqueList(firstValue(row, ['topics', 'topic ecosystems'])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'pathway ecosystems'])),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms'])),
+  })
+}
+
+function normalizeSparseRecovery(row) {
+  const source = slug(firstValue(row, ['source', 'slug', 'profile', 'entity']))
+  if (!source) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id']) || source),
+    source,
+    recovery_type: lower(firstValue(row, ['recovery type', 'recovery_type', 'type'])),
+    recommendations: uniqueList(firstValue(row, ['recommendations', 'candidates', 'related'])).map(slug),
+    rationale: compactText(firstValue(row, ['rationale', 'reason', 'notes'])),
+  })
+}
+
+function sortById(a, b) {
+  return clean(a.id || a.slug || a.name).localeCompare(clean(b.id || b.slug || b.name))
+}
+
+function normalizeGraphRows(rows, normalizer) {
+  const seen = new Set()
+  return rows
+    .map((row) => {
+      try {
+        return normalizer(row)
+      } catch {
+        return null
+      }
+    })
+    .filter(Boolean)
+    .filter((row) => {
+      const key = clean(row.id || row.slug || `${row.source}-${row.target}`)
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    .sort(sortById)
+}
+
+function buildGraphRuntime(workbook) {
+  return {
+    nodes: normalizeGraphRows(readGraph(workbook, GRAPH_SHEETS.nodes), normalizeGraphNode),
+    relationships: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.relationships),
+      normalizeRelationship
+    ),
+    topics: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.topics),
+      (row) => normalizeEcosystem(row, 'topic')
+    ),
+    pathways: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.pathways),
+      (row) => normalizeEcosystem(row, 'pathway')
+    ),
+    comparisons: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.comparisons),
+      normalizeComparison
+    ),
+    stacks: normalizeGraphRows(readGraph(workbook, GRAPH_SHEETS.stacks), normalizeStack),
+    supernodes: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.supernodes),
+      normalizeSupernode
+    ),
+    sparseRecovery: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.sparseRecovery),
+      normalizeSparseRecovery
+    ),
+  }
+}
+
+function writeGraphRuntime(outDir, graph) {
+  const graphDir = path.join(outDir, 'graph')
+
+  writeJson(path.join(graphDir, 'nodes.json'), graph.nodes)
+  writeJson(path.join(graphDir, 'relationships.json'), graph.relationships)
+  writeJson(path.join(graphDir, 'topics.json'), graph.topics)
+  writeJson(path.join(graphDir, 'pathways.json'), graph.pathways)
+  writeJson(path.join(graphDir, 'comparisons.json'), graph.comparisons)
+  writeJson(path.join(graphDir, 'stacks.json'), graph.stacks)
+  writeJson(path.join(graphDir, 'supernodes.json'), graph.supernodes)
+
+  if (graph.sparseRecovery.length) {
+    writeJson(path.join(graphDir, 'sparse-recovery.json'), graph.sparseRecovery)
+  }
+
+  console.log(`[data] graph nodes: ${graph.nodes.length}`)
+  console.log(`[data] graph relationships: ${graph.relationships.length}`)
+  console.log(`[data] graph topics: ${graph.topics.length}`)
+  console.log(`[data] graph pathways: ${graph.pathways.length}`)
+  console.log(`[data] graph comparisons: ${graph.comparisons.length}`)
+  console.log(`[data] graph stacks: ${graph.stacks.length}`)
+  console.log(`[data] graph supernodes: ${graph.supernodes.length}`)
 }
 
 function determineVisibility(record) {
@@ -417,6 +777,7 @@ function main() {
       'iherb_affiliate_url',
     ])))
 
+  const graph = buildGraphRuntime(wb)
   const herbIndex = herbs.map(createIndexPayload)
   const compoundIndex = compounds.map(createIndexPayload)
 
@@ -429,12 +790,14 @@ function main() {
   writeJson(path.join(outDir, 'herbs.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
   writeJson(path.join(outDir, 'agent-patches.json'), loadAgentPatches())
+  writeGraphRuntime(outDir, graph)
 
   console.log(`[data] herbs-index: ${herbIndex.length}`)
   console.log(`[data] compounds-index: ${compoundIndex.length}`)
   console.log(`[data] herb-detail files: ${herbs.length}`)
   console.log(`[data] compound-detail files: ${compounds.length}`)
   console.log('[data] affiliate runtime optimization enabled')
+  console.log('[data] graph runtime export enabled')
 }
 
 main()
