@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { ContentIdentityCard, SemanticBrowseModule } from '@/components/scientific-discovery'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
+import { authorityHomeLinks } from '@/app/authority-links'
 
 type RuntimeFeature = Record<string, any>
 
@@ -109,6 +110,32 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="surface-depth card-spacing">
+        <div className="space-y-3">
+          <p className="eyebrow-label">Authority Ecosystems</p>
+          <h2 className="max-w-3xl text-balance">
+            Explore semantic hubs, rankings, stacks, protocols, and evidence-aware comparisons.
+          </h2>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {authorityHomeLinks.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="card-premium p-5 transition hover:-translate-y-0.5"
+            >
+              <div className="space-y-2">
+                <p className="eyebrow-label">Authority Route</p>
+                <h3 className="text-lg font-semibold tracking-tight text-ink">
+                  {item.label}
+                </h3>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
