@@ -4,6 +4,7 @@ import compounds from '../../../public/data/compounds.json'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+import { KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
 
 function normalize(value: unknown) {
   return String(value || '').toLowerCase()
@@ -59,6 +60,19 @@ function buildCards(records: any[], type: 'herb' | 'compound') {
 const herbCards = buildCards(herbs as any[], 'herb')
 const compoundCards = buildCards(compounds as any[], 'compound')
 
+const hubIntro = [
+  { title: 'Biological context', body: 'Sleep-support exploration intersects with inhibitory neurotransmission, arousal state, circadian rhythm, and recovery biology.' },
+  { title: 'Research focus', body: 'Cards are selected from records with sleep, relaxation, GABA, circadian, melatonin-adjacent, or restorative workbook signals.' },
+  { title: 'Common mechanisms', body: 'Mechanism chips improve navigation, but individual evidence badges and profile cautions should carry the interpretive weight.' },
+]
+
+const graphLinks = [
+  { label: 'GABA pathway', href: '/pathways/gaba', description: 'Inhibitory-tone and relaxation pathway context for sleep-adjacent profiles.' },
+  { label: 'Sleep goal guide', href: '/goals/sleep', description: 'Outcome-led sleep guide for comparing latency, quality, and relaxation support.' },
+  { label: 'Sleep herbs vs melatonin', href: '/sleep-herbs-vs-melatonin', description: 'Comparison cluster linking botanical sleep supports with melatonin context.' },
+  { label: 'Best studied sleep compounds', href: '/collections/best-studied-sleep-compounds', description: 'Collection view for sleep-related compounds with stronger evidence signals.' },
+]
+
 const semanticSignals = [
   'GABA Signaling',
   'Circadian Rhythm',
@@ -96,6 +110,14 @@ export default function SleepExplorePage() {
           </div>
         </div>
       </section>
+
+      <SemanticHubIntro sections={hubIntro} />
+
+      <KnowledgeGraphLinks
+        eyebrow="Pathway companions"
+        title="Follow adjacent sleep research"
+        links={graphLinks}
+      />
 
       <section className="space-y-6">
         <div className="space-y-2">

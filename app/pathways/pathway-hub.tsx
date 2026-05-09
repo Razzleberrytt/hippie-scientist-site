@@ -13,6 +13,7 @@ import {
 } from '@/lib/pathways'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+import { KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
 
 type RelatedPathwayLink = {
   label: string
@@ -26,6 +27,7 @@ type PathwayConfig = {
   eyebrow: string
   summary: string
   clusters: string[]
+  introSections: { title: string; body: string }[]
   related: RelatedPathwayLink[]
 }
 
@@ -36,6 +38,11 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     eyebrow: 'Neurotransmitter cluster',
     summary: 'Explore herbs and compounds with workbook signals around GABA, calming, inhibitory tone, relaxation, and sleep-adjacent mechanisms.',
     clusters: ['GABAergic signaling', 'Inhibitory tone', 'Relaxation and sleep context', 'Calming botanicals and compounds'],
+    introSections: [
+      { title: 'Biological context', body: 'GABA is an inhibitory neurotransmitter system commonly used to frame calming, relaxation, arousal, and sleep-support research.' },
+      { title: 'Research focus', body: 'This hub surfaces records with clean workbook signals for GABA, inhibitory tone, calming botanicals, relaxation, or sleep-adjacent mechanisms.' },
+      { title: 'Mechanism overlap', body: 'GABA labels are discovery signals; profile evidence and safety details remain necessary for interpreting any specific herb or compound.' },
+    ],
     related: [
       { label: 'Dopamine', href: '/pathways/dopamine', description: 'Motivation, focus, reward, and cognition-adjacent neurotransmitter signals.' },
       { label: 'Stress', href: '/best-supplements-for-stress', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
@@ -49,6 +56,11 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     eyebrow: 'Neurotransmitter cluster',
     summary: 'Explore records with existing signals around dopamine, reward, motivation, cognition, focus, and attention-related mechanisms.',
     clusters: ['Dopaminergic signaling', 'Reward and motivation', 'Cognitive performance', 'Focus and attention context'],
+    introSections: [
+      { title: 'Biological context', body: 'Dopamine-related research often intersects with reward, motivation, attention, movement, and cognitive-performance signaling.' },
+      { title: 'Research focus', body: 'This hub groups records that expose dopamine, focus, cognition, motivation, nootropic, or attention-adjacent workbook signals.' },
+      { title: 'Mechanism overlap', body: 'The page is a relationship map, not a claim that every associated profile changes dopamine in humans.' },
+    ],
     related: [
       { label: 'GABA', href: '/pathways/gaba', description: 'Calming and inhibitory signaling that often frames sleep and relaxation context.' },
       { label: 'Inflammation', href: '/pathways/inflammation', description: 'Immune and oxidative-stress signals that can intersect with brain-health research.' },
@@ -61,6 +73,11 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     eyebrow: 'Inflammatory systems cluster',
     summary: 'Explore records with workbook signals around inflammatory tone, cytokines, immune activity, oxidative stress, and antioxidant mechanisms.',
     clusters: ['Inflammatory signaling', 'Cytokine and immune context', 'Oxidative stress', 'Antioxidant-response mechanisms'],
+    introSections: [
+      { title: 'Biological context', body: 'Inflammation research connects immune signaling, cytokine language, oxidative stress, tissue recovery, and mobility outcomes.' },
+      { title: 'Research focus', body: 'Records appear here when workbook signals mention inflammatory tone, antioxidant response, immune activity, cytokines, or recovery-adjacent effects.' },
+      { title: 'Mechanism overlap', body: 'Inflammatory-pathway labels support discovery and comparison; clinical relevance depends on each profile’s evidence maturity.' },
+    ],
     related: [
       { label: 'GABA', href: '/pathways/gaba', description: 'Neurotransmitter and sleep-adjacent signals with calming pathway context.' },
       { label: 'Dopamine', href: '/pathways/dopamine', description: 'Motivation, focus, and cognition-adjacent neurotransmitter context.' },
@@ -186,6 +203,15 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
         </div>
       </section>
 
+      <SemanticHubIntro sections={config.introSections} />
+
+      <SignalPanel
+        eyebrow="Pathway relevance"
+        title="Signals used to organize this hub"
+        description="These themes summarize the biological relationships behind this page and help readers move into adjacent profiles, goals, and collections."
+        signals={config.clusters}
+      />
+
       <section className="grid gap-5 md:grid-cols-2">
         <div className="card-premium p-6">
           <p className="eyebrow-label">Mechanism clusters</p>
@@ -206,21 +232,11 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
         </div>
       </section>
 
-      <section className="space-y-5">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Scientific discovery graph</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">Related pathways</h2>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {supportedRelated.map((item) => (
-            <Link key={item.href} href={item.href} className="surface-subtle rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/60">
-              <p className="text-sm font-semibold leading-6 text-ink">{item.label}</p>
-              <p className="mt-2 text-xs leading-5 text-muted-readable">{item.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <KnowledgeGraphLinks
+        eyebrow="Scientific discovery graph"
+        title="Related pathways and outcome hubs"
+        links={supportedRelated}
+      />
 
       {relatedHerbs.length > 0 ? (
         <section className="space-y-5">
