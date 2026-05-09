@@ -117,7 +117,7 @@ function sortRelated(a: RuntimeRecord, b: RuntimeRecord) {
 function enrichRelatedRecord(source: RuntimeRecord, candidate: RuntimeRecord, sourceSignals: string[], explicitSlugs: string[]) {
   const candidateSignals = collectSignals(candidate)
   const overlap = overlapSignals(sourceSignals, candidateSignals)
-  const relatedGraphKinds = []
+  const relatedGraphKinds: string[] = []
 
   if (explicitSlugs.includes(safeSlug(candidate?.slug))) {
     relatedGraphKinds.push('workbook-explicit')
