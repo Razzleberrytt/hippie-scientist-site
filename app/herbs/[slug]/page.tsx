@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { getCompounds, getHerbBySlug, getHerbs } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
+import { getComparisonRuntimeRecords, getRelatedRuntimeRecords, getStackRuntimeRecords } from '@/lib/related-runtime'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
@@ -83,6 +83,14 @@ export default async function HerbDetailPage({ params }: any) {
     .map((item: any) => ({ ...item, entityType: 'compound' }))
 
   const relatedProfiles = [...relatedHerbs, ...relatedCompounds].slice(0, 6)
+  const graphCandidateRecords = [
+    ...herbs.map((item: any) => ({ ...item, entityType: 'herb' })),
+    ...compounds.map((item: any) => ({ ...item, entityType: 'compound' })),
+  ]
+  const comparisonRecords = getComparisonRuntimeRecords(herb, graphCandidateRecords, 8)
+    .filter((item: any) => getRuntimeVisibility(item).canRender)
+  const stackRecords = getStackRuntimeRecords(herb, graphCandidateRecords, 6)
+    .filter((item: any) => getRuntimeVisibility(item).canRender)
 
   const featuredCollections = getFeaturedCollections(herb)
   const effects = getEffects(herb)
@@ -122,6 +130,8 @@ export default async function HerbDetailPage({ params }: any) {
         record={herb}
         entityType="herb"
         relatedRecords={relatedProfiles}
+        comparisonRecords={comparisonRecords}
+        stackRecords={stackRecords}
         effects={effects}
         summary={summary}
       />
