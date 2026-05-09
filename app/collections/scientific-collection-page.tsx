@@ -13,7 +13,8 @@ import {
   type ScientificCollection,
 } from '@/lib/collections'
 import { formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
-import { KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
 
 type CollectionPageProps = {
   slug: string
@@ -194,6 +195,13 @@ export async function ScientificCollectionPage({ slug }: CollectionPageProps) {
         title="How this collection connects"
         description="These terms summarize the strongest adjacent systems, effects, and mechanism language present in the matching runtime records."
         signals={adjacentThemes}
+      />
+
+      <EcosystemPanelGrid
+        eyebrow="Category ecosystems"
+        title="Where this collection sits in the larger map"
+        panels={getAdjacentEcosystemPanels(adjacentThemes, 4)}
+        limit={4}
       />
 
       <section className="grid gap-5 md:grid-cols-2">

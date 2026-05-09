@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { EcosystemPanelGrid } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getEcosystemPanels } from '@/lib/ecosystem-context'
 import '@/styles/premium-cards.css'
 
 function getName(item: any) {
@@ -204,6 +206,13 @@ export default async function HerbsPage() {
               </div>
             </div>
           </div>
+
+          <EcosystemPanelGrid
+            eyebrow="Associated pathways"
+            title="Botanical ecosystem pathways"
+            panels={getEcosystemPanels(['stress adaptogens sleep recovery cognition inflammation metabolism traditional botanical use'], 4)}
+            limit={4}
+          />
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 xl:gap-6">
             {herbs.map((herb: any, index: number) => {
