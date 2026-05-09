@@ -43,6 +43,17 @@ const SHEETS = {
   compounds: ['Compound Master V3', 'Site Export Compounds'],
 }
 
+const GRAPH_SHEETS = {
+  nodes: ['KG Nodes'], // Resolves KG Nodes, KG Nodes v4, KG Nodes v5, etc.
+  relationships: ['Relationship Edges'],
+  topics: ['Topic Ecosystems'],
+  pathways: ['Pathway Ecosystems'],
+  comparisons: ['Comparison Candidates'],
+  stacks: ['Stack Synergy'],
+  supernodes: ['Authority Supernodes'],
+  sparseRecovery: ['Sparse Recovery'],
+}
+
 const INDEX_FIELDS = [
   'slug',
   'name',
@@ -71,6 +82,13 @@ function validateWorkbookSheets(workbook) {
     console.warn(`[data] optional sheet missing: ${sheet}`)
   }
 
+  for (const [key, candidates] of Object.entries(GRAPH_SHEETS)) {
+    const resolved = resolveLatestVersionedSheet(workbook, candidates)
+    if (!resolved) {
+      console.warn(`[data] graph sheet missing: ${key}`)
+    }
+  }
+
   if (missingRequired.length) {
     for (const sheet of missingRequired) {
       console.error(`[data] missing required sheet: ${sheet}`)
@@ -88,6 +106,10 @@ function clean(v) {
   return v ? String(v).trim() : ''
 }
 
+function lower(v) {
+  return clean(v).toLowerCase()
+}
+
 function slug(v) {
   return clean(v)
     .toLowerCase()
@@ -96,10 +118,24 @@ function slug(v) {
 }
 
 function splitList(v) {
+  if (Array.isArray(v)) {
+    return v.map(clean).filter(Boolean)
+  }
+
   return clean(v)
     .split(/[|;,]/)
     .map((s) => clean(s))
     .filter(Boolean)
+}
+
+function uniqueList(v) {
+  const seen = new Set()
+  return splitList(v).filter((item) => {
+    const key = lower(item)
+    if (!key || seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
 }
 
 function ensureDir(dir) {
@@ -109,6 +145,11 @@ function ensureDir(dir) {
 function writeJson(filePath, data) {
   ensureDir(path.dirname(filePath))
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
+}
+
+function writeCompactJson(filePath, data) {
+  ensureDir(path.dirname(filePath))
+  fs.writeFileSync(filePath, JSON.stringify(data))
 }
 
 function normalizeAffiliateQuery(value) {
@@ -202,6 +243,32 @@ function resolveSheet(workbook, candidates) {
   return null
 }
 
+function resolveLatestVersionedSheet(workbook, candidates) {
+  const sheetNames = workbook.SheetNames || []
+  const matches = []
+
+  for (const candidate of candidates) {
+    const exact = sheetNames.find(
+      (sheet) => lower(sheet) === lower(candidate)
+    )
+    if (exact) matches.push({ name: exact, version: 0 })
+
+    const prefix = `${lower(candidate)} v`
+    for (const sheet of sheetNames) {
+      const normalized = lower(sheet)
+      if (!normalized.startsWith(prefix)) continue
+      const version = Number.parseInt(normalized.slice(prefix.length), 10)
+      matches.push({
+        name: sheet,
+        version: Number.isFinite(version) ? version : 0,
+      })
+    }
+  }
+
+  matches.sort((a, b) => b.version - a.version || a.name.localeCompare(b.name))
+  return matches[0]?.name || null
+}
+
 function read(workbook, candidates) {
   const resolved = resolveSheet(workbook, candidates)
   if (!resolved) return []
@@ -209,6 +276,23 @@ function read(workbook, candidates) {
   return XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
     defval: '',
   })
+}
+
+function readGraph(workbook, candidates) {
+  const resolved = resolveLatestVersionedSheet(workbook, candidates)
+  if (!resolved) return []
+
+  const sheet = workbook.Sheets[resolved]
+  if (!sheet) return []
+
+  try {
+    const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' })
+    console.log(`[data] graph sheet loaded: ${resolved}`)
+    return Array.isArray(rows) ? rows : []
+  } catch (error) {
+    console.warn(`[data] graph sheet skipped: ${resolved} (${error.message})`)
+    return []
+  }
 }
 
 function dedupe(rows) {
@@ -230,47 +314,7 @@ function pickRuntimeFields(record, allowedFields) {
       return true
     })
   )
-}
-
-
-function firstClean(record, fields) {
-  for (const field of fields) {
-    const value = clean(record[field])
-    if (value) return value
-  }
-
-  return ''
-}
-
-function firstList(record, fields) {
-  for (const field of fields) {
-    const values = splitList(record[field])
-    if (values.length) return values
-  }
-
-  return []
-}
-
-function authoritySupernode(record) {
-  const anchorSlugs = new Set(['curcumin', 'berberine', 'nac', 'n-acetylcysteine', 'egcg', 'resveratrol', 'ashwagandha'])
-  const recordSlug = slug(record.slug || record.name)
-  const status = firstClean(record, ['authority_supernode', 'evidence_authority_status', 'authority_status']).toLowerCase()
-  const score = Number(record.authority_score || 0)
-
-  return anchorSlugs.has(recordSlug) || status.includes('supernode') || status.includes('anchor') || status === 'true' || score >= 80
-}
-
-function semanticEcosystemFields(record, type) {
-  return {
-    topic_clusters: firstList(record, ['topic_clusters', 'clusters', type === 'herb' ? 'herb_internal_link_cluster' : 'compound_cluster', 'internal_link_cluster']),
-    ecosystem_tags: firstList(record, ['ecosystem_tags', 'functional_categories', 'tags', 'keywords']),
-    pathway_companions: firstList(record, ['pathway_companions', 'pathways_v2', 'pathways', 'pathway_bucket']),
-    comparison_candidates: firstList(record, ['comparison_candidates', 'comparison_group']),
-    synergy_relationships: firstList(record, ['synergy_relationships', 'synergies', 'stacking_notes']),
-    authority_supernode: authoritySupernode(record),
-    semantic_neighbors: firstList(record, ['semantic_neighbors', 'related_compounds', 'related_herbs']),
-    ecosystem_anchors: firstList(record, ['ecosystem_anchors', 'authority_anchor', 'internal_link_cluster', 'herb_internal_link_cluster']),
-    related_topics: firstList(record, ['related_topics', 'conditions', 'primary_effects', 'effects']),
+}{  related_topics: firstList(record, ['related_topics', 'conditions', 'primary_effects', 'effects']),
     pathway_ecosystems: firstList(record, ['pathway_ecosystems', 'metabolism_pathways', 'pathways_v2', 'pathways']),
     mechanism_ecosystems: firstList(record, ['mechanism_ecosystems', 'mechanism_targets', 'mechanisms', 'mechanism']),
     authority_score: clean(record.authority_score),
@@ -281,6 +325,369 @@ function semanticEcosystemFields(record, type) {
   }
 }
 
+=======
+function removeEmptyInternalFields(record) {
+  const entries = Object.entries(record)
+    .filter(([key]) => !key.startsWith('__'))
+    .map(([key, value]) => [key, sanitizeGraphValue(value)])
+    .filter(([, value]) => {
+      if (value == null || value === '') return false
+      if (Array.isArray(value) && value.length === 0) return false
+      if (
+        typeof value === 'object' &&
+        !Array.isArray(value) &&
+        Object.keys(value).length === 0
+      ) {
+        return false
+      }
+      return true
+    })
+
+  return Object.fromEntries(entries)
+}
+
+function sanitizeGraphValue(value) {
+  if (Array.isArray(value)) {
+    return value
+      .map(sanitizeGraphValue)
+      .filter((item) => item != null && item !== '')
+      .filter((item) => !Array.isArray(item) || item.length > 0)
+      .filter((item) => typeof item !== 'object' || Array.isArray(item) || Object.keys(item).length > 0)
+  }
+
+  if (value && typeof value === 'object') {
+    return removeEmptyInternalFields(value)
+  }
+
+  return value
+}
+
+function graphNumber(value) {
+  const text = clean(value)
+  if (!text) return null
+  const number = Number(text)
+  return Number.isFinite(number) ? number : null
+}
+
+function compactText(value, maxLength = 420) {
+  const text = clean(value).replace(/\s+/g, ' ')
+  if (text.length <= maxLength) return text
+  return `${text.slice(0, maxLength - 1).trim()}…`
+}
+
+function firstValue(row, fields) {
+  for (const field of fields) {
+    if (row[field] != null && clean(row[field])) return row[field]
+  }
+
+  const normalizedFields = fields.map(lower)
+  for (const [key, value] of Object.entries(row)) {
+    const normalizedKey = lower(key).replace(/[_\s-]+/g, ' ')
+    if (normalizedFields.includes(normalizedKey) && clean(value)) {
+      return value
+    }
+  }
+
+  return ''
+}
+
+function normalizeGraphNode(row) {
+  const name = clean(firstValue(row, ['name', 'node name', 'label', 'title']))
+  const type = lower(firstValue(row, ['type', 'node type', 'entity type', 'profile type', 'profile_type']))
+  const id = slug(firstValue(row, ['id', 'node id', 'key', 'slug']) || name)
+  const profileSlug = slug(firstValue(row, [
+    'slug',
+    'profile slug',
+    'profile_slug',
+    'entity slug',
+    'entity_slug',
+  ]) || name)
+
+  if (!id && !name) return null
+
+  return removeEmptyInternalFields({
+    id: id || profileSlug,
+    slug: profileSlug || id,
+    name,
+    type,
+    aliases: uniqueList(firstValue(row, ['aliases', 'alias', 'synonyms'])),
+    topics: uniqueList(firstValue(row, ['topics', 'topic', 'topic cluster', 'topic ecosystems', 'topic_ecosystems'])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'pathway', 'canonical pathways', 'canonical_pathways'])),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms', 'mechanism', 'canonical mechanisms', 'canonical_mechanisms'])),
+    effects: uniqueList(firstValue(row, ['effects', 'primary effects', 'primary_effects'])),
+    evidence_tier: clean(firstValue(row, ['evidence tier', 'evidence_tier', 'evidence grade'])),
+    graph_score: graphNumber(firstValue(row, ['graph score', 'graph_score'])),
+    relationship_density: graphNumber(firstValue(row, ['relationship density', 'relationship_density'])),
+    centrality_score: graphNumber(firstValue(row, ['centrality score', 'centrality_score'])),
+    authority_role: clean(firstValue(row, ['authority role', 'authority_role'])),
+    sparse_profile: lower(firstValue(row, ['sparse profile', 'sparse_profile'])),
+    safety_flags: uniqueList(firstValue(row, ['safety flags', 'safety_flags'])),
+    summary: compactText(firstValue(row, ['summary', 'semantic summary', 'graph summary', 'ecosystem aware frame', 'ecosystem_aware_frame'])),
+    retrieval_summary: compactText(firstValue(row, [
+      'retrieval summary',
+      'semantic summary',
+      'graph context summary',
+      'ecosystem aware frame',
+      'ecosystem_aware_frame',
+      'summary',
+    ])),
+  })
+}
+
+function normalizeRelationship(row) {
+  const source = slug(firstValue(row, ['source', 'source slug', 'source_slug', 'from', 'from slug']))
+  const target = slug(firstValue(row, ['target', 'target slug', 'target_slug', 'to', 'to slug']))
+  const relationshipType = lower(firstValue(row, [
+    'relationship',
+    'relationship type',
+    'relationship_type',
+    'edge type',
+    'type',
+  ]))
+
+  if (!source || !target) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id', 'edge id']) || `${source}-${relationshipType || 'related'}-${target}`),
+    source,
+    target,
+    type: relationshipType || 'related',
+    weight: graphNumber(firstValue(row, ['weight', 'score', 'strength', 'overlap score', 'overlap_score'])),
+    rationale: compactText(firstValue(row, ['rationale', 'reason', 'why', 'overlap rationale'])),
+    evidence_context: compactText(firstValue(row, [
+      'evidence context',
+      'evidence_context',
+      'evidence',
+    ])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'shared pathways', 'shared_pathways', 'pathway overlap', 'pathway_overlap'])),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms', 'shared mechanisms', 'shared_mechanisms', 'mechanism overlap', 'mechanism_overlap'])),
+    topics: uniqueList(firstValue(row, ['topics', 'shared topics', 'shared_topics', 'topic overlap', 'topic_overlap'])),
+  })
+}
+
+function normalizeEcosystem(row, kind) {
+  const name = clean(firstValue(row, ['name', 'topic', 'topic ecosystem', 'topic_ecosystem', 'pathway', 'ecosystem', 'title']))
+  const id = slug(firstValue(row, ['id', `${kind} id`, `${kind}_id`, 'slug']) || name)
+  if (!id && !name) return null
+
+  return removeEmptyInternalFields({
+    id: id || slug(name),
+    slug: slug(firstValue(row, ['slug']) || name || id),
+    name,
+    kind,
+    summary: compactText(firstValue(row, ['summary', 'ecosystem summary', 'semantic summary', 'ecosystem notes', 'ecosystem_notes', 'evidence context'])),
+    retrieval_summary: compactText(firstValue(row, [
+      'retrieval summary',
+      'ecosystem summary',
+      'semantic summary',
+      'evidence framing',
+      'evidence clusters',
+      'strongest evidence supported relationships',
+      'summary',
+    ])),
+    anchors: uniqueList(firstValue(row, ['anchors', 'anchor profiles', 'authority anchors', 'representative hubs', 'relationship hubs', 'relationship_hubs'])).map(slug),
+    herbs: uniqueList(firstValue(row, ['herbs', 'related herbs', 'top herbs', 'top_herbs'])).map(slug),
+    compounds: uniqueList(firstValue(row, ['compounds', 'related compounds', 'top compounds', 'top_compounds'])).map(slug),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms', 'mechanism themes', 'core mechanisms', 'core_mechanisms', 'overlapping mechanisms', 'overlapping_mechanisms', 'mechanism overlap'])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'pathway themes', 'core pathways', 'core_pathways'])),
+    topics: uniqueList(firstValue(row, ['topics', 'topic themes', 'related topics', 'related_topics'])),
+    companions: uniqueList(firstValue(row, ['pathway companions', 'pathway_companions'])).map(slug),
+    related_pathways: uniqueList(firstValue(row, ['related pathways', 'related_pathways'])),
+  })
+}
+
+function normalizeComparison(row) {
+  const source = slug(firstValue(row, ['source', 'source slug', 'profile a slug', 'profile_a_slug', 'profile a', 'profile_a', 'entity a', 'entity_a', 'a']))
+  const target = slug(firstValue(row, ['target', 'target slug', 'profile b slug', 'profile_b_slug', 'profile b', 'profile_b', 'entity b', 'entity_b', 'b']))
+  if (!source || !target) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id']) || `${source}-vs-${target}`),
+    source,
+    target,
+    rationale: compactText(firstValue(row, ['rationale', 'comparison rationale', 'comparison_rationale', 'overlap rationale', 'why compare'])),
+    evidence_context: compactText(firstValue(row, ['evidence context', 'evidence_context', 'evidence framing', 'evidence relationship', 'evidence_relationship', 'evidence restraint', 'evidence_restraint'])),
+    mechanism_overlap: uniqueList(firstValue(row, ['mechanism overlap', 'mechanism_overlap', 'mechanism similarity', 'mechanism_similarity', 'mechanisms'])),
+    pathway_overlap: uniqueList(firstValue(row, ['pathway overlap', 'pathway_overlap', 'pathways'])),
+    topic_overlap: uniqueList(firstValue(row, ['topic overlap', 'topic_overlap', 'overlap context', 'overlap_context', 'comparison basis', 'comparison_basis', 'topics'])),
+    type: clean(firstValue(row, ['type', 'comparison type', 'comparison_type', 'candidate type', 'candidate_type'])),
+    claim_restraint: compactText(firstValue(row, ['claim restraint', 'claim_restraint'])),
+    priority: lower(firstValue(row, ['priority'])),
+  })
+}
+
+function normalizeStack(row) {
+  const source = slug(firstValue(row, ['source', 'source slug', 'profile a slug', 'profile_a_slug', 'profile a', 'profile_a', 'anchor', 'profile']))
+  const target = slug(firstValue(row, ['target', 'target slug', 'profile b slug', 'profile_b_slug', 'profile b', 'profile_b', 'companion', 'candidate']))
+  if (!source || !target) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id']) || `${source}-stack-${target}`),
+    source,
+    target,
+    rationale: compactText(firstValue(row, ['rationale', 'why', 'stack rationale'])),
+    framing: compactText(firstValue(row, ['framing', 'evidence framing', 'exploratory framing', 'stack context', 'stack_context'])),
+    safety_gate: compactText(firstValue(row, ['safety gate', 'safety_gate'])),
+    mechanism_complementarity: uniqueList(firstValue(row, [
+      'mechanism complementarity',
+      'mechanism_complementarity',
+      'complementary mechanisms',
+      'complementary_mechanisms',
+      'mechanisms',
+    ])),
+    pathway_complementarity: uniqueList(firstValue(row, [
+      'pathway complementarity',
+      'pathway_complementarity',
+      'pathway context',
+      'pathway_context',
+      'pathways',
+    ])),
+  })
+}
+
+function normalizeSupernode(row) {
+  const name = clean(firstValue(row, ['name', 'supernode', 'anchor', 'title', 'profile']))
+  const id = slug(firstValue(row, ['id', 'slug']) || name)
+  if (!id && !name) return null
+
+  return removeEmptyInternalFields({
+    id: id || slug(name),
+    slug: slug(firstValue(row, ['slug']) || name || id),
+    name,
+    type: clean(firstValue(row, ['supernode type', 'supernode_type', 'type'])),
+    profile_type: lower(firstValue(row, ['profile type', 'profile_type'])),
+    graph_score: graphNumber(firstValue(row, ['graph score', 'graph_score'])),
+    relationship_density: graphNumber(firstValue(row, ['relationship density', 'relationship_density'])),
+    summary: compactText(firstValue(row, ['summary', 'authority summary', 'semantic summary', 'authority notes', 'authority_notes'])),
+    retrieval_summary: compactText(firstValue(row, [
+      'retrieval summary',
+      'authority summary',
+      'semantic summary',
+      'authority notes',
+      'authority_notes',
+      'summary',
+    ])),
+    anchors: uniqueList(firstValue(row, ['anchors', 'profiles', 'members'])).map(slug),
+    topics: uniqueList(firstValue(row, ['topics', 'topic ecosystems', 'primary ecosystems', 'primary_ecosystems'])),
+    pathways: uniqueList(firstValue(row, ['pathways', 'pathway ecosystems', 'primary pathways', 'primary_pathways'])),
+    mechanisms: uniqueList(firstValue(row, ['mechanisms'])),
+  })
+}
+
+function normalizeSparseRecovery(row) {
+  const source = slug(firstValue(row, ['source', 'slug', 'profile', 'entity']))
+  if (!source) return null
+
+  return removeEmptyInternalFields({
+    id: slug(firstValue(row, ['id']) || source),
+    source,
+    profile_type: lower(firstValue(row, ['profile type', 'profile_type'])),
+    topics: uniqueList(firstValue(row, ['ecosystem placement', 'ecosystem_placement'])),
+    mechanisms: uniqueList(firstValue(row, ['strongest mechanistic signal', 'strongest_mechanistic_signal'])),
+    pathways: uniqueList(firstValue(row, ['strongest pathway context', 'strongest_pathway_context'])),
+    recommendations: uniqueList(firstValue(row, ['relationship targets', 'relationship_targets', 'recommendations', 'candidates', 'related'])).map(slug),
+    rationale: compactText(firstValue(row, ['exploratory research frame', 'exploratory_research_frame', 'rationale', 'reason', 'notes'])),
+    sparse_reason: compactText(firstValue(row, ['sparse reason', 'sparse_reason'])),
+  })
+}
+
+function sortById(a, b) {
+  return clean(a.id || a.slug || a.name).localeCompare(clean(b.id || b.slug || b.name))
+}
+
+function normalizeGraphRows(rows, normalizer) {
+  const seen = new Set()
+  if (!Array.isArray(rows)) return []
+
+  return rows
+    .map((row) => {
+      try {
+        if (!row || typeof row !== 'object') return null
+        return normalizer(row)
+      } catch {
+        return null
+      }
+    })
+    .filter(Boolean)
+    .filter((row) => {
+      const key = clean(row.id || row.slug || `${row.source}-${row.target}`)
+      if (!key || seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    .sort(sortById)
+}
+
+function loadWorkbookGraphSheets(workbook) {
+  return {
+    nodes: normalizeGraphRows(readGraph(workbook, GRAPH_SHEETS.nodes), normalizeGraphNode),
+    relationships: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.relationships),
+      normalizeRelationship
+    ),
+    topics: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.topics),
+      (row) => normalizeEcosystem(row, 'topic')
+    ),
+    pathways: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.pathways),
+      (row) => normalizeEcosystem(row, 'pathway')
+    ),
+    comparisons: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.comparisons),
+      normalizeComparison
+    ),
+    stacks: normalizeGraphRows(readGraph(workbook, GRAPH_SHEETS.stacks), normalizeStack),
+    supernodes: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.supernodes),
+      normalizeSupernode
+    ),
+    sparseRecovery: normalizeGraphRows(
+      readGraph(workbook, GRAPH_SHEETS.sparseRecovery),
+      normalizeSparseRecovery
+    ),
+  }
+}
+
+function mergeSparseRecoveryIntoNodes(nodes, sparseRecovery) {
+  const sparseBySlug = new Map(sparseRecovery.map((row) => [row.source, row]))
+  const merged = nodes.map((node) => {
+    const recovery = sparseBySlug.get(node.slug || node.id)
+    if (!recovery) return node
+
+    sparseBySlug.delete(node.slug || node.id)
+    return removeEmptyInternalFields({
+      ...node,
+      sparse_recovery: {
+        topics: recovery.topics,
+        mechanisms: recovery.mechanisms,
+        pathways: recovery.pathways,
+        recommendations: recovery.recommendations,
+        rationale: recovery.rationale,
+        sparse_reason: recovery.sparse_reason,
+      },
+    })
+  })
+
+  for (const recovery of sparseBySlug.values()) {
+    merged.push(removeEmptyInternalFields({
+      id: recovery.source,
+      slug: recovery.source,
+      type: recovery.profile_type,
+      sparse_profile: 'yes',
+      sparse_recovery: {
+        topics: recovery.topics,
+        mechanisms: recovery.mechanisms,
+        pathways: recovery.pathways,
+        recommendations: recovery.recommendations,
+        rationale: recovery.rationale,
+        sparse_reason: recovery.sparse_reason,
+      },
+    }))
+  }
+
+  return merged.sort(sortById)
+}
 function determineVisibility(record) {
   const profile = clean(record.profile_status).toLowerCase()
   const quality = clean(record.summary_quality).toLowerCase()
@@ -476,6 +883,10 @@ function main() {
       'iherb_affiliate_url',
     ])))
 
+  const graph = loadWorkbookGraphSheets(wb)
+  logWorkbookGraphSheetCounts(graph)
+  writeWorkbookGraphPayloads(outDir, graph)
+
   const herbIndex = herbs.map(createIndexPayload)
   const compoundIndex = compounds.map(createIndexPayload)
 
@@ -494,6 +905,7 @@ function main() {
   console.log(`[data] herb-detail files: ${herbs.length}`)
   console.log(`[data] compound-detail files: ${compounds.length}`)
   console.log('[data] affiliate runtime optimization enabled')
+  console.log('[data] workbook graph runtime exports written')
 }
 
 main()

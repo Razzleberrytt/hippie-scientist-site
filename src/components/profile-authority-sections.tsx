@@ -29,6 +29,8 @@ type ProfileAuthoritySectionsProps = {
   record: any
   entityType: EntityType
   relatedRecords?: any[]
+  comparisonRecords?: any[]
+  stackRecords?: any[]
   effects?: string[]
   mechanisms?: string[]
   summary?: string
@@ -679,6 +681,104 @@ function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType
   )
 }
 
+
+function GraphCandidateCard({ item, entityType, kind }: { item: any; entityType: EntityType; kind: 'comparison' | 'stack' }) {
+  const targetType = item.entityType === 'herb' || item.entityType === 'compound' ? item.entityType : entityType
+  const mechanismSignals = cleanList(kind === 'stack' ? item.graphMechanismComplementarity : item.graphMechanismOverlap, 3)
+  const pathwaySignals = cleanList(kind === 'stack' ? item.graphPathwayComplementarity : item.graphPathwayOverlap, 3)
+  const ecosystemSignals = cleanList(item.graphEcosystemOverlap, 2)
+  const evidenceContext = text(item.graphEvidenceContext)
+  const rationale = text(item.graphCandidateRationale)
+
+  return (
+    <Link
+      href={getRelatedHref(targetType, item.slug)}
+      className="surface-subtle group rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/70"
+    >
+      <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-900/50">
+        {kind === 'comparison' ? 'Contextual comparison' : 'Exploratory stack context'}
+      </p>
+      <h3 className="mt-2 text-lg font-semibold text-ink transition group-hover:text-brand-700">
+        {formatDisplayLabel(item.name || item.slug)}
+      </h3>
+      <p className="mt-2 text-sm leading-7 text-[#46574d]">
+        {compressEditorialCopy(
+          rationale ||
+            (kind === 'comparison'
+              ? 'Shared graph signals make this a conservative comparison candidate, not an efficacy or superiority claim.'
+              : 'Complementary graph signals make this an exploratory research pairing, not dosing or treatment advice.'),
+        )}
+      </p>
+      {evidenceContext ? (
+        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-brand-900/55">
+          {compressEditorialCopy(evidenceContext)}
+        </p>
+      ) : null}
+      <div className="mt-3 space-y-2">
+        <SignalList items={[...mechanismSignals, ...pathwaySignals, ...ecosystemSignals].slice(0, 6)} />
+      </div>
+    </Link>
+  )
+}
+
+function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, compact }: {
+  comparisonRecords: any[]
+  stackRecords: any[]
+  entityType: EntityType
+  compact: boolean
+}) {
+  const comparisons = (comparisonRecords || [])
+    .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
+    .slice(0, 8)
+  const stacks = (stackRecords || [])
+    .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
+    .slice(0, 6)
+
+  if (comparisons.length === 0 && stacks.length === 0) return null
+
+  return (
+    <AuthorityCard
+      title="Graph Intelligence"
+      compact={compact}
+      description="Graph candidates are shown as evidence-aware context only. They do not imply superiority, treatment recommendations, or dosing guidance."
+    >
+      <div className="space-y-6">
+        {comparisons.length > 0 ? (
+          <section className="space-y-3">
+            <div className="space-y-1">
+              <h3 className="text-lg font-semibold tracking-tight text-ink">Comparison candidates</h3>
+              <p className="text-sm leading-7 text-[#5b6b61]">
+                Conservative candidates based on relationship, mechanism, pathway, and ecosystem overlap.
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {comparisons.slice(0, compact ? 3 : 8).map((item: any) => (
+                <GraphCandidateCard key={`comparison-${item.slug}`} item={item} entityType={entityType} kind="comparison" />
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {stacks.length > 0 ? (
+          <section className="space-y-3">
+            <div className="space-y-1">
+              <h3 className="text-lg font-semibold tracking-tight text-ink">Stack and synergy context</h3>
+              <p className="text-sm leading-7 text-[#5b6b61]">
+                Exploratory pairings require biological adjacency and complementary mechanism or pathway signals before display.
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {stacks.slice(0, compact ? 3 : 6).map((item: any) => (
+                <GraphCandidateCard key={`stack-${item.slug}`} item={item} entityType={entityType} kind="stack" />
+              ))}
+            </div>
+          </section>
+        ) : null}
+      </div>
+    </AuthorityCard>
+  )
+}
+
 function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '', baseRecord }: any) {
   const visible = rankEvidenceSensitiveRelatedRecords(baseRecord, relatedRecords || [], compact ? 3 : 8)
     .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
@@ -728,6 +828,8 @@ export default function ProfileAuthoritySections({
   record,
   entityType,
   relatedRecords = [],
+  comparisonRecords = [],
+  stackRecords = [],
   effects: providedEffects,
   mechanisms: providedMechanisms,
   summary: providedSummary,
@@ -790,7 +892,9 @@ export default function ProfileAuthoritySections({
     mechanisms.length > 0 ||
     safetySignals.length > 0 ||
     contextualSignals.length > 0 ||
-    relatedRecords.length > 0
+    relatedRecords.length > 0 ||
+    comparisonRecords.length > 0 ||
+    stackRecords.length > 0
 
   if (!hasContent) return null
 
@@ -857,6 +961,13 @@ export default function ProfileAuthoritySections({
           </div>
         </AuthorityCard>
       ) : null}
+
+      <GraphIntelligenceRails
+        comparisonRecords={comparisonRecords}
+        stackRecords={stackRecords}
+        entityType={entityType}
+        compact={compact}
+      />
 
       <MonetizationInsertionZone zone="affiliate-product-cards" />
       <MonetizationInsertionZone zone="stack-modules" />
