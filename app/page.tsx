@@ -1,9 +1,12 @@
 import HomepageV2 from '@/components/homepage-v2'
-import { getCompounds, getHerbs } from '@/lib/runtime-data'
+import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 
 export default async function Page() {
-  const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
+  const [herbs, compounds] = await Promise.all([
+    getHerbSummaryIndex(),
+    getCompoundSummaryIndex(),
+  ])
 
   const featuredHerbs = herbs
     .filter((item: any) => getRuntimeVisibility(item).canFeature)
