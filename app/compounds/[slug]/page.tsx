@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getCompoundBySlug, getCompounds, getHerbs } from '@/lib/runtime-data'
+import { getCompoundBySlug } from '@/lib/runtime-data'
+import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import TrustBar from '@/components/ui/TrustBar'
 import ReadingProgress from '@/components/ui/ReadingProgress'
@@ -24,7 +25,7 @@ import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 
 export async function generateStaticParams() {
-  const compounds = await getCompounds()
+  const { compounds } = await getUnifiedRuntimeRecords()
 
   return compounds
     .filter((compound:any) => getRuntimeVisibility(compound).canRender)
@@ -65,13 +66,17 @@ export async function generateMetadata({ params }: any) {
 }
 
 export default async function CompoundPage({ params }: any) {
-  const [compounds, herbs] = await Promise.all([getCompounds(), getHerbs()])
-
   const compound = await getCompoundBySlug(params.slug)
 
   if (!compound || !getRuntimeVisibility(compound).canRender) {
     notFound()
   }
+
+  const {
+    herbs,
+    compounds,
+    allRecords,
+  } = await getUnifiedRuntimeRecords()
 
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
 
@@ -96,12 +101,7 @@ export default async function CompoundPage({ params }: any) {
     .filter((item:any) => getRuntimeVisibility(item).canRender)
     .map((item:any) => ({ ...item, entityType: 'herb' }))
 
-  const graphCandidateRecords = [
-    ...compounds.map((item:any) => ({ ...item, entityType: 'compound' })),
-    ...herbs.map((item:any) => ({ ...item, entityType: 'herb' })),
-  ]
-
-  const ecosystemContinuityRecords = (await getEcosystemContinuityRecords(compound, graphCandidateRecords, 6))
+  const ecosystemContinuityRecords = (await getEcosystemContinuityRecords(compound, allRecords, 6))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
   const semanticRelated = mergeEcosystemContinuityRecords(
@@ -110,10 +110,10 @@ export default async function CompoundPage({ params }: any) {
     6,
   )
 
-  const comparisonRecords = (await getComparisonRuntimeRecords(compound, graphCandidateRecords, 8))
+  const comparisonRecords = (await getComparisonRuntimeRecords(compound, allRecords, 8))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
-  const stackRecords = (await getStackRuntimeRecords(compound, graphCandidateRecords, 6))
+  const stackRecords = (await getStackRuntimeRecords(compound, allRecords, 6))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
   const featuredCollections = getFeaturedCollections(compound)
