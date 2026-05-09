@@ -130,6 +130,11 @@ const GRAPH_FILES = {
   supernodes: 'supernodes.json',
 } as const
 
+const MAX_RELATED_PROFILES = 12
+const MAX_COMPARISON_CANDIDATES = 8
+const MAX_STACK_CANDIDATES = 6
+const MAX_PATHWAY_COMPANIONS = 10
+
 let graphCache: GraphRuntime | null = null
 
 function asRecord(value: unknown): GraphRecord | null {
@@ -344,13 +349,52 @@ function getRelationships(graph: GraphInput): GraphRelationship[] {
   return normalizeGraphRuntime(graph).relationships || []
 }
 
-function hasSharedItem(a: unknown, b: unknown): boolean {
+function sharedItems(a: unknown, b: unknown): string[] {
   const left = new Set(asList(a).map(normalizeKey).filter(Boolean))
-  if (!left.size) return false
+  if (!left.size) return []
 
-  return asList(b)
-    .map(normalizeKey)
-    .some((key) => key && left.has(key))
+  return unique(
+    asList(b).filter((value) => {
+      const key = normalizeKey(value)
+      return key && left.has(key)
+    })
+  )
+}
+
+function hasSharedItem(a: unknown, b: unknown): boolean {
+  return sharedItems(a, b).length > 0
+}
+
+function clampLimit(limit: number | undefined, fallback: number, max: number): number {
+  const value = Number(limit ?? fallback)
+  if (!Number.isFinite(value)) return fallback
+  return Math.min(max, Math.max(0, value))
+}
+
+function otherEndpoint(
+  edge: GraphRelationship | GraphCandidate,
+  keys: Set<string>
+): string {
+  const source = normalizeKey(edge.source)
+  const target = normalizeKey(edge.target)
+
+  if (source && keys.has(source) && target && !keys.has(target)) return target
+  if (target && keys.has(target) && source && !keys.has(source)) return source
+  return ''
+}
+
+function dedupeByOtherEndpoint<T extends GraphCandidate | GraphRelationship>(
+  rows: T[],
+  keys: Set<string>
+): T[] {
+  const seen = new Set<string>()
+
+  return rows.filter((row) => {
+    const endpoint = otherEndpoint(row, keys)
+    if (!endpoint || seen.has(endpoint)) return false
+    seen.add(endpoint)
+    return true
+  })
 }
 
 function matchesProfile(node: GraphNode, profile: GraphRecord | string): boolean {
@@ -385,11 +429,31 @@ function byNameOrSlug<T extends { id?: string; slug?: string; name?: string }>(
 function candidateScore(candidate: GraphCandidate | GraphRelationship): number {
   const weight = Number(asText(candidate.weight))
   const rationale = asText(candidate.rationale)
-  return (Number.isFinite(weight) ? weight : 0) + (rationale ? 1 : 0)
+  const mechanisms = asList((candidate as GraphRelationship).mechanisms || (candidate as GraphCandidate).mechanism_overlap).length
+  const pathways = asList((candidate as GraphRelationship).pathways || (candidate as GraphCandidate).pathway_overlap).length
+  const complementaryMechanisms = asList((candidate as GraphCandidate).mechanism_complementarity).length
+  const complementaryPathways = asList((candidate as GraphCandidate).pathway_complementarity).length
+
+  return (Number.isFinite(weight) ? weight : 0) +
+    mechanisms * 3 +
+    pathways * 2 +
+    complementaryMechanisms * 2 +
+    complementaryPathways +
+    (rationale ? 1 : 0)
+}
+
+function candidateSortKey(candidate: GraphCandidate | GraphRelationship): string {
+  return [candidate.source, candidate.target, candidate.id, candidate.type]
+    .map(asLowerText)
+    .join('|')
 }
 
 function sortCandidates<T extends GraphCandidate | GraphRelationship>(rows: T[]): T[] {
-  return [...rows].sort((a, b) => candidateScore(b) - candidateScore(a))
+  return [...rows].sort((a, b) => {
+    const scoreDelta = candidateScore(b) - candidateScore(a)
+    if (scoreDelta !== 0) return scoreDelta
+    return candidateSortKey(a).localeCompare(candidateSortKey(b))
+  })
 }
 
 export function getGraphNode(profile: ProfileInput): GraphNode | null
@@ -434,32 +498,45 @@ export function getRelatedProfiles(
 
   const direct = getRelationships(graph).filter(
     (relationship) =>
-      keys.has(normalizeKey(relationship.source)) ||
-      keys.has(normalizeKey(relationship.target))
+      otherEndpoint(relationship, keys) &&
+      (keys.has(normalizeKey(relationship.source)) ||
+        keys.has(normalizeKey(relationship.target)))
   )
 
   const semanticFallback = node
     ? getNodes(graph)
         .filter((candidate) => !matchesProfile(candidate, node))
-        .filter(
-          (candidate) =>
-            hasSharedItem(node.mechanisms, candidate.mechanisms) ||
-            hasSharedItem(node.pathways, candidate.pathways) ||
-            hasSharedItem(node.topics, candidate.topics)
-        )
-        .map((candidate) => ({
-          id: `${node.slug || node.id}-${candidate.slug || candidate.id}`,
-          source: node.slug || node.id,
-          target: candidate.slug || candidate.id,
-          type: 'semantic-overlap',
-          rationale: 'Related by shared mechanisms, pathways, or topic ecosystem context.',
-          mechanisms: candidate.mechanisms,
-          pathways: candidate.pathways,
-          topics: candidate.topics,
-        }))
+        .map((candidate) => {
+          const mechanisms = sharedItems(node.mechanisms, candidate.mechanisms)
+          const pathways = sharedItems(node.pathways, candidate.pathways)
+          const topics = sharedItems(node.topics, candidate.topics)
+          const overlapScore = mechanisms.length * 3 + pathways.length * 2 + topics.length
+
+          return {
+            id: `${node.slug || node.id}-${candidate.slug || candidate.id}`,
+            source: node.slug || node.id,
+            target: candidate.slug || candidate.id,
+            type: 'semantic-overlap',
+            weight: overlapScore,
+            rationale: 'Related by shared mechanisms, pathways, or topic ecosystem context.',
+            mechanisms,
+            pathways,
+            topics,
+          }
+        })
+        .filter((candidate) => {
+          const mechanismCount = asList(candidate.mechanisms).length
+          const pathwayCount = asList(candidate.pathways).length
+          const topicCount = asList(candidate.topics).length
+
+          return mechanismCount > 0 || pathwayCount > 0 || topicCount >= 2
+        })
     : []
 
-  return sortCandidates([...direct, ...semanticFallback]).slice(0, Math.max(0, limit))
+  return dedupeByOtherEndpoint(
+    sortCandidates([...direct, ...semanticFallback]),
+    keys
+  ).slice(0, clampLimit(limit, 8, MAX_RELATED_PROFILES))
 }
 
 export function getTopicEcosystem(topic: string): GraphEcosystem | null
@@ -508,13 +585,18 @@ export function getComparisonCandidates(
     maybeLimit
   )
   const comparisons = graph.comparisons || []
+  const keys = new Set(profileKeys(profile))
 
-  return sortCandidates(
-    comparisons.filter(
-      (candidate) =>
-        matchesSlug(candidate.source, profile) || matchesSlug(candidate.target, profile)
-    )
-  ).slice(0, Math.max(0, limit))
+  return dedupeByOtherEndpoint(
+    sortCandidates(
+      comparisons.filter(
+        (candidate) =>
+          otherEndpoint(candidate, keys) &&
+          (matchesSlug(candidate.source, profile) || matchesSlug(candidate.target, profile))
+      )
+    ),
+    keys
+  ).slice(0, clampLimit(limit, 8, MAX_COMPARISON_CANDIDATES))
 }
 
 export function getStackCandidates(
@@ -537,13 +619,18 @@ export function getStackCandidates(
     maybeLimit
   )
   const stacks = graph.stacks || []
+  const keys = new Set(profileKeys(profile))
 
-  return sortCandidates(
-    stacks.filter(
-      (candidate) =>
-        matchesSlug(candidate.source, profile) || matchesSlug(candidate.target, profile)
-    )
-  ).slice(0, Math.max(0, limit))
+  return dedupeByOtherEndpoint(
+    sortCandidates(
+      stacks.filter(
+        (candidate) =>
+          otherEndpoint(candidate, keys) &&
+          (matchesSlug(candidate.source, profile) || matchesSlug(candidate.target, profile))
+      )
+    ),
+    keys
+  ).slice(0, clampLimit(limit, 6, MAX_STACK_CANDIDATES))
 }
 
 export function getAuthoritySupernodes(limit?: number): GraphEcosystem[]
@@ -580,7 +667,7 @@ export function getAuthoritySupernodes(
       : maybeLimit ?? 12
   const supernodes = graph.supernodes || []
 
-  if (!profile) return supernodes.slice(0, Math.max(0, limit))
+  if (!profile) return supernodes.slice(0, clampLimit(limit, 12, MAX_RELATED_PROFILES))
 
   const keys = profileKeys(profile)
   if (!keys.length) return []
@@ -596,7 +683,7 @@ export function getAuthoritySupernodes(
         .map(normalizeKey)
         .some((key) => keys.includes(key))
     )
-    .slice(0, Math.max(0, limit))
+    .slice(0, clampLimit(limit, 12, MAX_RELATED_PROFILES))
 }
 
 export function getEcosystemsForProfile(
@@ -623,5 +710,8 @@ export function getEcosystemsForProfile(
       asList(pathway.compounds).map(normalizeKey).some((key) => keys.includes(key))
   )
 
-  return { topics, pathways }
+  return {
+    topics: topics.slice(0, MAX_PATHWAY_COMPANIONS),
+    pathways: pathways.slice(0, MAX_PATHWAY_COMPANIONS),
+  }
 }
