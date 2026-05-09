@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getHerbs } from '@/lib/runtime-data'
+import { getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { EcosystemPanelGrid } from '@/components/semantic-hubs/semantic-hub-sections'
@@ -102,7 +102,7 @@ function scoreHerb(item: any) {
 }
 
 export default async function HerbsPage() {
-  const allHerbs = await getHerbs()
+  const allHerbs = await getHerbSummaryIndex()
 
   const herbs = allHerbs
     .filter((herb: any) => getRuntimeVisibility(herb).canRender)
