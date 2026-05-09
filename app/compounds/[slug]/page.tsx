@@ -19,6 +19,7 @@ import {
 } from '@/lib/evidence-utils'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getComparisonRuntimeRecords, getRelatedRuntimeRecords, getStackRuntimeRecords } from '@/lib/related-runtime'
+import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 
@@ -95,11 +96,19 @@ export default async function CompoundPage({ params }: any) {
     .filter((item:any) => getRuntimeVisibility(item).canRender)
     .map((item:any) => ({ ...item, entityType: 'herb' }))
 
-  const semanticRelated = [...relatedCompounds, ...relatedHerbs].slice(0, 6)
   const graphCandidateRecords = [
     ...compounds.map((item:any) => ({ ...item, entityType: 'compound' })),
     ...herbs.map((item:any) => ({ ...item, entityType: 'herb' })),
   ]
+  const ecosystemContinuityRecords = getEcosystemContinuityRecords(compound, graphCandidateRecords, 6)
+    .filter((item:any) => getRuntimeVisibility(item).canRender)
+
+  const semanticRelated = mergeEcosystemContinuityRecords(
+    [...relatedCompounds, ...relatedHerbs],
+    ecosystemContinuityRecords,
+    6,
+  )
+
   const comparisonRecords = getComparisonRuntimeRecords(compound, graphCandidateRecords, 8)
     .filter((item:any) => getRuntimeVisibility(item).canRender)
   const stackRecords = getStackRuntimeRecords(compound, graphCandidateRecords, 6)
