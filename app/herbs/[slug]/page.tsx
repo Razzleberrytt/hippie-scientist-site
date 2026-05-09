@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getHerbBySlug, getHerbs } from '@/lib/runtime-data'
+import { getCompounds, getHerbBySlug, getHerbs } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
@@ -72,10 +72,17 @@ export default async function HerbDetailPage({ params }: any) {
     notFound()
   }
 
-  const herbs = await getHerbs()
+  const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const relatedHerbs = getRelatedRuntimeRecords(herb, herbs, 6)
+  const relatedHerbs = getRelatedRuntimeRecords(herb, herbs, 4)
     .filter((item: any) => getRuntimeVisibility(item).canRender)
+    .map((item: any) => ({ ...item, entityType: 'herb' }))
+
+  const relatedCompounds = getRelatedRuntimeRecords(herb, compounds, 4)
+    .filter((item: any) => getRuntimeVisibility(item).canRender)
+    .map((item: any) => ({ ...item, entityType: 'compound' }))
+
+  const relatedProfiles = [...relatedHerbs, ...relatedCompounds].slice(0, 6)
 
   const featuredCollections = getFeaturedCollections(herb)
   const effects = getEffects(herb)
@@ -114,7 +121,7 @@ export default async function HerbDetailPage({ params }: any) {
       <ProfileAuthoritySections
         record={herb}
         entityType="herb"
-        relatedRecords={relatedHerbs}
+        relatedRecords={relatedProfiles}
         effects={effects}
         summary={summary}
       />

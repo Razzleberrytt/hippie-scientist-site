@@ -71,10 +71,81 @@ function getSafetySignals(record: any) {
     ...list(record?.safety?.cautionSignals),
     ...list(record?.cautionSignals),
     ...list(record?.avoid),
+    ...list(record?.contraindications),
     ...list(record?.interactions),
+    text(record?.safetyNotes),
     text(record?.safety?.notes),
     text(record?.safety),
   ], 5)
+}
+
+function getAliases(record: any) {
+  const primaryName = formatDisplayLabel(record?.name || record?.slug).toLowerCase()
+
+  return cleanList([
+    ...list(record?.aliases),
+    text(record?.common),
+    text(record?.scientific),
+    text(record?.compoundName),
+    text(record?.canonicalCompoundName),
+    text(record?.displayName),
+  ], 6).filter(item => item.toLowerCase() !== primaryName)
+}
+
+function getPathwaySignals(record: any) {
+  return cleanList([
+    ...list(record?.pathways),
+    ...list(record?.pathway_bucket),
+  ], 6)
+}
+
+function getBiologicalTargets(record: any) {
+  return cleanList([
+    ...list(record?.targets),
+    ...list(record?.biologicalTargets),
+  ], 6)
+}
+
+function getResearchFocus(record: any) {
+  return cleanList([
+    text(record?.evidenceLevel),
+    text(record?.evidence_tier),
+    text(record?.evidenceTier),
+    text(record?.evidence_grade),
+    text(record?.confidenceTier),
+    text(record?.confidence),
+    record?.sourceCount ? `${record.sourceCount} source signals` : '',
+    text(record?.review_status),
+    text(record?.source_status),
+  ], 6)
+}
+
+function getTraditionalContext(record: any) {
+  return cleanList([
+    ...list(record?.traditionalUses),
+    text(record?.preparation),
+    text(record?.region),
+  ], 6)
+}
+
+function getAssociationSignals(record: any, entityType: EntityType) {
+  return cleanList([
+    ...list(record?.activeCompounds),
+    ...list(record?.foundIn),
+    ...list(entityType === 'herb' ? record?.relatedHerbs : record?.relatedCompounds),
+  ], 8)
+}
+
+function getPharmacologyContext(record: any) {
+  return cleanList([
+    text(record?.compoundClass),
+    text(record?.class),
+    text(record?.bioavailability),
+    text(record?.minimum_effective_dose),
+    text(record?.time_to_effect),
+    ...list(record?.population_tags),
+    text(record?.interaction_type),
+  ], 6)
 }
 
 function getEvidenceText(record: any) {
@@ -106,17 +177,20 @@ function getProfileDensity({
   effects,
   mechanisms,
   safetySignals,
+  contextualSignals,
 }: {
   summary: string
   effects: string[]
   mechanisms: string[]
   safetySignals: string[]
+  contextualSignals?: string[]
 }) {
   const score =
     (summary ? 2 : 0) +
     Math.min(effects.length, 3) +
     Math.min(mechanisms.length, 2) +
-    Math.min(safetySignals.length, 2)
+    Math.min(safetySignals.length, 2) +
+    Math.min(contextualSignals?.length || 0, 2)
 
   if (score >= 6) return 'comprehensive'
   if (score >= 3) return 'developing'
@@ -172,6 +246,71 @@ function SignalList({ items }: { items: string[] }) {
         </span>
       ))}
     </div>
+  )
+}
+
+
+function MicroSection({ title, description, items }: { title: string; description?: string; items: string[] }) {
+  if (items.length === 0) return null
+
+  return (
+    <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
+      <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-800/70">{title}</h3>
+      {description ? (
+        <p className="mt-2 text-sm leading-7 text-[#5b6b61]">{description}</p>
+      ) : null}
+      <div className="mt-3">
+        <SignalList items={items} />
+      </div>
+    </div>
+  )
+}
+
+function ContextualMicroSections({
+  aliases,
+  pathways,
+  targets,
+  researchFocus,
+  traditionalContext,
+  associations,
+  pharmacology,
+  safetySignals,
+  compact,
+}: {
+  aliases: string[]
+  pathways: string[]
+  targets: string[]
+  researchFocus: string[]
+  traditionalContext: string[]
+  associations: string[]
+  pharmacology: string[]
+  safetySignals: string[]
+  compact: boolean
+}) {
+  const sections = [
+    { title: 'Also Known As', description: 'Alias and naming context already present in the runtime payload.', items: aliases },
+    { title: 'Biological Context', description: 'Targets and pathway signals are shown as research context, not clinical claims.', items: [...targets, ...pharmacology].slice(0, 6) },
+    { title: 'Research Focus', description: 'Evidence metadata and review status signals help calibrate interpretation.', items: researchFocus },
+    { title: 'Pathway Associations', description: 'Pathway tags connect this profile to broader mechanism clusters.', items: pathways },
+    { title: 'Traditional Context', description: 'Traditional-use and preparation fields are separated from efficacy claims.', items: traditionalContext },
+    { title: 'Safety Notes', description: 'Caution fields are elevated when available so sparse pages still carry risk context.', items: safetySignals },
+    { title: 'Frequently Associated With', description: 'Related herbs, compounds, or source botanicals from the runtime data.', items: associations },
+  ].filter(section => section.items.length > 0)
+
+  if (sections.length === 0) return null
+
+  return (
+    <AuthorityCard
+      title="Context Map"
+      compact={compact}
+      description="High-signal runtime fields are surfaced only when populated, giving sparse profiles compact scientific context without filler."
+    >
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        {sections.slice(0, compact ? 4 : 7).map(section => (
+          <MicroSection key={section.title} {...section} />
+        ))}
+      </div>
+    </AuthorityCard>
   )
 }
 
@@ -507,8 +646,24 @@ export default function ProfileAuthoritySections({
   const mechanisms = getMechanisms(record, providedMechanisms)
   const safetySignals = getSafetySignals(record)
   const evidence = getEvidenceText(record)
+  const aliases = getAliases(record)
+  const pathways = getPathwaySignals(record)
+  const targets = getBiologicalTargets(record)
+  const researchFocus = getResearchFocus(record)
+  const traditionalContext = getTraditionalContext(record)
+  const associations = getAssociationSignals(record, entityType)
+  const pharmacology = getPharmacologyContext(record)
+  const contextualSignals = [
+    ...aliases,
+    ...pathways,
+    ...targets,
+    ...researchFocus,
+    ...traditionalContext,
+    ...associations,
+    ...pharmacology,
+  ]
 
-  const density = getProfileDensity({ summary, effects, mechanisms, safetySignals })
+  const density = getProfileDensity({ summary, effects, mechanisms, safetySignals, contextualSignals })
   const compact = density === 'concise'
   const authoritySignals = getAuthoritySignals(record, density)
   const synthesisInput = {
@@ -516,7 +671,7 @@ export default function ProfileAuthoritySections({
     evidenceTier: evidence,
     effects,
     mechanisms,
-    pathways: cleanList(record?.pathways, 5),
+    pathways,
     safety: safetySignals,
     density,
   }
@@ -526,6 +681,7 @@ export default function ProfileAuthoritySections({
     evidenceTier: evidence,
     effects,
     mechanisms,
+    pathways,
     safety: safetySignals,
     density,
     seed: record?.slug,
@@ -542,6 +698,7 @@ export default function ProfileAuthoritySections({
     effects.length > 0 ||
     mechanisms.length > 0 ||
     safetySignals.length > 0 ||
+    contextualSignals.length > 0 ||
     relatedRecords.length > 0
 
   if (!hasContent) return null
@@ -561,6 +718,18 @@ export default function ProfileAuthoritySections({
       />
 
       <EvidenceOverview record={record} />
+
+      <ContextualMicroSections
+        aliases={aliases}
+        pathways={pathways}
+        targets={targets}
+        researchFocus={researchFocus}
+        traditionalContext={traditionalContext}
+        associations={associations}
+        pharmacology={pharmacology}
+        safetySignals={safetySignals}
+        compact={compact}
+      />
 
       {!compact ? <HighIntentFraming effects={effects} mechanisms={mechanisms} /> : null}
 
