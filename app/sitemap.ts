@@ -8,6 +8,14 @@ import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
 import { seoEntryPages } from './seo-entry-pages'
 import { scientificCollections } from '@/lib/collections'
+import {
+  authorityEcosystemSlugs,
+  authorityTopicSlugs,
+  bestForSlugs,
+  comparisonSlugs,
+  protocolSlugs,
+  stackSlugs,
+} from './authority-links'
 
 export const dynamic = 'force-static'
 
@@ -70,6 +78,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     route('/stacks'),
     route('/goals'),
     route('/compare'),
+    route('/topics'),
+    route('/ecosystems'),
+    route('/protocols'),
 
     ...seoEntryPages.map(page => route(`/${page.route}`)),
     ...clusterRoutes.map(route),
@@ -78,6 +89,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...goalConfigs.map(g => route(`/goals/${g.slug}`)),
     ...bestPages.map(p => route(`/best/${p.slug}`)),
     ...supplementComparisons.map(c => route(`/compare/${c.slug}`)),
+
+    ...authorityTopicSlugs.map((slug) => route(`/topics/${slug}`)),
+    ...authorityEcosystemSlugs.map((slug) => route(`/ecosystems/${slug}`)),
+    ...bestForSlugs.map((slug) => route(`/best/${slug}`)),
+    ...comparisonSlugs.map((slug) => route(`/compare/${slug}`)),
+    ...stackSlugs.map((slug) => route(`/stacks/${slug}`)),
+    ...protocolSlugs.map((slug) => route(`/protocols/${slug}`)),
+
     ...stacks.map(s => cleanSlug(s.slug)).filter(Boolean).map(s => route(`/stacks/${s}`)),
     ...herbSlugs.map(s => route(`/herbs/${s}`)),
     ...compoundSlugs.map(s => route(`/compounds/${s}`)),
