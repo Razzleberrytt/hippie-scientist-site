@@ -101,7 +101,7 @@ export default async function CompoundPage({ params }: any) {
     ...herbs.map((item:any) => ({ ...item, entityType: 'herb' })),
   ]
 
-  const ecosystemContinuityRecords = getEcosystemContinuityRecords(compound, graphCandidateRecords, 6)
+  const ecosystemContinuityRecords = (await getEcosystemContinuityRecords(compound, graphCandidateRecords, 6))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
   const semanticRelated = mergeEcosystemContinuityRecords(
