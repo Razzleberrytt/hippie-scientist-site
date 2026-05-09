@@ -44,7 +44,7 @@ const SHEETS = {
 }
 
 const GRAPH_SHEETS = {
-  nodes: ['KG Nodes'],
+  nodes: ['KG Nodes'], // Resolves KG Nodes, KG Nodes v4, KG Nodes v5, etc.
   relationships: ['Relationship Edges'],
   topics: ['Topic Ecosystems'],
   pathways: ['Pathway Ecosystems'],
@@ -277,10 +277,17 @@ function readGraph(workbook, candidates) {
   const resolved = resolveLatestVersionedSheet(workbook, candidates)
   if (!resolved) return []
 
-  console.log(`[data] graph sheet loaded: ${resolved}`)
-  return XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
-    defval: '',
-  })
+  const sheet = workbook.Sheets[resolved]
+  if (!sheet) return []
+
+  try {
+    const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' })
+    console.log(`[data] graph sheet loaded: ${resolved}`)
+    return Array.isArray(rows) ? rows : []
+  } catch (error) {
+    console.warn(`[data] graph sheet skipped: ${resolved} (${error.message})`)
+    return []
+  }
 }
 
 function dedupe(rows) {
@@ -519,9 +526,12 @@ function sortById(a, b) {
 
 function normalizeGraphRows(rows, normalizer) {
   const seen = new Set()
+  if (!Array.isArray(rows)) return []
+
   return rows
     .map((row) => {
       try {
+        if (!row || typeof row !== 'object') return null
         return normalizer(row)
       } catch {
         return null
@@ -537,7 +547,7 @@ function normalizeGraphRows(rows, normalizer) {
     .sort(sortById)
 }
 
-function buildGraphRuntime(workbook) {
+function loadWorkbookGraphSheets(workbook) {
   return {
     nodes: normalizeGraphRows(readGraph(workbook, GRAPH_SHEETS.nodes), normalizeGraphNode),
     relationships: normalizeGraphRows(
@@ -568,28 +578,15 @@ function buildGraphRuntime(workbook) {
   }
 }
 
-function writeGraphRuntime(outDir, graph) {
-  const graphDir = path.join(outDir, 'graph')
-
-  writeJson(path.join(graphDir, 'nodes.json'), graph.nodes)
-  writeJson(path.join(graphDir, 'relationships.json'), graph.relationships)
-  writeJson(path.join(graphDir, 'topics.json'), graph.topics)
-  writeJson(path.join(graphDir, 'pathways.json'), graph.pathways)
-  writeJson(path.join(graphDir, 'comparisons.json'), graph.comparisons)
-  writeJson(path.join(graphDir, 'stacks.json'), graph.stacks)
-  writeJson(path.join(graphDir, 'supernodes.json'), graph.supernodes)
-
-  if (graph.sparseRecovery.length) {
-    writeJson(path.join(graphDir, 'sparse-recovery.json'), graph.sparseRecovery)
-  }
-
-  console.log(`[data] graph nodes: ${graph.nodes.length}`)
-  console.log(`[data] graph relationships: ${graph.relationships.length}`)
-  console.log(`[data] graph topics: ${graph.topics.length}`)
-  console.log(`[data] graph pathways: ${graph.pathways.length}`)
-  console.log(`[data] graph comparisons: ${graph.comparisons.length}`)
-  console.log(`[data] graph stacks: ${graph.stacks.length}`)
-  console.log(`[data] graph supernodes: ${graph.supernodes.length}`)
+function logWorkbookGraphSheetCounts(graph) {
+  console.log(`[data] graph nodes loaded: ${graph.nodes.length}`)
+  console.log(`[data] graph relationships loaded: ${graph.relationships.length}`)
+  console.log(`[data] graph topics loaded: ${graph.topics.length}`)
+  console.log(`[data] graph pathways loaded: ${graph.pathways.length}`)
+  console.log(`[data] graph comparisons loaded: ${graph.comparisons.length}`)
+  console.log(`[data] graph stacks loaded: ${graph.stacks.length}`)
+  console.log(`[data] graph supernodes loaded: ${graph.supernodes.length}`)
+  console.log(`[data] graph sparse recovery loaded: ${graph.sparseRecovery.length}`)
 }
 
 function determineVisibility(record) {
@@ -777,7 +774,9 @@ function main() {
       'iherb_affiliate_url',
     ])))
 
-  const graph = buildGraphRuntime(wb)
+  const graph = loadWorkbookGraphSheets(wb)
+  logWorkbookGraphSheetCounts(graph)
+
   const herbIndex = herbs.map(createIndexPayload)
   const compoundIndex = compounds.map(createIndexPayload)
 
@@ -790,14 +789,13 @@ function main() {
   writeJson(path.join(outDir, 'herbs.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
   writeJson(path.join(outDir, 'agent-patches.json'), loadAgentPatches())
-  writeGraphRuntime(outDir, graph)
 
   console.log(`[data] herbs-index: ${herbIndex.length}`)
   console.log(`[data] compounds-index: ${compoundIndex.length}`)
   console.log(`[data] herb-detail files: ${herbs.length}`)
   console.log(`[data] compound-detail files: ${compounds.length}`)
   console.log('[data] affiliate runtime optimization enabled')
-  console.log('[data] graph runtime export enabled')
+  console.log('[data] workbook graph sheets loaded without runtime export')
 }
 
 main()
