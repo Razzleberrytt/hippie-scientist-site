@@ -18,7 +18,7 @@ import {
   getSources,
 } from '@/lib/evidence-utils'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
-import { getRelatedRuntimeRecords } from '@/lib/related-runtime'
+import { getComparisonRuntimeRecords, getRelatedRuntimeRecords, getStackRuntimeRecords } from '@/lib/related-runtime'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 
@@ -96,6 +96,14 @@ export default async function CompoundPage({ params }: any) {
     .map((item:any) => ({ ...item, entityType: 'herb' }))
 
   const semanticRelated = [...relatedCompounds, ...relatedHerbs].slice(0, 6)
+  const graphCandidateRecords = [
+    ...compounds.map((item:any) => ({ ...item, entityType: 'compound' })),
+    ...herbs.map((item:any) => ({ ...item, entityType: 'herb' })),
+  ]
+  const comparisonRecords = getComparisonRuntimeRecords(compound, graphCandidateRecords, 8)
+    .filter((item:any) => getRuntimeVisibility(item).canRender)
+  const stackRecords = getStackRuntimeRecords(compound, graphCandidateRecords, 6)
+    .filter((item:any) => getRuntimeVisibility(item).canRender)
 
   const featuredCollections = getFeaturedCollections(compound)
 
@@ -142,6 +150,8 @@ export default async function CompoundPage({ params }: any) {
           record={compound}
           entityType="compound"
           relatedRecords={semanticRelated}
+          comparisonRecords={comparisonRecords}
+          stackRecords={stackRecords}
           effects={effects}
           mechanisms={mechanisms}
           summary={summary}

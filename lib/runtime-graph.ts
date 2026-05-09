@@ -107,6 +107,8 @@ export type GraphCandidate = GraphRecord & {
   topic_overlap?: string[]
   mechanism_complementarity?: string[]
   pathway_complementarity?: string[]
+  ecosystem_overlap?: string[]
+  safety_gate?: string
 }
 
 export type GraphRuntime = {
@@ -277,6 +279,8 @@ function normalizeCandidate(value: unknown): GraphCandidate | null {
     topic_overlap: unique(record.topic_overlap),
     mechanism_complementarity: unique(record.mechanism_complementarity),
     pathway_complementarity: unique(record.pathway_complementarity),
+    ecosystem_overlap: unique(record.ecosystem_overlap || record.ecosystems || record.topics),
+    safety_gate: asText(record.safety_gate),
   }
 }
 
@@ -426,17 +430,111 @@ function byNameOrSlug<T extends { id?: string; slug?: string; name?: string }>(
   )
 }
 
+
+function relationshipToCandidate(
+  relationship: GraphRelationship,
+  type = relationship.type || 'relationship-overlap'
+): GraphCandidate {
+  return {
+    id: relationship.id,
+    source: relationship.source,
+    target: relationship.target,
+    type,
+    weight: relationship.weight,
+    rationale: relationship.rationale || 'Shared mechanism, pathway, or ecosystem context; frame as a comparison prompt rather than an outcome claim.',
+    evidence_context: relationship.evidence_context,
+    mechanism_overlap: unique(relationship.mechanisms),
+    pathway_overlap: unique(relationship.pathways),
+    topic_overlap: unique(relationship.topics),
+    ecosystem_overlap: unique(relationship.topics),
+  }
+}
+
+function nodeComparisonFallback(graph: GraphRuntime, node: GraphNode | null, keys: Set<string>): GraphCandidate[] {
+  if (!node) return []
+
+  return getNodes(graph)
+    .filter((candidate) => !matchesProfile(candidate, node))
+    .map((candidate) => {
+      const mechanisms = sharedItems(node.mechanisms, candidate.mechanisms)
+      const pathways = sharedItems(node.pathways, candidate.pathways)
+      const topics = sharedItems(node.topics, candidate.topics)
+      const overlapScore = mechanisms.length * 3 + pathways.length * 2 + topics.length
+
+      return {
+        id: `${node.slug || node.id}-compare-${candidate.slug || candidate.id}`,
+        source: node.slug || node.id,
+        target: candidate.slug || candidate.id,
+        type: 'semantic-comparison',
+        weight: overlapScore,
+        rationale: 'Semantic comparison candidate based on shared mechanisms, pathways, or ecosystem context; not an efficacy or superiority claim.',
+        evidence_context: 'Evidence context should be read from each profile before interpretation.',
+        mechanism_overlap: mechanisms,
+        pathway_overlap: pathways,
+        topic_overlap: topics,
+        ecosystem_overlap: topics,
+      }
+    })
+    .filter((candidate) => {
+      if (!otherEndpoint(candidate, keys)) return false
+      return asList(candidate.mechanism_overlap).length > 0 ||
+        asList(candidate.pathway_overlap).length > 0 ||
+        asList(candidate.topic_overlap).length >= 2
+    })
+}
+
+function nodeStackFallback(graph: GraphRuntime, node: GraphNode | null, keys: Set<string>): GraphCandidate[] {
+  if (!node) return []
+
+  return getNodes(graph)
+    .filter((candidate) => !matchesProfile(candidate, node))
+    .map((candidate) => {
+      const mechanisms = sharedItems(node.mechanisms, candidate.mechanisms)
+      const pathways = sharedItems(node.pathways, candidate.pathways)
+      const topics = sharedItems(node.topics, candidate.topics)
+      const overlapScore = mechanisms.length * 2 + pathways.length * 2 + topics.length
+
+      return {
+        id: `${node.slug || node.id}-stack-${candidate.slug || candidate.id}`,
+        source: node.slug || node.id,
+        target: candidate.slug || candidate.id,
+        type: 'biological-adjacency',
+        weight: overlapScore,
+        rationale: 'Biologically adjacent research candidate; use only as exploratory education context, not stack advice.',
+        framing: topics.join('; '),
+        evidence_context: 'Exploratory graph context; review profile-specific evidence and safety notes.',
+        mechanism_complementarity: mechanisms,
+        pathway_complementarity: pathways,
+        topic_overlap: topics,
+        ecosystem_overlap: topics,
+        safety_gate: 'review safety context before combining',
+      }
+    })
+    .filter((candidate) => {
+      if (!otherEndpoint(candidate, keys)) return false
+      const mechanismCount = asList(candidate.mechanism_complementarity).length
+      const pathwayCount = asList(candidate.pathway_complementarity).length
+      const topicCount = asList(candidate.topic_overlap).length
+
+      return mechanismCount >= 2 || pathwayCount >= 2 || (mechanismCount + pathwayCount >= 2 && topicCount > 0)
+    })
+}
+
 function candidateScore(candidate: GraphCandidate | GraphRelationship): number {
   const weight = Number(asText(candidate.weight))
   const rationale = asText(candidate.rationale)
   const mechanisms = asList((candidate as GraphRelationship).mechanisms || (candidate as GraphCandidate).mechanism_overlap).length
   const pathways = asList((candidate as GraphRelationship).pathways || (candidate as GraphCandidate).pathway_overlap).length
+  const topics = asList((candidate as GraphRelationship).topics || (candidate as GraphCandidate).topic_overlap).length
+  const ecosystems = asList((candidate as GraphCandidate).ecosystem_overlap).length
   const complementaryMechanisms = asList((candidate as GraphCandidate).mechanism_complementarity).length
   const complementaryPathways = asList((candidate as GraphCandidate).pathway_complementarity).length
 
   return (Number.isFinite(weight) ? weight : 0) +
     mechanisms * 3 +
     pathways * 2 +
+    topics +
+    ecosystems +
     complementaryMechanisms * 2 +
     complementaryPathways +
     (rationale ? 1 : 0)
@@ -584,17 +682,34 @@ export function getComparisonCandidates(
     profileOrLimit,
     maybeLimit
   )
-  const comparisons = graph.comparisons || []
-  const keys = new Set(profileKeys(profile))
+  const node = getGraphNode(graph, profile)
+  const keys = new Set([
+    ...nodeKeys(node),
+    ...profileKeys(profile),
+  ].filter(Boolean))
+
+  if (!keys.size) return []
+
+  const explicit = (graph.comparisons || []).filter(
+    (candidate) =>
+      otherEndpoint(candidate, keys) &&
+      (keys.has(normalizeKey(candidate.source)) || keys.has(normalizeKey(candidate.target)))
+  )
+
+  const relationshipFallback = getRelationships(graph)
+    .filter((relationship) =>
+      otherEndpoint(relationship, keys) &&
+      (keys.has(normalizeKey(relationship.source)) || keys.has(normalizeKey(relationship.target))) &&
+      (asList(relationship.mechanisms).length > 0 || asList(relationship.pathways).length > 0 || asList(relationship.topics).length >= 2)
+    )
+    .map((relationship) => relationshipToCandidate(relationship, 'relationship-overlap'))
 
   return dedupeByOtherEndpoint(
-    sortCandidates(
-      comparisons.filter(
-        (candidate) =>
-          otherEndpoint(candidate, keys) &&
-          (matchesSlug(candidate.source, profile) || matchesSlug(candidate.target, profile))
-      )
-    ),
+    sortCandidates([
+      ...explicit,
+      ...relationshipFallback,
+      ...nodeComparisonFallback(graph, node, keys),
+    ]),
     keys
   ).slice(0, clampLimit(limit, 8, MAX_COMPARISON_CANDIDATES))
 }
@@ -618,17 +733,41 @@ export function getStackCandidates(
     profileOrLimit,
     maybeLimit
   )
-  const stacks = graph.stacks || []
-  const keys = new Set(profileKeys(profile))
+  const node = getGraphNode(graph, profile)
+  const keys = new Set([
+    ...nodeKeys(node),
+    ...profileKeys(profile),
+  ].filter(Boolean))
+
+  if (!keys.size) return []
+
+  const explicit = (graph.stacks || []).filter(
+    (candidate) =>
+      otherEndpoint(candidate, keys) &&
+      (keys.has(normalizeKey(candidate.source)) || keys.has(normalizeKey(candidate.target))) &&
+      (asList(candidate.mechanism_complementarity).length > 0 || asList(candidate.pathway_complementarity).length > 0)
+  )
+
+  const relationshipFallback = getRelationships(graph)
+    .filter((relationship) =>
+      otherEndpoint(relationship, keys) &&
+      (keys.has(normalizeKey(relationship.source)) || keys.has(normalizeKey(relationship.target))) &&
+      (asList(relationship.mechanisms).length >= 2 || asList(relationship.pathways).length >= 2)
+    )
+    .map((relationship) => ({
+      ...relationshipToCandidate(relationship, 'biological-adjacency'),
+      rationale: 'Biologically adjacent research candidate; use only as exploratory education context, not stack advice.',
+      mechanism_complementarity: unique(relationship.mechanisms),
+      pathway_complementarity: unique(relationship.pathways),
+      safety_gate: 'review safety context before combining',
+    }))
 
   return dedupeByOtherEndpoint(
-    sortCandidates(
-      stacks.filter(
-        (candidate) =>
-          otherEndpoint(candidate, keys) &&
-          (matchesSlug(candidate.source, profile) || matchesSlug(candidate.target, profile))
-      )
-    ),
+    sortCandidates([
+      ...explicit,
+      ...relationshipFallback,
+      ...nodeStackFallback(graph, node, keys),
+    ]),
     keys
   ).slice(0, clampLimit(limit, 6, MAX_STACK_CANDIDATES))
 }
