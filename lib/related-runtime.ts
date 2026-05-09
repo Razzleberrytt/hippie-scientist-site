@@ -2,339 +2,231 @@ import { list, text, unique } from '@/lib/display-utils'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
 import { calculateDiscoveryScore } from '@/lib/discovery-score'
 
+const MAX_RELATED_PROFILES = 6
+const MAX_COMPARISON_CANDIDATES = 4
+const MAX_STACK_CANDIDATES = 4
+
+type RuntimeRecord = Record<string, any>
+
+function clampLimit(value: unknown, fallback: number, max: number) {
+  const parsed = safeScore(value, fallback)
+  if (!Number.isFinite(parsed)) return fallback
+  return Math.min(max, Math.max(0, Math.floor(parsed)))
+}
+
 function normalize(value: unknown) {
   return safeLower(value)
 }
 
-function collectSignals(record: any) {
-  return unique([
-    ...list(record?.primary_effects),
-    ...list(record?.primaryEffects),
-    ...list(record?.effects),
-    ...list(record?.mechanisms),
-    ...list(record?.pathways),
-    ...list(record?.pathwayTargets),
-    ...list(record?.mechanismTags),
-    ...list(record?.topics),
-    ...list(record?.topicTags),
-    ...list(record?.targets),
-    ...list(record?.biologicalTargets),
-    ...list(record?.compoundClass),
-    ...list(record?.class),
-    ...list(record?.foundIn),
-    ...list(record?.activeCompounds),
-    ...list(record?.traditionalUses),
-    ...collectEcosystemSignals(record),
+function normalizeSignals(values: unknown[]) {
+  return unique(values.flatMap((value) => list(value)).map(normalize).filter(Boolean))
+}
+
+function collectEcosystemSignals(record: RuntimeRecord) {
+  return normalizeSignals([
+    record?.topic_clusters,
+    record?.ecosystem_tags,
+    record?.pathway_companions,
+    record?.comparison_candidates,
+    record?.synergy_relationships,
+    record?.authority_supernode,
+    record?.semantic_neighbors,
+    record?.ecosystem_anchors,
+    record?.related_topics,
+    record?.pathway_ecosystems,
+    record?.mechanism_ecosystems,
+    record?.clusters,
+    record?.compound_cluster,
+    record?.comparison_group,
+    record?.internal_link_cluster,
+    record?.herb_internal_link_cluster,
+    record?.pathway_bucket,
+    record?.pathways_v2,
   ])
-    .map(normalize)
-    .filter(Boolean)
 }
 
-function collectGraphSignals(edge: GraphRelationship | GraphCandidate | undefined) {
-  if (!edge) return []
-
-  return unique([
-    ...list((edge as GraphRelationship)?.mechanisms),
-    ...list((edge as GraphRelationship)?.pathways),
-    ...list((edge as GraphRelationship)?.topics),
-    ...list((edge as GraphCandidate)?.mechanism_overlap),
-    ...list((edge as GraphCandidate)?.pathway_overlap),
-    ...list((edge as GraphCandidate)?.topic_overlap),
-    ...list((edge as GraphCandidate)?.ecosystem_overlap),
-    ...list((edge as GraphCandidate)?.mechanism_complementarity),
-    ...list((edge as GraphCandidate)?.pathway_complementarity),
+function collectSignals(record: RuntimeRecord) {
+  return normalizeSignals([
+    record?.primary_effects,
+    record?.primaryEffects,
+    record?.effects,
+    record?.secondary_effects,
+    record?.mechanism,
+    record?.mechanisms,
+    record?.mechanism_targets,
+    record?.pathways,
+    record?.pathwayTargets,
+    record?.mechanismTags,
+    record?.topics,
+    record?.topicTags,
+    record?.targets,
+    record?.biologicalTargets,
+    record?.compoundClass,
+    record?.compound_class,
+    record?.class,
+    record?.foundIn,
+    record?.activeCompounds,
+    record?.active_constituents,
+    record?.traditionalUses,
+    record?.traditional_uses,
+    collectEcosystemSignals(record),
   ])
-    .map(normalize)
-    .filter(Boolean)
 }
 
-function edgeOtherSlug(edge: GraphRelationship | GraphCandidate, sourceSlug: string) {
-  const source = safeSlug(edge?.source)
-  const target = safeSlug(edge?.target)
-
-  if (!source || !target) return ''
-  if (source === sourceSlug) return target
-  if (target === sourceSlug) return source
-  return ''
+function explicitRelatedSlugs(record: RuntimeRecord) {
+  return unique([
+    ...list(record?.related_compounds),
+    ...list(record?.related_herbs),
+    ...list(record?.semantic_neighbors),
+    ...list(record?.comparison_candidates),
+    ...list(record?.synergy_relationships),
+    ...list(record?.pathway_companions),
+  ].map(safeSlug).filter(Boolean))
 }
 
-function evidenceWeight(value: unknown) {
-  const evidence = safeLower(value)
-
-  if (evidence.includes('strong')) return 3
-  if (evidence.includes('moderate')) return 2
-  if (evidence.includes('limited')) return 1
-  if (evidence.includes('mechanistic')) return 0.5
-  return 0
+function overlapSignals(sourceSignals: string[], candidateSignals: string[]) {
+  const source = new Set(sourceSignals)
+  return unique(candidateSignals.filter((signal) => source.has(signal)))
 }
 
-function graphWeight(edge: GraphRelationship | GraphCandidate | undefined) {
-  if (!edge) return 0
-
-  const numericWeight = Number(text(edge.weight))
-  const weightedSignal = Number.isFinite(numericWeight) ? Math.min(numericWeight / 25, 10) : 0
-  const mechanisms = list((edge as GraphRelationship)?.mechanisms || (edge as GraphCandidate)?.mechanism_overlap).length
-  const pathways = list((edge as GraphRelationship)?.pathways || (edge as GraphCandidate)?.pathway_overlap).length
-  const complementaryMechanisms = list((edge as GraphCandidate)?.mechanism_complementarity).length
-  const complementaryPathways = list((edge as GraphCandidate)?.pathway_complementarity).length
-  const topics = list((edge as GraphRelationship)?.topics || (edge as GraphCandidate)?.topic_overlap).length
-  const ecosystems = list((edge as GraphCandidate)?.ecosystem_overlap).length
-  const authorityHub = safeLower(edge.type).includes('authority') ? 2 : 0
-  const rationale = text(edge.rationale) ? 0.75 : 0
+function scoreRecord(source: RuntimeRecord, candidate: RuntimeRecord, overlap: string[], explicitSlugs: string[]) {
+  const candidateSlug = safeSlug(candidate?.slug)
+  const explicitBoost = explicitSlugs.includes(candidateSlug) ? 8 : 0
+  const evidenceBoost = text(candidate?.evidence_grade || candidate?.evidence_tier || candidate?.evidence_level) ? 1 : 0
+  const authorityBoost = text(candidate?.authority_status || candidate?.evidence_authority_status || candidate?.authority_supernode) ? 1 : 0
 
   return (
-    weightedSignal +
-    Math.min(mechanisms, 4) * 2 +
-    Math.min(pathways, 4) * 1.5 +
-    Math.min(complementaryMechanisms, 3) * 1.5 +
-    Math.min(complementaryPathways, 3) +
-    Math.min(topics + ecosystems, 4) * 0.75 +
-    authorityHub +
-    evidenceWeight(edge.evidence_context) +
-    rationale
+    overlap.length * 3 +
+    explicitBoost +
+    evidenceBoost +
+    authorityBoost +
+    calculateDiscoveryScore(source, candidate)
   )
 }
 
-function hasBiologicalGraphSupport(edge: GraphRelationship | GraphCandidate | undefined) {
-  if (!edge) return false
+function sortRelated(a: RuntimeRecord, b: RuntimeRecord) {
+  const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
+  if (scoreDelta !== 0) return scoreDelta
 
-  const mechanismCount = list((edge as GraphRelationship)?.mechanisms || (edge as GraphCandidate)?.mechanism_overlap).length +
-    list((edge as GraphCandidate)?.mechanism_complementarity).length
-  const pathwayCount = list((edge as GraphRelationship)?.pathways || (edge as GraphCandidate)?.pathway_overlap).length +
-    list((edge as GraphCandidate)?.pathway_complementarity).length
-  const topicCount = list((edge as GraphRelationship)?.topics || (edge as GraphCandidate)?.topic_overlap).length
-  const type = safeLower(edge.type)
+  const nameDelta = safeLower(a?.name).localeCompare(safeLower(b?.name))
+  if (nameDelta !== 0) return nameDelta
 
-  return mechanismCount > 0 || pathwayCount > 0 || type.includes('authority') || (topicCount >= 2 && !type.includes('topic-only'))
+  return safeSlug(a?.slug).localeCompare(safeSlug(b?.slug))
 }
 
-function collectGraphEdges(record: any) {
-  const sourceSlug = safeSlug(record?.slug)
-  if (!sourceSlug) return new Map<string, { related?: GraphRelationship; comparison?: GraphCandidate; stack?: GraphCandidate }>()
+function enrichRelatedRecord(source: RuntimeRecord, candidate: RuntimeRecord, sourceSignals: string[], explicitSlugs: string[]) {
+  const candidateSignals = collectSignals(candidate)
+  const overlap = overlapSignals(sourceSignals, candidateSignals)
+  const relatedGraphKinds = []
 
-  const edges = new Map<string, { related?: GraphRelationship; comparison?: GraphCandidate; stack?: GraphCandidate }>()
-
-  const merge = (slug: string, value: { related?: GraphRelationship; comparison?: GraphCandidate; stack?: GraphCandidate }) => {
-    if (!slug || slug === sourceSlug) return
-    edges.set(slug, { ...(edges.get(slug) || {}), ...value })
+  if (explicitSlugs.includes(safeSlug(candidate?.slug))) {
+    relatedGraphKinds.push('workbook-explicit')
   }
 
-  getGraphRelatedProfiles(record, MAX_RELATED_PROFILES).forEach((edge) => {
-    merge(edgeOtherSlug(edge, sourceSlug), { related: edge })
-  })
+  if (overlap.some((signal) => collectEcosystemSignals(source).includes(signal))) {
+    relatedGraphKinds.push('ecosystem')
+  }
 
-  getGraphComparisonCandidates(record, MAX_COMPARISON_CANDIDATES).forEach((edge) => {
-    merge(edgeOtherSlug(edge, sourceSlug), { comparison: edge })
-  })
-
-  getGraphStackCandidates(record, MAX_STACK_CANDIDATES).forEach((edge) => {
-    merge(edgeOtherSlug(edge, sourceSlug), { stack: edge })
-  })
-
-  return edges
+  return {
+    ...candidate,
+    relatedOverlap: overlap,
+    relatedGraphKinds,
+    relatedScore: scoreRecord(source, candidate, overlap, explicitSlugs),
+  }
 }
 
-export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6) {
+export function getRelatedRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_RELATED_PROFILES) {
   const sourceSlug = safeSlug(record?.slug)
   const sourceSignals = collectSignals(record)
-    return []
-  }
+  const explicitSlugs = explicitRelatedSlugs(record)
+  const requestedLimit = clampLimit(limit, MAX_RELATED_PROFILES, MAX_RELATED_PROFILES)
+
+  if (!sourceSlug || requestedLimit === 0) return []
 
   const seen = new Set<string>()
 
-  return safeArray(records)
-    .filter((candidate: any) => {
+  return safeArray<RuntimeRecord>(records)
+    .map((candidate) => {
       const candidateSlug = safeSlug(candidate?.slug)
+      if (!candidate || !candidateSlug || candidateSlug === sourceSlug || seen.has(candidateSlug)) return null
 
-      if (!candidate || !candidateSlug || candidateSlug === sourceSlug) {
-        return false
-      }
+      const enriched = enrichRelatedRecord(record, candidate, sourceSignals, explicitSlugs)
+      const hasSignalOverlap = safeArray(enriched.relatedOverlap).length > 0
+      const isExplicit = explicitSlugs.includes(candidateSlug)
 
-      if (seen.has(candidateSlug)) {
-        return false
-      }
+      if (!hasSignalOverlap && !isExplicit) return null
 
-      const candidateSignals = collectSignals(candidate)        sourceSignals.includes(signal)
-      )
-      const graphMatch = graphEdges.get(candidateSlug)
-      const graphMatched = Boolean(
-        hasBiologicalGraphSupport(graphMatch?.related) ||
-        hasBiologicalGraphSupport(graphMatch?.comparison) ||
-        hasBiologicalGraphSupport(graphMatch?.stack)
-      )
-
-      if (fallbackMatched || graphMatched) {
-        seen.add(candidateSlug)
-      }
-
-      return fallbackMatched || graphMatched
+      seen.add(candidateSlug)
+      return enriched
     })
-    .map((candidate: any) => {
-      const candidateSignals = collectSignals(candidate)
-      const graphMatch = graphEdges.get(safeSlug(candidate?.slug))
-      const graphSignals = unique([
-        ...collectGraphSignals(graphMatch?.related),
-        ...collectGraphSignals(graphMatch?.comparison),
-        ...collectGraphSignals(graphMatch?.stack),
-      ])
-      return {
-        ...candidate,
-        relatedOverlap: overlap,a
-      }
-    })
-    .sort((a: any, b: any) => {
-      const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
-
-      if (scoreDelta !== 0) {
-        return scoreDelta
-      }
-
-      const nameDelta = safeLower(a?.name).localeCompare(safeLower(b?.name))
-      if (nameDelta !== 0) return nameDelta
-
-      return safeSlug(a?.slug).localeCompare(safeSlug(b?.slug))
-    })
+    .filter(Boolean)
+    .sort(sortRelated)
     .slice(0, requestedLimit)
 }
 
-
-function getEdgeByKind(
-  match: { related?: GraphRelationship; comparison?: GraphCandidate; stack?: GraphCandidate } | undefined,
-  kind: 'comparison' | 'stack'
-) {
-  return kind === 'comparison' ? match?.comparison : match?.stack
-}
-
-function collectCandidateSignals(edge: GraphCandidate | undefined, kind: 'comparison' | 'stack') {
-  if (!edge) return []
+function candidateList(record: RuntimeRecord, kind: 'comparison' | 'stack') {
+  if (kind === 'comparison') {
+    return unique([
+      ...list(record?.comparison_candidates),
+      ...list(record?.semantic_neighbors),
+      ...list(record?.related_compounds),
+      ...list(record?.related_herbs),
+    ].map(safeSlug).filter(Boolean))
+  }
 
   return unique([
-    ...list(edge.mechanism_overlap),
-    ...list(edge.pathway_overlap),
-    ...list(edge.topic_overlap),
-    ...list(edge.ecosystem_overlap),
-    ...(kind === 'stack' ? list(edge.mechanism_complementarity) : []),
-    ...(kind === 'stack' ? list(edge.pathway_complementarity) : []),
-  ]).filter(Boolean)
+    ...list(record?.synergy_relationships),
+    ...list(record?.pathway_companions),
+    ...list(record?.semantic_neighbors),
+    ...list(record?.related_compounds),
+    ...list(record?.related_herbs),
+  ].map(safeSlug).filter(Boolean))
 }
 
-function hasCandidateSupport(edge: GraphCandidate | undefined, kind: 'comparison' | 'stack') {
-  if (!edge) return false
-
-  const mechanismOverlap = list(edge.mechanism_overlap).length
-  const pathwayOverlap = list(edge.pathway_overlap).length
-  const topicOverlap = list(edge.topic_overlap).length + list(edge.ecosystem_overlap).length
-  const mechanismComplementarity = list(edge.mechanism_complementarity).length
-  const pathwayComplementarity = list(edge.pathway_complementarity).length
-
-  if (kind === 'stack') {
-    return mechanismComplementarity > 0 || pathwayComplementarity > 0 || mechanismOverlap >= 2 || pathwayOverlap >= 2
-  }
-
-  return mechanismOverlap > 0 || pathwayOverlap > 0 || topicOverlap >= 2
-}
-
-function enrichGraphCandidateRecord(candidate: any, edge: GraphCandidate, kind: 'comparison' | 'stack', sourceSignals: string[]) {
-  const candidateSignals = collectSignals(candidate)
-  const overlap = unique([
-    ...candidateSignals.filter((signal) => sourceSignals.includes(signal)),
-    ...collectCandidateSignals(edge, kind).map(normalize),
-  ])
-
-  const shared = {
-    ...candidate,
-    graphCandidateType: kind,
-    graphCandidateRationale: text(edge.rationale),
-    graphEvidenceContext: text(edge.evidence_context),
-    graphFraming: text(edge.framing),
-    graphSafetyGate: text(edge.safety_gate),
-    graphMechanismOverlap: list(edge.mechanism_overlap),
-    graphPathwayOverlap: list(edge.pathway_overlap),
-    graphEcosystemOverlap: unique([...list(edge.ecosystem_overlap), ...list(edge.topic_overlap)]),
-    graphMechanismComplementarity: list(edge.mechanism_complementarity),
-    graphPathwayComplementarity: list(edge.pathway_complementarity),
-    relatedOverlap: overlap,
-    relatedGraphKinds: [kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate'],
-    relatedScore: safeScore(overlap.length) + calculateDiscoveryScore({ slug: edge.source }, candidate) + graphWeight(edge),
-  }
-
-  return shared
-}
-
-export function getComparisonRuntimeRecords(record: any, records: any[], limit = MAX_COMPARISON_CANDIDATES) {
+function getCandidateRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], kind: 'comparison' | 'stack', limit: number) {
   const sourceSlug = safeSlug(record?.slug)
+  const requestedLimit = clampLimit(
+    limit,
+    kind === 'comparison' ? MAX_COMPARISON_CANDIDATES : MAX_STACK_CANDIDATES,
+    kind === 'comparison' ? MAX_COMPARISON_CANDIDATES : MAX_STACK_CANDIDATES
+  )
+
+  if (!sourceSlug || requestedLimit === 0) return []
+
+  const preferred = candidateList(record, kind)
+  const related = getRelatedRuntimeRecords(record, records, MAX_RELATED_PROFILES)
+  const orderedSlugs = unique([...preferred, ...related.map((item) => safeSlug(item?.slug))].filter(Boolean))
+  const bySlug = new Map(safeArray<RuntimeRecord>(records).map((item) => [safeSlug(item?.slug), item]))
   const sourceSignals = collectSignals(record)
-  const graphEdges = collectGraphEdges(record)
-  const requestedLimit = Math.min(MAX_COMPARISON_CANDIDATES, Math.max(0, safeScore(limit, MAX_COMPARISON_CANDIDATES)))
 
-  if (!sourceSlug || graphEdges.size === 0) return []
-
-  const seen = new Set<string>()
-
-  return safeArray(records)
-    .map((candidate: any) => {
-      const candidateSlug = safeSlug(candidate?.slug)
-      if (!candidate || !candidateSlug || candidateSlug === sourceSlug || seen.has(candidateSlug)) return null
-
-      const edge = getEdgeByKind(graphEdges.get(candidateSlug), 'comparison')
-      if (!hasCandidateSupport(edge, 'comparison')) return null
-
-      seen.add(candidateSlug)
-      return enrichGraphCandidateRecord(candidate, edge as GraphCandidate, 'comparison', sourceSignals)
-    })
+  return orderedSlugs
+    .map((slug) => bySlug.get(slug))
     .filter(Boolean)
-    .sort((a: any, b: any) => {
-      const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
-      if (scoreDelta !== 0) return scoreDelta
-
-      const nameDelta = safeLower(a?.name).localeCompare(safeLower(b?.name))
-      if (nameDelta !== 0) return nameDelta
-
-      return safeSlug(a?.slug).localeCompare(safeSlug(b?.slug))
+    .filter((candidate) => safeSlug(candidate?.slug) !== sourceSlug)
+    .map((candidate) => {
+      const enriched = enrichRelatedRecord(record, candidate as RuntimeRecord, sourceSignals, preferred)
+      return {
+        ...enriched,
+        graphCandidateType: kind,
+        relatedGraphKinds: unique([
+          ...safeArray<string>(enriched.relatedGraphKinds),
+          kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate',
+        ]),
+      }
     })
+    .sort(sortRelated)
     .slice(0, requestedLimit)
 }
 
-export function getStackRuntimeRecords(record: any, records: any[], limit = MAX_STACK_CANDIDATES) {
-  const sourceSlug = safeSlug(record?.slug)
-  const sourceSignals = collectSignals(record)
-  const graphEdges = collectGraphEdges(record)
-  const requestedLimit = Math.min(MAX_STACK_CANDIDATES, Math.max(0, safeScore(limit, MAX_STACK_CANDIDATES)))
-
-  if (!sourceSlug || graphEdges.size === 0) return []
-
-  const seen = new Set<string>()
-
-  return safeArray(records)
-    .map((candidate: any) => {
-      const candidateSlug = safeSlug(candidate?.slug)
-      if (!candidate || !candidateSlug || candidateSlug === sourceSlug || seen.has(candidateSlug)) return null
-
-      const edge = getEdgeByKind(graphEdges.get(candidateSlug), 'stack')
-      if (!hasCandidateSupport(edge, 'stack')) return null
-
-      seen.add(candidateSlug)
-      return enrichGraphCandidateRecord(candidate, edge as GraphCandidate, 'stack', sourceSignals)
-    })
-    .filter(Boolean)
-    .sort((a: any, b: any) => {
-      const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
-      if (scoreDelta !== 0) return scoreDelta
-
-      const nameDelta = safeLower(a?.name).localeCompare(safeLower(b?.name))
-      if (nameDelta !== 0) return nameDelta
-
-      return safeSlug(a?.slug).localeCompare(safeSlug(b?.slug))
-    })
-    .slice(0, requestedLimit)
+export function getComparisonRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_COMPARISON_CANDIDATES) {
+  return getCandidateRuntimeRecords(record, records, 'comparison', limit)
 }
 
-export function getRelatedLabel(record: any) {
+export function getStackRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_STACK_CANDIDATES) {
+  return getCandidateRuntimeRecords(record, records, 'stack', limit)
+}
+
+export function getRelatedLabel(record: RuntimeRecord) {
   const primary = collectSignals(record)[0]
-
-  if (!primary) {
-    return 'Related Research Profiles'
-  }
-
-  return `Related to ${text(primary)}`
+  return primary ? `Related to ${text(primary)}` : 'Related Research Profiles'
 }
