@@ -5,6 +5,8 @@ import { calculateDiscoveryScore } from '@/lib/discovery-score'
 const MAX_RELATED_PROFILES = 6
 const MAX_COMPARISON_CANDIDATES = 4
 const MAX_STACK_CANDIDATES = 4
+const MAX_RELATED_CANDIDATE_POOL = 60
+const MAX_GRAPH_CANDIDATE_POOL = 40
 
 type RuntimeRecord = Record<string, any>
 
@@ -13,6 +15,24 @@ type EnrichedRuntimeRecord = RuntimeRecord & {
   relatedGraphKinds: string[]
   relatedScore: number
 }
+
+type SignalBundle = {
+  ecosystem: string[]
+  mechanisms: string[]
+  pathways: string[]
+  all: string[]
+  explicitSlugs: string[]
+}
+
+type RuntimeRecordIndex = {
+  bySlug: Map<string, RuntimeRecord>
+  byEcosystemSignal: Map<string, RuntimeRecord[]>
+  byMechanismSignal: Map<string, RuntimeRecord[]>
+  byPathwaySignal: Map<string, RuntimeRecord[]>
+}
+
+const signalCache = new WeakMap<RuntimeRecord, SignalBundle>()
+const recordIndexCache = new WeakMap<RuntimeRecord[], RuntimeRecordIndex>()
 
 function clampLimit(value: unknown, fallback: number, max: number) {
   const parsed = safeScore(value, fallback)
@@ -25,10 +45,22 @@ function normalize(value: unknown) {
 }
 
 function normalizeSignals(values: unknown[]) {
-  return unique(values.flatMap((value) => list(value)).map(normalize).filter(Boolean))
+  const seen = new Set<string>()
+  const signals: string[] = []
+
+  for (const value of values) {
+    for (const item of list(value)) {
+      const normalized = normalize(item)
+      if (!normalized || seen.has(normalized)) continue
+      seen.add(normalized)
+      signals.push(normalized)
+    }
+  }
+
+  return signals
 }
 
-function collectEcosystemSignals(record: RuntimeRecord) {
+function collectEcosystemSignalsUncached(record: RuntimeRecord) {
   return normalizeSignals([
     record?.topic_clusters,
     record?.ecosystem_tags,
@@ -51,8 +83,60 @@ function collectEcosystemSignals(record: RuntimeRecord) {
   ])
 }
 
-function collectSignals(record: RuntimeRecord) {
+function collectMechanismSignalsUncached(record: RuntimeRecord) {
   return normalizeSignals([
+    record?.mechanism,
+    record?.mechanisms,
+    record?.mechanism_targets,
+    record?.mechanismTags,
+    record?.targets,
+    record?.biologicalTargets,
+    record?.mechanism_ecosystems,
+  ])
+}
+
+function collectPathwaySignalsUncached(record: RuntimeRecord) {
+  return normalizeSignals([
+    record?.pathways,
+    record?.pathwayTargets,
+    record?.pathways_v2,
+    record?.pathway_bucket,
+    record?.pathway_ecosystems,
+    record?.pathway_companions,
+  ])
+}
+
+function explicitRelatedSlugsUncached(record: RuntimeRecord) {
+  const seen = new Set<string>()
+  const slugs: string[] = []
+
+  for (const value of [
+    record?.related_compounds,
+    record?.related_herbs,
+    record?.semantic_neighbors,
+    record?.comparison_candidates,
+    record?.synergy_relationships,
+    record?.pathway_companions,
+  ]) {
+    for (const item of list(value)) {
+      const slug = safeSlug(item)
+      if (!slug || seen.has(slug)) continue
+      seen.add(slug)
+      slugs.push(slug)
+    }
+  }
+
+  return slugs
+}
+
+function getSignalBundle(record: RuntimeRecord): SignalBundle {
+  const cached = record && signalCache.get(record)
+  if (cached) return cached
+
+  const ecosystem = collectEcosystemSignalsUncached(record)
+  const mechanisms = collectMechanismSignalsUncached(record)
+  const pathways = collectPathwaySignalsUncached(record)
+  const all = normalizeSignals([
     record?.primary_effects,
     record?.primaryEffects,
     record?.effects,
@@ -75,24 +159,120 @@ function collectSignals(record: RuntimeRecord) {
     record?.active_constituents,
     record?.traditionalUses,
     record?.traditional_uses,
-    collectEcosystemSignals(record),
+    ecosystem,
   ])
+  const bundle = {
+    ecosystem,
+    mechanisms,
+    pathways,
+    all,
+    explicitSlugs: explicitRelatedSlugsUncached(record),
+  }
+
+  if (record && typeof record === 'object') signalCache.set(record, bundle)
+  return bundle
+}
+
+function collectEcosystemSignals(record: RuntimeRecord) {
+  return getSignalBundle(record).ecosystem
+}
+
+function collectSignals(record: RuntimeRecord) {
+  return getSignalBundle(record).all
 }
 
 function explicitRelatedSlugs(record: RuntimeRecord) {
-  return unique([
-    ...list(record?.related_compounds),
-    ...list(record?.related_herbs),
-    ...list(record?.semantic_neighbors),
-    ...list(record?.comparison_candidates),
-    ...list(record?.synergy_relationships),
-    ...list(record?.pathway_companions),
-  ].map(safeSlug).filter(Boolean))
+  return getSignalBundle(record).explicitSlugs
 }
 
-function overlapSignals(sourceSignals: string[], candidateSignals: string[]) {
-  const source = new Set(sourceSignals)
-  return unique(candidateSignals.filter((signal) => source.has(signal)))
+function addIndexedSignal(index: Map<string, RuntimeRecord[]>, signal: string, record: RuntimeRecord) {
+  const rows = index.get(signal)
+  if (rows) {
+    rows.push(record)
+    return
+  }
+  index.set(signal, [record])
+}
+
+function getRuntimeRecordIndex(records: RuntimeRecord[]) {
+  const cached = recordIndexCache.get(records)
+  if (cached) return cached
+
+  const index: RuntimeRecordIndex = {
+    bySlug: new Map(),
+    byEcosystemSignal: new Map(),
+    byMechanismSignal: new Map(),
+    byPathwaySignal: new Map(),
+  }
+
+  for (const record of safeArray<RuntimeRecord>(records)) {
+    const slug = safeSlug(record?.slug)
+    if (slug && !index.bySlug.has(slug)) index.bySlug.set(slug, record)
+
+    const signals = getSignalBundle(record)
+    for (const signal of signals.ecosystem) addIndexedSignal(index.byEcosystemSignal, signal, record)
+    for (const signal of signals.mechanisms) addIndexedSignal(index.byMechanismSignal, signal, record)
+    for (const signal of signals.pathways) addIndexedSignal(index.byPathwaySignal, signal, record)
+  }
+
+  recordIndexCache.set(records, index)
+  return index
+}
+
+function addCandidate(candidates: RuntimeRecord[], seen: Set<string>, sourceSlug: string, candidate: RuntimeRecord | undefined, max: number) {
+  if (candidates.length >= max) return
+  const slug = safeSlug(candidate?.slug)
+  if (!candidate || !slug || slug === sourceSlug || seen.has(slug)) return
+  seen.add(slug)
+  candidates.push(candidate)
+}
+
+function addCandidatesForSignals(candidates: RuntimeRecord[], seen: Set<string>, sourceSlug: string, signalIndex: Map<string, RuntimeRecord[]>, signals: string[], max: number) {
+  for (const signal of signals) {
+    const rows = signalIndex.get(signal)
+    if (!rows) continue
+    for (const row of rows) {
+      addCandidate(candidates, seen, sourceSlug, row, max)
+      if (candidates.length >= max) return
+    }
+  }
+}
+
+function getRelatedCandidatePool(record: RuntimeRecord, records: RuntimeRecord[], max = MAX_RELATED_CANDIDATE_POOL) {
+  const sourceSlug = safeSlug(record?.slug)
+  if (!sourceSlug || max <= 0) return []
+
+  const index = getRuntimeRecordIndex(records)
+  const sourceSignals = getSignalBundle(record)
+  const candidates: RuntimeRecord[] = []
+  const seen = new Set<string>()
+
+  for (const slug of sourceSignals.explicitSlugs) {
+    addCandidate(candidates, seen, sourceSlug, index.bySlug.get(slug), max)
+  }
+
+  addCandidatesForSignals(candidates, seen, sourceSlug, index.byEcosystemSignal, sourceSignals.ecosystem, max)
+  addCandidatesForSignals(candidates, seen, sourceSlug, index.byMechanismSignal, sourceSignals.mechanisms, max)
+  addCandidatesForSignals(candidates, seen, sourceSlug, index.byPathwaySignal, sourceSignals.pathways, max)
+
+  return candidates
+}
+
+function overlapWithSet(candidateSignals: string[], sourceSet: Set<string>) {
+  const overlap: string[] = []
+  const seen = new Set<string>()
+
+  for (const signal of candidateSignals) {
+    if (!sourceSet.has(signal) || seen.has(signal)) continue
+    seen.add(signal)
+    overlap.push(signal)
+  }
+
+  return overlap
+}
+
+function hasOverlap(candidateSignals: string[], sourceSet: Set<string>) {
+  return candidateSignals.some((signal) => sourceSet.has(signal))
 }
 
 function scoreRecord(source: RuntimeRecord, candidate: RuntimeRecord, overlap: string[], explicitSlugs: string[]) {
@@ -120,18 +300,24 @@ function sortRelated(a: EnrichedRuntimeRecord, b: EnrichedRuntimeRecord) {
   return safeSlug(a?.slug).localeCompare(safeSlug(b?.slug))
 }
 
-function enrichRelatedRecord(source: RuntimeRecord, candidate: RuntimeRecord, sourceSignals: string[], explicitSlugs: string[]): EnrichedRuntimeRecord {
-  const candidateSignals = collectSignals(candidate)
-  const overlap = overlapSignals(sourceSignals, candidateSignals)
+function enrichRelatedRecord(source: RuntimeRecord, candidate: RuntimeRecord, sourceSignals: SignalBundle, explicitSlugs: string[]): EnrichedRuntimeRecord | null {
+  const candidateSignals = getSignalBundle(candidate)
+  const explicit = explicitSlugs.includes(safeSlug(candidate?.slug))
+  const sourceEcosystemSet = new Set(sourceSignals.ecosystem)
+  const sourceMechanismSet = new Set(sourceSignals.mechanisms)
+  const sourcePathwaySet = new Set(sourceSignals.pathways)
+
+  const hasEcosystemOverlap = hasOverlap(candidateSignals.ecosystem, sourceEcosystemSet)
+  const hasMechanismOverlap = hasOverlap(candidateSignals.mechanisms, sourceMechanismSet)
+  const hasPathwayOverlap = hasOverlap(candidateSignals.pathways, sourcePathwaySet)
+
+  if (!explicit && !hasEcosystemOverlap && !hasMechanismOverlap && !hasPathwayOverlap) return null
+
+  const overlap = overlapWithSet(candidateSignals.all, new Set(sourceSignals.all))
   const relatedGraphKinds: string[] = []
 
-  if (explicitSlugs.includes(safeSlug(candidate?.slug))) {
-    relatedGraphKinds.push('workbook-explicit')
-  }
-
-  if (overlap.some((signal) => collectEcosystemSignals(source).includes(signal))) {
-    relatedGraphKinds.push('ecosystem')
-  }
+  if (explicit) relatedGraphKinds.push('workbook-explicit')
+  if (hasEcosystemOverlap) relatedGraphKinds.push('ecosystem')
 
   return {
     ...candidate,
@@ -147,50 +333,49 @@ function isEnrichedRuntimeRecord(value: unknown): value is EnrichedRuntimeRecord
 
 export function getRelatedRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_RELATED_PROFILES) {
   const sourceSlug = safeSlug(record?.slug)
-  const sourceSignals = collectSignals(record)
-  const explicitSlugs = explicitRelatedSlugs(record)
+  const sourceSignals = getSignalBundle(record)
+  const explicitSlugs = sourceSignals.explicitSlugs
   const requestedLimit = clampLimit(limit, MAX_RELATED_PROFILES, MAX_RELATED_PROFILES)
 
   if (!sourceSlug || requestedLimit === 0) return []
 
-  const seen = new Set<string>()
-
-  return safeArray<RuntimeRecord>(records)
-    .map((candidate) => {
-      const candidateSlug = safeSlug(candidate?.slug)
-      if (!candidate || !candidateSlug || candidateSlug === sourceSlug || seen.has(candidateSlug)) return null
-
-      const enriched = enrichRelatedRecord(record, candidate, sourceSignals, explicitSlugs)
-      const hasSignalOverlap = safeArray(enriched.relatedOverlap).length > 0
-      const isExplicit = explicitSlugs.includes(candidateSlug)
-
-      if (!hasSignalOverlap && !isExplicit) return null
-
-      seen.add(candidateSlug)
-      return enriched
-    })
+  return getRelatedCandidatePool(record, records, MAX_RELATED_CANDIDATE_POOL)
+    .map((candidate) => enrichRelatedRecord(record, candidate, sourceSignals, explicitSlugs))
     .filter(isEnrichedRuntimeRecord)
     .sort(sortRelated)
     .slice(0, requestedLimit)
 }
 
 function candidateList(record: RuntimeRecord, kind: 'comparison' | 'stack') {
-  if (kind === 'comparison') {
-    return unique([
-      ...list(record?.comparison_candidates),
-      ...list(record?.semantic_neighbors),
-      ...list(record?.related_compounds),
-      ...list(record?.related_herbs),
-    ].map(safeSlug).filter(Boolean))
+  const values = kind === 'comparison'
+    ? [
+        record?.comparison_candidates,
+        record?.semantic_neighbors,
+        record?.related_compounds,
+        record?.related_herbs,
+      ]
+    : [
+        record?.synergy_relationships,
+        record?.pathway_companions,
+        record?.semantic_neighbors,
+        record?.related_compounds,
+        record?.related_herbs,
+      ]
+
+  const seen = new Set<string>()
+  const slugs: string[] = []
+
+  for (const value of values) {
+    for (const item of list(value)) {
+      const slug = safeSlug(item)
+      if (!slug || seen.has(slug)) continue
+      seen.add(slug)
+      slugs.push(slug)
+      if (slugs.length >= MAX_GRAPH_CANDIDATE_POOL) return slugs
+    }
   }
 
-  return unique([
-    ...list(record?.synergy_relationships),
-    ...list(record?.pathway_companions),
-    ...list(record?.semantic_neighbors),
-    ...list(record?.related_compounds),
-    ...list(record?.related_herbs),
-  ].map(safeSlug).filter(Boolean))
+  return slugs
 }
 
 function getCandidateRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], kind: 'comparison' | 'stack', limit: number) {
@@ -204,26 +389,30 @@ function getCandidateRuntimeRecords(record: RuntimeRecord, records: RuntimeRecor
   if (!sourceSlug || requestedLimit === 0) return []
 
   const preferred = candidateList(record, kind)
-  const related = getRelatedRuntimeRecords(record, records, MAX_RELATED_PROFILES)
-  const orderedSlugs = unique([...preferred, ...related.map((item) => safeSlug(item?.slug))].filter(Boolean))
-  const bySlug = new Map(safeArray<RuntimeRecord>(records).map((item) => [safeSlug(item?.slug), item]))
-  const sourceSignals = collectSignals(record)
+  const index = getRuntimeRecordIndex(records)
+  const sourceSignals = getSignalBundle(record)
+  const candidates: RuntimeRecord[] = []
+  const seen = new Set<string>()
 
-  return orderedSlugs
-    .map((slug) => bySlug.get(slug))
-    .filter(Boolean)
-    .filter((candidate) => safeSlug(candidate?.slug) !== sourceSlug)
-    .map((candidate) => {
-      const enriched = enrichRelatedRecord(record, candidate as RuntimeRecord, sourceSignals, preferred)
-      return {
-        ...enriched,
-        graphCandidateType: kind,
-        relatedGraphKinds: unique([
-          ...safeArray<string>(enriched.relatedGraphKinds),
-          kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate',
-        ]),
-      }
-    })
+  for (const slug of preferred) {
+    addCandidate(candidates, seen, sourceSlug, index.bySlug.get(slug), MAX_GRAPH_CANDIDATE_POOL)
+  }
+
+  for (const candidate of getRelatedCandidatePool(record, records, MAX_GRAPH_CANDIDATE_POOL)) {
+    addCandidate(candidates, seen, sourceSlug, candidate, MAX_GRAPH_CANDIDATE_POOL)
+  }
+
+  return candidates
+    .map((candidate) => enrichRelatedRecord(record, candidate, sourceSignals, preferred))
+    .filter(isEnrichedRuntimeRecord)
+    .map((enriched) => ({
+      ...enriched,
+      graphCandidateType: kind,
+      relatedGraphKinds: unique([
+        ...safeArray<string>(enriched.relatedGraphKinds),
+        kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate',
+      ]),
+    }))
     .sort(sortRelated)
     .slice(0, requestedLimit)
 }
