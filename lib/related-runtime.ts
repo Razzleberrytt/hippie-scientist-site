@@ -24,6 +24,10 @@ function collectSignals(record: any) {
     ...list(record?.effects),
     ...list(record?.mechanisms),
     ...list(record?.pathways),
+    ...list(record?.pathwayTargets),
+    ...list(record?.mechanismTags),
+    ...list(record?.topics),
+    ...list(record?.topicTags),
     ...list(record?.targets),
     ...list(record?.biologicalTargets),
     ...list(record?.compoundClass),
@@ -46,6 +50,7 @@ function collectGraphSignals(edge: GraphRelationship | GraphCandidate | undefine
     ...list((edge as GraphCandidate)?.mechanism_overlap),
     ...list((edge as GraphCandidate)?.pathway_overlap),
     ...list((edge as GraphCandidate)?.topic_overlap),
+    ...list((edge as GraphCandidate)?.ecosystem_overlap),
     ...list((edge as GraphCandidate)?.mechanism_complementarity),
     ...list((edge as GraphCandidate)?.pathway_complementarity),
   ])
@@ -82,6 +87,9 @@ function graphWeight(edge: GraphRelationship | GraphCandidate | undefined) {
   const pathways = list((edge as GraphRelationship)?.pathways || (edge as GraphCandidate)?.pathway_overlap).length
   const complementaryMechanisms = list((edge as GraphCandidate)?.mechanism_complementarity).length
   const complementaryPathways = list((edge as GraphCandidate)?.pathway_complementarity).length
+  const topics = list((edge as GraphRelationship)?.topics || (edge as GraphCandidate)?.topic_overlap).length
+  const ecosystems = list((edge as GraphCandidate)?.ecosystem_overlap).length
+  const authorityHub = safeLower(edge.type).includes('authority') ? 2 : 0
   const rationale = text(edge.rationale) ? 0.75 : 0
 
   return (
@@ -90,6 +98,8 @@ function graphWeight(edge: GraphRelationship | GraphCandidate | undefined) {
     Math.min(pathways, 4) * 1.5 +
     Math.min(complementaryMechanisms, 3) * 1.5 +
     Math.min(complementaryPathways, 3) +
+    Math.min(topics + ecosystems, 4) * 0.75 +
+    authorityHub +
     evidenceWeight(edge.evidence_context) +
     rationale
   )
@@ -105,7 +115,7 @@ function hasBiologicalGraphSupport(edge: GraphRelationship | GraphCandidate | un
   const topicCount = list((edge as GraphRelationship)?.topics || (edge as GraphCandidate)?.topic_overlap).length
   const type = safeLower(edge.type)
 
-  return mechanismCount > 0 || pathwayCount > 0 || (topicCount >= 2 && !type.includes('topic-only'))
+  return mechanismCount > 0 || pathwayCount > 0 || type.includes('authority') || (topicCount >= 2 && !type.includes('topic-only'))
 }
 
 function collectGraphEdges(record: any) {
