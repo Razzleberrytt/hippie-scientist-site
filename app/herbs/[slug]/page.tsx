@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getCompounds, getHerbBySlug, getHerbs } from '@/lib/runtime-data'
+import { getHerbBySlug } from '@/lib/runtime-data'
+import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getComparisonRuntimeRecords, getRelatedRuntimeRecords, getStackRuntimeRecords } from '@/lib/related-runtime'
@@ -13,7 +14,7 @@ import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 
 export async function generateStaticParams() {
-  const herbs = await getHerbs()
+  const { herbs } = await getUnifiedRuntimeRecords()
 
   return herbs
     .filter((herb: any) => getRuntimeVisibility(herb).canRender)
@@ -73,7 +74,11 @@ export default async function HerbDetailPage({ params }: any) {
     notFound()
   }
 
-  const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
+  const {
+    herbs,
+    compounds,
+    allRecords,
+  } = await getUnifiedRuntimeRecords()
 
   const relatedHerbs = (await getRelatedRuntimeRecords(herb, herbs, 4))
     .filter((item: any) => getRuntimeVisibility(item).canRender)
@@ -83,12 +88,7 @@ export default async function HerbDetailPage({ params }: any) {
     .filter((item: any) => getRuntimeVisibility(item).canRender)
     .map((item: any) => ({ ...item, entityType: 'compound' }))
 
-  const graphCandidateRecords = [
-    ...herbs.map((item: any) => ({ ...item, entityType: 'herb' })),
-    ...compounds.map((item: any) => ({ ...item, entityType: 'compound' })),
-  ]
-
-  const ecosystemContinuityRecords = (await getEcosystemContinuityRecords(herb, graphCandidateRecords, 6))
+  const ecosystemContinuityRecords = (await getEcosystemContinuityRecords(herb, allRecords, 6))
     .filter((item: any) => getRuntimeVisibility(item).canRender)
 
   const relatedProfiles = mergeEcosystemContinuityRecords(
@@ -97,10 +97,10 @@ export default async function HerbDetailPage({ params }: any) {
     6,
   )
 
-  const comparisonRecords = (await getComparisonRuntimeRecords(herb, graphCandidateRecords, 8))
+  const comparisonRecords = (await getComparisonRuntimeRecords(herb, allRecords, 8))
     .filter((item: any) => getRuntimeVisibility(item).canRender)
 
-  const stackRecords = (await getStackRuntimeRecords(herb, graphCandidateRecords, 6))
+  const stackRecords = (await getStackRuntimeRecords(herb, allRecords, 6))
     .filter((item: any) => getRuntimeVisibility(item).canRender)
 
   const featuredCollections = getFeaturedCollections(herb)
