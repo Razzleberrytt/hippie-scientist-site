@@ -679,16 +679,148 @@ function mergeSparseRecoveryIntoNodes(nodes, sparseRecovery) {
   return merged.sort(sortById)
 }
 
+
+const SEMANTIC_RELATED_LIMIT = 12
+const SEMANTIC_COMPARISON_LIMIT = 8
+const SEMANTIC_STACK_LIMIT = 6
+
+function nodeIdentity(node) {
+  return slug(node?.slug || node?.id || node?.name)
+}
+
+function sharedGraphItems(a, b) {
+  const left = new Set(splitList(a).map(slug).filter(Boolean))
+  if (!left.size) return []
+
+  return uniqueList(b).filter((value) => left.has(slug(value)))
+}
+
+function semanticScore(candidate) {
+  const weight = Number(candidate.weight || 0)
+  const mechanisms = splitList(candidate.mechanism_overlap || candidate.mechanism_complementarity || candidate.mechanisms).length
+  const pathways = splitList(candidate.pathway_overlap || candidate.pathway_complementarity || candidate.pathways).length
+  const topics = splitList(candidate.topic_overlap || candidate.topics).length
+
+  return (Number.isFinite(weight) ? weight : 0) + mechanisms * 3 + pathways * 2 + topics
+}
+
+function semanticSort(a, b) {
+  const scoreDelta = semanticScore(b) - semanticScore(a)
+  if (scoreDelta !== 0) return scoreDelta
+  return clean(a.id || `${a.source}-${a.target}`).localeCompare(clean(b.id || `${b.source}-${b.target}`))
+}
+
+function semanticBaseCandidates(nodes, source) {
+  const sourceSlug = nodeIdentity(source)
+  if (!sourceSlug) return []
+
+  return nodes
+    .filter((candidate) => nodeIdentity(candidate) && nodeIdentity(candidate) !== sourceSlug)
+    .map((candidate) => {
+      const targetSlug = nodeIdentity(candidate)
+      const mechanisms = sharedGraphItems(source.mechanisms, candidate.mechanisms)
+      const pathways = sharedGraphItems(source.pathways, candidate.pathways)
+      const topics = sharedGraphItems(source.topics, candidate.topics)
+
+      return {
+        source: sourceSlug,
+        target: targetSlug,
+        mechanisms,
+        pathways,
+        topics,
+        relatedWeight: mechanisms.length * 3 + pathways.length * 2 + topics.length,
+        comparisonWeight: mechanisms.length * 3 + pathways.length * 2 + topics.length,
+        stackWeight: mechanisms.length * 2 + pathways.length * 2 + topics.length,
+      }
+    })
+}
+
+function buildPrecomputedSemanticCandidates(nodes) {
+  const rows = []
+  const mergedNodes = Array.isArray(nodes) ? nodes : []
+
+  for (const node of mergedNodes) {
+    const sourceSlug = nodeIdentity(node)
+    if (!sourceSlug) continue
+
+    const base = semanticBaseCandidates(mergedNodes, node)
+
+    rows.push(
+      ...base
+        .filter((candidate) => candidate.mechanisms.length > 0 || candidate.pathways.length > 0 || candidate.topics.length >= 2)
+        .map((candidate) => removeEmptyInternalFields({
+          id: `${sourceSlug}-semantic-${candidate.target}`,
+          source: sourceSlug,
+          target: candidate.target,
+          type: 'semantic-overlap',
+          weight: candidate.relatedWeight,
+          rationale: 'Related by shared mechanisms, pathways, or topic ecosystem context.',
+          evidence_context: 'Precomputed semantic graph context; use profile evidence and safety notes for interpretation.',
+          mechanisms: candidate.mechanisms,
+          pathways: candidate.pathways,
+          topics: candidate.topics,
+        }))
+        .sort(semanticSort)
+        .slice(0, SEMANTIC_RELATED_LIMIT),
+      ...base
+        .filter((candidate) => candidate.mechanisms.length > 0 || candidate.pathways.length > 0 || candidate.topics.length >= 2)
+        .map((candidate) => removeEmptyInternalFields({
+          id: `${sourceSlug}-compare-${candidate.target}`,
+          source: sourceSlug,
+          target: candidate.target,
+          type: 'semantic-comparison',
+          weight: candidate.comparisonWeight,
+          rationale: 'Semantic comparison candidate based on shared mechanisms, pathways, or ecosystem context; not an efficacy or superiority claim.',
+          evidence_context: 'Evidence context should be read from each profile before interpretation.',
+          mechanism_overlap: candidate.mechanisms,
+          pathway_overlap: candidate.pathways,
+          topic_overlap: candidate.topics,
+          ecosystem_overlap: candidate.topics,
+        }))
+        .sort(semanticSort)
+        .slice(0, SEMANTIC_COMPARISON_LIMIT),
+      ...base
+        .filter((candidate) => {
+          const mechanismCount = candidate.mechanisms.length
+          const pathwayCount = candidate.pathways.length
+          const topicCount = candidate.topics.length
+          return mechanismCount >= 2 || pathwayCount >= 2 || (mechanismCount + pathwayCount >= 2 && topicCount > 0)
+        })
+        .map((candidate) => removeEmptyInternalFields({
+          id: `${sourceSlug}-stack-${candidate.target}`,
+          source: sourceSlug,
+          target: candidate.target,
+          type: 'biological-adjacency',
+          weight: candidate.stackWeight,
+          rationale: 'Biologically adjacent research candidate; use only as exploratory education context, not stack advice.',
+          framing: candidate.topics.join('; '),
+          evidence_context: 'Exploratory graph context; review profile-specific evidence and safety notes.',
+          mechanism_complementarity: candidate.mechanisms,
+          pathway_complementarity: candidate.pathways,
+          topic_overlap: candidate.topics,
+          ecosystem_overlap: candidate.topics,
+          safety_gate: 'review safety context before combining',
+        }))
+        .sort(semanticSort)
+        .slice(0, SEMANTIC_STACK_LIMIT)
+    )
+  }
+
+  return normalizeGraphRows(rows, (row) => row)
+}
+
 function writeWorkbookGraphPayloads(outDir, graph) {
   const graphDir = path.join(outDir, 'graph')
+  const nodes = mergeSparseRecoveryIntoNodes(graph.nodes, graph.sparseRecovery)
   const payloads = {
-    'nodes.json': mergeSparseRecoveryIntoNodes(graph.nodes, graph.sparseRecovery),
+    'nodes.json': nodes,
     'relationships.json': graph.relationships,
     'topics.json': graph.topics,
     'pathways.json': graph.pathways,
     'comparisons.json': graph.comparisons,
     'stacks.json': graph.stacks,
     'supernodes.json': graph.supernodes,
+    'semantic.json': buildPrecomputedSemanticCandidates(nodes),
   }
 
   for (const [filename, payload] of Object.entries(payloads)) {

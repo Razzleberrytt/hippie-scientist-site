@@ -47,7 +47,7 @@ function isGraphLike(value: unknown): boolean {
   const record = asRecord(value)
   if (!record) return false
 
-  return ['nodes', 'relationships', 'topics', 'pathways', 'comparisons', 'stacks', 'supernodes']
+  return ['nodes', 'relationships', 'topics', 'pathways', 'comparisons', 'stacks', 'supernodes', 'semantic']
     .some((key) => Array.isArray(record[key]))
 }
 
@@ -125,6 +125,7 @@ export type GraphRuntime = {
   comparisons?: GraphCandidate[]
   stacks?: GraphCandidate[]
   supernodes?: GraphEcosystem[]
+  semantic?: GraphCandidate[]
 }
 
 const GRAPH_DIR = join(process.cwd(), 'public', 'data', 'graph')
@@ -136,6 +137,7 @@ const GRAPH_FILES = {
   comparisons: 'comparisons.json',
   stacks: 'stacks.json',
   supernodes: 'supernodes.json',
+  semantic: 'semantic.json',
 } as const
 
 const MAX_RELATED_PROFILES = 12
@@ -318,6 +320,7 @@ export function normalizeGraphRuntime(graph: GraphInput): GraphRuntime {
     comparisons: normalizeRows(source.comparisons, normalizeCandidate),
     stacks: normalizeRows(source.stacks, normalizeCandidate),
     supernodes: normalizeRows(source.supernodes, normalizeEcosystem),
+    semantic: normalizeRows(source.semantic, normalizeCandidate),
   }
 }
 
@@ -332,6 +335,7 @@ export function loadRuntimeGraph(): GraphRuntime {
     comparisons: safeJsonArray(GRAPH_FILES.comparisons),
     stacks: safeJsonArray(GRAPH_FILES.stacks),
     supernodes: safeJsonArray(GRAPH_FILES.supernodes),
+    semantic: safeJsonArray(GRAPH_FILES.semantic),
   })
 
   return graphCache
@@ -453,6 +457,41 @@ function byNameOrSlug<T extends { id?: string; slug?: string; name?: string }>(
   )
 }
 
+
+
+function hasPrecomputedSemantic(graph: GraphRuntime): boolean {
+  return Array.isArray(graph.semantic) && graph.semantic.length > 0
+}
+
+function getPrecomputedSemanticCandidates(
+  graph: GraphRuntime,
+  type: string,
+  keys: Set<string>
+): GraphCandidate[] {
+  if (!hasPrecomputedSemantic(graph)) return []
+
+  return (graph.semantic || []).filter(
+    (candidate) =>
+      candidate.type === type &&
+      otherEndpoint(candidate, keys) &&
+      (keys.has(normalizeKey(candidate.source)) || keys.has(normalizeKey(candidate.target)))
+  )
+}
+
+function semanticCandidateToRelationship(candidate: GraphCandidate): GraphRelationship {
+  return {
+    id: candidate.id,
+    source: candidate.source,
+    target: candidate.target,
+    type: candidate.type || 'semantic-overlap',
+    weight: candidate.weight,
+    rationale: candidate.rationale || 'Related by shared mechanisms, pathways, or topic ecosystem context.',
+    evidence_context: candidate.evidence_context,
+    mechanisms: unique((candidate as GraphRecord).mechanisms || candidate.mechanism_overlap || candidate.mechanism_complementarity),
+    pathways: unique((candidate as GraphRecord).pathways || candidate.pathway_overlap || candidate.pathway_complementarity),
+    topics: unique((candidate as GraphRecord).topics || candidate.topic_overlap || candidate.ecosystem_overlap),
+  }
+}
 
 function relationshipToCandidate(
   relationship: GraphRelationship,
@@ -695,8 +734,11 @@ export function getRelatedProfiles(
         keys.has(normalizeKey(relationship.target)))
   )
 
-  const semanticFallback = node
-    ? getNodes(graph)
+  const precomputedSemantic = getPrecomputedSemanticCandidates(graph, 'semantic-overlap', keys)
+  const semanticFallback = precomputedSemantic.length
+    ? precomputedSemantic.map(semanticCandidateToRelationship)
+    : node
+      ? getNodes(graph)
         .filter((candidate) => !matchesProfile(candidate, node))
         .map((candidate) => {
           const mechanisms = sharedItems(node.mechanisms, candidate.mechanisms)
@@ -847,11 +889,15 @@ export function getComparisonCandidates(
     )
     .map((relationship) => relationshipToCandidate(relationship, 'relationship-overlap'))
 
+  const precomputedSemantic = getPrecomputedSemanticCandidates(graph, 'semantic-comparison', keys)
+
   const results = dedupeByOtherEndpoint(
     sortCandidates([
       ...explicit,
       ...relationshipFallback,
-      ...nodeComparisonFallback(graph, node, keys),
+      ...(precomputedSemantic.length
+        ? precomputedSemantic
+        : nodeComparisonFallback(graph, node, keys)),
     ]),
     keys
   ).slice(0, clampLimit(limit, 8, MAX_COMPARISON_CANDIDATES))
@@ -914,11 +960,15 @@ export function getStackCandidates(
       safety_gate: 'review safety context before combining',
     }))
 
+  const precomputedSemantic = getPrecomputedSemanticCandidates(graph, 'biological-adjacency', keys)
+
   const results = dedupeByOtherEndpoint(
     sortCandidates([
       ...explicit,
       ...relationshipFallback,
-      ...nodeStackFallback(graph, node, keys),
+      ...(precomputedSemantic.length
+        ? precomputedSemantic
+        : nodeStackFallback(graph, node, keys)),
     ]),
     keys
   ).slice(0, clampLimit(limit, 6, MAX_STACK_CANDIDATES))
