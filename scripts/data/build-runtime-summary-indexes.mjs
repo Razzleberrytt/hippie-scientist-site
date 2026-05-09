@@ -22,6 +22,9 @@ const SUMMARY_FIELDS = [
   'evidence_tier',
   'safety_level',
   'safety_rating',
+  'runtime_export_decision',
+  'profile_status',
+  'summary_quality',
   'entityType',
 ]
 
@@ -116,7 +119,7 @@ async function main() {
     ),
   ])
 
-  console.log(`Built runtime summary indexes for ${combined.length} records`) 
+  console.log(`Built runtime summary indexes for ${combined.length} records`)
 }
 
 main().catch((error) => {
