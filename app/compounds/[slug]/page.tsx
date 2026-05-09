@@ -88,11 +88,11 @@ export default async function CompoundPage({ params }: any) {
 
   const snapshot = getEvidenceSnapshot(compound)
 
-  const relatedCompounds = getRelatedRuntimeRecords(compound, compounds, 4)
+  const relatedCompounds = (await getRelatedRuntimeRecords(compound, compounds, 4))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
     .map((item:any) => ({ ...item, entityType: 'compound' }))
 
-  const relatedHerbs = getRelatedRuntimeRecords(compound, herbs, 4)
+  const relatedHerbs = (await getRelatedRuntimeRecords(compound, herbs, 4))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
     .map((item:any) => ({ ...item, entityType: 'herb' }))
 
@@ -100,6 +100,7 @@ export default async function CompoundPage({ params }: any) {
     ...compounds.map((item:any) => ({ ...item, entityType: 'compound' })),
     ...herbs.map((item:any) => ({ ...item, entityType: 'herb' })),
   ]
+
   const ecosystemContinuityRecords = getEcosystemContinuityRecords(compound, graphCandidateRecords, 6)
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
@@ -109,9 +110,10 @@ export default async function CompoundPage({ params }: any) {
     6,
   )
 
-  const comparisonRecords = getComparisonRuntimeRecords(compound, graphCandidateRecords, 8)
+  const comparisonRecords = (await getComparisonRuntimeRecords(compound, graphCandidateRecords, 8))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
-  const stackRecords = getStackRuntimeRecords(compound, graphCandidateRecords, 6)
+
+  const stackRecords = (await getStackRuntimeRecords(compound, graphCandidateRecords, 6))
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
   const featuredCollections = getFeaturedCollections(compound)
