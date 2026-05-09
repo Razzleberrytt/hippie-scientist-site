@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getCompoundBySlug } from '@/lib/runtime-data'
+import { getCompoundMetadataRecord } from '@/lib/runtime-metadata-cache'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import TrustBar from '@/components/ui/TrustBar'
@@ -33,7 +34,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: any) {
-  const compound = await getCompoundBySlug(params.slug)
+  const compound = await getCompoundMetadataRecord(params.slug)
 
   if (!compound) return {}
 
