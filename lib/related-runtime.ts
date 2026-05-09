@@ -1,6 +1,7 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
 import { calculateDiscoveryScore } from '@/lib/discovery-score'
+import { collectEcosystemSignals, normalizeEcosystemFields } from '@/lib/ecosystem-intelligence'
 
 function normalize(value: unknown) {
   return safeLower(value)
@@ -20,6 +21,7 @@ function collectSignals(record: any) {
     ...list(record?.foundIn),
     ...list(record?.activeCompounds),
     ...list(record?.traditionalUses),
+    ...collectEcosystemSignals(record),
   ])
     .map(normalize)
     .filter(Boolean)
@@ -28,8 +30,9 @@ function collectSignals(record: any) {
 export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6) {
   const sourceSlug = safeSlug(record?.slug)
   const sourceSignals = collectSignals(record)
+  const explicitNeighbors = new Set(normalizeEcosystemFields(record).semanticNeighbors)
 
-  if (!sourceSignals.length) {
+  if (!sourceSignals.length && !explicitNeighbors.size) {
     return []
   }
 
@@ -49,7 +52,7 @@ export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6)
 
       const candidateSignals = collectSignals(candidate)
 
-      const matched = candidateSignals.some((signal) =>
+      const matched = explicitNeighbors.has(candidateSlug) || candidateSignals.some((signal) =>
         sourceSignals.includes(signal)
       )
 
@@ -65,11 +68,13 @@ export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6)
       const overlap = candidateSignals.filter((signal) =>
         sourceSignals.includes(signal)
       )
+      const explicitBoost = explicitNeighbors.has(safeSlug(candidate?.slug)) ? 4 : 0
+      const ecosystemBoost = normalizeEcosystemFields(candidate).authoritySupernode ? 1 : 0
 
       return {
         ...candidate,
         relatedOverlap: overlap,
-        relatedScore: safeScore(overlap.length) + calculateDiscoveryScore(record, candidate),
+        relatedScore: safeScore(overlap.length) + explicitBoost + ecosystemBoost + calculateDiscoveryScore(record, candidate),
       }
     })
     .sort((a: any, b: any) => {

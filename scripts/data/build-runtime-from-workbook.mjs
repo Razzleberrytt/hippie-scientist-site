@@ -232,6 +232,55 @@ function pickRuntimeFields(record, allowedFields) {
   )
 }
 
+
+function firstClean(record, fields) {
+  for (const field of fields) {
+    const value = clean(record[field])
+    if (value) return value
+  }
+
+  return ''
+}
+
+function firstList(record, fields) {
+  for (const field of fields) {
+    const values = splitList(record[field])
+    if (values.length) return values
+  }
+
+  return []
+}
+
+function authoritySupernode(record) {
+  const anchorSlugs = new Set(['curcumin', 'berberine', 'nac', 'n-acetylcysteine', 'egcg', 'resveratrol', 'ashwagandha'])
+  const recordSlug = slug(record.slug || record.name)
+  const status = firstClean(record, ['authority_supernode', 'evidence_authority_status', 'authority_status']).toLowerCase()
+  const score = Number(record.authority_score || 0)
+
+  return anchorSlugs.has(recordSlug) || status.includes('supernode') || status.includes('anchor') || status === 'true' || score >= 80
+}
+
+function semanticEcosystemFields(record, type) {
+  return {
+    topic_clusters: firstList(record, ['topic_clusters', 'clusters', type === 'herb' ? 'herb_internal_link_cluster' : 'compound_cluster', 'internal_link_cluster']),
+    ecosystem_tags: firstList(record, ['ecosystem_tags', 'functional_categories', 'tags', 'keywords']),
+    pathway_companions: firstList(record, ['pathway_companions', 'pathways_v2', 'pathways', 'pathway_bucket']),
+    comparison_candidates: firstList(record, ['comparison_candidates', 'comparison_group']),
+    synergy_relationships: firstList(record, ['synergy_relationships', 'synergies', 'stacking_notes']),
+    authority_supernode: authoritySupernode(record),
+    semantic_neighbors: firstList(record, ['semantic_neighbors', 'related_compounds', 'related_herbs']),
+    ecosystem_anchors: firstList(record, ['ecosystem_anchors', 'authority_anchor', 'internal_link_cluster', 'herb_internal_link_cluster']),
+    related_topics: firstList(record, ['related_topics', 'conditions', 'primary_effects', 'effects']),
+    pathway_ecosystems: firstList(record, ['pathway_ecosystems', 'metabolism_pathways', 'pathways_v2', 'pathways']),
+    mechanism_ecosystems: firstList(record, ['mechanism_ecosystems', 'mechanism_targets', 'mechanisms', 'mechanism']),
+    authority_score: clean(record.authority_score),
+    evidence_authority_status: clean(record.evidence_authority_status),
+    authority_status: clean(record.authority_status),
+    clusters: splitList(record.clusters),
+    semantic_ready: clean(record.semantic_ready),
+  }
+}
+
 function determineVisibility(record) {
   const profile = clean(record.profile_status).toLowerCase()
   const quality = clean(record.summary_quality).toLowerCase()
@@ -359,6 +408,8 @@ function main() {
       mechanisms: splitList(r.mechanisms),
       related_compounds: splitList(r.related_compounds),
       safety: clean(r.safety),
+      ...semanticEcosystemFields(r, 'herb'),
+      herb_internal_link_cluster: splitList(r.herb_internal_link_cluster),
     }))
   )
 
@@ -382,6 +433,14 @@ function main() {
       mechanism: clean(r.mechanism || r.mechanisms),
       dosage: clean(r.dosage),
       safety: clean(r.safety),
+      ...semanticEcosystemFields(r, 'compound'),
+      compound_cluster: clean(r.compound_cluster),
+      comparison_group: clean(r.comparison_group),
+      comparison_priority: clean(r.comparison_priority),
+      internal_link_cluster: clean(r.internal_link_cluster),
+      pathway_bucket: clean(r.pathway_bucket),
+      pathways_v2: splitList(r.pathways_v2),
+      pathway_weight: clean(r.pathway_weight),
     }))
   )
 

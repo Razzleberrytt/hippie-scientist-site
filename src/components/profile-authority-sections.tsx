@@ -13,6 +13,7 @@ import { getSafetyClassifications, getSafetyLabels } from '@/lib/safety-classifi
 import { buildSafetyNarratives, buildSafetyNarrativeSummary } from '@/lib/safety-narratives'
 import { getSemanticTrustBadges, getSemanticTrustLabels } from '@/lib/semantic-trust-badges'
 import { getEvidenceDisciplineSummary, getEvidenceStrata } from '@/lib/evidence-stratification'
+import { normalizeEcosystemFields } from '@/lib/ecosystem-intelligence'
 import { clusterMechanisms } from '@/lib/mechanism-clusters'
 import {
   buildDiscoveryNarrative,
@@ -485,6 +486,96 @@ function ScientificSnapshot({
   )
 }
 
+
+function EcosystemIntelligence({ record, relatedRecords, entityType, compact }: { record: any; relatedRecords: any[]; entityType: EntityType; compact: boolean }) {
+  const fields = normalizeEcosystemFields(record)
+  const ecosystemSections = [
+    {
+      title: 'Topic Ecosystems',
+      description: 'Workbook topic clusters used for discovery and internal linking.',
+      items: [...fields.topicClusters, ...fields.ecosystemTags].slice(0, 8),
+    },
+    {
+      title: 'Pathway Ecosystems',
+      description: 'Pathway adjacency is presented as biological context, not proof of clinical effect.',
+      items: [...fields.pathwayCompanions, ...fields.pathwayEcosystems].slice(0, 8),
+    },
+    {
+      title: 'Mechanism Ecosystems',
+      description: 'Mechanism and target language helps connect this profile to broader systems.',
+      items: fields.mechanismEcosystems.slice(0, 8),
+    },
+    {
+      title: 'Related Topics',
+      description: 'Adjacent topics can guide exploration while keeping claims evidence-aware.',
+      items: fields.relatedTopics.slice(0, 8),
+    },
+  ].filter(section => section.items.length > 0)
+
+  const comparisonRecords = relatedRecords
+    .filter(item => fields.comparisonCandidates.includes(String(item?.slug || '').toLowerCase()))
+    .slice(0, 3)
+  const authorityItems = fields.authoritySignals.length ? fields.authoritySignals : fields.ecosystemAnchors
+
+  if (ecosystemSections.length === 0 && comparisonRecords.length === 0 && fields.synergyRelationships.length === 0 && authorityItems.length === 0) {
+    return null
+  }
+
+  return (
+    <AuthorityCard
+      title={fields.authoritySupernode ? 'Authority Ecosystem Anchor' : 'Semantic Ecosystem'}
+      compact={compact}
+      description={fields.authoritySupernode
+        ? 'This profile acts as a high-density navigation anchor in the workbook knowledge graph; relationships remain conservative and evidence-aware.'
+        : 'Workbook ecosystem fields are normalized into compact discovery context so profiles connect without creating noisy recommendation grids.'}
+    >
+      {authorityItems.length > 0 ? <AuthoritySignals signals={authorityItems.slice(0, 6)} /> : null}
+
+      {ecosystemSections.length > 0 ? (
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {ecosystemSections.slice(0, compact ? 2 : 4).map(section => (
+            <MicroSection key={section.title} {...section} />
+          ))}
+        </div>
+      ) : null}
+
+      {comparisonRecords.length > 0 && !compact ? (
+        <div className="surface-subtle rounded-2xl border border-brand-900/10 p-4">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-brand-800/70">Comparison Intelligence</h3>
+          <p className="mt-2 text-sm leading-7 text-[#5b6b61]">
+            Common-comparison signals are shown only as editorial prompts for side-by-side evidence review, not as equivalence claims.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {comparisonRecords.map(item => formatDisplayLabel(item.name || item.slug)).slice(0, 4).map(label => (
+              <span key={label} className="chip-readable">{label}</span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {fields.synergyRelationships.length > 0 && !compact ? (
+        <div className="rounded-2xl border border-amber-700/15 bg-amber-50/70 p-4">
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-amber-950">Stack / synergy context</h3>
+          <p className="mt-2 text-sm leading-7 text-[#5b4632]">
+            These workbook relationships are framed as complementary exploration signals only; they are not protocol recommendations or efficacy claims.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {fields.synergyRelationships.slice(0, 5).map(item => (
+              <span key={item} className="rounded-full border border-amber-800/20 bg-white/55 px-3 py-1 text-xs font-semibold text-amber-950">{item}</span>
+            ))}
+          </div>
+        </div>
+      ) : null}
+
+      {fields.semanticNeighbors.length > 0 && compact ? (
+        <p className="text-sm leading-7 text-[#5b6b61]">
+          Semantic neighbors are available for this {entityType} and are folded into the discovery rail when matching public profiles exist.
+        </p>
+      ) : null}
+    </AuthorityCard>
+  )
+}
+
 function HighIntentFraming({ effects, mechanisms }: { effects: string[]; mechanisms: string[] }) {
   const sections = [
     { title: 'Best Known For', items: effects.slice(0, 3) },
@@ -730,6 +821,8 @@ export default function ProfileAuthoritySections({
         safetySignals={safetySignals}
         compact={compact}
       />
+
+      <EcosystemIntelligence record={record} relatedRecords={relatedRecords} entityType={entityType} compact={compact} />
 
       {!compact ? <HighIntentFraming effects={effects} mechanisms={mechanisms} /> : null}
 

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import compounds from '../../../public/data/compounds.json'
+import herbs from '../../../public/data/herbs.json'
 import {
   classifyArchetype,
   getTopicClusters,
@@ -9,6 +10,8 @@ import { cleanSummary, isClean } from '@/lib/display-utils'
 import { safeArray, safeIncludes, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
 import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
 import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
+import { getAuthorityAnchorRecords, normalizeEcosystemFields } from '@/lib/ecosystem-intelligence'
+import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 
 const TITLES: Record<string, string> = {
   sleep: 'Sleep Support',
@@ -122,6 +125,25 @@ export default async function TopicExplorePage({ params }: any) {
     .sort((a, b) => safeLower(a?.name).localeCompare(safeLower(b?.name)))
     .slice(0, 24)
 
+  const ecosystemSignals = Array.from(new Set(filtered.flatMap((compound: any) => {
+    const fields = normalizeEcosystemFields(compound)
+    return [
+      ...fields.topicClusters,
+      ...fields.ecosystemTags,
+      ...fields.pathwayCompanions,
+      ...fields.pathwayEcosystems,
+      ...fields.mechanismEcosystems,
+    ]
+  }).filter(Boolean))).slice(0, 10)
+
+  const authorityAnchors = getAuthorityAnchorRecords([...safeArray<any>(compounds), ...safeArray<any>(herbs)], 8)
+    .filter((record: any) => getRuntimeVisibility(record).canRender)
+    .filter((record: any) => {
+      const fields = normalizeEcosystemFields(record)
+      return [...fields.topicClusters, ...fields.ecosystemTags, ...fields.relatedTopics].some((signal) => matchesTopic(signal, topic))
+    })
+    .slice(0, 4)
+
   return (
     <main className="mx-auto max-w-7xl space-y-9 px-4 py-10 sm:py-14">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
@@ -146,6 +168,40 @@ export default async function TopicExplorePage({ params }: any) {
         description="High-signal terms summarize the biological systems and adjacent outcomes most useful for exploring this topic."
         signals={context.signals}
       />
+
+
+      <SignalPanel
+        eyebrow="Workbook ecosystem signals"
+        title="Semantic systems represented here"
+        description="These normalized workbook signals add topic, pathway, and mechanism context without changing route contracts or implying clinical effect."
+        signals={ecosystemSignals.length ? ecosystemSignals : context.signals}
+      />
+
+      {authorityAnchors.length > 0 ? (
+        <section className="space-y-5">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Authority anchors</p>
+            <h2 className="text-3xl font-semibold tracking-tight text-ink">High-density profiles in this ecosystem</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {authorityAnchors.map((record: any) => {
+              const isHerb = safeArray<any>(herbs).some((herb: any) => safeSlug(herb?.slug) === safeSlug(record?.slug))
+              const fields = normalizeEcosystemFields(record)
+              return (
+                <Link key={`${isHerb ? 'herb' : 'compound'}-${record.slug}`} href={`/${isHerb ? 'herbs' : 'compounds'}/${record.slug}`} className="surface-subtle rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/60">
+                  <p className="identity-kicker">Authority anchor</p>
+                  <h3 className="mt-2 text-lg font-semibold text-ink">{record.name}</h3>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {[...fields.topicClusters, ...fields.ecosystemTags].slice(0, 3).map((signal) => (
+                      <span key={signal} className="chip-readable text-[10px] uppercase tracking-wide">{signal}</span>
+                    ))}
+                  </div>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+      ) : null}
 
       <EcosystemPanelGrid
         eyebrow="Mechanistically adjacent topics"

@@ -65,6 +65,32 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'metabolism',
   'stacking_notes',
 
+
+  // Semantic ecosystem intelligence
+  'topic_clusters',
+  'ecosystem_tags',
+  'pathway_companions',
+  'comparison_candidates',
+  'synergy_relationships',
+  'authority_supernode',
+  'semantic_neighbors',
+  'ecosystem_anchors',
+  'related_topics',
+  'pathway_ecosystems',
+  'mechanism_ecosystems',
+  'authority_score',
+  'evidence_authority_status',
+  'authority_status',
+  'clusters',
+  'compound_cluster',
+  'comparison_group',
+  'comparison_priority',
+  'internal_link_cluster',
+  'pathway_bucket',
+  'pathways_v2',
+  'pathway_weight',
+  'semantic_ready',
+
   // Protocols / search
   'protocols',
   'conditions',
