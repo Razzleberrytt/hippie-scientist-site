@@ -178,7 +178,12 @@ export function mergeEcosystemContinuityRecords(primaryRecords: any[], continuit
   const requestedLimit = capLimit(limit)
   const bySlug = new Map<string, any>()
 
-  for (const item of [...safeArray(primaryRecords), ...safeArray(continuityRecords)].sort(sortByScoreThenName)) {
+  const mergedRecords = [
+    ...safeArray(primaryRecords),
+    ...safeArray(continuityRecords),
+  ] as any[]
+
+  for (const item of mergedRecords.sort(sortByScoreThenName)) {
     const slug = safeSlug(item?.slug)
     if (!slug || bySlug.has(slug)) continue
     bySlug.set(slug, item)
