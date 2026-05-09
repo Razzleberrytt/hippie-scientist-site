@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { goalConfigs } from '@/data/goals'
 import { seoEntryPages } from '../seo-entry-pages'
+import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getEcosystemPanels, getTopicClusterLinks } from '@/lib/ecosystem-context'
 
 export default function GoalsIndex() {
   const featuredGuides = seoEntryPages.slice(0, 12)
@@ -24,6 +26,26 @@ export default function GoalsIndex() {
           </div>
         </div>
       </section>
+
+      <SemanticHubIntro
+        sections={[
+          { title: 'Decision context', body: 'Goal pages connect broad reader intent to evidence-aware profiles, mechanisms, safety notes, and adjacent outcome guides.' },
+          { title: 'Biological relevance', body: 'Each path is framed as a research map across overlapping systems rather than a promise that one supplement solves a goal.' },
+          { title: 'Discovery continuity', body: 'Guides, pathways, collections, herbs, and compounds are linked so readers can move from outcome to mechanism to profile.' },
+        ]}
+      />
+
+      <EcosystemPanelGrid
+        eyebrow="Frequently explored together"
+        title="Goal ecosystems across the site"
+        panels={getEcosystemPanels(['sleep stress cognition inflammation metabolism cardiovascular recovery oxidative stress neurobiology mitochondrial function'], 6)}
+      />
+
+      <KnowledgeGraphLinks
+        eyebrow="Scientific themes"
+        title="Browse by adjacent biology"
+        links={getTopicClusterLinks(6)}
+      />
 
       <section className="space-y-5">
         <div>

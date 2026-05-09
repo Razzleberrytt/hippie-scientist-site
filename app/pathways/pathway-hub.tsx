@@ -13,7 +13,8 @@ import {
 } from '@/lib/pathways'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
-import { KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
 
 type RelatedPathwayLink = {
   label: string
@@ -231,6 +232,13 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
         </div>
       </section>
+
+      <EcosystemPanelGrid
+        eyebrow="Related biological systems"
+        title="Adjacent systems to keep in view"
+        panels={getAdjacentEcosystemPanels([...config.clusters, ...mechanisms, ...effects], 4)}
+        limit={4}
+      />
 
       <KnowledgeGraphLinks
         eyebrow="Scientific discovery graph"

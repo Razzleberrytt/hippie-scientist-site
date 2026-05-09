@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { getCompounds } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { EcosystemPanelGrid } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getEcosystemPanels } from '@/lib/ecosystem-context'
 import '@/styles/premium-cards.css'
 
 function safeString(value: unknown) {
@@ -101,6 +103,13 @@ export default async function CompoundsPage() {
               </p>
             </div>
           </div>
+
+          <EcosystemPanelGrid
+            eyebrow="Associated pathways"
+            title="Compound ecosystem pathways"
+            panels={getEcosystemPanels(['cognition sleep neurobiology mitochondrial function metabolism oxidative stress cardiovascular function inflammation'], 4)}
+            limit={4}
+          />
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 xl:gap-6">
             {compounds.map((compound: any) => {

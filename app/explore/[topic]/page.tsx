@@ -7,7 +7,8 @@ import {
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
 import { safeArray, safeIncludes, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
-import { KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
 
 const TITLES: Record<string, string> = {
   sleep: 'Sleep Support',
@@ -144,6 +145,13 @@ export default async function TopicExplorePage({ params }: any) {
         title="How this cluster is organized"
         description="High-signal terms summarize the biological systems and adjacent outcomes most useful for exploring this topic."
         signals={context.signals}
+      />
+
+      <EcosystemPanelGrid
+        eyebrow="Mechanistically adjacent topics"
+        title="Research adjacencies for this cluster"
+        panels={getAdjacentEcosystemPanels(context.signals, 4)}
+        limit={4}
       />
 
       <KnowledgeGraphLinks

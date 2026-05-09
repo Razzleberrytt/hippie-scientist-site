@@ -5,7 +5,8 @@ import {
   getTopicClusters,
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
-import { KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
+import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getEcosystemPanels, getTopicClusterLinks } from '@/lib/ecosystem-context'
 
 const hubIntro = [
   {
@@ -154,10 +155,17 @@ export default function ExplorePage() {
         ))}
       </section>
 
+      <EcosystemPanelGrid
+        eyebrow="Topic-cluster depth"
+        title="Core scientific ecosystems"
+        panels={getEcosystemPanels(['inflammation cognition metabolism stress response longevity mitochondrial function oxidative stress sleep neurobiology cardiovascular function'], 10)}
+        limit={10}
+      />
+
       <KnowledgeGraphLinks
         eyebrow="Often explored together"
         title="Move through the scientific graph"
-        links={graphLinks}
+        links={[...graphLinks, ...getTopicClusterLinks(4)].slice(0, 6)}
       />
 
       <section className="space-y-6">

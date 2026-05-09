@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { seoCollections } from '@/data/seoCollections'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
-import { SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { EcosystemPanelGrid, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
+import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -70,6 +71,13 @@ export default async function CollectionPage({ params }: Params) {
         title="Shared signals in this collection"
         description="These compact terms come from visible matching records and help recover context on otherwise sparse collection routes."
         signals={themes}
+      />
+
+      <EcosystemPanelGrid
+        eyebrow="Research adjacencies"
+        title="Adjacent systems for this collection"
+        panels={getAdjacentEcosystemPanels(themes, 4)}
+        limit={4}
       />
 
       <section className="space-y-6">
