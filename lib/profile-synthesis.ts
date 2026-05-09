@@ -44,20 +44,30 @@ function getEvidenceTone(evidenceTier = '', density = '') {
 export function buildScientificSummary(input: SynthesisInput) {
   const effects = clean(input.effects)
   const mechanisms = clean(input.mechanisms)
+  const pathways = clean(input.pathways)
+  const contextSignals = mechanisms.length > 0 ? mechanisms : pathways.length > 0 ? pathways : effects
   const varied = buildVariedSummary(input)
   if (varied) return varied
 
   const tone = getEvidenceTone(input.evidenceTier, input.density)
 
-  if (tone === 'strong') {
-    return `Research interest is strongest around ${joinNatural(effects)} with additional focus on ${joinNatural(mechanisms)} pathways.`
+  if (tone === 'strong' && contextSignals.length > 0) {
+    const focus = effects.length > 0 ? joinNatural(effects) : joinNatural(contextSignals)
+    const mechanismFocus = contextSignals.length > 0 ? ` with additional focus on ${joinNatural(contextSignals)} pathways` : ''
+    return `Research interest is strongest around ${focus}${mechanismFocus}.`
   }
 
-  if (tone === 'moderate') {
-    return `Current research most commonly explores ${joinNatural(effects)} alongside mechanistic interest in ${joinNatural(mechanisms)}.`
+  if (tone === 'moderate' && contextSignals.length > 0) {
+    const focus = effects.length > 0 ? joinNatural(effects) : joinNatural(contextSignals)
+    const mechanismFocus = contextSignals.length > 0 ? ` alongside mechanistic interest in ${joinNatural(contextSignals)}` : ''
+    return `Current research most commonly explores ${focus}${mechanismFocus}.`
   }
 
-  return `This profile is framed as mechanistic or exploratory context involving ${joinNatural(mechanisms.length > 0 ? mechanisms : effects)}, not as settled clinical guidance.`
+  if (contextSignals.length > 0) {
+    return `This profile is framed as mechanistic or exploratory context involving ${joinNatural(contextSignals)}, not as settled clinical guidance.`
+  }
+
+  return 'This profile is framed conservatively because only limited runtime context is available; interpretation should stay exploratory rather than clinical.'
 }
 
 export function buildMechanismContext(input: SynthesisInput) {

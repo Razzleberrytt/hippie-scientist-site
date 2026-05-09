@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import data from '../../../public/data/compounds.json'
+import { getCompoundBySlug, getCompounds, getHerbs } from '@/lib/runtime-data'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import TrustBar from '@/components/ui/TrustBar'
 import ReadingProgress from '@/components/ui/ReadingProgress'
@@ -15,7 +15,6 @@ import { buildMeta } from '@/lib/seo'
 import {
   normalizeEvidenceLevel,
   normalizeSafetyLevel,
-  getEffects,
   getSources,
 } from '@/lib/evidence-utils'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
@@ -24,13 +23,15 @@ import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 
 export async function generateStaticParams() {
-  return (data as any[])
+  const compounds = await getCompounds()
+
+  return compounds
     .filter((compound:any) => getRuntimeVisibility(compound).canRender)
     .map((compound:any) => ({ slug: compound.slug }))
 }
 
-export function generateMetadata({ params }: any) {
-  const compound = (data as any[]).find((item:any) => item.slug === params.slug)
+export async function generateMetadata({ params }: any) {
+  const compound = await getCompoundBySlug(params.slug)
 
   if (!compound) return {}
 
@@ -62,10 +63,10 @@ export function generateMetadata({ params }: any) {
   }
 }
 
-export default function CompoundPage({ params }: any) {
-  const compounds = data as any[]
+export default async function CompoundPage({ params }: any) {
+  const [compounds, herbs] = await Promise.all([getCompounds(), getHerbs()])
 
-  const compound = compounds.find((item:any) => item.slug === params.slug)
+  const compound = await getCompoundBySlug(params.slug)
 
   if (!compound || !getRuntimeVisibility(compound).canRender) {
     notFound()
@@ -73,7 +74,7 @@ export default function CompoundPage({ params }: any) {
 
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
 
-  const effects = getEffects(compound)
+  const effects = list(compound.effects || compound.primary_effects || compound.primaryActions)
     .map((effect:string) => formatDisplayLabel(effect))
     .filter(isClean)
 
@@ -81,13 +82,20 @@ export default function CompoundPage({ params }: any) {
     .map((item:any) => formatDisplayLabel(item))
     .filter(isClean)
 
-  const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier)
-  const safetyLevel = normalizeSafetyLevel(compound.safety)
+  const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier || compound.evidenceLevel || compound.evidence_grade)
+  const safetyLevel = normalizeSafetyLevel(compound.safety || compound.safetyNotes)
 
   const snapshot = getEvidenceSnapshot(compound)
 
-  const semanticRelated = getRelatedRuntimeRecords(compound, compounds, 6)
+  const relatedCompounds = getRelatedRuntimeRecords(compound, compounds, 4)
     .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .map((item:any) => ({ ...item, entityType: 'compound' }))
+
+  const relatedHerbs = getRelatedRuntimeRecords(compound, herbs, 4)
+    .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .map((item:any) => ({ ...item, entityType: 'herb' }))
+
+  const semanticRelated = [...relatedCompounds, ...relatedHerbs].slice(0, 6)
 
   const featuredCollections = getFeaturedCollections(compound)
 

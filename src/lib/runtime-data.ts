@@ -17,14 +17,70 @@ async function readJsonFile(fileName: string): Promise<unknown> {
   }
 }
 
+function isSafeSlug(slug: string) {
+  return /^[a-z0-9][a-z0-9-]*$/.test(slug)
+}
+
+function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[]) {
+  const bySlug = new Map<string, RuntimeRecord>()
+
+  for (const row of enrichmentRows) {
+    if (typeof row?.slug === 'string') {
+      bySlug.set(row.slug, row)
+    }
+  }
+
+  const merged = baseRows.map(row => {
+    const slug = typeof row?.slug === 'string' ? row.slug : ''
+    const enrichment = bySlug.get(slug)
+
+    return enrichment ? { ...row, ...enrichment } : row
+  })
+
+  const knownSlugs = new Set(merged.map(row => row?.slug).filter(Boolean))
+
+  for (const row of enrichmentRows) {
+    if (typeof row?.slug === 'string' && !knownSlugs.has(row.slug)) {
+      merged.push(row)
+    }
+  }
+
+  return merged
+}
+
+async function readDetailRecord(kind: 'herbs' | 'compounds', slug: string): Promise<RuntimeRecord | undefined> {
+  if (!isSafeSlug(slug)) return undefined
+
+  const detail = await readJsonFile(`${kind}-detail/${slug}.json`)
+
+  return detail && !Array.isArray(detail) && typeof detail === 'object' ? detail as RuntimeRecord : undefined
+}
+
 export const getHerbs = cache(async (): Promise<RuntimeRecord[]> => {
-  const herbs = await readJsonFile('herbs.json')
-  return Array.isArray(herbs) ? herbs : []
+  const [herbs, summary] = await Promise.all([
+    readJsonFile('herbs.json'),
+    readJsonFile('herbs-summary.json'),
+  ])
+
+  const baseRows = Array.isArray(herbs) ? herbs : []
+  const enrichmentRows = Array.isArray(summary) ? summary : []
+
+  return mergeBySlug(baseRows, enrichmentRows)
 })
 
 export const getCompounds = cache(async (): Promise<RuntimeRecord[]> => {
-  const compounds = await readJsonFile('compounds.json')
-  return Array.isArray(compounds) ? compounds : []
+  const [compounds, summary] = await Promise.all([
+    readJsonFile('compounds.json'),
+    readJsonFile('compounds-summary.json'),
+  ])
+
+  const baseRows = Array.isArray(compounds) ? compounds : []
+  const enrichmentRows = Array.isArray(summary) ? summary : []
+
+  return mergeBySlug(baseRows, enrichmentRows).map(row => ({
+    name: row?.name || row?.compoundName || row?.canonicalCompoundName || row?.slug,
+    ...row,
+  }))
 })
 
 export const getHerbCompoundMap = cache(async (): Promise<RuntimeRecord[]> => {
@@ -70,17 +126,21 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
 export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | undefined> {
   const herbs = await getHerbs()
   const herb = herbs.find(herb => herb.slug === slug)
+  const detail = await readDetailRecord('herbs', slug)
+  const mergedHerb = detail ? { ...herb, ...detail } : herb
 
-  if (!herb || !getRuntimeVisibility(herb).canRender) return undefined
+  if (!mergedHerb || !getRuntimeVisibility(mergedHerb).canRender) return undefined
 
-  return herb
+  return mergedHerb
 }
 
 export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | undefined> {
   const compounds = await getCompounds()
   const compound = compounds.find(compound => compound.slug === slug)
+  const detail = await readDetailRecord('compounds', slug)
+  const mergedCompound = detail ? { ...compound, ...detail } : compound
 
-  if (!compound || !getRuntimeVisibility(compound).canRender) return undefined
+  if (!mergedCompound || !getRuntimeVisibility(mergedCompound).canRender) return undefined
 
-  return compound
+  return mergedCompound
 }

@@ -13,6 +13,13 @@ function collectSignals(record: any) {
     ...list(record?.effects),
     ...list(record?.mechanisms),
     ...list(record?.pathways),
+    ...list(record?.targets),
+    ...list(record?.biologicalTargets),
+    ...list(record?.compoundClass),
+    ...list(record?.class),
+    ...list(record?.foundIn),
+    ...list(record?.activeCompounds),
+    ...list(record?.traditionalUses),
   ])
     .map(normalize)
     .filter(Boolean)
