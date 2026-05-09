@@ -8,6 +8,12 @@ const MAX_STACK_CANDIDATES = 4
 
 type RuntimeRecord = Record<string, any>
 
+type EnrichedRuntimeRecord = RuntimeRecord & {
+  relatedOverlap: string[]
+  relatedGraphKinds: string[]
+  relatedScore: number
+}
+
 function clampLimit(value: unknown, fallback: number, max: number) {
   const parsed = safeScore(value, fallback)
   if (!Number.isFinite(parsed)) return fallback
@@ -104,7 +110,7 @@ function scoreRecord(source: RuntimeRecord, candidate: RuntimeRecord, overlap: s
   )
 }
 
-function sortRelated(a: RuntimeRecord, b: RuntimeRecord) {
+function sortRelated(a: EnrichedRuntimeRecord, b: EnrichedRuntimeRecord) {
   const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
   if (scoreDelta !== 0) return scoreDelta
 
@@ -114,7 +120,7 @@ function sortRelated(a: RuntimeRecord, b: RuntimeRecord) {
   return safeSlug(a?.slug).localeCompare(safeSlug(b?.slug))
 }
 
-function enrichRelatedRecord(source: RuntimeRecord, candidate: RuntimeRecord, sourceSignals: string[], explicitSlugs: string[]) {
+function enrichRelatedRecord(source: RuntimeRecord, candidate: RuntimeRecord, sourceSignals: string[], explicitSlugs: string[]): EnrichedRuntimeRecord {
   const candidateSignals = collectSignals(candidate)
   const overlap = overlapSignals(sourceSignals, candidateSignals)
   const relatedGraphKinds: string[] = []
@@ -133,6 +139,10 @@ function enrichRelatedRecord(source: RuntimeRecord, candidate: RuntimeRecord, so
     relatedGraphKinds,
     relatedScore: scoreRecord(source, candidate, overlap, explicitSlugs),
   }
+}
+
+function isEnrichedRuntimeRecord(value: unknown): value is EnrichedRuntimeRecord {
+  return Boolean(value && typeof value === 'object')
 }
 
 export function getRelatedRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_RELATED_PROFILES) {
@@ -159,7 +169,7 @@ export function getRelatedRuntimeRecords(record: RuntimeRecord, records: Runtime
       seen.add(candidateSlug)
       return enriched
     })
-    .filter(Boolean)
+    .filter(isEnrichedRuntimeRecord)
     .sort(sortRelated)
     .slice(0, requestedLimit)
 }
