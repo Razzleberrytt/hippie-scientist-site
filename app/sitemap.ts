@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import postsData from '@/data/blog/posts.json'
 import stacksData from '@/public/data/stacks.json'
-import { getCompounds, getHerbs } from '@/lib/runtime-data'
+import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { bestPages } from '@/data/best'
 import { supplementComparisons } from '@/data/comparisons'
@@ -38,8 +38,8 @@ const cleanSlug = (value: unknown): string =>
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [herbs, runtimeCompounds] = await Promise.all([
-    getHerbs(),
-    getCompounds(),
+    getHerbSummaryIndex(),
+    getCompoundSummaryIndex(),
   ])
 
   const stacks = stacksData as SlugRecord[]
