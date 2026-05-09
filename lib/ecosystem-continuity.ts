@@ -4,6 +4,24 @@ import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
 
 const MAX_ECOSYSTEM_CONTINUITY_RECORDS = 6
 const MAX_MATCHED_ECOSYSTEMS = 6
+const MAX_CONTINUITY_CANDIDATE_POOL = 60
+
+type EcosystemSignalBundle = {
+  entityKeys: string[]
+  signals: string[]
+  displayOverlap: string[]
+  densityScore: number
+  sortKey: string
+}
+
+type ContinuityRecordIndex = {
+  bySlug: Map<string, any>
+  bySignal: Map<string, any[]>
+}
+
+const profileSignalCache = new WeakMap<any, string[]>()
+const ecosystemSignalCache = new WeakMap<GraphEcosystem, EcosystemSignalBundle>()
+const recordIndexCache = new WeakMap<any[], ContinuityRecordIndex>()
 
 function normalizeKey(value: unknown) {
   return safeLower(value)
@@ -11,23 +29,53 @@ function normalizeKey(value: unknown) {
     .replace(/^-+|-+$/g, '')
 }
 
-function collectProfileSignals(record: any) {
-  return unique([
-    ...list(record?.topics),
-    ...list(record?.topicTags),
-    ...list(record?.pathways),
-    ...list(record?.pathwayTargets),
-    ...list(record?.mechanisms),
-    ...list(record?.mechanismTags),
-    ...list(record?.primary_effects),
-    ...list(record?.effects),
-  ])
-    .map(normalizeKey)
-    .filter(Boolean)
+function collectProfileSignals(record: any): string[] {
+  const cached = record && profileSignalCache.get(record)
+  if (cached) return cached
+
+  const seen = new Set<string>()
+  const signals: string[] = []
+
+  for (const value of [
+    record?.topics,
+    record?.topicTags,
+    record?.pathways,
+    record?.pathwayTargets,
+    record?.mechanisms,
+    record?.mechanismTags,
+    record?.primary_effects,
+    record?.effects,
+  ]) {
+    for (const item of list(value)) {
+      const signal = normalizeKey(item)
+      if (!signal || seen.has(signal)) continue
+      seen.add(signal)
+      signals.push(signal)
+    }
+  }
+
+  if (record && typeof record === 'object') profileSignalCache.set(record, signals)
+  return signals
 }
 
-function ecosystemEntityKeys(ecosystem: GraphEcosystem) {
-  return unique([
+function numeric(value: unknown) {
+  const parsed = Number(text(value))
+  return Number.isFinite(parsed) ? parsed : 0
+}
+
+function sharedCount(left: string[], rightSet: Set<string>) {
+  let count = 0
+  for (const value of left) {
+    if (rightSet.has(value)) count += 1
+  }
+  return count
+}
+
+function ecosystemBundle(ecosystem: GraphEcosystem): EcosystemSignalBundle {
+  const cached = ecosystemSignalCache.get(ecosystem)
+  if (cached) return cached
+
+  const entityKeys = unique([
     text(ecosystem.slug),
     text(ecosystem.id),
     text(ecosystem.name),
@@ -38,10 +86,8 @@ function ecosystemEntityKeys(ecosystem: GraphEcosystem) {
   ])
     .map(normalizeKey)
     .filter(Boolean)
-}
 
-function ecosystemSignals(ecosystem: GraphEcosystem) {
-  return unique([
+  const signals = unique([
     text(ecosystem.name),
     text(ecosystem.kind),
     ...list(ecosystem.topics),
@@ -51,48 +97,83 @@ function ecosystemSignals(ecosystem: GraphEcosystem) {
   ])
     .map(normalizeKey)
     .filter(Boolean)
+
+  const displayOverlap = unique([
+    formatDisplayLabel(ecosystem.name || ecosystem.slug || ecosystem.id),
+    ...list(ecosystem.topics).slice(0, 2),
+    ...list(ecosystem.pathways).slice(0, 2),
+  ])
+    .map(formatDisplayLabel)
+    .filter(isClean)
+    .slice(0, 4)
+
+  const bundle = {
+    entityKeys,
+    signals,
+    displayOverlap,
+    densityScore: Math.min(numeric(ecosystem.relationship_density) / 25, 4) + Math.min(numeric(ecosystem.graph_score) / 50, 2),
+    sortKey: safeLower(ecosystem.name || ecosystem.slug || ecosystem.id),
+  }
+  ecosystemSignalCache.set(ecosystem, bundle)
+  return bundle
 }
 
-function numeric(value: unknown) {
-  const parsed = Number(text(value))
-  return Number.isFinite(parsed) ? parsed : 0
+function addIndexedSignal(index: Map<string, any[]>, signal: string, record: any) {
+  const rows = index.get(signal)
+  if (rows) {
+    rows.push(record)
+    return
+  }
+  index.set(signal, [record])
 }
 
-function sharedCount(left: string[], right: string[]) {
-  const rightSet = new Set(right)
-  return left.filter((value) => rightSet.has(value)).length
+function getContinuityRecordIndex(records: any[]) {
+  const cached = recordIndexCache.get(records)
+  if (cached) return cached
+
+  const index: ContinuityRecordIndex = {
+    bySlug: new Map(),
+    bySignal: new Map(),
+  }
+
+  for (const record of safeArray<any>(records)) {
+    const slug = safeSlug(record?.slug)
+    if (slug && !index.bySlug.has(slug)) index.bySlug.set(slug, record)
+    for (const signal of collectProfileSignals(record)) addIndexedSignal(index.bySignal, signal, record)
+  }
+
+  recordIndexCache.set(records, index)
+  return index
 }
 
-function ecosystemScore(record: any, ecosystem: GraphEcosystem) {
+function ecosystemScore(record: any, ecosystem: GraphEcosystem, sourceSignals = collectProfileSignals(record)) {
   const sourceSlug = safeSlug(record?.slug)
-  const sourceSignals = collectProfileSignals(record)
-  const entityKeys = ecosystemEntityKeys(ecosystem)
-  const signals = ecosystemSignals(ecosystem)
+  const bundle = ecosystemBundle(ecosystem)
+  const entitySet = new Set(bundle.entityKeys)
+  const signalSet = new Set(bundle.signals)
 
-  const directMatch = sourceSlug && entityKeys.includes(sourceSlug) ? 8 : 0
-  const signalMatch = sharedCount(sourceSignals, signals)
+  const directMatch = sourceSlug && entitySet.has(sourceSlug) ? 8 : 0
+  const signalMatch = sharedCount(sourceSignals, signalSet)
 
-  return (
-    directMatch +
-    signalMatch * 2 +
-    Math.min(numeric(ecosystem.relationship_density) / 25, 4) +
-    Math.min(numeric(ecosystem.graph_score) / 50, 2)
-  )
+  return directMatch + signalMatch * 2 + bundle.densityScore
 }
 
-function candidateScore(candidate: any, matchedEcosystems: GraphEcosystem[], sourceSignals: string[]) {
+function candidateScore(candidate: any, matchedEcosystems: GraphEcosystem[], sourceSignalSet: Set<string>) {
   const candidateSlug = safeSlug(candidate?.slug)
   const candidateSignals = collectProfileSignals(candidate)
 
-  return matchedEcosystems.reduce((score, ecosystem) => {
-    const entityKeys = ecosystemEntityKeys(ecosystem)
-    const signals = ecosystemSignals(ecosystem)
-    const entityMatch = candidateSlug && entityKeys.includes(candidateSlug) ? 8 : 0
-    const signalMatch = sharedCount(candidateSignals, signals)
-    const sourceContinuity = sharedCount(sourceSignals, signals)
+  let score = 0
+  for (const ecosystem of matchedEcosystems) {
+    const bundle = ecosystemBundle(ecosystem)
+    const entityMatch = candidateSlug && bundle.entityKeys.includes(candidateSlug) ? 8 : 0
+    const signalSet = new Set(bundle.signals)
+    const signalMatch = sharedCount(candidateSignals, signalSet)
+    const sourceContinuity = sharedCount(bundle.signals, sourceSignalSet)
 
-    return score + entityMatch + signalMatch * 2 + sourceContinuity
-  }, 0)
+    score += entityMatch + signalMatch * 2 + sourceContinuity
+  }
+
+  return score
 }
 
 function sortByScoreThenName(a: any, b: any) {
@@ -109,6 +190,42 @@ function capLimit(limit: number | undefined) {
   return Math.min(MAX_ECOSYSTEM_CONTINUITY_RECORDS, Math.max(0, safeScore(limit, MAX_ECOSYSTEM_CONTINUITY_RECORDS)))
 }
 
+function addCandidate(candidates: any[], seen: Set<string>, sourceSlug: string, candidate: any) {
+  if (candidates.length >= MAX_CONTINUITY_CANDIDATE_POOL) return
+  const slug = safeSlug(candidate?.slug)
+  if (!candidate || !slug || slug === sourceSlug || seen.has(slug)) return
+  seen.add(slug)
+  candidates.push(candidate)
+}
+
+function getContinuityCandidatePool(record: any, records: any[], matchedEcosystems: GraphEcosystem[]) {
+  const sourceSlug = safeSlug(record?.slug)
+  const index = getContinuityRecordIndex(records)
+  const candidates: any[] = []
+  const seen = new Set<string>()
+
+  for (const ecosystem of matchedEcosystems) {
+    const bundle = ecosystemBundle(ecosystem)
+    for (const key of bundle.entityKeys) {
+      addCandidate(candidates, seen, sourceSlug, index.bySlug.get(key))
+      if (candidates.length >= MAX_CONTINUITY_CANDIDATE_POOL) return candidates
+    }
+  }
+
+  for (const ecosystem of matchedEcosystems) {
+    for (const signal of ecosystemBundle(ecosystem).signals) {
+      const rows = index.bySignal.get(signal)
+      if (!rows) continue
+      for (const row of rows) {
+        addCandidate(candidates, seen, sourceSlug, row)
+        if (candidates.length >= MAX_CONTINUITY_CANDIDATE_POOL) return candidates
+      }
+    }
+  }
+
+  return candidates
+}
+
 export function getMatchedEcosystemsForRecord(record: any, limit = MAX_MATCHED_ECOSYSTEMS) {
   const graph = loadRuntimeGraph()
   const ecosystems = [
@@ -116,16 +233,15 @@ export function getMatchedEcosystemsForRecord(record: any, limit = MAX_MATCHED_E
     ...safeArray(graph.pathways),
     ...safeArray(graph.supernodes),
   ] as GraphEcosystem[]
+  const sourceSignals = collectProfileSignals(record)
 
   return ecosystems
-    .map((ecosystem) => ({ ecosystem, score: ecosystemScore(record, ecosystem) }))
+    .map((ecosystem) => ({ ecosystem, score: ecosystemScore(record, ecosystem, sourceSignals), sortKey: ecosystemBundle(ecosystem).sortKey }))
     .filter((item) => item.score > 0)
     .sort((a, b) => {
       const scoreDelta = b.score - a.score
       if (scoreDelta !== 0) return scoreDelta
-      return safeLower(a.ecosystem.name || a.ecosystem.slug || a.ecosystem.id).localeCompare(
-        safeLower(b.ecosystem.name || b.ecosystem.slug || b.ecosystem.id),
-      )
+      return a.sortKey.localeCompare(b.sortKey)
     })
     .slice(0, Math.max(0, safeScore(limit, MAX_MATCHED_ECOSYSTEMS)))
     .map((item) => item.ecosystem)
@@ -136,27 +252,16 @@ export function getEcosystemContinuityRecords(record: any, records: any[], limit
   const requestedLimit = capLimit(limit)
   const matchedEcosystems = getMatchedEcosystemsForRecord(record)
   const sourceSignals = collectProfileSignals(record)
+  const sourceSignalSet = new Set(sourceSignals)
 
   if (!sourceSlug || requestedLimit === 0 || matchedEcosystems.length === 0) return []
 
-  return safeArray(records)
+  const overlap = unique(matchedEcosystems.flatMap((ecosystem) => ecosystemBundle(ecosystem).displayOverlap)).slice(0, 4)
+
+  return getContinuityCandidatePool(record, records, matchedEcosystems)
     .map((candidate: any) => {
-      const candidateSlug = safeSlug(candidate?.slug)
-      if (!candidateSlug || candidateSlug === sourceSlug) return null
-
-      const score = candidateScore(candidate, matchedEcosystems, sourceSignals)
+      const score = candidateScore(candidate, matchedEcosystems, sourceSignalSet)
       if (score <= 0) return null
-
-      const overlap = unique(
-        matchedEcosystems.flatMap((ecosystem) => [
-          formatDisplayLabel(ecosystem.name || ecosystem.slug || ecosystem.id),
-          ...list(ecosystem.topics).slice(0, 2),
-          ...list(ecosystem.pathways).slice(0, 2),
-        ]),
-      )
-        .map(formatDisplayLabel)
-        .filter(isClean)
-        .slice(0, 4)
 
       return {
         ...candidate,
