@@ -28,9 +28,9 @@ function collectProfileSignals(record: any) {
 
 function ecosystemEntityKeys(ecosystem: GraphEcosystem) {
   return unique([
-    ecosystem.slug,
-    ecosystem.id,
-    ecosystem.name,
+    text(ecosystem.slug),
+    text(ecosystem.id),
+    text(ecosystem.name),
     ...list(ecosystem.anchors),
     ...list(ecosystem.herbs),
     ...list(ecosystem.compounds),
@@ -42,8 +42,8 @@ function ecosystemEntityKeys(ecosystem: GraphEcosystem) {
 
 function ecosystemSignals(ecosystem: GraphEcosystem) {
   return unique([
-    ecosystem.name,
-    ecosystem.kind,
+    text(ecosystem.name),
+    text(ecosystem.kind),
     ...list(ecosystem.topics),
     ...list(ecosystem.pathways),
     ...list(ecosystem.mechanisms),
