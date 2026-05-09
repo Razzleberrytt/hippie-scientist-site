@@ -1,17 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
 import { calculateDiscoveryScore } from '@/lib/discovery-score'
-import {
-  getComparisonCandidates as getGraphComparisonCandidates,
-  getRelatedProfiles as getGraphRelatedProfiles,
-  getStackCandidates as getGraphStackCandidates,
-  type GraphCandidate,
-  type GraphRelationship,
-} from '@/lib/runtime-graph'
-
-const MAX_RELATED_PROFILES = 12
-const MAX_COMPARISON_CANDIDATES = 8
-const MAX_STACK_CANDIDATES = 6
 
 function normalize(value: unknown) {
   return safeLower(value)
@@ -35,6 +24,7 @@ function collectSignals(record: any) {
     ...list(record?.foundIn),
     ...list(record?.activeCompounds),
     ...list(record?.traditionalUses),
+    ...collectEcosystemSignals(record),
   ])
     .map(normalize)
     .filter(Boolean)
@@ -147,10 +137,6 @@ function collectGraphEdges(record: any) {
 export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6) {
   const sourceSlug = safeSlug(record?.slug)
   const sourceSignals = collectSignals(record)
-  const graphEdges = collectGraphEdges(record)
-  const requestedLimit = Math.min(MAX_RELATED_PROFILES, Math.max(0, safeScore(limit, 6)))
-
-  if (!sourceSignals.length && graphEdges.size === 0) {
     return []
   }
 
@@ -168,9 +154,7 @@ export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6)
         return false
       }
 
-      const candidateSignals = collectSignals(candidate)
-      const fallbackMatched = candidateSignals.some((signal) =>
-        sourceSignals.includes(signal)
+      const candidateSignals = collectSignals(candidate)        sourceSignals.includes(signal)
       )
       const graphMatch = graphEdges.get(candidateSlug)
       const graphMatched = Boolean(
@@ -193,31 +177,9 @@ export function getRelatedRuntimeRecords(record: any, records: any[], limit = 6)
         ...collectGraphSignals(graphMatch?.comparison),
         ...collectGraphSignals(graphMatch?.stack),
       ])
-
-      const overlap = unique([
-        ...candidateSignals.filter((signal) => sourceSignals.includes(signal)),
-        ...graphSignals,
-      ])
-
-      const relationshipKinds = [
-        graphMatch?.related ? 'graph-related' : '',
-        graphMatch?.comparison ? 'comparison-candidate' : '',
-        graphMatch?.stack ? 'stack-candidate' : '',
-      ].filter(Boolean)
-
-      const graphScore =
-        graphWeight(graphMatch?.related) +
-        graphWeight(graphMatch?.comparison) +
-        graphWeight(graphMatch?.stack)
-
       return {
         ...candidate,
-        relatedOverlap: overlap,
-        relatedGraphKinds: relationshipKinds,
-        relatedScore:
-          safeScore(overlap.length) +
-          calculateDiscoveryScore(record, candidate) +
-          graphScore,
+        relatedOverlap: overlap,a
       }
     })
     .sort((a: any, b: any) => {

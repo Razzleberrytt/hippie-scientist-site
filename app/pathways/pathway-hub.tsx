@@ -15,6 +15,7 @@ import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
 import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
+import { getAuthorityAnchorRecords, normalizeEcosystemFields } from '@/lib/ecosystem-intelligence'
 
 type RelatedPathwayLink = {
   label: string
@@ -180,7 +181,12 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
     .slice(0, 9)
 
   const relatedRecords = [...relatedHerbs, ...relatedCompounds]
-  const mechanisms = unique(relatedRecords.flatMap(getMechanisms)).slice(0, 12)
+  const ecosystemSignals = unique(relatedRecords.flatMap((record: any) => {
+    const fields = normalizeEcosystemFields(record)
+    return [...fields.topicClusters, ...fields.pathwayEcosystems, ...fields.mechanismEcosystems]
+  })).slice(0, 12)
+  const authorityAnchors = getAuthorityAnchorRecords(relatedRecords, 4)
+  const mechanisms = unique([...relatedRecords.flatMap(getMechanisms), ...ecosystemSignals]).slice(0, 12)
   const effects = unique(relatedRecords.flatMap(getEffects)).slice(0, 12)
   const supportedRelated = config.related.filter((item) => item.href.startsWith('/pathways/') || item.href.startsWith('/goals/') || item.href.startsWith('/best-supplements-for-'))
 
@@ -232,6 +238,24 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
         </div>
       </section>
+
+
+      {authorityAnchors.length > 0 ? (
+        <section className="card-premium p-6">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Authority supernodes</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">High-density anchors for this pathway</h2>
+            <p className="text-sm leading-7 text-[#46574d]">These profiles provide semantic navigation centers for the pathway without implying that all adjacent records share the same clinical evidence.</p>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {authorityAnchors.map((record: any) => (
+              <Link key={record.slug} href={`/${relatedHerbs.some((herb: any) => herb.slug === record.slug) ? 'herbs' : 'compounds'}/${record.slug}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
+                {getRecordName(record)}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <EcosystemPanelGrid
         eyebrow="Related biological systems"

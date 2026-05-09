@@ -68,6 +68,26 @@ export const HERB_RUNTIME_FIELDS = [
   'conditions',
   'synergies',
 
+
+  // Semantic ecosystem intelligence
+  'topic_clusters',
+  'ecosystem_tags',
+  'pathway_companions',
+  'comparison_candidates',
+  'synergy_relationships',
+  'authority_supernode',
+  'semantic_neighbors',
+  'ecosystem_anchors',
+  'related_topics',
+  'pathway_ecosystems',
+  'mechanism_ecosystems',
+  'authority_score',
+  'evidence_authority_status',
+  'authority_status',
+  'clusters',
+  'herb_internal_link_cluster',
+  'semantic_ready',
+
   // Search / discovery
   'tags',
   'keywords',

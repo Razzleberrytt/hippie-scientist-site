@@ -314,8 +314,18 @@ function pickRuntimeFields(record, allowedFields) {
       return true
     })
   )
+}{  related_topics: firstList(record, ['related_topics', 'conditions', 'primary_effects', 'effects']),
+    pathway_ecosystems: firstList(record, ['pathway_ecosystems', 'metabolism_pathways', 'pathways_v2', 'pathways']),
+    mechanism_ecosystems: firstList(record, ['mechanism_ecosystems', 'mechanism_targets', 'mechanisms', 'mechanism']),
+    authority_score: clean(record.authority_score),
+    evidence_authority_status: clean(record.evidence_authority_status),
+    authority_status: clean(record.authority_status),
+    clusters: splitList(record.clusters),
+    semantic_ready: clean(record.semantic_ready),
+  }
 }
 
+=======
 function removeEmptyInternalFields(record) {
   const entries = Object.entries(record)
     .filter(([key]) => !key.startsWith('__'))
@@ -678,35 +688,6 @@ function mergeSparseRecoveryIntoNodes(nodes, sparseRecovery) {
 
   return merged.sort(sortById)
 }
-
-function writeWorkbookGraphPayloads(outDir, graph) {
-  const graphDir = path.join(outDir, 'graph')
-  const payloads = {
-    'nodes.json': mergeSparseRecoveryIntoNodes(graph.nodes, graph.sparseRecovery),
-    'relationships.json': graph.relationships,
-    'topics.json': graph.topics,
-    'pathways.json': graph.pathways,
-    'comparisons.json': graph.comparisons,
-    'stacks.json': graph.stacks,
-    'supernodes.json': graph.supernodes,
-  }
-
-  for (const [filename, payload] of Object.entries(payloads)) {
-    writeCompactJson(path.join(graphDir, filename), payload)
-  }
-}
-
-function logWorkbookGraphSheetCounts(graph) {
-  console.log(`[data] graph nodes loaded: ${graph.nodes.length}`)
-  console.log(`[data] graph relationships loaded: ${graph.relationships.length}`)
-  console.log(`[data] graph topics loaded: ${graph.topics.length}`)
-  console.log(`[data] graph pathways loaded: ${graph.pathways.length}`)
-  console.log(`[data] graph comparisons loaded: ${graph.comparisons.length}`)
-  console.log(`[data] graph stacks loaded: ${graph.stacks.length}`)
-  console.log(`[data] graph supernodes loaded: ${graph.supernodes.length}`)
-  console.log(`[data] graph sparse recovery loaded: ${graph.sparseRecovery.length}`)
-}
-
 function determineVisibility(record) {
   const profile = clean(record.profile_status).toLowerCase()
   const quality = clean(record.summary_quality).toLowerCase()
@@ -834,6 +815,8 @@ function main() {
       mechanisms: splitList(r.mechanisms),
       related_compounds: splitList(r.related_compounds),
       safety: clean(r.safety),
+      ...semanticEcosystemFields(r, 'herb'),
+      herb_internal_link_cluster: splitList(r.herb_internal_link_cluster),
     }))
   )
 
@@ -857,6 +840,14 @@ function main() {
       mechanism: clean(r.mechanism || r.mechanisms),
       dosage: clean(r.dosage),
       safety: clean(r.safety),
+      ...semanticEcosystemFields(r, 'compound'),
+      compound_cluster: clean(r.compound_cluster),
+      comparison_group: clean(r.comparison_group),
+      comparison_priority: clean(r.comparison_priority),
+      internal_link_cluster: clean(r.internal_link_cluster),
+      pathway_bucket: clean(r.pathway_bucket),
+      pathways_v2: splitList(r.pathways_v2),
+      pathway_weight: clean(r.pathway_weight),
     }))
   )
 

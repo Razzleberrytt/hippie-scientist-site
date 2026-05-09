@@ -22,6 +22,13 @@ export type RuntimeCompoundInput = {
   aliases?: unknown
   archetype?: string
   clusters?: unknown
+  topic_clusters?: unknown
+  ecosystem_tags?: unknown
+  pathway_companions?: unknown
+  mechanism_ecosystems?: unknown
+  pathway_ecosystems?: unknown
+  comparison_candidates?: unknown
+  semantic_neighbors?: unknown
 }
 
 export type RuntimeCompound = {
@@ -37,6 +44,9 @@ export type RuntimeCompound = {
   aliases: string[]
   archetype: string
   clusters: string[]
+  ecosystem_tags: string[]
+  pathway_companions: string[]
+  comparison_candidates: string[]
 }
 
 export type ScoredRuntimeCompound = RuntimeCompound & {
@@ -132,10 +142,13 @@ function normalizeCompound(input: RuntimeCompoundInput): RuntimeCompound {
       'compound'
     ),
     sources: sourceArray(input.sources || input.references),
-    related_compounds: unique(splitList(input.related_compounds || input.relatedCompounds)),
+    related_compounds: unique(splitList(input.related_compounds || input.relatedCompounds || input.semantic_neighbors)),
     aliases: unique(splitList(input.aliases)),
     archetype: clean(input.archetype),
-    clusters: unique(splitList(input.clusters)),
+    clusters: unique(splitList(input.topic_clusters || input.clusters || input.ecosystem_tags)),
+    ecosystem_tags: unique(splitList(input.ecosystem_tags)),
+    pathway_companions: unique(splitList(input.pathway_companions || input.pathway_ecosystems || input.mechanism_ecosystems)),
+    comparison_candidates: unique(splitList(input.comparison_candidates)),
   }
 
   const inferredArchetype = base.archetype || inferArchetype(base)
@@ -164,7 +177,7 @@ export function getRelatedCompounds(compound: RuntimeCompoundInput, limit = 6): 
   const normalized = normalizeCompound(compound)
   const baseEffects = new Set(normalized.effects.map((effect) => effect.toLowerCase()))
   const baseMechanisms = new Set(normalized.mechanisms.map((mechanism) => mechanism.toLowerCase()))
-  const baseClusters = new Set(normalized.clusters.map((cluster) => cluster.toLowerCase()))
+  const baseClusters = new Set([...normalized.clusters, ...normalized.ecosystem_tags, ...normalized.pathway_companions].map((cluster) => cluster.toLowerCase()))
 
   return compounds
     .filter((candidate) => candidate.slug !== normalized.slug)
@@ -177,11 +190,11 @@ export function getRelatedCompounds(compound: RuntimeCompoundInput, limit = 6): 
         .map((mechanism) => mechanism.toLowerCase())
         .filter((mechanism) => baseMechanisms.has(mechanism)).length
 
-      const clusterOverlap = candidate.clusters
+      const clusterOverlap = [...candidate.clusters, ...candidate.ecosystem_tags, ...candidate.pathway_companions]
         .map((cluster) => cluster.toLowerCase())
         .filter((cluster) => baseClusters.has(cluster)).length
 
-      const explicitRelated = normalized.related_compounds.includes(candidate.slug)
+      const explicitRelated = normalized.related_compounds.includes(candidate.slug) || normalized.comparison_candidates.includes(candidate.slug)
       const archetypeMatch = normalized.archetype === candidate.archetype ? 1 : 0
       const evidenceWeight = candidate.evidence_tier ? 1 : 0
       const score = effectOverlap * 3 + mechanismOverlap * 2 + clusterOverlap * 2 + archetypeMatch + evidenceWeight + (explicitRelated ? 4 : 0)
