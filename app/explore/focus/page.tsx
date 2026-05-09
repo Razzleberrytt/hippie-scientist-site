@@ -4,6 +4,7 @@ import compounds from '../../../public/data/compounds.json'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
+import { KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
 
 function normalize(value: unknown) {
   return String(value || '').toLowerCase()
@@ -62,6 +63,19 @@ function buildCards(records: any[], type: 'herb' | 'compound') {
 const herbCards = buildCards(herbs as any[], 'herb')
 const compoundCards = buildCards(compounds as any[], 'compound')
 
+const hubIntro = [
+  { title: 'Biological context', body: 'Cognition-support exploration spans neurotransmitter signaling, attention, mental energy, neuroprotection, and fatigue resistance.' },
+  { title: 'Research focus', body: 'Cards are selected from records with focus, memory, nootropic, dopamine, cholinergic, brain-health, or clarity signals.' },
+  { title: 'Common mechanisms', body: 'Mechanistic overlap is used for discovery and internal linking, not as a shortcut for evidence strength.' },
+]
+
+const graphLinks = [
+  { label: 'Dopamine pathway', href: '/pathways/dopamine', description: 'Motivation, attention, reward, and cognitive-performance pathway relationships.' },
+  { label: 'Focus goal guide', href: '/goals/focus', description: 'Outcome-led guide for focus, attention, brain fog, and cognition support.' },
+  { label: 'Cholinergic compounds', href: '/collections/cholinergic-compounds', description: 'Collection centered on acetylcholine-adjacent compounds and cognition context.' },
+  { label: 'Supplements for brain fog', href: '/guides/supplements-for-brain-fog-and-fatigue', description: 'Editorial guide for fatigue, clarity, and cognitive-energy overlap.' },
+]
+
 const semanticSignals = [
   'Cognitive Performance',
   'Attention Support',
@@ -99,6 +113,14 @@ export default function FocusExplorePage() {
           </div>
         </div>
       </section>
+
+      <SemanticHubIntro sections={hubIntro} />
+
+      <KnowledgeGraphLinks
+        eyebrow="Mechanism overlap"
+        title="Follow adjacent cognition research"
+        links={graphLinks}
+      />
 
       <section className="space-y-6">
         <div className="space-y-2">

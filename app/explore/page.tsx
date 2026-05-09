@@ -5,6 +5,31 @@ import {
   getTopicClusters,
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
+import { KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
+
+const hubIntro = [
+  {
+    title: 'Biological context',
+    body: 'The explore layer groups records by outcomes and plausible biological systems so readers can move from broad intent to profile-level evidence without treating mechanism labels as proof.',
+  },
+  {
+    title: 'Research focus',
+    body: 'Clusters emphasize evidence maturity, recurring pathway language, and common research contexts such as inhibitory tone, cognition, inflammatory signaling, and metabolic support.',
+  },
+  {
+    title: 'Discovery method',
+    body: 'This hub is designed as a crawlable map: outcome pages, pathway hubs, collections, and individual profiles reinforce one another through shared semantic signals.',
+  },
+]
+
+const graphLinks = [
+  { label: 'GABA pathway', href: '/pathways/gaba', description: 'Calming, inhibitory tone, relaxation, and sleep-adjacent neurotransmitter context.' },
+  { label: 'Dopamine pathway', href: '/pathways/dopamine', description: 'Motivation, attention, reward, and cognition-oriented pathway relationships.' },
+  { label: 'Inflammation pathway', href: '/pathways/inflammation', description: 'Immune tone, oxidative stress, cytokine, recovery, and joint-support relationships.' },
+  { label: 'Best studied sleep compounds', href: '/collections/best-studied-sleep-compounds', description: 'Collection view for sleep-related compounds with stronger evidence and semantic signals.' },
+  { label: 'Adaptogens for stress', href: '/collections/adaptogens-for-stress', description: 'Botanical stress-support cluster organized around adaptation, resilience, and calm.' },
+  { label: 'Cholinergic compounds', href: '/collections/cholinergic-compounds', description: 'Cognition-adjacent compounds commonly explored with acetylcholine and attention context.' },
+]
 
 const TOPICS = [
   {
@@ -69,6 +94,8 @@ export default function ExplorePage() {
         </div>
       </section>
 
+      <SemanticHubIntro sections={hubIntro} />
+
       <section className="surface-depth card-spacing">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3">
@@ -126,6 +153,12 @@ export default function ExplorePage() {
           </Link>
         ))}
       </section>
+
+      <KnowledgeGraphLinks
+        eyebrow="Often explored together"
+        title="Move through the scientific graph"
+        links={graphLinks}
+      />
 
       <section className="space-y-6">
         <div className="flex items-end justify-between gap-4 flex-wrap">

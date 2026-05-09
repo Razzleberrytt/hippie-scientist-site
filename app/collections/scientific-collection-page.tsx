@@ -13,6 +13,7 @@ import {
   type ScientificCollection,
 } from '@/lib/collections'
 import { formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
+import { KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
 
 type CollectionPageProps = {
   slug: string
@@ -36,6 +37,34 @@ function getMechanisms(record: any) {
   ])
     .filter(isClean)
     .slice(0, 4)
+}
+
+
+function buildCollectionIntro(collection: ScientificCollection) {
+  const subject = collection.primaryType === 'herb' ? 'botanical records' : collection.primaryType === 'compound' ? 'compound records' : 'matching records'
+
+  return [
+    {
+      title: 'Biological context',
+      body: `${collection.title} groups ${subject} by shared effect language, pathway signals, and evidence-aware research context rather than by alphabetical browsing.`,
+    },
+    {
+      title: 'Research focus',
+      body: 'This collection is strongest when matching profiles expose clean mechanisms, associated effects, and publication-ready summaries from the workbook pipeline.',
+    },
+    {
+      title: 'Common mechanisms',
+      body: 'Mechanism and effect chips provide relationship context while preserving the profile pages as the source for evidence strength, cautions, and interpretation.',
+    },
+  ]
+}
+
+function getAdjacentThemes(collection: ScientificCollection, mechanisms: string[], effects: string[]) {
+  return unique([
+    ...collection.chips,
+    ...mechanisms.map(formatDisplayLabel),
+    ...effects.map(formatDisplayLabel),
+  ]).slice(0, 8)
 }
 
 function visible(records: any[]) {
@@ -132,6 +161,7 @@ export async function ScientificCollectionPage({ slug }: CollectionPageProps) {
   const effects = unique(allCards.flatMap(card => getEffects(card.record))).slice(0, 12)
   const primaryCards = allCards.filter(card => !collection.primaryType || card.type === collection.primaryType).slice(0, 12)
   const supportingCards = allCards.filter(card => collection.primaryType && card.type !== collection.primaryType).slice(0, 6)
+  const adjacentThemes = getAdjacentThemes(collection, mechanisms, effects)
 
   return (
     <main className="mx-auto max-w-7xl space-y-12 px-4 py-10 sm:space-y-14 sm:py-14">
@@ -156,6 +186,15 @@ export async function ScientificCollectionPage({ slug }: CollectionPageProps) {
           </div>
         </div>
       </section>
+
+      <SemanticHubIntro sections={buildCollectionIntro(collection)} />
+
+      <SignalPanel
+        eyebrow="Related scientific themes"
+        title="How this collection connects"
+        description="These terms summarize the strongest adjacent systems, effects, and mechanism language present in the matching runtime records."
+        signals={adjacentThemes}
+      />
 
       <section className="grid gap-5 md:grid-cols-2">
         <div className="card-premium p-6">
@@ -201,21 +240,11 @@ export async function ScientificCollectionPage({ slug }: CollectionPageProps) {
         </section>
       ) : null}
 
-      <section className="space-y-5">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Related Collections</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">Continue the scientific graph</h2>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {collection.related.map((item) => (
-            <Link key={item.href} href={item.href} className="surface-subtle rounded-2xl border border-brand-900/10 p-4 transition hover:border-brand-700/30 hover:bg-white/60">
-              <p className="text-sm font-semibold leading-6 text-ink">{item.title}</p>
-              <p className="mt-2 text-xs leading-5 text-muted-readable">{item.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <KnowledgeGraphLinks
+        eyebrow="Related Collections"
+        title="Continue the scientific graph"
+        links={collection.related.map((item) => ({ label: item.title, href: item.href, description: item.description }))}
+      />
     </main>
   )
 }

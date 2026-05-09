@@ -7,12 +7,72 @@ import {
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
 import { safeArray, safeIncludes, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
+import { KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
 
 const TITLES: Record<string, string> = {
   sleep: 'Sleep Support',
   focus: 'Focus & Cognition',
   anxiety: 'Stress & Mood',
   recovery: 'Recovery & Performance',
+}
+
+const TOPIC_CONTEXT: Record<string, { intro: string; sections: { title: string; body: string }[]; signals: string[]; links: { label: string; href: string; description: string }[] }> = {
+  sleep: {
+    intro: 'Sleep support is organized around relaxation signaling, sleep latency, circadian context, and recovery-adjacent physiology. The page helps readers compare compounds without implying that pathway overlap equals clinical effect.',
+    sections: [
+      { title: 'Biological context', body: 'Sleep-related research often spans inhibitory neurotransmission, arousal regulation, circadian rhythm, and nighttime recovery.' },
+      { title: 'Research focus', body: 'Compounds are surfaced when their workbook signals mention sleep, relaxation, GABA, melatonin-adjacent context, or restorative effects.' },
+      { title: 'Pathway relevance', body: 'Use the cluster as a starting map, then evaluate individual profile evidence, dosing notes, cautions, and interaction context.' },
+    ],
+    signals: ['GABA', 'Circadian rhythm', 'Sleep latency', 'Relaxation', 'Nighttime recovery', 'Stress overlap'],
+    links: [
+      { label: 'GABA pathway', href: '/pathways/gaba', description: 'Inhibitory-tone and relaxation context that commonly overlaps with sleep-support profiles.' },
+      { label: 'Sleep goal guide', href: '/goals/sleep', description: 'Outcome-led guide for comparing sleep quality, latency, and nighttime relaxation.' },
+      { label: 'Sleep compounds collection', href: '/collections/best-studied-sleep-compounds', description: 'Evidence-aware collection for compounds frequently researched in sleep contexts.' },
+    ],
+  },
+  focus: {
+    intro: 'Focus and cognition pages group compounds by attention, memory, neurotransmitter, and mental-performance signals while keeping the evidence layer separate from mechanism plausibility.',
+    sections: [
+      { title: 'Biological context', body: 'Cognition research can involve neurotransmitter tone, energy metabolism, neuroprotection, attention, and fatigue resistance.' },
+      { title: 'Research focus', body: 'The cluster prioritizes profiles with focus, cognition, dopamine, cholinergic, nootropic, memory, or brain-health language.' },
+      { title: 'Pathway relevance', body: 'Mechanism labels help navigation, but profile-level evidence and safety context determine how strongly a record should be interpreted.' },
+    ],
+    signals: ['Dopamine', 'Acetylcholine', 'Attention', 'Memory', 'Mental clarity', 'Fatigue overlap'],
+    links: [
+      { label: 'Dopamine pathway', href: '/pathways/dopamine', description: 'Motivation, reward, attention, and cognitive-performance pathway relationships.' },
+      { label: 'Focus goal guide', href: '/goals/focus', description: 'Outcome-led guide for focus, attention, brain fog, and cognition support.' },
+      { label: 'Cholinergic compounds', href: '/collections/cholinergic-compounds', description: 'Collection centered on acetylcholine-adjacent compounds and cognition context.' },
+    ],
+  },
+  anxiety: {
+    intro: 'Stress and mood discovery connects calming, adaptation, cortisol, relaxation, and nervous-system signals without overstating psychiatric benefit.',
+    sections: [
+      { title: 'Biological context', body: 'Stress-support research often spans HPA-axis language, inhibitory tone, sleep overlap, inflammation, and autonomic balance.' },
+      { title: 'Research focus', body: 'Records are grouped by stress, calm, mood, relaxation, adaptogen, and anxiety-adjacent workbook signals.' },
+      { title: 'Pathway relevance', body: 'The hub supports exploration and comparison; it is not a substitute for medical evaluation of anxiety or mood disorders.' },
+    ],
+    signals: ['Stress signaling', 'Adaptogens', 'GABA overlap', 'Cortisol context', 'Mood support', 'Sleep overlap'],
+    links: [
+      { label: 'GABA pathway', href: '/pathways/gaba', description: 'Calming and inhibitory signaling context related to stress and relaxation.' },
+      { label: 'Stress supplement guide', href: '/best-supplements-for-stress', description: 'Decision guide for stress resilience and evidence-aware supplement comparisons.' },
+      { label: 'Adaptogens for stress', href: '/collections/adaptogens-for-stress', description: 'Botanical collection organized around adaptation and resilience language.' },
+    ],
+  },
+  recovery: {
+    intro: 'Recovery and performance discovery connects exercise stress, inflammation, hydration, antioxidant tone, and tissue-support signals.',
+    sections: [
+      { title: 'Biological context', body: 'Recovery-oriented research commonly intersects with inflammatory signaling, oxidative stress, fluid balance, sleep quality, and muscle function.' },
+      { title: 'Research focus', body: 'The cluster highlights records with recovery, performance, inflammation, antioxidant, hydration, energy, or mobility signals.' },
+      { title: 'Pathway relevance', body: 'Adjacent pathways help readers distinguish performance plausibility from direct outcome evidence.' },
+    ],
+    signals: ['Inflammation', 'Oxidative stress', 'Hydration', 'Muscle function', 'Energy metabolism', 'Mobility'],
+    links: [
+      { label: 'Inflammation pathway', href: '/pathways/inflammation', description: 'Immune, oxidative-stress, and recovery-adjacent pathway relationships.' },
+      { label: 'Recovery goal guide', href: '/goals/recovery', description: 'Outcome-led guide for repair, performance recovery, and mobility support.' },
+      { label: 'Joint support guide', href: '/best-supplements-for-joint-support', description: 'Inflammation-adjacent guide for mobility and joint-support decisions.' },
+    ],
+  },
 }
 
 export async function generateStaticParams() {
@@ -48,6 +108,7 @@ export default async function TopicExplorePage({ params }: any) {
 
   if (!TITLES[topic]) notFound()
 
+  const context = TOPIC_CONTEXT[topic]
   const filtered = safeArray<any>(compounds)
     .filter((compound) => safeSlug(compound?.slug) && safeTrim(compound?.name))
     .map((compound) => ({
@@ -71,10 +132,25 @@ export default async function TopicExplorePage({ params }: any) {
           </h1>
 
           <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
-            Discover compounds grouped by shared outcomes, relationship signals, mechanisms, and conservative evidence patterns.
+            {context.intro}
           </p>
         </div>
       </section>
+
+      <SemanticHubIntro sections={context.sections} />
+
+      <SignalPanel
+        eyebrow="Related scientific themes"
+        title="How this cluster is organized"
+        description="High-signal terms summarize the biological systems and adjacent outcomes most useful for exploring this topic."
+        signals={context.signals}
+      />
+
+      <KnowledgeGraphLinks
+        eyebrow="Often explored together"
+        title="Continue through related hubs"
+        links={context.links}
+      />
 
       <section className="space-y-5">
         <div className="flex flex-wrap items-end justify-between gap-3">
