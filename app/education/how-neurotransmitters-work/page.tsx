@@ -3,27 +3,29 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 
 const pathways = [
   {
     href: '/pathways/serotonin',
     title: 'Serotonin Pathway',
-    description: 'Mood-related signaling systems associated with emotional regulation and stress-response continuity.',
+    description: 'Mood-related signaling systems associated with emotional regulation, stress adaptation, appetite, sleep continuity, and psychoactive neuropharmacology.',
   },
   {
     href: '/pathways/dopamine',
     title: 'Dopamine Pathway',
-    description: 'Motivation and cognition-oriented systems associated with behavioral reinforcement and focus continuity.',
+    description: 'Motivation and cognition-oriented systems associated with reward signaling, behavioral reinforcement, novelty processing, and attention continuity.',
   },
   {
     href: '/pathways/gaba',
     title: 'GABA Pathway',
-    description: 'Calming inhibitory signaling systems associated with relaxation and nervous-system downregulation.',
+    description: 'Calming inhibitory signaling systems associated with nervous-system downregulation, relaxation, sedation pathways, and sleep continuity.',
   },
   {
     href: '/pathways/glutamate',
     title: 'Glutamate Pathway',
-    description: 'Excitatory neurochemical systems associated with cognition, learning, and neuroplasticity.',
+    description: 'Excitatory signaling systems associated with learning, neuroplasticity, cognition, memory formation, and altered-state neuropharmacology.',
   },
 ]
 
@@ -55,20 +57,25 @@ export default function NeurotransmittersPage() {
         </div>
 
         <p className="text-xl leading-9 text-[#46574d]">
-          Neurotransmitters are signaling molecules associated with communication between neurons and nervous-system pathways. Educational neuropharmacology discussions commonly explore how signaling systems interact with mood, cognition, stress adaptation, sleep continuity, and emotional regulation.
+          Neurotransmitters are signaling molecules associated with communication between neurons and nervous-system pathways. Different signaling systems may influence emotional regulation, stress adaptation, cognition, sleep continuity, sensory processing, behavioral motivation, and psychoactive perception.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">
-          Neurotransmitter systems are highly interconnected. Educational interpretation should avoid oversimplified “chemical imbalance” narratives and instead focus on systems biology, pathway interaction, and evidence-aware interpretation.
+          Educational neuropharmacology discussions commonly focus on how neurotransmitter systems interact rather than functioning in complete isolation. Modern neuroscience increasingly emphasizes systems biology, receptor diversity, pathway overlap, environmental context, and individual variability.
         </p>
       </section>
+
+      <MisconceptionCallout
+        myth="Mental health can be reduced to a single neurotransmitter imbalance"
+        reality="Modern neuroscience does not support overly simplistic single-neurotransmitter explanations for complex emotional, cognitive, or psychiatric systems. Mood regulation involves interacting biological, psychological, behavioral, inflammatory, social, and environmental influences."
+      />
 
       <EvidenceSummaryCard
         title="Neurotransmitter systems and neuropharmacology"
         evidenceLevel="Strong"
-        humanEvidence="Neurotransmitter systems are extensively studied across neuroscience, psychiatry, pharmacology, and sleep research."
-        mechanisticEvidence="Mechanistic evidence helps explain receptor systems, signaling pathways, neurochemical modulation, and psychoactive interactions."
-        safetyProfile="Manipulating signaling systems may involve interaction risks, side effects, and substantial individual variability."
+        humanEvidence="Neurotransmitter systems are extensively studied across neuroscience, psychiatry, pharmacology, cognition research, and sleep medicine."
+        mechanisticEvidence="Mechanistic evidence helps explain receptor systems, signaling pathways, neurochemical modulation, psychoactive interactions, and stress-response continuity."
+        safetyProfile="Manipulating signaling systems may involve interaction risks, emotional variability, overstimulation, sedation pathways, and substantial individual variability."
       />
 
       <section className="space-y-5">
@@ -100,6 +107,15 @@ export default function NeurotransmittersPage() {
           ))}
         </div>
       </section>
+
+      <ResearchLimitations
+        limitations={[
+          'Neurochemical systems remain incompletely understood.',
+          'Mechanistic explanations may oversimplify real-world biology.',
+          'Average study outcomes may not predict individual experiences.',
+          'Online neurotransmitter narratives frequently exaggerate certainty.',
+        ]}
+      />
 
       <ReferencedStudies
         studies={[
