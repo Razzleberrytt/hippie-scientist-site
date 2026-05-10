@@ -23,7 +23,7 @@ const websiteJsonLd = {
   '@type': 'WebSite',
   name: 'The Hippie Scientist',
   url: 'https://www.thehippiescientist.net',
-  description: 'Evidence-organized research on herbs, compounds, pathways, and human health.',
+  description: 'Evidence-organized research on herbs, compounds, pathways, cognition, and human health.',
 }
 
 const organizationJsonLd = {
@@ -35,6 +35,7 @@ const organizationJsonLd = {
 
 const navLinks = [
   { href: '/', label: 'Home' },
+  { href: '/education', label: 'Education' },
   { href: '/learn', label: 'Learn' },
   { href: '/stacks', label: 'Stacks' },
   { href: '/herbs', label: 'Herbs' },
@@ -46,7 +47,8 @@ const navLinks = [
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.thehippiescientist.net'),
   title: { default: 'The Hippie Scientist', template: '%s | The Hippie Scientist' },
-  description: 'Evidence-organized research on herbs, compounds, pathways, and human health.',
+  description:
+    'Evidence-organized research on herbs, compounds, pathways, cognition, neuroscience, and human health.',
   openGraph: {
     type: 'website',
     siteName: 'The Hippie Scientist',
@@ -60,32 +62,38 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
-      <body className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] text-[#111827] font-sans antialiased`}>
+      <body
+        className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] text-[#111827] font-sans antialiased`}
+      >
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+
         <div className='min-h-screen bg-background text-ink'>
           <header className='sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur-sm'>
             <div className='container-page flex items-center justify-between py-4'>
               <Link href='/' className='text-lg font-bold tracking-tight text-ink'>
                 Hippie Scientist
               </Link>
+
               <nav className='hidden md:flex items-center gap-2'>
                 {navLinks.map(l => (
                   <Link
                     key={l.href}
                     href={l.href}
-                    className='rounded-xl px-4 py-2 text-sm font-semibold text-muted hover:bg-neutral-100 hover:text-ink'
+                    className='rounded-xl px-4 py-2 text-sm font-semibold text-muted hover:bg-neutral-100 hover:text-ink transition'
                   >
                     {l.label}
                   </Link>
                 ))}
               </nav>
+
               <MobileNav links={navLinks} />
             </div>
           </header>
@@ -93,8 +101,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <main className='container-page py-10 text-base leading-body'>{children}</main>
 
           <footer className='mt-10 border-t border-neutral-200 bg-neutral-50'>
-            <div className='container-page py-8 text-sm text-muted'>
+            <div className='container-page py-8 text-sm text-muted space-y-2'>
               <p className='font-semibold'>© The Hippie Scientist</p>
+
+              <p>
+                Evidence-aware exploration of herbs, compounds, cognition, neuroscience, pathways, and human health systems.
+              </p>
             </div>
           </footer>
         </div>
