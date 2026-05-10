@@ -1,19 +1,24 @@
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
+import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import SafetyNotice from '@/components/evidence/SafetyNotice'
 
 const systems = [
   {
     title: 'Recovery Neurochemistry',
-    body: 'Fatigue recovery may involve interconnected systems associated with stress-response regulation, sleep continuity, cognition recovery, emotional balance, and nervous-system restoration.',
+    body: 'Fatigue recovery may involve interconnected systems associated with stress-response regulation, sleep continuity, hormonal signaling, cognition recovery, emotional resilience, immune signaling, and nervous-system restoration.',
   },
   {
     title: 'Sleep and Restoration',
-    body: 'Sleep continuity and nervous-system downregulation are commonly associated with restorative signaling and recovery-oriented neuropharmacology.',
+    body: 'Sleep continuity and nervous-system downregulation are strongly associated with memory consolidation, metabolic restoration, emotional regulation, stress recovery, and restorative neurobiology.',
   },
   {
     title: 'Stress Burden and Exhaustion',
-    body: 'Chronic stress signaling may intersect with motivational systems, cognition continuity, emotional processing, nervous-system strain, and fatigue persistence.',
+    body: 'Chronic stress signaling may intersect with motivational systems, cognition continuity, inflammatory biology, emotional processing, nervous-system strain, burnout, and fatigue persistence.',
   },
 ]
 
@@ -64,13 +69,26 @@ export default function FatigueRecoveryPage() {
         </div>
 
         <p className="text-xl leading-9 text-[#46574d]">
-          Fatigue recovery involves interconnected neurochemical systems associated with stress adaptation, sleep continuity, emotional regulation, cognition recovery, and nervous-system restoration.
+          Fatigue recovery involves interconnected neurochemical, hormonal, behavioral, and physiological systems associated with stress adaptation, sleep continuity, cognition recovery, emotional regulation, metabolic restoration, and nervous-system resilience.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">
-          Educational fatigue-recovery discussions commonly intersect with sleep architecture, stress-response burden, recovery biology, nervous-system downregulation, and recovery-oriented neuropharmacology.
+          Educational fatigue-recovery discussions commonly intersect with sleep architecture, inflammatory biology, stress-response burden, burnout systems, recovery signaling, nervous-system downregulation, and recovery-oriented neuropharmacology.
         </p>
       </section>
+
+      <MisconceptionCallout
+        myth="Fatigue is always caused by lack of motivation or willpower"
+        reality="Fatigue may involve interacting biological, psychological, behavioral, environmental, sleep-related, inflammatory, hormonal, and stress-response systems. Chronic exhaustion and burnout are often substantially more complex than simple motivation deficits."
+      />
+
+      <EvidenceSummaryCard
+        title="Fatigue recovery and nervous-system restoration"
+        evidenceLevel="Strong"
+        humanEvidence="Human research strongly associates sleep continuity, stress recovery, emotional resilience, and metabolic restoration with cognition quality and fatigue recovery outcomes."
+        mechanisticEvidence="Mechanistic evidence suggests fatigue recovery involves interacting stress-response, inflammatory, hormonal, circadian, and nervous-system regulation systems."
+        safetyProfile="Chronic sleep disruption, severe stress burden, burnout, excessive stimulant use, and persistent emotional distress may negatively affect recovery-oriented neurobiology."
+      />
 
       <section className="grid gap-6 lg:grid-cols-3">
         {systems.map((system) => (
@@ -85,6 +103,19 @@ export default function FatigueRecoveryPage() {
           </div>
         ))}
       </section>
+
+      <SafetyNotice>
+        Persistent severe fatigue, unexplained exhaustion, chronic sleep disruption, or major cognitive decline should be approached seriously. Educational content is not a substitute for individualized medical evaluation.
+      </SafetyNotice>
+
+      <ResearchLimitations
+        limitations={[
+          'Fatigue recovery systems remain biologically complex and incompletely understood.',
+          'Burnout and chronic exhaustion may involve multiple overlapping mechanisms.',
+          'Subjective fatigue is difficult to standardize scientifically.',
+          'Individual recovery patterns may vary substantially.',
+        ]}
+      />
 
       <section className="space-y-5">
         <div className="space-y-2">
@@ -113,6 +144,21 @@ export default function FatigueRecoveryPage() {
           ))}
         </div>
       </section>
+
+      <ReferencedStudies
+        studies={[
+          {
+            title: 'National Institute of Mental Health',
+            href: 'https://www.nimh.nih.gov/',
+            source: 'NIMH',
+          },
+          {
+            title: 'PubMed Fatigue Research',
+            href: 'https://pubmed.ncbi.nlm.nih.gov/',
+            source: 'NIH / PubMed',
+          },
+        ]}
+      />
     </main>
   )
 }
