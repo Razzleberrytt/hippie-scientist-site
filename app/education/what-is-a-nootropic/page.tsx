@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -6,23 +5,28 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import RelatedEducationSystems from '@/components/education/related-education-systems'
 
 const systems = [
   {
     href: '/protocols/non-stimulant-focus',
     title: 'Non-Stimulant Focus',
+    description: 'Recovery-oriented focus systems emphasizing attentional continuity and calm cognition.',
   },
   {
     href: '/pathways/dopamine',
     title: 'Dopamine Pathway',
+    description: 'Educational exploration of motivational signaling, salience systems, and neuropharmacology.',
   },
   {
     href: '/compounds/l-theanine',
     title: 'L-Theanine',
+    description: 'Evidence-aware calm-focus compound frequently discussed in cognition-support ecosystems.',
   },
   {
-    href: '/education/what-is-neuropharmacology',
-    title: 'Neuropharmacology',
+    href: '/education/scientific-but-human-neuroscience',
+    title: 'Scientific But Human Neuroscience',
+    description: 'Contextual neuroscience framework emphasizing sustainable cognition and emotional complexity.',
   },
 ]
 
@@ -61,12 +65,12 @@ const faqItems = [
 
 export default function NootropicEducationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <main className='container-page py-10 space-y-12'>
       <AuthorityJsonLd
-        title="What Is a Nootropic?"
-        description="Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and evidence-aware cognitive support."
-        url="https://thehippiescientist.net/education/what-is-a-nootropic"
-        type="Article"
+        title='What Is a Nootropic?'
+        description='Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and evidence-aware cognitive support.'
+        url='https://thehippiescientist.net/education/what-is-a-nootropic'
+        type='Article'
       />
 
       <AuthorityBreadcrumbs
@@ -77,95 +81,78 @@ export default function NootropicEducationPage() {
         ]}
       />
 
-      <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Educational Supernode</p>
+      <section className='space-y-5 max-w-4xl'>
+        <p className='eyebrow-label'>Educational Supernode</p>
 
-        <h1 className="text-5xl font-bold tracking-tight text-ink">
+        <h1 className='text-5xl font-bold tracking-tight text-ink'>
           What Is a Nootropic?
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
-          Nootropics are compounds, herbs, or substances associated with cognition-oriented systems including focus continuity, memory formation, attentional regulation, motivation signaling, alertness, executive function, and mental performance.
+        <p className='text-lg leading-8 text-[#46574d]'>
+          Nootropics are compounds, herbs, or substances associated with
+          cognition-oriented systems including focus continuity, memory formation,
+          attentional regulation, motivation signaling, alertness, executive
+          function, and mental performance.
         </p>
 
-        <p className="text-base leading-8 text-[#5c6b63]">
-          Educational nootropic exploration commonly intersects with neuropharmacology, stress-aware cognition systems, sleep-dependent recovery biology, stimulant neurochemistry, emotional regulation, burnout physiology, and evidence-oriented interpretation.
+        <p className='text-base leading-8 text-[#5c6b63]'>
+          Educational nootropic exploration commonly intersects with
+          neuropharmacology, stress-aware cognition systems, sleep-dependent
+          recovery biology, stimulant neurochemistry, emotional regulation,
+          burnout physiology, and evidence-oriented interpretation.
         </p>
       </section>
 
       <MisconceptionCallout
-        myth="Nootropics reliably create intelligence or unlimited productivity"
-        reality="Human cognition depends on interacting systems including sleep quality, stress resilience, emotional regulation, nutrition, recovery biology, education, environment, nervous-system health, and individual variability. Cognitive enhancement narratives are often oversimplified online."
+        myth='Nootropics reliably create intelligence or unlimited productivity'
+        reality='Human cognition depends on interacting systems including sleep quality, stress resilience, emotional regulation, nutrition, recovery biology, education, environment, nervous-system health, and individual variability. Cognitive enhancement narratives are often oversimplified online.'
       />
 
       <EvidenceSummaryCard
-        title="Nootropics and cognition-oriented neuropharmacology"
-        evidenceLevel="Moderate"
-        humanEvidence="Some nootropic compounds have human evidence associated with focus continuity, attentional systems, fatigue management, or cognition support, though evidence quality varies substantially between compounds."
-        mechanisticEvidence="Mechanistic models commonly involve dopaminergic signaling, cholinergic systems, glutamatergic pathways, arousal regulation, stress-response continuity, and executive-function neurobiology."
-        safetyProfile="Cognition-oriented compounds may involve overstimulation risks, sleep disruption, anxiety exacerbation, cardiovascular effects, tolerance concerns, emotional dysregulation, or interaction risks depending on the compound."
+        title='Nootropics and cognition-oriented neuropharmacology'
+        evidenceLevel='Moderate'
+        humanEvidence='Some nootropic compounds have human evidence associated with focus continuity, attentional systems, fatigue management, or cognition support, though evidence quality varies substantially between compounds.'
+        mechanisticEvidence='Mechanistic models commonly involve dopaminergic signaling, cholinergic systems, glutamatergic pathways, arousal regulation, stress-response continuity, and executive-function neurobiology.'
+        safetyProfile='Cognition-oriented compounds may involve overstimulation risks, sleep disruption, anxiety exacerbation, cardiovascular effects, tolerance concerns, emotional dysregulation, or interaction risks depending on the compound.'
       />
 
-      <section className="grid gap-6 lg:grid-cols-3">
-        {mechanisms.map((mechanism) => (
-          <div key={mechanism.title} className="card-premium p-6 space-y-4">
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">
+      <section className='grid gap-6 lg:grid-cols-3'>
+        {mechanisms.map(mechanism => (
+          <div key={mechanism.title} className='card-premium p-6 space-y-4'>
+            <h2 className='text-2xl font-semibold tracking-tight text-ink'>
               {mechanism.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className='text-sm leading-7 text-[#46574d]'>
               {mechanism.body}
             </p>
           </div>
         ))}
       </section>
 
-      <section className="card-premium p-8 space-y-6">
-        <div className="space-y-2 max-w-3xl">
-          <p className="eyebrow-label">Educational Context</p>
+      <section className='card-premium p-8 space-y-6'>
+        <div className='space-y-2 max-w-3xl'>
+          <p className='eyebrow-label'>Educational Context</p>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">
+          <h2 className='text-3xl font-semibold tracking-tight text-ink'>
             Cognition involves tradeoffs and state-dependent performance
           </h2>
 
-          <p className="text-base leading-8 text-[#46574d]">
-            Focus continuity, memory formation, productivity, motivation systems, and cognitive endurance are influenced by stress physiology, emotional regulation, recovery biology, sleep continuity, nervous-system resilience, and environmental context rather than isolated neurotransmitter explanations.
+          <p className='text-base leading-8 text-[#46574d]'>
+            Focus continuity, memory formation, productivity, motivation systems,
+            and cognitive endurance are influenced by stress physiology,
+            emotional regulation, recovery biology, sleep continuity,
+            nervous-system resilience, and environmental context rather than
+            isolated neurotransmitter explanations.
           </p>
-        </div>
-
-        <div className="grid gap-5 lg:grid-cols-2">
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">
-              Commonly discussed cognition systems
-            </h3>
-
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
-              <li>• Executive-function regulation</li>
-              <li>• Working-memory continuity</li>
-              <li>• Stress-performance interaction</li>
-              <li>• Attention and fatigue systems</li>
-              <li>• Sleep-dependent cognition recovery</li>
-            </ul>
-          </div>
-
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">
-              Major evidence limitations
-            </h3>
-
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
-              <li>• Small human trial sizes</li>
-              <li>• Variable product standardization</li>
-              <li>• Publication bias risk</li>
-              <li>• Short-term study durations</li>
-              <li>• High individual variability</li>
-            </ul>
-          </div>
         </div>
       </section>
 
       <SafetyNotice>
-        Excessive stimulant exposure, chronic sleep disruption, burnout, severe anxiety symptoms, or compulsive productivity behaviors may negatively affect cognition continuity and nervous-system resilience. Educational content is not a substitute for individualized medical guidance.
+        Excessive stimulant exposure, chronic sleep disruption, burnout, severe
+        anxiety symptoms, or compulsive productivity behaviors may negatively
+        affect cognition continuity and nervous-system resilience. Educational
+        content is not a substitute for individualized medical guidance.
       </SafetyNotice>
 
       <ResearchLimitations
@@ -177,23 +164,23 @@ export default function NootropicEducationPage() {
         ]}
       />
 
-      <section className="space-y-6">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Educational FAQ</p>
+      <section className='space-y-6'>
+        <div className='space-y-2'>
+          <p className='eyebrow-label'>Educational FAQ</p>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">
+          <h2 className='text-3xl font-semibold tracking-tight text-ink'>
             Common nootropic questions
           </h2>
         </div>
 
-        <div className="grid gap-5">
-          {faqItems.map((item) => (
-            <div key={item.question} className="card-premium p-6 space-y-3">
-              <h3 className="text-xl font-semibold tracking-tight text-ink">
+        <div className='grid gap-5'>
+          {faqItems.map(item => (
+            <div key={item.question} className='card-premium p-6 space-y-3'>
+              <h3 className='text-xl font-semibold tracking-tight text-ink'>
                 {item.question}
               </h3>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className='text-sm leading-7 text-[#46574d]'>
                 {item.answer}
               </p>
             </div>
@@ -201,23 +188,10 @@ export default function NootropicEducationPage() {
         </div>
       </section>
 
-      <section className="grid gap-5 lg:grid-cols-2">
-        {systems.map((system) => (
-          <Link
-            key={system.href}
-            href={system.href}
-            className="card-premium p-6 transition hover:-translate-y-0.5"
-          >
-            <div className="space-y-3">
-              <p className="eyebrow-label">Related Educational System</p>
-
-              <h2 className="text-2xl font-semibold tracking-tight text-ink">
-                {system.title}
-              </h2>
-            </div>
-          </Link>
-        ))}
-      </section>
+      <RelatedEducationSystems
+        title='Continue exploring cognition systems'
+        systems={systems}
+      />
 
       <ReferencedStudies
         studies={[
