@@ -5,6 +5,7 @@ import { getProductPicks, groupProductPicks } from '@/lib/product-ranking'
 import { generateAmazonProductPicks } from '@/lib/amazon-auto'
 import Link from 'next/link'
 import { cleanSummary } from '@/lib/display-utils'
+import FaqJsonLd from '@/components/seo/FaqJsonLd'
 
 export async function generateStaticParams() {
   return [{ slug: 'best-supplements-for-focus' }]
@@ -40,6 +41,21 @@ export default function Page({ params }: any) {
   const ranked = (compounds as any[]).slice(0, 10)
   const slug = String(params?.slug || '')
 
+  const faqItems = [
+    {
+      question: 'What should I look for in a focus supplement?',
+      answer: 'Evidence quality, safety considerations, mechanism relevance, and transparent formulation are all important when evaluating focus supplements.',
+    },
+    {
+      question: 'Are focus supplements backed by human evidence?',
+      answer: 'Some compounds and herbs have stronger human evidence than others. The site attempts to separate mechanistic hypotheses from stronger clinical evidence whenever possible.',
+    },
+    {
+      question: 'What is the difference between stacks and single compounds?',
+      answer: 'Stacks combine multiple ingredients intended to support complementary mechanisms or pathways, while single compounds isolate one primary ingredient or constituent.',
+    },
+  ]
+
   const first = ranked[0]
   let topPick:any = null
 
@@ -53,6 +69,8 @@ export default function Page({ params }: any) {
 
   return (
     <main className="max-w-5xl mx-auto px-4 space-y-12 pb-32">
+
+      <FaqJsonLd items={faqItems} />
 
       <div className="space-y-4">
         <h1 className="text-3xl font-bold">Best Supplements for Focus</h1>
@@ -134,6 +152,32 @@ export default function Page({ params }: any) {
           </div>
         )
       })}
+
+      <section className="border rounded-2xl p-6 bg-neutral-50 space-y-5">
+        <div className="space-y-2">
+          <p className="text-xs uppercase font-semibold tracking-wide text-neutral-500">
+            Frequently Asked Questions
+          </p>
+
+          <h2 className="text-2xl font-bold">
+            Focus supplement questions
+          </h2>
+        </div>
+
+        <div className="space-y-5">
+          {faqItems.map((item) => (
+            <div key={item.question} className="space-y-2">
+              <h3 className="font-semibold leading-tight">
+                {item.question}
+              </h3>
+
+              <p className="text-sm leading-7 text-neutral-700">
+                {item.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {topPick && (
         <ConversionStickyCTA
