@@ -24,6 +24,7 @@ import { getComparisonRuntimeRecords, getRelatedRuntimeRecords, getStackRuntimeR
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
+import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 
 export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
@@ -167,6 +168,10 @@ export default async function CompoundPage({ params }: any) {
           effects={effects}
           mechanisms={mechanisms}
           summary={summary}
+        />
+
+        <RuntimeOrchestratedDiscovery
+          record={compound}
         />
 
         <EvidenceSnapshotCard snapshot={snapshot} />
