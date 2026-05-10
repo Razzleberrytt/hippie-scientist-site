@@ -1,19 +1,24 @@
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
+import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import SafetyNotice from '@/components/evidence/SafetyNotice'
 
 const mechanisms = [
   {
     title: 'Stress Signaling',
-    body: 'Stress-response systems involve interconnected neurochemical signaling associated with vigilance, emotional processing, adaptation, sleep continuity, and physiological recovery.',
+    body: 'Stress-response systems involve interconnected neurochemical, hormonal, inflammatory, and autonomic signaling associated with vigilance, emotional processing, adaptation, threat perception, nervous-system arousal, and physiological recovery.',
   },
   {
     title: 'Sleep and Recovery',
-    body: 'Stress burden may influence sleep architecture, nervous-system recovery, emotional regulation, cognition systems, and fatigue-related neuropharmacology.',
+    body: 'Chronic stress burden may influence sleep architecture, cortisol signaling, emotional regulation, cognition continuity, nervous-system restoration, fatigue recovery, and restorative neurobiology.',
   },
   {
     title: 'Focus and Cognition',
-    body: 'Stress-related overload may intersect with concentration systems, motivation pathways, cognitive fatigue, and emotional-processing continuity.',
+    body: 'Stress overload may intersect with executive-function systems, concentration continuity, cognitive fatigue, motivational signaling, emotional resilience, attentional filtering, and burnout neurobiology.',
   },
 ]
 
@@ -64,13 +69,26 @@ export default function StressBrainEducationPage() {
         </div>
 
         <p className="text-xl leading-9 text-[#46574d]">
-          Stress-related neurochemistry involves interconnected signaling systems associated with emotional regulation, cognition, vigilance, nervous-system activation, recovery continuity, and physiological adaptation.
+          Stress-related neurobiology involves interconnected signaling systems associated with emotional regulation, vigilance, cognition continuity, inflammatory signaling, nervous-system activation, hormonal adaptation, sleep recovery, and physiological resilience.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">
-          Educational stress-neurochemistry discussions commonly intersect with sleep systems, fatigue biology, stress-response regulation, emotional-processing continuity, and recovery-oriented neuropharmacology.
+          Educational stress-neurochemistry discussions commonly intersect with cortisol signaling, stress-response continuity, sleep disruption, emotional-processing systems, fatigue biology, burnout neurochemistry, inflammatory pathways, and recovery-oriented neuropharmacology.
         </p>
       </section>
+
+      <MisconceptionCallout
+        myth="Stress is purely psychological and does not affect biology"
+        reality="Chronic stress burden may influence hormonal signaling, inflammatory biology, sleep architecture, emotional regulation, cognition continuity, cardiovascular stress systems, nervous-system arousal, and recovery-oriented neurobiology."
+      />
+
+      <EvidenceSummaryCard
+        title="Stress neurobiology and nervous-system regulation"
+        evidenceLevel="Strong"
+        humanEvidence="Human research strongly associates chronic stress burden with sleep disruption, emotional dysregulation, cognition impairment, fatigue systems, and physiological stress responses."
+        mechanisticEvidence="Mechanistic evidence suggests stress-response systems involve interacting hormonal, inflammatory, autonomic, emotional-processing, and neurochemical signaling pathways."
+        safetyProfile="Persistent stress overload, chronic sleep disruption, burnout, emotional exhaustion, and prolonged nervous-system arousal may negatively affect mental and physical health outcomes."
+      />
 
       <section className="grid gap-6 lg:grid-cols-3">
         {mechanisms.map((mechanism) => (
@@ -85,6 +103,19 @@ export default function StressBrainEducationPage() {
           </div>
         ))}
       </section>
+
+      <SafetyNotice>
+        Persistent severe stress, panic symptoms, emotional exhaustion, trauma-related symptoms, chronic insomnia, or significant mental-health distress should be approached seriously. Educational content is not a substitute for individualized medical or mental-health care.
+      </SafetyNotice>
+
+      <ResearchLimitations
+        limitations={[
+          'Stress neurobiology remains biologically complex and incompletely understood.',
+          'Individual stress responses may vary substantially across environments and genetics.',
+          'Subjective emotional experiences are difficult to standardize scientifically.',
+          'Single-neurotransmitter explanations may oversimplify stress physiology.',
+        ]}
+      />
 
       <section className="space-y-5">
         <div className="space-y-2">
@@ -113,6 +144,21 @@ export default function StressBrainEducationPage() {
           ))}
         </div>
       </section>
+
+      <ReferencedStudies
+        studies={[
+          {
+            title: 'National Institute of Mental Health',
+            href: 'https://www.nimh.nih.gov/',
+            source: 'NIMH',
+          },
+          {
+            title: 'PubMed Stress Research',
+            href: 'https://pubmed.ncbi.nlm.nih.gov/',
+            source: 'NIH / PubMed',
+          },
+        ]}
+      />
     </main>
   )
 }
