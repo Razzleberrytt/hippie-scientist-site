@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import RelatedComparisonSystems from '@/components/comparisons/related-comparison-systems'
 
 const comparisonClusters = [
   {
@@ -25,6 +26,33 @@ const comparisonClusters = [
     description:
       'Educational exploration of sleep-oriented compounds, nervous-system downregulation, recovery continuity, and restorative neurobiology.',
     href: '/comparisons/sleep-support-systems',
+  },
+]
+
+const relatedSystems = [
+  {
+    href: '/education/cognitive-resilience-systems',
+    title: 'Cognitive Resilience Systems',
+    description:
+      'Educational authority hub exploring sustainable cognition, stress resilience, and recovery-oriented neuroscience.',
+  },
+  {
+    href: '/education/what-are-adaptogens',
+    title: 'What Are Adaptogens?',
+    description:
+      'Evidence-aware educational framework covering resilience biology, stress-response systems, and adaptogenic neuropharmacology.',
+  },
+  {
+    href: '/education/what-is-a-nootropic',
+    title: 'What Is a Nootropic?',
+    description:
+      'Educational cognition-system overview covering neuropharmacology, attentional continuity, and focus-oriented compounds.',
+  },
+  {
+    href: '/education/scientific-but-human-neuroscience',
+    title: 'Scientific But Human Neuroscience',
+    description:
+      'Contextual neuroscience philosophy emphasizing biological complexity, emotional regulation, and sustainable cognition.',
   },
 ]
 
@@ -73,37 +101,15 @@ export default function ComparisonsHubPage() {
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="space-y-2 max-w-3xl">
-          <p className="eyebrow-label">Featured Comparison Systems</p>
+      <RelatedComparisonSystems
+        title="Featured comparison ecosystems"
+        systems={comparisonClusters}
+      />
 
-          <h2 className="text-4xl font-semibold tracking-tight text-ink">
-            Explore major comparison frameworks
-          </h2>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          {comparisonClusters.map((cluster) => (
-            <Link
-              key={cluster.href}
-              href={cluster.href}
-              className="card-premium p-8 transition hover:-translate-y-0.5"
-            >
-              <div className="space-y-4">
-                <p className="eyebrow-label">Educational Comparison</p>
-
-                <h2 className="text-3xl font-semibold tracking-tight text-ink">
-                  {cluster.title}
-                </h2>
-
-                <p className="text-base leading-8 text-[#46574d]">
-                  {cluster.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <RelatedComparisonSystems
+        title="Connected educational systems"
+        systems={relatedSystems}
+      />
 
       <section className="space-y-6">
         <div className="space-y-2 max-w-3xl">
