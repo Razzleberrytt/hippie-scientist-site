@@ -1,19 +1,24 @@
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
+import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import SafetyNotice from '@/components/evidence/SafetyNotice'
 
 const systems = [
   {
     title: 'Motivation Signaling',
-    body: 'Motivation-related neurochemistry commonly intersects with reward systems, stress adaptation, cognition continuity, emotional processing, and behavioral reinforcement pathways.',
+    body: 'Motivation-related neurochemistry commonly intersects with reward systems, behavioral reinforcement, stress adaptation, novelty processing, emotional regulation, and cognition continuity.',
   },
   {
     title: 'Stress and Productivity',
-    body: 'Stress burden may influence cognitive endurance, mental fatigue, attention systems, nervous-system arousal, and focus continuity.',
+    body: 'Chronic stress burden may influence attention systems, cognitive endurance, nervous-system arousal, sleep continuity, emotional resilience, and mental fatigue recovery.',
   },
   {
     title: 'Calm Focus Systems',
-    body: 'Educational focus discussions often involve balancing stimulation, recovery continuity, emotional regulation, and nervous-system resilience.',
+    body: 'Educational focus discussions often involve balancing stimulation, recovery continuity, emotional regulation, sleep architecture, behavioral structure, and nervous-system resilience.',
   },
 ]
 
@@ -64,13 +69,26 @@ export default function FocusMotivationPage() {
         </div>
 
         <p className="text-xl leading-9 text-[#46574d]">
-          Focus and motivation involve interconnected neurochemical systems associated with cognition, behavioral drive, emotional regulation, stress adaptation, attention continuity, and nervous-system balance.
+          Focus and motivation involve interconnected neurochemical, behavioral, psychological, and environmental systems associated with cognition continuity, behavioral drive, emotional regulation, stress adaptation, attention regulation, and nervous-system balance.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">
-          Educational cognition discussions commonly intersect with dopaminergic signaling, stress-response continuity, recovery systems, sleep architecture, and calm-focus neuropharmacology.
+          Educational cognition discussions commonly intersect with dopaminergic signaling, stress-response continuity, sleep architecture, emotional resilience, recovery systems, novelty processing, behavioral reinforcement, and calm-focus neuropharmacology.
         </p>
       </section>
+
+      <MisconceptionCallout
+        myth="Motivation is only about dopamine"
+        reality="Focus and motivation involve interacting systems related to sleep continuity, stress burden, emotional regulation, behavioral habits, environmental structure, nervous-system resilience, reward processing, and cognition quality. Simplistic “dopamine optimization” narratives may overlook substantial biological and psychological complexity."
+      />
+
+      <EvidenceSummaryCard
+        title="Focus, cognition, and motivation systems"
+        evidenceLevel="Strong"
+        humanEvidence="Human research demonstrates relationships between sleep quality, stress burden, emotional resilience, cognition continuity, behavioral structure, and productivity outcomes."
+        mechanisticEvidence="Mechanistic evidence suggests focus and motivation involve interacting dopaminergic, stress-response, arousal, and executive-function systems."
+        safetyProfile="Chronic overstimulation, sleep disruption, excessive stimulant exposure, burnout, and unmanaged stress burden may negatively affect cognition systems and emotional resilience."
+      />
 
       <section className="grid gap-6 lg:grid-cols-3">
         {systems.map((system) => (
@@ -85,6 +103,19 @@ export default function FocusMotivationPage() {
           </div>
         ))}
       </section>
+
+      <SafetyNotice>
+        Persistent cognitive impairment, severe burnout symptoms, chronic sleep disruption, emotional distress, or significant attention-related difficulties should be approached seriously. Educational content is not a substitute for individualized medical or mental-health care.
+      </SafetyNotice>
+
+      <ResearchLimitations
+        limitations={[
+          'Focus and motivation systems remain biologically complex and incompletely understood.',
+          'Short-term productivity changes may not reflect long-term cognitive health.',
+          'Individual responses to stimulants or nootropics may vary substantially.',
+          'Online “dopamine optimization” discussions often exaggerate mechanistic certainty.',
+        ]}
+      />
 
       <section className="space-y-5">
         <div className="space-y-2">
@@ -113,6 +144,21 @@ export default function FocusMotivationPage() {
           ))}
         </div>
       </section>
+
+      <ReferencedStudies
+        studies={[
+          {
+            title: 'National Institute of Mental Health',
+            href: 'https://www.nimh.nih.gov/',
+            source: 'NIMH',
+          },
+          {
+            title: 'PubMed Cognition Research',
+            href: 'https://pubmed.ncbi.nlm.nih.gov/',
+            source: 'NIH / PubMed',
+          },
+        ]}
+      />
     </main>
   )
 }
