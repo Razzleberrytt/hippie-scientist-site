@@ -13,6 +13,7 @@ import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
+import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 
 export async function generateStaticParams() {
   const { herbs } = await getUnifiedRuntimeRecords()
@@ -146,6 +147,10 @@ export default async function HerbDetailPage({ params }: any) {
         stackRecords={stackRecords}
         effects={effects}
         summary={summary}
+      />
+
+      <RuntimeOrchestratedDiscovery
+        record={herb}
       />
 
       <CompactRelatedPathways record={herb} />
