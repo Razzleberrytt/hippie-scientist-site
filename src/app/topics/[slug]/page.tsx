@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import AuthorityHubTemplate from '@/components/authority/AuthorityHubTemplate'
 import AuthoritySidebar from '@/components/authority/AuthoritySidebar'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import {
   getAuthorityComparisons,
   getAuthorityHubRecords,
@@ -65,60 +66,78 @@ export default async function TopicHubPage({ params }: any) {
         ]}
       />
 
-      <div className="container-page py-10 grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
-        <AuthorityHubTemplate
-          title={title}
-          summary={description}
-          records={records}
-          comparisons={comparisons}
-          stacks={stacks}
+      <div className="container-page py-10 space-y-6">
+        <AuthorityBreadcrumbs
+          items={[
+            {
+              label: 'Home',
+              href: '/',
+            },
+            {
+              label: 'Topics',
+              href: '/topics',
+            },
+            {
+              label: title,
+            },
+          ]}
         />
 
-        <AuthoritySidebar
-          title="Related Topic Ecosystems"
-          topics={[
-            {
-              href: '/topics/stress-response',
-              label: 'Stress Response',
-              meta: 'Adaptogens, cortisol regulation, and recovery pathways.',
-            },
-            {
-              href: '/topics/sleep-recovery',
-              label: 'Sleep Recovery',
-              meta: 'Sleep-support systems and calming pathway exploration.',
-            },
-          ]}
-          comparisons={[
-            {
-              href: '/compare/ashwagandha-vs-rhodiola',
-              label: 'Ashwagandha vs Rhodiola',
-            },
-            {
-              href: '/compare/l-theanine-vs-magnesium',
-              label: 'L-Theanine vs Magnesium',
-            },
-          ]}
-          protocols={[
-            {
-              href: '/protocols/deep-sleep',
-              label: 'Deep Sleep Protocol',
-            },
-            {
-              href: '/protocols/morning-focus',
-              label: 'Morning Focus Protocol',
-            },
-          ]}
-          stacks={[
-            {
-              href: '/stacks/sleep-support',
-              label: 'Sleep Support Stack',
-            },
-            {
-              href: '/stacks/focus-support',
-              label: 'Focus Support Stack',
-            },
-          ]}
-        />
+        <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
+          <AuthorityHubTemplate
+            title={title}
+            summary={description}
+            records={records}
+            comparisons={comparisons}
+            stacks={stacks}
+          />
+
+          <AuthoritySidebar
+            title="Related Topic Ecosystems"
+            topics={[
+              {
+                href: '/topics/stress-response',
+                label: 'Stress Response',
+                meta: 'Adaptogens, cortisol regulation, and recovery pathways.',
+              },
+              {
+                href: '/topics/sleep-recovery',
+                label: 'Sleep Recovery',
+                meta: 'Sleep-support systems and calming pathway exploration.',
+              },
+            ]}
+            comparisons={[
+              {
+                href: '/compare/ashwagandha-vs-rhodiola',
+                label: 'Ashwagandha vs Rhodiola',
+              },
+              {
+                href: '/compare/l-theanine-vs-magnesium',
+                label: 'L-Theanine vs Magnesium',
+              },
+            ]}
+            protocols={[
+              {
+                href: '/protocols/deep-sleep',
+                label: 'Deep Sleep Protocol',
+              },
+              {
+                href: '/protocols/morning-focus',
+                label: 'Morning Focus Protocol',
+              },
+            ]}
+            stacks={[
+              {
+                href: '/stacks/sleep-support',
+                label: 'Sleep Support Stack',
+              },
+              {
+                href: '/stacks/focus-support',
+                label: 'Focus Support Stack',
+              },
+            ]}
+          />
+        </div>
       </div>
     </>
   )
