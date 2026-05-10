@@ -1,6 +1,16 @@
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
+
+const protocolRecord = {
+  title: 'Stress Regulation',
+  summary:
+    'Educational exploration of stress-response biology, calming neuropharmacology, adaptogenic support systems, emotional regulation, nervous-system balance, and recovery-oriented neuroscience.',
+  effects: ['stress regulation', 'calming support', 'emotional regulation'],
+  mechanisms: ['stress physiology', 'adaptogenic support', 'nervous-system regulation'],
+  categories: ['stress', 'recovery', 'adaptogen'],
+}
 
 const systems = [
   {
@@ -68,6 +78,11 @@ export default function StressRegulationPage() {
           </Link>
         ))}
       </section>
+
+      <RuntimeOrchestratedDiscovery
+        record={protocolRecord}
+        title="Explore calming and recovery systems"
+      />
     </main>
   )
 }
