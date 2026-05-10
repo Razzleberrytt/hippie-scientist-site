@@ -3,23 +3,25 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 
 const receptorSystems = [
   {
     title: 'Serotonergic receptors',
-    description: 'Associated with mood systems, emotional processing, stress signaling, and psychoactive neuropharmacology.',
+    description: 'Associated with emotional regulation, sensory processing, stress signaling, appetite regulation, altered-state neuropharmacology, and psychedelic research systems.',
   },
   {
     title: 'GABAergic receptors',
-    description: 'Associated with inhibitory signaling, calming systems, sedation pathways, and nervous-system downregulation.',
+    description: 'Associated with inhibitory signaling, calming systems, sedation pathways, nervous-system downregulation, sleep continuity, and anxiety-related neurobiology.',
   },
   {
     title: 'Dopaminergic receptors',
-    description: 'Associated with motivation systems, reward signaling, behavioral reinforcement, and cognition continuity.',
+    description: 'Associated with motivation systems, reward processing, novelty salience, behavioral reinforcement, movement systems, and cognition continuity.',
   },
   {
     title: 'Glutamatergic receptors',
-    description: 'Associated with excitatory signaling, cognition systems, neuroplasticity, and altered-state neuropharmacology.',
+    description: 'Associated with excitatory signaling, learning systems, neuroplasticity, cognition pathways, memory formation, and altered-state neuropharmacology.',
   },
 ]
 
@@ -51,19 +53,24 @@ export default function ReceptorsPage() {
         </div>
 
         <p className="text-xl leading-9 text-[#46574d]">
-          Receptors are specialized signaling structures associated with how neurotransmitters, compounds, herbs, and psychoactive substances influence neurochemical communication systems.
+          Receptors are specialized signaling structures associated with how neurotransmitters, compounds, herbs, medications, and psychoactive substances influence neurochemical communication systems. Different receptor families may influence emotional regulation, stress adaptation, cognition, sedation pathways, sensory interpretation, and altered states.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">
-          Educational receptor-system discussions commonly intersect with neuropharmacology, signaling modulation, psychoactive mechanisms, sleep systems, mood regulation, cognition pathways, and stress adaptation.
+          Educational receptor-system discussions commonly intersect with neuropharmacology, signaling modulation, psychoactive mechanisms, sleep systems, mood regulation, stress neurobiology, neuroplasticity, and systems biology. Modern neuroscience increasingly emphasizes pathway interaction rather than isolated single-receptor explanations.
         </p>
       </section>
+
+      <MisconceptionCallout
+        myth="A single receptor completely determines how a psychoactive substance feels"
+        reality="Subjective experiences are influenced by multiple interacting signaling systems, environmental context, expectations, emotional state, receptor distribution, dosage, metabolism, sleep continuity, and individual variability."
+      />
 
       <EvidenceSection
         title="Why receptor systems matter"
         evidenceLevel="Strong"
-        summary="Receptor systems help contextualize how signaling molecules and neuroactive compounds may influence nervous-system communication and pathway modulation."
-        limitations="Neurochemical systems are highly interconnected and often cannot be reduced to single-receptor explanations."
+        summary="Receptor systems help contextualize how signaling molecules and neuroactive compounds may influence nervous-system communication, psychoactive perception, cognition pathways, emotional regulation, and stress-response continuity."
+        limitations="Neurochemical systems are highly interconnected and often cannot be reduced to simple single-receptor explanations."
       />
 
       <section className="grid gap-6 lg:grid-cols-2">
@@ -79,6 +86,15 @@ export default function ReceptorsPage() {
           </div>
         ))}
       </section>
+
+      <ResearchLimitations
+        limitations={[
+          'Receptor systems remain incompletely understood.',
+          'Mechanistic receptor activity may not fully predict subjective experiences.',
+          'Animal models may not directly translate to humans.',
+          'Online neuropharmacology discussions often exaggerate mechanistic certainty.',
+        ]}
+      />
 
       <ReferencedStudies
         studies={[
