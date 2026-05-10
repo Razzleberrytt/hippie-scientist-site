@@ -41,6 +41,24 @@ const mechanisms = [
   },
 ]
 
+const faqItems = [
+  {
+    question: 'Are adaptogens scientifically proven?',
+    answer:
+      'Some adaptogenic herbs have human clinical evidence associated with stress resilience and fatigue systems, but evidence quality differs substantially between compounds and many claims remain preliminary.',
+  },
+  {
+    question: 'Do all adaptogens work the same way?',
+    answer:
+      'No. Adaptogenic herbs may involve different neurochemical systems, inflammatory pathways, endocrine interactions, autonomic signaling patterns, and pharmacological profiles.',
+  },
+  {
+    question: 'Can adaptogens interact with medications?',
+    answer:
+      'Yes. Some adaptogenic herbs may influence endocrine systems, blood pressure, sleep physiology, mood regulation, immune signaling, or medication metabolism.',
+  },
+]
+
 export default function AdaptogensEducationPage() {
   return (
     <main className="container-page py-10 space-y-12">
@@ -102,6 +120,50 @@ export default function AdaptogensEducationPage() {
         ))}
       </section>
 
+      <section className="card-premium p-8 space-y-6">
+        <div className="space-y-2 max-w-3xl">
+          <p className="eyebrow-label">Scientific Context</p>
+
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">
+            Adaptogens intersect with broader resilience biology
+          </h2>
+
+          <p className="text-base leading-8 text-[#46574d]">
+            Modern adaptogen discussions frequently overlap with neuroinflammation research, mitochondrial stress adaptation, autonomic nervous-system flexibility, sleep restoration, fatigue physiology, and chronic stress signaling continuity.
+          </p>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-2">
+          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
+            <h3 className="text-xl font-semibold text-ink">
+              Frequently associated systems
+            </h3>
+
+            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+              <li>• HPA-axis stress regulation</li>
+              <li>• Nervous-system resilience</li>
+              <li>• Fatigue recovery continuity</li>
+              <li>• Sleep and recovery biology</li>
+              <li>• Neuroinflammatory signaling</li>
+            </ul>
+          </div>
+
+          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
+            <h3 className="text-xl font-semibold text-ink">
+              Major evidence limitations
+            </h3>
+
+            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+              <li>• Inconsistent product standardization</li>
+              <li>• Small human sample sizes</li>
+              <li>• Mixed extraction methodologies</li>
+              <li>• Heterogeneous clinical endpoints</li>
+              <li>• Marketing exaggeration risk</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <SafetyNotice>
         Adaptogenic herbs may interact with medications, endocrine systems, autoimmune conditions, sleep physiology, mood regulation, or cardiovascular signaling. Educational content should not replace individualized medical guidance.
       </SafetyNotice>
@@ -114,6 +176,30 @@ export default function AdaptogensEducationPage() {
           'Mechanistic explanations may oversimplify complex stress physiology.',
         ]}
       />
+
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <p className="eyebrow-label">Educational FAQ</p>
+
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">
+            Common adaptogen questions
+          </h2>
+        </div>
+
+        <div className="grid gap-5">
+          {faqItems.map((item) => (
+            <div key={item.question} className="card-premium p-6 space-y-3">
+              <h3 className="text-xl font-semibold tracking-tight text-ink">
+                {item.question}
+              </h3>
+
+              <p className="text-sm leading-7 text-[#46574d]">
+                {item.answer}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="space-y-5">
         <div className="space-y-2">
