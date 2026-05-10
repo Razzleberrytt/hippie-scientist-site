@@ -1,6 +1,16 @@
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
+
+const protocolRecord = {
+  title: 'Non-Stimulant Focus',
+  summary:
+    'Educational exploration of calm focus systems, cognition support, attentional continuity, dopaminergic balance, stress-aware productivity systems, and non-stimulant neuropharmacology.',
+  effects: ['focus support', 'calm cognition', 'attention support'],
+  mechanisms: ['dopaminergic balance', 'cognition support', 'stress-aware focus'],
+  categories: ['focus', 'cognition', 'nootropic'],
+}
 
 const systems = [
   {
@@ -68,6 +78,11 @@ export default function NonStimulantFocusPage() {
           </Link>
         ))}
       </section>
+
+      <RuntimeOrchestratedDiscovery
+        record={protocolRecord}
+        title="Explore cognition and focus systems"
+      />
     </main>
   )
 }
