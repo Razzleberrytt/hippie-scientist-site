@@ -5,6 +5,16 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
+
+const comparisonRecord = {
+  title: 'Stimulating vs Sedating Compounds',
+  summary:
+    'Educational comparison of stimulating and sedating systems exploring hyperarousal, calm attentional continuity, recovery biology, emotional regulation, sleep continuity, and contextual neurobiology.',
+  effects: ['calm cognition', 'stimulation systems', 'recovery continuity'],
+  mechanisms: ['arousal regulation', 'stress physiology', 'attentional neurobiology'],
+  categories: ['focus', 'recovery', 'cognition'],
+}
 
 const systems = [
   {
@@ -85,6 +95,12 @@ export default function StimulatingVsSedatingCompoundsPage() {
       </section>
       <HumanVsMechanisticEvidence />
       <TranslationalLimitationsCard />
+
+      <RuntimeOrchestratedDiscovery
+        record={comparisonRecord}
+        title="Explore stimulation and recovery systems"
+      />
+
       <section className="space-y-6">
         <div className="space-y-2">
           <p className="eyebrow-label">Educational FAQ</p>
