@@ -5,6 +5,16 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
+
+const comparisonRecord = {
+  title: 'Calm Focus vs Stimulation',
+  summary:
+    'Educational comparison exploring calm attentional continuity systems, stimulation-oriented cognition approaches, stress physiology, emotional regulation, recovery biology, and sustainable neuropharmacology.',
+  effects: ['focus support', 'attention systems', 'calm cognition'],
+  mechanisms: ['dopaminergic signaling', 'stress physiology', 'attentional continuity'],
+  categories: ['focus', 'cognition', 'nootropic'],
+}
 
 const comparisons = [
   {
@@ -154,39 +164,12 @@ export default function CalmFocusVsStimulationPage() {
             Increased stimulation or motivational intensity does not necessarily translate into sustainable cognition continuity, emotional regulation, healthy recovery systems, or long-term nervous-system resilience. Sleep quality, stress physiology, recovery biology, emotional processing, and burnout systems may substantially influence cognitive sustainability.
           </p>
         </div>
-
-        <div className="grid gap-5 lg:grid-cols-3">
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">
-              Recovery-Oriented Focus
-            </h3>
-
-            <p className="text-sm leading-7 text-[#46574d]">
-              Sustainable cognition systems may require recovery continuity, emotional regulation, sleep restoration, and nervous-system resilience.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">
-              Overstimulation Risk
-            </h3>
-
-            <p className="text-sm leading-7 text-[#46574d]">
-              Chronic overstimulation may contribute to fatigue systems, anxiety sensitivity, emotional dysregulation, or recovery-system disruption.
-            </p>
-          </div>
-
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">
-              Individual Variability
-            </h3>
-
-            <p className="text-sm leading-7 text-[#46574d]">
-              Different nervous systems may respond differently to stimulating or calming cognition-oriented approaches.
-            </p>
-          </div>
-        </div>
       </section>
+
+      <RuntimeOrchestratedDiscovery
+        record={comparisonRecord}
+        title="Explore calm-focus and cognition systems"
+      />
 
       <SafetyNotice>
         Excessive stimulation, chronic sleep disruption, emotional destabilization, severe burnout symptoms, anxiety disorders, or cardiovascular concerns should be approached carefully. Educational content is not a substitute for individualized medical guidance.
