@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -6,23 +5,28 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import RelatedEducationSystems from '@/components/education/related-education-systems'
 
 const systems = [
   {
     href: '/protocols/stress-regulation',
     title: 'Stress Regulation',
+    description: 'Educational exploration of stress-response continuity, nervous-system resilience, and recovery biology.',
   },
   {
     href: '/protocols/burnout-recovery',
     title: 'Burnout Recovery',
+    description: 'Recovery-oriented protocol ecosystem focused on fatigue, emotional regulation, and resilience.',
   },
   {
     href: '/herbs/rhodiola',
     title: 'Rhodiola',
+    description: 'Adaptogenic herb frequently explored for stress resilience, fatigue systems, and cognition continuity.',
   },
   {
-    href: '/herbs/ashwagandha',
-    title: 'Ashwagandha',
+    href: '/education/cognitive-resilience-systems',
+    title: 'Cognitive Resilience Systems',
+    description: 'Authority hub exploring sustainable cognition, attentional resilience, and recovery continuity.',
   },
 ]
 
@@ -61,12 +65,12 @@ const faqItems = [
 
 export default function AdaptogensEducationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <main className='container-page py-10 space-y-12'>
       <AuthorityJsonLd
-        title="What Are Adaptogens?"
-        description="Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-aware adaptogenic neuropharmacology."
-        url="https://thehippiescientist.net/education/what-are-adaptogens"
-        type="Article"
+        title='What Are Adaptogens?'
+        description='Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-aware adaptogenic neuropharmacology.'
+        url='https://thehippiescientist.net/education/what-are-adaptogens'
+        type='Article'
       />
 
       <AuthorityBreadcrumbs
@@ -77,95 +81,77 @@ export default function AdaptogensEducationPage() {
         ]}
       />
 
-      <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Educational Supernode</p>
+      <section className='space-y-5 max-w-4xl'>
+        <p className='eyebrow-label'>Educational Supernode</p>
 
-        <h1 className="text-5xl font-bold tracking-tight text-ink">
+        <h1 className='text-5xl font-bold tracking-tight text-ink'>
           What Are Adaptogens?
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
-          Adaptogens are herbs and compounds associated with stress-response regulation, nervous-system resilience, fatigue recovery, neuroendocrine adaptation, emotional-processing continuity, and physiological stress adaptation systems.
+        <p className='text-lg leading-8 text-[#46574d]'>
+          Adaptogens are herbs and compounds associated with stress-response
+          regulation, nervous-system resilience, fatigue recovery,
+          neuroendocrine adaptation, emotional-processing continuity, and
+          physiological stress adaptation systems.
         </p>
 
-        <p className="text-base leading-8 text-[#5c6b63]">
-          Educational adaptogen exploration commonly intersects with cortisol biology, autonomic nervous-system signaling, burnout physiology, sleep recovery, fatigue neurobiology, inflammatory signaling, and evidence-aware neuropharmacology.
+        <p className='text-base leading-8 text-[#5c6b63]'>
+          Educational adaptogen exploration commonly intersects with cortisol
+          biology, autonomic nervous-system signaling, burnout physiology,
+          sleep recovery, fatigue neurobiology, inflammatory signaling, and
+          evidence-aware neuropharmacology.
         </p>
       </section>
 
       <MisconceptionCallout
-        myth="Adaptogens are scientifically proven cure-all herbs"
-        reality="Adaptogens represent a broad educational category with varying evidence quality, heterogeneous mechanisms, incomplete standardization, and differing levels of human clinical support depending on the herb or compound being discussed."
+        myth='Adaptogens are scientifically proven cure-all herbs'
+        reality='Adaptogens represent a broad educational category with varying evidence quality, heterogeneous mechanisms, incomplete standardization, and differing levels of human clinical support depending on the herb or compound being discussed.'
       />
 
       <EvidenceSummaryCard
-        title="Adaptogens and stress resilience systems"
-        evidenceLevel="Moderate"
-        humanEvidence="Some adaptogenic herbs have human evidence associated with stress resilience, fatigue recovery, emotional regulation, and cognitive continuity, though evidence quality varies substantially by compound."
-        mechanisticEvidence="Mechanistic models commonly involve stress-response signaling, neuroendocrine adaptation, inflammatory biology, autonomic regulation, and nervous-system resilience pathways."
-        safetyProfile="Adaptogenic compounds are not universally interchangeable. Safety profiles, medication interactions, endocrine effects, and evidence quality may differ significantly between herbs."
+        title='Adaptogens and stress resilience systems'
+        evidenceLevel='Moderate'
+        humanEvidence='Some adaptogenic herbs have human evidence associated with stress resilience, fatigue recovery, emotional regulation, and cognitive continuity, though evidence quality varies substantially by compound.'
+        mechanisticEvidence='Mechanistic models commonly involve stress-response signaling, neuroendocrine adaptation, inflammatory biology, autonomic regulation, and nervous-system resilience pathways.'
+        safetyProfile='Adaptogenic compounds are not universally interchangeable. Safety profiles, medication interactions, endocrine effects, and evidence quality may differ significantly between herbs.'
       />
 
-      <section className="grid gap-6 lg:grid-cols-3">
-        {mechanisms.map((mechanism) => (
-          <div key={mechanism.title} className="card-premium p-6 space-y-4">
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">
+      <section className='grid gap-6 lg:grid-cols-3'>
+        {mechanisms.map(mechanism => (
+          <div key={mechanism.title} className='card-premium p-6 space-y-4'>
+            <h2 className='text-2xl font-semibold tracking-tight text-ink'>
               {mechanism.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className='text-sm leading-7 text-[#46574d]'>
               {mechanism.body}
             </p>
           </div>
         ))}
       </section>
 
-      <section className="card-premium p-8 space-y-6">
-        <div className="space-y-2 max-w-3xl">
-          <p className="eyebrow-label">Scientific Context</p>
+      <section className='card-premium p-8 space-y-6'>
+        <div className='space-y-2 max-w-3xl'>
+          <p className='eyebrow-label'>Scientific Context</p>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">
+          <h2 className='text-3xl font-semibold tracking-tight text-ink'>
             Adaptogens intersect with broader resilience biology
           </h2>
 
-          <p className="text-base leading-8 text-[#46574d]">
-            Modern adaptogen discussions frequently overlap with neuroinflammation research, mitochondrial stress adaptation, autonomic nervous-system flexibility, sleep restoration, fatigue physiology, and chronic stress signaling continuity.
+          <p className='text-base leading-8 text-[#46574d]'>
+            Modern adaptogen discussions frequently overlap with
+            neuroinflammation research, mitochondrial stress adaptation,
+            autonomic nervous-system flexibility, sleep restoration, fatigue
+            physiology, and chronic stress signaling continuity.
           </p>
-        </div>
-
-        <div className="grid gap-5 lg:grid-cols-2">
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">
-              Frequently associated systems
-            </h3>
-
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
-              <li>• HPA-axis stress regulation</li>
-              <li>• Nervous-system resilience</li>
-              <li>• Fatigue recovery continuity</li>
-              <li>• Sleep and recovery biology</li>
-              <li>• Neuroinflammatory signaling</li>
-            </ul>
-          </div>
-
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-ink">
-              Major evidence limitations
-            </h3>
-
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
-              <li>• Inconsistent product standardization</li>
-              <li>• Small human sample sizes</li>
-              <li>• Mixed extraction methodologies</li>
-              <li>• Heterogeneous clinical endpoints</li>
-              <li>• Marketing exaggeration risk</li>
-            </ul>
-          </div>
         </div>
       </section>
 
       <SafetyNotice>
-        Adaptogenic herbs may interact with medications, endocrine systems, autoimmune conditions, sleep physiology, mood regulation, or cardiovascular signaling. Educational content should not replace individualized medical guidance.
+        Adaptogenic herbs may interact with medications, endocrine systems,
+        autoimmune conditions, sleep physiology, mood regulation, or
+        cardiovascular signaling. Educational content should not replace
+        individualized medical guidance.
       </SafetyNotice>
 
       <ResearchLimitations
@@ -177,23 +163,23 @@ export default function AdaptogensEducationPage() {
         ]}
       />
 
-      <section className="space-y-6">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Educational FAQ</p>
+      <section className='space-y-6'>
+        <div className='space-y-2'>
+          <p className='eyebrow-label'>Educational FAQ</p>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">
+          <h2 className='text-3xl font-semibold tracking-tight text-ink'>
             Common adaptogen questions
           </h2>
         </div>
 
-        <div className="grid gap-5">
-          {faqItems.map((item) => (
-            <div key={item.question} className="card-premium p-6 space-y-3">
-              <h3 className="text-xl font-semibold tracking-tight text-ink">
+        <div className='grid gap-5'>
+          {faqItems.map(item => (
+            <div key={item.question} className='card-premium p-6 space-y-3'>
+              <h3 className='text-xl font-semibold tracking-tight text-ink'>
                 {item.question}
               </h3>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className='text-sm leading-7 text-[#46574d]'>
                 {item.answer}
               </p>
             </div>
@@ -201,33 +187,10 @@ export default function AdaptogensEducationPage() {
         </div>
       </section>
 
-      <section className="space-y-5">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Related Systems and Compounds</p>
-
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">
-            Continue exploring adaptogenic systems
-          </h2>
-        </div>
-
-        <div className="grid gap-5 lg:grid-cols-2">
-          {systems.map((system) => (
-            <Link
-              key={system.href}
-              href={system.href}
-              className="card-premium p-6 transition hover:-translate-y-0.5"
-            >
-              <div className="space-y-3">
-                <p className="eyebrow-label">Related Educational System</p>
-
-                <h2 className="text-2xl font-semibold tracking-tight text-ink">
-                  {system.title}
-                </h2>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      <RelatedEducationSystems
+        title='Continue exploring adaptogenic systems'
+        systems={systems}
+      />
 
       <ReferencedStudies
         studies={[
