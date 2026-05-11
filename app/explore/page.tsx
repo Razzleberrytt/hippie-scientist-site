@@ -18,6 +18,7 @@ import {
 import { buildAdaptiveEcosystemPriorities } from '@/src/lib/adaptive-ecosystem-prioritization'
 import { buildSemanticMomentum } from '@/src/lib/semantic-momentum-engine'
 import { buildSemanticEcosystemBridges } from '@/src/lib/semantic-ecosystem-bridges'
+import { buildEcosystemStability } from '@/src/lib/ecosystem-stability-engine'
 
 const hubIntro = [
   {
@@ -83,45 +84,49 @@ export default function ExplorePage() {
   const adaptivePriorities = buildAdaptiveEcosystemPriorities(featured, topicClusters)
   const semanticMomentum = buildSemanticMomentum(featured, topicClusters)
   const semanticBridges = buildSemanticEcosystemBridges(featured, topicClusters)
+  const ecosystemStability = buildEcosystemStability(featured, topicClusters)
 
-  const prioritizedSignals = semanticMomentum
-    .filter((signal) => signal.momentumTier !== 'weak')
+  const prioritizedSignals = ecosystemStability
+    .filter((signal) => signal.resilienceTier !== 'fragile')
     .map((signal) => signal.ecosystem.toLowerCase())
 
   const prioritizedGraphLinks = [...graphLinks, ...getTopicClusterLinks(10)]
     .sort((a, b) => {
-      const aMomentum = semanticMomentum.find((signal) =>
-        signal.ecosystem.toLowerCase() === a.label.toLowerCase(),
-      )
-      const bMomentum = semanticMomentum.find((signal) =>
-        signal.ecosystem.toLowerCase() === b.label.toLowerCase(),
-      )
+      const aMomentum = semanticMomentum.find((signal) => signal.ecosystem.toLowerCase() === a.label.toLowerCase())
+      const bMomentum = semanticMomentum.find((signal) => signal.ecosystem.toLowerCase() === b.label.toLowerCase())
 
-      const aAdaptive = adaptivePriorities.find((priority) =>
-        priority.ecosystem.toLowerCase() === a.label.toLowerCase(),
-      )
-      const bAdaptive = adaptivePriorities.find((priority) =>
-        priority.ecosystem.toLowerCase() === b.label.toLowerCase(),
-      )
+      const aAdaptive = adaptivePriorities.find((priority) => priority.ecosystem.toLowerCase() === a.label.toLowerCase())
+      const bAdaptive = adaptivePriorities.find((priority) => priority.ecosystem.toLowerCase() === b.label.toLowerCase())
 
       const aBridge = semanticBridges.find((bridge) =>
         bridge.source.toLowerCase() === a.label.toLowerCase() ||
         bridge.target.toLowerCase() === a.label.toLowerCase(),
       )
+
       const bBridge = semanticBridges.find((bridge) =>
         bridge.source.toLowerCase() === b.label.toLowerCase() ||
         bridge.target.toLowerCase() === b.label.toLowerCase(),
       )
 
+      const aStability = ecosystemStability.find((signal) =>
+        signal.ecosystem.toLowerCase() === a.label.toLowerCase(),
+      )
+
+      const bStability = ecosystemStability.find((signal) =>
+        signal.ecosystem.toLowerCase() === b.label.toLowerCase(),
+      )
+
       const aScore =
         (aMomentum?.momentumScore || 0) +
         (aAdaptive?.ecosystemScore || 0) +
-        (aBridge?.bridgeScore || 0)
+        (aBridge?.bridgeScore || 0) +
+        (aStability?.stabilityScore || 0)
 
       const bScore =
         (bMomentum?.momentumScore || 0) +
         (bAdaptive?.ecosystemScore || 0) +
-        (bBridge?.bridgeScore || 0)
+        (bBridge?.bridgeScore || 0) +
+        (bStability?.stabilityScore || 0)
 
       if (bScore !== aScore) {
         return bScore - aScore
@@ -210,16 +215,16 @@ export default function ExplorePage() {
             </p>
 
             <h2 className="max-w-[16ch]">
-              Start with an outcome or pathway.
+              Stability-weighted semantic ecosystems.
             </h2>
 
             <p className="detail-reading text-base">
-              Discovery clusters surface related compounds, evidence-forward profiles, and overlapping mechanisms to improve scientific exploration quality.
+              Semantic continuity, ecosystem resilience, and bridge reinforcement are combined to prioritize stable scientific discovery pathways.
             </p>
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {semanticMomentum.slice(0, 4).map((signal) => (
+            {ecosystemStability.slice(0, 4).map((signal) => (
               <span key={signal.ecosystem} className="chip-readable">
                 {signal.ecosystem}
               </span>
