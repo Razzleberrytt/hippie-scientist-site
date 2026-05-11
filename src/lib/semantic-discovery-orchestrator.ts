@@ -5,6 +5,11 @@ import { buildSemanticEcosystemBridges } from '@/src/lib/semantic-ecosystem-brid
 import { buildEcosystemStability } from '@/src/lib/ecosystem-stability-engine'
 import { buildSemanticGovernanceRuntime } from '@/src/lib/semantic-governance-runtime'
 import { clampScore, safeArray, safeText } from '@/lib/runtime-render-guards'
+import {
+  SEMANTIC_EXPANSION_LIMITS,
+  cappedExpansion,
+} from '@/src/lib/semantic-expansion-budget'
+import { stableRelationshipRanking } from '@/src/lib/semantic-sort-runtime'
 
 export type SemanticDiscoverySignal = {
   ecosystem: string
@@ -60,66 +65,69 @@ export function buildSemanticDiscoverySignals(
   records: unknown = [],
   ecosystemClusters: unknown = topicClusters,
 ): SemanticDiscoverySignal[] {
-  const adaptive = buildAdaptiveEcosystemPriorities(records, ecosystemClusters)
+  const adaptive = cappedExpansion(
+    buildAdaptiveEcosystemPriorities(records, ecosystemClusters),
+    SEMANTIC_EXPANSION_LIMITS.maxDiscoverySignals,
+  )
+
   const momentum = buildSemanticMomentum(records, ecosystemClusters)
-  const bridges = buildSemanticEcosystemBridges(records, ecosystemClusters)
+  const bridges = cappedExpansion(
+    buildSemanticEcosystemBridges(records, ecosystemClusters),
+    SEMANTIC_EXPANSION_LIMITS.maxBridgeExpansions,
+  )
+
   const stability = buildEcosystemStability(records, ecosystemClusters)
   const governance = buildSemanticGovernanceRuntime(records, ecosystemClusters)
 
-  return adaptive
-    .map((priority) => {
-      const ecosystem = priority.ecosystem
+  const ranked = adaptive.map((priority) => {
+    const ecosystem = priority.ecosystem
 
-      const momentumSignal = momentum.find(
-        (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
-      )
+    const momentumSignal = momentum.find(
+      (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
+    )
 
-      const stabilitySignal = stability.find(
-        (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
-      )
+    const stabilitySignal = stability.find(
+      (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
+    )
 
-      const governanceSignal = governance.find(
-        (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
-      )
+    const governanceSignal = governance.find(
+      (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
+    )
 
-      const adaptiveScore = priority.ecosystemScore || 0
-      const momentumScore = momentumSignal?.momentumScore || 0
-      const bridgeScore = strongestBridgeScore(ecosystem, bridges)
-      const stabilityScore = stabilitySignal?.stabilityScore || 0
-      const governanceScore = governanceSignal?.governanceScore || 0
+    const adaptiveScore = priority.ecosystemScore || 0
+    const momentumScore = momentumSignal?.momentumScore || 0
+    const bridgeScore = strongestBridgeScore(ecosystem, bridges)
+    const stabilityScore = stabilitySignal?.stabilityScore || 0
+    const governanceScore = governanceSignal?.governanceScore || 0
 
-      const discoveryScore = clampScore(
-        Math.round(
-          adaptiveScore * 0.2 +
-            momentumScore * 0.22 +
-            bridgeScore * 0.16 +
-            stabilityScore * 0.2 +
-            governanceScore * 0.22,
-        ),
-      )
+    const discoveryScore = clampScore(
+      Math.round(
+        adaptiveScore * 0.2 +
+          momentumScore * 0.22 +
+          bridgeScore * 0.16 +
+          stabilityScore * 0.2 +
+          governanceScore * 0.22,
+      ),
+    )
 
-      return {
-        ecosystem,
-        discoveryScore,
-        adaptiveScore,
-        momentumScore,
-        bridgeScore,
-        stabilityScore,
-        governanceScore,
-        discoveryTier: tier(discoveryScore),
-      }
-    })
-    .sort((a, b) => {
-      if (b.discoveryScore !== a.discoveryScore) {
-        return b.discoveryScore - a.discoveryScore
-      }
+    return {
+      ecosystem,
+      discoveryScore,
+      adaptiveScore,
+      momentumScore,
+      bridgeScore,
+      stabilityScore,
+      governanceScore,
+      discoveryTier: tier(discoveryScore),
+    }
+  })
 
-      if (b.governanceScore !== a.governanceScore) {
-        return b.governanceScore - a.governanceScore
-      }
-
-      return a.ecosystem.localeCompare(b.ecosystem)
-    })
+  return stableRelationshipRanking(
+    ranked,
+    (signal) => signal.discoveryScore,
+    (signal) => signal.ecosystem,
+    SEMANTIC_EXPANSION_LIMITS.maxDiscoverySignals,
+  )
 }
 
 export function buildPrioritizedEcosystemSignals(
@@ -146,22 +154,16 @@ export function sortGraphLinksBySemanticDiscovery<
     ecosystemClusters,
   )
 
-  return [...links].sort((a, b) => {
-    const aSignal = discovery.find(
-      (signal) => normalize(signal.ecosystem) === normalize(a.label),
-    )
+  return stableRelationshipRanking(
+    safeArray(links),
+    (link) => {
+      const signal = discovery.find(
+        (item) => normalize(item.ecosystem) === normalize(link.label),
+      )
 
-    const bSignal = discovery.find(
-      (signal) => normalize(signal.ecosystem) === normalize(b.label),
-    )
-
-    const aScore = aSignal?.discoveryScore || 0
-    const bScore = bSignal?.discoveryScore || 0
-
-    if (bScore !== aScore) {
-      return bScore - aScore
-    }
-
-    return a.label.localeCompare(b.label)
-  })
+      return signal?.discoveryScore || 0
+    },
+    (link) => link.label,
+    safeArray(links).length,
+  )
 }
