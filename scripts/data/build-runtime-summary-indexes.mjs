@@ -129,6 +129,65 @@ async function writeJson(fileName, value) {
   })
 }
 
+function buildAlphabeticalShards(records) {
+  const byLetter = {}
+
+  for (const item of records) {
+    const letter = text(item?.name || item?.slug || '#')
+      .charAt(0)
+      .toLowerCase() || '#'
+
+    if (!byLetter[letter]) {
+      byLetter[letter] = []
+    }
+
+    byLetter[letter].push(item)
+  }
+
+  return byLetter
+}
+
+function buildEntityShards(records) {
+  const shards = {
+    herbs: [],
+    compounds: [],
+  }
+
+  for (const item of records) {
+    if (item?.entityType === 'herb') {
+      shards.herbs.push(item)
+      continue
+    }
+
+    if (item?.entityType === 'compound') {
+      shards.compounds.push(item)
+    }
+  }
+
+  return shards
+}
+
+function buildAlphaEntityShards(records) {
+  const shards = {}
+
+  for (const item of records) {
+    const entityType = text(item?.entityType || 'unknown').toLowerCase()
+    const letter = text(item?.name || item?.slug || '#')
+      .charAt(0)
+      .toLowerCase() || '#'
+
+    const shardKey = `${entityType}-${letter}`
+
+    if (!shards[shardKey]) {
+      shards[shardKey] = []
+    }
+
+    shards[shardKey].push(item)
+  }
+
+  return shards
+}
+
 async function main() {
   const totalTimer = createStageTimer('summary-index-build')
 
@@ -167,31 +226,25 @@ async function main() {
     total: alphabetical.length,
   })
 
-  const shardTimer = createStageTimer('alphabetical-sharding')
+  const shardTimer = createStageTimer('search-index-sharding')
 
-  const byLetter = {}
-
-  for (const item of alphabetical) {
-    const letter = text(item?.name || item?.slug || '#')
-      .charAt(0)
-      .toLowerCase() || '#'
-
-    if (!byLetter[letter]) {
-      byLetter[letter] = []
-    }
-
-    byLetter[letter].push(item)
-  }
+  const alphabeticalShards = buildAlphabeticalShards(alphabetical)
+  const entityShards = buildEntityShards(alphabetical)
+  const alphaEntityShards = buildAlphaEntityShards(alphabetical)
 
   shardTimer.finish({
-    shards: Object.keys(byLetter).length,
+    alphabeticalShards: Object.keys(alphabeticalShards).length,
+    entityShards: Object.keys(entityShards).length,
+    alphaEntityShards: Object.keys(alphaEntityShards).length,
   })
 
   await Promise.all([
     writeJson('herbs-summary.json', herbSummaries),
     writeJson('compounds-summary.json', compoundSummaries),
     writeJson('search-index.json', alphabetical),
-    writeJson('alphabetical-shards.json', byLetter),
+    writeJson('alphabetical-shards.json', alphabeticalShards),
+    writeJson('entity-shards.json', entityShards),
+    writeJson('alpha-entity-shards.json', alphaEntityShards),
   ])
 
   totalTimer.finish({
