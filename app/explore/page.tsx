@@ -15,7 +15,8 @@ import {
   SemanticSectionBoundary,
   SemanticSectionFallback,
 } from '@/src/components/runtime/SemanticSectionBoundary'
-import { buildSemanticDiscoverySignals, buildPrioritizedEcosystemSignals, sortGraphLinksBySemanticDiscovery } from '@/src/lib/semantic-discovery-orchestrator'
+import { sortGraphLinksBySemanticDiscovery } from '@/src/lib/semantic-discovery-orchestrator'
+import { getSemanticDiscoveryCache } from '@/src/lib/semantic-discovery-cache'
 
 const hubIntro = [
   {
@@ -78,13 +79,10 @@ export default function ExplorePage() {
       clusters: getTopicClusters(compound).filter(isClean),
     }))
 
-  const discoverySignals = buildSemanticDiscoverySignals(featured, topicClusters)
+  const cache = getSemanticDiscoveryCache(featured, topicClusters)
 
-  const prioritizedSignals = buildPrioritizedEcosystemSignals(
-    featured,
-    topicClusters,
-    10,
-  )
+  const discoverySignals = cache.discoverySignals
+  const prioritizedSignals = cache.prioritizedSignals
 
   const prioritizedGraphLinks = sortGraphLinksBySemanticDiscovery(
     [...graphLinks, ...getTopicClusterLinks(10)],
