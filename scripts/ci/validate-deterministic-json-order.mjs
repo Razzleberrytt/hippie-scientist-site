@@ -15,6 +15,9 @@ const TARGETS = [
   'summary-indexes/alphabetical-shards.json',
   'summary-indexes/entity-shards.json',
   'summary-indexes/alpha-entity-shards.json',
+  'runtime-manifests/route-manifest.json',
+  'runtime-manifests/route-segment-groups.json',
+  'runtime-manifests/sitemap-chunk-manifest.json',
 ]
 
 function isObject(value) {
