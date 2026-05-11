@@ -124,8 +124,48 @@ export default async function CompoundPage({ params }: any) {
     .map((source:any) => text(source))
     .filter(isClean)
 
+  const compoundJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'DietarySupplement',
+    name: formatDisplayLabel(compound.name || compound.slug),
+    description: summary,
+    url: `https://www.thehippiescientist.net/compounds/${compound.slug}`,
+    ...(effects.length > 0 ? { activeIngredient: effects.join(', ') } : {}),
+    safetyConsideration:
+      'Educational content only. Consult a healthcare professional before use.',
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Compounds',
+        item: 'https://www.thehippiescientist.net/compounds',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: formatDisplayLabel(compound.name || compound.slug),
+        item: `https://www.thehippiescientist.net/compounds/${compound.slug}`,
+      },
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(compoundJsonLd) }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <ReadingProgress />
 
       <main className="mx-auto max-w-7xl space-y-8 px-4 py-8 pb-24 sm:space-y-10 sm:py-10 sm:pb-32">
