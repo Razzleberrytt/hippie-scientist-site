@@ -8,6 +8,8 @@ import herbsData from '@/public/data/herbs.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 
 type SearchType = 'Herb' | 'Compound'
+type FilterType = 'All' | 'Herb' | 'Compound'
+
 type SearchItem = {
   slug: string
   name: string
@@ -22,6 +24,7 @@ type SearchItem = {
 }
 
 const suggestedSearches = ['sleep', 'stress', 'inflammation', 'focus', 'digestion', 'metabolism']
+const filterOptions: FilterType[] = ['All', 'Herb', 'Compound']
 
 function getName(item: any) {
   return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
@@ -180,6 +183,8 @@ function ResultCard({ item }: { item: SearchItem }) {
 
 export default function SearchPage() {
   const [query, setQuery] = useState('')
+  const [activeFilter, setActiveFilter] = useState<FilterType>('All')
+
   const normalizedQuery = query.trim()
 
   const searchItems = useMemo(() => {
@@ -200,9 +205,14 @@ export default function SearchPage() {
   }), [searchItems])
 
   const results = useMemo(() => {
-    if (!normalizedQuery) return searchItems.slice(0, 24)
-    return fuse.search(normalizedQuery).map(result => result.item).slice(0, 48)
-  }, [normalizedQuery, fuse, searchItems])
+    const baseResults = !normalizedQuery
+      ? searchItems.slice(0, 36)
+      : fuse.search(normalizedQuery).map(result => result.item).slice(0, 60)
+
+    if (activeFilter === 'All') return baseResults
+
+    return baseResults.filter(item => item.type === activeFilter)
+  }, [normalizedQuery, fuse, searchItems, activeFilter])
 
   const herbs = results.filter(item => item.type === 'Herb')
   const compounds = results.filter(item => item.type === 'Compound')
@@ -220,7 +230,7 @@ export default function SearchPage() {
               </div>
 
               <p className="detail-reading text-[1.05rem] sm:text-lg">
-                Search herbs and compounds by name, mechanism, evidence signal, safety context, or wellness target. Results are cleaned and grouped for fast scientific scanning.
+                Search herbs and compounds by name, mechanism, evidence signal, safety context, or wellness target.
               </p>
 
               <div className="surface-depth rounded-[1.75rem] p-3 sm:p-4">
@@ -234,10 +244,25 @@ export default function SearchPage() {
                 />
               </div>
 
+              <div className="flex flex-wrap gap-2">
+                {filterOptions.map(filter => (
+                  <button
+                    key={filter}
+                    type="button"
+                    onClick={() => setActiveFilter(filter)}
+                    className={activeFilter === filter
+                      ? 'button-primary rounded-full px-4 py-2 text-sm'
+                      : 'chip-readable'}
+                  >
+                    {filter}
+                  </button>
+                ))}
+              </div>
+
               <div className="metadata-row">
                 <span className="chip-readable">{searchItems.length} searchable profiles</span>
-                <span className="chip-readable">{(herbsData as any[]).length} herbs</span>
-                <span className="chip-readable">{(compoundsData as any[]).length} compounds</span>
+                <span className="chip-readable">Semantic retrieval enabled</span>
+                <span className="chip-readable">Evidence-weighted discovery</span>
               </div>
             </div>
           </section>
@@ -246,7 +271,7 @@ export default function SearchPage() {
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="eyebrow-label">Suggested searches</p>
-                <p className="mt-2 text-sm leading-7 text-[#46574d]">Start with a wellness target, compound, botanical, or mechanism.</p>
+                <p className="mt-2 text-sm leading-7 text-[#46574d]">Start with a wellness target, pathway, compound, or mechanism.</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {suggestedSearches.map(term => (
@@ -300,7 +325,7 @@ export default function SearchPage() {
               <p className="eyebrow-label mx-auto">No matches found</p>
               <h2 className="mx-auto mt-3 max-w-[16ch] text-3xl font-semibold tracking-tight text-ink">Try a broader discovery path</h2>
               <p className="mx-auto mt-4 max-w-reading text-sm leading-7 text-[#46574d] sm:text-base">
-                Search by outcome, mechanism, compound class, or common supplement name. You can also browse the full libraries directly.
+                Search by outcome, mechanism, compound class, or common supplement name.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 {suggestedSearches.slice(0, 4).map(term => (
