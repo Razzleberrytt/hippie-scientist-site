@@ -13,6 +13,8 @@ export type RuntimeHomepageModule = {
     | 'foundational-discovery'
   authorityTier: 'foundational' | 'canonical' | 'emerging' | 'standard'
   freshnessConfidence: 'low' | 'moderate' | 'strong'
+  ecosystemContinuity: number
+  continuityModuleEligible: boolean
   recommendationReasons: string[]
   debug: ReturnType<typeof buildSemanticDebugSnapshot>
 }
@@ -21,6 +23,12 @@ function normalizeText(value: unknown) {
   return typeof value === 'string'
     ? value.trim()
     : ''
+}
+
+function normalizeList(value: unknown) {
+  return Array.isArray(value)
+    ? value.filter(Boolean)
+    : []
 }
 
 export function buildRuntimeHomepageModules(
@@ -44,6 +52,14 @@ export function buildRuntimeHomepageModules(
 
       const debug = buildSemanticDebugSnapshot(source, candidate)
 
+      const ecosystems = normalizeList(candidate?.ecosystem_taxonomy)
+      const pathways = normalizeList(candidate?.pathways)
+
+      const ecosystemContinuity = Math.min(
+        ecosystems.length * 14 + pathways.length * 12,
+        100,
+      )
+
       let authorityTier: RuntimeHomepageModule['authorityTier'] = 'standard'
 
       if (supernode) {
@@ -54,7 +70,10 @@ export function buildRuntimeHomepageModules(
 
       if (authorityTier === 'foundational') {
         homepageRole = 'authority-hub'
-      } else if (authorityTier === 'canonical') {
+      } else if (
+        authorityTier === 'canonical' ||
+        ecosystemContinuity >= 55
+      ) {
         homepageRole = 'ecosystem-continuity'
       } else if (freshness.confidence === 'strong') {
         homepageRole = 'emerging-focus'
@@ -74,8 +93,9 @@ export function buildRuntimeHomepageModules(
         0,
         Math.min(
           Math.round(
-            (cluster?.routingWeight || 40) * 0.45 +
-            (cluster?.authorityWeight || 40) * 0.35 +
+            (cluster?.routingWeight || 40) * 0.4 +
+            (cluster?.authorityWeight || 40) * 0.3 +
+            ecosystemContinuity * 0.2 +
             authorityWeight,
           ),
           100,
@@ -88,6 +108,8 @@ export function buildRuntimeHomepageModules(
         homepageRole,
         authorityTier,
         freshnessConfidence: freshness.confidence,
+        ecosystemContinuity,
+        continuityModuleEligible: ecosystemContinuity >= 45,
         recommendationReasons: debug.reasons.slice(0, 8),
         debug,
       }
