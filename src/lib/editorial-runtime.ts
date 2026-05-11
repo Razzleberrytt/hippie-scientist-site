@@ -37,46 +37,10 @@ const WHY_VARIATIONS = [
   '%NAME% is frequently evaluated in relation to %FOCUS%.',
 ]
 
-const CADENCE_VARIATIONS = [
-  'The surrounding evidence landscape remains nuanced rather than absolute.',
-  'Interpretation quality improves when evidence maturity and mechanism plausibility are separated clearly.',
-  'Contextual framing is important because adjacent profiles can differ substantially despite superficial similarity.',
-]
-
-const ECOSYSTEM_VARIATIONS = [
-  'Knowledge-graph continuity improves interpretation by connecting related pathways, compounds, and mechanisms.',
-  'Ecosystem-level interpretation helps contextualize where this profile sits among adjacent evidence clusters.',
-  'Semantic continuity across neighboring profiles improves comparative interpretation quality.',
-]
-
-const COMPARISON_VARIATIONS = [
-  'Comparison-aware interpretation helps distinguish mechanistic overlap from clinically meaningful overlap.',
-  'Profiles with similar mechanisms can still differ substantially in evidence maturity and outcome certainty.',
-  'Adjacent compounds and herbs may appear superficially similar while diverging meaningfully in evidence quality.',
-]
-
-const FLAGSHIP_VARIATIONS = [
-  'Higher-quality interpretation emerges when evidence hierarchy, mechanism plausibility, and ecosystem continuity are evaluated together.',
-  'Flagship profiles should prioritize calibrated interpretation over overstated certainty or simplified conclusions.',
-  'Authority-style scientific interpretation depends on maintaining separation between mechanism language and direct outcome evidence.',
-]
-
-const AUTHORITY_VARIATIONS = [
-  'Authority-grade profiles should reinforce contextual interpretation instead of isolated claims.',
-  'Scientific editorial quality improves when semantic continuity and evidence hierarchy remain aligned.',
-  'Higher-trust interpretation depends on maintaining calibrated language across neighboring scientific profiles.',
-]
-
-const CALIBRATION_VARIATIONS = [
-  'Semantic calibration improves when mechanism plausibility, evidence hierarchy, and contextual interpretation remain aligned.',
-  'Higher-quality editorial interpretation depends on maintaining consistent calibration across related scientific entities.',
-  'Calibrated scientific phrasing reduces the risk of overstating uncertain or preliminary evidence domains.',
-]
-
-const CONTINUITY_VARIATIONS = [
-  'Semantic continuity strengthens when related profiles reinforce shared evidence-calibration standards.',
-  'Editorial sophistication improves when adjacent profiles maintain consistent contextual interpretation quality.',
-  'High-trust scientific ecosystems depend on continuity between evidence hierarchy, mechanism plausibility, and restraint language.',
+const DEPTH_VARIATIONS = [
+  'Editorial depth improves when contextual interpretation remains aligned across related evidence ecosystems.',
+  'Higher-quality scientific narratives depend on preserving semantic realism and calibrated interpretation standards.',
+  'Scientific realism improves when adjacent profiles maintain consistent evidence-calibration behavior.',
 ]
 
 function rotateVariation(values: string[], seed: string) {
@@ -84,32 +48,8 @@ function rotateVariation(values: string[], seed: string) {
   return values[total % values.length]
 }
 
-function cadenceLine(seed: string) {
-  return rotateVariation(CADENCE_VARIATIONS, seed)
-}
-
-function ecosystemLine(seed: string) {
-  return rotateVariation(ECOSYSTEM_VARIATIONS, seed)
-}
-
-function comparisonLine(seed: string) {
-  return rotateVariation(COMPARISON_VARIATIONS, seed)
-}
-
-function flagshipLine(seed: string) {
-  return rotateVariation(FLAGSHIP_VARIATIONS, seed)
-}
-
-function authorityLine(seed: string) {
-  return rotateVariation(AUTHORITY_VARIATIONS, seed)
-}
-
-function calibrationLine(seed: string) {
-  return rotateVariation(CALIBRATION_VARIATIONS, seed)
-}
-
-function continuityLine(seed: string) {
-  return rotateVariation(CONTINUITY_VARIATIONS, seed)
+function depthLine(seed: string) {
+  return rotateVariation(DEPTH_VARIATIONS, seed)
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -147,7 +87,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${cadenceLine(name)} ${comparisonLine(name)} ${ecosystemLine(name)} ${flagshipLine(name)} ${authorityLine(name)} ${calibrationLine(name)} ${continuityLine(name)}`,
+      body: `${variation} ${depthLine(name)}`,
       chips: focus,
       tone,
     }
@@ -195,24 +135,24 @@ export function buildEditorialProfile({
     decisionSnapshot: [
       { label: 'Evidence strength', value: evidenceLabel(record) },
       { label: 'Interpretation stance', value: 'Conservative and evidence-calibrated' },
-      { label: 'Semantic context', value: 'Comparison and ecosystem aware' },
+      { label: 'Editorial depth', value: 'Semantic and ecosystem aware' },
     ],
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${cadenceLine(summary)} ${comparisonLine(summary)} ${flagshipLine(summary)} ${authorityLine(summary)} ${calibrationLine(summary)} ${continuityLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
+      body: `${depthLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
       chips: effects.slice(0, 4),
       tone: evidenceTone(evidenceLabel(record)),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${cadenceLine(mechanisms.join(','))} ${ecosystemLine(mechanisms.join(','))} ${comparisonLine(mechanisms.join(','))} ${flagshipLine(mechanisms.join(','))} ${authorityLine(mechanisms.join(','))} ${calibrationLine(mechanisms.join(','))} ${continuityLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
+      body: `${depthLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
       chips: mechanisms.slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${comparisonLine('safety')} ${flagshipLine('safety')} ${authorityLine('safety')} ${calibrationLine('safety')} ${continuityLine('safety')}`,
+      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${depthLine('safety')}`,
       chips: [],
       tone: CAUTION_PATTERN.test(summary) ? 'caution' : 'neutral',
     },
