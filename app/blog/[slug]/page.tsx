@@ -72,8 +72,67 @@ export default async function BlogPostPage({ params }: any) {
   const relatedCompounds = findArticleEntities(post, compounds as any[], 'compound', 3)
   const relatedItems = [...relatedHerbs, ...relatedCompounds]
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    author: {
+      '@type': 'Organization',
+      name: 'The Hippie Scientist',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Hippie Scientist',
+      url: 'https://www.thehippiescientist.net',
+    },
+    articleSection: inferResearchStyle(post),
+    datePublished: post.date || '2026-01-01',
+    dateModified: post.updatedAt || post.date || '2026-01-01',
+    mainEntityOfPage: `https://www.thehippiescientist.net/blog/${post.slug}`,
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Blog',
+        item: 'https://www.thehippiescientist.net/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: post.title,
+        item: `https://www.thehippiescientist.net/blog/${post.slug}`,
+      },
+    ],
+  }
+
   return (
     <main className="mx-auto max-w-5xl space-y-8 px-4 pb-20 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      <nav className="flex items-center gap-2 text-sm text-muted">
+        <Link href="/blog" className="hover:text-ink transition">
+          Blog
+        </Link>
+
+        <span>/</span>
+
+        <span className="text-ink">{post.title}</span>
+      </nav>
+
       <Link href="/blog" className="text-sm font-bold text-brand-800">← Back to research notes</Link>
 
       <section className="hero-shell rounded-[2rem] border border-white/50 p-6 shadow-card sm:p-8 lg:p-10">
