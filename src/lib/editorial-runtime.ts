@@ -43,6 +43,12 @@ const CADENCE_VARIATIONS = [
   'Contextual framing is important because adjacent profiles can differ substantially despite superficial similarity.',
 ]
 
+const ECOSYSTEM_VARIATIONS = [
+  'Knowledge-graph continuity improves interpretation by connecting related pathways, compounds, and mechanisms.',
+  'Ecosystem-level interpretation helps contextualize where this profile sits among adjacent evidence clusters.',
+  'Semantic continuity across neighboring profiles improves comparative interpretation quality.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -50,6 +56,10 @@ function rotateVariation(values: string[], seed: string) {
 
 function cadenceLine(seed: string) {
   return rotateVariation(CADENCE_VARIATIONS, seed)
+}
+
+function ecosystemLine(seed: string) {
+  return rotateVariation(ECOSYSTEM_VARIATIONS, seed)
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -87,7 +97,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${cadenceLine(name)}`,
+      body: `${variation} ${cadenceLine(name)} ${ecosystemLine(name)}`,
       chips: focus,
       tone,
     }
@@ -145,7 +155,7 @@ export function buildEditorialProfile({
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${cadenceLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
+      body: `${cadenceLine(mechanisms.join(','))} ${ecosystemLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
       chips: mechanisms.slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
