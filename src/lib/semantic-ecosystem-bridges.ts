@@ -6,6 +6,11 @@ import {
   safeObject,
   safeText,
 } from '@/lib/runtime-render-guards'
+import {
+  SEMANTIC_EXPANSION_LIMITS,
+  cappedExpansion,
+} from '@/src/lib/semantic-expansion-budget'
+import { stableRelationshipRanking } from '@/src/lib/semantic-sort-runtime'
 
 export type SemanticEcosystemBridge = {
   source: string
@@ -33,26 +38,30 @@ function normalizeList(value: unknown) {
   return safeArray(value)
     .map((item) => normalize(item))
     .filter(Boolean)
+    .slice(0, 24)
 }
 
 function normalizeClusters(clusters: unknown): Cluster[] {
-  return safeArray(clusters)
-    .map((cluster) => {
-      const record = safeObject(cluster)
+  return cappedExpansion(
+    safeArray(clusters)
+      .map((cluster) => {
+        const record = safeObject(cluster)
 
-      return {
-        label: safeText(record.label || record.slug),
-        keywords: normalizeList(record.keywords),
-        systems: normalizeList(record.systems),
-      }
-    })
-    .filter((cluster) => cluster.label.length > 0)
+        return {
+          label: safeText(record.label || record.slug),
+          keywords: normalizeList(record.keywords),
+          systems: normalizeList(record.systems),
+        }
+      })
+      .filter((cluster) => cluster.label.length > 0),
+    SEMANTIC_EXPANSION_LIMITS.maxDiscoverySignals,
+  )
 }
 
 function overlap(a: string[], b: string[]) {
   const aSet = new Set(a)
 
-  return b.filter((item) => aSet.has(item))
+  return b.filter((item) => aSet.has(item)).slice(0, 12)
 }
 
 function tier(score: number): SemanticEcosystemBridge['bridgeTier'] {
@@ -76,7 +85,11 @@ export function buildSemanticEcosystemBridges(
   ecosystemClusters: unknown = topicClusters,
 ): SemanticEcosystemBridge[] {
   const clusters = normalizeClusters(ecosystemClusters)
-  const momentum = buildSemanticMomentum(records, ecosystemClusters)
+
+  const momentum = cappedExpansion(
+    buildSemanticMomentum(records, ecosystemClusters),
+    SEMANTIC_EXPANSION_LIMITS.maxDiscoverySignals,
+  )
 
   const bridges: SemanticEcosystemBridge[] = []
 
@@ -84,6 +97,10 @@ export function buildSemanticEcosystemBridges(
     const source = clusters[index]
 
     for (let inner = index + 1; inner < clusters.length; inner += 1) {
+      if (bridges.length >= SEMANTIC_EXPANSION_LIMITS.maxBridgeExpansions) {
+        break
+      }
+
       const target = clusters[inner]
 
       const sharedSignals = overlap(
@@ -119,13 +136,10 @@ export function buildSemanticEcosystemBridges(
     }
   }
 
-  return bridges.sort((a, b) => {
-    if (b.bridgeScore !== a.bridgeScore) {
-      return b.bridgeScore - a.bridgeScore
-    }
-
-    return `${a.source}-${a.target}`.localeCompare(
-      `${b.source}-${b.target}`,
-    )
-  })
+  return stableRelationshipRanking(
+    bridges,
+    (bridge) => bridge.bridgeScore,
+    (bridge) => `${bridge.source}-${bridge.target}`,
+    SEMANTIC_EXPANSION_LIMITS.maxBridgeExpansions,
+  )
 }
