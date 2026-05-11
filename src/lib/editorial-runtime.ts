@@ -55,6 +55,12 @@ const COMPARISON_VARIATIONS = [
   'Adjacent compounds and herbs may appear superficially similar while diverging meaningfully in evidence quality.',
 ]
 
+const FLAGSHIP_VARIATIONS = [
+  'Higher-quality interpretation emerges when evidence hierarchy, mechanism plausibility, and ecosystem continuity are evaluated together.',
+  'Flagship profiles should prioritize calibrated interpretation over overstated certainty or simplified conclusions.',
+  'Authority-style scientific interpretation depends on maintaining separation between mechanism language and direct outcome evidence.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -70,6 +76,10 @@ function ecosystemLine(seed: string) {
 
 function comparisonLine(seed: string) {
   return rotateVariation(COMPARISON_VARIATIONS, seed)
+}
+
+function flagshipLine(seed: string) {
+  return rotateVariation(FLAGSHIP_VARIATIONS, seed)
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -107,7 +117,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${cadenceLine(name)} ${comparisonLine(name)} ${ecosystemLine(name)}`,
+      body: `${variation} ${cadenceLine(name)} ${comparisonLine(name)} ${ecosystemLine(name)} ${flagshipLine(name)}`,
       chips: focus,
       tone,
     }
@@ -160,19 +170,19 @@ export function buildEditorialProfile({
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${cadenceLine(summary)} ${comparisonLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
+      body: `${cadenceLine(summary)} ${comparisonLine(summary)} ${flagshipLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
       chips: effects.slice(0, 4),
       tone: evidenceTone(evidenceLabel(record)),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${cadenceLine(mechanisms.join(','))} ${ecosystemLine(mechanisms.join(','))} ${comparisonLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
+      body: `${cadenceLine(mechanisms.join(','))} ${ecosystemLine(mechanisms.join(','))} ${comparisonLine(mechanisms.join(','))} ${flagshipLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
       chips: mechanisms.slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${comparisonLine('safety')}`,
+      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${comparisonLine('safety')} ${flagshipLine('safety')}`,
       chips: [],
       tone: CAUTION_PATTERN.test(summary) ? 'caution' : 'neutral',
     },
