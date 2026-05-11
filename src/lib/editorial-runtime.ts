@@ -30,6 +30,26 @@ const STRONG_EVIDENCE_PATTERN = /strong|high|clinical|human|meta|systematic|rct/
 const MODERATE_EVIDENCE_PATTERN = /moderate|promising|developing|limited|mixed/i
 const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk|pregnancy|liver|kidney|sedat|bleed/i
 
+const WHY_VARIATIONS = [
+  'Interest in %NAME% largely centers around %FOCUS%.',
+  '%NAME% is most commonly discussed in contexts involving %FOCUS%.',
+  'Research attention around %NAME% frequently focuses on %FOCUS%.',
+]
+
+const MECHANISM_VARIATIONS = [
+  'Research attention centers around %MECHANISMS%.',
+  'Mechanistic discussion commonly focuses on %MECHANISMS%.',
+  'Biological interpretation often references %MECHANISMS%.',
+]
+
+function rotateVariation(values: string[], seed: string) {
+  const total = seed
+    .split('')
+    .reduce((acc, char) => acc + char.charCodeAt(0), 0)
+
+  return values[total % values.length]
+}
+
 export function cleanEditorialItems(value: unknown, limit = 6) {
   return unique(
     list(value)
@@ -144,9 +164,13 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
   const name = formatDisplayLabel(record?.name || record?.slug)
 
   if (focus.length > 0) {
+    const variation = rotateVariation(WHY_VARIATIONS, name)
+      .replace('%NAME%', name)
+      .replace('%FOCUS%', focus.slice(0, 4).join(', '))
+
     return {
       title: 'Why It Matters',
-      body: `Interest in ${name} largely centers around ${focus.slice(0, 4).join(', ')}. These signals are framed as research and decision-support context, not broad outcome promises.`,
+      body: `${variation} These signals are framed as research and decision-support context, not broad outcome promises.`,
       chips: focus,
       tone: 'neutral',
     }
@@ -167,16 +191,20 @@ export function buildResearchConfidence(record: any, effects: string[]): Editori
     ...list(record?.primary_effects),
     ...effects,
   ], 3)
+
   const mixed = cleanEditorialItems([
     ...list(record?.less_compelling_for),
     ...list(record?.mixed_evidence_for),
     ...list(record?.research_gaps),
   ], 3)
+
   const evidence = evidenceLabel(record)
   const tone = evidenceTone(evidence)
 
   const leading = strongest.length > 0
-    ? `Evidence appears most relevant for ${strongest.join(', ')}.`
+    ? tone === 'strong'
+      ? `Human evidence appears relatively mature for ${strongest.join(', ')}.`
+      : `Evidence appears most relevant for ${strongest.join(', ')}.`
     : tone === 'strong'
       ? 'Human evidence appears more developed here than on many early-stage profiles, though outcome framing should remain specific.'
       : tone === 'moderate'
@@ -207,9 +235,14 @@ export function buildMechanismNarrative(record: any, mechanisms: string[]): Edit
     }
   }
 
+  const variation = rotateVariation(
+    MECHANISM_VARIATIONS,
+    mechanisms.join(','),
+  ).replace('%MECHANISMS%', mechanisms.slice(0, 4).join(', '))
+
   const body = mechanisms.length >= 4
-    ? `Research attention centers around ${mechanisms.slice(0, 4).join(', ')}. These mechanisms help explain biological plausibility, but mechanism framing alone is not the same as direct outcome evidence.`
-    : `Research context points toward ${mechanisms.slice(0, 3).join(', ')}. This is useful for biological interpretation, but the mechanism layer should remain secondary to outcome evidence.`
+    ? `${variation} These mechanisms help explain biological plausibility, but mechanism framing alone is not the same as direct outcome evidence.`
+    : `${variation} This is useful for biological interpretation, but the mechanism layer should remain secondary to outcome evidence.`
 
   return {
     title: 'Potential Mechanisms',
@@ -261,6 +294,7 @@ export function buildEditorialProfile({
     ...list(record?.effects),
     ...list(record?.primaryActions),
   ], 6)
+
   const mechanisms = cleanEditorialItems([
     ...providedMechanisms,
     ...list(record?.mechanisms),
@@ -268,7 +302,11 @@ export function buildEditorialProfile({
     ...list(record?.pathways),
     ...list(record?.mechanism_targets),
   ], 8)
-  const summary = cleanSummary(providedSummary || record?.summary || record?.description || '', entityType)
+
+  const summary = cleanSummary(
+    providedSummary || record?.summary || record?.description || '',
+    entityType,
+  )
 
   return {
     effects,
