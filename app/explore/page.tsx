@@ -17,6 +17,10 @@ import {
 } from '@/src/components/runtime/SemanticSectionBoundary'
 import { sortGraphLinksBySemanticDiscovery } from '@/src/lib/semantic-discovery-orchestrator'
 import { getSemanticDiscoveryCache } from '@/src/lib/semantic-discovery-cache'
+import {
+  SEMANTIC_EXPANSION_LIMITS,
+  cappedExpansion,
+} from '@/src/lib/semantic-expansion-budget'
 
 const hubIntro = [
   {
@@ -70,14 +74,19 @@ const TOPICS = [
 ]
 
 export default function ExplorePage() {
-  const featured = (compounds as any[])
-    .filter((compound) => compound.slug && compound.name)
-    .slice(0, 12)
-    .map((compound) => ({
-      ...compound,
-      archetype: classifyArchetype(compound),
-      clusters: getTopicClusters(compound).filter(isClean),
-    }))
+  const featured = cappedExpansion(
+    (compounds as any[])
+      .filter((compound) => compound.slug && compound.name)
+      .slice(0, 24)
+      .map((compound) => ({
+        ...compound,
+        archetype: classifyArchetype(compound),
+        clusters: getTopicClusters(compound)
+          .filter(isClean)
+          .slice(0, 4),
+      })),
+    SEMANTIC_EXPANSION_LIMITS.maxDiscoverySignals,
+  )
 
   const cache = getSemanticDiscoveryCache(featured, topicClusters)
 
@@ -85,7 +94,10 @@ export default function ExplorePage() {
   const prioritizedSignals = cache.prioritizedSignals
 
   const prioritizedGraphLinks = sortGraphLinksBySemanticDiscovery(
-    [...graphLinks, ...getTopicClusterLinks(10)],
+    cappedExpansion(
+      [...graphLinks, ...getTopicClusterLinks(10)],
+      SEMANTIC_EXPANSION_LIMITS.maxBridgeExpansions,
+    ),
     featured,
     topicClusters,
   ).slice(0, 6)
