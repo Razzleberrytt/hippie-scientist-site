@@ -7,6 +7,10 @@ import {
   safeArray,
   safeText,
 } from '@/lib/runtime-render-guards'
+import {
+  SEMANTIC_EXPANSION_LIMITS,
+  stableSemanticKey,
+} from '@/src/lib/semantic-expansion-budget'
 
 export type SemanticDiscoveryCacheEntry = {
   key: string
@@ -28,20 +32,20 @@ function buildCacheKey(
   const recordSignature = safeArray(records)
     .slice(0, 50)
     .map((record: any) => {
-      return [
+      return stableSemanticKey(
         normalize(record?.slug),
         normalize(record?.name),
         normalize(record?.summary),
-      ].join('|')
+      )
     })
     .join('::')
 
   const clusterSignature = safeArray(ecosystemClusters)
-    .slice(0, 50)
+    .slice(0, SEMANTIC_EXPANSION_LIMITS.maxContinuities)
     .map((cluster: any) => normalize(cluster?.label || cluster?.slug))
     .join('|')
 
-  return `${recordSignature}__${clusterSignature}`
+  return stableSemanticKey(recordSignature, clusterSignature)
 }
 
 export function getSemanticDiscoveryCache(
