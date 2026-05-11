@@ -52,10 +52,11 @@ function average(values: number[], fallback = 0) {
   return safeValues.reduce((sum, value) => sum + value, 0) / safeValues.length
 }
 
-function continuityDensity(records: unknown[], ecosystem: string) {
+function continuityDensity(records: unknown = [], ecosystem: string) {
   const normalized = normalize(ecosystem)
+  const normalizedRecords = safeArray(records)
 
-  const matches = safeArray(records).filter((record) => {
+  const matches = normalizedRecords.filter((record) => {
     const source = safeObject(record)
 
     const fields = [
@@ -76,7 +77,7 @@ function continuityDensity(records: unknown[], ecosystem: string) {
     return haystack.includes(normalized)
   })
 
-  return clampScore((matches.length / Math.max(safeArray(records).length, 1)) * 100, 24)
+  return clampScore((matches.length / Math.max(normalizedRecords.length, 1)) * 100, 24)
 }
 
 export function buildEcosystemStability(
