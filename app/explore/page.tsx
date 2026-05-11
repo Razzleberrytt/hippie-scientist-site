@@ -7,6 +7,12 @@ import {
 import { cleanSummary, isClean } from '@/lib/display-utils'
 import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
 import { getEcosystemPanels, getTopicClusterLinks } from '@/lib/ecosystem-context'
+import { GuidedSemanticFlowSection } from '@/src/components/explore/GuidedSemanticFlowSection'
+import { EcosystemContinuityVisualizationSection } from '@/src/components/explore/EcosystemContinuityVisualizationSection'
+import {
+  SemanticSectionBoundary,
+  SemanticSectionFallback,
+} from '@/src/components/runtime/SemanticSectionBoundary'
 
 const hubIntro = [
   {
@@ -69,6 +75,8 @@ export default function ExplorePage() {
       clusters: getTopicClusters(compound).filter(isClean),
     }))
 
+  const semanticSource = featured[0] || null
+
   return (
     <main className="mx-auto max-w-7xl space-y-12 px-4 py-10 sm:space-y-16 sm:py-14">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
@@ -96,6 +104,25 @@ export default function ExplorePage() {
       </section>
 
       <SemanticHubIntro sections={hubIntro} />
+
+      <SemanticSectionBoundary
+        source={semanticSource}
+        candidates={featured}
+        fallback={<SemanticSectionFallback />}
+      >
+        <GuidedSemanticFlowSection />
+      </SemanticSectionBoundary>
+
+      <SemanticSectionBoundary
+        source={semanticSource}
+        candidates={featured}
+        minCandidates={3}
+      >
+        <EcosystemContinuityVisualizationSection
+          source={semanticSource}
+          candidates={featured}
+        />
+      </SemanticSectionBoundary>
 
       <section className="surface-depth card-spacing">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
