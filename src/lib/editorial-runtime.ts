@@ -49,6 +49,12 @@ const ECOSYSTEM_VARIATIONS = [
   'Semantic continuity across neighboring profiles improves comparative interpretation quality.',
 ]
 
+const COMPARISON_VARIATIONS = [
+  'Comparison-aware interpretation helps distinguish mechanistic overlap from clinically meaningful overlap.',
+  'Profiles with similar mechanisms can still differ substantially in evidence maturity and outcome certainty.',
+  'Adjacent compounds and herbs may appear superficially similar while diverging meaningfully in evidence quality.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -60,6 +66,10 @@ function cadenceLine(seed: string) {
 
 function ecosystemLine(seed: string) {
   return rotateVariation(ECOSYSTEM_VARIATIONS, seed)
+}
+
+function comparisonLine(seed: string) {
+  return rotateVariation(COMPARISON_VARIATIONS, seed)
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -97,7 +107,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${cadenceLine(name)} ${ecosystemLine(name)}`,
+      body: `${variation} ${cadenceLine(name)} ${comparisonLine(name)} ${ecosystemLine(name)}`,
       chips: focus,
       tone,
     }
@@ -145,23 +155,24 @@ export function buildEditorialProfile({
     decisionSnapshot: [
       { label: 'Evidence strength', value: evidenceLabel(record) },
       { label: 'Interpretation stance', value: 'Conservative and evidence-calibrated' },
+      { label: 'Semantic context', value: 'Comparison and ecosystem aware' },
     ],
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${cadenceLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
+      body: `${cadenceLine(summary)} ${comparisonLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
       chips: effects.slice(0, 4),
       tone: evidenceTone(evidenceLabel(record)),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${cadenceLine(mechanisms.join(','))} ${ecosystemLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
+      body: `${cadenceLine(mechanisms.join(','))} ${ecosystemLine(mechanisms.join(','))} ${comparisonLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
       chips: mechanisms.slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: 'Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty.',
+      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${comparisonLine('safety')}`,
       chips: [],
       tone: CAUTION_PATTERN.test(summary) ? 'caution' : 'neutral',
     },
