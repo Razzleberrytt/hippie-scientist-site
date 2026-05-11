@@ -18,6 +18,7 @@ const TARGETS = [
   'runtime-manifests/route-manifest.json',
   'runtime-manifests/route-segment-groups.json',
   'runtime-manifests/sitemap-chunk-manifest.json',
+  'runtime-manifests/export-batch-manifest.json',
 ]
 
 function isObject(value) {
