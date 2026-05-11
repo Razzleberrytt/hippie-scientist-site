@@ -34,12 +34,14 @@ const WHY_VARIATIONS = [
   'Interest in %NAME% largely centers around %FOCUS%.',
   '%NAME% is most commonly discussed in contexts involving %FOCUS%.',
   'Research attention around %NAME% frequently focuses on %FOCUS%.',
+  '%NAME% is frequently evaluated in relation to %FOCUS%.',
 ]
 
 const MECHANISM_VARIATIONS = [
   'Research attention centers around %MECHANISMS%.',
   'Mechanistic discussion commonly focuses on %MECHANISMS%.',
   'Biological interpretation often references %MECHANISMS%.',
+  'Mechanistic hypotheses frequently involve %MECHANISMS%.',
 ]
 
 function rotateVariation(values: string[], seed: string) {
@@ -103,7 +105,8 @@ function timeLabel(record: any) {
 function mechanismConfidence(record: any, mechanisms: string[]) {
   const explicit = firstText(record?.mechanism_confidence, record?.mechanismConfidence)
   if (explicit) return formatDisplayLabel(explicit)
-  if (mechanisms.length >= 4) return 'Moderate mechanistic context'
+  if (mechanisms.length >= 5) return 'Developed mechanistic context'
+  if (mechanisms.length >= 3) return 'Moderate mechanistic context'
   if (mechanisms.length > 0) return 'Preliminary mechanistic context'
   return 'Mechanism context limited'
 }
@@ -159,17 +162,25 @@ export function buildDecisionSnapshot(record: any, effects: string[], mechanisms
 export function buildWhyItMatters(record: any, entityType: EditorialEntityType, summary: string, effects: string[]): EditorialNarrative {
   const focus = bestFor(record, effects)
   const name = formatDisplayLabel(record?.name || record?.slug)
+  const evidence = evidenceLabel(record)
+  const tone = evidenceTone(evidence)
 
   if (focus.length > 0) {
     const variation = rotateVariation(WHY_VARIATIONS, name)
       .replace('%NAME%', name)
       .replace('%FOCUS%', focus.slice(0, 4).join(', '))
 
+    const qualifier = tone === 'strong'
+      ? ' Human evidence appears more developed in these areas than in many exploratory categories.'
+      : tone === 'moderate'
+        ? ' Evidence quality still varies meaningfully depending on formulation and study design.'
+        : ' Mechanistic plausibility may currently exceed direct human outcome evidence in some areas.'
+
     return {
       title: 'Why It Matters',
-      body: `${variation} These signals are framed as research and decision-support context, not broad outcome promises.`,
+      body: `${variation}${qualifier}`,
       chips: focus,
-      tone: 'neutral',
+      tone,
     }
   }
 
@@ -177,7 +188,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
     title: 'Why It Matters',
     body: summary || `This ${entityType} profile separates practical interest, mechanism plausibility, evidence maturity, and safety context in a compact editorial layer.`,
     chips: [],
-    tone: 'neutral',
+    tone,
   }
 }
 
@@ -201,7 +212,9 @@ export function buildResearchConfidence(record: any, effects: string[]): Editori
   const leading = strongest.length > 0
     ? tone === 'strong'
       ? `Human evidence appears relatively mature for ${strongest.join(', ')}.`
-      : `Evidence appears most relevant for ${strongest.join(', ')}.`
+      : tone === 'moderate'
+        ? `Evidence appears most relevant for ${strongest.join(', ')}, though study quality and reproducibility still vary.`
+        : `Interest persists around ${strongest.join(', ')}, though outcome certainty remains limited.`
     : tone === 'strong'
       ? 'Human evidence appears more developed here than on many early-stage profiles, though outcome framing should remain specific.'
       : tone === 'moderate'
@@ -235,9 +248,11 @@ export function buildMechanismNarrative(record: any, mechanisms: string[]): Edit
   const variation = rotateVariation(MECHANISM_VARIATIONS, mechanisms.join(','))
     .replace('%MECHANISMS%', mechanisms.slice(0, 4).join(', '))
 
-  const body = mechanisms.length >= 4
-    ? `${variation} These mechanisms help explain biological plausibility, but mechanism framing alone is not the same as direct outcome evidence.`
-    : `${variation} This is useful for biological interpretation, but the mechanism layer should remain secondary to outcome evidence.`
+  const body = mechanisms.length >= 5
+    ? `${variation} These pathways provide stronger biological context than many lightweight profiles, though mechanistic interpretation still should not be treated as clinical proof.`
+    : mechanisms.length >= 3
+      ? `${variation} These mechanisms help explain biological plausibility, but mechanism framing alone is not the same as direct outcome evidence.`
+      : `${variation} This is useful for biological interpretation, but the mechanism layer should remain secondary to outcome evidence.`
 
   return {
     title: 'Potential Mechanisms',
@@ -263,7 +278,7 @@ export function buildSafetyNarrative(record: any): EditorialNarrative {
   return {
     title: 'Safety Interpretation',
     body: safety && !WEAK_PATTERN.test(safety)
-      ? `${safety}. Safety framing is kept separate from benefit framing so the page does not overstate certainty.`
+      ? `${safety}. Safety framing is intentionally separated from benefit framing so the profile does not overstate certainty.`
       : 'Safety context is presented conservatively and separately from benefit framing to avoid overstating certainty.',
     chips: [],
     tone: safetyTone(safety, cautions),
