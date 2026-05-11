@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildRuntimeRecommendations } from '@/lib/runtime-recommendation-adapter'
+import { buildProtocolOrchestration } from '@/lib/protocol-orchestration'
 
 function formatLabel(value: string) {
   return value
@@ -20,14 +20,14 @@ export function ProtocolRelationshipSection({
   source,
   candidates,
 }: ProtocolRelationshipSectionProps) {
-  const protocols = buildRuntimeRecommendations(
+  const protocols = buildProtocolOrchestration(
     source,
     candidates,
   )
     .filter(
       (item) =>
-        item.renderPriority >= 60 &&
-        item.continuityStrength >= 50,
+        item.orchestrationTier !== 'suppressed' &&
+        item.protocolWeight >= 55,
     )
     .slice(0, 6)
 
@@ -63,11 +63,11 @@ export function ProtocolRelationshipSection({
             <div className="space-y-4">
               <div className="flex items-center justify-between gap-3">
                 <span className="rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-700">
-                  protocol synergy
+                  {protocol.orchestrationTier.replace('-', ' ')}
                 </span>
 
                 <span className="rounded-full bg-teal-100 px-3 py-1 text-[11px] font-medium text-teal-800">
-                  continuity {protocol.continuityStrength}
+                  protocol {protocol.protocolWeight}
                 </span>
               </div>
 
@@ -85,15 +85,15 @@ export function ProtocolRelationshipSection({
 
               <div className="flex flex-wrap gap-2 border-t border-teal-100 pt-4">
                 <span className="rounded-full bg-neutral-100 px-3 py-1 text-[11px] text-neutral-700">
-                  stack aware
+                  stack {protocol.stackCompatibility}
                 </span>
 
                 <span className="rounded-full bg-neutral-100 px-3 py-1 text-[11px] text-neutral-700">
-                  adaptive protocol
+                  recovery {protocol.recoveryCompatibility}
                 </span>
 
                 <span className="rounded-full bg-neutral-100 px-3 py-1 text-[11px] text-neutral-700">
-                  continuity linked
+                  balance {protocol.stimulationBalance}
                 </span>
               </div>
             </div>
