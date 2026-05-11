@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-import process from 'node:process'
-
 const startedAt = Date.now()
 const stages = []
+let reportPrinted = false
 
 function now() {
   return Date.now()
@@ -32,6 +31,12 @@ export function createStageTimer(name) {
 }
 
 export function printBuildTimingReport() {
+  if (reportPrinted || stages.length === 0) {
+    return
+  }
+
+  reportPrinted = true
+
   const totalDuration = durationMs(startedAt)
 
   const ordered = [...stages].sort((a, b) => b.duration - a.duration)
@@ -59,8 +64,6 @@ export function printBuildTimingReport() {
   }
 }
 
-process.on('exit', () => {
-  if (stages.length > 0) {
-    printBuildTimingReport()
-  }
-})
+export function getBuildTimingStages() {
+  return [...stages]
+}
