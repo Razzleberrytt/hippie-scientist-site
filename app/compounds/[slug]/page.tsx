@@ -25,6 +25,7 @@ import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
+import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
 
 export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
@@ -221,6 +222,14 @@ export default async function CompoundPage({ params }: any) {
             </div>
           ) : null}
         </section>
+
+        <AuthorityEditorialLayer
+          record={compound}
+          entityType="compound"
+          effects={effects}
+          mechanisms={mechanisms}
+          summary={summary}
+        />
 
         <ProfileAuthoritySections
           record={compound}
