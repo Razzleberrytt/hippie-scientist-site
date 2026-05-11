@@ -20,7 +20,7 @@ import {
   getSources,
 } from '@/lib/evidence-utils'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
-import { getComparisonRuntimeRecords, getRelatedRuntimeRecords, getStackRuntimeRecords } from '@/lib/related-runtime'
+import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
@@ -80,6 +80,10 @@ export default async function CompoundPage({ params }: any) {
     allRecords,
   } = await getUnifiedRuntimeRecords()
 
+  const herbSlugs = new Set(herbs.map((item:any) => item.slug))
+  const compoundSlugs = new Set(compounds.map((item:any) => item.slug))
+  const sourceSlug = compound.slug
+
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
 
   const effects = list(compound.effects || compound.primary_effects || compound.primaryActions)
@@ -95,28 +99,47 @@ export default async function CompoundPage({ params }: any) {
 
   const snapshot = getEvidenceSnapshot(compound)
 
-  const relatedCompounds = (await getRelatedRuntimeRecords(compound, compounds, 4))
+  const [
+    relatedBySlug,
+    comparisonBySlug,
+    stackBySlug,
+    ecosystemContinuityRecords,
+  ] = await Promise.all([
+    getBatchedRuntimeRecords('related', [compound], allRecords, 8),
+    getBatchedRuntimeRecords('comparison', [compound], allRecords, 8),
+    getBatchedRuntimeRecords('stack', [compound], allRecords, 6),
+    getEcosystemContinuityRecords(compound, allRecords, 6),
+  ])
+
+  const relatedCandidates = (relatedBySlug[sourceSlug] || [])
     .filter((item:any) => getRuntimeVisibility(item).canRender)
+
+  const relatedCompounds = relatedCandidates
+    .filter((item:any) => compoundSlugs.has(item.slug))
+    .slice(0, 4)
     .map((item:any) => ({ ...item, entityType: 'compound' }))
 
-  const relatedHerbs = (await getRelatedRuntimeRecords(compound, herbs, 4))
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
+  const relatedHerbs = relatedCandidates
+    .filter((item:any) => herbSlugs.has(item.slug))
+    .slice(0, 4)
     .map((item:any) => ({ ...item, entityType: 'herb' }))
 
-  const ecosystemContinuityRecords = (await getEcosystemContinuityRecords(compound, allRecords, 6))
+  const visibleEcosystemContinuityRecords = ecosystemContinuityRecords
     .filter((item:any) => getRuntimeVisibility(item).canRender)
 
   const semanticRelated = mergeEcosystemContinuityRecords(
     [...relatedCompounds, ...relatedHerbs],
-    ecosystemContinuityRecords,
+    visibleEcosystemContinuityRecords,
     6,
   )
 
-  const comparisonRecords = (await getComparisonRuntimeRecords(compound, allRecords, 8))
+  const comparisonRecords = (comparisonBySlug[sourceSlug] || [])
     .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .slice(0, 8)
 
-  const stackRecords = (await getStackRuntimeRecords(compound, allRecords, 6))
+  const stackRecords = (stackBySlug[sourceSlug] || [])
     .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .slice(0, 6)
 
   const featuredCollections = getFeaturedCollections(compound)
 
