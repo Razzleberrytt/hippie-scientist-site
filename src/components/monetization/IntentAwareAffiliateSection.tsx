@@ -92,3 +92,5 @@ export function IntentAwareAffiliateSection() {
         ))}
       </div>
     </section>
+  )
+}
