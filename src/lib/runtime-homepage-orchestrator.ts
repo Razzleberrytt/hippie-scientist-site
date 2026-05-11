@@ -7,11 +7,13 @@ export type RuntimeHomepageOrchestration = {
   ecosystemPriority: number
   continuityPriority: number
   freshnessPriority: number
+  supernodePriority: number
   adaptiveSections: {
     authorityVisible: boolean
     ecosystemVisible: boolean
     continuityVisible: boolean
     emergingVisible: boolean
+    supernodesVisible: boolean
   }
   prioritizedModules: ReturnType<typeof buildRuntimeHomepageModules>
 }
@@ -69,19 +71,48 @@ export function buildRuntimeHomepageOrchestration(
     100,
   )
 
+  const supernodePriority = Math.min(
+    authority.filter(
+      (item) =>
+        item.authorityRole === 'foundational-hub' ||
+        item.authorityRole === 'canonical-hub',
+    ).length * 18,
+    100,
+  )
+
+  const prioritizedModules = homepageModules
+    .map((module) => {
+      let supernodeWeight = 0
+
+      if (module.authorityTier === 'foundational') {
+        supernodeWeight = 30
+      } else if (
+        module.authorityTier === 'canonical'
+      ) {
+        supernodeWeight = 18
+      }
+
+      return {
+        ...module,
+        homepagePriority:
+          module.homepagePriority + supernodeWeight,
+      }
+    })
+    .sort((a, b) => b.homepagePriority - a.homepagePriority)
+
   return {
     authorityPriority,
     ecosystemPriority,
     continuityPriority,
     freshnessPriority,
+    supernodePriority,
     adaptiveSections: {
       authorityVisible: authorityPriority >= 40,
       ecosystemVisible: ecosystemPriority >= 40,
       continuityVisible: continuityPriority >= 45,
       emergingVisible: freshnessPriority >= 30,
+      supernodesVisible: supernodePriority >= 35,
     },
-    prioritizedModules: homepageModules.sort(
-      (a, b) => b.homepagePriority - a.homepagePriority,
-    ),
+    prioritizedModules,
   }
 }
