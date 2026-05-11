@@ -12,6 +12,9 @@ const TARGETS = [
   'runtime-maps/ecosystem-map.json',
   'runtime-maps/authority-hubs.json',
   'summary-indexes/search-index.json',
+  'summary-indexes/alphabetical-shards.json',
+  'summary-indexes/entity-shards.json',
+  'summary-indexes/alpha-entity-shards.json',
 ]
 
 function isObject(value) {
