@@ -13,6 +13,8 @@ const PAYLOAD_LIMITS = {
   'runtime-maps/authority-hubs.json': 2_000_000,
   'summary-indexes/search-index.json': 5_000_000,
   'summary-indexes/alphabetical-shards.json': 4_000_000,
+  'summary-indexes/entity-shards.json': 4_000_000,
+  'summary-indexes/alpha-entity-shards.json': 4_000_000,
 }
 
 async function fileSize(filePath) {
