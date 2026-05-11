@@ -96,12 +96,29 @@ function sortByName(a, b) {
   return nameA.localeCompare(nameB)
 }
 
+function stableClone(value) {
+  if (Array.isArray(value)) {
+    return value.map(stableClone)
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.keys(value)
+      .sort((a, b) => a.localeCompare(b))
+      .reduce((acc, key) => {
+        acc[key] = stableClone(value[key])
+        return acc
+      }, {})
+  }
+
+  return value
+}
+
 async function writeJson(fileName, value) {
   const timer = createStageTimer(`write:${fileName}`)
 
   await fs.writeFile(
     path.join(SUMMARY_DIR, fileName),
-    `${JSON.stringify(value)}\n`,
+    `${JSON.stringify(stableClone(value))}\n`,
     'utf8',
   )
 
