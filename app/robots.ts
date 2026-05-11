@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://thehippiescientist.net/sitemap.xml',
-    host: 'https://thehippiescientist.net',
+    sitemap: 'https://www.thehippiescientist.net/sitemap.xml',
+    host: 'https://www.thehippiescientist.net',
   }
 }
