@@ -3,6 +3,7 @@ import { buildAdaptiveEcosystemPriorities } from '@/src/lib/adaptive-ecosystem-p
 import { buildSemanticMomentum } from '@/src/lib/semantic-momentum-engine'
 import { buildSemanticEcosystemBridges } from '@/src/lib/semantic-ecosystem-bridges'
 import { buildEcosystemStability } from '@/src/lib/ecosystem-stability-engine'
+import { buildSemanticGovernanceRuntime } from '@/src/lib/semantic-governance-runtime'
 import { clampScore, safeArray, safeText } from '@/lib/runtime-render-guards'
 
 export type SemanticDiscoverySignal = {
@@ -12,6 +13,7 @@ export type SemanticDiscoverySignal = {
   momentumScore: number
   bridgeScore: number
   stabilityScore: number
+  governanceScore: number
   discoveryTier:
     | 'anchor'
     | 'strong'
@@ -39,7 +41,10 @@ function tier(score: number): SemanticDiscoverySignal['discoveryTier'] {
   return 'quiet'
 }
 
-function strongestBridgeScore(ecosystem: string, bridges: ReturnType<typeof buildSemanticEcosystemBridges>) {
+function strongestBridgeScore(
+  ecosystem: string,
+  bridges: ReturnType<typeof buildSemanticEcosystemBridges>,
+) {
   const normalized = normalize(ecosystem)
 
   const bridge = bridges.find(
@@ -59,24 +64,39 @@ export function buildSemanticDiscoverySignals(
   const momentum = buildSemanticMomentum(records, ecosystemClusters)
   const bridges = buildSemanticEcosystemBridges(records, ecosystemClusters)
   const stability = buildEcosystemStability(records, ecosystemClusters)
+  const governance = buildSemanticGovernanceRuntime(records, ecosystemClusters)
 
   return adaptive
     .map((priority) => {
       const ecosystem = priority.ecosystem
-      const momentumSignal = momentum.find((signal) => normalize(signal.ecosystem) === normalize(ecosystem))
-      const stabilitySignal = stability.find((signal) => normalize(signal.ecosystem) === normalize(ecosystem))
+
+      const momentumSignal = momentum.find(
+        (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
+      )
+
+      const stabilitySignal = stability.find(
+        (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
+      )
+
+      const governanceSignal = governance.find(
+        (signal) => normalize(signal.ecosystem) === normalize(ecosystem),
+      )
 
       const adaptiveScore = priority.ecosystemScore || 0
       const momentumScore = momentumSignal?.momentumScore || 0
       const bridgeScore = strongestBridgeScore(ecosystem, bridges)
       const stabilityScore = stabilitySignal?.stabilityScore || 0
+      const governanceScore = governanceSignal?.governanceScore || 0
 
-      const discoveryScore = clampScore(Math.round(
-        adaptiveScore * 0.25 +
-          momentumScore * 0.27 +
-          bridgeScore * 0.2 +
-          stabilityScore * 0.28,
-      ))
+      const discoveryScore = clampScore(
+        Math.round(
+          adaptiveScore * 0.2 +
+            momentumScore * 0.22 +
+            bridgeScore * 0.16 +
+            stabilityScore * 0.2 +
+            governanceScore * 0.22,
+        ),
+      )
 
       return {
         ecosystem,
@@ -85,6 +105,7 @@ export function buildSemanticDiscoverySignals(
         momentumScore,
         bridgeScore,
         stabilityScore,
+        governanceScore,
         discoveryTier: tier(discoveryScore),
       }
     })
@@ -93,8 +114,8 @@ export function buildSemanticDiscoverySignals(
         return b.discoveryScore - a.discoveryScore
       }
 
-      if (b.stabilityScore !== a.stabilityScore) {
-        return b.stabilityScore - a.stabilityScore
+      if (b.governanceScore !== a.governanceScore) {
+        return b.governanceScore - a.governanceScore
       }
 
       return a.ecosystem.localeCompare(b.ecosystem)
@@ -113,16 +134,26 @@ export function buildPrioritizedEcosystemSignals(
   return safeArray(signals).slice(0, limit)
 }
 
-export function sortGraphLinksBySemanticDiscovery<T extends { label: string }>(
+export function sortGraphLinksBySemanticDiscovery<
+  T extends { label: string },
+>(
   links: T[],
   records: unknown = [],
   ecosystemClusters: unknown = topicClusters,
 ): T[] {
-  const discovery = buildSemanticDiscoverySignals(records, ecosystemClusters)
+  const discovery = buildSemanticDiscoverySignals(
+    records,
+    ecosystemClusters,
+  )
 
   return [...links].sort((a, b) => {
-    const aSignal = discovery.find((signal) => normalize(signal.ecosystem) === normalize(a.label))
-    const bSignal = discovery.find((signal) => normalize(signal.ecosystem) === normalize(b.label))
+    const aSignal = discovery.find(
+      (signal) => normalize(signal.ecosystem) === normalize(a.label),
+    )
+
+    const bSignal = discovery.find(
+      (signal) => normalize(signal.ecosystem) === normalize(b.label),
+    )
 
     const aScore = aSignal?.discoveryScore || 0
     const bScore = bSignal?.discoveryScore || 0
