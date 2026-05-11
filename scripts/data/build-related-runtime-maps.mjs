@@ -12,6 +12,9 @@ const MAX_COMPARISON_CANDIDATES = 8
 const MAX_STACK_CANDIDATES = 8
 const MAX_RELATED_CANDIDATE_POOL = 80
 const MAX_GRAPH_CANDIDATE_POOL = 60
+const MAX_SIGNALS_PER_RECORD = 32
+const MAX_SIGNAL_INDEX_ROWS = 120
+const MAX_OVERLAP_LABELS = 12
 
 function resolveOutDir(argv) {
   const flag = argv.find((arg) => arg.startsWith('--data-dir=')) || argv.find((arg) => arg.startsWith('--out='))
@@ -62,6 +65,11 @@ function safeSlug(value) {
   return isSafeSlug(normalized) ? normalized : ''
 }
 
+function capList(values, limit) {
+  const safeLimit = Math.max(0, Math.floor(Number(limit) || 0))
+  return Array.isArray(values) ? values.slice(0, safeLimit) : []
+}
+
 function list(value) {
   if (value == null) return []
   if (Array.isArray(value)) return value.flatMap((item) => list(item))
@@ -87,7 +95,7 @@ function list(value) {
   return [value]
 }
 
-function unique(values) {
+function unique(values, limit = Infinity) {
   const seen = new Set()
   const output = []
   for (const value of values) {
@@ -95,12 +103,13 @@ function unique(values) {
     if (!normalized || seen.has(normalized)) continue
     seen.add(normalized)
     output.push(normalized)
+    if (output.length >= limit) break
   }
   return output
 }
 
-function normalizeSignals(values) {
-  return unique(values.flatMap((value) => list(value)))
+function normalizeSignals(values, limit = MAX_SIGNALS_PER_RECORD) {
+  return unique(values.flatMap((value) => list(value)), limit)
 }
 
 function collectEcosystemSignals(record) {
@@ -157,7 +166,7 @@ function explicitRelatedSlugs(record) {
     record?.comparison_candidates,
     record?.synergy_relationships,
     record?.pathway_companions,
-  ].flatMap((value) => list(value).map((item) => safeSlug(item))))
+  ].flatMap((value) => list(value).map((item) => safeSlug(item))), MAX_GRAPH_CANDIDATE_POOL)
 }
 
 function candidateList(record, kind) {
@@ -165,7 +174,7 @@ function candidateList(record, kind) {
     ? [record?.comparison_candidates, record?.semantic_neighbors, record?.related_compounds, record?.related_herbs]
     : [record?.synergy_relationships, record?.pathway_companions, record?.semantic_neighbors, record?.related_compounds, record?.related_herbs]
 
-  return unique(values.flatMap((value) => list(value).map((item) => safeSlug(item)))).slice(0, MAX_GRAPH_CANDIDATE_POOL)
+  return unique(values.flatMap((value) => list(value).map((item) => safeSlug(item))), MAX_GRAPH_CANDIDATE_POOL)
 }
 
 function getSignalBundle(record) {
@@ -198,7 +207,7 @@ function getSignalBundle(record) {
     ecosystem,
     mechanisms,
     pathways,
-  ])
+  ], MAX_SIGNALS_PER_RECORD)
 
   return {
     ecosystem,
@@ -212,8 +221,11 @@ function getSignalBundle(record) {
 function addIndexed(index, signal, record) {
   if (!signal) return
   const rows = index.get(signal)
-  if (rows) rows.push(record)
-  else index.set(signal, [record])
+  if (rows) {
+    if (rows.length < MAX_SIGNAL_INDEX_ROWS) rows.push(record)
+  } else {
+    index.set(signal, [record])
+  }
 }
 
 function buildIndex(records) {
@@ -246,10 +258,10 @@ function addCandidate(candidates, seen, sourceSlug, candidate, max) {
 }
 
 function addCandidatesForSignals(candidates, seen, sourceSlug, signalIndex, signals, max) {
-  for (const signal of signals) {
+  for (const signal of capList(signals, MAX_SIGNALS_PER_RECORD)) {
     const rows = signalIndex.get(signal)
     if (!rows) continue
-    for (const row of rows) {
+    for (const row of capList(rows, MAX_SIGNAL_INDEX_ROWS)) {
       addCandidate(candidates, seen, sourceSlug, row, max)
       if (candidates.length >= max) return
     }
@@ -274,12 +286,7 @@ function candidatePool(record, index, max) {
 
 function overlap(candidateSignals, sourceSignals) {
   const set = new Set(sourceSignals)
-  return unique(candidateSignals.filter((signal) => set.has(signal)))
-}
-
-function hasAnyOverlap(candidateSignals, sourceSignals) {
-  const set = new Set(sourceSignals)
-  return candidateSignals.some((signal) => set.has(signal))
+  return unique(candidateSignals.filter((signal) => set.has(signal)), MAX_OVERLAP_LABELS)
 }
 
 function discoveryScore(source, candidate) {
@@ -327,11 +334,11 @@ function relationshipEntry(source, candidate, preferredSlugs = []) {
   return {
     slug: candidateSlug,
     score,
-    overlapLabels: allOverlap.slice(0, 12),
+    overlapLabels: allOverlap.slice(0, MAX_OVERLAP_LABELS),
     ecosystemOverlap: ecosystemOverlap.length,
     mechanismOverlap: mechanismOverlap.length,
     pathwayOverlap: pathwayOverlap.length,
-    relationshipKinds: unique(relationshipKinds),
+    relationshipKinds: unique(relationshipKinds, 6),
   }
 }
 
@@ -384,7 +391,7 @@ function buildCandidateMap(records, index, kind) {
         .filter(Boolean)
         .map((entry) => ({
           ...entry,
-          relationshipKinds: unique([...entry.relationshipKinds, kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate']),
+          relationshipKinds: unique([...entry.relationshipKinds, kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate'], 6),
         }))
     ).slice(0, cap)
   }
@@ -413,6 +420,7 @@ function buildAuthorityHubs(records) {
     const hub = lower(record?.authority_supernode || record?.authority_status || record?.evidence_authority_status)
     if (!slug || !hub) continue
     if (!hubs[hub]) hubs[hub] = []
+    if (hubs[hub].length >= MAX_RELATED_CANDIDATE_POOL) continue
     hubs[hub].push({ slug, score: discoveryScore(record, record), relationshipKinds: ['authority-hub'] })
   }
 
