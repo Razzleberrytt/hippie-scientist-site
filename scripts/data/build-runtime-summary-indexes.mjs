@@ -2,6 +2,10 @@
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import {
+  createStageTimer,
+  printBuildTimingReport,
+} from '../ci/report-build-stage-timings.mjs'
 
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = DATA_DIR_ARG
@@ -32,8 +36,12 @@ const SUMMARY_FIELDS = [
 ]
 
 async function readJson(filePath) {
+  const timer = createStageTimer(`read:${path.basename(filePath)}`)
+
   const raw = await fs.readFile(filePath, 'utf8')
   const parsed = JSON.parse(raw)
+
+  timer.finish()
 
   return Array.isArray(parsed) ? parsed : []
 }
@@ -89,18 +97,30 @@ function sortByName(a, b) {
 }
 
 async function writeJson(fileName, value) {
+  const timer = createStageTimer(`write:${fileName}`)
+
   await fs.writeFile(
     path.join(SUMMARY_DIR, fileName),
     `${JSON.stringify(value)}\n`,
     'utf8',
   )
+
+  timer.finish({
+    records: Array.isArray(value)
+      ? value.length
+      : Object.keys(value || {}).length,
+  })
 }
 
 async function main() {
+  const totalTimer = createStageTimer('summary-index-build')
+
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))
   const compounds = await readJson(path.join(DATA_DIR, 'compounds.json'))
 
   await fs.mkdir(SUMMARY_DIR, { recursive: true })
+
+  const summarizeTimer = createStageTimer('summarize-records')
 
   const herbSummaries = herbs
     .slice(0, MAX_INDEX_RECORDS)
@@ -112,12 +132,25 @@ async function main() {
     .map((record) => summarizeRecord(record, 'compound'))
     .filter((record) => record.slug || record.name)
 
+  summarizeTimer.finish({
+    herbs: herbSummaries.length,
+    compounds: compoundSummaries.length,
+  })
+
   const combined = [
     ...herbSummaries,
     ...compoundSummaries,
   ]
 
+  const alphabeticalTimer = createStageTimer('alphabetical-sort')
+
   const alphabetical = [...combined].sort(sortByName)
+
+  alphabeticalTimer.finish({
+    total: alphabetical.length,
+  })
+
+  const shardTimer = createStageTimer('alphabetical-sharding')
 
   const byLetter = {}
 
@@ -133,6 +166,10 @@ async function main() {
     byLetter[letter].push(item)
   }
 
+  shardTimer.finish({
+    shards: Object.keys(byLetter).length,
+  })
+
   await Promise.all([
     writeJson('herbs-summary.json', herbSummaries),
     writeJson('compounds-summary.json', compoundSummaries),
@@ -140,7 +177,13 @@ async function main() {
     writeJson('alphabetical-shards.json', byLetter),
   ])
 
+  totalTimer.finish({
+    total: combined.length,
+  })
+
   console.log(`Built runtime summary indexes for ${combined.length} records`)
+
+  printBuildTimingReport()
 }
 
 main().catch((error) => {
