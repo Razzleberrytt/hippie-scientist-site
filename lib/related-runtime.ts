@@ -1,12 +1,18 @@
 import { text } from '@/lib/display-utils'
 import { safeArray, safeScore, safeSlug } from '@/lib/search-safe'
-import { getRuntimeMapEntries } from '@/lib/runtime-related-maps'
+import {
+  getRuntimeMapEntries,
+  getRuntimeMapEntriesForSlugs,
+} from '@/lib/runtime-related-maps'
 
 const MAX_RELATED_PROFILES = 12
 const MAX_COMPARISON_CANDIDATES = 8
 const MAX_STACK_CANDIDATES = 8
+const MAX_BATCHED_SLUGS = 100
 
 type RuntimeRecord = Record<string, any>
+
+type RuntimeRelationshipKind = 'related' | 'comparison' | 'stack'
 
 type RuntimeRelationshipEntry = {
   slug: string
@@ -24,9 +30,7 @@ function clampLimit(value: unknown, fallback: number, max: number) {
   return Math.min(max, Math.max(0, Math.floor(parsed)))
 }
 
-function hydrateRuntimeEntries(entries: RuntimeRelationshipEntry[], records: RuntimeRecord[]) {
-  if (!Array.isArray(entries) || entries.length === 0) return []
-
+function buildRecordIndex(records: RuntimeRecord[]) {
   const bySlug = new Map<string, RuntimeRecord>()
 
   for (const record of safeArray<RuntimeRecord>(records)) {
@@ -35,12 +39,21 @@ function hydrateRuntimeEntries(entries: RuntimeRelationshipEntry[], records: Run
     bySlug.set(slug, record)
   }
 
+  return bySlug
+}
+
+function hydrateRuntimeEntries(
+  entries: RuntimeRelationshipEntry[],
+  recordIndex: Map<string, RuntimeRecord>,
+) {
+  if (!Array.isArray(entries) || entries.length === 0) return []
+
   return entries
     .map((entry) => {
       const slug = safeSlug(entry?.slug)
       if (!slug) return null
 
-      const record = bySlug.get(slug)
+      const record = recordIndex.get(slug)
       if (!record) return null
 
       return {
@@ -56,23 +69,27 @@ function hydrateRuntimeEntries(entries: RuntimeRelationshipEntry[], records: Run
     .filter(Boolean)
 }
 
-async function getRuntimeRecords(kind: 'related' | 'comparison' | 'stack', record: RuntimeRecord, records: RuntimeRecord[], limit: number, fallbackLimit: number) {
+function sortHydratedRecords(records: any[]) {
+  return records.sort((a: any, b: any) => {
+    const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
+    if (scoreDelta !== 0) return scoreDelta
+
+    const nameA = text(a?.name || a?.slug).toLowerCase()
+    const nameB = text(b?.name || b?.slug).toLowerCase()
+    return nameA.localeCompare(nameB)
+  })
+}
+
+async function getRuntimeRecords(kind: RuntimeRelationshipKind, record: RuntimeRecord, records: RuntimeRecord[], limit: number, fallbackLimit: number) {
   const slug = safeSlug(record?.slug)
   const requestedLimit = clampLimit(limit, fallbackLimit, fallbackLimit)
 
   if (!slug || requestedLimit === 0) return []
 
   const entries = await getRuntimeMapEntries(kind, slug)
+  const recordIndex = buildRecordIndex(records)
 
-  return hydrateRuntimeEntries(entries, records)
-    .sort((a: any, b: any) => {
-      const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
-      if (scoreDelta !== 0) return scoreDelta
-
-      const nameA = text(a?.name || a?.slug).toLowerCase()
-      const nameB = text(b?.name || b?.slug).toLowerCase()
-      return nameA.localeCompare(nameB)
-    })
+  return sortHydratedRecords(hydrateRuntimeEntries(entries, recordIndex))
     .slice(0, requestedLimit)
 }
 
@@ -86,6 +103,35 @@ export async function getComparisonRuntimeRecords(record: RuntimeRecord, records
 
 export async function getStackRuntimeRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_STACK_CANDIDATES) {
   return getRuntimeRecords('stack', record, records, limit, MAX_STACK_CANDIDATES)
+}
+
+export async function getBatchedRuntimeRecords(
+  kind: RuntimeRelationshipKind,
+  sourceRecords: RuntimeRecord[],
+  candidateRecords: RuntimeRecord[],
+  limit = MAX_RELATED_PROFILES,
+): Promise<Record<string, RuntimeRecord[]>> {
+  const requestedLimit = clampLimit(limit, MAX_RELATED_PROFILES, MAX_RELATED_PROFILES)
+
+  if (requestedLimit === 0) return {}
+
+  const sourceSlugs = safeArray<RuntimeRecord>(sourceRecords)
+    .map((record) => safeSlug(record?.slug))
+    .filter(Boolean)
+    .slice(0, MAX_BATCHED_SLUGS)
+
+  if (sourceSlugs.length === 0) return {}
+
+  const recordIndex = buildRecordIndex(candidateRecords)
+  const entriesBySlug = await getRuntimeMapEntriesForSlugs(kind, sourceSlugs)
+
+  return Object.fromEntries(
+    sourceSlugs.map((slug) => [
+      slug,
+      sortHydratedRecords(hydrateRuntimeEntries(entriesBySlug[slug] || [], recordIndex))
+        .slice(0, requestedLimit),
+    ]),
+  )
 }
 
 export function getRelatedLabel(record: RuntimeRecord) {
