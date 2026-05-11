@@ -44,9 +44,19 @@ const MECHANISM_VARIATIONS = [
   'Mechanistic hypotheses frequently involve %MECHANISMS%.',
 ]
 
+const UNCERTAINTY_VARIATIONS = [
+  'Interpretation should remain conservative because study quality and reproducibility vary.',
+  'Outcome certainty still depends heavily on formulation, population, and research design.',
+  'Mechanistic plausibility should not automatically be interpreted as clinical confirmation.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
+}
+
+function uncertaintyLine(seed: string) {
+  return rotateVariation(UNCERTAINTY_VARIATIONS, seed)
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -170,15 +180,9 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
       .replace('%NAME%', name)
       .replace('%FOCUS%', focus.slice(0, 4).join(', '))
 
-    const qualifier = tone === 'strong'
-      ? ' Human evidence appears more developed in these areas than in many exploratory categories.'
-      : tone === 'moderate'
-        ? ' Evidence quality still varies meaningfully depending on formulation and study design.'
-        : ' Mechanistic plausibility may currently exceed direct human outcome evidence in some areas.'
-
     return {
       title: 'Why It Matters',
-      body: `${variation}${qualifier}`,
+      body: `${variation} ${uncertaintyLine(name)}`,
       chips: focus,
       tone,
     }
@@ -223,7 +227,7 @@ export function buildResearchConfidence(record: any, effects: string[]): Editori
 
   const qualifier = mixed.length > 0
     ? ` Evidence remains less settled for ${mixed.join(', ')}.`
-    : ' Claims outside the primary evidence context should remain measured.'
+    : ` ${uncertaintyLine(evidence)}`
 
   return {
     title: 'Research Confidence',
