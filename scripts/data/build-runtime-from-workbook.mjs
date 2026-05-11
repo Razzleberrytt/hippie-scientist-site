@@ -305,7 +305,7 @@ function dedupe(rows) {
   })
 }
 
-functionfunction pickRuntimeFields(record, allowedFields) {
+function pickRuntimeFields(record, allowedFields) {
   return Object.fromEntries(
     Object.entries(record).filter(([k, v]) => {
       if (!allowedFields.includes(k)) return false
