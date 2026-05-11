@@ -7,14 +7,15 @@ const DEFAULT_DATA_DIR = path.join(process.cwd(), 'public', 'data')
 const DATA_DIR = resolveOutDir(process.argv)
 const OUT_DIR = path.join(DATA_DIR, 'runtime-maps')
 
-const MAX_RELATED_PROFILES = 12
-const MAX_COMPARISON_CANDIDATES = 8
-const MAX_STACK_CANDIDATES = 8
-const MAX_RELATED_CANDIDATE_POOL = 80
-const MAX_GRAPH_CANDIDATE_POOL = 60
-const MAX_SIGNALS_PER_RECORD = 32
-const MAX_SIGNAL_INDEX_ROWS = 120
-const MAX_OVERLAP_LABELS = 12
+const MAX_RELATED_PROFILES = 8
+const MAX_COMPARISON_CANDIDATES = 6
+const MAX_STACK_CANDIDATES = 6
+const MAX_RELATED_CANDIDATE_POOL = 40
+const MAX_GRAPH_CANDIDATE_POOL = 32
+const MAX_SIGNALS_PER_RECORD = 24
+const MAX_SIGNAL_INDEX_ROWS = 80
+const MAX_OVERLAP_LABELS = 5
+const MAX_RELATIONSHIP_KINDS = 4
 
 function resolveOutDir(argv) {
   const flag = argv.find((arg) => arg.startsWith('--data-dir=')) || argv.find((arg) => arg.startsWith('--out='))
@@ -338,7 +339,7 @@ function relationshipEntry(source, candidate, preferredSlugs = []) {
     ecosystemOverlap: ecosystemOverlap.length,
     mechanismOverlap: mechanismOverlap.length,
     pathwayOverlap: pathwayOverlap.length,
-    relationshipKinds: unique(relationshipKinds, 6),
+    relationshipKinds: unique(relationshipKinds, MAX_RELATIONSHIP_KINDS),
   }
 }
 
@@ -391,7 +392,7 @@ function buildCandidateMap(records, index, kind) {
         .filter(Boolean)
         .map((entry) => ({
           ...entry,
-          relationshipKinds: unique([...entry.relationshipKinds, kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate'], 6),
+          relationshipKinds: unique([...entry.relationshipKinds, kind === 'comparison' ? 'comparison-candidate' : 'stack-candidate'], MAX_RELATIONSHIP_KINDS),
         }))
     ).slice(0, cap)
   }
@@ -444,9 +445,26 @@ async function mergeRows(kind, baseFile, summaryFile) {
   return rows
 }
 
+function stableClone(value) {
+  if (Array.isArray(value)) {
+    return value.map(stableClone)
+  }
+
+  if (value && typeof value === 'object') {
+    return Object.keys(value)
+      .sort((a, b) => a.localeCompare(b))
+      .reduce((acc, key) => {
+        acc[key] = stableClone(value[key])
+        return acc
+      }, {})
+  }
+
+  return value
+}
+
 async function writeJson(fileName, value) {
   await fs.mkdir(OUT_DIR, { recursive: true })
-  await fs.writeFile(path.join(OUT_DIR, fileName), `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  await fs.writeFile(path.join(OUT_DIR, fileName), `${JSON.stringify(stableClone(value))}\n`, 'utf8')
 }
 
 async function main() {
