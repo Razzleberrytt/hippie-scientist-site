@@ -7,6 +7,8 @@ const MAX_RUNTIME_MAP_ENTRIES = 12
 const MAX_OVERLAP_LABELS = 12
 const MAX_RELATIONSHIP_KINDS = 6
 
+type RuntimeMapKind = 'related' | 'comparison' | 'stack' | 'ecosystem'
+
 type RuntimeMapEntry = {
   slug: string
   score?: number
@@ -21,6 +23,13 @@ type RuntimeMap = Record<string, RuntimeMapEntry[]>
 
 function text(value: unknown) {
   return String(value ?? '').trim()
+}
+
+function mapFileForKind(kind: RuntimeMapKind) {
+  if (kind === 'comparison') return 'comparison-map.json'
+  if (kind === 'stack') return 'stack-map.json'
+  if (kind === 'ecosystem') return 'ecosystem-map.json'
+  return 'related-profiles.json'
 }
 
 function sanitizeEntry(entry: any): RuntimeMapEntry | null {
@@ -84,22 +93,35 @@ async function readMap(fileName: string): Promise<RuntimeMap> {
   }
 }
 
-export const getRelatedProfilesMap = cache(async () => readMap('related-profiles.json'))
-export const getComparisonMap = cache(async () => readMap('comparison-map.json'))
-export const getStackMap = cache(async () => readMap('stack-map.json'))
-export const getEcosystemMap = cache(async () => readMap('ecosystem-map.json'))
-export const getAuthorityHubsMap = cache(async () => readMap('authority-hubs.json'))
+const getRuntimeMapByFile = cache(async (fileName: string) => readMap(fileName))
 
-export async function getRuntimeMapEntries(kind: 'related' | 'comparison' | 'stack' | 'ecosystem', slug: string): Promise<RuntimeMapEntry[]> {
-  if (!slug) return []
+export const getRelatedProfilesMap = cache(async () => getRuntimeMapByFile('related-profiles.json'))
+export const getComparisonMap = cache(async () => getRuntimeMapByFile('comparison-map.json'))
+export const getStackMap = cache(async () => getRuntimeMapByFile('stack-map.json'))
+export const getEcosystemMap = cache(async () => getRuntimeMapByFile('ecosystem-map.json'))
+export const getAuthorityHubsMap = cache(async () => getRuntimeMapByFile('authority-hubs.json'))
 
-  const map = kind === 'comparison'
-    ? await getComparisonMap()
-    : kind === 'stack'
-      ? await getStackMap()
-      : kind === 'ecosystem'
-        ? await getEcosystemMap()
-        : await getRelatedProfilesMap()
+export const getRuntimeMapEntries = cache(async (
+  kind: RuntimeMapKind,
+  slug: string,
+): Promise<RuntimeMapEntry[]> => {
+  const normalizedSlug = text(slug)
 
-  return sanitizeEntries(map?.[slug])
+  if (!normalizedSlug) return []
+
+  const map = await getRuntimeMapByFile(mapFileForKind(kind))
+
+  return sanitizeEntries(map?.[normalizedSlug])
+})
+
+export async function getRuntimeMapEntriesForSlugs(
+  kind: RuntimeMapKind,
+  slugs: string[],
+): Promise<Record<string, RuntimeMapEntry[]>> {
+  const uniqueSlugs = [...new Set(slugs.map(text).filter(Boolean))].slice(0, 100)
+  const map = await getRuntimeMapByFile(mapFileForKind(kind))
+
+  return Object.fromEntries(
+    uniqueSlugs.map((slug) => [slug, sanitizeEntries(map?.[slug])]),
+  )
 }
