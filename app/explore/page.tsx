@@ -9,6 +9,7 @@ import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro } from '@/com
 import { getEcosystemPanels, getTopicClusterLinks } from '@/lib/ecosystem-context'
 import { GuidedSemanticFlowSection } from '@/src/components/explore/GuidedSemanticFlowSection'
 import { EcosystemContinuityVisualizationSection } from '@/src/components/explore/EcosystemContinuityVisualizationSection'
+import { SemanticBridgeSection } from '@/src/components/explore/SemanticBridgeSection'
 import {
   SemanticSectionBoundary,
   SemanticSectionFallback,
@@ -111,6 +112,17 @@ export default function ExplorePage() {
         fallback={<SemanticSectionFallback />}
       >
         <GuidedSemanticFlowSection />
+      </SemanticSectionBoundary>
+
+      <SemanticSectionBoundary
+        source={semanticSource}
+        candidates={featured}
+        minCandidates={3}
+      >
+        <SemanticBridgeSection
+          source={semanticSource}
+          candidates={featured}
+        />
       </SemanticSectionBoundary>
 
       <SemanticSectionBoundary
