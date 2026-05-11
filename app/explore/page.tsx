@@ -16,6 +16,7 @@ import {
   SemanticSectionFallback,
 } from '@/src/components/runtime/SemanticSectionBoundary'
 import { buildAdaptiveEcosystemPriorities } from '@/src/lib/adaptive-ecosystem-prioritization'
+import { buildSemanticMomentum } from '@/src/lib/semantic-momentum-engine'
 
 const hubIntro = [
   {
@@ -83,22 +84,35 @@ export default function ExplorePage() {
     topicClusters,
   )
 
-  const prioritizedSignals = adaptivePriorities
-    .filter((priority) => priority.priorityTier !== 'suppressed')
-    .map((priority) => priority.ecosystem.toLowerCase())
+  const semanticMomentum = buildSemanticMomentum(
+    featured,
+    topicClusters,
+  )
+
+  const prioritizedSignals = semanticMomentum
+    .filter((signal) => signal.momentumTier !== 'weak')
+    .map((signal) => signal.ecosystem.toLowerCase())
 
   const prioritizedGraphLinks = [...graphLinks, ...getTopicClusterLinks(10)]
     .sort((a, b) => {
-      const aPriority = adaptivePriorities.find((priority) =>
+      const aMomentum = semanticMomentum.find((signal) =>
+        signal.ecosystem.toLowerCase() === a.label.toLowerCase(),
+      )
+
+      const bMomentum = semanticMomentum.find((signal) =>
+        signal.ecosystem.toLowerCase() === b.label.toLowerCase(),
+      )
+
+      const aAdaptive = adaptivePriorities.find((priority) =>
         priority.ecosystem.toLowerCase() === a.label.toLowerCase(),
       )
 
-      const bPriority = adaptivePriorities.find((priority) =>
+      const bAdaptive = adaptivePriorities.find((priority) =>
         priority.ecosystem.toLowerCase() === b.label.toLowerCase(),
       )
 
-      const aScore = aPriority?.ecosystemScore || 0
-      const bScore = bPriority?.ecosystemScore || 0
+      const aScore = (aMomentum?.momentumScore || 0) + (aAdaptive?.ecosystemScore || 0)
+      const bScore = (bMomentum?.momentumScore || 0) + (bAdaptive?.ecosystemScore || 0)
 
       if (bScore !== aScore) {
         return bScore - aScore
@@ -196,9 +210,9 @@ export default function ExplorePage() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {adaptivePriorities.slice(0, 4).map((priority) => (
-              <span key={priority.ecosystem} className="chip-readable">
-                {priority.ecosystem}
+            {semanticMomentum.slice(0, 4).map((signal) => (
+              <span key={signal.ecosystem} className="chip-readable">
+                {signal.ecosystem}
               </span>
             ))}
           </div>
