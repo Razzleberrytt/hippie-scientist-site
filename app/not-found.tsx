@@ -2,9 +2,13 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <div className='mx-auto max-w-3xl py-10'>
+    <main className='mx-auto max-w-4xl px-6 py-16'>
       <div className='rounded-3xl border border-white/10 bg-white/[0.03] p-8 sm:p-10'>
-        <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+        <div className='inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-1 text-xs uppercase tracking-[0.2em] text-stone-400'>
+          The Hippie Scientist
+        </div>
+
+        <p className='mt-6 text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
           404
         </p>
 
@@ -13,40 +17,40 @@ export default function NotFound() {
         </h1>
 
         <p className='mt-4 max-w-2xl text-base leading-7 text-white/75'>
-          The page you tried to open does not exist, may have moved, or has not
-          been generated yet.
+          The page you tried to open may have moved, may still be generating,
+          or may no longer exist in the current scientific index.
         </p>
 
-        <div className='mt-6 flex flex-wrap gap-3'>
+        <div className='mt-8 flex flex-wrap gap-3'>
           <Link
             href='/'
             className='rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:opacity-90'
           >
-            Go home
+            Return home
           </Link>
 
           <Link
             href='/herbs'
             className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
           >
-            Browse herbs
+            Explore herbs
           </Link>
 
           <Link
             href='/compounds'
             className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
           >
-            Browse compounds
+            Explore compounds
           </Link>
 
           <Link
-            href='/blog'
+            href='/topics'
             className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
           >
-            Read the blog
+            Browse topics
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
