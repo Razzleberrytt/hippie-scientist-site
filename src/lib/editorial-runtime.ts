@@ -50,6 +50,12 @@ const UNCERTAINTY_VARIATIONS = [
   'Mechanistic plausibility should not automatically be interpreted as clinical confirmation.',
 ]
 
+const COMPARISON_VARIATIONS = [
+  'Interpretation quality improves when this profile is compared against adjacent mechanisms and evidence tiers.',
+  'Contextual comparison is important because outcome framing can vary substantially across neighboring compounds and herbs.',
+  'Comparison-aware interpretation helps separate mechanistic similarity from clinically meaningful similarity.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -57,6 +63,10 @@ function rotateVariation(values: string[], seed: string) {
 
 function uncertaintyLine(seed: string) {
   return rotateVariation(UNCERTAINTY_VARIATIONS, seed)
+}
+
+function comparisonLine(seed: string) {
+  return rotateVariation(COMPARISON_VARIATIONS, seed)
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -182,7 +192,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${uncertaintyLine(name)}`,
+      body: `${variation} ${uncertaintyLine(name)} ${comparisonLine(name)}`,
       chips: focus,
       tone,
     }
@@ -231,7 +241,7 @@ export function buildResearchConfidence(record: any, effects: string[]): Editori
 
   return {
     title: 'Research Confidence',
-    body: `${leading}${qualifier}`,
+    body: `${leading}${qualifier} ${comparisonLine(evidence)}`,
     chips: [...strongest, ...mixed].slice(0, 5),
     tone,
   }
@@ -260,7 +270,7 @@ export function buildMechanismNarrative(record: any, mechanisms: string[]): Edit
 
   return {
     title: 'Potential Mechanisms',
-    body,
+    body: `${body} ${comparisonLine(mechanisms.join(','))}`,
     chips: mechanisms.slice(0, 6),
     tone: confidence.toLowerCase().includes('limited') ? 'neutral' : 'moderate',
   }
