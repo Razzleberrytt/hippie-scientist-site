@@ -56,6 +56,12 @@ const COMPARISON_VARIATIONS = [
   'Comparison-aware interpretation helps separate mechanistic similarity from clinically meaningful similarity.',
 ]
 
+const ECOSYSTEM_VARIATIONS = [
+  'This profile becomes more informative when interpreted within the broader semantic ecosystem surrounding related pathways and compounds.',
+  'Ecosystem-level interpretation helps contextualize where this profile sits within adjacent research clusters.',
+  'Knowledge-graph continuity improves interpretation by connecting this profile to neighboring mechanism and outcome domains.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -67,6 +73,10 @@ function uncertaintyLine(seed: string) {
 
 function comparisonLine(seed: string) {
   return rotateVariation(COMPARISON_VARIATIONS, seed)
+}
+
+function ecosystemLine(seed: string) {
+  return rotateVariation(ECOSYSTEM_VARIATIONS, seed)
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -192,7 +202,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${uncertaintyLine(name)} ${comparisonLine(name)}`,
+      body: `${variation} ${uncertaintyLine(name)} ${comparisonLine(name)} ${ecosystemLine(name)}`,
       chips: focus,
       tone,
     }
@@ -241,7 +251,7 @@ export function buildResearchConfidence(record: any, effects: string[]): Editori
 
   return {
     title: 'Research Confidence',
-    body: `${leading}${qualifier} ${comparisonLine(evidence)}`,
+    body: `${leading}${qualifier} ${comparisonLine(evidence)} ${ecosystemLine(evidence)}`,
     chips: [...strongest, ...mixed].slice(0, 5),
     tone,
   }
@@ -270,7 +280,7 @@ export function buildMechanismNarrative(record: any, mechanisms: string[]): Edit
 
   return {
     title: 'Potential Mechanisms',
-    body: `${body} ${comparisonLine(mechanisms.join(','))}`,
+    body: `${body} ${comparisonLine(mechanisms.join(','))} ${ecosystemLine(mechanisms.join(','))}`,
     chips: mechanisms.slice(0, 6),
     tone: confidence.toLowerCase().includes('limited') ? 'neutral' : 'moderate',
   }
