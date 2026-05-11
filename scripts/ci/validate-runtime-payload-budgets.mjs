@@ -15,6 +15,9 @@ const PAYLOAD_LIMITS = {
   'summary-indexes/alphabetical-shards.json': 4_000_000,
   'summary-indexes/entity-shards.json': 4_000_000,
   'summary-indexes/alpha-entity-shards.json': 4_000_000,
+  'runtime-manifests/route-manifest.json': 2_000_000,
+  'runtime-manifests/route-segment-groups.json': 2_000_000,
+  'runtime-manifests/sitemap-chunk-manifest.json': 1_000_000,
 }
 
 async function fileSize(filePath) {
