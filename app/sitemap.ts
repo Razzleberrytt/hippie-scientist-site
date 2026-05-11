@@ -22,6 +22,10 @@ export const dynamic = 'force-static'
 const siteUrl = 'https://www.thehippiescientist.net'
 const stableDate = new Date('2026-01-01')
 const editorialDate = new Date('2026-04-01')
+const MAX_SITEMAP_ROUTES = Number.parseInt(
+  process.env.SITEMAP_MAX_ROUTES || '5000',
+  10,
+)
 
 type SlugRecord = {
   slug?: string
@@ -55,6 +59,42 @@ const route = (
   changeFrequency: options?.changeFrequency || 'monthly',
   priority: options?.priority || 0.6,
 })
+
+function stabilizeSitemapRoutes(
+  routes: MetadataRoute.Sitemap,
+): MetadataRoute.Sitemap {
+  const byUrl = new Map<string, MetadataRoute.Sitemap[number]>()
+
+  for (const entry of routes) {
+    if (!entry?.url) continue
+
+    const existing = byUrl.get(entry.url)
+
+    if (!existing) {
+      byUrl.set(entry.url, entry)
+      continue
+    }
+
+    const existingPriority = Number(existing.priority || 0)
+    const nextPriority = Number(entry.priority || 0)
+
+    if (nextPriority > existingPriority) {
+      byUrl.set(entry.url, entry)
+    }
+  }
+
+  return [...byUrl.values()]
+    .sort((a, b) => {
+      const priorityDelta = Number(b.priority || 0) - Number(a.priority || 0)
+
+      if (priorityDelta !== 0) {
+        return priorityDelta
+      }
+
+      return String(a.url).localeCompare(String(b.url))
+    })
+    .slice(0, Math.max(0, MAX_SITEMAP_ROUTES))
+}
 
 const pathwayRoutes = [
   '/pathways/gaba',
@@ -93,7 +133,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
     .filter((herb) => herb.slug)
 
-  return [
+  return stabilizeSitemapRoutes([
     route('/', {
       priority: 1,
       changeFrequency: 'weekly',
@@ -269,5 +309,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           changeFrequency: 'monthly',
         }),
       ),
-  ]
+  ])
 }
