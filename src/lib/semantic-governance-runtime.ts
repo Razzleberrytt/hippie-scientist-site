@@ -1,8 +1,8 @@
 import { topicClusters } from '@/lib/ecosystem-context'
-import {
-  buildSemanticDiscoverySignals,
-  type SemanticDiscoverySignal,
-} from '@/src/lib/semantic-discovery-orchestrator'
+import { buildAdaptiveEcosystemPriorities } from '@/src/lib/adaptive-ecosystem-prioritization'
+import { buildSemanticMomentum } from '@/src/lib/semantic-momentum-engine'
+import { buildSemanticEcosystemBridges } from '@/src/lib/semantic-ecosystem-bridges'
+import { buildEcosystemStability } from '@/src/lib/ecosystem-stability-engine'
 import {
   clampScore,
   safeArray,
@@ -69,33 +69,77 @@ function ecosystemCoverage(
   return clampScore(matches.length * 10, 12)
 }
 
-function continuityGovernance(signal: SemanticDiscoverySignal) {
-  return clampScore(
-    signal.discoveryScore * 0.55 + signal.stabilityScore * 0.45,
-    20,
-  )
-}
-
 export function buildSemanticGovernanceRuntime(
   records: unknown = [],
   ecosystemClusters: unknown = topicClusters,
 ): SemanticGovernanceSignal[] {
-  const discovery = buildSemanticDiscoverySignals(
+  const adaptive = buildAdaptiveEcosystemPriorities(
     records,
     ecosystemClusters,
   )
 
-  return discovery
-    .map((signal) => {
+  const momentum = buildSemanticMomentum(
+    records,
+    ecosystemClusters,
+  )
+
+  const bridges = buildSemanticEcosystemBridges(
+    records,
+    ecosystemClusters,
+  )
+
+  const stability = buildEcosystemStability(
+    records,
+    ecosystemClusters,
+  )
+
+  return adaptive
+    .map((priority) => {
       const semanticCoverage = ecosystemCoverage(
-        signal.ecosystem,
+        priority.ecosystem,
         safeArray(records),
       )
 
-      const continuity = continuityGovernance(signal)
+      const momentumRecord = momentum.find(
+        (entry: any) => entry?.ecosystem === priority.ecosystem,
+      )
+
+      const stabilityRecord = stability.find(
+        (entry: any) => entry?.ecosystem === priority.ecosystem,
+      )
+
+      const bridgeSignals = bridges.filter(
+        (entry: any) =>
+          entry?.source === priority.ecosystem ||
+          entry?.target === priority.ecosystem ||
+          entry?.ecosystem === priority.ecosystem,
+      )
+
+      const bridgeScore = clampScore(
+        bridgeSignals.reduce(
+          (sum: number, entry: any) =>
+            sum + Number(entry?.bridgeScore || 0),
+          0,
+        ) / Math.max(bridgeSignals.length, 1),
+        12,
+      )
+
+      const continuity = clampScore(
+        Number(priority.ecosystemScore || 0) * 0.45 +
+          Number(momentumRecord?.continuityStrength || 0) * 0.55,
+        20,
+      )
 
       const resilienceGovernance = clampScore(
-        signal.stabilityScore * 0.72 + signal.bridgeScore * 0.28,
+        Number(stabilityRecord?.stabilityScore || 0) * 0.72 +
+          bridgeScore * 0.28,
+        18,
+      )
+
+      const discoveryScore = clampScore(
+        Number(priority.ecosystemScore || 0) * 0.5 +
+          Number(momentumRecord?.momentumScore || 0) * 0.3 +
+          bridgeScore * 0.2,
         18,
       )
 
@@ -103,14 +147,14 @@ export function buildSemanticGovernanceRuntime(
         continuity * 0.34 +
           resilienceGovernance * 0.33 +
           semanticCoverage * 0.14 +
-          signal.discoveryScore * 0.19,
+          discoveryScore * 0.19,
       )
 
       return {
-        ecosystem: signal.ecosystem,
+        ecosystem: priority.ecosystem,
         governanceScore,
         governanceTier: governanceTier(governanceScore),
-        discoveryScore: signal.discoveryScore,
+        discoveryScore,
         continuityGovernance: continuity,
         resilienceGovernance,
         semanticCoverage,
