@@ -33,6 +33,8 @@ export function getRuntimeDiscoveryPayload(record: any) {
           score?.recommendationTier || 'supporting',
         evidenceScore: score?.evidenceScore || 0,
         authorityScore: score?.authorityScore || 0,
+        continuityScore: score?.continuityScore || 0,
+        ecosystemScore: score?.ecosystemScore || 0,
       }
     })
     .filter(
@@ -41,11 +43,28 @@ export function getRuntimeDiscoveryPayload(record: any) {
         item.evidenceScore >= 42 &&
         item.authorityScore >= 44,
     )
-    .sort(
-      (a: any, b: any) =>
+    .sort((a: any, b: any) => {
+      const continuityDelta =
+        (b.continuityScore || 0) -
+        (a.continuityScore || 0)
+
+      if (Math.abs(continuityDelta) >= 10) {
+        return continuityDelta
+      }
+
+      const ecosystemDelta =
+        (b.ecosystemScore || 0) -
+        (a.ecosystemScore || 0)
+
+      if (Math.abs(ecosystemDelta) >= 8) {
+        return ecosystemDelta
+      }
+
+      return (
         (b.adaptiveScore || 0) -
-        (a.adaptiveScore || 0),
-    )
+        (a.adaptiveScore || 0)
+      )
+    })
 
   return {
     context,
