@@ -34,13 +34,11 @@ const organizationJsonLd = {
 }
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/education', label: 'Education' },
-  { href: '/learn', label: 'Learn' },
-  { href: '/stacks', label: 'Stacks' },
   { href: '/herbs', label: 'Herbs' },
   { href: '/compounds', label: 'Compounds' },
-  { href: '/search', label: 'Search' },
+  { href: '/goals', label: 'Goals' },
+  { href: '/stacks', label: 'Stacks' },
+  { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
 ]
 
@@ -100,13 +98,54 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
           <main className='container-page py-10 text-base leading-body'>{children}</main>
 
-          <footer className='mt-10 border-t border-neutral-200 bg-neutral-50'>
-            <div className='container-page py-8 text-sm text-muted space-y-2'>
-              <p className='font-semibold'>© The Hippie Scientist</p>
+          <footer className='mt-16 border-t border-neutral-200 bg-neutral-50'>
+            <div className='container-page py-12'>
+              <div className='grid gap-10 md:grid-cols-3'>
+                <div className='space-y-4'>
+                  <h3 className='font-semibold text-ink'>The Hippie Scientist</h3>
 
-              <p>
-                Evidence-aware exploration of herbs, compounds, cognition, neuroscience, pathways, and human health systems.
-              </p>
+                  <p className='text-sm text-muted'>
+                    Evidence-first herb & compound reference.
+                  </p>
+
+                  <p className='text-sm leading-6 text-muted'>
+                    Educational content grounded in human evidence, mechanisms, pathways, and scientific review.
+                  </p>
+                </div>
+
+                <div className='space-y-3'>
+                  <h3 className='font-semibold text-ink'>Explore</h3>
+
+                  <div className='flex flex-col gap-2 text-sm'>
+                    <Link href='/herbs' className='text-muted hover:text-ink transition'>Herbs</Link>
+                    <Link href='/compounds' className='text-muted hover:text-ink transition'>Compounds</Link>
+                    <Link href='/goals' className='text-muted hover:text-ink transition'>Goals</Link>
+                    <Link href='/stacks' className='text-muted hover:text-ink transition'>Stacks</Link>
+                    <Link href='/blog' className='text-muted hover:text-ink transition'>Blog</Link>
+                    <Link href='/about' className='text-muted hover:text-ink transition'>About</Link>
+                  </div>
+                </div>
+
+                <div className='space-y-3'>
+                  <h3 className='font-semibold text-ink'>Legal & Transparency</h3>
+
+                  <div className='flex flex-col gap-2 text-sm'>
+                    <Link href='/privacy' className='text-muted hover:text-ink transition'>Privacy Policy</Link>
+                    <Link href='/disclaimer' className='text-muted hover:text-ink transition'>Disclaimer</Link>
+                    <Link href='/contact' className='text-muted hover:text-ink transition'>Contact</Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className='mt-10 border-t border-neutral-200 pt-6 space-y-3'>
+                <p className='text-xs leading-6 text-muted'>
+                  This site contains affiliate links. We may earn a commission on qualifying purchases at no cost to you.
+                </p>
+
+                <p className='text-sm text-muted'>
+                  © 2026 The Hippie Scientist
+                </p>
+              </div>
             </div>
           </footer>
         </div>
