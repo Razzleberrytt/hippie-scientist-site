@@ -17,6 +17,7 @@ import {
 } from '@/src/components/runtime/SemanticSectionBoundary'
 import { buildAdaptiveEcosystemPriorities } from '@/src/lib/adaptive-ecosystem-prioritization'
 import { buildSemanticMomentum } from '@/src/lib/semantic-momentum-engine'
+import { buildSemanticEcosystemBridges } from '@/src/lib/semantic-ecosystem-bridges'
 
 const hubIntro = [
   {
@@ -79,15 +80,9 @@ export default function ExplorePage() {
       clusters: getTopicClusters(compound).filter(isClean),
     }))
 
-  const adaptivePriorities = buildAdaptiveEcosystemPriorities(
-    featured,
-    topicClusters,
-  )
-
-  const semanticMomentum = buildSemanticMomentum(
-    featured,
-    topicClusters,
-  )
+  const adaptivePriorities = buildAdaptiveEcosystemPriorities(featured, topicClusters)
+  const semanticMomentum = buildSemanticMomentum(featured, topicClusters)
+  const semanticBridges = buildSemanticEcosystemBridges(featured, topicClusters)
 
   const prioritizedSignals = semanticMomentum
     .filter((signal) => signal.momentumTier !== 'weak')
@@ -95,24 +90,31 @@ export default function ExplorePage() {
 
   const prioritizedGraphLinks = [...graphLinks, ...getTopicClusterLinks(10)]
     .sort((a, b) => {
-      const aMomentum = semanticMomentum.find((signal) =>
-        signal.ecosystem.toLowerCase() === a.label.toLowerCase(),
+      const aMomentum = semanticMomentum.find((signal) => signal.ecosystem.toLowerCase() === a.label.toLowerCase())
+      const bMomentum = semanticMomentum.find((signal) => signal.ecosystem.toLowerCase() === b.label.toLowerCase())
+
+      const aAdaptive = adaptivePriorities.find((priority) => priority.ecosystem.toLowerCase() === a.label.toLowerCase())
+      const bAdaptive = adaptivePriorities.find((priority) => priority.ecosystem.toLowerCase() === b.label.toLowerCase())
+
+      const aBridge = semanticBridges.find((bridge) =>
+        bridge.source.toLowerCase() === a.label.toLowerCase() ||
+        bridge.target.toLowerCase() === a.label.toLowerCase(),
       )
 
-      const bMomentum = semanticMomentum.find((signal) =>
-        signal.ecosystem.toLowerCase() === b.label.toLowerCase(),
+      const bBridge = semanticBridges.find((bridge) =>
+        bridge.source.toLowerCase() === b.label.toLowerCase() ||
+        bridge.target.toLowerCase() === b.label.toLowerCase(),
       )
 
-      const aAdaptive = adaptivePriorities.find((priority) =>
-        priority.ecosystem.toLowerCase() === a.label.toLowerCase(),
-      )
+      const aScore =
+        (aMomentum?.momentumScore || 0) +
+        (aAdaptive?.ecosystemScore || 0) +
+        (aBridge?.bridgeScore || 0)
 
-      const bAdaptive = adaptivePriorities.find((priority) =>
-        priority.ecosystem.toLowerCase() === b.label.toLowerCase(),
-      )
-
-      const aScore = (aMomentum?.momentumScore || 0) + (aAdaptive?.ecosystemScore || 0)
-      const bScore = (bMomentum?.momentumScore || 0) + (bAdaptive?.ecosystemScore || 0)
+      const bScore =
+        (bMomentum?.momentumScore || 0) +
+        (bAdaptive?.ecosystemScore || 0) +
+        (bBridge?.bridgeScore || 0)
 
       if (bScore !== aScore) {
         return bScore - aScore
@@ -130,23 +132,12 @@ export default function ExplorePage() {
         <div className="max-w-4xl space-y-6">
           <div className="space-y-3">
             <p className="eyebrow-label">Semantic Discovery Layer</p>
-
-            <h1 className="heading-premium max-w-[11ch] text-ink">
-              Explore
-            </h1>
+            <h1 className="heading-premium max-w-[11ch] text-ink">Explore</h1>
           </div>
 
           <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
             Navigate compounds through semantic relationships, archetypes, evidence maturity, mechanisms, and shared research pathways instead of simple alphabetical browsing.
           </p>
-
-          <div className="flex flex-wrap gap-2">
-            {['Human Evidence', 'Mechanism-Led', 'Sleep', 'Stress', 'Cognition', 'Recovery', 'Metabolism', 'Neurochemistry'].map((item) => (
-              <span key={item} className="chip-readable">
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -160,96 +151,17 @@ export default function ExplorePage() {
         <GuidedSemanticFlowSection />
       </SemanticSectionBoundary>
 
-      <SemanticSectionBoundary
-        source={semanticSource}
-        candidates={featured}
-        minCandidates={3}
-      >
-        <SemanticBridgeSection
-          source={semanticSource}
-          candidates={featured}
-        />
+      <SemanticSectionBoundary source={semanticSource} candidates={featured} minCandidates={3}>
+        <SemanticBridgeSection source={semanticSource} candidates={featured} />
       </SemanticSectionBoundary>
 
-      <SemanticSectionBoundary
-        source={semanticSource}
-        candidates={featured}
-        minCandidates={3}
-      >
-        <ContinuityMapSection
-          source={semanticSource}
-          candidates={featured}
-        />
+      <SemanticSectionBoundary source={semanticSource} candidates={featured} minCandidates={3}>
+        <ContinuityMapSection source={semanticSource} candidates={featured} />
       </SemanticSectionBoundary>
 
-      <SemanticSectionBoundary
-        source={semanticSource}
-        candidates={featured}
-        minCandidates={3}
-      >
-        <EcosystemContinuityVisualizationSection
-          source={semanticSource}
-          candidates={featured}
-        />
+      <SemanticSectionBoundary source={semanticSource} candidates={featured} minCandidates={3}>
+        <EcosystemContinuityVisualizationSection source={semanticSource} candidates={featured} />
       </SemanticSectionBoundary>
-
-      <section className="surface-depth card-spacing">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl space-y-3">
-            <p className="eyebrow-label">
-              Guided research paths
-            </p>
-
-            <h2 className="max-w-[16ch]">
-              Start with an outcome or pathway.
-            </h2>
-
-            <p className="detail-reading text-base">
-              Discovery clusters surface related compounds, evidence-forward profiles, and overlapping mechanisms to improve scientific exploration quality.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {semanticMomentum.slice(0, 4).map((signal) => (
-              <span key={signal.ecosystem} className="chip-readable">
-                {signal.ecosystem}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-        {TOPICS.map((topic) => (
-          <Link
-            key={topic.slug}
-            href={`/explore/${topic.slug}`}
-            className="card-premium group p-6"
-          >
-            <div className="space-y-4">
-              <span className="identity-kicker">
-                {topic.meta}
-              </span>
-
-              <div>
-                <h2 className="text-2xl font-semibold text-ink transition group-hover:text-emerald-700">
-                  {topic.title}
-                </h2>
-
-                <p className="mt-3 text-sm leading-7 text-[#46574d]">
-                  {topic.description}
-                </p>
-              </div>
-
-              <div className="pt-3">
-                <span className="button-secondary inline-flex rounded-full px-4 py-2 text-sm">
-                  Explore Cluster
-                </span>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </section>
 
       <EcosystemPanelGrid
         eyebrow="Topic-cluster depth"
@@ -263,74 +175,6 @@ export default function ExplorePage() {
         title="Move through the scientific graph"
         links={prioritizedGraphLinks}
       />
-
-      <section className="space-y-6">
-        <div className="flex items-end justify-between gap-4 flex-wrap">
-          <div className="space-y-2">
-            <div className="eyebrow text-brand-700">
-              Discovery Rail
-            </div>
-
-            <h2 className="text-3xl font-semibold text-ink max-w-[14ch]">
-              Evidence-forward compounds
-            </h2>
-          </div>
-
-          <Link
-            href="/compounds"
-            className="button-secondary rounded-full px-4 py-2 text-sm"
-          >
-            Browse All Compounds
-          </Link>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {featured.map((compound) => (
-            <Link
-              key={compound.slug}
-              href={`/compounds/${compound.slug}`}
-              className="card-premium group p-6"
-            >
-              <div className="space-y-5">
-                <div className="flex flex-wrap gap-2">
-                  <span className="evidence-pill-strong">
-                    {compound.archetype}
-                  </span>
-
-                  {(compound.clusters || []).slice(0, 2).map((cluster:string) => (
-                    <span
-                      key={cluster}
-                      className="chip-readable"
-                    >
-                      {cluster}
-                    </span>
-                  ))}
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold text-ink transition group-hover:text-emerald-700">
-                    {compound.name}
-                  </h3>
-
-                  <p className="mt-3 line-clamp-4 text-sm leading-7 text-[#46574d]">
-                    {cleanSummary(compound.summary, 'compound')}
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-between gap-4 border-t border-brand-900/10 pt-4">
-                  <span className="identity-meta">
-                    Semantic profile
-                  </span>
-
-                  <span className="button-secondary inline-flex rounded-full px-4 py-2 text-sm">
-                    Explore
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
     </main>
   )
 }
