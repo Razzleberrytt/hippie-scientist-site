@@ -14,7 +14,7 @@
     "agent:review": "node scripts/review-patches.mjs",
     "semantic:governance": "node scripts/ci/semantic-governance-check.mjs",
     "semantic:scale-summary": "node scripts/ci/report-semantic-scale-summary.mjs",
-    "data:build": "node scripts/data/build-runtime-from-workbook.fixed.mjs --out public/data && node scripts/data/postprocess-workbook-payloads.mjs && node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data && node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data && node scripts/data/build-route-manifest.mjs --data-dir=public/data && node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data && node scripts/data/build-export-batches.mjs --data-dir=public/data",
+    "data:build": "node scripts/data/build-runtime-from-workbook.fixed.mjs --out public/data && node scripts/data/postprocess-workbook-payloads.mjs && node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data && node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data && node scripts/data/build-route-manifest.mjs --data-dir=public/data && node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data && node scripts/data/build-export-batches.mjs --data-dir=public/data && node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data",
     "data:validate": "node scripts/data/validate-data-next.mjs --data-dir public/data && npm run semantic:governance && npm run semantic:scale-summary",
     "validate:route-manifest-budget": "node scripts/ci/validate-route-manifest-budget.mjs",
     "validate:runtime-payload-budgets": "node scripts/ci/validate-runtime-payload-budgets.mjs",
@@ -56,16 +56,15 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^7.0.0",
-    "lint-staged": "^15.2.7",
+    "lint-staged": {
+      "*.{ts,tsx}": "eslint --max-warnings=0",
+      "*.{js,mjs,cjs}": "eslint --max-warnings=0"
+    },
     "postcss": "^8.4.31",
     "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.59.1"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": "eslint --max-warnings=0",
-    "*.{js,mjs,cjs}": "eslint --max-warnings=0"
   }
 }
