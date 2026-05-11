@@ -10,6 +10,7 @@ import { getEcosystemPanels, getTopicClusterLinks } from '@/lib/ecosystem-contex
 import { GuidedSemanticFlowSection } from '@/src/components/explore/GuidedSemanticFlowSection'
 import { EcosystemContinuityVisualizationSection } from '@/src/components/explore/EcosystemContinuityVisualizationSection'
 import { SemanticBridgeSection } from '@/src/components/explore/SemanticBridgeSection'
+import { ContinuityMapSection } from '@/src/components/explore/ContinuityMapSection'
 import {
   SemanticSectionBoundary,
   SemanticSectionFallback,
@@ -120,6 +121,17 @@ export default function ExplorePage() {
         minCandidates={3}
       >
         <SemanticBridgeSection
+          source={semanticSource}
+          candidates={featured}
+        />
+      </SemanticSectionBoundary>
+
+      <SemanticSectionBoundary
+        source={semanticSource}
+        candidates={featured}
+        minCandidates={3}
+      >
+        <ContinuityMapSection
           source={semanticSource}
           candidates={featured}
         />
