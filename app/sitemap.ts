@@ -19,7 +19,7 @@ import {
 
 export const dynamic = 'force-static'
 
-const siteUrl = 'https://thehippiescientist.net'
+const siteUrl = 'https://www.thehippiescientist.net'
 const now = new Date()
 
 type SlugRecord = { slug?: string }
