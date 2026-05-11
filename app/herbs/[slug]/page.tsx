@@ -109,8 +109,61 @@ export default async function HerbDetailPage({ params }: any) {
   const effects = getEffects(herb)
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
 
+  const herbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'DietarySupplement',
+    name: formatDisplayLabel(herb.name || herb.slug),
+    description: summary,
+    url: `https://www.thehippiescientist.net/herbs/${herb.slug}`,
+    ...(herb.latin_name ? { alternateName: herb.latin_name } : {}),
+    ...(effects.length > 0 ? { activeIngredient: effects.join(', ') } : {}),
+    safetyConsideration:
+      'Educational content only. Consult a healthcare professional before use.',
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Herbs',
+        item: 'https://www.thehippiescientist.net/herbs',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: formatDisplayLabel(herb.name || herb.slug),
+        item: `https://www.thehippiescientist.net/herbs/${herb.slug}`,
+      },
+    ],
+  }
+
   return (
     <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:space-y-10 sm:py-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(herbJsonLd) }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      <nav className="flex items-center gap-2 text-sm text-muted">
+        <Link href="/herbs" className="hover:text-ink transition">
+          Herbs
+        </Link>
+
+        <span>/</span>
+
+        <span className="text-ink">
+          {formatDisplayLabel(herb.name || herb.slug)}
+        </span>
+      </nav>
+
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <div className="max-w-4xl space-y-5">
           <p className="eyebrow-label">
