@@ -14,6 +14,7 @@ import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
+import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
 
 export async function generateStaticParams() {
   const { herbs } = await getUnifiedRuntimeRecords()
@@ -214,6 +215,13 @@ export default async function HerbDetailPage({ params }: any) {
           ) : null}
         </div>
       </section>
+
+      <AuthorityEditorialLayer
+        record={herb}
+        entityType="herb"
+        effects={effects}
+        summary={summary}
+      />
 
       <ProfileAuthoritySections
         record={herb}
