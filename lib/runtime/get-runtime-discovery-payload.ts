@@ -31,8 +31,16 @@ export function getRuntimeDiscoveryPayload(record: any) {
         adaptiveScore: score?.adaptiveScore || 0,
         recommendationTier:
           score?.recommendationTier || 'supporting',
+        evidenceScore: score?.evidenceScore || 0,
+        authorityScore: score?.authorityScore || 0,
       }
     })
+    .filter(
+      (item: any) =>
+        item.recommendationTier !== 'suppressed' &&
+        item.evidenceScore >= 42 &&
+        item.authorityScore >= 44,
+    )
     .sort(
       (a: any, b: any) =>
         (b.adaptiveScore || 0) -
