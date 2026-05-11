@@ -6,7 +6,7 @@ import {
 } from '@/lib/semantic-runtime'
 import { cleanSummary, isClean } from '@/lib/display-utils'
 import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
-import { getEcosystemPanels, getTopicClusterLinks } from '@/lib/ecosystem-context'
+import { getEcosystemPanels, getTopicClusterLinks, topicClusters } from '@/lib/ecosystem-context'
 import { GuidedSemanticFlowSection } from '@/src/components/explore/GuidedSemanticFlowSection'
 import { EcosystemContinuityVisualizationSection } from '@/src/components/explore/EcosystemContinuityVisualizationSection'
 import { SemanticBridgeSection } from '@/src/components/explore/SemanticBridgeSection'
@@ -15,6 +15,7 @@ import {
   SemanticSectionBoundary,
   SemanticSectionFallback,
 } from '@/src/components/runtime/SemanticSectionBoundary'
+import { buildAdaptiveEcosystemPriorities } from '@/src/lib/adaptive-ecosystem-prioritization'
 
 const hubIntro = [
   {
@@ -76,6 +77,36 @@ export default function ExplorePage() {
       archetype: classifyArchetype(compound),
       clusters: getTopicClusters(compound).filter(isClean),
     }))
+
+  const adaptivePriorities = buildAdaptiveEcosystemPriorities(
+    featured,
+    topicClusters,
+  )
+
+  const prioritizedSignals = adaptivePriorities
+    .filter((priority) => priority.priorityTier !== 'suppressed')
+    .map((priority) => priority.ecosystem.toLowerCase())
+
+  const prioritizedGraphLinks = [...graphLinks, ...getTopicClusterLinks(10)]
+    .sort((a, b) => {
+      const aPriority = adaptivePriorities.find((priority) =>
+        priority.ecosystem.toLowerCase() === a.label.toLowerCase(),
+      )
+
+      const bPriority = adaptivePriorities.find((priority) =>
+        priority.ecosystem.toLowerCase() === b.label.toLowerCase(),
+      )
+
+      const aScore = aPriority?.ecosystemScore || 0
+      const bScore = bPriority?.ecosystemScore || 0
+
+      if (bScore !== aScore) {
+        return bScore - aScore
+      }
+
+      return a.label.localeCompare(b.label)
+    })
+    .slice(0, 6)
 
   const semanticSource = featured[0] || null
 
@@ -165,9 +196,9 @@ export default function ExplorePage() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {['Adaptogens', 'Neurotransmitters', 'Inflammatory Pathways', 'Mitochondrial Function'].map((item) => (
-              <span key={item} className="chip-readable">
-                {item}
+            {adaptivePriorities.slice(0, 4).map((priority) => (
+              <span key={priority.ecosystem} className="chip-readable">
+                {priority.ecosystem}
               </span>
             ))}
           </div>
@@ -209,14 +240,14 @@ export default function ExplorePage() {
       <EcosystemPanelGrid
         eyebrow="Topic-cluster depth"
         title="Core scientific ecosystems"
-        panels={getEcosystemPanels(['inflammation cognition metabolism stress response longevity mitochondrial function oxidative stress sleep neurobiology cardiovascular function'], 10)}
+        panels={getEcosystemPanels(prioritizedSignals, 10)}
         limit={10}
       />
 
       <KnowledgeGraphLinks
         eyebrow="Often explored together"
         title="Move through the scientific graph"
-        links={[...graphLinks, ...getTopicClusterLinks(4)].slice(0, 6)}
+        links={prioritizedGraphLinks}
       />
 
       <section className="space-y-6">
