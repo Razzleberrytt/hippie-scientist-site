@@ -20,13 +20,40 @@ import {
 export const dynamic = 'force-static'
 
 const siteUrl = 'https://www.thehippiescientist.net'
-const now = new Date()
+const stableDate = new Date('2026-01-01')
+const editorialDate = new Date('2026-04-01')
 
-type SlugRecord = { slug?: string }
+type SlugRecord = {
+  slug?: string
+  updatedAt?: string
+  last_updated?: string
+}
 
-const route = (path: string): MetadataRoute.Sitemap[number] => ({
-  url: path === '/' ? siteUrl : `${siteUrl}${path}`,
-  lastModified: now,
+const cleanSlug = (value: unknown): string =>
+  typeof value === 'string' ? value.trim() : ''
+
+const getLastModified = (record?: SlugRecord) => {
+  const candidate = record?.updatedAt || record?.last_updated
+
+  if (!candidate) return stableDate
+
+  const parsed = new Date(candidate)
+
+  return Number.isNaN(parsed.getTime()) ? stableDate : parsed
+}
+
+const route = (
+  path: string,
+  options?: {
+    lastModified?: Date
+    priority?: number
+    changeFrequency?: MetadataRoute.Sitemap[number]['changeFrequency']
+  },
+): MetadataRoute.Sitemap[number] => ({
+  url: path === '/' ? `${siteUrl}/` : `${siteUrl}${path}`,
+  lastModified: options?.lastModified || editorialDate,
+  changeFrequency: options?.changeFrequency || 'monthly',
+  priority: options?.priority || 0.6,
 })
 
 const pathwayRoutes = [
@@ -41,9 +68,6 @@ const clusterRoutes = [
   '/psychedelic-adjacent-herbs',
 ]
 
-const cleanSlug = (value: unknown): string =>
-  typeof value === 'string' ? value.trim() : ''
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [herbs, runtimeCompounds] = await Promise.all([
     getHerbSummaryIndex(),
@@ -53,53 +77,197 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const stacks = stacksData as SlugRecord[]
   const posts = postsData as SlugRecord[]
 
-  const compoundSlugs = [
-    ...new Set(
-      runtimeCompounds
-        .filter((compound: any) => getRuntimeVisibility(compound).canIndex)
-        .map((c: any) => cleanSlug(c.slug))
-        .filter(Boolean)
-    ),
-  ]
+  const compoundRecords = runtimeCompounds
+    .filter((compound: any) => getRuntimeVisibility(compound).canIndex)
+    .map((compound: any) => ({
+      slug: cleanSlug(compound.slug),
+      updatedAt: compound.updatedAt || compound.last_updated,
+    }))
+    .filter((compound) => compound.slug)
 
-  const herbSlugs = [
-    ...new Set(
-      herbs
-        .filter((herb: any) => getRuntimeVisibility(herb).canIndex)
-        .map((h: any) => cleanSlug(h.slug))
-        .filter(Boolean)
-    ),
-  ]
+  const herbRecords = herbs
+    .filter((herb: any) => getRuntimeVisibility(herb).canIndex)
+    .map((herb: any) => ({
+      slug: cleanSlug(herb.slug),
+      updatedAt: herb.updatedAt || herb.last_updated,
+    }))
+    .filter((herb) => herb.slug)
 
   return [
-    route('/'),
-    route('/compounds'),
-    route('/herbs'),
-    route('/stacks'),
-    route('/goals'),
-    route('/compare'),
-    route('/topics'),
-    route('/ecosystems'),
-    route('/protocols'),
+    route('/', {
+      priority: 1,
+      changeFrequency: 'weekly',
+    }),
 
-    ...seoEntryPages.map(page => route(`/${page.route}`)),
-    ...clusterRoutes.map(route),
-    ...pathwayRoutes.map(route),
-    ...scientificCollections.map(collection => route(`/collections/${collection.slug}`)),
-    ...goalConfigs.map(g => route(`/goals/${g.slug}`)),
-    ...bestPages.map(p => route(`/best/${p.slug}`)),
-    ...supplementComparisons.map(c => route(`/compare/${c.slug}`)),
+    route('/compounds', {
+      priority: 0.8,
+      changeFrequency: 'weekly',
+    }),
 
-    ...authorityTopicSlugs.map((slug) => route(`/topics/${slug}`)),
-    ...authorityEcosystemSlugs.map((slug) => route(`/ecosystems/${slug}`)),
-    ...bestForSlugs.map((slug) => route(`/best/${slug}`)),
-    ...comparisonSlugs.map((slug) => route(`/compare/${slug}`)),
-    ...stackSlugs.map((slug) => route(`/stacks/${slug}`)),
-    ...protocolSlugs.map((slug) => route(`/protocols/${slug}`)),
+    route('/herbs', {
+      priority: 0.8,
+      changeFrequency: 'weekly',
+    }),
 
-    ...stacks.map(s => cleanSlug(s.slug)).filter(Boolean).map(s => route(`/stacks/${s}`)),
-    ...herbSlugs.map(s => route(`/herbs/${s}`)),
-    ...compoundSlugs.map(s => route(`/compounds/${s}`)),
-    ...posts.map(p => cleanSlug(p.slug)).filter(Boolean).map(s => route(`/blog/${s}`)),
+    route('/stacks', {
+      priority: 0.7,
+      changeFrequency: 'monthly',
+    }),
+
+    route('/goals', {
+      priority: 0.7,
+      changeFrequency: 'weekly',
+    }),
+
+    route('/compare', {
+      priority: 0.7,
+      changeFrequency: 'monthly',
+    }),
+
+    route('/topics', {
+      priority: 0.7,
+      changeFrequency: 'weekly',
+    }),
+
+    route('/ecosystems', {
+      priority: 0.7,
+      changeFrequency: 'weekly',
+    }),
+
+    route('/protocols', {
+      priority: 0.7,
+      changeFrequency: 'monthly',
+    }),
+
+    ...seoEntryPages.map(page =>
+      route(`/${page.route}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...clusterRoutes.map((path) =>
+      route(path, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...pathwayRoutes.map((path) =>
+      route(path, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...scientificCollections.map(collection =>
+      route(`/collections/${collection.slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...goalConfigs.map(g =>
+      route(`/goals/${g.slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...bestPages.map(p =>
+      route(`/best/${p.slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...supplementComparisons.map(c =>
+      route(`/compare/${c.slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...authorityTopicSlugs.map((slug) =>
+      route(`/topics/${slug}`, {
+        priority: 0.7,
+        changeFrequency: 'weekly',
+      }),
+    ),
+
+    ...authorityEcosystemSlugs.map((slug) =>
+      route(`/ecosystems/${slug}`, {
+        priority: 0.7,
+        changeFrequency: 'weekly',
+      }),
+    ),
+
+    ...bestForSlugs.map((slug) =>
+      route(`/best/${slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...comparisonSlugs.map((slug) =>
+      route(`/compare/${slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...stackSlugs.map((slug) =>
+      route(`/stacks/${slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...protocolSlugs.map((slug) =>
+      route(`/protocols/${slug}`, {
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...stacks
+      .map(s => cleanSlug(s.slug))
+      .filter(Boolean)
+      .map(s =>
+        route(`/stacks/${s}`, {
+          priority: 0.7,
+          changeFrequency: 'monthly',
+        }),
+      ),
+
+    ...herbRecords.map((record) =>
+      route(`/herbs/${record.slug}`, {
+        lastModified: getLastModified(record),
+        priority: 0.8,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...compoundRecords.map((record) =>
+      route(`/compounds/${record.slug}`, {
+        lastModified: getLastModified(record),
+        priority: 0.8,
+        changeFrequency: 'monthly',
+      }),
+    ),
+
+    ...posts
+      .map(post => ({
+        slug: cleanSlug(post.slug),
+        updatedAt: post.updatedAt || post.last_updated,
+      }))
+      .filter(post => post.slug)
+      .map(post =>
+        route(`/blog/${post.slug}`, {
+          lastModified: getLastModified(post),
+          priority: 0.6,
+          changeFrequency: 'monthly',
+        }),
+      ),
   ]
 }
