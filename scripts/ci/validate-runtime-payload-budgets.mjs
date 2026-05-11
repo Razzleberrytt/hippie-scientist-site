@@ -18,6 +18,7 @@ const PAYLOAD_LIMITS = {
   'runtime-manifests/route-manifest.json': 2_000_000,
   'runtime-manifests/route-segment-groups.json': 2_000_000,
   'runtime-manifests/sitemap-chunk-manifest.json': 1_000_000,
+  'runtime-manifests/export-batch-manifest.json': 1_000_000,
 }
 
 async function fileSize(filePath) {
