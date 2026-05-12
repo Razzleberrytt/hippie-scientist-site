@@ -4,9 +4,17 @@ import {
   classifyArchetype,
   getTopicClusters,
 } from '@/lib/semantic-runtime'
-import { cleanSummary, isClean } from '@/lib/display-utils'
-import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
-import { getEcosystemPanels, getTopicClusterLinks, topicClusters } from '@/lib/ecosystem-context'
+import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
+import {
+  EcosystemPanelGrid,
+  KnowledgeGraphLinks,
+  SemanticHubIntro,
+} from '@/components/semantic-hubs/semantic-hub-sections'
+import {
+  getEcosystemPanels,
+  getTopicClusterLinks,
+  topicClusters,
+} from '@/lib/ecosystem-context'
 import { GuidedSemanticFlowSection } from '@/src/components/explore/GuidedSemanticFlowSection'
 import { EcosystemContinuityVisualizationSection } from '@/src/components/explore/EcosystemContinuityVisualizationSection'
 import { SemanticBridgeSection } from '@/src/components/explore/SemanticBridgeSection'
@@ -21,6 +29,11 @@ import {
   SEMANTIC_EXPANSION_LIMITS,
   cappedExpansion,
 } from '@/src/lib/semantic-expansion-budget'
+import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
+import SemanticGraphMap from '@/components/semantic-graph-map'
+import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
+import PathwayVisualChip from '@/components/pathway-visual-chip'
+import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 
 const hubIntro = [
   {
@@ -38,12 +51,36 @@ const hubIntro = [
 ]
 
 const graphLinks = [
-  { label: 'GABA pathway', href: '/pathways/gaba', description: 'Calming, inhibitory tone, relaxation, and sleep-adjacent neurotransmitter context.' },
-  { label: 'Dopamine pathway', href: '/pathways/dopamine', description: 'Motivation, attention, reward, and cognition-oriented pathway relationships.' },
-  { label: 'Inflammation pathway', href: '/pathways/inflammation', description: 'Immune tone, oxidative stress, cytokine, recovery, and joint-support relationships.' },
-  { label: 'Best studied sleep compounds', href: '/collections/best-studied-sleep-compounds', description: 'Collection view for sleep-related compounds with stronger evidence and semantic signals.' },
-  { label: 'Adaptogens for stress', href: '/collections/adaptogens-for-stress', description: 'Botanical stress-support cluster organized around adaptation, resilience, and calm.' },
-  { label: 'Cholinergic compounds', href: '/collections/cholinergic-compounds', description: 'Cognition-adjacent compounds commonly explored with acetylcholine and attention context.' },
+  {
+    label: 'GABA pathway',
+    href: '/pathways/gaba',
+    description: 'Calming, inhibitory tone, relaxation, and sleep-adjacent neurotransmitter context.',
+  },
+  {
+    label: 'Dopamine pathway',
+    href: '/pathways/dopamine',
+    description: 'Motivation, attention, reward, and cognition-oriented pathway relationships.',
+  },
+  {
+    label: 'Inflammation pathway',
+    href: '/pathways/inflammation',
+    description: 'Immune tone, oxidative stress, cytokine, recovery, and joint-support relationships.',
+  },
+  {
+    label: 'Best studied sleep compounds',
+    href: '/collections/best-studied-sleep-compounds',
+    description: 'Collection view for sleep-related compounds with stronger evidence and semantic signals.',
+  },
+  {
+    label: 'Adaptogens for stress',
+    href: '/collections/adaptogens-for-stress',
+    description: 'Botanical stress-support cluster organized around adaptation, resilience, and calm.',
+  },
+  {
+    label: 'Cholinergic compounds',
+    href: '/collections/cholinergic-compounds',
+    description: 'Cognition-adjacent compounds commonly explored with acetylcholine and attention context.',
+  },
 ]
 
 const TOPICS = [
@@ -52,24 +89,28 @@ const TOPICS = [
     title: 'Sleep Support',
     description: 'Compounds commonly explored for sleep quality, latency, recovery, and nighttime relaxation.',
     meta: 'Sleep pathways',
+    artwork: 'gaba-systems',
   },
   {
     slug: 'focus',
     title: 'Focus & Cognition',
     description: 'Nootropic and cognition-oriented compounds for attention, productivity, and mental performance.',
     meta: 'Neurotransmitters',
+    artwork: 'dopamine-systems',
   },
   {
     slug: 'anxiety',
     title: 'Stress & Mood',
     description: 'Calming, stress-supportive, and mood-oriented compounds.',
     meta: 'Stress signaling',
+    artwork: 'adaptogen-ecosystems',
   },
   {
     slug: 'recovery',
     title: 'Recovery & Performance',
     description: 'Exercise, recovery, hydration, and performance-supportive compounds.',
     meta: 'Recovery support',
+    artwork: 'mitochondrial-ecosystems',
   },
 ]
 
@@ -104,31 +145,59 @@ export default function ExplorePage() {
 
   const semanticSource = featured[0] || null
 
+  const syntheticGraph = buildSemanticGraphVisual(
+    {
+      slug: 'explore-atlas',
+      displayName: 'Explore Atlas',
+      pathways: discoverySignals.map((signal) => signal.ecosystem),
+      effects: discoverySignals.map((signal) => signal.ecosystem),
+    },
+    featured,
+    18,
+  )
+
   return (
     <main className="mx-auto max-w-7xl space-y-12 px-4 py-10 sm:space-y-16 sm:py-14">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
-        <div className="max-w-4xl space-y-6">
-          <div className="space-y-3">
-            <p className="eyebrow-label">Semantic Discovery Layer</p>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,460px)] lg:items-stretch">
+          <div className="max-w-4xl space-y-6">
+            <div className="space-y-3">
+              <p className="eyebrow-label">Semantic Discovery Atlas</p>
 
-            <h1 className="heading-premium max-w-[11ch] text-ink">
-              Explore
-            </h1>
+              <h1 className="heading-premium max-w-[11ch] text-ink">
+                Explore
+              </h1>
+            </div>
+
+            <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
+              Navigate compounds through semantic relationships, archetypes, evidence maturity, mechanisms, and shared research pathways instead of simple alphabetical browsing.
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {['Human Evidence', 'Mechanism-Led', 'Sleep', 'Stress', 'Cognition', 'Recovery', 'Metabolism', 'Neurochemistry'].map((item) => (
+                <PathwayVisualChip key={item} pathway={item} />
+              ))}
+            </div>
           </div>
 
-          <p className="max-w-3xl text-lg leading-8 text-[#46574d]">
-            Navigate compounds through semantic relationships, archetypes, evidence maturity, mechanisms, and shared research pathways instead of simple alphabetical browsing.
-          </p>
-
-          <div className="flex flex-wrap gap-2">
-            {['Human Evidence', 'Mechanism-Led', 'Sleep', 'Stress', 'Cognition', 'Recovery', 'Metabolism', 'Neurochemistry'].map((item) => (
-              <span key={item} className="chip-readable">
-                {item}
-              </span>
-            ))}
-          </div>
+          <SemanticArtworkPanel
+            slug="dopamine-systems"
+            kind="ecosystem"
+            title="Semantic Atlas"
+            subtitle="Explore pathway ecosystems, evidence continuity, graph-native discovery, and semantic scientific relationships."
+            height={320}
+          />
         </div>
       </section>
+
+      <SemanticVisibilityGate minHeight={440}>
+        <SemanticGraphMap
+          title="Explore relationship atlas"
+          description="A lightweight atlas map of discovery ecosystems, semantic continuity, and evidence-aware exploration clusters."
+          nodes={syntheticGraph.nodes}
+          edges={syntheticGraph.edges}
+        />
+      </SemanticVisibilityGate>
 
       <SemanticHubIntro sections={hubIntro} />
 
@@ -191,9 +260,10 @@ export default function ExplorePage() {
 
           <div className="flex flex-wrap gap-2">
             {discoverySignals.slice(0, 4).map((signal) => (
-              <span key={signal.ecosystem} className="chip-readable">
-                {signal.ecosystem}
-              </span>
+              <PathwayVisualChip
+                key={signal.ecosystem}
+                pathway={formatDisplayLabel(signal.ecosystem)}
+              />
             ))}
           </div>
         </div>
@@ -204,9 +274,17 @@ export default function ExplorePage() {
           <Link
             key={topic.slug}
             href={`/explore/${topic.slug}`}
-            className="card-premium group p-6"
+            className="compact-card group overflow-hidden"
           >
-            <div className="space-y-4">
+            <SemanticArtworkPanel
+              slug={topic.artwork}
+              kind="ecosystem"
+              title={topic.title}
+              subtitle={topic.description}
+              height={220}
+            />
+
+            <div className="space-y-4 p-5">
               <span className="identity-kicker">
                 {topic.meta}
               </span>
@@ -221,9 +299,9 @@ export default function ExplorePage() {
                 </p>
               </div>
 
-              <div className="pt-3">
+              <div className="pt-2">
                 <span className="button-secondary inline-flex rounded-full px-4 py-2 text-sm">
-                  Explore Cluster
+                  Explore Ecosystem
                 </span>
               </div>
             </div>
@@ -269,21 +347,27 @@ export default function ExplorePage() {
             <Link
               key={compound.slug}
               href={`/compounds/${compound.slug}`}
-              className="card-premium group p-6"
+              className="compact-card group overflow-hidden"
             >
-              <div className="space-y-5">
+              <SemanticArtworkPanel
+                slug={compound.slug}
+                kind="compound"
+                title={compound.name}
+                subtitle="Semantic profile exploration card."
+                height={210}
+              />
+
+              <div className="space-y-5 p-5">
                 <div className="flex flex-wrap gap-2">
                   <span className="evidence-pill-strong">
                     {compound.archetype}
                   </span>
 
                   {(compound.clusters || []).slice(0, 2).map((cluster:string) => (
-                    <span
+                    <PathwayVisualChip
                       key={cluster}
-                      className="chip-readable"
-                    >
-                      {cluster}
-                    </span>
+                      pathway={cluster}
+                    />
                   ))}
                 </div>
 
