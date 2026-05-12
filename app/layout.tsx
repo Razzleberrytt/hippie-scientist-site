@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { Inter, Fraunces } from 'next/font/google'
 import Link from 'next/link'
 import MobileNav from '@/components/mobile-nav'
+import MobileBottomNav from '@/components/mobile-bottom-nav'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 
@@ -61,7 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body
-        className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] text-[#111827] font-sans antialiased`}
+        className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] pb-24 text-[#111827] font-sans antialiased md:pb-0`}
       >
         <script
           type='application/ld+json'
@@ -96,7 +97,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page py-10 text-base leading-body'>{children}</main>
+          <main className='container-page py-8 text-base leading-body sm:py-10'>
+            {children}
+          </main>
 
           <footer className='mt-16 border-t border-neutral-200 bg-neutral-50'>
             <div className='container-page py-12'>
@@ -148,6 +151,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
           </footer>
+
+          <MobileBottomNav />
         </div>
       </body>
     </html>
