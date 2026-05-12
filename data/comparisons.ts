@@ -131,5 +131,33 @@ export const supplementComparisons: ComparisonConfig[] = [
     summary: 'Berberine is more often compared for metabolic markers, while psyllium is a fiber-first option with gut and lipid-support relevance.',
     a: { label: 'Berberine', candidates: ['berberine'] },
     b: { label: 'Psyllium', candidates: ['psyllium', 'psyllium-husk'] },
-  }
+  },
+  {
+    slug: 'nac-vs-glutathione',
+    title: 'NAC vs Glutathione',
+    summary: 'Compare NAC and glutathione for antioxidant support, precursor relationships, detoxification context, and oxidative stress pathways.',
+    a: { label: 'NAC', candidates: ['nac', 'n-acetyl-cysteine'] },
+    b: { label: 'Glutathione', candidates: ['glutathione'] },
+  },
+  {
+    slug: 'coq10-vs-pqq',
+    title: 'CoQ10 vs PQQ',
+    summary: 'Compare CoQ10 and PQQ for mitochondrial pathways, oxidative stress signaling, cellular energy support, and healthy aging stacks.',
+    a: { label: 'CoQ10', candidates: ['coq10', 'co-enzyme-q10'] },
+    b: { label: 'PQQ', candidates: ['pqq'] },
+  },
+  {
+    slug: 'nmn-vs-nr',
+    title: 'NMN vs NR',
+    summary: 'Compare NMN and nicotinamide riboside for NAD+ support, longevity interest, mitochondrial signaling, and formulation differences.',
+    a: { label: 'NMN', candidates: ['nmn'] },
+    b: { label: 'NR', candidates: ['nr', 'nicotinamide-riboside'] },
+  },
+  {
+    slug: 'l-theanine-vs-taurine',
+    title: 'L-Theanine vs Taurine',
+    summary: 'Compare L-theanine and taurine for calming support, focus preservation, neurotransmitter balance, and relaxation pathways.',
+    a: { label: 'L-Theanine', candidates: ['l-theanine', 'theanine'] },
+    b: { label: 'Taurine', candidates: ['taurine'] },
+  },
 ]
