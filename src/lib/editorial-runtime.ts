@@ -80,6 +80,18 @@ const IDENTITY_CADENCE: Record<EditorialIdentity, string[]> = {
   ],
 }
 
+const ECOSYSTEM_CONTINUITY_LINES = [
+  'Adjacent evidence ecosystems may share mechanisms or outcomes without supporting identical confidence levels.',
+  'Cross-profile continuity improves when related herbs and compounds preserve differences in evidence maturity, endpoints, and translational distance.',
+  'Mechanistic overlap should not collapse distinct profiles into interchangeable claims.',
+]
+
+const COMPARATIVE_SYNTHESIS_LINES = [
+  'Comparative interpretation should weigh direction, density, reproducibility, and population fit rather than surface-level similarity alone.',
+  'Related profiles become more useful when comparisons preserve both shared context and meaningful evidence differences.',
+  'Authority improves when adjacent profiles are interpreted through the same calibration standards instead of isolated claim summaries.',
+]
+
 const SYNTHESIS_LINES: Record<string, string[]> = {
   depth: [
     'Editorial depth improves when contextual interpretation remains aligned across related evidence ecosystems.',
@@ -264,6 +276,14 @@ function editorialCadence(identity: EditorialIdentity, seed: string) {
   return rotateVariation(IDENTITY_CADENCE[identity], `${identity}:${seed}`)
 }
 
+function ecosystemContinuityLine(seed: string) {
+  return rotateVariation(ECOSYSTEM_CONTINUITY_LINES, `${seed}:ecosystem-continuity`)
+}
+
+function comparativeSynthesisLine(seed: string) {
+  return rotateVariation(COMPARATIVE_SYNTHESIS_LINES, `${seed}:comparative-synthesis`)
+}
+
 function composeNarrative(
   seed: string,
   mode: SynthesisMode,
@@ -273,9 +293,11 @@ function composeNarrative(
 ) {
   return [
     synthesisContextLine(seed, mode, signals, context),
+    mode === 'overview' || mode === 'confidence' ? comparativeSynthesisLine(seed) : '',
+    mode === 'mechanism' || mode === 'confidence' ? ecosystemContinuityLine(seed) : '',
     editorialCadence(context.identity, seed),
     conclusion,
-  ].join(' ')
+  ].filter(Boolean).join(' ')
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -324,6 +346,13 @@ function evidenceDensityLabel(signals: EvidenceSignals) {
   if (signals.hasSparseSignal) return 'Sparse or narrow literature; confidence should remain conservative'
   if (signals.hasStrongEvidence && !signals.hasMixedSignal) return 'More developed evidence ecosystem with continued endpoint boundaries'
   return 'Evidence density should be interpreted alongside study quality and consistency'
+}
+
+function comparativeReadinessLabel(signals: EvidenceSignals) {
+  if (signals.hasMixedSignal) return 'Compare cautiously; mixed findings may not generalize cleanly across adjacent profiles'
+  if (signals.hasPreclinicalSignal && !signals.hasStrongEvidence) return 'Compare as mechanistic plausibility, not equivalent human outcome strength'
+  if (signals.hasStrongEvidence) return 'Comparison-ready with endpoint and population boundaries preserved'
+  return 'Useful for comparison when evidence-density limits remain visible'
 }
 
 function synthesisChips(mode: SynthesisMode, seed: string, signals: EvidenceSignals) {
@@ -414,8 +443,9 @@ export function buildEditorialProfile({
       { label: 'Uncertainty posture', value: uncertaintyLabel(record, summary) },
       { label: 'Translation posture', value: translationalLabel(record, mechanisms, summary) },
       { label: 'Evidence density', value: evidenceDensityLabel(signals) },
+      { label: 'Comparative readiness', value: comparativeReadinessLabel(signals) },
       { label: 'Interpretation stance', value: 'Conservative and evidence-calibrated' },
-      { label: 'Editorial depth', value: 'Semantic, translational, and ecosystem aware' },
+      { label: 'Editorial depth', value: 'Semantic, translational, ecosystem, and comparative aware' },
     ],
     whyItMatters: buildWhyItMattersWithContext(record, entityType, summary, effects, signals, context),
     researchConfidence: {
