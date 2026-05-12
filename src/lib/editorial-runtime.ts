@@ -27,6 +27,8 @@ export type EditorialProfile = {
 
 type SynthesisMode = 'overview' | 'confidence' | 'mechanism' | 'safety'
 
+type EditorialIdentity = 'clinical' | 'exploratory' | 'mixed' | 'translational' | 'cautionary'
+
 type EvidenceSignals = {
   hasStrongEvidence: boolean
   hasModerateEvidence: boolean
@@ -50,6 +52,29 @@ const WHY_VARIATIONS = [
   'Research attention around %NAME% frequently focuses on %FOCUS%.',
   '%NAME% is frequently evaluated in relation to %FOCUS%.',
 ]
+
+const IDENTITY_CADENCE: Record<EditorialIdentity, string[]> = {
+  clinical: [
+    'Interpretation still benefits from endpoint discipline and population-aware calibration despite stronger evidence maturity.',
+    'Even comparatively mature evidence domains require continued restraint around generalization and real-world variability.',
+  ],
+  exploratory: [
+    'Current interpretation remains exploratory and should not be mistaken for settled clinical consensus.',
+    'Scientific interest may exceed the maturity of the underlying evidence ecosystem.',
+  ],
+  mixed: [
+    'The surrounding evidence ecosystem appears directionally inconsistent, limiting interpretive certainty.',
+    'Conflicting findings reduce confidence in broad conclusions and favor narrower interpretation.',
+  ],
+  translational: [
+    'Mechanistic plausibility may support continued investigation, but translational certainty remains limited without stronger human replication.',
+    'Preclinical coherence should not be interpreted as equivalent to established human outcome evidence.',
+  ],
+  cautionary: [
+    'Interpretation should remain conservative when safety context, exposure variability, or interaction uncertainty remains unresolved.',
+    'Population differences and real-world exposure patterns may meaningfully alter interpretation boundaries.',
+  ],
+}
 
 const SYNTHESIS_LINES: Record<string, string[]> = {
   depth: [
@@ -174,6 +199,14 @@ function detectEvidenceSignals(record: any, evidence: string, mechanisms: string
   }
 }
 
+function determineEditorialIdentity(signals: EvidenceSignals): EditorialIdentity {
+  if (signals.hasCautionSignal) return 'cautionary'
+  if (signals.hasMixedSignal) return 'mixed'
+  if (signals.hasPreclinicalSignal && !signals.hasStrongEvidence) return 'translational'
+  if (signals.hasSparseSignal && !signals.hasStrongEvidence) return 'exploratory'
+  return 'clinical'
+}
+
 function evidenceSensitiveKeys(mode: SynthesisMode, seed: string, signals?: EvidenceSignals) {
   const base = MODE_KEYS[mode]
   const priorities: string[] = []
@@ -192,6 +225,20 @@ function synthesisContextLine(seed: string, mode: SynthesisMode, signals?: Evide
   return evidenceSensitiveKeys(mode, seed, signals)
     .map((key) => rotateVariation(SYNTHESIS_LINES[key], `${seed}:${mode}:${key}`))
     .join(' ')
+}
+
+function editorialCadence(identity: EditorialIdentity, seed: string) {
+  return rotateVariation(IDENTITY_CADENCE[identity], `${identity}:${seed}`)
+}
+
+function composeNarrative(seed: string, mode: SynthesisMode, signals: EvidenceSignals, conclusion: string) {
+  const identity = determineEditorialIdentity(signals)
+
+  return [
+    synthesisContextLine(seed, mode, signals),
+    editorialCadence(identity, seed),
+    conclusion,
+  ].join(' ')
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -262,7 +309,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${synthesisContextLine(name, 'overview', signals)}`,
+      body: composeNarrative(name, 'overview', signals, variation),
       chips: focus,
       tone,
     }
@@ -322,19 +369,34 @@ export function buildEditorialProfile({
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${synthesisContextLine(summary || evidence, 'confidence', signals)} Human evidence quality varies substantially across domains and outcomes. Evidence confidence should remain sensitive to convergence, disagreement, study design, translational distance, ecological validity, signal strength, and the density of the surrounding literature.`,
+      body: composeNarrative(
+        summary || evidence,
+        'confidence',
+        signals,
+        'Evidence confidence should remain sensitive to convergence, disagreement, study design, translational distance, ecological validity, signal strength, and the density of the surrounding literature.',
+      ),
       chips: unique([...effects.slice(0, 3), ...synthesisChips('confidence', summary || evidence, signals)]).slice(0, 5),
       tone: evidenceTone(evidence),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${synthesisContextLine(mechanismSeed, 'mechanism', signals)} Mechanistic interpretation should remain secondary to direct outcome evidence. Plausible pathways can support biological realism, but mechanism-to-human translation should remain cautious unless aligned with controlled human outcomes and repeated evidence patterns.`,
+      body: composeNarrative(
+        mechanismSeed,
+        'mechanism',
+        signals,
+        'Mechanistic interpretation should remain secondary to direct outcome evidence, even when biological plausibility appears coherent across adjacent pathways or domains.',
+      ),
       chips: unique([...mechanisms.slice(0, 4), ...synthesisChips('mechanism', mechanismSeed, signals)]).slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: `${synthesisContextLine('safety', 'safety', signals)} Safety interpretation should account for population context, exposure assumptions, formulation differences, real-world adherence, and the separation between possible benefit and individualized use decisions.`,
+      body: composeNarrative(
+        'safety',
+        'safety',
+        signals,
+        'Safety interpretation should account for population context, exposure assumptions, formulation differences, real-world adherence, and the separation between possible benefit and individualized use decisions.',
+      ),
       chips: synthesisChips('safety', 'safety', signals),
       tone: signals.hasCautionSignal ? 'caution' : 'neutral',
     },
