@@ -163,6 +163,12 @@ const DURABILITY_CONTEXT_VARIATIONS = [
   'Scientific interpretation improves when profile language distinguishes immediate effects from durable outcome patterns.',
 ]
 
+const REPRODUCIBILITY_CONTEXT_VARIATIONS = [
+  'Reproducibility context matters because one positive study should not be treated the same as repeated findings across independent work.',
+  'Replication-aware framing helps separate isolated signals from effects that appear consistently across research settings.',
+  'Scientific interpretation improves when profile language distinguishes single-study interest from reproducible evidence patterns.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -189,6 +195,7 @@ function exposureContextLine(seed: string) { return rotateVariation(EXPOSURE_CON
 function temporalContextLine(seed: string) { return rotateVariation(TEMPORAL_CONTEXT_VARIATIONS, seed) }
 function longitudinalContextLine(seed: string) { return rotateVariation(LONGITUDINAL_CONTEXT_VARIATIONS, seed) }
 function durabilityContextLine(seed: string) { return rotateVariation(DURABILITY_CONTEXT_VARIATIONS, seed) }
+function reproducibilityContextLine(seed: string) { return rotateVariation(REPRODUCIBILITY_CONTEXT_VARIATIONS, seed) }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
   return unique(
@@ -225,7 +232,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${depthLine(name)} ${sophisticationLine(name)} ${evidenceContinuityLine(name)} ${contextualIntelligenceLine(name)} ${authorityContinuityLine(name)} ${semanticCoherenceLine(name)} ${adaptiveRealismLine(name)} ${evidenceMaturityLine(name)} ${clinicalCautionLine(name)} ${interpretiveRestraintLine(name)} ${outcomeSpecificityLine(name)} ${endpointBoundaryLine(name)} ${researchScopeLine(name)} ${populationContextLine(name)} ${studyDesignLine(name)} ${formulationContextLine(name)} ${dosageContextLine(name)} ${exposureContextLine(name)} ${temporalContextLine(name)} ${longitudinalContextLine(name)} ${durabilityContextLine(name)}`,
+      body: `${variation} ${depthLine(name)} ${sophisticationLine(name)} ${evidenceContinuityLine(name)} ${contextualIntelligenceLine(name)} ${authorityContinuityLine(name)} ${semanticCoherenceLine(name)} ${adaptiveRealismLine(name)} ${evidenceMaturityLine(name)} ${clinicalCautionLine(name)} ${interpretiveRestraintLine(name)} ${outcomeSpecificityLine(name)} ${endpointBoundaryLine(name)} ${researchScopeLine(name)} ${populationContextLine(name)} ${studyDesignLine(name)} ${formulationContextLine(name)} ${dosageContextLine(name)} ${exposureContextLine(name)} ${temporalContextLine(name)} ${longitudinalContextLine(name)} ${durabilityContextLine(name)} ${reproducibilityContextLine(name)}`,
       chips: focus,
       tone,
     }
@@ -278,19 +285,19 @@ export function buildEditorialProfile({
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${depthLine(summary)} ${sophisticationLine(summary)} ${evidenceContinuityLine(summary)} ${contextualIntelligenceLine(summary)} ${authorityContinuityLine(summary)} ${semanticCoherenceLine(summary)} ${adaptiveRealismLine(summary)} ${evidenceMaturityLine(summary)} ${clinicalCautionLine(summary)} ${interpretiveRestraintLine(summary)} ${outcomeSpecificityLine(summary)} ${endpointBoundaryLine(summary)} ${researchScopeLine(summary)} ${populationContextLine(summary)} ${studyDesignLine(summary)} ${formulationContextLine(summary)} ${dosageContextLine(summary)} ${exposureContextLine(summary)} ${temporalContextLine(summary)} ${longitudinalContextLine(summary)} ${durabilityContextLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
+      body: `${depthLine(summary)} ${sophisticationLine(summary)} ${evidenceContinuityLine(summary)} ${contextualIntelligenceLine(summary)} ${authorityContinuityLine(summary)} ${semanticCoherenceLine(summary)} ${adaptiveRealismLine(summary)} ${evidenceMaturityLine(summary)} ${clinicalCautionLine(summary)} ${interpretiveRestraintLine(summary)} ${outcomeSpecificityLine(summary)} ${endpointBoundaryLine(summary)} ${researchScopeLine(summary)} ${populationContextLine(summary)} ${studyDesignLine(summary)} ${formulationContextLine(summary)} ${dosageContextLine(summary)} ${exposureContextLine(summary)} ${temporalContextLine(summary)} ${longitudinalContextLine(summary)} ${durabilityContextLine(summary)} ${reproducibilityContextLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
       chips: effects.slice(0, 4),
       tone: evidenceTone(evidenceLabel(record)),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${depthLine(mechanisms.join(','))} ${sophisticationLine(mechanisms.join(','))} ${evidenceContinuityLine(mechanisms.join(','))} ${contextualIntelligenceLine(mechanisms.join(','))} ${authorityContinuityLine(mechanisms.join(','))} ${semanticCoherenceLine(mechanisms.join(','))} ${adaptiveRealismLine(mechanisms.join(','))} ${evidenceMaturityLine(mechanisms.join(','))} ${clinicalCautionLine(mechanisms.join(','))} ${interpretiveRestraintLine(mechanisms.join(','))} ${outcomeSpecificityLine(mechanisms.join(','))} ${endpointBoundaryLine(mechanisms.join(','))} ${researchScopeLine(mechanisms.join(','))} ${populationContextLine(mechanisms.join(','))} ${studyDesignLine(mechanisms.join(','))} ${formulationContextLine(mechanisms.join(','))} ${dosageContextLine(mechanisms.join(','))} ${exposureContextLine(mechanisms.join(','))} ${temporalContextLine(mechanisms.join(','))} ${longitudinalContextLine(mechanisms.join(','))} ${durabilityContextLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
+      body: `${depthLine(mechanisms.join(','))} ${sophisticationLine(mechanisms.join(','))} ${evidenceContinuityLine(mechanisms.join(','))} ${contextualIntelligenceLine(mechanisms.join(','))} ${authorityContinuityLine(mechanisms.join(','))} ${semanticCoherenceLine(mechanisms.join(','))} ${adaptiveRealismLine(mechanisms.join(','))} ${evidenceMaturityLine(mechanisms.join(','))} ${clinicalCautionLine(mechanisms.join(','))} ${interpretiveRestraintLine(mechanisms.join(','))} ${outcomeSpecificityLine(mechanisms.join(','))} ${endpointBoundaryLine(mechanisms.join(','))} ${researchScopeLine(mechanisms.join(','))} ${populationContextLine(mechanisms.join(','))} ${studyDesignLine(mechanisms.join(','))} ${formulationContextLine(mechanisms.join(','))} ${dosageContextLine(mechanisms.join(','))} ${exposureContextLine(mechanisms.join(','))} ${temporalContextLine(mechanisms.join(','))} ${longitudinalContextLine(mechanisms.join(','))} ${durabilityContextLine(mechanisms.join(','))} ${reproducibilityContextLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
       chips: mechanisms.slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${depthLine('safety')} ${sophisticationLine('safety')} ${evidenceContinuityLine('safety')} ${contextualIntelligenceLine('safety')} ${authorityContinuityLine('safety')} ${semanticCoherenceLine('safety')} ${adaptiveRealismLine('safety')} ${evidenceMaturityLine('safety')} ${clinicalCautionLine('safety')} ${interpretiveRestraintLine('safety')} ${outcomeSpecificityLine('safety')} ${endpointBoundaryLine('safety')} ${researchScopeLine('safety')} ${populationContextLine('safety')} ${studyDesignLine('safety')} ${formulationContextLine('safety')} ${dosageContextLine('safety')} ${exposureContextLine('safety')} ${temporalContextLine('safety')} ${longitudinalContextLine('safety')} ${durabilityContextLine('safety')}`,
+      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${depthLine('safety')} ${sophisticationLine('safety')} ${evidenceContinuityLine('safety')} ${contextualIntelligenceLine('safety')} ${authorityContinuityLine('safety')} ${semanticCoherenceLine('safety')} ${adaptiveRealismLine('safety')} ${evidenceMaturityLine('safety')} ${clinicalCautionLine('safety')} ${interpretiveRestraintLine('safety')} ${outcomeSpecificityLine('safety')} ${endpointBoundaryLine('safety')} ${researchScopeLine('safety')} ${populationContextLine('safety')} ${studyDesignLine('safety')} ${formulationContextLine('safety')} ${dosageContextLine('safety')} ${exposureContextLine('safety')} ${temporalContextLine('safety')} ${longitudinalContextLine('safety')} ${durabilityContextLine('safety')} ${reproducibilityContextLine('safety')}`,
       chips: [],
       tone: CAUTION_PATTERN.test(summary) ? 'caution' : 'neutral',
     },
