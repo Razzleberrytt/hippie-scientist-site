@@ -359,23 +359,119 @@ body {
     @apply rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-5 shadow-sm sm:p-6;
   }
 
+  .compact-section {
+    @apply rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm backdrop-blur-xl sm:p-5;
+  }
+
+  .compact-card {
+    @apply rounded-[1.35rem] border border-brand-900/10 bg-white/75 p-4 shadow-sm backdrop-blur-xl transition-all duration-300 hover:border-brand-900/15 hover:bg-white;
+  }
+
+  .compact-heading {
+    @apply max-w-[22ch] text-xl font-semibold leading-tight tracking-tight text-ink sm:text-2xl;
+  }
+
+  .compact-copy {
+    @apply max-w-[62ch] text-sm leading-7 text-[#46574d] sm:text-[0.95rem];
+  }
+
+  .semantic-rail {
+    @apply -mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 md:grid-cols-3 lg:grid-cols-4;
+    scrollbar-width: none;
+  }
+
+  .semantic-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .semantic-rail-card {
+    @apply min-w-[76%] snap-start rounded-[1.35rem] border border-brand-900/10 bg-white/78 p-4 shadow-sm backdrop-blur-xl transition hover:border-brand-700/20 hover:bg-white sm:min-w-0;
+  }
+
+  .section-rhythm-compact {
+    @apply space-y-4 sm:space-y-5;
+  }
+
+  .section-rhythm-balanced {
+    @apply space-y-6 sm:space-y-8 lg:space-y-10;
+  }
+
   @media (max-width: 640px) {
+    h2:not(.keep-display) {
+      @apply text-[1.65rem] leading-[1.08];
+    }
+
+    h3:not(.keep-display) {
+      @apply text-lg leading-snug;
+    }
+
+    p + p {
+      @apply mt-3;
+    }
+
+    details {
+      @apply rounded-[1.4rem] p-4;
+    }
+
+    .section-spacing {
+      @apply space-y-7;
+    }
+
     .detail-stack {
-      @apply space-y-8;
+      @apply space-y-7;
     }
 
     .card-spacing {
       @apply p-5;
     }
 
+    .card-premium {
+      @apply rounded-[1.55rem] shadow-sm;
+    }
+
+    .card-premium:hover {
+      @apply translate-y-0 shadow-card;
+    }
+
+    .section-frame {
+      @apply rounded-[1.55rem] p-5 shadow-sm;
+    }
+
+    .surface-subtle,
+    .surface-depth {
+      @apply rounded-[1.45rem] shadow-sm;
+    }
+
     .scientific-card {
-      @apply p-4;
+      @apply rounded-[1.35rem] p-4;
     }
 
     .detail-reading,
     .text-reading,
     .content-prose p {
       line-height: 1.76;
+    }
+
+    .content-prose {
+      @apply space-y-4;
+    }
+
+    .content-prose h2,
+    .content-prose h3,
+    .content-prose h4 {
+      @apply mt-7;
+    }
+
+    .heading-premium {
+      @apply text-[2.35rem] leading-[1];
+    }
+
+    .eyebrow-label {
+      @apply text-[0.66rem] tracking-[0.15em];
+    }
+
+    .chip-readable {
+      @apply px-3 py-1.5 text-[11px];
     }
   }
 }
