@@ -92,6 +92,12 @@ const COMPARATIVE_SYNTHESIS_LINES = [
   'Authority improves when adjacent profiles are interpreted through the same calibration standards instead of isolated claim summaries.',
 ]
 
+const AUTHORITY_DISCOVERY_LINES = [
+  'Discovery priority should favor profiles that combine interpretable mechanisms, specific outcomes, and transparent evidence boundaries.',
+  'Authority routing improves when strong profiles support navigation without suppressing exploratory or cautionary contexts.',
+  'Semantic discovery should balance evidence maturity with user intent, safety context, and ecosystem diversity.',
+]
+
 const SYNTHESIS_LINES: Record<string, string[]> = {
   depth: [
     'Editorial depth improves when contextual interpretation remains aligned across related evidence ecosystems.',
@@ -284,6 +290,10 @@ function comparativeSynthesisLine(seed: string) {
   return rotateVariation(COMPARATIVE_SYNTHESIS_LINES, `${seed}:comparative-synthesis`)
 }
 
+function authorityDiscoveryLine(seed: string) {
+  return rotateVariation(AUTHORITY_DISCOVERY_LINES, `${seed}:authority-discovery`)
+}
+
 function composeNarrative(
   seed: string,
   mode: SynthesisMode,
@@ -294,6 +304,7 @@ function composeNarrative(
   return [
     synthesisContextLine(seed, mode, signals, context),
     mode === 'overview' || mode === 'confidence' ? comparativeSynthesisLine(seed) : '',
+    mode === 'overview' || mode === 'confidence' ? authorityDiscoveryLine(seed) : '',
     mode === 'mechanism' || mode === 'confidence' ? ecosystemContinuityLine(seed) : '',
     editorialCadence(context.identity, seed),
     conclusion,
@@ -353,6 +364,14 @@ function comparativeReadinessLabel(signals: EvidenceSignals) {
   if (signals.hasPreclinicalSignal && !signals.hasStrongEvidence) return 'Compare as mechanistic plausibility, not equivalent human outcome strength'
   if (signals.hasStrongEvidence) return 'Comparison-ready with endpoint and population boundaries preserved'
   return 'Useful for comparison when evidence-density limits remain visible'
+}
+
+function authorityDiscoveryLabel(signals: EvidenceSignals) {
+  if (signals.hasCautionSignal) return 'Route with safety context visible and conservative interpretation preserved'
+  if (signals.hasMixedSignal) return 'Useful discovery node when disagreement and heterogeneity remain explicit'
+  if (signals.hasSparseSignal) return 'Exploratory discovery node; avoid over-ranking as settled authority'
+  if (signals.hasStrongEvidence) return 'High-authority discovery candidate with endpoint boundaries preserved'
+  return 'Discovery-ready when paired with evidence-density and translation context'
 }
 
 function synthesisChips(mode: SynthesisMode, seed: string, signals: EvidenceSignals) {
@@ -444,8 +463,9 @@ export function buildEditorialProfile({
       { label: 'Translation posture', value: translationalLabel(record, mechanisms, summary) },
       { label: 'Evidence density', value: evidenceDensityLabel(signals) },
       { label: 'Comparative readiness', value: comparativeReadinessLabel(signals) },
+      { label: 'Discovery posture', value: authorityDiscoveryLabel(signals) },
       { label: 'Interpretation stance', value: 'Conservative and evidence-calibrated' },
-      { label: 'Editorial depth', value: 'Semantic, translational, ecosystem, and comparative aware' },
+      { label: 'Editorial depth', value: 'Semantic, translational, ecosystem, comparative, and discovery aware' },
     ],
     whyItMatters: buildWhyItMattersWithContext(record, entityType, summary, effects, signals, context),
     researchConfidence: {
