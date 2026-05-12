@@ -23,9 +23,17 @@ import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { getFeaturedCollections } from '@/lib/collections'
+import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
+import { buildContinuationPrompts, buildSemanticNarrative } from '@/lib/semantic-exploration-narratives'
+import { buildSourcingNotes, getMonetizationReadiness } from '@/lib/monetization-context'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
+import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
+import SemanticGraphMap from '@/components/semantic-graph-map'
+import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
+import GuidedExplorationPanel from '@/components/guided-exploration-panel'
+import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 
 export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
@@ -143,6 +151,11 @@ export default async function CompoundPage({ params }: any) {
     .slice(0, 6)
 
   const featuredCollections = getFeaturedCollections(compound)
+  const graph = buildSemanticGraphVisual(compound, semanticRelated, 14)
+  const narrative = buildSemanticNarrative(compound, semanticRelated)
+  const prompts = buildContinuationPrompts(compound, semanticRelated)
+  const readiness = getMonetizationReadiness(compound)
+  const sourcingNotes = buildSourcingNotes(compound)
 
   const sources = getSources(compound)
     .map((source:any) => text(source))
@@ -203,24 +216,36 @@ export default async function CompoundPage({ params }: any) {
 
         <TrustBar />
 
-        <section className="space-y-5">
-          <CompoundHero
-            compound={{ ...compound, summary }}
-            evidenceLevel={evidenceLevel}
-            safetyLevel={safetyLevel}
-          />
+        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
+            <div className="space-y-5">
+              <CompoundHero
+                compound={{ ...compound, summary }}
+                evidenceLevel={evidenceLevel}
+                safetyLevel={safetyLevel}
+              />
 
-          <EvidenceBadgeGroup record={compound} />
+              <EvidenceBadgeGroup record={compound} />
 
-          {effects.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
-              {effects.slice(0, 6).map((effect:string) => (
-                <span key={effect} className="chip-readable">
-                  {effect}
-                </span>
-              ))}
+              {effects.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {effects.slice(0, 6).map((effect:string) => (
+                    <span key={effect} className="chip-readable">
+                      {effect}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
             </div>
-          ) : null}
+
+            <SemanticArtworkPanel
+              slug={compound.slug}
+              kind="compound"
+              title={formatDisplayLabel(compound.name || compound.slug)}
+              subtitle="Compound ecosystem artwork for mechanism-aware pathway exploration."
+              height={300}
+            />
+          </div>
         </section>
 
         <AuthorityEditorialLayer
@@ -231,6 +256,22 @@ export default async function CompoundPage({ params }: any) {
           summary={summary}
         />
 
+        <GuidedExplorationPanel
+          overview={narrative.overview}
+          pathways={narrative.pathways}
+          exploration={narrative.exploration}
+          prompts={prompts}
+        />
+
+        <SemanticVisibilityGate minHeight={420}>
+          <SemanticGraphMap
+            title="Compound relationship map"
+            description="A lightweight map of mechanism overlap, pathway continuity, and connected semantic profiles."
+            nodes={graph.nodes}
+            edges={graph.edges}
+          />
+        </SemanticVisibilityGate>
+
         <ProfileAuthoritySections
           record={compound}
           entityType="compound"
@@ -240,6 +281,11 @@ export default async function CompoundPage({ params }: any) {
           effects={effects}
           mechanisms={mechanisms}
           summary={summary}
+        />
+
+        <EvidenceAwareCTA
+          readiness={readiness}
+          sourcingNotes={sourcingNotes}
         />
 
         <RuntimeOrchestratedDiscovery
