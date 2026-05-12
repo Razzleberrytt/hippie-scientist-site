@@ -4,9 +4,12 @@ import { semanticSupernodes, getSemanticSupernode } from '@/lib/semantic-superno
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import ComparisonEcosystemRail from '@/components/comparison-ecosystem-rail'
-import { getEcosystemVisual } from '@/lib/ecosystem-visuals'
+import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
+import SemanticGraphMap from '@/components/semantic-graph-map'
+import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 
 export function generateStaticParams() {
   return semanticSupernodes.map((node) => ({ slug: node.slug }))
@@ -134,14 +137,23 @@ export default async function SemanticSupernodePage({ params }: any) {
   const top = ranked.slice(0, 10)
   const evidenceForward = ranked.filter((record: any) => /strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))).slice(0, 8)
   const pathwayDense = ranked.filter((record: any) => getSignals(record).length >= 4).slice(0, 8)
-  const visual = getEcosystemVisual(node.slug)
+  const graph = buildSemanticGraphVisual(
+    {
+      slug: node.slug,
+      displayName: node.title,
+      pathways: node.keywords,
+      effects: node.keywords,
+    },
+    ranked,
+    16,
+  )
 
   return (
     <main className="min-h-screen bg-background text-ink">
       <section className="container-page py-10 sm:py-14 lg:py-18">
         <div className="section-spacing">
           <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-end">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
               <div className="max-w-4xl space-y-5">
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="eyebrow-label">Semantic Supernode</p>
@@ -161,14 +173,24 @@ export default async function SemanticSupernodePage({ params }: any) {
                 </div>
               </div>
 
-              <div
-                className="flex min-h-[160px] items-center justify-center rounded-[2rem] border border-brand-900/10 shadow-sm"
-                style={{ background: visual.gradient, color: visual.accent }}
-              >
-                <span className="text-6xl">{visual.glyph}</span>
-              </div>
+              <SemanticArtworkPanel
+                slug={node.slug}
+                kind="ecosystem"
+                title={node.title}
+                subtitle="Semantic ecosystem artwork for pathway continuity, evidence relationships, and research traversal."
+                height={280}
+              />
             </div>
           </section>
+
+          <SemanticVisibilityGate minHeight={420}>
+            <SemanticGraphMap
+              title="Supernode relationship map"
+              description="A lightweight visual map of pathway signals and connected profiles in this authority ecosystem."
+              nodes={graph.nodes}
+              edges={graph.edges}
+            />
+          </SemanticVisibilityGate>
 
           <section className="compact-section section-rhythm-compact">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
