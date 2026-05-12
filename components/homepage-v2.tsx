@@ -51,10 +51,26 @@ const learningPaths = [
 ]
 
 const evidenceTopics = [
-  { href: '/blog/2026-03-18-research-digest-passionflower', title: 'How to read a research digest', description: 'A short editorial example of translating mechanisms and limitations without overclaiming.', meta: 'Article', kind: 'article' as const },
-  { href: '/herbs/ashwagandha', title: 'Ashwagandha profile', description: 'A depth-layer example combining traditional use, stress pathways, and cautious evidence context.', meta: 'Herb profile', kind: 'herb' as const },
-  { href: '/compounds/theanine', title: 'Theanine profile', description: 'Compound-centered scanning for effects, safety, mechanisms, and related recommendations.', meta: 'Compound profile', kind: 'compound' as const },
+  { href: '/blog/2026-03-18-research-digest-passionflower', title: 'How to read a research digest', description: 'Translate mechanisms and limitations without overclaiming.', meta: 'Article', kind: 'article' as const },
+  { href: '/herbs/ashwagandha', title: 'Ashwagandha profile', description: 'Stress pathways, traditional context, and cautious evidence framing.', meta: 'Herb profile', kind: 'herb' as const },
+  { href: '/compounds/theanine', title: 'Theanine profile', description: 'Compound-centered scanning for effects, safety, and mechanisms.', meta: 'Compound profile', kind: 'compound' as const },
 ]
+
+function RailCard({ item }: { item: { href: string; title: string; description?: string; meta?: string } }) {
+  return (
+    <Link href={item.href} className="semantic-rail-card group">
+      {item.meta ? <p className="eyebrow-label">{item.meta}</p> : null}
+      <h3 className="mt-2 max-w-none text-base font-semibold leading-snug tracking-tight text-ink group-hover:text-brand-700">
+        {item.title}
+      </h3>
+      {item.description ? (
+        <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#46574d]">
+          {item.description}
+        </p>
+      ) : null}
+    </Link>
+  )
+}
 
 export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] }: HomepageV2Props) {
   const featuredRuntimeTopics = [
@@ -99,9 +115,9 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             <p className="eyebrow-label">Research philosophy</p>
             <div className="mt-5 space-y-4">
               {[
-                ['Evidence before enthusiasm', 'Clinical signals, safety constraints, and uncertainty are surfaced before product intent.'],
-                ['Mechanisms are maps', 'Pathways help exploration, but they are not treated as proof of outcomes.'],
-                ['Traditional use has a label', 'Ethnobotanical context is preserved without pretending it is the same as modern trials.'],
+                ['Evidence before enthusiasm', 'Clinical signals, safety constraints, and uncertainty surface before product intent.'],
+                ['Mechanisms are maps', 'Pathways guide exploration, but they are not treated as proof of outcomes.'],
+                ['Traditional use has a label', 'Ethnobotanical context is preserved without pretending it is modern trial evidence.'],
               ].map(([title, body]) => (
                 <div key={title} className="border-t border-brand-900/10 pt-4 first:border-t-0 first:pt-0">
                   <h2 className="max-w-none font-sans text-base font-semibold tracking-tight text-ink">{title}</h2>
@@ -113,67 +129,62 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         </div>
       </section>
 
-      <section className="surface-depth card-spacing">
-        <div className="space-y-3">
-          <p className="eyebrow-label">Authority Ecosystems</p>
-          <h2 className="max-w-3xl text-balance">
-            Explore semantic hubs, rankings, stacks, protocols, and evidence-aware comparisons.
-          </h2>
+      <section className="compact-section section-rhythm-compact">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="eyebrow-label">Authority Ecosystems</p>
+            <h2 className="compact-heading mt-2">Semantic routes into the research graph.</h2>
+          </div>
+          <Link href="/explore" className="button-secondary rounded-full px-4 py-2 text-xs">View Explore</Link>
         </div>
 
-        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="semantic-rail">
           {authorityHomeLinks.map((item) => (
-            <Link
+            <RailCard
               key={item.href}
-              href={item.href}
-              className="card-premium p-5 transition hover:-translate-y-0.5"
-            >
-              <div className="space-y-2">
-                <p className="eyebrow-label">Authority Route</p>
-                <h3 className="text-lg font-semibold tracking-tight text-ink">
-                  {item.label}
-                </h3>
-              </div>
-            </Link>
+              item={{ href: item.href, title: item.label, meta: 'Authority route', description: 'Evidence-aware route into a related semantic system.' }}
+            />
           ))}
         </div>
       </section>
 
-      <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {[
-          { title: 'Herbs', href: '/herbs', description: 'Botanical profiles with traditional context, use-case signals, safety notes, and related compounds.', meta: 'Botanical depth', kind: 'herb' as const },
-          { title: 'Compounds', href: '/compounds', description: 'Isolated constituents and supplement compounds organized by evidence, effects, and mechanisms.', meta: 'Molecular depth', kind: 'compound' as const },
-          { title: 'Articles', href: '/blog', description: 'Research digests, pharmacology primers, field notes, and preparation explainers tied back to profiles.', meta: 'Editorial layer', kind: 'article' as const },
-          { title: 'Learning paths', href: '/learn', description: 'Guided reading sequences that turn broad questions into evidence-aware exploration.', meta: 'Discovery layer', kind: 'path' as const },
+          { title: 'Herbs', href: '/herbs', description: 'Botanical profiles with traditional context, safety notes, and related compounds.', meta: 'Botanical depth', kind: 'herb' as const },
+          { title: 'Compounds', href: '/compounds', description: 'Supplement compounds organized by evidence, effects, and mechanisms.', meta: 'Molecular depth', kind: 'compound' as const },
+          { title: 'Articles', href: '/blog', description: 'Research digests, pharmacology primers, and preparation explainers.', meta: 'Editorial layer', kind: 'article' as const },
+          { title: 'Learning paths', href: '/learn', description: 'Guided reading sequences for evidence-aware exploration.', meta: 'Discovery layer', kind: 'path' as const },
         ].map((item) => <ContentIdentityCard key={item.href} item={item} />)}
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-[1.15fr_.85fr]">
-        <div className="surface-depth card-spacing">
-          <p className="eyebrow-label">Featured learning paths</p>
-          <h2 className="mt-3 max-w-3xl text-balance">Start with a question, then move into the research graph.</h2>
-          <div className="mt-7 grid gap-4">
-            {learningPaths.map(item => <ContentIdentityCard key={item.href} item={item} />)}
+      <section className="grid gap-5 lg:grid-cols-[1.15fr_.85fr]">
+        <div className="compact-section section-rhythm-compact">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Featured learning paths</p>
+            <h2 className="compact-heading">Start with a question, then move into the research graph.</h2>
+          </div>
+          <div className="semantic-rail">
+            {learningPaths.map(item => <RailCard key={item.href} item={item} />)}
           </div>
         </div>
 
-        <div className="safety-block">
-          <div className="section-spacing">
+        <div className="safety-block p-5 sm:p-6">
+          <div className="section-rhythm-compact">
             <div className="eyebrow-label text-amber-700">
               Scientific trust layer
             </div>
 
-            <div className="space-y-4">
-              <h3 className="max-w-sm text-balance">
+            <div className="space-y-3">
+              <h3 className="compact-heading max-w-sm">
                 Credibility comes from showing the edges of the evidence.
               </h3>
 
-              <p className="text-sm leading-7 text-amber-950/85">
-                Profiles separate human evidence, mechanistic hypotheses, traditional use, practical context, and safety uncertainty so readers can keep claims proportional.
+              <p className="compact-copy text-amber-950/85">
+                Profiles separate human evidence, mechanisms, traditional use, and safety uncertainty so claims stay proportional.
               </p>
             </div>
 
-            <Link href="/disclaimer" className="button-secondary w-full justify-center">
+            <Link href="/disclaimer" className="button-secondary w-full justify-center rounded-full py-2.5 text-sm">
               Read Educational Scope
             </Link>
           </div>
@@ -185,7 +196,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         description="Discovery is organized around why a compound is being explored, what pathway is proposed, and how mature the evidence appears."
         groups={[
           { title: 'Neuroendocrine / nervous system', description: 'GABA, stress-response, mood, sleep, and cognition-adjacent pathways.', href: '/explore/anxiety', meta: 'Mechanism' },
-          { title: 'Evidence maturity', description: 'Compare strong, mixed, early, and traditional-use-led profiles without flattening the nuance.', href: '/a-tier', meta: 'Evidence' },
+          { title: 'Evidence maturity', description: 'Compare strong, mixed, early, and traditional-use-led profiles without flattening nuance.', href: '/a-tier', meta: 'Evidence' },
           { title: 'Effect clusters', description: 'Move from sleep, stress, focus, recovery, or metabolic goals into the depth layer.', href: '/goals', meta: 'Effects' },
           { title: 'Research style', description: 'Distinguish clinical, mechanism-led, traditional-use-led, and editorial synthesis pages.', href: '/blog', meta: 'Method' },
           { title: 'Traditional systems', description: 'Keep historical context visible while preserving modern uncertainty boundaries.', href: '/learning', meta: 'Tradition' },
@@ -193,11 +204,13 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         ]}
       />
 
-      <section className="surface-depth card-spacing">
-        <p className="eyebrow-label">Featured evidence topics</p>
-        <h2 className="mt-3 max-w-3xl text-balance">Publication-style entry points into the research library.</h2>
-        <div className="mt-7 grid gap-4 md:grid-cols-3">
-          {visibleEvidenceTopics.map(item => <ContentIdentityCard key={item.href} item={item} />)}
+      <section className="compact-section section-rhythm-compact">
+        <div className="space-y-2">
+          <p className="eyebrow-label">Featured evidence topics</p>
+          <h2 className="compact-heading">Publication-style entry points into the research library.</h2>
+        </div>
+        <div className="semantic-rail">
+          {visibleEvidenceTopics.map(item => <RailCard key={item.href} item={item} />)}
         </div>
       </section>
 
