@@ -8,6 +8,9 @@ import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/d
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
+import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
+import { buildSemanticNarrative, buildContinuationPrompts } from '@/lib/semantic-exploration-narratives'
+import { buildSourcingNotes, getMonetizationReadiness } from '@/lib/monetization-context'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
@@ -16,6 +19,11 @@ import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
+import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
+import SemanticGraphMap from '@/components/semantic-graph-map'
+import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
+import GuidedExplorationPanel from '@/components/guided-exploration-panel'
+import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 
 export async function generateStaticParams() {
   const { herbs } = await getUnifiedRuntimeRecords()
@@ -133,6 +141,11 @@ export default async function HerbDetailPage({ params }: any) {
   const featuredCollections = getFeaturedCollections(herb)
   const effects = getEffects(herb)
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
+  const graph = buildSemanticGraphVisual(herb, relatedProfiles, 14)
+  const narrative = buildSemanticNarrative(herb, relatedProfiles)
+  const prompts = buildContinuationPrompts(herb, relatedProfiles)
+  const readiness = getMonetizationReadiness(herb)
+  const sourcingNotes = buildSourcingNotes(herb)
 
   const herbJsonLd = {
     '@context': 'https://schema.org',
@@ -190,30 +203,40 @@ export default async function HerbDetailPage({ params }: any) {
       </nav>
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-        <div className="max-w-4xl space-y-5">
-          <p className="eyebrow-label">
-            Botanical Research Profile
-          </p>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
+          <div className="max-w-4xl space-y-5">
+            <p className="eyebrow-label">
+              Botanical Research Profile
+            </p>
 
-          <h1 className="heading-premium text-ink">
-            {formatDisplayLabel(herb.name || herb.slug)}
-          </h1>
+            <h1 className="heading-premium text-ink">
+              {formatDisplayLabel(herb.name || herb.slug)}
+            </h1>
 
-          <EvidenceBadgeGroup record={herb} />
+            <EvidenceBadgeGroup record={herb} />
 
-          <p className="detail-reading text-base text-[#46574d] sm:text-lg">
-            {summary}
-          </p>
+            <p className="detail-reading text-base text-[#46574d] sm:text-lg">
+              {summary}
+            </p>
 
-          {effects.length > 0 ? (
-            <div className="flex flex-wrap gap-2">
-              {effects.map((effect: string) => (
-                <span key={effect} className="chip-readable">
-                  {effect}
-                </span>
-              ))}
-            </div>
-          ) : null}
+            {effects.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {effects.map((effect: string) => (
+                  <span key={effect} className="chip-readable">
+                    {effect}
+                  </span>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          <SemanticArtworkPanel
+            slug={herb.slug}
+            kind="botanical"
+            title={formatDisplayLabel(herb.name || herb.slug)}
+            subtitle="Botanical ecosystem artwork for evidence-aware pathway exploration."
+            height={300}
+          />
         </div>
       </section>
 
@@ -232,6 +255,22 @@ export default async function HerbDetailPage({ params }: any) {
         summary={summary}
       />
 
+      <GuidedExplorationPanel
+        overview={narrative.overview}
+        pathways={narrative.pathways}
+        exploration={narrative.exploration}
+        prompts={prompts}
+      />
+
+      <SemanticVisibilityGate minHeight={420}>
+        <SemanticGraphMap
+          title="Profile relationship map"
+          description="A lightweight map of pathway signals, mechanism overlap, and connected semantic profiles."
+          nodes={graph.nodes}
+          edges={graph.edges}
+        />
+      </SemanticVisibilityGate>
+
       <ProfileAuthoritySections
         record={herb}
         entityType="herb"
@@ -240,6 +279,11 @@ export default async function HerbDetailPage({ params }: any) {
         stackRecords={stackRecords}
         effects={effects}
         summary={summary}
+      />
+
+      <EvidenceAwareCTA
+        readiness={readiness}
+        sourcingNotes={sourcingNotes}
       />
 
       <RuntimeOrchestratedDiscovery
