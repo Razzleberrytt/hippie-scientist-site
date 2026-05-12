@@ -27,6 +27,15 @@ export type EditorialProfile = {
 
 type SynthesisMode = 'overview' | 'confidence' | 'mechanism' | 'safety'
 
+type EvidenceSignals = {
+  hasStrongEvidence: boolean
+  hasModerateEvidence: boolean
+  hasPreclinicalSignal: boolean
+  hasMixedSignal: boolean
+  hasSparseSignal: boolean
+  hasCautionSignal: boolean
+}
+
 const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal/i
 const STRONG_EVIDENCE_PATTERN = /strong|high|clinical|human|meta|systematic|rct/i
 const MODERATE_EVIDENCE_PATTERN = /moderate|promising|developing|limited|mixed/i
@@ -152,8 +161,37 @@ function uniqueContextKeys(keys: string[], seed: string, limit = 4) {
   return unique([...keys.slice(offset), ...keys.slice(0, offset)]).slice(0, limit)
 }
 
-function synthesisContextLine(seed: string, mode: SynthesisMode) {
-  return uniqueContextKeys(MODE_KEYS[mode], seed).map((key) => rotateVariation(SYNTHESIS_LINES[key], `${seed}:${key}`)).join(' ')
+function detectEvidenceSignals(record: any, evidence: string, mechanisms: string[], summary = ''): EvidenceSignals {
+  const combined = [evidence, summary, text(record?.summary), text(record?.description), mechanisms.join(' ')].join(' ')
+
+  return {
+    hasStrongEvidence: STRONG_EVIDENCE_PATTERN.test(combined),
+    hasModerateEvidence: MODERATE_EVIDENCE_PATTERN.test(combined),
+    hasPreclinicalSignal: PRECLINICAL_PATTERN.test(combined),
+    hasMixedSignal: MIXED_PATTERN.test(combined),
+    hasSparseSignal: SPARSE_PATTERN.test(combined),
+    hasCautionSignal: CAUTION_PATTERN.test(combined),
+  }
+}
+
+function evidenceSensitiveKeys(mode: SynthesisMode, seed: string, signals?: EvidenceSignals) {
+  const base = MODE_KEYS[mode]
+  const priorities: string[] = []
+
+  if (signals?.hasMixedSignal) priorities.push('divergence', 'heterogeneity', 'reproducibility')
+  if (signals?.hasSparseSignal) priorities.push('evidenceDensity', 'maturity', 'restraint')
+  if (signals?.hasPreclinicalSignal) priorities.push('translational', 'studyDesign', 'specificity')
+  if (signals?.hasCautionSignal) priorities.push('safety', 'population', 'exposure')
+  if (signals?.hasStrongEvidence && !signals.hasMixedSignal) priorities.push('convergence', 'reproducibility', 'signalStrength')
+  if (signals?.hasModerateEvidence && !signals.hasStrongEvidence) priorities.push('signalStrength', 'restraint', 'studyDesign')
+
+  return uniqueContextKeys(unique([...priorities, ...base]), seed, 4)
+}
+
+function synthesisContextLine(seed: string, mode: SynthesisMode, signals?: EvidenceSignals) {
+  return evidenceSensitiveKeys(mode, seed, signals)
+    .map((key) => rotateVariation(SYNTHESIS_LINES[key], `${seed}:${mode}:${key}`))
+    .join(' ')
 }
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
@@ -185,23 +223,37 @@ function evidenceSignalLabel(evidence: string) {
   return 'Early, sparse, or context-dependent signal'
 }
 
-function translationalLabel(record: any, mechanisms: string[]) {
-  const combined = [evidenceLabel(record), text(record?.summary), text(record?.description), mechanisms.join(' ')].join(' ')
+function translationalLabel(record: any, mechanisms: string[], summary = '') {
+  const combined = [evidenceLabel(record), summary, text(record?.summary), text(record?.description), mechanisms.join(' ')].join(' ')
   if (PRECLINICAL_PATTERN.test(combined)) return 'Mechanistic or preclinical support requires human-outcome restraint'
   return 'Mechanistic plausibility remains secondary to direct outcome evidence'
 }
 
-function uncertaintyLabel(record: any) {
-  const combined = [evidenceLabel(record), text(record?.summary), text(record?.description)].join(' ')
+function uncertaintyLabel(record: any, summary = '') {
+  const combined = [evidenceLabel(record), summary, text(record?.summary), text(record?.description)].join(' ')
   if (MIXED_PATTERN.test(combined)) return 'Mixed or variable findings require uncertainty-sensitive synthesis'
   if (SPARSE_PATTERN.test(combined)) return 'Sparse evidence base requires conservative interpretation'
   return 'Evidence interpretation remains context-sensitive'
 }
 
+function evidenceDensityLabel(signals: EvidenceSignals) {
+  if (signals.hasSparseSignal) return 'Sparse or narrow literature; confidence should remain conservative'
+  if (signals.hasStrongEvidence && !signals.hasMixedSignal) return 'More developed evidence ecosystem with continued endpoint boundaries'
+  return 'Evidence density should be interpreted alongside study quality and consistency'
+}
+
+function synthesisChips(mode: SynthesisMode, seed: string, signals: EvidenceSignals) {
+  return evidenceSensitiveKeys(mode, seed, signals)
+    .map(formatDisplayLabel)
+    .slice(0, 4)
+}
+
 export function buildWhyItMatters(record: any, entityType: EditorialEntityType, summary: string, effects: string[]): EditorialNarrative {
   const focus = cleanEditorialItems([...list(record?.best_for), ...effects], 4)
   const name = formatDisplayLabel(record?.name || record?.slug)
-  const tone = evidenceTone(evidenceLabel(record))
+  const evidence = evidenceLabel(record)
+  const signals = detectEvidenceSignals(record, evidence, [], summary)
+  const tone = evidenceTone(evidence)
 
   if (focus.length > 0) {
     const variation = rotateVariation(WHY_VARIATIONS, name)
@@ -210,7 +262,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${synthesisContextLine(name, 'overview')}`,
+      body: `${variation} ${synthesisContextLine(name, 'overview', signals)}`,
       chips: focus,
       tone,
     }
@@ -252,6 +304,7 @@ export function buildEditorialProfile({
   const summary = cleanSummary(providedSummary || record?.summary || record?.description || '', entityType)
   const evidence = evidenceLabel(record)
   const mechanismSeed = mechanisms.join(',') || summary || entityType
+  const signals = detectEvidenceSignals(record, evidence, mechanisms, summary)
 
   return {
     effects,
@@ -260,29 +313,30 @@ export function buildEditorialProfile({
     decisionSnapshot: [
       { label: 'Evidence strength', value: evidence },
       { label: 'Signal interpretation', value: evidenceSignalLabel(evidence) },
-      { label: 'Uncertainty posture', value: uncertaintyLabel(record) },
-      { label: 'Translation posture', value: translationalLabel(record, mechanisms) },
+      { label: 'Uncertainty posture', value: uncertaintyLabel(record, summary) },
+      { label: 'Translation posture', value: translationalLabel(record, mechanisms, summary) },
+      { label: 'Evidence density', value: evidenceDensityLabel(signals) },
       { label: 'Interpretation stance', value: 'Conservative and evidence-calibrated' },
       { label: 'Editorial depth', value: 'Semantic, translational, and ecosystem aware' },
     ],
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${synthesisContextLine(summary || evidence, 'confidence')} Human evidence quality varies substantially across domains and outcomes. Evidence confidence should remain sensitive to convergence, disagreement, study design, translational distance, ecological validity, signal strength, and the density of the surrounding literature.`,
-      chips: effects.slice(0, 4),
+      body: `${synthesisContextLine(summary || evidence, 'confidence', signals)} Human evidence quality varies substantially across domains and outcomes. Evidence confidence should remain sensitive to convergence, disagreement, study design, translational distance, ecological validity, signal strength, and the density of the surrounding literature.`,
+      chips: unique([...effects.slice(0, 3), ...synthesisChips('confidence', summary || evidence, signals)]).slice(0, 5),
       tone: evidenceTone(evidence),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${synthesisContextLine(mechanismSeed, 'mechanism')} Mechanistic interpretation should remain secondary to direct outcome evidence. Plausible pathways can support biological realism, but mechanism-to-human translation should remain cautious unless aligned with controlled human outcomes and repeated evidence patterns.`,
-      chips: mechanisms.slice(0, 6),
+      body: `${synthesisContextLine(mechanismSeed, 'mechanism', signals)} Mechanistic interpretation should remain secondary to direct outcome evidence. Plausible pathways can support biological realism, but mechanism-to-human translation should remain cautious unless aligned with controlled human outcomes and repeated evidence patterns.`,
+      chips: unique([...mechanisms.slice(0, 4), ...synthesisChips('mechanism', mechanismSeed, signals)]).slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: `${synthesisContextLine('safety', 'safety')} Safety interpretation should account for population context, exposure assumptions, formulation differences, real-world adherence, and the separation between possible benefit and individualized use decisions.`,
-      chips: [],
-      tone: CAUTION_PATTERN.test(summary) ? 'caution' : 'neutral',
+      body: `${synthesisContextLine('safety', 'safety', signals)} Safety interpretation should account for population context, exposure assumptions, formulation differences, real-world adherence, and the separation between possible benefit and individualized use decisions.`,
+      chips: synthesisChips('safety', 'safety', signals),
+      tone: signals.hasCautionSignal ? 'caution' : 'neutral',
     },
   }
 }
