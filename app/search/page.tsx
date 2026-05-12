@@ -6,6 +6,7 @@ import Fuse from 'fuse.js'
 import compoundsData from '@/public/data/compounds.json'
 import herbsData from '@/public/data/herbs.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
 type SearchType = 'Herb' | 'Compound'
 type FilterType = 'All' | 'Herb' | 'Compound'
@@ -21,6 +22,8 @@ type SearchItem = {
   safety: string
   quality: string
   searchText: string
+  authorityScore: number
+  discoveryScore: number
 }
 
 const suggestedSearches = ['sleep', 'stress', 'inflammation', 'focus', 'digestion', 'metabolism']
@@ -103,6 +106,12 @@ function typeClass(type: SearchType) {
     : 'rounded-full border border-blue-700/10 bg-blue-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-blue-800'
 }
 
+function compareAuthority(a: SearchItem, b: SearchItem) {
+  if (b.discoveryScore !== a.discoveryScore) return b.discoveryScore - a.discoveryScore
+  if (b.authorityScore !== a.authorityScore) return b.authorityScore - a.authorityScore
+  return a.name.localeCompare(b.name)
+}
+
 function normalizeItem(item: any, type: SearchType): SearchItem | null {
   const slug = text(item.slug || item.id)
   if (!slug) return null
@@ -116,6 +125,7 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
   const safety = getSafety(item)
   const quality = getQuality(item)
   const href = type === 'Herb' ? `/herbs/${slug}` : `/compounds/${slug}`
+  const orchestration = getSemanticOrchestrationSignals(item)
 
   return {
     slug,
@@ -127,6 +137,8 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
     evidence,
     safety,
     quality,
+    authorityScore: orchestration.authorityScore,
+    discoveryScore: orchestration.discoveryScore,
     searchText: [name, slug, summary, effects.join(' '), evidence, safety, quality].join(' '),
   }
 }
@@ -190,7 +202,7 @@ export default function SearchPage() {
   const searchItems = useMemo(() => {
     const herbs = (herbsData as any[]).map(item => normalizeItem(item, 'Herb')).filter(Boolean) as SearchItem[]
     const compounds = (compoundsData as any[]).map(item => normalizeItem(item, 'Compound')).filter(Boolean) as SearchItem[]
-    return [...herbs, ...compounds]
+    return [...herbs, ...compounds].sort(compareAuthority)
   }, [])
 
   const fuse = useMemo(() => new Fuse(searchItems, {
@@ -202,12 +214,25 @@ export default function SearchPage() {
     ],
     threshold: 0.34,
     ignoreLocation: true,
+    includeScore: true,
   }), [searchItems])
 
   const results = useMemo(() => {
     const baseResults = !normalizedQuery
       ? searchItems.slice(0, 36)
-      : fuse.search(normalizedQuery).map(result => result.item).slice(0, 60)
+      : fuse.search(normalizedQuery)
+          .map(result => ({
+            item: result.item,
+            relevanceScore: 1 - (result.score ?? 1),
+          }))
+          .sort((a, b) => {
+            const weightedB = b.relevanceScore * 0.7 + b.item.discoveryScore * 0.2 + b.item.authorityScore * 0.1
+            const weightedA = a.relevanceScore * 0.7 + a.item.discoveryScore * 0.2 + a.item.authorityScore * 0.1
+            if (weightedB !== weightedA) return weightedB - weightedA
+            return compareAuthority(a.item, b.item)
+          })
+          .map(result => result.item)
+          .slice(0, 60)
 
     if (activeFilter === 'All') return baseResults
 
