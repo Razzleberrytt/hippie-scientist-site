@@ -26,7 +26,6 @@ export type EditorialProfile = {
 }
 
 type SynthesisMode = 'overview' | 'confidence' | 'mechanism' | 'safety'
-
 type EditorialIdentity = 'clinical' | 'exploratory' | 'mixed' | 'translational' | 'cautionary'
 
 type EvidenceSignals = {
@@ -36,6 +35,11 @@ type EvidenceSignals = {
   hasMixedSignal: boolean
   hasSparseSignal: boolean
   hasCautionSignal: boolean
+}
+
+type EditorialContext = {
+  identity: EditorialIdentity
+  usedKeys: Set<string>
 }
 
 const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal/i
@@ -181,9 +185,14 @@ function rotateVariation(values: string[], seed: string) {
   return values[total % values.length]
 }
 
-function uniqueContextKeys(keys: string[], seed: string, limit = 4) {
-  const offset = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % Math.max(keys.length, 1)
-  return unique([...keys.slice(offset), ...keys.slice(0, offset)]).slice(0, limit)
+function deterministicOffset(seed: string, length: number) {
+  const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
+  return total % Math.max(length, 1)
+}
+
+function orderedKeys(keys: string[], seed: string) {
+  const offset = deterministicOffset(seed, keys.length)
+  return unique([...keys.slice(offset), ...keys.slice(0, offset)])
 }
 
 function detectEvidenceSignals(record: any, evidence: string, mechanisms: string[], summary = ''): EvidenceSignals {
@@ -207,7 +216,14 @@ function determineEditorialIdentity(signals: EvidenceSignals): EditorialIdentity
   return 'clinical'
 }
 
-function evidenceSensitiveKeys(mode: SynthesisMode, seed: string, signals?: EvidenceSignals) {
+function createEditorialContext(signals: EvidenceSignals): EditorialContext {
+  return {
+    identity: determineEditorialIdentity(signals),
+    usedKeys: new Set<string>(),
+  }
+}
+
+function evidenceSensitiveKeys(mode: SynthesisMode, signals?: EvidenceSignals) {
   const base = MODE_KEYS[mode]
   const priorities: string[] = []
 
@@ -218,11 +234,28 @@ function evidenceSensitiveKeys(mode: SynthesisMode, seed: string, signals?: Evid
   if (signals?.hasStrongEvidence && !signals.hasMixedSignal) priorities.push('convergence', 'reproducibility', 'signalStrength')
   if (signals?.hasModerateEvidence && !signals.hasStrongEvidence) priorities.push('signalStrength', 'restraint', 'studyDesign')
 
-  return uniqueContextKeys(unique([...priorities, ...base]), seed, 4)
+  return unique([...priorities, ...base])
 }
 
-function synthesisContextLine(seed: string, mode: SynthesisMode, signals?: EvidenceSignals) {
-  return evidenceSensitiveKeys(mode, seed, signals)
+function coordinatedContextKeys(
+  seed: string,
+  mode: SynthesisMode,
+  signals: EvidenceSignals,
+  context: EditorialContext,
+  limit = 4,
+) {
+  const ordered = orderedKeys(evidenceSensitiveKeys(mode, signals), `${seed}:${mode}`)
+  const fresh = ordered.filter((key) => !context.usedKeys.has(key))
+  const repeated = ordered.filter((key) => context.usedKeys.has(key))
+  const selected = [...fresh, ...repeated].slice(0, limit)
+
+  selected.forEach((key) => context.usedKeys.add(key))
+
+  return selected
+}
+
+function synthesisContextLine(seed: string, mode: SynthesisMode, signals: EvidenceSignals, context: EditorialContext) {
+  return coordinatedContextKeys(seed, mode, signals, context)
     .map((key) => rotateVariation(SYNTHESIS_LINES[key], `${seed}:${mode}:${key}`))
     .join(' ')
 }
@@ -231,12 +264,16 @@ function editorialCadence(identity: EditorialIdentity, seed: string) {
   return rotateVariation(IDENTITY_CADENCE[identity], `${identity}:${seed}`)
 }
 
-function composeNarrative(seed: string, mode: SynthesisMode, signals: EvidenceSignals, conclusion: string) {
-  const identity = determineEditorialIdentity(signals)
-
+function composeNarrative(
+  seed: string,
+  mode: SynthesisMode,
+  signals: EvidenceSignals,
+  context: EditorialContext,
+  conclusion: string,
+) {
   return [
-    synthesisContextLine(seed, mode, signals),
-    editorialCadence(identity, seed),
+    synthesisContextLine(seed, mode, signals, context),
+    editorialCadence(context.identity, seed),
     conclusion,
   ].join(' ')
 }
@@ -290,17 +327,22 @@ function evidenceDensityLabel(signals: EvidenceSignals) {
 }
 
 function synthesisChips(mode: SynthesisMode, seed: string, signals: EvidenceSignals) {
-  return evidenceSensitiveKeys(mode, seed, signals)
+  return orderedKeys(evidenceSensitiveKeys(mode, signals), seed)
     .map(formatDisplayLabel)
     .slice(0, 4)
 }
 
-export function buildWhyItMatters(record: any, entityType: EditorialEntityType, summary: string, effects: string[]): EditorialNarrative {
+function buildWhyItMattersWithContext(
+  record: any,
+  entityType: EditorialEntityType,
+  summary: string,
+  effects: string[],
+  signals: EvidenceSignals,
+  context: EditorialContext,
+): EditorialNarrative {
   const focus = cleanEditorialItems([...list(record?.best_for), ...effects], 4)
   const name = formatDisplayLabel(record?.name || record?.slug)
-  const evidence = evidenceLabel(record)
-  const signals = detectEvidenceSignals(record, evidence, [], summary)
-  const tone = evidenceTone(evidence)
+  const tone = evidenceTone(evidenceLabel(record))
 
   if (focus.length > 0) {
     const variation = rotateVariation(WHY_VARIATIONS, name)
@@ -309,7 +351,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: composeNarrative(name, 'overview', signals, variation),
+      body: composeNarrative(name, 'overview', signals, context, variation),
       chips: focus,
       tone,
     }
@@ -321,6 +363,14 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
     chips: [],
     tone,
   }
+}
+
+export function buildWhyItMatters(record: any, entityType: EditorialEntityType, summary: string, effects: string[]): EditorialNarrative {
+  const evidence = evidenceLabel(record)
+  const signals = detectEvidenceSignals(record, evidence, [], summary)
+  const context = createEditorialContext(signals)
+
+  return buildWhyItMattersWithContext(record, entityType, summary, effects, signals, context)
 }
 
 export function buildEditorialProfile({
@@ -352,6 +402,7 @@ export function buildEditorialProfile({
   const evidence = evidenceLabel(record)
   const mechanismSeed = mechanisms.join(',') || summary || entityType
   const signals = detectEvidenceSignals(record, evidence, mechanisms, summary)
+  const context = createEditorialContext(signals)
 
   return {
     effects,
@@ -366,13 +417,14 @@ export function buildEditorialProfile({
       { label: 'Interpretation stance', value: 'Conservative and evidence-calibrated' },
       { label: 'Editorial depth', value: 'Semantic, translational, and ecosystem aware' },
     ],
-    whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
+    whyItMatters: buildWhyItMattersWithContext(record, entityType, summary, effects, signals, context),
     researchConfidence: {
       title: 'Research Confidence',
       body: composeNarrative(
         summary || evidence,
         'confidence',
         signals,
+        context,
         'Evidence confidence should remain sensitive to convergence, disagreement, study design, translational distance, ecological validity, signal strength, and the density of the surrounding literature.',
       ),
       chips: unique([...effects.slice(0, 3), ...synthesisChips('confidence', summary || evidence, signals)]).slice(0, 5),
@@ -384,6 +436,7 @@ export function buildEditorialProfile({
         mechanismSeed,
         'mechanism',
         signals,
+        context,
         'Mechanistic interpretation should remain secondary to direct outcome evidence, even when biological plausibility appears coherent across adjacent pathways or domains.',
       ),
       chips: unique([...mechanisms.slice(0, 4), ...synthesisChips('mechanism', mechanismSeed, signals)]).slice(0, 6),
@@ -395,6 +448,7 @@ export function buildEditorialProfile({
         'safety',
         'safety',
         signals,
+        context,
         'Safety interpretation should account for population context, exposure assumptions, formulation differences, real-world adherence, and the separation between possible benefit and individualized use decisions.',
       ),
       chips: synthesisChips('safety', 'safety', signals),
