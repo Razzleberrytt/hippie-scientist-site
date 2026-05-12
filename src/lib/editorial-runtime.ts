@@ -85,6 +85,12 @@ const EVIDENCE_MATURITY_VARIATIONS = [
   'Maturity-aware interpretation helps prevent weak evidence domains from being framed with excessive confidence.',
 ]
 
+const CLINICAL_CAUTION_VARIATIONS = [
+  'Clinical caution remains important because educational interpretation should not imply individualized medical guidance.',
+  'Cautious framing helps preserve trust when research signals are promising but not yet clinically settled.',
+  'Clinical restraint improves profile quality by separating research interpretation from personal-use recommendations.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -122,6 +128,10 @@ function evidenceMaturityLine(seed: string) {
   return rotateVariation(EVIDENCE_MATURITY_VARIATIONS, seed)
 }
 
+function clinicalCautionLine(seed: string) {
+  return rotateVariation(CLINICAL_CAUTION_VARIATIONS, seed)
+}
+
 export function cleanEditorialItems(value: unknown, limit = 6) {
   return unique(
     list(value)
@@ -157,7 +167,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${depthLine(name)} ${sophisticationLine(name)} ${evidenceContinuityLine(name)} ${contextualIntelligenceLine(name)} ${authorityContinuityLine(name)} ${semanticCoherenceLine(name)} ${adaptiveRealismLine(name)} ${evidenceMaturityLine(name)}`,
+      body: `${variation} ${depthLine(name)} ${sophisticationLine(name)} ${evidenceContinuityLine(name)} ${contextualIntelligenceLine(name)} ${authorityContinuityLine(name)} ${semanticCoherenceLine(name)} ${adaptiveRealismLine(name)} ${evidenceMaturityLine(name)} ${clinicalCautionLine(name)}`,
       chips: focus,
       tone,
     }
@@ -210,19 +220,19 @@ export function buildEditorialProfile({
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${depthLine(summary)} ${sophisticationLine(summary)} ${evidenceContinuityLine(summary)} ${contextualIntelligenceLine(summary)} ${authorityContinuityLine(summary)} ${semanticCoherenceLine(summary)} ${adaptiveRealismLine(summary)} ${evidenceMaturityLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
+      body: `${depthLine(summary)} ${sophisticationLine(summary)} ${evidenceContinuityLine(summary)} ${contextualIntelligenceLine(summary)} ${authorityContinuityLine(summary)} ${semanticCoherenceLine(summary)} ${adaptiveRealismLine(summary)} ${evidenceMaturityLine(summary)} ${clinicalCautionLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
       chips: effects.slice(0, 4),
       tone: evidenceTone(evidenceLabel(record)),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${depthLine(mechanisms.join(','))} ${sophisticationLine(mechanisms.join(','))} ${evidenceContinuityLine(mechanisms.join(','))} ${contextualIntelligenceLine(mechanisms.join(','))} ${authorityContinuityLine(mechanisms.join(','))} ${semanticCoherenceLine(mechanisms.join(','))} ${adaptiveRealismLine(mechanisms.join(','))} ${evidenceMaturityLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
+      body: `${depthLine(mechanisms.join(','))} ${sophisticationLine(mechanisms.join(','))} ${evidenceContinuityLine(mechanisms.join(','))} ${contextualIntelligenceLine(mechanisms.join(','))} ${authorityContinuityLine(mechanisms.join(','))} ${semanticCoherenceLine(mechanisms.join(','))} ${adaptiveRealismLine(mechanisms.join(','))} ${evidenceMaturityLine(mechanisms.join(','))} ${clinicalCautionLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
       chips: mechanisms.slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${depthLine('safety')} ${sophisticationLine('safety')} ${evidenceContinuityLine('safety')} ${contextualIntelligenceLine('safety')} ${authorityContinuityLine('safety')} ${semanticCoherenceLine('safety')} ${adaptiveRealismLine('safety')} ${evidenceMaturityLine('safety')}`,
+      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${depthLine('safety')} ${sophisticationLine('safety')} ${evidenceContinuityLine('safety')} ${contextualIntelligenceLine('safety')} ${authorityContinuityLine('safety')} ${semanticCoherenceLine('safety')} ${adaptiveRealismLine('safety')} ${evidenceMaturityLine('safety')} ${clinicalCautionLine('safety')}`,
       chips: [],
       tone: CAUTION_PATTERN.test(summary) ? 'caution' : 'neutral',
     },
