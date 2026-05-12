@@ -10,6 +10,7 @@ import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
 type SearchType = 'Herb' | 'Compound'
 type FilterType = 'All' | 'Herb' | 'Compound'
+type SearchIntent = 'general' | 'evidence' | 'safety' | 'mechanism' | 'comparison'
 
 type SearchItem = {
   slug: string
@@ -24,6 +25,12 @@ type SearchItem = {
   searchText: string
   authorityScore: number
   discoveryScore: number
+  evidenceScore: number
+  mechanismScore: number
+  ecosystemScore: number
+  safetyPenalty: number
+  uncertaintyPenalty: number
+  translationalPenalty: number
 }
 
 const suggestedSearches = ['sleep', 'stress', 'inflammation', 'focus', 'digestion', 'metabolism']
@@ -112,6 +119,37 @@ function compareAuthority(a: SearchItem, b: SearchItem) {
   return a.name.localeCompare(b.name)
 }
 
+function getSearchIntent(query: string): SearchIntent {
+  const value = query.toLowerCase()
+
+  if (/safe|safety|risk|avoid|interaction|contraindication|warning|pregnancy|side effect/.test(value)) return 'safety'
+  if (/evidence|study|studies|clinical|human|trial|meta|systematic|strongest|proven|research/.test(value)) return 'evidence'
+  if (/mechanism|pathway|receptor|target|how does|works|action|bioavailability/.test(value)) return 'mechanism'
+  if (/compare|comparison|versus|vs\.?|alternative|similar|better|stronger/.test(value)) return 'comparison'
+
+  return 'general'
+}
+
+function weightedSearchScore(item: SearchItem, relevanceScore: number, intent: SearchIntent) {
+  if (intent === 'evidence') {
+    return relevanceScore * 0.58 + item.evidenceScore * 0.18 + item.authorityScore * 0.16 + item.discoveryScore * 0.08
+  }
+
+  if (intent === 'safety') {
+    return relevanceScore * 0.58 + (1 - item.safetyPenalty) * 0.18 + item.authorityScore * 0.12 + (1 - item.uncertaintyPenalty) * 0.12
+  }
+
+  if (intent === 'mechanism') {
+    return relevanceScore * 0.56 + item.mechanismScore * 0.2 + item.ecosystemScore * 0.14 + item.discoveryScore * 0.1
+  }
+
+  if (intent === 'comparison') {
+    return relevanceScore * 0.54 + item.ecosystemScore * 0.18 + item.discoveryScore * 0.14 + item.authorityScore * 0.1 + (1 - item.translationalPenalty) * 0.04
+  }
+
+  return relevanceScore * 0.7 + item.discoveryScore * 0.2 + item.authorityScore * 0.1
+}
+
 function normalizeItem(item: any, type: SearchType): SearchItem | null {
   const slug = text(item.slug || item.id)
   if (!slug) return null
@@ -139,6 +177,12 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
     quality,
     authorityScore: orchestration.authorityScore,
     discoveryScore: orchestration.discoveryScore,
+    evidenceScore: orchestration.evidenceScore,
+    mechanismScore: orchestration.mechanismDensity,
+    ecosystemScore: orchestration.ecosystemDensity,
+    safetyPenalty: orchestration.safetyPenalty,
+    uncertaintyPenalty: orchestration.uncertaintyPenalty,
+    translationalPenalty: orchestration.translationalPenalty,
     searchText: [name, slug, summary, effects.join(' '), evidence, safety, quality].join(' '),
   }
 }
@@ -198,6 +242,7 @@ export default function SearchPage() {
   const [activeFilter, setActiveFilter] = useState<FilterType>('All')
 
   const normalizedQuery = query.trim()
+  const searchIntent = getSearchIntent(normalizedQuery)
 
   const searchItems = useMemo(() => {
     const herbs = (herbsData as any[]).map(item => normalizeItem(item, 'Herb')).filter(Boolean) as SearchItem[]
@@ -226,8 +271,8 @@ export default function SearchPage() {
             relevanceScore: 1 - (result.score ?? 1),
           }))
           .sort((a, b) => {
-            const weightedB = b.relevanceScore * 0.7 + b.item.discoveryScore * 0.2 + b.item.authorityScore * 0.1
-            const weightedA = a.relevanceScore * 0.7 + a.item.discoveryScore * 0.2 + a.item.authorityScore * 0.1
+            const weightedB = weightedSearchScore(b.item, b.relevanceScore, searchIntent)
+            const weightedA = weightedSearchScore(a.item, a.relevanceScore, searchIntent)
             if (weightedB !== weightedA) return weightedB - weightedA
             return compareAuthority(a.item, b.item)
           })
@@ -237,7 +282,7 @@ export default function SearchPage() {
     if (activeFilter === 'All') return baseResults
 
     return baseResults.filter(item => item.type === activeFilter)
-  }, [normalizedQuery, fuse, searchItems, activeFilter])
+  }, [normalizedQuery, searchIntent, fuse, searchItems, activeFilter])
 
   const herbs = results.filter(item => item.type === 'Herb')
   const compounds = results.filter(item => item.type === 'Compound')
