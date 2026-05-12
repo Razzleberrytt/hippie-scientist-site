@@ -181,6 +181,42 @@ const HETEROGENEITY_CONTEXT_VARIATIONS = [
   'Scientific interpretation improves when profile language acknowledges meaningful variation across research conditions.',
 ]
 
+const CONVERGENCE_CONTEXT_VARIATIONS = [
+  'Convergence context matters because confidence improves when independent evidence streams point in the same general direction.',
+  'Convergence-aware synthesis helps distinguish isolated findings from signals supported by mechanism, outcomes, and adjacent evidence domains.',
+  'Scientific interpretation strengthens when mechanistic plausibility and measured outcomes align without being treated as interchangeable.',
+]
+
+const DIVERGENCE_CONTEXT_VARIATIONS = [
+  'Divergence context matters because conflicting findings should narrow confidence rather than disappear from the interpretation.',
+  'Disagreement-aware synthesis helps frame mixed signals as uncertainty-sensitive evidence rather than a simple positive or negative conclusion.',
+  'Scientific interpretation improves when discordant findings are treated as calibration signals instead of editorial inconvenience.',
+]
+
+const TRANSLATIONAL_CONTEXT_VARIATIONS = [
+  'Translational context matters because animal, in-vitro, and mechanistic evidence should not be presented as direct human outcome proof.',
+  'Translation-aware framing helps preserve realism when plausible mechanisms have not yet been confirmed in comparable human contexts.',
+  'Scientific interpretation improves when preclinical support is framed as hypothesis-generating rather than clinically settled.',
+]
+
+const ECOLOGICAL_VALIDITY_CONTEXT_VARIATIONS = [
+  'Ecological validity matters because controlled study conditions may not mirror real-world use, adherence, product quality, or baseline context.',
+  'Real-world applicability should be interpreted cautiously when study settings differ from everyday exposure patterns.',
+  'Scientific interpretation improves when controlled-study findings are not automatically generalized to less controlled real-world conditions.',
+]
+
+const SIGNAL_STRENGTH_CONTEXT_VARIATIONS = [
+  'Signal-strength context matters because weak, moderate, and strong evidence should escalate language only as confidence allows.',
+  'Directional confidence improves when narrative certainty scales with evidence quality instead of topic popularity.',
+  'Scientific interpretation improves when promising signals remain distinct from stronger replicated or human-confirmed findings.',
+]
+
+const EVIDENCE_DENSITY_CONTEXT_VARIATIONS = [
+  'Evidence-density context matters because sparse literatures require different confidence language than broad, repeatedly studied evidence ecosystems.',
+  'Density-aware synthesis helps separate narrow evidence bases from mature research areas with multiple independent observations.',
+  'Scientific interpretation improves when evidence maturity reflects both study quality and the breadth of the surrounding literature.',
+]
+
 function rotateVariation(values: string[], seed: string) {
   const total = seed.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0)
   return values[total % values.length]
@@ -210,6 +246,47 @@ function durabilityContextLine(seed: string) { return rotateVariation(DURABILITY
 function reproducibilityContextLine(seed: string) { return rotateVariation(REPRODUCIBILITY_CONTEXT_VARIATIONS, seed) }
 function consistencyContextLine(seed: string) { return rotateVariation(CONSISTENCY_CONTEXT_VARIATIONS, seed) }
 function heterogeneityContextLine(seed: string) { return rotateVariation(HETEROGENEITY_CONTEXT_VARIATIONS, seed) }
+function convergenceContextLine(seed: string) { return rotateVariation(CONVERGENCE_CONTEXT_VARIATIONS, seed) }
+function divergenceContextLine(seed: string) { return rotateVariation(DIVERGENCE_CONTEXT_VARIATIONS, seed) }
+function translationalContextLine(seed: string) { return rotateVariation(TRANSLATIONAL_CONTEXT_VARIATIONS, seed) }
+function ecologicalValidityContextLine(seed: string) { return rotateVariation(ECOLOGICAL_VALIDITY_CONTEXT_VARIATIONS, seed) }
+function signalStrengthContextLine(seed: string) { return rotateVariation(SIGNAL_STRENGTH_CONTEXT_VARIATIONS, seed) }
+function evidenceDensityContextLine(seed: string) { return rotateVariation(EVIDENCE_DENSITY_CONTEXT_VARIATIONS, seed) }
+
+function synthesisContextLine(seed: string) {
+  return [
+    depthLine(seed),
+    sophisticationLine(seed),
+    evidenceContinuityLine(seed),
+    contextualIntelligenceLine(seed),
+    authorityContinuityLine(seed),
+    semanticCoherenceLine(seed),
+    adaptiveRealismLine(seed),
+    evidenceMaturityLine(seed),
+    clinicalCautionLine(seed),
+    interpretiveRestraintLine(seed),
+    outcomeSpecificityLine(seed),
+    endpointBoundaryLine(seed),
+    researchScopeLine(seed),
+    populationContextLine(seed),
+    studyDesignLine(seed),
+    formulationContextLine(seed),
+    dosageContextLine(seed),
+    exposureContextLine(seed),
+    temporalContextLine(seed),
+    longitudinalContextLine(seed),
+    durabilityContextLine(seed),
+    reproducibilityContextLine(seed),
+    consistencyContextLine(seed),
+    heterogeneityContextLine(seed),
+    convergenceContextLine(seed),
+    divergenceContextLine(seed),
+    translationalContextLine(seed),
+    ecologicalValidityContextLine(seed),
+    signalStrengthContextLine(seed),
+    evidenceDensityContextLine(seed),
+  ].join(' ')
+}
 
 export function cleanEditorialItems(value: unknown, limit = 6) {
   return unique(
@@ -234,6 +311,12 @@ function evidenceTone(evidence: string): EditorialNarrative['tone'] {
   return 'neutral'
 }
 
+function evidenceSignalLabel(evidence: string) {
+  if (STRONG_EVIDENCE_PATTERN.test(evidence)) return 'Directionally stronger signal with continued context limits'
+  if (MODERATE_EVIDENCE_PATTERN.test(evidence)) return 'Moderate or developing signal requiring calibrated interpretation'
+  return 'Early, sparse, or context-dependent signal'
+}
+
 export function buildWhyItMatters(record: any, entityType: EditorialEntityType, summary: string, effects: string[]): EditorialNarrative {
   const focus = cleanEditorialItems([...list(record?.best_for), ...effects], 4)
   const name = formatDisplayLabel(record?.name || record?.slug)
@@ -246,7 +329,7 @@ export function buildWhyItMatters(record: any, entityType: EditorialEntityType, 
 
     return {
       title: 'Why It Matters',
-      body: `${variation} ${depthLine(name)} ${sophisticationLine(name)} ${evidenceContinuityLine(name)} ${contextualIntelligenceLine(name)} ${authorityContinuityLine(name)} ${semanticCoherenceLine(name)} ${adaptiveRealismLine(name)} ${evidenceMaturityLine(name)} ${clinicalCautionLine(name)} ${interpretiveRestraintLine(name)} ${outcomeSpecificityLine(name)} ${endpointBoundaryLine(name)} ${researchScopeLine(name)} ${populationContextLine(name)} ${studyDesignLine(name)} ${formulationContextLine(name)} ${dosageContextLine(name)} ${exposureContextLine(name)} ${temporalContextLine(name)} ${longitudinalContextLine(name)} ${durabilityContextLine(name)} ${reproducibilityContextLine(name)} ${consistencyContextLine(name)} ${heterogeneityContextLine(name)}`,
+      body: `${variation} ${synthesisContextLine(name)}`,
       chips: focus,
       tone,
     }
@@ -286,32 +369,35 @@ export function buildEditorialProfile({
   ], 8)
 
   const summary = cleanSummary(providedSummary || record?.summary || record?.description || '', entityType)
+  const evidence = evidenceLabel(record)
+  const mechanismSeed = mechanisms.join(',') || summary || entityType
 
   return {
     effects,
     mechanisms,
     summary,
     decisionSnapshot: [
-      { label: 'Evidence strength', value: evidenceLabel(record) },
+      { label: 'Evidence strength', value: evidence },
+      { label: 'Signal interpretation', value: evidenceSignalLabel(evidence) },
       { label: 'Interpretation stance', value: 'Conservative and evidence-calibrated' },
-      { label: 'Editorial depth', value: 'Semantic and ecosystem aware' },
+      { label: 'Editorial depth', value: 'Semantic, translational, and ecosystem aware' },
     ],
     whyItMatters: buildWhyItMatters(record, entityType, summary, effects),
     researchConfidence: {
       title: 'Research Confidence',
-      body: `${depthLine(summary)} ${sophisticationLine(summary)} ${evidenceContinuityLine(summary)} ${contextualIntelligenceLine(summary)} ${authorityContinuityLine(summary)} ${semanticCoherenceLine(summary)} ${adaptiveRealismLine(summary)} ${evidenceMaturityLine(summary)} ${clinicalCautionLine(summary)} ${interpretiveRestraintLine(summary)} ${outcomeSpecificityLine(summary)} ${endpointBoundaryLine(summary)} ${researchScopeLine(summary)} ${populationContextLine(summary)} ${studyDesignLine(summary)} ${formulationContextLine(summary)} ${dosageContextLine(summary)} ${exposureContextLine(summary)} ${temporalContextLine(summary)} ${longitudinalContextLine(summary)} ${durabilityContextLine(summary)} ${reproducibilityContextLine(summary)} ${consistencyContextLine(summary)} ${heterogeneityContextLine(summary)} Human evidence quality varies substantially across domains and outcomes.`,
+      body: `${synthesisContextLine(summary || evidence)} Human evidence quality varies substantially across domains and outcomes. Evidence confidence should remain sensitive to convergence, disagreement, study design, translational distance, ecological validity, signal strength, and the density of the surrounding literature.`,
       chips: effects.slice(0, 4),
-      tone: evidenceTone(evidenceLabel(record)),
+      tone: evidenceTone(evidence),
     },
     mechanismNarrative: {
       title: 'Potential Mechanisms',
-      body: `${depthLine(mechanisms.join(','))} ${sophisticationLine(mechanisms.join(','))} ${evidenceContinuityLine(mechanisms.join(','))} ${contextualIntelligenceLine(mechanisms.join(','))} ${authorityContinuityLine(mechanisms.join(','))} ${semanticCoherenceLine(mechanisms.join(','))} ${adaptiveRealismLine(mechanisms.join(','))} ${evidenceMaturityLine(mechanisms.join(','))} ${clinicalCautionLine(mechanisms.join(','))} ${interpretiveRestraintLine(mechanisms.join(','))} ${outcomeSpecificityLine(mechanisms.join(','))} ${endpointBoundaryLine(mechanisms.join(','))} ${researchScopeLine(mechanisms.join(','))} ${populationContextLine(mechanisms.join(','))} ${studyDesignLine(mechanisms.join(','))} ${formulationContextLine(mechanisms.join(','))} ${dosageContextLine(mechanisms.join(','))} ${exposureContextLine(mechanisms.join(','))} ${temporalContextLine(mechanisms.join(','))} ${longitudinalContextLine(mechanisms.join(','))} ${durabilityContextLine(mechanisms.join(','))} ${reproducibilityContextLine(mechanisms.join(','))} ${consistencyContextLine(mechanisms.join(','))} ${heterogeneityContextLine(mechanisms.join(','))} Mechanistic interpretation should remain secondary to direct outcome evidence.`,
+      body: `${synthesisContextLine(mechanismSeed)} Mechanistic interpretation should remain secondary to direct outcome evidence. Plausible pathways can support biological realism, but mechanism-to-human translation should remain cautious unless aligned with controlled human outcomes and repeated evidence patterns.`,
       chips: mechanisms.slice(0, 6),
       tone: mechanisms.length >= 3 ? 'moderate' : 'neutral',
     },
     safetyNarrative: {
       title: 'Safety Interpretation',
-      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${depthLine('safety')} ${sophisticationLine('safety')} ${evidenceContinuityLine('safety')} ${contextualIntelligenceLine('safety')} ${authorityContinuityLine('safety')} ${semanticCoherenceLine('safety')} ${adaptiveRealismLine('safety')} ${evidenceMaturityLine('safety')} ${clinicalCautionLine('safety')} ${interpretiveRestraintLine('safety')} ${outcomeSpecificityLine('safety')} ${endpointBoundaryLine('safety')} ${researchScopeLine('safety')} ${populationContextLine('safety')} ${studyDesignLine('safety')} ${formulationContextLine('safety')} ${dosageContextLine('safety')} ${exposureContextLine('safety')} ${temporalContextLine('safety')} ${longitudinalContextLine('safety')} ${durabilityContextLine('safety')} ${reproducibilityContextLine('safety')} ${consistencyContextLine('safety')} ${heterogeneityContextLine('safety')}`,
+      body: `Safety framing remains intentionally separated from benefit framing so the profile does not overstate certainty. ${synthesisContextLine('safety')}`,
       chips: [],
       tone: CAUTION_PATTERN.test(summary) ? 'caution' : 'neutral',
     },
