@@ -385,7 +385,7 @@ body {
   }
 
   .semantic-rail-card {
-    @apply min-w-[76%] snap-start rounded-[1.35rem] border border-brand-900/10 bg-white/78 p-4 shadow-sm backdrop-blur-xl transition hover:border-brand-700/20 hover:bg-white sm:min-w-0;
+    @apply min-w-[76%] snap-start rounded-[1.35rem] border border-brand-900/10 bg-white/[0.78] p-4 shadow-sm backdrop-blur-xl transition hover:border-brand-700/20 hover:bg-white sm:min-w-0;
   }
 
   .section-rhythm-compact {
