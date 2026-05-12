@@ -13,6 +13,7 @@ import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
+import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
 
@@ -215,6 +216,14 @@ export default async function HerbDetailPage({ params }: any) {
           ) : null}
         </div>
       </section>
+
+      <ProfileDecisionLayer
+        record={herb}
+        entityType="herb"
+        relatedRecords={relatedProfiles}
+        effects={effects}
+        summary={summary}
+      />
 
       <AuthorityEditorialLayer
         record={herb}
