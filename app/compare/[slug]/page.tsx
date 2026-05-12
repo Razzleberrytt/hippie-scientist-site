@@ -6,7 +6,14 @@ import AffiliateBlock from '@/components/AffiliateBlock'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { bestPages } from '@/data/best'
-import { cleanSummary } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
+import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
+import { buildContinuationPrompts, buildSemanticNarrative } from '@/lib/semantic-exploration-narratives'
+import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
+import SemanticGraphMap from '@/components/semantic-graph-map'
+import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
+import GuidedExplorationPanel from '@/components/guided-exploration-panel'
+import PathwayVisualChip from '@/components/pathway-visual-chip'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -43,6 +50,20 @@ const allComparisonSlugs = Array.from(new Set([
   ...generatedComparisons,
   ...supplementComparisons.map(item => item.slug),
 ]))
+
+function getSignals(compound: any) {
+  return unique([
+    ...list(compound?.effects),
+    ...list(compound?.primary_effects),
+    ...list(compound?.mechanisms),
+    ...list(compound?.pathways),
+  ].map(formatDisplayLabel).filter(isClean)).slice(0, 6)
+}
+
+function sharedSignals(a: any, b: any) {
+  const bSet = new Set(getSignals(b).map((item) => item.toLowerCase()))
+  return getSignals(a).filter((item) => bSet.has(item.toLowerCase()))
+}
 
 export function generateStaticParams() {
   return allComparisonSlugs.map(slug => ({ slug }))
@@ -81,6 +102,19 @@ export default async function Page({ params }: Params) {
   const loser = winner.slug === a.slug ? b : a
   const title = config?.title || `${displayName(a)} vs ${displayName(b)}`
   const pageSummary = config?.summary || `Compare ${displayName(a)} and ${displayName(b)} by evidence, fit, safety, and practical use.`
+  const signalsA = getSignals(a)
+  const signalsB = getSignals(b)
+  const overlap = sharedSignals(a, b)
+  const syntheticCompareNode = {
+    slug,
+    displayName: title,
+    effects: overlap.length > 0 ? overlap : [...signalsA, ...signalsB].slice(0, 8),
+    mechanisms: overlap,
+    pathways: [...signalsA, ...signalsB].slice(0, 8),
+  }
+  const graph = buildSemanticGraphVisual(syntheticCompareNode, [a, b], 12)
+  const narrative = buildSemanticNarrative(syntheticCompareNode, [a, b])
+  const prompts = buildContinuationPrompts(syntheticCompareNode, [winner, loser])
 
   const relatedStack = stacks.find((s: any) =>
     (s.compounds || s.stack || []).some((i: any) => {
@@ -105,80 +139,152 @@ export default async function Page({ params }: Params) {
 
   return (
     <main className="space-y-8">
-      <section className="hero-panel">
-        <div className="relative max-w-4xl">
-          <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-800/70">Supplement comparison</p>
-          <h1 className="mt-3 text-5xl font-black leading-[0.95] tracking-tight text-slate-950 sm:text-7xl">{title}</h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-700">{pageSummary}</p>
-          <div className="mt-5 flex flex-wrap gap-2 text-xs font-black text-slate-600">
-            <span className="rounded-full border border-slate-900/10 bg-white/75 px-3 py-1.5">Decision guide</span>
-            <span className="rounded-full border border-emerald-900/10 bg-emerald-50 px-3 py-1.5 text-emerald-800">Evidence signals compared</span>
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
+          <div className="relative max-w-4xl">
+            <p className="eyebrow-label">Semantic Comparison</p>
+            <h1 className="heading-premium mt-3 text-ink">{title}</h1>
+            <p className="detail-reading mt-5 text-base text-[#46574d] sm:text-lg">{pageSummary}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <span className="chip-readable">Decision guide</span>
+              <span className="chip-readable">Evidence signals compared</span>
+              <span className="chip-readable">Mechanism contrast</span>
+            </div>
           </div>
+
+          <SemanticArtworkPanel
+            slug={winner.slug}
+            kind="comparison"
+            title={`${displayName(a)} vs ${displayName(b)}`}
+            subtitle="Comparison ecosystem artwork for mechanism overlap, evidence contrast, and decision-oriented exploration."
+            height={300}
+          />
         </div>
       </section>
 
+      <section className="grid gap-4 lg:grid-cols-2">
+        {[a, b].map((compound: any) => (
+          <article key={compound.slug} className="compact-card section-rhythm-compact">
+            <SemanticArtworkPanel
+              slug={compound.slug}
+              kind="compound"
+              title={displayName(compound)}
+              subtitle="Compound visual identity for comparison context."
+              height={220}
+            />
+            <div className="flex flex-wrap gap-2">
+              <span className="identity-kicker">Evidence signal: {evidenceScore(compound)}/5</span>
+            </div>
+            <h2 className="max-w-none text-2xl font-semibold tracking-tight text-ink">{displayName(compound)}</h2>
+            <p className="text-sm leading-6 text-[#46574d]">{summary(compound)}</p>
+            <div className="flex flex-wrap gap-2 border-t border-brand-900/10 pt-3">
+              {getSignals(compound).slice(0, 5).map((signal) => (
+                <PathwayVisualChip key={signal} pathway={signal} />
+              ))}
+            </div>
+            <Link href={`/compounds/${compound.slug}`} className="text-sm font-semibold text-brand-800 hover:text-brand-700">Open full profile →</Link>
+          </article>
+        ))}
+      </section>
+
       <section className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-        <article className="soft-section bg-emerald-50/80">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-700/70">Better default</p>
-          <h2 className="mt-2 text-3xl font-black text-slate-950">{displayName(winner)}</h2>
-          <p className="mt-3 text-sm font-semibold leading-6 text-slate-700">Usually the better starting point based on the current evidence and profile signals.</p>
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={`/compounds/${winner.slug}`} className="premium-button text-center">View full profile →</Link>
+        <article className="compact-card section-rhythm-compact bg-emerald-50/80">
+          <p className="eyebrow-label">Better default</p>
+          <h2 className="max-w-none text-3xl font-semibold text-ink">{displayName(winner)}</h2>
+          <p className="text-sm font-semibold leading-6 text-[#46574d]">Usually the better starting point based on the current evidence and profile signals.</p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href={`/compounds/${winner.slug}`} className="button-primary text-center">View full profile →</Link>
             <AffiliateBlock compound={winner.slug} compact />
           </div>
         </article>
 
-        <article className="soft-section">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">Alternative</p>
-          <h2 className="mt-2 text-3xl font-black text-slate-950">{displayName(loser)}</h2>
-          <p className="mt-3 text-sm leading-6 text-slate-600">Still worth considering if it better matches your goal, tolerance, timing, or product preference.</p>
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={`/compounds/${loser.slug}`} className="rounded-2xl border border-slate-900/10 bg-white px-5 py-3 text-center text-sm font-black text-slate-900 transition hover:bg-emerald-50">View profile →</Link>
+        <article className="compact-card section-rhythm-compact">
+          <p className="eyebrow-label">Alternative</p>
+          <h2 className="max-w-none text-3xl font-semibold text-ink">{displayName(loser)}</h2>
+          <p className="text-sm leading-6 text-[#46574d]">Still worth considering if it better matches your goal, tolerance, timing, or product preference.</p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href={`/compounds/${loser.slug}`} className="button-secondary text-center">View profile →</Link>
             <AffiliateBlock compound={loser.slug} compact />
           </div>
         </article>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2">
-        {[a, b].map((compound: any) => (
-          <Link key={compound.slug} href={`/compounds/${compound.slug}`} className="premium-card block p-5 transition hover:-translate-y-0.5 hover:bg-white">
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-700/60">Profile</p>
-            <h3 className="mt-2 text-2xl font-black text-slate-950">{displayName(compound)}</h3>
-            <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600">{summary(compound)}</p>
-            <div className="mt-4 flex items-center justify-between border-t border-slate-200 pt-4">
-              <span className="text-xs font-black text-slate-500">Evidence signal: {evidenceScore(compound)}/5</span>
-              <span className="text-sm font-black text-emerald-700">Open →</span>
+      <GuidedExplorationPanel
+        overview={narrative.overview}
+        pathways={narrative.pathways}
+        exploration={narrative.exploration}
+        prompts={prompts}
+      />
+
+      <SemanticVisibilityGate minHeight={420}>
+        <SemanticGraphMap
+          title="Comparison relationship map"
+          description="A lightweight map of overlap signals, evidence relationships, and semantic contrast between the compared profiles."
+          nodes={graph.nodes}
+          edges={graph.edges}
+        />
+      </SemanticVisibilityGate>
+
+      <section className="compact-section section-rhythm-balanced">
+        <div className="space-y-2">
+          <p className="eyebrow-label">Overlap + divergence</p>
+          <h2 className="compact-heading">Where these profiles converge and separate.</h2>
+          <p className="compact-copy">Overlap chips show shared semantic signals; each side keeps its own mechanism and pathway identity so the comparison does not collapse into a simplistic winner claim.</p>
+        </div>
+        <div className="grid gap-4 lg:grid-cols-3">
+          <article className="compact-card section-rhythm-compact">
+            <p className="eyebrow-label">Shared signals</p>
+            <div className="flex flex-wrap gap-2">
+              {(overlap.length > 0 ? overlap : ['evidence context']).map((signal) => (
+                <PathwayVisualChip key={signal} pathway={signal} />
+              ))}
             </div>
-          </Link>
-        ))}
+          </article>
+          <article className="compact-card section-rhythm-compact">
+            <p className="eyebrow-label">{displayName(a)} signals</p>
+            <div className="flex flex-wrap gap-2">
+              {signalsA.slice(0, 5).map((signal) => (
+                <PathwayVisualChip key={signal} pathway={signal} />
+              ))}
+            </div>
+          </article>
+          <article className="compact-card section-rhythm-compact">
+            <p className="eyebrow-label">{displayName(b)} signals</p>
+            <div className="flex flex-wrap gap-2">
+              {signalsB.slice(0, 5).map((signal) => (
+                <PathwayVisualChip key={signal} pathway={signal} />
+              ))}
+            </div>
+          </article>
+        </div>
       </section>
 
       <section className="grid gap-4 lg:grid-cols-3">
         {relatedStack && (
-          <article className="soft-section">
-            <h2 className="text-xl font-black text-slate-950">Use it in a routine</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600">These options may make more sense inside a goal-based stack.</p>
-            <Link href={`/stacks/${relatedStack.slug}`} className="mt-4 inline-flex premium-link">View stack →</Link>
+          <article className="compact-card section-rhythm-compact">
+            <h2 className="max-w-none text-xl font-semibold text-ink">Use it in a routine</h2>
+            <p className="text-sm leading-6 text-[#46574d]">These options may make more sense inside a goal-based stack.</p>
+            <Link href={`/stacks/${relatedStack.slug}`} className="text-sm font-semibold text-brand-800">View stack →</Link>
           </article>
         )}
 
         {relatedComparisons.length > 0 && (
-          <article className="soft-section">
-            <h2 className="text-xl font-black text-slate-950">You may also compare</h2>
-            <div className="mt-3 grid gap-2">
+          <article className="compact-card section-rhythm-compact">
+            <h2 className="max-w-none text-xl font-semibold text-ink">You may also compare</h2>
+            <div className="grid gap-2">
               {relatedComparisons.map(item => (
-                <Link key={item.slug} href={`/compare/${item.slug}`} className="premium-link">{item.title} →</Link>
+                <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-800">{item.title} →</Link>
               ))}
             </div>
           </article>
         )}
 
         {relatedBestPages.length > 0 && (
-          <article className="soft-section">
-            <h2 className="text-xl font-black text-slate-950">Best-of guides</h2>
-            <div className="mt-3 grid gap-2">
+          <article className="compact-card section-rhythm-compact">
+            <h2 className="max-w-none text-xl font-semibold text-ink">Best-of guides</h2>
+            <div className="grid gap-2">
               {relatedBestPages.map(page => (
-                <Link key={page.slug} href={`/best/${page.slug}`} className="premium-link">{page.title} →</Link>
+                <Link key={page.slug} href={`/best/${page.slug}`} className="text-sm font-semibold text-brand-800">{page.title} →</Link>
               ))}
             </div>
           </article>
