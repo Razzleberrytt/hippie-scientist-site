@@ -184,6 +184,57 @@ function overlapScore(a: string[], b: string[]) {
   return clamp(overlap / Math.max(a.length, b.length))
 }
 
+function diversityTerms(record: SemanticRuntimeRecord) {
+  return normalizedList(
+    record.primary_effects,
+    record.effects,
+    record.best_for,
+    record.mechanisms,
+    record.pathways,
+    record.topics,
+    record.topic_ecosystems,
+    record.pathway_ecosystems,
+    record.ecosystem_anchors,
+  ).map((item) => item.toLowerCase())
+}
+
+function candidateSimilarity(a: SemanticRuntimeRecord, b: SemanticRuntimeRecord) {
+  return overlapScore(diversityTerms(a), diversityTerms(b))
+}
+
+function diversityPenalty<T extends SemanticRuntimeRecord>(candidate: SemanticRecommendationCandidate<T>, selected: SemanticRecommendationCandidate<T>[]) {
+  if (selected.length === 0) return 0
+
+  const strongestSimilarity = Math.max(...selected.map((item) => candidateSimilarity(candidate.record, item.record)))
+  return clamp(strongestSimilarity * 0.34)
+}
+
+function selectDiverseRecommendations<T extends SemanticRuntimeRecord>(
+  candidates: SemanticRecommendationCandidate<T>[],
+  limit: number,
+) {
+  const selected: SemanticRecommendationCandidate<T>[] = []
+  const remaining = [...candidates]
+
+  while (selected.length < limit && remaining.length > 0) {
+    let bestIndex = 0
+    let bestScore = -Infinity
+
+    remaining.forEach((candidate, index) => {
+      const adjustedScore = candidate.score - diversityPenalty(candidate, selected)
+      if (adjustedScore > bestScore) {
+        bestScore = adjustedScore
+        bestIndex = index
+      }
+    })
+
+    const [next] = remaining.splice(bestIndex, 1)
+    selected.push(next)
+  }
+
+  return selected
+}
+
 function relationReasons(scoreParts: { effects: number; mechanisms: number; ecosystems: number; authority: number; supernode: number; propagation: number }) {
   const reasons: string[] = []
 
@@ -247,7 +298,7 @@ export function rankSemanticRecommendations<T extends SemanticRuntimeRecord>(
   const sourceSlug = text(source.slug).toLowerCase()
   const sourceName = text(source.name).toLowerCase()
 
-  return candidates
+  const ranked = candidates
     .filter((candidate) => {
       const slug = text(candidate.slug).toLowerCase()
       const name = text(candidate.name).toLowerCase()
@@ -261,5 +312,6 @@ export function rankSemanticRecommendations<T extends SemanticRuntimeRecord>(
       if (b.signals.supernodeScore !== a.signals.supernodeScore) return b.signals.supernodeScore - a.signals.supernodeScore
       return text(a.record.name || a.record.slug).localeCompare(text(b.record.name || b.record.slug))
     })
-    .slice(0, limit)
+
+  return selectDiverseRecommendations(ranked, Math.max(0, limit))
 }
