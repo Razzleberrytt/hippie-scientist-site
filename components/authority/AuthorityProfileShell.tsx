@@ -1,4 +1,12 @@
 import type { AuthorityProfileModel, AuthoritySignal } from '@/lib/authority-profile'
+import {
+  buildCommonMistakesSection,
+  buildCompareInsights,
+  buildHumanEvidenceSummary,
+  buildOutcomeSpecificGuidance,
+  buildPracticalInterpretation,
+  buildRealisticExpectations,
+} from '@/lib/authority-content-enrichment'
 
 function toneClass(tone: AuthoritySignal['tone']) {
   if (tone === 'strong') return 'border-emerald-700/20 bg-emerald-50/70 text-emerald-950'
@@ -44,7 +52,24 @@ function AuthoritySection({ title, eyebrow, signals, dense = false }: { title: s
   )
 }
 
-export default function AuthorityProfileShell({ model }: { model: AuthorityProfileModel }) {
+function InsightCard({ eyebrow, title, body }: { eyebrow: string; title: string; body: string }) {
+  return (
+    <article className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-5 shadow-sm">
+      <p className="eyebrow-label">{eyebrow}</p>
+      <h3 className="mt-2 max-w-none text-xl font-semibold tracking-tight text-ink">{title}</h3>
+      <p className="mt-3 text-sm leading-7 text-[#46574d]">{body}</p>
+    </article>
+  )
+}
+
+export default function AuthorityProfileShell({ model, record }: { model: AuthorityProfileModel; record?: any }) {
+  const practicalInterpretation = record ? buildPracticalInterpretation(record) : ''
+  const realisticExpectations = record ? buildRealisticExpectations(record) : ''
+  const compareInsights = record ? buildCompareInsights(record) : null
+  const humanEvidence = record ? buildHumanEvidenceSummary(record) : null
+  const commonMistakes = record ? buildCommonMistakesSection(record) : []
+  const outcomeGuidance = record ? buildOutcomeSpecificGuidance(record) : []
+
   return (
     <section className="space-y-5">
       <section className="compact-section section-rhythm-balanced">
@@ -53,7 +78,7 @@ export default function AuthorityProfileShell({ model }: { model: AuthorityProfi
             <p className="eyebrow-label">Authority Profile</p>
             <h2 className="compact-heading">Research-grade decision context.</h2>
             <p className="compact-copy">
-              This layer summarizes practical fit, evidence maturity, safety context, mechanisms, timing, and editorial interpretation from the workbook-driven profile data.
+              Practical interpretation, evidence context, safety framing, mechanisms, timing, and real-world expectations from the workbook-driven profile data.
             </p>
           </div>
           <div className="rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-3 text-sm font-semibold text-ink shadow-sm">
@@ -61,6 +86,21 @@ export default function AuthorityProfileShell({ model }: { model: AuthorityProfi
           </div>
         </div>
       </section>
+
+      {record ? (
+        <section className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <InsightCard
+            eyebrow="Practical interpretation"
+            title="What this usually means in practice."
+            body={practicalInterpretation}
+          />
+          <InsightCard
+            eyebrow="Realistic expectations"
+            title="What results should feel like."
+            body={realisticExpectations}
+          />
+        </section>
+      ) : null}
 
       <AuthoritySection
         eyebrow="Executive Summary"
@@ -84,12 +124,44 @@ export default function AuthorityProfileShell({ model }: { model: AuthorityProfi
         />
       </section>
 
+      {outcomeGuidance.length > 0 ? (
+        <section className="compact-card section-rhythm-compact">
+          <div className="space-y-1">
+            <p className="eyebrow-label">Outcome guidance</p>
+            <h3 className="max-w-none text-2xl font-semibold tracking-tight text-ink">How to judge results without hype.</h3>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {outcomeGuidance.slice(0, 4).map((item) => (
+              <article key={item.outcome} className="rounded-[1.25rem] border border-brand-900/10 bg-white/75 p-4 shadow-sm">
+                <h4 className="max-w-none text-base font-semibold tracking-tight text-ink">{item.outcome}</h4>
+                <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.guidance}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <AuthoritySection
         eyebrow="Evidence Hierarchy"
         title="What kind of evidence is visible."
         signals={model.evidenceHierarchy}
         dense
       />
+
+      {humanEvidence ? (
+        <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-5 shadow-sm">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p className="eyebrow-label">Human evidence read</p>
+              <h3 className="mt-2 max-w-none text-2xl font-semibold tracking-tight text-ink">{humanEvidence.interpretation}</h3>
+              <p className="mt-3 text-sm leading-7 text-[#46574d]">{humanEvidence.summary}</p>
+            </div>
+            <span className="rounded-2xl border border-brand-900/10 bg-brand-50/60 px-4 py-3 text-sm font-semibold text-ink">
+              evidence weight {humanEvidence.evidenceWeight}
+            </span>
+          </div>
+        </section>
+      ) : null}
 
       <section className="grid gap-5 lg:grid-cols-2">
         <AuthoritySection
@@ -106,12 +178,36 @@ export default function AuthorityProfileShell({ model }: { model: AuthorityProfi
         />
       </section>
 
+      {compareInsights ? (
+        <InsightCard
+          eyebrow="Compare context"
+          title={compareInsights.headline}
+          body={compareInsights.summary}
+        />
+      ) : null}
+
       <AuthoritySection
         eyebrow="Stack Compatibility"
         title="How to think about combinations."
         signals={model.stackCompatibility}
         dense
       />
+
+      {commonMistakes.length > 0 ? (
+        <section className="compact-card section-rhythm-compact">
+          <div className="space-y-1">
+            <p className="eyebrow-label">Common mistakes</p>
+            <h3 className="max-w-none text-2xl font-semibold tracking-tight text-ink">What people usually get wrong.</h3>
+          </div>
+          <ul className="grid gap-3 md:grid-cols-2">
+            {commonMistakes.map((mistake) => (
+              <li key={mistake} className="rounded-[1.25rem] border border-amber-700/20 bg-amber-50/70 p-4 text-sm leading-6 text-amber-950 shadow-sm">
+                {mistake}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section className={`rounded-[1.5rem] border p-5 shadow-sm ${toneClass(model.editorialInterpretation.tone)}`}>
         <p className="eyebrow-label">Editorial Interpretation</p>
