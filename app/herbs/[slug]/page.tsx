@@ -11,6 +11,10 @@ import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 import { buildSemanticNarrative, buildContinuationPrompts } from '@/lib/semantic-exploration-narratives'
 import { buildSourcingNotes, getMonetizationReadiness } from '@/lib/monetization-context'
+import {
+  buildSemanticAssistantSummary,
+  buildSemanticNavigationSuggestions,
+} from '@/lib/ai-semantic-navigation'
 import { buildMeta } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
@@ -24,6 +28,7 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
+import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 
 export async function generateStaticParams() {
   const { herbs } = await getUnifiedRuntimeRecords()
@@ -144,6 +149,8 @@ export default async function HerbDetailPage({ params }: any) {
   const graph = buildSemanticGraphVisual(herb, relatedProfiles, 14)
   const narrative = buildSemanticNarrative(herb, relatedProfiles)
   const prompts = buildContinuationPrompts(herb, relatedProfiles)
+  const assistant = buildSemanticAssistantSummary(herb, relatedProfiles)
+  const assistantSuggestions = buildSemanticNavigationSuggestions(herb, relatedProfiles, 5)
   const readiness = getMonetizationReadiness(herb)
   const sourcingNotes = buildSourcingNotes(herb)
 
@@ -253,6 +260,13 @@ export default async function HerbDetailPage({ params }: any) {
         entityType="herb"
         effects={effects}
         summary={summary}
+      />
+
+      <SemanticAssistantPanel
+        headline={assistant.headline}
+        body={assistant.body}
+        signals={assistant.signals}
+        suggestions={assistantSuggestions}
       />
 
       <GuidedExplorationPanel
