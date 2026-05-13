@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: any) {
   const visibility = getRuntimeVisibility(compound)
 
   const meta = buildMeta({
-    title: `${formatDisplayLabel(compound.name)} Benefits, Effects & Safety | Hippie Scientist`,
+    title: `${formatDisplayLabel(compound.name)} Benefits, Effects & Safety | The Hippie Scientist`,
     description: cleanSummary(compound.summary || compound.description, 'compound'),
     path: `/compounds/${compound.slug}`,
   })
