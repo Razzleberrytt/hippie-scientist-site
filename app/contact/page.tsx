@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact The Hippie Scientist for site feedback, corrections, and general questions.',
+    'Contact The Hippie Scientist for research feedback, corrections, and general questions.',
   alternates: {
     canonical: '/contact',
   },
@@ -13,143 +13,85 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className='space-y-8'>
-      <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8'>
-        <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-          Contact
-        </p>
+      <section className='compact-section section-rhythm-balanced'>
+        <p className='eyebrow-label'>Contact</p>
 
-        <h1 className='mt-2 text-4xl font-bold tracking-tight sm:text-5xl'>
-          Get in touch
-        </h1>
+        <h1 className='compact-heading'>Get in touch</h1>
 
-        <p className='mt-4 max-w-3xl text-base leading-7 text-white/75 sm:text-lg'>
-          Use this page for general questions, corrections, feedback, and site
-          improvement ideas.
-        </p>
-
-        <p className='mt-3 max-w-3xl text-sm leading-6 text-white/65 sm:text-base'>
-          The easiest way to start is by adding your preferred contact method
-          below. Until then, this page can still explain what kinds of messages
-          are helpful.
+        <p className='compact-copy max-w-3xl'>
+          Questions, corrections, evidence discussions, partnership inquiries, and constructive feedback are always welcome.
         </p>
       </section>
 
       <section className='grid gap-4 lg:grid-cols-3'>
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Good reasons to reach out
-          </p>
-
-          <h2 className='mt-3 text-2xl font-semibold'>Corrections</h2>
-
-          <p className='mt-3 text-sm leading-6 text-white/70'>
-            If you spot a mistake, outdated statement, broken page, or confusing
-            wording, send it along.
+        <div className='compact-card'>
+          <p className='eyebrow-label'>Research feedback</p>
+          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>Corrections and updates</h2>
+          <p className='mt-3 text-sm leading-6 text-ink/75'>
+            If you spot outdated claims, broken links, questionable interpretations, or evidence issues, please reach out.
           </p>
         </div>
 
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Helpful feedback
-          </p>
-
-          <h2 className='mt-3 text-2xl font-semibold'>Suggestions</h2>
-
-          <p className='mt-3 text-sm leading-6 text-white/70'>
-            Request a feature, suggest a better layout, or recommend a topic that
-            would make the libraries more useful.
+        <div className='compact-card'>
+          <p className='eyebrow-label'>Suggestions</p>
+          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>Feature ideas</h2>
+          <p className='mt-3 text-sm leading-6 text-ink/75'>
+            Suggestions for ecosystems, comparison tools, filters, visualizations, or educational features are appreciated.
           </p>
         </div>
 
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Important note
-          </p>
-
-          <h2 className='mt-3 text-2xl font-semibold'>Not medical advice</h2>
-
-          <p className='mt-3 text-sm leading-6 text-white/70'>
-            Please do not use this site as a substitute for professional medical
-            care or urgent support.
+        <div className='compact-card'>
+          <p className='eyebrow-label'>Important</p>
+          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>Educational only</h2>
+          <p className='mt-3 text-sm leading-6 text-ink/75'>
+            The Hippie Scientist is an educational research platform and should not replace professional medical advice.
           </p>
         </div>
       </section>
 
       <section className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr]'>
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Add your contact details here
-          </p>
+        <div className='compact-card'>
+          <p className='eyebrow-label'>Primary contact</p>
+          <h2 className='mt-3 text-3xl font-semibold tracking-tight text-ink'>Reach The Hippie Scientist</h2>
 
-          <h2 className='mt-3 text-3xl font-semibold'>Replace this block with your real contact info</h2>
-
-          <div className='mt-4 space-y-4 text-sm leading-7 text-white/75 sm:text-base'>
+          <div className='mt-5 space-y-4 text-sm leading-7 text-ink/75 sm:text-base'>
             <p>
-              Edit this page and replace the placeholder text below with the way
-              you want people to contact you.
+              Email: randolphwillie77@gmail.com
             </p>
 
-            <div className='rounded-2xl border border-white/10 bg-white/[0.03] p-4'>
-              <p className='font-medium text-white'>Example options</p>
-              <ul className='mt-3 list-disc space-y-2 pl-5 text-white/70'>
-                <li>Email: yourname@example.com</li>
-                <li>Instagram: @yourhandle</li>
-                <li>Contact form link</li>
-                <li>GitHub profile link</li>
+            <p>
+              The project focuses on evidence-aware summaries of herbs, compounds, pathways, mechanisms, and related wellness research topics.
+            </p>
+
+            <div className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
+              <p className='font-medium text-ink'>Best types of messages</p>
+              <ul className='mt-3 list-disc space-y-2 pl-5 text-ink/75'>
+                <li>Research corrections or updated evidence</li>
+                <li>Broken page reports or technical issues</li>
+                <li>Ecosystem or compare-page suggestions</li>
+                <li>Thoughtful partnership inquiries</li>
               </ul>
             </div>
-
-            <p>
-              Keep whatever contact method you actually check. One reliable option
-              is better than five ignored ones.
-            </p>
           </div>
         </div>
 
-        <aside className='ds-card h-fit'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Explore the site
-          </p>
+        <aside className='compact-card h-fit'>
+          <p className='eyebrow-label'>Explore</p>
 
           <div className='mt-4 space-y-3'>
-            <Link
-              href='/about'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
-            >
-              <p className='text-sm font-semibold text-white'>About</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
-                Learn what the project is for and how to use it.
-              </p>
+            <Link href='/about' className='compact-card block transition hover:-translate-y-0.5'>
+              <p className='text-sm font-semibold text-ink'>About</p>
+              <p className='mt-1 text-sm leading-6 text-ink/65'>Learn how the project approaches evidence and semantic exploration.</p>
             </Link>
 
-            <Link
-              href='/herbs'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
-            >
-              <p className='text-sm font-semibold text-white'>Herbs</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
-                Browse plant profiles and summaries.
-              </p>
+            <Link href='/herbs' className='compact-card block transition hover:-translate-y-0.5'>
+              <p className='text-sm font-semibold text-ink'>Herbs</p>
+              <p className='mt-1 text-sm leading-6 text-ink/65'>Browse research-oriented herb profiles and summaries.</p>
             </Link>
 
-            <Link
-              href='/compounds'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
-            >
-              <p className='text-sm font-semibold text-white'>Compounds</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
-                Review constituents and research notes.
-              </p>
-            </Link>
-
-            <Link
-              href='/blog'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
-            >
-              <p className='text-sm font-semibold text-white'>Blog</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
-                Read explainers, comparisons, and practical notes.
-              </p>
+            <Link href='/compounds' className='compact-card block transition hover:-translate-y-0.5'>
+              <p className='text-sm font-semibold text-ink'>Compounds</p>
+              <p className='mt-1 text-sm leading-6 text-ink/65'>Review mechanisms, evidence layers, and comparison pathways.</p>
             </Link>
           </div>
         </aside>
