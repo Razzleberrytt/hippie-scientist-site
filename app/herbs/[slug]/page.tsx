@@ -16,6 +16,8 @@ import {
   buildSemanticNavigationSuggestions,
 } from '@/lib/ai-semantic-navigation'
 import { buildMeta } from '@/lib/seo'
+import { buildAuthorityProfileModel } from '@/lib/authority-profile'
+import { buildInternalLinkDensity } from '@/lib/internal-link-density'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getFeaturedCollections } from '@/lib/collections'
@@ -23,6 +25,7 @@ import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
+import AuthorityProfileShell from '@/components/authority/AuthorityProfileShell'
 import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
 import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
@@ -82,6 +85,33 @@ function getEffects(herb: any) {
   ])
     .filter(isClean)
     .slice(0, 6)
+}
+
+function LinkDensitySection({ links }: { links: ReturnType<typeof buildInternalLinkDensity> }) {
+  const items = [...links.guides, ...links.ecosystems, ...links.compares].slice(0, 9)
+  if (items.length === 0) return null
+
+  return (
+    <section className="compact-card section-rhythm-compact">
+      <div className="space-y-1">
+        <p className="eyebrow-label">Continue Research</p>
+        <h2 className="max-w-none text-2xl font-semibold tracking-tight text-ink">
+          Related guides, ecosystems, and comparisons
+        </h2>
+      </div>
+      <div className="grid gap-3 md:grid-cols-3">
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="rounded-2xl border border-brand-900/10 bg-white/75 p-4 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-700/30 hover:bg-white"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
 }
 
 export default async function HerbDetailPage({ params }: any) {
@@ -153,6 +183,8 @@ export default async function HerbDetailPage({ params }: any) {
   const assistantSuggestions = buildSemanticNavigationSuggestions(herb, relatedProfiles, 5)
   const readiness = getMonetizationReadiness(herb)
   const sourcingNotes = buildSourcingNotes(herb)
+  const authorityModel = buildAuthorityProfileModel(herb)
+  const internalLinks = buildInternalLinkDensity(herb)
 
   const herbJsonLd = {
     '@context': 'https://schema.org',
@@ -254,6 +286,10 @@ export default async function HerbDetailPage({ params }: any) {
         effects={effects}
         summary={summary}
       />
+
+      <AuthorityProfileShell model={authorityModel} record={herb} />
+
+      <LinkDensitySection links={internalLinks} />
 
       <AuthorityEditorialLayer
         record={herb}
