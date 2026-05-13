@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getBeginnerPathways } from '@/lib/beginner-pathways'
+import DecisionVisualGrid from '@/components/decision-visual-grid'
+import WhyThisInsteadPanel from '@/components/why-this-instead-panel'
 
 function getPathway(slug: string) {
   return getBeginnerPathways().find((pathway) => pathway.slug === slug)
@@ -80,6 +82,24 @@ export default function BeginnerPathwayPage({ params }: any) {
           </div>
         </div>
       </section>
+
+      <DecisionVisualGrid
+        record={{
+          slug: pathway.slug,
+          name: pathway.title,
+          description: pathway.description,
+          topic_ecosystems: pathway.signals,
+        }}
+        title={`${pathway.title}: beginner decision map`}
+        compact
+      />
+
+      <WhyThisInsteadPanel
+        record={{ slug: pathway.starterProfiles[0], name: pathway.starterProfiles[0] }}
+        alternatives={pathway.starterProfiles.slice(1).map((profile) => ({ slug: profile, name: profile }))}
+        title="Why start here instead?"
+        limit={2}
+      />
 
       <section className="space-y-5">
         <div className="space-y-2">

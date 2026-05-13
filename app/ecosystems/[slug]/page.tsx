@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getEcosystemHub, getEcosystemHubs } from '@/lib/ecosystem-hubs'
+import EcosystemSupernode from '@/components/ecosystem-supernode'
 
 export async function generateStaticParams() {
   return getEcosystemHubs().map((hub) => ({
@@ -94,6 +95,8 @@ export default function EcosystemHubPage({ params }: any) {
           </div>
         </div>
       </section>
+
+      <EcosystemSupernode hub={hub} profileHref={profileHref} />
 
       <section className="space-y-5">
         <div className="space-y-2">
