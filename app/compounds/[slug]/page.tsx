@@ -26,6 +26,10 @@ import { getFeaturedCollections } from '@/lib/collections'
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 import { buildContinuationPrompts, buildSemanticNarrative } from '@/lib/semantic-exploration-narratives'
 import { buildSourcingNotes, getMonetizationReadiness } from '@/lib/monetization-context'
+import {
+  buildSemanticAssistantSummary,
+  buildSemanticNavigationSuggestions,
+} from '@/lib/ai-semantic-navigation'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
@@ -34,6 +38,7 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
+import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 
 export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
@@ -154,6 +159,8 @@ export default async function CompoundPage({ params }: any) {
   const graph = buildSemanticGraphVisual(compound, semanticRelated, 14)
   const narrative = buildSemanticNarrative(compound, semanticRelated)
   const prompts = buildContinuationPrompts(compound, semanticRelated)
+  const assistant = buildSemanticAssistantSummary(compound, semanticRelated)
+  const assistantSuggestions = buildSemanticNavigationSuggestions(compound, semanticRelated, 5)
   const readiness = getMonetizationReadiness(compound)
   const sourcingNotes = buildSourcingNotes(compound)
 
@@ -254,6 +261,13 @@ export default async function CompoundPage({ params }: any) {
           effects={effects}
           mechanisms={mechanisms}
           summary={summary}
+        />
+
+        <SemanticAssistantPanel
+          headline={assistant.headline}
+          body={assistant.body}
+          signals={assistant.signals}
+          suggestions={assistantSuggestions}
         />
 
         <GuidedExplorationPanel
