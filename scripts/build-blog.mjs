@@ -15,7 +15,7 @@ const toIsoDate = value => {
 
 const estimateReadingTime = text => {
   const words = String(text)
-    .replace(/[#*_`>\-]/g, ' ')
+    .replace(/[#*_`>-]/g, ' ')
     .split(/\s+/)
     .filter(Boolean).length;
   return `${Math.max(1, Math.round(words / 200))} min read`;

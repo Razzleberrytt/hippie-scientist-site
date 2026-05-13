@@ -6,7 +6,15 @@ import prettier from 'eslint-config-prettier'
 import globals from 'globals'
 
 export default [
-  { ignores: ['dist/**', 'out/**', '.next/**', 'node_modules/**'] },
+  {
+    ignores: [
+      'dist/**',
+      'out/**',
+      '.next/**',
+      'node_modules/**',
+      'scripts/data/build-runtime-from-workbook.mjs',
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -44,7 +52,11 @@ export default [
     },
   },
   {
-    files: ['scripts/**/*.{js,mjs,cjs}', 'api/**/*.{js,ts}'],
+    files: [
+      'scripts/**/*.{js,mjs,cjs}',
+      'api/**/*.{js,ts}',
+      'agent/**/*.{js,mjs,cjs}',
+    ],
     languageOptions: {
       globals: {
         ...globals.node,
