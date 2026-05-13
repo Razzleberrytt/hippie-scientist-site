@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getCompoundBySlug } from '@/lib/runtime-data'
@@ -83,6 +84,22 @@ export async function generateMetadata({ params }: any) {
           follow: true,
         },
   }
+}
+
+function CompactDisclosure({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <details className="group rounded-[1.5rem] border border-brand-900/10 bg-white/75 p-5 shadow-sm">
+      <summary className="cursor-pointer list-none">
+        <span className="flex items-center justify-between gap-4 text-base font-semibold tracking-tight text-ink">
+          <span>{title}</span>
+          <span className="text-brand-800 transition group-open:rotate-90" aria-hidden="true">›</span>
+        </span>
+      </summary>
+      <div className="mt-5 space-y-5 border-t border-brand-900/10 pt-5">
+        {children}
+      </div>
+    </details>
+  )
 }
 
 export default async function CompoundPage({ params }: any) {
@@ -259,111 +276,117 @@ export default async function CompoundPage({ params }: any) {
           </div>
         </section>
 
-        <ProfileDecisionLayer
-          record={compound}
-          entityType="compound"
-          relatedRecords={semanticRelated}
-          effects={effects}
-          mechanisms={mechanisms}
-          summary={summary}
-        />
-
-        <DecisionVisualGrid record={compound} />
-
-        <WhyThisInsteadPanel
-          record={compound}
-          alternatives={semanticRelated}
-        />
-
-        <DecisionClarityFieldManual
-          record={compound}
-          entityType="compound"
-          relatedRecords={semanticRelated}
-          effects={effects}
-          mechanisms={mechanisms}
-          summary={summary}
-        />
-
-        <AuthorityEditorialLayer
-          record={compound}
-          entityType="compound"
-          effects={effects}
-          mechanisms={mechanisms}
-          summary={summary}
-        />
-
-        <SemanticAssistantPanel
-          headline={assistant.headline}
-          body={assistant.body}
-          signals={assistant.signals}
-          suggestions={assistantSuggestions}
-        />
-
-        <GuidedExplorationPanel
-          overview={narrative.overview}
-          pathways={narrative.pathways}
-          exploration={narrative.exploration}
-          prompts={prompts}
-        />
-
-        <SemanticVisibilityGate minHeight={420}>
-          <SemanticGraphMap
-            title="Compound relationship map"
-            description="A lightweight map of mechanism overlap, pathway continuity, and connected semantic profiles."
-            nodes={graph.nodes}
-            edges={graph.edges}
-          />
-        </SemanticVisibilityGate>
-
-        <ProfileAuthoritySections
-          record={compound}
-          entityType="compound"
-          relatedRecords={semanticRelated}
-          comparisonRecords={comparisonRecords}
-          stackRecords={stackRecords}
-          effects={effects}
-          mechanisms={mechanisms}
-          summary={summary}
-        />
-
-        <EvidenceAwareCTA
-          readiness={readiness}
-          sourcingNotes={sourcingNotes}
-          record={compound}
-        />
-
-        <RuntimeOrchestratedDiscovery
-          record={compound}
-        />
-
         <EvidenceSnapshotCard snapshot={snapshot} />
 
-        <CompactRelatedPathways record={compound} />
+        <CompactDisclosure title="Decision support and practical notes">
+          <ProfileDecisionLayer
+            record={compound}
+            entityType="compound"
+            relatedRecords={semanticRelated}
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
 
-        {featuredCollections.length > 0 ? (
-          <SectionBlock title="Featured In Collections">
-            <div className="flex flex-wrap gap-3">
-              {featuredCollections.slice(0, 4).map((collection:any) => (
-                <Link
-                  key={collection.slug}
-                  href={collection.href}
-                  className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60"
-                >
-                  {collection.title}
-                </Link>
-              ))}
-            </div>
-          </SectionBlock>
-        ) : null}
+          <DecisionVisualGrid record={compound} />
+
+          <WhyThisInsteadPanel
+            record={compound}
+            alternatives={semanticRelated}
+          />
+
+          <DecisionClarityFieldManual
+            record={compound}
+            entityType="compound"
+            relatedRecords={semanticRelated}
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
+        </CompactDisclosure>
+
+        <CompactDisclosure title="Authority, exploration, and semantic analysis">
+          <AuthorityEditorialLayer
+            record={compound}
+            entityType="compound"
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
+
+          <SemanticAssistantPanel
+            headline={assistant.headline}
+            body={assistant.body}
+            signals={assistant.signals}
+            suggestions={assistantSuggestions}
+          />
+
+          <GuidedExplorationPanel
+            overview={narrative.overview}
+            pathways={narrative.pathways}
+            exploration={narrative.exploration}
+            prompts={prompts}
+          />
+
+          <SemanticVisibilityGate minHeight={420}>
+            <SemanticGraphMap
+              title="Compound relationship map"
+              description="A lightweight map of mechanism overlap, pathway continuity, and connected semantic profiles."
+              nodes={graph.nodes}
+              edges={graph.edges}
+            />
+          </SemanticVisibilityGate>
+
+          <ProfileAuthoritySections
+            record={compound}
+            entityType="compound"
+            relatedRecords={semanticRelated}
+            comparisonRecords={comparisonRecords}
+            stackRecords={stackRecords}
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
+        </CompactDisclosure>
+
+        <CompactDisclosure title="Related discovery, pathways, and collections">
+          <EvidenceAwareCTA
+            readiness={readiness}
+            sourcingNotes={sourcingNotes}
+            record={compound}
+          />
+
+          <RuntimeOrchestratedDiscovery
+            record={compound}
+          />
+
+          <CompactRelatedPathways record={compound} />
+
+          {featuredCollections.length > 0 ? (
+            <SectionBlock title="Featured In Collections">
+              <div className="flex flex-wrap gap-3">
+                {featuredCollections.slice(0, 4).map((collection:any) => (
+                  <Link
+                    key={collection.slug}
+                    href={collection.href}
+                    className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60"
+                  >
+                    {collection.title}
+                  </Link>
+                ))}
+              </div>
+            </SectionBlock>
+          ) : null}
+        </CompactDisclosure>
 
         {sources.length > 0 ? (
-          <SectionBlock title="Research and source context">
+          <CompactDisclosure title="Research and source context">
             <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
               {sources.slice(0, 10).map((source:string) => (
                 <li key={source}>{source}</li>
               ))}
             </ul>
-          </SectionBlock>
+          </CompactDisclosure>
         ) : null}
       </main>
     </>
