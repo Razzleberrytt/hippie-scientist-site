@@ -2,32 +2,33 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { BookOpen, GitCompare, Leaf, Search, Sparkles } from 'lucide-react'
 
 const navItems = [
   {
-    href: '/explore',
-    label: 'Explore',
-    icon: '◌',
-  },
-  {
     href: '/herbs',
     label: 'Herbs',
-    icon: '❋',
+    Icon: Leaf,
   },
   {
     href: '/compounds',
     label: 'Compounds',
-    icon: '⬡',
+    Icon: Sparkles,
   },
   {
     href: '/compare',
     label: 'Compare',
-    icon: '⇄',
+    Icon: GitCompare,
   },
   {
     href: '/learn',
     label: 'Learn',
-    icon: '◫',
+    Icon: BookOpen,
+  },
+  {
+    href: '/search',
+    label: 'Search',
+    Icon: Search,
   },
 ]
 
@@ -39,18 +40,20 @@ export default function MobileBottomNav() {
       <div className="mx-auto flex max-w-2xl items-center justify-around px-2 py-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)]">
         {navItems.map((item) => {
           const active = pathname === item.href || pathname?.startsWith(`${item.href}/`)
+          const Icon = item.Icon
 
           return (
             <Link
               key={item.href}
               href={item.href}
+              aria-label={item.label}
               className={`flex min-w-[64px] flex-col items-center gap-1 rounded-2xl px-3 py-2 text-center transition-all duration-200 ${
                 active
                   ? 'bg-brand-900/8 text-brand-800 shadow-sm'
                   : 'text-[#5c6d63] hover:bg-black/[0.03] hover:text-ink'
               }`}
             >
-              <span className="text-base leading-none">{item.icon}</span>
+              <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
               <span className="text-[11px] font-semibold tracking-tight">
                 {item.label}
               </span>
