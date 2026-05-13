@@ -33,6 +33,8 @@ import {
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
 import DecisionClarityFieldManual from '@/components/decision-clarity-field-manual'
+import DecisionVisualGrid from '@/components/decision-visual-grid'
+import WhyThisInsteadPanel from '@/components/why-this-instead-panel'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
 import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
@@ -266,6 +268,13 @@ export default async function CompoundPage({ params }: any) {
           summary={summary}
         />
 
+        <DecisionVisualGrid record={compound} />
+
+        <WhyThisInsteadPanel
+          record={compound}
+          alternatives={semanticRelated}
+        />
+
         <DecisionClarityFieldManual
           record={compound}
           entityType="compound"
@@ -320,6 +329,7 @@ export default async function CompoundPage({ params }: any) {
         <EvidenceAwareCTA
           readiness={readiness}
           sourcingNotes={sourcingNotes}
+          record={compound}
         />
 
         <RuntimeOrchestratedDiscovery

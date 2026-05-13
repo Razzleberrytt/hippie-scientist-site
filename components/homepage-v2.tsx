@@ -36,6 +36,28 @@ function toFeaturedCard(item: RuntimeFeature, type: 'herb' | 'compound') {
   }
 }
 
+
+const beginnerEntries = [
+  { title: 'Start Sleep Support', href: '/start/sleep-support', description: 'Begin with calmer profiles, sleep-adjacent expectations, and recovery-aware comparisons.' },
+  { title: 'Start Cognitive Support', href: '/start/cognitive-support', description: 'Separate calm focus, cumulative cognition, and activating focus before stacking.' },
+  { title: 'Start Recovery Support', href: '/start/recovery-support', description: 'Explore performance support, recovery capacity, and cumulative timelines conservatively.' },
+  { title: 'Start Stress Support', href: '/start/stress-support', description: 'Compare adaptogenic, calming, and recovery-oriented pathways by practical fit.' },
+]
+
+const ecosystemEntries = [
+  { title: 'Sleep ecosystem', href: '/ecosystems/sleep', description: 'Calming pathways, sleep-adjacent profiles, and realistic evening-support decisions.' },
+  { title: 'Cognition ecosystem', href: '/ecosystems/cognition', description: 'Calm focus, cumulative cognition, activating support, and sustainable mental performance.' },
+  { title: 'Recovery ecosystem', href: '/ecosystems/recovery', description: 'Training support, nervous-system recovery, and cumulative performance resilience.' },
+  { title: 'Stress ecosystem', href: '/ecosystems/stress', description: 'Stress resilience, stimulation sensitivity, and adaptogen comparison logic.' },
+]
+
+const comparisonHighlights = [
+  'Calm focus vs activating focus',
+  'Cumulative cognition vs acute stimulation',
+  'Sleep-adjacent relaxation vs daytime recovery',
+  'Beginner-friendly simplicity vs premature stack complexity',
+]
+
 const featuredFallbacks = [
   {
     href: '/herbs/ashwagandha',
@@ -61,7 +83,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
   const featured = [
     ...featuredHerbs.map((item) => toFeaturedCard(item, 'herb')),
     ...featuredCompounds.map((item) => toFeaturedCard(item, 'compound')),
-  ].filter(Boolean).slice(0, 3)
+  ].filter((item): item is NonNullable<typeof item> => Boolean(item)).slice(0, 3)
 
   const visibleFeatured = featured.length > 0 ? featured : featuredFallbacks
 
@@ -110,6 +132,58 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
       <section className='mx-auto max-w-6xl space-y-8'>
         <div className='space-y-2'>
+          <p className='eyebrow-label'>Beginner entry systems</p>
+          <h2 className='compact-heading'>Start with a guided pathway, not a random stack.</h2>
+          <p className='detail-reading max-w-3xl text-[#46574d]'>
+            Each entry point frames stimulation, timeline, recovery orientation, and comparison logic before profile depth.
+          </p>
+        </div>
+
+        <div className='grid gap-5 md:grid-cols-2'>
+          {beginnerEntries.map((item) => (
+            <ContentIdentityCard key={item.href} item={{ ...item, meta: 'Onboarding' } as any} />
+          ))}
+        </div>
+      </section>
+
+      <section className='mx-auto max-w-6xl space-y-8'>
+        <div className='space-y-2'>
+          <p className='eyebrow-label'>Ecosystem intelligence</p>
+          <h2 className='compact-heading'>Explore semantic hubs and adjacent pathways.</h2>
+          <p className='detail-reading max-w-3xl text-[#46574d]'>
+            Ecosystem hubs connect beginner starts, adaptive comparisons, common mistakes, and practical field-manual guidance.
+          </p>
+        </div>
+
+        <div className='grid gap-5 md:grid-cols-2'>
+          {ecosystemEntries.map((item) => (
+            <ContentIdentityCard key={item.href} item={{ ...item, meta: 'Ecosystem' } as any} />
+          ))}
+        </div>
+      </section>
+
+      <section className='rounded-[2.5rem] border border-brand-900/10 bg-gradient-to-br from-[#f6f4ee] via-white to-[#eef4ee] p-8 shadow-sm sm:p-12'>
+        <div className='grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center'>
+          <div className='space-y-3'>
+            <p className='eyebrow-label'>Comparative reasoning highlights</p>
+            <h2 className='text-3xl font-semibold tracking-tight text-ink'>This is fit-first supplement navigation.</h2>
+            <p className='text-sm leading-7 text-[#46574d]'>
+              The platform emphasizes conservative interpretation, evidence-aware positioning, and semantic continuity across profiles instead of generic supplement rankings.
+            </p>
+          </div>
+
+          <div className='grid gap-3 sm:grid-cols-2'>
+            {comparisonHighlights.map((item) => (
+              <div key={item} className='rounded-2xl border border-brand-900/10 bg-white/75 p-4 text-sm font-semibold text-[#33443a]'>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className='mx-auto max-w-6xl space-y-8'>
+        <div className='space-y-2'>
           <p className='eyebrow-label'>Explore by goal</p>
           <h2 className='compact-heading'>Start with what you are trying to improve.</h2>
         </div>
@@ -125,18 +199,18 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
       <section className='rounded-[2.5rem] border border-brand-900/10 bg-gradient-to-br from-[#f6f4ee] via-white to-[#eef4ee] p-8 shadow-sm sm:p-12'>
         <div className='grid gap-5 md:grid-cols-3'>
           <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-5'>
-            <h3 className='text-base font-semibold tracking-tight text-ink'>Start with your goal</h3>
-            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Sleep, stress, cognition, recovery, and inflammation pages help you begin with practical intent.</p>
+            <h3 className='text-base font-semibold tracking-tight text-ink'>Evidence-aware positioning</h3>
+            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Research context, safety boundaries, and expectation timelines stay visible instead of collapsing into hype.</p>
           </div>
 
           <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-5'>
-            <h3 className='text-base font-semibold tracking-tight text-ink'>Compare nearby options</h3>
-            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Review similar herbs and compounds before relying on one supplement narrative.</p>
+            <h3 className='text-base font-semibold tracking-tight text-ink'>Conservative interpretation</h3>
+            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Profiles are framed as decision-support field notes, not pseudo-medical promises or universal rankings.</p>
           </div>
 
           <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-5'>
-            <h3 className='text-base font-semibold tracking-tight text-ink'>Check evidence and safety</h3>
-            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Human evidence and realistic expectations stay separated from hype.</p>
+            <h3 className='text-base font-semibold tracking-tight text-ink'>Fit-first reasoning</h3>
+            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Stimulation, timeline, recovery orientation, and beginner difficulty shape exploration before product decisions.</p>
           </div>
         </div>
       </section>

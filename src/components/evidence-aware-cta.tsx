@@ -1,3 +1,5 @@
+import { buildDecisionVisualProfile } from '@/lib/decision-visuals'
+
 type EvidenceAwareCTAProps = {
   title?: string
   description?: string
@@ -7,6 +9,7 @@ type EvidenceAwareCTAProps = {
     cautions: string[]
   }
   sourcingNotes?: string[]
+  record?: any
 }
 
 function levelLabel(level: EvidenceAwareCTAProps['readiness']['level']) {
@@ -40,7 +43,27 @@ export default function EvidenceAwareCTA({
   description = 'Product and sourcing context should remain secondary to evidence quality, safety considerations, and mechanism uncertainty.',
   readiness,
   sourcingNotes = [],
+  record,
 }: EvidenceAwareCTAProps) {
+  const visuals = buildDecisionVisualProfile(record || {})
+  const recommendationCards = [
+    {
+      label: 'Formulation Notes',
+      value: sourcingNotes[0] || 'Prefer transparent labels, conservative serving context, and forms that match the profile goal.',
+    },
+    {
+      label: 'Beginner Fit',
+      value: visuals.difficulty,
+    },
+    {
+      label: 'Stimulation Profile',
+      value: visuals.stimulation,
+    },
+    {
+      label: 'Timeline Profile',
+      value: visuals.timeline,
+    },
+  ]
   return (
     <section className="compact-section section-rhythm-balanced overflow-hidden">
       <div className="space-y-2">
@@ -56,6 +79,15 @@ export default function EvidenceAwareCTA({
         <p className="compact-copy">
           {description}
         </p>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {recommendationCards.map((card) => (
+          <article key={card.label} className="rounded-2xl border border-brand-900/10 bg-white/75 p-4 shadow-sm">
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-brand-900/55">{card.label}</p>
+            <p className="mt-2 text-sm font-semibold leading-6 text-[#33443a]">{card.value}</p>
+          </article>
+        ))}
       </div>
 
       <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr]">

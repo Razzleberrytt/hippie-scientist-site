@@ -24,6 +24,8 @@ import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
 import DecisionClarityFieldManual from '@/components/decision-clarity-field-manual'
+import DecisionVisualGrid from '@/components/decision-visual-grid'
+import WhyThisInsteadPanel from '@/components/why-this-instead-panel'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
 import AuthorityProfileShell from '@/components/authority/AuthorityProfileShell'
@@ -288,6 +290,13 @@ export default async function HerbDetailPage({ params }: any) {
         summary={summary}
       />
 
+      <DecisionVisualGrid record={herb} />
+
+      <WhyThisInsteadPanel
+        record={herb}
+        alternatives={relatedProfiles}
+      />
+
       <DecisionClarityFieldManual
         record={herb}
         entityType="herb"
@@ -343,6 +352,7 @@ export default async function HerbDetailPage({ params }: any) {
       <EvidenceAwareCTA
         readiness={readiness}
         sourcingNotes={sourcingNotes}
+        record={herb}
       />
 
       <RuntimeOrchestratedDiscovery
