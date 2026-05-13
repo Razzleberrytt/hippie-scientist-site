@@ -23,6 +23,7 @@ import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getFeaturedCollections } from '@/lib/collections'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
 import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
+import DecisionClarityFieldManual from '@/components/decision-clarity-field-manual'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
 import AuthorityProfileShell from '@/components/authority/AuthorityProfileShell'
@@ -280,6 +281,14 @@ export default async function HerbDetailPage({ params }: any) {
       </section>
 
       <ProfileDecisionLayer
+        record={herb}
+        entityType="herb"
+        relatedRecords={relatedProfiles}
+        effects={effects}
+        summary={summary}
+      />
+
+      <DecisionClarityFieldManual
         record={herb}
         entityType="herb"
         relatedRecords={relatedProfiles}
