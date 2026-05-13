@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
-import { homepageMessaging } from '@/lib/homepage-messaging'
 
 type RuntimeFeature = Record<string, unknown>
 
@@ -16,6 +15,13 @@ type LandingCard = {
   title: string
   description: string
   meta: string
+}
+
+type EcosystemCard = {
+  href: string
+  title: string
+  description: string
+  accent: string
 }
 
 function getFeatureName(item: RuntimeFeature) {
@@ -45,49 +51,49 @@ function toFeaturedCard(item: RuntimeFeature, type: 'herb' | 'compound'): Landin
 
 const primaryActions = [
   { label: 'Explore Herbs', href: '/herbs' },
-  { label: 'Browse Compounds', href: '/compounds' },
   { label: 'Compare Supplements', href: '/compare' },
+  { label: 'Search Library', href: '/search' },
 ]
 
-const trustCards = [
+const ecosystemCards: EcosystemCard[] = [
   {
-    title: 'Human evidence',
-    description: 'Profiles distinguish stronger clinical signals from preliminary or mechanism-only research.',
+    title: 'Sleep Ecosystem',
+    href: '/search?q=sleep',
+    description: 'Wind-down herbs, sedating compounds, sleep quality signals, and interaction context.',
+    accent: 'from-indigo-300/18 to-emerald-300/10',
   },
   {
-    title: 'Safety context',
-    description: 'Contraindications, interaction themes, and conservative use notes stay close to the decision.',
+    title: 'Cognition Ecosystem',
+    href: '/search?q=focus',
+    description: 'Calm focus, stimulation tradeoffs, fatigue context, and mechanism-aware comparisons.',
+    accent: 'from-cyan-300/18 to-emerald-300/10',
   },
   {
-    title: 'Mechanisms',
-    description: 'Botanical and compound pages connect effects to pathways without pretending biology is simple.',
+    title: 'Recovery Ecosystem',
+    href: '/search?q=recovery',
+    description: 'Adaptation, soreness, performance support, and realistic cumulative timelines.',
+    accent: 'from-amber-300/16 to-emerald-300/10',
   },
   {
-    title: 'Practical fit',
-    description: 'Use case, timing, stimulation level, and beginner complexity matter before any stack decision.',
+    title: 'Stress Ecosystem',
+    href: '/search?q=stress',
+    description: 'Adaptogens, calming pathways, cortisol-adjacent claims, and conservative safety notes.',
+    accent: 'from-emerald-300/18 to-lime-300/10',
   },
 ]
 
-const goalEntries = [
+const reasoningPillars = [
   {
-    title: 'Sleep support',
-    href: '/goals/sleep',
-    description: 'Wind-down, sleep quality, next-day grogginess, and sedative-interaction context.',
+    title: 'Evidence-aware positioning',
+    description: 'Profiles separate human signals, mechanistic plausibility, and traditional context instead of flattening them into hype.',
   },
   {
-    title: 'Anxiety & calm',
-    href: '/goals/anxiety',
-    description: 'Calming compounds, adaptogens, interaction risk, and non-sedating options.',
+    title: 'Conservative interpretation',
+    description: 'Safety notes, contraindications, and uncertainty stay visible because biology rarely behaves like a marketing claim.',
   },
   {
-    title: 'Focus & energy',
-    href: '/goals/focus',
-    description: 'Clean stimulation, calm focus, cognitive fatigue, and sleep-sensitive tradeoffs.',
-  },
-  {
-    title: 'Recovery',
-    href: '/goals/recovery',
-    description: 'Performance support, muscle recovery, hydration, and cumulative timelines.',
+    title: 'Fit-first reasoning',
+    description: 'Goal, timing, stimulation level, medication context, and personal sensitivity come before stacking complexity.',
   },
 ]
 
@@ -100,21 +106,21 @@ const featuredFallbacks: LandingCard[] = [
   },
   {
     href: '/compounds/theanine',
-    title: 'Theanine',
+    title: 'L-Theanine',
     description: 'Calm focus, relaxation pathways, and non-sedating support context.',
     meta: 'Compound profile',
   },
   {
-    href: '/compounds/creatine',
-    title: 'Creatine',
-    description: 'Performance, recovery, energy buffering, and cognitive support research.',
-    meta: 'Compound profile',
+    href: '/herbs/rhodiola',
+    title: 'Rhodiola',
+    description: 'Fatigue, stress adaptation, stimulation potential, and fit-dependent tradeoffs.',
+    meta: 'Herb profile',
   },
 ]
 
-function ActionCue({ children }: { children: React.ReactNode }) {
+function FieldGuideLink({ children }: { children: React.ReactNode }) {
   return (
-    <span className='inline-flex items-center gap-2 text-sm font-bold text-brand-800 transition group-hover:translate-x-1'>
+    <span className='inline-flex items-center gap-2 text-sm font-semibold text-emerald-200 transition group-hover:translate-x-1 group-hover:text-emerald-100'>
       {children}
       <span aria-hidden='true'>→</span>
     </span>
@@ -125,184 +131,130 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
   const featured = [
     ...featuredHerbs.map((item) => toFeaturedCard(item, 'herb')),
     ...featuredCompounds.map((item) => toFeaturedCard(item, 'compound')),
-  ].filter((item): item is LandingCard => Boolean(item)).slice(0, 3)
+  ].filter((item): item is LandingCard => Boolean(item)).slice(0, 6)
 
   const visibleFeatured = featured.length > 0 ? featured : featuredFallbacks
 
   return (
-    <main className='min-h-screen px-4 py-5 text-ink sm:py-8'>
-      <div className='mx-auto max-w-7xl space-y-14 sm:space-y-20'>
-        <section className='hero-shell relative overflow-hidden rounded-[2rem] border border-white/50 px-5 py-12 shadow-[var(--shadow-card-calm)] sm:rounded-[2.5rem] sm:px-10 sm:py-16 lg:px-14 lg:py-20'>
-          <div className='absolute left-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl' />
-          <div className='absolute bottom-[-10rem] right-[-8rem] h-96 w-96 rounded-full bg-amber-200/30 blur-3xl' />
+    <div className='-mx-4 -my-8 overflow-hidden bg-[#07110d] text-emerald-50 sm:-mx-6 sm:-my-10 lg:-mx-8'>
+      <div className='relative isolate'>
+        <div className='pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.16),transparent_32%),linear-gradient(180deg,#07110d_0%,#0a1611_42%,#07110d_100%)]' />
+        <div className='pointer-events-none absolute left-[-7rem] top-16 -z-10 h-64 w-64 rounded-full bg-emerald-400/12 blur-3xl sm:h-80 sm:w-80' />
+        <div className='pointer-events-none absolute right-[-9rem] top-80 -z-10 h-72 w-72 rounded-full bg-lime-300/10 blur-3xl sm:h-96 sm:w-96' />
+        <div className='pointer-events-none absolute bottom-28 left-1/2 -z-10 h-64 w-64 -translate-x-1/2 rounded-full bg-teal-300/10 blur-3xl sm:h-96 sm:w-96' />
 
-          <div className='relative grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-center'>
-            <div className='max-w-4xl space-y-7'>
-              <div className='inline-flex rounded-full border border-brand-700/10 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-800 backdrop-blur-md'>
-                Evidence-aware supplement research
-              </div>
-
-              <div className='space-y-5'>
-                <h1 className='max-w-[15ch] text-balance font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:max-w-[17ch] lg:text-7xl'>
-                  {homepageMessaging.heroHeadline}
-                </h1>
-
-                <p className='max-w-2xl text-lg leading-8 text-[#46574d] sm:text-xl'>
-                  {homepageMessaging.heroSubhead}
-                </p>
-              </div>
-
-              <div className='grid gap-3 sm:grid-cols-3'>
-                {primaryActions.map((action, index) => (
-                  <Link
-                    key={action.href}
-                    href={action.href}
-                    className={index === 0
-                      ? 'button-primary justify-center text-center'
-                      : 'button-secondary justify-center text-center'
-                    }
-                  >
-                    {action.label}
-                  </Link>
-                ))}
-              </div>
+        <div className='mx-auto max-w-7xl px-4 pb-24 pt-8 sm:px-6 sm:pb-28 sm:pt-10 lg:px-8'>
+          <section className='mx-auto flex max-w-5xl flex-col items-center py-9 text-center sm:py-14 lg:py-16'>
+            <div className='mb-5 inline-flex rounded-full border border-emerald-300/15 bg-emerald-300/8 px-3.5 py-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-emerald-100/90 shadow-[0_0_40px_rgba(16,185,129,0.08)] backdrop-blur-md'>
+              Botanical research field guide
             </div>
 
-            <div className='rounded-[1.75rem] border border-brand-900/10 bg-white/70 p-4 shadow-[var(--shadow-card-calm)] backdrop-blur sm:p-5'>
-              <div className='rounded-[1.5rem] bg-gradient-to-br from-[#fbfaf6] via-white to-[#eef6ee] p-5 sm:p-7'>
-                <div className='space-y-5'>
-                  <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-800'>Research product, not wellness hype</p>
-                  <h2 className='text-3xl font-semibold tracking-tight text-ink sm:text-4xl'>Make supplement decisions from evidence, safety, and fit.</h2>
-                  <p className='text-sm leading-[1.75] text-[#46574d]'>
-                    Move from a goal to mechanisms, profile pages, and comparisons with the limits of the evidence kept visible.
-                  </p>
-                </div>
+            <h1 className='max-w-none font-display text-[3.4rem] font-semibold uppercase leading-[0.84] tracking-[-0.055em] text-[#f4fff8] drop-shadow-[0_0_34px_rgba(16,185,129,0.18)] sm:text-[5.2rem] md:text-[6.4rem] lg:text-[7.4rem]'>
+              <span className='block'>The Hippie</span>
+              <span className='block text-emerald-100'>Scientist</span>
+            </h1>
 
-                <div className='mt-8 grid gap-3 sm:grid-cols-2'>
-                  {['Clinical signal', 'Interaction context', 'Mechanism map', 'Practical timeline'].map((item) => (
-                    <div key={item} className='rounded-2xl border border-brand-900/10 bg-white/75 p-4 text-sm font-semibold text-[#33443a]'>
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+            <p className='mt-7 max-w-2xl text-base leading-7 !text-emerald-50 sm:text-lg sm:leading-8'>
+              A field guide to herbs, compounds, mechanisms, and evidence — written for careful explorers.
+            </p>
 
-        <section className='grid gap-4 md:grid-cols-2 xl:grid-cols-4'>
-          {trustCards.map((card) => (
-            <div key={card.title} className='rounded-[1.65rem] border border-brand-900/10 bg-white/75 p-6 shadow-[var(--shadow-card-calm)] transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm-hover)]'>
-              <h2 className='text-xl font-semibold tracking-tight text-ink'>{card.title}</h2>
-              <p className='mt-3 text-sm leading-[1.75] text-[#46574d]'>{card.description}</p>
-            </div>
-          ))}
-        </section>
+            <p className='mt-3 max-w-2xl text-sm leading-6 !text-emerald-100 sm:text-base'>
+              No hype. No pseudo-medicine. Just evidence-aware research and honest interpretation.
+            </p>
 
-        <section className='rounded-[2rem] border border-brand-900/10 bg-gradient-to-br from-white/85 via-[#faf8f1] to-brand-50/40 p-6 shadow-[var(--shadow-card-calm)] sm:p-10'>
-          <div className='flex flex-col gap-4 md:flex-row md:items-end md:justify-between'>
-            <div className='max-w-2xl space-y-3'>
-              <p className='eyebrow-label'>Start by goal</p>
-              <h2 className='compact-heading'>Begin with the outcome, then narrow by evidence and safety.</h2>
-            </div>
-            <Link href='/goals' className='text-sm font-bold text-brand-800 transition hover:text-brand-900'>All goals →</Link>
-          </div>
-
-          <div className='mt-8 grid gap-4 md:grid-cols-2'>
-            {goalEntries.map((goal) => (
-              <Link key={goal.href} href={goal.href} className='group rounded-[1.5rem] border border-brand-900/10 bg-white/75 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)]'>
-                <div className='flex items-start justify-between gap-4'>
-                  <div>
-                    <h3 className='text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800'>{goal.title}</h3>
-                    <p className='mt-3 text-sm leading-[1.75] text-[#46574d]'>{goal.description}</p>
-                  </div>
-                  <span className='mt-1 text-brand-800 transition group-hover:translate-x-1' aria-hidden='true'>→</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className='space-y-8'>
-          <div className='flex flex-col gap-4 md:flex-row md:items-end md:justify-between'>
-            <div className='max-w-2xl space-y-3'>
-              <p className='eyebrow-label'>Featured profiles</p>
-              <h2 className='compact-heading'>Useful starting points for deeper research.</h2>
-            </div>
-            <div className='flex flex-wrap gap-3'>
-              <Link href='/herbs' className='text-sm font-bold text-brand-800 transition hover:text-brand-900'>Herb library →</Link>
-              <Link href='/compounds' className='text-sm font-bold text-brand-800 transition hover:text-brand-900'>Compound library →</Link>
-            </div>
-          </div>
-
-          <div className='grid gap-5 lg:grid-cols-3'>
-            {visibleFeatured.map((item) => (
-              <Link key={item.href} href={item.href} className='group relative overflow-hidden rounded-[1.65rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fbfaf6] to-brand-50/30 p-6 shadow-[var(--shadow-card-calm)] transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm-hover)]'>
-                <div className='absolute right-[-3rem] top-[-3rem] h-32 w-32 rounded-full bg-brand-100/40 blur-2xl transition group-hover:bg-brand-100/60' />
-                <div className='relative'>
-                  <span className='inline-flex rounded-full border border-brand-900/10 bg-white/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#5f6f66]'>
-                    {item.meta}
-                  </span>
-
-                  <h3 className='mt-5 text-2xl font-semibold tracking-tight text-ink group-hover:text-brand-800'>
-                    {item.title}
-                  </h3>
-
-                  <p className='mt-3 text-sm leading-[1.75] text-[#46574d]'>
-                    {item.description}
-                  </p>
-
-                  <div className='mt-6'>
-                    <ActionCue>Open profile</ActionCue>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        <section className='rounded-[2rem] border border-brand-900/10 bg-white/75 p-6 shadow-[var(--shadow-card-calm)] sm:p-10'>
-          <div className='grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center'>
-            <div className='space-y-3'>
-              <p className='eyebrow-label'>Compare before you stack</p>
-              <h2 className='compact-heading'>Similar supplements can have very different tradeoffs.</h2>
-              <p className='text-sm leading-[1.75] text-[#46574d]'>
-                Use comparison pages to separate acute effects from cumulative support, calming from sedating, and plausible mechanisms from stronger human data.
-              </p>
-            </div>
-
-            <div className='grid gap-3 sm:grid-cols-2'>
-              {[
-                { label: 'Rhodiola vs ashwagandha', href: '/compare/rhodiola-vs-ashwagandha' },
-                { label: 'L-theanine vs magnesium', href: '/compare/l-theanine-vs-magnesium' },
-                { label: 'Kava vs alcohol', href: '/compare/kava-vs-alcohol' },
-                { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },
-              ].map((item) => (
-                <Link key={item.href} href={item.href} className='group rounded-2xl border border-brand-900/10 bg-[#fbfaf6] p-4 text-sm font-semibold leading-[1.55] text-[#33443a] transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-sm'>
-                  {item.label}
-                  <span className='ml-2 text-brand-800 transition group-hover:translate-x-1' aria-hidden='true'>→</span>
+            <div className='mt-8 grid w-full max-w-2xl gap-3 sm:grid-cols-3'>
+              {primaryActions.map((action, index) => (
+                <Link
+                  key={action.href}
+                  href={action.href}
+                  className={index === 0
+                    ? 'inline-flex items-center justify-center rounded-full bg-emerald-400 px-5 py-3 text-sm font-bold text-[#06120d] shadow-[0_18px_50px_rgba(16,185,129,0.24)] transition hover:-translate-y-0.5 hover:bg-emerald-300 hover:text-[#06120d] focus-visible:text-[#06120d]'
+                    : 'inline-flex items-center justify-center rounded-full border border-emerald-200/18 bg-white/[0.04] px-5 py-3 text-sm font-bold text-emerald-50 backdrop-blur-md transition hover:-translate-y-0.5 hover:border-emerald-200/32 hover:bg-white/[0.08] hover:text-emerald-100'
+                  }
+                >
+                  {action.label}
                 </Link>
               ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className='rounded-[1.75rem] border border-amber-700/15 bg-gradient-to-br from-amber-50/80 via-white to-[#fbfaf6] p-6 shadow-sm sm:p-8'>
-          <div className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
-            <div className='max-w-3xl space-y-3'>
-              <p className='eyebrow-label text-amber-700'>Safety note</p>
-              <h2 className='text-2xl font-semibold tracking-tight text-amber-950 sm:text-3xl'>Natural does not automatically mean safe or effective.</h2>
-              <p className='text-sm leading-7 text-amber-950/80 sm:text-base'>
-                The Hippie Scientist is educational research support. It does not diagnose, treat, or replace medical care—especially for pregnancy, medications, chronic conditions, or complex mental health concerns.
-              </p>
+          <section className='rounded-[1.75rem] border border-emerald-200/10 bg-white/[0.035] p-4 shadow-[0_24px_90px_rgba(0,0,0,0.24)] backdrop-blur-xl sm:p-6 lg:p-8'>
+            <div className='flex flex-col gap-3 md:flex-row md:items-end md:justify-between'>
+              <div className='max-w-2xl'>
+                <p className='text-[0.7rem] font-bold uppercase tracking-[0.18em] text-emerald-300/80'>Explore research ecosystems</p>
+                <h2 className='mt-3 max-w-none text-2xl font-semibold tracking-tight text-emerald-50 sm:text-3xl'>Start broad, then follow the evidence trail.</h2>
+                <p className='mt-3 max-w-3xl text-sm leading-7 !text-emerald-100 sm:text-base'>
+                  Start from a goal, then move into herbs, compounds, mechanisms, comparisons, and safety context.
+                </p>
+              </div>
+              <Link href='/search' className='text-sm font-semibold text-emerald-200 hover:text-emerald-100'>Search all topics →</Link>
             </div>
 
-            <Link href='/disclaimer' className='button-secondary whitespace-nowrap text-center'>
-              Read disclaimer
-            </Link>
-          </div>
-        </section>
+            <div className='mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4'>
+              {ecosystemCards.map((card) => (
+                <Link key={card.href} href={card.href} className='group relative overflow-hidden rounded-[1.25rem] border border-emerald-200/10 bg-[#0c1a14]/78 p-4 transition hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-[#10231a]'>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${card.accent} opacity-80 transition group-hover:opacity-100`} />
+                  <div className='relative'>
+                    <h3 className='max-w-none text-base font-semibold tracking-tight text-emerald-50'>{card.title}</h3>
+                    <p className='mt-2 text-sm leading-6 !text-emerald-100'>{card.description}</p>
+                    <div className='mt-4'>
+                      <FieldGuideLink>Explore</FieldGuideLink>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className='mt-10 space-y-5 sm:mt-14'>
+            <div className='flex flex-col gap-3 md:flex-row md:items-end md:justify-between'>
+              <div>
+                <p className='text-[0.7rem] font-bold uppercase tracking-[0.18em] text-emerald-300/80'>Featured profiles</p>
+                <h2 className='mt-3 max-w-none text-2xl font-semibold tracking-tight text-emerald-50 sm:text-3xl'>Useful starting points for deeper research.</h2>
+              </div>
+              <div className='flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold'>
+                <Link href='/herbs' className='text-emerald-200 hover:text-emerald-100'>Herb library →</Link>
+                <Link href='/compounds' className='text-emerald-200 hover:text-emerald-100'>Compound library →</Link>
+              </div>
+            </div>
+
+            <div className='grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
+              {visibleFeatured.map((item) => (
+                <Link key={item.href} href={item.href} className='group relative overflow-hidden rounded-[1.35rem] border border-emerald-200/10 bg-[#0b1812]/88 p-5 transition hover:-translate-y-0.5 hover:border-emerald-300/30 hover:bg-[#102018]'>
+                  <div className='absolute right-[-3rem] top-[-3rem] h-28 w-28 rounded-full bg-emerald-300/10 blur-2xl transition group-hover:bg-emerald-300/16' />
+                  <div className='relative'>
+                    <span className='inline-flex rounded-full border border-emerald-200/12 bg-emerald-300/8 px-3 py-1 text-[0.64rem] font-bold uppercase tracking-[0.16em] text-emerald-200/86'>
+                      {item.meta}
+                    </span>
+                    <h3 className='mt-4 max-w-none text-xl font-semibold tracking-tight text-emerald-50'>{item.title}</h3>
+                    <p className='mt-2 text-sm leading-6 !text-emerald-100'>{item.description}</p>
+                    <div className='mt-5'>
+                      <FieldGuideLink>Open profile</FieldGuideLink>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className='mt-10 grid gap-3 sm:mt-14 lg:grid-cols-3'>
+            {reasoningPillars.map((pillar) => (
+              <div key={pillar.title} className='rounded-[1.35rem] border border-emerald-200/10 bg-white/[0.035] p-5 backdrop-blur-md'>
+                <h2 className='max-w-none text-lg font-semibold tracking-tight text-emerald-50'>{pillar.title}</h2>
+                <p className='mt-2 text-sm leading-6 !text-emerald-100'>{pillar.description}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className='mt-10 rounded-[1.35rem] border border-amber-200/14 bg-amber-200/[0.06] p-4 sm:mt-14 sm:p-5'>
+            <p className='max-w-none text-sm leading-6 !text-amber-50/78 sm:text-base'>
+              <span className='font-semibold text-amber-100'>Natural does not automatically mean safe or effective.</span>{' '}
+              These pages support comparison and pathway understanding — not medical care.
+            </p>
+          </section>
+
+        </div>
       </div>
-    </main>
+    </div>
   )
 }

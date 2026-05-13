@@ -113,52 +113,50 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
           </main>
 
-          <footer className='mt-16 border-t border-neutral-200 bg-neutral-50'>
+          <footer className='border-t border-emerald-200/10 bg-[#07110d] text-emerald-50'>
             <div className='container-page py-12'>
               <div className='grid gap-10 md:grid-cols-3'>
                 <div className='space-y-4'>
-                  <h3 className='font-semibold text-ink'>The Hippie Scientist</h3>
+                  <h3 className='font-semibold uppercase tracking-[-0.02em] text-emerald-50'>The Hippie Scientist</h3>
 
-                  <p className='text-sm text-muted'>
-                    Evidence-first herb & compound reference.
-                  </p>
-
-                  <p className='text-sm leading-6 text-muted'>
-                    Educational content grounded in human evidence, mechanisms, pathways, and scientific review.
+                  <p className='!text-sm !leading-6 !text-emerald-50/58'>
+                    A botanical research portal for herbs, compounds, mechanisms, evidence, comparisons, and safety-aware exploration.
                   </p>
                 </div>
 
                 <div className='space-y-3'>
-                  <h3 className='font-semibold text-ink'>Explore</h3>
+                  <h3 className='font-semibold text-emerald-100'>Explore</h3>
 
                   <div className='flex flex-col gap-2 text-sm'>
-                    <Link href='/herbs' className='text-muted hover:text-ink transition'>Herbs</Link>
-                    <Link href='/compounds' className='text-muted hover:text-ink transition'>Compounds</Link>
-                    <Link href='/goals' className='text-muted hover:text-ink transition'>Goals</Link>
-                    <Link href='/stacks' className='text-muted hover:text-ink transition'>Stacks</Link>
-                    <Link href='/blog' className='text-muted hover:text-ink transition'>Blog</Link>
-                    <Link href='/about' className='text-muted hover:text-ink transition'>About</Link>
+                    <Link href='/herbs' className='text-emerald-50/60 transition hover:text-emerald-100'>Herbs</Link>
+                    <Link href='/compounds' className='text-emerald-50/60 transition hover:text-emerald-100'>Compounds</Link>
+                    <Link href='/goals' className='text-emerald-50/60 transition hover:text-emerald-100'>Goals</Link>
+                    <Link href='/stacks' className='text-emerald-50/60 transition hover:text-emerald-100'>Stacks</Link>
+                    <Link href='/compare' className='text-emerald-50/60 transition hover:text-emerald-100'>Compare</Link>
+                    <Link href='/learn' className='text-emerald-50/60 transition hover:text-emerald-100'>Learn</Link>
+                    <Link href='/search' className='text-emerald-50/60 transition hover:text-emerald-100'>Search</Link>
                   </div>
                 </div>
 
                 <div className='space-y-3'>
-                  <h3 className='font-semibold text-ink'>Legal & Transparency</h3>
+                  <h3 className='font-semibold text-emerald-100'>Legal & Transparency</h3>
 
                   <div className='flex flex-col gap-2 text-sm'>
-                    <Link href='/privacy' className='text-muted hover:text-ink transition'>Privacy Policy</Link>
-                    <Link href='/disclaimer' className='text-muted hover:text-ink transition'>Disclaimer</Link>
-                    <Link href='/contact' className='text-muted hover:text-ink transition'>Contact</Link>
+                    <Link href='/privacy' className='text-emerald-50/60 transition hover:text-emerald-100'>Privacy Policy</Link>
+                    <Link href='/disclaimer' className='text-emerald-50/60 transition hover:text-emerald-100'>Disclaimer</Link>
+                    <Link href='/contact' className='text-emerald-50/60 transition hover:text-emerald-100'>Contact</Link>
+                    <Link href='/about' className='text-emerald-50/60 transition hover:text-emerald-100'>About</Link>
                   </div>
                 </div>
               </div>
 
-              <div className='mt-10 border-t border-neutral-200 pt-6 space-y-3'>
-                <p className='text-xs leading-6 text-muted'>
+              <div className='mt-10 space-y-3 border-t border-emerald-200/10 pt-6'>
+                <p className='!text-xs !leading-6 !text-emerald-50/42'>
                   This site contains affiliate links. We may earn a commission on qualifying purchases at no cost to you.
                 </p>
 
-                <p className='text-sm text-muted'>
-                  © 2026 The Hippie Scientist
+                <p className='!text-sm !text-emerald-50/42'>
+                  © 2026 The Hippie Scientist. Educational research support only; consult a qualified clinician for medical care.
                 </p>
               </div>
             </div>
