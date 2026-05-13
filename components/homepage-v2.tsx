@@ -1,9 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { ContentIdentityCard, SemanticBrowseModule } from '@/components/scientific-discovery'
+import { ContentIdentityCard } from '@/components/scientific-discovery'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
-import { authorityHomeLinks } from '@/app/authority-links'
 import { homepageMessaging } from '@/lib/homepage-messaging'
 
 type RuntimeFeature = Record<string, any>
@@ -19,19 +18,13 @@ function getFeatureName(item: RuntimeFeature) {
 
 function getFeatureDescription(item: RuntimeFeature, type: 'herb' | 'compound') {
   return cleanSummary(
-    item.short_earthy_summary ||
-      item.shortEarthySummary ||
-      item.summary ||
-      item.coreInsight ||
-      item.hero ||
-      item.description,
+    item.short_earthy_summary || item.summary || item.description,
     type
   )
 }
 
 function toFeaturedCard(item: RuntimeFeature, type: 'herb' | 'compound') {
   const title = getFeatureName(item)
-  const slug = item.slug
 
   if (!item.slug || !isClean(title)) return null
 
@@ -39,182 +32,166 @@ function toFeaturedCard(item: RuntimeFeature, type: 'herb' | 'compound') {
     href: `/${type === 'herb' ? 'herbs' : 'compounds'}/${item.slug}`,
     title,
     description: getFeatureDescription(item, type),
-    meta: type === 'herb' ? 'Featured herb' : 'Featured compound',
-    kind: type,
-    slug,
-  } as const
+    meta: type === 'herb' ? 'Herb' : 'Compound',
+  }
 }
 
-const learningPaths = [
-  { href: '/sleep-supplements', title: 'Explore sleep support', description: 'Compare calming, circadian, and recovery-oriented options without treating every sleep aid the same.', meta: 'Sleep goal', kind: 'path' as const },
-  { href: '/stress-supplements', title: 'Explore stress support', description: 'Review adaptogens, calming compounds, and realistic expectations for stress resilience.', meta: 'Stress goal', kind: 'path' as const },
-  { href: '/cognition-supplements', title: 'Explore focus and cognition', description: 'Move through nootropics, cholinergic support, calm focus, and cognitive-energy pathways.', meta: 'Cognition goal', kind: 'path' as const },
+const featuredFallbacks = [
+  {
+    href: '/herbs/ashwagandha',
+    title: 'Ashwagandha',
+    description: 'Stress resilience, recovery support, and realistic evidence interpretation.',
+    meta: 'Herb',
+  },
+  {
+    href: '/compounds/theanine',
+    title: 'Theanine',
+    description: 'Calm focus, relaxation pathways, and non-sedating support context.',
+    meta: 'Compound',
+  },
+  {
+    href: '/compounds/creatine',
+    title: 'Creatine',
+    description: 'Performance, recovery, energy buffering, and cognitive support research.',
+    meta: 'Compound',
+  },
 ]
-
-const evidenceTopics = [
-  { href: '/herbs/ashwagandha', title: 'Ashwagandha profile', description: 'Stress, sleep-adjacent use, safety notes, and realistic interpretation.', meta: 'Herb profile', kind: 'herb' as const },
-  { href: '/compounds/theanine', title: 'Theanine profile', description: 'Calm focus, relaxation pathways, and non-sedating support context.', meta: 'Compound profile', kind: 'compound' as const },
-  { href: '/compounds/creatine', title: 'Creatine profile', description: 'Performance, energy buffering, recovery context, and evidence maturity.', meta: 'Compound profile', kind: 'compound' as const },
-]
-
-function RailCard({ item }: { item: { href: string; title: string; description?: string; meta?: string } }) {
-  return (
-    <Link href={item.href} className="semantic-rail-card group">
-      {item.meta ? <p className="eyebrow-label">{item.meta}</p> : null}
-      <h3 className="mt-2 max-w-none text-base font-semibold leading-snug tracking-tight text-ink group-hover:text-brand-700">
-        {item.title}
-      </h3>
-      {item.description ? (
-        <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#46574d]">
-          {item.description}
-        </p>
-      ) : null}
-    </Link>
-  )
-}
 
 export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] }: HomepageV2Props) {
-  const featuredRuntimeTopics = [
+  const featured = [
     ...featuredHerbs.map((item) => toFeaturedCard(item, 'herb')),
     ...featuredCompounds.map((item) => toFeaturedCard(item, 'compound')),
   ].filter(Boolean).slice(0, 3)
 
-  const visibleEvidenceTopics = featuredRuntimeTopics.length > 0 ? featuredRuntimeTopics : evidenceTopics
+  const visibleFeatured = featured.length > 0 ? featured : featuredFallbacks
 
   return (
-    <main className="min-h-screen text-ink section-spacing">
+    <main className='min-h-screen space-y-20 px-4 py-6 text-ink sm:space-y-28 sm:py-10'>
+      <section className='hero-shell relative overflow-hidden rounded-[2.5rem] border border-white/40 px-6 py-16 shadow-soft sm:px-10 lg:px-16 lg:py-24'>
+        <div className='absolute right-[-10%] top-[-10%] hidden h-[30rem] w-[30rem] rounded-full bg-brand-100/30 blur-3xl lg:block' />
 
-      <section className="hero-shell overflow-hidden rounded-[2.25rem] border border-white/45 px-6 py-16 shadow-soft sm:px-10 lg:px-16 lg:py-28">
-        <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
-          <div className="max-w-5xl section-spacing">
-            <div className="eyebrow-label inline-flex rounded-full border border-brand-700/10 bg-white/85 px-4 py-2 backdrop-blur-md">
-              Evidence-aware natural compound guide
+        <div className='grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center'>
+          <div className='relative z-10 max-w-4xl space-y-8'>
+            <div className='inline-flex rounded-full border border-brand-700/10 bg-white/85 px-4 py-2 text-xs font-semibold tracking-wide text-[#5f6f66] backdrop-blur-md'>
+              Evidence-aware supplement research
             </div>
 
-            <div className="space-y-7">
-              <h1 className="heading-premium max-w-5xl text-balance">
+            <div className='space-y-6'>
+              <h1 className='heading-premium max-w-5xl text-balance'>
                 {homepageMessaging.heroHeadline}
               </h1>
 
-              <p className="text-reading max-w-2xl text-lg leading-relaxed text-muted-soft sm:text-xl">
-                {homepageMessaging.heroSubhead}
+              <p className='max-w-2xl text-lg leading-relaxed text-[#4e5d55] sm:text-xl'>
+                Explore herbs, compounds, and practical evidence without the hype.
               </p>
             </div>
 
-            <div className="flex flex-col gap-4 pt-2 sm:flex-row">
-              <Link href={homepageMessaging.primaryCTA.href} className="button-primary">
-                {homepageMessaging.primaryCTA.label}
+            <div className='flex flex-col gap-4 sm:flex-row'>
+              <Link href='/herbs' className='button-primary'>
+                Explore Herbs
               </Link>
 
-              <Link href={homepageMessaging.secondaryCTA.href} className="button-secondary">
-                {homepageMessaging.secondaryCTA.label}
+              <Link href='/compare' className='button-secondary'>
+                Compare Supplements
               </Link>
             </div>
           </div>
 
-          <div className="surface-depth card-spacing">
-            <p className="eyebrow-label">How to use the site</p>
-            <div className="mt-5 space-y-4">
-              {[
-                ['Start with your goal', 'Sleep, stress, focus, recovery, and inflammation pages help you begin with what you actually care about.'],
-                ['Compare nearby options', 'Profiles link into related herbs, compounds, stacks, and comparison pages so you can avoid one-ingredient tunnel vision.'],
-                ['Check the evidence and safety', 'Human evidence, mechanisms, traditional use, and safety context are separated so claims stay proportional.'],
-              ].map(([title, body]) => (
-                <div key={title} className="border-t border-brand-900/10 pt-4 first:border-t-0 first:pt-0">
-                  <h2 className="max-w-none font-sans text-base font-semibold tracking-tight text-ink">{title}</h2>
-                  <p className="mt-1 text-sm leading-7 text-[#46574d]">{body}</p>
-                </div>
-              ))}
+          <div className='relative hidden min-h-[420px] overflow-hidden rounded-[2.5rem] border border-brand-900/10 bg-gradient-to-br from-[#f6f3ec] via-[#f8f8f4] to-[#edf3ec] lg:block'>
+            <div className='absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(176,205,177,0.22),transparent_42%)]' />
+            <div className='absolute bottom-8 left-8 max-w-sm rounded-[2rem] border border-white/60 bg-white/75 p-6 backdrop-blur-md'>
+              <p className='text-sm leading-7 text-[#46574d]'>
+                Compare evidence, recovery support, cognition pathways, stress resilience, and realistic expectations through guided research profiles.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="compact-section section-rhythm-compact">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="eyebrow-label">{homepageMessaging.sections.exploreByGoal}</p>
-            <h2 className="compact-heading mt-2">Start with what you are trying to improve.</h2>
-          </div>
-          <Link href="/goals" className="button-secondary rounded-full px-4 py-2 text-xs">View Goals</Link>
+      <section className='mx-auto max-w-6xl space-y-8'>
+        <div className='space-y-2'>
+          <p className='eyebrow-label'>Explore by goal</p>
+          <h2 className='compact-heading'>Start with what you are trying to improve.</h2>
         </div>
 
-        <div className="semantic-rail">
-          {authorityHomeLinks.map((item) => (
-            <RailCard
-              key={item.href}
-              item={{ href: item.href, title: item.label, meta: 'Goal route', description: 'A practical entry point into related herbs, compounds, and evidence summaries.' }}
-            />
+        <div className='grid gap-5 md:grid-cols-2'>
+          <ContentIdentityCard item={{ title: 'Sleep support', href: '/sleep-supplements', description: 'Explore calming pathways, circadian support, and recovery-focused compounds.', meta: 'Goal' } as any} />
+          <ContentIdentityCard item={{ title: 'Stress support', href: '/stress-supplements', description: 'Compare adaptogens, calming compounds, and recovery-oriented support.', meta: 'Goal' } as any} />
+          <ContentIdentityCard item={{ title: 'Focus and cognition', href: '/cognition-supplements', description: 'Explore focus, memory, calm productivity, and cognitive energy support.', meta: 'Goal' } as any} />
+          <ContentIdentityCard item={{ title: 'Inflammation support', href: '/inflammation', description: 'Review inflammatory pathways, recovery support, and evidence-aware options.', meta: 'Goal' } as any} />
+        </div>
+      </section>
+
+      <section className='rounded-[2.5rem] border border-brand-900/10 bg-gradient-to-br from-[#f6f4ee] via-white to-[#eef4ee] p-8 shadow-sm sm:p-12'>
+        <div className='grid gap-5 md:grid-cols-3'>
+          <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-5'>
+            <h3 className='text-base font-semibold tracking-tight text-ink'>Start with your goal</h3>
+            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Sleep, stress, cognition, recovery, and inflammation pages help you begin with practical intent.</p>
+          </div>
+
+          <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-5'>
+            <h3 className='text-base font-semibold tracking-tight text-ink'>Compare nearby options</h3>
+            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Review similar herbs and compounds before relying on one supplement narrative.</p>
+          </div>
+
+          <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-5'>
+            <h3 className='text-base font-semibold tracking-tight text-ink'>Check evidence and safety</h3>
+            <p className='mt-2 text-sm leading-7 text-[#46574d]'>Human evidence and realistic expectations stay separated from hype.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className='mx-auto max-w-6xl space-y-8'>
+        <div className='space-y-2'>
+          <p className='eyebrow-label'>Featured profiles</p>
+          <h2 className='compact-heading'>Popular starting points.</h2>
+        </div>
+
+        <div className='grid gap-6 lg:grid-cols-3'>
+          {visibleFeatured.map((item) => (
+            <Link key={item.href} href={item.href} className='group relative overflow-hidden rounded-[2rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fafaf7] to-brand-50/30 p-6 shadow-sm transition hover:-translate-y-1 hover:border-brand-700/20'>
+              <span className='inline-flex rounded-full border border-brand-900/10 bg-white/70 px-3 py-1 text-[11px] font-semibold tracking-wide text-[#5f6f66]'>
+                {item.meta}
+              </span>
+
+              <h3 className='mt-5 text-2xl font-semibold tracking-tight text-ink'>
+                {item.title}
+              </h3>
+
+              <p className='mt-3 text-sm leading-7 text-[#46574d]'>
+                {item.description}
+              </p>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <section className='grid gap-5 lg:grid-cols-4'>
         {[
-          { title: 'Herbs', href: '/herbs', description: 'Botanical profiles with traditional context, safety notes, and related compounds.', meta: 'Browse profiles', kind: 'herb' as const },
-          { title: 'Compounds', href: '/compounds', description: 'Supplement compounds organized by evidence, effects, and mechanisms.', meta: 'Browse profiles', kind: 'compound' as const },
-          { title: 'Compare', href: '/compare', description: 'Side-by-side decisions for related supplements, mechanisms, and use cases.', meta: 'Decision support', kind: 'path' as const },
-          { title: 'Learn', href: '/learn', description: 'Guided reading sequences for evidence-aware exploration.', meta: 'Beginner friendly', kind: 'article' as const },
-        ].map((item) => <ContentIdentityCard key={item.href} item={item} />)}
+          { title: 'Herbs', href: '/herbs', description: 'Browse botanical profiles and evidence-aware summaries.' },
+          { title: 'Compounds', href: '/compounds', description: 'Explore compounds, mechanisms, and practical guidance.' },
+          { title: 'Compare', href: '/compare', description: 'Review differences between related supplements and pathways.' },
+          { title: 'Learn', href: '/learn', description: 'Follow guided introductions into evidence-aware supplement research.' },
+        ].map((item) => (
+          <ContentIdentityCard key={item.href} item={item as any} />
+        ))}
       </section>
 
-      <section className="grid gap-5 lg:grid-cols-[1.15fr_.85fr]">
-        <div className="compact-section section-rhythm-compact">
-          <div className="space-y-2">
-            <p className="eyebrow-label">Featured starting points</p>
-            <h2 className="compact-heading">Choose a practical question and go deeper.</h2>
+      <section className='rounded-[2rem] border border-amber-700/15 bg-gradient-to-br from-amber-50/70 to-white p-8 shadow-sm'>
+        <div className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
+          <div className='max-w-2xl space-y-3'>
+            <p className='eyebrow-label text-amber-700'>Educational scope</p>
+            <h2 className='text-3xl font-semibold tracking-tight text-amber-950'>Natural does not automatically mean safe or effective.</h2>
+            <p className='text-base leading-8 text-amber-950/80'>
+              Use these pages to compare evidence and understand pathways — not as a replacement for medical care.
+            </p>
           </div>
-          <div className="semantic-rail">
-            {learningPaths.map(item => <RailCard key={item.href} item={item} />)}
-          </div>
-        </div>
 
-        <div className="safety-block p-5 sm:p-6">
-          <div className="section-rhythm-compact">
-            <div className="eyebrow-label text-amber-700">
-              Safety first
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="compact-heading max-w-sm">
-                Natural does not automatically mean safe or useful.
-              </h3>
-
-              <p className="compact-copy text-amber-950/85">
-                Use these pages for education, comparison, and better questions — not as a replacement for medical care.
-              </p>
-            </div>
-
-            <Link href="/disclaimer" className="button-secondary w-full justify-center rounded-full py-2.5 text-sm">
-              Read Educational Scope
-            </Link>
-          </div>
+          <Link href='/disclaimer' className='button-secondary whitespace-nowrap'>
+            Read Disclaimer
+          </Link>
         </div>
       </section>
-
-      <SemanticBrowseModule
-        title="Browse by goal or research pathway"
-        description="Find supplements by what you are trying to understand: sleep, stress, focus, recovery, inflammation, safety, or evidence strength."
-        groups={[
-          { title: 'Sleep support', description: 'Compare calming, circadian, and recovery-oriented options.', href: '/sleep-supplements', meta: 'Goal' },
-          { title: 'Stress support', description: 'Explore adaptogens, calming compounds, and stress-resilience context.', href: '/stress-supplements', meta: 'Goal' },
-          { title: 'Focus and cognition', description: 'Move through nootropics, calm focus, memory, and cognitive-energy pathways.', href: '/cognition-supplements', meta: 'Goal' },
-          { title: 'Recovery and performance', description: 'Compare recovery, training, mitochondrial, and energy-support options.', href: '/performance-supplements', meta: 'Goal' },
-          { title: 'Herb profiles', description: 'Browse botanical profiles with safety, evidence, and related compounds.', href: '/herbs', meta: 'Library' },
-          { title: 'Compound profiles', description: 'Browse individual compounds, mechanisms, and comparison paths.', href: '/compounds', meta: 'Library' },
-        ]}
-      />
-
-      <section className="compact-section section-rhythm-compact">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Featured profiles</p>
-          <h2 className="compact-heading">Start with well-known herbs and compounds.</h2>
-        </div>
-        <div className="semantic-rail">
-          {visibleEvidenceTopics.map(item => <RailCard key={item.href} item={item} />)}
-        </div>
-      </section>
-
     </main>
   )
 }
