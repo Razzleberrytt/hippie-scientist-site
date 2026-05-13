@@ -1,10 +1,14 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import { EcosystemPanelGrid } from '@/components/semantic-hubs/semantic-hub-sections'
-import { getEcosystemPanels } from '@/lib/ecosystem-context'
 import '@/styles/premium-cards.css'
+
+export const metadata: Metadata = {
+  title: 'Herbs | The Hippie Scientist',
+  description: 'Browse evidence-aware herb profiles with mechanisms, safety context, traditional use, and practical supplement research.',
+}
 
 function getName(item: any) {
   return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
@@ -44,10 +48,6 @@ function getSafety(item: any) {
   )
 }
 
-function getQuality(item: any) {
-  return labelize(item.profile_status || item.summary_quality || item.readiness || item.status, 'Profile Review')
-}
-
 function getEffects(item: any) {
   return unique([
     ...list(item.primary_effects),
@@ -62,10 +62,10 @@ function getEffects(item: any) {
 function evidenceClass(level: string) {
   const value = level.toLowerCase()
 
-  if (value.includes('strong') || value.includes('high')) return 'evidence-pill-strong'
-  if (value.includes('moderate') || value.includes('human')) return 'evidence-pill-moderate'
+  if (value.includes('strong') || value.includes('high')) return 'border-emerald-700/20 bg-emerald-50 text-emerald-900'
+  if (value.includes('moderate') || value.includes('human')) return 'border-brand-700/20 bg-brand-50 text-brand-900'
 
-  return 'chip-readable'
+  return 'border-amber-700/20 bg-amber-50 text-amber-950'
 }
 
 function scoreHerb(item: any) {
@@ -82,86 +82,56 @@ function scoreHerb(item: any) {
   return score
 }
 
-function herbVisualSeed(slug: string) {
-  return slug.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0)
+function getPrimaryLabel(item: any) {
+  const evidence = getEvidence(item)
+
+  if (evidence && evidence !== 'Evidence Review') return evidence
+
+  return getSafety(item)
 }
 
-function herbVisualStyle(slug: string) {
-  const seed = herbVisualSeed(slug)
-  const palettes = [
-    ['#e8f4e7', '#f8fbf4', '#2f7d4b'],
-    ['#f5eddc', '#fffaf0', '#a35f20'],
-    ['#e9f1ee', '#fbfffb', '#3a7357'],
-    ['#edf4dd', '#fffdf4', '#6f8339'],
-    ['#f0efe8', '#fffdf8', '#667255'],
-  ]
-  const [from, to, accent] = palettes[seed % palettes.length]
-
-  return {
-    background: `radial-gradient(circle at 32% 28%, ${from}, transparent 38%), linear-gradient(135deg, ${from}, ${to})`,
-    color: accent,
-  }
-}
-
-function herbGlyph(name: string) {
-  const first = name.trim().charAt(0).toUpperCase()
-  return first || 'H'
-}
-
-function StatCard({ value, label, description }: { value: number; label: string; description: string }) {
+function StatCard({ value, label }: { value: number; label: string }) {
   return (
-    <div className="compact-card text-center">
-      <p className="text-3xl font-semibold tracking-tight text-ink">{value}</p>
-      <p className="mt-2 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#46574d]">{label}</p>
-      <p className="mx-auto mt-2 max-w-[18ch] text-xs leading-5 text-[#5b6b61]">{description}</p>
+    <div className="rounded-[1.25rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm backdrop-blur">
+      <p className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{value}</p>
+      <p className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#5f6f66]">{label}</p>
     </div>
   )
 }
 
-function HerbCard({ herb, compact = false }: { herb: any; compact?: boolean }) {
-  const evidence = getEvidence(herb)
-  const quality = getQuality(herb)
+function HerbCard({ herb, featured = false }: { herb: any; featured?: boolean }) {
+  const label = getPrimaryLabel(herb)
   const effects = getEffects(herb)
   const name = getName(herb)
-  const summary = getSummary(herb)
+  const summary = getSummary(herb) || 'Evidence-aware botanical profile with mechanisms, safety context, and practical research notes.'
 
   return (
-    <article className={compact ? 'semantic-rail-card group' : 'compact-card group'}>
-      <div className={compact ? 'flex gap-3' : 'flex gap-4'}>
-        <div
-          className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-brand-900/10 text-3xl font-display font-semibold shadow-sm"
-          style={herbVisualStyle(herb.slug || name)}
-          aria-hidden="true"
-        >
-          {herbGlyph(name)}
+    <Link
+      href={`/herbs/${herb.slug}`}
+      className="group flex h-full min-h-[17rem] flex-col rounded-[1.65rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fbfaf6] to-brand-50/25 p-6 shadow-[var(--shadow-card-calm)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm-hover)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
+    >
+      <div className="flex flex-1 flex-col">
+        <div className="flex items-center justify-between gap-3">
+          <span className={`inline-flex rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.14em] ${evidenceClass(label)}`}>
+            {label}
+          </span>
+          {featured ? (
+            <span className="text-xs font-semibold text-brand-800">Featured</span>
+          ) : null}
         </div>
 
-        <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap gap-2">
-            <span className={evidenceClass(evidence)}>{evidence}</span>
-            {!compact ? <span className="identity-kicker">{quality}</span> : null}
-          </div>
+        <h3 className="mt-5 text-2xl font-semibold tracking-tight text-ink transition group-hover:text-brand-800">
+          {name}
+        </h3>
 
-          <h2 className="mt-3 max-w-none text-xl font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-700 sm:text-2xl">
-            {name}
-          </h2>
-
-          <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#46574d]">
-            {summary || 'Evidence-aware botanical profile with mechanism, safety, and practical context.'}
-          </p>
-        </div>
-      </div>
-
-      <div className="mt-4 border-t border-brand-900/10 pt-3">
-        <div className="mb-2 flex items-center justify-between gap-3">
-          <p className="text-[0.64rem] font-bold uppercase tracking-[0.14em] text-[#66756d]">Research signals</p>
-          <span className="identity-meta">{effects.length} mapped</span>
-        </div>
+        <p className="mt-3 line-clamp-4 text-sm leading-[1.75] text-[#46574d]">
+          {summary}
+        </p>
 
         {effects.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
+          <div className="mt-5 flex flex-wrap gap-2">
             {effects.map(effect => (
-              <span key={effect} className="rounded-full border border-brand-900/10 bg-paper-50 px-2.5 py-1 text-[11px] font-medium text-[#33443a]">
+              <span key={effect} className="rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-xs font-medium text-[#33443a]">
                 {effect}
               </span>
             ))}
@@ -169,15 +139,46 @@ function HerbCard({ herb, compact = false }: { herb: any; compact?: boolean }) {
         ) : null}
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-3">
-        <span className="identity-meta">Evidence-aware profile</span>
-        <Link href={`/herbs/${herb.slug}`} className="text-sm font-semibold text-brand-800 hover:text-brand-700">
-          View Profile →
-        </Link>
+      <div className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand-800 transition group-hover:translate-x-1">
+        Open profile
+        <span aria-hidden="true">→</span>
       </div>
-    </article>
+    </Link>
   )
 }
+
+const browsePaths = [
+  {
+    label: 'Stress & calm',
+    href: '/goals/anxiety',
+    description: 'Calming herbs, adaptogens, and interaction context.',
+  },
+  {
+    label: 'Sleep & recovery',
+    href: '/goals/sleep',
+    description: 'Wind-down support, sleep quality, and next-day fit.',
+  },
+  {
+    label: 'Focus & cognition',
+    href: '/goals/focus',
+    description: 'Attention, fatigue, and non-jittery support paths.',
+  },
+  {
+    label: 'Inflammation',
+    href: '/pathways/inflammation',
+    description: 'Botanical compounds mapped to inflammatory pathways.',
+  },
+  {
+    label: 'Metabolic health',
+    href: '/search?q=metabolic%20health',
+    description: 'Glucose, lipid, and energy-metabolism research leads.',
+  },
+  {
+    label: 'Traditional use',
+    href: '/search?q=traditional%20use',
+    description: 'Historical context alongside modern evidence limits.',
+  },
+]
 
 export default async function HerbsPage() {
   const allHerbs = await getHerbSummaryIndex()
@@ -200,108 +201,110 @@ export default async function HerbsPage() {
     )
   ).length
 
-  const featuredSignals = [
-    'Stress & Adaptogens',
-    'Sleep & Recovery',
-    'Cognitive Support',
-    'Inflammatory Pathways',
-    'Metabolic Research',
-    'Traditional Botanical Use',
-  ]
-
-  const topMatches = herbs.slice(0, 8)
-  const libraryHerbs = herbs.slice(8)
+  const safetyMapped = herbs.filter((herb: any) => getSafety(herb) !== 'Safety Review').length
+  const featuredHerbs = herbs.slice(0, 6)
 
   return (
-    <main className="min-h-screen bg-background text-ink">
-      <section className="container-page py-10 sm:py-14 lg:py-18">
-        <div className="section-spacing">
+    <main className="min-h-screen px-4 py-5 text-ink sm:py-8">
+      <div className="mx-auto max-w-7xl space-y-14 sm:space-y-20">
+        <section className="hero-shell relative overflow-hidden rounded-[2rem] border border-white/50 px-5 py-12 shadow-[var(--shadow-card-calm)] sm:rounded-[2.5rem] sm:px-10 sm:py-16 lg:px-14 lg:py-20">
+          <div className="!absolute left-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl" />
+          <div className="!absolute bottom-[-10rem] right-[-8rem] h-96 w-96 rounded-full bg-amber-200/30 blur-3xl" />
 
-          <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-end">
-              <div className="max-w-3xl space-y-6">
-                <div className="space-y-3">
-                  <p className="eyebrow-label">Botanical Research Library</p>
-                  <h1 className="max-w-[11ch]">Herbs</h1>
-                </div>
-
-                <p className="detail-reading text-[1.05rem] sm:text-lg">
-                  Browse evidence-aware botanical profiles by outcome signal, mechanism context, evidence maturity, and practical research pathway.
-                </p>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {featuredSignals.map(signal => (
-                    <span key={signal} className="chip-readable">{signal}</span>
-                  ))}
-                </div>
+          <div className="relative grid gap-10 lg:grid-cols-[1.08fr_.92fr] lg:items-center">
+            <div className="max-w-4xl space-y-7">
+              <div className="inline-flex rounded-full border border-brand-700/10 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-800 backdrop-blur-md">
+                Botanical profiles
               </div>
 
-              <div className="grid grid-cols-3 gap-3">
-                <StatCard value={totalProfiles} label="Profiles" description="Evidence-aware botanical profiles" />
-                <StatCard value={readyProfiles} label="High readiness" description="Near-complete profile signals" />
-                <StatCard value={evidenceForward} label="Human evidence" description="Mapped human research signals" />
-              </div>
-            </div>
-          </div>
+              <div className="space-y-5">
+                <h1 className="max-w-[13ch] text-balance font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+                  Herbal research library
+                </h1>
 
-          <div className="compact-section section-rhythm-compact">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="eyebrow-label">Top Matches</p>
-                <h2 className="compact-heading mt-2">High-signal botanical profiles.</h2>
-              </div>
-              <span className="chip-readable">Ranked by evidence and profile readiness</span>
-            </div>
-
-            <div className="semantic-rail">
-              {topMatches.map((herb: any) => (
-                <HerbCard key={herb.slug} herb={herb} compact />
-              ))}
-            </div>
-          </div>
-
-          <div className="compact-section section-rhythm-compact">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-3xl space-y-2">
-                <p className="eyebrow-label">Discovery structure</p>
-                <h2 className="compact-heading">Explore by evidence, mechanisms, and research direction.</h2>
-                <p className="compact-copy">
-                  Stronger evidence maturity and richer mechanism mapping surface first to improve scan quality and scientific navigation.
+                <p className="max-w-2xl text-lg leading-8 text-[#46574d] sm:text-xl">
+                  Browse evidence-aware herb profiles with mechanisms, safety context, traditional use, and practical supplement research kept in one clean library.
                 </p>
               </div>
+            </div>
 
-              <div className="flex flex-wrap gap-2">
-                {['Human Evidence', 'Traditional Use', 'Mechanism-Led', 'Adaptogens', 'Sleep', 'Cognition'].map(filter => (
-                  <span key={filter} className="chip-readable">{filter}</span>
-                ))}
+            <div className="rounded-[1.75rem] border border-brand-900/10 bg-white/70 p-4 shadow-[var(--shadow-card-calm)] backdrop-blur sm:p-5">
+              <div className="rounded-[1.5rem] bg-gradient-to-br from-[#fbfaf6] via-white to-[#eef6ee] p-5 sm:p-7">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-800">Library at a glance</p>
+                <div className="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                  <StatCard value={totalProfiles} label="Profiles" />
+                  <StatCard value={evidenceForward} label="Human evidence" />
+                  <StatCard value={safetyMapped || readyProfiles} label="Safety context" />
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <EcosystemPanelGrid
-            eyebrow="Associated pathways"
-            title="Botanical ecosystem pathways"
-            panels={getEcosystemPanels(['stress adaptogens sleep recovery cognition inflammation metabolism traditional botanical use'], 4)}
-            limit={4}
-          />
-
-          <section className="section-rhythm-compact">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="eyebrow-label">Botanical Library</p>
-                <h2 className="compact-heading mt-2">Browse all profiles.</h2>
-              </div>
-              <span className="chip-readable">{libraryHerbs.length} remaining profiles</span>
+        <section className="rounded-[2rem] border border-brand-900/10 bg-gradient-to-br from-white/85 via-[#faf8f1] to-brand-50/40 p-6 shadow-[var(--shadow-card-calm)] sm:p-10">
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl space-y-3">
+              <p className="eyebrow-label">Start with a goal</p>
+              <h2 className="compact-heading">Find the botanical path that matches the question you came with.</h2>
             </div>
+            <Link href="/goals" className="text-sm font-bold text-brand-800 transition hover:text-brand-900">All goals →</Link>
+          </div>
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {libraryHerbs.map((herb: any) => (
-                <HerbCard key={herb.slug} herb={herb} />
-              ))}
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {browsePaths.map(path => (
+              <Link
+                key={path.label}
+                href={path.href}
+                className="group rounded-[1.35rem] border border-brand-900/10 bg-white/75 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)]"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-lg font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
+                    <p className="mt-2 text-sm leading-[1.65] text-[#46574d]">{path.description}</p>
+                  </div>
+                  <span className="mt-1 text-brand-800 transition group-hover:translate-x-1" aria-hidden="true">→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl space-y-3">
+              <p className="eyebrow-label">Featured herbs</p>
+              <h2 className="compact-heading">Strong starting points for deeper botanical research.</h2>
             </div>
-          </section>
-        </div>
-      </section>
+            <p className="max-w-md text-sm leading-6 text-[#5f6f66]">
+              Featured profiles are prioritized by evidence, profile readiness, and practical browse value.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {featuredHerbs.map((herb: any) => (
+              <HerbCard key={herb.slug} herb={herb} featured />
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-2xl space-y-3">
+              <p className="eyebrow-label">All herbs</p>
+              <h2 className="compact-heading">Browse every published herb profile.</h2>
+            </div>
+            <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
+              {totalProfiles} profiles
+            </span>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {herbs.map((herb: any) => (
+              <HerbCard key={herb.slug} herb={herb} />
+            ))}
+          </div>
+        </section>
+      </div>
     </main>
   )
 }
