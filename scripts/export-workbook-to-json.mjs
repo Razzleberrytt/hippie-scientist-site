@@ -287,7 +287,6 @@ function exportHerbs(workbook, diagnostics, resolvedSheets) {
       readinessFlag: cleanScalar(row.readinessFlag),
       frontendReadyFlag: cleanScalar(row.frontendReadyFlag),
       completenessPct: cleanScalar(row.completenessPct),
-      sources: firstMeaningful(row.sources, row.source_ids, row.summaryCitations),
       sourceCount: cleanScalar(row.sourceCount),
       confidenceTier: firstMeaningful(row.confidenceTier, row.confidenceTier_v2),
       priorityTier: cleanScalar(row.reviewPriority),

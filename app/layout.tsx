@@ -39,7 +39,9 @@ const navLinks = [
   { href: '/compounds', label: 'Compounds' },
   { href: '/goals', label: 'Goals' },
   { href: '/stacks', label: 'Stacks' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/compare', label: 'Compare' },
+  { href: '/learn', label: 'Learn' },
+  { href: '/search', label: 'Search' },
   { href: '/about', label: 'About' },
 ]
 
@@ -75,18 +77,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
 
         <div className='min-h-screen bg-background text-ink'>
-          <header className='sticky top-0 z-50 border-b border-neutral-200 bg-white/90 backdrop-blur-sm'>
-            <div className='container-page flex items-center justify-between py-4'>
-              <Link href='/' className='text-lg font-bold tracking-tight text-ink'>
-                Hippie Scientist
+          <header className='sticky top-0 z-50 border-b border-brand-900/10 bg-white/88 shadow-[0_1px_0_rgba(17,24,39,0.02)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/78'>
+            <div className='container-page flex min-h-[72px] items-center justify-between gap-6 py-3'>
+              <Link
+                href='/'
+                className='inline-flex items-center rounded-full px-1 py-2 text-lg font-black tracking-tight text-ink transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white'
+              >
+                The Hippie Scientist
               </Link>
 
-              <nav className='hidden md:flex items-center gap-2'>
+              <nav className='hidden items-center gap-1.5 md:flex' aria-label='Primary navigation'>
                 {navLinks.map(l => (
                   <Link
                     key={l.href}
                     href={l.href}
-                    className='rounded-xl px-4 py-2 text-sm font-semibold text-muted hover:bg-neutral-100 hover:text-ink transition'
+                    className='rounded-full px-3.5 py-2 text-sm font-semibold text-[#5c6d63] transition duration-200 hover:bg-emerald-50 hover:text-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white lg:px-4'
                   >
                     {l.label}
                   </Link>
