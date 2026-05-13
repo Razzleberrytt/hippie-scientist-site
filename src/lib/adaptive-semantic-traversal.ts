@@ -59,6 +59,15 @@ function scoreCandidate(sourceSignals: string[], candidate: any) {
   return { score, overlap }
 }
 
+function adaptiveTraversalType(candidate: any): AdaptiveTraversalItem['type'] {
+  if (candidate?.entityType === 'compare') return 'compare'
+  if (candidate?.entityType === 'stack') return 'stack'
+  if (candidate?.entityType === 'best-for') return 'best-for'
+  if (candidate?.entityType === 'ecosystem') return 'ecosystem'
+  if (candidate?.entityType === 'pathway') return 'pathway'
+  return 'profile'
+}
+
 export function buildAdaptiveTraversal(
   source: any,
   candidates: any[] = [],
@@ -69,16 +78,15 @@ export function buildAdaptiveTraversal(
 
   const profileItems: AdaptiveTraversalItem[] = candidates
     .filter((candidate) => candidate?.slug && candidate.slug !== sourceSlug)
-    .map((candidate) => {
+    .map((candidate): AdaptiveTraversalItem => {
       const scored = scoreCandidate(sourceSignals, candidate)
       const name = title(text(candidate.displayName || candidate.name || candidate.slug))
-      const type = candidate.entityType === 'herb' ? 'profile' : 'profile'
 
       return {
         title: `Continue into ${name}`,
         description: 'Adjacent profile selected by pathway overlap, evidence maturity, and semantic continuity.',
         href: recordHref(candidate),
-        type,
+        type: adaptiveTraversalType(candidate),
         score: scored.score,
         signals: scored.overlap.slice(0, 4).map(title),
       }
@@ -86,7 +94,7 @@ export function buildAdaptiveTraversal(
     .filter((item) => item.score > 0)
 
   const ecosystemItems: AdaptiveTraversalItem[] = mechanismEcosystems
-    .map((ecosystem) => {
+    .map((ecosystem): AdaptiveTraversalItem => {
       const ecosystemSignals = [ecosystem.slug, ecosystem.title, ...ecosystem.pathways, ...ecosystem.compounds].map(normalize)
       const overlap = sourceSignals.filter((signal) =>
         ecosystemSignals.some((candidateSignal) => candidateSignal.includes(signal) || signal.includes(candidateSignal)),
@@ -96,7 +104,7 @@ export function buildAdaptiveTraversal(
         title: `Explore the ${ecosystem.title}`,
         description: ecosystem.summary,
         href: `/supernodes/${ecosystem.slug.replace('-ecosystem', '-systems')}`,
-        type: 'ecosystem' as const,
+        type: 'ecosystem',
         score: overlap.length * 3,
         signals: ecosystem.pathways.slice(0, 4).map(title),
       }
