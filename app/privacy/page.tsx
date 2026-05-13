@@ -13,132 +13,83 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className='space-y-8'>
-      <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8'>
-        <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-          Privacy
-        </p>
+      <section className='compact-section section-rhythm-balanced'>
+        <p className='eyebrow-label'>Privacy</p>
 
-        <h1 className='mt-2 text-4xl font-bold tracking-tight sm:text-5xl'>
-          Privacy information
-        </h1>
+        <h1 className='compact-heading'>Privacy information</h1>
 
-        <p className='mt-4 max-w-3xl text-base leading-7 text-white/75 sm:text-lg'>
-          This page explains, in plain English, how The Hippie Scientist handles
-          website privacy at a basic level.
-        </p>
-
-        <p className='mt-3 max-w-3xl text-sm leading-6 text-white/65 sm:text-base'>
-          Replace any placeholder language below with your real practices if you
-          use analytics, forms, newsletters, ads, or third-party embeds later.
+        <p className='compact-copy max-w-3xl'>
+          The Hippie Scientist is an educational research website. This page explains how privacy is handled in plain language.
         </p>
       </section>
 
       <section className='grid gap-4 lg:grid-cols-3'>
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Basic use
-          </p>
-
-          <h2 className='mt-3 text-2xl font-semibold'>General browsing</h2>
-
-          <p className='mt-3 text-sm leading-6 text-white/70'>
-            Visitors can read pages on this site without creating an account or
-            logging in.
+        <div className='compact-card'>
+          <p className='eyebrow-label'>General browsing</p>
+          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>No account required</h2>
+          <p className='mt-3 text-sm leading-6 text-ink/75'>
+            Visitors can read the site without creating an account or submitting personal health information through the website.
           </p>
         </div>
 
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Contact
-          </p>
-
-          <h2 className='mt-3 text-2xl font-semibold'>Information you send</h2>
-
-          <p className='mt-3 text-sm leading-6 text-white/70'>
-            If you contact the site owner directly, you choose what information to
-            share in that message.
+        <div className='compact-card'>
+          <p className='eyebrow-label'>Contact</p>
+          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>Information you send</h2>
+          <p className='mt-3 text-sm leading-6 text-ink/75'>
+            If you email the site owner, the information you choose to send may be used to respond, review feedback, or correct site content.
           </p>
         </div>
 
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Important note
-          </p>
-
-          <h2 className='mt-3 text-2xl font-semibold'>Update this page later</h2>
-
-          <p className='mt-3 text-sm leading-6 text-white/70'>
-            If you add analytics, forms, email signup tools, or embedded media,
-            update this page so it stays accurate.
+        <div className='compact-card'>
+          <p className='eyebrow-label'>Third parties</p>
+          <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>External services</h2>
+          <p className='mt-3 text-sm leading-6 text-ink/75'>
+            Links to outside sites, research sources, affiliate partners, or embedded services may be governed by their own privacy practices.
           </p>
         </div>
       </section>
 
       <section className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr]'>
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Suggested plain-English policy
-          </p>
+        <div className='compact-card'>
+          <p className='eyebrow-label'>Plain-English policy</p>
+          <h2 className='mt-3 text-3xl font-semibold tracking-tight text-ink'>How information is handled</h2>
 
-          <h2 className='mt-3 text-3xl font-semibold'>
-            Keep this honest and simple
-          </h2>
-
-          <div className='mt-4 space-y-4 text-sm leading-7 text-white/75 sm:text-base'>
+          <div className='mt-5 space-y-4 text-sm leading-7 text-ink/75 sm:text-base'>
             <p>
-              The Hippie Scientist is an informational website. At this stage, it
-              does not ask visitors to create accounts or submit sensitive health
-              information through the site itself.
+              The Hippie Scientist publishes educational content about herbs, compounds, mechanisms, evidence, and related wellness research topics.
             </p>
 
             <p>
-              If you choose to contact the site owner by email or another listed
-              method, the information you send may be used to respond to your
-              message, review feedback, or correct site content.
+              The site does not provide medical care, does not create user accounts, and does not ask visitors to submit sensitive health information through the website.
             </p>
 
             <p>
-              If analytics, contact forms, newsletters, advertising tools, or
-              other third-party services are added later, this page should be
-              updated to explain what is collected and why.
+              Basic technical information may be processed by hosting, security, analytics, search, or embedded third-party services needed to operate and improve the site.
+            </p>
+
+            <p>
+              If affiliate links are used, they may direct visitors to third-party websites. Those websites control their own checkout, tracking, privacy, and data practices.
             </p>
           </div>
         </div>
 
-        <aside className='ds-card h-fit'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
-            Related pages
-          </p>
+        <aside className='compact-card h-fit'>
+          <p className='eyebrow-label'>Related pages</p>
 
           <div className='mt-4 space-y-3'>
-            <Link
-              href='/about'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
-            >
-              <p className='text-sm font-semibold text-white'>About</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
-                Learn what the project is for.
-              </p>
+            <Link href='/about' className='compact-card block transition hover:-translate-y-0.5'>
+              <p className='text-sm font-semibold text-ink'>About</p>
+              <p className='mt-1 text-sm leading-6 text-ink/65'>Learn what the project is for.</p>
             </Link>
 
-            <Link
-              href='/contact'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
-            >
-              <p className='text-sm font-semibold text-white'>Contact</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
-                Send corrections, feedback, or questions.
-              </p>
+            <Link href='/contact' className='compact-card block transition hover:-translate-y-0.5'>
+              <p className='text-sm font-semibold text-ink'>Contact</p>
+              <p className='mt-1 text-sm leading-6 text-ink/65'>Send corrections, feedback, or questions.</p>
             </Link>
 
-            <Link
-              href='/disclaimer'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
-            >
-              <p className='text-sm font-semibold text-white'>Disclaimer</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
-                Read the educational and medical disclaimer.
-              </p>
+            <Link href='/disclaimer' className='compact-card block transition hover:-translate-y-0.5'>
+              <p className='text-sm font-semibold text-ink'>Disclaimer</p>
+              <p className='mt-1 text-sm leading-6 text-ink/65'>Read the educational and medical disclaimer.</p>
             </Link>
           </div>
         </aside>
