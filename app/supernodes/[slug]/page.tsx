@@ -5,11 +5,16 @@ import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
+import {
+  buildSemanticAssistantSummary,
+  buildSemanticNavigationSuggestions,
+} from '@/lib/ai-semantic-navigation'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import ComparisonEcosystemRail from '@/components/comparison-ecosystem-rail'
 import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
 import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
+import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 
 export function generateStaticParams() {
   return semanticSupernodes.map((node) => ({ slug: node.slug }))
@@ -137,16 +142,19 @@ export default async function SemanticSupernodePage({ params }: any) {
   const top = ranked.slice(0, 10)
   const evidenceForward = ranked.filter((record: any) => /strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))).slice(0, 8)
   const pathwayDense = ranked.filter((record: any) => getSignals(record).length >= 4).slice(0, 8)
-  const graph = buildSemanticGraphVisual(
-    {
-      slug: node.slug,
-      displayName: node.title,
-      pathways: node.keywords,
-      effects: node.keywords,
-    },
-    ranked,
-    16,
-  )
+  const nodeRecord = {
+    slug: node.slug,
+    displayName: node.title,
+    name: node.title,
+    summary: node.description,
+    entityType: 'supernode',
+    pathways: node.keywords,
+    effects: node.keywords,
+    mechanisms: node.keywords,
+  }
+  const graph = buildSemanticGraphVisual(nodeRecord, ranked, 16)
+  const assistant = buildSemanticAssistantSummary(nodeRecord, ranked)
+  const assistantSuggestions = buildSemanticNavigationSuggestions(nodeRecord, ranked, 5)
 
   return (
     <main className="min-h-screen bg-background text-ink">
@@ -182,6 +190,13 @@ export default async function SemanticSupernodePage({ params }: any) {
               />
             </div>
           </section>
+
+          <SemanticAssistantPanel
+            headline={assistant.headline}
+            body={assistant.body}
+            signals={assistant.signals}
+            suggestions={assistantSuggestions}
+          />
 
           <SemanticVisibilityGate minHeight={420}>
             <SemanticGraphMap
