@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Psychedelic-Adjacent Herbs | Hippie Scientist',
+  title: 'Psychedelic-Adjacent Herbs | The Hippie Scientist',
   description: 'A harm-reduction-oriented discovery entry point for ritual, dream, and perception-adjacent botanicals.',
 }
 

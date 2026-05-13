@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Sleep Herbs vs Melatonin | Hippie Scientist',
+  title: 'Sleep Herbs vs Melatonin | The Hippie Scientist',
   description: 'A safe discovery entry point for sleep-support herbs, compounds, and comparison research.',
 }
 

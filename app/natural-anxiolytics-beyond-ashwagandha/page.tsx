@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Natural Anxiolytics Beyond Ashwagandha | Hippie Scientist',
+  title: 'Natural Anxiolytics Beyond Ashwagandha | The Hippie Scientist',
   description: 'A safe discovery entry point for calm-support botanicals and related research profiles.',
 }
 

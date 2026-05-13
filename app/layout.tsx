@@ -19,19 +19,25 @@ const fraunces = Fraunces({
   display: 'swap',
 })
 
+const siteName = 'The Hippie Scientist'
+const siteDescription =
+  'Evidence-aware research on herbs, compounds, mechanisms, safety context, and practical supplement decisions.'
+const siteUrl = 'https://www.thehippiescientist.net'
+
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'The Hippie Scientist',
-  url: 'https://www.thehippiescientist.net',
-  description: 'Evidence-organized research on herbs, compounds, pathways, cognition, and human health.',
+  name: siteName,
+  url: siteUrl,
+  description: siteDescription,
 }
 
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'The Hippie Scientist',
-  url: 'https://www.thehippiescientist.net',
+  name: siteName,
+  url: siteUrl,
+  description: siteDescription,
 }
 
 const navLinks = [
@@ -46,14 +52,15 @@ const navLinks = [
 ]
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.thehippiescientist.net'),
-  title: { default: 'The Hippie Scientist', template: '%s | The Hippie Scientist' },
-  description:
-    'Evidence-organized research on herbs, compounds, pathways, cognition, neuroscience, and human health.',
+  metadataBase: new URL(siteUrl),
+  title: { default: siteName, template: `%s | ${siteName}` },
+  description: siteDescription,
   openGraph: {
     type: 'website',
-    siteName: 'The Hippie Scientist',
-    url: 'https://www.thehippiescientist.net',
+    title: siteName,
+    description: siteDescription,
+    siteName,
+    url: siteUrl,
   },
   twitter: {
     card: 'summary_large_image',

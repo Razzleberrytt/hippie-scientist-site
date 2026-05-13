@@ -1,4 +1,4 @@
-# The Hippie Scientistttt
+# The Hippie Scientist
 
 Data-driven educational site for herbs and compounds.
 
