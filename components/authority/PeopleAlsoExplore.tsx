@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cleanEditorialText, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 
 type ExploreItem = {
   href: string
@@ -16,7 +17,17 @@ export default function PeopleAlsoExplore({
   title = 'People Also Explore',
   items = [],
 }: PeopleAlsoExploreProps) {
-  if (!items.length) {
+  const cleanTitle = cleanEditorialText(title) || 'People Also Explore'
+  const renderableItems = items
+    .map((item) => ({
+      ...item,
+      title: cleanEditorialText(item.title),
+      description: cleanEditorialText(item.description),
+      meta: cleanEditorialText(item.meta),
+    }))
+    .filter((item) => item.href && shouldRenderCard(item.title, item.description))
+
+  if (!renderableItems.length) {
     return null
   }
 
@@ -26,19 +37,19 @@ export default function PeopleAlsoExplore({
         <p className="eyebrow-label">Semantic Discovery</p>
 
         <h2 className="max-w-3xl text-balance">
-          {title}
+          {cleanTitle}
         </h2>
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {items.map((item) => (
+        {renderableItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
             className="card-premium p-5 transition hover:-translate-y-0.5"
           >
             <div className="space-y-3">
-              {item.meta ? (
+              {isRenderableText(item.meta) ? (
                 <p className="eyebrow-label">
                   {item.meta}
                 </p>
@@ -48,7 +59,7 @@ export default function PeopleAlsoExplore({
                 {item.title}
               </h3>
 
-              {item.description ? (
+              {isRenderableText(item.description) && !isDuplicateTitleBody(item.title, item.description) ? (
                 <p className="text-sm leading-7 text-[#46574d]">
                   {item.description}
                 </p>

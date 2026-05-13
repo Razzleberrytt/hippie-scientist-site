@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { buildDecisionClarity } from '@/lib/decision-clarity'
+import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText } from '@/lib/editorial-rendering'
 
 type EntityType = 'herb' | 'compound'
 
@@ -21,22 +22,26 @@ function FieldManualCard({
   title: string
   items: string[]
 }) {
-  if (!items.length) return null
+  const cleanLabel = cleanEditorialText(label)
+  const cleanTitle = cleanEditorialText(title)
+  const renderableItems = dedupeEditorialItems(items, 4)
+
+  if (!renderableItems.length || !isRenderableText(cleanTitle)) return null
 
   return (
     <div className="rounded-3xl border border-brand-900/10 bg-white/75 p-5 shadow-sm">
       <div className="space-y-3">
         <div>
           <p className="text-[0.68rem] font-bold uppercase tracking-[0.18em] text-brand-900/55">
-            {label}
+            {cleanLabel}
           </p>
           <h3 className="mt-1 text-lg font-semibold tracking-tight text-ink">
-            {title}
+            {cleanTitle}
           </h3>
         </div>
 
         <ul className="space-y-3 text-sm leading-7 text-[#46574d]">
-          {items.map((item) => (
+          {renderableItems.map((item) => (
             <li key={item} className="flex gap-3">
               <span className="mt-[0.7rem] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700/60" />
               <span>{item}</span>
@@ -103,7 +108,14 @@ export default function DecisionClarityFieldManual({
             </div>
 
             <div className="space-y-3">
-              {clarity.nextBestSteps.map((step) => (
+{clarity.nextBestSteps
+                .map((step) => ({
+                  ...step,
+                  label: cleanEditorialText(step.label),
+                  note: cleanEditorialText(step.note),
+                }))
+                .filter((step) => isRenderableText(step.label))
+                .map((step) => (
                 step.href ? (
                   <Link
                     key={`${step.label}-${step.href}`}
@@ -111,7 +123,7 @@ export default function DecisionClarityFieldManual({
                     className="block rounded-2xl border border-brand-900/10 bg-white/80 p-4 transition hover:border-brand-700/25 hover:bg-white"
                   >
                     <p className="text-sm font-semibold text-ink">{step.label}</p>
-                    {step.note ? (
+                    {isRenderableText(step.note) && !isDuplicateTitleBody(step.label, step.note) ? (
                       <p className="mt-1 text-sm leading-6 text-[#5b6b61]">{step.note}</p>
                     ) : null}
                   </Link>
@@ -121,7 +133,7 @@ export default function DecisionClarityFieldManual({
                     className="rounded-2xl border border-brand-900/10 bg-white/80 p-4"
                   >
                     <p className="text-sm font-semibold text-ink">{step.label}</p>
-                    {step.note ? (
+                    {isRenderableText(step.note) && !isDuplicateTitleBody(step.label, step.note) ? (
                       <p className="mt-1 text-sm leading-6 text-[#5b6b61]">{step.note}</p>
                     ) : null}
                   </div>

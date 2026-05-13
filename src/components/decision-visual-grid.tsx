@@ -5,6 +5,7 @@ import {
   type TimelineProfile,
 } from '@/lib/decision-visuals'
 import { formatDisplayLabel } from '@/lib/display-utils'
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText } from '@/lib/editorial-rendering'
 
 type DecisionVisualGridProps = {
   record: any
@@ -41,11 +42,15 @@ function SpectrumBar({
   value: StimulationProfile | TimelineProfile
   order: StimulationProfile[] | TimelineProfile[]
 }) {
+  const cleanValue = cleanEditorialText(formatDisplayLabel(value))
+
+  if (!isRenderableText(cleanValue)) return null
+
   return (
     <div className="rounded-2xl border border-brand-900/10 bg-white/75 p-4">
       <div className="flex items-center justify-between gap-3">
         <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-brand-900/55">{label}</p>
-        <p className="text-xs font-semibold text-[#33443a]">{formatDisplayLabel(value)}</p>
+        <p className="text-xs font-semibold text-[#33443a]">{cleanValue}</p>
       </div>
 
       <div className="relative mt-4 h-2 rounded-full bg-brand-900/10">
@@ -65,16 +70,21 @@ function SpectrumBar({
 }
 
 function SignalCard({ label, value }: { label: string; value: string }) {
+  const cleanValue = cleanEditorialText(formatDisplayLabel(value))
+
+  if (!isRenderableText(cleanValue)) return null
+
   return (
     <div className={`rounded-2xl border p-4 ${toneClass(value)}`}>
       <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] opacity-65">{label}</p>
-      <p className="mt-2 text-sm font-semibold leading-6">{formatDisplayLabel(value)}</p>
+      <p className="mt-2 text-sm font-semibold leading-6">{cleanValue}</p>
     </div>
   )
 }
 
 export default function DecisionVisualGrid({ record, title = 'Visual decision intelligence', compact = false }: DecisionVisualGridProps) {
   const profile: DecisionVisualProfile = buildDecisionVisualProfile(record)
+  const tags = dedupeEditorialItems(profile.tags.map(formatDisplayLabel), 8)
 
   return (
     <section className={`card-premium space-y-5 ${compact ? 'p-5 sm:p-6' : 'p-5 sm:p-7 lg:p-8'}`}>
@@ -103,9 +113,9 @@ export default function DecisionVisualGrid({ record, title = 'Visual decision in
       </div>
 
       <div className="flex flex-wrap gap-2">
-        {profile.tags.map((tag) => (
+        {tags.map((tag) => (
           <span key={tag} className="rounded-full border border-brand-900/10 bg-paper-50/80 px-3 py-1.5 text-xs font-semibold text-[#46574d]">
-            {formatDisplayLabel(tag)}
+            {tag}
           </span>
         ))}
       </div>

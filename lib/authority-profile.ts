@@ -1,4 +1,5 @@
-import { list, text, unique } from '@/lib/display-utils'
+import { list, text } from '@/lib/display-utils'
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
 import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
 
@@ -28,37 +29,44 @@ function title(value: unknown) {
 }
 
 function cleanSignals(values: unknown[], fallbackTone: AuthoritySignal['tone'] = 'neutral'): AuthoritySignal[] {
-  return unique(values.map(text).filter(Boolean))
-    .slice(0, 6)
-    .map((value) => ({
-      label: title(value),
-      description: title(value),
-      tone: fallbackTone,
-    }))
+  return dedupeEditorialItems(values, 6)
+    .map((value) => {
+      const label = title(value)
+      const description = title(value)
+
+      return {
+        label,
+        description,
+        tone: fallbackTone,
+      }
+    })
+    .filter((signal) => shouldRenderCard(signal.label, signal.description))
 }
 
 export function buildExecutiveSummary(record: any): AuthoritySignal[] {
-  const summary = text(record?.summary || record?.description)
-  const evidence = text(record?.evidence_tier || record?.evidenceTier || record?.summary_quality || 'Evidence context varies')
-  const safety = text(record?.safety_level || record?.safety || record?.safetyNotes || 'Review safety context')
+  const summary = cleanEditorialText(record?.summary || record?.description)
+  const evidence = cleanEditorialText(record?.evidence_tier || record?.evidenceTier || record?.summary_quality || 'Evidence context varies')
+  const safety = cleanEditorialText(record?.safety_level || record?.safety || record?.safetyNotes || 'Review safety context')
 
-  return [
+  const signals: AuthoritySignal[] = [
     {
       label: 'What it is',
-      description: summary || 'A research profile with semantic evidence, mechanism, and safety context.',
+      description: isRenderableText(summary) ? summary : 'A research profile with semantic evidence, mechanism, and safety context.',
       tone: 'neutral',
     },
     {
       label: 'Evidence confidence',
-      description: title(evidence),
+      description: isRenderableText(evidence) ? title(evidence) : 'Evidence context varies',
       tone: /strong|clinical|human|high/i.test(evidence) ? 'strong' : /moderate|mixed/i.test(evidence) ? 'moderate' : 'neutral',
     },
     {
       label: 'Safety posture',
-      description: title(safety),
+      description: isRenderableText(safety) ? title(safety) : 'Review safety context',
       tone: /avoid|caution|review|risk/i.test(safety) ? 'caution' : 'neutral',
     },
   ]
+
+  return signals.filter((signal) => shouldRenderCard(signal.label, signal.description))
 }
 
 export function buildBestForSignals(record: any): AuthoritySignal[] {
@@ -87,11 +95,13 @@ export function buildEvidenceHierarchy(record: any): AuthoritySignal[] {
   const report = buildResearchKnowledgeReport(record)
 
   if (report.hierarchy.length > 0) {
-    return report.hierarchy.slice(0, 5).map((item) => ({
-      label: item.label,
-      description: item.reason,
+    const signals: AuthoritySignal[] = report.hierarchy.slice(0, 5).map((item) => ({
+      label: cleanEditorialText(item.label),
+      description: cleanEditorialText(item.reason),
       tone: item.confidence === 'high' ? 'strong' : item.confidence === 'moderate' ? 'moderate' : 'neutral',
     }))
+
+    return signals.filter((signal) => shouldRenderCard(signal.label, signal.description))
   }
 
   return [{
@@ -139,7 +149,7 @@ export function buildEditorialInterpretation(record: any): AuthoritySignal {
 
   return {
     label: 'Editorial interpretation',
-    description: `${name} currently looks ${semantic.priority} from a semantic authority perspective. ${evidence.summary}`,
+    description: cleanEditorialText(`${name} currently looks ${semantic.priority} from a semantic authority perspective. ${evidence.summary}`),
     tone: semantic.priority === 'high' ? 'strong' : semantic.priority === 'moderate' ? 'moderate' : 'neutral',
   }
 }

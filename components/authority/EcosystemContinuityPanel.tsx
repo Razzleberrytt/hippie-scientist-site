@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 
 type ContinuityItem = {
   href: string
@@ -18,7 +19,18 @@ export default function EcosystemContinuityPanel({
   description = 'Continue exploring semantically related profiles, pathways, stacks, and comparison systems.',
   items = [],
 }: EcosystemContinuityPanelProps) {
-  if (!items.length) {
+  const cleanTitle = cleanEditorialText(title) || 'Ecosystem Continuity'
+  const cleanDescription = cleanEditorialText(description)
+  const renderableItems = items
+    .map((item) => ({
+      ...item,
+      title: cleanEditorialText(item.title),
+      rationale: cleanEditorialText(item.rationale),
+      overlap: dedupeEditorialItems(item.overlap || [], 4),
+    }))
+    .filter((item) => item.href && shouldRenderCard(item.title, item.rationale))
+
+  if (!renderableItems.length) {
     return null
   }
 
@@ -28,16 +40,18 @@ export default function EcosystemContinuityPanel({
         <p className="eyebrow-label">Semantic Continuity</p>
 
         <h2 className="max-w-3xl text-balance">
-          {title}
+          {cleanTitle}
         </h2>
 
-        <p className="max-w-3xl text-sm leading-7 text-[#46574d]">
-          {description}
-        </p>
+        {isRenderableText(cleanDescription) && !isDuplicateTitleBody(cleanTitle, cleanDescription) ? (
+          <p className="max-w-3xl text-sm leading-7 text-[#46574d]">
+            {cleanDescription}
+          </p>
+        ) : null}
       </div>
 
       <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {items.map((item) => (
+        {renderableItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -49,16 +63,16 @@ export default function EcosystemContinuityPanel({
                   {item.title}
                 </p>
 
-                {item.rationale ? (
+                {isRenderableText(item.rationale) && !isDuplicateTitleBody(item.title, item.rationale) ? (
                   <p className="text-sm leading-7 text-[#46574d]">
                     {item.rationale}
                   </p>
                 ) : null}
               </div>
 
-              {item.overlap?.length ? (
+              {item.overlap.length ? (
                 <div className="flex flex-wrap gap-2">
-                  {item.overlap.slice(0, 4).map((label) => (
+                  {item.overlap.map((label) => (
                     <span
                       key={label}
                       className="chip-readable"

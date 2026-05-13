@@ -1,15 +1,13 @@
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 type RuntimeRecord = Record<string, any>
 
 function asList(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value.map((v) => String(v ?? '').trim()).filter(Boolean)
+    return dedupeEditorialItems(value)
   }
 
   if (typeof value === 'string') {
-    return value
-      .split(',')
-      .map((v) => v.trim())
-      .filter(Boolean)
+    return dedupeEditorialItems(value.split(/,|;|\|/))
   }
 
   return []
@@ -48,21 +46,21 @@ export function buildProfileRecommendations({
   const currentSignals = getSignals(current)
 
   return candidates
-    .filter((candidate) => candidate?.slug && candidate.slug !== current?.slug)
+    .filter((candidate) => isRenderableText(candidate?.slug) && candidate.slug !== current?.slug)
     .map((candidate) => {
       const matches = overlap(currentSignals, getSignals(candidate))
 
       return {
         href: `${basePath}/${candidate.slug}`,
-        title: candidate.title || candidate.name || candidate.slug,
-        overlap: matches.slice(0, 4),
+        title: cleanEditorialText(candidate.title || candidate.name || candidate.slug),
+        overlap: dedupeEditorialItems(matches, 4),
         rationale: matches.length
           ? `Connected through ${matches.slice(0, 3).join(', ')}.`
           : 'Related through semantic ecosystem continuity.',
         score: matches.length,
       }
     })
-    .filter((candidate) => candidate.score > 0)
+    .filter((candidate) => candidate.score > 0 && shouldRenderCard(candidate.title, candidate.rationale))
     .sort((a, b) => {
       if (b.score !== a.score) {
         return b.score - a.score

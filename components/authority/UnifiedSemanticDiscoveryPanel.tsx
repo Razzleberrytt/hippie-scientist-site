@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 
 type DiscoveryItem = {
   href: string
@@ -16,7 +17,22 @@ export default function UnifiedSemanticDiscoveryPanel({
   title = 'Unified Semantic Discovery',
   items = [],
 }: UnifiedSemanticDiscoveryPanelProps) {
-  if (!items.length) {
+  const cleanTitle = cleanEditorialText(title) || 'Unified Semantic Discovery'
+  const renderableItems = items
+    .map((item) => {
+      const itemTitle = cleanEditorialText(item.title)
+      const rationale = cleanEditorialText(item.rationale)
+
+      return {
+        ...item,
+        title: itemTitle,
+        rationale,
+        overlap: dedupeEditorialItems(item.overlap || [], 4),
+      }
+    })
+    .filter((item) => item.href && shouldRenderCard(item.title, item.rationale))
+
+  if (!renderableItems.length) {
     return null
   }
 
@@ -26,12 +42,12 @@ export default function UnifiedSemanticDiscoveryPanel({
         <p className="eyebrow-label">Semantic Graph Discovery</p>
 
         <h2 className="text-balance">
-          {title}
+          {cleanTitle}
         </h2>
       </div>
 
       <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {items.map((item) => (
+        {renderableItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -43,16 +59,16 @@ export default function UnifiedSemanticDiscoveryPanel({
                   {item.title}
                 </h3>
 
-                {item.rationale ? (
+                {isRenderableText(item.rationale) && !isDuplicateTitleBody(item.title, item.rationale) ? (
                   <p className="text-sm leading-7 text-[#46574d]">
                     {item.rationale}
                   </p>
                 ) : null}
               </div>
 
-              {item.overlap?.length ? (
+              {item.overlap.length ? (
                 <div className="flex flex-wrap gap-2">
-                  {item.overlap.slice(0, 4).map((label) => (
+                  {item.overlap.map((label) => (
                     <span
                       key={label}
                       className="chip-readable"

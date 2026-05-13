@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 
 type ProtocolRecommendation = {
   href: string
@@ -16,7 +17,17 @@ export default function ProtocolRecommendations({
   title = 'Related Protocol Systems',
   items = [],
 }: ProtocolRecommendationsProps) {
-  if (!items.length) {
+  const cleanTitle = cleanEditorialText(title) || 'Related Protocol Systems'
+  const renderableItems = items
+    .map((item) => ({
+      ...item,
+      title: cleanEditorialText(item.title),
+      summary: cleanEditorialText(item.summary),
+      tags: dedupeEditorialItems(item.tags || [], 4),
+    }))
+    .filter((item) => item.href && shouldRenderCard(item.title, item.summary))
+
+  if (!renderableItems.length) {
     return null
   }
 
@@ -26,12 +37,12 @@ export default function ProtocolRecommendations({
         <p className="eyebrow-label">Protocol Discovery</p>
 
         <h2 className="text-balance">
-          {title}
+          {cleanTitle}
         </h2>
       </div>
 
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
-        {items.map((item) => (
+        {renderableItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -43,16 +54,16 @@ export default function ProtocolRecommendations({
                   {item.title}
                 </h3>
 
-                {item.summary ? (
+                {isRenderableText(item.summary) && !isDuplicateTitleBody(item.title, item.summary) ? (
                   <p className="text-sm leading-7 text-[#46574d]">
                     {item.summary}
                   </p>
                 ) : null}
               </div>
 
-              {item.tags?.length ? (
+              {item.tags.length ? (
                 <div className="flex flex-wrap gap-2">
-                  {item.tags.slice(0, 4).map((tag) => (
+                  {item.tags.map((tag) => (
                     <span
                       key={tag}
                       className="chip-readable"

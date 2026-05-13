@@ -1,15 +1,13 @@
+import { dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 type RuntimeRecord = Record<string, any>
 
 function asList(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value.map((v) => String(v ?? '').trim()).filter(Boolean)
+    return dedupeEditorialItems(value)
   }
 
   if (typeof value === 'string') {
-    return value
-      .split(',')
-      .map((v) => v.trim())
-      .filter(Boolean)
+    return dedupeEditorialItems(value.split(/,|;|\|/))
   }
 
   return []
@@ -30,7 +28,7 @@ function buildTags(record: RuntimeRecord) {
 export function buildProtocolRecommendations(record: RuntimeRecord) {
   const tags = buildTags(record)
 
-  return tags.slice(0, 6).map((tag) => ({
+  return tags.slice(0, 6).filter(isRenderableText).map((tag) => ({
     href: `/protocols/${tag
       .toLowerCase()
       .replace(/\s+/g, '-')}`,
@@ -38,5 +36,5 @@ export function buildProtocolRecommendations(record: RuntimeRecord) {
     summary:
       'Evidence-aware protocol exploration generated from semantic ecosystem overlap and pathway continuity.',
     tags: [tag],
-  }))
+  })).filter((item) => shouldRenderCard(item.title, item.summary))
 }

@@ -1,4 +1,5 @@
 import type { AuthorityProfileModel, AuthoritySignal } from '@/lib/authority-profile'
+import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 import {
   buildCommonMistakesSection,
   buildCompareInsights,
@@ -23,19 +24,29 @@ function toneBadge(tone: AuthoritySignal['tone']) {
 }
 
 function AuthoritySignalCard({ signal }: { signal: AuthoritySignal }) {
+  const label = cleanEditorialText(signal.label)
+  const description = cleanEditorialText(signal.description)
+  const showDescription = isRenderableText(description) && !isDuplicateTitleBody(label, description)
+
+  if (!shouldRenderCard(label, description)) return null
+
   return (
     <article className={`rounded-[1.25rem] border p-4 shadow-sm ${toneClass(signal.tone)}`}>
       <div className="mb-2 flex flex-wrap items-center gap-2">
         <span className="identity-kicker">{toneBadge(signal.tone)}</span>
       </div>
-      <h4 className="max-w-none text-base font-semibold tracking-tight">{signal.label}</h4>
-      <p className="mt-2 text-sm leading-6 opacity-85">{signal.description}</p>
+      <h4 className="max-w-none text-base font-semibold tracking-tight">{label}</h4>
+      {showDescription ? (
+        <p className="mt-2 text-sm leading-6 opacity-85">{description}</p>
+      ) : null}
     </article>
   )
 }
 
 function AuthoritySection({ title, eyebrow, signals, dense = false }: { title: string; eyebrow: string; signals: AuthoritySignal[]; dense?: boolean }) {
-  if (!signals.length) return null
+  const renderableSignals = signals.filter((signal) => shouldRenderCard(signal.label, signal.description))
+
+  if (!renderableSignals.length) return null
 
   return (
     <section className="compact-card section-rhythm-compact">
@@ -44,7 +55,7 @@ function AuthoritySection({ title, eyebrow, signals, dense = false }: { title: s
         <h3 className="max-w-none text-2xl font-semibold tracking-tight text-ink">{title}</h3>
       </div>
       <div className={`grid gap-3 ${dense ? 'md:grid-cols-2' : 'lg:grid-cols-3'}`}>
-        {signals.map((signal, index) => (
+        {renderableSignals.map((signal, index) => (
           <AuthoritySignalCard key={`${signal.label}-${index}`} signal={signal} />
         ))}
       </div>
@@ -53,11 +64,19 @@ function AuthoritySection({ title, eyebrow, signals, dense = false }: { title: s
 }
 
 function InsightCard({ eyebrow, title, body }: { eyebrow: string; title: string; body: string }) {
+  const cleanTitle = cleanEditorialText(title)
+  const cleanBody = cleanEditorialText(body)
+  const showBody = isRenderableText(cleanBody) && !isDuplicateTitleBody(cleanTitle, cleanBody)
+
+  if (!shouldRenderCard(cleanTitle, cleanBody)) return null
+
   return (
     <article className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-5 shadow-sm">
       <p className="eyebrow-label">{eyebrow}</p>
-      <h3 className="mt-2 max-w-none text-xl font-semibold tracking-tight text-ink">{title}</h3>
-      <p className="mt-3 text-sm leading-7 text-[#46574d]">{body}</p>
+      <h3 className="mt-2 max-w-none text-xl font-semibold tracking-tight text-ink">{cleanTitle}</h3>
+      {showBody ? (
+        <p className="mt-3 text-sm leading-7 text-[#46574d]">{cleanBody}</p>
+      ) : null}
     </article>
   )
 }
@@ -67,8 +86,14 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
   const realisticExpectations = record ? buildRealisticExpectations(record) : ''
   const compareInsights = record ? buildCompareInsights(record) : null
   const humanEvidence = record ? buildHumanEvidenceSummary(record) : null
-  const commonMistakes = record ? buildCommonMistakesSection(record) : []
+  const commonMistakes = record ? dedupeEditorialItems(buildCommonMistakesSection(record), 4) : []
   const outcomeGuidance = record ? buildOutcomeSpecificGuidance(record) : []
+  const renderableOutcomeGuidance = outcomeGuidance
+    .map((item) => ({
+      outcome: cleanEditorialText(item.outcome),
+      guidance: cleanEditorialText(item.guidance),
+    }))
+    .filter((item) => shouldRenderCard(item.outcome, item.guidance))
 
   return (
     <section className="space-y-5">
@@ -124,17 +149,19 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
         />
       </section>
 
-      {outcomeGuidance.length > 0 ? (
+      {renderableOutcomeGuidance.length > 0 ? (
         <section className="compact-card section-rhythm-compact">
           <div className="space-y-1">
             <p className="eyebrow-label">Outcome guidance</p>
             <h3 className="max-w-none text-2xl font-semibold tracking-tight text-ink">How to judge results without hype.</h3>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
-            {outcomeGuidance.slice(0, 4).map((item) => (
+            {renderableOutcomeGuidance.slice(0, 4).map((item) => (
               <article key={item.outcome} className="rounded-[1.25rem] border border-brand-900/10 bg-white/75 p-4 shadow-sm">
                 <h4 className="max-w-none text-base font-semibold tracking-tight text-ink">{item.outcome}</h4>
-                <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.guidance}</p>
+                {isDuplicateTitleBody(item.outcome, item.guidance) ? null : (
+                  <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.guidance}</p>
+                )}
               </article>
             ))}
           </div>
@@ -212,7 +239,7 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
       <section className={`rounded-[1.5rem] border p-5 shadow-sm ${toneClass(model.editorialInterpretation.tone)}`}>
         <p className="eyebrow-label">Editorial Interpretation</p>
         <h3 className="mt-2 max-w-none text-2xl font-semibold tracking-tight">{model.editorialInterpretation.label}</h3>
-        <p className="mt-3 text-sm leading-7 opacity-90">{model.editorialInterpretation.description}</p>
+        <p className="mt-3 text-sm leading-7 opacity-90">{cleanEditorialText(model.editorialInterpretation.description)}</p>
       </section>
     </section>
   )
