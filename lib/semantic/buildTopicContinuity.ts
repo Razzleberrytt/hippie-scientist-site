@@ -1,15 +1,13 @@
+import { dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 type RuntimeRecord = Record<string, any>
 
 function asList(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value.map((v) => String(v ?? '').trim()).filter(Boolean)
+    return dedupeEditorialItems(value)
   }
 
   if (typeof value === 'string') {
-    return value
-      .split(',')
-      .map((v) => v.trim())
-      .filter(Boolean)
+    return dedupeEditorialItems(value.split(/,|;|\|/))
   }
 
   return []
@@ -24,6 +22,7 @@ export function buildTopicContinuity(record: RuntimeRecord) {
   const pathways = unique(asList(record?.pathways))
 
   return [...ecosystems, ...pathways]
+    .filter(isRenderableText)
     .slice(0, 8)
     .map((label) => ({
       label,
@@ -31,4 +30,5 @@ export function buildTopicContinuity(record: RuntimeRecord) {
         .toLowerCase()
         .replace(/\s+/g, '-')}`,
     }))
+    .filter((item) => shouldRenderCard(item.label))
 }

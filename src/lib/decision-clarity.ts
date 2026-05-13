@@ -1,4 +1,5 @@
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, list, text } from '@/lib/display-utils'
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText } from '@/lib/editorial-rendering'
 
 type EntityType = 'herb' | 'compound'
 
@@ -24,7 +25,6 @@ export type DecisionClarityModel = {
   stackConsiderations: string[]
 }
 
-const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal|n\/a/i
 const STIMULANT_PATTERN = /energy|focus|stimul|alert|performance|fatigue|cognition|cognitive/i
 const SLEEP_PATTERN = /sleep|calm|relax|stress|anxiety|recovery|gaba/i
 const RECOVERY_PATTERN = /recovery|performance|muscle|exercise|mitochond|fatigue|endurance/i
@@ -216,26 +216,27 @@ function normalizeSlug(record: any) {
 }
 
 function cleanItems(items: unknown[], limit = 4) {
-  return unique(
+  return dedupeEditorialItems(
     items
       .flatMap((item) => list(item))
-      .map(formatDisplayLabel)
-      .map((item) => item.trim())
-      .filter((item) => isClean(item) && !WEAK_PATTERN.test(item)),
-  ).slice(0, limit)
+      .map(formatDisplayLabel),
+    limit,
+  )
 }
 
 function compactSentence(value: string) {
-  return value.endsWith('.') ? value : `${value}.`
+  const clean = cleanEditorialText(value)
+  return clean.endsWith('.') ? clean : `${clean}.`
 }
 
 function getName(record: any) {
-  return formatDisplayLabel(record?.displayName || record?.name || record?.slug || 'This profile')
+  const name = formatDisplayLabel(record?.displayName || record?.name || record?.slug)
+  return isRenderableText(name) ? name : 'This profile'
 }
 
 function routeFor(record: any, fallbackType: EntityType) {
-  const slug = text(record?.slug)
-  if (!slug) return undefined
+  const slug = cleanEditorialText(record?.slug)
+  if (!isRenderableText(slug)) return undefined
   const type = record?.entityType === 'herb' || record?.entityType === 'compound' ? record.entityType : fallbackType
   return `/${type === 'herb' ? 'herbs' : 'compounds'}/${slug}`
 }
@@ -488,20 +489,29 @@ function inferNextBestSteps(record: any, entityType: EntityType, relatedRecords:
   ], 3).map((label) => ({ label: compactSentence(label) }))
 
   const related = relatedRecords
-    .filter((item) => item?.slug)
+    .filter((item) => isRenderableText(item?.slug))
     .slice(0, 3)
     .map((item) => ({
-      label: formatDisplayLabel(item?.name || item?.slug),
+      label: cleanEditorialText(formatDisplayLabel(item?.name || item?.slug)),
       href: routeFor(item, entityType),
       note: 'Compare fit, timing, and safety before choosing.',
     }))
 
-  if (explicit.length > 0) return [...explicit, ...related].slice(0, 4)
+  const steps = explicit.length > 0
+    ? [...explicit, ...related]
+    : [
+        ...related,
+        { label: 'Explore the related ecosystem', note: 'Use the connected profiles to understand adjacent goals and tradeoffs.' },
+      ]
 
-  return [
-    ...related,
-    { label: 'Explore the related ecosystem', note: 'Use the connected profiles to understand adjacent goals and tradeoffs.' },
-  ].slice(0, 4)
+  return steps
+    .map((step) => ({
+      ...step,
+      label: cleanEditorialText(step.label),
+      note: cleanEditorialText(step.note),
+    }))
+    .filter((step) => isRenderableText(step.label))
+    .slice(0, 4)
 }
 
 function mergeOverrides(base: DecisionClarityModel, override: Partial<DecisionClarityModel> | undefined): DecisionClarityModel {
@@ -518,6 +528,29 @@ function mergeOverrides(base: DecisionClarityModel, override: Partial<DecisionCl
     beginnerStartingPoints: override.beginnerStartingPoints || base.beginnerStartingPoints,
     nextBestSteps: override.nextBestSteps || base.nextBestSteps,
     stackConsiderations: override.stackConsiderations || base.stackConsiderations,
+  }
+}
+
+
+function cleanModel(model: DecisionClarityModel): DecisionClarityModel {
+  return {
+    bestFitFor: dedupeEditorialItems(model.bestFitFor, 4),
+    usuallyNotIdealFor: dedupeEditorialItems(model.usuallyNotIdealFor, 4),
+    commonMisunderstandings: dedupeEditorialItems(model.commonMisunderstandings, 4),
+    realisticExpectations: dedupeEditorialItems(model.realisticExpectations, 4),
+    acuteVsCumulative: dedupeEditorialItems(model.acuteVsCumulative, 4),
+    responderVariability: dedupeEditorialItems(model.responderVariability, 4),
+    formulationVariability: dedupeEditorialItems(model.formulationVariability, 4),
+    beginnerStartingPoints: dedupeEditorialItems(model.beginnerStartingPoints, 4),
+    stackConsiderations: dedupeEditorialItems(model.stackConsiderations, 4),
+    nextBestSteps: model.nextBestSteps
+      .map((step) => ({
+        ...step,
+        label: cleanEditorialText(step.label),
+        note: cleanEditorialText(step.note),
+      }))
+      .filter((step) => isRenderableText(step.label))
+      .slice(0, 4),
   }
 }
 
@@ -549,5 +582,5 @@ export function buildDecisionClarity({
     stackConsiderations: inferStackConsiderations(recordForInference, normalizedEffects),
   }
 
-  return mergeOverrides(base, FLAGSHIP_OVERRIDES[slug])
+  return cleanModel(mergeOverrides(base, FLAGSHIP_OVERRIDES[slug]))
 }

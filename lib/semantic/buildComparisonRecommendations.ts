@@ -1,15 +1,13 @@
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 type RuntimeRecord = Record<string, any>
 
 function asList(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value.map((v) => String(v ?? '').trim()).filter(Boolean)
+    return dedupeEditorialItems(value)
   }
 
   if (typeof value === 'string') {
-    return value
-      .split(',')
-      .map((v) => v.trim())
-      .filter(Boolean)
+    return dedupeEditorialItems(value.split(/,|;|\|/))
   }
 
   return []
@@ -29,13 +27,17 @@ function buildSignals(record: RuntimeRecord) {
 
 export function buildComparisonRecommendations(record: RuntimeRecord) {
   const signals = buildSignals(record)
+  const name = cleanEditorialText(record?.name || record?.slug)
+  const slug = cleanEditorialText(record?.slug)
+
+  if (!isRenderableText(name) || !isRenderableText(slug)) return []
 
   return signals.slice(0, 6).map((signal) => ({
-    href: `/compare/${record?.slug}-vs-${signal
+    href: `/compare/${slug}-vs-${signal
       .toLowerCase()
       .replace(/\s+/g, '-')}`,
-    title: `${record?.name || record?.slug} vs ${signal}`,
-    rationale: `Semantic comparison generated through overlap in ${signal}.`,
+    title: cleanEditorialText(`${name} vs ${signal}`),
+    rationale: cleanEditorialText(`Semantic comparison generated through overlap in ${signal}.`),
     overlap: [signal],
-  }))
+  })).filter((item) => shouldRenderCard(item.title, item.rationale))
 }

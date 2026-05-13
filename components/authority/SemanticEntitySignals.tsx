@@ -1,3 +1,5 @@
+import { cleanEditorialText, dedupeEditorialItems } from '@/lib/editorial-rendering'
+
 type SemanticEntitySignalsProps = {
   title?: string
   effects?: string[]
@@ -13,7 +15,9 @@ function SignalGroup({
   title: string
   items: string[]
 }) {
-  if (!items.length) {
+  const renderableItems = dedupeEditorialItems(items, 8)
+
+  if (!renderableItems.length) {
     return null
   }
 
@@ -24,7 +28,7 @@ function SignalGroup({
       </h3>
 
       <div className="flex flex-wrap gap-2">
-        {items.slice(0, 8).map((item) => (
+        {renderableItems.map((item) => (
           <span
             key={item}
             className="chip-readable"
@@ -44,11 +48,9 @@ export default function SemanticEntitySignals({
   pathways = [],
   ecosystems = [],
 }: SemanticEntitySignalsProps) {
-  const hasSignals =
-    effects.length ||
-    mechanisms.length ||
-    pathways.length ||
-    ecosystems.length
+  const cleanTitle = cleanEditorialText(title)
+  const groups = [effects, mechanisms, pathways, ecosystems].map((items) => dedupeEditorialItems(items, 8))
+  const hasSignals = groups.some((items) => items.length > 0)
 
   if (!hasSignals) {
     return null
@@ -60,29 +62,29 @@ export default function SemanticEntitySignals({
         <p className="eyebrow-label">Semantic Entity Graph</p>
 
         <h2 className="text-balance">
-          {title}
+          {cleanTitle || 'Semantic Profile Signals'}
         </h2>
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
         <SignalGroup
           title="Effects"
-          items={effects}
+          items={groups[0]}
         />
 
         <SignalGroup
           title="Mechanisms"
-          items={mechanisms}
+          items={groups[1]}
         />
 
         <SignalGroup
           title="Pathways"
-          items={pathways}
+          items={groups[2]}
         />
 
         <SignalGroup
           title="Ecosystems"
-          items={ecosystems}
+          items={groups[3]}
         />
       </div>
     </section>

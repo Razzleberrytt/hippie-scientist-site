@@ -1,4 +1,5 @@
-import { list, text, unique } from '@/lib/display-utils'
+import { list, text } from '@/lib/display-utils'
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
 
 function title(value: unknown) {
@@ -12,12 +13,14 @@ function first(values: unknown[], fallback: string) {
 }
 
 export function buildPracticalInterpretation(record: any) {
-  const name = title(record?.displayName || record?.name || record?.slug)
-  const effects = unique([
+  const name = isRenderableText(record?.displayName || record?.name || record?.slug)
+    ? title(record?.displayName || record?.name || record?.slug)
+    : 'This profile'
+  const effects = dedupeEditorialItems([
     ...list(record?.best_for),
     ...list(record?.primary_effects),
     ...list(record?.effects),
-  ].map(title).filter(Boolean)).slice(0, 4)
+  ].map(title), 4)
 
   if (effects.length === 0) {
     return `${name} currently has limited practical interpretation context available. Focus on evidence quality and safety before drawing strong conclusions.`
@@ -27,34 +30,36 @@ export function buildPracticalInterpretation(record: any) {
 }
 
 export function buildRealisticExpectations(record: any) {
-  const timing = first([
+  const timing = cleanEditorialText(first([
     record?.time_to_effect,
     record?.timeToEffect,
     record?.onset,
-  ], 'timing varies by formulation and baseline context')
+  ], 'timing varies by formulation and baseline context'))
 
   return `Real-world outcomes are rarely immediate. ${timing}. Acute subjective effects, long-term adaptation, and measurable clinical outcomes should not be treated as interchangeable.`
 }
 
 export function buildOutcomeSpecificGuidance(record: any) {
-  const outcomes = unique([
+  const outcomes = dedupeEditorialItems([
     ...list(record?.best_for),
     ...list(record?.goals),
     ...list(record?.primary_effects),
-  ].map(title).filter(Boolean)).slice(0, 6)
+  ].map(title), 6)
 
-  return outcomes.map((outcome) => ({
+  return outcomes.filter(isRenderableText).map((outcome) => ({
     outcome,
     guidance: `${outcome} outcomes should be evaluated using consistency, recovery context, sleep quality, nutrition status, and realistic timelines rather than expecting dramatic overnight changes.`,
-  }))
+  })).filter((item) => shouldRenderCard(item.outcome, item.guidance))
 }
 
 export function buildCompareInsights(record: any) {
-  const name = title(record?.displayName || record?.name || record?.slug)
-  const mechanisms = unique([
+  const name = isRenderableText(record?.displayName || record?.name || record?.slug)
+    ? title(record?.displayName || record?.name || record?.slug)
+    : 'This profile'
+  const mechanisms = dedupeEditorialItems([
     ...list(record?.mechanisms),
     ...list(record?.pathways),
-  ].map(title).filter(Boolean)).slice(0, 4)
+  ].map(title), 4)
 
   return {
     headline: `How ${name} differs from adjacent options`,
@@ -69,7 +74,7 @@ export function buildHumanEvidenceSummary(record: any) {
 
   return {
     evidenceWeight: research.evidenceWeight,
-    summary: research.summary,
+    summary: cleanEditorialText(research.summary),
     interpretation:
       research.evidenceWeight >= 24
         ? 'Human evidence appears relatively developed compared to many adjacent profiles.'
@@ -80,7 +85,9 @@ export function buildHumanEvidenceSummary(record: any) {
 }
 
 export function buildCommonMistakesSection(record: any) {
-  const name = title(record?.displayName || record?.name || record?.slug)
+  const name = isRenderableText(record?.displayName || record?.name || record?.slug)
+    ? title(record?.displayName || record?.name || record?.slug)
+    : 'This profile'
 
   return [
     `Treating ${name} as a universal solution rather than a context-dependent tool.`,

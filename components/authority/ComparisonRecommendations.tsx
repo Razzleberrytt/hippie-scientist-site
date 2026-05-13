@@ -1,22 +1,38 @@
 import Link from 'next/link'
+import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 
-type ComparisonRecommendation = {
+type DiscoveryItem = {
   href: string
   title: string
   rationale?: string
   overlap?: string[]
 }
 
-type ComparisonRecommendationsProps = {
+type UnifiedSemanticDiscoveryPanelProps = {
   title?: string
-  items?: ComparisonRecommendation[]
+  items?: DiscoveryItem[]
 }
 
 export default function ComparisonRecommendations({
   title = 'Comparison Discovery',
   items = [],
-}: ComparisonRecommendationsProps) {
-  if (!items.length) {
+}: UnifiedSemanticDiscoveryPanelProps) {
+  const cleanTitle = cleanEditorialText(title) || 'Comparison Discovery'
+  const renderableItems = items
+    .map((item) => {
+      const itemTitle = cleanEditorialText(item.title)
+      const rationale = cleanEditorialText(item.rationale)
+
+      return {
+        ...item,
+        title: itemTitle,
+        rationale,
+        overlap: dedupeEditorialItems(item.overlap || [], 4),
+      }
+    })
+    .filter((item) => item.href && shouldRenderCard(item.title, item.rationale))
+
+  if (!renderableItems.length) {
     return null
   }
 
@@ -26,12 +42,12 @@ export default function ComparisonRecommendations({
         <p className="eyebrow-label">Semantic Comparisons</p>
 
         <h2 className="text-balance">
-          {title}
+          {cleanTitle}
         </h2>
       </div>
 
       <div className="mt-6 grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
-        {items.map((item) => (
+        {renderableItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -43,16 +59,16 @@ export default function ComparisonRecommendations({
                   {item.title}
                 </h3>
 
-                {item.rationale ? (
+                {isRenderableText(item.rationale) && !isDuplicateTitleBody(item.title, item.rationale) ? (
                   <p className="text-sm leading-7 text-[#46574d]">
                     {item.rationale}
                   </p>
                 ) : null}
               </div>
 
-              {item.overlap?.length ? (
+              {item.overlap.length ? (
                 <div className="flex flex-wrap gap-2">
-                  {item.overlap.slice(0, 4).map((label) => (
+                  {item.overlap.map((label) => (
                     <span
                       key={label}
                       className="chip-readable"

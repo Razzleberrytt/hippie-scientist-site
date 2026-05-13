@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, list, text } from '@/lib/display-utils'
+import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
 type EntityType = 'herb' | 'compound'
@@ -19,20 +20,19 @@ type DecisionItem = {
   tone?: 'neutral' | 'strong' | 'caution' | 'muted'
 }
 
-const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal/i
 const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk|pregnancy|liver|kidney|sedat|bleed/i
 
 function cleanList(value: unknown, limit = 6) {
-  return unique(
+  return dedupeEditorialItems(
     list(value)
-      .map(formatDisplayLabel)
-      .map((item) => item.trim())
-      .filter((item) => isClean(item) && !WEAK_PATTERN.test(item)),
-  ).slice(0, limit)
+      .map(formatDisplayLabel),
+    limit,
+  )
 }
 
 function getName(record: any) {
-  return formatDisplayLabel(record?.displayName || record?.name || record?.slug)
+  const name = formatDisplayLabel(record?.displayName || record?.name || record?.slug)
+  return isRenderableText(name) ? name : ''
 }
 
 function getSummary(record: any, entityType: EntityType, fallback = '') {
@@ -93,14 +93,14 @@ function getCompareTo(record: any, relatedRecords: any[] = []) {
 
   if (explicit.length > 0) return explicit
 
-  return relatedRecords
-    .map((item) => formatDisplayLabel(item?.name || item?.slug))
-    .filter(Boolean)
-    .slice(0, 3)
+  return dedupeEditorialItems(
+    relatedRecords.map((item) => formatDisplayLabel(item?.name || item?.slug)),
+    3,
+  )
 }
 
 function getEvidenceText(record: any) {
-  return formatDisplayLabel(
+  return cleanEditorialText(formatDisplayLabel(
     record?.evidence_snapshot ||
       record?.evidenceSnapshot ||
       record?.evidence_tier ||
@@ -108,29 +108,29 @@ function getEvidenceText(record: any) {
       record?.confidence ||
       record?.summary_quality ||
       'Evidence review available',
-  )
+  ))
 }
 
 function getSafetyText(record: any, avoidIf: string[]) {
-  return formatDisplayLabel(
+  return cleanEditorialText(formatDisplayLabel(
     record?.safety_snapshot ||
       record?.safetySnapshot ||
       record?.safety_level ||
       record?.safetyLevel ||
       record?.safety?.confidence ||
       (avoidIf.length > 0 ? 'Caution context available' : 'Safety review available'),
-  )
+  ))
 }
 
 function getTimeToNotice(record: any) {
-  return formatDisplayLabel(
+  return cleanEditorialText(formatDisplayLabel(
     record?.time_to_notice ||
       record?.timeToNotice ||
       record?.time_to_effect ||
       record?.timeToEffect ||
       record?.onset ||
       'Timing varies by context',
-  )
+  ))
 }
 
 function evidenceTone(value: string): DecisionItem['tone'] {
@@ -152,18 +152,24 @@ function decisionCardClass(tone: DecisionItem['tone'] = 'neutral') {
 }
 
 function DecisionCard({ item }: { item: DecisionItem }) {
-  if (!item.value) return null
+  const label = cleanEditorialText(item.label)
+  const value = cleanEditorialText(item.value)
+
+  if (!shouldRenderCard(label, value)) return null
 
   return (
     <div className={`rounded-2xl border p-4 ${decisionCardClass(item.tone)}`}>
-      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] opacity-65">{item.label}</p>
-      <p className="mt-2 text-sm font-semibold leading-6">{item.value}</p>
+      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] opacity-65">{label}</p>
+      {isDuplicateTitleBody(label, value) ? null : (
+        <p className="mt-2 text-sm font-semibold leading-6">{value}</p>
+      )}
     </div>
   )
 }
 
 function formatListValue(items: string[], fallback: string) {
-  return items.length > 0 ? items.slice(0, 3).join(', ') : fallback
+  const clean = dedupeEditorialItems(items, 3)
+  return clean.length > 0 ? clean.join(', ') : fallback
 }
 
 function getRelatedHref(entityType: EntityType, slug: string) {
@@ -209,7 +215,7 @@ export function ProfileDecisionLayer({
   ]
 
   const topRelated = relatedRecords
-    .filter((item) => item?.slug)
+    .filter((item) => isRenderableText(item?.slug) && isRenderableText(item?.name || item?.slug))
     .slice(0, 3)
 
   return (
@@ -221,7 +227,7 @@ export function ProfileDecisionLayer({
             <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
               {name ? `${name}: quick interpretation` : 'Quick interpretation'}
             </h2>
-            {quickTake ? (
+            {isRenderableText(quickTake) ? (
               <p className="detail-reading max-w-3xl text-[#46574d]">
                 {quickTake}
               </p>
@@ -249,10 +255,10 @@ export function ProfileDecisionLayer({
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-900/55">Compare next</p>
                 <div className="space-y-2">
                   {topRelated.map((item) => {
-                    const label = formatDisplayLabel(item?.name || item?.slug)
-                    const slug = text(item?.slug)
+                    const label = cleanEditorialText(formatDisplayLabel(item?.name || item?.slug))
+                    const slug = cleanEditorialText(text(item?.slug))
                     const targetType = item?.entityType === 'herb' || item?.entityType === 'compound' ? item.entityType : entityType
-                    if (!label || !slug) return null
+                    if (!isRenderableText(label) || !isRenderableText(slug)) return null
 
                     return (
                       <Link

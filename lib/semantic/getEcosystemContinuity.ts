@@ -1,3 +1,4 @@
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 type RuntimeRecord = Record<string, any>
 
 type ContinuityCandidate = {
@@ -13,16 +14,11 @@ const MAX_RESULTS = 6
 
 function asList(value: unknown): string[] {
   if (Array.isArray(value)) {
-    return value
-      .map((item) => String(item ?? '').trim())
-      .filter(Boolean)
+    return dedupeEditorialItems(value)
   }
 
   if (typeof value === 'string') {
-    return value
-      .split(',')
-      .map((item) => item.trim())
-      .filter(Boolean)
+    return dedupeEditorialItems(value.split(/,|;|\|/))
   }
 
   return []
@@ -77,21 +73,21 @@ export function getEcosystemContinuity({
   const currentSignals = buildSignalSet(current)
 
   return candidates
-    .filter((candidate) => candidate?.slug && candidate.slug !== current?.slug)
+    .filter((candidate) => isRenderableText(candidate?.slug) && candidate.slug !== current?.slug)
     .map((candidate) => {
       const candidateSignals = buildSignalSet(candidate)
       const matches = overlap(currentSignals, candidateSignals)
 
       return {
         slug: candidate.slug,
-        title: candidate.title || candidate.name || candidate.slug,
+        title: cleanEditorialText(candidate.title || candidate.name || candidate.slug),
         href: `${routeBase}/${candidate.slug}`,
-        overlap: matches.slice(0, 4),
+        overlap: dedupeEditorialItems(matches, 4),
         rationale: buildRationale(matches),
         score: scoreOverlap(matches),
       }
     })
-    .filter((candidate) => candidate.score > 0)
+    .filter((candidate) => candidate.score > 0 && shouldRenderCard(candidate.title, candidate.rationale))
     .sort((a, b) => {
       if (b.score !== a.score) {
         return b.score - a.score

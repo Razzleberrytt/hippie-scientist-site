@@ -1,3 +1,5 @@
+import { cleanEditorialText, dedupeEditorialItems, shouldRenderCard } from '@/lib/editorial-rendering'
+
 type RecommendationRecord = {
   href?: string
   title?: string
@@ -7,9 +9,11 @@ type RecommendationRecord = {
 }
 
 function normalize(value: unknown) {
-  return String(value || '')
-    .trim()
+  return cleanEditorialText(value)
     .toLowerCase()
+    .replace(/[^a-z0-9/]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
 }
 
 export function dedupeSemanticRecommendations<T extends RecommendationRecord>(
@@ -20,6 +24,13 @@ export function dedupeSemanticRecommendations<T extends RecommendationRecord>(
 
   return items
     .filter(Boolean)
+    .map((item) => ({
+      ...item,
+      title: cleanEditorialText(item.title),
+      rationale: cleanEditorialText(item.rationale),
+      overlap: dedupeEditorialItems(item.overlap || [], 4),
+    }))
+    .filter((item) => shouldRenderCard(item.title, item.rationale))
     .filter((item) => {
       const key = normalize(item.href || item.title)
 
@@ -40,5 +51,5 @@ export function dedupeSemanticRecommendations<T extends RecommendationRecord>(
 
       return normalize(a?.title).localeCompare(normalize(b?.title))
     })
-    .slice(0, limit)
+    .slice(0, limit) as T[]
 }

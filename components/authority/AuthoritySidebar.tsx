@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { cleanEditorialText, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 
 type SidebarLink = {
   href: string
@@ -21,19 +22,28 @@ function SidebarSection({
   title: string
   items: SidebarLink[]
 }) {
-  if (!items.length) return null
+  const cleanTitle = cleanEditorialText(title)
+  const renderableItems = items
+    .map((item) => ({
+      ...item,
+      label: cleanEditorialText(item.label),
+      meta: cleanEditorialText(item.meta),
+    }))
+    .filter((item) => item.href && shouldRenderCard(item.label, item.meta))
+
+  if (!renderableItems.length || !cleanTitle) return null
 
   return (
     <section className="card-premium p-5 space-y-4">
       <div className="space-y-1">
         <p className="eyebrow-label">Authority Discovery</p>
         <h3 className="text-lg font-semibold tracking-tight text-ink">
-          {title}
+          {cleanTitle}
         </h3>
       </div>
 
       <div className="space-y-3">
-        {items.map((item) => (
+        {renderableItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
@@ -44,7 +54,7 @@ function SidebarSection({
                 {item.label}
               </p>
 
-              {item.meta ? (
+              {isRenderableText(item.meta) && !isDuplicateTitleBody(item.label, item.meta) ? (
                 <p className="text-xs leading-6 text-[#5c6b63]">
                   {item.meta}
                 </p>

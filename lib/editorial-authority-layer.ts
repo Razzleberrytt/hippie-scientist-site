@@ -1,4 +1,5 @@
-import { list, text, unique } from '@/lib/display-utils'
+import { list, text } from '@/lib/display-utils'
+import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
 import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
 
@@ -17,12 +18,14 @@ function title(value: unknown) {
 export function buildEditorialAuthorityNotes(record: any): EditorialAuthorityNote[] {
   const semantic = buildSemanticIntelligenceReport(record)
   const research = buildResearchKnowledgeReport(record)
-  const name = title(record?.displayName || record?.name || record?.slug || 'This profile')
-  const effects = unique([
+  const name = isRenderableText(record?.displayName || record?.name || record?.slug)
+    ? title(record?.displayName || record?.name || record?.slug)
+    : 'This profile'
+  const effects = dedupeEditorialItems([
     ...list(record?.best_for),
     ...list(record?.primary_effects),
     ...list(record?.effects),
-  ].map(title).filter(Boolean)).slice(0, 4)
+  ].map(title), 4)
 
   return [
     {
@@ -34,7 +37,7 @@ export function buildEditorialAuthorityNotes(record: any): EditorialAuthorityNot
     },
     {
       label: 'Evidence nuance',
-      body: research.summary,
+      body: cleanEditorialText(research.summary),
       tone: research.evidenceWeight >= 24 ? 'interpretation' : 'uncertainty',
     },
     {
@@ -52,5 +55,9 @@ export function buildEditorialAuthorityNotes(record: any): EditorialAuthorityNot
       body: `${name} currently ranks as ${semantic.priority} for semantic authority based on mechanism density, evidence signals, ecosystem alignment, and traversal diversity.`,
       tone: 'interpretation',
     },
-  ]
+  ].map((note) => ({
+    ...note,
+    label: cleanEditorialText(note.label),
+    body: cleanEditorialText(note.body),
+  })).filter((note) => shouldRenderCard(note.label, note.body))
 }
