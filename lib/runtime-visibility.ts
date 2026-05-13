@@ -6,10 +6,19 @@ function hasResearchPending(record: any) {
   )
 }
 
+function hasIndexableStatus(profileStatus: string) {
+  return /^(complete|near_complete|top50_authority_patched|commercial_ready)$/i.test(profileStatus)
+}
+
+function hasIndexableQuality(summaryQuality: string) {
+  return !/^(weak|minimal|thin|stub|research_needed)$/i.test(summaryQuality)
+}
+
 export function getRuntimeVisibility(record: any) {
   const exportDecision = text(record?.runtime_export_decision)
   const profileStatus = text(record?.profile_status)
   const summaryQuality = text(record?.summary_quality)
+  const evidenceTier = text(record?.evidence_tier || record?.evidenceTier || record?.evidence_grade)
 
   const hidden =
     /^hide$/i.test(exportDecision)
@@ -19,9 +28,15 @@ export function getRuntimeVisibility(record: any) {
     /^weak$/i.test(summaryQuality) ||
     hasResearchPending(record)
 
+  const indexableStatus = hasIndexableStatus(profileStatus)
+  const indexableQuality = hasIndexableQuality(summaryQuality)
+  const evidenceSupported = /^(strong|moderate|human|clinical|commercial_ready)$/i.test(evidenceTier) || indexableStatus
+
   const strong =
-    /^complete$/i.test(profileStatus) &&
-    /^strong$/i.test(summaryQuality)
+    indexableStatus &&
+    indexableQuality &&
+    evidenceSupported &&
+    !hasResearchPending(record)
 
   return {
     canRender: !hidden,
