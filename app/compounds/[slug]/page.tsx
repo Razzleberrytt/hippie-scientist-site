@@ -31,6 +31,8 @@ import {
   buildSemanticNavigationSuggestions,
 } from '@/lib/ai-semantic-navigation'
 import ProfileAuthoritySections from '@/components/profile-authority-sections'
+import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
+import DecisionClarityFieldManual from '@/components/decision-clarity-field-manual'
 import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
 import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
 import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
@@ -254,6 +256,24 @@ export default async function CompoundPage({ params }: any) {
             />
           </div>
         </section>
+
+        <ProfileDecisionLayer
+          record={compound}
+          entityType="compound"
+          relatedRecords={semanticRelated}
+          effects={effects}
+          mechanisms={mechanisms}
+          summary={summary}
+        />
+
+        <DecisionClarityFieldManual
+          record={compound}
+          entityType="compound"
+          relatedRecords={semanticRelated}
+          effects={effects}
+          mechanisms={mechanisms}
+          summary={summary}
+        />
 
         <AuthorityEditorialLayer
           record={compound}
