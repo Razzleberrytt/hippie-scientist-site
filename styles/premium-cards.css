@@ -19,12 +19,12 @@
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  border-radius: 1.6rem;
+  border-radius: var(--radius-card-premium, 1.65rem);
   border: 1px solid rgba(29,74,47,0.09);
 
   box-shadow:
-    0 18px 54px rgba(16,32,24,0.08),
-    0 2px 10px rgba(16,32,24,0.04);
+    0 14px 42px rgba(16,32,24,0.07),
+    0 2px 8px rgba(16,32,24,0.035);
 
   transition:
     transform .28s ease,
@@ -61,14 +61,14 @@
 .surface-depth:hover,
 .section-frame:hover,
 .glass-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 
   border-color: rgba(53,143,82,0.22);
 
   box-shadow:
-    0 0 0 1px rgba(141,170,120,0.12),
-    0 30px 80px rgba(16,32,24,0.15),
-    0 8px 24px rgba(16,32,24,0.07);
+    0 0 0 1px rgba(141,170,120,0.10),
+    0 20px 56px rgba(16,32,24,0.10),
+    0 4px 14px rgba(16,32,24,0.045);
 
   background:
     linear-gradient(
@@ -95,7 +95,8 @@
 .surface-depth p,
 .section-frame p,
 .glass-card p {
-  color: #52635a;
+  color: #4f6057;
+  line-height: 1.72;
 }
 
 .metadata-row {
@@ -191,12 +192,14 @@
 
 .button-primary:hover {
   box-shadow:
-    0 18px 45px rgba(36,86,58,0.18);
+    0 16px 34px rgba(36,86,58,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.16);
 }
 
 .button-secondary:hover {
   box-shadow:
-    0 12px 34px rgba(16,32,24,0.10);
+    0 12px 30px rgba(16,32,24,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.72);
 }
 
 .hero-shell {
@@ -254,7 +257,7 @@
   .surface-subtle,
   .section-frame,
   .glass-card {
-    border-radius: 1.35rem;
+    border-radius: var(--radius-card-compact, 1.35rem);
   }
 
   .library-card-premium:hover,
@@ -263,7 +266,7 @@
   .surface-depth:hover,
   .section-frame:hover,
   .glass-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
   }
 
   .identity-meta,

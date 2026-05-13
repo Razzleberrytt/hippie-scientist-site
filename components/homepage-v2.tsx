@@ -131,8 +131,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <main className='min-h-screen px-4 py-5 text-ink sm:py-8'>
-      <div className='mx-auto max-w-7xl space-y-16 sm:space-y-24'>
-        <section className='hero-shell relative overflow-hidden rounded-[2rem] border border-white/50 px-5 py-12 shadow-soft sm:rounded-[2.75rem] sm:px-10 sm:py-16 lg:px-14 lg:py-20'>
+      <div className='mx-auto max-w-7xl space-y-14 sm:space-y-20'>
+        <section className='hero-shell relative overflow-hidden rounded-[2rem] border border-white/50 px-5 py-12 shadow-[var(--shadow-card-calm)] sm:rounded-[2.5rem] sm:px-10 sm:py-16 lg:px-14 lg:py-20'>
           <div className='absolute left-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl' />
           <div className='absolute bottom-[-10rem] right-[-8rem] h-96 w-96 rounded-full bg-amber-200/30 blur-3xl' />
 
@@ -143,7 +143,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               </div>
 
               <div className='space-y-5'>
-                <h1 className='text-balance font-display text-5xl font-semibold leading-[0.96] tracking-tight text-ink sm:text-6xl lg:text-7xl'>
+                <h1 className='max-w-[15ch] text-balance font-display text-5xl font-semibold leading-[1.02] tracking-tight text-ink sm:text-6xl lg:max-w-[17ch] lg:text-7xl'>
                   {homepageMessaging.heroHeadline}
                 </h1>
 
@@ -168,12 +168,12 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               </div>
             </div>
 
-            <div className='rounded-[2rem] border border-brand-900/10 bg-white/70 p-4 shadow-card backdrop-blur sm:p-5'>
+            <div className='rounded-[1.75rem] border border-brand-900/10 bg-white/70 p-4 shadow-[var(--shadow-card-calm)] backdrop-blur sm:p-5'>
               <div className='rounded-[1.5rem] bg-gradient-to-br from-[#fbfaf6] via-white to-[#eef6ee] p-5 sm:p-7'>
                 <div className='space-y-5'>
                   <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-800'>Research product, not wellness hype</p>
                   <h2 className='text-3xl font-semibold tracking-tight text-ink sm:text-4xl'>Make supplement decisions from evidence, safety, and fit.</h2>
-                  <p className='text-sm leading-7 text-[#46574d]'>
+                  <p className='text-sm leading-[1.75] text-[#46574d]'>
                     Move from a goal to mechanisms, profile pages, and comparisons with the limits of the evidence kept visible.
                   </p>
                 </div>
@@ -192,14 +192,14 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
         <section className='grid gap-4 md:grid-cols-2 xl:grid-cols-4'>
           {trustCards.map((card) => (
-            <div key={card.title} className='rounded-[1.75rem] border border-brand-900/10 bg-white/75 p-6 shadow-card transition hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white'>
+            <div key={card.title} className='rounded-[1.65rem] border border-brand-900/10 bg-white/75 p-6 shadow-[var(--shadow-card-calm)] transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm-hover)]'>
               <h2 className='text-xl font-semibold tracking-tight text-ink'>{card.title}</h2>
-              <p className='mt-3 text-sm leading-7 text-[#46574d]'>{card.description}</p>
+              <p className='mt-3 text-sm leading-[1.75] text-[#46574d]'>{card.description}</p>
             </div>
           ))}
         </section>
 
-        <section className='rounded-[2.25rem] border border-brand-900/10 bg-gradient-to-br from-white/85 via-[#faf8f1] to-brand-50/40 p-6 shadow-soft sm:p-10'>
+        <section className='rounded-[2rem] border border-brand-900/10 bg-gradient-to-br from-white/85 via-[#faf8f1] to-brand-50/40 p-6 shadow-[var(--shadow-card-calm)] sm:p-10'>
           <div className='flex flex-col gap-4 md:flex-row md:items-end md:justify-between'>
             <div className='max-w-2xl space-y-3'>
               <p className='eyebrow-label'>Start by goal</p>
@@ -210,11 +210,11 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
           <div className='mt-8 grid gap-4 md:grid-cols-2'>
             {goalEntries.map((goal) => (
-              <Link key={goal.href} href={goal.href} className='group rounded-[1.5rem] border border-brand-900/10 bg-white/75 p-5 shadow-sm transition hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white'>
+              <Link key={goal.href} href={goal.href} className='group rounded-[1.5rem] border border-brand-900/10 bg-white/75 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)]'>
                 <div className='flex items-start justify-between gap-4'>
                   <div>
                     <h3 className='text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800'>{goal.title}</h3>
-                    <p className='mt-3 text-sm leading-7 text-[#46574d]'>{goal.description}</p>
+                    <p className='mt-3 text-sm leading-[1.75] text-[#46574d]'>{goal.description}</p>
                   </div>
                   <span className='mt-1 text-brand-800 transition group-hover:translate-x-1' aria-hidden='true'>→</span>
                 </div>
@@ -237,7 +237,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
           <div className='grid gap-5 lg:grid-cols-3'>
             {visibleFeatured.map((item) => (
-              <Link key={item.href} href={item.href} className='group relative overflow-hidden rounded-[2rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fbfaf6] to-brand-50/30 p-6 shadow-card transition hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white'>
+              <Link key={item.href} href={item.href} className='group relative overflow-hidden rounded-[1.65rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fbfaf6] to-brand-50/30 p-6 shadow-[var(--shadow-card-calm)] transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm-hover)]'>
                 <div className='absolute right-[-3rem] top-[-3rem] h-32 w-32 rounded-full bg-brand-100/40 blur-2xl transition group-hover:bg-brand-100/60' />
                 <div className='relative'>
                   <span className='inline-flex rounded-full border border-brand-900/10 bg-white/70 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#5f6f66]'>
@@ -248,7 +248,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                     {item.title}
                   </h3>
 
-                  <p className='mt-3 text-sm leading-7 text-[#46574d]'>
+                  <p className='mt-3 text-sm leading-[1.75] text-[#46574d]'>
                     {item.description}
                   </p>
 
@@ -261,12 +261,12 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='rounded-[2.25rem] border border-brand-900/10 bg-white/75 p-6 shadow-soft sm:p-10'>
+        <section className='rounded-[2rem] border border-brand-900/10 bg-white/75 p-6 shadow-[var(--shadow-card-calm)] sm:p-10'>
           <div className='grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center'>
             <div className='space-y-3'>
               <p className='eyebrow-label'>Compare before you stack</p>
               <h2 className='compact-heading'>Similar supplements can have very different tradeoffs.</h2>
-              <p className='text-sm leading-7 text-[#46574d]'>
+              <p className='text-sm leading-[1.75] text-[#46574d]'>
                 Use comparison pages to separate acute effects from cumulative support, calming from sedating, and plausible mechanisms from stronger human data.
               </p>
             </div>
@@ -278,7 +278,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 { label: 'Kava vs alcohol', href: '/compare/kava-vs-alcohol' },
                 { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },
               ].map((item) => (
-                <Link key={item.href} href={item.href} className='group rounded-2xl border border-brand-900/10 bg-[#fbfaf6] p-4 text-sm font-semibold text-[#33443a] transition hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white'>
+                <Link key={item.href} href={item.href} className='group rounded-2xl border border-brand-900/10 bg-[#fbfaf6] p-4 text-sm font-semibold leading-[1.55] text-[#33443a] transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-sm'>
                   {item.label}
                   <span className='ml-2 text-brand-800 transition group-hover:translate-x-1' aria-hidden='true'>→</span>
                 </Link>
@@ -287,7 +287,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='rounded-[2rem] border border-amber-700/15 bg-gradient-to-br from-amber-50/80 via-white to-[#fbfaf6] p-6 shadow-sm sm:p-8'>
+        <section className='rounded-[1.75rem] border border-amber-700/15 bg-gradient-to-br from-amber-50/80 via-white to-[#fbfaf6] p-6 shadow-sm sm:p-8'>
           <div className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
             <div className='max-w-3xl space-y-3'>
               <p className='eyebrow-label text-amber-700'>Safety note</p>
