@@ -9,10 +9,15 @@ import { bestPages } from '@/data/best'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 import { buildContinuationPrompts, buildSemanticNarrative } from '@/lib/semantic-exploration-narratives'
+import {
+  buildSemanticAssistantSummary,
+  buildSemanticNavigationSuggestions,
+} from '@/lib/ai-semantic-navigation'
 import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
 import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
+import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -115,6 +120,8 @@ export default async function Page({ params }: Params) {
   const graph = buildSemanticGraphVisual(syntheticCompareNode, [a, b], 12)
   const narrative = buildSemanticNarrative(syntheticCompareNode, [a, b])
   const prompts = buildContinuationPrompts(syntheticCompareNode, [winner, loser])
+  const assistant = buildSemanticAssistantSummary(syntheticCompareNode, [a, b])
+  const assistantSuggestions = buildSemanticNavigationSuggestions(syntheticCompareNode, [a, b], 5)
 
   const relatedStack = stacks.find((s: any) =>
     (s.compounds || s.stack || []).some((i: any) => {
@@ -208,6 +215,13 @@ export default async function Page({ params }: Params) {
           </div>
         </article>
       </section>
+
+      <SemanticAssistantPanel
+        headline={assistant.headline}
+        body={assistant.body}
+        signals={assistant.signals}
+        suggestions={assistantSuggestions}
+      />
 
       <GuidedExplorationPanel
         overview={narrative.overview}
