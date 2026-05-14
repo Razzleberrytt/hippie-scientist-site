@@ -4,7 +4,6 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import XLSX from 'xlsx'
-import Ajv from 'ajv'
 import { resolveWorkbookPath } from '../workbook-source.mjs'
 import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
@@ -12,120 +11,52 @@ import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mj
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
-const ajv = new Ajv({ allErrors: true })
-
-const REQUIRED_SHEETS = [
-  'Herb Master V3',
-  'Compound Master V3',
-  'Herb Compound Map V3',
-  'Affiliate Mapping',
-  'Product Top Picks System',
-  'Protocol Engine',
-  'SEO Page Targets',
-  'Canonical_Effects',
-  'Canonical_Mechanisms',
-  'Canonical_Theme_Palettes',
-  'Canonical_Compare_Groups',
-  'Affiliate Config',
-  'Study Registry',
-  'Effect Canonical Map',
-]
-
-const OPTIONAL_SHEETS = [
-  'Herb Monographs',
-  'Site Export Herbs',
-  'Site Export Compounds',
-  'Affiliate Experiments',
-]
 
 const SHEETS = {
   herbs: ['Herb Master V3', 'Herb Monographs', 'Site Export Herbs'],
   compounds: ['Compound Master V3', 'Site Export Compounds'],
+  map: ['Herb Compound Map V3'],
+  claims: ['Study Registry'],
 }
 
 const GRAPH_SHEETS = {
-  nodes: ['KG Nodes'], // Resolves KG Nodes, KG Nodes v4, KG Nodes v5, etc.
-  relationships: ['Relationship Edges'],
   topics: ['Topic Ecosystems'],
   pathways: ['Pathway Ecosystems'],
+  supernodes: ['Authority Supernodes'],
+  relationships: ['Relationship Edges'],
   comparisons: ['Comparison Candidates'],
   stacks: ['Stack Synergy'],
-  supernodes: ['Authority Supernodes'],
   sparseRecovery: ['Sparse Recovery'],
+  nodes: ['KG Nodes'],
 }
 
 const INDEX_FIELDS = [
-  'slug',
-  'name',
-  'summary',
-  'primary_effects',
-  'evidence_grade',
-  'profile_status',
-  'runtime_export_decision',
-  'affiliate_ready',
-  'visibility_tier',
-  'robots',
+  'slug', 'name', 'summary', 'primary_effects', 'effects', 'evidence_grade',
+  'evidence_tier', 'profile_status', 'runtime_export_decision',
+  'affiliate_ready', 'visibility_tier', 'robots',
 ]
 
-function validateWorkbookSheets(workbook) {
-  const sheetNames = workbook.SheetNames || []
-
-  const missingRequired = REQUIRED_SHEETS.filter(
-    (sheet) => !sheetNames.includes(sheet)
-  )
-
-  const missingOptional = OPTIONAL_SHEETS.filter(
-    (sheet) => !sheetNames.includes(sheet)
-  )
-
-  for (const sheet of missingOptional) {
-    console.warn(`[data] optional sheet missing: ${sheet}`)
-  }
-
-  for (const [key, candidates] of Object.entries(GRAPH_SHEETS)) {
-    const resolved = resolveLatestVersionedSheet(workbook, candidates)
-    if (!resolved) {
-      console.warn(`[data] graph sheet missing: ${key}`)
-    }
-  }
-
-  if (missingRequired.length) {
-    for (const sheet of missingRequired) {
-      console.error(`[data] missing required sheet: ${sheet}`)
-    }
-
-    throw new Error(
-      `Workbook validation failed. Missing required sheets: ${missingRequired.join(', ')}`
-    )
-  }
-
-  console.log('[data] workbook sheets verified')
-}
-
 function clean(v) {
-  return v ? String(v).trim() : ''
+  if (v === null || v === undefined) return ''
+  return String(v).replace(/\s+/g, ' ').trim()
 }
 
-function lower(v) {
-  return clean(v).toLowerCase()
-}
+function lower(v) { return clean(v).toLowerCase() }
 
 function slug(v) {
   return clean(v)
     .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, ' and ')
     .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
     .replace(/^-+|-+$/g, '')
 }
 
 function splitList(v) {
-  if (Array.isArray(v)) {
-    return v.map(clean).filter(Boolean)
-  }
-
-  return clean(v)
-    .split(/[|;,]/)
-    .map((s) => clean(s))
-    .filter(Boolean)
+  if (Array.isArray(v)) return v.flatMap(splitList)
+  return clean(v).split(/[\n|;,]+/).map((s) => clean(s).replace(/^[-*•]\s*/, '')).filter(Boolean)
 }
 
 function uniqueList(v) {
@@ -138,482 +69,294 @@ function uniqueList(v) {
   })
 }
 
-function ensureDir(dir) {
-  fs.mkdirSync(dir, { recursive: true })
+function bool(v) {
+  if (typeof v === 'boolean') return v
+  return ['true', 'yes', 'y', '1', 'ready', 'live', 'approved'].includes(lower(v))
 }
 
-function writeJson(filePath, data) {
-  ensureDir(path.dirname(filePath))
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
+function num(v) {
+  const n = Number(clean(v))
+  return Number.isFinite(n) ? n : null
 }
 
-function writeCompactJson(filePath, data) {
-  ensureDir(path.dirname(filePath))
-  fs.writeFileSync(filePath, JSON.stringify(data))
+function normKey(v) { return lower(v).replace(/[^a-z0-9]+/g, ' ').trim() }
+
+function first(row, fields) {
+  for (const f of fields) if (clean(row?.[f])) return row[f]
+  const wanted = fields.map(normKey)
+  for (const [k, v] of Object.entries(row || {})) if (wanted.includes(normKey(k)) && clean(v)) return v
+  return ''
 }
 
-function normalizeAffiliateQuery(value) {
-  return encodeURIComponent(
-    clean(value)
-      .replace(/-/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-  )
-}
-
-function buildAmazonSearchUrl(query) {
-  return `https://www.amazon.com/s?k=${normalizeAffiliateQuery(query)}`
-}
-
-function buildIHerbSearchUrl(query) {
-  return `https://www.iherb.com/search?kw=${normalizeAffiliateQuery(query)}`
-}
-
-function determineDefaultProductType(record) {
-  const effects = (record.primary_effects || []).join(' ').toLowerCase()
-
-  if (effects.includes('sleep') || effects.includes('sedative')) {
-    return 'capsules'
+function firstList(row, fields) {
+  for (const f of fields) {
+    const out = uniqueList(first(row, [f]))
+    if (out.length) return out
   }
-
-  if (effects.includes('digestive')) {
-    return 'tea'
-  }
-
-  if (effects.includes('adaptogenic')) {
-    return 'extract'
-  }
-
-  return 'capsules'
+  return []
 }
 
-function determineAvailableForms(record) {
-  if (record.available_forms?.length) {
-    return record.available_forms
-  }
-
-  return ['capsules', 'powder', 'extract']
+function compact(v, max = 420) {
+  const s = clean(v)
+  return s.length <= max ? s : `${s.slice(0, max - 1).trim()}…`
 }
 
-function determineBuyingCriteria(record) {
-  if (clean(record.buying_criteria)) {
-    return record.buying_criteria
-  }
-
-  return [
-    'third-party tested',
-    'standardized extract',
-    'minimal fillers',
-    'transparent labeling',
-  ]
+function stripEmpty(value) {
+  if (Array.isArray(value)) return value.map(stripEmpty).filter((x) => x !== '' && x !== null && x !== undefined && (!Array.isArray(x) || x.length) && (typeof x !== 'object' || Array.isArray(x) || Object.keys(x).length))
+  if (value && typeof value === 'object') return stripRecord(value)
+  return value
 }
 
-function applyAffiliateMetadata(record) {
-  const affiliate_query =
-    clean(record.affiliate_query) || clean(record.name)
-
-  const amazon_url =
-    clean(record.amazon_affiliate_url) ||
-    buildAmazonSearchUrl(affiliate_query)
-
-  const iherb_url =
-    clean(record.iherb_affiliate_url) ||
-    buildIHerbSearchUrl(affiliate_query)
-
-  return {
-    ...record,
-    affiliate_query,
-    default_product_type:
-      clean(record.default_product_type) ||
-      determineDefaultProductType(record),
-    buying_criteria: determineBuyingCriteria(record),
-    available_forms: determineAvailableForms(record),
-    amazon_affiliate_url: amazon_url,
-    iherb_affiliate_url: iherb_url,
-    affiliate_ready:
-      record.affiliate_ready || Boolean(affiliate_query),
-  }
+function stripRecord(record) {
+  return Object.fromEntries(Object.entries(record || {})
+    .filter(([k]) => !k.startsWith('__'))
+    .map(([k, v]) => [k, stripEmpty(v)])
+    .filter(([, v]) => v !== '' && v !== null && v !== undefined && (!Array.isArray(v) || v.length) && (typeof v !== 'object' || Array.isArray(v) || Object.keys(v).length)))
 }
 
-function resolveSheet(workbook, candidates) {
-  for (const candidate of candidates) {
-    if (workbook.Sheets[candidate]) return candidate
-  }
-
-  return null
+function pick(record, fields) {
+  const allowed = new Set(fields)
+  return stripRecord(Object.fromEntries(Object.entries(record || {}).filter(([k]) => allowed.has(k))))
 }
 
-function resolveLatestVersionedSheet(workbook, candidates) {
-  const sheetNames = workbook.SheetNames || []
+function ensureDir(dir) { fs.mkdirSync(dir, { recursive: true }) }
+function writeJson(file, data) { ensureDir(path.dirname(file)); fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`, 'utf8') }
+
+function resolveSheet(wb, names) { return names.find((n) => wb.Sheets[n]) || null }
+
+function resolveVersionedSheet(wb, names) {
+  const sheetNames = wb.SheetNames || []
   const matches = []
-
-  for (const candidate of candidates) {
-    const exact = sheetNames.find(
-      (sheet) => lower(sheet) === lower(candidate)
-    )
-    if (exact) matches.push({ name: exact, version: 0 })
-
-    const prefix = `${lower(candidate)} v`
-    for (const sheet of sheetNames) {
-      const normalized = lower(sheet)
-      if (!normalized.startsWith(prefix)) continue
-      const version = Number.parseInt(normalized.slice(prefix.length), 10)
-      matches.push({
-        name: sheet,
-        version: Number.isFinite(version) ? version : 0,
-      })
-    }
+  for (const name of names) {
+    const exact = sheetNames.find((s) => lower(s) === lower(name))
+    if (exact) matches.push({ name: exact, v: 0 })
+    const prefix = `${lower(name)} v`
+    for (const s of sheetNames) if (lower(s).startsWith(prefix)) matches.push({ name: s, v: Number.parseInt(lower(s).slice(prefix.length), 10) || 0 })
   }
-
-  matches.sort((a, b) => b.version - a.version || a.name.localeCompare(b.name))
+  matches.sort((a, b) => b.v - a.v || a.name.localeCompare(b.name))
   return matches[0]?.name || null
 }
 
-function read(workbook, candidates) {
-  const resolved = resolveSheet(workbook, candidates)
-  if (!resolved) return []
-
-  return XLSX.utils.sheet_to_json(workbook.Sheets[resolved], {
-    defval: '',
-  })
-}
-
-function readGraph(workbook, candidates) {
-  const resolved = resolveLatestVersionedSheet(workbook, candidates)
-  if (!resolved) return []
-
-  const sheet = workbook.Sheets[resolved]
-  if (!sheet) return []
-
+function read(wb, names, versioned = false) {
+  const name = versioned ? resolveVersionedSheet(wb, names) : resolveSheet(wb, names)
+  if (!name) return []
   try {
-    const rows = XLSX.utils.sheet_to_json(sheet, { defval: '' })
-    console.log(`[data] graph sheet loaded: ${resolved}`)
-    return Array.isArray(rows) ? rows : []
-  } catch (error) {
-    console.warn(`[data] graph sheet skipped: ${resolved} (${error.message})`)
+    console.log(`[data] sheet loaded: ${name}`)
+    return XLSX.utils.sheet_to_json(wb.Sheets[name], { defval: '' })
+  } catch (e) {
+    console.warn(`[data] sheet skipped: ${name} (${e.message})`)
     return []
   }
 }
 
-function dedupe(rows) {
-  const seen = new Set()
+function visibility(record) {
+  const decision = lower(record.runtime_export_decision)
+  const profile = lower(record.profile_status)
+  const quality = lower(record.summary_quality)
+  if (decision === 'hide') return { visibility_tier: 'hidden', robots: 'noindex,nofollow', sitemap_included: false }
+  if (profile === 'complete' && quality === 'strong') return { visibility_tier: 'full_publish', robots: 'index,follow', sitemap_included: true }
+  if (['partial', 'moderate'].includes(profile) || ['moderate', 'medium'].includes(quality)) return { visibility_tier: 'limited', robots: 'index,follow', sitemap_included: true }
+  return { visibility_tier: 'noindex', robots: 'noindex,follow', sitemap_included: false }
+}
 
-  return rows.filter((r) => {
-    if (!r.slug || seen.has(r.slug)) return false
-    seen.add(r.slug)
-    return true
+function affiliate(record) {
+  const q = clean(record.affiliate_query) || clean(record.name)
+  return stripRecord({
+    ...record,
+    affiliate_query: q,
+    affiliate_ready: bool(record.affiliate_ready) || Boolean(q),
+    default_product_type: clean(record.default_product_type) || 'capsules',
+    buying_criteria: uniqueList(record.buying_criteria).length ? uniqueList(record.buying_criteria) : ['third-party tested', 'standardized extract', 'minimal fillers', 'transparent labeling'],
+    available_forms: uniqueList(record.available_forms).length ? uniqueList(record.available_forms) : ['capsules', 'powder', 'extract'],
+    amazon_affiliate_url: clean(record.amazon_affiliate_url) || `https://www.amazon.com/s?k=${encodeURIComponent(q)}`,
+    iherb_affiliate_url: clean(record.iherb_affiliate_url) || `https://www.iherb.com/search?kw=${encodeURIComponent(q)}`,
   })
 }
 
-function pickRuntimeFields(record, allowedFields) {
-  return Object.fromEntries(
-    Object.entries(record).filter(([k, v]) => {
-      if (!allowedFields.includes(k)) return false
-      if (v === '' || v == null) return false
-      if (Array.isArray(v) && v.length === 0) return false
-      return true
-    })
-  )
+function semantic(row, type) {
+  return stripRecord({
+    topic_clusters: firstList(row, ['topic_clusters', 'topic clusters', 'ecosystem_tags', 'ecosystem tags']),
+    ecosystem_tags: firstList(row, ['ecosystem_tags', 'ecosystem tags', 'topic ecosystems', 'topic_ecosystems']),
+    pathway_companions: firstList(row, ['pathway_companions', 'pathway companions']),
+    comparison_candidates: firstList(row, ['comparison_candidates', 'comparison candidates']),
+    synergy_relationships: firstList(row, ['synergy_relationships', 'synergy relationships', 'stack candidates']),
+    authority_supernode: clean(first(row, ['authority_supernode', 'authority supernode', 'supernode'])),
+    semantic_neighbors: firstList(row, ['semantic_neighbors', 'semantic neighbors', 'related profiles']),
+    ecosystem_anchors: firstList(row, ['ecosystem_anchors', 'ecosystem anchors', 'anchors']),
+    related_topics: firstList(row, ['related_topics', 'related topics', 'conditions', 'primary_effects', 'effects']),
+    pathway_ecosystems: firstList(row, ['pathway_ecosystems', 'pathway ecosystems', 'pathways_v2', 'pathways']),
+    mechanism_ecosystems: firstList(row, ['mechanism_ecosystems', 'mechanism ecosystems', 'mechanism_targets', 'mechanisms', 'mechanism']),
+    authority_score: clean(first(row, ['authority_score', 'authority score'])),
+    evidence_authority_status: clean(first(row, ['evidence_authority_status', 'evidence authority status'])),
+    authority_status: clean(first(row, ['authority_status', 'authority status'])),
+    clusters: firstList(row, ['clusters', 'cluster']),
+    semantic_ready: clean(first(row, ['semantic_ready', 'semantic ready'])),
+    ...(type === 'herb'
+      ? { herb_internal_link_cluster: firstList(row, ['herb_internal_link_cluster', 'internal_link_cluster', 'internal link cluster']) }
+      : {
+          compound_cluster: clean(first(row, ['compound_cluster', 'compound cluster'])),
+          comparison_group: clean(first(row, ['comparison_group', 'comparison group'])),
+          comparison_priority: clean(first(row, ['comparison_priority', 'comparison priority'])),
+          internal_link_cluster: firstList(row, ['internal_link_cluster', 'internal link cluster']),
+          pathway_bucket: clean(first(row, ['pathway_bucket', 'pathway bucket'])),
+          pathways_v2: firstList(row, ['pathways_v2', 'pathways v2']),
+          pathway_weight: clean(first(row, ['pathway_weight', 'pathway weight'])),
+        }),
+  })
 }
 
-function removeEmptyInternalFields(record) {
-  const entries = Object.entries(record)
-    .filter(([key]) => !key.startsWith('__'))
-    .map(([key, value]) => [key, sanitizeGraphValue(value)])
-    .filter(([, value]) => {
-      if (value == null || value === '') return false
-      if (Array.isArray(value) && value.length === 0) return false
-
-      if (
-        typeof value === 'object' &&
-        !Array.isArray(value) &&
-        Object.keys(value).length === 0
-      ) {
-        return false
-      }
-
-      return true
-    })
-
-  return Object.fromEntries(entries)
+function profile(row, type) {
+  const allowed = type === 'herb' ? HERB_RUNTIME_FIELDS : COMPOUND_RUNTIME_FIELDS
+  const name = clean(first(row, ['name', type, 'title', 'common_name', 'common name']))
+  const s = slug(first(row, ['slug', 'id', `${type}_slug`, `${type} slug`]) || name)
+  if (!name || !s || name.length === 1 || s.length === 1) return null
+  const effects = firstList(row, ['primary_effects', 'primary effects', 'effects'])
+  const mechanisms = firstList(row, ['mechanisms', 'mechanism', 'mechanism_targets', 'mechanism targets'])
+  const base = {
+    ...pick(row, allowed), id: s, slug: s, name,
+    summary: clean(first(row, ['summary', 'short_description', 'description', 'core_insight', 'card_blurb'])) || `Evidence-aware ${type} profile with mechanism, safety, and practical context.`,
+    summary_quality: clean(first(row, ['summary_quality', 'summary quality'])),
+    primary_effects: effects, effects,
+    evidence_grade: clean(first(row, ['evidence_grade', 'evidence grade', 'evidence_tier', 'evidence tier', 'evidence_level'])),
+    evidence_tier: clean(first(row, ['evidence_tier', 'evidence tier', 'evidence_grade', 'evidence grade'])),
+    evidence_summary: clean(first(row, ['evidence_summary', 'evidence summary', 'human_evidence', 'human evidence'])),
+    profile_status: clean(first(row, ['profile_status', 'profile status'])),
+    runtime_export_decision: clean(first(row, ['runtime_export_decision', 'runtime export decision'])),
+    mechanisms, mechanism: mechanisms.join(', '),
+    mechanism_targets: firstList(row, ['mechanism_targets', 'mechanism targets']),
+    pathways: firstList(row, ['pathways', 'pathway', 'pathways_v2']),
+    related_compounds: firstList(row, ['related_compounds', 'related compounds']),
+    related_herbs: firstList(row, ['related_herbs', 'related herbs']),
+    safety: clean(first(row, ['safety', 'safety_notes', 'safety notes'])),
+    contraindications: firstList(row, ['contraindications', 'avoid_if', 'avoid if']),
+    interactions: firstList(row, ['interactions']),
+    side_effects: firstList(row, ['side_effects', 'side effects']),
+    dosage: clean(first(row, ['dosage', 'typical_dosage', 'typical dosage'])),
+    typical_dosage: clean(first(row, ['typical_dosage', 'typical dosage', 'dosage'])),
+    forms: firstList(row, ['forms', 'available_forms', 'available forms']),
+    available_forms: firstList(row, ['available_forms', 'available forms', 'forms']),
+    conditions: firstList(row, ['conditions', 'best_for', 'best for']),
+    tags: firstList(row, ['tags']), keywords: firstList(row, ['keywords']),
+    affiliate_ready: bool(first(row, ['affiliate_ready', 'affiliate ready'])),
+    affiliate_query: clean(first(row, ['affiliate_query', 'affiliate query'])),
+    default_product_type: clean(first(row, ['default_product_type', 'default product type'])),
+    buying_criteria: firstList(row, ['buying_criteria', 'buying criteria']),
+    amazon_affiliate_url: clean(first(row, ['amazon_affiliate_url', 'amazon affiliate url'])),
+    iherb_affiliate_url: clean(first(row, ['iherb_affiliate_url', 'iherb affiliate url'])),
+    meta_title: clean(first(row, ['meta_title', 'meta title'])),
+    meta_description: clean(first(row, ['meta_description', 'meta description'])),
+    ...semantic(row, type),
+  }
+  return pick(affiliate({ ...base, ...visibility(base) }), allowed)
 }
 
-function sanitizeGraphValue(value) {
-  if (Array.isArray(value)) {
-    return value
-      .map(sanitizeGraphValue)
-      .filter((item) => item != null && item !== '')
-      .filter((item) => !Array.isArray(item) || item.length > 0)
-      .filter(
-        (item) =>
-          typeof item !== 'object' ||
-          Array.isArray(item) ||
-          Object.keys(item).length > 0
-      )
-  }
-
-  if (value && typeof value === 'object') {
-    return removeEmptyInternalFields(value)
-  }
-
-  return value
+function dedupe(rows) {
+  const seen = new Set()
+  return rows.filter(Boolean).filter((r) => {
+    if (!r.slug || seen.has(r.slug)) return false
+    seen.add(r.slug)
+    return true
+  }).sort((a, b) => clean(a.name).localeCompare(clean(b.name)) || clean(a.slug).localeCompare(clean(b.slug)))
 }
 
-function graphNumber(value) {
-  const text = clean(value)
+function rowId(row, fallbackFields) { return slug(first(row, ['id', ...fallbackFields])) }
 
-  if (!text) return null
-
-  const number = Number(text)
-
-  return Number.isFinite(number) ? number : null
+function mapRow(row) {
+  const herb = first(row, ['herb', 'herb name', 'herb_name'])
+  const compound = first(row, ['compound', 'compound name', 'compound_name'])
+  const hs = slug(first(row, ['herb_slug', 'herb slug']) || herb)
+  const cs = slug(first(row, ['compound_slug', 'compound slug']) || compound)
+  if (!hs || !cs) return null
+  return stripRecord({ id: `${hs}-${cs}`, herb_slug: hs, compound_slug: cs, herb: clean(herb), compound: clean(compound), relationship: clean(first(row, ['relationship', 'relationship_type', 'role'])), notes: compact(first(row, ['notes', 'summary', 'rationale'])) })
 }
 
-function compactText(value, maxLength = 420) {
-  const text = clean(value).replace(/\s+/g, ' ')
-
-  if (text.length <= maxLength) return text
-
-  return `${text.slice(0, maxLength - 1).trim()}…`
+function claimRow(row) {
+  const title = clean(first(row, ['title', 'study title', 'claim', 'summary']))
+  const pmid = clean(first(row, ['pmid', 'PMID']))
+  const id = rowId(row, ['claim_id', 'claim id']) || slug(pmid || title)
+  if (!id && !title && !pmid) return null
+  return stripRecord({ id: id || pmid, title, claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion'])), pmid, doi: clean(first(row, ['doi', 'DOI'])), source_url: clean(first(row, ['source_url', 'url', 'link'])), evidence_tier: clean(first(row, ['evidence_tier', 'study_type'])), profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug'])) })
 }
 
-function firstValue(row, fields) {
-  for (const field of fields) {
-    if (row[field] != null && clean(row[field])) {
-      return row[field]
-    }
-  }
-
-  const normalizedFields = fields.map(lower)
-
-  for (const [key, value] of Object.entries(row)) {
-    const normalizedKey = lower(key).replace(/[_\s-]+/g, ' ')
-
-    if (normalizedFields.includes(normalizedKey) && clean(value)) {
-      return value
-    }
-  }
-
-  return ''
-}
-function determineVisibility(record) {
-  const profile = clean(record.profile_status).toLowerCase()
-  const quality = clean(record.summary_quality).toLowerCase()
-  const decision = clean(record.runtime_export_decision).toLowerCase()
-
-  if (decision === 'hide') {
-    return {
-      include: false,
-      visibility_tier: 'hidden',
-      robots: 'noindex,nofollow',
-      sitemap: false,
-    }
-  }
-
-  if (profile === 'complete' && quality === 'strong') {
-    return {
-      include: true,
-      visibility_tier: 'full_publish',
-      robots: 'index,follow',
-      sitemap: true,
-    }
-  }
-
-  if (
-    ['partial', 'moderate'].includes(profile) ||
-    ['moderate', 'medium'].includes(quality)
-  ) {
-    return {
-      include: true,
-      visibility_tier: 'limited',
-      robots: 'index,follow',
-      sitemap: true,
-    }
-  }
-
-  return {
-    include: true,
-    visibility_tier: 'noindex',
-    robots: 'noindex,follow',
-    sitemap: false,
-  }
+function graphRow(row, kind) {
+  const source = slug(first(row, ['source', 'source slug', 'from', 'profile a', 'anchor', 'profile']))
+  const target = slug(first(row, ['target', 'target slug', 'to', 'profile b', 'companion', 'candidate']))
+  const name = clean(first(row, ['name', kind, 'title', 'topic', 'pathway', 'supernode', 'label']))
+  const id = slug(first(row, ['id', 'slug']) || (source && target ? `${source}-${kind}-${target}` : name))
+  if (!id && !name && (!source || !target)) return null
+  return stripRecord({
+    id, slug: slug(first(row, ['slug']) || name || id), name, kind,
+    source, target,
+    type: clean(first(row, ['type', 'relationship', 'relationship type', `${kind} type`])) || kind,
+    weight: num(first(row, ['weight', 'score', 'strength', 'graph score'])),
+    summary: compact(first(row, ['summary', 'semantic summary', 'authority summary', 'ecosystem summary'])),
+    retrieval_summary: compact(first(row, ['retrieval summary', 'semantic summary', 'summary'])),
+    rationale: compact(first(row, ['rationale', 'reason', 'why'])),
+    evidence_context: compact(first(row, ['evidence context', 'evidence_context', 'evidence framing'])),
+    anchors: firstList(row, ['anchors', 'profiles', 'members']).map(slug),
+    herbs: firstList(row, ['herbs', 'related herbs', 'top herbs']).map(slug),
+    compounds: firstList(row, ['compounds', 'related compounds', 'top compounds']).map(slug),
+    topics: firstList(row, ['topics', 'topic themes', 'topic overlap']),
+    pathways: firstList(row, ['pathways', 'pathway themes', 'pathway overlap']),
+    mechanisms: firstList(row, ['mechanisms', 'mechanism themes', 'mechanism overlap']),
+    recommendations: firstList(row, ['recommendations', 'candidates', 'related', 'relationship targets']).map(slug),
+  })
 }
 
-function applyVisibilityMetadata(record) {
-  const visibility = determineVisibility(record)
-
-  return {
-    ...record,
-    visibility_tier: visibility.visibility_tier,
-    robots: visibility.robots,
-    sitemap_included: visibility.sitemap,
-  }
+function normalizeRows(rows, fn) {
+  const seen = new Set()
+  return rows.map(fn).filter(Boolean).filter((r) => {
+    const key = clean(r.id || r.slug || `${r.source}-${r.target}`)
+    if (!key || seen.has(key)) return false
+    seen.add(key)
+    return true
+  }).sort((a, b) => clean(a.id || a.slug || a.name).localeCompare(clean(b.id || b.slug || b.name)))
 }
 
-function createIndexPayload(record) {
-  return pickRuntimeFields(record, INDEX_FIELDS)
+function details(dir, rows) {
+  fs.rmSync(dir, { recursive: true, force: true })
+  ensureDir(dir)
+  for (const row of rows) writeJson(path.join(dir, `${row.slug}.json`), row)
 }
 
-function writeDetailPayloads(baseDir, rows) {
-  ensureDir(baseDir)
-
-  for (const row of rows) {
-    if (!row.slug) continue
-
-    writeJson(path.join(baseDir, `${row.slug}.json`), row)
-  }
-}
-
-function loadAgentPatches() {
-  const patchDir = path.resolve(repoRoot, 'agent/patches')
-
-  if (!fs.existsSync(patchDir)) return []
-
-  const files = fs
-    .readdirSync(patchDir)
-    .filter((f) => f.endsWith('.json'))
-
-  const patches = []
-
-  for (const file of files) {
-    try {
-      patches.push(
-        JSON.parse(fs.readFileSync(path.join(patchDir, file), 'utf8'))
-      )
-    } catch {}
-  }
-
-  return patches
+function args() {
+  const out = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : (process.argv.find((a) => a.startsWith('--out='))?.slice(6) || 'public/data')
+  return path.resolve(repoRoot, out || 'public/data')
 }
 
 function main() {
-  const outDir = path.resolve(repoRoot, 'public/data')
-  const herbDetailDir = path.join(outDir, 'herb-detail')
-  const compoundDetailDir = path.join(outDir, 'compound-detail')
-
+  const outDir = args()
   const workbookPath = resolveWorkbookPath(repoRoot)
-
-  if (!fs.existsSync(workbookPath)) {
-    throw new Error(`[data] workbook missing: ${workbookPath}`)
-  }
-
-  console.log(`[data] workbook loaded: ${path.basename(workbookPath)}`)
-
+  if (!fs.existsSync(workbookPath)) throw new Error(`[data] workbook missing: ${workbookPath}`)
   const wb = XLSX.readFile(workbookPath)
+  for (const required of ['Herb Master V3', 'Compound Master V3']) if (!wb.Sheets[required]) throw new Error(`[data] missing required sheet: ${required}`)
+  ensureDir(outDir)
 
-  validateWorkbookSheets(wb)
-
-  const rawHerbs = dedupe(
-    read(wb, SHEETS.herbs).map((r) => ({
-      slug: slug(r.slug || r.name),
-      name: clean(r.name),
-      summary: clean(r.summary),
-      summary_quality: clean(r.summary_quality),
-      primary_effects: splitList(r.primary_effects || r.effects),
-      evidence_grade: clean(r.evidence_grade || r.evidence_tier),
-      profile_status: clean(r.profile_status),
-      runtime_export_decision: clean(r.runtime_export_decision),
-      affiliate_ready: Boolean(r.affiliate_ready),
-      affiliate_query: clean(r.affiliate_query),
-      default_product_type: clean(r.default_product_type),
-      buying_criteria: splitList(r.buying_criteria),
-      available_forms: splitList(r.available_forms),
-      amazon_affiliate_url: clean(r.amazon_affiliate_url),
-      iherb_affiliate_url: clean(r.iherb_affiliate_url),
-      mechanisms: splitList(r.mechanisms),
-      related_compounds: splitList(r.related_compounds),
-      safety: clean(r.safety),
-      ...semanticEcosystemFields(r, 'herb'),
-      herb_internal_link_cluster: splitList(r.herb_internal_link_cluster),
-    }))
-  )
-
-  const rawCompounds = dedupe(
-    read(wb, SHEETS.compounds).map((r) => ({
-      slug: slug(r.slug || r.name),
-      name: clean(r.name),
-      summary: clean(r.summary),
-      summary_quality: clean(r.summary_quality),
-      primary_effects: splitList(r.primary_effects || r.effects),
-      evidence_grade: clean(r.evidence_grade || r.evidence_tier),
-      profile_status: clean(r.profile_status),
-      runtime_export_decision: clean(r.runtime_export_decision),
-      affiliate_ready: Boolean(r.affiliate_ready),
-      affiliate_query: clean(r.affiliate_query),
-      default_product_type: clean(r.default_product_type),
-      buying_criteria: splitList(r.buying_criteria),
-      available_forms: splitList(r.available_forms),
-      amazon_affiliate_url: clean(r.amazon_affiliate_url),
-      iherb_affiliate_url: clean(r.iherb_affiliate_url),
-      mechanism: clean(r.mechanism || r.mechanisms),
-      dosage: clean(r.dosage),
-      safety: clean(r.safety),
-      ...semanticEcosystemFields(r, 'compound'),
-      compound_cluster: clean(r.compound_cluster),
-      comparison_group: clean(r.comparison_group),
-      comparison_priority: clean(r.comparison_priority),
-      internal_link_cluster: clean(r.internal_link_cluster),
-      pathway_bucket: clean(r.pathway_bucket),
-      pathways_v2: splitList(r.pathways_v2),
-      pathway_weight: clean(r.pathway_weight),
-    }))
-  )
-
-  const herbs = rawHerbs
-    .map(applyAffiliateMetadata)
-    .map(applyVisibilityMetadata)
-    .filter((r) => determineVisibility(r).include)
-    .map((r) => pickRuntimeFields(r, HERB_RUNTIME_FIELDS.concat([
-      'visibility_tier',
-      'robots',
-      'sitemap_included',
-      'affiliate_query',
-      'default_product_type',
-      'buying_criteria',
-      'available_forms',
-      'amazon_affiliate_url',
-      'iherb_affiliate_url',
-    ])))
-
-  const compounds = rawCompounds
-    .map(applyAffiliateMetadata)
-    .map(applyVisibilityMetadata)
-    .filter((r) => determineVisibility(r).include)
-    .map((r) => pickRuntimeFields(r, COMPOUND_RUNTIME_FIELDS.concat([
-      'visibility_tier',
-      'robots',
-      'sitemap_included',
-      'affiliate_query',
-      'default_product_type',
-      'buying_criteria',
-      'available_forms',
-      'amazon_affiliate_url',
-      'iherb_affiliate_url',
-    ])))
-
-  const graph = loadWorkbookGraphSheets(wb)
-  logWorkbookGraphSheetCounts(graph)
-  writeWorkbookGraphPayloads(outDir, graph)
-
-  const herbIndex = herbs.map(createIndexPayload)
-  const compoundIndex = compounds.map(createIndexPayload)
-
-  writeJson(path.join(outDir, 'herbs-index.json'), herbIndex)
-  writeJson(path.join(outDir, 'compounds-index.json'), compoundIndex)
-
-  writeDetailPayloads(herbDetailDir, herbs)
-  writeDetailPayloads(compoundDetailDir, compounds)
+  const herbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb')))
+  const compounds = dedupe(read(wb, SHEETS.compounds).map((r) => profile(r, 'compound')))
+  const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
+  const herbCompoundMap = normalizeRows(read(wb, SHEETS.map), mapRow)
+  const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
-  writeJson(path.join(outDir, 'agent-patches.json'), loadAgentPatches())
-
-  console.log(`[data] herbs-index: ${herbIndex.length}`)
-  console.log(`[data] compounds-index: ${compoundIndex.length}`)
-  console.log(`[data] herb-detail files: ${herbs.length}`)
-  console.log(`[data] compound-detail files: ${compounds.length}`)
-  console.log('[data] affiliate runtime optimization enabled')
-  console.log('[data] workbook graph runtime exports written')
+  writeJson(path.join(outDir, 'claims.json'), claims)
+  writeJson(path.join(outDir, 'herb-compound-map.json'), herbCompoundMap)
+  writeJson(path.join(outDir, 'herb-index.json'), herbs.map((r) => pick(r, INDEX_FIELDS)))
+  writeJson(path.join(outDir, 'compound-index.json'), compounds.map((r) => pick(r, INDEX_FIELDS)))
+  writeJson(path.join(outDir, 'topics.json'), graph.topics || [])
+  writeJson(path.join(outDir, 'pathways.json'), graph.pathways || [])
+  writeJson(path.join(outDir, 'supernodes.json'), graph.supernodes || [])
+  writeJson(path.join(outDir, 'relationships.json'), graph.relationships || [])
+  writeJson(path.join(outDir, 'comparison-candidates.json'), graph.comparisons || [])
+  writeJson(path.join(outDir, 'stack-synergy.json'), graph.stacks || [])
+  writeJson(path.join(outDir, 'sparse-recovery.json'), graph.sparseRecovery || [])
+  writeJson(path.join(outDir, 'knowledge-graph.json'), graph)
+  writeJson(path.join(outDir, 'agent-patches.json'), [])
+  details(path.join(outDir, 'herb-detail'), herbs)
+  details(path.join(outDir, 'compound-detail'), compounds)
+  writeJson(path.join(outDir, 'build-report.json'), { generatedAt: new Date().toISOString(), workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length } })
+  console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
 }
 
 main()
