@@ -54,9 +54,7 @@ async function loadWorkbookHerbData(): Promise<HerbRecord[]> {
 }
 
 async function loadLegacyHerbData(): Promise<HerbRecord[]> {
-  const legacyModule = await import('@/data/herbs_enriched.json')
-  const payload = (legacyModule.default ?? legacyModule) as unknown
-  return Array.isArray(payload) ? (payload as HerbRecord[]) : []
+  return []
 }
 
 const workbookHerbsPromise = loadWorkbookHerbData().catch(() => [])
