@@ -82,14 +82,14 @@ export default function PremiumCard({
         </Link>
 
         {cleanSummary ? (
-          <p className="text-reading mt-4 line-clamp-4 text-base text-[#46574d]">
+          <p className="text-reading mt-4 line-clamp-4 text-base text-muted">
             {cleanSummary}
           </p>
         ) : null}
 
         {cleanBestFor ? (
           <div className="mt-5 rounded-2xl border border-brand-900/10 bg-[rgba(251,246,233,0.85)] px-4 py-3">
-            <p className="text-sm leading-6 text-[#46574d]">
+            <p className="text-sm leading-6 text-muted">
               <span className="font-semibold text-ink">Commonly explored for:</span> {cleanBestFor}
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function PremiumCard({
             {visibleTags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-brand-900/10 bg-paper-100 px-3 py-1 text-xs font-medium tracking-wide text-[#46574d]"
+                className="rounded-full border border-brand-900/10 bg-paper-100 px-3 py-1 text-xs font-medium text-muted"
               >
                 {tag}
               </span>
