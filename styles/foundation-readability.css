@@ -45,7 +45,7 @@ canvas {
 .detail-reading,
 .text-reading,
 .muted-readable {
-  color: var(--readable-muted) !important;
+  color: var(--readable-muted);
 }
 
 .content-prose {
@@ -68,7 +68,7 @@ canvas {
 
 .content-prose p,
 .content-prose li {
-  color: var(--readable-muted) !important;
+  color: var(--readable-muted);
 }
 
 .content-prose ul,
@@ -89,15 +89,15 @@ canvas {
 .mobile-reading-card,
 .scientific-card,
 .library-card-premium {
-  border-color: var(--scientific-border) !important;
-  background-color: var(--paper-card) !important;
+  border-color: var(--scientific-border);
+  background-color: var(--paper-card);
   box-shadow: var(--soft-lift-shadow);
 }
 
 .card-premium:hover,
 .scientific-card:hover,
 .library-card-premium:hover {
-  border-color: var(--scientific-border-strong) !important;
+  border-color: var(--scientific-border-strong);
   box-shadow: var(--deep-lift-shadow);
 }
 
@@ -132,8 +132,9 @@ canvas {
   white-space: nowrap;
 }
 
-.eyebrow-label,
 .eyebrow,
+.eyebrow-label,
+.identity-kicker,
 .identity-meta {
   letter-spacing: 0.15em;
 }
@@ -152,7 +153,7 @@ canvas {
 .card-premium p,
 .scientific-card p,
 .library-card-premium p {
-  color: var(--readable-soft) !important;
+  color: var(--readable-soft);
   line-height: 1.72;
 }
 
@@ -169,14 +170,14 @@ canvas {
 
   h1,
   .heading-premium {
-    font-size: clamp(2.2rem, 12vw, 3.15rem) !important;
-    line-height: 1.02 !important;
+    font-size: clamp(2.2rem, 12vw, 3.15rem);
+    line-height: 1.02;
     max-width: min(100%, 14ch);
   }
 
   h2 {
-    font-size: clamp(1.75rem, 8vw, 2.35rem) !important;
-    line-height: 1.1 !important;
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
+    line-height: 1.1;
   }
 
   p,
@@ -184,11 +185,11 @@ canvas {
   .detail-reading,
   .text-reading,
   .content-prose {
-    line-height: 1.76 !important;
+    line-height: 1.76;
   }
 
   .hero-shell {
-    border-radius: 1.6rem !important;
+    border-radius: 1.6rem;
   }
 
   .card-premium,
@@ -199,7 +200,7 @@ canvas {
   .mobile-reading-card,
   .scientific-card,
   .library-card-premium {
-    border-radius: 1.35rem !important;
+    border-radius: 1.35rem;
   }
 }
 
