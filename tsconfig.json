@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": [
-      "ES2017",
-      "DOM",
-      "DOM.Iterable"
-    ],
+    "lib": ["ES2017", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "jsx": "preserve",
@@ -18,17 +14,10 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*",
-        "./*"
-      ]
+      "@/*": ["./src/*", "./*"]
     },
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{ "name": "next" }],
     "isolatedModules": true
   },
   "include": [
@@ -38,9 +27,79 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
+    // Dependencies; not project source.
     "node_modules",
+
+    // Dev-only viewer code; not imported by active App Router pages.
     "src/dev/**/*",
+
+    // Tooling scripts; validated by their own commands, not the app typecheck.
     "scripts/**/*",
-    "agent/**/*"
+
+    // Deferred governed-enrichment agents; inactive for the MVP runtime.
+    "agent/**/*",
+
+    // Legacy src component surfaces from removed/deferred MVP systems.
+    // Safe per docs/src-active-vs-legacy.md reachability scan; scheduled for later deletion or rebuild.
+    "src/components/CuratedProductModule.tsx",
+    "src/components/EffectExplorer.tsx",
+    "src/components/EmailCapture.tsx",
+    "src/components/ErrorBoundary.tsx",
+    "src/components/FavoriteStar.tsx",
+    "src/components/FeaturedHerbTeaser.tsx",
+    "src/components/HerbCard.tsx",
+    "src/components/HerbDetails.tsx",
+    "src/components/HeroFeaturedHerb.tsx",
+    "src/components/NewsletterCard.tsx",
+    "src/components/NewsletterSignup.tsx",
+    "src/components/RotatingHerbHero.tsx",
+    "src/components/SearchFilter.tsx",
+    "src/components/StatsCounters.tsx",
+    "src/components/TagBadge.tsx",
+    "src/components/TagFilterBar.tsx",
+    "src/components/cta/**/*",
+    "src/components/detail/**/*",
+    "src/components/filters/**/*",
+    "src/components/interactions/**/*",
+    "src/components/trust/**/*",
+
+    // Deprecated src/lib experiments and duplicate data consumers.
+    // Keep active src/lib/runtime-*.ts included; these inactive modules are future cleanup candidates.
+    "src/lib/affiliateClickTracking.ts",
+    "src/lib/collectionEnrichment.ts",
+    "src/lib/collectionQuality.ts",
+    "src/lib/collectionTracking.ts",
+    "src/lib/compound-data.ts",
+    "src/lib/compounds.ts",
+    "src/lib/consent.ts",
+    "src/lib/contentJourneyTracking.ts",
+    "src/lib/counters.ts",
+    "src/lib/curatedProducts.ts",
+    "src/lib/data.ts",
+    "src/lib/enrichmentDiscovery.ts",
+    "src/lib/enrichmentRecommendations.ts",
+    "src/lib/getCompoundByName.ts",
+    "src/lib/getHerbByName.ts",
+    "src/lib/governedAnalytics.ts",
+    "src/lib/governedCollectionDiscovery.ts",
+    "src/lib/governedCta.ts",
+    "src/lib/governedFaq.ts",
+    "src/lib/governedIntro.ts",
+    "src/lib/governedQuickCompare.ts",
+    "src/lib/governedRelatedQuestions.ts",
+    "src/lib/governedResearch.ts",
+    "src/lib/governedReviewFreshness.ts",
+    "src/lib/growth.ts",
+    "src/lib/herb-data.ts",
+    "src/lib/herbProducts.ts",
+    "src/lib/herbRecommendations.ts",
+    "src/lib/herbs.ts",
+    "src/lib/interactionSeed.ts",
+    "src/lib/loadAnalytics.ts",
+    "src/lib/relevance.ts",
+    "src/lib/researchEnrichment.ts",
+    "src/lib/theme.ts",
+    "src/lib/trust.ts",
+    "src/types.ts"
   ]
 }
