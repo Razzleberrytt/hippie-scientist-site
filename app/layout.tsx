@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { Inter, Fraunces } from 'next/font/google'
 import Link from 'next/link'
+import DesktopNav from '@/components/desktop-nav'
 import MobileNav from '@/components/mobile-nav'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import './globals.css'
@@ -93,17 +94,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 The Hippie Scientist
               </Link>
 
-              <nav className='hidden items-center gap-1.5 md:flex' aria-label='Primary navigation'>
-                {navLinks.map(l => (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    className='rounded-full px-3.5 py-2 text-sm font-semibold text-[#5c6d63] transition duration-200 hover:bg-emerald-50 hover:text-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white lg:px-4'
-                  >
-                    {l.label}
-                  </Link>
-                ))}
-              </nav>
+              <DesktopNav links={navLinks} />
 
               <MobileNav links={navLinks} />
             </div>
