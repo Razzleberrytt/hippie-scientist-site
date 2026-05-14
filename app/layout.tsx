@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body
-        className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] pb-24 text-[#111827] font-sans antialiased md:pb-0`}
+        className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}
       >
         <script
           type='application/ld+json'
@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
 
         <div className='min-h-screen bg-background text-ink'>
-          <header className='sticky top-0 z-50 border-b border-brand-900/10 bg-white/88 shadow-[0_1px_0_rgba(17,24,39,0.02)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/78'>
+          <header className='sticky top-0 z-50 border-b border-brand-900/10 bg-white/[0.88] shadow-[0_1px_0_rgba(17,24,39,0.02)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/[0.78]'>
             <div className='container-page flex min-h-[72px] items-center justify-between gap-6 py-3'>
               <Link
                 href='/'
@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page py-8 text-base leading-body sm:py-10'>
+          <main className='container-page pb-28 pt-8 text-base leading-body sm:py-10 md:pb-10'>
             {children}
           </main>
 
