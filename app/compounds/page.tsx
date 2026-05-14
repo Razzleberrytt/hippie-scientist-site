@@ -128,6 +128,30 @@ function StatCard({ value, label, description }: { value: number; label: string;
   )
 }
 
+function InlineEmptyState({
+  title,
+  description,
+  links,
+}: {
+  title: string
+  description: string
+  links: { href: string; label: string }[]
+}) {
+  return (
+    <div className="rounded-3xl border border-brand-900/10 bg-card/70 p-6 text-sm leading-6 text-[#5b6b61] shadow-card">
+      <h2 className="text-xl font-semibold tracking-tight text-ink">{title}</h2>
+      <p className="mt-2 max-w-2xl">{description}</p>
+      <div className="mt-5 flex flex-wrap gap-2">
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} className="chip-readable transition hover:border-brand-700/40 hover:text-brand-800">
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function CompoundCard({ compound, compact = false }: { compound: any; compact?: boolean }) {
   const evidence = getEvidenceLabel(compound)
   const profile = getProfileLabel(compound)
@@ -207,6 +231,12 @@ export default async function CompoundsPage() {
   const evidenceForward = compounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
   const topMatches = compounds.slice(0, 8)
   const libraryCompounds = compounds.slice(8)
+  const recoveryLinks = [
+    { href: '/search', label: 'Search the library' },
+    { href: '/herbs', label: 'Browse herbs' },
+    { href: '/goals', label: 'Explore goals' },
+    { href: '/learn', label: 'Visit learn' },
+  ]
 
   const featuredSignals = [
     'Cognition',
@@ -216,6 +246,20 @@ export default async function CompoundsPage() {
     'Oxidative Stress',
     'Inflammation',
   ]
+
+  if (compounds.length === 0) {
+    return (
+      <div className="min-h-screen bg-background text-ink">
+        <section className="container-page py-10 sm:py-14 lg:py-18">
+          <InlineEmptyState
+            title="Compound profiles are being refreshed."
+            description="The compound library is temporarily unavailable while profiles finish generating. In the meantime, you can continue exploring search, herbs, goals, and learning guides."
+            links={recoveryLinks}
+          />
+        </section>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen bg-background text-ink">
@@ -248,21 +292,23 @@ export default async function CompoundsPage() {
             </div>
           </div>
 
-          <div className="compact-section section-rhythm-compact">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="eyebrow-label">Top Matches</p>
-                <h2 className="compact-heading mt-2">High-signal compound profiles.</h2>
+          {topMatches.length > 0 ? (
+            <div className="compact-section section-rhythm-compact">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="eyebrow-label">Top Matches</p>
+                  <h2 className="compact-heading mt-2">High-signal compound profiles.</h2>
+                </div>
+                <span className="chip-readable">Ranked by evidence and mechanism density</span>
               </div>
-              <span className="chip-readable">Ranked by evidence and mechanism density</span>
-            </div>
 
-            <div className="semantic-rail">
-              {topMatches.map((compound: any) => (
-                <CompoundCard key={compound?.slug || getName(compound)} compound={compound} compact />
-              ))}
+              <div className="semantic-rail">
+                {topMatches.map((compound: any) => (
+                  <CompoundCard key={compound?.slug || getName(compound)} compound={compound} compact />
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
 
           <div className="compact-section section-rhythm-compact">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -298,11 +344,19 @@ export default async function CompoundsPage() {
               <span className="chip-readable">{libraryCompounds.length} remaining profiles</span>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {libraryCompounds.map((compound: any) => (
-                <CompoundCard key={compound?.slug || getName(compound)} compound={compound} />
-              ))}
-            </div>
+            {libraryCompounds.length > 0 ? (
+              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {libraryCompounds.map((compound: any) => (
+                  <CompoundCard key={compound?.slug || getName(compound)} compound={compound} />
+                ))}
+              </div>
+            ) : (
+              <InlineEmptyState
+                title="More compound profiles are on the way."
+                description="The remaining compound cards are still generating, so this section will fill in as profiles become available. You can continue through search, herbs, goals, or learning guides meanwhile."
+                links={recoveryLinks}
+              />
+            )}
           </section>
         </div>
       </section>
