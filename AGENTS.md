@@ -44,8 +44,9 @@
 - Set `AMAZON_AFFILIATE_TAG` env var in Cloudflare Pages to override
 
 ## Theme
-- Light mode only. `--bg: #f3eadc`, dark text on warm background.
-- Emerald accent: `#10b981`
+- Light mode only. `--bg: #fffdf7`, dark text on warm background.
+- Emerald accent: `#358f52`
+- `app/globals.css` is the source of truth for CSS variables.
 - Do NOT add dark-mode classes to new pages unless the whole site theme is migrated.
 
 ## Publication manifest
