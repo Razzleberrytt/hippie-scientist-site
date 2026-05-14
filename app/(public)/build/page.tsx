@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { redirect } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Build',
@@ -6,6 +7,8 @@ export const metadata: Metadata = {
 }
 
 export default function BuildPage() {
+  if (process.env.NEXT_PUBLIC_ENV === 'production') redirect('/')
+
   return (
     <section className='space-y-4'>
       <h1 className='text-3xl font-semibold tracking-tight'>Build</h1>
