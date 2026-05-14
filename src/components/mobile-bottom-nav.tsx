@@ -36,7 +36,7 @@ export default function MobileBottomNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/10 bg-white/88 backdrop-blur-xl supports-[backdrop-filter]:bg-white/75 md:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/10 bg-white/[0.88] backdrop-blur-xl supports-[backdrop-filter]:bg-white/75 md:hidden">
       <div className="mx-auto flex max-w-2xl items-center justify-around px-2 py-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)]">
         {navItems.map((item) => {
           const active = pathname === item.href || pathname?.startsWith(`${item.href}/`)
