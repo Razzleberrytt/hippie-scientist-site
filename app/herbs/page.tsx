@@ -99,6 +99,35 @@ function StatCard({ value, label }: { value: number; label: string }) {
   )
 }
 
+function EmptyLibraryState() {
+  return (
+    <div className="rounded-[2rem] border border-brand-900/10 bg-white/80 p-6 shadow-[var(--shadow-card-calm)] sm:p-8">
+      <div className="max-w-2xl space-y-4">
+        <p className="eyebrow-label">Profiles unavailable</p>
+        <h2 className="compact-heading">Herb profiles are temporarily unavailable.</h2>
+        <p className="text-sm leading-6 text-[#46574d] sm:text-base">
+          The herb library is still being generated or the runtime data did not return renderable profiles for this build. This is temporary and does not mean the herb database is empty.
+        </p>
+      </div>
+
+      <div className="mt-6 flex flex-wrap gap-3">
+        <Link href="/search" className="rounded-full bg-brand-800 px-4 py-2 text-sm font-bold text-white transition hover:bg-brand-900">
+          Search the site
+        </Link>
+        <Link href="/compounds" className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50">
+          Browse compounds
+        </Link>
+        <Link href="/goals" className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50">
+          Explore goals
+        </Link>
+        <Link href="/learn" className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50">
+          Visit learn
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 function HerbCard({ herb, featured = false }: { herb: any; featured?: boolean }) {
   const label = getPrimaryLabel(herb)
   const effects = getEffects(herb)
@@ -269,41 +298,49 @@ export default async function HerbsPage() {
           </div>
         </section>
 
-        <section className="space-y-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl space-y-3">
-              <p className="eyebrow-label">Featured herbs</p>
-              <h2 className="compact-heading">Strong starting points for deeper botanical research.</h2>
-            </div>
-            <p className="max-w-md text-sm leading-6 text-[#5f6f66]">
-              Featured profiles are prioritized by evidence, profile readiness, and practical browse value.
-            </p>
-          </div>
+        {herbs.length === 0 ? (
+          <EmptyLibraryState />
+        ) : (
+          <>
+            {featuredHerbs.length > 0 ? (
+              <section className="space-y-8">
+                <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                  <div className="max-w-2xl space-y-3">
+                    <p className="eyebrow-label">Featured herbs</p>
+                    <h2 className="compact-heading">Strong starting points for deeper botanical research.</h2>
+                  </div>
+                  <p className="max-w-md text-sm leading-6 text-[#5f6f66]">
+                    Featured profiles are prioritized by evidence, profile readiness, and practical browse value.
+                  </p>
+                </div>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {featuredHerbs.map((herb: any) => (
-              <HerbCard key={herb.slug} herb={herb} featured />
-            ))}
-          </div>
-        </section>
+                <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                  {featuredHerbs.map((herb: any) => (
+                    <HerbCard key={herb.slug} herb={herb} featured />
+                  ))}
+                </div>
+              </section>
+            ) : null}
 
-        <section className="space-y-8">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl space-y-3">
-              <p className="eyebrow-label">All herbs</p>
-              <h2 className="compact-heading">Browse every published herb profile.</h2>
-            </div>
-            <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
-              {totalProfiles} profiles
-            </span>
-          </div>
+            <section className="space-y-8">
+              <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-2xl space-y-3">
+                  <p className="eyebrow-label">All herbs</p>
+                  <h2 className="compact-heading">Browse every published herb profile.</h2>
+                </div>
+                <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
+                  {totalProfiles} profiles
+                </span>
+              </div>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {herbs.map((herb: any) => (
-              <HerbCard key={herb.slug} herb={herb} />
-            ))}
-          </div>
-        </section>
+              <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {herbs.map((herb: any) => (
+                  <HerbCard key={herb.slug} herb={herb} />
+                ))}
+              </div>
+            </section>
+          </>
+        )}
       </div>
     </div>
   )
