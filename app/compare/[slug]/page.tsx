@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import compoundsData from '../../../public/data/compounds.json'
 import { getCompounds, getStacks } from '@/lib/runtime-data'
 import AffiliateBlock from '@/components/AffiliateBlock'
 import { generatedComparisons } from '@/data/generated-comparisons'
@@ -52,17 +51,34 @@ const findCompound = (compounds: any[], candidates: string[]) =>
 
 const getComparisonConfig = (slug: string) => supplementComparisons.find(item => item.slug === slug)
 
-const compoundComparisonSlugs = (compoundsData as any[])
-  .slice(0, 25)
-  .flatMap((compound, index, items) => {
-    const next = items[index + 1]
-    return next ? [`${compound.slug}-vs-${next.slug}`] : []
-  })
-
 const allComparisonSlugs = Array.from(new Set([
   ...generatedComparisons,
   ...supplementComparisons.map(item => item.slug),
-  ...compoundComparisonSlugs,
+  // compound-vs-compound pairs (first 25 compounds, adjacent pairs)
+  '11-keto-beta-boswellic-acid-vs-acemannan',
+  'acemannan-vs-acetyl-11-keto-beta-boswellic-acid',
+  'acetyl-11-keto-beta-boswellic-acid-vs-acetyl-beta-boswellic-acid',
+  'acetyl-beta-boswellic-acid-vs-acetylshikonin',
+  'acetylshikonin-vs-acteoside',
+  'acteoside-vs-aescin',
+  'aescin-vs-ajoene',
+  'ajoene-vs-albiflorin',
+  'albiflorin-vs-alpha-asarone',
+  'alpha-asarone-vs-alpha-mangostin',
+  'alpha-mangostin-vs-anabasine',
+  'anabasine-vs-anatabine',
+  'anatabine-vs-andrographolide',
+  'andrographolide-vs-anethole',
+  'anethole-vs-angelicin',
+  'angelicin-vs-apigenin',
+  'apigenin-vs-arjunolic-acid',
+  'arjunolic-acid-vs-artemisinin',
+  'artemisinin-vs-artemisinin-b',
+  'artemisinin-b-vs-artesunate',
+  'artesunate-vs-asiatic-acid',
+  'asiatic-acid-vs-asiaticoside',
+  'asiaticoside-vs-aspalathin',
+  'aspalathin-vs-astragalin',
 ]))
 
 function getSignals(compound: any) {
