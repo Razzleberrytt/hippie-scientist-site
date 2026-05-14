@@ -46,7 +46,7 @@ export default function MobileBottomNav() {
             <Link
               key={item.href}
               href={item.href}
-              aria-label={item.label}
+              aria-current={active ? 'page' : undefined}
               className={`flex min-w-[64px] flex-col items-center gap-1 rounded-2xl px-3 py-2 text-center transition-all duration-200 ${
                 active
                   ? 'bg-brand-900/8 text-brand-800 shadow-sm'
