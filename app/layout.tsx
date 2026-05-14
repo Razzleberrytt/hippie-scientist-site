@@ -117,7 +117,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <div className='container-page py-12'>
               <div className='grid gap-10 md:grid-cols-3'>
                 <div className='space-y-4'>
-                  <h3 className='font-semibold text-ink'>The Hippie Scientist</h3>
+                  <p className='font-semibold text-ink'>The Hippie Scientist</p>
 
                   <p className='text-sm text-muted'>
                     Evidence-first herb & compound reference.
@@ -129,7 +129,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <h3 className='font-semibold text-ink'>Explore</h3>
+                  <p className='font-semibold text-ink'>Explore</p>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/herbs' className='text-muted hover:text-ink transition'>Herbs</Link>
@@ -142,7 +142,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <h3 className='font-semibold text-ink'>Legal & Transparency</h3>
+                  <p className='font-semibold text-ink'>Legal & Transparency</p>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/privacy' className='text-muted hover:text-ink transition'>Privacy Policy</Link>
