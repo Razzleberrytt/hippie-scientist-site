@@ -1,1 +1,2 @@
-export const href = (path: string) => `#${path.startsWith('/') ? path : `/${path}`}`;
+export const href = (path: string): string =>
+  path.startsWith('/') ? path : '/' + path
