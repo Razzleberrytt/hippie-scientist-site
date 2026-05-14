@@ -13,6 +13,7 @@ const DATA_DIR = DATA_DIR_ARG
   : 'public/data'
 
 const SUMMARY_DIR = path.join(DATA_DIR, 'summary-indexes')
+await fs.mkdir(SUMMARY_DIR, { recursive: true })
 const MAX_ARRAY_VALUES = 12
 const MAX_TEXT_LENGTH = 600
 const MAX_INDEX_RECORDS = 10000
@@ -193,8 +194,6 @@ async function main() {
 
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))
   const compounds = await readJson(path.join(DATA_DIR, 'compounds.json'))
-
-  await fs.mkdir(SUMMARY_DIR, { recursive: true })
 
   const summarizeTimer = createStageTimer('summarize-records')
 
