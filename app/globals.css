@@ -193,7 +193,7 @@ body {
   }
 
   .card-premium:hover {
-    @apply -translate-y-0.5 border-brand-900/15;
+    @apply border-brand-900/15;
     box-shadow: var(--shadow-card-calm-hover);
   }
 
@@ -273,8 +273,15 @@ body {
     @apply text-[#46574d];
   }
 
+  .eyebrow,
+  .eyebrow-label,
+  .identity-kicker,
+  .identity-meta {
+    @apply uppercase leading-none;
+  }
+
   .eyebrow-label {
-    @apply text-[0.72rem] font-bold uppercase leading-none tracking-[0.18em] text-brand-700;
+    @apply text-[0.72rem] font-bold tracking-[0.18em] text-brand-700;
   }
 
   .surface-subtle {
@@ -351,13 +358,13 @@ body {
   }
 
   .eyebrow {
-    @apply text-[0.72rem] font-bold uppercase leading-none tracking-[0.16em];
+    @apply text-[0.72rem] font-bold tracking-[0.16em];
   }
 }
 
 @layer components {
   .scientific-card {
-    @apply block border border-brand-900/10 bg-white/75 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-900/15 hover:bg-white;
+    @apply block border border-brand-900/10 bg-white/75 p-5 backdrop-blur-xl transition-all duration-300 hover:border-brand-900/15 hover:bg-white;
     border-radius: var(--radius-card-compact);
     box-shadow: var(--shadow-card-calm);
   }
@@ -383,11 +390,11 @@ body {
   }
 
   .identity-kicker {
-    @apply rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-800;
+    @apply rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-[10px] font-bold tracking-[0.18em] text-brand-800;
   }
 
   .identity-meta {
-    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-[#64766b];
+    @apply text-[11px] font-semibold tracking-[0.14em] text-[#64766b];
   }
 
   .pull-quote-science {
@@ -473,7 +480,7 @@ body {
     }
 
     .card-premium:hover {
-      @apply translate-y-0 shadow-card;
+      @apply shadow-card;
     }
 
     .section-frame {
