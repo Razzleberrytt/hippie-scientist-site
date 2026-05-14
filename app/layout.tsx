@@ -100,9 +100,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page pb-28 pt-8 text-base leading-body sm:py-10 md:pb-10'>
+          <div className='pb-28 md:pb-10'>
             {children}
-          </main>
+          </div>
 
           <footer className='mt-16 border-t border-neutral-200 bg-neutral-50'>
             <div className='container-page py-12'>
