@@ -13,9 +13,6 @@ async function readJsonFile<T>(fileName: string, fallback: T): Promise<T> {
     const parsed = JSON.parse(raw)
     return parsed ?? fallback
   } catch {
-    if (process.env.NODE_ENV !== 'production') {
-      console.warn(`[summary-indexes] could not read: ${fileName}`)
-    }
     return fallback
   }
 }
