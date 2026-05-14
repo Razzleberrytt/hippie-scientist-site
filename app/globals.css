@@ -62,11 +62,6 @@ body {
     text-wrap: balance;
   }
 
-  h1,
-  h2 {
-    max-width: min(100%, 21ch);
-  }
-
   h3,
   h4,
   h5,
@@ -351,7 +346,7 @@ body {
   }
 
   .eyebrow {
-    @apply text-[0.72rem] font-bold uppercase leading-none tracking-[0.16em];
+    @apply text-[0.72rem] font-bold uppercase leading-none tracking-[0.18em] text-brand-700;
   }
 }
 
