@@ -189,11 +189,11 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         <div className='relative mx-auto max-w-6xl space-y-8 px-4 pb-24 pt-8 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8'>
           <section className='rounded-[1.75rem] border border-emerald-300/15 bg-white/[0.035] px-4 py-7 shadow-[0_24px_90px_rgba(0,0,0,0.28)] backdrop-blur sm:px-8 sm:py-10 lg:px-10'>
             <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
-              <div className='mb-4 inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/8 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-200'>
+              <div className='mb-4 inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-emerald-200'>
                 Botanical research field guide
               </div>
 
-              <h1 className='font-display text-[2.85rem] font-semibold uppercase leading-[0.86] tracking-[-0.06em] text-white sm:text-7xl md:text-8xl'>
+              <h1 className='font-display text-[2.85rem] font-semibold leading-[0.95] tracking-[-0.06em] text-white sm:text-7xl md:text-8xl'>
                 <span className='block'>The Hippie</span>
                 <span className='block text-emerald-200'>Scientist</span>
               </h1>
@@ -287,7 +287,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 >
                   <div className='absolute right-[-3rem] top-[-3rem] h-28 w-28 rounded-full bg-emerald-300/10 blur-2xl transition group-hover:bg-emerald-300/16' />
                   <div className='relative'>
-                    <span className='inline-flex rounded-full border border-emerald-300/16 bg-emerald-300/8 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-200'>
+                    <span className='inline-flex rounded-full border border-emerald-300/16 bg-emerald-300/8 px-2.5 py-1 text-xs font-bold uppercase tracking-[0.14em] text-emerald-200'>
                       {item.meta}
                     </span>
 
