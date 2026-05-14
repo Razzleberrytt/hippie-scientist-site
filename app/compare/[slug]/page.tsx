@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import compoundsData from '../../../public/data/compounds.json'
 import { getCompounds, getStacks } from '@/lib/runtime-data'
 import AffiliateBlock from '@/components/AffiliateBlock'
 import { generatedComparisons } from '@/data/generated-comparisons'
@@ -51,9 +52,17 @@ const findCompound = (compounds: any[], candidates: string[]) =>
 
 const getComparisonConfig = (slug: string) => supplementComparisons.find(item => item.slug === slug)
 
+const compoundComparisonSlugs = (compoundsData as any[])
+  .slice(0, 25)
+  .flatMap((compound, index, items) => {
+    const next = items[index + 1]
+    return next ? [`${compound.slug}-vs-${next.slug}`] : []
+  })
+
 const allComparisonSlugs = Array.from(new Set([
   ...generatedComparisons,
   ...supplementComparisons.map(item => item.slug),
+  ...compoundComparisonSlugs,
 ]))
 
 function getSignals(compound: any) {
