@@ -23,6 +23,12 @@ type NavCard = {
   description?: string
 }
 
+type SectionHeaderProps = {
+  title: string
+  subtitle?: string
+  as?: 'h2' | 'h3'
+}
+
 function getFeatureName(item: RuntimeFeature) {
   return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
 }
@@ -134,10 +140,14 @@ const featuredFallbacks: LandingCard[] = [
   },
 ]
 
-function SectionHeader({ title, subtitle }: { title: string, subtitle?: string }) {
+function SectionHeader({ title, subtitle, as = 'h2' }: SectionHeaderProps) {
+  const HeadingTag = as
+
   return (
     <div className='max-w-3xl space-y-2'>
-      <h2 className='text-xl font-semibold tracking-tight text-emerald-50 sm:text-2xl'>{title}</h2>
+      <HeadingTag className='text-xl font-semibold tracking-tight text-emerald-50 sm:text-2xl'>
+        {title}
+      </HeadingTag>
       {subtitle ? <p className='text-sm leading-6 text-emerald-50/68 sm:text-base'>{subtitle}</p> : null}
     </div>
   )
@@ -214,7 +224,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
         <section className='rounded-[1.35rem] border border-emerald-300/12 bg-[#071a14]/88 p-4 shadow-[0_18px_70px_rgba(0,0,0,0.22)] sm:p-5'>
           <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
-            <SectionHeader title='Start your research' />
+            <SectionHeader title='Start your research' as='h2' />
             <div className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:min-w-[28rem]'>
               {researchPaths.map((path) => (
                 <Link
@@ -234,6 +244,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           <SectionHeader
             title='Explore research ecosystems'
             subtitle='Start from a goal, then move into herbs, compounds, mechanisms, comparisons, and safety context.'
+            as='h2'
           />
 
           <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-4'>
@@ -258,6 +269,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             <SectionHeader
               title='Featured profiles'
               subtitle='Useful starting points for deeper herb and compound research.'
+              as='h2'
             />
             <div className='flex flex-wrap gap-3 text-sm font-bold'>
               <Link href='/herbs' className='text-emerald-300 transition hover:text-emerald-200'>Herb library →</Link>
@@ -298,7 +310,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         <section className='grid gap-3 md:grid-cols-3'>
           {reasoningPillars.map((pillar) => (
             <div key={pillar.title} className='rounded-[1.15rem] border border-emerald-300/12 bg-white/[0.035] p-4'>
-              <h2 className='text-base font-semibold tracking-tight text-white'>{pillar.title}</h2>
+              <h3 className='text-base font-semibold tracking-tight text-white'>{pillar.title}</h3>
               <p className='mt-2 text-sm leading-6 text-emerald-50/62'>{pillar.description}</p>
             </div>
           ))}
