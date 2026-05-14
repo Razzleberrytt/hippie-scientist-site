@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { BookOpen, GitCompare, Leaf, Search, Sparkles } from 'lucide-react'
+import { GitCompare, Leaf, Search, Sparkles, Target } from 'lucide-react'
 
 const navItems = [
   {
@@ -16,14 +16,14 @@ const navItems = [
     Icon: Sparkles,
   },
   {
+    href: '/goals',
+    label: 'Goals',
+    Icon: Target,
+  },
+  {
     href: '/compare',
     label: 'Compare',
     Icon: GitCompare,
-  },
-  {
-    href: '/learn',
-    label: 'Learn',
-    Icon: BookOpen,
   },
   {
     href: '/search',
@@ -54,7 +54,7 @@ export default function MobileBottomNav() {
               }`}
             >
               <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
-              <span className="text-[11px] font-semibold tracking-tight">
+              <span className="text-xs font-semibold tracking-tight">
                 {item.label}
               </span>
             </Link>
