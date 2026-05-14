@@ -205,7 +205,7 @@ export default async function HerbsPage() {
   const featuredHerbs = herbs.slice(0, 6)
 
   return (
-    <main className="min-h-screen px-4 py-5 text-ink sm:py-8">
+    <div className="min-h-screen px-4 py-5 text-ink sm:py-8">
       <div className="mx-auto max-w-7xl space-y-14 sm:space-y-20">
         <section className="hero-shell relative overflow-hidden rounded-[2rem] border border-white/50 px-5 py-12 shadow-[var(--shadow-card-calm)] sm:rounded-[2.5rem] sm:px-10 sm:py-16 lg:px-14 lg:py-20">
           <div className="!absolute left-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-emerald-200/30 blur-3xl" />
@@ -305,6 +305,6 @@ export default async function HerbsPage() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   )
 }

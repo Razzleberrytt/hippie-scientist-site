@@ -72,7 +72,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body
-        className={`${inter.variable} ${fraunces.variable} bg-[#fafaf9] pb-24 text-[#111827] font-sans antialiased md:pb-0`}
+        className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}
       >
         <script
           type='application/ld+json'
@@ -85,7 +85,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
 
         <div className='min-h-screen bg-background text-ink'>
-          <header className='sticky top-0 z-50 border-b border-brand-900/10 bg-white/88 shadow-[0_1px_0_rgba(17,24,39,0.02)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/78'>
+          <header className='sticky top-0 z-50 border-b border-brand-900/10 bg-white/[0.88] shadow-[0_1px_0_rgba(17,24,39,0.02)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/[0.78]'>
             <div className='container-page flex min-h-[72px] items-center justify-between gap-6 py-3'>
               <Link
                 href='/'
@@ -100,7 +100,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <main className='container-page py-8 text-base leading-body sm:py-10'>
+          <main className='container-page pb-28 pt-8 text-base leading-body sm:py-10 md:pb-10'>
             {children}
           </main>
 
@@ -108,7 +108,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <div className='container-page py-12'>
               <div className='grid gap-10 md:grid-cols-3'>
                 <div className='space-y-4'>
-                  <h3 className='font-semibold text-ink'>The Hippie Scientist</h3>
+                  <p className='font-semibold text-ink'>The Hippie Scientist</p>
 
                   <p className='text-sm text-muted'>
                     Evidence-first herb & compound reference.
@@ -120,7 +120,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <h3 className='font-semibold text-ink'>Explore</h3>
+                  <p className='font-semibold text-ink'>Explore</p>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/herbs' className='text-muted hover:text-ink transition'>Herbs</Link>
@@ -133,7 +133,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <h3 className='font-semibold text-ink'>Legal & Transparency</h3>
+                  <p className='font-semibold text-ink'>Legal & Transparency</p>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/privacy' className='text-muted hover:text-ink transition'>Privacy Policy</Link>
