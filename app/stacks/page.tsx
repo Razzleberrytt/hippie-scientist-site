@@ -30,6 +30,31 @@ const roleBadge = (role?: string) => {
   return 'bg-slate-50 text-slate-700 border-slate-200'
 }
 
+
+function InlineEmptyState({
+  title,
+  description,
+  links,
+}: {
+  title: string
+  description: string
+  links: { href: string; label: string }[]
+}) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-6 text-slate-600 shadow-sm sm:p-7">
+      <h2 className="text-2xl font-black tracking-tight text-slate-950">{title}</h2>
+      <p className="mt-2 max-w-2xl">{description}</p>
+      <div className="mt-5 flex flex-wrap gap-2">
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-emerald-700 transition hover:border-emerald-300 hover:text-emerald-900">
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function StackIngredient({ item }: { item: { compound?: string; dosage?: string; timing?: string; role?: string } }) {
   return (
     <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
@@ -49,6 +74,23 @@ function StackIngredient({ item }: { item: { compound?: string; dosage?: string;
 export default function StacksPage() {
   const featured = stackItems[0]
   const remaining = stackItems.slice(1)
+  const recoveryLinks = [
+    { href: '/goals', label: 'Explore goals' },
+    { href: '/compounds', label: 'Browse compounds' },
+    { href: '/search', label: 'Search the library' },
+  ]
+
+  if (stackItems.length === 0) {
+    return (
+      <main className="space-y-8 px-1 sm:px-0">
+        <InlineEmptyState
+          title="Stack profiles are still being expanded."
+          description="The stack library is temporarily light while profiles finish generating. You can explore goals, compounds, or search while the next stack guides become available."
+          links={recoveryLinks}
+        />
+      </main>
+    )
+  }
 
   return (
     <main className="space-y-8 px-1 sm:px-0">
@@ -115,38 +157,46 @@ export default function StacksPage() {
           <Link href="/goals" className="text-sm font-black text-emerald-700 hover:text-emerald-900">Explore goal guides →</Link>
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {remaining.map((s) => (
-            <Link
-              key={s.slug}
-              href={`/stacks/${s.slug}`}
-              className="group flex min-h-72 flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.16em] text-emerald-800">{formatLabel(s.goal)}</span>
-                <span className="text-xs font-bold text-slate-500">{(s.stack ?? []).length} compounds</span>
-              </div>
+        {remaining.length > 0 ? (
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {remaining.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/stacks/${s.slug}`}
+                className="group flex min-h-72 flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.16em] text-emerald-800">{formatLabel(s.goal)}</span>
+                  <span className="text-xs font-bold text-slate-500">{(s.stack ?? []).length} compounds</span>
+                </div>
 
-              <h3 className="mt-4 text-2xl font-black tracking-tight text-slate-950 group-hover:text-emerald-800">{s.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-slate-600">{s.short_description}</p>
+                <h3 className="mt-4 text-2xl font-black tracking-tight text-slate-950 group-hover:text-emerald-800">{s.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{s.short_description}</p>
 
-              <div className="mt-4 space-y-2">
-                {(s.stack ?? []).slice(0, 3).map((item, index) => (
-                  <StackIngredient key={`${s.slug}-${item.compound}-${index}`} item={item} />
-                ))}
-              </div>
+                <div className="mt-4 space-y-2">
+                  {(s.stack ?? []).slice(0, 3).map((item, index) => (
+                    <StackIngredient key={`${s.slug}-${item.compound}-${index}`} item={item} />
+                  ))}
+                </div>
 
-              <div className="mt-auto pt-4">
-                {s.avoid_if ? (
-                  <p className="line-clamp-2 rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">
-                    <span className="font-black">Use caution with:</span> {s.avoid_if}
-                  </p>
-                ) : null}
-                <span className="mt-4 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1">See dosage, timing & risks →</span>
-              </div>
-            </Link>
-          ))}
-        </div>
+                <div className="mt-auto pt-4">
+                  {s.avoid_if ? (
+                    <p className="line-clamp-2 rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">
+                      <span className="font-black">Use caution with:</span> {s.avoid_if}
+                    </p>
+                  ) : null}
+                  <span className="mt-4 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1">See dosage, timing & risks →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <InlineEmptyState
+            title="More stack profiles are being prepared."
+            description="The featured stack is available now, and the broader stack library will fill in as additional profiles finish generating. Explore goals, compounds, or search meanwhile."
+            links={recoveryLinks}
+          />
+        )}
       </section>
     </main>
   )
