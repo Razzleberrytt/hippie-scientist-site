@@ -34,7 +34,7 @@ export default function TimelineCard({ phases = [] }: { phases?: Phase[] }) {
               {phase.title}
             </div>
 
-            <div className="mt-1 text-sm leading-7 text-[#46574d]">
+            <div className="mt-1 text-sm leading-7 text-muted">
               {phase.text}
             </div>
           </div>
