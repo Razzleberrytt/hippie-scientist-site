@@ -25,8 +25,9 @@ export async function generateStaticParams() {
   })
 }
 
-export default function ComparePage({ params }: any) {
-  const comparison = String(params.comparison || '')
+export default async function ComparePage({ params }: any) {
+  const resolvedParams = await params
+  const comparison = String(resolvedParams.comparison || '')
   const [leftSlug, rightSlug] = comparison.split('-vs-')
 
   const left = findCompound(leftSlug)
