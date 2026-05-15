@@ -45,6 +45,9 @@ To revive:
 
 Excluded examples include:
 
+- `src/components/AdvancedSearch.tsx`
+- `src/components/CategoryAnalytics.tsx`
+- `src/components/CategoryFilter.tsx`
 - `src/components/EffectExplorer.tsx`
 - `src/components/EmailCapture.tsx`
 - `src/components/NewsletterCard.tsx`
@@ -52,6 +55,7 @@ Excluded examples include:
 - `src/components/BlendSummaryCard.tsx`
 - `src/components/HerbList.tsx`
 - `src/components/QuickFillModal.tsx`
+- `src/components/ShareInsightCard.tsx`
 - `src/components/cta/**`
 - `src/components/detail/**`
 - `src/components/filters/**`
@@ -65,6 +69,8 @@ Reasons:
 - depend on removed `@/data/*` affiliate/product datasets
 - depend on removed governed-enrichment schemas
 - not reachable from active App Router pages
+- imported quarantined legacy data hooks such as `@/lib/herb-data` and analytics modules such as `@/lib/growth`
+- acted as import-chain parents that reintroduced quarantined files into TypeScript despite direct excludes
 
 To revive:
 
