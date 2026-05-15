@@ -5,7 +5,7 @@ export const PUBLIC_ROUTES = {
   goals: '/goals',
   build: '/build',
   blog: '/blog',
-  learning: '/learning',
+  learning: '/learn',
   about: '/about',
   contact: '/contact',
   privacy: '/privacy',
