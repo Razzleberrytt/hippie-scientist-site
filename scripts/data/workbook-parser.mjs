@@ -2,6 +2,11 @@ import XLSX from 'xlsx'
 
 // Workbook parser adapter boundary.
 //
+// xlsx is allowed only in trusted Node build/data scripts. Do not use this
+// parser for browser input, user uploads, request bodies, or remote URLs.
+// Any future runtime spreadsheet parsing must go through a reviewed safer
+// boundary instead of importing xlsx directly.
+//
 // This module intentionally isolates direct xlsx usage so the workbook
 // pipeline can later migrate to exceljs (or another parser) without
 // rewriting downstream normalization and export logic.
