@@ -33,6 +33,10 @@
     // Dev-only viewer code; not imported by active App Router pages.
     "src/dev/**/*",
 
+    // Legacy client-router pages from the pre-App Router implementation.
+    // Active production routes live under app/** and remain type-checked.
+    "src/pages/**/*",
+
     // Tooling scripts; validated by their own commands, not the app typecheck.
     "scripts/**/*",
 
@@ -74,6 +78,7 @@
     "src/lib/collectionQuality.ts",
     "src/lib/collectionTracking.ts",
     "src/lib/compound-data.ts",
+    "src/lib/compoundHerbRelations.ts",
     "src/lib/compounds.ts",
     "src/lib/consent.ts",
     "src/lib/contentJourneyTracking.ts",
@@ -87,6 +92,7 @@
     "src/lib/getHerbByName.ts",
     "src/lib/governedAnalytics.ts",
     "src/lib/governedCollectionDiscovery.ts",
+    "src/lib/governedCollectionIntro.ts",
     "src/lib/governedCta.ts",
     "src/lib/governedFaq.ts",
     "src/lib/governedIntro.ts",
