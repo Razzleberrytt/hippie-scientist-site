@@ -40,7 +40,9 @@
     "agent/**/*",
 
     // Legacy src component surfaces from removed/deferred MVP systems.
-    // Safe per docs/src-active-vs-legacy.md reachability scan; scheduled for later deletion or rebuild.
+    // Safe per docs/src-active-vs-legacy.md and docs/legacy-code-quarantine.md reachability scans.
+    // Scheduled for later deletion or rebuild instead of restoring removed legacy modules.
+    "src/components/BlendSummaryCard.tsx",
     "src/components/CuratedProductModule.tsx",
     "src/components/EffectExplorer.tsx",
     "src/components/EmailCapture.tsx",
@@ -49,9 +51,11 @@
     "src/components/FeaturedHerbTeaser.tsx",
     "src/components/HerbCard.tsx",
     "src/components/HerbDetails.tsx",
+    "src/components/HerbList.tsx",
     "src/components/HeroFeaturedHerb.tsx",
     "src/components/NewsletterCard.tsx",
     "src/components/NewsletterSignup.tsx",
+    "src/components/QuickFillModal.tsx",
     "src/components/RotatingHerbHero.tsx",
     "src/components/SearchFilter.tsx",
     "src/components/StatsCounters.tsx",
@@ -76,6 +80,7 @@
     "src/lib/counters.ts",
     "src/lib/curatedProducts.ts",
     "src/lib/data.ts",
+    "src/lib/data/herbs.ts",
     "src/lib/enrichmentDiscovery.ts",
     "src/lib/enrichmentRecommendations.ts",
     "src/lib/getCompoundByName.ts",
