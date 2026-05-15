@@ -41,28 +41,71 @@ If a content issue is found, classify and fix at the proper layer:
 
 See `docs/workbook-only-data-contract.md`.
 
-## Active routes (MVP)
+## Active App Router routes
 
-Document only active Next App Router routes:
+Document only active Next.js App Router routes backed by `app/**/page.tsx`. Keep this inventory in sync whenever routes are added, removed, or moved.
+
+### Core public routes
 
 - `/`
 - `/about`
-- `/a-tier`
 - `/blog`
-- `/collections/:slug`
-- `/compare/:slug`
-- `/compounds`
-- `/compounds/:slug`
 - `/contact`
 - `/disclaimer`
-- `/explore`
 - `/faq`
-- `/guides/:slug`
+- `/privacy`
 - `/herbs`
 - `/herbs/:slug`
-- `/learning`
-- `/privacy`
+- `/compounds`
+- `/compounds/:slug`
+- `/compare`
+- `/compare/:slug`
+- `/search`
+
+### Learning/content routes
+
+- `/learn`
+- `/learn/:slug`
+- `/education`
+- `/education/:slug` for fixed education article pages that exist under `app/education/**/page.tsx`
+- `/pathways`
+- `/pathways/:slug` for fixed pathway pages that exist under `app/pathways/**/page.tsx`
+- `/protocols/:slug` for fixed protocol pages that exist under `app/protocols/**/page.tsx`
+- `/guides/:slug`
+
+Note: `/learning` is not an active App Router route. Use `/learn`.
+
+### SEO/programmatic routes
+
+- `/a-tier`
+- `/best/:slug`
+- `/best-for/:slug` for fixed intent pages that exist under `app/best-for/**/page.tsx`
+- `/collections/:slug`
+- `/ecosystems/:slug`
+- `/explore`
+- `/goals`
+- `/goals/:slug`
+- `/stacks`
+- `/stacks/:slug`
+- `/topics/:slug`
 - `/top/*`
+- `/best-herbs-for-*`
+
+### Utility/internal routes
+
+- `/analytics`
+- `/data-fix`
+- `/data-report`
+- `/dev`
+- `/drafts`
+- `/graph`
+- `/preview`
+- `/temp`
+- `/test`
+- `/theme`
+- `/tmp`
+
+These utility/internal routes are intentionally disallowed in `app/robots.ts` when present or reserved.
 
 ## Deployment (production)
 
