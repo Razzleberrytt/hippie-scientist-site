@@ -54,7 +54,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: any) {
-  const compound = await getCompoundMetadataRecord(params.slug)
+  const resolvedParams = await params
+  const compound = await getCompoundMetadataRecord(resolvedParams.slug)
 
   if (!compound) return {}
 
@@ -103,7 +104,8 @@ function CompactDisclosure({ title, children }: { title: string; children: React
 }
 
 export default async function CompoundPage({ params }: any) {
-  const compound = await getCompoundBySlug(params.slug)
+  const resolvedParams = await params
+  const compound = await getCompoundBySlug(resolvedParams.slug)
 
   if (!compound || !getRuntimeVisibility(compound).canRender) {
     notFound()
