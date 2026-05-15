@@ -89,6 +89,17 @@ Excluded examples include:
 - `src/lib/data/herbs.ts`
 - `src/types.ts`
 
+The latest remaining TypeScript quarantine gap pass explicitly confirms these deferred `src`-era modules are excluded from active type checking:
+
+- `src/lib/compound-data.ts`
+- `src/lib/data.ts`
+- `src/lib/growth.ts`
+- `src/lib/herb-data.ts`
+- `src/lib/herbProducts.ts`
+- `src/lib/interactionSeed.ts`
+- `src/lib/researchEnrichment.ts`
+- `src/types.ts`
+
 Reasons:
 
 - rely on deleted recommendation/enrichment schemas
@@ -96,12 +107,29 @@ Reasons:
 - duplicate workbook-driven runtime data systems
 - predate the current static-export architecture
 - some files act as import-chain parents that pull quarantined modules back into TypeScript despite direct excludes
+- the remaining gap files depend on removed legacy modules and types such as `@/utils/calculateConfidence`, `@/utils/sanitizeData`, `@/types/enrichmentDiscovery`, `@/types/researchEnrichment`, `@/types/herb`, `../types/compound`, `@/utils/storageState`, `@/data/herbProducts`, `@/data/interactionTags.seed`, and `@/utils/interactions/interactionTagUtils`
 
 To revive:
 
 - migrate to workbook-governed runtime payloads under `public/data/**`
 - replace deleted utility dependencies with maintained runtime helpers
 - rebuild types from current workbook/runtime contracts instead of restoring obsolete schemas
+
+## Import reachability rule
+
+Excluding a file directly in `tsconfig.json` is insufficient if an active checked file imports it.
+
+Before adding or keeping a quarantine entry, verify that no active checked surface imports it, including:
+
+- `app/**`
+- `components/**`
+- `lib/**`
+- `data/**`
+- `scripts/data/**`
+- active `src/lib/runtime-*.ts`
+- active `src/components` navigation files
+
+If an active checked file imports a quarantined module, either replace that import with the active workbook/runtime data source or quarantine the importing file only when that importing file is also clearly legacy/deferred.
 
 ## Important constraints
 
