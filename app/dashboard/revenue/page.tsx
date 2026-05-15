@@ -1,13 +1,23 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { revenueDashboardMetrics, revenueDashboardStarterRows } from '@/data/revenue-dashboard'
+
+export const metadata: Metadata = {
+  title: 'Revenue Dashboard',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function RevenueDashboardPage() {
   return (
     <main className="space-y-8">
       <section className="soft-section">
-        <h1 className="text-4xl font-black text-slate-950">Revenue Dashboard</h1>
+        <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Internal demo dashboard</p>
+        <h1 className="mt-3 text-4xl font-black text-slate-950">Revenue Dashboard</h1>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
-          This dashboard shows how your compound pages convert into product clicks. Use it to decide what to expand, what to fix, and what to double down on.
+          This static dashboard uses demo/example affiliate optimization data. It is kept for internal planning and should not be treated as public SEO content or production analytics.
         </p>
       </section>
 
