@@ -1,7 +1,6 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { cache } from 'react'
-import { logger } from './logger'
 
 const summaryDir = path.join(process.cwd(), 'public', 'data', 'summary-indexes')
 
@@ -13,12 +12,7 @@ async function readJsonFile<T>(fileName: string, fallback: T): Promise<T> {
     const raw = await fs.readFile(path.join(summaryDir, fileName), 'utf8')
     const parsed = JSON.parse(raw)
     return parsed ?? fallback
-  } catch (error) {
-    logger.warn(
-      `[runtime-summary-indexes] Failed to read ${fileName}; using fallback data.`,
-      error,
-    )
-
+  } catch {
     return fallback
   }
 }
