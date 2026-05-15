@@ -1,4 +1,18 @@
-import type { Herb } from '@/types'
+type ViralHerb = {
+  slug?: string
+  common?: string
+  name?: string
+  scientific?: string
+  effects?: string[] | string
+  effectsSummary?: string | null
+  active_compounds?: string[] | string
+  compounds?: string[] | string
+  mechanism?: string | null
+  mechanismOfAction?: string | null
+  safety?: string | null
+  toxicity?: string | null
+  contraindicationsText?: string | null
+}
 
 export type HerbViralHooks = {
   didYouKnow: string[]
@@ -16,7 +30,7 @@ function splitBits(value: unknown): string[] {
     .filter(Boolean)
 }
 
-function pickName(herb: Herb) {
+function pickName(herb: ViralHerb) {
   return String(herb.common || herb.name || herb.scientific || herb.slug || 'This herb')
 }
 
@@ -28,7 +42,7 @@ function compact(value: unknown, fallback: string) {
   return text.length > 180 ? `${text.slice(0, 177).trimEnd()}…` : text
 }
 
-export function buildHerbViralHooks(herb: Herb): HerbViralHooks {
+export function buildHerbViralHooks(herb: ViralHerb): HerbViralHooks {
   const name = pickName(herb)
   const effects = splitBits(herb.effects || herb.effectsSummary)
   const compounds = splitBits(herb.active_compounds || herb.compounds)
@@ -55,7 +69,7 @@ export function buildHerbViralHooks(herb: Herb): HerbViralHooks {
   }
 }
 
-export function getShareInsight(herb: Herb, fallback = '') {
+export function getShareInsight(herb: ViralHerb, fallback = '') {
   const hooks = buildHerbViralHooks(herb)
   return fallback || hooks.didYouKnow[0] || hooks.whyItMatters
 }
