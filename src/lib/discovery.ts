@@ -1,7 +1,26 @@
-import type { Herb } from '@/types'
 import { slugify } from '@/lib/slug'
 import { getCommonName } from '@/lib/herbName'
 import { normalizeScientificTags } from '@/lib/tags'
+
+type DiscoveryEntity = {
+  slug?: string
+  common?: string
+  scientific?: string
+  name?: string
+  description?: string
+  effects?: string[] | string
+  benefits?: string
+  mechanism?: string | null
+  mechanismOfAction?: string | null
+  tags?: string[]
+  pharmCategories?: string[]
+  compoundClasses?: string[]
+  intensityLevel?: string | null
+  intensityLabel?: string | null
+  intensity?: string | null
+  active_compounds?: string[] | string
+  compounds?: string[] | string
+}
 
 export const EXPLORE_EFFECTS = ['Calm', 'Focus', 'Lucidity', 'Visionary'] as const
 
@@ -14,7 +33,7 @@ const EFFECT_KEYWORDS: Record<EffectKey, RegExp> = {
   Visionary: /(vision|psychedelic|entheogen|hallucin|mystic|5-ht2a|perception)/i,
 }
 
-function textBlob(entity: Herb) {
+function textBlob(entity: DiscoveryEntity) {
   return [
     entity.common,
     entity.scientific,
@@ -42,7 +61,7 @@ function normalizedList(value: unknown): string[] {
     .filter(Boolean)
 }
 
-function normalizeIntensity(entity: Herb): number {
+function normalizeIntensity(entity: DiscoveryEntity): number {
   const value = String(entity.intensityLevel || entity.intensityLabel || entity.intensity || '')
     .toLowerCase()
     .trim()
@@ -52,12 +71,12 @@ function normalizeIntensity(entity: Herb): number {
   return 2
 }
 
-export function extractEffectBuckets(entity: Herb): EffectKey[] {
+export function extractEffectBuckets(entity: DiscoveryEntity): EffectKey[] {
   const blob = textBlob(entity)
   return EXPLORE_EFFECTS.filter(effect => EFFECT_KEYWORDS[effect].test(blob))
 }
 
-export function scoreRelatedHerb(target: Herb, candidate: Herb): number {
+export function scoreRelatedHerb(target: DiscoveryEntity, candidate: DiscoveryEntity): number {
   const targetEffects = new Set(extractEffectBuckets(target))
   const candidateEffects = extractEffectBuckets(candidate)
   const sharedEffects = candidateEffects.filter(effect => targetEffects.has(effect)).length
@@ -89,7 +108,7 @@ export function scoreRelatedHerb(target: Herb, candidate: Herb): number {
   )
 }
 
-export function recommendRelatedHerbs(target: Herb, herbs: Herb[], limit = 4): Herb[] {
+export function recommendRelatedHerbs(target: DiscoveryEntity, herbs: DiscoveryEntity[], limit = 4): DiscoveryEntity[] {
   return herbs
     .filter(candidate => candidate.slug !== target.slug)
     .map(candidate => ({ candidate, score: scoreRelatedHerb(target, candidate) }))
@@ -99,7 +118,7 @@ export function recommendRelatedHerbs(target: Herb, herbs: Herb[], limit = 4): H
     .map(entry => entry.candidate)
 }
 
-export function recommendRelatedCompoundsForHerb(herb: Herb, compounds: Herb[], limit = 5): Herb[] {
+export function recommendRelatedCompoundsForHerb(herb: DiscoveryEntity, compounds: DiscoveryEntity[], limit = 5): DiscoveryEntity[] {
   const activeCompounds = new Set(normalizedList(herb.active_compounds || herb.compounds || []))
   const herbMechanisms = new Set(normalizedList([herb.mechanism, ...(herb.pharmCategories || [])]))
   const herbClasses = new Set(normalizedList(herb.compoundClasses || []))
@@ -132,17 +151,17 @@ export function recommendRelatedCompoundsForHerb(herb: Herb, compounds: Herb[], 
     .map(entry => entry.compound)
 }
 
-export function recommendRelatedCompounds(target: Herb, compounds: Herb[], limit = 4): Herb[] {
+export function recommendRelatedCompounds(target: DiscoveryEntity, compounds: DiscoveryEntity[], limit = 4): DiscoveryEntity[] {
   return recommendRelatedCompoundsForHerb(target, compounds, limit)
 }
 
-export function getDisplayName(item: Herb): string {
+export function getDisplayName(item: DiscoveryEntity): string {
   return (
     getCommonName(item) ?? item.common ?? item.scientific ?? item.name ?? item.slug ?? 'Unknown'
   )
 }
 
-export function pickRandomHerb(herbs: Herb[]): Herb | null {
+export function pickRandomHerb(herbs: DiscoveryEntity[]): DiscoveryEntity | null {
   if (!herbs.length) return null
   const index = Math.floor(Math.random() * herbs.length)
   return herbs[index] ?? null
