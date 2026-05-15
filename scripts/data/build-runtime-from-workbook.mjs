@@ -3,7 +3,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import XLSX from 'xlsx'
+import {
+  getSheet,
+  getSheetNames,
+  readWorkbook,
+  sheetToRows,
+} from './workbook-parser.mjs'
 import { resolveWorkbookPath } from '../workbook-source.mjs'
 import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
@@ -122,10 +127,12 @@ function pick(record, fields) {
 function ensureDir(dir) { fs.mkdirSync(dir, { recursive: true }) }
 function writeJson(file, data) { ensureDir(path.dirname(file)); fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`, 'utf8') }
 
-function resolveSheet(wb, names) { return names.find((n) => wb.Sheets[n]) || null }
+function resolveSheet(wb, names) {
+  return names.find((n) => getSheet(wb, n)) || null
+}
 
 function resolveVersionedSheet(wb, names) {
-  const sheetNames = wb.SheetNames || []
+  const sheetNames = getSheetNames(wb)
   const matches = []
   for (const name of names) {
     const exact = sheetNames.find((s) => lower(s) === lower(name))
@@ -142,7 +149,7 @@ function read(wb, names, versioned = false) {
   if (!name) return []
   try {
     console.log(`[data] sheet loaded: ${name}`)
-    return XLSX.utils.sheet_to_json(wb.Sheets[name], { defval: '' })
+    return sheetToRows(getSheet(wb, name))
   } catch (e) {
     console.warn(`[data] sheet skipped: ${name} (${e.message})`)
     return []
@@ -328,8 +335,18 @@ function main() {
   const outDir = args()
   const workbookPath = resolveWorkbookPath(repoRoot)
   if (!fs.existsSync(workbookPath)) throw new Error(`[data] workbook missing: ${workbookPath}`)
-  const wb = XLSX.readFile(workbookPath)
-  for (const required of ['Herb Master V3', 'Compound Master V3']) if (!wb.Sheets[required]) throw new Error(`[data] missing required sheet: ${required}`)
+
+  // Workbook loading is intentionally routed through the parser adapter.
+  // This keeps xlsx isolated so a future exceljs migration can swap parser
+  // internals without rewriting normalization/export logic.
+  const wb = readWorkbook(workbookPath)
+
+  for (const required of ['Herb Master V3', 'Compound Master V3']) {
+    if (!getSheet(wb, required)) {
+      throw new Error(`[data] missing required sheet: ${required}`)
+    }
+  }
+
   ensureDir(outDir)
 
   const herbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb')))
