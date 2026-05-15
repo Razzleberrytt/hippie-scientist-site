@@ -18,6 +18,7 @@ npm run dev
 - Static deploy directory: `out/` (Cloudflare deploy target).
 - Data source of truth: `data-sources/herb_monograph_master.xlsx` (workbook-only policy).
 - Generated runtime data: `public/data/**` and `public/blogdata/**` are disposable generated artifacts and must not be manually edited.
+- Blog pages are rendered by the Next.js App Router under `app/blog/**`. Do not commit generated `public/blog/**/index.html` files that duplicate active App Router blog routes.
 - Legacy feature sets (lead capture, affiliate/product modules, recommendations, graph/effect search, governed enrichment tooling, old client-router paths) are removed from active MVP scope or deferred unless explicitly reintroduced through approved routes and passing build checks.
 
 ## Data pipeline (production default)
