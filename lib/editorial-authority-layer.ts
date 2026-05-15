@@ -27,7 +27,7 @@ export function buildEditorialAuthorityNotes(record: any): EditorialAuthorityNot
     ...list(record?.effects),
   ].map(title), 4)
 
-  return [
+  const notes: EditorialAuthorityNote[] = [
     {
       label: 'What this actually means',
       body: effects.length
@@ -55,7 +55,9 @@ export function buildEditorialAuthorityNotes(record: any): EditorialAuthorityNot
       body: `${name} currently ranks as ${semantic.priority} for semantic authority based on mechanism density, evidence signals, ecosystem alignment, and traversal diversity.`,
       tone: 'interpretation',
     },
-  ].map((note) => ({
+  ]
+
+  return notes.map((note) => ({
     ...note,
     label: cleanEditorialText(note.label),
     body: cleanEditorialText(note.body),
