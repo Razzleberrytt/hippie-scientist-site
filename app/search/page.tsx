@@ -3,8 +3,8 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import Fuse from 'fuse.js'
-import compoundsData from '@/public/data/compounds.json'
-import herbsData from '@/public/data/herbs.json'
+import compoundsSummaryData from '@/public/data/compounds-summary.json'
+import herbsSummaryData from '@/public/data/herbs-summary.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
@@ -44,6 +44,7 @@ function getSummary(item: any, type: SearchType) {
   const summary =
     item.short_earthy_summary ||
     item.shortEarthySummary ||
+    item.summaryShort ||
     item.summary ||
     item.coreInsight ||
     item.hero ||
@@ -56,6 +57,7 @@ function getEffects(item: any) {
   return unique([
     ...list(item.primary_effects),
     ...list(item.primaryEffects),
+    ...list(item.primaryActions),
     ...list(item.effects),
     ...list(item.mechanisms),
     ...list(item.primaryDomain),
@@ -71,6 +73,7 @@ function getEvidence(item: any) {
       item.safety?.evidenceTier ||
       item.evidence_grade ||
       item.evidenceLevel ||
+      item.confidence ||
       item.summary_quality,
     'Evidence Review'
   )
@@ -81,6 +84,7 @@ function getSafety(item: any) {
     item.safety_level ||
       item.safetyLevel ||
       item.safety?.confidence ||
+      item.safetyNotes ||
       item.confidenceTier ||
       item.profile_status,
     'Safety Review'
@@ -88,7 +92,7 @@ function getSafety(item: any) {
 }
 
 function getQuality(item: any) {
-  return labelize(item.profile_status || item.summary_quality || item.review_status || item.status, 'Profile Review')
+  return labelize(item.profile_status || item.summary_quality || item.review_status || item.status || item.confidence, 'Profile Review')
 }
 
 function evidenceClass(level: string) {
@@ -164,6 +168,7 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
   const quality = getQuality(item)
   const href = type === 'Herb' ? `/herbs/${slug}` : `/compounds/${slug}`
   const orchestration = getSemanticOrchestrationSignals(item)
+  const aliases = list(item.aliases).join(' ')
 
   return {
     slug,
@@ -183,7 +188,7 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
     safetyPenalty: orchestration.safetyPenalty,
     uncertaintyPenalty: orchestration.uncertaintyPenalty,
     translationalPenalty: orchestration.translationalPenalty,
-    searchText: [name, slug, summary, effects.join(' '), evidence, safety, quality].join(' '),
+    searchText: [name, slug, aliases, summary, effects.join(' '), evidence, safety, quality].join(' '),
   }
 }
 
@@ -245,8 +250,8 @@ export default function SearchPage() {
   const searchIntent = getSearchIntent(normalizedQuery)
 
   const searchItems = useMemo(() => {
-    const herbs = (herbsData as any[]).map(item => normalizeItem(item, 'Herb')).filter(Boolean) as SearchItem[]
-    const compounds = (compoundsData as any[]).map(item => normalizeItem(item, 'Compound')).filter(Boolean) as SearchItem[]
+    const herbs = (herbsSummaryData as any[]).map(item => normalizeItem(item, 'Herb')).filter(Boolean) as SearchItem[]
+    const compounds = (compoundsSummaryData as any[]).map(item => normalizeItem(item, 'Compound')).filter(Boolean) as SearchItem[]
     return [...herbs, ...compounds].sort(compareAuthority)
   }, [])
 

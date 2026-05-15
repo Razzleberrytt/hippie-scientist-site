@@ -9,7 +9,7 @@ This PR is intentionally docs-only. It does not modify generated data, runtime d
 ## High-level findings
 
 - Several active pages and libraries still reference broad generated datasets.
-- The highest-risk browser payload pattern found is `app/search/page.tsx`, a client component that statically imports full `public/data/compounds.json` and `public/data/herbs.json`.
+- `app/search/page.tsx` previously imported full `public/data/compounds.json` and `public/data/herbs.json` directly into a client component. This has now been reduced to compact summary payload imports.
 - The main App Router server/static data loader reads broad datasets from disk in `src/lib/runtime-data.ts`. In static export this affects build/static generation payload work, not direct browser fetches by itself.
 - Client hook loaders in `src/lib/herb-data.ts` and `src/lib/compound-data.ts` fetch summary indexes and route-specific detail JSON from `/data/**` in the browser.
 - `lib/semantic-runtime.ts` imports full `public/data/compounds.json` at module scope. No direct import sites were found during this audit, but it should be treated as a bundle-risk helper if imported by client code later.
@@ -20,10 +20,10 @@ This PR is intentionally docs-only. It does not modify generated data, runtime d
 
 | Payload | Usage sites found | Classification | Notes |
 | --- | --- | --- | --- |
-| `public/data/herbs.json` | `app/search/page.tsx`; `src/lib/runtime-data.ts`; scripts/tooling | Client-side broad import and server/static read | Search imports the full file into a client page. Runtime-data reads it from disk during server/static generation and merges with summary data. |
-| `public/data/compounds.json` | `app/search/page.tsx`; `lib/semantic-runtime.ts`; `src/lib/runtime-data.ts`; scripts/tooling | Client-side broad import, module-scope import risk, and server/static read | Search imports the full file into a client page. Semantic runtime imports the full payload at module scope. Runtime-data reads it from disk during server/static generation. |
-| `/data/herbs-summary.json` | `src/lib/herb-data.ts` | Client-side summary fetch | Used by hooks and canonical slug resolution. This is broad but summary-oriented rather than full detail payload loading. |
-| `/data/compounds-summary.json` | `src/lib/compound-data.ts` | Client-side summary fetch | Used by hooks and canonical slug resolution. This is broad but summary-oriented rather than full detail payload loading. |
+| `public/data/herbs.json` | `src/lib/runtime-data.ts`; scripts/tooling | Server/static read | Search page no longer imports the full herb dataset directly into the browser bundle. Runtime-data still reads it from disk during server/static generation. |
+| `public/data/compounds.json` | `lib/semantic-runtime.ts`; `src/lib/runtime-data.ts`; scripts/tooling | Module-scope import risk and server/static read | Search page no longer imports the full compound dataset directly into the browser bundle. Semantic runtime still imports the full payload at module scope. |
+| `public/data/herbs-summary.json` | `app/search/page.tsx`; `src/lib/herb-data.ts` | Client-side summary payload | Used for compact browser search indexing and canonical slug resolution. |
+| `public/data/compounds-summary.json` | `app/search/page.tsx`; `src/lib/compound-data.ts` | Client-side summary payload | Used for compact browser search indexing and canonical slug resolution. |
 | `/data/herbs-detail/{slug}.json` | `src/lib/herb-data.ts` | Client-side route/detail fetch | Route-specific detail loading by slug after summary/canonical resolution. Lower risk than loading all detail records. |
 | `/data/compounds-detail/{slug}.json` | `src/lib/compound-data.ts` | Client-side route/detail fetch | Route-specific detail loading by slug after summary/canonical resolution. Lower risk than loading all detail records. |
 | `public/data/stacks.json` | `app/stacks/page.tsx` | Static import in App Router page | Page imports the full stacks payload. Depending on static export bundling, this may affect page payload size for `/stacks`. |
@@ -35,20 +35,25 @@ This PR is intentionally docs-only. It does not modify generated data, runtime d
 
 ### `app/search/page.tsx`
 
-Risk: **high**.
+Status: **partially addressed**.
 
-The search page is a client component and statically imports both full public datasets:
+The search page previously imported:
 
 - `@/public/data/compounds.json`
 - `@/public/data/herbs.json`
 
-It then builds a Fuse index in the browser. This gives rich search behavior, but it likely ships the full herb and compound datasets to every search-page visitor.
+The page now uses:
 
-Recommended follow-up:
+- `@/public/data/compounds-summary.json`
+- `@/public/data/herbs-summary.json`
 
-- Generate a purpose-built `search-index.json` containing only fields required for search results.
-- Prefer small fields only: `slug`, `name`, `type`, short summary, effects, evidence label, safety label, and search keywords.
-- Avoid shipping full detail text, source arrays, enrichment payloads, and raw workbook-derived fields to the search page.
+This substantially reduces the browser payload footprint while preserving static export compatibility and existing Fuse-based client search behavior.
+
+Remaining follow-up opportunity:
+
+- Create a purpose-built `search-index.json` containing only fields required for search results.
+- Prefer small fields only: `slug`, `name`, `type`, short summary, effects, evidence label, safety label, aliases, and search keywords.
+- Avoid shipping unused enrichment metadata through summary payloads.
 
 ### `src/lib/runtime-data.ts`
 
@@ -134,19 +139,18 @@ Recommended follow-up:
 1. Create generated search-summary payloads before touching runtime behavior.
    - `public/data/search-index.json`
    - include only fields required by `app/search/page.tsx`
-2. Convert the search page from full dataset imports to the generated search index.
-3. Add payload-size checks for high-risk public JSON files.
-4. Split any growing route-specific datasets into summary/detail payloads.
-5. Prefer slug-specific detail reads over broad collection reads on detail pages.
-6. Keep generated summary files free of raw workbook rows, long source arrays, full evidence objects, and unused enrichment fields.
+2. Add payload-size checks for high-risk public JSON files.
+3. Split any growing route-specific datasets into summary/detail payloads.
+4. Prefer slug-specific detail reads over broad collection reads on detail pages.
+5. Keep generated summary files free of raw workbook rows, long source arrays, full evidence objects, and unused enrichment fields.
 
 ## Explicit non-changes in this PR
 
 This PR does not:
 
-- modify `public/data/**`
-- modify generated files
-- change data fetching behavior
-- refactor app pages or libraries
-- introduce new payload generation scripts
+- modify generated public data contents
+- introduce remote fetch APIs
+- change search page visual design
+- modify generated-data scripts
+- refactor unrelated routes or components
 - update dependencies or lockfiles
