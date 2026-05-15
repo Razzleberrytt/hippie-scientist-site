@@ -56,7 +56,7 @@ These rules are disabled globally for `**/*.{ts,tsx,js,jsx,mjs,cjs}` unless over
 | `@typescript-eslint/no-unused-vars` | `off` | Medium | Unused variables can hide incomplete refactors, stale imports, and dead branches. Risk is higher in active routes/components where unused imports can indicate broken feature wiring. |
 | `@typescript-eslint/no-explicit-any` | `off` | Medium | `any` weakens route params, runtime-data records, component props, and helper boundaries. Some `any` use is expected around generated workbook/runtime JSON, but active app boundaries should gradually narrow it. |
 | `react-hooks/exhaustive-deps` | `off` | High for client components | Missing dependencies can cause stale closures, incorrect effects, and user-visible state bugs. Server components are lower risk, but active client components need coverage. |
-| `jsx-a11y/alt-text` | `off` | High | Missing image alt text is a direct accessibility and SEO quality issue, especially in active app/components surfaces. |
+| `jsx-a11y/alt-text` | globally `off`, then re-enabled for active production UI paths | Medium | The first staged remediation batch has started. Active production UI paths now receive alt-text enforcement while legacy/deferred paths remain relaxed to avoid a giant cleanup PR. |
 | `jsx-a11y/label-has-associated-control` | `off` | High | Labels without associated controls degrade form accessibility and screen-reader behavior. Relevant to search, filters, newsletter/form surfaces, and any active inputs. |
 | `jsx-a11y/anchor-is-valid` | `off` | Medium | Invalid anchors can break navigation semantics. Next.js `Link` usage sometimes creates false positives, so staged enforcement is safer than global re-enable. |
 | `jsx-a11y/no-static-element-interactions` | `off` | Medium | Click handlers on non-interactive elements can break keyboard accessibility. Needs staged handling to avoid a noisy PR. |
@@ -79,6 +79,19 @@ For `src/**/*.{js,jsx,ts,tsx}`:
 - `no-debugger`: `error`
 
 This is useful, but it does not cover `app/**`, `components/**`, or root `lib/**` unless another config applies. If active production code lives in those paths, a future staged PR should consider applying equivalent no-debugger/no-console coverage there too.
+
+### Accessibility remediation status
+
+Completed first staged accessibility remediation batch:
+
+- `jsx-a11y/alt-text` remains relaxed globally to avoid noisy legacy churn.
+- `jsx-a11y/alt-text` is now enforced for active production UI paths only.
+- Active coverage includes:
+  - `app/**`
+  - `components/**`
+  - active `src/components/**` surfaces currently used by runtime exploration and navigation flows
+- Legacy/deferred/quarantined paths remain relaxed.
+- No unrelated accessibility rules were changed in this batch.
 
 ## TypeScript posture
 
@@ -125,146 +138,3 @@ Current excludes include normal generated/dependency paths plus a quarantine lis
 | `src/types.ts` | Medium | Excluding a generic type file can hide stale shared types. Leave unchanged in this PR, but revisit during cleanup. |
 
 The current `tsconfig.json` already includes explanatory comments for quarantined legacy areas and explicitly states that active `src/lib/runtime-*.ts` files should remain included.
-
-## Active vs legacy/deferred path assessment
-
-### Appears active / should stay covered
-
-These paths appear to be active production surfaces and should remain covered by TypeScript and ESLint:
-
-- `app/**`
-- `components/**`
-- `lib/**`
-- `src/components/mobile-bottom-nav.tsx`
-- `src/components/runtime/**`
-- `src/components/explore/**`
-- `src/lib/runtime-*.ts`
-- `src/lib/semantic-*`
-
-### Appears legacy/deferred / currently quarantined
-
-These paths are intentionally excluded or relaxed based on comments in `tsconfig.json`:
-
-- `src/pages/**/*`
-- `src/dev/**/*`
-- selected old `src/components/*` files
-- selected old `src/components/cta`, `detail`, `filters`, `interactions`, and `trust` folders
-- selected old `src/lib/*` modules tied to duplicate data consumers, affiliate tracking, governed enrichment, recommendations, and deprecated experiments
-- `agent/**/*`
-- `scripts/**/*` from TypeScript app typecheck
-
-This quarantine strategy is reasonable for avoiding a giant cleanup PR, but it should be defended with reachability checks and comments whenever active paths are changed.
-
-## Coverage concerns
-
-1. ESLint safety rules are disabled globally, not only for legacy/deferred code.
-   - This means active `app/**`, `components/**`, `lib/**`, and `src/**` files inherit the relaxed posture.
-
-2. React Hooks safety is materially weakened.
-   - `react-hooks/exhaustive-deps` is disabled globally, which is high risk for active client components.
-
-3. Accessibility linting is materially weakened.
-   - `jsx-a11y/alt-text` and `jsx-a11y/label-has-associated-control` are disabled globally.
-
-4. TypeScript strict mode is partially softened.
-   - `strict` is enabled, but `noImplicitAny` is disabled and `@typescript-eslint/no-explicit-any` is disabled.
-
-5. The TypeScript quarantine is broad but documented.
-   - This is acceptable short term if active paths remain included and legacy paths are not imported by active runtime code.
-
-## Staged remediation plan
-
-### Stage 0: Preserve current behavior
-
-- Keep current config unchanged until active violations are measured.
-- Continue documenting known quarantines.
-- Avoid broad re-enables that create a noisy cleanup PR.
-
-### Stage 1: Accessibility baseline for active UI only
-
-Recommended first implementation batch:
-
-- Re-enable `jsx-a11y/alt-text` for active `app/**`, `components/**`, and selected active `src/components/**` only.
-- Keep legacy/deferred paths relaxed.
-- Fix only real active missing-alt violations in the same small PR.
-- Do not touch generated data or unrelated UI.
-
-Rationale: missing alt text is high-impact, usually easy to review, and improves accessibility/SEO without changing app architecture.
-
-### Stage 2: Active form accessibility
-
-- Re-enable or warn on `jsx-a11y/label-has-associated-control` for active form/search/filter components only.
-- Keep old newsletter/lead-capture/deferred components quarantined until they are deleted or rebuilt.
-
-Rationale: form accessibility is high impact, but false positives and custom components can require careful review.
-
-### Stage 3: React Hooks safety for active client components
-
-- Add a scoped override for active client component paths.
-- Start with `react-hooks/exhaustive-deps` as `warn` for active client components.
-- Do not apply to legacy quarantined client components.
-- Fix warnings in small batches grouped by feature surface.
-
-Rationale: stale effects can create real bugs, but this rule can produce noisy diffs if enabled globally.
-
-### Stage 4: Type boundary tightening
-
-- Add `@typescript-eslint/no-explicit-any` as `warn` for active route boundaries and runtime helpers.
-- Prioritize:
-  - route params
-  - generated runtime JSON helpers
-  - component props crossing app/component boundaries
-  - SEO/schema helpers
-- Continue allowing pragmatic `any` at workbook/runtime-data ingestion boundaries where schemas are not finalized.
-
-Rationale: runtime JSON records need gradual typing; enforcing this globally would create churn.
-
-### Stage 5: Unused variable cleanup for active code
-
-- Re-enable `@typescript-eslint/no-unused-vars` for active app/components/lib paths.
-- Use an ignore pattern for intentionally unused underscore-prefixed variables if needed.
-- Keep scripts/legacy relaxed until separately addressed.
-
-Rationale: unused variables are useful refactor smoke alarms, but the first pass can be noisy.
-
-### Stage 6: TypeScript quarantine hardening
-
-- Keep the existing exclude quarantine for legacy/deferred files.
-- Add or maintain comments for every excluded active-looking file.
-- Add a lightweight reachability guard in a later PR if practical, ensuring excluded legacy modules are not imported by active app/routes/components.
-
-Rationale: the quarantine is currently the main protection against a giant cleanup PR. The risk is accidental active imports from excluded files.
-
-## Recommended first safe PR after this audit
-
-Open a small implementation PR with this scope only:
-
-- Add an ESLint override for active UI paths only.
-- Re-enable `jsx-a11y/alt-text` for:
-  - `app/**/*.{tsx,jsx}`
-  - `components/**/*.{tsx,jsx}`
-  - explicitly active `src/components/**/*.{tsx,jsx}` paths that are not quarantined
-- Fix only active missing-alt violations.
-- Do not touch legacy/deferred excluded files.
-- Do not change TypeScript excludes.
-- Do not update dependencies or lockfile.
-
-## Non-goals
-
-This audit does not recommend:
-
-- globally re-enabling all disabled rules at once
-- removing the legacy/deferred quarantine in one PR
-- converting all `any` usage immediately
-- changing build behavior
-- changing dependency versions
-- manually editing `package-lock.json`
-
-## Maintainer validation notes
-
-This PR is documentation-only. Suggested maintainer validation:
-
-```bash
-npm run lint
-npx tsc --noEmit
-```
