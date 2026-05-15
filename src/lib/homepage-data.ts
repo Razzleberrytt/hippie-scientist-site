@@ -1,5 +1,17 @@
 import homepageData from '@/generated/homepage-data.json'
-import type { Herb } from '@/types'
+
+type HomepageHerb = {
+  slug?: string
+  common?: string
+  name?: string
+  scientific?: string
+  scientificName?: string
+  description?: string
+  summary?: string
+  effects?: string[] | string
+  effectsSummary?: string | null
+  tags?: string[]
+}
 
 export type HomepageQuality = {
   score: number
@@ -44,7 +56,7 @@ type HomepagePayload = {
   diverseFeatured: HomepageFeaturedItem[]
   curated: HomepageFeaturedItem[]
   governedHighlights: HomepageFeaturedItem[]
-  effectExplorerHerbs: Herb[]
+  effectExplorerHerbs: HomepageHerb[]
 }
 
 const payload = homepageData as HomepagePayload
