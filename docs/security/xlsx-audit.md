@@ -33,7 +33,7 @@ Related files:
 
 | File | Relevance |
 | --- | --- |
-| `scripts/workbook-source.mjs` | Resolves workbook path from `options.envPath`, `process.env.HERB_XLSX_PATH`, or default `data-sources/herb_monograph_master.xlsx`; asserts absolute path, `.xlsx` extension, file existence, and file type when `assertWorkbookExists(...)` is called. |
+| `scripts/workbook-source.mjs` | Resolves workbook path from `options.envPath`, `process.env.HERB_XLSX_PATH`, or default `data-sources/herb_monograph_master.xlsx`; validates non-empty local `.xlsx` filesystem paths and rejects HTTP/HTTPS workbook URLs. |
 | `.env.example` | Documents `HERB_XLSX_PATH`; this is an operator/build-time configuration value, not browser input. |
 | `docs/xlsx-migration-plan.md` | Existing migration planning document for parser replacement/parity work. |
 
@@ -51,6 +51,20 @@ No confirmed path was found where any of the following reach `xlsx` parsing:
 - client component input
 
 The current parsing surface appears to be local filesystem paths used by scripts. The most important build path is `npm run data:build`, which runs `scripts/data/build-runtime-from-workbook.mjs`; that script uses the workbook parser adapter and a local workbook path resolved by `scripts/workbook-source.mjs`.
+
+## Guardrails added
+
+The parser boundary now includes lightweight enforcement and documentation guardrails:
+
+- `scripts/data/workbook-parser.mjs` explicitly documents that `xlsx` is restricted to trusted Node build/data scripts.
+- `scripts/data/build-runtime-from-workbook.mjs` now routes workbook validation through `assertWorkbookExists(...)` before parsing.
+- `scripts/workbook-source.mjs` now:
+  - rejects empty workbook paths
+  - rejects HTTP/HTTPS workbook URLs
+  - documents that workbook parsing must remain local/build-time only
+- build-path comments explicitly prohibit browser uploads, request bodies, runtime inputs, and remote URLs from being routed through the `xlsx` parsing boundary.
+
+These changes intentionally avoid altering workbook parsing semantics or generated output structure.
 
 ## Risk analysis
 
