@@ -50,11 +50,13 @@ Excluded examples include:
 - `src/components/CategoryFilter.tsx`
 - `src/components/EffectExplorer.tsx`
 - `src/components/EmailCapture.tsx`
+- `src/components/EntityCard.tsx`
 - `src/components/NewsletterCard.tsx`
 - `src/components/NewsletterSignup.tsx`
 - `src/components/BlendSummaryCard.tsx`
 - `src/components/HerbList.tsx`
 - `src/components/QuickFillModal.tsx`
+- `src/components/RecommendedProducts.tsx`
 - `src/components/ShareInsightCard.tsx`
 - `src/components/cta/**`
 - `src/components/detail/**`
@@ -71,6 +73,8 @@ Reasons:
 - not reachable from active App Router pages
 - imported quarantined legacy data hooks such as `@/lib/herb-data` and analytics modules such as `@/lib/growth`
 - acted as import-chain parents that reintroduced quarantined files into TypeScript despite direct excludes
+- `src/components/EntityCard.tsx` type-imports `Entity` from `@/lib/data`, which resolves to quarantined `src/lib/data.ts`
+- `src/components/RecommendedProducts.tsx` imports `@/types` and `@/lib/herbProducts`, which resolve to quarantined legacy type/product modules
 
 To revive:
 
