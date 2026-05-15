@@ -33,6 +33,11 @@ const SUMMARY_FIELDS = [
   'runtime_export_decision',
   'profile_status',
   'summary_quality',
+  'robots',
+  'sitemap_included',
+  'indexability_status',
+  'indexability_score',
+  'indexability_reasons',
   'entityType',
 ]
 
