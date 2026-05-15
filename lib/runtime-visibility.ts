@@ -14,11 +14,19 @@ function hasIndexableQuality(summaryQuality: string) {
   return !/^(weak|minimal|thin|stub|research_needed)$/i.test(summaryQuality)
 }
 
+function getIndexabilityStatus(record: any) {
+  const status = text(record?.indexability_status)
+  return /^(PUBLISH|NOINDEX|NEEDS_REVIEW|BLOCKED)$/i.test(status)
+    ? status.toUpperCase()
+    : ''
+}
+
 export function getRuntimeVisibility(record: any) {
   const exportDecision = text(record?.runtime_export_decision)
   const profileStatus = text(record?.profile_status)
   const summaryQuality = text(record?.summary_quality)
   const evidenceTier = text(record?.evidence_tier || record?.evidenceTier || record?.evidence_grade)
+  const indexabilityStatus = getIndexabilityStatus(record)
 
   const hidden =
     /^hide$/i.test(exportDecision)
@@ -27,6 +35,17 @@ export function getRuntimeVisibility(record: any) {
     /^minimal$/i.test(profileStatus) ||
     /^weak$/i.test(summaryQuality) ||
     hasResearchPending(record)
+
+  if (indexabilityStatus) {
+    const publish = indexabilityStatus === 'PUBLISH'
+
+    return {
+      canRender: !hidden,
+      canIndex: !hidden && publish,
+      canFeature: !hidden && publish,
+      canMonetize: !hidden && indexabilityStatus !== 'BLOCKED' && !weak,
+    }
+  }
 
   const indexableStatus = hasIndexableStatus(profileStatus)
   const indexableQuality = hasIndexableQuality(summaryQuality)

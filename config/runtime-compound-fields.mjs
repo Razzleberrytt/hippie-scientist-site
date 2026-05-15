@@ -117,6 +117,9 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'visibility_tier',
   'robots',
   'sitemap_included',
+  'indexability_status',
+  'indexability_score',
+  'indexability_reasons',
   'meta_title',
   'meta_description',
 ]

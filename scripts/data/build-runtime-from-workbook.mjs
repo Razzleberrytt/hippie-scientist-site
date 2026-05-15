@@ -12,6 +12,7 @@ import {
 import { resolveWorkbookPath } from '../workbook-source.mjs'
 import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
+import { scoreIndexability } from './indexability-policy.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -38,7 +39,8 @@ const GRAPH_SHEETS = {
 const INDEX_FIELDS = [
   'slug', 'name', 'summary', 'primary_effects', 'effects', 'evidence_grade',
   'evidence_tier', 'profile_status', 'runtime_export_decision',
-  'affiliate_ready', 'visibility_tier', 'robots',
+  'affiliate_ready', 'visibility_tier', 'robots', 'sitemap_included',
+  'indexability_status', 'indexability_score', 'indexability_reasons',
 ]
 
 function clean(v) {
@@ -156,14 +158,24 @@ function read(wb, names, versioned = false) {
   }
 }
 
-function visibility(record) {
+function visibility(record, type) {
+  const indexability = scoreIndexability(record, { type })
   const decision = lower(record.runtime_export_decision)
-  const profile = lower(record.profile_status)
-  const quality = lower(record.summary_quality)
-  if (decision === 'hide') return { visibility_tier: 'hidden', robots: 'noindex,nofollow', sitemap_included: false }
-  if (profile === 'complete' && quality === 'strong') return { visibility_tier: 'full_publish', robots: 'index,follow', sitemap_included: true }
-  if (['partial', 'moderate'].includes(profile) || ['moderate', 'medium'].includes(quality)) return { visibility_tier: 'limited', robots: 'index,follow', sitemap_included: true }
-  return { visibility_tier: 'noindex', robots: 'noindex,follow', sitemap_included: false }
+  const visibility_tier =
+    indexability.status === 'PUBLISH'
+      ? (lower(record.profile_status) === 'complete' && lower(record.summary_quality) === 'strong' ? 'full_publish' : 'limited')
+      : indexability.status === 'BLOCKED' && decision === 'hide'
+        ? 'hidden'
+        : 'noindex'
+
+  return {
+    visibility_tier,
+    robots: indexability.robots,
+    sitemap_included: indexability.sitemap_included,
+    indexability_status: indexability.status,
+    indexability_score: indexability.score,
+    indexability_reasons: indexability.reasons,
+  }
 }
 
 function affiliate(record) {
@@ -254,7 +266,7 @@ function profile(row, type) {
     meta_description: clean(first(row, ['meta_description', 'meta description'])),
     ...semantic(row, type),
   }
-  return pick(affiliate({ ...base, ...visibility(base) }), allowed)
+  return pick(affiliate({ ...base, ...visibility(base, type) }), allowed)
 }
 
 function dedupe(rows) {
