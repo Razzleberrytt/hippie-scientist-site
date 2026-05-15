@@ -17,4 +17,5 @@ This project validates clean URLs and crawler-visible HTML from the built static
 ## Notes
 
 - Validation relies on generated runtime data from workbook-driven pipeline.
+- Indexability governance checks are documented in [indexability-governance.md](./indexability-governance.md).
 - Do not manually edit `public/data/**` to force validation passes.
