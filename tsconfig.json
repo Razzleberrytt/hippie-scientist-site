@@ -46,7 +46,10 @@
     // Legacy src component surfaces from removed/deferred MVP systems.
     // Safe per docs/src-active-vs-legacy.md and docs/legacy-code-quarantine.md reachability scans.
     // Scheduled for later deletion or rebuild instead of restoring removed legacy modules.
+    "src/components/AdvancedSearch.tsx",
     "src/components/BlendSummaryCard.tsx",
+    "src/components/CategoryAnalytics.tsx",
+    "src/components/CategoryFilter.tsx",
     "src/components/CuratedProductModule.tsx",
     "src/components/EffectExplorer.tsx",
     "src/components/EmailCapture.tsx",
@@ -62,6 +65,7 @@
     "src/components/QuickFillModal.tsx",
     "src/components/RotatingHerbHero.tsx",
     "src/components/SearchFilter.tsx",
+    "src/components/ShareInsightCard.tsx",
     "src/components/StatsCounters.tsx",
     "src/components/TagBadge.tsx",
     "src/components/TagFilterBar.tsx",
