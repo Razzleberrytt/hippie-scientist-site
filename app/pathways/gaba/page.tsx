@@ -1,7 +1,14 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
+
+export const metadata: Metadata = {
+  title: 'GABA Pathway Education',
+  description:
+    'Learn about GABAergic signaling, calming neurochemistry, inhibitory neurotransmission, sleep-related pathways, and related herbs and compounds.',
+}
 
 const faqItems = [
   {

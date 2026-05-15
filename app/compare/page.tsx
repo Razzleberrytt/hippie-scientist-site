@@ -1,6 +1,13 @@
+import type { Metadata } from 'next'
 import { CompareTableClient } from '@/components/compare-table-client'
 import { getCompounds } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-utils'
+
+export const metadata: Metadata = {
+  title: 'Compare Supplements and Compounds',
+  description:
+    'Compare herbs, supplements, and compounds by effects, evidence tiers, safety considerations, and decision-support factors.',
+}
 
 export default async function ComparePage() {
   const compounds = await getCompounds()

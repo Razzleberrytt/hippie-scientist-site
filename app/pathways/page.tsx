@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+
+export const metadata: Metadata = {
+  title: 'Neurochemical Pathways',
+  description:
+    'Explore educational guides to serotonin, dopamine, GABA, and neurochemical signaling systems related to cognition, mood, stress, and recovery.',
+}
 
 const pathways = [
   {

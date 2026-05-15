@@ -1,6 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+
+export const metadata: Metadata = {
+  title: 'Serotonin Pathway Education',
+  description:
+    'Learn about serotonergic signaling, mood regulation, emotional processing, and herbs and compounds associated with the serotonin pathway.',
+}
 
 const profiles = [
   {
