@@ -27,7 +27,7 @@ export default async function Page(){
           <p className='mt-2 text-white/70'>{c.summary}</p>
           <div className='mt-3 flex gap-2'>
             <Link href={`/compounds/${c.slug}`}>Read profile</Link>
-            <a href={buildAmazonSearchUrl(c.slug)} target='_blank'>Compare →</a>
+            <a href={buildAmazonSearchUrl(c.slug)} target='_blank' rel='noopener noreferrer nofollow sponsored'>Compare →</a>
           </div>
         </div>
       ))}

@@ -25,7 +25,7 @@ export default function ReferencedStudies({
             key={study.href}
             href={study.href}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="block rounded-2xl border border-[#d8d3c4] bg-white px-5 py-4 transition hover:-translate-y-0.5"
           >
             <div className="space-y-2">

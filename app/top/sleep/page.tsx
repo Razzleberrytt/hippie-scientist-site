@@ -103,7 +103,7 @@ export default async function TopSleepPage() {
                 <div className='mt-3 flex gap-2 flex-wrap'>
                   <Link href={`/herbs/${herb.slug}`}>Read {label} profile</Link>
                   {links[0] && (
-                    <a href={links[0].url} target='_blank'>Compare {label} products →</a>
+                    <a href={links[0].url} target='_blank' rel='noopener noreferrer nofollow sponsored'>Compare {label} products →</a>
                   )}
                 </div>
               </article>

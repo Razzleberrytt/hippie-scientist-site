@@ -63,7 +63,7 @@ export default async function FocusPage() {
           <div key={c.slug} className='border p-4 rounded-xl'>
             <h2 className='font-bold'>#{i + 1} {titleFor(c)}</h2>
             <p className='text-sm text-white/70'>{cleanSummary(c.summary || c.description, 'compound')}</p>
-            <a href={buildAmazonSearchUrl(c.slug)} target='_blank' className='mt-3 inline-block bg-emerald-300 text-black px-3 py-1 rounded'>Compare {titleFor(c)} products →</a>
+            <a href={buildAmazonSearchUrl(c.slug)} target='_blank' rel='noopener noreferrer nofollow sponsored' className='mt-3 inline-block bg-emerald-300 text-black px-3 py-1 rounded'>Compare {titleFor(c)} products →</a>
             <Link href={`/compounds/${c.slug}`} className='block mt-2 text-sm'>Read full profile →</Link>
           </div>
         ))}
