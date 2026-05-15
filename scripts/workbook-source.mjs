@@ -11,11 +11,27 @@ export function getRepoRoot() {
   return path.resolve(__dirname, '..')
 }
 
+function isRemoteWorkbookPath(value) {
+  return /^https?:\/\//i.test(String(value || '').trim())
+}
+
 export function resolveWorkbookPath(rootDir, options = {}) {
   const candidatePath =
     options.envPath ?? process.env.HERB_XLSX_PATH ?? DEFAULT_WORKBOOK_RELATIVE_PATH
 
-  const normalizedCandidate = String(candidatePath).trim()
+  const normalizedCandidate = String(candidatePath || '').trim()
+
+  if (!normalizedCandidate) {
+    throw new Error('Workbook path cannot be empty')
+  }
+
+  // xlsx parsing is restricted to trusted local filesystem inputs.
+  // Do not allow workbook parsing from remote URLs, uploads, browser
+  // input, request bodies, or other runtime-controlled sources.
+  if (isRemoteWorkbookPath(normalizedCandidate)) {
+    throw new Error(`Remote workbook URLs are not allowed: ${normalizedCandidate}`)
+  }
+
   const absolutePath = path.isAbsolute(normalizedCandidate)
     ? path.normalize(normalizedCandidate)
     : path.resolve(rootDir, normalizedCandidate)
