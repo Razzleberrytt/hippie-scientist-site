@@ -9,7 +9,7 @@ const coreRoutes = [
   '/compounds',
   '/build',
   '/blog',
-  '/learning',
+  '/learn',
   '/about',
   '/contact',
   '/privacy',
