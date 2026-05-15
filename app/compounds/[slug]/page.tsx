@@ -45,6 +45,10 @@ import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 
+type PageProps = {
+  params: Promise<{ slug: string }>
+}
+
 export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
 
@@ -53,9 +57,9 @@ export async function generateStaticParams() {
     .map((compound:any) => ({ slug: compound.slug }))
 }
 
-export async function generateMetadata({ params }: any) {
-  const resolvedParams = await params
-  const compound = await getCompoundMetadataRecord(resolvedParams.slug)
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params
+  const compound = await getCompoundMetadataRecord(slug)
 
   if (!compound) return {}
 
@@ -103,9 +107,9 @@ function CompactDisclosure({ title, children }: { title: string; children: React
   )
 }
 
-export default async function CompoundPage({ params }: any) {
-  const resolvedParams = await params
-  const compound = await getCompoundBySlug(resolvedParams.slug)
+export default async function CompoundPage({ params }: PageProps) {
+  const { slug } = await params
+  const compound = await getCompoundBySlug(slug)
 
   if (!compound || !getRuntimeVisibility(compound).canRender) {
     notFound()

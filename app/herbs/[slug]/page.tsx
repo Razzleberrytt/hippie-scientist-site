@@ -46,6 +46,10 @@ import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 
+type PageProps = {
+  params: Promise<{ slug: string }>
+}
+
 export async function generateStaticParams() {
   const { herbs } = await getUnifiedRuntimeRecords()
 
@@ -54,9 +58,9 @@ export async function generateStaticParams() {
     .map((herb: any) => ({ slug: herb.slug }))
 }
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const resolvedParams = await params
-  const herb = await getHerbMetadataRecord(resolvedParams.slug)
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params
+  const herb = await getHerbMetadataRecord(slug)
 
   if (!herb) {
     return {
@@ -273,9 +277,9 @@ function LinkDensitySection({ links }: { links: ReturnType<typeof buildInternalL
   )
 }
 
-export default async function HerbDetailPage({ params }: any) {
-  const resolvedParams = await params
-  const herb = await getHerbBySlug(resolvedParams.slug)
+export default async function HerbDetailPage({ params }: PageProps) {
+  const { slug } = await params
+  const herb = await getHerbBySlug(slug)
 
   if (!herb || !getRuntimeVisibility(herb).canRender) {
     notFound()
