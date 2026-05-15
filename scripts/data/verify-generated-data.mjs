@@ -29,6 +29,23 @@ const GENERATED_OUTPUT_FILES = [
   'public/data/build-report.json',
 ]
 
+const COPY_EXCLUDED_DIRS = new Set([
+  '.git',
+  '.next',
+  '.turbo',
+  '.vercel',
+  'node_modules',
+  'out',
+  'coverage',
+])
+
+function shouldCopy(src) {
+  const relative = path.relative(repoRoot, src)
+  if (!relative) return true
+  const parts = relative.split(path.sep)
+  return !parts.some(part => COPY_EXCLUDED_DIRS.has(part))
+}
+
 function runNodeScript(script, args, cwd) {
   const result = spawnSync(process.execPath, [script, ...args], {
     cwd,
@@ -79,7 +96,7 @@ function main() {
   const tmpRepo = path.join(tmpRoot, 'repo')
   fs.cpSync(repoRoot, tmpRepo, {
     recursive: true,
-    filter: src => !src.includes(`${path.sep}.git${path.sep}`) && !src.endsWith(`${path.sep}.git`),
+    filter: shouldCopy,
   })
 
   fs.rmSync(path.join(tmpRepo, 'public/data'), { recursive: true, force: true })
