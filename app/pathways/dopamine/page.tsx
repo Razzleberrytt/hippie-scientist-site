@@ -1,6 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+
+export const metadata: Metadata = {
+  title: 'Dopamine Pathway Education',
+  description:
+    'Explore educational content on dopaminergic signaling, focus, motivation, reward systems, and related herbs and compounds.',
+}
 
 const profiles = [
   {
