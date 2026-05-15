@@ -1,4 +1,4 @@
-import compounds from '../../../public/data/compounds.json'
+import { getAllCompounds } from '@/lib/server/runtime-data'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 import SectionBlock from '@/components/ui/SectionBlock'
 import { getProductPicks, groupProductPicks } from '@/lib/product-ranking'
@@ -37,7 +37,8 @@ function getAuthorityLinks(slug: string) {
   })
 }
 
-export default function Page({ params }: any) {
+export default async function Page({ params }: any) {
+  const compounds = await getAllCompounds()
   const ranked = (compounds as any[]).slice(0, 10)
   const slug = String(params?.slug || '')
 

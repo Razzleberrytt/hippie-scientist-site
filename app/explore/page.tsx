@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import compounds from '../../public/data/compounds.json'
+import { getAllCompounds } from '@/lib/server/runtime-data'
 import {
   classifyArchetype,
   getTopicClusters,
@@ -114,7 +114,8 @@ const TOPICS = [
   },
 ]
 
-export default function ExplorePage() {
+export default async function ExplorePage() {
+  const compounds = await getAllCompounds()
   const featured = cappedExpansion(
     (compounds as any[])
       .filter((compound) => compound.slug && compound.name)

@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import posts from '../../../data/blog/posts.json'
-import herbs from '../../../public/data/herbs.json'
-import compounds from '../../../public/data/compounds.json'
+import { getAllCompounds, getAllHerbs } from '@/lib/server/runtime-data'
 import { ResearchContinuityBlock } from '@/components/scientific-discovery'
 import { findArticleEntities } from '@/lib/editorial-discovery'
 
@@ -68,6 +67,10 @@ export default async function BlogPostPage({ params }: any) {
   if (!post) return notFound()
 
   const lines = post.content.split('\n').map((line: string) => line.trim()).filter(Boolean)
+  const [herbs, compounds] = await Promise.all([
+    getAllHerbs(),
+    getAllCompounds(),
+  ])
   const relatedHerbs = findArticleEntities(post, herbs as any[], 'herb', 3)
   const relatedCompounds = findArticleEntities(post, compounds as any[], 'compound', 3)
   const relatedItems = [...relatedHerbs, ...relatedCompounds]

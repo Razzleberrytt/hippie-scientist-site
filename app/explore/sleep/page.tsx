@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import herbs from '../../../public/data/herbs.json'
-import compounds from '../../../public/data/compounds.json'
+import { getAllCompounds, getAllHerbs } from '@/lib/server/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
@@ -57,8 +56,6 @@ function buildCards(records: any[], type: 'herb' | 'compound') {
     }))
 }
 
-const herbCards = buildCards(herbs as any[], 'herb')
-const compoundCards = buildCards(compounds as any[], 'compound')
 
 const hubIntro = [
   { title: 'Biological context', body: 'Sleep-support exploration intersects with inhibitory neurotransmission, arousal state, circadian rhythm, and recovery biology.' },
@@ -82,7 +79,15 @@ const semanticSignals = [
   'Recovery Support',
 ]
 
-export default function SleepExplorePage() {
+export default async function SleepExplorePage() {
+  const [herbs, compounds] = await Promise.all([
+    getAllHerbs(),
+    getAllCompounds(),
+  ])
+
+  const herbCards = buildCards(herbs as any[], 'herb')
+  const compoundCards = buildCards(compounds as any[], 'compound')
+
   return (
     <main className="mx-auto max-w-7xl space-y-12 px-4 py-10 sm:space-y-16 sm:py-14">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">

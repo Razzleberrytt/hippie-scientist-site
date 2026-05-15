@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import compounds from '../../../public/data/compounds.json'
-import herbs from '../../../public/data/herbs.json'
+import { getAllCompounds, getAllHerbs } from '@/lib/server/runtime-data'
 import {
   classifyArchetype,
   getTopicClusters,
@@ -108,10 +107,15 @@ function matchesTopic(cluster: unknown, topic: string) {
 }
 
 export default async function TopicExplorePage({ params }: any) {
-  const topic = safeLower(params?.topic)
+  const resolvedParams = await params
+  const topic = safeLower(resolvedParams?.topic)
 
   if (!TITLES[topic]) notFound()
 
+  const [compounds, herbs] = await Promise.all([
+    getAllCompounds(),
+    getAllHerbs(),
+  ])
   const context = TOPIC_CONTEXT[topic]
   const filtered = safeArray<any>(compounds)
     .filter((compound) => safeSlug(compound?.slug) && safeTrim(compound?.name))

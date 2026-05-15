@@ -1,13 +1,15 @@
-import compounds from '../../../public/data/compounds.json'
+import { getAllCompounds } from '@/lib/server/runtime-data'
 
 export async function generateStaticParams() {
-  return (compounds as any[]).slice(0,50).map((c)=>({slug:c.slug}))
+  const compounds = await getAllCompounds()
+  return (compounds as any[]).slice(0, 50).map((c) => ({ slug: c.slug }))
 }
 
-export default function Page({ params }: any) {
+export default async function Page({ params }: any) {
+  const resolvedParams = await params
   return (
     <main className="max-w-3xl mx-auto px-4">
-      <h1 className="text-2xl font-bold">Learn: {params.slug}</h1>
+      <h1 className="text-2xl font-bold">Learn: {resolvedParams.slug}</h1>
     </main>
   )
 }
