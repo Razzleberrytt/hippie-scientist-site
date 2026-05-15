@@ -6,6 +6,8 @@ const siteUrl = 'https://www.thehippiescientist.net'
 
 const disallowedRoutes = [
   '/analytics',
+  '/dashboard',
+  '/dashboard/revenue',
   '/data-fix',
   '/graph',
   '/theme',
