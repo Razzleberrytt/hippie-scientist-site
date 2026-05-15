@@ -55,7 +55,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const herb = await getHerbMetadataRecord(params.slug)
+  const resolvedParams = await params
+  const herb = await getHerbMetadataRecord(resolvedParams.slug)
 
   if (!herb) {
     return {
@@ -273,7 +274,8 @@ function LinkDensitySection({ links }: { links: ReturnType<typeof buildInternalL
 }
 
 export default async function HerbDetailPage({ params }: any) {
-  const herb = await getHerbBySlug(params.slug)
+  const resolvedParams = await params
+  const herb = await getHerbBySlug(resolvedParams.slug)
 
   if (!herb || !getRuntimeVisibility(herb).canRender) {
     notFound()
