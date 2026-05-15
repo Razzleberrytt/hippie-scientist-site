@@ -22,6 +22,25 @@ The quarantined files below belong to removed or deferred systems documented in 
 
 ## Quarantined paths
 
+### Legacy App Router predecessor pages
+
+Excluded:
+
+- `src/pages/**`
+
+Reasons:
+
+- legacy pre-App Router route tree
+- not used by the current Next.js App Router runtime
+- imports quarantined enrichment/data systems which pull deferred modules back into TypeScript compilation
+- preserving these pages in the active type graph causes excluded legacy modules to be reintroduced through import reachability
+
+To revive:
+
+- migrate route logic into `app/**`
+- reconnect only to workbook/runtime-backed data helpers
+- remove imports to quarantined enrichment and legacy data loaders
+
 ### Legacy component surfaces
 
 Excluded examples include:
@@ -64,6 +83,8 @@ Excluded examples include:
 - `src/lib/researchEnrichment.ts`
 - `src/lib/herbRecommendations.ts`
 - `src/lib/compound-data.ts`
+- `src/lib/compoundHerbRelations.ts`
+- `src/lib/governedCollectionIntro.ts`
 - `src/lib/herb-data.ts`
 - `src/lib/data/herbs.ts`
 - `src/types.ts`
@@ -74,6 +95,7 @@ Reasons:
 - rely on removed analytics/event-storage systems
 - duplicate workbook-driven runtime data systems
 - predate the current static-export architecture
+- some files act as import-chain parents that pull quarantined modules back into TypeScript despite direct excludes
 
 To revive:
 
