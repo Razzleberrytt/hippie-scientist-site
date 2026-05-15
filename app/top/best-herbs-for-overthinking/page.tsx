@@ -30,7 +30,7 @@ export default async function Page(){
             <p className='mt-2 text-white/70'>{h.summary}</p>
             <div className='mt-3 flex gap-2'>
               <Link href={`/herbs/${h.slug}`}>Read profile</Link>
-              {links[0] && <a href={links[0].url} target='_blank'>Compare →</a>}
+              {links[0] && <a href={links[0].url} target='_blank' rel='noopener noreferrer nofollow sponsored'>Compare →</a>}
             </div>
           </div>
         )
