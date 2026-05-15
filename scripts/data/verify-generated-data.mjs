@@ -9,7 +9,17 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
-const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+
+const DATA_BUILD_STEPS = [
+  ['scripts/data/build-runtime-from-workbook.mjs', '--out', 'public/data'],
+  ['scripts/data/postprocess-workbook-payloads.mjs'],
+  ['scripts/data/build-related-runtime-maps.mjs', '--data-dir=public/data'],
+  ['scripts/data/build-runtime-summary-indexes.mjs', '--data-dir=public/data'],
+  ['scripts/data/build-route-manifest.mjs', '--data-dir=public/data'],
+  ['scripts/data/build-sitemap-manifest.mjs', '--data-dir=public/data'],
+  ['scripts/data/build-export-batches.mjs', '--data-dir=public/data'],
+  ['scripts/data/build-semantic-snapshots.mjs', '--data-dir=public/data'],
+]
 
 const GENERATED_OUTPUT_FILES = [
   'public/data/herbs.json',
@@ -19,12 +29,24 @@ const GENERATED_OUTPUT_FILES = [
   'public/data/build-report.json',
 ]
 
-function run(cmd, args, cwd) {
-  const result = spawnSync(cmd, args, { cwd, stdio: 'inherit', env: process.env })
+function runNodeScript(script, args, cwd) {
+  const result = spawnSync(process.execPath, [script, ...args], {
+    cwd,
+    stdio: 'inherit',
+    env: process.env,
+  })
   if (result.error) {
     console.error(`[data:verify] Spawn error: ${result.error.message}`)
   }
-  if (result.status !== 0) throw new Error(`[data:verify] Command failed: ${cmd} ${args.join(' ')}`)
+  if (result.status !== 0) {
+    throw new Error(`[data:verify] Command failed: node ${script} ${args.join(' ')}`)
+  }
+}
+
+function runDataBuild(cwd) {
+  for (const [script, ...args] of DATA_BUILD_STEPS) {
+    runNodeScript(script, args, cwd)
+  }
 }
 
 function normalizeForComparison(value) {
@@ -63,7 +85,7 @@ function main() {
   fs.rmSync(path.join(tmpRepo, 'public/data'), { recursive: true, force: true })
 
   console.log('[data:verify] Regenerating approved public/data artifacts from workbook in temp copy...')
-  run(npmCmd, ['run', 'data:build'], tmpRepo)
+  runDataBuild(tmpRepo)
 
   const drift = []
   for (const rel of tracked) {
