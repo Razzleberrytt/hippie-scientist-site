@@ -46,6 +46,18 @@ function shouldCopy(src) {
   return !parts.some(part => COPY_EXCLUDED_DIRS.has(part))
 }
 
+function linkInstalledDependencies(tmpRepo) {
+  const sourceNodeModules = path.join(repoRoot, 'node_modules')
+  const targetNodeModules = path.join(tmpRepo, 'node_modules')
+
+  if (!fs.existsSync(sourceNodeModules)) {
+    throw new Error('[data:verify] Cannot link dependencies because node_modules is missing. Run npm ci first.')
+  }
+
+  const symlinkType = process.platform === 'win32' ? 'junction' : 'dir'
+  fs.symlinkSync(sourceNodeModules, targetNodeModules, symlinkType)
+}
+
 function runNodeScript(script, args, cwd) {
   const result = spawnSync(process.execPath, [script, ...args], {
     cwd,
@@ -98,6 +110,7 @@ function main() {
     recursive: true,
     filter: shouldCopy,
   })
+  linkInstalledDependencies(tmpRepo)
 
   fs.rmSync(path.join(tmpRepo, 'public/data'), { recursive: true, force: true })
 
