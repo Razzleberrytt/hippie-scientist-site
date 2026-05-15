@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
+const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm'
 
 const GENERATED_OUTPUT_FILES = [
   'public/data/herbs.json',
@@ -20,6 +21,9 @@ const GENERATED_OUTPUT_FILES = [
 
 function run(cmd, args, cwd) {
   const result = spawnSync(cmd, args, { cwd, stdio: 'inherit', env: process.env })
+  if (result.error) {
+    console.error(`[data:verify] Spawn error: ${result.error.message}`)
+  }
   if (result.status !== 0) throw new Error(`[data:verify] Command failed: ${cmd} ${args.join(' ')}`)
 }
 
@@ -59,7 +63,7 @@ function main() {
   fs.rmSync(path.join(tmpRepo, 'public/data'), { recursive: true, force: true })
 
   console.log('[data:verify] Regenerating approved public/data artifacts from workbook in temp copy...')
-  run('npm', ['run', 'data:build'], tmpRepo)
+  run(npmCmd, ['run', 'data:build'], tmpRepo)
 
   const drift = []
   for (const rel of tracked) {
