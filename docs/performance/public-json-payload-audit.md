@@ -35,7 +35,7 @@ Examples:
   - `compounds-summary.json`
   - `herbs-detail/{slug}.json`
   - `compounds-detail/{slug}.json`
-- avoid in client-facing code:
+- avoid in browser-facing code:
   - `herbs.json`
   - `compounds.json`
   - `herbs_combined_updated.json`
@@ -47,11 +47,20 @@ The repository now includes a lightweight validation script:
 
 - `scripts/ci/validate-public-json-imports.mjs`
 
-The validator scans client-facing source roots:
+The validator scans source roots:
 
 - `app/**`
 - `components/**`
 - `src/**`
+
+The validator is intentionally conservative and browser-focused.
+
+It primarily evaluates:
+
+- client components (`'use client'`)
+- obvious browser-facing App Router pages
+- component-layer source files
+- files using common React client hooks
 
 It flags direct imports, dynamic imports, requires, and fetch references to known broad public JSON payloads.
 
@@ -60,10 +69,17 @@ The validation intentionally does not block:
 - Node build/data scripts
 - App Router server/static utilities already approved for broad reads
 - generated-data workflows
+- non-client utility files without browser-facing patterns
 
 Current approved server/static exception:
 
 - `src/lib/runtime-data.ts`
+
+Current documented future bundle-risk helper:
+
+- `lib/semantic-runtime.ts`
+
+`lib/semantic-runtime.ts` is not currently scanned because it is not under the client-facing scan roots and no active client import path was identified during the audit. If it later becomes browser-imported, it should be converted to a compact semantic index or explicitly server-only.
 
 ### Reviewer checklist for future PRs
 
@@ -75,6 +91,7 @@ When reviewing new routes or search/discovery features:
 - confirm graph payloads are not bundled broadly into browser routes
 - confirm any new summary payload remains compact and intentionally scoped
 - confirm broad `public/data/**` reads remain isolated to Node/build/static utilities unless explicitly justified
+- confirm browser-facing code does not reintroduce full `herbs.json` or `compounds.json` imports
 
 ## Audited usage matrix
 
@@ -114,95 +131,6 @@ Remaining follow-up opportunity:
 - Create a purpose-built `search-index.json` containing only fields required for search results.
 - Prefer small fields only: `slug`, `name`, `type`, short summary, effects, evidence label, safety label, aliases, and search keywords.
 - Avoid shipping unused enrichment metadata through summary payloads.
-
-### `src/lib/runtime-data.ts`
-
-Risk: **medium for build/static work, lower for browser payload unless its results are serialized into pages**.
-
-This module reads generated JSON files from `public/data` with Node `fs` and is used by App Router server/static code. Key broad reads include:
-
-- `herbs.json`
-- `herbs-summary.json`
-- `compounds.json`
-- `compounds-summary.json`
-- `herb-compound-map.json`
-- `claims.json`
-- several route/build/support payloads
-
-Recommended follow-up:
-
-- For index/list pages, prefer summary/index files over full entity payloads.
-- For detail pages, avoid loading the full collection when a slug-specific file exists.
-- Consider direct slug detail reads before broad collection scans where route generation permits it.
-
-### `src/lib/herb-data.ts`
-
-Risk: **medium**.
-
-This client-capable module fetches:
-
-- `/data/herbs-summary.json`
-- `/data/herbs-detail/{slug}.json`
-
-The current detail loading is route-specific, which is good. The summary fetch is still broad and may be acceptable if it remains compact.
-
-Recommended follow-up:
-
-- Keep `herbs-summary.json` intentionally small.
-- Avoid adding raw detail fields or large evidence/source arrays to the summary payload.
-- Consider a separate alias map if canonical slug resolution is the main reason for loading summaries before details.
-
-### `src/lib/compound-data.ts`
-
-Risk: **medium**.
-
-This client-capable module fetches:
-
-- `/data/compounds-summary.json`
-- `/data/compounds-detail/{slug}.json`
-
-The detail fetch is route-specific. The summary fetch is broad and should stay compact.
-
-Recommended follow-up:
-
-- Keep `compounds-summary.json` intentionally small.
-- Avoid adding raw detail fields or large evidence/source arrays to the summary payload.
-- Consider a compact `compound-slug-alias-map.json` if summary loading is mostly for canonical slug resolution.
-
-### `lib/semantic-runtime.ts`
-
-Risk: **conditional high risk**.
-
-This module imports `../public/data/compounds.json` at module scope and normalizes the whole dataset into memory.
-
-No direct import site was found during this audit, but if this module is imported by a client component in the future, it can pull the full compounds dataset into that bundle.
-
-Recommended follow-up:
-
-- Mark this helper as server-only or script-only if that is its intended usage.
-- Replace full `compounds.json` import with a compact semantic index if client usage is desired.
-- Add an import-boundary note before exposing it to client components.
-
-### `app/stacks/page.tsx`
-
-Risk: **low to medium**.
-
-The stacks page statically imports `@/public/data/stacks.json`. If the file remains small and route-specific, this is acceptable. If stack generation grows substantially, it should be split into an index and slug-specific detail payloads.
-
-Recommended follow-up:
-
-- Keep stacks payload route-specific and compact.
-- Split into `stacks-summary.json` plus `stacks-detail/{slug}.json` if it grows.
-
-## Safe follow-up reduction plan
-
-1. Create generated search-summary payloads before touching runtime behavior.
-   - `public/data/search-index.json`
-   - include only fields required by `app/search/page.tsx`
-2. Add payload-size checks for high-risk public JSON files.
-3. Split any growing route-specific datasets into summary/detail payloads.
-4. Prefer slug-specific detail reads over broad collection reads on detail pages.
-5. Keep generated summary files free of raw workbook rows, long source arrays, full evidence objects, and unused enrichment fields.
 
 ## Explicit non-changes in this PR
 
