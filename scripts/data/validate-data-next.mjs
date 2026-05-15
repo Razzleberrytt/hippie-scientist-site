@@ -23,7 +23,7 @@ function isPlaceholder(value) {
 
 function parseArgs(argv) {
   const args = argv.slice(2)
-  let dataDir = path.join('public', 'data-next')
+  let dataDir = path.join('public', 'data')
 
   for (let index = 0; index < args.length; index += 1) {
     const arg = args[index]
