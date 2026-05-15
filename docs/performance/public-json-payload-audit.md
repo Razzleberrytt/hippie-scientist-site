@@ -16,6 +16,66 @@ This PR is intentionally docs-only. It does not modify generated data, runtime d
 - No active references were found for `/data/graph/nodes.json` or `/data/graph/relationships.json`.
 - `herbs_combined_updated.json` appears referenced only by scripts/tooling checks, not active browser routes.
 
+## Payload Governance
+
+### Preferred public data access patterns
+
+Preferred patterns for browser-facing routes and client components:
+
+- use compact summary indexes for broad lists and search experiences
+- use slug-specific detail JSON for entity detail pages
+- keep broad dataset reads inside Node build scripts or App Router server/static utilities
+- keep summary payloads intentionally small and presentation-focused
+- avoid shipping raw workbook-derived records, large enrichment payloads, source arrays, or graph payloads to the browser unless strictly required
+
+Examples:
+
+- preferred:
+  - `herbs-summary.json`
+  - `compounds-summary.json`
+  - `herbs-detail/{slug}.json`
+  - `compounds-detail/{slug}.json`
+- avoid in client-facing code:
+  - `herbs.json`
+  - `compounds.json`
+  - `herbs_combined_updated.json`
+  - graph payload snapshots
+
+### Lightweight governance validation
+
+The repository now includes a lightweight validation script:
+
+- `scripts/ci/validate-public-json-imports.mjs`
+
+The validator scans client-facing source roots:
+
+- `app/**`
+- `components/**`
+- `src/**`
+
+It flags direct imports, dynamic imports, requires, and fetch references to known broad public JSON payloads.
+
+The validation intentionally does not block:
+
+- Node build/data scripts
+- App Router server/static utilities already approved for broad reads
+- generated-data workflows
+
+Current approved server/static exception:
+
+- `src/lib/runtime-data.ts`
+
+### Reviewer checklist for future PRs
+
+When reviewing new routes or search/discovery features:
+
+- confirm client components do not directly import broad public datasets
+- confirm search/list pages use summary indexes where possible
+- confirm detail pages use slug-specific payload loading
+- confirm graph payloads are not bundled broadly into browser routes
+- confirm any new summary payload remains compact and intentionally scoped
+- confirm broad `public/data/**` reads remain isolated to Node/build/static utilities unless explicitly justified
+
 ## Audited usage matrix
 
 | Payload | Usage sites found | Classification | Notes |
