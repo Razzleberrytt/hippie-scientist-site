@@ -62,7 +62,7 @@ export default function EvidenceSection({
                 key={study.href}
                 href={study.href}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="chip-readable"
               >
                 {study.label}
