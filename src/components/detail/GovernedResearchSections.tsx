@@ -127,7 +127,7 @@ function EvidenceMeta({ item }: { item: ResearchClaim }) {
                 <a
                   href={`https://pubmed.ncbi.nlm.nih.gov/${pmid}/`}
                   target='_blank'
-                  rel='noreferrer'
+                  rel='noopener noreferrer'
                   className='text-cyan-200 underline-offset-2 hover:underline'
                 >
                   {pmid}
@@ -697,29 +697,4 @@ export default function GovernedResearchSections({
         <Collapse title='Sources & Provenance'>
           <div className='space-y-2 text-sm text-white/80'>
             <p>
-              {enrichment.sourceRefs.length} source{enrichment.sourceRefs.length === 1 ? '' : 's'} · Last reviewed{' '}
-              {new Date(enrichment.lastReviewedAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-              })}
-            </p>
-            <ol className='list-decimal space-y-1 pl-5'>
-              {enrichment.sourceRefs.map(source => (
-                <li key={source.sourceId}>
-                  {source.url ? (
-                    <a href={source.url} target='_blank' rel='noreferrer' className='link'>
-                      {source.title}
-                    </a>
-                  ) : (
-                    source.title
-                  )}
-                </li>
-              ))}
-            </ol>
-          </div>
-        </Collapse>
-      </section>
-    </>
-  )
-}
+             ... (truncated due to tool response token budget)
