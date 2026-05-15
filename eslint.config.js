@@ -45,6 +45,18 @@ export default [
     },
   },
   {
+    files: [
+      'app/**/*.{js,jsx,ts,tsx}',
+      'components/**/*.{js,jsx,ts,tsx}',
+      'src/components/explore/**/*.{js,jsx,ts,tsx}',
+      'src/components/runtime/**/*.{js,jsx,ts,tsx}',
+      'src/components/mobile-bottom-nav.tsx',
+    ],
+    rules: {
+      'jsx-a11y/alt-text': 'error',
+    },
+  },
+  {
     files: ['src/**/*.{js,jsx,ts,tsx}'],
     rules: {
       'no-console': 'error',
