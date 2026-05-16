@@ -57,7 +57,7 @@ These rules are disabled globally for `**/*.{ts,tsx,js,jsx,mjs,cjs}` unless over
 | `@typescript-eslint/no-explicit-any` | `off` | Medium | `any` weakens route params, runtime-data records, component props, and helper boundaries. Some `any` use is expected around generated workbook/runtime JSON, but active app boundaries should gradually narrow it. |
 | `react-hooks/exhaustive-deps` | `off` | High for client components | Missing dependencies can cause stale closures, incorrect effects, and user-visible state bugs. Server components are lower risk, but active client components need coverage. |
 | `jsx-a11y/alt-text` | globally `off`, then re-enabled for active production UI paths | Medium | The first staged remediation batch has started. Active production UI paths now receive alt-text enforcement while legacy/deferred paths remain relaxed to avoid a giant cleanup PR. |
-| `jsx-a11y/label-has-associated-control` | `off` | High | Labels without associated controls degrade form accessibility and screen-reader behavior. Relevant to search, filters, newsletter/form surfaces, and any active inputs. |
+| `jsx-a11y/label-has-associated-control` | globally `off`, then re-enabled for active production UI paths | Medium | The second staged accessibility remediation batch has started. Active production UI paths now receive label association enforcement while legacy/deferred paths remain relaxed to avoid broad form cleanup churn. |
 | `jsx-a11y/anchor-is-valid` | `off` | Medium | Invalid anchors can break navigation semantics. Next.js `Link` usage sometimes creates false positives, so staged enforcement is safer than global re-enable. |
 | `jsx-a11y/no-static-element-interactions` | `off` | Medium | Click handlers on non-interactive elements can break keyboard accessibility. Needs staged handling to avoid a noisy PR. |
 | `jsx-a11y/click-events-have-key-events` | `off` | Medium | Mouse-only interactions can exclude keyboard users. Best reintroduced for active interactive components first. |
@@ -93,48 +93,15 @@ Completed first staged accessibility remediation batch:
 - Legacy/deferred/quarantined paths remain relaxed.
 - No unrelated accessibility rules were changed in this batch.
 
-## TypeScript posture
+Completed second staged accessibility remediation batch:
 
-`tsconfig.json` currently has:
-
-| Option | Current value | Risk | Notes |
-| --- | --- | --- | --- |
-| `strict` | `true` | Positive | Strict mode is enabled. |
-| `noImplicitAny` | `false` | Medium | Explicitly permits implicit `any` despite strict mode. This reduces safety at untyped boundaries and should be improved gradually. |
-| `skipLibCheck` | `true` | Low | Common pragmatic setting for app builds. |
-| `allowJs` | `true` | Medium | JavaScript files participate in the project, but type guarantees are weaker than TS files. Useful during migration. |
-| `resolveJsonModule` | `true` | Medium | Required by existing JSON usage, but broad JSON imports need governance to avoid client bundle regressions. |
-| `isolatedModules` | `true` | Positive | Compatible with modern Next/TS compilation constraints. |
-
-### TypeScript includes
-
-Current include patterns:
-
-- `next-env.d.ts`
-- `**/*.ts`
-- `**/*.tsx`
-- `.next/types/**/*.ts`
-
-This is broad enough to include active production TypeScript files by default, including:
-
-- `app/**`
-- `components/**`
-- `lib/**`
-- `src/lib/runtime-*.ts`, unless individually excluded
-
-### TypeScript excludes
-
-Current excludes include normal generated/dependency paths plus a quarantine list.
-
-| Exclude group | Risk | Notes |
-| --- | --- | --- |
-| `node_modules` | Low | Standard dependency exclusion. |
-| `src/dev/**/*` | Low to Medium | Marked dev-only and not imported by active App Router pages. |
-| `src/pages/**/*` | Medium | Broad legacy Pages Router quarantine. Acceptable only if active production routes truly live under `app/**`. |
-| `scripts/**/*` | Medium | Tooling scripts are excluded from app typecheck. Some scripts are build-critical, so separate script validation remains important. |
-| `agent/**/*` | Low to Medium | Deferred governed-enrichment agents. Fine if inactive for MVP runtime. |
-| selected `src/components/**` files/folders | Medium | Large legacy component quarantine. Comments state these are removed/deferred MVP systems. Risk is accidental re-import from active paths. |
-| selected `src/lib/**` files | Medium to High | Some excluded modules are duplicate data consumers or deprecated experiments. Risk is higher if active app/components import one by accident. |
-| `src/types.ts` | Medium | Excluding a generic type file can hide stale shared types. Leave unchanged in this PR, but revisit during cleanup. |
-
-The current `tsconfig.json` already includes explanatory comments for quarantined legacy areas and explicitly states that active `src/lib/runtime-*.ts` files should remain included.
+- `jsx-a11y/label-has-associated-control` remains relaxed globally to avoid noisy legacy churn.
+- `jsx-a11y/label-has-associated-control` is now enforced for active production UI paths only.
+- Active coverage includes:
+  - `app/**`
+  - `components/**`
+  - active `src/components/explore/**`
+  - active `src/components/runtime/**`
+  - `src/components/mobile-bottom-nav.tsx`
+- Legacy/deferred/quarantined paths remain relaxed.
+- No unrelated accessibility rules were changed in this batch.
