@@ -13,7 +13,7 @@ import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import { cleanSummary, formatDisplayLabel, isClean, list, text } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { buildMeta } from '@/lib/seo'
 import {
   normalizeEvidenceLevel,
@@ -89,6 +89,79 @@ export async function generateMetadata({ params }: PageProps) {
           follow: true,
         },
   }
+}
+
+
+const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal/i
+const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk|pregnancy|liver|kidney|sedat|bleed/i
+
+function firstSentences(value: string, limit = 2) {
+  const sentences = value.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map(sentence => sentence.trim()).filter(Boolean) || []
+  return sentences.slice(0, limit).join(' ')
+}
+
+function cleanItems(value: unknown, limit = 6) {
+  const values = Array.isArray(value) ? value.flatMap(item => list(item)) : list(value)
+
+  return unique(
+    values
+      .map(formatDisplayLabel)
+      .filter(item => item && isClean(item) && !WEAK_PATTERN.test(item)),
+  ).slice(0, limit)
+}
+
+function cleanText(value: unknown) {
+  const formatted = text(value)
+  if (!formatted || !isClean(formatted) || WEAK_PATTERN.test(formatted)) return ''
+  return formatted
+}
+
+function getTimeline(compound: any) {
+  return cleanText(compound.time_to_effect || compound.timeToEffect || compound.time_to_notice || compound.timeToNotice || compound.onset)
+}
+
+function getAvoidIf(compound: any) {
+  return cleanItems([
+    compound.avoid_if,
+    compound.avoidIf,
+    compound.who_should_skip,
+    compound.whoShouldSkip,
+    compound.contraindications,
+    compound.interactions,
+  ], 4)
+}
+
+function getSafetySummary(compound: any, avoidIf: string[]) {
+  const note = cleanText(compound.safetyNotes || compound.safety_notes || compound.safety)
+  if (avoidIf.length) return `Review before use if any apply: ${avoidIf.slice(0, 3).join(', ')}.`
+  if (note) return firstSentences(note, 2)
+  return 'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.'
+}
+
+function getMechanismHints(compound: any, provided: string[]) {
+  return unique([
+    ...provided,
+    ...cleanItems(compound.primary_mechanisms || compound.primaryMechanisms || compound.pathways, 6),
+  ]).slice(0, 6)
+}
+
+function DecisionSignalCard({ label, value, tone = 'neutral' }: { label: string; value?: string; tone?: 'neutral' | 'caution' | 'strong' | 'muted' }) {
+  if (!value) return null
+
+  const toneClass = tone === 'caution'
+    ? 'border-amber-800/20 bg-amber-50/85 text-amber-950'
+    : tone === 'strong'
+      ? 'border-emerald-700/15 bg-emerald-50/80 text-emerald-950'
+      : tone === 'muted'
+        ? 'border-brand-900/10 bg-white/60 text-[#5b6b61]'
+        : 'border-brand-900/10 bg-white/75 text-[#33443a]'
+
+  return (
+    <div className={`rounded-2xl border p-4 ${toneClass}`}>
+      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] opacity-65">{label}</p>
+      <p className="mt-2 text-sm font-semibold leading-6">{value}</p>
+    </div>
+  )
 }
 
 function CompactDisclosure({ title, children }: { title: string; children: ReactNode }) {
@@ -194,11 +267,18 @@ export default async function CompoundPage({ params }: PageProps) {
   const sources = getSources(compound)
     .map((source:any) => text(source))
     .filter(isClean)
+  const displayName = formatDisplayLabel(compound.name || compound.slug)
+  const quickSummary = firstSentences(summary, 2) || 'Evidence-informed compound profile with safety, mechanism, and fit context.'
+  const timeline = getTimeline(compound)
+  const avoidIf = getAvoidIf(compound)
+  const safetySummary = getSafetySummary(compound, avoidIf)
+  const mechanismHints = getMechanismHints(compound, mechanisms)
+  const topSignals = unique([...effects, ...mechanismHints]).slice(0, 8)
 
   const compoundJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'DietarySupplement',
-    name: formatDisplayLabel(compound.name || compound.slug),
+    name: displayName,
     description: summary,
     url: `https://www.thehippiescientist.net/compounds/${compound.slug}`,
     ...(effects.length > 0 ? { activeIngredient: effects.join(', ') } : {}),
@@ -219,7 +299,7 @@ export default async function CompoundPage({ params }: PageProps) {
       {
         '@type': 'ListItem',
         position: 2,
-        name: formatDisplayLabel(compound.name || compound.slug),
+        name: displayName,
         item: `https://www.thehippiescientist.net/compounds/${compound.slug}`,
       },
     ],
@@ -250,35 +330,38 @@ export default async function CompoundPage({ params }: PageProps) {
 
         <TrustBar />
 
-        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
+        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-5 shadow-card sm:p-7">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
             <div className="space-y-5">
               <CompoundHero
-                compound={{ ...compound, summary }}
+                compound={{ ...compound, summary: quickSummary }}
                 evidenceLevel={evidenceLevel}
                 safetyLevel={safetyLevel}
               />
 
-              <EvidenceBadgeGroup record={compound} />
-
-              {effects.length > 0 ? (
-                <div className="flex flex-wrap gap-2">
-                  {effects.slice(0, 6).map((effect:string) => (
-                    <span key={effect} className="chip-readable">
-                      {effect}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
+              <div className="space-y-3">
+                <EvidenceBadgeGroup record={compound} compact />
+                {topSignals.length > 0 ? (
+                  <div className="flex flex-wrap gap-2">
+                    {topSignals.slice(0, 8).map((signal:string) => (
+                      <span key={signal} className="chip-readable text-xs">
+                        {signal}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             </div>
 
-            <SemanticArtworkPanel
-              slug={compound.slug}
-              kind="compound"
-              title={formatDisplayLabel(compound.name || compound.slug)}
-              subtitle="Compound ecosystem artwork for mechanism-aware pathway exploration."
-              height={300}
-            />
+            <aside className="rounded-3xl border border-brand-900/10 bg-sand-50/85 p-4 shadow-sm">
+              <p className="eyebrow-label">Decision snapshot</p>
+              <div className="mt-3 grid gap-3">
+                <DecisionSignalCard label="Evidence level" value={evidenceLevel} tone={evidenceLevel.toLowerCase().includes('strong') || evidenceLevel.toLowerCase().includes('high') ? 'strong' : 'neutral'} />
+                <DecisionSignalCard label="Safety read" value={safetySummary} tone={CAUTION_PATTERN.test(safetySummary) || avoidIf.length > 0 ? 'caution' : 'neutral'} />
+                <DecisionSignalCard label="Timeline" value={timeline || 'Timing varies by dose, form, and context.'} tone={timeline ? 'neutral' : 'muted'} />
+                <DecisionSignalCard label="Mechanism hints" value={mechanismHints.slice(0, 3).join(', ')} />
+              </div>
+            </aside>
           </div>
         </section>
 
@@ -312,6 +395,14 @@ export default async function CompoundPage({ params }: PageProps) {
         </CompactDisclosure>
 
         <CompactDisclosure title="Authority, exploration, and semantic analysis">
+          <SemanticArtworkPanel
+            slug={compound.slug}
+            kind="compound"
+            title={displayName}
+            subtitle="Compound ecosystem artwork for mechanism-aware pathway exploration."
+            height={260}
+          />
+
           <AuthorityEditorialLayer
             record={compound}
             entityType="compound"
