@@ -53,7 +53,7 @@ These rules are disabled globally for `**/*.{ts,tsx,js,jsx,mjs,cjs}` unless over
 
 | Rule | Current setting | Risk | Why it matters |
 | --- | --- | --- | --- |
-| `@typescript-eslint/no-unused-vars` | `off` | Medium | Unused variables can hide incomplete refactors, stale imports, and dead branches. Risk is higher in active routes/components where unused imports can indicate broken feature wiring. |
+| `@typescript-eslint/no-unused-vars` | globally `off`, then re-enabled for active production paths with underscore ignore conventions | Medium | The third staged remediation batch has started. Active production code now receives unused-variable enforcement while legacy/deferred paths remain relaxed to avoid noisy cleanup churn. |
 | `@typescript-eslint/no-explicit-any` | `off` | Medium | `any` weakens route params, runtime-data records, component props, and helper boundaries. Some `any` use is expected around generated workbook/runtime JSON, but active app boundaries should gradually narrow it. |
 | `react-hooks/exhaustive-deps` | `off` | High for client components | Missing dependencies can cause stale closures, incorrect effects, and user-visible state bugs. Server components are lower risk, but active client components need coverage. |
 | `jsx-a11y/alt-text` | globally `off`, then re-enabled for active production UI paths | Medium | The first staged remediation batch has started. Active production UI paths now receive alt-text enforcement while legacy/deferred paths remain relaxed to avoid a giant cleanup PR. |
@@ -105,3 +105,24 @@ Completed second staged accessibility remediation batch:
   - `src/components/mobile-bottom-nav.tsx`
 - Legacy/deferred/quarantined paths remain relaxed.
 - No unrelated accessibility rules were changed in this batch.
+
+### Unused variable remediation status
+
+Completed third staged remediation batch:
+
+- `@typescript-eslint/no-unused-vars` remains relaxed globally to avoid noisy legacy churn.
+- `@typescript-eslint/no-unused-vars` is now enforced for active production paths only.
+- Active coverage includes:
+  - `app/**`
+  - `components/**`
+  - `lib/**`
+  - active `src/components/explore/**`
+  - active `src/components/runtime/**`
+  - `src/components/mobile-bottom-nav.tsx`
+  - active `src/lib/runtime-*.ts`
+- Conventional underscore ignore patterns were added for intentionally unused values:
+  - `argsIgnorePattern: '^_'`
+  - `varsIgnorePattern: '^_'`
+  - `caughtErrorsIgnorePattern: '^_'`
+- Legacy/deferred/quarantined paths remain relaxed.
+- No unrelated lint rules were changed in this batch.
