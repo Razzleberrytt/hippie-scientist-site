@@ -1,5 +1,10 @@
 import XLSX from 'xlsx'
 
+// xlsx parser boundary: allowed only in Node build/data scripts for trusted
+// local workbook files. Do not use xlsx for user uploads, request bodies,
+// browser input, or remote URLs; future runtime spreadsheet parsing must use
+// a reviewed safer boundary.
+//
 // Workbook parser adapter boundary.
 //
 // This module intentionally isolates direct xlsx usage so the workbook

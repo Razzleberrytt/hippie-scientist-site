@@ -18,7 +18,7 @@ Direct `xlsx` imports or requires found in source files:
 | File | Usage | Input source | Exposure assessment |
 | --- | --- | --- | --- |
 | `scripts/data/workbook-parser.mjs` | Central adapter: `XLSX.readFile(filePath)` and `XLSX.utils.sheet_to_json(...)` | Caller-provided local filesystem path | Build/local tooling only. No request, upload, browser, or remote URL path found. |
-| `scripts/data/build-runtime-from-workbook.mjs` | Uses `readWorkbook(...)` from the adapter | `resolveWorkbookPath(repoRoot)` | Main data build path. Local workbook source only. |
+| `scripts/data/build-runtime-from-workbook.mjs` | Uses `readWorkbook(...)` from the adapter after `resolveWorkbookPath(repoRoot)` and `assertWorkbookExists(...)` | Validated local workbook under `data-sources` | Main data build path. Local workbook source only. |
 | `scripts/build-runtime-data.mjs` | Direct `XLSX.readFile(workbookPath)` and `sheet_to_json(...)` | `resolveWorkbookPath(repoRoot)` | Legacy/alternate data build script. Local workbook source only. |
 | `scripts/export-workbook-to-json.mjs` | Direct `XLSX` import for workbook export pipeline | `resolveWorkbookPath(repoRoot)` | Local export script. No user-controlled runtime input found. |
 | `scripts/import-xlsx-monographs.mjs` | Direct `XLSX` import for monograph import pipeline | `resolveWorkbookPath(repoRoot)` | Local import script. No user-controlled runtime input found. |
@@ -33,7 +33,7 @@ Related files:
 
 | File | Relevance |
 | --- | --- |
-| `scripts/workbook-source.mjs` | Resolves workbook path from `options.envPath`, `process.env.HERB_XLSX_PATH`, or default `data-sources/herb_monograph_master.xlsx`; asserts absolute path, `.xlsx` extension, file existence, and file type when `assertWorkbookExists(...)` is called. |
+| `scripts/workbook-source.mjs` | Resolves workbook path from `options.envPath`, `process.env.HERB_XLSX_PATH`, or default `data-sources/herb_monograph_master.xlsx`; rejects empty paths, HTTP/HTTPS URLs, paths outside the repository, and paths outside `data-sources`; asserts absolute path, `.xlsx` extension, file existence, and file type when `assertWorkbookExists(...)` is called. |
 | `.env.example` | Documents `HERB_XLSX_PATH`; this is an operator/build-time configuration value, not browser input. |
 | `docs/xlsx-migration-plan.md` | Existing migration planning document for parser replacement/parity work. |
 
@@ -50,7 +50,7 @@ No confirmed path was found where any of the following reach `xlsx` parsing:
 - server action input
 - client component input
 
-The current parsing surface appears to be local filesystem paths used by scripts. The most important build path is `npm run data:build`, which runs `scripts/data/build-runtime-from-workbook.mjs`; that script uses the workbook parser adapter and a local workbook path resolved by `scripts/workbook-source.mjs`.
+The current parsing surface appears to be local filesystem paths used by scripts. The most important build path is `npm run data:build`, which runs `scripts/data/build-runtime-from-workbook.mjs`; that script uses the workbook parser adapter and a local workbook path resolved by `scripts/workbook-source.mjs`. The primary resolver now rejects empty workbook paths, HTTP/HTTPS workbook URLs, and workbook paths outside the repository `data-sources` directory.
 
 ## Risk analysis
 
@@ -59,8 +59,7 @@ Because `xlsx` parses complex spreadsheet formats, it should still be treated as
 Main residual risks:
 
 1. A malicious or corrupted workbook committed to the repository or provided through build environment configuration could be parsed during local/CI data builds.
-2. `HERB_XLSX_PATH` can point outside the repository when set by a trusted operator or CI environment.
-3. Some older scripts still import `xlsx` directly instead of going through `scripts/data/workbook-parser.mjs`, which weakens the adapter boundary and makes future migration harder.
+2. Some older scripts still import `xlsx` directly instead of going through `scripts/data/workbook-parser.mjs`, which weakens the adapter boundary and makes future migration harder.
 
 ## Recommendation
 
@@ -78,14 +77,17 @@ No emergency runtime patch is required based on this audit. Use one of these rem
   - deterministic JSON output ordering remains stable
 - Run parity checks before removing `xlsx`.
 
-### Acceptable interim hardening: keep `xlsx` isolated
+### Added interim hardening: keep `xlsx` isolated
 
+- Documented the xlsx boundary near the parser adapter and primary build usage: xlsx is allowed only in trusted local Node build/data scripts.
 - Route all workbook reads through `scripts/data/workbook-parser.mjs`.
 - Avoid adding new direct `xlsx` imports outside that adapter.
-- Constrain workbook input paths to trusted local files.
+- Constrain workbook input paths to trusted local files under `data-sources`.
+- Reject empty workbook path values and HTTP/HTTPS workbook URLs in `scripts/workbook-source.mjs`.
 - Prefer default `data-sources/herb_monograph_master.xlsx` for CI.
 - Treat `HERB_XLSX_PATH` as trusted maintainer/CI configuration only, never as user input.
 - Do not parse spreadsheets from uploads, request bodies, remote URLs, or browser inputs with `xlsx`.
+- Future runtime spreadsheet parsing must use a reviewed safer boundary.
 
 ## Security decision
 

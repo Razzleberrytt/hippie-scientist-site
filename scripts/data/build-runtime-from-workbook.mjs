@@ -9,7 +9,7 @@ import {
   readWorkbook,
   sheetToRows,
 } from './workbook-parser.mjs'
-import { resolveWorkbookPath } from '../workbook-source.mjs'
+import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
 import { scoreIndexability } from './indexability-policy.mjs'
@@ -346,11 +346,14 @@ function args() {
 function main() {
   const outDir = args()
   const workbookPath = resolveWorkbookPath(repoRoot)
-  if (!fs.existsSync(workbookPath)) throw new Error(`[data] workbook missing: ${workbookPath}`)
+  assertWorkbookExists(workbookPath)
 
   // Workbook loading is intentionally routed through the parser adapter.
-  // This keeps xlsx isolated so a future exceljs migration can swap parser
-  // internals without rewriting normalization/export logic.
+  // xlsx is allowed here only for trusted local Node build/data scripts; do
+  // not use it for uploads, request bodies, browser input, or remote URLs.
+  // Runtime spreadsheet parsing needs a reviewed safer boundary. This keeps
+  // xlsx isolated so a future exceljs migration can swap parser internals
+  // without rewriting normalization/export logic.
   const wb = readWorkbook(workbookPath)
 
   for (const required of ['Herb Master V3', 'Compound Master V3']) {
