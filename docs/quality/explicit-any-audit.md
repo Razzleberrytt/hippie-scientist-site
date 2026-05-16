@@ -99,6 +99,24 @@ Changes completed:
 - aligned route access with Next.js 15 async params semantics
 - preserved route behavior, static params behavior, and UI
 
+#### Completed remediation batch 3
+
+Completed additional dynamic route boundary typing for:
+
+1. `src/app/compare/[slug]/page.tsx`
+2. `src/app/protocols/[slug]/page.tsx`
+3. `src/app/stacks/[slug]/page.tsx`
+4. `src/app/ecosystems/[slug]/page.tsx`
+5. `src/app/topics/[slug]/page.tsx`
+
+Changes completed:
+
+- added local Promise-based route param types
+- replaced route-boundary `({ params }: any)` usage only
+- aligned route access with Next.js 15 async params semantics
+- preserved route behavior, metadata behavior, static params behavior, data fetching, and UI
+- intentionally left runtime record-processing `any` usage untouched
+
 Files intentionally skipped in this batch:
 
 - `app/explore/[topic]/page.tsx`
