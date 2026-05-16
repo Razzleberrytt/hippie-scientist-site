@@ -471,22 +471,23 @@ export default async function HerbDetailPage({ params }: PageProps) {
               <ChipList items={topUses} limit={6} />
             </div>
 
-            <div className="rounded-3xl border border-brand-900/10 bg-sand-50/80 p-4">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">Read next</p>
-              <div className="mt-3 space-y-2 text-sm font-semibold text-ink">
-                <Link href="/herbs" className="block rounded-2xl bg-white/70 px-3 py-2 transition hover:bg-white">Herbs library</Link>
-                <Link href="/compare" className="block rounded-2xl bg-white/70 px-3 py-2 transition hover:bg-white">Compare options</Link>
-                {relatedHerbLinks[0] ? <Link href={relatedHerbLinks[0].href} className="block rounded-2xl bg-white/70 px-3 py-2 transition hover:bg-white">Related: {relatedHerbLinks[0].label}</Link> : null}
+            <aside className="rounded-3xl border border-brand-900/10 bg-sand-50/85 p-4 shadow-sm">
+              <p className="eyebrow-label">Decision cues</p>
+              <div className="mt-3 grid gap-3">
+                <BriefCard label="Evidence" value={evidenceStrength || researchMaturity} />
+                <BriefCard label="Safety" value={safetySummary} />
+                <BriefCard label="Timeline" value={timeline || 'Timing varies by preparation, dose, and context.'} />
+                <BriefCard label="Mechanism hints" value={mechanisms.slice(0, 3).join(', ')} />
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
 
       <section className="space-y-4">
         <div className="space-y-1">
-          <p className="eyebrow-label">At a glance</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Fast orientation</h2>
+          <p className="eyebrow-label">Decision snapshot</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Fast orientation before the deep dive</h2>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <BriefCard label="Best known for" value={topUses.slice(0, 3).join(', ')} />
