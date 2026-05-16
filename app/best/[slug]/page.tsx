@@ -7,6 +7,12 @@ import Link from 'next/link'
 import { cleanSummary } from '@/lib/display-utils'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
 
+type BestRouteParams = Promise<{ slug: string }>
+
+type BestRouteProps = {
+  params: BestRouteParams
+}
+
 export async function generateStaticParams() {
   return [{ slug: 'best-supplements-for-focus' }]
 }
@@ -37,10 +43,11 @@ function getAuthorityLinks(slug: string) {
   })
 }
 
-export default async function Page({ params }: any) {
+export default async function Page({ params }: BestRouteProps) {
+  const resolvedParams = await params
   const compounds = await getAllCompounds()
   const ranked = (compounds as any[]).slice(0, 10)
-  const slug = String(params?.slug || '')
+  const slug = String(resolvedParams?.slug || '')
 
   const faqItems = [
     {
