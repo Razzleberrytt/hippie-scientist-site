@@ -16,6 +16,12 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 
+type SupernodeRouteParams = Promise<{ slug: string }>
+
+type SupernodeRouteProps = {
+  params: SupernodeRouteParams
+}
+
 export function generateStaticParams() {
   return semanticSupernodes.map((node) => ({ slug: node.slug }))
 }
@@ -124,8 +130,9 @@ function SupernodeCard({ record }: { record: any }) {
   )
 }
 
-export default async function SemanticSupernodePage({ params }: any) {
-  const node = getSemanticSupernode(params.slug)
+export default async function SemanticSupernodePage({ params }: SupernodeRouteProps) {
+  const resolvedParams = await params
+  const node = getSemanticSupernode(resolvedParams.slug)
   if (!node) notFound()
 
   const { allRecords } = await getUnifiedRuntimeRecords()
