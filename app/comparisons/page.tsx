@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import RelatedComparisonSystems from '@/components/comparisons/related-comparison-systems'
 

@@ -431,13 +431,6 @@ function matchesProfile(node: GraphNode, profile: GraphRecord | string): boolean
   return nodeKeys(node).some((key) => targetKeys.includes(key))
 }
 
-function matchesSlug(value: unknown, profile: GraphRecord | string): boolean {
-  const key = normalizeKey(value)
-  if (!key) return false
-
-  return profileKeys(profile).includes(key)
-}
-
 function byNameOrSlug<T extends { id?: string; slug?: string; name?: string }>(
   rows: T[] | undefined,
   key: string

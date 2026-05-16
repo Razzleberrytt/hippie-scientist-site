@@ -1,4 +1,4 @@
-import { list, text, unique } from '@/lib/display-utils'
+import { text, unique } from '@/lib/display-utils'
 
 export type SafetyClassification = {
   label: string
