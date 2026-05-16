@@ -12,8 +12,13 @@ function titleize(slug: string) {
     .join(' ')
 }
 
-export default async function EcosystemHubPage({ params }: any) {
-  const slug = String(params?.slug || '').toLowerCase()
+type EcosystemHubPageProps = {
+  params: Promise<{ slug: string }>
+}
+
+export default async function EcosystemHubPage({ params }: EcosystemHubPageProps) {
+  const resolvedParams = await params
+  const slug = String(resolvedParams.slug || '').toLowerCase()
 
   const [records, comparisons, stacks] = await Promise.all([
     getAuthorityHubRecords(slug),

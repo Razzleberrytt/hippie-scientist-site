@@ -17,12 +17,17 @@ function titleize(slug: string) {
     .join(' ')
 }
 
+type TopicRouteProps = {
+  params: Promise<{ slug: string }>
+}
+
 export async function generateStaticParams() {
   return authorityTopicSlugs.map((slug) => ({ slug }))
 }
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const slug = String(params?.slug || '')
+export async function generateMetadata({ params }: TopicRouteProps): Promise<Metadata> {
+  const resolvedParams = await params
+  const slug = String(resolvedParams.slug || '')
   const title = `${titleize(slug)} | Topic Authority Hub`
 
   return {
@@ -32,8 +37,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   }
 }
 
-export default async function TopicHubPage({ params }: any) {
-  const slug = String(params?.slug || '').toLowerCase()
+export default async function TopicHubPage({ params }: TopicRouteProps) {
+  const resolvedParams = await params
+  const slug = String(resolvedParams.slug || '').toLowerCase()
   const title = titleize(slug)
   const description = 'Evidence-aware semantic authority hub generated from the Hippie Scientist runtime graph system.'
 

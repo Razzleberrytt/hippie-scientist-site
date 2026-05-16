@@ -80,31 +80,6 @@ Based on the visible `tsconfig.json` and targeted connector searches, this audit
 
 Therefore this PR does not remove excludes or change `tsconfig.json` behavior.
 
-## Import-drift guardrail
-
-A lightweight validator now exists at:
-
-```text
-scripts/ci/validate-quarantine-imports.mjs
-```
-
-Purpose:
-
-- prevent active production code from importing quarantined legacy/deferred TypeScript surfaces
-- reduce long-term import drift risk identified in this audit
-- preserve the current targeted quarantine strategy without broad TypeScript config rewrites
-
-Current validator behavior:
-
-- scans only active production roots
-- ignores `node_modules`, `.next`, `out`, `public`, and `docs`
-- uses conservative string-based import checks only
-- checks obvious `import`, dynamic `import()`, and `require()` patterns
-- validates imports against quarantined `src/components/**` and `src/lib/**` patterns documented in `tsconfig.json`
-- avoids heavy module-resolution logic to reduce false positives and CI overhead
-
-The validator is intentionally lightweight and should evolve conservatively.
-
 ## Risk notes
 
 ### 1. `src/pages/**/*` is a broad quarantine
@@ -176,15 +151,16 @@ No active production exclusion was clearly accidental in this audit, so there is
 
 The first safe follow-up is:
 
-1. keep this PR documentation-focused and validator-focused
+1. keep this PR documentation-only
 2. run maintainer validation
 3. choose a separate tiny PR to audit active imports into excluded `src/components/*.tsx` entries
 4. remove or fix at most 3 to 5 confirmed-dead component quarantines
 
 ## Maintainer validation notes
 
+Because this PR is documentation-only, validation should focus on ensuring the documented assumptions still match the repo after review:
+
 ```bash
-npm run lint
 npx tsc --noEmit
-npm run verify:build
+npm run lint
 ```
