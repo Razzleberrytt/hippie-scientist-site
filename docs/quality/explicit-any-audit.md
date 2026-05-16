@@ -85,6 +85,40 @@ Changes completed:
 - aligned route access with Next.js 15 async params semantics
 - preserved route behavior, metadata behavior, static params behavior, and UI
 
+#### Completed remediation batch 2
+
+Completed additional dynamic route boundary typing for:
+
+1. `app/learn/[slug]/page.tsx`
+2. `app/best/[slug]/page.tsx`
+
+Changes completed:
+
+- added local Promise-based route param types
+- replaced route-boundary `({ params }: any)` usage
+- aligned route access with Next.js 15 async params semantics
+- preserved route behavior, static params behavior, and UI
+
+Files intentionally skipped in this batch:
+
+- `app/explore/[topic]/page.tsx`
+
+Reason skipped:
+
+- connector output for the file was truncated
+- the remediation policy for these batches forbids patching truncated route files
+- future follow-up should apply only the minimal route-boundary typing changes:
+
+```ts
+type TopicRouteParams = Promise<{ topic: string }>
+
+type TopicRouteProps = {
+  params: TopicRouteParams
+}
+```
+
+and preserve all existing runtime logic unchanged.
+
 Remaining route-boundary cleanup should continue in similarly small batches.
 
 ### 2. External data parsing boundaries
