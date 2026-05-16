@@ -85,5 +85,5 @@ export function buildProgrammaticTopicClusters(records: any[] = [], limit = 24):
     .filter((cluster) => cluster.score >= 2)
     .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))
     .slice(0, limit)
-    .map(({ score, ...cluster }) => cluster)
+    .map(({ score: _score, ...cluster }) => cluster)
 }

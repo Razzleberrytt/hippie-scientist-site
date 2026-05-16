@@ -1,5 +1,5 @@
 import { getEvidenceTier, hasHumanEvidence, hasMechanismEvidence } from '@/lib/evidence'
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, text, unique } from '@/lib/display-utils'
 import { getPathwayLabel, getSupportedPathways } from '@/lib/pathways'
 import { collectRuntimeSignals, asList, asLowerText, asText } from '@/lib/runtime-normalize'
 import { buildMeta } from '@/lib/seo'

@@ -68,5 +68,5 @@ export function buildSemanticLinkSuggestions(source: any, candidates: any[] = []
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label))
     .slice(0, limit)
-    .map(({ score, ...item }) => item)
+    .map(({ score: _score, ...item }) => item)
 }

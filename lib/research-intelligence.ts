@@ -1,4 +1,4 @@
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 
 export type ResearchMaturity = 'Better studied' | 'Moderate / emerging' | 'Preliminary' | 'Sparse profile'
 export type ResearchStyle = 'Human-clinical leaning' | 'Mechanism-heavy' | 'Traditional-use dominant' | 'Mixed evidence profile' | 'Emerging profile'
