@@ -7,6 +7,12 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import ComparisonEcosystemRail from '@/components/comparison-ecosystem-rail'
 
+type BestForRouteParams = Promise<{ slug: string }>
+
+type BestForRouteProps = {
+  params: BestForRouteParams
+}
+
 export function generateStaticParams() {
   return bestExploredTopics.map((topic) => ({ slug: topic.slug }))
 }
@@ -122,8 +128,9 @@ function AuthorityCard({ record }: { record: any }) {
   )
 }
 
-export default async function BestExploredHubPage({ params }: any) {
-  const topic = getBestExploredTopic(params.slug)
+export default async function BestExploredHubPage({ params }: BestForRouteProps) {
+  const resolvedParams = await params
+  const topic = getBestExploredTopic(resolvedParams.slug)
   if (!topic) notFound()
 
   const { allRecords } = await getUnifiedRuntimeRecords()
