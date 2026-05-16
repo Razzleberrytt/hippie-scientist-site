@@ -21,6 +21,7 @@
     "validate:route-manifest-budget": "node scripts/ci/validate-route-manifest-budget.mjs",
     "validate:runtime-payload-budgets": "node scripts/ci/validate-runtime-payload-budgets.mjs",
     "validate:public-json-imports": "node scripts/ci/validate-public-json-imports.mjs",
+    "validate:quarantine-imports": "node scripts/ci/validate-quarantine-imports.mjs",
     "validate:deterministic-json-order": "node scripts/ci/validate-deterministic-json-order.mjs",
     "validate:semantic-graph-health": "node scripts/ci/validate-semantic-graph-health.mjs",
     "data:audit": "node scripts/data/audit-source-of-truth.mjs",
@@ -28,7 +29,7 @@
     "guard:source-of-truth": "node scripts/data/verify-workbook-only-path.mjs",
     "lint": "eslint . --max-warnings=0",
     "build": "node scripts/build-blog.mjs && npm run data:build && npm run data:validate && npm run guard:source-of-truth && next build && npm run verify:build",
-    "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/verify-css-assets.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:public-json-imports && npm run data:verify",
+    "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/verify-css-assets.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run data:verify",
     "data:verify": "node scripts/data/verify-generated-data.mjs"
   },
   "dependencies": {
