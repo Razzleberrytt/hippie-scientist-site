@@ -54,6 +54,7 @@ export default [
     ],
     rules: {
       'jsx-a11y/alt-text': 'error',
+      'jsx-a11y/label-has-associated-control': 'error',
     },
   },
   {
