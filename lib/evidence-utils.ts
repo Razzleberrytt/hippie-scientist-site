@@ -1,15 +1,11 @@
+import { normalizeDecisionEvidence, normalizeDecisionSafety } from './decision-primitives'
+
 export function normalizeEvidenceLevel(value?: string) {
-  const text = String(value || '').toLowerCase()
-  if (text.includes('strong') || text.includes('high')) return 'strong'
-  if (text.includes('limited') || text.includes('low') || text.includes('weak')) return 'limited'
-  return 'moderate'
+  return normalizeDecisionEvidence(value)
 }
 
 export function normalizeSafetyLevel(value?: string) {
-  const text = String(value || '').toLowerCase()
-  if (text.includes('avoid') || text.includes('contraindicat')) return 'avoid'
-  if (text.includes('caution') || text.includes('interaction') || text.includes('pregnan') || text.includes('liver')) return 'caution'
-  return 'safe'
+  return normalizeDecisionSafety(value)
 }
 
 export function getEffects(row: any) {

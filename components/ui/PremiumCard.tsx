@@ -1,8 +1,7 @@
 import Link from 'next/link'
 import EvidenceBadge from '@/components/ui/EvidenceBadge'
 import { cleanSummary as sanitizeSummary, editorialUseCaseLabel, formatDisplayLabel, isClean } from '@/lib/display-utils'
-
-type SafetyTone = 'ok' | 'caution' | 'avoid' | 'unknown'
+import { getDecisionSafetyTone, normalizeDecisionSafety, safetyToneClasses } from '@/lib/decision-primitives'
 
 export type PremiumCardProps = {
   href: string
@@ -16,29 +15,6 @@ export type PremiumCardProps = {
   ctaLabel?: string
 }
 
-function normalizeSafety(value?: string): SafetyTone {
-  const text = String(value || '').toLowerCase()
-  if (/avoid|contraindicat|high concern|do not|pregnan/.test(text)) return 'avoid'
-  if (/caution|interaction|review|consult|medication|unknown|limited/.test(text)) return 'caution'
-  if (/generally|well tolerated|low concern|ok|safe/.test(text)) return 'ok'
-  return 'unknown'
-}
-
-function safetyClasses(tone: SafetyTone) {
-  if (tone === 'avoid') return 'border-rose-700/15 bg-rose-50 text-rose-800'
-  if (tone === 'caution') return 'border-amber-700/20 bg-amber-50 text-amber-800'
-  if (tone === 'ok') return 'border-emerald-700/15 bg-emerald-50 text-emerald-800'
-  return 'border-slate-300 bg-slate-50 text-slate-700'
-}
-
-function safetyLabel(tone: SafetyTone) {
-  if (tone === 'avoid') return 'Avoid'
-  if (tone === 'caution') return 'Caution'
-  if (tone === 'ok') return 'Low concern'
-  return 'Review safety'
-}
-
-
 export default function PremiumCard({
   href,
   title,
@@ -49,7 +25,8 @@ export default function PremiumCard({
   tags = [],
   ctaLabel = 'Open profile',
 }: PremiumCardProps) {
-  const safetyTone = normalizeSafety(safety)
+  const safetyLabel = normalizeDecisionSafety(safety)
+  const safetyTone = getDecisionSafetyTone(safetyLabel)
   const cleanSummary = sanitizeSummary(summary, 'compound')
   const cleanBestFor = isClean(bestFor) ? editorialUseCaseLabel(bestFor) : ''
   const visibleTags = tags.map(formatDisplayLabel).filter(isClean).slice(0, 3)
@@ -66,10 +43,10 @@ export default function PremiumCard({
 
           <span
             title={formatDisplayLabel(safety) || 'Safety context should be reviewed before use.'}
-            aria-label={`Safety indicator: ${safetyLabel(safetyTone)}`}
-            className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold leading-none ${safetyClasses(safetyTone)}`}
+            aria-label={`Safety indicator: ${safetyLabel}`}
+            className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold leading-none ${safetyToneClasses(safetyTone)}`}
           >
-            {safetyLabel(safetyTone)}
+            {safetyLabel}
           </span>
         </div>
       </div>
