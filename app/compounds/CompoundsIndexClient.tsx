@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
+import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import '@/styles/premium-cards.css'
 
 type FilterOption = {
@@ -71,47 +73,27 @@ function getSummary(item: any) {
   )
 }
 
-function normalizeEvidenceLabel(value: string) {
-  if (/^none$/i.test(value)) return 'Insufficient evidence'
-  if (/traditional/i.test(value)) return 'Traditional use'
-  if (/preclinical|animal|cell|mechanistic/i.test(value)) return 'Preliminary evidence'
-  if (/mixed|conflict/i.test(value)) return 'Mixed evidence'
-  if (/review|unknown|tbd|profile/i.test(value)) return 'Needs review'
-
-  return value
-}
-
 function getEvidence(item: any) {
-  const label = labelize(
+  return normalizeDecisionEvidence(
     item?.evidence_tier ||
       item?.evidenceTier ||
       item?.evidence_grade ||
       item?.evidenceLevel ||
       item?.humanEvidenceLevel ||
-      item?.summary_quality,
-    'Limited evidence'
+      item?.summary_quality
   )
-
-  return normalizeEvidenceLabel(label)
 }
 
 function getSafety(item: any) {
-  const label = labelize(
+  return normalizeDecisionSafety(
     item?.safety_level ||
       item?.safetyLevel ||
       item?.safety?.confidence ||
       item?.safetyStatus ||
       item?.contraindicationLevel ||
       item?.profile_status,
-    item?.safetyNotes ? 'Safety notes available' : 'Needs review'
+    { hasSafetyNotes: Boolean(item?.safetyNotes || item?.safety_notes || item?.safety) }
   )
-
-  if (/review|unknown|tbd|profile/i.test(label)) return 'Needs review'
-  if (/^low$/i.test(label)) return 'Limited safety data'
-  if (/^medium$/i.test(label)) return 'Some safety context'
-  if (/^high$/i.test(label)) return 'Safety context'
-
-  return label
 }
 
 function getEffects(item: any) {
@@ -241,123 +223,51 @@ function StatCard({ value, label }: { value: number; label: string }) {
 
 function EmptyLibraryState() {
   return (
-    <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-[var(--shadow-card-calm)] sm:p-8">
-      <div className="max-w-2xl space-y-3">
-        <p className="eyebrow-label">Profiles unavailable</p>
-        <h2 className="compact-heading">Compound profiles are temporarily unavailable.</h2>
-        <p className="text-sm leading-6 text-[#46574d] sm:text-base">
-          The compound library is still being generated or the runtime data did not return renderable profiles for this build. This is temporary and does not mean the compound database is empty.
-        </p>
-      </div>
-
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/search" className="button-primary min-h-11 px-4 py-2 text-sm">
-          Search the site
-        </Link>
-        <Link href="/herbs" className="button-secondary min-h-11 px-4 py-2 text-sm">
-          Browse herbs
-        </Link>
-        <Link href="/goals" className="button-secondary min-h-11 px-4 py-2 text-sm">
-          Explore goals
-        </Link>
-      </div>
-    </div>
+    <DecisionEmptyState
+      eyebrow="Profiles unavailable"
+      title="Compound profiles are temporarily unavailable."
+      description="The compound library is still being generated or the runtime data did not return renderable profiles for this build. This is temporary and does not mean the compound database is empty."
+      actions={[
+        { href: '/search', label: 'Search the site', variant: 'primary' },
+        { href: '/herbs', label: 'Browse herbs' },
+        { href: '/goals', label: 'Explore goals' },
+      ]}
+    />
   )
 }
 
 function EmptyFilteredState({ query, context }: { query: string; context: string }) {
   const activeContext = filterOptions.find(option => option.value === context)?.label
+  const currentScan = [query ? `“${query}”` : '', activeContext || ''].filter(Boolean).join(' + ')
 
   return (
-    <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-8">
-      <div className="max-w-2xl space-y-3">
-        <p className="eyebrow-label">No matching profiles</p>
-        <h2 className="compact-heading">No compounds matched this scan.</h2>
-        <p className="text-sm leading-6 text-[#46574d] sm:text-base">
-          Try a broader compound name, mechanism, source herb, or pathway. Evidence and safety labels stay conservative when source data is incomplete.
-        </p>
-        {query || activeContext ? (
-          <p className="text-sm leading-6 text-[#5f6f66]">
-            Current scan: {[query ? `“${query}”` : '', activeContext || ''].filter(Boolean).join(' + ')}
-          </p>
-        ) : null}
-      </div>
-
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/compounds" className="button-primary min-h-11 px-4 py-2 text-sm">
-          Reset filters
-        </Link>
-        <Link href="/herbs" className="button-secondary min-h-11 px-4 py-2 text-sm">
-          Browse herbs
-        </Link>
-      </div>
-    </div>
-  )
-}
-
-function DecisionMetric({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="min-w-0 rounded-[1rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-3 py-2.5">
-      <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#68786f]">{label}</p>
-      <p className="mt-1 truncate text-sm font-semibold leading-5 text-[#26382f]">{value}</p>
-    </div>
+    <DecisionEmptyState
+      eyebrow="No matching profiles"
+      title="No compounds matched this scan."
+      description="Try a broader compound name, mechanism, source herb, or pathway. Evidence and safety labels stay conservative when source data is incomplete."
+      currentScan={currentScan || undefined}
+      actions={[
+        { href: '/compounds', label: 'Reset filters', variant: 'primary' },
+        { href: '/herbs', label: 'Browse herbs' },
+      ]}
+    />
   )
 }
 
 function CompoundCard({ compound, featured = false }: { compound: any; featured?: boolean }) {
-  const evidence = getEvidence(compound)
-  const safety = getSafety(compound)
-  const bestFor = getBestFor(compound)
-  const timeToEffect = getTimeToEffect(compound)
-  const mechanisms = getMechanismSignals(compound)
-  const name = getName(compound)
-  const summary = getSummary(compound) || 'A conservative compound profile with mechanism, evidence, and safety context.'
-
   return (
-    <Link
+    <DecisionProfileCard
       href={`/compounds/${compound?.slug || ''}`}
-      className="group flex h-full min-h-[16rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:p-5"
-    >
-      <div className="flex flex-1 flex-col">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="text-[1.35rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
-            {name}
-          </h3>
-          {featured ? (
-            <span className="shrink-0 rounded-full border border-brand-700/10 bg-brand-50 px-2.5 py-1 text-[0.68rem] font-bold text-brand-800">Start here</span>
-          ) : null}
-        </div>
-
-        <p className="mt-3 line-clamp-2 text-[0.95rem] leading-6 text-[#46574d]">
-          {summary}
-        </p>
-
-        <div className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-brand-50/45 p-3">
-          <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-brand-800">Best-for context</p>
-          <p className="mt-1.5 text-base font-semibold leading-6 text-[#203329]">{bestFor}</p>
-        </div>
-
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          <DecisionMetric label="Evidence" value={evidence} />
-          <DecisionMetric label="Safety" value={safety} />
-          {timeToEffect ? <DecisionMetric label="Time" value={timeToEffect} /> : null}
-        </div>
-
-        {mechanisms.length > 0 ? (
-          <div className="mt-3 flex flex-wrap gap-2 border-t border-brand-900/10 pt-3">
-            {mechanisms.map((mechanism: string) => (
-              <span key={mechanism} className="rounded-full bg-white/70 px-2.5 py-1 text-xs font-semibold text-[#64746a]">
-                {mechanism}
-              </span>
-            ))}
-          </div>
-        ) : null}
-      </div>
-
-      <div className="mt-4 flex min-h-11 items-center justify-center rounded-full bg-brand-800 px-4 py-3 text-sm font-bold text-white transition group-hover:bg-brand-900 group-focus-visible:bg-brand-900">
-        View profile <span className="ml-2 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
-      </div>
-    </Link>
+      name={getName(compound)}
+      summary={getSummary(compound)}
+      bestFor={getBestFor(compound)}
+      evidence={getEvidence(compound)}
+      safety={getSafety(compound)}
+      timeToEffect={getTimeToEffect(compound)}
+      mechanisms={getMechanismSignals(compound)}
+      featured={featured}
+      fallbackSummary="A conservative compound profile with mechanism, evidence, and safety context."
+    />
   )
 }
 
@@ -447,31 +357,13 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds }: { c
             </button>
           </form>
 
-          <details className="mt-4 rounded-[1.2rem] border-brand-900/10 bg-[#fbfaf6]/80 p-4 shadow-none" open={hasActiveFilters || undefined}>
-            <summary className="flex min-h-11 items-center justify-between gap-4 text-sm font-bold text-ink">
-              <span>Refine by context</span>
-              <span className="text-brand-800" aria-hidden="true">↓</span>
-            </summary>
-            <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
-              <Link
-                href={buildFilterHref('all', query)}
-                className={`rounded-[1rem] border px-3 py-3 text-sm font-semibold transition ${activeFilter === 'all' ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
-              >
-                All contexts
-                <span className="mt-1 block text-xs font-medium leading-5 text-[#64746a]">Keep the scan broad.</span>
-              </Link>
-              {filterOptions.map(option => (
-                <Link
-                  key={option.value}
-                  href={buildFilterHref(option.value, query)}
-                  className={`rounded-[1rem] border px-3 py-3 text-sm font-semibold transition ${activeFilter === option.value ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
-                >
-                  {option.label}
-                  <span className="mt-1 block text-xs font-medium leading-5 text-[#64746a]">{option.hint}</span>
-                </Link>
-              ))}
-            </div>
-          </details>
+          <DecisionFilterGroup
+            options={filterOptions}
+            activeFilter={activeFilter}
+            query={query}
+            buildHref={buildFilterHref}
+            open={hasActiveFilters}
+          />
         </section>
 
         <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm sm:p-5">

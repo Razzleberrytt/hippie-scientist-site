@@ -1,19 +1,16 @@
-export default function SafetyBadge({ level = 'safe' }: any) {
-  const map: any = {
-    safe: 'bg-green-100 text-green-800',
-    caution: 'bg-yellow-100 text-yellow-800',
-    avoid: 'bg-red-100 text-red-800'
-  }
+import {
+  getDecisionSafetyTone,
+  normalizeDecisionSafety,
+  safetyToneClasses,
+} from '@/lib/decision-primitives'
 
-  const label: any = {
-    safe: 'Generally Safe',
-    caution: 'Use With Caution',
-    avoid: 'Avoid / Contraindicated'
-  }
+export default function SafetyBadge({ level = 'Needs review' }: { level?: string }) {
+  const label = normalizeDecisionSafety(level)
+  const tone = getDecisionSafetyTone(label)
 
   return (
-    <div className={`inline-block text-xs px-3 py-1 rounded-full font-semibold ${map[level]}`}>
-      {label[level]}
-    </div>
+    <span className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold leading-none ${safetyToneClasses(tone)}`}>
+      {label}
+    </span>
   )
 }

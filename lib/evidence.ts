@@ -1,4 +1,4 @@
-type EvidenceTier = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'traditional' | 'emerging'
+type EvidenceTier = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'traditional' | 'mixed' | 'insufficient' | 'review'
 
 type EvidenceColor = 'emerald' | 'blue' | 'amber' | 'sand' | 'violet' | 'slate'
 
@@ -88,10 +88,13 @@ export function isPreliminaryResearch(record: any): boolean {
 export function getEvidenceTier(record: any): EvidenceTier {
   const evidence = evidenceText(record)
 
+  if (/\b(needs? review|unknown|tbd|draft|placeholder|profile pending)\b/.test(evidence)) return 'review'
+  if (/\b(none|no evidence|insufficient|minimal|not established)\b/.test(evidence)) return 'insufficient'
+  if (/\b(mixed|conflict|inconsistent|equivocal)\b/.test(evidence)) return 'mixed'
   if (/\b(strong|high|robust|grade\s*a|tier\s*a)\b/.test(evidence)) return 'strong'
   if (/\b(moderate|medium|grade\s*b|tier\s*b)\b/.test(evidence)) return 'moderate'
   if (/\b(traditional|ethnobotanical|historical)\b/.test(evidence)) return 'traditional'
-  if (/\b(emerging|early)\b/.test(evidence)) return 'emerging'
+  if (/\b(emerging|early)\b/.test(evidence)) return 'preliminary'
   if (isPreliminaryResearch(record)) return 'preliminary'
   if (hasHumanEvidence(record)) return 'moderate'
   if (hasMechanismEvidence(record)) return 'limited'
@@ -101,12 +104,14 @@ export function getEvidenceTier(record: any): EvidenceTier {
 
 export function getEvidenceLabel(record: any): string {
   const labels: Record<EvidenceTier, string> = {
-    strong: 'Strong Evidence',
-    moderate: 'Moderate Evidence',
-    limited: 'Limited Evidence',
-    preliminary: 'Preliminary Research',
-    traditional: 'Traditional Use',
-    emerging: 'Emerging Research',
+    strong: 'Strong evidence',
+    moderate: 'Moderate evidence',
+    limited: 'Limited evidence',
+    preliminary: 'Preliminary evidence',
+    traditional: 'Traditional use',
+    mixed: 'Mixed evidence',
+    insufficient: 'Insufficient evidence',
+    review: 'Needs review',
   }
 
   return labels[getEvidenceTier(record)]
@@ -119,7 +124,9 @@ export function getEvidenceColor(record: any): EvidenceColor {
     limited: 'slate',
     preliminary: 'amber',
     traditional: 'sand',
-    emerging: 'violet',
+    mixed: 'violet',
+    insufficient: 'slate',
+    review: 'slate',
   }
 
   return colors[getEvidenceTier(record)]
