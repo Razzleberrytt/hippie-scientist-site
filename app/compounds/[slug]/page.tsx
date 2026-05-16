@@ -7,7 +7,6 @@ import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import TrustBar from '@/components/ui/TrustBar'
 import ReadingProgress from '@/components/ui/ReadingProgress'
-import SectionBlock from '@/components/ui/SectionBlock'
 import CompoundHero from '@/components/ui/CompoundHero'
 import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
@@ -149,15 +148,15 @@ function DecisionSignalCard({ label, value, tone = 'neutral' }: { label: string;
   if (!value) return null
 
   const toneClass = tone === 'caution'
-    ? 'border-amber-800/20 bg-amber-50/85 text-amber-950'
+    ? 'text-amber-950'
     : tone === 'strong'
-      ? 'border-emerald-700/15 bg-emerald-50/80 text-emerald-950'
+      ? 'text-emerald-950'
       : tone === 'muted'
-        ? 'border-brand-900/10 bg-white/60 text-[#5b6b61]'
-        : 'border-brand-900/10 bg-white/75 text-[#33443a]'
+        ? 'text-[#5b6b61]'
+        : 'text-[#33443a]'
 
   return (
-    <div className={`rounded-2xl border p-4 ${toneClass}`}>
+    <div className={`border-t border-brand-900/10 pt-3 ${toneClass}`}>
       <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] opacity-65">{label}</p>
       <p className="mt-2 text-sm font-semibold leading-6">{value}</p>
     </div>
@@ -166,14 +165,14 @@ function DecisionSignalCard({ label, value, tone = 'neutral' }: { label: string;
 
 function CompactDisclosure({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <details className="group rounded-[1.5rem] border border-brand-900/10 bg-white/75 p-5 shadow-sm">
+    <details className="group border-t border-brand-900/10 py-6 first:border-t-0 first:pt-0">
       <summary className="cursor-pointer list-none">
         <span className="flex items-center justify-between gap-4 text-base font-semibold tracking-tight text-ink">
           <span>{title}</span>
-          <span className="text-brand-800 transition group-open:rotate-90" aria-hidden="true">›</span>
+          <span className="text-sm font-bold uppercase tracking-[0.14em] text-brand-700">Open</span>
         </span>
       </summary>
-      <div className="mt-5 space-y-5 border-t border-brand-900/10 pt-5">
+      <div className="mt-6 space-y-7">
         {children}
       </div>
     </details>
@@ -319,7 +318,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
       <ReadingProgress />
 
-      <main className="mx-auto max-w-7xl space-y-8 px-4 py-8 pb-24 sm:space-y-10 sm:py-10 sm:pb-32">
+      <main className="mx-auto max-w-7xl space-y-12 px-4 py-8 pb-24 sm:space-y-16 sm:py-10 sm:pb-32">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -330,7 +329,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
         <TrustBar />
 
-        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-5 shadow-card sm:p-7">
+        <section className="hero-shell rounded-[2rem] p-5 sm:p-8">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
             <div className="space-y-5">
               <CompoundHero
@@ -343,7 +342,7 @@ export default async function CompoundPage({ params }: PageProps) {
                 <EvidenceBadgeGroup record={compound} compact />
                 {topSignals.length > 0 ? (
                   <div className="flex flex-wrap gap-2">
-                    {topSignals.slice(0, 8).map((signal:string) => (
+                    {topSignals.slice(0, 5).map((signal:string) => (
                       <span key={signal} className="chip-readable text-xs">
                         {signal}
                       </span>
@@ -353,7 +352,7 @@ export default async function CompoundPage({ params }: PageProps) {
               </div>
             </div>
 
-            <aside className="rounded-3xl border border-brand-900/10 bg-sand-50/85 p-4 shadow-sm">
+            <aside className="rounded-3xl bg-sand-50/70 p-5">
               <p className="eyebrow-label">Decision snapshot</p>
               <div className="mt-3 grid gap-3">
                 <DecisionSignalCard label="Evidence level" value={evidenceLevel} tone={evidenceLevel.toLowerCase().includes('strong') || evidenceLevel.toLowerCase().includes('high') ? 'strong' : 'neutral'} />
@@ -460,19 +459,20 @@ export default async function CompoundPage({ params }: PageProps) {
           <CompactRelatedPathways record={compound} />
 
           {featuredCollections.length > 0 ? (
-            <SectionBlock title="Featured In Collections">
-              <div className="flex flex-wrap gap-3">
+            <div className="border-t border-brand-900/10 pt-5">
+              <p className="eyebrow-label">Featured in collections</p>
+              <div className="mt-3 flex flex-wrap gap-4">
                 {featuredCollections.slice(0, 4).map((collection:any) => (
                   <Link
                     key={collection.slug}
                     href={collection.href}
-                    className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60"
+                    className="border-b border-brand-900/10 py-1 text-sm font-semibold text-ink transition hover:border-brand-700/40"
                   >
                     {collection.title}
                   </Link>
                 ))}
               </div>
-            </SectionBlock>
+            </div>
           ) : null}
         </CompactDisclosure>
 
