@@ -8,8 +8,13 @@ function titleize(slug: string) {
     .join(' ')
 }
 
-export default async function ProtocolPage({ params }: any) {
-  const slug = String(params?.slug || '').toLowerCase()
+type ProtocolPageProps = {
+  params: Promise<{ slug: string }>
+}
+
+export default async function ProtocolPage({ params }: ProtocolPageProps) {
+  const resolvedParams = await params
+  const slug = String(resolvedParams.slug || '').toLowerCase()
 
   const records = await getBestForRankings(slug, 12)
 
