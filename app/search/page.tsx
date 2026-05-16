@@ -6,6 +6,14 @@ import Fuse from 'fuse.js'
 import compoundsSummaryData from '@/public/data/compounds-summary.json'
 import herbsSummaryData from '@/public/data/herbs-summary.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import {
+  evidenceToneClasses,
+  getDecisionEvidenceTone,
+  getDecisionSafetyTone,
+  normalizeDecisionEvidence,
+  normalizeDecisionSafety,
+  safetyToneClasses,
+} from '@/lib/decision-primitives'
 import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
 type SearchType = 'Herb' | 'Compound'
@@ -33,7 +41,50 @@ type SearchItem = {
   translationalPenalty: number
 }
 
-const suggestedSearches = ['sleep', 'stress', 'inflammation', 'focus', 'digestion', 'metabolism']
+type DiscoveryPath = {
+  label: string
+  query: string
+  description: string
+}
+
+const discoveryPaths: DiscoveryPath[] = [
+  {
+    label: 'Stress support',
+    query: 'stress',
+    description: 'Calm, adaptation, and safety context before choosing a profile.',
+  },
+  {
+    label: 'Sleep',
+    query: 'sleep',
+    description: 'Wind-down, sleep quality, recovery, and next-day fit.',
+  },
+  {
+    label: 'Cognition',
+    query: 'cognition',
+    description: 'Memory, mental performance, and mechanism-oriented evidence.',
+  },
+  {
+    label: 'Inflammation',
+    query: 'inflammation',
+    description: 'Inflammatory, antioxidant, and pain-adjacent pathways.',
+  },
+  {
+    label: 'Energy',
+    query: 'energy',
+    description: 'Fatigue, vitality, and stimulant-adjacent safety signals.',
+  },
+  {
+    label: 'Focus',
+    query: 'focus',
+    description: 'Attention, fatigue, and non-jittery support paths.',
+  },
+  {
+    label: 'Recovery',
+    query: 'recovery',
+    description: 'Sleep, soreness, stress load, and practical context.',
+  },
+]
+
 const filterOptions: FilterType[] = ['All', 'Herb', 'Compound']
 
 function getName(item: any) {
@@ -67,7 +118,7 @@ function getEffects(item: any) {
 }
 
 function getEvidence(item: any) {
-  return labelize(
+  return normalizeDecisionEvidence(
     item.evidence_tier ||
       item.evidenceTier ||
       item.safety?.evidenceTier ||
@@ -75,19 +126,19 @@ function getEvidence(item: any) {
       item.evidenceLevel ||
       item.confidence ||
       item.summary_quality,
-    'Evidence Review'
+    'Needs review'
   )
 }
 
 function getSafety(item: any) {
-  return labelize(
+  return normalizeDecisionSafety(
     item.safety_level ||
       item.safetyLevel ||
       item.safety?.confidence ||
       item.safetyNotes ||
       item.confidenceTier ||
       item.profile_status,
-    'Safety Review'
+    { hasSafetyNotes: Boolean(item.safetyNotes || item.safety_notes || item.safety) }
   )
 }
 
@@ -96,19 +147,11 @@ function getQuality(item: any) {
 }
 
 function evidenceClass(level: string) {
-  const value = level.toLowerCase()
-
-  if (value.includes('strong') || value.includes('high')) return 'evidence-pill-strong'
-  if (value.includes('moderate') || value.includes('human')) return 'evidence-pill-moderate'
-  return 'chip-readable'
+  return `rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] ${evidenceToneClasses(getDecisionEvidenceTone(level))}`
 }
 
 function safetyClass(level: string) {
-  const value = level.toLowerCase()
-
-  if (value.includes('safe') || value.includes('complete') || value.includes('high')) return 'evidence-pill-strong'
-  if (value.includes('caution') || value.includes('review') || value.includes('partial') || value.includes('moderate')) return 'chip-readable'
-  return 'rounded-full border border-red-700/10 bg-red-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-red-800'
+  return `rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] ${safetyToneClasses(getDecisionSafetyTone(level))}`
 }
 
 function typeClass(type: SearchType) {
@@ -127,9 +170,9 @@ function getSearchIntent(query: string): SearchIntent {
   const value = query.toLowerCase()
 
   if (/safe|safety|risk|avoid|interaction|contraindication|warning|pregnancy|side effect/.test(value)) return 'safety'
-  if (/evidence|study|studies|clinical|human|trial|meta|systematic|strongest|proven|research/.test(value)) return 'evidence'
+  if (/evidence|study|studies|clinical|human|trial|meta|systematic|research/.test(value)) return 'evidence'
   if (/mechanism|pathway|receptor|target|how does|works|action|bioavailability/.test(value)) return 'mechanism'
-  if (/compare|comparison|versus|vs\.?|alternative|similar|better|stronger/.test(value)) return 'comparison'
+  if (/compare|comparison|versus|vs\.?|alternative|similar/.test(value)) return 'comparison'
 
   return 'general'
 }
@@ -192,53 +235,129 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
   }
 }
 
-function ResultCard({ item }: { item: SearchItem }) {
+function SearchMetric({ label, value }: { label: string; value?: string }) {
+  if (!value) return null
+
   return (
-    <article className="card-premium group flex h-full flex-col p-5 sm:p-6">
-      <div className="metadata-row">
-        <span className={typeClass(item.type)}>{item.type}</span>
-        <span className={evidenceClass(item.evidence)}>{item.evidence}</span>
-        <span className={safetyClass(item.safety)}>{item.safety}</span>
-      </div>
+    <div className="min-w-0 rounded-[1rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-3 py-2.5">
+      <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#68786f]">{label}</p>
+      <p className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-[#26382f]">{value}</p>
+    </div>
+  )
+}
 
-      <div className="mt-5 flex flex-1 flex-col">
-        <div className="space-y-3">
-          <div className="space-y-2">
-            <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-brand-700">
-              {item.quality}
-            </p>
-            <h2 className="max-w-[20ch] text-[1.45rem] font-semibold leading-tight tracking-tight text-ink transition-colors duration-300 group-hover:text-brand-700">
-              {item.name}
-            </h2>
-          </div>
+function ResultCard({ item }: { item: SearchItem }) {
+  const bestFor = item.effects.slice(0, 2).join(' • ') || 'Research context'
+  const mechanisms = item.effects.slice(2, 4)
 
-          <p className="line-clamp-4 text-sm leading-7 text-[#46574d]">
-            {item.summary}
-          </p>
+  return (
+    <Link
+      href={item.href}
+      className="group flex h-full min-h-[16rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:p-5"
+    >
+      <div className="flex flex-1 flex-col">
+        <div className="flex flex-wrap gap-2">
+          <span className={typeClass(item.type)}>{item.type}</span>
+          <span className={evidenceClass(item.evidence)}>{item.evidence}</span>
+          <span className={safetyClass(item.safety)}>{item.safety}</span>
         </div>
 
-        {item.effects.length > 0 ? (
-          <div className="mt-5 border-t border-brand-900/10 pt-4">
-            <p className="mb-2 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#66756d]">
-              Signals
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {item.effects.map(effect => (
-                <span key={effect} className="rounded-full border border-brand-900/10 bg-paper-50 px-3 py-1 text-xs font-medium text-[#33443a]">
-                  {effect}
-                </span>
-              ))}
-            </div>
+        <div className="mt-4 flex items-start justify-between gap-3">
+          <h2 className="text-[1.35rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
+            {item.name}
+          </h2>
+        </div>
+
+        <p className="mt-3 line-clamp-2 text-[0.95rem] leading-6 text-[#46574d]">
+          {item.summary || 'A conservative profile with evidence, safety, and practical context.'}
+        </p>
+
+        <div className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-brand-50/45 p-3">
+          <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-brand-800">May be relevant for</p>
+          <p className="mt-1.5 text-base font-semibold leading-6 text-[#203329]">{bestFor}</p>
+        </div>
+
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          <SearchMetric label="Evidence" value={item.evidence} />
+          <SearchMetric label="Safety" value={item.safety} />
+        </div>
+
+        {mechanisms.length > 0 ? (
+          <div className="mt-3 flex flex-wrap gap-2 border-t border-brand-900/10 pt-3">
+            {mechanisms.map(effect => (
+              <span key={effect} className="rounded-full bg-white/70 px-2.5 py-1 text-xs font-semibold text-[#64746a]">
+                {effect}
+              </span>
+            ))}
           </div>
         ) : null}
-
-        <div className="mt-auto pt-6">
-          <Link href={item.href} className="button-secondary w-full rounded-full px-4 py-2.5 text-sm sm:w-auto">
-            Open Profile
-          </Link>
-        </div>
       </div>
-    </article>
+
+      <div className="mt-4 flex min-h-11 items-center justify-center rounded-full bg-brand-800 px-4 py-3 text-sm font-bold text-white transition group-hover:bg-brand-900 group-focus-visible:bg-brand-900">
+        Investigate profile <span className="ml-2 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+      </div>
+    </Link>
+  )
+}
+
+function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
+  return (
+    <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm sm:p-5" aria-labelledby="guided-discovery-heading">
+      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-2xl space-y-2">
+          <p className="eyebrow-label">Guided discovery</p>
+          <h2 id="guided-discovery-heading" className="compact-heading">Start broad, then narrow only when useful.</h2>
+          <p className="text-sm leading-6 text-[#46574d]">
+            These entry points are orientation tools, not deterministic recommendations.
+          </p>
+        </div>
+        <Link href="/goals" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse goal guides →</Link>
+      </div>
+
+      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {discoveryPaths.map(path => (
+          <button
+            key={path.label}
+            type="button"
+            onClick={() => onSelect(path.query)}
+            className="group min-h-28 rounded-[1.1rem] border border-brand-900/10 bg-white/80 p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white"
+          >
+            <span className="text-lg font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</span>
+            <span className="mt-2 block text-sm leading-6 text-[#46574d]">{path.description}</span>
+          </button>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => void; onReset: () => void }) {
+  return (
+    <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-[var(--shadow-card-calm)] sm:p-8">
+      <div className="max-w-2xl space-y-3">
+        <p className="eyebrow-label">No matching profiles</p>
+        <h2 className="compact-heading">Try a broader discovery path.</h2>
+        <p className="text-sm leading-6 text-[#46574d] sm:text-base">
+          Search by goal, mechanism, compound class, or common supplement name. Evidence and safety labels stay conservative when source data is incomplete.
+        </p>
+      </div>
+
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <button type="button" onClick={onReset} className="button-primary min-h-11 justify-center px-4 py-2 text-sm">
+          Reset search
+        </button>
+        {discoveryPaths.slice(0, 4).map(path => (
+          <button
+            key={path.label}
+            type="button"
+            onClick={() => onSelect(path.query)}
+            className="button-secondary min-h-11 justify-center px-4 py-2 text-sm"
+          >
+            {path.label}
+          </button>
+        ))}
+      </div>
+    </section>
   )
 }
 
@@ -269,7 +388,7 @@ export default function SearchPage() {
 
   const results = useMemo(() => {
     const baseResults = !normalizedQuery
-      ? searchItems.slice(0, 36)
+      ? searchItems.slice(0, 18)
       : fuse.search(normalizedQuery)
           .map(result => ({
             item: result.item,
@@ -282,7 +401,7 @@ export default function SearchPage() {
             return compareAuthority(a.item, b.item)
           })
           .map(result => result.item)
-          .slice(0, 60)
+          .slice(0, 36)
 
     if (activeFilter === 'All') return baseResults
 
@@ -292,134 +411,142 @@ export default function SearchPage() {
   const herbs = results.filter(item => item.type === 'Herb')
   const compounds = results.filter(item => item.type === 'Compound')
   const hasResults = results.length > 0
+  const hasActiveSearch = Boolean(normalizedQuery) || activeFilter !== 'All'
+  const resultLabel = hasActiveSearch ? `${results.length} matches` : 'High-signal starting points'
+
+  function selectDiscovery(queryValue: string) {
+    setQuery(queryValue)
+    setActiveFilter('All')
+  }
+
+  function resetSearch() {
+    setQuery('')
+    setActiveFilter('All')
+  }
 
   return (
     <main className="min-h-screen bg-background text-ink">
-      <section className="container-page py-12 sm:py-16 lg:py-20">
-        <div className="section-spacing">
-          <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
-            <div className="max-w-4xl space-y-6">
+      <section className="container-page py-8 sm:py-12 lg:py-16">
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+          <section className="hero-shell rounded-[1.7rem] border border-brand-900/10 p-5 shadow-card sm:rounded-[2rem] sm:p-8 lg:p-10" aria-labelledby="search-heading">
+            <div className="max-w-4xl space-y-5">
               <div className="space-y-3">
-                <p className="eyebrow-label">Scientific Discovery</p>
-                <h1 className="max-w-[13ch]">Search the Library</h1>
+                <p className="eyebrow-label">Evidence discovery</p>
+                <h1 id="search-heading" className="max-w-[13ch] text-balance">Search the library</h1>
               </div>
 
-              <p className="detail-reading text-[1.05rem] sm:text-lg">
-                Search herbs and compounds by name, mechanism, evidence signal, safety context, or wellness target.
+              <p className="max-w-2xl text-base leading-7 text-[#46574d] sm:text-lg sm:leading-8">
+                Search herbs and compounds by name, goal, mechanism, evidence signal, or safety context. Start broad, then use light filters only when they help.
               </p>
 
-              <div className="surface-depth rounded-[1.75rem] p-3 sm:p-4">
+              <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-3 shadow-sm sm:p-4">
                 <label htmlFor="site-search" className="sr-only">Search herbs and compounds</label>
                 <input
                   id="site-search"
+                  type="search"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search sleep, magnesium, stress, inflammation..."
-                  className="min-h-14 w-full rounded-2xl border border-brand-900/10 bg-white/90 px-5 py-4 text-base font-medium text-ink shadow-sm outline-none transition-all placeholder:text-[#7b887f] focus:border-brand-600/30 focus:bg-white focus:ring-4 focus:ring-brand-500/15 sm:text-lg"
+                  placeholder="Try sleep, magnesium, stress, inflammation..."
+                  className="min-h-14 w-full rounded-[1.1rem] border border-brand-900/10 bg-white px-4 py-4 text-base font-medium text-ink shadow-sm outline-none transition-all placeholder:text-[#7b887f] focus:border-brand-600/30 focus:bg-white focus:ring-4 focus:ring-brand-500/15 sm:px-5 sm:text-lg"
                 />
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                {filterOptions.map(filter => (
-                  <button
-                    key={filter}
-                    type="button"
-                    onClick={() => setActiveFilter(filter)}
-                    className={activeFilter === filter
-                      ? 'button-primary rounded-full px-4 py-2 text-sm'
-                      : 'chip-readable'}
-                  >
-                    {filter}
-                  </button>
-                ))}
-              </div>
+              <details className="rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-4" open={hasActiveSearch || undefined}>
+                <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-4 text-sm font-bold text-ink">
+                  <span>Refine results</span>
+                  <span className="text-brand-800" aria-hidden="true">↓</span>
+                </summary>
+                <div className="mt-4 space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {filterOptions.map(filter => (
+                      <button
+                        key={filter}
+                        type="button"
+                        onClick={() => setActiveFilter(filter)}
+                        className={activeFilter === filter
+                          ? 'button-primary min-h-11 rounded-full px-4 py-2 text-sm'
+                          : 'min-h-11 rounded-full border border-brand-900/10 bg-white/80 px-4 py-2 text-sm font-semibold text-[#33443a] transition hover:border-brand-700/20 hover:bg-white hover:text-brand-800'}
+                      >
+                        {filter === 'All' ? 'All profiles' : `${filter}s only`}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-sm leading-6 text-[#5f6f66]">
+                    Filters are intentionally light: use profile type when you already know whether you want a botanical profile or a constituent profile.
+                  </p>
+                </div>
+              </details>
 
-              <div className="metadata-row">
+              <div className="flex flex-wrap gap-2">
                 <span className="chip-readable">{searchItems.length} searchable profiles</span>
-                <span className="chip-readable">Semantic retrieval enabled</span>
-                <span className="chip-readable">Evidence-weighted discovery</span>
+                <span className="chip-readable">Evidence-weighted ranking</span>
+                <span className="chip-readable">Conservative safety labels</span>
               </div>
             </div>
           </section>
 
-          <section className="surface-subtle rounded-[2rem] p-5 sm:p-6">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="eyebrow-label">Suggested searches</p>
-                <p className="mt-2 text-sm leading-7 text-[#46574d]">Start with a wellness target, pathway, compound, or mechanism.</p>
+          <GuidedDiscovery onSelect={selectDiscovery} />
+
+          <section className="space-y-5" aria-labelledby="search-results-heading">
+            <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+              <div className="max-w-2xl space-y-2">
+                <p className="eyebrow-label">Results</p>
+                <h2 id="search-results-heading" className="compact-heading">
+                  {hasActiveSearch ? 'Profiles matching your scan.' : 'High-confidence profiles to learn the pattern.'}
+                </h2>
+                <p className="text-sm leading-6 text-[#5f6f66]">
+                  {hasActiveSearch
+                    ? 'Open a profile when the evidence and safety context look worth investigating further.'
+                    : 'These are starting points sorted by discovery and authority signals, not promised outcomes.'}
+                </p>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {suggestedSearches.map(term => (
-                  <button
-                    key={term}
-                    type="button"
-                    onClick={() => setQuery(term)}
-                    className="rounded-full border border-brand-900/10 bg-white/80 px-4 py-2 text-sm font-semibold text-[#33443a] shadow-sm transition hover:border-brand-700/20 hover:bg-white hover:text-brand-800"
-                  >
-                    {term}
-                  </button>
-                ))}
-              </div>
+              <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
+                {resultLabel}
+              </span>
             </div>
+
+            {!hasResults ? (
+              <EmptySearchState onSelect={selectDiscovery} onReset={resetSearch} />
+            ) : (
+              <div className="detail-stack">
+                {results.length > 0 && results.length < 4 ? (
+                  <div className="rounded-[1.2rem] border border-brand-900/10 bg-white/80 p-4 text-sm leading-6 text-[#46574d] shadow-sm">
+                    Sparse match set. Try a broader term such as stress, sleep, focus, inflammation, or recovery if you want more profiles to compare.
+                  </div>
+                ) : null}
+
+                {herbs.length > 0 ? (
+                  <section className="space-y-4">
+                    <div className="flex flex-wrap items-end justify-between gap-3">
+                      <div>
+                        <p className="eyebrow-label">Herbs</p>
+                        <h3 className="mt-2 max-w-none text-2xl font-semibold tracking-tight text-ink sm:text-3xl">Botanical matches</h3>
+                      </div>
+                      <span className="chip-readable">{herbs.length} results</span>
+                    </div>
+                    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                      {herbs.map(item => <ResultCard key={`${item.type}-${item.slug}`} item={item} />)}
+                    </div>
+                  </section>
+                ) : null}
+
+                {compounds.length > 0 ? (
+                  <section className="space-y-4">
+                    <div className="flex flex-wrap items-end justify-between gap-3">
+                      <div>
+                        <p className="eyebrow-label">Compounds</p>
+                        <h3 className="mt-2 max-w-none text-2xl font-semibold tracking-tight text-ink sm:text-3xl">Compound matches</h3>
+                      </div>
+                      <span className="chip-readable">{compounds.length} results</span>
+                    </div>
+                    <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                      {compounds.map(item => <ResultCard key={`${item.type}-${item.slug}`} item={item} />)}
+                    </div>
+                  </section>
+                ) : null}
+              </div>
+            )}
           </section>
-
-          {hasResults ? (
-            <div className="detail-stack">
-              {herbs.length > 0 ? (
-                <section className="space-y-5">
-                  <div className="flex flex-wrap items-end justify-between gap-3">
-                    <div>
-                      <p className="eyebrow-label">Herbs</p>
-                      <h2 className="mt-2 max-w-none text-2xl font-semibold tracking-tight text-ink sm:text-3xl">Botanical matches</h2>
-                    </div>
-                    <span className="chip-readable">{herbs.length} results</span>
-                  </div>
-                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {herbs.map(item => <ResultCard key={`${item.type}-${item.slug}`} item={item} />)}
-                  </div>
-                </section>
-              ) : null}
-
-              {compounds.length > 0 ? (
-                <section className="space-y-5">
-                  <div className="flex flex-wrap items-end justify-between gap-3">
-                    <div>
-                      <p className="eyebrow-label">Compounds</p>
-                      <h2 className="mt-2 max-w-none text-2xl font-semibold tracking-tight text-ink sm:text-3xl">Compound matches</h2>
-                    </div>
-                    <span className="chip-readable">{compounds.length} results</span>
-                  </div>
-                  <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-                    {compounds.map(item => <ResultCard key={`${item.type}-${item.slug}`} item={item} />)}
-                  </div>
-                </section>
-              ) : null}
-            </div>
-          ) : (
-            <section className="section-frame text-center">
-              <p className="eyebrow-label mx-auto">No matches found</p>
-              <h2 className="mx-auto mt-3 max-w-[16ch] text-3xl font-semibold tracking-tight text-ink">Try a broader discovery path</h2>
-              <p className="mx-auto mt-4 max-w-reading text-sm leading-7 text-[#46574d] sm:text-base">
-                Search by outcome, mechanism, compound class, or common supplement name.
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                {suggestedSearches.slice(0, 4).map(term => (
-                  <button
-                    key={term}
-                    type="button"
-                    onClick={() => setQuery(term)}
-                    className="chip-readable hover:text-brand-800"
-                  >
-                    {term}
-                  </button>
-                ))}
-              </div>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <Link href="/herbs" className="button-secondary rounded-full">Browse Herbs</Link>
-                <Link href="/compounds" className="button-primary rounded-full">Browse Compounds</Link>
-              </div>
-            </section>
-          )}
         </div>
       </section>
     </main>
