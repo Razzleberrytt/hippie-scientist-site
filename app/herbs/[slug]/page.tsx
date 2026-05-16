@@ -203,7 +203,7 @@ function BriefCard({ label, value, children }: { label: string; value?: string; 
   if (!value && !children) return null
 
   return (
-    <div className="rounded-2xl border border-brand-900/10 bg-white/70 p-4 shadow-sm">
+    <div className="border-t border-brand-900/10 pt-3">
       <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">{label}</p>
       {value ? <p className="mt-2 text-sm font-semibold leading-6 text-ink">{value}</p> : null}
       {children ? <div className="mt-2">{children}</div> : null}
@@ -228,22 +228,22 @@ function ChipList({ items, limit = items.length }: { items: string[]; limit?: nu
 
 function CompactDetails({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
   return (
-    <details className="group rounded-3xl border border-brand-900/10 bg-white/65 p-4 shadow-sm open:bg-white/80 sm:p-5">
+    <details className="group border-t border-brand-900/10 py-6 first:border-t-0 first:pt-0">
       <summary className="cursor-pointer list-none">
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-1">
             <h2 className="text-lg font-semibold tracking-tight text-ink">{title}</h2>
             {description ? <p className="text-sm leading-6 text-muted">{description}</p> : null}
           </div>
-          <span className="rounded-full border border-brand-900/10 bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-muted group-open:hidden">
+          <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700 group-open:hidden">
             Open
           </span>
-          <span className="hidden rounded-full border border-brand-900/10 bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-muted group-open:inline-flex">
+          <span className="hidden text-xs font-bold uppercase tracking-[0.14em] text-brand-700 group-open:inline-flex">
             Hide
           </span>
         </div>
       </summary>
-      <div className="mt-5 space-y-5 border-t border-brand-900/10 pt-5">
+      <div className="mt-5 space-y-7 pt-2">
         {children}
       </div>
     </details>
@@ -255,7 +255,7 @@ function LinkDensitySection({ links }: { links: ReturnType<typeof buildInternalL
   if (items.length === 0) return null
 
   return (
-    <section className="compact-card section-rhythm-compact">
+    <section className="section-rhythm-compact border-t border-brand-900/10 pt-5">
       <div className="space-y-1">
         <p className="eyebrow-label">Continue Research</p>
         <h2 className="max-w-none text-2xl font-semibold tracking-tight text-ink">
@@ -267,7 +267,7 @@ function LinkDensitySection({ links }: { links: ReturnType<typeof buildInternalL
           <Link
             key={item.href}
             href={item.href}
-            className="rounded-2xl border border-brand-900/10 bg-white/75 p-4 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-700/30 hover:bg-white"
+            className="border-l border-brand-900/10 py-2 pl-3 text-sm font-semibold text-ink transition hover:border-brand-700/40"
           >
             {item.label}
           </Link>
@@ -414,7 +414,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   }
 
   return (
-    <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:space-y-10 sm:py-10">
+    <main className="mx-auto max-w-6xl space-y-12 px-4 py-8 sm:space-y-16 sm:py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(herbJsonLd) }}
@@ -433,18 +433,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <span className="text-ink">{displayName}</span>
       </nav>
 
-      <section className="rounded-[1.75rem] border border-brand-900/10 bg-white/70 p-5 shadow-card sm:p-7">
+      <section className="hero-shell rounded-[1.75rem] p-5 sm:p-8">
         <div className="space-y-5">
-          <div className="flex flex-wrap items-center gap-2">
-            <Link href="/herbs" className="rounded-full border border-brand-900/10 bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-muted transition hover:text-ink">
-              Back to herbs
-            </Link>
-            <Link href="/compare" className="rounded-full border border-brand-900/10 bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-muted transition hover:text-ink">
-              Compare
-            </Link>
-            <Link href={`/search?q=${encodeURIComponent(displayName)}`} className="rounded-full border border-brand-900/10 bg-white px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-muted transition hover:text-ink">
-              Search related
-            </Link>
+          <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.14em] text-muted">
+            <Link href="/herbs" className="transition hover:text-ink">Back to herbs</Link>
+            <Link href="/compare" className="transition hover:text-ink">Compare</Link>
+            <Link href={`/search?q=${encodeURIComponent(displayName)}`} className="transition hover:text-ink">Search related</Link>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
@@ -463,15 +457,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
               <div className="flex flex-wrap items-center gap-2">
                 <EvidenceBadgeGroup record={herb} compact />
-                <span className="rounded-full border border-amber-800/20 bg-amber-50/80 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-amber-900">
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-amber-900">
                   Safety: {formatDisplayLabel(safetySensitivity)} caution
                 </span>
               </div>
 
-              <ChipList items={topUses} limit={6} />
+              <ChipList items={topUses} limit={4} />
             </div>
 
-            <aside className="rounded-3xl border border-brand-900/10 bg-sand-50/85 p-4 shadow-sm">
+            <aside className="rounded-3xl bg-sand-50/70 p-5">
               <p className="eyebrow-label">Decision cues</p>
               <div className="mt-3 grid gap-3">
                 <BriefCard label="Evidence" value={evidenceStrength || researchMaturity} />
@@ -489,7 +483,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <p className="eyebrow-label">Decision snapshot</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Fast orientation before the deep dive</h2>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-5">
           <BriefCard label="Best known for" value={topUses.slice(0, 3).join(', ')} />
           <BriefCard label="Evidence strength" value={evidenceStrength || researchMaturity} />
           <BriefCard label="Safety watchouts" value={safetyGroups.length ? safetyGroups[0].items.slice(0, 2).join(', ') : safetySummary} />
@@ -509,7 +503,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </section>
 
       {keyTakeaways.length > 0 ? (
-        <section className="rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm">
+        <section className="border-t border-brand-900/10 pt-6">
           <p className="eyebrow-label">Key takeaways</p>
           <ul className="mt-3 space-y-2 text-sm leading-6 text-[#46574d]">
             {keyTakeaways.map(item => (
@@ -522,7 +516,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <section className="rounded-3xl border border-amber-800/20 bg-amber-50/80 p-5 shadow-sm">
+      <section className="rounded-3xl bg-amber-50/70 p-5 sm:p-6">
         <div className="space-y-2">
           <p className="eyebrow-label text-amber-900">Safety first</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Review cautions before use</h2>
@@ -530,7 +524,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </div>
 
         {safetyGroups.length > 0 ? (
-          <details className="mt-4 rounded-2xl border border-amber-900/10 bg-white/60 p-4">
+          <details className="mt-5 border-t border-amber-900/15 pt-4">
             <summary className="cursor-pointer text-sm font-bold text-ink">View full safety notes</summary>
             <div className="mt-4 grid gap-4 md:grid-cols-2">
               {safetyGroups.map(group => (
@@ -546,7 +540,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         ) : null}
       </section>
 
-      <section className="rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm">
+      <section className="space-y-5">
         <div className="space-y-2">
           <p className="eyebrow-label">Evidence summary</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
@@ -580,7 +574,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             <CompactDetails title="Mechanism clusters" description="Grouped pathway signals for deeper research.">
               <div className="grid gap-3 md:grid-cols-2">
                 {pathwayClusters.map(cluster => (
-                  <div key={cluster.title} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
+                  <div key={cluster.title} className="border-l border-brand-900/10 py-1 pl-4">
                     <h3 className="text-sm font-semibold text-ink">{cluster.title}</h3>
                     <p className="mt-1 text-xs leading-5 text-muted">{cluster.description}</p>
                     <div className="mt-3"><ChipList items={cluster.mechanisms} /></div>
@@ -600,12 +594,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </section>
 
       {topUses.length > 0 ? (
-        <section className="rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm">
+        <section className="border-t border-brand-900/10 pt-6">
           <p className="eyebrow-label">Uses and effects</p>
           <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Most visible signals</h2>
           <div className="mt-4"><ChipList items={topUses} /></div>
           {hiddenUses.length > 0 ? (
-            <details className="mt-4 rounded-2xl border border-brand-900/10 bg-white/60 p-4">
+            <details className="mt-5 border-t border-brand-900/10 pt-4">
               <summary className="cursor-pointer text-sm font-bold text-ink">Show all reported effects</summary>
               <div className="mt-4"><ChipList items={hiddenUses} /></div>
             </details>
@@ -642,11 +636,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <RuntimeOrchestratedDiscovery record={herb} />
           <CompactRelatedPathways record={herb} />
           {featuredCollections.length > 0 ? (
-            <div className="rounded-3xl border border-brand-900/10 bg-white/70 p-5">
+            <div className="border-t border-brand-900/10 pt-5">
               <p className="eyebrow-label">Featured in collections</p>
-              <div className="mt-3 flex flex-wrap gap-3">
+              <div className="mt-3 flex flex-wrap gap-4">
                 {featuredCollections.slice(0, 4).map((collection) => (
-                  <Link key={collection.slug} href={collection.href} className="surface-subtle rounded-2xl border border-brand-900/10 px-4 py-3 text-sm font-semibold text-ink transition hover:border-brand-700/30 hover:bg-white/60">
+                  <Link key={collection.slug} href={collection.href} className="border-b border-brand-900/10 py-1 text-sm font-semibold text-ink transition hover:border-brand-700/40">
                     {collection.title}
                   </Link>
                 ))}
@@ -661,7 +655,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </CompactDetails>
       </section>
 
-      <section className="rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm">
+      <section className="border-t border-brand-900/10 pt-6">
         <div className="space-y-1">
           <p className="eyebrow-label">Related navigation</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Keep researching</h2>

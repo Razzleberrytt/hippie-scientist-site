@@ -8,12 +8,12 @@ export default function CompoundHero({
 }: any) {
   return (
     <div className="space-y-5">
-      <div className="flex flex-wrap items-center gap-3">
+      <div className="space-y-3">
         <div className="eyebrow-label">
           Compound Profile
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[0.12em] text-muted">
           <EvidenceBadge level={evidenceLevel} />
           <SafetyBadge level={safetyLevel} />
         </div>

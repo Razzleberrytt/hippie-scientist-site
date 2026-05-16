@@ -185,10 +185,10 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.12),transparent_30rem)]' />
         </div>
 
-        <div className='relative mx-auto max-w-6xl space-y-7 px-4 pb-20 pt-6 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8'>
-          <section className='rounded-[1.75rem] border border-emerald-300/15 bg-white/[0.035] px-4 py-6 shadow-[0_20px_70px_rgba(0,0,0,0.24)] backdrop-blur sm:px-8 sm:py-9 lg:px-10'>
+        <div className='relative mx-auto max-w-6xl space-y-14 px-4 pb-20 pt-10 sm:px-6 sm:space-y-16 sm:pb-20 sm:pt-14 lg:px-8'>
+          <section className='px-2 py-8 sm:px-6 sm:py-12 lg:py-16'>
             <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
-              <div className='mb-4 inline-flex rounded-full border border-emerald-300/20 bg-emerald-300/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-emerald-200'>
+              <div className='mb-4 inline-flex text-xs font-bold uppercase tracking-[0.2em] text-emerald-200/85'>
                 Botanical research field guide
               </div>
 
@@ -220,9 +220,9 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 ))}
               </div>
 
-              <div className='mt-6 grid w-full max-w-3xl gap-2 text-left sm:grid-cols-3'>
+              <div className='mt-8 grid w-full max-w-3xl gap-6 border-t border-emerald-300/12 pt-6 text-left sm:grid-cols-3'>
                 {reasoningPillars.map((pillar) => (
-                  <div key={pillar.title} className='rounded-2xl border border-emerald-300/12 bg-[#071a14]/72 p-3'>
+                  <div key={pillar.title} className='space-y-1'>
                     <p className='text-sm font-semibold tracking-tight text-white'>{pillar.title}</p>
                     <p className='mt-1 text-xs leading-5 text-emerald-50/62'>{pillar.description}</p>
                   </div>
@@ -231,7 +231,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </div>
           </section>
 
-          <section className='rounded-[1.35rem] border border-emerald-300/12 bg-[#071a14]/88 p-4 shadow-[0_18px_70px_rgba(0,0,0,0.22)] sm:p-5'>
+          <section className='border-y border-emerald-300/10 py-6'>
             <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
               <SectionHeader title='Start your research' as='h2' />
               <div className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:min-w-[28rem]'>
@@ -239,7 +239,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                   <Link
                     key={path.href}
                     href={path.href}
-                    className='group rounded-full border border-emerald-300/14 bg-white/[0.04] px-3 py-2.5 text-center text-sm font-bold text-emerald-50 transition hover:border-emerald-300/40 hover:bg-emerald-300/10'
+                    className='group rounded-full bg-white/[0.045] px-3 py-2.5 text-center text-sm font-bold text-emerald-50 transition hover:bg-emerald-300/10'
                   >
                     {path.title}
                     <span className='ml-1 text-emerald-300 transition group-hover:translate-x-0.5' aria-hidden='true'>→</span>
@@ -261,7 +261,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 <Link
                   key={card.href}
                   href={card.href}
-                  className='group rounded-[1.25rem] border border-emerald-300/12 bg-white/[0.045] p-4 transition hover:-translate-y-0.5 hover:border-emerald-300/35 hover:bg-white/[0.07]'
+                  className='group border-l border-emerald-300/18 py-1 pl-4 transition hover:border-emerald-300/45'
                 >
                   <h3 className='text-base font-semibold tracking-tight text-white group-hover:text-emerald-200'>{card.title}</h3>
                   <p className='mt-2 text-sm leading-6 text-emerald-50/62'>{card.description}</p>
@@ -291,11 +291,11 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 <Link
                   key={item.href}
                   href={item.href}
-                  className='group relative overflow-hidden rounded-[1.25rem] border border-emerald-300/12 bg-[#071a14]/82 p-4 transition hover:-translate-y-0.5 hover:border-emerald-300/35 hover:bg-[#0a2119]'
+                  className='group relative overflow-hidden rounded-[1.25rem] bg-[#071a14]/72 p-5 transition hover:bg-[#0a2119]'
                 >
                   <div className='absolute right-[-3rem] top-[-3rem] h-28 w-28 rounded-full bg-emerald-300/10 blur-2xl transition group-hover:bg-emerald-300/16' />
                   <div className='relative'>
-                    <span className='inline-flex rounded-full border border-emerald-300/16 bg-emerald-300/8 px-2.5 py-1 text-xs font-bold uppercase tracking-[0.14em] text-emerald-200'>
+                    <span className='inline-flex text-xs font-bold uppercase tracking-[0.16em] text-emerald-200/80'>
                       {item.meta}
                     </span>
 
@@ -316,7 +316,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </div>
           </section>
 
-          <section className='rounded-[1.15rem] border border-emerald-300/14 bg-emerald-950/40 p-4'>
+          <section className='border-t border-emerald-300/10 pt-6'>
             <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
               <p className='text-sm leading-6 text-emerald-50/72'>
                 Natural does not automatically mean safe or effective. These pages support comparison and pathway understanding — not medical care.
