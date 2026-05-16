@@ -10,8 +10,8 @@ export function DecisionMetric({ label, value }: DecisionMetricProps) {
   if (!value) return null
 
   return (
-    <div className="min-w-0 rounded-[0.95rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-3 py-2">
-      <p className="text-xs font-bold uppercase tracking-[0.11em] text-[#68786f]">{label}</p>
+    <div className="min-w-0 rounded-[0.95rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-3 py-2.5 sm:py-2">
+      <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#68786f]">{label}</p>
       <p className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-[#26382f]">{value}</p>
     </div>
   )
@@ -52,7 +52,7 @@ export function DecisionEmptyState({
           <Link
             key={`${action.href}-${action.label}`}
             href={action.href}
-            className={`${action.variant === 'primary' ? 'button-primary' : 'button-secondary'} min-h-11 justify-center px-4 py-2 text-sm`}
+            className={`${action.variant === 'primary' ? 'button-primary' : 'button-secondary'} min-h-12 justify-center px-4 py-3 text-sm sm:min-h-11 sm:py-2`}
           >
             {action.label}
           </Link>
@@ -82,15 +82,15 @@ export function DecisionFilterGroup({
   open?: boolean
 }) {
   const itemClass = (active: boolean) =>
-    `min-h-10 rounded-[0.95rem] border px-3 py-2.5 text-sm font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`
+    `min-h-12 rounded-[0.95rem] border px-3 py-3 text-sm font-semibold transition active:scale-[0.99] sm:min-h-10 sm:py-2.5 ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900 shadow-sm' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`
 
   return (
-    <details className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3.5 shadow-none" open={open || undefined}>
-      <summary className="flex min-h-10 cursor-pointer items-center justify-between gap-4 text-sm font-bold text-ink">
+    <details className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 shadow-none sm:p-3.5" open={open || undefined}>
+      <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 rounded-[0.9rem] px-1 text-sm font-bold text-ink marker:hidden sm:min-h-10">
         <span>Focus the results</span>
         <span className="text-brand-800" aria-hidden="true">↓</span>
       </summary>
-      <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-3 grid gap-2.5 sm:grid-cols-2 sm:gap-2 lg:grid-cols-5">
         <Link href={buildHref('all', query)} className={itemClass(activeFilter === 'all')}>
           All profiles
           <span className="mt-1 block text-xs font-medium leading-5 text-[#64746a]">Keep the view broad.</span>
@@ -134,11 +134,11 @@ export function DecisionProfileCard({
   return (
     <Link
       href={href}
-      className="group flex h-full min-h-[15rem] flex-col rounded-[1.2rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:p-5"
+      className="group flex h-full min-h-[14.5rem] flex-col rounded-[1.2rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-200 active:scale-[0.995] hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[15rem] sm:p-5"
     >
       <div className="flex flex-1 flex-col">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="text-xl font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-[1.4rem]">
+        <div className="flex flex-wrap items-start justify-between gap-2.5 sm:flex-nowrap sm:gap-3">
+          <h3 className="min-w-0 text-xl font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-[1.4rem]">
             {name}
           </h3>
           {featured ? (
@@ -151,7 +151,7 @@ export function DecisionProfileCard({
         </p>
 
         <div className="mt-3.5 rounded-[1rem] border border-brand-900/10 bg-brand-50/45 p-3">
-          <p className="text-xs font-bold uppercase tracking-[0.11em] text-brand-800">Best fit</p>
+          <p className="text-xs font-bold uppercase tracking-[0.1em] text-brand-800">Best fit</p>
           <p className="mt-1.5 text-base font-semibold leading-6 text-[#203329]">{bestFor}</p>
         </div>
 
@@ -164,7 +164,7 @@ export function DecisionProfileCard({
         {visibleMechanisms.length > 0 ? (
           <div className="mt-3 flex flex-wrap gap-2 border-t border-brand-900/10 pt-3">
             {visibleMechanisms.map(mechanism => (
-              <span key={mechanism} className="rounded-full bg-white/70 px-2.5 py-1 text-xs font-semibold text-[#64746a]">
+              <span key={mechanism} className="rounded-full bg-white/70 px-2.5 py-1.5 text-xs font-semibold leading-none text-[#64746a] sm:py-1">
                 {mechanism}
               </span>
             ))}
@@ -172,7 +172,7 @@ export function DecisionProfileCard({
         ) : null}
       </div>
 
-      <div className="mt-4 flex min-h-10 items-center justify-center rounded-full bg-brand-800 px-4 py-2.5 text-sm font-bold text-white transition group-hover:bg-brand-900 group-focus-visible:bg-brand-900">
+      <div className="mt-4 flex min-h-12 items-center justify-center rounded-full bg-brand-800 px-4 py-3 text-sm font-bold text-white transition group-hover:bg-brand-900 group-focus-visible:bg-brand-900 sm:min-h-10 sm:py-2.5">
         View profile <span className="ml-2 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
       </div>
     </Link>
