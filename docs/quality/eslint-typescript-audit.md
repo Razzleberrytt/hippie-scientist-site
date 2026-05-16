@@ -10,6 +10,10 @@ Audited files:
 - `tsconfig.json`
 - `package.json` scripts
 
+Related audits:
+
+- `docs/quality/explicit-any-audit.md`
+
 This is intentionally documentation-only. It does not attempt to fix violations, rewrite config, or broadly re-enable strict rules.
 
 ## Current package scripts
@@ -54,7 +58,7 @@ These rules are disabled globally for `**/*.{ts,tsx,js,jsx,mjs,cjs}` unless over
 | Rule | Current setting | Risk | Why it matters |
 | --- | --- | --- | --- |
 | `@typescript-eslint/no-unused-vars` | globally `off`, then re-enabled for active production paths with underscore ignore conventions | Medium | The third staged remediation batch has started. Active production code now receives unused-variable enforcement while legacy/deferred paths remain relaxed to avoid noisy cleanup churn. |
-| `@typescript-eslint/no-explicit-any` | `off` | Medium | `any` weakens route params, runtime-data records, component props, and helper boundaries. Some `any` use is expected around generated workbook/runtime JSON, but active app boundaries should gradually narrow it. |
+| `@typescript-eslint/no-explicit-any` | `off` | Medium | Explicit any usage is currently under audit before enforcement. See `docs/quality/explicit-any-audit.md` for staged remediation guidance and boundary classification. |
 | `react-hooks/exhaustive-deps` | `off` | High for client components | Missing dependencies can cause stale closures, incorrect effects, and user-visible state bugs. Server components are lower risk, but active client components need coverage. |
 | `jsx-a11y/alt-text` | globally `off`, then re-enabled for active production UI paths | Medium | The first staged remediation batch has started. Active production UI paths now receive alt-text enforcement while legacy/deferred paths remain relaxed to avoid a giant cleanup PR. |
 | `jsx-a11y/label-has-associated-control` | globally `off`, then re-enabled for active production UI paths | Medium | The second staged accessibility remediation batch has started. Active production UI paths now receive label association enforcement while legacy/deferred paths remain relaxed to avoid broad form cleanup churn. |
@@ -70,59 +74,3 @@ These rules are disabled globally for `**/*.{ts,tsx,js,jsx,mjs,cjs}` unless over
 | `react-hooks/preserve-manual-memoization` | `off` | Low to Medium | Performance/correctness guard for memoization. Lower priority than `exhaustive-deps`. |
 
 `prefer-const` remains enabled as an error globally, except in the tools/config override.
-
-### Existing scoped hardening
-
-For `src/**/*.{js,jsx,ts,tsx}`:
-
-- `no-console`: `error`
-- `no-debugger`: `error`
-
-This is useful, but it does not cover `app/**`, `components/**`, or root `lib/**` unless another config applies. If active production code lives in those paths, a future staged PR should consider applying equivalent no-debugger/no-console coverage there too.
-
-### Accessibility remediation status
-
-Completed first staged accessibility remediation batch:
-
-- `jsx-a11y/alt-text` remains relaxed globally to avoid noisy legacy churn.
-- `jsx-a11y/alt-text` is now enforced for active production UI paths only.
-- Active coverage includes:
-  - `app/**`
-  - `components/**`
-  - active `src/components/**` surfaces currently used by runtime exploration and navigation flows
-- Legacy/deferred/quarantined paths remain relaxed.
-- No unrelated accessibility rules were changed in this batch.
-
-Completed second staged accessibility remediation batch:
-
-- `jsx-a11y/label-has-associated-control` remains relaxed globally to avoid noisy legacy churn.
-- `jsx-a11y/label-has-associated-control` is now enforced for active production UI paths only.
-- Active coverage includes:
-  - `app/**`
-  - `components/**`
-  - active `src/components/explore/**`
-  - active `src/components/runtime/**`
-  - `src/components/mobile-bottom-nav.tsx`
-- Legacy/deferred/quarantined paths remain relaxed.
-- No unrelated accessibility rules were changed in this batch.
-
-### Unused variable remediation status
-
-Completed third staged remediation batch:
-
-- `@typescript-eslint/no-unused-vars` remains relaxed globally to avoid noisy legacy churn.
-- `@typescript-eslint/no-unused-vars` is now enforced for active production paths only.
-- Active coverage includes:
-  - `app/**`
-  - `components/**`
-  - `lib/**`
-  - active `src/components/explore/**`
-  - active `src/components/runtime/**`
-  - `src/components/mobile-bottom-nav.tsx`
-  - active `src/lib/runtime-*.ts`
-- Conventional underscore ignore patterns were added for intentionally unused values:
-  - `argsIgnorePattern: '^_'`
-  - `varsIgnorePattern: '^_'`
-  - `caughtErrorsIgnorePattern: '^_'`
-- Legacy/deferred/quarantined paths remain relaxed.
-- No unrelated lint rules were changed in this batch.
