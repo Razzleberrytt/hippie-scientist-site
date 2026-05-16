@@ -13,6 +13,7 @@ Audited files:
 Related audits:
 
 - `docs/quality/explicit-any-audit.md`
+- `docs/quality/react-hooks-exhaustive-deps-audit.md`
 
 This is intentionally documentation-only. It does not attempt to fix violations, rewrite config, or broadly re-enable strict rules.
 
@@ -59,7 +60,7 @@ These rules are disabled globally for `**/*.{ts,tsx,js,jsx,mjs,cjs}` unless over
 | --- | --- | --- | --- |
 | `@typescript-eslint/no-unused-vars` | globally `off`, then re-enabled for active production paths with underscore ignore conventions | Medium | The third staged remediation batch has started. Active production code now receives unused-variable enforcement while legacy/deferred paths remain relaxed to avoid noisy cleanup churn. |
 | `@typescript-eslint/no-explicit-any` | `off` | Medium | Explicit any usage is currently under audit before enforcement. See `docs/quality/explicit-any-audit.md` for staged remediation guidance and boundary classification. |
-| `react-hooks/exhaustive-deps` | `off` | High for client components | Missing dependencies can cause stale closures, incorrect effects, and user-visible state bugs. Server components are lower risk, but active client components need coverage. |
+| `react-hooks/exhaustive-deps` | `off` | High for client components | Missing dependencies can cause stale closures, incorrect effects, and user-visible state bugs. Dedicated audit and staged remediation guidance now live in `docs/quality/react-hooks-exhaustive-deps-audit.md`. |
 | `jsx-a11y/alt-text` | globally `off`, then re-enabled for active production UI paths | Medium | The first staged remediation batch has started. Active production UI paths now receive alt-text enforcement while legacy/deferred paths remain relaxed to avoid a giant cleanup PR. |
 | `jsx-a11y/label-has-associated-control` | globally `off`, then re-enabled for active production UI paths | Medium | The second staged accessibility remediation batch has started. Active production UI paths now receive label association enforcement while legacy/deferred paths remain relaxed to avoid broad form cleanup churn. |
 | `jsx-a11y/anchor-is-valid` | `off` | Medium | Invalid anchors can break navigation semantics. Next.js `Link` usage sometimes creates false positives, so staged enforcement is safer than global re-enable. |
