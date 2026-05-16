@@ -5,8 +5,13 @@ function normalize(value: string) {
   return String(value || '').trim().toLowerCase()
 }
 
-export default async function ComparePage({ params }: any) {
-  const slug = normalize(params?.slug)
+type ComparePageProps = {
+  params: Promise<{ slug: string }>
+}
+
+export default async function ComparePage({ params }: ComparePageProps) {
+  const resolvedParams = await params
+  const slug = normalize(resolvedParams.slug)
   const rows = await getSearchSummaryIndex()
 
   const [leftSlug, rightSlug] = slug.split('-vs-')

@@ -8,8 +8,13 @@ function titleize(slug: string) {
     .join(' ')
 }
 
-export default async function StackPage({ params }: any) {
-  const slug = String(params?.slug || '').toLowerCase()
+type StackPageProps = {
+  params: Promise<{ slug: string }>
+}
+
+export default async function StackPage({ params }: StackPageProps) {
+  const resolvedParams = await params
+  const slug = String(resolvedParams.slug || '').toLowerCase()
 
   const records = await getAuthorityStacks(slug, 12)
 
