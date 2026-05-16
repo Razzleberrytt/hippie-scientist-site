@@ -70,6 +70,23 @@ Use route-specific names when the param is not `slug`.
 
 This is a high-value, low-risk cleanup target because each file can usually be fixed independently.
 
+#### Completed remediation batch 1
+
+Completed dynamic route boundary typing for:
+
+1. `app/blog/[slug]/page.tsx`
+2. `app/best-for/[slug]/page.tsx`
+3. `app/supernodes/[slug]/page.tsx`
+
+Changes completed:
+
+- added local Promise-based route param types
+- replaced route-boundary `({ params }: any)` usage
+- aligned route access with Next.js 15 async params semantics
+- preserved route behavior, metadata behavior, static params behavior, and UI
+
+Remaining route-boundary cleanup should continue in similarly small batches.
+
 ### 2. External data parsing boundaries
 
 These are places where generated JSON, workbook-derived data, or public runtime payloads enter TypeScript code.
@@ -95,149 +112,3 @@ Preferred later direction:
 - Introduce minimal shared runtime record types only where fields are actually used.
 
 Do not replace these mechanically without tests, because overly broad shared types can become inaccurate and hide real data-shape drift.
-
-### 3. Dynamic JSON/data normalization
-
-These usages appear in semantic discovery, ecosystem, scoring, filtering, and card-building code.
-
-Common pattern:
-
-```ts
-records.map((record: any) => ...)
-items.filter((item: any) => ...)
-```
-
-Risk: medium to high depending on route visibility.
-
-Why it exists:
-
-- Normalizers consume heterogeneous generated records.
-- Many fields are optional, array-or-string, or derived from workbook columns.
-
-Preferred later direction:
-
-- Define narrow local types per function, not one giant global type.
-- Use helpers such as `safeArray`, `safeLower`, `safeSlug`, and `safeTrim` to narrow `unknown` values.
-- Convert callback `any` parameters to small interfaces where only `slug`, `name`, `summary`, `effects`, or `mechanisms` are used.
-
-### 4. Event handlers
-
-No high-confidence active event-handler `any` cluster was identified from connector search in this audit.
-
-If found later, these are usually low-risk replacements:
-
-```ts
-React.ChangeEvent<HTMLInputElement>
-React.MouseEvent<HTMLButtonElement>
-React.FormEvent<HTMLFormElement>
-```
-
-Event-handler cleanup is a good candidate only after exact files are identified by lint output.
-
-### 5. Third-party library escape hatches
-
-Potential candidates may exist in graph/visualization, animation, or search-related helpers.
-
-Risk: medium.
-
-Preferred later direction:
-
-- Keep third-party escape hatches local.
-- Prefer `unknown` plus library-provided types when available.
-- Avoid introducing dependency upgrades only to improve typing.
-
-### 6. Genuinely replaceable `any` usage
-
-Likely low-risk replacements include:
-
-- route `params` props
-- simple `generateMetadata` props
-- simple `.map((item: any) => ...)` callbacks where the fields are only `slug`, `name`, and `summary`
-- local arrays currently typed as `any[]` but only used as read-only display records
-- `catch (error: any)` if present, replaceable with `unknown` and stringification helpers
-
-## High-value low-risk replacements
-
-Recommended replacement categories:
-
-1. **Dynamic route prop typing**
-   - Replace `({ params }: any)` with route-local `PageProps`.
-   - Start with pages that only read `params.slug` or another single param.
-
-2. **Metadata route prop typing**
-   - Apply the same route-local props to `generateMetadata`.
-   - Keep changes per route file.
-
-3. **Simple display-card records**
-   - Add local `type DisplayRecord = { slug?: string; name?: string; summary?: string; description?: string }`.
-   - Replace callback `any` only where fields are limited and obvious.
-
-4. **Simple generated arrays**
-   - Replace `any[]` with `Array<Record<string, unknown>>` only if property access is already guarded.
-   - Otherwise defer until guards are added.
-
-## Risky areas to avoid without tests
-
-Do not start with these areas:
-
-- workbook runtime generation and validation paths
-- semantic graph orchestration helpers
-- ranking/scoring logic
-- product/affiliate mapping logic
-- generated JSON adapter boundaries
-- ecosystem normalization logic used by multiple routes
-- any file with mixed herbs/compounds/protocols/stacks records and many optional fields
-
-These areas should get focused tests or snapshot checks before typing changes.
-
-## Proposed first implementation batch: maximum 5 files
-
-First no-explicit-any remediation PR should be limited to route-boundary typing only.
-
-Suggested maximum 5 files:
-
-1. `app/blog/[slug]/page.tsx`
-2. `app/best-for/[slug]/page.tsx`
-3. `app/supernodes/[slug]/page.tsx`
-4. one additional simple dynamic route under `app/**` that only reads `params.slug`
-5. one additional simple dynamic route under `app/**` that only reads one route param
-
-Allowed changes in that first implementation batch:
-
-- Add local `type PageProps` or `type RouteProps`.
-- Replace `({ params }: any)` in page and metadata functions.
-- Await params where required by Next.js 15 semantics.
-- Do not type runtime records in the same PR.
-- Do not enable `@typescript-eslint/no-explicit-any` yet unless the scoped file list is clean.
-
-## Later enforcement plan
-
-After the first implementation batch:
-
-1. Continue route-boundary batches until simple App Router `params` usages are typed.
-2. Add scoped `@typescript-eslint/no-explicit-any` enforcement only for already-clean files or small globs.
-3. Keep generated data ingestion boundaries relaxed until narrow runtime record types exist.
-4. Convert dynamic JSON boundaries from `any` to `unknown` with guards in separate PRs.
-5. Only then consider a broader active-path rule override.
-
-## Non-goals
-
-This audit does not:
-
-- enable `@typescript-eslint/no-explicit-any`
-- change runtime code
-- change ESLint config
-- change TypeScript config
-- update dependencies
-- edit lockfiles
-- refactor data normalization
-- claim exact counts from a local lint run
-
-## Maintainer validation notes
-
-This PR is documentation-only. Suggested maintainer validation:
-
-```bash
-npm run lint
-npx tsc --noEmit
-```
