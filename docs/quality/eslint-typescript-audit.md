@@ -14,6 +14,7 @@ Related audits:
 
 - `docs/quality/explicit-any-audit.md`
 - `docs/quality/react-hooks-exhaustive-deps-audit.md`
+- `docs/quality/typescript-quarantine-audit.md`
 
 This is intentionally documentation-only. It does not attempt to fix violations, rewrite config, or broadly re-enable strict rules.
 
