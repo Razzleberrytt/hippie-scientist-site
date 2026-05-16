@@ -7,11 +7,17 @@ import { findArticleEntities } from '@/lib/editorial-discovery'
 
 const allPosts = posts as any[]
 
+type BlogRouteParams = Promise<{ slug: string }>
+
+type BlogRouteProps = {
+  params: BlogRouteParams
+}
+
 export async function generateStaticParams() {
   return allPosts.map((p: any) => ({ slug: p.slug }))
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: BlogRouteProps) {
   const resolvedParams = await params
   const post = allPosts.find((p: any) => p.slug === resolvedParams.slug)
 
@@ -60,7 +66,7 @@ const renderBlock = (line: string, index: number) => {
   return <p key={index} className="text-[1.02rem] leading-[1.86] text-[#46574d]">{line.replace(/_/g, '')}</p>
 }
 
-export default async function BlogPostPage({ params }: any) {
+export default async function BlogPostPage({ params }: BlogRouteProps) {
   const resolvedParams = await params
   const post = allPosts.find((p: any) => p.slug === resolvedParams.slug)
 
