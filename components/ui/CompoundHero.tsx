@@ -7,7 +7,7 @@ export default function CompoundHero({
   safetyLevel
 }: any) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       <div className="space-y-3">
         <div className="eyebrow-label">
           Compound Profile
@@ -19,12 +19,12 @@ export default function CompoundHero({
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3">
         <h1 className="heading-premium max-w-4xl text-balance">
           {compound.name}
         </h1>
 
-        <p className="text-reading max-w-3xl text-base leading-7 text-[#46574d] sm:text-lg">
+        <p className="max-w-2xl text-sm leading-6 text-[#46574d] sm:text-base">
           {compound.summary || 'Evidence-informed compound profile.'}
         </p>
       </div>

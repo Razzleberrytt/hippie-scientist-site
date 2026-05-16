@@ -151,6 +151,39 @@ function getSafetySummary(herb: any) {
   return 'Review personal medications, pregnancy status, chronic conditions, and clinician guidance before use.'
 }
 
+
+function getAvoidIf(herb: any) {
+  return cleanItems([
+    herb.avoid_if,
+    herb.avoidIf,
+    herb.who_should_skip,
+    herb.whoShouldSkip,
+    herb.contraindications,
+    herb.interactions,
+    herb.avoid,
+  ], 5)
+}
+
+const CALMING_PATTERN = /calm|relax|sleep|sedat|anxiolytic|anxiety|stress|gaba|parasympathetic/i
+const STIMULATING_PATTERN = /stimulat|energ|fatigue|alert|caffeine|adrenergic|dopaminergic|nootropic|performance/i
+
+function getRegulationProfile(signals: string[]) {
+  const joined = signals.join(' ').toLowerCase()
+  const calming = CALMING_PATTERN.test(joined)
+  const stimulating = STIMULATING_PATTERN.test(joined)
+
+  if (calming && stimulating) return 'Mixed: calming and stimulating signals both appear in the profile.'
+  if (calming) return 'Leans calming / down-shifting based on listed effects and pathways.'
+  if (stimulating) return 'Leans stimulating / activating based on listed effects and pathways.'
+  return 'No clear calming or stimulating tilt in the available profile data.'
+}
+
+function getSafetyTone(summary: string, avoidIf: string[]) {
+  const highCaution = /avoid|contraindicat|pregnancy|breastfeeding|liver|kidney|bleed|sedative|interaction|medication/i
+  if (avoidIf.length || highCaution.test(summary)) return 'Use extra caution'
+  return 'Standard caution'
+}
+
 function getSafetyDetailGroups(herb: any) {
   const safetyNotes = cleanText(herb.safetyNotes || herb.safety_notes || herb.safety)
   const interactions = cleanItems(herb.interactions, 10)
@@ -173,13 +206,6 @@ function getTimeline(herb: any) {
   return cleanText(herb.time_to_effect || herb.onset || herb.timeline || herb.minimum_effective_dose)
 }
 
-function getStackContext(stackRecords: any[]) {
-  return stackRecords
-    .map(record => ({ label: formatDisplayLabel(record?.name || record?.title || record?.slug), href: record?.slug ? `/stacks/${record.slug}` : '' }))
-    .filter(item => item.label && item.href)
-    .slice(0, 3)
-}
-
 function getMechanisms(herb: any) {
   return cleanItems([herb.mechanisms, herb.primary_mechanisms, herb.pathways], 16)
 }
@@ -199,15 +225,59 @@ function getRelatedLinks(records: any[], entityType: 'herb' | 'compound', limit 
     .slice(0, limit)
 }
 
-function BriefCard({ label, value, children }: { label: string; value?: string; children?: ReactNode }) {
+function BriefCard({ label, value, children, prominent = false }: { label: string; value?: string; children?: ReactNode; prominent?: boolean }) {
   if (!value && !children) return null
 
   return (
-    <div className="border-t border-brand-900/10 pt-3">
+    <div className={prominent ? 'rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm' : 'border-t border-brand-900/10 pt-3'}>
       <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">{label}</p>
-      {value ? <p className="mt-2 text-sm font-semibold leading-6 text-ink">{value}</p> : null}
+      {value ? <p className={prominent ? 'mt-2 text-base font-bold leading-6 text-ink' : 'mt-2 text-sm font-semibold leading-6 text-ink'}>{value}</p> : null}
       {children ? <div className="mt-2">{children}</div> : null}
     </div>
+  )
+}
+
+function DecisionSnapshotPanel({
+  primaryUse,
+  evidence,
+  regulation,
+  safetyTone,
+  safetySummary,
+  avoidIf,
+  timeline,
+  mechanisms,
+}: {
+  primaryUse: string
+  evidence: string
+  regulation: string
+  safetyTone: string
+  safetySummary: string
+  avoidIf: string[]
+  timeline: string
+  mechanisms: string[]
+}) {
+  return (
+    <aside className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6">
+      <div className="flex items-start justify-between gap-3 border-b border-brand-900/10 pb-3">
+        <div>
+          <p className="eyebrow-label">Decision snapshot</p>
+          <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink">5-second profile read</h2>
+        </div>
+        <span className="rounded-full bg-emerald-700/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900">
+          Start here
+        </span>
+      </div>
+
+      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+        <BriefCard label="Commonly used for" value={primaryUse || 'Use context is not clearly specified.'} prominent />
+        <BriefCard label="Evidence strength" value={evidence} prominent />
+        <BriefCard label="Calming vs stimulating" value={regulation} prominent />
+        <BriefCard label={`Safety level: ${safetyTone}`} value={safetySummary} prominent />
+        <BriefCard label="Avoid / review first if" value={avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.'} prominent />
+        <BriefCard label="Onset / timeline" value={timeline || 'Timing varies by preparation, dose, and context.'} prominent />
+        <BriefCard label="Mechanism hints" value={mechanisms.length ? mechanisms.slice(0, 3).join(', ') : 'Mechanism signals are not clearly specified.'} prominent />
+      </div>
+    </aside>
   )
 }
 
@@ -356,16 +426,18 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const safetySummary = getSafetySummary(herb)
   const safetySensitivity = getSafetySensitivity(herb)
   const safetyGroups = getSafetyDetailGroups(herb)
+  const avoidIf = getAvoidIf(herb)
   const timeline = getTimeline(herb)
   const mechanisms = getMechanisms(herb)
   const traditionalUses = getTraditionalUses(herb)
-  const stackContext = getStackContext(stackRecords)
   const researchMaturity = classifyResearchMaturity({ profile: herb })
   const researchStyle = deriveResearchStyle({ profile: herb })
   const focusAreas = deriveResearchFocusAreas({ profile: herb })
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
   const pathwayClusters = derivePathwayClusters({ profile: herb })
   const topUses = unique([...effects, ...traditionalUses, ...focusAreas]).slice(0, 8)
+  const regulationProfile = getRegulationProfile([...topUses, ...mechanisms, safetySummary])
+  const safetyTone = getSafetyTone(safetySummary, avoidIf)
   const hiddenUses = unique([...effects, ...traditionalUses, ...focusAreas]).slice(8)
   const keyTakeaways = unique([
     topUses.length ? `Most often explored for ${topUses.slice(0, 3).join(', ')}.` : '',
@@ -433,16 +505,16 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <span className="text-ink">{displayName}</span>
       </nav>
 
-      <section className="hero-shell rounded-[1.75rem] p-5 sm:p-8">
-        <div className="space-y-5">
+      <section className="hero-shell rounded-[1.75rem] p-4 sm:p-6 lg:p-8">
+        <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.14em] text-muted">
             <Link href="/herbs" className="transition hover:text-ink">Back to herbs</Link>
             <Link href="/compare" className="transition hover:text-ink">Compare</Link>
             <Link href={`/search?q=${encodeURIComponent(displayName)}`} className="transition hover:text-ink">Search related</Link>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
-            <div className="space-y-4">
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,0.82fr)_minmax(340px,1.18fr)] lg:items-start">
+            <div className="space-y-3 lg:pt-2">
               <div className="space-y-2">
                 <p className="eyebrow-label">Herb research brief</p>
                 <h1 className="text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
@@ -451,7 +523,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
               </div>
 
-              <p className="max-w-3xl text-base leading-7 text-[#46574d] sm:text-lg">
+              <p className="max-w-2xl text-sm leading-6 text-[#46574d] sm:text-base">
                 {briefSummary}
               </p>
 
@@ -461,44 +533,19 @@ export default async function HerbDetailPage({ params }: PageProps) {
                   Safety: {formatDisplayLabel(safetySensitivity)} caution
                 </span>
               </div>
-
-              <ChipList items={topUses} limit={4} />
             </div>
 
-            <aside className="rounded-3xl bg-sand-50/70 p-5">
-              <p className="eyebrow-label">Decision cues</p>
-              <div className="mt-3 grid gap-3">
-                <BriefCard label="Evidence" value={evidenceStrength || researchMaturity} />
-                <BriefCard label="Safety" value={safetySummary} />
-                <BriefCard label="Timeline" value={timeline || 'Timing varies by preparation, dose, and context.'} />
-                <BriefCard label="Mechanism hints" value={mechanisms.slice(0, 3).join(', ')} />
-              </div>
-            </aside>
+            <DecisionSnapshotPanel
+              primaryUse={topUses.slice(0, 3).join(', ')}
+              evidence={evidenceStrength || researchMaturity}
+              regulation={regulationProfile}
+              safetyTone={safetyTone}
+              safetySummary={safetySummary}
+              avoidIf={avoidIf}
+              timeline={timeline}
+              mechanisms={mechanisms}
+            />
           </div>
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <div className="space-y-1">
-          <p className="eyebrow-label">Decision snapshot</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Fast orientation before the deep dive</h2>
-        </div>
-        <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-5">
-          <BriefCard label="Best known for" value={topUses.slice(0, 3).join(', ')} />
-          <BriefCard label="Evidence strength" value={evidenceStrength || researchMaturity} />
-          <BriefCard label="Safety watchouts" value={safetyGroups.length ? safetyGroups[0].items.slice(0, 2).join(', ') : safetySummary} />
-          <BriefCard label="Timeline / onset" value={timeline} />
-          <BriefCard label="Stack context">
-            {stackContext.length ? (
-              <div className="space-y-2">
-                {stackContext.map(item => (
-                  <Link key={item.href} href={item.href} className="block text-sm font-semibold text-ink underline-offset-4 hover:underline">
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            ) : null}
-          </BriefCard>
         </div>
       </section>
 

@@ -94,6 +94,26 @@ export async function generateMetadata({ params }: PageProps) {
 const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal/i
 const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk|pregnancy|liver|kidney|sedat|bleed/i
 
+
+const CALMING_PATTERN = /calm|relax|sleep|sedat|anxiolytic|anxiety|stress|gaba|parasympathetic/i
+const STIMULATING_PATTERN = /stimulat|energ|fatigue|alert|caffeine|adrenergic|dopaminergic|nootropic|performance/i
+
+function getRegulationProfile(signals: string[]) {
+  const joined = signals.join(' ').toLowerCase()
+  const calming = CALMING_PATTERN.test(joined)
+  const stimulating = STIMULATING_PATTERN.test(joined)
+
+  if (calming && stimulating) return 'Mixed: calming and stimulating signals both appear in the profile.'
+  if (calming) return 'Leans calming / down-shifting based on listed effects and pathways.'
+  if (stimulating) return 'Leans stimulating / activating based on listed effects and pathways.'
+  return 'No clear calming or stimulating tilt in the available profile data.'
+}
+
+function getSafetyTone(summary: string, avoidIf: string[]) {
+  if (avoidIf.length || CAUTION_PATTERN.test(summary)) return 'Use extra caution'
+  return 'Standard caution'
+}
+
 function firstSentences(value: string, limit = 2) {
   const sentences = value.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map(sentence => sentence.trim()).filter(Boolean) || []
   return sentences.slice(0, limit).join(' ')
@@ -144,22 +164,58 @@ function getMechanismHints(compound: any, provided: string[]) {
   ]).slice(0, 6)
 }
 
-function DecisionSignalCard({ label, value, tone = 'neutral' }: { label: string; value?: string; tone?: 'neutral' | 'caution' | 'strong' | 'muted' }) {
+function DecisionSignalCard({ label, value }: { label: string; value?: string }) {
   if (!value) return null
 
-  const toneClass = tone === 'caution'
-    ? 'text-amber-950'
-    : tone === 'strong'
-      ? 'text-emerald-950'
-      : tone === 'muted'
-        ? 'text-[#5b6b61]'
-        : 'text-[#33443a]'
-
   return (
-    <div className={`border-t border-brand-900/10 pt-3 ${toneClass}`}>
-      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] opacity-65">{label}</p>
-      <p className="mt-2 text-sm font-semibold leading-6">{value}</p>
+    <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-muted">{label}</p>
+      <p className="mt-2 text-base font-bold leading-6 text-ink">{value}</p>
     </div>
+  )
+}
+
+function DecisionSnapshotPanel({
+  commonUse,
+  evidenceLevel,
+  regulation,
+  safetyTone,
+  safetySummary,
+  avoidIf,
+  timeline,
+  mechanismHints,
+}: {
+  commonUse: string
+  evidenceLevel: string
+  regulation: string
+  safetyTone: string
+  safetySummary: string
+  avoidIf: string[]
+  timeline: string
+  mechanismHints: string[]
+}) {
+  return (
+    <aside className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6">
+      <div className="flex items-start justify-between gap-3 border-b border-brand-900/10 pb-3">
+        <div>
+          <p className="eyebrow-label">Decision snapshot</p>
+          <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink">5-second profile read</h2>
+        </div>
+        <span className="rounded-full bg-emerald-700/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900">
+          Start here
+        </span>
+      </div>
+
+      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+        <DecisionSignalCard label="Commonly used for" value={commonUse || 'Use context is not clearly specified.'} />
+        <DecisionSignalCard label="Evidence strength" value={evidenceLevel} />
+        <DecisionSignalCard label="Calming vs stimulating" value={regulation} />
+        <DecisionSignalCard label={`Safety level: ${safetyTone}`} value={safetySummary} />
+        <DecisionSignalCard label="Avoid / review first if" value={avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.'} />
+        <DecisionSignalCard label="Onset / timeline" value={timeline || 'Timing varies by dose, form, and context.'} />
+        <DecisionSignalCard label="Mechanism hints" value={mechanismHints.length ? mechanismHints.slice(0, 3).join(', ') : 'Mechanism signals are not clearly specified.'} />
+      </div>
+    </aside>
   )
 }
 
@@ -273,6 +329,8 @@ export default async function CompoundPage({ params }: PageProps) {
   const safetySummary = getSafetySummary(compound, avoidIf)
   const mechanismHints = getMechanismHints(compound, mechanisms)
   const topSignals = unique([...effects, ...mechanismHints]).slice(0, 8)
+  const regulationProfile = getRegulationProfile([...topSignals, safetySummary])
+  const safetyTone = getSafetyTone(safetySummary, avoidIf)
 
   const compoundJsonLd = {
     '@context': 'https://schema.org',
@@ -327,44 +385,36 @@ export default async function CompoundPage({ params }: PageProps) {
           ]}
         />
 
-        <TrustBar />
-
-        <section className="hero-shell rounded-[2rem] p-5 sm:p-8">
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
-            <div className="space-y-5">
+        <section className="hero-shell rounded-[2rem] p-4 sm:p-6 lg:p-8">
+          <div className="grid gap-5 lg:grid-cols-[minmax(0,0.82fr)_minmax(340px,1.18fr)] lg:items-start">
+            <div className="space-y-4 lg:pt-2">
               <CompoundHero
                 compound={{ ...compound, summary: quickSummary }}
                 evidenceLevel={evidenceLevel}
                 safetyLevel={safetyLevel}
               />
 
-              <div className="space-y-3">
-                <EvidenceBadgeGroup record={compound} compact />
-                {topSignals.length > 0 ? (
-                  <div className="flex flex-wrap gap-2">
-                    {topSignals.slice(0, 5).map((signal:string) => (
-                      <span key={signal} className="chip-readable text-xs">
-                        {signal}
-                      </span>
-                    ))}
-                  </div>
-                ) : null}
-              </div>
+              <EvidenceBadgeGroup record={compound} compact />
             </div>
 
-            <aside className="rounded-3xl bg-sand-50/70 p-5">
-              <p className="eyebrow-label">Decision snapshot</p>
-              <div className="mt-3 grid gap-3">
-                <DecisionSignalCard label="Evidence level" value={evidenceLevel} tone={evidenceLevel.toLowerCase().includes('strong') || evidenceLevel.toLowerCase().includes('high') ? 'strong' : 'neutral'} />
-                <DecisionSignalCard label="Safety read" value={safetySummary} tone={CAUTION_PATTERN.test(safetySummary) || avoidIf.length > 0 ? 'caution' : 'neutral'} />
-                <DecisionSignalCard label="Timeline" value={timeline || 'Timing varies by dose, form, and context.'} tone={timeline ? 'neutral' : 'muted'} />
-                <DecisionSignalCard label="Mechanism hints" value={mechanismHints.slice(0, 3).join(', ')} />
-              </div>
-            </aside>
+            <DecisionSnapshotPanel
+              commonUse={effects.slice(0, 3).join(', ')}
+              evidenceLevel={evidenceLevel}
+              regulation={regulationProfile}
+              safetyTone={safetyTone}
+              safetySummary={safetySummary}
+              avoidIf={avoidIf}
+              timeline={timeline}
+              mechanismHints={mechanismHints}
+            />
           </div>
         </section>
 
-        <EvidenceSnapshotCard snapshot={snapshot} />
+        <TrustBar />
+
+        <CompactDisclosure title="Evidence snapshot metrics">
+          <EvidenceSnapshotCard snapshot={snapshot} />
+        </CompactDisclosure>
 
         <CompactDisclosure title="Decision support and practical notes">
           <ProfileDecisionLayer
