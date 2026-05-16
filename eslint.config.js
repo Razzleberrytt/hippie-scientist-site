@@ -48,13 +48,23 @@ export default [
     files: [
       'app/**/*.{js,jsx,ts,tsx}',
       'components/**/*.{js,jsx,ts,tsx}',
+      'lib/**/*.{js,jsx,ts,tsx}',
       'src/components/explore/**/*.{js,jsx,ts,tsx}',
       'src/components/runtime/**/*.{js,jsx,ts,tsx}',
       'src/components/mobile-bottom-nav.tsx',
+      'src/lib/runtime-*.ts',
     ],
     rules: {
       'jsx-a11y/alt-text': 'error',
       'jsx-a11y/label-has-associated-control': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   {
