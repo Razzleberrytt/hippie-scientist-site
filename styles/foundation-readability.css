@@ -217,4 +217,10 @@ canvas {
     font-size: 0.68rem;
     letter-spacing: 0.1em;
   }
+
+  .chip-readable {
+    line-height: 1.2;
+    min-height: 2.25rem;
+    white-space: normal;
+  }
 }

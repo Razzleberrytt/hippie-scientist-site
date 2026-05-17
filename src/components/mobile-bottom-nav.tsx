@@ -36,8 +36,8 @@ export default function MobileBottomNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/10 bg-white/[0.88] backdrop-blur-xl supports-[backdrop-filter]:bg-white/75 md:hidden">
-      <div className="mx-auto flex max-w-2xl items-center justify-around px-2 py-2 pb-[calc(env(safe-area-inset-bottom)+0.5rem)]">
+    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/10 bg-white/[0.92] shadow-[0_-10px_30px_rgba(17,24,39,0.08)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 md:hidden">
+      <div className="mx-auto flex max-w-2xl items-stretch gap-1 px-2 pb-[calc(env(safe-area-inset-bottom)+0.65rem)] pt-2">
         {navItems.map((item) => {
           const active = pathname === item.href || pathname?.startsWith(`${item.href}/`)
           const Icon = item.Icon
@@ -47,14 +47,14 @@ export default function MobileBottomNav() {
               key={item.href}
               href={item.href}
               aria-current={active ? 'page' : undefined}
-              className={`flex min-w-[64px] flex-col items-center gap-1 rounded-2xl px-3 py-2 text-center transition-all duration-200 ${
+              className={`flex min-h-[3.25rem] min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-2xl px-1.5 py-2 text-center transition-all duration-200 ${
                 active
                   ? 'bg-brand-900/8 text-brand-800 shadow-sm'
                   : 'text-[#5c6d63] hover:bg-black/[0.03] hover:text-ink'
               }`}
             >
-              <Icon aria-hidden="true" className="h-4 w-4" strokeWidth={2.2} />
-              <span className="text-xs font-semibold tracking-tight">
+              <Icon aria-hidden="true" className="h-[1.05rem] w-[1.05rem]" strokeWidth={2.2} />
+              <span className="max-w-full truncate text-[0.68rem] font-semibold leading-none tracking-tight">
                 {item.label}
               </span>
             </Link>
