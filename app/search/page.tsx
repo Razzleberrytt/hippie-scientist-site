@@ -151,8 +151,6 @@ function typeClass(type: SearchType) {
   return type === 'Herb'
     ? `${decisionStatusBadgeClass} border-brand-700/10 bg-brand-50 text-brand-800`
     : `${decisionStatusBadgeClass} border-blue-700/10 bg-blue-50 text-blue-800`
-    ? 'rounded-full border border-brand-700/10 bg-brand-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-800'
-    : 'rounded-full border border-blue-700/10 bg-blue-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-800'
 }
 
 function compareAuthority(a: SearchItem, b: SearchItem) {
