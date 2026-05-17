@@ -100,7 +100,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <div className='pb-28 md:pb-10'>
+          <div className='pb-[calc(env(safe-area-inset-bottom)+6rem)] md:pb-10'>
             {children}
           </div>
 

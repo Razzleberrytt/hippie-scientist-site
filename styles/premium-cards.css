@@ -154,6 +154,7 @@
   justify-content: center;
 
   min-height: 2rem;
+  max-width: 100%;
 
   border-radius: 999px;
   padding: 0.45rem 0.82rem;
@@ -174,6 +175,15 @@
 .evidence-pill-strong:hover,
 .evidence-pill-moderate:hover {
   transform: translateY(-1px);
+}
+
+
+@media (max-width: 480px) {
+  .chip-readable {
+    line-height: 1.2;
+    min-height: 2.25rem;
+    white-space: normal;
+  }
 }
 
 .button-primary,

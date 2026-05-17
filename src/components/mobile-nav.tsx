@@ -79,7 +79,7 @@ export default function MobileNav({ links }: MobileNavProps) {
         aria-expanded={open}
         aria-controls='mobile-navigation'
         onClick={() => setOpen(value => !value)}
-        className='rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-black text-slate-900 shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50 active:scale-[0.98]'
+        className='min-h-11 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-black text-slate-900 shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50 active:scale-[0.98]'
       >
         Menu
       </button>
@@ -89,7 +89,7 @@ export default function MobileNav({ links }: MobileNavProps) {
           ref={navRef}
           id='mobile-navigation'
           aria-label='Mobile navigation'
-          className='absolute left-4 right-4 top-20 z-50 rounded-3xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-900/15 backdrop-blur'
+          className='absolute left-4 right-4 top-20 z-[95] rounded-3xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-900/15 backdrop-blur'
         >
           <div className='grid gap-1'>
             {links.map(link => (
@@ -97,7 +97,7 @@ export default function MobileNav({ links }: MobileNavProps) {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className='rounded-2xl px-4 py-3 text-base font-black text-slate-900 transition hover:bg-emerald-50 hover:text-emerald-800'
+                className='flex min-h-12 items-center rounded-2xl px-4 py-3 text-base font-black text-slate-900 transition hover:bg-emerald-50 hover:text-emerald-800'
               >
                 {link.label}
               </Link>

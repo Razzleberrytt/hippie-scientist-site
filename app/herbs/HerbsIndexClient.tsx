@@ -191,9 +191,9 @@ function buildFilterHref(value: string, query: string) {
 
 function StatCard({ value, label }: { value: number; label: string }) {
   return (
-    <div className="rounded-[1.1rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm backdrop-blur sm:p-4">
+    <div className="min-w-0 rounded-[1.1rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm backdrop-blur sm:p-4">
       <p className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{value}</p>
-      <p className="mt-1 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[#5f6f66]">{label}</p>
+      <p className="mt-1 text-[0.66rem] font-bold uppercase leading-snug tracking-[0.12em] text-[#5f6f66] sm:text-[0.68rem] sm:tracking-[0.14em]">{label}</p>
     </div>
   )
 }
@@ -295,7 +295,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs }: { herbs: any[] 
   const libraryHerbs = hasActiveFilters ? visibleHerbs : herbs.slice(featuredHerbs.length)
 
   return (
-    <div className="min-h-screen px-4 py-5 text-ink sm:py-8">
+    <div className="min-h-screen px-3 py-5 text-ink sm:px-4 sm:py-8">
       <div className="mx-auto max-w-7xl space-y-8 sm:space-y-12">
         <section className="hero-shell relative overflow-hidden rounded-[1.7rem] border border-white/50 px-5 py-7 shadow-sm sm:rounded-[2.2rem] sm:px-8 sm:py-10 lg:px-12">
           <div className="!absolute right-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-emerald-200/25 blur-3xl" />

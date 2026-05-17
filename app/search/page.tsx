@@ -7,12 +7,8 @@ import compoundsSummaryData from '@/public/data/compounds-summary.json'
 import herbsSummaryData from '@/public/data/herbs-summary.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import {
-  evidenceToneClasses,
-  getDecisionEvidenceTone,
-  getDecisionSafetyTone,
   normalizeDecisionEvidence,
   normalizeDecisionSafety,
-  safetyToneClasses,
 } from '@/lib/decision-primitives'
 import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
@@ -146,18 +142,10 @@ function getQuality(item: any) {
   return labelize(item.profile_status || item.summary_quality || item.review_status || item.status || item.confidence, 'Profile Review')
 }
 
-function evidenceClass(level: string) {
-  return `rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] ${evidenceToneClasses(getDecisionEvidenceTone(level))}`
-}
-
-function safetyClass(level: string) {
-  return `rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] ${safetyToneClasses(getDecisionSafetyTone(level))}`
-}
-
 function typeClass(type: SearchType) {
   return type === 'Herb'
-    ? 'rounded-full border border-brand-700/10 bg-brand-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-800'
-    : 'rounded-full border border-blue-700/10 bg-blue-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-blue-800'
+    ? 'rounded-full border border-brand-700/10 bg-brand-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-800'
+    : 'rounded-full border border-blue-700/10 bg-blue-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-800'
 }
 
 function compareAuthority(a: SearchItem, b: SearchItem) {
@@ -253,17 +241,15 @@ function ResultCard({ item }: { item: SearchItem }) {
   return (
     <Link
       href={item.href}
-      className="group flex h-full min-h-[16rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:p-5"
+      className="group flex h-full min-h-[15rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[16rem] sm:p-5"
     >
       <div className="flex flex-1 flex-col">
         <div className="flex flex-wrap gap-2">
           <span className={typeClass(item.type)}>{item.type}</span>
-          <span className={evidenceClass(item.evidence)}>{item.evidence}</span>
-          <span className={safetyClass(item.safety)}>{item.safety}</span>
         </div>
 
-        <div className="mt-4 flex items-start justify-between gap-3">
-          <h2 className="text-[1.35rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
+        <div className="mt-4 flex min-w-0 items-start justify-between gap-3">
+          <h2 className="min-w-0 break-words text-[1.3rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
             {item.name}
           </h2>
         </div>
@@ -320,7 +306,7 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
             key={path.label}
             type="button"
             onClick={() => onSelect(path.query)}
-            className="group min-h-28 rounded-[1.1rem] border border-brand-900/10 bg-white/80 p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white"
+            className="group min-h-24 rounded-[1.1rem] border border-brand-900/10 bg-white/80 p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white sm:min-h-28"
           >
             <span className="text-lg font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</span>
             <span className="mt-2 block text-sm leading-6 text-[#46574d]">{path.description}</span>
@@ -451,21 +437,21 @@ export default function SearchPage() {
                 />
               </div>
 
-              <details className="rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-4" open={hasActiveSearch || undefined}>
-                <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-4 text-sm font-bold text-ink">
+              <details className="rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 sm:p-4" open={hasActiveSearch || undefined}>
+                <summary className="flex min-h-12 cursor-pointer items-center justify-between gap-4 text-sm font-bold text-ink">
                   <span>Refine results</span>
                   <span className="text-brand-800" aria-hidden="true">↓</span>
                 </summary>
                 <div className="mt-4 space-y-4">
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid gap-2 sm:flex sm:flex-wrap">
                     {filterOptions.map(filter => (
                       <button
                         key={filter}
                         type="button"
                         onClick={() => setActiveFilter(filter)}
                         className={activeFilter === filter
-                          ? 'button-primary min-h-11 rounded-full px-4 py-2 text-sm'
-                          : 'min-h-11 rounded-full border border-brand-900/10 bg-white/80 px-4 py-2 text-sm font-semibold text-[#33443a] transition hover:border-brand-700/20 hover:bg-white hover:text-brand-800'}
+                          ? 'button-primary min-h-12 rounded-full px-4 py-2 text-sm'
+                          : 'min-h-12 rounded-full border border-brand-900/10 bg-white/80 px-4 py-2 text-sm font-semibold text-[#33443a] transition hover:border-brand-700/20 hover:bg-white hover:text-brand-800'}
                       >
                         {filter === 'All' ? 'All profiles' : `${filter}s only`}
                       </button>

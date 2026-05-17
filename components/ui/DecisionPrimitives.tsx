@@ -82,15 +82,15 @@ export function DecisionFilterGroup({
   open?: boolean
 }) {
   const itemClass = (active: boolean) =>
-    `min-h-11 rounded-[1rem] border px-3 py-3 text-sm font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`
+    `min-h-12 rounded-[1rem] border px-3 py-3 text-sm font-semibold leading-snug transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`
 
   return (
-    <details className="mt-4 rounded-[1.2rem] border-brand-900/10 bg-[#fbfaf6]/80 p-4 shadow-none" open={open || undefined}>
-      <summary className="flex min-h-11 items-center justify-between gap-4 text-sm font-bold text-ink">
+    <details className="mt-4 rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 shadow-none sm:p-4" open={open || undefined}>
+      <summary className="flex min-h-12 items-center justify-between gap-4 text-sm font-bold text-ink">
         <span>Refine by context</span>
         <span className="text-brand-800" aria-hidden="true">↓</span>
       </summary>
-      <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-3 grid gap-2 sm:mt-4 sm:grid-cols-2 lg:grid-cols-5">
         <Link href={buildHref('all', query)} className={itemClass(activeFilter === 'all')}>
           All contexts
           <span className="mt-1 block text-xs font-medium leading-5 text-[#64746a]">Keep the scan broad.</span>
@@ -134,11 +134,11 @@ export function DecisionProfileCard({
   return (
     <Link
       href={href}
-      className="group flex h-full min-h-[16rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:p-5"
+      className="group flex h-full min-h-[15rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[16rem] sm:p-5"
     >
       <div className="flex flex-1 flex-col">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="text-[1.35rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
+        <div className="flex min-w-0 items-start justify-between gap-3">
+          <h3 className="min-w-0 break-words text-[1.3rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
             {name}
           </h3>
           {featured ? (
