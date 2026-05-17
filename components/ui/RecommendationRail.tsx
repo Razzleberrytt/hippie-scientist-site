@@ -1,5 +1,10 @@
 import Link from 'next/link'
 import { isClean } from '@/lib/display-utils'
+import {
+  decisionMetadataClusterClass,
+  decisionMicroLabelClass,
+  decisionStatusBadgeClass,
+} from '@/lib/decision-primitives'
 
 type Item = {
   slug: string
@@ -22,7 +27,7 @@ export default function RecommendationRail({ title, subtitle, items }: Props) {
   return (
     <section className="space-y-5">
       <div>
-        <div className="eyebrow-label">
+        <div className={`${decisionMicroLabelClass} text-brand-700`}>
           Semantic Discovery
         </div>
 
@@ -40,6 +45,7 @@ export default function RecommendationRail({ title, subtitle, items }: Props) {
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {visibleItems.map((item) => {
           const strength = Math.min(100, (item.relationship_score || 1) * 15)
+          const strengthLabel = strength >= 60 ? 'Strong' : strength >= 30 ? 'Moderate' : 'Exploratory'
 
           return (
             <Link
@@ -49,12 +55,14 @@ export default function RecommendationRail({ title, subtitle, items }: Props) {
             >
               <div className="space-y-4">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-lg font-semibold text-ink transition group-hover:text-brand-800">
+                  <h3 className="min-w-0 flex-1 break-words text-lg font-semibold text-ink transition group-hover:text-brand-800">
                     {item.name || item.slug}
                   </h3>
 
-                  <div className="chip-readable text-[10px] uppercase tracking-wide">
-                    {strength >= 60 ? 'Strong' : strength >= 30 ? 'Moderate' : 'Exploratory'}
+                  <div className={decisionMetadataClusterClass}>
+                    <div className={`${decisionStatusBadgeClass} shrink-0 border-brand-900/10 bg-white/80 text-[#5f6f66]`}>
+                      {strengthLabel}
+                    </div>
                   </div>
                 </div>
 
