@@ -23,6 +23,24 @@ export type StandardSafetyLabel = (typeof STANDARD_SAFETY_LABELS)[number]
 export type DecisionSafetyTone = 'ok' | 'caution' | 'interaction' | 'review' | 'limited'
 export type DecisionEvidenceTone = 'strong' | 'moderate' | 'limited' | 'mixed' | 'preliminary' | 'traditional' | 'insufficient' | 'review'
 
+export const decisionBadgeClass =
+  'inline-flex min-h-8 max-w-full items-center rounded-full border px-3 py-1 text-xs font-semibold leading-snug break-words shadow-sm'
+
+export const decisionStatusBadgeClass =
+  `${decisionBadgeClass} text-[0.72rem] uppercase tracking-[0.08em]`
+
+export const decisionChipClass =
+  'inline-flex min-h-8 max-w-full items-center rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-xs font-semibold leading-snug text-[#5f6f66] break-words'
+
+export const decisionMicroLabelClass =
+  'text-xs font-bold uppercase tracking-[0.1em] leading-none'
+
+export const decisionMetricShellClass =
+  'min-w-0 rounded-[1rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-3 py-2.5'
+
+export const decisionMetadataClusterClass =
+  'flex flex-wrap items-center gap-2.5 sm:gap-3'
+
 function compactText(value?: unknown) {
   if (value == null) return ''
   if (Array.isArray(value)) return value.map(compactText).filter(Boolean).join(' ')
