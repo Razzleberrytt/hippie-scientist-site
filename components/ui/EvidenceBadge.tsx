@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import {
+  decisionStatusBadgeClass,
   evidenceToneClasses,
   getDecisionEvidenceTone,
   normalizeDecisionEvidence,
@@ -23,7 +24,7 @@ export default function EvidenceBadge({
       href="/education/evidence-levels"
       title={tooltip}
       aria-label={`${label}. ${tooltip}`}
-      className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-semibold leading-none transition hover:scale-[1.02] ${evidenceToneClasses(tone)} ${className}`}
+      className={`${decisionStatusBadgeClass} ${evidenceToneClasses(tone)} ${className}`}
     >
       {label}
     </Link>
