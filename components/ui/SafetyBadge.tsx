@@ -1,4 +1,5 @@
 import {
+  decisionStatusBadgeClass,
   getDecisionSafetyTone,
   normalizeDecisionSafety,
   safetyToneClasses,
@@ -9,7 +10,7 @@ export default function SafetyBadge({ level = 'Needs review' }: { level?: string
   const tone = getDecisionSafetyTone(label)
 
   return (
-    <span className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold leading-none ${safetyToneClasses(tone)}`}>
+    <span className={`${decisionStatusBadgeClass} ${safetyToneClasses(tone)}`}>
       {label}
     </span>
   )

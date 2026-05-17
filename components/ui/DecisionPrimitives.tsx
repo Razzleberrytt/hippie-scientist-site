@@ -1,5 +1,12 @@
 import Link from 'next/link'
 import { formatDisplayLabel } from '@/lib/display-utils'
+import {
+  decisionChipClass,
+  decisionMetadataClusterClass,
+  decisionMetricShellClass,
+  decisionMicroLabelClass,
+  decisionStatusBadgeClass,
+} from '@/lib/decision-primitives'
 
 type DecisionMetricProps = {
   label: string
@@ -10,8 +17,8 @@ export function DecisionMetric({ label, value }: DecisionMetricProps) {
   if (!value) return null
 
   return (
-    <div className="min-w-0 rounded-[1rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-3 py-2.5">
-      <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#68786f]">{label}</p>
+    <div className={decisionMetricShellClass}>
+      <p className={`${decisionMicroLabelClass} text-[#68786f]`}>{label}</p>
       <p className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-[#26382f]">{value}</p>
     </div>
   )
@@ -142,7 +149,9 @@ export function DecisionProfileCard({
             {name}
           </h3>
           {featured ? (
-            <span className="shrink-0 rounded-full border border-brand-700/10 bg-brand-50 px-2.5 py-1 text-[0.68rem] font-bold text-brand-800">Start here</span>
+            <span className={`${decisionStatusBadgeClass} shrink-0 border-brand-700/10 bg-brand-50 text-brand-800`}>
+              Start here
+            </span>
           ) : null}
         </div>
 
@@ -151,7 +160,7 @@ export function DecisionProfileCard({
         </p>
 
         <div className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-brand-50/45 p-3">
-          <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-brand-800">Best-for context</p>
+          <p className={`${decisionMicroLabelClass} text-brand-800`}>Best-for context</p>
           <p className="mt-1.5 text-base font-semibold leading-6 text-[#203329]">{bestFor}</p>
         </div>
 
@@ -162,9 +171,9 @@ export function DecisionProfileCard({
         </div>
 
         {visibleMechanisms.length > 0 ? (
-          <div className="mt-3 flex flex-wrap gap-2 border-t border-brand-900/10 pt-3">
+          <div className={`${decisionMetadataClusterClass} mt-3 border-t border-brand-900/10 pt-3`}>
             {visibleMechanisms.map(mechanism => (
-              <span key={mechanism} className="rounded-full bg-white/70 px-2.5 py-1 text-xs font-semibold text-[#64746a]">
+              <span key={mechanism} className={decisionChipClass}>
                 {mechanism}
               </span>
             ))}

@@ -7,6 +7,11 @@ import compoundsSummaryData from '@/public/data/compounds-summary.json'
 import herbsSummaryData from '@/public/data/herbs-summary.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import {
+  decisionChipClass,
+  decisionMetadataClusterClass,
+  decisionMetricShellClass,
+  decisionMicroLabelClass,
+  decisionStatusBadgeClass,
   normalizeDecisionEvidence,
   normalizeDecisionSafety,
 } from '@/lib/decision-primitives'
@@ -144,6 +149,8 @@ function getQuality(item: any) {
 
 function typeClass(type: SearchType) {
   return type === 'Herb'
+    ? `${decisionStatusBadgeClass} border-brand-700/10 bg-brand-50 text-brand-800`
+    : `${decisionStatusBadgeClass} border-blue-700/10 bg-blue-50 text-blue-800`
     ? 'rounded-full border border-brand-700/10 bg-brand-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-800'
     : 'rounded-full border border-blue-700/10 bg-blue-50 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-blue-800'
 }
@@ -227,8 +234,8 @@ function SearchMetric({ label, value }: { label: string; value?: string }) {
   if (!value) return null
 
   return (
-    <div className="min-w-0 rounded-[1rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-3 py-2.5">
-      <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#68786f]">{label}</p>
+    <div className={decisionMetricShellClass}>
+      <p className={`${decisionMicroLabelClass} text-[#68786f]`}>{label}</p>
       <p className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-[#26382f]">{value}</p>
     </div>
   )
@@ -244,7 +251,7 @@ function ResultCard({ item }: { item: SearchItem }) {
       className="group flex h-full min-h-[15rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[16rem] sm:p-5"
     >
       <div className="flex flex-1 flex-col">
-        <div className="flex flex-wrap gap-2">
+        <div className={decisionMetadataClusterClass}>
           <span className={typeClass(item.type)}>{item.type}</span>
         </div>
 
@@ -259,7 +266,7 @@ function ResultCard({ item }: { item: SearchItem }) {
         </p>
 
         <div className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-brand-50/45 p-3">
-          <p className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-brand-800">May be relevant for</p>
+          <p className={`${decisionMicroLabelClass} text-brand-800`}>May be relevant for</p>
           <p className="mt-1.5 text-base font-semibold leading-6 text-[#203329]">{bestFor}</p>
         </div>
 
@@ -269,9 +276,9 @@ function ResultCard({ item }: { item: SearchItem }) {
         </div>
 
         {mechanisms.length > 0 ? (
-          <div className="mt-3 flex flex-wrap gap-2 border-t border-brand-900/10 pt-3">
+          <div className={`${decisionMetadataClusterClass} mt-3 border-t border-brand-900/10 pt-3`}>
             {mechanisms.map(effect => (
-              <span key={effect} className="rounded-full bg-white/70 px-2.5 py-1 text-xs font-semibold text-[#64746a]">
+              <span key={effect} className={decisionChipClass}>
                 {effect}
               </span>
             ))}
