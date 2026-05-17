@@ -3,6 +3,12 @@
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
+import {
+  decisionChipClass,
+  decisionMetadataClusterClass,
+  decisionMicroLabelClass,
+  decisionStatusBadgeClass,
+} from '@/lib/decision-primitives'
 
 type SearchRecord = {
   slug?: string
@@ -47,14 +53,14 @@ function evidenceClass(value = '') {
   const normalized = value.toLowerCase()
 
   if (normalized.includes('strong') || normalized.includes('clinical')) {
-    return 'evidence-pill-strong'
+    return `${decisionStatusBadgeClass} border-emerald-800/15 bg-emerald-50/80 text-emerald-900`
   }
 
   if (normalized.includes('moderate') || normalized.includes('human')) {
-    return 'evidence-pill-moderate'
+    return `${decisionStatusBadgeClass} border-blue-800/15 bg-blue-50/70 text-blue-900`
   }
 
-  return 'chip-readable'
+  return `${decisionStatusBadgeClass} border-brand-900/10 bg-white/80 text-[#5f6f66]`
 }
 
 export default function SemanticSearchDiscovery({ records }: SemanticSearchDiscoveryProps) {
@@ -103,9 +109,11 @@ export default function SemanticSearchDiscovery({ records }: SemanticSearchDisco
   return (
     <section className="compact-section section-rhythm-balanced">
       <div className="space-y-3">
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="eyebrow-label">Semantic Discovery</p>
-          <span className="chip-readable">Research-aware exploration</span>
+        <div className={decisionMetadataClusterClass}>
+          <p className={`${decisionMicroLabelClass} text-brand-700`}>
+            Semantic Discovery
+          </p>
+          <span className={decisionChipClass}>Research-aware exploration</span>
         </div>
 
         <h2 className="compact-heading">
@@ -126,13 +134,13 @@ export default function SemanticSearchDiscovery({ records }: SemanticSearchDisco
           className="w-full rounded-[1.4rem] border border-brand-900/10 bg-white/85 px-5 py-4 text-base shadow-sm backdrop-blur-xl"
         />
 
-        <div className="flex flex-wrap gap-2">
+        <div className={decisionMetadataClusterClass}>
           {suggestions.map((suggestion) => (
             <button
               key={suggestion}
               type="button"
               onClick={() => setQuery(suggestion)}
-              className="chip-readable transition hover:bg-white"
+              className={`${decisionChipClass} transition hover:bg-white`}
             >
               {suggestion}
             </button>
@@ -151,15 +159,15 @@ export default function SemanticSearchDiscovery({ records }: SemanticSearchDisco
               href={recordHref(record)}
               className="compact-card group section-rhythm-compact"
             >
-              <div className="flex flex-wrap gap-2">
+              <div className={decisionMetadataClusterClass}>
                 <span className={evidenceClass(evidence)}>{evidence}</span>
-                <span className="identity-kicker">
+                <span className={`${decisionStatusBadgeClass} border-brand-900/10 bg-brand-50/70 text-brand-800`}>
                   {record.entityType === 'compound' ? 'Compound' : 'Herb'}
                 </span>
               </div>
 
               <div className="space-y-2">
-                <h3 className="max-w-none text-lg font-semibold leading-tight tracking-tight text-ink group-hover:text-brand-700">
+                <h3 className="max-w-none break-words text-lg font-semibold leading-tight tracking-tight text-ink group-hover:text-brand-700">
                   {formatDisplayLabel(record.displayName || record.name || record.slug)}
                 </h3>
 
@@ -169,9 +177,9 @@ export default function SemanticSearchDiscovery({ records }: SemanticSearchDisco
               </div>
 
               {signals.length > 0 ? (
-                <div className="flex flex-wrap gap-1.5 border-t border-brand-900/10 pt-3">
+                <div className={`${decisionMetadataClusterClass} border-t border-brand-900/10 pt-3`}>
                   {signals.map((signal) => (
-                    <span key={signal} className="chip-readable">
+                    <span key={signal} className={decisionChipClass}>
                       {signal}
                     </span>
                   ))}
