@@ -3,14 +3,21 @@ import { notFound } from 'next/navigation'
 import { getEcosystemHub, getEcosystemHubs } from '@/lib/ecosystem-hubs'
 import EcosystemSupernode from '@/components/ecosystem-supernode'
 
+type EcosystemRouteParams = Promise<{ slug: string }>
+
+type EcosystemRouteProps = {
+  params: EcosystemRouteParams
+}
+
 export async function generateStaticParams() {
   return getEcosystemHubs().map((hub) => ({
     slug: hub.slug,
   }))
 }
 
-export async function generateMetadata({ params }: any) {
-  const hub = getEcosystemHub(params.slug)
+export async function generateMetadata({ params }: EcosystemRouteProps) {
+  const resolvedParams = await params
+  const hub = getEcosystemHub(resolvedParams.slug)
 
   if (!hub) {
     return {}
@@ -54,8 +61,9 @@ function stimulationTone(value: string) {
   return 'border-brand-900/10 bg-paper-50/80 text-[#33443a]'
 }
 
-export default function EcosystemHubPage({ params }: any) {
-  const hub = getEcosystemHub(params.slug)
+export default async function EcosystemHubPage({ params }: EcosystemRouteProps) {
+  const resolvedParams = await params
+  const hub = getEcosystemHub(resolvedParams.slug)
 
   if (!hub) {
     notFound()

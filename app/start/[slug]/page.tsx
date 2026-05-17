@@ -8,14 +8,21 @@ function getPathway(slug: string) {
   return getBeginnerPathways().find((pathway) => pathway.slug === slug)
 }
 
+type StartRouteParams = Promise<{ slug: string }>
+
+type StartRouteProps = {
+  params: StartRouteParams
+}
+
 export async function generateStaticParams() {
   return getBeginnerPathways().map((pathway) => ({
     slug: pathway.slug,
   }))
 }
 
-export async function generateMetadata({ params }: any) {
-  const pathway = getPathway(params.slug)
+export async function generateMetadata({ params }: StartRouteProps) {
+  const resolvedParams = await params
+  const pathway = getPathway(resolvedParams.slug)
 
   if (!pathway) {
     return {}
@@ -47,8 +54,9 @@ function buildProfileHref(profile: string) {
   return `/herbs/${normalized}`
 }
 
-export default function BeginnerPathwayPage({ params }: any) {
-  const pathway = getPathway(params.slug)
+export default async function BeginnerPathwayPage({ params }: StartRouteProps) {
+  const resolvedParams = await params
+  const pathway = getPathway(resolvedParams.slug)
 
   if (!pathway) {
     notFound()
