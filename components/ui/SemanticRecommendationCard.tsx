@@ -1,5 +1,10 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean, isSafeInternalHref } from '@/lib/display-utils'
+import {
+  decisionChipClass,
+  decisionMetadataClusterClass,
+  decisionStatusBadgeClass,
+} from '@/lib/decision-primitives'
 
 type Props = {
   item: {
@@ -15,7 +20,6 @@ type Props = {
 function cleanLabel(value?: string) {
   return formatDisplayLabel(value)
 }
-
 
 export default function SemanticRecommendationCard({ item }: Props) {
   const confidence =
@@ -40,27 +44,27 @@ export default function SemanticRecommendationCard({ item }: Props) {
       className="card-premium block p-5 transition-all duration-300 hover:-translate-y-1"
     >
       <div className="flex items-start justify-between gap-3">
-        <div>
+        <div className="min-w-0 flex-1">
           <div className="text-base font-semibold text-ink transition group-hover:text-brand-700">
             {name}
           </div>
 
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className={`${decisionMetadataClusterClass} mt-2`}>
             {archetype ? (
-              <span className="evidence-pill-strong">
+              <span className={`${decisionStatusBadgeClass} border-emerald-800/15 bg-emerald-50/80 text-emerald-900`}>
                 {archetype}
               </span>
             ) : null}
 
             {evidenceTier ? (
-              <span className="chip-readable">
+              <span className={decisionChipClass}>
                 {evidenceTier}
               </span>
             ) : null}
           </div>
         </div>
 
-        <div className="chip-readable text-[10px] uppercase tracking-wide">
+        <div className={`${decisionStatusBadgeClass} shrink-0 border-brand-900/10 bg-white/80 text-[#5f6f66]`}>
           {confidence}
         </div>
       </div>
