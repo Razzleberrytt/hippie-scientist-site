@@ -54,7 +54,7 @@ export default function MobileBottomNav() {
               }`}
             >
               <Icon aria-hidden="true" className="h-[1.05rem] w-[1.05rem]" strokeWidth={2.2} />
-              <span className="max-w-full truncate text-[0.68rem] font-semibold leading-none tracking-tight">
+              <span className="max-w-full truncate text-xs font-semibold leading-none tracking-tight">
                 {item.label}
               </span>
             </Link>
