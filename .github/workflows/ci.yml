@@ -6,23 +6,102 @@ on:
     branches:
       - main
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
-  deterministic-install:
+  quality-gate:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node from .nvmrc
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: npm
 
+      - name: Show Node version
+        run: node --version
+
+      - name: Show npm version
+        run: npm --version
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify lockfile is unchanged
-        run: git diff --exit-code package-lock.json
+      - name: Verify package metadata is unchanged after install
+        run: git diff --exit-code package-lock.json package.json
 
+      - name: Verify Node engine
+        run: npm run check:node
+
+      - name: Validate workbook source
+        run: npm run validate:workbook-source
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run typecheck
+        run: npm run typecheck
+
+      - name: Build data artifacts
+        run: npm run data:build
+
+      - name: Validate data artifacts
+        run: npm run data:validate
+
+      - name: Guard workbook source of truth
+        run: npm run guard:source-of-truth
+
+      - name: Build application
+        run: npm run build
+
+      - name: Verify build output
+        run: npm run verify:build
+
+      - name: Fail if generated data artifacts are stale
+        run: |
+          if ! git diff --quiet -- public/data; then
+            echo "Generated public/data artifacts are stale. Run 'npm run data:build' and commit the results."
+            git diff --stat -- public/data
+            exit 1
+          fi
+
+      - name: Run security audit
+        id: audit
+        run: |
+          set +e
+          npm audit --audit-level=high --json > npm-audit.after.json
+          status=$?
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          exit $status
+
+      - name: Upload audit artifact
+        if: always() && hashFiles('npm-audit.after.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-audit-after
+          path: npm-audit.after.json
+
+      - name: Add audit summary
+        if: always()
+        run: |
+          if [ "${{ steps.audit.outputs.exit_code }}" = "0" ]; then
+            {
+              echo "## Security audit"
+              echo "✅ npm audit passed (no high/critical vulnerabilities found)."
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "## Security audit"
+              echo "❌ npm audit failed (high and/or critical vulnerabilities found)."
+              echo "See uploaded artifact: npm-audit-after."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
