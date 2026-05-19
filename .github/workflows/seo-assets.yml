@@ -3,6 +3,9 @@ name: SEO Asset Generator
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   seo:
     runs-on: ubuntu-latest
@@ -10,6 +13,18 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - run: npm install --prefer-offline --no-audit
-      - run: npm run agent:run -- --mode=standard --batch=25 || true
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check:node
+      - run: npm run agent:run -- --mode=standard --batch=25
+      - name: Workflow summary
+        if: always()
+        run: |
+          {
+            echo "## SEO Asset Generator"
+            echo "- Purpose: generate SEO-focused agent assets"
+            echo "- Branch/ref: $GITHUB_REF"
+            echo "- Command: npm run agent:run -- --mode=standard --batch=25"
+            echo "- Status: ${{ job.status }}"
+          } >> "$GITHUB_STEP_SUMMARY"

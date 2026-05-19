@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  actions: write
-  contents: write
+  contents: read
 
 jobs:
   metadata_harvest:
