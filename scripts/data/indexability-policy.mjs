@@ -11,6 +11,7 @@ const PUBLISH_DECISIONS = new Set([
   'publish',
   'publishable',
   'ready',
+  'limited',
 ])
 
 const NOINDEX_DECISIONS = new Set([
