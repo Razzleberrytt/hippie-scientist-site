@@ -34,7 +34,8 @@
     "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run data:verify",
     "data:verify": "node scripts/data/verify-generated-data.mjs",
     "validate:workbook-source": "node scripts/ci/validate-workbook-source.mjs",
-    "prebuild": "npm run validate:workbook-source"
+    "prebuild": "npm run validate:workbook-source",
+    "check:node": "node scripts/ci/check-node-version.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
