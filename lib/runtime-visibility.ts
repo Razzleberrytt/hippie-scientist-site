@@ -47,6 +47,19 @@ export function getRuntimeVisibility(record: any) {
     }
   }
 
+  // Respect pre-computed pipeline fields when present
+  const sitemapIncluded = record?.sitemap_included
+  const robotsField = text(record?.robots || '')
+  if (typeof sitemapIncluded === 'boolean' && robotsField) {
+    const publish = sitemapIncluded && /^index/i.test(robotsField)
+    return {
+      canRender: !hidden,
+      canIndex: !hidden && publish,
+      canFeature: !hidden && publish,
+      canMonetize: !hidden && !weak,
+    }
+  }
+
   const indexableStatus = hasIndexableStatus(profileStatus)
   const indexableQuality = hasIndexableQuality(summaryQuality)
   const evidenceSupported = /^(strong|moderate|human|clinical|commercial_ready)$/i.test(evidenceTier) || indexableStatus
