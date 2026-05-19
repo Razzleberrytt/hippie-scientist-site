@@ -16,8 +16,8 @@
     "semantic:scale-summary": "node scripts/ci/report-semantic-scale-summary.mjs",
     "indexability:validate": "node scripts/ci/validate-indexability-metadata.mjs",
     "indexability:report": "node scripts/ci/report-indexability-summary.mjs",
-    "data:build": "node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/postprocess-workbook-payloads.mjs && node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data && node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data && node scripts/data/build-route-manifest.mjs --data-dir=public/data && node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data && node scripts/data/build-export-batches.mjs --data-dir=public/data && node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data",
-    "data:validate": "node scripts/data/validate-data-next.mjs && npm run semantic:governance && npm run semantic:scale-summary",
+    "data:build": "npm run validate:workbook-source && node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/postprocess-workbook-payloads.mjs && node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data && node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data && node scripts/data/build-route-manifest.mjs --data-dir=public/data && node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data && node scripts/data/build-export-batches.mjs --data-dir=public/data && node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data",
+    "data:validate": "npm run validate:workbook-source && node scripts/data/validate-data-next.mjs && npm run semantic:governance && npm run semantic:scale-summary",
     "validate:route-manifest-budget": "node scripts/ci/validate-route-manifest-budget.mjs",
     "validate:runtime-payload-budgets": "node scripts/ci/validate-runtime-payload-budgets.mjs",
     "validate:public-json-imports": "node scripts/ci/validate-public-json-imports.mjs",
@@ -26,13 +26,15 @@
     "validate:semantic-graph-health": "node scripts/ci/validate-semantic-graph-health.mjs",
     "data:audit": "node scripts/data/audit-source-of-truth.mjs",
     "audit:source-of-truth": "STRICT_SOURCE_AUDIT=true node scripts/data/audit-source-of-truth.mjs",
-    "guard:source-of-truth": "node scripts/data/verify-workbook-only-path.mjs",
+    "guard:source-of-truth": "npm run validate:workbook-source && node scripts/data/verify-workbook-only-path.mjs",
     "typecheck": "tsc --noEmit",
     "verify:types": "npm run typecheck",
     "lint": "eslint . --max-warnings=0",
     "build": "node scripts/build-blog.mjs && npm run data:build && npm run data:validate && npm run guard:source-of-truth && next build && npm run verify:build",
     "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run data:verify",
-    "data:verify": "node scripts/data/verify-generated-data.mjs"
+    "data:verify": "node scripts/data/verify-generated-data.mjs",
+    "validate:workbook-source": "node scripts/ci/validate-workbook-source.mjs",
+    "prebuild": "npm run validate:workbook-source"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",

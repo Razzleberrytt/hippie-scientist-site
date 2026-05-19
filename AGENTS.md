@@ -38,6 +38,7 @@
 - Generated JSON lives in `public/data/` — treat as build artifact, not source
 - Do NOT modify `public/data/workbook-herbs.json` or `public/data/workbook-compounds.json` directly
 - Run `npm run data:build` after workbook changes, before `npm run build`
+- CI/workflows enforce workbook source-of-truth via `npm run validate:workbook-source` before workbook-dependent commands
 
 ## Affiliate config
 - Affiliate tag is in `config/affiliate.ts` — use `AFFILIATE_TAGS.amazon` not hardcoded strings

@@ -13,8 +13,9 @@ Contractor-facing source of truth for build and deploy verification.
 ## Canonical scripts
 
 - `npm run check` → alias to `npm run build`
-- `npm run build` → workbook data generation + validation + source-of-truth guards + `next build` + `npm run verify:build`
+- `npm run build` → workbook source validation + workbook data generation + validation + source-of-truth guards + `next build` + `npm run verify:build`
 - `npm run verify:build` → core route checks + redirect checks + CSS asset checks + deploy readiness + generated-data verification
+- `npm run validate:workbook-source` → validates workbook path/presence/extension/size and rejects generated `public/data` workbook artifacts as canonical input
 
 ## Workbook-only source of truth
 

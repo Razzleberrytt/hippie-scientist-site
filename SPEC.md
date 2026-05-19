@@ -71,6 +71,8 @@ data-sources/herb_monograph_master.xlsx
 
 The workbook controls production data for herbs, compounds, mappings, claims, safety summaries, evidence fields, and normalized exports.
 
+The workbook file is committed and required for CI/build workflows. `npm run validate:workbook-source` enforces presence, `.xlsx` extension, non-empty file size, and local-path rules before workbook-dependent steps run. Generated files in `public/data/**` are runtime artifacts and are not canonical source input.
+
 ### Pipeline
 
 ```text
