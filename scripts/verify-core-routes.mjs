@@ -7,7 +7,6 @@ const coreRoutes = [
   '/',
   '/herbs',
   '/compounds',
-  '/build',
   '/blog',
   '/learn',
   '/about',
