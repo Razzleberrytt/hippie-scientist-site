@@ -119,3 +119,14 @@ This repository is a **source repo**. Deploy static output from `out/`.
 - Redirect and header infrastructure is static and Cloudflare-compatible via `public/_redirects` and `public/_headers` (exported into `out/`)
 
 Do **not** commit generated deploy output.
+
+## Workbook source-of-truth contract
+
+- Canonical production source: `data-sources/herb_monograph_master.xlsx` (tracked in git).
+- Generated runtime artifacts under `public/data/**` are build/runtime outputs and are never canonical input.
+- Contractors should update herb/compound content by editing the workbook, then running:
+  - `npm run data:build`
+  - `npm run data:validate`
+  - `npm run guard:source-of-truth`
+- CI enforces this contract with `npm run validate:workbook-source` before workbook-dependent commands.
+- `HERB_XLSX_PATH` may override the workbook path only when pointing to a local non-empty `.xlsx`; by default it must remain inside `data-sources/` unless `ALLOW_EXTERNAL_WORKBOOK_PATH=true`.

@@ -84,5 +84,6 @@ DATA_QUALITY_REPORT.md
 # Portable local source inputs (keep directory scaffold tracked)
 data-sources/*
 !data-sources/.gitkeep
+!data-sources/herb_monograph_master.xlsx
 data-sources/*.csv
 data-sources/*.json
