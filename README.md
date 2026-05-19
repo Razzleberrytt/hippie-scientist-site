@@ -44,69 +44,85 @@ See `docs/workbook-only-data-contract.md`.
 
 ## Active App Router routes
 
-Document only active Next.js App Router routes backed by `app/**/page.tsx`. Keep this inventory in sync whenever routes are added, removed, or moved.
+Document only active Next.js App Router routes backed by `app/**/page.tsx`. Keep this inventory synchronized with the filesystem because CI validates this section.
 
-### Core public routes
+### Canonical route inventory
 
 - `/`
-- `/about`
-- `/blog`
-- `/contact`
-- `/disclaimer`
-- `/faq`
-- `/privacy`
-- `/herbs`
-- `/herbs/:slug`
-- `/compounds`
-- `/compounds/:slug`
-- `/compare`
-- `/compare/:slug`
-- `/search`
-
-### Learning/content routes
-
-- `/learn`
-- `/learn/:slug`
-- `/education`
-- `/education/:slug` for fixed education article pages that exist under `app/education/**/page.tsx`
-- `/pathways`
-- `/pathways/:slug` for fixed pathway pages that exist under `app/pathways/**/page.tsx`
-- `/protocols/:slug` for fixed protocol pages that exist under `app/protocols/**/page.tsx`
-- `/guides/:slug`
-
-Note: `/learning` is not an active App Router route. Use `/learn`.
-
-### SEO/programmatic routes
-
 - `/a-tier`
-- `/best/:slug`
-- `/best-for/:slug` for fixed intent pages that exist under `app/best-for/**/page.tsx`
-- `/collections/:slug`
-- `/ecosystems/:slug`
-- `/explore`
-- `/goals`
-- `/goals/:slug`
-- `/stacks`
-- `/stacks/:slug`
-- `/topics/:slug`
-- `/top/*`
-- `/best-herbs-for-*`
-
-### Utility/internal routes
-
+- `/about`
 - `/analytics`
+- `/best/:slug`
+- `/best-for/:slug`
+- `/best-for/non-stimulant-focus`
+- `/best-for/sleep-support`
+- `/best-supplements-for-fat-loss`
+- `/best-supplements-for-focus`
+- `/best-supplements-for-gut-health`
+- `/best-supplements-for-sleep`
+- `/blog`
+- `/build`
+- `/collections`
+- `/compare/:slug`
+- `/compare/rhodiola-vs-ashwagandha`
+- `/comparisons/recovery-oriented-cognition-systems`
+- `/compounds/:slug`
+- `/contact`
 - `/data-fix`
 - `/data-report`
 - `/dev`
+- `/disclaimer`
 - `/drafts`
+- `/education/evidence-hierarchy`
+- `/education/how-learning-affects-neuroplasticity`
+- `/education/how-memory-formation-works`
+- `/education/how-receptors-work`
+- `/education/how-sleep-affects-neurochemistry`
+- `/education/how-stress-affects-the-brain`
+- `/education/how-the-brain-recovers-from-fatigue`
+- `/education/how-to-read-scientific-studies`
+- `/education/placebo-and-context-effects`
+- `/education/scientific-but-human-neuroscience`
+- `/education/understanding-placebo-and-expectancy`
+- `/education/what-are-adaptogens`
+- `/education/what-is-a-nootropic`
+- `/education/why-burnout-affects-cognition`
+- `/education/why-human-trials-matter`
+- `/education/why-neurochemistry-is-complex`
+- `/education/why-neuroscience-is-difficult`
+- `/education/why-online-supplement-claims-spread`
+- `/education/why-studies-conflict`
+- `/explore/:topic`
+- `/explore/sleep`
 - `/graph`
+- `/guides/best-natural-sleep-aids-that-work`
+- `/guides/focus-without-caffeine-crash`
+- `/guides/supplements-for-brain-fog-and-fatigue`
+- `/herbs/:slug`
+- `/learn`
+- `/natural-testosterone-boosters`
+- `/pathways/cholinergic-system`
+- `/pathways/gaba`
 - `/preview`
+- `/privacy`
+- `/protocols/burnout-recovery`
+- `/protocols/non-stimulant-focus`
+- `/protocols/overstimulation-recovery`
+- `/protocols/recovery-oriented-productivity`
+- `/psychedelic-adjacent-herbs`
+- `/psychoactive/serotonergic-stacking-risks`
+- `/sleep-herbs-vs-melatonin`
+- `/stacks/:slug`
 - `/temp`
 - `/test`
 - `/theme`
 - `/tmp`
-
-These utility/internal routes are intentionally disallowed in `app/robots.ts` when present or reserved.
+- `/top/best-supplements-for-brain-fog`
+- `/top/focus`
+- `/top/stress`
+- `/top/top-3-herbs-for-anxiety`
+- `/top/top-3-natural-sleep-aids`
+- `/top/top-3-supplements-for-focus`
 
 ## Deployment (production)
 
