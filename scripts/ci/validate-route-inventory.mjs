@@ -20,6 +20,10 @@ function isPrivateSegment(segment) {
   return segment.startsWith('_')
 }
 
+function isParallelRouteSegment(segment) {
+  return segment.startsWith('@')
+}
+
 function walkPageFiles(dir, results = []) {
   if (!fs.existsSync(dir)) return results
 
@@ -40,8 +44,16 @@ function walkPageFiles(dir, results = []) {
 }
 
 function normalizeSegment(segment) {
+  if (segment.startsWith('[[...') && segment.endsWith(']]')) {
+    return `:${segment.slice(5, -2)}`
+  }
+
+  if (segment.startsWith('[...') && segment.endsWith(']')) {
+    return `:${segment.slice(4, -1)}`
+  }
+
   if (segment.startsWith('[') && segment.endsWith(']')) {
-    return `:${segment.slice(1, -1).replace(/^\.\.\./, '')}`
+    return `:${segment.slice(1, -1)}`
   }
 
   return segment
@@ -50,12 +62,15 @@ function normalizeSegment(segment) {
 function pageFileToRoute(filePath) {
   const relativeFile = toPosixPath(path.relative(appRoot, filePath))
   const segments = relativeFile.split('/').slice(0, -1)
+
   const publicSegments = segments
     .filter((segment) => !isRouteGroup(segment))
     .filter((segment) => !isPrivateSegment(segment))
+    .filter((segment) => !isParallelRouteSegment(segment))
     .map(normalizeSegment)
 
   if (publicSegments.length === 0) return '/'
+
   return `/${publicSegments.join('/')}`
 }
 
@@ -77,13 +92,10 @@ function extractInventoryFromMarkdown(markdown, sourceLabel) {
     if (/^##\s+/.test(line.trim())) break
 
     const match = line.match(/^\s*-\s+`([^`]+)`/)
+
     if (!match) continue
 
-    const route = match[1].trim()
-
-    if (route.includes('*')) continue
-    if (route.includes(' for ')) routes.push(route.split(/\s+for\s+/)[0].trim())
-    else routes.push(route)
+    routes.push(match[1].trim())
   }
 
   if (routes.length === 0) {
@@ -96,12 +108,27 @@ function extractInventoryFromMarkdown(markdown, sourceLabel) {
 function getCanonicalInventory() {
   if (fs.existsSync(readmePath)) {
     const readmeInventory = extractInventoryFromMarkdown(fs.readFileSync(readmePath, 'utf8'), 'README.md')
-    if (readmeInventory) return { source: 'README.md', routes: readmeInventory }
+
+    if (readmeInventory) {
+      return {
+        source: 'README.md',
+        routes: readmeInventory,
+      }
+    }
   }
 
   if (fs.existsSync(fallbackInventoryPath)) {
-    const docsInventory = extractInventoryFromMarkdown(fs.readFileSync(fallbackInventoryPath, 'utf8'), 'docs/ROUTE_INVENTORY.md')
-    if (docsInventory) return { source: 'docs/ROUTE_INVENTORY.md', routes: docsInventory }
+    const docsInventory = extractInventoryFromMarkdown(
+      fs.readFileSync(fallbackInventoryPath, 'utf8'),
+      'docs/ROUTE_INVENTORY.md',
+    )
+
+    if (docsInventory) {
+      return {
+        source: 'docs/ROUTE_INVENTORY.md',
+        routes: docsInventory,
+      }
+    }
   }
 
   return null
@@ -119,10 +146,14 @@ function diffRoutes(actual, expected) {
 
 function printInventory(routes) {
   console.log('[route-inventory] Active App Router routes:')
-  for (const route of routes) console.log(`- ${route}`)
+
+  for (const route of routes) {
+    console.log(`- ${route}`)
+  }
 }
 
 const scannedRoutes = getScannedRoutes()
+
 printInventory(scannedRoutes)
 
 const canonical = getCanonicalInventory()
@@ -139,12 +170,18 @@ if (missingFromDocs.length > 0 || missingFromApp.length > 0) {
 
   if (missingFromDocs.length > 0) {
     console.error('\nRoutes present in app/**/page.tsx but missing from canonical inventory:')
-    for (const route of missingFromDocs) console.error(`- ${route}`)
+
+    for (const route of missingFromDocs) {
+      console.error(`- ${route}`)
+    }
   }
 
   if (missingFromApp.length > 0) {
     console.error('\nRoutes present in canonical inventory but missing from app/**/page.tsx:')
-    for (const route of missingFromApp) console.error(`- ${route}`)
+
+    for (const route of missingFromApp) {
+      console.error(`- ${route}`)
+    }
   }
 
   process.exit(1)
