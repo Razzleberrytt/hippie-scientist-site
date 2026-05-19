@@ -23,7 +23,6 @@ jobs:
   review:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    continue-on-error: true
 
     steps:
       - name: Checkout
@@ -32,35 +31,52 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: npm
 
       - name: Install dependencies
-        run: |
-          npm install --prefer-offline --no-audit
+        run: npm ci
+
+      - name: Check Node version contract
+        run: npm run check:node
 
       - name: Review patches
-        run: |
-          node scripts/review-patches.mjs || true
+        run: node scripts/review-patches.mjs
 
       - name: Export approved patches (all)
         if: ${{ github.event.inputs.merge_mode == 'all' }}
-        run: |
-          node scripts/merge-patches.mjs --all || true
+        run: node scripts/merge-patches.mjs --all
 
       - name: Export approved patch (single slug)
         if: ${{ github.event.inputs.merge_mode == 'single' }}
-        run: |
-          node scripts/merge-patches.mjs --slug=${{ github.event.inputs.slug }} || true
+        run: node scripts/merge-patches.mjs --slug=${{ github.event.inputs.slug }}
 
       - name: Commit review exports
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add ops/agent-review
 
-          git diff --cached --quiet && exit 0
+          if git diff --cached --quiet; then
+            echo "No review export changes to commit."
+            exit 0
+          fi
 
           git commit -m "agent: review export updates"
           git push
+
+      - name: Workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Review Agent Patches"
+            echo "- Purpose: review and optionally merge agent patches"
+            echo "- Branch/ref: $GITHUB_REF"
+            echo "- Merge mode: ${{ github.event.inputs.merge_mode }}"
+            echo "- Commands: node scripts/review-patches.mjs; node scripts/merge-patches.mjs"
+            echo "- Status: ${{ job.status }}"
+            echo "- Output path: ops/agent-review"
+            echo "- Next action: inspect committed review exports before downstream automation."
+          } >> "$GITHUB_STEP_SUMMARY"

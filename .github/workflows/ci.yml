@@ -75,13 +75,7 @@ jobs:
           fi
 
       - name: Run security audit
-        id: audit
-        run: |
-          set +e
-          npm audit --audit-level=high --json > npm-audit.after.json
-          status=$?
-          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
-          exit $status
+        run: npm audit --audit-level=high --json > npm-audit.after.json
 
       - name: Upload audit artifact
         if: always() && hashFiles('npm-audit.after.json') != ''
@@ -90,18 +84,14 @@ jobs:
           name: npm-audit-after
           path: npm-audit.after.json
 
-      - name: Add audit summary
+      - name: Add workflow summary
         if: always()
         run: |
-          if [ "${{ steps.audit.outputs.exit_code }}" = "0" ]; then
-            {
-              echo "## Security audit"
-              echo "✅ npm audit passed (no high/critical vulnerabilities found)."
-            } >> "$GITHUB_STEP_SUMMARY"
-          else
-            {
-              echo "## Security audit"
-              echo "❌ npm audit failed (high and/or critical vulnerabilities found)."
-              echo "See uploaded artifact: npm-audit-after."
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
+          {
+            echo "## CI quality gate"
+            echo "- Purpose: enforce lint, typecheck, workbook/data correctness, build verification, and security audit"
+            echo "- Branch/ref: $GITHUB_REF"
+            echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run lint; npm run typecheck; npm run data:build; npm run data:validate; npm run guard:source-of-truth; npm run build; npm run verify:build; npm audit --audit-level=high"
+            echo "- Artifact: npm-audit-after"
+            echo "- Status: ${{ job.status }}"
+          } >> "$GITHUB_STEP_SUMMARY"

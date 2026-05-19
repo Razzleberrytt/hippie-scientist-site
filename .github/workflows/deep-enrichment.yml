@@ -7,6 +7,9 @@ on:
         required: false
         default: '3'
 
+permissions:
+  contents: read
+
 jobs:
   enrich:
     runs-on: ubuntu-latest
@@ -14,6 +17,18 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - run: npm install --prefer-offline --no-audit
-      - run: npm run agent:run -- --mode=deep --batch=${{ github.event.inputs.batch }} || true
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check:node
+      - run: npm run agent:run -- --mode=deep --batch=${{ github.event.inputs.batch }}
+      - name: Workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Deep Enrichment"
+            echo "- Purpose: run deep enrichment agent batch"
+            echo "- Branch/ref: $GITHUB_REF"
+            echo "- Command: npm run agent:run -- --mode=deep --batch=${{ github.event.inputs.batch }}"
+            echo "- Status: ${{ job.status }}"
+          } >> "$GITHUB_STEP_SUMMARY"
