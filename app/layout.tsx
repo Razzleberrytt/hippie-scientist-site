@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import { Inter, Fraunces } from 'next/font/google'
+import localFont from 'next/font/local'
 import Link from 'next/link'
 import DesktopNav from '@/components/desktop-nav'
 import MobileNav from '@/components/mobile-nav'
@@ -8,14 +8,41 @@ import MobileBottomNav from '@/components/mobile-bottom-nav'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 
-const inter = Inter({
-  subsets: ['latin'],
+const inter = localFont({
+  src: [
+    {
+      path: '../node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
   variable: '--font-inter',
   display: 'swap',
 })
 
-const fraunces = Fraunces({
-  subsets: ['latin'],
+const fraunces = localFont({
+  src: [
+    {
+      path: '../node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+  ],
   variable: '--font-fraunces',
   display: 'swap',
 })
