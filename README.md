@@ -5,7 +5,7 @@ Data-driven educational site for herbs and compounds.
 ## Quick start
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -131,9 +131,18 @@ Do **not** commit generated deploy output.
 - CI enforces this contract with `npm run validate:workbook-source` before workbook-dependent commands.
 - `HERB_XLSX_PATH` may override the workbook path only when pointing to a local non-empty `.xlsx`; by default it must remain inside `data-sources/` unless `ALLOW_EXTERNAL_WORKBOOK_PATH=true`.
 
-## Local pre-PR quality gate
+## Cloudflare deployment prerequisites
 
-Run this command sequence before opening a PR:
+Cloudflare production deploys are deterministic and use:
+
+- `npm ci` (never `npm install` in deploy workflow)
+- Node version from `.nvmrc` via `actions/setup-node@v4`
+- Required GitHub Actions secrets:
+  - `CLOUDFLARE_API_TOKEN`
+  - `CLOUDFLARE_ACCOUNT_ID`
+  - `CLOUDFLARE_PAGES_PROJECT`
+
+Local pre-deploy command sequence:
 
 ```bash
 npm ci
@@ -146,5 +155,8 @@ npm run data:validate
 npm run guard:source-of-truth
 npm run build
 npm run verify:build
-npm audit --audit-level=high
 ```
+
+## Local pre-PR quality gate
+
+Run the same pre-deploy command sequence before opening a PR.
