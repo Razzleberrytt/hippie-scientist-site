@@ -7,7 +7,8 @@
     "node": ">=20 <=22"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
+    "dev:watch": "nodemon --watch . --exec \"npm run dev\"",
     "start": "next start",
     "check": "npm run build",
     "agent:run": "node agent/orchestrator/run-orchestrator.js",
@@ -86,8 +87,3 @@
     "*.{js,mjs,cjs}": "eslint --max-warnings=0"
   }
 }
-"scripts": {
-  "dev": "next dev --turbo",
-  "dev:watch": "nodemon --watch . --exec \"npm run dev\""
-}
-
