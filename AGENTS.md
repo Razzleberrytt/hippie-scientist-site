@@ -14,6 +14,7 @@
 - Run build checks after data-pipeline edits.
 - Avoid unrelated refactors.
 - Favor lean payloads for initial shipping.
+- This project uses static export. Do not add API routes, middleware, server actions, next/headers, next/server runtime code, force-dynamic pages, or runtime revalidation unless the architecture is intentionally changed away from static export.
 
 ## Site architecture
 

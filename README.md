@@ -14,6 +14,7 @@ npm run dev
 - Framework/runtime: **Next.js App Router** with static export.
 - Canonical production host: **Cloudflare Pages**.
 - Build command: `npm run build`.
+- Static export guardrail: `npm run validate:static-export` (must pass before build).
 - Verification command: `npm run verify:build`.
 - Static deploy directory: `out/` (Cloudflare deploy target).
 - Data source of truth: `data-sources/herb_monograph_master.xlsx` (workbook-only policy).
@@ -148,6 +149,7 @@ Local pre-deploy command sequence:
 npm ci
 npm run check:node
 npm run validate:workbook-source
+npm run validate:static-export
 npm run lint
 npm run typecheck
 npm run data:build
