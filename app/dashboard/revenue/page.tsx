@@ -1,14 +1,5 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
 import { revenueDashboardMetrics, revenueDashboardStarterRows } from '@/data/revenue-dashboard'
-
-export const metadata: Metadata = {
-  title: 'Revenue Dashboard',
-  robots: {
-    index: false,
-    follow: false,
-  },
-}
 
 export default function RevenueDashboardPage() {
   return (
