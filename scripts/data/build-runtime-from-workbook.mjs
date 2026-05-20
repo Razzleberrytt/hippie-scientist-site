@@ -320,7 +320,7 @@ function main() {
   writeJson(path.join(outDir, 'agent-patches.json'), [])
   details(path.join(outDir, 'herb-detail'), herbs)
   details(path.join(outDir, 'compound-detail'), compounds)
-  writeJson(path.join(outDir, 'build-report.json'), { generatedAt: new Date().toISOString(), workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length } })
+  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length } })
   console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
 }
 
