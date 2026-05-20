@@ -1,14 +1,48 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
-import { execSync } from 'node:child_process'
 
 const root = process.cwd()
 const read = (p) => fs.readFileSync(path.join(root, p), 'utf8')
 const exists = (p) => fs.existsSync(path.join(root, p))
 
-const pageFiles = execSync("rg --files app -g '**/page.tsx' -g '**/page.ts' -g '**/page.jsx' -g '**/page.js'", { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
-const sourceFiles = execSync("rg --files app components lib", { encoding: 'utf8' }).trim().split('\n').filter(Boolean)
+const pageFilePattern = /^page\.(tsx|ts|jsx|js)$/
+
+function collectFiles(dir, matcher = null) {
+  const absDir = path.join(root, dir)
+  if (!fs.existsSync(absDir)) return []
+
+  const files = []
+
+  function walk(currentDir) {
+    const entries = fs.readdirSync(currentDir, { withFileTypes: true })
+
+    for (const entry of entries) {
+      const fullPath = path.join(currentDir, entry.name)
+
+      if (entry.isDirectory()) {
+        walk(fullPath)
+        continue
+      }
+
+      if (!entry.isFile()) continue
+
+      if (matcher && !matcher(entry.name)) continue
+
+      files.push(path.relative(root, fullPath).split(path.sep).join('/'))
+    }
+  }
+
+  walk(absDir)
+  return files
+}
+
+const pageFiles = collectFiles('app', (name) => pageFilePattern.test(name))
+const sourceFiles = [
+  ...collectFiles('app'),
+  ...collectFiles('components'),
+  ...collectFiles('lib'),
+]
 
 const toRoute = (file) => {
   const rel = file.replace(/^app\//, '').replace(/\/page\.(tsx|ts|jsx|js)$/, '')
