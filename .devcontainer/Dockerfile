@@ -1,4 +1,8 @@
-FROM mcr.microsoft.com/devcontainers/javascript-node:20
+FROM node:20-slim
 
-# Install global tools if needed
 RUN npm install -g npm@latest
+
+RUN apt-get update && apt-get install -y \
+    python3 \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
