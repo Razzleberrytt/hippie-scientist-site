@@ -1,131 +1,36 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { goalConfigs } from '@/data/goals'
-import { seoEntryPages } from '../seo-entry-pages'
-import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro } from '@/components/semantic-hubs/semantic-hub-sections'
-import { getEcosystemPanels, getTopicClusterLinks } from '@/lib/ecosystem-context'
+import { goals } from '@/data/goals'
 
-export default function GoalsIndex() {
-  const featuredGuides = seoEntryPages.slice(0, 12)
+export const metadata: Metadata = {
+  title: 'Goal Decision Guides | The Hippie Scientist',
+  description: 'Decision-focused supplement goal pages for pain, inflammation, focus, and sleep.',
+}
 
+export default function GoalsPage() {
   return (
-    <main className="space-y-10 px-1 py-2 sm:px-0">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-soft sm:p-8 lg:p-10">
-        <div className="max-w-3xl space-y-5">
-          <div className="eyebrow inline-flex rounded-full border border-brand-700/10 bg-brand-700/10 px-4 py-2 text-brand-700">
-            Decision hub
-          </div>
-
-          <div>
-            <h1 className="heading-premium text-ink">
-              Goals
-            </h1>
-
-            <p className="text-reading mt-4 text-lg text-[#46574d]">
-              Start with a goal. Then move into structured guides, compounds, stacks, comparisons, and evidence-aware safety context.
-            </p>
-          </div>
-        </div>
+    <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <section className="rounded-3xl border border-slate-200 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 p-6 text-slate-100 shadow-sm sm:p-10">
+        <p className="text-xs uppercase tracking-[0.2em] text-emerald-300">Goal decision system</p>
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Choose by outcome, then compare options clearly.</h1>
+        <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-300 sm:text-base">Each page is designed for fast scanning: quick picks first, then side-by-side tradeoffs, risks, and practical form choices.</p>
       </section>
 
-      <SemanticHubIntro
-        sections={[
-          { title: 'Decision context', body: 'Goal pages connect broad reader intent to evidence-aware profiles, mechanisms, safety notes, and adjacent outcome guides.' },
-          { title: 'Biological relevance', body: 'Each path is framed as a research map across overlapping systems rather than a promise that one supplement solves a goal.' },
-          { title: 'Discovery continuity', body: 'Guides, pathways, collections, herbs, and compounds are linked so readers can move from outcome to mechanism to profile.' },
-        ]}
-      />
-
-      <EcosystemPanelGrid
-        eyebrow="Frequently explored together"
-        title="Goal ecosystems across the site"
-        panels={getEcosystemPanels(['sleep stress cognition inflammation metabolism cardiovascular recovery oxidative stress neurobiology mitochondrial function'], 6)}
-      />
-
-      <KnowledgeGraphLinks
-        eyebrow="Scientific themes"
-        title="Browse by adjacent biology"
-        links={getTopicClusterLinks(6)}
-      />
-
-      <section className="space-y-5">
-        <div>
-          <div className="eyebrow text-brand-700">
-            Start here
-          </div>
-
-          <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight text-ink">
-            Supplement guides
-          </h2>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {featuredGuides.map((page, index) => (
-            <Link
-              key={page.route}
-              href={`/${page.route}`}
-              className={index === 0
-                ? 'group rounded-card border border-brand-700/20 bg-white/85 p-6 shadow-glow transition duration-300 hover:-translate-y-1 hover:bg-white'
-                : 'group rounded-card border border-brand-900/10 bg-white/80 p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white hover:shadow-glow'
-              }
-            >
-              <div className="space-y-4">
-                <div className="eyebrow text-brand-700">
-                  {index === 0 ? 'Featured guide' : 'Guide'}
-                </div>
-
-                <div>
-                  <h3 className="text-display text-3xl transition group-hover:text-brand-800">
-                    {page.h1}
-                  </h3>
-
-                  <p className="text-reading mt-4 line-clamp-4 text-sm text-[#46574d]">
-                    {page.intro}
-                  </p>
-                </div>
-
-                <div className="inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-1">
-                  View guide →
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-5">
-        <div>
-          <div className="eyebrow text-brand-700">
-            Browse by outcome
-          </div>
-
-          <h2 className="mt-2 font-display text-4xl font-semibold tracking-tight text-ink">
-            Goal paths
-          </h2>
-        </div>
-
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {goalConfigs.map((goal) => (
-            <Link
-              key={goal.slug}
-              href={`/goals/${goal.slug}`}
-              className="group rounded-card border border-brand-900/10 bg-white/80 p-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-700/20 hover:bg-white hover:shadow-glow"
-            >
-              <div className="space-y-4">
-                <h3 className="text-display text-3xl transition group-hover:text-brand-800">
-                  {goal.title}
-                </h3>
-
-                <p className="text-reading line-clamp-4 text-sm text-[#46574d]">
-                  {goal.summary}
-                </p>
-
-                <div className="inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-1">
-                  Explore goal →
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {goals.map((goal) => (
+          <Link key={goal.slug} href={`/goals/${goal.slug}`} className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-900">
+            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{goal.title}</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">{goal.description}</p>
+            <ul className="mt-4 space-y-1.5 text-xs text-slate-500 dark:text-slate-400">
+              {goal.options.slice(0, 3).map((option) => (
+                <li key={option.slug} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  <span>{option.name}</span>
+                </li>
+              ))}
+            </ul>
+          </Link>
+        ))}
       </section>
     </main>
   )
