@@ -1,0 +1,73 @@
+{
+  "slug": "beta-alanine",
+  "name": "Beta-Alanine",
+  "summary": "Decision-ready summary: Beta-Alanine is best framed for high-intensity endurance; repeated sprint performance; muscular buffering; safety screen: paresthesia sensitivity.",
+  "description": "Beta-Alanine supports endurance; high-intensity exercise; buffering with high confidence in this merged decision layer.",
+  "effects": [
+    "endurance",
+    "performance"
+  ],
+  "primary_effects": [
+    "endurance",
+    "performance"
+  ],
+  "mechanisms": [
+    "raises muscle carnosine",
+    "intracellular pH buffering"
+  ],
+  "evidence_grade": "high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "paresthesia sensitivity"
+  ],
+  "interactions": [
+    "Generally safe",
+    "dose-splitting reduces side effects."
+  ],
+  "side_effects": [],
+  "dosage": "3.2–6.4 g/day divided",
+  "typical_dosage": "3.2–6.4 g/day divided",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for high-intensity exercise buffering support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "beta-alanine supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

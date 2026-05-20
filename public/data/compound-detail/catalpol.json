@@ -1,0 +1,67 @@
+{
+  "slug": "catalpol",
+  "name": "catalpol",
+  "summary": "Catalpol is an iridoid glycoside linked to metabolic and cytoprotective signaling.",
+  "description": "Catalpol is an iridoid glycoside linked to metabolic and cytoprotective signaling.",
+  "effects": [
+    "gut_health",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "gut_health",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
+    "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-co"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for inflammation or pain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "catalpol supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active dose clearly listed",
+    "form matched to gut target",
+    "avoid proprietary blends without strain/fiber amount disclosure"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

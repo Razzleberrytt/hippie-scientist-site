@@ -1,0 +1,81 @@
+{
+  "slug": "turmeric-curcumin-piperine",
+  "name": "Turmeric Curcumin + Piperine",
+  "summary": "Curcumin plus piperine improves curcumin bioavailability and has moderate evidence for inflammation and osteoarthritis pain outcomes.",
+  "description": "Enhanced-bioavailability curcumin formulation using piperine to increase absorption.",
+  "effects": [
+    "inflammation",
+    "pain"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "pain"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Use caution with anticoagulants",
+    "gallbladder disease",
+    "GERD",
+    "kidney stones",
+    "iron deficiency",
+    "or pre-surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "500-1500",
+  "typical_dosage": "500-1500",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for joint discomfort or inflammation-focused support needs"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Turmeric Curcumin + Piperine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Bioavailable form such as phytosome",
+    "piperine",
+    "or enhanced extract",
+    "standardized curcuminoids",
+    "avoid turmeric dust blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

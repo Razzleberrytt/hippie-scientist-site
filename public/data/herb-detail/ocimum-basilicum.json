@@ -1,0 +1,81 @@
+{
+  "slug": "ocimum-basilicum",
+  "name": "Ocimum Basilicum",
+  "summary": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
+  "description": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "bleeding disorder or upcoming surgery",
+    "seizure disorder or sedative/alcohol use"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "anticoagulants/antiplatelets",
+    "sedatives/CNS depressants",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "ocimum basilicum tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 88,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

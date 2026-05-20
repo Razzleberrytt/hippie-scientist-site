@@ -1,0 +1,76 @@
+{
+  "slug": "alpha-gpc",
+  "name": "Alpha-GPC",
+  "summary": "Decision-ready summary: Alpha-GPC is best framed for cognitive performance; memory support; power output support; safety screen: low blood pressure; cholinergic sensitivity; anticholinergic medication conflicts.",
+  "description": "Alpha-GPC supports memory; focus; performance with moderate-high confidence in this merged decision layer.",
+  "effects": [
+    "cognition",
+    "focus"
+  ],
+  "primary_effects": [
+    "cognition",
+    "focus"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "low blood pressure",
+    "cholinergic sensitivity",
+    "anticholinergic medication conflicts"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "600 mg acute for performance contexts; 1200 mg/day used in cognitive impairment contexts",
+  "typical_dosage": "600 mg acute for performance contexts; 1200 mg/day used in cognitive impairment contexts",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority cholinergic focus support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Alpha-GPC supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Alpha-GPC dose clearly listed",
+    "avoid choline blends hiding Alpha-GPC amount",
+    "do not overstate healthy-adult evidence"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

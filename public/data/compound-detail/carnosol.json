@@ -1,0 +1,67 @@
+{
+  "slug": "carnosol",
+  "name": "carnosol",
+  "summary": "Phenolic diterpene from rosemary with antioxidant and anti-inflammatory pathway activity.",
+  "description": "Phenolic diterpene from rosemary with antioxidant and anti-inflammatory pathway activity.",
+  "effects": [
+    "energy",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "energy",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses",
+    "use dilution and herb-specific safety.",
+    "use diluti"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for inflammation or pain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "carnosol supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

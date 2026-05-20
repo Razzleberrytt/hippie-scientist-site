@@ -1,0 +1,74 @@
+{
+  "slug": "olive-leaf-extract",
+  "name": "Olive Leaf Extract",
+  "summary": "Olive leaf extract reduces blood pressure comparably to low-dose captopril.",
+  "description": "Olive leaf extract reduces blood pressure comparably to low-dose captopril.",
+  "effects": [
+    "immunity"
+  ],
+  "primary_effects": [
+    "immunity"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "limited",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Limited data."
+  ],
+  "interactions": [
+    "Limited data."
+  ],
+  "side_effects": [],
+  "dosage": "Olive leaf extract doses vary; 500–1000 mg/day studied in cardiometabolic trials",
+  "typical_dosage": "Olive leaf extract doses vary; 500–1000 mg/day studied in cardiometabolic trials",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only antimicrobial-style wellness profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Olive Leaf Extract supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Oleuropein content disclosed",
+    "olive leaf extract dose clear",
+    "avoid vague antioxidant blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

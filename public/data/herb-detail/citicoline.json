@@ -1,0 +1,73 @@
+{
+  "slug": "citicoline",
+  "name": "Citicoline",
+  "summary": "Citicoline is tracked for cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Citicoline is tracked for cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "effects": [
+    "cognitive",
+    "neuroprotective",
+    "energy"
+  ],
+  "primary_effects": [
+    "cognitive",
+    "neuroprotective",
+    "energy"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Minimal"
+  ],
+  "interactions": [
+    "Minimal"
+  ],
+  "side_effects": [],
+  "dosage": "250-500 mg/day",
+  "typical_dosage": "250-500 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Citicoline capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

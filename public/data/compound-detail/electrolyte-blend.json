@@ -1,0 +1,77 @@
+{
+  "slug": "electrolyte-blend",
+  "name": "Electrolyte Blend",
+  "summary": "Electrolyte blends are most useful for rehydration when sweat loss, heat exposure, diarrhea, vomiting, or prolonged exercise increases sodium and fluid needs; they should not be treated as a fat-loss or energy shortcut.",
+  "description": "Electrolyte blends are most useful for rehydration when sweat loss, heat exposure, diarrhea, vomiting, or prolonged exercise increases sodium and fluid needs; they should not be treated as a fat-loss or energy shortcut.",
+  "effects": [
+    "electrolytes",
+    "hydration"
+  ],
+  "primary_effects": [
+    "electrolytes",
+    "hydration"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "heart failure",
+    "kidney disease",
+    "uncontrolled hypertension",
+    "sodium-restricted diet",
+    "or hyponatremia risk without clinician guidance"
+  ],
+  "interactions": [
+    "see source ledger",
+    "interaction risk depends on medications and health context"
+  ],
+  "side_effects": [],
+  "dosage": "follow product sodium/potassium label; oral rehydration solutions commonly pair sodium with glucose for fluid absorption",
+  "typical_dosage": "follow product sodium/potassium label; oral rehydration solutions commonly pair sodium with glucose for fluid absorption",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority hydration support when sodium/potassium amounts are transparent"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

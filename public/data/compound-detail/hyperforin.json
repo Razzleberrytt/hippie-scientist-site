@@ -1,0 +1,60 @@
+{
+  "slug": "hyperforin",
+  "name": "Hyperforin",
+  "summary": "Hyperforin is a St.",
+  "description": "Hyperforin is a St. John's wort phloroglucinol known for TRPC6 and neurotransmitter effects.",
+  "effects": [
+    "mood"
+  ],
+  "primary_effects": [
+    "mood"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Major contributor to drug interactions"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Hyperforin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

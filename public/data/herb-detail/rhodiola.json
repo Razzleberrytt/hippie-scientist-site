@@ -1,0 +1,71 @@
+{
+  "slug": "rhodiola",
+  "name": "Rhodiola",
+  "summary": "Rhodiola may support stress-related fatigue and mental stamina; avoid framing it as a bedtime calming herb.",
+  "description": "Adaptogen-style fatigue support with activation/insomnia caution in sensitive users.",
+  "effects": [
+    "stress"
+  ],
+  "primary_effects": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "SSRIs (theoretical serotonin effects)"
+  ],
+  "interactions": [
+    "SSRIs (theoretical serotonin effects)"
+  ],
+  "side_effects": [],
+  "dosage": "200-400 mg extract",
+  "typical_dosage": "200-400 mg extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Rhodiola tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "rosavins/salidroside disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "research-pending-effect",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

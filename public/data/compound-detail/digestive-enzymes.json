@@ -1,0 +1,61 @@
+{
+  "slug": "digestive-enzymes",
+  "name": "Digestive enzymes",
+  "summary": "Decision-ready summary: Digestive enzymes is best framed for meal-related digestive discomfort; enzyme insufficiency support; safety screen: pancreatitis unless clinician-directed; pork allergy for pancreatin forms.",
+  "description": "Digestive enzymes supports digestion; meals with moderate confidence in this merged decision layer.",
+  "effects": [
+    "digestion"
+  ],
+  "primary_effects": [
+    "digestion"
+  ],
+  "mechanisms": [
+    "macronutrient breakdown via proteases",
+    "lipases",
+    "and amylases"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "pancreatitis unless clinician-directed",
+    "pork allergy for pancreatin forms"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Dose must be enzyme-specific and activity-unit based; generic mg dosing is not meaningful",
+  "typical_dosage": "Dose must be enzyme-specific and activity-unit based; generic mg dosing is not meaningful",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only digestive-enzyme blend profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Digestive Enzymes supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Activity units disclosed for each enzyme (not just mg)",
+    "use targeted enzymes such as lactase for lactose or pancreatin under medical context"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

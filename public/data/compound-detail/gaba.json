@@ -1,0 +1,65 @@
+{
+  "slug": "gaba",
+  "name": "GABA (Oral)",
+  "summary": "Limited evidence for stress reduction.",
+  "description": "Limited evidence for stress reduction.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Limited data."
+  ],
+  "interactions": [
+    "Limited data."
+  ],
+  "side_effects": [],
+  "dosage": "Product-specific GABA dosing varies; stronger evidence may exist for specific probiotic strains that affect GABA rather than generic GABA supplements",
+  "typical_dosage": "Product-specific GABA dosing varies; stronger evidence may exist for specific probiotic strains that affect GABA rather than generic GABA supplements",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only oral GABA sleep profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "GABA (Oral) supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote generic GABA as top pick",
+    "dose and formulation must be clear",
+    "avoid sedative blends hiding dose"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

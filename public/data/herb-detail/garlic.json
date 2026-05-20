@@ -1,0 +1,78 @@
+{
+  "slug": "garlic",
+  "name": "Garlic (Allium sativum)",
+  "summary": "Garlic centers on the unspecified.",
+  "description": "Garlic centers on the unspecified. Key reported compounds include diallyl sulfide; diallyl disulfide; diallyl trisulfide; ajoene; S‐allyl‐cysteine.",
+  "effects": [
+    "cardiovascular",
+    "antimicrobial",
+    "immune"
+  ],
+  "primary_effects": [
+    "cardiovascular",
+    "antimicrobial",
+    "immune"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "bleeding disorders",
+    "pre-surgery"
+  ],
+  "interactions": [
+    "anticoagulants",
+    "antiplatelets"
+  ],
+  "side_effects": [],
+  "dosage": "Aged garlic extract (~1.2 mg S-allyl cysteine/day) or dried powder 600-1200 mg/day; composition varies by preparation",
+  "typical_dosage": "Aged garlic extract (~1.2 mg S-allyl cysteine/day) or dried powder 600-1200 mg/day; composition varies by preparation",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Garlic (Allium sativum) capsule or softgel supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "allicin potential or aged garlic extract standard disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 73,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-quality-missing",
+      "summary-too-thin"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

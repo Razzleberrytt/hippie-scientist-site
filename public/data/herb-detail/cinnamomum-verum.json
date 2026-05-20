@@ -1,0 +1,70 @@
+{
+  "slug": "cinnamomum-verum",
+  "name": "Cinnamon",
+  "summary": "Polyphenols improve insulin signaling and glucose uptake.",
+  "description": "Polyphenols improve insulin signaling and glucose uptake.",
+  "effects": [
+    "metabolic"
+  ],
+  "primary_effects": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Antidiabetic drugs (additive hypoglycemia)"
+  ],
+  "interactions": [
+    "Antidiabetic drugs (additive hypoglycemia)"
+  ],
+  "side_effects": [],
+  "dosage": "1-3 g/day powder or equivalent extract",
+  "typical_dosage": "1-3 g/day powder or equivalent extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Cinnamon capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "coumarin level considered",
+    "extract type disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 90,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

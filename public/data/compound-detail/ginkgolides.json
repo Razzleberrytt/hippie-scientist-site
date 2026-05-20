@@ -1,0 +1,70 @@
+{
+  "slug": "ginkgolides",
+  "name": "Ginkgolides",
+  "summary": "Ginkgolides are diterpene lactones in Ginkgo biloba extracts, especially relevant to platelet-activating factor antagonism.",
+  "description": "Diterpene lactone fraction from Ginkgo biloba; ginkgolide B is a well-known PAF antagonist, but compound-specific human outcome data remain limited.",
+  "effects": [
+    "circulation",
+    "cognition"
+  ],
+  "primary_effects": [
+    "circulation",
+    "cognition"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Bleeding risk at high exposure"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard circulation/cognitive-aging support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Ginkgolides supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

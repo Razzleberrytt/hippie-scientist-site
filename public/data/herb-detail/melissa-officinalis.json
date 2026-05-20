@@ -1,0 +1,77 @@
+{
+  "slug": "melissa-officinalis",
+  "name": "Lemon Balm",
+  "summary": "Lemon balm may support gentle calm, stress-related sleep, and relaxed focus without heavy sedation.",
+  "description": "Gentle calming support for stress/sleep/focus contexts.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Additive with CNS depressants (benzodiazepines",
+    "alcohol)",
+    "caution in hypothyroidism"
+  ],
+  "interactions": [
+    "Additive with CNS depressants (benzodiazepines",
+    "alcohol)",
+    "caution in hypothyroidism"
+  ],
+  "side_effects": [],
+  "dosage": "300-600 mg extract (standardized), up to 3x daily",
+  "typical_dosage": "300-600 mg extract (standardized), up to 3x daily",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Lemon Balm tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

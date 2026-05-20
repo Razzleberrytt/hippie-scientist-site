@@ -1,0 +1,62 @@
+{
+  "slug": "testosterone-support-stack",
+  "name": "Testosterone Support Stack",
+  "summary": "Testosterone Support Stack is a low-evidence compound profile in the workbook. Keep it in research-hold until PMID/source, safety, and dosage fields are reviewed.",
+  "description": "Testosterone Support Stack is best framed as a conservative research profile with mechanistic evidence and a focus on Exercise Performance; Hormonal Health. Current workbook signals support mechanistic context around Hormonal Signaling Context, not treatment claims.",
+  "effects": [
+    "testosterone"
+  ],
+  "primary_effects": [
+    "testosterone"
+  ],
+  "mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "not_applicable_stack",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Hormone-sensitive conditions",
+    "prostate concerns",
+    "medications",
+    "clinician review required."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for low testosterone or performance concerns"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

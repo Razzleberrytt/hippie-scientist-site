@@ -1,0 +1,75 @@
+{
+  "slug": "spirulina",
+  "name": "Spirulina",
+  "summary": "Spirulina is tracked for Nutrient-dense cyanobacteria with antioxidant and lipid-metabolism mechanisms proposed with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Spirulina is tracked for Nutrient-dense cyanobacteria with antioxidant and lipid-metabolism mechanisms proposed with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "general_wellness",
+    "protein"
+  ],
+  "primary_effects": [
+    "general_wellness",
+    "protein"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Avoid with phenylketonuria",
+    "autoimmune disease",
+    "immunosuppressants",
+    "pregnancy/breastfeeding unless verified safe source",
+    "and algae allergy"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "1–8 g/day spirulina used in human studies; dose depends on outcome/product",
+  "typical_dosage": "1–8 g/day spirulina used in human studies; dose depends on outcome/product",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority nutrient-dense algae profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Microcystin/heavy-metal testing required",
+    "species/source disclosed",
+    "avoid vague superfood claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

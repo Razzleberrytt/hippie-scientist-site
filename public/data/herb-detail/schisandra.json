@@ -1,0 +1,71 @@
+{
+  "slug": "schisandra",
+  "name": "Schisandra (Schisandra chinensis)",
+  "summary": "Liver + stress.",
+  "description": "Liver + stress.",
+  "effects": [
+    "stress"
+  ],
+  "primary_effects": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Stress Response Modulation",
+    "Nrf2 Activation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "pregnancy (insufficient data)"
+  ],
+  "interactions": [
+    "CYP interactions possible (limited evidence)"
+  ],
+  "side_effects": [],
+  "dosage": "Standardized extract (e.g., 1-3% schisandrins): 500-1500 mg/day; variability across products",
+  "typical_dosage": "Standardized extract (e.g., 1-3% schisandrins): 500-1500 mg/day; variability across products",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Schisandra (Schisandra chinensis) tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "research-pending-effect",
+      "safety-context",
+      "summary-quality-missing",
+      "summary-too-thin"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

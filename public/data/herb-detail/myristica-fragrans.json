@@ -1,0 +1,73 @@
+{
+  "slug": "myristica-fragrans",
+  "name": "Myristica Fragrans",
+  "summary": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition.",
+  "description": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition.",
+  "effects": [
+    "digestive",
+    "sedative"
+  ],
+  "primary_effects": [
+    "digestive",
+    "sedative"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "myristica fragrans tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 93,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

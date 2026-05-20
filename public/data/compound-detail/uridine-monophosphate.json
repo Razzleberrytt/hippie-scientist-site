@@ -1,0 +1,67 @@
+{
+  "slug": "uridine-monophosphate",
+  "name": "Uridine Monophosphate",
+  "summary": "Uridine precursor with limited preliminary evidence for cognitive or phospholipid support.",
+  "description": "Nucleotide precursor to uridine involved in phospholipid and synaptic membrane pathways.",
+  "effects": [
+    "cognition",
+    "mood"
+  ],
+  "primary_effects": [
+    "cognition",
+    "mood"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Use caution with bipolar disorder",
+    "psychiatric medications",
+    "pregnancy/breastfeeding",
+    "gout/high uric acid",
+    "and cancer-treatment contexts"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Uridine dosing is condition/product-specific; many cognition studies used multi-nutrient formulas rather than isolated uridine",
+  "typical_dosage": "Uridine dosing is condition/product-specific; many cognition studies used multi-nutrient formulas rather than isolated uridine",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only mood/cognition profile because most evidence is clinical or combination-based"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Uridine Monophosphate supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote isolated uridine as top pick",
+    "distinguish uridine monophosphate from combination medical nutrition formulas"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

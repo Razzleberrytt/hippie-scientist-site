@@ -1,0 +1,70 @@
+{
+  "slug": "hesperidin",
+  "name": "hesperidin",
+  "summary": "Human RCT evidence suggests hesperidin may improve endothelial function and modestly affect blood pressure, though findings are population-specific.",
+  "description": "Human RCT evidence suggests hesperidin may improve endothelial function and modestly affect blood pressure, though findings are population-specific.",
+  "effects": [
+    "anxiety",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Generally well tolerated",
+    "mild GI upset possible.",
+    "Food-associated citrus flavonoid",
+    "concentrated use may interact with anticoagulant/antiplatelet or blood-pressure regimens. GI effects possible.",
+    "Generally safe with minimal side effects"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "500 mg/day",
+  "typical_dosage": "500 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "hesperidin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active marker listed",
+    "clinically relevant dose",
+    "avoid underdosed anti-inflammatory blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

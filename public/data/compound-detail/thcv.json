@@ -1,0 +1,60 @@
+{
+  "slug": "thcv",
+  "name": "THCV",
+  "summary": "THCV entry from SciSpace evidence pass. Evidence level: preliminary.",
+  "description": "THCV is cataloged as phytocannabinoid. Reported mechanisms: CB1 antagonist at low dose and agonist at high dose; glucose metabolism effects.",
+  "effects": [
+    "metabolism"
+  ],
+  "primary_effects": [
+    "metabolism"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "limited safety data"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People focused on metabolic health"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

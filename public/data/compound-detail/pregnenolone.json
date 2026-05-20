@@ -1,0 +1,67 @@
+{
+  "slug": "pregnenolone",
+  "name": "Pregnenolone",
+  "summary": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts; it should be framed as experimental rather than a general cognition or hormone-optimization supplement.",
+  "description": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts; it should be framed as experimental rather than a general cognition or hormone-optimization supplement.",
+  "effects": [
+    "focus"
+  ],
+  "primary_effects": [
+    "focus"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "pregnancy",
+    "hormone-sensitive conditions",
+    "bipolar/mania risk",
+    "hormone therapy",
+    "or unsupervised endocrine use"
+  ],
+  "interactions": [
+    "see source ledger",
+    "interaction risk depends on medications and health context"
+  ],
+  "side_effects": [],
+  "dosage": "clinical trials vary widely; do not generalize dosing without clinician supervision",
+  "typical_dosage": "clinical trials vary widely; do not generalize dosing without clinician supervision",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People needing better focus and clarity"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

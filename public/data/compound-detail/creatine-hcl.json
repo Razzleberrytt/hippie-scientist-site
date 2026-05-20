@@ -1,0 +1,73 @@
+{
+  "slug": "creatine-hcl",
+  "name": "Creatine HCl",
+  "summary": "Creatine monohydrate has strong evidence, but creatine HCl should not inherit formulation-specific authority without direct comparative human evidence.",
+  "description": "Creatine monohydrate has strong evidence, but creatine HCl should not inherit formulation-specific authority without direct comparative human evidence.",
+  "effects": [
+    "performance",
+    "strength"
+  ],
+  "primary_effects": [
+    "performance",
+    "strength"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Use caution with kidney disease",
+    "nephrotoxic medications",
+    "or unexplained kidney-lab abnormalities"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "3-5",
+  "typical_dosage": "3-5",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for strength/power performance support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Creatine HCl supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Creatine monohydrate only",
+    "3–5 g/day serving",
+    "micronized optional",
+    "avoid stimulant/proprietary blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,60 @@
+{
+  "slug": "exogenous-ketones",
+  "name": "exogenous ketones",
+  "summary": "exogenous ketones is tracked for Elevate blood ketone levels providing alternative fuel substrate with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "exogenous ketones is tracked for Elevate blood ketone levels providing alternative fuel substrate with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "energy"
+  ],
+  "primary_effects": [
+    "energy"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Common GI distress and poor palatability"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "10-25 g acute",
+  "typical_dosage": "10-25 g acute",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for fatigue or performance demands"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "exogenous ketones supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

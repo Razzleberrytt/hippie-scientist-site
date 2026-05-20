@@ -1,0 +1,64 @@
+{
+  "slug": "arabinoxylan",
+  "name": "Arabinoxylan",
+  "summary": "Decision-ready summary: Arabinoxylan is best framed for prebiotic fiber support; glycemic response; gut microbiome; safety screen: IBS/FODMAP sensitivity; severe bloating.",
+  "description": "Arabinoxylan supports fiber; gut; glucose with moderate confidence in this merged decision layer.",
+  "effects": [
+    "gut_health",
+    "metabolism"
+  ],
+  "primary_effects": [
+    "gut_health",
+    "metabolism"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "IBS/FODMAP sensitivity",
+    "severe bloating"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "6-15 g/day",
+  "typical_dosage": "6-15 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for digestive issues"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "arabinoxylan supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active dose clearly listed",
+    "form matched to gut target",
+    "avoid proprietary blends without strain/fiber amount disclosure"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

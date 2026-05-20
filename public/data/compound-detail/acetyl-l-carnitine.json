@@ -1,0 +1,79 @@
+{
+  "slug": "acetyl-l-carnitine",
+  "name": "Acetyl-L-Carnitine",
+  "summary": "Decision-ready summary: Acetyl-L-Carnitine is best framed for neuropathy symptoms; mental fatigue; mitochondrial energy context; safety screen: seizure disorder; warfarin; hypothyroid medication review.",
+  "description": "Acetyl-L-Carnitine supports neuropathy; fatigue; cognition with high confidence in this merged decision layer.",
+  "effects": [
+    "brain_health",
+    "energy"
+  ],
+  "primary_effects": [
+    "brain_health",
+    "energy"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "moderate-high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "seizure disorder",
+    "warfarin",
+    "hypothyroid medication review"
+  ],
+  "interactions": [
+    "Caution in seizure disorders."
+  ],
+  "side_effects": [],
+  "dosage": "1–3 g/day L-carnitine forms used in human studies; form and context matter",
+  "typical_dosage": "1–3 g/day L-carnitine forms used in human studies; form and context matter",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only neuro-energy profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Acetyl-L-Carnitine supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Carnitine form disclosed",
+    "grams per serving clear",
+    "avoid fat-burner blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

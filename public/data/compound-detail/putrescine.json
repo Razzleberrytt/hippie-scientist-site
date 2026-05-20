@@ -1,0 +1,66 @@
+{
+  "slug": "putrescine",
+  "name": "putrescine",
+  "summary": "putrescine is tracked for polyamine involved in cellular growth and gut mucosal integrity via modulation of cell proliferation pathways; polyamine with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+  "description": "putrescine is tracked for polyamine involved in cellular growth and gut mucosal integrity via modulation of cell proliferation pathways; polyamine with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+  "effects": [
+    "gut_health",
+    "heart_health"
+  ],
+  "primary_effects": [
+    "gut_health",
+    "heart_health"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "generally safe at dietary levels",
+    "excessive intake may cause GI discomfort",
+    "safe at dietary levels",
+    "excessive intake may cause gastrointestinal discomfort"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "variable (dietary intake)",
+  "typical_dosage": "variable (dietary intake)",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People focused on cardiovascular health"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "putrescine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically relevant dose",
+    "contaminant testing",
+    "avoid vague extract labels without active amounts"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

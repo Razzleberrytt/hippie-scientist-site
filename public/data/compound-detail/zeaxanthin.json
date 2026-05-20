@@ -1,0 +1,62 @@
+{
+  "slug": "zeaxanthin",
+  "name": "Zeaxanthin",
+  "summary": "Decision-ready summary: Zeaxanthin is best framed for macular pigment support; retinal antioxidant protection; eye-health stacks; safety screen: none significant; review pregnancy supplement stack.",
+  "description": "Zeaxanthin supports eye health; macular pigment; vision with high confidence in this merged decision layer.",
+  "effects": [
+    "eye_health"
+  ],
+  "primary_effects": [
+    "eye_health"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "none significant",
+    "review pregnancy supplement stack"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "AREDS2 formula uses lutein 10 mg plus zeaxanthin 2 mg/day",
+  "typical_dosage": "AREDS2 formula uses lutein 10 mg plus zeaxanthin 2 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for macular/visual support",
+    "usually paired with lutein"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Zeaxanthin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Zeaxanthin 2 mg paired with lutein 10 mg",
+    "avoid eye formulas with beta-carotene for smokers/former smokers"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

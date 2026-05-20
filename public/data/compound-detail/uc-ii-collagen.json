@@ -1,0 +1,74 @@
+{
+  "slug": "uc-ii-collagen",
+  "name": "Uc Ii Collagen",
+  "summary": "Uc Ii Collagen is tracked for May induce oral tolerance to type II collagen and reduce immune-mediated cartilage inflammation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Uc Ii Collagen is tracked for May induce oral tolerance to type II collagen and reduce immune-mediated cartilage inflammation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "joint_health",
+    "skin_hair_nails"
+  ],
+  "primary_effects": [
+    "joint_health",
+    "skin_hair_nails"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "evidence_grade": "Moderate human evidence",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Avoid with chicken allergy",
+    "use caution with autoimmune disease",
+    "pregnancy/breastfeeding",
+    "and immunomodulating therapies"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "40 mg/day undenatured type II collagen (UC-II-style) in knee/joint studies",
+  "typical_dosage": "40 mg/day undenatured type II collagen (UC-II-style) in knee/joint studies",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard connective-tissue and skin-support profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Undenatured type II collagen",
+    "not generic collagen peptides",
+    "40 mg/day dose",
+    "chicken sternum source disclosed"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-05-20T17:41:47.969Z",
+  "workbook": "herb_monograph_master.xlsx",
+  "counts": {
+    "herbs": 295,
+    "compounds": 617,
+    "claims": 0,
+    "herbCompoundMap": 406,
+    "topics": 0,
+    "pathways": 0,
+    "supernodes": 0
+  }
+}
