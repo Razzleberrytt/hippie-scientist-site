@@ -1,14 +1,27 @@
 {
-  "name": "Next.js Dev Environment",
+  "name": "Next.js Ultra-Optimized Dev",
   "dockerFile": "Dockerfile",
   "forwardPorts": [3000],
   "postCreateCommand": "npm install",
+  "postStartCommand": "npm run dev",
   "customizations": {
     "vscode": {
+      "settings": {
+        "editor.fontSize": 16,
+        "workbench.sideBar.location": "right",
+        "terminal.integrated.fontSize": 14,
+        "editor.minimap.enabled": false,
+        "window.zoomLevel": 1,
+        "files.autoSave": "afterDelay",
+        "editor.tabSize": 2
+      },
       "extensions": [
         "GitHub.copilot",
         "GitHub.copilot-chat",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss"
       ]
     }
   },
