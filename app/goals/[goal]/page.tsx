@@ -115,7 +115,11 @@ export default async function GoalDecisionPage({
             <tbody>
               {goal.options.map((option) => (
                 <tr key={option.slug} className="border-b border-slate-100 align-top">
-                  <td className="py-2 pr-4 font-medium text-slate-900">{option.name}</td>
+                  <td className="py-2 pr-4 font-medium text-slate-900">
+                    <Link href={`/compounds/${option.slug}`} className="text-emerald-800 underline-offset-4 hover:underline">
+                      {option.name}
+                    </Link>
+                  </td>
                   <td className="py-2 pr-4 text-slate-700">{option.bestFor}</td>
                   <td className="py-2 pr-4 text-slate-700">{option.speed}</td>
                   <td className="py-2 pr-4 text-slate-700">{option.evidence}</td>
@@ -124,6 +128,26 @@ export default async function GoalDecisionPage({
               ))}
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-slate-900">Evidence Provenance</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          This page summarizes goal-level comparison signals only. For entity-specific sourcing, safety notes,
+          mechanisms, and evidence context, review the underlying compound profiles and the site methodology.
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {goal.options.map((option) => (
+            <Link
+              key={`${option.slug}-profile-link`}
+              href={`/compounds/${option.slug}`}
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700 transition hover:border-emerald-300 hover:bg-white"
+            >
+              <span className="block font-semibold text-slate-900">{option.name}</span>
+              <span className="mt-1 block">Open the profile for sourcing, safety context, and mechanism notes.</span>
+            </Link>
+          ))}
         </div>
       </section>
 
