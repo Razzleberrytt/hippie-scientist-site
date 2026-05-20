@@ -1,14 +1,36 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
-import { execSync } from 'node:child_process'
 
 const root = process.cwd()
 const appDir = path.join(root, 'app')
 const outFile = path.join(root, 'docs/generated/route-inventory.md')
 
-const pageFiles = execSync("rg --files app -g '**/page.tsx' -g '**/page.ts' -g '**/page.jsx' -g '**/page.js'", { encoding: 'utf8' })
-  .trim().split('\n').filter(Boolean).sort()
+const pageFilePattern = /^page\.(tsx|ts|jsx|js)$/
+
+const collectPageFiles = (dir) => {
+  if (!fs.existsSync(dir)) return []
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true })
+  const files = []
+
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name)
+
+    if (entry.isDirectory()) {
+      files.push(...collectPageFiles(fullPath))
+      continue
+    }
+
+    if (entry.isFile() && pageFilePattern.test(entry.name)) {
+      files.push(path.relative(root, fullPath).split(path.sep).join('/'))
+    }
+  }
+
+  return files
+}
+
+const pageFiles = collectPageFiles(appDir).sort()
 
 const toRoute = (file) => {
   const rel = file.replace(/^app\//, '').replace(/\/page\.(tsx|ts|jsx|js)$/, '')
