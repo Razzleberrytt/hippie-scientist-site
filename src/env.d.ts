@@ -1,4 +1,9 @@
-declare const __BUILD_TIME__: string
-declare const __APP_VERSION__: string
-declare const __COMMIT_HASH__: string
-declare const __BUILD_DATE__: string
+declare global {
+  const __BUILD_TIME__: string
+  const __APP_VERSION__: string
+  const __COMMIT_HASH__: string
+  const __BUILD_DATE__: string
+}
+
+export {}
+
