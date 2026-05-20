@@ -12,6 +12,7 @@ export default [
       'out/**',
       '.next/**',
       'node_modules/**',
+      'next-env.d.ts',
       'scripts/data/build-runtime-from-workbook.mjs',
     ],
   },
