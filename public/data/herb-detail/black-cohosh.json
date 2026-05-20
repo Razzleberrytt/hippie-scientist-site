@@ -1,0 +1,73 @@
+{
+  "slug": "black-cohosh",
+  "name": "Black Cohosh (Actaea racemosa)",
+  "summary": "Black Cohosh centers on the root; rhizome.",
+  "description": "Black Cohosh centers on the root; rhizome. Key reported compounds include triterpene glycosides (actein, 23-epi-26-deoxyactein); cimifugoside; caffeic acid derivatives; fukinolic acid.",
+  "effects": [
+    "anti-inflammatory",
+    "hormonal"
+  ],
+  "primary_effects": [
+    "anti-inflammatory",
+    "hormonal"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Hormonal Signaling Context",
+    "NF-kB Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "liver disease",
+    "pregnancy"
+  ],
+  "interactions": [
+    "hepatotoxic drugs (caution)"
+  ],
+  "side_effects": [],
+  "dosage": "Standardized extract (e.g., 2.5% triterpene glycosides): 20-80 mg/day; variability across products",
+  "typical_dosage": "Standardized extract (e.g., 2.5% triterpene glycosides): 20-80 mg/day; variability across products",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Black Cohosh (Actaea racemosa) capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 83,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

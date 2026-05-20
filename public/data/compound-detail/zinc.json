@@ -1,0 +1,67 @@
+{
+  "slug": "zinc",
+  "name": "Zinc",
+  "summary": "Decision-ready summary: Zinc is best framed for zinc deficiency; immune support; wound healing support; safety screen: copper deficiency risk with high-dose chronic use; nausea.",
+  "description": "Zinc supports immune; deficiency; skin with high confidence in this merged decision layer.",
+  "effects": [
+    "immunity",
+    "skin_hair_nails"
+  ],
+  "primary_effects": [
+    "immunity",
+    "skin_hair_nails"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "evidence_grade": "high",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "copper deficiency risk with high-dose chronic use",
+    "nausea"
+  ],
+  "interactions": [
+    "Avoid high-dose long-term use."
+  ],
+  "side_effects": [],
+  "dosage": "10-30",
+  "typical_dosage": "10-30",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard deficiency-related skin support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Zinc supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Picolinate",
+    "citrate",
+    "or gluconate",
+    "elemental zinc clearly listed",
+    "long-term use should include copper strategy"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

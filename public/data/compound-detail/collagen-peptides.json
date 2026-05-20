@@ -1,0 +1,70 @@
+{
+  "slug": "collagen-peptides",
+  "name": "Collagen Peptides",
+  "summary": "Decision-ready summary: Collagen Peptides is best framed for skin elasticity; joint comfort; connective tissue support; safety screen: allergy to source material.",
+  "description": "Collagen Peptides supports skin; joints; connective tissue with moderate confidence in this merged decision layer.",
+  "effects": [
+    "joint_health",
+    "skin_hair_nails"
+  ],
+  "primary_effects": [
+    "joint_health",
+    "skin_hair_nails"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "allergy to source material"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "2.5–10 g/day hydrolyzed collagen peptides; 15 g/day used with resistance training in some muscle studies",
+  "typical_dosage": "2.5–10 g/day hydrolyzed collagen peptides; 15 g/day used with resistance training in some muscle studies",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard connective-tissue and skin-support profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Collagen Peptides supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Hydrolyzed collagen peptides",
+    "type/source disclosed (bovine/marine/porcine)",
+    "2.5–10 g serving",
+    "third-party tested for heavy metals"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "honokiol",
+  "name": "honokiol",
+  "summary": "Biphenolic compound from Magnolia bark with anxiolytic and anti-inflammatory activity.",
+  "description": "Biphenolic compound from Magnolia bark with anxiolytic and anti-inflammatory activity.",
+  "effects": [
+    "inflammation"
+  ],
+  "primary_effects": [
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Sedation and additive CNS depressant effects are possible",
+    "pregnancy safety is not established.",
+    "no verified human RCT data"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for inflammation or pain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active marker listed",
+    "clinically relevant dose",
+    "avoid underdosed anti-inflammatory blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

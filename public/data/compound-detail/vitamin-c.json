@@ -1,0 +1,72 @@
+{
+  "slug": "vitamin-c",
+  "name": "Vitamin C",
+  "summary": "Does not prevent colds in general population but may reduce duration.",
+  "description": "Does not prevent colds in general population but may reduce duration.",
+  "effects": [
+    "antioxidant",
+    "skin_hair_nails"
+  ],
+  "primary_effects": [
+    "antioxidant",
+    "skin_hair_nails"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Caution in kidney stone risk."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "200-1000 mg/day",
+  "typical_dosage": "200-1000 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard collagen-support antioxidant profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Vitamin C supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active extract or pure amino acid",
+    "avoid stimulant blends",
+    "review sedative stacking"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 95,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

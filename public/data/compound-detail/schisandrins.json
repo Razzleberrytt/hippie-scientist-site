@@ -1,0 +1,60 @@
+{
+  "slug": "schisandrins",
+  "name": "Schisandrins",
+  "summary": "Schisandrins is a lignans associated with schisandra. Evidence level: mixed.",
+  "description": "Schisandrins is cataloged as a lignans. Reported mechanism notes: Primary mechanism (preclinical); minimal human validation.",
+  "effects": [
+    "anxiety"
+  ],
+  "primary_effects": [
+    "anxiety"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Generally safe"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Schisandrins supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active extract or pure amino acid",
+    "avoid stimulant blends",
+    "review sedative stacking"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

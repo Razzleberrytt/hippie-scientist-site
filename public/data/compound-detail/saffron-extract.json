@@ -1,0 +1,72 @@
+{
+  "slug": "saffron-extract",
+  "name": "Saffron Extract",
+  "summary": "Saffron Extract is tracked for May affect serotonergic signaling, antioxidant pathways, and inflammatory mediators with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Saffron Extract is tracked for May affect serotonergic signaling, antioxidant pathways, and inflammatory mediators with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "mood",
+    "stress"
+  ],
+  "primary_effects": [
+    "mood",
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "Moderate human evidence",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Pregnancy",
+    "bipolar disorder/mania risk",
+    "serotonergic medication stacking without clinician input."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "28 mg/day affron for 4 weeks in low-mood RCT; depression trials vary",
+  "typical_dosage": "28 mg/day affron for 4 weeks in low-mood RCT; depression trials vary",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for mild mood-support contexts with emerging human evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Choose standardized saffron extract such as affron or crocin/safranal-standardized products",
+    "avoid spice-only or underdosed blends."
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

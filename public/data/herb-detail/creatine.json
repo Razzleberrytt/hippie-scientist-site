@@ -1,0 +1,69 @@
+{
+  "slug": "creatine",
+  "name": "Creatine",
+  "summary": "Creatine is tracked for sleep,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Creatine is tracked for sleep,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "effects": [
+    "sleep"
+  ],
+  "primary_effects": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Kidney disease (caution)"
+  ],
+  "interactions": [
+    "Kidney disease (caution)"
+  ],
+  "side_effects": [],
+  "dosage": "3-5 g/day",
+  "typical_dosage": "3-5 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Creatine capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,59 @@
+{
+  "slug": "iodine",
+  "name": "Iodine",
+  "summary": "Prevents iodine deficiency disorders and supports thyroid hormone production.",
+  "description": "Prevents iodine deficiency disorders and supports thyroid hormone production.",
+  "effects": [
+    "thyroid_health"
+  ],
+  "primary_effects": [
+    "thyroid_health"
+  ],
+  "mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "strong",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Caution in thyroid disease."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Adult RDA 150 mcg/day iodine; pregnancy 220 mcg/day; lactation 290 mcg/day; adult UL 1100 mcg/day",
+  "typical_dosage": "Adult RDA 150 mcg/day iodine; pregnancy 220 mcg/day; lactation 290 mcg/day; adult UL 1100 mcg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Nutrient adequacy profile for iodine deficiency risk",
+    "not thyroid boosting"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Iodine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Microgram dose clearly listed",
+    "kelp products should disclose iodine variability and contaminant testing"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

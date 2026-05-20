@@ -1,0 +1,71 @@
+{
+  "slug": "d-chiro-inositol",
+  "name": "D-Chiro Inositol",
+  "summary": "May improve insulin sensitivity and ovulation; limited evidence.",
+  "description": "May improve insulin sensitivity and ovulation; limited evidence.",
+  "effects": [
+    "fertility",
+    "metabolic_health"
+  ],
+  "primary_effects": [
+    "fertility",
+    "metabolic_health"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Limited data."
+  ],
+  "interactions": [
+    "Limited data."
+  ],
+  "side_effects": [],
+  "dosage": "D-chiro-inositol is often combined with myo-inositol; 40:1 myo:DCI ratio is commonly marketed but product-specific evidence matters",
+  "typical_dosage": "D-chiro-inositol is often combined with myo-inositol; 40:1 myo:DCI ratio is commonly marketed but product-specific evidence matters",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority PCOS-support profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Myo-inositol:D-chiro-inositol ratio disclosed",
+    "avoid high-dose DCI-only products unless clinician-guided"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 95,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

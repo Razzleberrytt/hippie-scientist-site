@@ -1,0 +1,59 @@
+{
+  "slug": "bcaa",
+  "name": "BCAA",
+  "summary": "Human evidence for BCAA benefits is inconsistent and often inferior to complete protein or EAA contexts; authority status is insufficient for broad claims.",
+  "description": "Human evidence for BCAA benefits is inconsistent and often inferior to complete protein or EAA contexts; authority status is insufficient for broad claims.",
+  "effects": [
+    "performance"
+  ],
+  "primary_effects": [
+    "performance"
+  ],
+  "mechanisms": [
+    "mTOR Signaling"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Generally tolerated",
+    "caution maple syrup urine disease and severe liver disease."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "5-20 g/day",
+  "typical_dosage": "5-20 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority amino-acid support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a general consumer product",
+    "keep as research/reference unless human supplement evidence and safety context are added"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

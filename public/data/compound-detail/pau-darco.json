@@ -1,0 +1,60 @@
+{
+  "slug": "pau-darco",
+  "name": "Pau d'Arco",
+  "summary": "Pau d'Arco has preclinical antimicrobial/cytotoxic research but no robust human clinical evidence and toxicity concerns at high doses.",
+  "description": "Tabebuia/Handroanthus botanical containing lapachol and beta-lapachone; product identity and dosing are poorly standardized.",
+  "effects": [
+    "research_only"
+  ],
+  "primary_effects": [
+    "research_only"
+  ],
+  "mechanisms": [
+    "antimicrobial/cytotoxic effects (preclinical)"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "GI upset",
+    "high-dose anticoagulant/toxicity concerns."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Pau d'Arco supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a general consumer product",
+    "keep as research/reference unless human supplement evidence and safety context are added"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

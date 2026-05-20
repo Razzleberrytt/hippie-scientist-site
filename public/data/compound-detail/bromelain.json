@@ -1,0 +1,63 @@
+{
+  "slug": "bromelain",
+  "name": "Bromelain",
+  "summary": "Decision-ready summary: Bromelain is best framed for sinus inflammation context; post-exercise soreness context; protein digestion support; safety screen: pineapple allergy; anticoagulants; planned surgery.",
+  "description": "Bromelain supports sinus; inflammation; digestion with low confidence in this merged decision layer.",
+  "effects": [
+    "inflammation",
+    "sinus_support"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "sinus_support"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "evidence_grade": "low-moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "pineapple allergy",
+    "anticoagulants",
+    "planned surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "product-dependent enzyme units",
+  "typical_dosage": "product-dependent enzyme units",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority sinus/inflammation support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Bromelain supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active dose clearly listed",
+    "form matched to gut target",
+    "avoid proprietary blends without strain/fiber amount disclosure"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

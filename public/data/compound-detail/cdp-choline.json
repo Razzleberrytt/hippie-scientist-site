@@ -1,0 +1,65 @@
+{
+  "slug": "cdp-choline",
+  "name": "Citicoline / CDP-choline",
+  "summary": "Decision-ready summary: Citicoline / CDP-choline is best framed for attention support; cognitive recovery; memory support; safety screen: cholinergic sensitivity; anticholinergic medication conflict.",
+  "description": "Citicoline / CDP-choline supports focus; memory; cognition with moderate-high confidence in this merged decision layer.",
+  "effects": [
+    "cognition",
+    "focus"
+  ],
+  "primary_effects": [
+    "cognition",
+    "focus"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "cholinergic sensitivity",
+    "anticholinergic medication conflict"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
+  "typical_dosage": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for age-associated memory support where citicoline/CDP-choline is specifically used"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "CDP-Choline supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Citicoline/CDP-choline clearly labeled",
+    "250–500 mg capsules",
+    "avoid generic choline blends hiding citicoline dose"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

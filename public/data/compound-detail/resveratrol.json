@@ -1,0 +1,76 @@
+{
+  "slug": "resveratrol",
+  "name": "Resveratrol",
+  "summary": "Decision-ready summary: Resveratrol is best framed for cardiometabolic markers; endothelial function; oxidative stress markers; safety screen: anticoagulants; hormone-sensitive conditions caution; surgery window.",
+  "description": "Resveratrol supports cardio; polyphenol; aging with moderate confidence in this merged decision layer.",
+  "effects": [
+    "cardiovascular",
+    "healthy_aging"
+  ],
+  "primary_effects": [
+    "cardiovascular",
+    "healthy_aging"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "low-moderate",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "anticoagulants",
+    "hormone-sensitive conditions caution",
+    "surgery window"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "150-500 mg/day",
+  "typical_dosage": "150-500 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority healthy-aging antioxidant profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Resveratrol supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

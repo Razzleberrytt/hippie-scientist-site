@@ -1,0 +1,65 @@
+{
+  "slug": "pterostilbene",
+  "name": "pterostilbene",
+  "summary": "Dimethylated stilbene associated with berry and grape sources and linked to AMPK and PPAR signaling.",
+  "description": "Dimethylated stilbene associated with berry and grape sources and linked to AMPK and PPAR signaling.",
+  "effects": [
+    "healthy_aging"
+  ],
+  "primary_effects": [
+    "healthy_aging"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "May affect bleeding risk and drug metabolism at supplement doses",
+    "GI upset and headache are possible."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only resveratrol-analog profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "pterostilbene supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,72 @@
+{
+  "slug": "salvia-miltiorrhiza",
+  "name": "Salvia miltiorrhiza",
+  "summary": "Danshen/Salvia miltiorrhiza has pharmacology and clinical literature in cardiovascular contexts, but product and preparation differences require conservative interpretation.",
+  "description": "Danshen/Salvia miltiorrhiza has pharmacology and clinical literature in cardiovascular contexts, but product and preparation differences require conservative interpretation.",
+  "effects": [
+    "cardiovascular"
+  ],
+  "primary_effects": [
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Caution with anticoagulants and antiplatelets."
+  ],
+  "interactions": [
+    "Caution with anticoagulants and antiplatelets."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Salvia miltiorrhiza capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "minimal",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:minimal",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "hibiscus-sabdariffa",
+  "name": "Hibiscus",
+  "summary": "Hibiscus is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Hibiscus is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "effects": [
+    "stress-relief",
+    "cardiovascular",
+    "diuretic"
+  ],
+  "primary_effects": [
+    "stress-relief",
+    "cardiovascular",
+    "diuretic"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Antihypertensives (additive)"
+  ],
+  "interactions": [
+    "Antihypertensives (additive)"
+  ],
+  "side_effects": [],
+  "dosage": "1.25-3 g tea/day or extract equivalent",
+  "typical_dosage": "1.25-3 g tea/day or extract equivalent",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Hibiscus capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,74 @@
+{
+  "slug": "ginseng-panax-white",
+  "name": "Panax White Ginseng",
+  "summary": "White ginseng is less processed Panax ginseng with less extract-specific evidence than red ginseng.",
+  "description": "Less processed Panax ginseng root form with similar but not identical ginsenoside profile.",
+  "effects": [
+    "energy",
+    "stress"
+  ],
+  "primary_effects": [
+    "energy",
+    "stress"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Similar to red ginseng: insomnia",
+    "headache",
+    "possible hypoglycemia/interactions."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard energy/stress support with product-specific evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Panax White Ginseng supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

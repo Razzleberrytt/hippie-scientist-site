@@ -1,0 +1,65 @@
+{
+  "slug": "thujone",
+  "name": "thujone",
+  "summary": "Thujone is a monoterpene ketone best known for neuroactive and toxicity-relevant pharmacology in sage- and wormwood-related discussions. Its importance is driven more by receptor-level safety relevance than by positive human efficacy evidence.",
+  "description": "Monoterpene ketone associated with GABAergic and sensory signaling.",
+  "effects": [
+    "anxiety"
+  ],
+  "primary_effects": [
+    "anxiety"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Neuroactive monoterpene",
+    "high exposure may increase seizure/neurotoxicity risk. Avoid pregnancy",
+    "seizure disorders",
+    "and concentrated essential-oil ingestion.",
+    "high exposure may increase seizure/neurotoxicity risk. A"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "thujone supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active extract or pure amino acid",
+    "avoid stimulant blends",
+    "review sedative stacking"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

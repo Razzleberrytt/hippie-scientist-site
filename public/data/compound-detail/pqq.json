@@ -1,0 +1,74 @@
+{
+  "slug": "pqq",
+  "name": "PQQ",
+  "summary": "PQQ entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "PQQ is cataloged as redox cofactor. Reported mechanisms: redox cycling; possible mitochondrial biogenesis via PGC-1α (preclinical).",
+  "effects": [
+    "energy",
+    "mitochondria"
+  ],
+  "primary_effects": [
+    "energy",
+    "mitochondria"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Mild GI upset or insomnia possible",
+    "long-term safety evidence is limited.",
+    "limited human safety data",
+    "tolerated in small studies"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "10-20 mg/day",
+  "typical_dosage": "10-20 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only mitochondria-support profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "PQQ supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

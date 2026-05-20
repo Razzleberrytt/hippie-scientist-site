@@ -1,0 +1,87 @@
+{
+  "slug": "berberis",
+  "name": "Berberis",
+  "summary": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+  "description": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+  "effects": [
+    "anti-inflammatory",
+    "digestive",
+    "metabolic"
+  ],
+  "primary_effects": [
+    "anti-inflammatory",
+    "digestive",
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Pregnancy",
+    "breastfeeding",
+    "neonates/infants",
+    "clinician review for liver disease",
+    "complex medication regimens",
+    "or hypoglycemia-prone patients."
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "cyclosporine/tacrolimus",
+    "macrolides",
+    "CYP3A4/CYP2D6/P-gp substrates."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "berberis capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 93,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

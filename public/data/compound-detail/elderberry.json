@@ -1,0 +1,66 @@
+{
+  "slug": "elderberry",
+  "name": "Elderberry",
+  "summary": "Elderberry entry from SciSpace evidence pass. Evidence level: limited.",
+  "description": "Elderberry is cataloged as anthocyanin botanical. Reported mechanisms: antioxidant effects; viral entry/replication inhibition in vitro.",
+  "effects": [
+    "immunity",
+    "respiratory"
+  ],
+  "primary_effects": [
+    "immunity",
+    "respiratory"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Avoid raw/unripe elderberry",
+    "use caution with autoimmune disease",
+    "immunosuppressants",
+    "pregnancy/breastfeeding",
+    "and GI sensitivity"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Elderberry syrup/extract dosing varies by product; trial regimens are product-specific",
+  "typical_dosage": "Elderberry syrup/extract dosing varies by product; trial regimens are product-specific",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only respiratory-support profile due to limited evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Elderberry supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Sambucus nigra extract",
+    "cooked/processed product only",
+    "anthocyanin or extract strength disclosed",
+    "avoid raw elderberry preparations"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

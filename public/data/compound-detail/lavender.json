@@ -1,0 +1,67 @@
+{
+  "slug": "lavender",
+  "name": "Lavender",
+  "summary": "Lavender entry from SciSpace evidence pass. Evidence level: moderate.",
+  "description": "Lavender is cataloged as monoterpene-rich botanical. Reported mechanisms: GABA-A modulation; reduced sympathetic activity.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Use caution with sedatives",
+    "alcohol",
+    "pregnancy/breastfeeding",
+    "and hormone-sensitive conditions",
+    "oral oil can cause lavender burps/GI effects"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
+  "typical_dosage": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard anxiety/stress support where standardized oral lavender is used"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Lavender supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Oral Silexan-style lavender oil",
+    "dose clearly 80 mg",
+    "avoid aromatherapy products being marketed as oral anxiety evidence"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

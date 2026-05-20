@@ -1,0 +1,60 @@
+{
+  "slug": "dim",
+  "name": "diindolylmethane",
+  "summary": "diindolylmethane is tracked for Modu lates estrogen metabolism via CYP1A1 and CYP1B1 pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "diindolylmethane is tracked for Modu lates estrogen metabolism via CYP1A1 and CYP1B1 pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "hormone_balance"
+  ],
+  "primary_effects": [
+    "hormone_balance"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Generally safe with limited long-term data"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "100-300 mg/day",
+  "typical_dosage": "100-300 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority hormone-metabolism support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "diindolylmethane supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

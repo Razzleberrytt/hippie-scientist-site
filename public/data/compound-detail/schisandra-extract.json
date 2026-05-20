@@ -1,0 +1,74 @@
+{
+  "slug": "schisandra-extract",
+  "name": "Schisandra Extract",
+  "summary": "Human evidence is insufficient for stress, liver, or performance authority claims without verified clinical citation.",
+  "description": "Human evidence is insufficient for stress, liver, or performance authority claims without verified clinical citation.",
+  "effects": [
+    "liver_health",
+    "stress"
+  ],
+  "primary_effects": [
+    "liver_health",
+    "stress"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Use caution with pregnancy",
+    "liver disease",
+    "seizure history",
+    "and CYP-metabolized medications"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Product-specific extract dosing varies; direct human clinical dose support is limited",
+  "typical_dosage": "Product-specific extract dosing varies; direct human clinical dose support is limited",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only adaptogen/liver profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Schisandra chinensis identity clear",
+    "lignan markers disclosed",
+    "avoid cortisol/testosterone hype claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "maca",
+  "name": "Maca (Lepidium meyenii)",
+  "summary": "Maca centers on the root; hypocotyl.",
+  "description": "Maca centers on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates.",
+  "effects": [
+    "energy",
+    "hormonal",
+    "reproductive"
+  ],
+  "primary_effects": [
+    "energy",
+    "hormonal",
+    "reproductive"
+  ],
+  "mechanisms": [
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "hormone-sensitive conditions (unclear relevance)"
+  ],
+  "interactions": [
+    "none well established"
+  ],
+  "side_effects": [],
+  "dosage": "Gelatinized powder: 1.5-3 g/day; extracts vary; limited standardization",
+  "typical_dosage": "Gelatinized powder: 1.5-3 g/day; extracts vary; limited standardization",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Maca (Lepidium meyenii) capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 73,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-quality-missing",
+      "summary-too-thin"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

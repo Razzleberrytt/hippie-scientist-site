@@ -1,0 +1,75 @@
+{
+  "slug": "astaxanthin",
+  "name": "Astaxanthin",
+  "summary": "Decision-ready summary: Astaxanthin is best framed for skin photoaging support; oxidative stress; exercise recovery context; safety screen: pregnancy; hormone-sensitive medication review.",
+  "description": "Astaxanthin supports skin; oxidative stress; exercise recovery with moderate confidence in this merged decision layer.",
+  "effects": [
+    "antioxidant",
+    "skin_hair_nails"
+  ],
+  "primary_effects": [
+    "antioxidant",
+    "skin_hair_nails"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "pregnancy",
+    "hormone-sensitive medication review"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "4–12 mg/day",
+  "typical_dosage": "4–12 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority antioxidant skin-support profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Astaxanthin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active extract or pure amino acid",
+    "avoid stimulant blends",
+    "review sedative stacking"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

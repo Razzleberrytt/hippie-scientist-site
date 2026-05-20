@@ -1,0 +1,75 @@
+{
+  "slug": "omega-3-dha-dominant",
+  "name": "Omega-3 DHA-Dominant",
+  "summary": "DHA supports brain development and may modestly benefit cognition.",
+  "description": "DHA supports brain development and may modestly benefit cognition.",
+  "effects": [
+    "brain_health",
+    "cardiovascular"
+  ],
+  "primary_effects": [
+    "brain_health",
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Caution with anticoagulants."
+  ],
+  "interactions": [
+    "Caution with anticoagulants."
+  ],
+  "side_effects": [],
+  "dosage": "1000-3000",
+  "typical_dosage": "1000-3000",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for triglyceride/cardiovascular support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Omega-3 DHA-Dominant supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "EPA and DHA amounts clearly listed",
+    "third-party oxidation/heavy-metal testing",
+    "avoid fish oil without EPA/DHA amounts"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 95,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

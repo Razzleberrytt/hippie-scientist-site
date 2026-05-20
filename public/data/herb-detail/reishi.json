@@ -1,0 +1,74 @@
+{
+  "slug": "reishi",
+  "name": "Reishi (Ganoderma lucidum)",
+  "summary": "Immune modulation.",
+  "description": "Immune modulation.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "autoimmune conditions (caution)",
+    "bleeding disorders"
+  ],
+  "interactions": [
+    "anticoagulants",
+    "immunosuppressants"
+  ],
+  "side_effects": [],
+  "dosage": "Extracts (fruiting body or mycelium): 1.5-9 g/day equivalent; beta-glucan content varies widely",
+  "typical_dosage": "Extracts (fruiting body or mycelium): 1.5-9 g/day equivalent; beta-glucan content varies widely",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Reishi (Ganoderma lucidum) tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "beta-glucans/triterpenes disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 68,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-quality-missing",
+      "summary-too-thin"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

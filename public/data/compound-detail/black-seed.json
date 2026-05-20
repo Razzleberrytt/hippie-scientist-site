@@ -1,0 +1,76 @@
+{
+  "slug": "black-seed",
+  "name": "Black seed / Nigella sativa",
+  "summary": "Decision-ready summary: Black seed / Nigella sativa is best framed for metabolic markers; inflammation support; allergic rhinitis support; safety screen: pregnancy high-dose caution; anticoagulants; low blood pressure.",
+  "description": "Black seed / Nigella sativa supports metabolic; inflammation; allergy with moderate confidence in this merged decision layer.",
+  "effects": [
+    "inflammation",
+    "respiratory"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "respiratory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "pregnancy high-dose caution",
+    "anticoagulants",
+    "low blood pressure"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "black seed powder/oil dosing varies by study; require dose-disclosed thymoquinone/Nigella product",
+  "typical_dosage": "black seed powder/oil dosing varies by study; require dose-disclosed thymoquinone/Nigella product",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority respiratory/inflammatory support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Black Seed supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Nigella sativa seed oil or powder",
+    "thymoquinone content disclosed when possible",
+    "avoid miracle-cure claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

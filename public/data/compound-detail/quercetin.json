@@ -1,0 +1,76 @@
+{
+  "slug": "quercetin",
+  "name": "Quercetin",
+  "summary": "Decision-ready summary: Quercetin is best framed for allergy symptom context; inflammatory support; oxidative-stress support; safety screen: kidney disease high dose; anticoagulants; CYP medication review.",
+  "description": "Quercetin supports allergy; inflammation; antioxidant with moderate confidence in this merged decision layer.",
+  "effects": [
+    "healthy_aging",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "healthy_aging",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "kidney disease high dose",
+    "anticoagulants",
+    "CYP medication review"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "500–1000 mg/day quercetin used in many human studies; bioavailability varies substantially",
+  "typical_dosage": "500–1000 mg/day quercetin used in many human studies; bioavailability varies substantially",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority antioxidant/healthy-aging support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Quercetin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Quercetin form disclosed",
+    "phytosome/glycoside/bioavailability support preferred",
+    "avoid underdosed immune blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}
