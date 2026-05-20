@@ -39,6 +39,9 @@ jobs:
       - name: Validate workbook source
         run: npm run validate:workbook-source
 
+      - name: Validate static export compatibility
+        run: npm run validate:static-export
+
       - name: Lint
         run: npm run lint
 
