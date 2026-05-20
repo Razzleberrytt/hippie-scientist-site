@@ -35,7 +35,8 @@
     "data:verify": "node scripts/data/verify-generated-data.mjs",
     "validate:workbook-source": "node scripts/ci/validate-workbook-source.mjs",
     "prebuild": "npm run validate:workbook-source",
-    "check:node": "node scripts/ci/check-node-version.mjs"
+    "check:node": "node scripts/ci/check-node-version.mjs",
+    "audit:high": "node scripts/ci/audit-high-with-allowlist.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",

@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-19",
+  "entries": [
+    {
+      "package": "xlsx",
+      "advisoryIds": [1108110, 1108111],
+      "severity": "high",
+      "reason": "Trusted build-time workbook parsing only; no user-upload XLSX parsing.",
+      "compensatingControls": [
+        "Workbook source restricted to local trusted paths by scripts/workbook-source.mjs",
+        "Remote URLs rejected",
+        "Non-.xlsx, missing, and empty workbook files rejected",
+        "Generated public/data workbook artifacts cannot be canonical source",
+        "No XLSX parsing in request-time routes or upload handlers"
+      ],
+      "reviewBy": "2026-08-31",
+      "followUpIssue": "TODO: https://github.com/<org>/<repo>/issues/REPLACE_XLSX"
+    }
+  ]
+}
