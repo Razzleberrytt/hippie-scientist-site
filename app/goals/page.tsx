@@ -4,7 +4,7 @@ import { goals } from '@/data/goals'
 
 export const metadata: Metadata = {
   title: 'Goal Decision Guides | The Hippie Scientist',
-  description: 'Decision-focused supplement goal pages for pain, inflammation, focus, and sleep.',
+  description: 'Educational comparison pages for pain, inflammation, focus, and sleep support topics.',
 }
 
 export default function GoalsPage() {
@@ -16,9 +16,22 @@ export default function GoalsPage() {
           Choose by outcome, then compare options clearly.
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-700 sm:text-base">
-          Each page is designed for fast scanning: quick picks first, then side-by-side tradeoffs,
-          risks, and practical form choices.
+          These pages are educational comparison summaries designed for fast scanning. They are intended to
+          help readers compare evidence context, tolerance considerations, and practical tradeoffs — not to
+          diagnose, prescribe, or replace professional care.
         </p>
+
+        <div className="mt-5 flex flex-wrap gap-3 text-xs font-medium uppercase tracking-[0.14em]">
+          <Link href="/education/research-methodology" className="text-emerald-800 underline-offset-4 hover:underline">
+            Research methodology
+          </Link>
+          <Link href="/education/evidence-hierarchy" className="text-emerald-800 underline-offset-4 hover:underline">
+            Evidence hierarchy
+          </Link>
+          <Link href="/disclaimer" className="text-emerald-800 underline-offset-4 hover:underline">
+            Disclaimer
+          </Link>
+        </div>
       </section>
 
       <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
