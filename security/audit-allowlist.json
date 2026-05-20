@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-20",
+  "rules": [
+    {
+      "id": "xlsx-high-no-upstream-fix",
+      "package": "xlsx",
+      "severity": "high",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-4r6h-8v6p-xvw6",
+        "https://github.com/advisories/GHSA-5pgg-2g8v-p4x9"
+      ],
+      "scope": "build-time trusted workbook parsing only",
+      "expiresOn": "2026-08-31",
+      "reviewBy": "2026-08-15",
+      "followUpIssueUrl": "https://github.com/OWNER/REPO/issues/TODO-xlsx-migration",
+      "reason": "No patched xlsx release available in current line; parser is restricted to trusted local workbook files and blocked from user/runtime inputs."
+    }
+  ]
+}
