@@ -48,6 +48,9 @@ jobs:
       - name: Validate static export compatibility
         run: npm run validate:static-export
 
+      - name: Generate route inventory
+        run: npm run routes:inventory
+
       - name: Run lint
         run: npm run lint
 
@@ -77,6 +80,9 @@ jobs:
             exit 1
           fi
 
+      - name: Validate route SEO coverage
+        run: npm run validate:route-seo
+
       - name: Run security audit gate
         run: npm run audit:high
 
@@ -98,7 +104,7 @@ jobs:
             echo "## CI quality gate"
             echo "- Purpose: enforce lint, typecheck, workbook/data correctness, build verification, and security audit"
             echo "- Branch/ref: $GITHUB_REF"
-            echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run lint; npm run typecheck; npm run data:build; npm run data:validate; npm run guard:source-of-truth; npm run build; npm run verify:build; npm run audit:high"
+            echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:build; npm run data:validate; npm run guard:source-of-truth; npm run build; npm run verify:build; npm run validate:route-seo; npm run audit:high"
             echo "- Artifact: npm-audit-after"
             echo "- Status: ${{ job.status }}"
           } >> "$GITHUB_STEP_SUMMARY"
