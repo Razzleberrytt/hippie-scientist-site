@@ -2,8 +2,94 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
+import { getCompoundBySlug } from '@/lib/runtime-data'
 
 type GoalRouteParams = { goal: string }
+type RuntimeCompound = Record<string, any>
+
+type EnrichedGoalOption = {
+  option: (typeof goals)[number]['options'][number]
+  compound?: RuntimeCompound
+  evidenceLabel: string
+  safetyLabel: string
+  mechanismTags: string[]
+  pathwayTags: string[]
+}
+
+const cleanValue = (value: unknown): string => {
+  if (typeof value !== 'string') return ''
+  return value.trim()
+}
+
+const cleanList = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return value
+      .flatMap((item) => cleanList(item))
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  if (typeof value === 'string') {
+    return value
+      .split(/[;,|]/)
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  return []
+}
+
+const firstNonEmpty = (...values: unknown[]): string => {
+  for (const value of values) {
+    const cleaned = cleanValue(value)
+    if (cleaned) return cleaned
+  }
+
+  return 'Profile pending review'
+}
+
+const unique = (values: string[]): string[] => Array.from(new Set(values.filter(Boolean)))
+
+function buildEnrichedOption(option: (typeof goals)[number]['options'][number], compound?: RuntimeCompound): EnrichedGoalOption {
+  const evidenceLabel = firstNonEmpty(
+    compound?.evidence_level,
+    compound?.evidenceLevel,
+    compound?.evidence_tier,
+    compound?.evidenceTier,
+    compound?.evidence_grade,
+    option.evidence,
+  )
+
+  const safetyLabel = firstNonEmpty(
+    compound?.safety_level,
+    compound?.safetyLevel,
+    compound?.safety_rating,
+    compound?.safetyRating,
+    option.risk,
+  )
+
+  const mechanismTags = unique([
+    ...cleanList(compound?.primary_mechanisms),
+    ...cleanList(compound?.primaryMechanisms),
+    ...cleanList(compound?.mechanisms),
+    ...cleanList(compound?.mechanism_of_action),
+  ]).slice(0, 4)
+
+  const pathwayTags = unique([
+    ...cleanList(compound?.pathways),
+    ...cleanList(compound?.systems),
+    ...cleanList(compound?.targets),
+  ]).slice(0, 4)
+
+  return {
+    option,
+    compound,
+    evidenceLabel,
+    safetyLabel,
+    mechanismTags,
+    pathwayTags,
+  }
+}
 
 export const dynamicParams = false
 
@@ -43,6 +129,10 @@ export default async function GoalDecisionPage({
   if (!goal) {
     notFound()
   }
+
+  const enrichedOptions = await Promise.all(
+    goal.options.map(async (option) => buildEnrichedOption(option, await getCompoundBySlug(option.slug))),
+  )
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
@@ -113,7 +203,7 @@ export default async function GoalDecisionPage({
               </tr>
             </thead>
             <tbody>
-              {goal.options.map((option) => (
+              {enrichedOptions.map(({ option, evidenceLabel, safetyLabel }) => (
                 <tr key={option.slug} className="border-b border-slate-100 align-top">
                   <td className="py-2 pr-4 font-medium text-slate-900">
                     <Link href={`/compounds/${option.slug}`} className="text-emerald-800 underline-offset-4 hover:underline">
@@ -122,12 +212,59 @@ export default async function GoalDecisionPage({
                   </td>
                   <td className="py-2 pr-4 text-slate-700">{option.bestFor}</td>
                   <td className="py-2 pr-4 text-slate-700">{option.speed}</td>
-                  <td className="py-2 pr-4 text-slate-700">{option.evidence}</td>
-                  <td className="py-2 text-slate-700">{option.risk}</td>
+                  <td className="py-2 pr-4 text-slate-700">{evidenceLabel}</td>
+                  <td className="py-2 text-slate-700">{safetyLabel}</td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+      </section>
+
+      <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-slate-900">Runtime Profile Signals</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          These badges are pulled from existing compound runtime profiles when available. Empty or pending fields
+          stay conservative rather than inventing missing evidence, mechanism, or safety details.
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {enrichedOptions.map(({ option, evidenceLabel, safetyLabel, mechanismTags, pathwayTags }) => (
+            <article key={`${option.slug}-runtime-signals`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="text-sm font-semibold text-slate-900">{option.name}</h3>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1 text-emerald-800">
+                  Evidence: {evidenceLabel}
+                </span>
+                <span className="rounded-full border border-amber-200 bg-white px-2.5 py-1 text-amber-800">
+                  Safety: {safetyLabel}
+                </span>
+              </div>
+              {mechanismTags.length > 0 ? (
+                <div className="mt-3">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-500">Mechanism tags</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {mechanismTags.map((tag) => (
+                      <span key={`${option.slug}-${tag}`} className="rounded-full bg-white px-2.5 py-1 text-xs text-slate-700">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {pathwayTags.length > 0 ? (
+                <div className="mt-3">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-500">Pathway tags</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {pathwayTags.map((tag) => (
+                      <span key={`${option.slug}-${tag}`} className="rounded-full bg-white px-2.5 py-1 text-xs text-slate-700">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </article>
+          ))}
         </div>
       </section>
 
@@ -138,7 +275,7 @@ export default async function GoalDecisionPage({
           mechanisms, and evidence context, review the underlying compound profiles and the site methodology.
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {goal.options.map((option) => (
+          {enrichedOptions.map(({ option }) => (
             <Link
               key={`${option.slug}-profile-link`}
               href={`/compounds/${option.slug}`}
@@ -152,7 +289,7 @@ export default async function GoalDecisionPage({
       </section>
 
       <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {goal.options.map((option) => (
+        {enrichedOptions.map(({ option }) => (
           <article key={`${option.slug}-avoid`} className="rounded-2xl border border-rose-200 bg-rose-50/70 p-4">
             <h3 className="text-sm font-semibold text-rose-900">Review Carefully — {option.name}</h3>
             <p className="mt-2 text-sm leading-6 text-rose-800">{option.avoidIf}</p>
@@ -164,7 +301,7 @@ export default async function GoalDecisionPage({
         <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-900">Common Reasons People Stop</h2>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
-            {goal.options.map((option) => (
+            {enrichedOptions.map(({ option }) => (
               <li key={`${option.slug}-stop`}>
                 <span className="font-medium">{option.name}:</span> {option.whyPeopleStop}
               </li>
@@ -175,7 +312,7 @@ export default async function GoalDecisionPage({
         <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <h2 className="text-xl font-semibold text-slate-900">Commonly Discussed Forms</h2>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
-            {goal.options.map((option) => (
+            {enrichedOptions.map(({ option }) => (
               <li key={`${option.slug}-form`}>
                 <span className="font-medium">{option.name}:</span> {option.form}
               </li>
