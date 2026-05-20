@@ -1,27 +1,4 @@
-import webpack from 'next/dist/compiled/webpack/webpack-lib.js'
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  output: 'export',
-  trailingSlash: true,
-  webpack: (config) => {
-    const buildDate = new Date().toISOString().split('T')[0]
-    const buildTime = new Date().toISOString()
-    const commitHash = process.env.COMMIT_HASH || 'unknown'
-    const appVersion = process.env.APP_VERSION || '1.0.0'
-
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        __BUILD_DATE__: JSON.stringify(buildDate),
-        __BUILD_TIME__: JSON.stringify(buildTime),
-        __COMMIT_HASH__: JSON.stringify(commitHash),
-        __APP_VERSION__: JSON.stringify(appVersion),
-      })
-    )
-
-    return config
-  },
-}
-
-export default nextConfig
+declare const __BUILD_TIME__: string
+declare const __APP_VERSION__: string
+declare const __COMMIT_HASH__: string
+declare const __BUILD_DATE__: string
