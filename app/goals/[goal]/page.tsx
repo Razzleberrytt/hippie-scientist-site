@@ -2,8 +2,94 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
+import { getCompoundBySlug } from '@/lib/runtime-data'
 
 type GoalRouteParams = { goal: string }
+type RuntimeCompound = Record<string, any>
+
+type EnrichedGoalOption = {
+  option: (typeof goals)[number]['options'][number]
+  compound?: RuntimeCompound
+  evidenceLabel: string
+  safetyLabel: string
+  mechanismTags: string[]
+  pathwayTags: string[]
+}
+
+const cleanValue = (value: unknown): string => {
+  if (typeof value !== 'string') return ''
+  return value.trim()
+}
+
+const cleanList = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return value
+      .flatMap((item) => cleanList(item))
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  if (typeof value === 'string') {
+    return value
+      .split(/[;,|]/)
+      .map((item) => item.trim())
+      .filter(Boolean)
+  }
+
+  return []
+}
+
+const firstNonEmpty = (...values: unknown[]): string => {
+  for (const value of values) {
+    const cleaned = cleanValue(value)
+    if (cleaned) return cleaned
+  }
+
+  return 'Profile pending review'
+}
+
+const unique = (values: string[]): string[] => Array.from(new Set(values.filter(Boolean)))
+
+function buildEnrichedOption(option: (typeof goals)[number]['options'][number], compound?: RuntimeCompound): EnrichedGoalOption {
+  const evidenceLabel = firstNonEmpty(
+    compound?.evidence_level,
+    compound?.evidenceLevel,
+    compound?.evidence_tier,
+    compound?.evidenceTier,
+    compound?.evidence_grade,
+    option.evidence,
+  )
+
+  const safetyLabel = firstNonEmpty(
+    compound?.safety_level,
+    compound?.safetyLevel,
+    compound?.safety_rating,
+    compound?.safetyRating,
+    option.risk,
+  )
+
+  const mechanismTags = unique([
+    ...cleanList(compound?.primary_mechanisms),
+    ...cleanList(compound?.primaryMechanisms),
+    ...cleanList(compound?.mechanisms),
+    ...cleanList(compound?.mechanism_of_action),
+  ]).slice(0, 4)
+
+  const pathwayTags = unique([
+    ...cleanList(compound?.pathways),
+    ...cleanList(compound?.systems),
+    ...cleanList(compound?.targets),
+  ]).slice(0, 4)
+
+  return {
+    option,
+    compound,
+    evidenceLabel,
+    safetyLabel,
+    mechanismTags,
+    pathwayTags,
+  }
+}
 
 export const dynamicParams = false
 
@@ -22,13 +108,13 @@ export async function generateMetadata({
   if (!goal) {
     return {
       title: 'Goal Guide | The Hippie Scientist',
-      description: 'Decision-focused goal guide.',
+      description: 'Decision-focused educational goal guide.',
     }
   }
 
   return {
     title: `${goal.title} | The Hippie Scientist`,
-    description: goal.description,
+    description: `${goal.description} Educational comparison only; not medical advice.`,
   }
 }
 
@@ -44,6 +130,10 @@ export default async function GoalDecisionPage({
     notFound()
   }
 
+  const enrichedOptions = await Promise.all(
+    goal.options.map(async (option) => buildEnrichedOption(option, await getCompoundBySlug(option.slug))),
+  )
+
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-10">
@@ -54,14 +144,37 @@ export default async function GoalDecisionPage({
         <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-700 sm:text-base">{goal.description}</p>
       </section>
 
+      <section className="mt-8 rounded-2xl border border-amber-200 bg-amber-50/80 p-5 text-sm leading-6 text-amber-950 shadow-sm">
+        <h2 className="text-base font-semibold text-amber-950">How to read this guide</h2>
+        <p className="mt-2">
+          These comparisons are educational triage notes, not treatment instructions. They are meant to
+          help you compare evidence strength, tolerance issues, and practical tradeoffs before reading the
+          full profile or speaking with a qualified clinician.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-3 text-xs font-medium uppercase tracking-[0.14em]">
+          <Link href="/education/research-methodology" className="text-emerald-800 underline-offset-4 hover:underline">
+            Research methodology
+          </Link>
+          <Link href="/education/evidence-hierarchy" className="text-emerald-800 underline-offset-4 hover:underline">
+            Evidence hierarchy
+          </Link>
+          <Link href="/disclaimer" className="text-emerald-800 underline-offset-4 hover:underline">
+            Disclaimer
+          </Link>
+        </div>
+      </section>
+
       <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <h2 className="text-xl font-semibold text-slate-900">Quick Picks</h2>
+        <h2 className="text-xl font-semibold text-slate-900">Quick Comparison Notes</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          These are starting points for comparison, not recommendations, prescriptions, or guarantees of benefit.
+        </p>
         <div className="mt-4 overflow-x-auto">
           <table className="min-w-full text-left text-sm">
             <thead className="text-slate-500">
               <tr className="border-b border-slate-200">
-                <th className="py-2 pr-4 font-medium">Need</th>
-                <th className="py-2 font-medium">Suggested Option</th>
+                <th className="py-2 pr-4 font-medium">Use-case context</th>
+                <th className="py-2 font-medium">Option to review</th>
               </tr>
             </thead>
             <tbody>
@@ -83,20 +196,24 @@ export default async function GoalDecisionPage({
             <thead className="text-slate-500">
               <tr className="border-b border-slate-200">
                 <th className="py-2 pr-4 font-medium">Compound</th>
-                <th className="py-2 pr-4 font-medium">Best For</th>
-                <th className="py-2 pr-4 font-medium">Speed</th>
-                <th className="py-2 pr-4 font-medium">Evidence</th>
-                <th className="py-2 font-medium">Risk</th>
+                <th className="py-2 pr-4 font-medium">Potential fit</th>
+                <th className="py-2 pr-4 font-medium">Typical timing window</th>
+                <th className="py-2 pr-4 font-medium">Evidence context</th>
+                <th className="py-2 font-medium">Caution level</th>
               </tr>
             </thead>
             <tbody>
-              {goal.options.map((option) => (
+              {enrichedOptions.map(({ option, evidenceLabel, safetyLabel }) => (
                 <tr key={option.slug} className="border-b border-slate-100 align-top">
-                  <td className="py-2 pr-4 font-medium text-slate-900">{option.name}</td>
+                  <td className="py-2 pr-4 font-medium text-slate-900">
+                    <Link href={`/compounds/${option.slug}`} className="text-emerald-800 underline-offset-4 hover:underline">
+                      {option.name}
+                    </Link>
+                  </td>
                   <td className="py-2 pr-4 text-slate-700">{option.bestFor}</td>
                   <td className="py-2 pr-4 text-slate-700">{option.speed}</td>
-                  <td className="py-2 pr-4 text-slate-700">{option.evidence}</td>
-                  <td className="py-2 text-slate-700">{option.risk}</td>
+                  <td className="py-2 pr-4 text-slate-700">{evidenceLabel}</td>
+                  <td className="py-2 text-slate-700">{safetyLabel}</td>
                 </tr>
               ))}
             </tbody>
@@ -104,10 +221,77 @@ export default async function GoalDecisionPage({
         </div>
       </section>
 
+      <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-slate-900">Runtime Profile Signals</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          These badges are pulled from existing compound runtime profiles when available. Empty or pending fields
+          stay conservative rather than inventing missing evidence, mechanism, or safety details.
+        </p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {enrichedOptions.map(({ option, evidenceLabel, safetyLabel, mechanismTags, pathwayTags }) => (
+            <article key={`${option.slug}-runtime-signals`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <h3 className="text-sm font-semibold text-slate-900">{option.name}</h3>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1 text-emerald-800">
+                  Evidence: {evidenceLabel}
+                </span>
+                <span className="rounded-full border border-amber-200 bg-white px-2.5 py-1 text-amber-800">
+                  Safety: {safetyLabel}
+                </span>
+              </div>
+              {mechanismTags.length > 0 ? (
+                <div className="mt-3">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-500">Mechanism tags</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {mechanismTags.map((tag) => (
+                      <span key={`${option.slug}-${tag}`} className="rounded-full bg-white px-2.5 py-1 text-xs text-slate-700">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {pathwayTags.length > 0 ? (
+                <div className="mt-3">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-500">Pathway tags</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {pathwayTags.map((tag) => (
+                      <span key={`${option.slug}-${tag}`} className="rounded-full bg-white px-2.5 py-1 text-xs text-slate-700">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-slate-900">Evidence Provenance</h2>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          This page summarizes goal-level comparison signals only. For entity-specific sourcing, safety notes,
+          mechanisms, and evidence context, review the underlying compound profiles and the site methodology.
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {enrichedOptions.map(({ option }) => (
+            <Link
+              key={`${option.slug}-profile-link`}
+              href={`/compounds/${option.slug}`}
+              className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700 transition hover:border-emerald-300 hover:bg-white"
+            >
+              <span className="block font-semibold text-slate-900">{option.name}</span>
+              <span className="mt-1 block">Open the profile for sourcing, safety context, and mechanism notes.</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {goal.options.map((option) => (
+        {enrichedOptions.map(({ option }) => (
           <article key={`${option.slug}-avoid`} className="rounded-2xl border border-rose-200 bg-rose-50/70 p-4">
-            <h3 className="text-sm font-semibold text-rose-900">Avoid If — {option.name}</h3>
+            <h3 className="text-sm font-semibold text-rose-900">Review Carefully — {option.name}</h3>
             <p className="mt-2 text-sm leading-6 text-rose-800">{option.avoidIf}</p>
           </article>
         ))}
@@ -115,9 +299,9 @@ export default async function GoalDecisionPage({
 
       <section className="mt-6 grid gap-4 sm:grid-cols-2">
         <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Why People Stop Using It</h2>
+          <h2 className="text-xl font-semibold text-slate-900">Common Reasons People Stop</h2>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
-            {goal.options.map((option) => (
+            {enrichedOptions.map(({ option }) => (
               <li key={`${option.slug}-stop`}>
                 <span className="font-medium">{option.name}:</span> {option.whyPeopleStop}
               </li>
@@ -126,9 +310,9 @@ export default async function GoalDecisionPage({
         </article>
 
         <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-xl font-semibold text-slate-900">Commonly Chosen Forms</h2>
+          <h2 className="text-xl font-semibold text-slate-900">Commonly Discussed Forms</h2>
           <ul className="mt-4 space-y-2 text-sm text-slate-700">
-            {goal.options.map((option) => (
+            {enrichedOptions.map(({ option }) => (
               <li key={`${option.slug}-form`}>
                 <span className="font-medium">{option.name}:</span> {option.form}
               </li>
@@ -160,7 +344,8 @@ export default async function GoalDecisionPage({
       </section>
 
       <footer className="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-xs leading-5 text-slate-600">
-        Educational only. Not medical advice. Evidence varies.
+        Educational only. Not medical advice. Evidence varies by population, preparation, and study design.
+        Review medications, health conditions, pregnancy status, and clinician guidance before using supplements.
       </footer>
     </main>
   )
