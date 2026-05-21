@@ -39,8 +39,8 @@ const faqs = [
 const relatedSystems = [
   { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
   { href: '/education/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
-  { href: '/education/understanding-human-vs-mechanistic-evidence', title: 'Human vs Mechanistic Evidence' },
-  { href: '/education/translational-limitations-in-neuroscience', title: 'Translational Limitations' },
+  { href: '/education/why-human-trials-matter', title: 'Human vs Mechanistic Evidence' },
+  { href: '/education/why-studies-conflict', title: 'Translational Limitations' },
 ]
 
 export default function WhyStudiesConflictPage() {

@@ -8,7 +8,7 @@ const systems = [
     title: 'L-Theanine',
   },
   {
-    href: '/herbs/lemon-balm',
+    href: '/herbs/melissa-officinalis',
     title: 'Lemon Balm',
   },
   {

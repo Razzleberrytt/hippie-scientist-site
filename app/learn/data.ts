@@ -145,7 +145,7 @@ export const learnPosts: LearnPost[] = [
     relatedLinks: [
       { label: 'Gotu Kola page', href: '/herbs/gotu-kola' },
       { label: 'Bacopa page', href: '/herbs/bacopa' },
-      { label: 'Ginkgo page', href: '/herbs/ginkgo' },
+      { label: 'Ginkgo page', href: '/herbs/ginkgo-biloba' },
     ],
   },
   {

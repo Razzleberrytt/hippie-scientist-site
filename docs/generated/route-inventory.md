@@ -1,17 +1,19 @@
 # Route Inventory
 
-Generated: 2026-05-20T13:12:01.941Z
+Generated: 2026-05-21T23:40:51.546Z
 
-Total routes: 156
+Total routes: 161
 Dynamic routes missing generateStaticParams: 1
 
 | Route | Source file | Type | Dynamic params | generateStaticParams | Indexability | Notes |
 |---|---|---|---|---|---|---|
+| `/build` | `app/(public)/build/page.tsx` | static | - | n/a | indexable | - |
 | `/a-tier` | `app/a-tier/page.tsx` | static | - | n/a | indexable | - |
 | `/about` | `app/about/page.tsx` | static | - | n/a | indexable | - |
 | `/best-for/[slug]` | `app/best-for/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
 | `/best-for/non-sedating-calm` | `app/best-for/non-sedating-calm/page.tsx` | static | - | n/a | indexable | - |
 | `/best-for/non-stimulant-focus` | `app/best-for/non-stimulant-focus/page.tsx` | static | - | n/a | indexable | - |
+| `/best-for` | `app/best-for/page.tsx` | static | - | n/a | indexable | - |
 | `/best-for/sleep-support` | `app/best-for/sleep-support/page.tsx` | static | - | n/a | indexable | - |
 | `/best-supplements-for-blood-pressure` | `app/best-supplements-for-blood-pressure/page.tsx` | static | - | n/a | indexable | - |
 | `/best-supplements-for-fat-loss` | `app/best-supplements-for-fat-loss/page.tsx` | static | - | n/a | indexable | - |
@@ -47,6 +49,7 @@ Dynamic routes missing generateStaticParams: 1
 | `/dashboard/revenue` | `app/dashboard/revenue/page.tsx` | static | - | n/a | excluded | internal/private |
 | `/disclaimer` | `app/disclaimer/page.tsx` | static | - | n/a | indexable | - |
 | `/ecosystems/[slug]` | `app/ecosystems/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
+| `/ecosystems` | `app/ecosystems/page.tsx` | static | - | n/a | indexable | - |
 | `/education/cognitive-resilience-systems` | `app/education/cognitive-resilience-systems/page.tsx` | static | - | n/a | indexable | - |
 | `/education/common-neurochemistry-myths` | `app/education/common-neurochemistry-myths/page.tsx` | static | - | n/a | indexable | - |
 | `/education/emotional-amplification-systems` | `app/education/emotional-amplification-systems/page.tsx` | static | - | n/a | indexable | - |
@@ -102,7 +105,7 @@ Dynamic routes missing generateStaticParams: 1
 | `/explore/sleep` | `app/explore/sleep/page.tsx` | static | - | n/a | indexable | - |
 | `/faq` | `app/faq/page.tsx` | static | - | n/a | indexable | - |
 | `/fat-loss-supplements` | `app/fat-loss-supplements/page.tsx` | static | - | n/a | indexable | - |
-| `/goals/[slug]` | `app/goals/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
+| `/goals/[goal]` | `app/goals/[goal]/page.tsx` | dynamic | goal | yes | indexable | - |
 | `/goals` | `app/goals/page.tsx` | static | - | n/a | indexable | - |
 | `/guides/best-herbs-for-stress-and-anxiety-at-night` | `app/guides/best-herbs-for-stress-and-anxiety-at-night/page.tsx` | static | - | n/a | indexable | - |
 | `/guides/best-natural-sleep-aids-that-work` | `app/guides/best-natural-sleep-aids-that-work/page.tsx` | static | - | n/a | indexable | - |
@@ -132,6 +135,7 @@ Dynamic routes missing generateStaticParams: 1
 | `/protocols/deep-sleep-support` | `app/protocols/deep-sleep-support/page.tsx` | static | - | n/a | indexable | - |
 | `/protocols/non-stimulant-focus` | `app/protocols/non-stimulant-focus/page.tsx` | static | - | n/a | indexable | - |
 | `/protocols/overstimulation-recovery` | `app/protocols/overstimulation-recovery/page.tsx` | static | - | n/a | indexable | - |
+| `/protocols` | `app/protocols/page.tsx` | static | - | n/a | indexable | - |
 | `/protocols/recovery-oriented-productivity` | `app/protocols/recovery-oriented-productivity/page.tsx` | static | - | n/a | indexable | - |
 | `/protocols/stress-regulation` | `app/protocols/stress-regulation/page.tsx` | static | - | n/a | indexable | - |
 | `/psychedelic-adjacent-herbs` | `app/psychedelic-adjacent-herbs/page.tsx` | static | - | n/a | indexable | - |
@@ -163,6 +167,7 @@ Dynamic routes missing generateStaticParams: 1
 | `/top/top-3-natural-sleep-aids` | `app/top/top-3-natural-sleep-aids/page.tsx` | static | - | n/a | indexable | - |
 | `/top/top-3-supplements-for-focus` | `app/top/top-3-supplements-for-focus/page.tsx` | static | - | n/a | indexable | - |
 | `/topics/[slug]` | `app/topics/[slug]/page.tsx` | dynamic | slug | no | indexable | - |
+| `/topics` | `app/topics/page.tsx` | static | - | n/a | indexable | - |
 
 ## Dynamic routes missing generateStaticParams
 

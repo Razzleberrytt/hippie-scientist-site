@@ -6,6 +6,8 @@ import { generateAmazonProductPicks } from '@/lib/amazon-auto'
 import Link from 'next/link'
 import { cleanSummary } from '@/lib/display-utils'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
+import { bestPages } from '@/data/best'
+import { bestForSlugs } from '@/app/authority-links'
 
 type BestRouteParams = Promise<{ slug: string }>
 
@@ -14,7 +16,17 @@ type BestRouteProps = {
 }
 
 export async function generateStaticParams() {
-  return [{ slug: 'best-supplements-for-focus' }]
+  const slugs = new Set<string>(['best-supplements-for-focus'])
+
+  bestPages.forEach((page) => {
+    if (page?.slug) slugs.add(String(page.slug))
+  })
+
+  bestForSlugs.forEach((slug) => {
+    if (slug) slugs.add(String(slug))
+  })
+
+  return [...slugs].map((slug) => ({ slug }))
 }
 
 function getAuthorityLinks(slug: string) {
@@ -30,7 +42,7 @@ function getAuthorityLinks(slug: string) {
       label: 'Cognitive Longevity Ecosystem',
     },
     {
-      href: '/protocols/morning-focus',
+      href: '/protocols/non-stimulant-focus',
       label: 'Morning Focus Protocol',
     },
     {

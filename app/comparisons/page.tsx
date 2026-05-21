@@ -24,7 +24,7 @@ const comparisonClusters = [
     title: 'Sleep Support Systems',
     description:
       'Educational exploration of sleep-oriented compounds, nervous-system downregulation, recovery continuity, and restorative neurobiology.',
-    href: '/comparisons/sleep-support-systems',
+    href: '/comparisons/sleep-supportive-cognition-systems',
   },
 ]
 

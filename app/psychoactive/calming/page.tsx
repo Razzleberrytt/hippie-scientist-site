@@ -4,7 +4,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 const profiles = [
   {
-    href: '/herbs/kava',
+    href: '/herbs/piper-methysticum',
     title: 'Kava',
   },
   {
