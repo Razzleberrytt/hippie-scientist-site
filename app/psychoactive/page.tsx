@@ -16,7 +16,7 @@ const categories = [
       'Oneirogenic herbs and REM-associated psychoactive systems connected to dream vividness and sleep architecture.',
   },
   {
-    href: '/psychoactive/mood-elevation',
+    href: '/psychoactive/calming',
     title: 'Mood Elevation Systems',
     description:
       'Serotonergic and dopaminergic psychoactive systems related to mood modulation and emotional regulation.',

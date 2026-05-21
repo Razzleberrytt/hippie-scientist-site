@@ -40,7 +40,7 @@ const relatedSystems = [
   { href: '/education/why-studies-conflict', title: 'Why Studies Conflict' },
   { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
   { href: '/education/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
-  { href: '/education/translational-limitations-in-neuroscience', title: 'Translational Limitations' },
+  { href: '/education/why-studies-conflict', title: 'Translational Limitations' },
 ]
 
 export default function WhyNeuroscienceIsDifficultPage() {

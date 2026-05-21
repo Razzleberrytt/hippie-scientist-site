@@ -46,5 +46,5 @@ export const authorityHomeLinks = [
   { href: '/best/focus', label: 'Best for Focus' },
   { href: '/compare/ashwagandha-vs-rhodiola', label: 'Ashwagandha vs Rhodiola' },
   { href: '/stacks/sleep-support', label: 'Sleep Support Stack' },
-  { href: '/protocols/deep-sleep', label: 'Deep Sleep Protocol' },
+  { href: '/protocols/deep-sleep-support', label: 'Deep Sleep Protocol' },
 ]

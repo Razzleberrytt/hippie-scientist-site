@@ -104,11 +104,11 @@ const psychoactive = [
   },
   {
     title: 'How Set and Setting Work',
-    href: '/education/how-set-and-setting-work',
+    href: '/education/why-set-and-setting-matter',
   },
   {
     title: 'Psychoactive Substances Overview',
-    href: '/education/psychoactive-substances-overview',
+    href: '/education/understanding-altered-states',
   },
   {
     title: 'Psychoactive Education Hub',

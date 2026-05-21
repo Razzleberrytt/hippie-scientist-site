@@ -12,7 +12,7 @@ const topics = [
     title: 'Serotonergic Risks',
   },
   {
-    href: '/psychoactive/gabaergic-safety',
+    href: '/psychoactive/harm-reduction',
     title: 'GABAergic Safety',
   },
   {

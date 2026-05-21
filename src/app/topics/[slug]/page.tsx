@@ -124,11 +124,11 @@ export default async function TopicHubPage({ params }: TopicRouteProps) {
             ]}
             protocols={[
               {
-                href: '/protocols/deep-sleep',
+                href: '/protocols/deep-sleep-support',
                 label: 'Deep Sleep Protocol',
               },
               {
-                href: '/protocols/morning-focus',
+                href: '/protocols/non-stimulant-focus',
                 label: 'Morning Focus Protocol',
               },
             ]}

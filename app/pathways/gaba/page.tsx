@@ -30,7 +30,7 @@ const faqItems = [
 
 const relatedProfiles = [
   {
-    href: '/herbs/kava',
+    href: '/herbs/piper-methysticum',
     title: 'Kava',
     description:
       'Traditional calming psychoactive herb associated with stress modulation and inhibitory signaling systems.',
@@ -181,7 +181,7 @@ export default function GabaPathwayPage() {
           </Link>
 
           <Link
-            href="/psychoactive/gabaergic-safety"
+            href="/psychoactive/harm-reduction"
             className="chip-readable hover:bg-white transition"
           >
             GABAergic Safety

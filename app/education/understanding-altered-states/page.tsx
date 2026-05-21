@@ -24,7 +24,7 @@ const mechanisms = [
 
 const relatedSystems = [
   {
-    href: '/education/how-set-and-setting-work',
+    href: '/education/why-set-and-setting-matter',
     title: 'Set and Setting',
   },
   {
