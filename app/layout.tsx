@@ -1,24 +1,11 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import { Inter, Fraunces } from 'next/font/google'
 import Link from 'next/link'
 import DesktopNav from '@/components/desktop-nav'
 import MobileNav from '@/components/mobile-nav'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import './globals.css'
 import '@/styles/foundation-readability.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-fraunces',
-  display: 'swap',
-})
 
 const siteName = 'The Hippie Scientist'
 const siteDescription =
@@ -72,7 +59,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body
-        className={`${inter.variable} ${fraunces.variable} font-sans antialiased`}
+        className='font-sans antialiased'
       >
         <script
           type='application/ld+json'
