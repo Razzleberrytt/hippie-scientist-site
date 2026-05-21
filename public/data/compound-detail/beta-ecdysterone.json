@@ -12,6 +12,17 @@
   "mechanisms": [
     "Activates protein synthesis via PI3K/Akt pathway"
   ],
+  "raw_mechanisms": [
+    "Activates protein synthesis via PI3K/Akt pathway"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Activates protein synthesis via PI3K/Akt pathway"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

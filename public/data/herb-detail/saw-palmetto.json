@@ -14,6 +14,21 @@
     "Hormonal Signaling Context",
     "Lipid Metabolism Support"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

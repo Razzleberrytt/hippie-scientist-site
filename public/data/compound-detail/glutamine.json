@@ -16,6 +16,21 @@
     "Immune Signaling Modulation",
     "Stress Response Modulation"
   ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
   "evidence_grade": "limited",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

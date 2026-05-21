@@ -13,6 +13,19 @@
     "PKC modulation",
     "apoptosis pathway modulation (caspase activation)"
   ],
+  "raw_mechanisms": [
+    "PKC modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "PKC modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

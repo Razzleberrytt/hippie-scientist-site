@@ -14,6 +14,21 @@
     "lipases",
     "and amylases"
   ],
+  "raw_mechanisms": [
+    "macronutrient breakdown via proteases",
+    "lipases",
+    "and amylases"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "macronutrient breakdown via proteases",
+    "lipases",
+    "and amylases"
+  ],
   "evidence_grade": "moderate",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

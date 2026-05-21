@@ -15,6 +15,19 @@
     "traditional respiratory support",
     "digestive support"
   ],
+  "raw_mechanisms": [
+    "traditional respiratory support",
+    "digestive support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "traditional respiratory support",
+    "digestive support"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

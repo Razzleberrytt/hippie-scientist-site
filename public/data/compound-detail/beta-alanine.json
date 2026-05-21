@@ -13,7 +13,26 @@
   ],
   "mechanisms": [
     "raises muscle carnosine",
-    "intracellular pH buffering"
+    "intracellular pH buffering",
+    "Increases muscle carnosine",
+    "buffering intracellular pH."
+  ],
+  "raw_mechanisms": [
+    "raises muscle carnosine",
+    "intracellular pH buffering",
+    "Increases muscle carnosine",
+    "buffering intracellular pH."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "raises muscle carnosine",
+    "intracellular pH buffering",
+    "Increases muscle carnosine",
+    "buffering intracellular pH."
   ],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",

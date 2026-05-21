@@ -12,6 +12,17 @@
   "mechanisms": [
     "LSA-related serotonergic receptor agonism (preclinical/pharmacological inference)"
   ],
+  "raw_mechanisms": [
+    "LSA-related serotonergic receptor agonism (preclinical/pharmacological inference)"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "LSA-related serotonergic receptor agonism (preclinical/pharmacological inference)"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

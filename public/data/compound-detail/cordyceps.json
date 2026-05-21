@@ -15,6 +15,19 @@
     "Mitochondrial Support",
     "Immune Signaling Modulation"
   ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Immune Signaling Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Mitochondrial Support",
+    "Immune Signaling Modulation"
+  ],
   "evidence_grade": "low-moderate",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

@@ -14,6 +14,21 @@
     "5-HT1A activity",
     "TRPV1 activation"
   ],
+  "raw_mechanisms": [
+    "endocannabinoid modulation",
+    "5-HT1A activity",
+    "TRPV1 activation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "endocannabinoid modulation",
+    "5-HT1A activity",
+    "TRPV1 activation"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

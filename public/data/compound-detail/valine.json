@@ -12,6 +12,17 @@
   "mechanisms": [
     "Substrate in muscle protein synthesis and energy production."
   ],
+  "raw_mechanisms": [
+    "Substrate in muscle protein synthesis and energy production."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Substrate in muscle protein synthesis and energy production."
+  ],
   "evidence_grade": "limited",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

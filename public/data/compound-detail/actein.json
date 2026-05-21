@@ -13,6 +13,19 @@
     "Primary mechanism (preclinical)",
     "mechanism unclear"
   ],
+  "raw_mechanisms": [
+    "Primary mechanism (preclinical)",
+    "mechanism unclear"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Primary mechanism (preclinical)",
+    "mechanism unclear"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

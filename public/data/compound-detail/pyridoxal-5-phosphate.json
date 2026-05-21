@@ -14,6 +14,21 @@
     "Neurotransmitter Modulation",
     "Neuroprotective Activity"
   ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
   "evidence_grade": "moderate",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

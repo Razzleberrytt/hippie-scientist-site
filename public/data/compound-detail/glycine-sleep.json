@@ -15,6 +15,19 @@
     "inhibitory neurotransmission",
     "core body temperature reduction"
   ],
+  "raw_mechanisms": [
+    "inhibitory neurotransmission",
+    "core body temperature reduction"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "inhibitory neurotransmission",
+    "core body temperature reduction"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

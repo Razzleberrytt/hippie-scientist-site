@@ -13,6 +13,19 @@
     "Mitochondrial Support",
     "mTOR Signaling"
   ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "mTOR Signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Mitochondrial Support",
+    "mTOR Signaling"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

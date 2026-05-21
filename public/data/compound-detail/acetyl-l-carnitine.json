@@ -19,6 +19,27 @@
     "Hormonal Signaling Context",
     "Neuroprotective Activity"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
   "evidence_grade": "moderate-high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

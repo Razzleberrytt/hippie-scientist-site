@@ -18,6 +18,25 @@
     "Neuroprotective Activity",
     "Endothelial Function Support"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Endothelial Function Support"
+  ],
   "evidence_grade": "moderate",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

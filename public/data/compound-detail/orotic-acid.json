@@ -12,6 +12,17 @@
   "mechanisms": [
     "pyrimidine synthesis intermediate"
   ],
+  "raw_mechanisms": [
+    "pyrimidine synthesis intermediate"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "pyrimidine synthesis intermediate"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

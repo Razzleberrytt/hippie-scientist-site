@@ -16,6 +16,21 @@
     "Neurotransmitter Modulation",
     "Vascular Function Support"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
   "evidence_grade": "moderate-high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

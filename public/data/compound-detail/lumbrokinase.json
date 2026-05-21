@@ -13,6 +13,19 @@
     "fibrinolysis",
     "clot degradation"
   ],
+  "raw_mechanisms": [
+    "fibrinolysis",
+    "clot degradation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "fibrinolysis",
+    "clot degradation"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

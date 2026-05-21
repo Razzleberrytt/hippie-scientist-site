@@ -18,6 +18,25 @@
     "Stress Response Modulation",
     "Lipid Metabolism Support"
   ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Stress Response Modulation",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Stress Response Modulation",
+    "Lipid Metabolism Support"
+  ],
   "evidence_grade": "insufficient",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

@@ -19,6 +19,27 @@
     "Stress Response Modulation",
     "Neuroprotective Activity"
   ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
   "evidence_grade": "moderate-high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

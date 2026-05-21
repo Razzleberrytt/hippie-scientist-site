@@ -12,6 +12,17 @@
   "mechanisms": [
     "partial mu-opioid receptor agonism with G-protein biased signaling preclinical"
   ],
+  "raw_mechanisms": [
+    "partial mu-opioid receptor agonism with G-protein biased signaling preclinical"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "partial mu-opioid receptor agonism with G-protein biased signaling preclinical"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

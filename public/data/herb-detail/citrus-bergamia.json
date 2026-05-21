@@ -19,6 +19,27 @@
     "Lipid Metabolism Support",
     "Endothelial Function Support"
   ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [
