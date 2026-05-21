@@ -23,6 +23,7 @@ const SHEETS = {
   compounds: ['Compound Master V3', 'Site Export Compounds'],
   map: ['Herb Compound Map V3'],
   claims: ['Study Registry'],
+  canonicalMechanisms: ['Canonical_Mechanisms', 'Canonical Mechanisms'],
 }
 
 const GRAPH_SHEETS = {
@@ -124,6 +125,98 @@ function stripRecord(record) {
   }))
 }
 
+function normalizeAlias(value) {
+  return lower(value)
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function canonicalMechanismRow(row) {
+  const label = clean(first(row, ['canonical_label', 'canonical label', 'label', 'name', 'mechanism']))
+  if (!label) return null
+  const id = slug(first(row, ['canonical_mechanism_id', 'canonical mechanism id', 'id', 'slug']) || label)
+  const synonyms = uniqueList([
+    label,
+    first(row, ['synonyms', 'aliases', 'example_terms', 'example terms']),
+  ])
+  return stripRecord({
+    id,
+    canonical_mechanism_id: id,
+    canonical_label: label,
+    label,
+    category: clean(first(row, ['category', 'mechanism_category', 'mechanism category'])),
+    mechanism_class: clean(first(row, ['mechanism_class', 'mechanism class'])),
+    target_system: clean(first(row, ['target_system', 'target system'])),
+    directionality: clean(first(row, ['directionality'])),
+    definition: compact(first(row, ['definition', 'description'])),
+    synonyms,
+    related_effects: uniqueList(first(row, ['related_effects', 'related effects'])),
+    related_compare_groups: uniqueList(first(row, ['related_compare_groups', 'related compare groups'])),
+    confidence_status: clean(first(row, ['confidence_status', 'confidence status'])),
+    review_status: clean(first(row, ['review_status', 'review status'])),
+    source_basis: compact(first(row, ['source_basis', 'source basis', 'source'])),
+  })
+}
+
+function buildMechanismTaxonomy(rows) {
+  const mechanisms = normalizeRows(rows, canonicalMechanismRow)
+  const aliasToMechanism = new Map()
+  for (const mechanism of mechanisms) {
+    for (const alias of uniqueList([mechanism.canonical_label, mechanism.label, mechanism.synonyms || []])) {
+      const key = normalizeAlias(alias)
+      if (key && !aliasToMechanism.has(key)) aliasToMechanism.set(key, mechanism)
+    }
+  }
+  return { mechanisms, aliasToMechanism }
+}
+
+function normalizeMechanisms(rawValues, taxonomy) {
+  const raw = uniqueList(rawValues)
+  const canonical = []
+  const categories = []
+  const classes = []
+  const targetSystems = []
+  const unmapped = []
+  const seenCanonical = new Set()
+
+  for (const term of raw) {
+    const match = taxonomy.aliasToMechanism.get(normalizeAlias(term))
+    if (!match) {
+      unmapped.push(term)
+      continue
+    }
+    const key = lower(match.canonical_label || match.label)
+    if (!seenCanonical.has(key)) {
+      seenCanonical.add(key)
+      canonical.push(match.canonical_label || match.label)
+    }
+    categories.push(match.category)
+    classes.push(match.mechanism_class)
+    targetSystems.push(match.target_system)
+  }
+
+  const status = raw.length === 0
+    ? 'no_raw_mechanisms'
+    : unmapped.length === 0
+      ? 'fully_mapped'
+      : canonical.length > 0
+        ? 'partially_mapped'
+        : 'unmapped'
+
+  return {
+    raw_mechanisms: raw,
+    canonical_mechanisms: uniqueList(canonical),
+    mechanism_categories: uniqueList(categories),
+    mechanism_classes: uniqueList(classes),
+    mechanism_target_systems: uniqueList(targetSystems),
+    mechanism_normalization_status: status,
+    unmapped_mechanisms: uniqueList(unmapped),
+  }
+}
+
 function visibility(base, type) {
   const visibilityTier = clean(base.visibility_tier || base.visibilityTier || '') || 'public'
   const robots = clean(base.robots || '') || (visibilityTier === 'hidden' ? 'noindex,nofollow' : 'index,follow')
@@ -164,8 +257,13 @@ function read(workbook, candidates, optional = false) {
   return sheetToRows(getSheet(workbook, sheetName))
 }
 
-function profile(row, type) {
+function profile(row, type, taxonomy) {
   const allowed = type === 'herb' ? HERB_RUNTIME_FIELDS : COMPOUND_RUNTIME_FIELDS
+  const rawMechanisms = uniqueList([
+    first(row, ['mechanisms', 'mechanism_of_action', 'mechanism of action']),
+    first(row, ['mechanism', 'primary_mechanisms', 'primary mechanisms']),
+  ])
+  const normalizedMechanisms = normalizeMechanisms(rawMechanisms, taxonomy)
 
   const base = {
     type,
@@ -176,7 +274,8 @@ function profile(row, type) {
     description: compact(first(row, ['description', 'overview', 'summary'])),
     primary_effects: firstList(row, ['primary_effects', 'primary effects', 'effects']),
     effects: firstList(row, ['effects', 'primary_effects', 'primary effects']),
-    mechanisms: firstList(row, ['mechanisms', 'mechanism_of_action', 'mechanism of action']),
+    mechanisms: rawMechanisms,
+    ...normalizedMechanisms,
     evidence_grade: clean(first(row, ['evidence_grade', 'evidence grade'])),
     evidence_tier: clean(first(row, ['evidence_tier', 'evidence tier'])),
     profile_status: clean(first(row, ['profile_status', 'profile status'])),
@@ -278,6 +377,26 @@ function args() {
   return path.resolve(repoRoot, out || 'public/data')
 }
 
+function mechanismReport(herbs, compounds, canonicalMechanisms) {
+  const records = [...herbs, ...compounds]
+  const unmapped = new Map()
+  for (const record of records) {
+    for (const term of record.unmapped_mechanisms || []) {
+      unmapped.set(term, (unmapped.get(term) || 0) + 1)
+    }
+  }
+  return {
+    reportVersion: 1,
+    canonicalMechanisms: canonicalMechanisms.length,
+    records: records.length,
+    fullyMappedRecords: records.filter((r) => r.mechanism_normalization_status === 'fully_mapped').length,
+    partiallyMappedRecords: records.filter((r) => r.mechanism_normalization_status === 'partially_mapped').length,
+    unmappedRecords: records.filter((r) => r.mechanism_normalization_status === 'unmapped').length,
+    noRawMechanismRecords: records.filter((r) => r.mechanism_normalization_status === 'no_raw_mechanisms').length,
+    unmappedMechanisms: [...unmapped.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([term, count]) => ({ term, count })),
+  }
+}
+
 function main() {
   const outDir = args()
   const workbookPath = resolveWorkbookPath(repoRoot)
@@ -297,11 +416,13 @@ function main() {
 
   ensureDir(outDir)
 
-  const herbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb')))
-  const compounds = dedupe(read(wb, SHEETS.compounds).map((r) => profile(r, 'compound')))
+  const taxonomy = buildMechanismTaxonomy(read(wb, SHEETS.canonicalMechanisms, true))
+  const herbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb', taxonomy)))
+  const compounds = dedupe(read(wb, SHEETS.compounds).map((r) => profile(r, 'compound', taxonomy)))
   const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
   const herbCompoundMap = normalizeRows(read(wb, SHEETS.map), mapRow)
   const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))
+  const normalizationReport = mechanismReport(herbs, compounds, taxonomy.mechanisms)
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
@@ -309,6 +430,8 @@ function main() {
   writeJson(path.join(outDir, 'herb-compound-map.json'), herbCompoundMap)
   writeJson(path.join(outDir, 'herb-index.json'), herbs.map((r) => pick(r, INDEX_FIELDS)))
   writeJson(path.join(outDir, 'compound-index.json'), compounds.map((r) => pick(r, INDEX_FIELDS)))
+  writeJson(path.join(outDir, 'canonical-mechanisms.json'), taxonomy.mechanisms)
+  writeJson(path.join(outDir, 'mechanism-normalization-report.json'), normalizationReport)
   writeJson(path.join(outDir, 'topics.json'), graph.topics || [])
   writeJson(path.join(outDir, 'pathways.json'), graph.pathways || [])
   writeJson(path.join(outDir, 'supernodes.json'), graph.supernodes || [])
@@ -320,8 +443,9 @@ function main() {
   writeJson(path.join(outDir, 'agent-patches.json'), [])
   details(path.join(outDir, 'herb-detail'), herbs)
   details(path.join(outDir, 'compound-detail'), compounds)
-  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length } })
+  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length } })
   console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
+  console.log(`[data] canonical mechanisms: ${taxonomy.mechanisms.length}; unmapped mechanism terms: ${normalizationReport.unmappedMechanisms.length}`)
 }
 
 main()
