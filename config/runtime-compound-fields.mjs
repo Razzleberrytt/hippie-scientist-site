@@ -32,6 +32,13 @@ export const COMPOUND_RUNTIME_FIELDS = [
   // Mechanisms / relationships
   'mechanism',
   'mechanisms',
+  'raw_mechanisms',
+  'canonical_mechanisms',
+  'mechanism_categories',
+  'mechanism_classes',
+  'mechanism_target_systems',
+  'mechanism_normalization_status',
+  'unmapped_mechanisms',
   'mechanism_targets',
   'pathways',
   'receptor_targets',
