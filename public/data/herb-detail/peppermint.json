@@ -16,6 +16,25 @@
     "carminative effects",
     "antimicrobial effects in vitro"
   ],
+  "raw_mechanisms": [
+    "intestinal smooth-muscle calcium-channel blockade",
+    "TRPM8 receptor activation",
+    "visceral antinociception",
+    "carminative effects",
+    "antimicrobial effects in vitro"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "intestinal smooth-muscle calcium-channel blockade",
+    "TRPM8 receptor activation",
+    "visceral antinociception",
+    "carminative effects",
+    "antimicrobial effects in vitro"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

@@ -13,6 +13,19 @@
     "Proposed arginase inhibition could theoretically increase arginine availability",
     "mechanism-only and not human-confirmed."
   ],
+  "raw_mechanisms": [
+    "Proposed arginase inhibition could theoretically increase arginine availability",
+    "mechanism-only and not human-confirmed."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Proposed arginase inhibition could theoretically increase arginine availability",
+    "mechanism-only and not human-confirmed."
+  ],
   "evidence_grade": "preliminary",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

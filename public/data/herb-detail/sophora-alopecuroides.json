@@ -12,6 +12,17 @@
   "mechanisms": [
     "NF-kB Modulation"
   ],
+  "raw_mechanisms": [
+    "NF-kB Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "NF-kB Modulation"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

@@ -13,6 +13,19 @@
     "Primary inhibition of bacterial adhesion (human-supported via extracts)",
     "additional mechanisms (preclinical)"
   ],
+  "raw_mechanisms": [
+    "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+    "additional mechanisms (preclinical)"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+    "additional mechanisms (preclinical)"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

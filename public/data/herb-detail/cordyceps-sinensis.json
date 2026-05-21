@@ -18,6 +18,21 @@
     "Immune Signaling Modulation",
     "Stress Response Modulation"
   ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

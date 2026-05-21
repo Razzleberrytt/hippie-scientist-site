@@ -10,7 +10,21 @@
     "urinary_health"
   ],
   "mechanisms": [
-    "mannose-mediated bacterial adhesion interference"
+    "mannose-mediated bacterial adhesion interference",
+    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium."
+  ],
+  "raw_mechanisms": [
+    "mannose-mediated bacterial adhesion interference",
+    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "mannose-mediated bacterial adhesion interference",
+    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium."
   ],
   "evidence_grade": "moderate",
   "evidence_tier": "Mechanistic Evidence",

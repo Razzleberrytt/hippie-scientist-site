@@ -16,6 +16,21 @@
     "Immune Signaling Modulation",
     "Hormonal Signaling Context"
   ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation",
+    "Hormonal Signaling Context"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation",
+    "Hormonal Signaling Context"
+  ],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

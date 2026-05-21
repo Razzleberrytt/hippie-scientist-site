@@ -13,6 +13,19 @@
     "silica provision",
     "flavonoid-related effects"
   ],
+  "raw_mechanisms": [
+    "silica provision",
+    "flavonoid-related effects"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "silica provision",
+    "flavonoid-related effects"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

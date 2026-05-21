@@ -14,6 +14,21 @@
     "methylation support",
     "myelin-related B12 physiology"
   ],
+  "raw_mechanisms": [
+    "methionine synthase cofactor",
+    "methylation support",
+    "myelin-related B12 physiology"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "methionine synthase cofactor",
+    "methylation support",
+    "myelin-related B12 physiology"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

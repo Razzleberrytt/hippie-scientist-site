@@ -15,6 +15,19 @@
     "increases gastric acidity",
     "lowers gastric pH transiently"
   ],
+  "raw_mechanisms": [
+    "increases gastric acidity",
+    "lowers gastric pH transiently"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "increases gastric acidity",
+    "lowers gastric pH transiently"
+  ],
   "evidence_grade": "insufficient",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

@@ -15,6 +15,23 @@
     "Stress Response Modulation",
     "Neuroprotective Activity"
   ],
+  "raw_mechanisms": [
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

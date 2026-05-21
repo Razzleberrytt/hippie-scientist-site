@@ -12,6 +12,17 @@
   "mechanisms": [
     "general phytochemical signaling"
   ],
+  "raw_mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "general phytochemical signaling"
+  ],
   "evidence_grade": "strong",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

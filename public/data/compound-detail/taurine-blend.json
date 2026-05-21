@@ -16,6 +16,21 @@
     "calcium signaling",
     "cardiac/muscle support"
   ],
+  "raw_mechanisms": [
+    "cellular hydration regulation",
+    "calcium signaling",
+    "cardiac/muscle support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "cellular hydration regulation",
+    "calcium signaling",
+    "cardiac/muscle support"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

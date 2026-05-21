@@ -13,6 +13,19 @@
     "Oxidative Stress Modulation",
     "Nrf2 Activation"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Nrf2 Activation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Nrf2 Activation"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

@@ -10,7 +10,21 @@
     "urinary_health"
   ],
   "mechanisms": [
-    "proanthocyanidins reduce bacterial adhesion in urinary tract"
+    "proanthocyanidins reduce bacterial adhesion in urinary tract",
+    "Proanthocyanidins inhibit bacterial adhesion."
+  ],
+  "raw_mechanisms": [
+    "proanthocyanidins reduce bacterial adhesion in urinary tract",
+    "Proanthocyanidins inhibit bacterial adhesion."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "proanthocyanidins reduce bacterial adhesion in urinary tract",
+    "Proanthocyanidins inhibit bacterial adhesion."
   ],
   "evidence_grade": "moderate-high",
   "evidence_tier": "Mechanistic Evidence",

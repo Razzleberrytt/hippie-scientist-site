@@ -18,6 +18,25 @@
     "Stress Response Modulation",
     "Endothelial Function Support"
   ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

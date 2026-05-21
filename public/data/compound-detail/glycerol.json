@@ -13,6 +13,19 @@
     "increases total body water",
     "osmotic fluid retention"
   ],
+  "raw_mechanisms": [
+    "increases total body water",
+    "osmotic fluid retention"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "increases total body water",
+    "osmotic fluid retention"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

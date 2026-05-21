@@ -15,6 +15,19 @@
     "Oxidative Stress Modulation",
     "Mitochondrial Support"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support"
+  ],
   "evidence_grade": "insufficient",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

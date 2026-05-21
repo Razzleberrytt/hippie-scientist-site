@@ -18,6 +18,25 @@
     "Vascular Function Support",
     "Lipid Metabolism Support"
   ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

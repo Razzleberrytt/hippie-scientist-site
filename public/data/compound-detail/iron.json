@@ -15,6 +15,19 @@
     "Mitochondrial Support",
     "Metabolic Regulation"
   ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

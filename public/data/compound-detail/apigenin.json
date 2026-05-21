@@ -17,6 +17,27 @@
     "Stress Response Modulation",
     "Neuroprotective Activity"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
   "evidence_grade": "low",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

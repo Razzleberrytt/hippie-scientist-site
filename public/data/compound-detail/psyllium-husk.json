@@ -17,6 +17,23 @@
     "Glucose Metabolism Support",
     "Lipid Metabolism Support"
   ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

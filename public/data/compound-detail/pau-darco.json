@@ -12,6 +12,17 @@
   "mechanisms": [
     "antimicrobial/cytotoxic effects (preclinical)"
   ],
+  "raw_mechanisms": [
+    "antimicrobial/cytotoxic effects (preclinical)"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "antimicrobial/cytotoxic effects (preclinical)"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

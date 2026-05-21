@@ -19,6 +19,27 @@
     "AMPK Signaling",
     "SIRT1 Signaling"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "SIRT1 Signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "SIRT1 Signaling"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

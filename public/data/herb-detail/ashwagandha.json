@@ -18,6 +18,27 @@
     "Neuroprotective Activity",
     "NF-kB Modulation"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

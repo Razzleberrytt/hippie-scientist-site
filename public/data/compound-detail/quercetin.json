@@ -19,6 +19,27 @@
     "Neuroprotective Activity",
     "NF-kB Modulation"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
   "evidence_grade": "moderate",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

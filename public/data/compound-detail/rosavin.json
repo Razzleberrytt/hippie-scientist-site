@@ -16,6 +16,25 @@
     "Stress Response Modulation",
     "AMPK Signaling"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

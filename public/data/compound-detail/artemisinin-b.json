@@ -13,6 +13,19 @@
     "Inflammatory Signaling Modulation",
     "Oxidative Stress Modulation"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

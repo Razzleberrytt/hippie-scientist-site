@@ -13,6 +13,19 @@
     "Proposed CNS stimulant or libido effects are not clinically established",
     "mechanism-only."
   ],
+  "raw_mechanisms": [
+    "Proposed CNS stimulant or libido effects are not clinically established",
+    "mechanism-only."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Proposed CNS stimulant or libido effects are not clinically established",
+    "mechanism-only."
+  ],
   "evidence_grade": "insufficient",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

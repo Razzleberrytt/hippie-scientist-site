@@ -13,6 +13,19 @@
     "Neuroprotective Activity",
     "mTOR Signaling"
   ],
+  "raw_mechanisms": [
+    "Neuroprotective Activity",
+    "mTOR Signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neuroprotective Activity",
+    "mTOR Signaling"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

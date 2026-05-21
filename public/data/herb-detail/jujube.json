@@ -14,6 +14,19 @@
     "Oxidative Stress Modulation",
     "Stress Response Modulation"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

@@ -15,6 +15,19 @@
     "Inflammatory Signaling Modulation",
     "Immune Signaling Modulation"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
+  ],
   "evidence_grade": "high",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

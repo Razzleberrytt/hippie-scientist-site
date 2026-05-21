@@ -10,6 +10,13 @@
     "skin-support"
   ],
   "mechanisms": [],
+  "raw_mechanisms": [],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "no_raw_mechanisms",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

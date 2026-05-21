@@ -18,6 +18,25 @@
     "Stress Response Modulation",
     "Neuroprotective Activity"
   ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
   "evidence_grade": "moderate-high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

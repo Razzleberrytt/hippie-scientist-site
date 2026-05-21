@@ -16,6 +16,21 @@
     "Immune Signaling Modulation",
     "Neuroprotective Activity"
   ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity"
+  ],
   "evidence_grade": "moderate",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [
