@@ -15,6 +15,7 @@ type EnrichedGoalOption = {
   evidenceLabel: string
   safetyLabel: string
   mechanismTags: string[]
+  mechanismCategoryTags: string[]
   pathwayTags: string[]
 }
 
@@ -58,10 +59,17 @@ function buildEnrichedOption(option: (typeof goals)[number]['options'][number], 
   )
 
   const mechanismTags = unique([
+    ...cleanList(compound?.canonical_mechanisms),
     ...cleanList(compound?.primary_mechanisms),
     ...cleanList(compound?.primaryMechanisms),
     ...cleanList(compound?.mechanisms),
     ...cleanList(compound?.mechanism_of_action),
+  ]).slice(0, 4)
+
+  const mechanismCategoryTags = unique([
+    ...cleanList(compound?.mechanism_categories),
+    ...cleanList(compound?.mechanism_classes),
+    ...cleanList(compound?.mechanism_target_systems),
   ]).slice(0, 4)
 
   const pathwayTags = unique([
@@ -77,6 +85,7 @@ function buildEnrichedOption(option: (typeof goals)[number]['options'][number], 
     evidenceLabel,
     safetyLabel,
     mechanismTags,
+    mechanismCategoryTags,
     pathwayTags,
   }
 }
@@ -222,7 +231,7 @@ export default async function GoalDecisionPage({
           stay conservative rather than inventing missing evidence, mechanism, or safety details.
         </p>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {enrichedOptions.map(({ option, evidenceLabel, safetyLabel, mechanismTags, pathwayTags }) => (
+          {enrichedOptions.map(({ option, evidenceLabel, safetyLabel, mechanismTags, mechanismCategoryTags, pathwayTags }) => (
             <article key={`${option.slug}-runtime-signals`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <h3 className="text-sm font-semibold text-slate-900">{option.name}</h3>
               <div className="mt-3 flex flex-wrap gap-2 text-xs">
@@ -238,6 +247,18 @@ export default async function GoalDecisionPage({
                   <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-500">Mechanism tags</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {mechanismTags.map((tag) => (
+                      <span key={`${option.slug}-${tag}`} className="rounded-full bg-white px-2.5 py-1 text-xs text-slate-700">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+              {mechanismCategoryTags.length > 0 ? (
+                <div className="mt-3">
+                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-slate-500">Mechanism categories</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {mechanismCategoryTags.map((tag) => (
                       <span key={`${option.slug}-${tag}`} className="rounded-full bg-white px-2.5 py-1 text-xs text-slate-700">
                         {tag}
                       </span>
