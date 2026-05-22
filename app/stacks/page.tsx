@@ -1,4 +1,25 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Supplement Stack Guides by Goal',
+  description:
+    'Explore supplement stack examples by goal with compound roles, dosing patterns, timing, and safety-first tradeoff notes.',
+  alternates: { canonical: '/stacks' },
+  openGraph: {
+    title: 'Supplement Stack Guides by Goal',
+    description:
+      'Explore supplement stack examples by goal with compound roles, dosing patterns, timing, and safety-first tradeoff notes.',
+    url: '/stacks',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Supplement Stack Guides by Goal',
+    description:
+      'Explore supplement stack examples by goal with compound roles, dosing patterns, timing, and safety-first tradeoff notes.',
+  },
+}
+
 import stacks from '@/public/data/stacks.json'
 
 type StackItem = {

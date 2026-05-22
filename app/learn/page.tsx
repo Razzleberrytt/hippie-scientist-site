@@ -1,4 +1,25 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Learn Supplement Science and Safety Basics',
+  description:
+    'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
+  alternates: { canonical: '/learn' },
+  openGraph: {
+    title: 'Learn Supplement Science and Safety Basics',
+    description:
+      'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
+    url: '/learn',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Learn Supplement Science and Safety Basics',
+    description:
+      'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
+  },
+}
+
 import { learnPosts } from './data'
 import EducationSupernodeGrid from '@/components/education/education-supernode-grid'
 

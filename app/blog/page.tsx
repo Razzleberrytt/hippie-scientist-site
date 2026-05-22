@@ -35,7 +35,7 @@ const inferArticleStyle = (post: any) => {
 }
 
 export const metadata: Metadata = {
-  title: 'Research Notes | The Hippie Scientist',
+  title: 'Research Notes and Supplement Explainers',
   description: 'Editorial research notes, explainers, and scientific continuity for herbs and compounds.',
 }
 

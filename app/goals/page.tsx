@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { goals } from '@/data/goals'
 
 export const metadata: Metadata = {
-  title: 'Goal Decision Guides | The Hippie Scientist',
+  title: 'Supplement Goal Guides and Comparisons',
   description: 'Educational comparison pages for pain, inflammation, focus, and sleep support topics.',
 }
 
