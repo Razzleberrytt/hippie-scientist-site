@@ -74,6 +74,9 @@ export default async function StressPage() {
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>
           These herbs are commonly connected with stress, anxiety, calm, cortisol, and adaptogen-style support. Rankings use the current workbook dataset as a discovery layer, not as personal medical advice.
         </p>
+        <p className='mt-3 max-w-3xl text-sm leading-6 text-white/60'>
+          Practical use: treat this page as a shortlist builder. The right fit often depends on whether stress shows up as tension, fatigue, or sleep disruption.
+        </p>
       </section>
 
 
@@ -99,6 +102,14 @@ export default async function StressPage() {
           <Link href='/top/sleep' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best herbs for sleep</Link>
           <Link href='/top/focus' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best supplements for focus</Link>
         </div>
+      </section>
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <h2 className='text-2xl font-bold text-white'>How stress-support approaches differ</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+          <li><strong className='text-white'>Adaptogen-leaning picks:</strong> often discussed for resilience and all-day load management.</li>
+          <li><strong className='text-white'>Calming botanicals:</strong> usually used for situational tension or evening downshift.</li>
+          <li><strong className='text-white'>Mixed-profile options:</strong> can overlap with sleep and focus goals, so context matters.</li>
+        </ul>
       </section>
 
       <section className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>

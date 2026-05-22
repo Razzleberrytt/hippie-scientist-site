@@ -44,6 +44,9 @@ export default async function FocusPage() {
         <p className='mt-4 text-white/70'>
           These supplements are often discussed for focus, memory, and cognitive performance. Rankings are based on dataset signals and research context.
         </p>
+        <p className='mt-3 text-sm leading-6 text-white/60'>
+          For beginners: separate short-term alertness tools from longer-horizon support. A useful stack decision is often about tradeoffs (speed vs steadiness), not just “strongest” effect.
+        </p>
       </section>
 
 
@@ -69,6 +72,14 @@ export default async function FocusPage() {
           <Link href='/top/stress'>Best herbs for stress</Link>
           <Link href='/top/sleep'>Best herbs for sleep</Link>
         </div>
+      </section>
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
+        <h2 className='text-2xl font-bold'>How approaches differ</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+          <li><strong className='text-white'>Stimulant-forward:</strong> faster perceived alertness, but tolerance and timing are practical constraints.</li>
+          <li><strong className='text-white'>Stress-buffering:</strong> can feel gentler and steadier when focus drops are stress-linked.</li>
+          <li><strong className='text-white'>Energy-metabolism support:</strong> usually framed as consistency over time, not immediate “kick.”</li>
+        </ul>
       </section>
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>

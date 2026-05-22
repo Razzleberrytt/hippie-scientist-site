@@ -105,6 +105,9 @@ export default async function TopThreeAnxietyHerbsPage() {
           <li><strong className='text-white'>Lemon balm</strong> is commonly associated with gentle relaxation.</li>
           <li><strong className='text-white'>Passionflower</strong> is often connected with calm and nervous-system support.</li>
         </ul>
+        <p className='mt-4 text-sm leading-6 text-white/60'>
+          Route-specific note: these three are common “entry” herbs, but they are not interchangeable. Some people prioritize daytime composure, others prioritize evening calm and sleep carryover.
+        </p>
       </section>
 
       <section className='grid gap-4'>

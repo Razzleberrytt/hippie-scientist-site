@@ -69,6 +69,9 @@ export default async function Page() {
           <li><strong className='text-white'>Lemon balm</strong> is often connected with gentle calm and relaxation.</li>
           <li><strong className='text-white'>Passionflower</strong> is often framed around relaxation and nervous-system support.</li>
         </ul>
+        <p className='mt-4 text-sm leading-6 text-white/60'>
+          Sleep-note nuance: these are often chosen for different reasons (sleep onset, tension reduction, nighttime calm), so matching the pattern is usually more helpful than rotating randomly.
+        </p>
       </section>
 
       <section className='grid gap-4'>
