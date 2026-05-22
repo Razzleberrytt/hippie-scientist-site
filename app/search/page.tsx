@@ -290,35 +290,35 @@ function ResultCard({ item }: { item: SearchItem }) {
   return (
     <Link
       href={item.href}
-      className="group flex h-full min-h-[15rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[16rem] sm:p-5"
+      className="group flex h-full min-h-[13.5rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[15rem] sm:p-5"
     >
       <div className="flex flex-1 flex-col">
         <div className={decisionMetadataClusterClass}>
           <span className={typeClass(item.type)}>{item.type}</span>
         </div>
 
-        <div className="mt-4 flex min-w-0 items-start justify-between gap-3">
+        <div className="mt-3 flex min-w-0 items-start justify-between gap-3">
           <h2 className="min-w-0 break-words text-[1.3rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
             {item.name}
           </h2>
         </div>
 
-        <p className="mt-3 line-clamp-2 text-[0.95rem] leading-6 text-[#46574d]">
+        <p className="mt-2.5 line-clamp-2 text-[0.95rem] leading-6 text-[#46574d]">
           {item.summary || 'A conservative profile with evidence, safety, and practical context.'}
         </p>
 
-        <div className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-brand-50/45 p-3">
+        <div className="mt-3 rounded-[1.1rem] border border-brand-900/10 bg-brand-50/45 p-2.5 sm:p-3">
           <p className={`${decisionMicroLabelClass} text-brand-800`}>May be relevant for</p>
           <p className="mt-1.5 text-base font-semibold leading-6 text-[#203329]">{bestFor}</p>
         </div>
 
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+        <div className="mt-2.5 grid gap-2 sm:grid-cols-2 sm:gap-2.5">
           <SearchMetric label="Evidence" value={item.evidence} />
           <SearchMetric label="Safety" value={item.safety} />
         </div>
 
         {mechanisms.length > 0 ? (
-          <div className={`${decisionMetadataClusterClass} mt-3 border-t border-brand-900/10 pt-3`}>
+          <div className={`${decisionMetadataClusterClass} mt-2.5 border-t border-brand-900/10 pt-3`}>
             {mechanisms.map(effect => (
               <span key={effect} className={decisionChipClass}>
                 {effect}
@@ -328,7 +328,7 @@ function ResultCard({ item }: { item: SearchItem }) {
         ) : null}
       </div>
 
-      <div className="mt-4 flex min-h-11 items-center justify-center rounded-full bg-brand-800 px-4 py-3 text-sm font-bold text-white transition group-hover:bg-brand-900 group-focus-visible:bg-brand-900">
+      <div className="mt-3 flex min-h-10 items-center justify-center rounded-full bg-brand-800 px-4 py-3 text-sm font-bold text-white transition group-hover:bg-brand-900 group-focus-visible:bg-brand-900">
         Investigate profile <span className="ml-2 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
       </div>
     </Link>
@@ -337,7 +337,7 @@ function ResultCard({ item }: { item: SearchItem }) {
 
 function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
   return (
-    <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm sm:p-5" aria-labelledby="guided-discovery-heading">
+    <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-3.5 sm:p-5 shadow-sm sm:p-5" aria-labelledby="guided-discovery-heading">
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div className="max-w-2xl space-y-2">
           <p className="eyebrow-label">Guided discovery</p>
@@ -349,13 +349,13 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
         <Link href="/goals" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse goal guides →</Link>
       </div>
 
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
         {discoveryPaths.map(path => (
           <button
             key={path.label}
             type="button"
             onClick={() => onSelect(path.query)}
-            className="group min-h-24 rounded-[1.1rem] border border-brand-900/10 bg-white/80 p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white sm:min-h-28"
+            className="group min-h-20 rounded-[1.1rem] border border-brand-900/10 bg-white/80 p-3.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white sm:min-h-24"
           >
             <span className="text-lg font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</span>
             <span className="mt-2 block text-sm leading-6 text-[#46574d]">{path.description}</span>
@@ -368,7 +368,7 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
 
 function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => void; onReset: () => void }) {
   return (
-    <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-[var(--shadow-card-calm)] sm:p-8">
+    <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-4.5 sm:p-7 shadow-[var(--shadow-card-calm)] sm:p-8">
       <div className="max-w-2xl space-y-3">
         <p className="eyebrow-label">No matching profiles</p>
         <h2 className="compact-heading">Try a broader discovery path.</h2>
@@ -377,8 +377,8 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
         </p>
       </div>
 
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <button type="button" onClick={onReset} className="button-primary min-h-11 justify-center px-4 py-2 text-sm">
+      <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+        <button type="button" onClick={onReset} className="button-primary min-h-11 justify-center px-3.5 py-2 text-sm">
           Reset search
         </button>
         {discoveryPaths.slice(0, 4).map(path => (
@@ -386,14 +386,14 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
             key={path.label}
             type="button"
             onClick={() => onSelect(path.query)}
-            className="button-secondary min-h-11 justify-center px-4 py-2 text-sm"
+            className="button-secondary min-h-11 justify-center px-3.5 py-2 text-sm"
           >
             {path.label}
           </button>
         ))}
       </div>
 
-      <div className="mt-7 grid gap-4 lg:grid-cols-3">
+      <div className="mt-5 grid gap-3 lg:grid-cols-3">
         <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
           <p className="eyebrow-label">Related goals</p>
           <ul className="mt-3 space-y-3">
@@ -497,11 +497,11 @@ export default function SearchPage() {
 
   return (
     <main className="min-h-screen bg-background text-ink">
-      <section className="container-page py-8 sm:py-12 lg:py-16">
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
-          <section className="hero-shell rounded-[1.7rem] border border-brand-900/10 p-5 shadow-card sm:rounded-[2rem] sm:p-8 lg:p-10" aria-labelledby="search-heading">
-            <div className="max-w-4xl space-y-5">
-              <div className="space-y-3">
+      <section className="container-page py-6 sm:py-10 lg:py-14">
+        <div className="space-y-5 sm:space-y-7 lg:space-y-9">
+          <section className="hero-shell rounded-[1.7rem] border border-brand-900/10 p-4 shadow-card sm:rounded-[2rem] sm:p-7 lg:p-9" aria-labelledby="search-heading">
+            <div className="max-w-4xl space-y-4">
+              <div className="space-y-2.5">
                 <p className="eyebrow-label">Evidence discovery</p>
                 <h1 id="search-heading" className="max-w-[13ch] text-balance">Search the library</h1>
               </div>
@@ -510,13 +510,13 @@ export default function SearchPage() {
                 Search herbs and compounds by name, goal, mechanism, evidence signal, or safety context. Start broad, then use light filters only when they help.
               </p>
 
-              <div className="grid gap-2 sm:grid-cols-2">
+              <div className="grid gap-2 sm:grid-cols-2 sm:gap-2.5">
                 {intentPrompts.map((intent) => (
                   <button
                     key={intent.label}
                     type="button"
                     onClick={() => setQuery(intent.query)}
-                    className="rounded-2xl border border-brand-900/10 bg-white/90 p-3 text-left transition hover:border-brand-700/20 hover:bg-white"
+                    className="rounded-2xl border border-brand-900/10 bg-white/90 p-2.5 sm:p-3 text-left transition hover:border-brand-700/20 hover:bg-white"
                   >
                     <p className="text-sm font-semibold text-ink">{intent.label}</p>
                     <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{intent.helper}</p>
@@ -524,7 +524,7 @@ export default function SearchPage() {
                 ))}
               </div>
 
-              <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-3 shadow-sm sm:p-4">
+              <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-2.5 sm:p-4 shadow-sm sm:p-4">
                 <label htmlFor="site-search" className="sr-only">Search herbs and compounds</label>
                 <input
                   id="site-search"
@@ -532,16 +532,16 @@ export default function SearchPage() {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Try sleep, magnesium, stress, inflammation..."
-                  className="min-h-14 w-full rounded-[1.1rem] border border-brand-900/10 bg-white px-4 py-4 text-base font-medium text-ink shadow-sm outline-none transition-all placeholder:text-[#7b887f] focus:border-brand-600/30 focus:bg-white focus:ring-4 focus:ring-brand-500/15 sm:px-5 sm:text-lg"
+                  className="min-h-12 w-full rounded-[1.1rem] border border-brand-900/10 bg-white px-4 py-3 text-base font-medium text-ink shadow-sm outline-none transition-all placeholder:text-[#7b887f] focus:border-brand-600/30 focus:bg-white focus:ring-4 focus:ring-brand-500/15 sm:px-5 sm:text-lg"
                 />
               </div>
 
-              <details className="rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 sm:p-4" open={hasActiveSearch || undefined}>
+              <details className="rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-2.5 sm:p-4" open={hasActiveSearch || undefined}>
                 <summary className="flex min-h-12 cursor-pointer items-center justify-between gap-4 text-sm font-bold text-ink">
                   <span>Refine results</span>
                   <span className="text-brand-800" aria-hidden="true">↓</span>
                 </summary>
-                <div className="mt-4 space-y-4">
+                <div className="mt-3 space-y-3.5">
                   <div className="grid gap-2 sm:flex sm:flex-wrap">
                     {filterOptions.map(filter => (
                       <button
@@ -549,8 +549,8 @@ export default function SearchPage() {
                         type="button"
                         onClick={() => setActiveFilter(filter)}
                         className={activeFilter === filter
-                          ? 'button-primary min-h-12 rounded-full px-4 py-2 text-sm'
-                          : 'min-h-12 rounded-full border border-brand-900/10 bg-white/80 px-4 py-2 text-sm font-semibold text-[#33443a] transition hover:border-brand-700/20 hover:bg-white hover:text-brand-800'}
+                          ? 'button-primary min-h-11 rounded-full px-3.5 py-2 text-sm'
+                          : 'min-h-11 rounded-full border border-brand-900/10 bg-white/80 px-3.5 py-2 text-sm font-semibold text-[#33443a] transition hover:border-brand-700/20 hover:bg-white hover:text-brand-800'}
                       >
                         {filter === 'All' ? 'All profiles' : `${filter}s only`}
                       </button>
@@ -575,7 +575,7 @@ export default function SearchPage() {
                 </div>
               </details>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 <span className="chip-readable">{searchItems.length} searchable profiles</span>
                 <span className="chip-readable">Evidence-weighted ranking</span>
                 <span className="chip-readable">Conservative safety labels</span>
@@ -585,7 +585,7 @@ export default function SearchPage() {
 
           <GuidedDiscovery onSelect={selectDiscovery} />
 
-          <section className="space-y-5" aria-labelledby="search-results-heading">
+          <section className="space-y-4" aria-labelledby="search-results-heading">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl space-y-2">
                 <p className="eyebrow-label">Results</p>
@@ -598,7 +598,7 @@ export default function SearchPage() {
                     : 'These are starting points sorted by discovery and authority signals, not promised outcomes.'}
                 </p>
               </div>
-              <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
+              <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
                 {resultLabel}
               </span>
             </div>

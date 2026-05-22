@@ -178,8 +178,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <main className='overflow-x-clip bg-site-bg'>
-      <div className='mx-auto max-w-6xl space-y-14 px-4 pb-20 pt-10 sm:px-6 sm:space-y-16 sm:pb-20 sm:pt-14 lg:px-8'>
-        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-8 shadow-sm sm:px-8 sm:py-12 lg:py-16'>
+      <div className='mx-auto max-w-6xl space-y-10 px-4 pb-14 pt-8 sm:px-6 sm:space-y-14 sm:pb-18 sm:pt-12 lg:px-8'>
+        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-6 shadow-sm sm:px-8 sm:py-10 lg:py-14'>
           <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
             <div className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
               Evidence-aware botanical research
@@ -197,14 +197,14 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               Use these profiles to orient decisions thoughtfully — and remember that results vary between individuals.
             </p>
 
-            <div className='mt-6 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
+            <div className='mt-5 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
               {primaryActions.map((action, index) => (
                 <Link
                   key={action.href}
                   href={action.href}
                   className={index === 0
-                    ? 'rounded-full border border-brand-900/15 bg-white px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/25 hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
-                    : 'rounded-full border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
+                    ? 'rounded-full border border-brand-900/15 bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/25 hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
+                    : 'rounded-full border border-brand-900/10 bg-white/90 px-4 py-2.5 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
                   }
                 >
                   {action.label}
@@ -212,9 +212,9 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               ))}
             </div>
 
-            <div className='mt-8 grid w-full max-w-3xl gap-4 pt-2 text-left sm:grid-cols-3'>
+            <div className='mt-6 grid w-full max-w-3xl gap-3 pt-1 text-left sm:grid-cols-3'>
               {reasoningPillars.map((pillar) => (
-                <div key={pillar.title} className='rounded-2xl border border-brand-900/10 bg-white/90 p-4'>
+                <div key={pillar.title} className='rounded-2xl border border-brand-900/10 bg-white/90 p-3.5 sm:p-4'>
                   <p className='text-sm font-semibold tracking-tight text-ink'>{pillar.title}</p>
                   <p className='mt-1 text-xs leading-5 text-muted'>{pillar.description}</p>
                 </div>
@@ -223,15 +223,15 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 sm:p-7'>
+        <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-4 sm:p-6'>
           <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
             <SectionHeader title='Start your research' as='h2' />
-            <div className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:min-w-[28rem]'>
+            <div className='grid grid-cols-2 gap-1.5 sm:grid-cols-3 sm:gap-2 md:min-w-[28rem]'>
               {researchPaths.map((path) => (
                 <Link
                   key={path.href}
                   href={path.href}
-                  className='group rounded-full border border-brand-900/10 bg-white px-3 py-2.5 text-center text-sm font-semibold text-ink transition hover:border-brand-900/20 hover:bg-brand-50'
+                  className='group rounded-full border border-brand-900/10 bg-white px-3 py-2 text-center text-sm font-semibold text-ink transition hover:border-brand-900/20 hover:bg-brand-50'
                 >
                   {path.title}
                   <span className='ml-1 text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>→</span>
@@ -241,7 +241,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='space-y-4'>
+        <section className='space-y-3 sm:space-y-4'>
           <SectionHeader
             title='Explore by practical context'
             subtitle='Choose a goal first, then move into profiles, mechanisms, comparisons, and safety notes.'
@@ -253,7 +253,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               <Link
                 key={card.href}
                 href={card.href}
-                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white'
+                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-4 transition hover:border-brand-900/20 hover:bg-white'
               >
                 <h3 className='text-base font-semibold tracking-tight text-ink'>{card.title}</h3>
                 <p className='mt-2 text-sm leading-6 text-muted'>{card.description}</p>
@@ -265,7 +265,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='space-y-4'>
+        <section className='space-y-3 sm:space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Featured profiles'
@@ -283,7 +283,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               <Link
                 key={item.href}
                 href={item.href}
-                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white'
+                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-4 transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div className='relative'>
                   <span className='inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-brand-700'>
@@ -298,7 +298,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                     {item.description}
                   </p>
 
-                  <div className='mt-4'>
+                  <div className='mt-3'>
                     <ActionCue>Open profile</ActionCue>
                   </div>
                 </div>
@@ -307,7 +307,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='rounded-2xl border border-amber-300/70 bg-amber-50/90 p-5 sm:p-6'>
+        <section className='rounded-2xl border border-amber-300/70 bg-amber-50/90 p-4 sm:p-5'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
             <p className='text-sm leading-6 text-amber-900/80'>
               Natural does not automatically mean safe or effective. These pages support comparison and pathway understanding — not medical care.
