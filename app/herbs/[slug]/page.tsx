@@ -45,6 +45,7 @@ import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
+import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -225,61 +226,17 @@ function getRelatedLinks(records: any[], entityType: 'herb' | 'compound', limit 
     .slice(0, limit)
 }
 
-function BriefCard({ label, value, children, prominent = false }: { label: string; value?: string; children?: ReactNode; prominent?: boolean }) {
+function BriefCard({ label, value, children }: { label: string; value?: string; children?: ReactNode }) {
   if (!value && !children) return null
-
   return (
-    <div className={prominent ? 'rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm' : 'border-t border-brand-900/10 pt-3'}>
-      <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">{label}</p>
-      {value ? <p className={prominent ? 'mt-2 text-base font-bold leading-6 text-ink' : 'mt-2 text-sm font-semibold leading-6 text-ink'}>{value}</p> : null}
+    <article className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-muted">{label}</p>
+      {value ? <p className="mt-2 text-sm leading-6 text-[#46574d]">{value}</p> : null}
       {children ? <div className="mt-2">{children}</div> : null}
-    </div>
+    </article>
   )
 }
 
-function DecisionSnapshotPanel({
-  primaryUse,
-  evidence,
-  regulation,
-  safetyTone,
-  safetySummary,
-  avoidIf,
-  timeline,
-  mechanisms,
-}: {
-  primaryUse: string
-  evidence: string
-  regulation: string
-  safetyTone: string
-  safetySummary: string
-  avoidIf: string[]
-  timeline: string
-  mechanisms: string[]
-}) {
-  return (
-    <aside className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6">
-      <div className="flex items-start justify-between gap-3 border-b border-brand-900/10 pb-3">
-        <div>
-          <p className="eyebrow-label">Decision snapshot</p>
-          <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink">5-second profile read</h2>
-        </div>
-        <span className="rounded-full bg-emerald-700/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900">
-          Start here
-        </span>
-      </div>
-
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-        <BriefCard label="Commonly used for" value={primaryUse || 'Use context is not clearly specified.'} prominent />
-        <BriefCard label="Evidence strength" value={evidence} prominent />
-        <BriefCard label="Calming vs stimulating" value={regulation} prominent />
-        <BriefCard label={`Safety level: ${safetyTone}`} value={safetySummary} prominent />
-        <BriefCard label="Avoid / review first if" value={avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.'} prominent />
-        <BriefCard label="Onset / timeline" value={timeline || 'Timing varies by preparation, dose, and context.'} prominent />
-        <BriefCard label="Mechanism hints" value={mechanisms.length ? mechanisms.slice(0, 3).join(', ') : 'Mechanism signals are not clearly specified.'} prominent />
-      </div>
-    </aside>
-  )
-}
 
 function ChipList({ items, limit = items.length }: { items: string[]; limit?: number }) {
   const visible = items.slice(0, limit)
@@ -535,15 +492,21 @@ export default async function HerbDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <DecisionSnapshotPanel
-              primaryUse={topUses.slice(0, 3).join(', ')}
-              evidence={evidenceStrength || researchMaturity}
-              regulation={regulationProfile}
-              safetyTone={safetyTone}
-              safetySummary={safetySummary}
-              avoidIf={avoidIf}
-              timeline={timeline}
-              mechanisms={mechanisms}
+            <EvidenceSnapshotPanel
+              title="5-second profile read"
+              subtitle="Educational overview only. Individual response and tolerance can vary."
+              badge="Start here"
+              className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6"
+              fields={[
+                { label: 'Best fit', value: topUses.slice(0, 3).join(', ') || 'Use context is not clearly specified.', tone: 'best-fit' },
+                { label: 'Human evidence', value: evidenceStrength || researchMaturity || 'Human evidence quality is unclear from current profile data.' },
+                { label: `Safety level (${safetyTone})`, value: safetySummary, tone: 'caution' },
+                { label: 'Tolerance risk', value: formatDisplayLabel(herb.tolerance_risk || herb.toleranceRisk) || 'Tolerance risk is not clearly specified; monitor response over time.' },
+                { label: 'Stimulation/sedation profile', value: regulationProfile },
+                { label: 'Typical onset', value: timeline || 'Timing varies by preparation, dose, and context.' },
+                { label: 'Use caution if', value: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.', tone: 'caution' },
+                { label: 'What remains uncertain', value: mechanisms.length ? `Mechanism hints are preliminary: ${mechanisms.slice(0, 3).join(', ')}. Real-world effects can differ across people and products.` : 'Mechanism signals are not clearly specified and response variation is common.' },
+              ]}
             />
           </div>
         </div>
