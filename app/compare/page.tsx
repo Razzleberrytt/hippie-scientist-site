@@ -9,6 +9,16 @@ export const metadata: Metadata = {
     'Compare herbs, supplements, and compounds by effects, evidence tiers, safety considerations, and decision-support factors.',
 }
 
+
+const popularComparisonPairs = [
+  { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha' },
+  { label: 'Kava vs Alcohol', href: '/compare/kava-vs-alcohol' },
+  { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },
+  { label: 'L-Theanine vs Magnesium', href: '/compare/l-theanine-vs-magnesium' },
+  { label: 'Sleep herbs vs Melatonin', href: '/sleep-herbs-vs-melatonin' },
+  { label: 'Stimulating vs Sedating Compounds', href: '/comparisons/stimulating-vs-sedating-compounds' },
+]
+
 const guidanceCards = [
   {
     title: 'Scan evidence first',
@@ -62,6 +72,18 @@ export default async function ComparePage() {
             <p className="mt-2 text-sm leading-6 text-muted">{card.body}</p>
           </article>
         ))}
+      </section>
+
+      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+        <h2 className="text-xl font-semibold text-ink">Popular comparison pairs</h2>
+        <p className="mt-2 text-sm leading-6 text-muted">Start with these focused pages, then use the full table for broader tradeoff scanning.</p>
+        <ul className="mt-3 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
+          {popularComparisonPairs.map(pair => (
+            <li key={pair.href}>
+              <a href={pair.href} className="hover:text-brand-800 hover:underline">{pair.label}</a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">

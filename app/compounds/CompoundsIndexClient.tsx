@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
@@ -289,10 +288,9 @@ const browsePaths = [
   },
 ]
 
-export default function CompoundsIndexClient({ compounds: sourceCompounds }: { compounds: any[] }) {
-  const searchParams = useSearchParams()
-  const query = firstParam(searchParams.get('q') || undefined)
-  const context = firstParam(searchParams.get('context') || undefined)
+export default function CompoundsIndexClient({ compounds: sourceCompounds, initialQuery = '', initialContext = ''}: { compounds: any[]; initialQuery?: string; initialContext?: string }) {
+  const query = firstParam(initialQuery)
+  const context = firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
   const compounds = [...sourceCompounds].sort((a: any, b: any) => scoreCompound(b) - scoreCompound(a))
