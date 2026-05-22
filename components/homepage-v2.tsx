@@ -145,17 +145,17 @@ function SectionHeader({ title, subtitle, as = 'h2' }: SectionHeaderProps) {
 
   return (
     <div className='max-w-3xl space-y-2'>
-      <HeadingTag className='text-xl font-semibold tracking-tight text-emerald-50 sm:text-2xl'>
+      <HeadingTag className='text-xl font-semibold tracking-tight text-ink sm:text-2xl'>
         {title}
       </HeadingTag>
-      {subtitle ? <p className='text-sm leading-6 text-emerald-50/68 sm:text-base'>{subtitle}</p> : null}
+      {subtitle ? <p className='text-sm leading-6 text-muted sm:text-base'>{subtitle}</p> : null}
     </div>
   )
 }
 
 function ActionCue({ children }: { children: React.ReactNode }) {
   return (
-    <span className='inline-flex items-center gap-2 text-sm font-bold text-emerald-300 transition group-hover:translate-x-1 group-hover:text-emerald-200'>
+    <span className='inline-flex items-center gap-2 text-sm font-semibold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800'>
       {children}
       <span aria-hidden='true'>→</span>
     </span>
@@ -177,156 +177,146 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
   const visibleFeatured = featured.length > 0 ? featured : featuredFallbacks
 
   return (
-    <main className='overflow-x-clip bg-[#04120e] text-emerald-50'>
-      <div className='relative isolate'>
-        <div className='pointer-events-none absolute inset-0 opacity-55'>
-          <div className='absolute left-[-7rem] top-10 h-64 w-64 rounded-full bg-emerald-500/14 blur-3xl' />
-          <div className='absolute right-[-8rem] top-48 h-72 w-72 rounded-full bg-teal-300/8 blur-3xl' />
-          <div className='absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(16,185,129,0.12),transparent_30rem)]' />
-        </div>
-
-        <div className='relative mx-auto max-w-6xl space-y-14 px-4 pb-20 pt-10 sm:px-6 sm:space-y-16 sm:pb-20 sm:pt-14 lg:px-8'>
-          <section className='px-2 py-8 sm:px-6 sm:py-12 lg:py-16'>
-            <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
-              <div className='mb-4 inline-flex text-xs font-bold uppercase tracking-[0.2em] text-emerald-200/85'>
-                Botanical research field guide
-              </div>
-
-              <h1 className='font-display text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.055em] text-white sm:text-6xl md:text-7xl'>
-                <span className='block'>The Hippie</span>
-                <span className='block text-emerald-200'>Scientist</span>
-              </h1>
-
-              <p className='mt-5 max-w-2xl text-base leading-7 text-emerald-50/82 sm:text-lg'>
-                Evidence-aware profiles for herbs, compounds, mechanisms, and safety — written for careful explorers.
-              </p>
-
-              <p className='mt-2 max-w-2xl text-sm leading-6 text-emerald-50/62'>
-                Scan what it is, what it is used for, how strong the evidence is, and where caution starts.
-              </p>
-
-              <div className='mt-6 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
-                {primaryActions.map((action, index) => (
-                  <Link
-                    key={action.href}
-                    href={action.href}
-                    className={index === 0
-                      ? 'rounded-full bg-emerald-300 px-4 py-3 text-sm font-black text-[#062018] shadow-[0_12px_35px_rgba(16,185,129,0.22)] transition hover:-translate-y-0.5 hover:bg-emerald-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200 focus-visible:ring-offset-2 focus-visible:ring-offset-[#04120e]'
-                      : 'rounded-full border border-emerald-200/20 bg-white/[0.045] px-4 py-3 text-sm font-bold text-emerald-50 transition hover:-translate-y-0.5 hover:border-emerald-200/40 hover:bg-white/[0.08] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-200 focus-visible:ring-offset-2 focus-visible:ring-offset-[#04120e]'
-                    }
-                  >
-                    {action.label}
-                  </Link>
-                ))}
-              </div>
-
-              <div className='mt-8 grid w-full max-w-3xl gap-6 border-t border-emerald-300/12 pt-6 text-left sm:grid-cols-3'>
-                {reasoningPillars.map((pillar) => (
-                  <div key={pillar.title} className='space-y-1'>
-                    <p className='text-sm font-semibold tracking-tight text-white'>{pillar.title}</p>
-                    <p className='mt-1 text-xs leading-5 text-emerald-50/62'>{pillar.description}</p>
-                  </div>
-                ))}
-              </div>
+    <main className='overflow-x-clip bg-site-bg'>
+      <div className='mx-auto max-w-6xl space-y-14 px-4 pb-20 pt-10 sm:px-6 sm:space-y-16 sm:pb-20 sm:pt-14 lg:px-8'>
+        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-8 shadow-sm sm:px-8 sm:py-12 lg:py-16'>
+          <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
+            <div className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
+              Evidence-aware botanical research
             </div>
-          </section>
 
-          <section className='border-y border-emerald-300/10 py-6'>
-            <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
-              <SectionHeader title='Start your research' as='h2' />
-              <div className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:min-w-[28rem]'>
-                {researchPaths.map((path) => (
-                  <Link
-                    key={path.href}
-                    href={path.href}
-                    className='group rounded-full bg-white/[0.045] px-3 py-2.5 text-center text-sm font-bold text-emerald-50 transition hover:bg-emerald-300/10'
-                  >
-                    {path.title}
-                    <span className='ml-1 text-emerald-300 transition group-hover:translate-x-0.5' aria-hidden='true'>→</span>
-                  </Link>
-                ))}
-              </div>
+            <h1 className='font-display text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.055em] text-ink sm:text-6xl md:text-7xl'>
+              <span className='block'>The Hippie Scientist</span>
+            </h1>
+
+            <p className='mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg'>
+              Compare herbs and compounds with evidence strength, mechanism context, and safety tradeoffs presented in a clear, practical format.
+            </p>
+
+            <p className='mt-2 max-w-2xl text-sm leading-6 text-muted'>
+              Use these profiles to orient decisions thoughtfully — and remember that results vary between individuals.
+            </p>
+
+            <div className='mt-6 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
+              {primaryActions.map((action, index) => (
+                <Link
+                  key={action.href}
+                  href={action.href}
+                  className={index === 0
+                    ? 'rounded-full border border-brand-900/15 bg-white px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/25 hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
+                    : 'rounded-full border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
+                  }
+                >
+                  {action.label}
+                </Link>
+              ))}
             </div>
-          </section>
 
-          <section className='space-y-4'>
+            <div className='mt-8 grid w-full max-w-3xl gap-4 pt-2 text-left sm:grid-cols-3'>
+              {reasoningPillars.map((pillar) => (
+                <div key={pillar.title} className='rounded-2xl border border-brand-900/10 bg-white/90 p-4'>
+                  <p className='text-sm font-semibold tracking-tight text-ink'>{pillar.title}</p>
+                  <p className='mt-1 text-xs leading-5 text-muted'>{pillar.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 sm:p-7'>
+          <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
+            <SectionHeader title='Start your research' as='h2' />
+            <div className='grid grid-cols-2 gap-2 sm:grid-cols-3 md:min-w-[28rem]'>
+              {researchPaths.map((path) => (
+                <Link
+                  key={path.href}
+                  href={path.href}
+                  className='group rounded-full border border-brand-900/10 bg-white px-3 py-2.5 text-center text-sm font-semibold text-ink transition hover:border-brand-900/20 hover:bg-brand-50'
+                >
+                  {path.title}
+                  <span className='ml-1 text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>→</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className='space-y-4'>
+          <SectionHeader
+            title='Explore by practical context'
+            subtitle='Choose a goal first, then move into profiles, mechanisms, comparisons, and safety notes.'
+            as='h2'
+          />
+
+          <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-4'>
+            {ecosystemCards.map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white'
+              >
+                <h3 className='text-base font-semibold tracking-tight text-ink'>{card.title}</h3>
+                <p className='mt-2 text-sm leading-6 text-muted'>{card.description}</p>
+                <div className='mt-3'>
+                  <ActionCue>Open path</ActionCue>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className='space-y-4'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
-              title='Explore by practical context'
-              subtitle='Choose a goal first, then move into profiles, mechanisms, comparisons, and safety notes.'
+              title='Featured profiles'
+              subtitle='Quick entry points with evidence, safety, and mechanism context.'
               as='h2'
             />
+            <div className='flex flex-wrap gap-3 text-sm font-semibold'>
+              <Link href='/herbs' className='text-brand-700 transition hover:text-brand-800'>Herb library →</Link>
+              <Link href='/compounds' className='text-brand-700 transition hover:text-brand-800'>Compound library →</Link>
+            </div>
+          </div>
 
-            <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-4'>
-              {ecosystemCards.map((card) => (
-                <Link
-                  key={card.href}
-                  href={card.href}
-                  className='group border-l border-emerald-300/18 py-1 pl-4 transition hover:border-emerald-300/45'
-                >
-                  <h3 className='text-base font-semibold tracking-tight text-white group-hover:text-emerald-200'>{card.title}</h3>
-                  <p className='mt-2 text-sm leading-6 text-emerald-50/62'>{card.description}</p>
-                  <div className='mt-3'>
-                    <ActionCue>Open path</ActionCue>
+          <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
+            {visibleFeatured.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white'
+              >
+                <div className='relative'>
+                  <span className='inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-brand-700'>
+                    {item.meta}
+                  </span>
+
+                  <h3 className='mt-3 text-xl font-semibold tracking-tight text-ink'>
+                    {item.title}
+                  </h3>
+
+                  <p className='mt-2 text-sm leading-6 text-muted'>
+                    {item.description}
+                  </p>
+
+                  <div className='mt-4'>
+                    <ActionCue>Open profile</ActionCue>
                   </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          <section className='space-y-4'>
-            <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
-              <SectionHeader
-                title='Featured profiles'
-                subtitle='Quick entry points with evidence, safety, and mechanism context.'
-                as='h2'
-              />
-              <div className='flex flex-wrap gap-3 text-sm font-bold'>
-                <Link href='/herbs' className='text-emerald-300 transition hover:text-emerald-200'>Herb library →</Link>
-                <Link href='/compounds' className='text-emerald-300 transition hover:text-emerald-200'>Compound library →</Link>
-              </div>
-            </div>
-
-            <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
-              {visibleFeatured.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className='group relative overflow-hidden rounded-[1.25rem] bg-[#071a14]/72 p-5 transition hover:bg-[#0a2119]'
-                >
-                  <div className='absolute right-[-3rem] top-[-3rem] h-28 w-28 rounded-full bg-emerald-300/10 blur-2xl transition group-hover:bg-emerald-300/16' />
-                  <div className='relative'>
-                    <span className='inline-flex text-xs font-bold uppercase tracking-[0.16em] text-emerald-200/80'>
-                      {item.meta}
-                    </span>
-
-                    <h3 className='mt-3 text-xl font-semibold tracking-tight text-white group-hover:text-emerald-200'>
-                      {item.title}
-                    </h3>
-
-                    <p className='mt-2 text-sm leading-6 text-emerald-50/64'>
-                      {item.description}
-                    </p>
-
-                    <div className='mt-4'>
-                      <ActionCue>Open profile</ActionCue>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-
-          <section className='border-t border-emerald-300/10 pt-6'>
-            <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-              <p className='text-sm leading-6 text-emerald-50/72'>
-                Natural does not automatically mean safe or effective. These pages support comparison and pathway understanding — not medical care.
-              </p>
-              <Link href='/disclaimer' className='shrink-0 text-sm font-bold text-emerald-300 transition hover:text-emerald-200'>
-                Read disclaimer →
+                </div>
               </Link>
-            </div>
-          </section>
-        </div>
+            ))}
+          </div>
+        </section>
+
+        <section className='rounded-2xl border border-amber-300/70 bg-amber-50/90 p-5 sm:p-6'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
+            <p className='text-sm leading-6 text-amber-900/80'>
+              Natural does not automatically mean safe or effective. These pages support comparison and pathway understanding — not medical care.
+            </p>
+            <Link href='/disclaimer' className='shrink-0 text-sm font-semibold text-amber-900 transition hover:text-amber-950'>
+              Read disclaimer →
+            </Link>
+          </div>
+        </section>
       </div>
     </main>
   )
