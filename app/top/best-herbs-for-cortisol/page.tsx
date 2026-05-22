@@ -89,10 +89,23 @@ export default async function CortisolPage() {
         </p>
       </section>
 
+
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <h2 className='text-2xl font-bold text-white'>How to use this ranking responsibly</h2>
+        <p className='mt-3 text-sm leading-6 text-white/70'>
+          This page is an educational comparison starting point. Ranking position reflects dataset signals, not a guarantee that one option will work best for you.
+        </p>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+          <li>Evidence quality and study design vary by herb or compound.</li>
+          <li>Safety context matters: medications, health conditions, and pregnancy or nursing status can change fit.</li>
+          <li>Individual response varies, so use full profiles and clinical guidance before decisions.</li>
+        </ul>
+      </section>
+
       <AffiliateConversionCard
-        eyebrow='Best overall cortisol pick'
+        eyebrow='Featured cortisol pick'
         title={bestLabel}
-        description='Best overall starting point for cortisol, stress-response, and adaptogen-support research.'
+        description='Educational first-look option for cortisol, stress-response, and adaptogen-support research.'
         href={bestLinks[0]?.url || '#'}
         cta={`View ${bestLabel} options →`}
         secondaryHref='/compare/ashwagandha-vs-rhodiola-rosea'
