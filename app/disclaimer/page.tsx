@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/disclaimer',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function DisclaimerPage() {
@@ -19,7 +23,7 @@ export default function DisclaimerPage() {
         </p>
 
         <h1 className='mt-2 text-4xl font-bold tracking-tight sm:text-5xl'>
-          Educational use only
+          Educational &amp; Medical Disclaimer
         </h1>
 
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/75 sm:text-lg'>

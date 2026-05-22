@@ -7,6 +7,13 @@ import SearchClient from './SearchClient'
 export const metadata: Metadata = {
   title: 'Search Herbs & Supplements',
   description: 'Search 500+ herb and supplement profiles by name, compound, mechanism, or use case. Evidence-first research database with fast filtering.',
+  alternates: {
+    canonical: '/search',
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 function getTopLinks() {

@@ -114,6 +114,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <Link href='/compounds' className='text-muted hover:text-ink transition'>Compounds</Link>
                     <Link href='/goals' className='text-muted hover:text-ink transition'>Goals</Link>
                     <Link href='/stacks' className='text-muted hover:text-ink transition'>Stacks</Link>
+                    <Link href='/compare' className='text-muted hover:text-ink transition'>Compare</Link>
+                    <Link href='/learn' className='text-muted hover:text-ink transition'>Learn</Link>
+                    <Link href='/search' className='text-muted hover:text-ink transition'>Search</Link>
                     <Link href='/blog' className='text-muted hover:text-ink transition'>Blog</Link>
                     <Link href='/about' className='text-muted hover:text-ink transition'>About</Link>
                   </div>
