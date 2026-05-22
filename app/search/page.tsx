@@ -48,6 +48,18 @@ type DiscoveryPath = {
   description: string
 }
 
+type IntentPrompt = {
+  label: string
+  query: string
+  helper: string
+}
+
+type DiscoveryLink = {
+  label: string
+  href: string
+  description: string
+}
+
 const discoveryPaths: DiscoveryPath[] = [
   {
     label: 'Stress support',
@@ -87,6 +99,38 @@ const discoveryPaths: DiscoveryPath[] = [
 ]
 
 const filterOptions: FilterType[] = ['All', 'Herb', 'Compound']
+
+const intentPrompts: IntentPrompt[] = [
+  { label: 'Focus without heavy stimulation', query: 'focus daytime non stimulant', helper: 'Daytime-friendly support with lower jitter risk.' },
+  { label: 'Stress support with lower sedation', query: 'stress calm non sedating', helper: 'Calmer profiles that avoid heavy wind-down effects.' },
+  { label: 'Beginner-friendly options', query: 'beginner safety low risk', helper: 'Conservative entries with practical safety context.' },
+  { label: 'Compare calming vs stimulating approaches', query: 'calming vs stimulating compare', helper: 'Open compare pages before narrowing into profiles.' },
+]
+
+const discoveryFilters: IntentPrompt[] = [
+  { label: 'Calming', query: 'calm anxiety stress', helper: 'Lower-arousal support paths.' },
+  { label: 'Stimulating', query: 'energy motivation stimulation', helper: 'Activation-oriented profiles.' },
+  { label: 'Beginner-friendly', query: 'beginner safety low risk', helper: 'Safer orientation for first-time exploration.' },
+  { label: 'Low tolerance risk', query: 'low tolerance risk safety', helper: 'Prioritize conservative safety framing.' },
+  { label: 'Evidence-aware', query: 'clinical evidence human trial', helper: 'Bias toward stronger study context.' },
+  { label: 'Sleep-supportive', query: 'sleep recovery wind down', helper: 'Evening and sleep-adjacent support.' },
+  { label: 'Daytime-friendly', query: 'daytime focus non sedating', helper: 'Use when you need calmer daytime function.' },
+]
+
+const crossContentLinks: { goals: DiscoveryLink[]; compare: DiscoveryLink[]; learn: DiscoveryLink[] } = {
+  goals: [
+    { label: 'Sleep support goals', href: '/goals/sleep-support', description: 'Start with outcome constraints before profile selection.' },
+    { label: 'Non-stimulant focus goals', href: '/goals/non-stimulant-focus', description: 'Build focus plans with lower stimulation load.' },
+  ],
+  compare: [
+    { label: 'Calm focus vs stimulation', href: '/comparisons/calm-focus-vs-stimulation', description: 'Contrast two common strategy patterns first.' },
+    { label: 'L-theanine vs magnesium', href: '/compare/l-theanine-vs-magnesium', description: 'Compare calming support styles with practical tradeoffs.' },
+  ],
+  learn: [
+    { label: 'Evidence levels', href: '/education/evidence-levels', description: 'Understand what confidence labels do and do not mean.' },
+    { label: 'Safety and disclaimers', href: '/education/safety-and-disclaimers', description: 'Beginner-first safety framing and scope limits.' },
+  ],
+}
 
 function getName(item: any) {
   return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
@@ -348,6 +392,42 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
           </button>
         ))}
       </div>
+
+      <div className="mt-7 grid gap-4 lg:grid-cols-3">
+        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+          <p className="eyebrow-label">Related goals</p>
+          <ul className="mt-3 space-y-3">
+            {crossContentLinks.goals.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
+                <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+          <p className="eyebrow-label">Related compare pages</p>
+          <ul className="mt-3 space-y-3">
+            {crossContentLinks.compare.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
+                <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+          <p className="eyebrow-label">Beginner guidance</p>
+          <ul className="mt-3 space-y-3">
+            {crossContentLinks.learn.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
+                <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   )
 }
@@ -430,6 +510,20 @@ export default function SearchPage() {
                 Search herbs and compounds by name, goal, mechanism, evidence signal, or safety context. Start broad, then use light filters only when they help.
               </p>
 
+              <div className="grid gap-2 sm:grid-cols-2">
+                {intentPrompts.map((intent) => (
+                  <button
+                    key={intent.label}
+                    type="button"
+                    onClick={() => setQuery(intent.query)}
+                    className="rounded-2xl border border-brand-900/10 bg-white/90 p-3 text-left transition hover:border-brand-700/20 hover:bg-white"
+                  >
+                    <p className="text-sm font-semibold text-ink">{intent.label}</p>
+                    <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{intent.helper}</p>
+                  </button>
+                ))}
+              </div>
+
               <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-3 shadow-sm sm:p-4">
                 <label htmlFor="site-search" className="sr-only">Search herbs and compounds</label>
                 <input
@@ -465,6 +559,19 @@ export default function SearchPage() {
                   <p className="text-sm leading-6 text-[#5f6f66]">
                     Filters are intentionally light: use profile type when you already know whether you want a botanical profile or a constituent profile.
                   </p>
+                  <div className="flex flex-wrap gap-2">
+                    {discoveryFilters.map((filter) => (
+                      <button
+                        key={filter.label}
+                        type="button"
+                        onClick={() => setQuery(filter.query)}
+                        className="rounded-full border border-brand-900/10 bg-white/90 px-3 py-2 text-xs font-semibold tracking-wide text-[#33443a] transition hover:border-brand-700/20 hover:text-brand-800"
+                        aria-label={`Search for ${filter.label.toLowerCase()} profiles`}
+                      >
+                        {filter.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </details>
 
