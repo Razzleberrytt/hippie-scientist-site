@@ -139,8 +139,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <main className='overflow-x-clip bg-site-bg'>
-      <div className='mx-auto max-w-6xl space-y-10 px-4 pb-14 pt-8 sm:px-6 sm:space-y-14 sm:pb-18 sm:pt-12 lg:px-8'>
-        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-6 shadow-sm sm:px-8 sm:py-10 lg:py-14'>
+      <div className='mx-auto max-w-6xl space-y-8 px-4 pb-8 pt-7 sm:px-6 sm:space-y-10 sm:pb-12 sm:pt-10 lg:px-8'>
+        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-5 shadow-sm sm:px-7 sm:py-8 lg:py-10'>
           <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
             <div className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
               Evidence-aware botanical research
@@ -179,22 +179,22 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='space-y-3 sm:space-y-4'>
+        <section className='space-y-2.5 sm:space-y-3'>
           <SectionHeader
             title='Research pathways'
             subtitle='Pick a path quickly, then dive into detailed profiles and evidence notes.'
             as='h2'
           />
-          <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-3 sm:p-4'>
+          <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-2.5 sm:p-3'>
             <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-5'>
               {researchLinks.map((path) => (
                 <Link
                   key={path.href}
                   href={path.href}
-                  className='group rounded-xl border border-brand-900/10 bg-white px-3 py-3 transition hover:border-brand-900/20 hover:bg-brand-50/30'
+                  className='group rounded-xl border border-brand-900/10 bg-white px-3 py-2.5 transition hover:border-brand-900/20 hover:bg-brand-50/30'
                 >
                   <h3 className='text-sm font-semibold tracking-tight text-ink'>{path.title}</h3>
-                  <p className='mt-1 text-xs leading-5 text-muted'>{path.description}</p>
+                  <p className='mt-1 text-xs leading-4.5 text-muted line-clamp-2'>{path.description}</p>
                   <span className='mt-2 inline-flex items-center text-xs font-semibold text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>
                     Open →
                   </span>
@@ -204,7 +204,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='space-y-3 sm:space-y-4'>
+        <section className='space-y-2.5 sm:space-y-3'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Featured profiles'
@@ -217,27 +217,27 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </div>
           </div>
 
-          <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid gap-2.5 md:grid-cols-2 lg:grid-cols-3'>
             {visibleFeatured.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-4 transition hover:border-brand-900/20 hover:bg-white'
+                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-3.5 transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div className='relative'>
                   <span className='inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-brand-700'>
                     {item.meta}
                   </span>
 
-                  <h3 className='mt-3 text-xl font-semibold tracking-tight text-ink'>
+                  <h3 className='mt-2 text-lg font-semibold tracking-tight text-ink'>
                     {item.title}
                   </h3>
 
-                  <p className='mt-2 text-sm leading-6 text-muted'>
+                  <p className='mt-1.5 text-sm leading-5 text-muted line-clamp-3'>
                     {item.description}
                   </p>
 
-                  <div className='mt-3'>
+                  <div className='mt-2'>
                     <ActionCue>Open profile</ActionCue>
                   </div>
                 </div>
@@ -246,7 +246,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='rounded-2xl border border-amber-300/70 bg-amber-50/90 p-4 sm:p-5'>
+        <section className='rounded-2xl border border-amber-300/70 bg-amber-50/90 p-3.5 sm:p-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
             <p className='text-sm leading-6 text-amber-900/80'>
               Natural does not automatically mean safe or effective. These pages support comparison and pathway understanding — not medical care.

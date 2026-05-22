@@ -87,11 +87,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <div className='pb-[calc(env(safe-area-inset-bottom)+6rem)] md:pb-10'>
+          <div className='pb-[calc(env(safe-area-inset-bottom)+4rem)] md:pb-8'>
             {children}
           </div>
 
-          <footer className='mt-12 border-t border-neutral-200 bg-neutral-50 sm:mt-16'>
+          <footer className='mt-8 border-t border-neutral-200 bg-neutral-50 sm:mt-12'>
             <div className='container-page py-8 sm:py-12'>
               <div className='grid gap-7 md:grid-cols-3'>
                 <div className='space-y-4'>
