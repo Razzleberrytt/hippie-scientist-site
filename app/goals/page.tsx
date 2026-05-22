@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { goals } from '@/data/goals'
 
 export const metadata: Metadata = {
-  title: 'Supplement Goal Guides and Comparisons',
+  title: 'Supplement Goal Decision Guides',
   description: 'Educational comparison pages for pain, inflammation, focus, and sleep support topics.',
 }
 

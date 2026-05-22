@@ -5,7 +5,7 @@ import compoundsSummaryData from '@/public/data/compounds-summary.json'
 import SearchClient from './SearchClient'
 
 export const metadata: Metadata = {
-  title: 'Search Herb and Compound Profiles',
+  title: 'Search Herbs & Supplements',
   description: 'Search the herb and compound library with evidence-aware context, safety framing, and mechanism-oriented discovery.',
 }
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Contact The Hippie Scientist',
+  title: 'Contact',
   description:
     'Contact The Hippie Scientist for research feedback, corrections, and general questions.',
   alternates: {

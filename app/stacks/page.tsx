@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Supplement Stack Guides by Goal',
+  title: 'Evidence-Based Supplement Stacks',
   description:
     'Explore supplement stack examples by goal with compound roles, dosing patterns, timing, and safety-first tradeoff notes.',
   alternates: { canonical: '/stacks' },
