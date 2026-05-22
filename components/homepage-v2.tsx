@@ -72,36 +72,12 @@ const primaryActions = [
   { label: 'Search evidence notes', href: '/search' },
 ]
 
-const researchPaths: NavCard[] = [
-  { title: 'Herbs', href: '/herbs' },
-  { title: 'Compounds', href: '/compounds' },
-  { title: 'Compare', href: '/compare' },
-  { title: 'Search', href: '/search' },
-  { title: 'Goals', href: '/goals' },
-  { title: 'Learn', href: '/learn' },
-]
-
-const ecosystemCards: NavCard[] = [
-  {
-    title: 'Sleep Ecosystem',
-    href: '/search?q=sleep',
-    description: 'Nighttime herbs, calming compounds, timing, and safety context.',
-  },
-  {
-    title: 'Cognition Ecosystem',
-    href: '/search?q=focus',
-    description: 'Focus support, stimulation tradeoffs, and mechanism clues.',
-  },
-  {
-    title: 'Recovery Ecosystem',
-    href: '/search?q=recovery',
-    description: 'Training support, fatigue, adaptation, and practical fit.',
-  },
-  {
-    title: 'Stress Ecosystem',
-    href: '/search?q=stress',
-    description: 'Calm support, adaptogens, interaction risk, and evidence limits.',
-  },
+const researchLinks: NavCard[] = [
+  { title: 'Goals', href: '/goals', description: 'Start with practical outcomes and decision guides.' },
+  { title: 'Compare', href: '/compare', description: 'Evaluate options side-by-side with tradeoffs.' },
+  { title: 'Search', href: '/search', description: 'Find evidence notes, mechanisms, and safety context.' },
+  { title: 'Herbs', href: '/herbs', description: 'Browse full herb profiles.' },
+  { title: 'Compounds', href: '/compounds', description: 'Browse full compound profiles.' },
 ]
 
 const featuredFallbacks: LandingCard[] = [
@@ -203,46 +179,27 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-4 sm:p-6'>
-          <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
-            <SectionHeader title='Start your research' as='h2' />
-            <div className='grid grid-cols-2 gap-1.5 sm:grid-cols-3 sm:gap-2 md:min-w-[28rem]'>
-              {researchPaths.map((path) => (
+        <section className='space-y-3 sm:space-y-4'>
+          <SectionHeader
+            title='Research pathways'
+            subtitle='Pick a path quickly, then dive into detailed profiles and evidence notes.'
+            as='h2'
+          />
+          <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-3 sm:p-4'>
+            <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-5'>
+              {researchLinks.map((path) => (
                 <Link
                   key={path.href}
                   href={path.href}
-                  className='group rounded-full border border-brand-900/10 bg-white px-3 py-2 text-center text-sm font-semibold text-ink transition hover:border-brand-900/20 hover:bg-brand-50'
+                  className='group rounded-xl border border-brand-900/10 bg-white px-3 py-3 transition hover:border-brand-900/20 hover:bg-brand-50/30'
                 >
-                  {path.title}
-                  <span className='ml-1 text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>→</span>
+                  <h3 className='text-sm font-semibold tracking-tight text-ink'>{path.title}</h3>
+                  <p className='mt-1 text-xs leading-5 text-muted'>{path.description}</p>
+                  <span className='mt-2 inline-flex items-center text-xs font-semibold text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>
+                    Open →
+                  </span>
                 </Link>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section className='space-y-3 sm:space-y-4'>
-          <SectionHeader
-            title='Explore by practical context'
-            subtitle='Choose a goal first, then move into profiles, mechanisms, comparisons, and safety notes.'
-            as='h2'
-          />
-
-          <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-3 sm:p-4'>
-            <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-4'>
-            {ecosystemCards.map((card) => (
-              <Link
-                key={card.href}
-                href={card.href}
-                className='group rounded-xl border border-brand-900/10 bg-white px-3 py-2.5 transition hover:border-brand-900/20 hover:bg-brand-50/40'
-              >
-                <h3 className='text-sm font-semibold tracking-tight text-ink'>{card.title}</h3>
-                <p className='mt-1 text-xs leading-5 text-muted'>{card.description}</p>
-                <span className='mt-2 inline-flex items-center text-xs font-semibold text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>
-                  Explore →
-                </span>
-              </Link>
-            ))}
             </div>
           </div>
         </section>
@@ -251,7 +208,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Featured profiles'
-              subtitle='Quick entry points with evidence, safety, and mechanism context.'
+              subtitle='Compact entry points with evidence, safety, and mechanism context.'
               as='h2'
             />
             <div className='flex flex-wrap gap-3 text-sm font-semibold'>
