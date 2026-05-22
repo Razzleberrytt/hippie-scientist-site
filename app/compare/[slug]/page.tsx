@@ -20,6 +20,7 @@ import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
+import { buildCompareEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -271,16 +272,16 @@ export default async function Page({ params }: Params) {
       <EvidenceSnapshotPanel
         title="Fast decision snapshot"
         subtitle="Educational comparison only. Individual response, tolerance, and side effects vary."
-        fields={[
-          { label: 'Best fit', value: `Start with ${displayName(winner)} when you want the stronger evidence signal and a clearer starting point for comparison.`, tone: 'best-fit' },
-          { label: 'Human evidence', value: `${displayName(a)}: ${evidenceLabel(evidenceA)} (${evidenceA}/5) • ${displayName(b)}: ${evidenceLabel(evidenceB)} (${evidenceB}/5)` },
-          { label: 'Safety level', value: `Shared baseline: review medications, health conditions, and timing fit before use. ${displayName(a)}: ${cautionA[0]} ${displayName(b)}: ${cautionB[0]}`, tone: 'caution' },
-          { label: 'Tolerance risk', value: `${displayName(a)}: ${formatDisplayLabel(a?.tolerance_risk) || 'Unclear; monitor response.'} ${displayName(b)}: ${formatDisplayLabel(b?.tolerance_risk) || 'Unclear; monitor response.'}` },
-          { label: 'Stimulation/sedation profile', value: `${displayName(a)}: ${profileLabel(a)} • ${displayName(b)}: ${profileLabel(b)}` },
-          { label: 'Typical onset', value: `${displayName(a)}: ${timingA} • ${displayName(b)}: ${timingB}` },
-          { label: 'Use caution if', value: unique([...cautionA, ...cautionB]).slice(0, 3).join(', ') || 'No clear caution flags were surfaced in available profile data.', tone: 'caution' },
-          { label: 'What remains uncertain', value: 'Long-term outcomes, product standardization, and real-world effect size can vary. Choose based on top constraint first and reassess after conservative trials.' },
-        ]}
+        fields={buildCompareEvidenceSnapshotFields({
+          bestFit: `Start with ${displayName(winner)} when you want the stronger evidence signal and a clearer starting point for comparison.`,
+          humanEvidence: `${displayName(a)}: ${evidenceLabel(evidenceA)} (${evidenceA}/5) • ${displayName(b)}: ${evidenceLabel(evidenceB)} (${evidenceB}/5)`,
+          safetyLevel: `Shared baseline: review medications, health conditions, and timing fit before use. ${displayName(a)}: ${cautionA[0]} ${displayName(b)}: ${cautionB[0]}`,
+          toleranceRisk: `${displayName(a)}: ${formatDisplayLabel(a?.tolerance_risk) || 'Unclear; monitor response.'} ${displayName(b)}: ${formatDisplayLabel(b?.tolerance_risk) || 'Unclear; monitor response.'}`,
+          regulationProfile: `${displayName(a)}: ${profileLabel(a)} • ${displayName(b)}: ${profileLabel(b)}`,
+          typicalOnset: `${displayName(a)}: ${timingA} • ${displayName(b)}: ${timingB}`,
+          useCautionIf: unique([...cautionA, ...cautionB]).slice(0, 3).join(', '),
+          uncertain: 'Long-term outcomes, product standardization, and real-world effect size can vary. Choose based on top constraint first and reassess after conservative trials.',
+        })}
         className="compact-card section-rhythm-compact border border-brand-900/15 bg-white/95"
         columnsClassName="grid gap-4 md:grid-cols-2"
       />
