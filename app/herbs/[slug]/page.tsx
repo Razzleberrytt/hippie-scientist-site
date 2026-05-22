@@ -46,6 +46,7 @@ import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
+import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -497,16 +498,16 @@ export default async function HerbDetailPage({ params }: PageProps) {
               subtitle="Educational overview only. Individual response and tolerance can vary."
               badge="Start here"
               className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6"
-              fields={[
-                { label: 'Best fit', value: topUses.slice(0, 3).join(', ') || 'Use context is not clearly specified.', tone: 'best-fit' },
-                { label: 'Human evidence', value: evidenceStrength || researchMaturity || 'Human evidence quality is unclear from current profile data.' },
-                { label: `Safety level (${safetyTone})`, value: safetySummary, tone: 'caution' },
-                { label: 'Tolerance risk', value: formatDisplayLabel(herb.tolerance_risk || herb.toleranceRisk) || 'Tolerance risk is not clearly specified; monitor response over time.' },
-                { label: 'Stimulation/sedation profile', value: regulationProfile },
-                { label: 'Typical onset', value: timeline || 'Timing varies by preparation, dose, and context.' },
-                { label: 'Use caution if', value: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.', tone: 'caution' },
-                { label: 'What remains uncertain', value: mechanisms.length ? `Mechanism hints are preliminary: ${mechanisms.slice(0, 3).join(', ')}. Real-world effects can differ across people and products.` : 'Mechanism signals are not clearly specified and response variation is common.' },
-              ]}
+              fields={buildDetailEvidenceSnapshotFields({
+                bestFit: topUses.slice(0, 3).join(', '),
+                humanEvidence: evidenceStrength || researchMaturity,
+                safetyLevel: `${safetyTone}: ${safetySummary}`,
+                toleranceRisk: formatDisplayLabel(herb.tolerance_risk || herb.toleranceRisk),
+                regulationProfile,
+                typicalOnset: timeline || 'Timing varies by preparation, dose, and context.',
+                useCautionIf: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : '',
+                uncertain: mechanisms.length ? `Mechanism hints are preliminary: ${mechanisms.slice(0, 3).join(', ')}. Real-world effects can differ across people and products.` : '',
+              })}
             />
           </div>
         </div>

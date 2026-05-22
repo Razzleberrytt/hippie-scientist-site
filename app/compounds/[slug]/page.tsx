@@ -44,6 +44,7 @@ import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
+import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -371,16 +372,16 @@ export default async function CompoundPage({ params }: PageProps) {
               subtitle="Educational overview only. Individual effects and side-effect sensitivity can vary."
               badge="Start here"
               className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6"
-              fields={[
-                { label: 'Best fit', value: effects.slice(0, 3).join(', ') || 'Use context is not clearly specified.', tone: 'best-fit' },
-                { label: 'Human evidence', value: evidenceLevel || 'Human evidence quality is unclear from current profile data.' },
-                { label: `Safety level (${safetyTone})`, value: safetySummary, tone: 'caution' },
-                { label: 'Tolerance risk', value: formatDisplayLabel(compound.tolerance_risk || compound.toleranceRisk) || 'Tolerance risk is not clearly specified; monitor response over time.' },
-                { label: 'Stimulation/sedation profile', value: regulationProfile },
-                { label: 'Typical onset', value: timeline || 'Timing varies by dose, form, and context.' },
-                { label: 'Use caution if', value: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.', tone: 'caution' },
-                { label: 'What remains uncertain', value: mechanismHints.length ? `Mechanism hints are preliminary: ${mechanismHints.slice(0, 3).join(', ')}. Real-world response can vary by person and product.` : 'Mechanism signals are not clearly specified and individual response variation is common.' },
-              ]}
+              fields={buildDetailEvidenceSnapshotFields({
+                bestFit: effects.slice(0, 3).join(', '),
+                humanEvidence: evidenceLevel,
+                safetyLevel: `${safetyTone}: ${safetySummary}`,
+                toleranceRisk: formatDisplayLabel(compound.tolerance_risk || compound.toleranceRisk),
+                regulationProfile,
+                typicalOnset: timeline || 'Timing varies by dose, form, and context.',
+                useCautionIf: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : '',
+                uncertain: mechanismHints.length ? `Mechanism hints are preliminary: ${mechanismHints.slice(0, 3).join(', ')}. Real-world response can vary by person and product.` : '',
+              })}
             />
           </div>
         </section>
