@@ -62,11 +62,11 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-fat-loss',
     goalSlug: 'fat-loss',
-    title: 'Best Supplements for Fat Loss (Evidence-Aware Support) | The Hippie Scientist',
+    title: 'Best Supplements for Fat Loss (Evidence-Strength Support) | The Hippie Scientist',
     h1: 'Best Supplements for Fat Loss',
     intro: 'A grounded fat-loss supplement guide that avoids proprietary-blend hype and keeps stimulant safety in view.',
     searchIntent: 'fat loss supplements, thermogenic supplement stack, appetite support',
-    bullets: ['Prioritize modest evidence-aware support over miracle claims.', 'Watch stimulant load, blood pressure, anxiety, and medication interactions.', 'Use the goal guide to compare stacks, compounds, and related evidence.'],
+    bullets: ['Prioritize modest support with limited-to-stronger evidence strength over miracle claims.', 'Watch stimulant load, blood pressure, anxiety, and medication interactions.', 'Use the goal guide to compare stacks, compounds, and related evidence.'],
   },
   {
     route: 'best-supplements-for-blood-pressure',
@@ -98,7 +98,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'natural-testosterone-boosters',
     goalSlug: 'testosterone-support',
-    title: 'Natural Testosterone Boosters (Evidence-Aware Guide) | The Hippie Scientist',
+    title: 'Natural Testosterone Boosters (Evidence-Strength Guide) | The Hippie Scientist',
     h1: 'Natural Testosterone Boosters',
     intro: 'A skeptical guide to testosterone-support supplements that separates cautious evidence from aggressive booster marketing.',
     searchIntent: 'natural testosterone boosters, testosterone support supplements',
@@ -125,7 +125,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-nootropics-for-focus',
     goalSlug: 'focus',
-    title: 'Best Nootropics for Focus (Evidence-Aware Guide) | The Hippie Scientist',
+    title: 'Best Nootropics for Focus (Evidence-Strength Guide) | The Hippie Scientist',
     h1: 'Best Nootropics for Focus',
     intro: 'A cleaner entry point for focus nootropics that separates stimulation, attention support, and overhyped claims.',
     searchIntent: 'best nootropics for focus, focus supplements, nootropic stack',
@@ -162,9 +162,9 @@ const slugify = (value: string) =>
 const generatedSeoEntryPages: SeoEntryConfig[] = guideTopics.map(([goalSlug, topic]) => ({
   route: `guides/${slugify(topic)}`,
   goalSlug,
-  title: `${titleCase(topic)} (Evidence-Aware Guide) | The Hippie Scientist`,
+  title: `${titleCase(topic)} (Evidence-Strength Guide) | The Hippie Scientist`,
   h1: titleCase(topic),
-  intro: `A practical, evidence-aware guide to ${topic}, with safety context, related compounds, and a clear path into ranked decision pages.`,
+  intro: `A practical guide to ${topic} with evidence-strength context, related compounds, and a clear path into ranked decision pages.`,
   searchIntent: topic,
   bullets: [
     `Use this guide to compare ${topic} without treating every supplement claim as equal.`,
@@ -252,7 +252,7 @@ const sectionFor = (goalSlug: string) => {
     },
     'testosterone-support': {
       quick: ['Testosterone-booster claims are often exaggerated.', 'Sleep, training, deficiency status, and overall health matter first.', 'Minerals and adaptogens should be evaluated separately.'],
-      forWho: ['People skeptical of testosterone-booster marketing.', 'People comparing deficiency support versus hormone claims.', 'People who want safer, evidence-aware framing.'],
+      forWho: ['People skeptical of testosterone-booster marketing.', 'People comparing deficiency support versus hormone claims.', 'People who want safer, evidence-strength framing.'],
       careful: ['People with hormone-sensitive conditions or medication use.', 'People with fertility, prostate, liver, or endocrine concerns.', 'Anyone expecting supplements to replace medical evaluation.'],
       mistakes: ['Buying proprietary booster blends before checking basics.', 'Confusing energy or libido claims with testosterone evidence.', 'Ignoring sleep, alcohol, training, and deficiency status.'],
       comparison: 'Zinc and magnesium mostly make sense in deficiency or broader health context, while ashwagandha-style claims need separate evidence and safety review.',
@@ -269,7 +269,7 @@ function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
   return [
     {
       question: `Do ${plainGoal} supplements actually work?`,
-      answer: `Some supplements may help with ${plainGoal}, but results depend on the compound, dose, timing, baseline status, and individual response. The ranked guide separates stronger evidence from weaker claims.`,
+      answer: `Some supplements may help with ${plainGoal}, but results depend on the compound, dose, timing, baseline status, and individual response varies. The ranked guide separates stronger research signal from weaker claims.`,
     },
     {
       question: `How long do ${plainGoal} supplements take to work?`,

@@ -31,7 +31,7 @@ export default function EvidenceSummaryCard({
         {humanEvidence ? (
           <div className="rounded-2xl bg-[#f5f3ec] p-4 space-y-2">
             <p className="text-xs font-semibold tracking-wide uppercase text-[#5c6b63]">
-              Human Evidence
+              Human evidence
             </p>
 
             <p className="text-sm leading-7 text-[#46574d]">
@@ -43,7 +43,7 @@ export default function EvidenceSummaryCard({
         {mechanisticEvidence ? (
           <div className="rounded-2xl bg-[#f5f3ec] p-4 space-y-2">
             <p className="text-xs font-semibold tracking-wide uppercase text-[#5c6b63]">
-              Mechanistic Evidence
+              Research signal
             </p>
 
             <p className="text-sm leading-7 text-[#46574d]">
@@ -55,7 +55,7 @@ export default function EvidenceSummaryCard({
         {safetyProfile ? (
           <div className="rounded-2xl bg-[#f5f3ec] p-4 space-y-2">
             <p className="text-xs font-semibold tracking-wide uppercase text-[#5c6b63]">
-              Safety Profile
+              Safety profile
             </p>
 
             <p className="text-sm leading-7 text-[#46574d]">
