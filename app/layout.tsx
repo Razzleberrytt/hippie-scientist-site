@@ -91,9 +91,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
           </div>
 
-          <footer className='mt-16 border-t border-neutral-200 bg-neutral-50'>
-            <div className='container-page py-12'>
-              <div className='grid gap-10 md:grid-cols-3'>
+          <footer className='mt-12 border-t border-neutral-200 bg-neutral-50 sm:mt-16'>
+            <div className='container-page py-8 sm:py-12'>
+              <div className='grid gap-7 md:grid-cols-3'>
                 <div className='space-y-4'>
                   <p className='font-semibold text-ink'>The Hippie Scientist</p>
 
@@ -130,7 +130,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
               </div>
 
-              <div className='mt-10 border-t border-neutral-200 pt-6 space-y-3'>
+              <div className='mt-7 space-y-2.5 border-t border-neutral-200 pt-5 sm:mt-10 sm:pt-6'>
                 <p className='text-xs leading-6 text-muted'>
                   This site contains affiliate links. We may earn a commission on qualifying purchases at no cost to you.
                 </p>
