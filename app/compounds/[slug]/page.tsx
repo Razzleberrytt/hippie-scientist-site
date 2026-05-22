@@ -45,6 +45,7 @@ import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
+import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -558,6 +559,33 @@ export default async function CompoundPage({ params }: PageProps) {
             </div>
           ) : null}
         </CompactDisclosure>
+
+
+
+        <RelatedDiscoveryGroups
+          eyebrow="Related navigation"
+          title="Keep exploring with evidence context"
+          groups={[
+            {
+              title: 'Related comparisons',
+              description: 'Side-by-side pages for closer tradeoff decisions.',
+              links: comparisonRecords.slice(0, 4).map((item:any) => ({ href: `/compare/${item.slug}`, label: formatDisplayLabel(item.name || item.title || item.slug) })),
+            },
+            {
+              title: 'Alternatives and adjacencies',
+              description: 'Compounds and herbs with overlapping pathway signals.',
+              links: semanticRelated.slice(0, 4).map((item:any) => ({ href: item.entityType === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`, label: formatDisplayLabel(item.name || item.displayName || item.slug) })),
+            },
+            {
+              title: 'Beginner-friendly next reads',
+              description: 'Start with educational explainers before stacking.',
+              links: [
+                { href: '/learn', label: 'Learn evidence and safety basics' },
+                { href: '/goals', label: 'Browse goals guides' },
+              ],
+            },
+          ]}
+        />
 
         {sources.length > 0 ? (
           <CompactDisclosure title="Research and source context">

@@ -46,6 +46,7 @@ import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
+import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 
 type PageProps = {
@@ -666,35 +667,20 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </CompactDetails>
       </section>
 
-      <section className="border-t border-brand-900/10 pt-6">
-        <div className="space-y-1">
-          <p className="eyebrow-label">Related navigation</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Keep researching</h2>
-        </div>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          {relatedHerbLinks.length > 0 ? (
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-ink">Related herbs</h3>
-              {relatedHerbLinks.map(item => <Link key={item.href} href={item.href} className="block text-sm text-[#46574d] underline-offset-4 hover:underline">{item.label}</Link>)}
-            </div>
-          ) : null}
-          {relatedCompoundLinks.length > 0 ? (
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-ink">Related compounds</h3>
-              {relatedCompoundLinks.map(item => <Link key={item.href} href={item.href} className="block text-sm text-[#46574d] underline-offset-4 hover:underline">{item.label}</Link>)}
-            </div>
-          ) : null}
-          {comparisonLinks.length > 0 ? (
-            <div className="space-y-2">
-              <h3 className="text-sm font-semibold text-ink">Relevant comparisons</h3>
-              {comparisonLinks.map(item => <Link key={item.href} href={item.href} className="block text-sm text-[#46574d] underline-offset-4 hover:underline">{item.label}</Link>)}
-            </div>
-          ) : null}
-        </div>
-        <Link href="/herbs" className="mt-5 inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
-          Back to herbs library
-        </Link>
-      </section>
+      <RelatedDiscoveryGroups
+        eyebrow="Related navigation"
+        title="Keep researching with context"
+        groups={[
+          { title: 'Related herbs', description: 'Profiles with overlapping effects or decision signals.', links: relatedHerbLinks },
+          { title: 'Related compounds', description: 'Mechanism-adjacent compounds to contrast with this herb.', links: relatedCompoundLinks },
+          { title: 'Related comparisons', description: 'Direct side-by-side pages when the tradeoff is close.', links: comparisonLinks },
+          { title: 'Learn safety context', description: 'Educational pages on safety and evidence interpretation.', links: [{ href: '/learn', label: 'Browse learn guides' }, { href: '/sleep-herbs-vs-melatonin', label: 'Sleep herbs vs melatonin' }, { href: '/psychedelic-adjacent-herbs', label: 'Psychedelic-adjacent herbs' }] },
+        ]}
+      />
+
+      <Link href="/herbs" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
+        Back to herbs library
+      </Link>
     </main>
   )
 }

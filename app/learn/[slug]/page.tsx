@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getLearnPost, learnPosts } from '../data'
+import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 
 type LearnRouteParams = Promise<{ slug: string }>
 
@@ -35,6 +35,8 @@ export default async function Page({ params }: LearnRouteProps) {
   const post = getLearnPost(slug)
 
   if (!post) notFound()
+
+  const relatedArticles = learnPosts.filter((item) => item.slug !== post.slug).slice(0, 3).map((item) => ({ href: `/learn/${item.slug}`, label: item.title }))
 
   return (
     <main className="container-page py-10 sm:py-14">
@@ -88,19 +90,31 @@ export default async function Page({ params }: LearnRouteProps) {
           </aside>
         </section>
 
-        <section className="card-premium p-6">
-          <p className="eyebrow-label">Continue exploring</p>
-          <div className="mt-3 flex flex-wrap gap-3">
-            {post.relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-sm font-medium text-emerald-700 underline-offset-4 hover:underline">
-                {link.label}
-              </Link>
-            ))}
-            <Link href="/learn" className="text-sm font-medium text-emerald-700 underline-offset-4 hover:underline">
-              Browse all learn guides
-            </Link>
-          </div>
-        </section>
+        <RelatedDiscoveryGroups
+          eyebrow="Continue exploring"
+          title="Choose your next educational step"
+          groups={[
+            {
+              title: 'Related concepts',
+              description: 'Educational deep-dives that connect to this topic.',
+              links: relatedArticles,
+            },
+            {
+              title: 'Apply what you learned',
+              description: 'Move from concepts into evidence-aware profiles.',
+              links: post.relatedLinks,
+            },
+            {
+              title: 'Read safety context',
+              description: 'Use safety-first pages before trialing new compounds.',
+              links: [
+                { href: '/sleep-herbs-vs-melatonin', label: 'Sleep herbs vs melatonin' },
+                { href: '/psychedelic-adjacent-herbs', label: 'Psychedelic-adjacent herbs' },
+                { href: '/learn', label: 'Browse all learn guides' },
+              ],
+            },
+          ]}
+        />
       </article>
     </main>
   )
