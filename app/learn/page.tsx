@@ -17,32 +17,47 @@ const educationHubs = [
   },
 ]
 
+const startHereCards = [
+  {
+    title: 'Understand the claim',
+    body: 'Separate marketing language from what human evidence, mechanism data, or traditional use actually supports.',
+  },
+  {
+    title: 'Check the context',
+    body: 'Dose, form, timing, medications, health history, and product quality can change how useful or risky something is.',
+  },
+  {
+    title: 'Stay cautious',
+    body: 'Results vary between individuals. The goal is clearer thinking, not certainty or one-size-fits-all recommendations.',
+  },
+]
+
 const supernodes = [
   {
     title: 'Stress Neurobiology',
     description:
-      'Explore stress physiology, burnout systems, recovery-oriented cognition, nervous-system regulation, and resilience biology.',
+      'Plain-language education on stress physiology, burnout patterns, nervous-system regulation, and recovery-oriented cognition.',
     href: '/education/how-stress-affects-the-brain',
     category: 'Recovery Neuroscience',
   },
   {
     title: 'Neuroplasticity and Learning',
     description:
-      'Educational systems covering neuroplasticity, memory formation, attentional adaptation, and learning continuity.',
+      'How memory, attention, repetition, sleep, and adaptation shape learning over time without reducing everything to hype.',
     href: '/education/how-learning-affects-neuroplasticity',
     category: 'Cognition Systems',
   },
   {
     title: 'Adaptogens and Recovery',
     description:
-      'Systems-oriented exploration of adaptogens, resilience biology, stress signaling, and fatigue recovery systems.',
+      'A careful look at adaptogens, stress signaling, fatigue, resilience claims, and where the evidence still has limits.',
     href: '/education/what-are-adaptogens',
     category: 'Stress Physiology',
   },
   {
     title: 'Psychoactive Systems',
     description:
-      'Educational framework exploring altered states, contextual neurobiology, emotional intensity, and perception systems.',
+      'Education on altered states, perception, emotional intensity, and safety context without romanticizing risky use.',
     href: '/education/understanding-altered-states',
     category: 'Contextual Neurobiology',
   },
@@ -51,61 +66,65 @@ const supernodes = [
 export default function LearnPage() {
   return (
     <div className='space-y-16'>
-      <section className='space-y-5 max-w-4xl'>
-        <div className='space-y-3'>
-          <p className='text-xs uppercase tracking-[0.2em] text-muted'>
-            Education Ecosystem
-          </p>
+      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
+        <div className='max-w-4xl space-y-5'>
+          <div className='space-y-3'>
+            <p className='eyebrow-label'>Learn the basics</p>
 
-          <h1 className='text-5xl font-bold tracking-tight'>Learn</h1>
-        </div>
+            <h1 className='text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
+              Evidence-aware supplement education
+            </h1>
+          </div>
 
-        <div className='space-y-5 text-lg leading-8 text-muted'>
-          <p>
-            Explore evidence-aware educational systems covering contextual
-            neurobiology, cognition continuity, stress physiology,
-            neuropharmacology, emotional regulation, psychoactive education,
-            and recovery-oriented neuroscience.
-          </p>
+          <div className='space-y-4 text-base leading-7 text-muted sm:text-lg'>
+            <p>
+              Start here if you want to understand herbs, nootropics, adaptogens, and compounds without getting pulled into hype. These guides explain how to read claims, compare evidence, and think through safety tradeoffs.
+            </p>
 
-          <p>
-            The Learn ecosystem acts as a discovery layer connecting major
-            neuroscience authority hubs, educational supernodes, practical
-            guides, and systems-oriented scientific literacy resources.
-          </p>
-        </div>
+            <p>
+              This section is educational, not medical advice. Evidence quality varies by topic, and results can differ substantially between individuals.
+            </p>
+          </div>
 
-        <div className='flex flex-wrap gap-3 pt-2'>
-          <Link
-            href='/education'
-            className='rounded-full border px-4 py-2 text-sm hover:bg-black hover:text-white transition'
-          >
-            Explore Education Hub
-          </Link>
+          <div className='flex flex-wrap gap-3 pt-2'>
+            <Link
+              href='/education'
+              className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
+            >
+              Explore Education Hub
+            </Link>
 
-          <Link
-            href='/education/neuroscience-glossary'
-            className='rounded-full border px-4 py-2 text-sm hover:bg-black hover:text-white transition'
-          >
-            Neuroscience Glossary
-          </Link>
+            <Link
+              href='/education/neuroscience-glossary'
+              className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
+            >
+              Neuroscience Glossary
+            </Link>
+          </div>
         </div>
       </section>
 
+      <section className='grid gap-4 md:grid-cols-3'>
+        {startHereCards.map(card => (
+          <article key={card.title} className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
+            <h2 className='text-base font-semibold text-ink'>{card.title}</h2>
+            <p className='mt-2 text-sm leading-6 text-muted'>{card.body}</p>
+          </article>
+        ))}
+      </section>
+
       <EducationSupernodeGrid
-        title='Explore major neuroscience supernodes'
-        description='Discover foundational authority systems spanning stress neurobiology, cognition continuity, psychoactive education, neuroplasticity, and resilience-oriented neuroscience.'
+        title='Explore major education hubs'
+        description='Move from basic concepts into deeper systems: stress biology, cognition, neuroplasticity, adaptogens, and psychoactive education.'
         items={supernodes}
       />
 
       <section className='space-y-5'>
         <div>
-          <p className='text-xs uppercase tracking-[0.2em] text-muted'>
-            Authority Hubs
-          </p>
+          <p className='eyebrow-label'>Authority Hubs</p>
 
-          <h2 className='text-3xl font-semibold mt-2'>
-            Core Educational Systems
+          <h2 className='mt-2 text-3xl font-semibold text-ink'>
+            Core educational systems
           </h2>
         </div>
 
@@ -114,11 +133,11 @@ export default function LearnPage() {
             <Link
               key={hub.href}
               href={hub.href}
-              className='rounded-2xl border p-5 hover:shadow-sm transition'
+              className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:shadow-sm'
             >
-              <p className='text-xs uppercase text-muted'>Educational Hub</p>
+              <p className='text-xs uppercase tracking-[0.16em] text-muted'>Educational Hub</p>
 
-              <h3 className='text-lg font-semibold mt-2'>
+              <h3 className='mt-2 text-lg font-semibold text-ink'>
                 {hub.title}
               </h3>
             </Link>
@@ -128,12 +147,10 @@ export default function LearnPage() {
 
       <section className='space-y-5'>
         <div>
-          <p className='text-xs uppercase tracking-[0.2em] text-muted'>
-            Featured Guides
-          </p>
+          <p className='eyebrow-label'>Featured Guides</p>
 
-          <h2 className='text-3xl font-semibold mt-2'>
-            Practical Evidence-Aware Learning
+          <h2 className='mt-2 text-3xl font-semibold text-ink'>
+            Practical evidence-aware learning
           </h2>
         </div>
 
@@ -142,17 +159,17 @@ export default function LearnPage() {
             <Link
               key={post.slug}
               href={`/learn/${post.slug}`}
-              className='rounded-2xl border p-5 hover:shadow-sm transition'
+              className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:shadow-sm'
             >
-              <p className='text-xs uppercase text-muted'>
+              <p className='text-xs uppercase tracking-[0.16em] text-muted'>
                 {post.category} • {post.readingTime}
               </p>
 
-              <h2 className='text-xl font-semibold mt-1'>
+              <h2 className='mt-1 text-xl font-semibold text-ink'>
                 {post.title}
               </h2>
 
-              <p className='text-sm text-muted mt-2'>
+              <p className='mt-2 text-sm leading-6 text-muted'>
                 {post.description}
               </p>
             </Link>
