@@ -41,7 +41,8 @@
     "check:node:self-test": "node scripts/ci/check-node-version.mjs --self-test",
     "validate:static-export": "node scripts/ci/validate-static-export-compatibility.mjs",
     "routes:inventory": "node scripts/ci/generate-route-inventory.mjs",
-    "validate:route-seo": "node scripts/ci/validate-route-seo.mjs"
+    "validate:route-seo": "node scripts/ci/validate-route-seo.mjs",
+    "validate:editorial-workbook": "node scripts/data/validate-editorial-workbook.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
