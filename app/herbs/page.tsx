@@ -5,7 +5,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import HerbsIndexClient from './HerbsIndexClient'
 
 export const metadata: Metadata = {
-  title: 'Herbs | The Hippie Scientist',
+  title: 'Herb Profiles and Supplement Research',
   description: 'Browse evidence-aware herb profiles with mechanisms, safety context, traditional use, and practical supplement research.',
 }
 

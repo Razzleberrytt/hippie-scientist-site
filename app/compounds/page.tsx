@@ -1,4 +1,24 @@
+import type { Metadata } from 'next'
 import { Suspense } from 'react'
+
+export const metadata: Metadata = {
+  title: 'Compound Profiles and Mechanism Guides',
+  description:
+    'Browse evidence-aware compound profiles with mechanisms, effects, safety considerations, and practical supplement context.',
+  alternates: { canonical: '/compounds' },
+  openGraph: {
+    title: 'Compound Profiles and Mechanism Guides',
+    description:
+      'Browse evidence-aware compound profiles with mechanisms, effects, safety considerations, and practical supplement context.',
+    url: '/compounds',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Compound Profiles and Mechanism Guides',
+    description:
+      'Browse evidence-aware compound profiles with mechanisms, effects, safety considerations, and practical supplement context.',
+  },
+}
 import { getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import CompoundsIndexClient from './CompoundsIndexClient'
