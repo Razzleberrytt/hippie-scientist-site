@@ -4,7 +4,7 @@ import { getCompounds } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-utils'
 
 export const metadata: Metadata = {
-  title: 'Compare Supplements, Herbs, and Compounds',
+  title: 'Compare Herbs & Supplements Side by Side',
   description:
     'Compare herbs, supplements, and compounds by effects, evidence tiers, safety considerations, and decision-support factors.',
 }

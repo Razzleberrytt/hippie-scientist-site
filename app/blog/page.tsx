@@ -35,7 +35,7 @@ const inferArticleStyle = (post: any) => {
 }
 
 export const metadata: Metadata = {
-  title: 'Research Notes and Supplement Explainers',
+  title: 'Research Notes & Herb Guides',
   description: 'Editorial research notes, explainers, and scientific continuity for herbs and compounds.',
 }
 

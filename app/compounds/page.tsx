@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Suspense } from 'react'
 
 export const metadata: Metadata = {
-  title: 'Compound Profiles and Mechanism Guides',
+  title: 'Compound & Nootropic Profiles',
   description:
     'Browse evidence-aware compound profiles with mechanisms, effects, safety considerations, and practical supplement context.',
   alternates: { canonical: '/compounds' },

@@ -4,7 +4,7 @@ import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summ
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 
 export const metadata: Metadata = {
-  title: 'Herbs, Compounds, and Evidence-Based Supplement Guides',
+  title: { absolute: 'The Hippie Scientist – Evidence-Based Herb & Supplement Research' },
   description:
     'Explore evidence-aware guides on herbs, compounds, stacks, and supplement decisions with mechanism, safety, and tradeoff context.',
   alternates: {

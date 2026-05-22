@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Learn Supplement Science and Safety Basics',
+  title: 'Supplement Education Hub',
   description:
     'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
   alternates: { canonical: '/learn' },
