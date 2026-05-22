@@ -124,9 +124,9 @@ The site should preserve or implement these core routes:
 - `/stacks`
 - `/stacks/[slug]`
 - `/comparisons`
-- `/learning`
+- `/education`
 - `/blog`
-- `/evidence-standards`
+- `/education/evidence-hierarchy`
 
 Routes should be static-export compatible for Cloudflare Pages unless explicitly documented otherwise.
 
@@ -384,7 +384,7 @@ Tiers:
 Behavior:
 
 - Tooltip explains criteria.
-- Links to `/evidence-standards`.
+- Links to `/education/evidence-hierarchy`.
 - Uses accessible label text.
 
 ### Safety Warning Block
@@ -575,7 +575,7 @@ Use:
 
 ## 13. Evidence Standards Page
 
-The site should include `/evidence-standards` explaining:
+The site should include `/education/evidence-hierarchy` explaining:
 
 - Evidence tiers.
 - GRADE certainty.
