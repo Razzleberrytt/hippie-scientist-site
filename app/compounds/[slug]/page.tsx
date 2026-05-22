@@ -43,6 +43,7 @@ import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
+import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -179,60 +180,6 @@ function ChipList({ items, limit = items.length }: { items: string[]; limit?: nu
   )
 }
 
-function DecisionSignalCard({ label, value }: { label: string; value?: string }) {
-  if (!value) return null
-
-  return (
-    <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-muted">{label}</p>
-      <p className="mt-2 text-base font-bold leading-6 text-ink">{value}</p>
-    </div>
-  )
-}
-
-function DecisionSnapshotPanel({
-  commonUse,
-  evidenceLevel,
-  regulation,
-  safetyTone,
-  safetySummary,
-  avoidIf,
-  timeline,
-  mechanismHints,
-}: {
-  commonUse: string
-  evidenceLevel: string
-  regulation: string
-  safetyTone: string
-  safetySummary: string
-  avoidIf: string[]
-  timeline: string
-  mechanismHints: string[]
-}) {
-  return (
-    <aside className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6">
-      <div className="flex items-start justify-between gap-3 border-b border-brand-900/10 pb-3">
-        <div>
-          <p className="eyebrow-label">Decision snapshot</p>
-          <h2 className="mt-1 text-xl font-semibold tracking-tight text-ink">5-second profile read</h2>
-        </div>
-        <span className="rounded-full bg-emerald-700/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900">
-          Start here
-        </span>
-      </div>
-
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-        <DecisionSignalCard label="Commonly used for" value={commonUse || 'Use context is not clearly specified.'} />
-        <DecisionSignalCard label="Evidence strength" value={evidenceLevel} />
-        <DecisionSignalCard label="Calming vs stimulating" value={regulation} />
-        <DecisionSignalCard label={`Safety level: ${safetyTone}`} value={safetySummary} />
-        <DecisionSignalCard label="Avoid / review first if" value={avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.'} />
-        <DecisionSignalCard label="Onset / timeline" value={timeline || 'Timing varies by dose, form, and context.'} />
-        <DecisionSignalCard label="Mechanism hints" value={mechanismHints.length ? mechanismHints.slice(0, 3).join(', ') : 'Mechanism signals are not clearly specified.'} />
-      </div>
-    </aside>
-  )
-}
 
 function CompactDisclosure({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -419,15 +366,21 @@ export default async function CompoundPage({ params }: PageProps) {
               <EvidenceBadgeGroup record={compound} compact />
             </div>
 
-            <DecisionSnapshotPanel
-              commonUse={effects.slice(0, 3).join(', ')}
-              evidenceLevel={evidenceLevel}
-              regulation={regulationProfile}
-              safetyTone={safetyTone}
-              safetySummary={safetySummary}
-              avoidIf={avoidIf}
-              timeline={timeline}
-              mechanismHints={mechanismHints}
+            <EvidenceSnapshotPanel
+              title="5-second profile read"
+              subtitle="Educational overview only. Individual effects and side-effect sensitivity can vary."
+              badge="Start here"
+              className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6"
+              fields={[
+                { label: 'Best fit', value: effects.slice(0, 3).join(', ') || 'Use context is not clearly specified.', tone: 'best-fit' },
+                { label: 'Human evidence', value: evidenceLevel || 'Human evidence quality is unclear from current profile data.' },
+                { label: `Safety level (${safetyTone})`, value: safetySummary, tone: 'caution' },
+                { label: 'Tolerance risk', value: formatDisplayLabel(compound.tolerance_risk || compound.toleranceRisk) || 'Tolerance risk is not clearly specified; monitor response over time.' },
+                { label: 'Stimulation/sedation profile', value: regulationProfile },
+                { label: 'Typical onset', value: timeline || 'Timing varies by dose, form, and context.' },
+                { label: 'Use caution if', value: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : 'No specific avoid-if flags surfaced in the available profile data.', tone: 'caution' },
+                { label: 'What remains uncertain', value: mechanismHints.length ? `Mechanism hints are preliminary: ${mechanismHints.slice(0, 3).join(', ')}. Real-world response can vary by person and product.` : 'Mechanism signals are not clearly specified and individual response variation is common.' },
+              ]}
             />
           </div>
         </section>
