@@ -45,7 +45,8 @@ const sourceFiles = [
 ]
 
 const toRoute = (file) => {
-  const rel = file.replace(/^app\//, '').replace(/\/page\.(tsx|ts|jsx|js)$/, '')
+  const withoutApp = file.replace(/^app\//, '')
+  const rel = withoutApp.replace(/(^|\/)page\.(tsx|ts|jsx|js)$/, '')
   if (!rel) return '/'
   return '/' + rel.split('/').filter(Boolean).filter((s) => !/^\(.*\)$/.test(s)).join('/')
 }
@@ -87,7 +88,16 @@ for (const sf of sourceFiles) {
       const href = m[1]
       if (!href || href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#')) continue
       if (!href.startsWith('/')) continue
-      if (href.includes('${')) { warnings.push(`Unresolved dynamic href in ${sf}: ${href}`); continue }
+      if (href.includes('${')) {
+        if (/^\/\$\{/.test(href)) continue
+        const pathOnly = href.split('?')[0].split('#')[0]
+        const templateIndex = pathOnly.indexOf('${')
+        const dynamicPrefix = (templateIndex >= 0 ? pathOnly.slice(0, templateIndex) : pathOnly).replace(/\/+$/, '') || '/'
+        const hasKnownPrefix = staticRoutes.has(dynamicPrefix)
+          || dynamicRoutes.some((d) => dynamicPrefix.startsWith(d.route.split('[')[0].replace(/\/+$/, '') || '/'))
+        if (!hasKnownPrefix) warnings.push(`Unresolved dynamic href in ${sf}: ${href}`)
+        continue
+      }
       const pathOnly = href.split('?')[0].split('#')[0]
       const normalized = pathOnly.replace(/\/+$/, '') || '/'
       const existsStatic = staticRoutes.has(normalized)
