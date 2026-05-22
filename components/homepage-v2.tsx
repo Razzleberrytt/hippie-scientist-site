@@ -104,21 +104,6 @@ const ecosystemCards: NavCard[] = [
   },
 ]
 
-const reasoningPillars = [
-  {
-    title: 'Scan the signal',
-    description: 'Start with use, evidence level, safety context, and stimulation profile before reading deeply.',
-  },
-  {
-    title: 'Check the boundary',
-    description: 'Human evidence, mechanism clues, and uncertainty are kept separate so claims stay conservative.',
-  },
-  {
-    title: 'Decide what fits',
-    description: 'Compare timing, tolerance, medications, and tradeoffs before thinking about stacks.',
-  },
-]
-
 const featuredFallbacks: LandingCard[] = [
   {
     href: '/herbs/ashwagandha',
@@ -212,14 +197,9 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               ))}
             </div>
 
-            <div className='mt-6 grid w-full max-w-3xl gap-3 pt-1 text-left sm:grid-cols-3'>
-              {reasoningPillars.map((pillar) => (
-                <div key={pillar.title} className='rounded-2xl border border-brand-900/10 bg-white/90 p-3.5 sm:p-4'>
-                  <p className='text-sm font-semibold tracking-tight text-ink'>{pillar.title}</p>
-                  <p className='mt-1 text-xs leading-5 text-muted'>{pillar.description}</p>
-                </div>
-              ))}
-            </div>
+            <p className='mt-5 max-w-2xl rounded-full border border-brand-900/10 bg-white/85 px-4 py-2 text-xs leading-5 text-muted sm:text-sm'>
+              Evidence strength, safety context, and uncertainty are kept visible so comparisons stay cautious.
+            </p>
           </div>
         </section>
 
