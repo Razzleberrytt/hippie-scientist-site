@@ -444,7 +444,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
       <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6">
         <h2 className="text-2xl font-bold text-ink">Comparison context</h2>
         <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">{pageSections.comparison}</p>
-        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-300">Compare ranked options →</Link>
+        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Compare ranked options →</Link>
       </section>
 
       <section className="rounded-2xl border border-red-300/40 bg-red-50 p-5">
@@ -482,7 +482,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
               <Link key={guide.route} href={`/${guide.route}`} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 hover:border-emerald-300/40">
                 <h3 className="font-bold text-ink">{guide.h1}</h3>
                 <p className="mt-2 line-clamp-3 text-sm text-muted">{guide.intro}</p>
-                <span className="mt-3 inline-block text-sm font-semibold text-emerald-300">Read guide →</span>
+                <span className="mt-3 inline-block text-sm font-semibold text-emerald-700">Read guide →</span>
               </Link>
             ))}
           </div>
