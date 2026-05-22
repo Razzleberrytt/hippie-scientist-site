@@ -4,31 +4,43 @@ import EducationSupernodeGrid from '@/components/education/education-supernode-g
 
 const educationHubs = [
   {
-    title: 'Scientific But Human Neuroscience',
+    title: 'Stress and brain basics',
     href: '/education/scientific-but-human-neuroscience',
   },
   {
-    title: 'Cognitive Resilience Systems',
+    title: 'Focus and resilience guides',
     href: '/education/cognitive-resilience-systems',
   },
   {
-    title: 'Stress and Cognition Continuity',
+    title: 'Stress and cognition patterns',
     href: '/education/stress-and-cognition-continuity',
   },
 ]
 
 const startHereCards = [
   {
-    title: 'Understand the claim',
-    body: 'Separate marketing language from what human evidence, mechanism data, or traditional use actually supports.',
+    title: 'Start with the basics',
+    body: 'Begin with the Education Hub to learn what a supplement claim means and which claims are mostly marketing.',
+    href: '/education',
+    cta: 'Start with the basics',
   },
   {
-    title: 'Check the context',
-    body: 'Dose, form, timing, medications, health history, and product quality can change how useful or risky something is.',
+    title: 'Learn how to read evidence',
+    body: 'Use the glossary and evidence guides to check study quality, dosing context, and what is still uncertain.',
+    href: '/education/neuroscience-glossary',
+    cta: 'Learn how to read evidence',
   },
   {
-    title: 'Stay cautious',
-    body: 'Results vary between individuals. The goal is clearer thinking, not certainty or one-size-fits-all recommendations.',
+    title: 'Understand safety and tradeoffs',
+    body: 'Supplement effects vary between individuals. Review medications, sensitivity, sleep impact, and product quality before trying anything.',
+    href: '/learn/adaptogens-explained-without-hype',
+    cta: 'Understand safety and tradeoffs',
+  },
+  {
+    title: 'Compare before stacking',
+    body: 'Compare single herbs and compounds first, then build a stack only when each piece has a clear purpose.',
+    href: '/learn/cognitive-stack-that-actually-makes-sense',
+    cta: 'Compare before stacking',
   },
 ]
 
@@ -59,7 +71,7 @@ const supernodes = [
     description:
       'Education on altered states, perception, emotional intensity, and safety context without romanticizing risky use.',
     href: '/education/understanding-altered-states',
-    category: 'Contextual Neurobiology',
+    category: 'Safety context',
   },
 ]
 
@@ -104,13 +116,29 @@ export default function LearnPage() {
         </div>
       </section>
 
-      <section className='grid gap-4 md:grid-cols-3'>
+      <section className='space-y-4'>
+        <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
+          <p className='eyebrow-label'>Start here</p>
+          <h2 className='mt-2 text-2xl font-semibold text-ink sm:text-3xl'>Pick your first click</h2>
+          <p className='mt-2 text-sm leading-6 text-muted sm:text-base'>
+            New here? Start with these four steps. They keep learning practical and help you compare options before you stack anything.
+          </p>
+        </div>
+
+        <div className='grid gap-4 md:grid-cols-2'>
         {startHereCards.map(card => (
           <article key={card.title} className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
-            <h2 className='text-base font-semibold text-ink'>{card.title}</h2>
+            <h2 className='text-lg font-semibold text-ink'>{card.title}</h2>
             <p className='mt-2 text-sm leading-6 text-muted'>{card.body}</p>
+            <Link
+              href={card.href}
+              className='mt-4 inline-flex text-sm font-medium text-emerald-700 underline-offset-4 hover:underline'
+            >
+              {card.cta}
+            </Link>
           </article>
         ))}
+              </div>
       </section>
 
       <EducationSupernodeGrid
