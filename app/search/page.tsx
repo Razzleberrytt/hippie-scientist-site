@@ -349,16 +349,16 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
         <Link href="/goals" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse goal guides →</Link>
       </div>
 
-      <div className="mt-3 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
         {discoveryPaths.map(path => (
           <button
             key={path.label}
             type="button"
             onClick={() => onSelect(path.query)}
-            className="group min-h-20 rounded-[1.1rem] border border-brand-900/10 bg-white/80 p-3.5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white sm:min-h-24"
+            className="group rounded-xl border border-brand-900/10 bg-white/90 px-3 py-2.5 text-left transition hover:border-brand-700/20 hover:bg-white"
           >
-            <span className="text-lg font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</span>
-            <span className="mt-2 block text-sm leading-6 text-[#46574d]">{path.description}</span>
+            <span className="text-sm font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</span>
+            <span className="mt-1 block text-xs leading-5 text-[#46574d]">{path.description}</span>
           </button>
         ))}
       </div>
@@ -368,7 +368,7 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
 
 function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => void; onReset: () => void }) {
   return (
-    <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-4.5 sm:p-7 shadow-[var(--shadow-card-calm)] sm:p-8">
+    <section className="rounded-[1.3rem] border border-brand-900/10 bg-white/85 p-4 sm:p-5 shadow-[var(--shadow-card-calm)]">
       <div className="max-w-2xl space-y-3">
         <p className="eyebrow-label">No matching profiles</p>
         <h2 className="compact-heading">Try a broader discovery path.</h2>
@@ -393,36 +393,36 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
         ))}
       </div>
 
-      <div className="mt-5 grid gap-3 lg:grid-cols-3">
-        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+      <div className="mt-4 grid gap-2.5 lg:grid-cols-3">
+        <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
           <p className="eyebrow-label">Related goals</p>
-          <ul className="mt-3 space-y-3">
+          <ul className="mt-2 space-y-2">
             {crossContentLinks.goals.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
-                <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{item.description}</p>
+                <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{item.description}</p>
               </li>
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+        <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
           <p className="eyebrow-label">Related compare pages</p>
-          <ul className="mt-3 space-y-3">
+          <ul className="mt-2 space-y-2">
             {crossContentLinks.compare.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
-                <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{item.description}</p>
+                <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{item.description}</p>
               </li>
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+        <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
           <p className="eyebrow-label">Beginner guidance</p>
-          <ul className="mt-3 space-y-3">
+          <ul className="mt-2 space-y-2">
             {crossContentLinks.learn.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
-                <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{item.description}</p>
+                <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{item.description}</p>
               </li>
             ))}
           </ul>
@@ -510,16 +510,16 @@ export default function SearchPage() {
                 Search herbs and compounds by name, goal, mechanism, evidence signal, or safety context. Start broad, then use light filters only when they help.
               </p>
 
-              <div className="grid gap-2 sm:grid-cols-2 sm:gap-2.5">
+              <div className="grid gap-2 sm:grid-cols-2">
                 {intentPrompts.map((intent) => (
                   <button
                     key={intent.label}
                     type="button"
                     onClick={() => setQuery(intent.query)}
-                    className="rounded-2xl border border-brand-900/10 bg-white/90 p-2.5 sm:p-3 text-left transition hover:border-brand-700/20 hover:bg-white"
+                    className="rounded-xl border border-brand-900/10 bg-white/90 px-3 py-2.5 text-left transition hover:border-brand-700/20 hover:bg-white"
                   >
                     <p className="text-sm font-semibold text-ink">{intent.label}</p>
-                    <p className="mt-1 text-sm leading-6 text-[#5f6f66]">{intent.helper}</p>
+                    <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{intent.helper}</p>
                   </button>
                 ))}
               </div>
