@@ -164,6 +164,21 @@ function getMechanismHints(compound: any, provided: string[]) {
   ]).slice(0, 6)
 }
 
+function ChipList({ items, limit = items.length }: { items: string[]; limit?: number }) {
+  const visible = items.slice(0, limit)
+  if (!visible.length) return null
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {visible.map((item) => (
+        <span key={item} className="chip-readable text-xs">
+          {item}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 function DecisionSignalCard({ label, value }: { label: string; value?: string }) {
   if (!value) return null
 
@@ -331,6 +346,13 @@ export default async function CompoundPage({ params }: PageProps) {
   const topSignals = unique([...effects, ...mechanismHints]).slice(0, 8)
   const regulationProfile = getRegulationProfile([...topSignals, safetySummary])
   const safetyTone = getSafetyTone(safetySummary, avoidIf)
+  const keyTakeaways = unique([
+    effects.length ? `Most often explored for ${effects.slice(0, 3).join(', ')}.` : '',
+    evidenceLevel ? `Evidence context currently reads as ${evidenceLevel.toLowerCase()}.` : '',
+    safetySummary ? `Safety first: ${safetySummary}` : '',
+    timeline ? `Timeline/onset context: ${timeline}.` : '',
+    mechanismHints.length ? `Mechanism signals include ${mechanismHints.slice(0, 3).join(', ')}.` : '',
+  ].filter(Boolean)).slice(0, 5)
 
   const compoundJsonLd = {
     '@context': 'https://schema.org',
@@ -411,6 +433,63 @@ export default async function CompoundPage({ params }: PageProps) {
         </section>
 
         <TrustBar />
+
+        {keyTakeaways.length > 0 ? (
+          <section className="border-t border-brand-900/10 pt-6">
+            <p className="eyebrow-label">Key takeaways</p>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[#46574d]">
+              {keyTakeaways.map(item => (
+                <li key={item} className="flex gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
+        <section className="rounded-3xl bg-amber-50/70 p-5 sm:p-6">
+          <div className="space-y-2">
+            <p className="eyebrow-label text-amber-900">Safety first</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">Review cautions before use</h2>
+            <p className="max-w-4xl text-sm leading-6 text-[#5f4a24]">
+              Educational-only framing: individual response varies by dose, formulation, concurrent medications, and health context. {safetySummary}
+            </p>
+          </div>
+          {avoidIf.length > 0 ? (
+            <div className="mt-4">
+              <h3 className="text-sm font-semibold text-ink">Avoid / review first if</h3>
+              <div className="mt-2"><ChipList items={avoidIf} limit={6} /></div>
+            </div>
+          ) : null}
+        </section>
+
+        <section className="space-y-5">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Evidence summary</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
+            <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
+              Use this profile as an evidence-aware orientation, not a guarantee of outcomes. Human data quality, formulation differences, and dosing variability can change real-world effects.
+            </p>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-2">
+            {effects.length > 0 ? (
+              <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">Primary evidence topics</p>
+                <div className="mt-3"><ChipList items={effects} limit={8} /></div>
+              </div>
+            ) : null}
+            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">What we still do not know</p>
+              <ul className="mt-3 space-y-2 text-sm leading-6 text-[#46574d]">
+                <li>• Long-term effects can differ from short-term study windows.</li>
+                <li>• Individual response varies across genetics, baseline health, and concurrent stack choices.</li>
+                <li>• Mechanistic signals may not translate directly into clinically meaningful outcomes.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
         <CompactDisclosure title="Evidence snapshot metrics">
           <EvidenceSnapshotCard snapshot={snapshot} />
