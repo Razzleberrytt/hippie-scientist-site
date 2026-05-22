@@ -67,18 +67,16 @@ function interleaveFeatured(herbs: LandingCard[], compounds: LandingCard[]) {
 }
 
 const primaryActions = [
-  { label: 'Browse herb profiles', href: '/herbs' },
+  { label: 'Start with goals', href: '/goals' },
   { label: 'Compare options', href: '/compare' },
   { label: 'Search evidence notes', href: '/search' },
 ]
 
-const researchLinks: NavCard[] = [
-  { title: 'Goals', href: '/goals', description: 'Start with practical outcomes and decision guides.' },
-  { title: 'Compare', href: '/compare', description: 'Evaluate options side-by-side with tradeoffs.' },
-  { title: 'Search', href: '/search', description: 'Find evidence notes, mechanisms, and safety context.' },
-  { title: 'Herbs', href: '/herbs', description: 'Browse full herb profiles.' },
-  { title: 'Compounds', href: '/compounds', description: 'Browse full compound profiles.' },
-]
+const goalsBridge: NavCard = {
+  title: 'Explore by goal',
+  href: '/goals',
+  description: 'Use practical decision guides to narrow options before reviewing full herb and compound profiles.',
+}
 
 const featuredFallbacks: LandingCard[] = [
   {
@@ -139,7 +137,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <main className='overflow-x-clip bg-site-bg'>
-      <div className='mx-auto max-w-6xl space-y-8 px-4 pb-8 pt-7 sm:px-6 sm:space-y-10 sm:pb-12 sm:pt-10 lg:px-8'>
+      <div className='mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-7 sm:px-6 sm:space-y-8 sm:pb-8 sm:pt-10 lg:px-8'>
         <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-5 shadow-sm sm:px-7 sm:py-8 lg:py-10'>
           <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
             <div className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
@@ -180,35 +178,10 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         </section>
 
         <section className='space-y-2.5 sm:space-y-3'>
-          <SectionHeader
-            title='Research pathways'
-            subtitle='Pick a path quickly, then dive into detailed profiles and evidence notes.'
-            as='h2'
-          />
-          <div className='rounded-2xl border border-brand-900/10 bg-white/90 p-2.5 sm:p-3'>
-            <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-5'>
-              {researchLinks.map((path) => (
-                <Link
-                  key={path.href}
-                  href={path.href}
-                  className='group rounded-xl border border-brand-900/10 bg-white px-3 py-2.5 transition hover:border-brand-900/20 hover:bg-brand-50/30'
-                >
-                  <h3 className='text-sm font-semibold tracking-tight text-ink'>{path.title}</h3>
-                  <p className='mt-1 text-xs leading-4.5 text-muted line-clamp-2'>{path.description}</p>
-                  <span className='mt-2 inline-flex items-center text-xs font-semibold text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>
-                    Open →
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className='space-y-2.5 sm:space-y-3'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
-              title='Featured profiles'
-              subtitle='Compact entry points with evidence, safety, and mechanism context.'
+              title='Popular starting points'
+              subtitle='Examples for quick orientation — not endorsements or personalized recommendations.'
               as='h2'
             />
             <div className='flex flex-wrap gap-3 text-sm font-semibold'>
@@ -217,27 +190,27 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </div>
           </div>
 
-          <div className='grid gap-2.5 md:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid gap-2 md:grid-cols-2 lg:grid-cols-3'>
             {visibleFeatured.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-3.5 transition hover:border-brand-900/20 hover:bg-white'
+                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-3 transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div className='relative'>
                   <span className='inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-brand-700'>
                     {item.meta}
                   </span>
 
-                  <h3 className='mt-2 text-lg font-semibold tracking-tight text-ink'>
+                  <h3 className='mt-1.5 text-base font-semibold tracking-tight text-ink sm:text-lg'>
                     {item.title}
                   </h3>
 
-                  <p className='mt-1.5 text-sm leading-5 text-muted line-clamp-3'>
+                  <p className='mt-1 text-sm leading-5 text-muted line-clamp-2'>
                     {item.description}
                   </p>
 
-                  <div className='mt-2'>
+                  <div className='mt-1.5'>
                     <ActionCue>Open profile</ActionCue>
                   </div>
                 </div>
@@ -246,12 +219,30 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='rounded-2xl border border-amber-300/70 bg-amber-50/90 p-3.5 sm:p-4'>
+        <section className='space-y-2'>
+          <SectionHeader
+            title='Explore by practical context'
+            subtitle='Need a fast triage path? Start with goals, then dive deeper only where needed.'
+            as='h2'
+          />
+          <Link
+            href={goalsBridge.href}
+            className='group block rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 transition hover:border-brand-900/20 hover:bg-white'
+          >
+            <h3 className='text-sm font-semibold tracking-tight text-ink'>{goalsBridge.title}</h3>
+            <p className='mt-1 text-sm leading-5 text-muted'>{goalsBridge.description}</p>
+            <span className='mt-2 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>
+              Open goals guides →
+            </span>
+          </Link>
+        </section>
+
+        <section className='rounded-2xl border border-amber-200/80 bg-amber-50/60 p-3 sm:p-3.5'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-            <p className='text-sm leading-6 text-amber-900/80'>
+            <p className='text-sm leading-5 text-amber-950/75'>
               Natural does not automatically mean safe or effective. These pages support comparison and pathway understanding — not medical care.
             </p>
-            <Link href='/disclaimer' className='shrink-0 text-sm font-semibold text-amber-900 transition hover:text-amber-950'>
+            <Link href='/disclaimer' className='shrink-0 text-sm font-semibold text-amber-900/90 transition hover:text-amber-950'>
               Read disclaimer →
             </Link>
           </div>
