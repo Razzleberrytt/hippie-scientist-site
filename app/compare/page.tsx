@@ -6,7 +6,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-u
 export const metadata: Metadata = {
   title: 'Compare Herbs & Supplements Side by Side',
   description:
-    'Compare herbs, supplements, and compounds by effects, evidence tiers, safety considerations, and decision-support factors.',
+    'Compare herbs and supplements side by side by evidence strength, mechanism, stimulation profile, safety, and dosing. Free research tool.',
 }
 
 

@@ -36,7 +36,7 @@ const inferArticleStyle = (post: any) => {
 
 export const metadata: Metadata = {
   title: 'Research Notes & Herb Guides',
-  description: 'Editorial research notes, explainers, and scientific continuity for herbs and compounds.',
+  description: '75+ evidence-aware research notes on herbs, compounds, mechanisms, safety, and preparation — organized by research style and topic.',
 }
 
 export default function BlogPage() {
