@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: { absolute: 'About The Hippie Scientist | Evidence-First Supplement Research' },
   description:
-    'Learn what The Hippie Scientist is, what it covers, and how to use it responsibly.',
+    'Learn how The Hippie Scientist approaches herb and supplement research — plain English, science-first, with honest disclaimers and evidence context.',
   alternates: {
     canonical: '/about',
   },

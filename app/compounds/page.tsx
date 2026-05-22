@@ -5,7 +5,7 @@ import { Suspense } from 'react'
 export const metadata: Metadata = {
   title: 'Compound & Nootropic Profiles',
   description:
-    'Browse evidence-aware compound profiles with mechanisms, effects, safety considerations, and practical supplement context.',
+    'Explore 500+ supplement and compound profiles with mechanisms, evidence strength, safety notes, and dosing context. Research-first, hype-free.',
   alternates: { canonical: '/compounds' },
   openGraph: {
     title: 'Compound Profiles and Mechanism Guides',

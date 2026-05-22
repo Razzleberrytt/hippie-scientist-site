@@ -6,7 +6,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 export const metadata: Metadata = {
   title: { absolute: 'The Hippie Scientist – Evidence-Based Herb & Supplement Research' },
   description:
-    'Explore evidence-aware guides on herbs, compounds, stacks, and supplement decisions with mechanism, safety, and tradeoff context.',
+    'Research-backed profiles for herbs, nootropics, and compounds. Compare evidence, safety, and mechanisms — without the hype.',
   alternates: {
     canonical: '/',
   },

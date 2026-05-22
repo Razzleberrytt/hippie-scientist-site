@@ -6,7 +6,7 @@ import SearchClient from './SearchClient'
 
 export const metadata: Metadata = {
   title: 'Search Herbs & Supplements',
-  description: 'Search the herb and compound library with evidence-aware context, safety framing, and mechanism-oriented discovery.',
+  description: 'Search 500+ herb and supplement profiles by name, compound, mechanism, or use case. Evidence-first research database with fast filtering.',
 }
 
 function getTopLinks() {

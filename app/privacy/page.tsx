@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Privacy information for The Hippie Scientist website.',
+    'Privacy policy for The Hippie Scientist — how we handle data, cookies, and any affiliate links on this site, written in clear plain English.',
   alternates: {
     canonical: '/privacy',
   },

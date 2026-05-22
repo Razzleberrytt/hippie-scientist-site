@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Medical Disclaimer',
   description:
-    'Important educational and medical disclaimer for The Hippie Scientist.',
+    'The Hippie Scientist is an educational resource only. Nothing on this site is medical advice, diagnosis, or treatment. Always consult a professional.',
   alternates: {
     canonical: '/disclaimer',
   },

@@ -7,7 +7,7 @@ import HerbsIndexClient from './HerbsIndexClient'
 
 export const metadata: Metadata = {
   title: 'Herb Profiles & Research Library',
-  description: 'Browse evidence-aware herb profiles with mechanisms, safety context, traditional use, and practical supplement research.',
+  description: 'Browse evidence-aware profiles for 100+ herbs — mechanisms, safety notes, active compounds, and research context in plain language.',
 }
 
 export default async function HerbsPage() {

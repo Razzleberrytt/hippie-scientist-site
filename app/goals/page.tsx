@@ -4,7 +4,7 @@ import { goals } from '@/data/goals'
 
 export const metadata: Metadata = {
   title: 'Supplement Goal Decision Guides',
-  description: 'Educational comparison pages for pain, inflammation, focus, and sleep support topics.',
+  description: 'Start with your goal — sleep, focus, stress, inflammation, or pain — then compare herbs and compounds by evidence, safety, and tradeoffs.',
 }
 
 export default function GoalsPage() {

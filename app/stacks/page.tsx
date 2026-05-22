@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Evidence-Based Supplement Stacks',
   description:
-    'Explore supplement stack examples by goal with compound roles, dosing patterns, timing, and safety-first tradeoff notes.',
+    'Browse goal-based supplement stacks for sleep, stress, cognition, performance, and fat loss — with dosing, timing, and safety context.',
   alternates: { canonical: '/stacks' },
   openGraph: {
     title: 'Supplement Stack Guides by Goal',

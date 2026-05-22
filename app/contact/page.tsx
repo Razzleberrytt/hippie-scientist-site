@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact The Hippie Scientist for research feedback, corrections, and general questions.',
+    'Get in touch with The Hippie Scientist — submit corrections, feedback, partnership inquiries, or research questions for our evidence-focused site.',
   alternates: {
     canonical: '/contact',
   },
