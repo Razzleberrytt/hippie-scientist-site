@@ -10,51 +10,51 @@ export const metadata: Metadata = {
 const siteWorksCards = [
   {
     title: 'Compare evidence',
-    body: 'Use side-by-side pages to separate strong human evidence from early or uncertain signals.',
+    body: 'Use side-by-side pages to separate stronger human evidence from early or uncertain signals.',
   },
   {
     title: 'Check safety first',
-    body: 'Review interactions, sensitivities, and context before focusing on potential upside.',
+    body: 'Review interactions, tolerability constraints, and personal context before focusing on upside.',
   },
   {
     title: 'Understand tradeoffs',
-    body: 'Most options involve pros, cons, and unknowns. We frame realistic expectations, not shortcuts.',
+    body: 'Most options involve benefits, limitations, and unknowns. We emphasize realistic expectations over shortcuts.',
   },
   {
     title: 'Start simple',
-    body: 'Begin with a clear goal and a narrow scope so decisions stay practical and easier to evaluate.',
+    body: 'Begin with one clear goal and a narrow scope so your next steps stay practical and easier to evaluate.',
   },
 ]
 
 const goalPaths = [
   {
     title: 'Better sleep',
-    description: 'Explore educational comparisons for sleep-related support options and their tradeoffs.',
+    description: 'Explore educational sleep support comparisons with evidence context, timing differences, and common tradeoffs.',
     href: '/goals/sleep',
   },
   {
     title: 'Stress & anxiety',
-    description: 'Review calm-focused pathways with attention to evidence strength, uncertainty, and safety context.',
-    href: '/stress-supplements',
+    description: 'Review calm-focused options with attention to uncertainty, expected effect size, and safety considerations.',
+    href: '/goals/sleep',
   },
   {
     title: 'Focus & productivity',
-    description: 'Compare focus-oriented herbs and compounds with practical context rather than hype language.',
+    description: 'Compare focus-oriented compounds and herbs without hype framing or one-size-fits-all assumptions.',
     href: '/goals/focus',
   },
   {
     title: 'Energy & fatigue',
-    description: 'Assess energy support categories and limits in current evidence before trying anything new.',
-    href: '/top/best-supplements-for-fatigue',
+    description: 'Assess categories used for daytime energy and fatigue support, including practical limitations in current evidence.',
+    href: '/goals/focus',
   },
   {
     title: 'Recovery & performance',
-    description: 'Learn how recovery-oriented options may differ by mechanism, tolerance profile, and evidence depth.',
-    href: '/best-for',
+    description: 'Understand performance and recovery tradeoffs by comparing mechanisms, consistency, and tolerance profiles.',
+    href: '/compare',
   },
   {
     title: 'General wellness',
-    description: 'Start broad, compare categories, and narrow choices based on your context and priorities.',
+    description: 'Start broad, compare categories, and narrow options based on your context, constraints, and priorities.',
     href: '/goals',
   },
 ]
@@ -69,12 +69,11 @@ export default function StartHerePage() {
         </h1>
         <div className='mt-4 max-w-4xl space-y-4 text-base leading-7 text-muted sm:text-lg'>
           <p>
-            The Hippie Scientist is designed to help you compare evidence strength, tradeoffs, safety concerns,
-            and realistic expectations before deciding what is worth researching further.
+            The Hippie Scientist helps you compare evidence strength, tradeoffs, safety concerns, and realistic
+            expectations before deciding what is worth researching further.
           </p>
           <p>
-            This content is educational only, not medical advice, and outcomes can vary substantially between
-            individuals.
+            This content is educational only, not medical advice, and individual response can vary substantially.
           </p>
         </div>
 
