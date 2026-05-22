@@ -21,6 +21,7 @@ import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import { buildCompareEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
+import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -397,7 +398,7 @@ export default async function Page({ params }: Params) {
 
         {relatedComparisons.length > 0 && (
           <article className="compact-card section-rhythm-compact">
-            <h2 className="max-w-none text-xl font-semibold text-ink">You may also compare</h2>
+            <h2 className="max-w-none text-xl font-semibold text-ink">Related comparisons</h2>
             <div className="grid gap-2">
               {relatedComparisons.map(item => (
                 <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-800">{item.title} →</Link>
@@ -417,6 +418,42 @@ export default async function Page({ params }: Params) {
           </article>
         )}
       </section>
+
+      <RelatedDiscoveryGroups
+        eyebrow="Continue comparison research"
+        title="Explore nearby decision paths"
+        groups={[
+          {
+            title: 'Related comparisons',
+            description: 'Compare close alternatives without forcing a single winner.',
+            links: relatedComparisons.map(item => ({ href: `/compare/${item.slug}`, label: item.title })),
+          },
+          {
+            title: 'Beginner-friendly next reads',
+            description: 'Start with practical overviews before advanced stacking.',
+            links: [
+              { href: `/compounds/${winner.slug}`, label: `${displayName(winner)} profile` },
+              { href: '/learn', label: 'Learn evidence basics' },
+            ],
+          },
+          {
+            title: 'Safety context',
+            description: 'Read safety framing before trial decisions.',
+            links: [
+              { href: '/sleep-herbs-vs-melatonin', label: 'Sleep safety tradeoffs' },
+              { href: '/psychedelic-adjacent-herbs', label: 'Harm-reduction herb context' },
+            ],
+          },
+          {
+            title: 'Related goals pages',
+            description: 'Use goal pages when choosing by outcome instead of ingredient.',
+            links: [
+              { href: '/goals', label: 'Browse goal guides' },
+              { href: '/goals', label: 'Find a beginner-friendly goal path' },
+            ],
+          },
+        ]}
+      />
     </main>
   )
 }
