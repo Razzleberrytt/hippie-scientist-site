@@ -12,7 +12,7 @@ export default function NaturalAnxiolyticsPage() {
         <p className="eyebrow-label">Discovery path</p>
         <h1 className="mt-3 max-w-3xl text-ink">Natural anxiolytics beyond ashwagandha</h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-[#46574d]">
-          Explore calming botanicals through evidence-aware profiles instead of one-size-fits-all recommendations.
+          Explore calming botanicals through consistent evidence-strength profiles instead of one-size-fits-all recommendations.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link href="/herbs" className="button-primary rounded-full">Browse herbs</Link>

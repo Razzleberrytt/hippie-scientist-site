@@ -67,7 +67,7 @@ export default async function ComparePage() {
       <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
         <p className="font-semibold">Use this cautiously.</p>
         <p className="mt-1">
-          This page is educational and does not replace medical advice. Evidence quality differs by compound, product quality varies, and individual response can be unpredictable. Review medications, health conditions, pregnancy or nursing status, and clinician guidance before using supplements.
+          This page is educational and does not replace medical advice. Evidence strength reflects research signal quality, not guaranteed outcomes, and individual response varies. Review medications, health conditions, pregnancy or nursing status, and clinician guidance before using supplements.
         </p>
       </section>
 

@@ -23,7 +23,7 @@ export default function EvidenceSection({
   return (
     <section className="card-premium p-6 space-y-5">
       <div className="flex flex-wrap items-center gap-3">
-        <p className="eyebrow-label">Evidence Review</p>
+        <p className="eyebrow-label">Evidence strength review</p>
 
         <EvidenceBadge level={evidenceLevel} />
       </div>
