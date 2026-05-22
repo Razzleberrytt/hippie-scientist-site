@@ -11,16 +11,16 @@ export const metadata: Metadata = {
 
 const guidanceCards = [
   {
-    title: 'Start with the goal',
-    body: 'Compare compounds by the outcome you are actually trying to support instead of chasing the strongest-sounding claim.',
+    title: 'Scan evidence first',
+    body: 'Start with evidence strength and mechanism confidence, then decide whether weaker evidence is still acceptable for your goal.',
   },
   {
-    title: 'Check the evidence',
-    body: 'Evidence quality varies widely. Human data, dose context, and study design matter more than popularity.',
+    title: 'Map safety and profile fit',
+    body: 'Check caution flags, stimulation or sedation profile, and tolerance risk before focusing on convenience or trend.',
   },
   {
-    title: 'Review safety flags',
-    body: 'Results vary between individuals, and interactions, medical history, pregnancy status, and medication use can change the risk profile.',
+    title: 'Use tradeoffs, not hype',
+    body: 'Compare onset, duration, and cost/value side by side. Fast effects or lower cost can come with tradeoffs in certainty or tolerability.',
   },
 ]
 
@@ -50,7 +50,7 @@ export default async function ComparePage() {
             Compare herbs, supplements, and compounds
           </h1>
           <p className="text-base leading-7 text-muted sm:text-lg">
-            Use this table to compare likely use-case fit, evidence strength, timing, and safety tradeoffs. It is a decision-support tool, not a promise that any compound will work the same way for everyone.
+            Use this table to compare who each option may fit, where caution is needed, and which tradeoffs matter most. It is educational decision support, not a medical recommendation.
           </p>
         </div>
       </section>

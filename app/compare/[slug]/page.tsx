@@ -95,6 +95,22 @@ function sharedSignals(a: any, b: any) {
   return getSignals(a).filter((item) => bSet.has(item.toLowerCase()))
 }
 
+const evidenceLabel = (score: number) => {
+  if (score >= 5) return 'Stronger'
+  if (score >= 4) return 'Moderate'
+  if (score <= 2) return 'Limited'
+  return 'Mixed'
+}
+
+const profileLabel = (compound: any) => {
+  const text = `${list(compound?.effects).join(' ')} ${list(compound?.primary_effects).join(' ')} ${compound?.summary || ''}`.toLowerCase()
+  if (/stim|energy|focus|alert/.test(text)) return 'More stimulating'
+  if (/sleep|calm|sedat|relax|anx/.test(text)) return 'More calming'
+  return 'Mixed or goal-dependent'
+}
+
+const firstItems = (values: string[], fallback: string) => (values.length > 0 ? values.slice(0, 3) : [fallback])
+
 export function generateStaticParams() {
   return allComparisonSlugs.map(slug => ({ slug }))
 }
@@ -168,6 +184,16 @@ export default async function Page({ params }: Params) {
   const relatedBestPages = bestPages
     .filter(page => page.compoundCandidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug)))
     .slice(0, 3)
+  const evidenceA = evidenceScore(a)
+  const evidenceB = evidenceScore(b)
+  const cautionA = firstItems(list(a?.safety_flags || a?.safetyNotes || a?.contraindications).map(formatDisplayLabel).filter(isClean), 'Review interactions, health conditions, and timing fit.')
+  const cautionB = firstItems(list(b?.safety_flags || b?.safetyNotes || b?.contraindications).map(formatDisplayLabel).filter(isClean), 'Review interactions, health conditions, and timing fit.')
+  const timingA = formatDisplayLabel(a?.time_to_effect) || 'Timing varies'
+  const timingB = formatDisplayLabel(b?.time_to_effect) || 'Timing varies'
+  const durationA = formatDisplayLabel(a?.duration) || 'Not consistently reported'
+  const durationB = formatDisplayLabel(b?.duration) || 'Not consistently reported'
+  const costA = formatDisplayLabel(a?.cost) || 'Price varies by product quality'
+  const costB = formatDisplayLabel(b?.cost) || 'Price varies by product quality'
 
   return (
     <main className="space-y-8">
@@ -238,6 +264,82 @@ export default async function Page({ params }: Params) {
             <Link href={`/compounds/${loser.slug}`} className="button-secondary text-center">View profile →</Link>
             <AffiliateBlock compound={loser.slug} compact />
           </div>
+        </article>
+      </section>
+
+      <section className="compact-card section-rhythm-compact border border-brand-900/15 bg-white/95">
+        <p className="eyebrow-label">Quick verdict</p>
+        <h2 className="max-w-none text-2xl font-semibold text-ink">Fast decision snapshot</h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          <article className="rounded-2xl border border-brand-900/10 bg-emerald-50/70 p-4">
+            <h3 className="text-sm font-semibold text-ink">Best fit</h3>
+            <p className="mt-1 text-sm leading-6 text-[#46574d]">
+              Start with <strong>{displayName(winner)}</strong> when you want the stronger evidence signal and a clearer starting point for comparison.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-4">
+            <h3 className="text-sm font-semibold text-ink">Use caution</h3>
+            <ul className="mt-1 space-y-1 text-sm leading-6 text-[#46574d]">
+              {unique([...cautionA, ...cautionB]).slice(0, 3).map((item) => (
+                <li key={item}>• {item}</li>
+              ))}
+            </ul>
+          </article>
+          <article className="rounded-2xl border border-brand-900/10 bg-white p-4">
+            <h3 className="text-sm font-semibold text-ink">Evidence strength</h3>
+            <p className="mt-1 text-sm leading-6 text-[#46574d]">
+              {displayName(a)}: {evidenceLabel(evidenceA)} ({evidenceA}/5) • {displayName(b)}: {evidenceLabel(evidenceB)} ({evidenceB}/5)
+            </p>
+          </article>
+          <article className="rounded-2xl border border-brand-900/10 bg-white p-4">
+            <h3 className="text-sm font-semibold text-ink">Major tradeoffs</h3>
+            <p className="mt-1 text-sm leading-6 text-[#46574d]">
+              Evidence certainty, side-effect sensitivity, onset speed, and cost/value may not move in the same direction. Choose based on your top constraint first.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="compact-card section-rhythm-compact">
+        <p className="eyebrow-label">Scan-first framing</p>
+        <h2 className="compact-heading">Compare high-impact factors before details.</h2>
+        <div className="grid gap-3 md:grid-cols-2">
+          {[
+            { label: 'Evidence strength', a: `${evidenceLabel(evidenceA)} (${evidenceA}/5)`, b: `${evidenceLabel(evidenceB)} (${evidenceB}/5)` },
+            { label: 'Safety', a: cautionA[0], b: cautionB[0] },
+            { label: 'Stimulation / sedation profile', a: profileLabel(a), b: profileLabel(b) },
+            { label: 'Tolerance risk', a: formatDisplayLabel(a?.tolerance_risk) || 'Unclear; monitor response', b: formatDisplayLabel(b?.tolerance_risk) || 'Unclear; monitor response' },
+            { label: 'Onset', a: timingA, b: timingB },
+            { label: 'Duration', a: durationA, b: durationB },
+            { label: 'Cost/value', a: costA, b: costB },
+            { label: 'Mechanism confidence', a: signalsA.length > 0 ? 'Some pathway signal clarity' : 'Low mechanism clarity', b: signalsB.length > 0 ? 'Some pathway signal clarity' : 'Low mechanism clarity' },
+          ].map((row) => (
+            <article key={row.label} className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 md:col-span-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted">{row.label}</p>
+              <p className="mt-2 text-sm leading-6 text-[#46574d]"><strong>{displayName(a)}:</strong> {row.a}</p>
+              <p className="text-sm leading-6 text-[#46574d]"><strong>{displayName(b)}:</strong> {row.b}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid gap-4 lg:grid-cols-2">
+        <article className="compact-card section-rhythm-compact">
+          <p className="eyebrow-label">What remains uncertain</p>
+          <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
+            <li>• Long-term outcome evidence is still limited for many compounds.</li>
+            <li>• Product standardization and third-party testing quality can vary across brands.</li>
+            <li>• Some signals come from small or short-duration studies, so effect size can shift in broader use.</li>
+            <li>• Individual response variation is common, including differences in tolerance and side effects.</li>
+          </ul>
+        </article>
+        <article className="compact-card section-rhythm-compact bg-amber-50/70">
+          <p className="eyebrow-label">Beginner notes</p>
+          <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
+            <li>• Start conservatively and avoid escalating quickly.</li>
+            <li>• Avoid stacking multiple stimulants or multiple calming compounds at first.</li>
+            <li>• Evaluate one variable at a time so you can observe fit, tolerance, and tradeoffs clearly.</li>
+          </ul>
         </article>
       </section>
 
