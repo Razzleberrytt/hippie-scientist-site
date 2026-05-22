@@ -74,6 +74,9 @@ export default async function TopSleepPage() {
         <p className='mt-4 text-white/70'>
           These herbs are often discussed as natural sleep aids for insomnia, relaxation, and sleep-quality support.
         </p>
+        <p className='mt-3 text-sm leading-6 text-white/60'>
+          Quick framing: most options are better understood as “sleep context” tools (wind-down, calm, stress load) rather than direct insomnia treatments.
+        </p>
       </section>
 
 
@@ -99,6 +102,14 @@ export default async function TopSleepPage() {
           <Link href='/top/stress'>Best herbs for stress</Link>
           <Link href='/top/focus'>Best supplements for focus</Link>
         </div>
+      </section>
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <h2 className='text-2xl font-bold text-white'>Beginner decision notes</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+          <li>If your issue is a racing mind, start with calmer, gentler profiles first.</li>
+          <li>If the issue is stress spillover, prioritize stress-support context over “strongest sleep herb.”</li>
+          <li>Keep timing and next-day grogginess in mind when comparing options.</li>
+        </ul>
       </section>
 
       <section>

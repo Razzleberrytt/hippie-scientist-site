@@ -87,6 +87,9 @@ export default async function CortisolPage() {
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>
           A quick guide to herbs commonly discussed for stress response, cortisol context, and adaptogen-style support. Educational only, not medical advice.
         </p>
+        <p className='mt-3 max-w-3xl text-sm leading-6 text-white/60'>
+          Cortisol is usually about pattern and timing, not one “cortisol herb.” This page helps you compare common options before deeper profile reading.
+        </p>
       </section>
 
 
@@ -116,6 +119,9 @@ export default async function CortisolPage() {
         <h2 className='text-2xl font-bold'>Fast answer</h2>
         <p className='mt-3 text-sm leading-6 text-white/70'>
           Ashwagandha, rhodiola, and holy basil are commonly discussed when people search for herbs related to cortisol and stress resilience.
+        </p>
+        <p className='mt-3 text-sm leading-6 text-white/60'>
+          Beginner guidance: compare how each option aligns with your day (wired-but-tired evenings, pressure-heavy workdays, or general tension) before choosing.
         </p>
       </section>
 

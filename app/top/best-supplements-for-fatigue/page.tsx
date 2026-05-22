@@ -43,6 +43,7 @@ export default async function Page() {
         <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100/70'>Energy guide</p>
         <h1 className='mt-3 text-4xl font-black tracking-tight sm:text-6xl'>Best Supplements for Fatigue & Burnout</h1>
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>A practical guide to herbs and supplements commonly discussed for low energy, fatigue, burnout, and stress-linked tiredness. Educational only, not medical advice.</p>
+        <p className='mt-3 max-w-3xl text-sm leading-6 text-white/60'>Use this page to separate short-lift options from recovery-oriented options. Fatigue stacks usually work better when matched to pattern, not hype.</p>
       </section>
 
 
@@ -64,6 +65,14 @@ export default async function Page() {
           <li><strong className='text-white'>Rhodiola rosea</strong> is often framed around fatigue and stress resilience.</li>
           <li><strong className='text-white'>Creatine</strong> is commonly discussed for performance, energy systems, and cognitive context.</li>
           <li><strong className='text-white'>Caffeine</strong> may support short-term alertness for some people, but context and tolerance matter.</li>
+        </ul>
+      </section>
+      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
+        <h2 className='text-2xl font-bold'>How the three picks differ</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+          <li><strong className='text-white'>Rhodiola:</strong> usually framed for stress-linked fatigue and resilience.</li>
+          <li><strong className='text-white'>Creatine:</strong> often discussed as baseline energy-system support over time.</li>
+          <li><strong className='text-white'>Caffeine:</strong> fast alertness, but with tolerance and timing tradeoffs.</li>
         </ul>
       </section>
 

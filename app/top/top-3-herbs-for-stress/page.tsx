@@ -108,6 +108,9 @@ export default async function TopThreeStressHerbsPage() {
           <li><strong className='text-white'>Rhodiola rosea</strong> is often framed around fatigue, resilience, and stress-linked energy.</li>
           <li><strong className='text-white'>Lemon balm</strong> is a gentler calming herb often connected with relaxation.</li>
         </ul>
+        <p className='mt-4 text-sm leading-6 text-white/60'>
+          Interpretation tip: “best” depends on stress pattern. For many beginners, the useful first split is steady resilience support versus quick calming support.
+        </p>
       </section>
 
       <section className='grid gap-4'>
