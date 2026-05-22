@@ -19,7 +19,7 @@ export default function AboutPage() {
         </p>
 
         <h1 className='mt-2 text-4xl font-bold tracking-tight sm:text-5xl'>
-          What this site is for
+          About The Hippie Scientist
         </h1>
 
         <p className='mt-4 max-w-3xl text-base leading-7 text-white/75 sm:text-lg'>
