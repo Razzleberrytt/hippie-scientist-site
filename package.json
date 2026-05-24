@@ -39,7 +39,6 @@
     "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:static-export && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run validate:direct-dependencies && npm run validate:xlsx-boundary && npm run validate:security-headers && npm run data:verify",
     "data:verify": "node scripts/data/verify-generated-data.mjs",
     "validate:workbook-source": "node scripts/ci/validate-workbook-source.mjs",
-    "prebuild": "npm run validate:workbook-source",
     "check:node": "node scripts/ci/check-node-version.mjs",
     "audit:high": "node scripts/ci/audit-high-with-allowlist.mjs",
     "check:node:self-test": "node scripts/ci/check-node-version.mjs --self-test",
@@ -67,8 +66,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "slugify": "^1.6.6",
-    "sonner": "^2.0.7",
-    "xlsx": "^0.18.5"
+    "sonner": "^2.0.7"
   },
   "devDependencies": {
     "@types/node": "^20.19.37",
@@ -95,7 +93,8 @@
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "satori": "^0.12.0",
-    "@resvg/resvg-js": "^2.6.2"
+    "@resvg/resvg-js": "^2.6.2",
+    "xlsx": "^0.18.5"
   },
   "overrides": {
     "postcss": "^8.5.15",

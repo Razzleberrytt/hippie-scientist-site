@@ -6,3 +6,5 @@
 - Audit allowlist entries require expiry/review dates and issue tracking URLs.
 - New direct dependencies require PR justification.
 - Prefer `npm ci --ignore-scripts` for audit-only CI jobs; full builds keep scripts enabled.
+
+- Build-time workbook parsers (for example `xlsx`) must stay in `devDependencies` and remain blocked from runtime/browser imports via `npm run validate:xlsx-boundary`.
