@@ -123,8 +123,8 @@ body {
   }
 
   :where(a, button, summary, input, textarea, select):focus-visible {
-    outline: 2px solid rgba(53, 143, 82, 0.72);
-    outline-offset: 3px;
+    outline: 2px solid #1d4a2f;
+    outline-offset: 4px;
   }
 
   strong {
@@ -142,7 +142,7 @@ body {
   input,
   textarea,
   select {
-    @apply focus:outline-none focus:ring-4;
+    @apply focus:outline-none focus-visible:ring-4;
     --tw-ring-color: var(--ring-brand);
   }
 
@@ -157,6 +157,17 @@ body {
 
   summary::-webkit-details-marker {
     display: none;
+  }
+
+  summary::after {
+    content: 'Open';
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+    color: var(--text-muted);
+  }
+
+  details[open] summary::after {
+    content: 'Close';
   }
 
   details > * + * {

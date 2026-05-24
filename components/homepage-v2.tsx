@@ -140,9 +140,9 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
       <div className='mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-7 sm:px-6 sm:space-y-8 sm:pb-8 sm:pt-10 lg:px-8'>
         <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-5 shadow-sm sm:px-7 sm:py-8 lg:py-10'>
           <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
-            <div className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
+            <p role='doc-subtitle' className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
               Evidence-aware botanical research
-            </div>
+            </p>
 
             <h1 className='font-display text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.055em] text-ink sm:text-6xl md:text-7xl'>
               <span className='block'>The Hippie Scientist</span>
@@ -185,8 +185,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               as='h2'
             />
             <div className='flex flex-wrap gap-3 text-sm font-semibold'>
-              <Link href='/herbs' className='text-brand-700 transition hover:text-brand-800'>Herb library →</Link>
-              <Link href='/compounds' className='text-brand-700 transition hover:text-brand-800'>Compound library →</Link>
+              <Link href='/herbs' className='text-brand-700 transition hover:text-brand-800'>Herb library <span aria-hidden='true'>→</span></Link>
+              <Link href='/compounds' className='text-brand-700 transition hover:text-brand-800'>Compound library <span aria-hidden='true'>→</span></Link>
             </div>
           </div>
 
@@ -195,7 +195,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               <Link
                 key={item.href}
                 href={item.href}
-                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-3 transition hover:border-brand-900/20 hover:bg-white'
+                aria-label={`View ${item.meta} for ${item.title}`} className='group rounded-2xl border border-brand-900/10 bg-white/90 p-3 transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div className='relative'>
                   <span className='inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-brand-700'>
@@ -231,8 +231,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           >
             <h3 className='text-sm font-semibold tracking-tight text-ink'>{goalsBridge.title}</h3>
             <p className='mt-1 text-sm leading-5 text-muted'>{goalsBridge.description}</p>
-            <span className='mt-2 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-0.5' aria-hidden='true'>
-              Open goals guides →
+            <span className='mt-2 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-0.5'>
+              Open goals guides <span aria-hidden='true'>→</span>
             </span>
           </Link>
         </section>

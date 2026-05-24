@@ -71,6 +71,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
 
+        <a href='#main-content' className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink focus:shadow-lg'>Skip to main content</a>
+
         <div className='min-h-screen bg-background text-ink'>
           <header className='sticky top-0 z-50 border-b border-brand-900/10 bg-white/[0.88] shadow-[0_1px_0_rgba(17,24,39,0.02)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/[0.78]'>
             <div className='container-page flex min-h-[72px] items-center justify-between gap-6 py-3'>
@@ -87,9 +89,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </header>
 
-          <div className='pb-[calc(env(safe-area-inset-bottom)+4rem)] md:pb-8'>
+          <main id='main-content' className='pb-[calc(env(safe-area-inset-bottom)+4rem)] md:pb-8'>
             {children}
-          </div>
+          </main>
 
           <footer className='mt-8 border-t border-neutral-200 bg-neutral-50 sm:mt-12'>
             <div className='container-page py-8 sm:py-12'>
@@ -107,7 +109,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <p className='font-semibold text-ink'>Explore</p>
+                  <h2 className='font-semibold text-ink'>Explore</h2>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/herbs' className='text-muted hover:text-ink transition'>Herbs</Link>
@@ -123,7 +125,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <p className='font-semibold text-ink'>Legal & Transparency</p>
+                  <h2 className='font-semibold text-ink'>Legal & Transparency</h2>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/privacy' className='text-muted hover:text-ink transition'>Privacy Policy</Link>
@@ -133,7 +135,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
               </div>
 
-              <div className='mt-7 space-y-2.5 border-t border-neutral-200 pt-5 sm:mt-10 sm:pt-6'>
+              <section aria-label='Affiliate disclosure' className='mt-7 space-y-2.5 border-t border-neutral-200 pt-5 sm:mt-10 sm:pt-6'>
                 <p className='text-xs leading-6 text-muted'>
                   This site contains affiliate links. We may earn a commission on qualifying purchases at no cost to you.
                 </p>
@@ -141,7 +143,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 <p className='text-sm text-muted'>
                   © 2026 The Hippie Scientist
                 </p>
-              </div>
+              </section>
             </div>
           </footer>
 
