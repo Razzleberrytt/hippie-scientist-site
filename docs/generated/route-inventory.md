@@ -1,9 +1,9 @@
 # Route Inventory
 
-Generated: 2026-05-24T04:12:15.542Z
+Generated: 2026-05-24T04:42:33.952Z
 
 Total routes: 161
-Dynamic routes missing generateStaticParams: 1
+Dynamic routes missing generateStaticParams: 0
 
 | Route | Source file | Type | Dynamic params | generateStaticParams | Indexability | Notes |
 |---|---|---|---|---|---|---|
@@ -166,9 +166,9 @@ Dynamic routes missing generateStaticParams: 1
 | `/top/top-3-herbs-for-stress` | `app/top/top-3-herbs-for-stress/page.tsx` | static | - | n/a | indexable | - |
 | `/top/top-3-natural-sleep-aids` | `app/top/top-3-natural-sleep-aids/page.tsx` | static | - | n/a | indexable | - |
 | `/top/top-3-supplements-for-focus` | `app/top/top-3-supplements-for-focus/page.tsx` | static | - | n/a | indexable | - |
-| `/topics/[slug]` | `app/topics/[slug]/page.tsx` | dynamic | slug | no | indexable | - |
+| `/topics/[slug]` | `app/topics/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
 | `/topics` | `app/topics/page.tsx` | static | - | n/a | indexable | - |
 
 ## Dynamic routes missing generateStaticParams
 
-- `/topics/[slug]` (app/topics/[slug]/page.tsx)
+- None
