@@ -2,10 +2,11 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { useHerbs, useCompounds } from "@/hooks/use-data";
 import { CardItem } from "@/components/ui/card-item";
 import { Input } from "@/components/ui/input";
-import { Search, Database, FlaskConical, ShieldAlert, Sparkles, Badge, Beaker } from "lucide-react";
+import { Search, Database, FlaskConical, ShieldAlert, Sparkles, Beaker } from "lucide-react";
 import { useState } from "react";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import { motion } from "framer-motion";
+import { BadgeTier } from "@/components/ui/badge-tier";
 
 export default function Home() {
   const { data: herbs, isLoading: isLoadingHerbs } = useHerbs();
@@ -25,129 +26,137 @@ export default function Home() {
 
   return (
     <PageLayout>
-      <div className="flex flex-col gap-24 py-12 pb-24">
+      <div className="flex flex-col">
         {/* Hero Section */}
-        <section className="flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <Badge variant="outline" className="mb-6 font-mono text-xs text-primary border-primary/20 bg-primary/5 uppercase tracking-widest px-3 py-1">
-              Rigorous Context. Zero Hype.
-            </Badge>
-            <h1 className="text-5xl md:text-7xl font-outfit font-bold tracking-tight text-foreground mb-6">
-              Evidence-first herb & compound reference.
-            </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              For people who want deeper mechanisms, safety framing, and harm reduction context beyond standard supplement advice.
-            </p>
-          </motion.div>
+        <section className="w-full bg-[hsl(160,20%,97%)] border-b border-border py-20 px-6 -mt-8 mx-[calc(-50vw+50%)] relative left-1/2 right-1/2 w-screen overflow-hidden">
+          <div className="container mx-auto max-w-6xl grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="space-y-6">
+              <span className="text-primary font-mono text-sm tracking-wider uppercase font-semibold">Rigorous Context. Zero Hype.</span>
+              <h1 className="text-5xl md:text-6xl font-outfit font-bold tracking-tight text-foreground leading-[1.1]">
+                Evidence-first herb & compound reference.
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg">
+                For people who want deeper mechanisms, safety framing, and harm reduction context beyond standard supplement advice.
+              </p>
 
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            onSubmit={handleSearch}
-            className="w-full relative max-w-xl group"
-          >
-            <div className="absolute inset-0 bg-primary/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative flex items-center">
-              <Search className="absolute left-4 w-5 h-5 text-muted-foreground" />
-              <Input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search herbs, compounds, or effects..."
-                className="w-full pl-12 pr-4 py-6 text-lg rounded-2xl focus-visible:ring-primary focus-visible:border-primary"
-              />
-            </div>
-          </motion.form>
+              <form onSubmit={handleSearch} className="relative max-w-md pt-4">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                <Input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search herbs, compounds, or effects..."
+                  className="w-full pl-12 pr-4 py-6 text-base bg-white border-border shadow-sm rounded-xl focus-visible:ring-primary focus-visible:border-primary"
+                />
+              </form>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-6 mt-8"
-          >
-            <div className="flex flex-col items-center bg-muted border border-border px-6 py-4 rounded-xl">
-              <span className="text-3xl font-bold font-mono text-foreground mb-1">{isLoadingHerbs ? "..." : herbs?.length || 295}</span>
-              <span className="text-xs text-muted-foreground uppercase tracking-widest">Herbs Profiled</span>
-            </div>
-            <div className="flex flex-col items-center bg-muted border border-border px-6 py-4 rounded-xl">
-              <span className="text-3xl font-bold font-mono text-foreground mb-1">{isLoadingCompounds ? "..." : compounds?.length || 617}</span>
-              <span className="text-xs text-muted-foreground uppercase tracking-widest">Compounds Traced</span>
-            </div>
-          </motion.div>
-        </section>
+              <div className="flex items-center gap-6 pt-2 font-mono text-sm">
+                <div className="flex items-center gap-2 text-foreground">
+                  <span className="font-bold text-primary">{isLoadingHerbs ? "..." : herbs?.length || 295}</span>
+                  <span className="text-muted-foreground">Herbs</span>
+                </div>
+                <div className="flex items-center gap-2 text-foreground">
+                  <span className="font-bold text-primary">{isLoadingCompounds ? "..." : compounds?.length || 617}</span>
+                  <span className="text-muted-foreground">Compounds</span>
+                </div>
+              </div>
+            </motion.div>
 
-        {/* How to use */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl border border-border bg-card space-y-4">
-            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center border border-blue-200">
-              <Database className="w-6 h-6 text-blue-600" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground">Mechanism First</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Understand exactly how a compound interacts with receptors and pathways, rather than just treating symptoms.
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl border border-border bg-card space-y-4">
-            <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center border border-emerald-200">
-              <FlaskConical className="w-6 h-6 text-emerald-600" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground">Evidence Tiers</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Clear distinction between human clinical trials (Tier A) and promising but unproven in-vitro data (Tier C).
-            </p>
-          </div>
-          <div className="p-6 rounded-2xl border border-border bg-card space-y-4">
-            <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center border border-orange-200">
-              <ShieldAlert className="w-6 h-6 text-orange-600" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground">Harm Reduction</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Prominent contraindications and interaction warnings. We don't hide the risks in the fine print.
-            </p>
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="hidden lg:block relative">
+              <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full" />
+              <div className="relative bg-white border border-border shadow-sm rounded-2xl p-6 w-full max-w-md ml-auto">
+                <div className="text-xs uppercase tracking-widest text-muted-foreground font-mono mb-4 border-b border-border pb-2">Recently Reviewed</div>
+                <div className="space-y-4">
+                  {featuredHerbs.slice(0,3).map(herb => (
+                    <Link key={herb.slug} href={`/herbs/${herb.slug}`} className="flex items-center justify-between group">
+                      <div className="flex flex-col">
+                        <span className="font-semibold text-foreground group-hover:text-primary transition-colors">{herb.name}</span>
+                        <span className="text-xs text-muted-foreground font-mono">{herb.primary_effects?.[0] || 'Adaptogen'}</span>
+                      </div>
+                      <BadgeTier tier={herb.evidence_tier || herb.evidence_grade} />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* Featured Content */}
-        <div className="space-y-16">
-          <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold font-outfit text-foreground flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-primary" />
-                Featured Herbs
-              </h2>
+        <div className="py-16 space-y-20">
+          {/* How to use */}
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="p-6 rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
+                <Database className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground font-outfit">Mechanism First</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Understand exactly how a compound interacts with receptors and pathways, rather than just treating symptoms.
+              </p>
             </div>
-            {isLoadingHerbs ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[...Array(4)].map((_, i) => <div key={i} className="h-48 rounded-xl bg-muted animate-pulse" />)}
+            <div className="p-6 rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
+                <FlaskConical className="w-5 h-5 text-primary" />
               </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {featuredHerbs.map((item, i) => (
-                  <CardItem key={item.slug} item={item} type="herbs" index={i} />
-                ))}
+              <h3 className="text-lg font-semibold text-foreground font-outfit">Evidence Tiers</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Clear distinction between human clinical trials (Tier A) and promising but unproven in-vitro data (Tier C).
+              </p>
+            </div>
+            <div className="p-6 rounded-xl border border-border bg-card shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="w-10 h-10 rounded bg-primary/10 flex items-center justify-center">
+                <ShieldAlert className="w-5 h-5 text-primary" />
               </div>
-            )}
+              <h3 className="text-lg font-semibold text-foreground font-outfit">Harm Reduction</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Prominent contraindications and interaction warnings. We don't hide the risks in the fine print.
+              </p>
+            </div>
           </section>
 
-          <section>
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold font-outfit text-foreground flex items-center gap-2">
-                <Beaker className="w-5 h-5 text-primary" />
-                Featured Compounds
-              </h2>
-            </div>
-            {isLoadingCompounds ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[...Array(4)].map((_, i) => <div key={i} className="h-48 rounded-xl bg-muted animate-pulse" />)}
+          {/* Featured Content */}
+          <div className="space-y-16 max-w-6xl mx-auto">
+            <section>
+              <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
+                <h2 className="text-2xl font-bold font-outfit text-foreground flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-primary" />
+                  Featured Herbs
+                </h2>
+                <Link href="/herbs" className="text-sm font-medium text-primary hover:underline">View All →</Link>
               </div>
-            ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {featuredCompounds.map((item, i) => (
-                  <CardItem key={item.slug} item={item} type="compounds" index={i} />
-                ))}
+              {isLoadingHerbs ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[...Array(4)].map((_, i) => <div key={i} className="h-48 rounded-xl bg-muted animate-pulse" />)}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {featuredHerbs.map((item, i) => (
+                    <CardItem key={item.slug} item={item} type="herbs" index={i} />
+                  ))}
+                </div>
+              )}
+            </section>
+
+            <section>
+              <div className="flex items-center justify-between mb-8 border-b border-border pb-4">
+                <h2 className="text-2xl font-bold font-outfit text-foreground flex items-center gap-2">
+                  <Beaker className="w-5 h-5 text-primary" />
+                  Featured Compounds
+                </h2>
+                <Link href="/compounds" className="text-sm font-medium text-primary hover:underline">View All →</Link>
               </div>
-            )}
-          </section>
+              {isLoadingCompounds ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[...Array(4)].map((_, i) => <div key={i} className="h-48 rounded-xl bg-muted animate-pulse" />)}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {featuredCompounds.map((item, i) => (
+                    <CardItem key={item.slug} item={item} type="compounds" index={i} />
+                  ))}
+                </div>
+              )}
+            </section>
+          </div>
         </div>
       </div>
     </PageLayout>

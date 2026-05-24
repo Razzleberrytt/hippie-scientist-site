@@ -1,16 +1,21 @@
-import { Badge } from "@/components/ui/badge";
+function normalizeTier(tier?: string): "A" | "B" | "C" | null {
+  if (!tier) return null;
+  const t = tier.toLowerCase();
+  if (t === "a" || t === "b+" || t.includes("strong")) return "A";
+  if (t === "b" || t.includes("moderate")) return "B";
+  if (t === "c" || t.includes("limited") || t.includes("mechanistic")) return "C";
+  return null;
+}
 
 export function BadgeTier({ tier }: { tier?: string }) {
-  if (!tier) return null;
-  const t = tier.toUpperCase();
-  if (t === "A") {
-    return <Badge className="bg-emerald-100 text-emerald-700 border border-emerald-300 hover:bg-emerald-100">Tier A</Badge>;
+  const normalized = normalizeTier(tier);
+  if (!normalized) return null;
+  
+  if (normalized === "A") {
+    return <span className="inline-flex items-center justify-center w-6 h-6 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-xs shrink-0 shadow-sm">A</span>;
   }
-  if (t === "B") {
-    return <Badge className="bg-amber-100 text-amber-700 border border-amber-300 hover:bg-amber-100">Tier B</Badge>;
+  if (normalized === "B") {
+    return <span className="inline-flex items-center justify-center w-6 h-6 rounded bg-amber-50 text-amber-700 border border-amber-200 font-bold text-xs shrink-0 shadow-sm">B</span>;
   }
-  if (t === "C") {
-    return <Badge className="bg-orange-100 text-orange-700 border border-orange-300 hover:bg-orange-100">Tier C</Badge>;
-  }
-  return <Badge variant="outline" className="text-muted-foreground border-border hover:bg-transparent">Tier {t}</Badge>;
+  return <span className="inline-flex items-center justify-center w-6 h-6 rounded bg-orange-50 text-orange-700 border border-orange-200 font-bold text-xs shrink-0 shadow-sm">C</span>;
 }
