@@ -17,6 +17,7 @@ jobs:
   deploy:
     if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    environment: production
     env:
       STATIC_OUTPUT_DIR: out
       DEPLOY_MODE: cloudflare-direct
@@ -63,11 +64,30 @@ jobs:
       - name: Verify build
         run: npm run verify:build
 
-      - name: Pre-deploy verification
+      - name: Validate deployment secrets
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo "❌ Missing required secret: CLOUDFLARE_API_TOKEN"
+            exit 1
+          fi
+
+          if [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo "❌ Missing required secret: CLOUDFLARE_ACCOUNT_ID"
+            exit 1
+          fi
+
+          if [ -z "${CLOUDFLARE_PAGES_PROJECT:-}" ]; then
+            echo "❌ Missing required secret: CLOUDFLARE_PAGES_PROJECT"
+            exit 1
+          fi
+
+      - name: Pre-deploy verification
         run: |
           set -euo pipefail
 
@@ -80,6 +100,9 @@ jobs:
             echo "❌ Missing required file: $STATIC_OUTPUT_DIR/index.html"
             exit 1
           fi
+
+          echo "ℹ️ Top-level deploy files:"
+          find "$STATIC_OUTPUT_DIR" -maxdepth 1 -type f -printf ' - %f\n' | sort
 
           if [ -f "public/_headers" ]; then
             echo "ℹ️ public/_headers exists; requiring $STATIC_OUTPUT_DIR/_headers"
@@ -99,21 +122,6 @@ jobs:
             fi
           else
             echo "ℹ️ public/_redirects not present; $STATIC_OUTPUT_DIR/_redirects not required"
-          fi
-
-          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
-            echo "❌ Missing required secret: CLOUDFLARE_API_TOKEN"
-            exit 1
-          fi
-
-          if [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
-            echo "❌ Missing required secret: CLOUDFLARE_ACCOUNT_ID"
-            exit 1
-          fi
-
-          if [ -z "${CLOUDFLARE_PAGES_PROJECT:-}" ]; then
-            echo "❌ Missing required secret: CLOUDFLARE_PAGES_PROJECT"
-            exit 1
           fi
 
       - name: Deployment summary
@@ -157,4 +165,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
-        run: npx wrangler pages deploy out --project-name "$CLOUDFLARE_PAGES_PROJECT"
+        run: npx --no-install wrangler pages deploy out --project-name "$CLOUDFLARE_PAGES_PROJECT"
