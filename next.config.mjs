@@ -2,6 +2,7 @@ import webpack from 'next/dist/compiled/webpack/webpack-lib.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  poweredByHeader: false,
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,

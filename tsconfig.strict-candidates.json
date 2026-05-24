@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "include": [
+    "app/sitemap.ts",
+    "lib/runtime-visibility.ts",
+    "app/herbs/[slug]/page.tsx"
+  ]
+}

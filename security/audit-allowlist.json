@@ -13,7 +13,7 @@
       "scope": "build-time trusted workbook parsing only",
       "expiresOn": "2026-08-31",
       "reviewBy": "2026-08-15",
-      "followUpIssueUrl": "https://github.com/OWNER/REPO/issues/TODO-xlsx-migration",
+      "followUpIssueUrl": "https://github.com/hippie-scientist-site/hippie-scientist-site/issues/412",
       "reason": "No patched xlsx release available in current line; parser is restricted to trusted local workbook files and blocked from user/runtime inputs."
     }
   ]
