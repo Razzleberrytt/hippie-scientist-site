@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { BadgeTier } from "./badge-tier";
-import { Badge } from "./badge";
 import { motion } from "framer-motion";
 import { IndexItem } from "@/lib/types";
 
@@ -18,17 +17,17 @@ export function CardItem({ item, type, index = 0 }: { item: IndexItem; type: "he
       transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.5) }}
       className="h-full"
     >
-      <Link href={`/${type}/${item.slug}`} className="flex flex-col h-full border border-border bg-card rounded-xl p-5 hover:bg-muted/50 hover:border-primary/30 transition-colors group">
+      <Link href={`/${type}/${item.slug}`} className="flex flex-col h-full bg-card border border-border shadow-[0_1px_3px_rgba(0,0,0,0.06)] rounded-xl p-5 hover:-translate-y-1 hover:shadow-md hover:border-primary/40 transition-all duration-200 group">
         <div className="flex justify-between items-start mb-3 gap-4">
-          <h3 className="font-outfit font-semibold text-lg text-foreground group-hover:text-primary transition-colors">{cleanName}</h3>
+          <h3 className="font-outfit font-semibold text-[16px] text-foreground group-hover:text-primary transition-colors leading-tight">{cleanName}</h3>
           <BadgeTier tier={item.evidence_tier || item.evidence_grade} />
         </div>
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{item.summary}</p>
-        <div className="flex flex-wrap gap-2 mt-auto pt-2">
+        <p className="text-[13px] text-muted-foreground mb-5 line-clamp-2 leading-relaxed">{item.summary}</p>
+        <div className="flex flex-wrap gap-1.5 mt-auto pt-2 border-t border-border/50">
           {item.primary_effects?.slice(0, 3).map((effect, i) => (
-            <Badge key={i} variant="secondary" className="font-mono text-[10px] uppercase tracking-wider">
+            <span key={i} className="inline-flex items-center px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-mono text-[10px] uppercase tracking-wider whitespace-nowrap">
               {stripEmoji(effect)}
-            </Badge>
+            </span>
           ))}
         </div>
       </Link>
