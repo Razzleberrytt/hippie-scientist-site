@@ -57,27 +57,34 @@ async function readDetailRecord(kind: 'herbs' | 'compounds', slug: string): Prom
 }
 
 export const getHerbs = cache(async (): Promise<RuntimeRecord[]> => {
-  const [herbs, summary] = await Promise.all([
+  const [herbs, summary, summaryIndexed] = await Promise.all([
     readJsonFile('herbs.json'),
     readJsonFile('herbs-summary.json'),
+    readJsonFile('summary-indexes/herbs-summary.json'),
   ])
 
   const baseRows = Array.isArray(herbs) ? herbs : []
   const enrichmentRows = Array.isArray(summary) ? summary : []
+  const indexedRows = Array.isArray(summaryIndexed) ? summaryIndexed : []
 
-  return mergeBySlug(baseRows, enrichmentRows)
+  const firstPass = mergeBySlug(baseRows, enrichmentRows)
+  return mergeBySlug(firstPass, indexedRows)
 })
 
 export const getCompounds = cache(async (): Promise<RuntimeRecord[]> => {
-  const [compounds, summary] = await Promise.all([
+  const [compounds, summary, summaryIndexed] = await Promise.all([
     readJsonFile('compounds.json'),
     readJsonFile('compounds-summary.json'),
+    readJsonFile('summary-indexes/compounds-summary.json'),
   ])
 
   const baseRows = Array.isArray(compounds) ? compounds : []
   const enrichmentRows = Array.isArray(summary) ? summary : []
+  const indexedRows = Array.isArray(summaryIndexed) ? summaryIndexed : []
 
-  return mergeBySlug(baseRows, enrichmentRows).map(row => ({
+  const firstPass = mergeBySlug(baseRows, enrichmentRows)
+
+  return mergeBySlug(firstPass, indexedRows).map(row => ({
     name: row?.name || row?.compoundName || row?.canonicalCompoundName || row?.slug,
     ...row,
   }))
