@@ -39,18 +39,55 @@ const toRoute = (file) => {
   return '/' + segs.join('/')
 }
 
-const hasGenerateStaticParams = (txt) => /export\s+(async\s+)?function\s+generateStaticParams/.test(txt) || /export\s+const\s+generateStaticParams\s*=/.test(txt)
+const hasLocalGenerateStaticParams = (txt) => /export\s+(async\s+)?function\s+generateStaticParams/.test(txt) || /export\s+const\s+generateStaticParams\s*=/.test(txt)
+
+const resolveImportTarget = (sourceFile, spec) => {
+  if (!spec) return null
+
+  let base = null
+  if (spec.startsWith('@/')) {
+    base = path.join(root, spec.slice(2))
+  } else if (spec.startsWith('.')) {
+    base = path.resolve(path.dirname(path.join(root, sourceFile)), spec)
+  } else {
+    return null
+  }
+
+  const candidates = [base, `${base}.ts`, `${base}.tsx`, `${base}.js`, `${base}.jsx`, path.join(base, 'index.ts'), path.join(base, 'index.tsx'), path.join(base, 'index.js'), path.join(base, 'index.jsx')]
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
+      return path.relative(root, candidate).split(path.sep).join('/')
+    }
+  }
+
+  return null
+}
+
+const hasGenerateStaticParams = (file, seen = new Set()) => {
+  if (seen.has(file)) return false
+  seen.add(file)
+
+  const txt = fs.readFileSync(path.join(root, file), 'utf8')
+  if (hasLocalGenerateStaticParams(txt)) return true
+
+  const reExportMatch = txt.match(/export\s*\{[^}]*\bgenerateStaticParams\b[^}]*\}\s*from\s*['"]([^'"]+)['"]/)
+  if (!reExportMatch) return false
+
+  const target = resolveImportTarget(file, reExportMatch[1])
+  return target ? hasGenerateStaticParams(target, seen) : false
+}
+
 const isDynamicRoute = (route) => /\[[^\]]+\]/.test(route)
 
 const rows = pageFiles.map((file) => {
-  const txt = fs.readFileSync(path.join(root, file), 'utf8')
   const route = toRoute(file)
   const dynamic = isDynamicRoute(route)
   const params = [...route.matchAll(/\[([^\]]+)\]/g)].map((m) => m[1])
   const isPrivate = route.startsWith('/dashboard')
   const likelyIndexable = isPrivate ? 'excluded' : 'indexable'
   const notes = route.includes('(') ? 'route group path omitted' : (isPrivate ? 'internal/private' : '')
-  return { route, file, type: dynamic ? 'dynamic' : 'static', params, gsp: dynamic ? (hasGenerateStaticParams(txt) ? 'yes' : 'no') : 'n/a', likelyIndexable, notes }
+  return { route, file, type: dynamic ? 'dynamic' : 'static', params, gsp: dynamic ? (hasGenerateStaticParams(file) ? 'yes' : 'no') : 'n/a', likelyIndexable, notes }
 })
 
 const dynamicMissing = rows.filter((r) => r.type === 'dynamic' && r.gsp === 'no')
