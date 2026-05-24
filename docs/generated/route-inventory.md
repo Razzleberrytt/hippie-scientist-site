@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated: 2026-05-21T23:40:51.546Z
+Generated: 2026-05-24T04:12:15.542Z
 
 Total routes: 161
 Dynamic routes missing generateStaticParams: 1
@@ -46,7 +46,6 @@ Dynamic routes missing generateStaticParams: 1
 | `/compounds/[slug]` | `app/compounds/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
 | `/compounds` | `app/compounds/page.tsx` | static | - | n/a | indexable | - |
 | `/contact` | `app/contact/page.tsx` | static | - | n/a | indexable | - |
-| `/dashboard/revenue` | `app/dashboard/revenue/page.tsx` | static | - | n/a | excluded | internal/private |
 | `/disclaimer` | `app/disclaimer/page.tsx` | static | - | n/a | indexable | - |
 | `/ecosystems/[slug]` | `app/ecosystems/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
 | `/ecosystems` | `app/ecosystems/page.tsx` | static | - | n/a | indexable | - |
@@ -152,6 +151,7 @@ Dynamic routes missing generateStaticParams: 1
 | `/sleep-supplements` | `app/sleep-supplements/page.tsx` | static | - | n/a | indexable | - |
 | `/stacks/[slug]` | `app/stacks/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
 | `/stacks` | `app/stacks/page.tsx` | static | - | n/a | indexable | - |
+| `/start-here` | `app/start-here/page.tsx` | static | - | n/a | indexable | - |
 | `/start/[slug]` | `app/start/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |
 | `/stress-supplements` | `app/stress-supplements/page.tsx` | static | - | n/a | indexable | - |
 | `/supernodes/[slug]` | `app/supernodes/[slug]/page.tsx` | dynamic | slug | yes | indexable | - |

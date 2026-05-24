@@ -36,7 +36,7 @@
     "verify:types": "npm run typecheck",
     "lint": "eslint . --max-warnings=0",
     "build": "node scripts/build-blog.mjs && npm run data:build && npm run data:validate && npm run guard:source-of-truth && next build && npm run verify:build",
-    "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:static-export && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run data:verify",
+    "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:static-export && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run validate:direct-dependencies && npm run validate:xlsx-boundary && npm run validate:security-headers && npm run data:verify",
     "data:verify": "node scripts/data/verify-generated-data.mjs",
     "validate:workbook-source": "node scripts/ci/validate-workbook-source.mjs",
     "prebuild": "npm run validate:workbook-source",
@@ -46,7 +46,12 @@
     "validate:static-export": "node scripts/ci/validate-static-export-compatibility.mjs",
     "routes:inventory": "node scripts/ci/generate-route-inventory.mjs",
     "validate:route-seo": "node scripts/ci/validate-route-seo.mjs",
-    "validate:editorial-workbook": "node scripts/data/validate-editorial-workbook.mjs"
+    "validate:editorial-workbook": "node scripts/data/validate-editorial-workbook.mjs",
+    "build:app": "node scripts/build-blog.mjs && next build",
+    "validate:direct-dependencies": "node scripts/ci/validate-direct-dependencies.mjs",
+    "validate:xlsx-boundary": "node scripts/ci/validate-xlsx-boundary.mjs",
+    "validate:security-headers": "node scripts/ci/validate-security-headers.mjs",
+    "typecheck:strict-candidates": "tsc -p tsconfig.strict-candidates.json --noEmit"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
@@ -83,7 +88,14 @@
     "tsx": "^4.19.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.59.1",
-    "wrangler": "^4.93.0"
+    "wrangler": "^4.93.0",
+    "@eslint/js": "^9.11.1",
+    "globals": "^15.10.0",
+    "zod": "^3.23.8",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "satori": "^0.12.0",
+    "@resvg/resvg-js": "^2.6.2"
   },
   "overrides": {
     "postcss": "^8.5.15",
