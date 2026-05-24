@@ -15,9 +15,12 @@ export default async function HerbsPage() {
   const herbs = allHerbs.filter((herb: any) => getRuntimeVisibility(herb).canRender)
 
   const quickLinks = herbs
-    .filter((herb: any) => herb?.slug && herb?.displayName)
+    .filter((herb: any) => herb?.slug && (herb?.displayName || herb?.name))
     .slice(0, 8)
-    .map((herb: any) => ({ href: `/herbs/${herb.slug}`, label: herb.displayName as string }))
+    .map((herb: any) => ({
+      href: `/herbs/${herb.slug}`,
+      label: (herb.displayName || herb.name) as string,
+    }))
 
   return (
     <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">

@@ -7,88 +7,19 @@ import { execFileSync } from 'node:child_process'
 const rootDir = process.cwd()
 const dataDir = path.join(rootDir, 'public', 'data')
 
-function readJsonArray(fileName) {
+function readJson(fileName, fallback = []) {
   const filePath = path.join(dataDir, fileName)
-  if (!fs.existsSync(filePath)) return []
+  if (!fs.existsSync(filePath)) return fallback
   try {
-    const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-    return Array.isArray(parsed) ? parsed : []
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'))
   } catch {
-    return []
+    return fallback
   }
 }
 
 function readManifest(fileName) {
-  const filePath = path.join(dataDir, fileName)
-  if (!fs.existsSync(filePath)) return {}
-  try {
-    const parsed = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
-  } catch {
-    return {}
-  }
-}
-
-function parsePercent(value) {
-  const raw = String(value ?? '').trim()
-  if (!raw) return 0
-  const numeric = Number.parseFloat(raw.replace('%', ''))
-  return Number.isFinite(numeric) ? numeric : 0
-}
-
-function hasNonEmptyText(value) {
-  return String(value ?? '').trim().length > 0
-}
-
-function toSlugMap(records) {
-  const map = new Map()
-  for (const record of records) {
-    const slug = String(record?.slug ?? '').trim()
-    if (!slug || map.has(slug)) continue
-    map.set(slug, record)
-  }
-  return map
-}
-
-function isHerbEligible(workbookHerb) {
-  // Primary gate: publicationStatus / publish_status from the workbook
-  // These are the actual columns that exist in herb_monograph_master.xlsx
-  const pub = String(
-    workbookHerb?.publicationStatus ??
-    workbookHerb?.publish_status ??
-    workbookHerb?.publishStatus ??
-    ''
-  ).trim().toLowerCase()
-
-  const ELIGIBLE_STATUSES = new Set([
-    'publishable',
-    'publish',
-    'publishable_if_dosage_section_omitted',
-    'near_ready',
-    'near ready',
-    'ready',
-    'yes',
-  ])
-
-  if (ELIGIBLE_STATUSES.has(pub)) return true
-
-  // Legacy fallback: frontendReadyFlag / readinessFlag (if ever added back to workbook)
-  if (String(workbookHerb?.frontendReadyFlag ?? '').trim() === 'Yes') return true
-  if (String(workbookHerb?.readinessFlag ?? '').trim() === 'Ready') return true
-
-  // Data-quality fallback: description >= 80 chars AND has any source reference
-  const desc = String(workbookHerb?.description ?? '').trim()
-  const sources = String(workbookHerb?.sources ?? '').trim()
-  return desc.length >= 80 && sources.length > 0
-}
-
-function isCompoundEligible(compound) {
-  const reverseLookupReady = String(compound?.reverseLookupReady ?? '').trim() === 'Yes'
-  const herbCount = Number.parseInt(String(compound?.herbCount ?? '').trim(), 10)
-  const hasHerbCoverage = Number.isFinite(herbCount) && herbCount > 0
-  const hasMechanism = hasNonEmptyText(compound?.mechanism)
-
-  return (reverseLookupReady || hasHerbCoverage) && hasMechanism
+  const parsed = readJson(fileName, {})
+  return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {}
 }
 
 function writeJson(fileName, data) {
@@ -96,38 +27,93 @@ function writeJson(fileName, data) {
   fs.writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`, 'utf8')
 }
 
+function text(value) {
+  return String(value ?? '').trim()
+}
+
+function list(value) {
+  if (value === null || value === undefined) return []
+  if (Array.isArray(value)) return value.map(item => text(item)).filter(Boolean)
+  return text(value).split(/\n|;|\|/).map(item => item.trim()).filter(Boolean)
+}
+
+function coerceBool(value) {
+  if (typeof value === 'boolean') return value
+  if (typeof value === 'string') {
+    if (value.toLowerCase() === 'true') return true
+    if (value.toLowerCase() === 'false') return false
+  }
+  return null
+}
+
+function canIndex(record) {
+  const hidden = /^hide$/i.test(text(record?.runtime_export_decision))
+  if (hidden) return false
+
+  const status = text(record?.indexability_status)
+  if (/^(PUBLISH|NOINDEX|NEEDS_REVIEW|BLOCKED)$/i.test(status)) {
+    return status.toUpperCase() === 'PUBLISH'
+  }
+
+  const sitemapIncluded = coerceBool(record?.sitemap_included)
+  const robotsField = text(record?.robots)
+  if (sitemapIncluded !== null && robotsField) {
+    return sitemapIncluded && /^index/i.test(robotsField)
+  }
+
+  const profileStatus = text(record?.profile_status)
+  const summaryQuality = text(record?.summary_quality)
+  const evidenceTier = text(record?.evidence_tier || record?.evidenceTier || record?.evidence_grade)
+  const hasResearchPending = list(record?.primary_effects).some((effect) => /research-pending/i.test(effect))
+  const indexableStatus = /^(complete|near_complete|top50_authority_patched|commercial_ready)$/i.test(profileStatus)
+  const indexableQuality = !/^(weak|minimal|thin|stub|research_needed)$/i.test(summaryQuality)
+  const evidenceSupported = /\b(strong|moderate|human|clinical|commercial_ready)\b/i.test(evidenceTier) || indexableStatus
+
+  return indexableStatus && indexableQuality && evidenceSupported && !hasResearchPending
+}
+
+function isCompoundEligible(compound) {
+  const reverseLookupReady = String(compound?.reverseLookupReady ?? '').trim() === 'Yes'
+  const herbCount = Number.parseInt(String(compound?.herbCount ?? '').trim(), 10)
+  const hasHerbCoverage = Number.isFinite(herbCount) && herbCount > 0
+  const hasMechanism = text(compound?.mechanism).length > 0
+  return (reverseLookupReady || hasHerbCoverage) && hasMechanism
+}
+
 function run() {
   const previousManifest = readManifest('publication-manifest.json')
   const previousHerbs = Array.isArray(previousManifest?.entities?.herbs) ? previousManifest.entities.herbs : []
   const previousCompounds = Array.isArray(previousManifest?.entities?.compounds) ? previousManifest.entities.compounds : []
 
-  const workbookHerbs = readJsonArray('workbook-herbs.json')
-  const workbookCompounds = readJsonArray('workbook-compounds.json')
+  const workbookHerbs = readJson('workbook-herbs.json', [])
+  const workbookCompounds = readJson('workbook-compounds.json', [])
+  const herbSummaryIndex = readJson('summary-indexes/herbs-summary.json', [])
 
-  const workbookHerbsBySlug = toSlugMap(workbookHerbs)
-  const allHerbSlugs = [...new Set([...workbookHerbsBySlug.keys()])]
-  const eligibleHerbs = allHerbSlugs
-    .filter(slug => isHerbEligible(workbookHerbsBySlug.get(slug)))
-    .sort((a, b) => a.localeCompare(b))
+  const workbookHerbSlugSet = new Set((Array.isArray(workbookHerbs) ? workbookHerbs : []).map((row) => text(row?.slug)).filter(Boolean))
 
-  const eligibleCompounds = workbookCompounds
-    .filter(compound => isCompoundEligible(compound))
-    .map(compound => String(compound?.id ?? compound?.canonicalCompoundId ?? '').trim())
+  const eligibleHerbs = (Array.isArray(herbSummaryIndex) ? herbSummaryIndex : [])
+    .filter((h) => workbookHerbSlugSet.has(text(h?.slug)) && canIndex(h))
+    .map((h) => ({ slug: text(h.slug), name: text(h?.name || h?.displayName || h?.slug) }))
+    .filter((h) => h.slug)
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+
+  const eligibleCompounds = (Array.isArray(workbookCompounds) ? workbookCompounds : [])
+    .filter((compound) => isCompoundEligible(compound))
+    .map((compound) => String(compound?.id ?? compound?.canonicalCompoundId ?? '').trim())
     .filter(Boolean)
-
   const uniqueEligibleCompounds = [...new Set(eligibleCompounds)].sort((a, b) => a.localeCompare(b))
 
   const manifest = {
     generatedAt: new Date().toISOString(),
-    source: 'workbook',
+    source: 'workbook+summary-indexes',
     entities: {
       herbs: eligibleHerbs,
       compounds: uniqueEligibleCompounds,
     },
     counts: {
-      herbs_total: allHerbSlugs.length,
+      herbs_total: workbookHerbSlugSet.size,
       herbs_eligible: eligibleHerbs.length,
-      compounds_total: workbookCompounds.length,
+      compounds_total: Array.isArray(workbookCompounds) ? workbookCompounds.length : 0,
       compounds_eligible: uniqueEligibleCompounds.length,
     },
   }
@@ -139,10 +125,9 @@ function run() {
     stdio: 'inherit',
   })
 
-  console.log('[publication-manifest] source=workbook')
+  console.log('[publication-manifest] source=workbook+summary-indexes')
   console.log(`[publication-manifest] herbs before=${previousHerbs.length} after=${eligibleHerbs.length} delta=${eligibleHerbs.length - previousHerbs.length}`)
   console.log(`[publication-manifest] compounds before=${previousCompounds.length} after=${uniqueEligibleCompounds.length} delta=${uniqueEligibleCompounds.length - previousCompounds.length}`)
-  console.log(`[publication-manifest] totals herbs=${allHerbSlugs.length} compounds=${workbookCompounds.length}`)
 }
 
 run()

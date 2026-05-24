@@ -114,6 +114,10 @@ export function isClean(value: unknown): boolean {
 }
 
 export function formatDisplayLabel(value: unknown): string {
+  if (!value || typeof value !== 'string') {
+    if (value === null || value === undefined) return ''
+  }
+
   const raw = text(value)
   if (!raw || hideInternalValue(raw)) return ''
 
@@ -167,6 +171,13 @@ export function unique(items: string[]) {
 }
 
 export function cleanSummary(value: unknown, type: 'herb' | 'compound' = 'compound') {
+  if (!value || typeof value !== 'string') {
+    if (type === 'herb') {
+      return 'Evidence-aware botanical profile with mechanism, safety, and practical context.'
+    }
+    return 'Evidence-aware compound profile with mechanism, safety, and practical context.'
+  }
+
   const summary = text(value)
 
   if (isClean(summary)) return summary
