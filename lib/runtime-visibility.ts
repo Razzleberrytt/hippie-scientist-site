@@ -21,6 +21,24 @@ function getIndexabilityStatus(record: any) {
     : ''
 }
 
+/** Coerce string booleans ("true"/"false") and real booleans to boolean. */
+function coerceBool(value: unknown): boolean | null {
+  if (typeof value === 'boolean') return value
+  if (typeof value === 'string') {
+    if (value.toLowerCase() === 'true') return true
+    if (value.toLowerCase() === 'false') return false
+  }
+  return null
+}
+
+/**
+ * Match evidence tier strings that may be full phrases like
+ * "Strong Human Evidence" or bare keywords like "strong".
+ */
+function isEvidenceSupported(evidenceTier: string): boolean {
+  return /\b(strong|moderate|human|clinical|commercial_ready)\b/i.test(evidenceTier)
+}
+
 export function getRuntimeVisibility(record: any) {
   const exportDecision = text(record?.runtime_export_decision)
   const profileStatus = text(record?.profile_status)
@@ -28,8 +46,7 @@ export function getRuntimeVisibility(record: any) {
   const evidenceTier = text(record?.evidence_tier || record?.evidenceTier || record?.evidence_grade)
   const indexabilityStatus = getIndexabilityStatus(record)
 
-  const hidden =
-    /^hide$/i.test(exportDecision)
+  const hidden = /^hide$/i.test(exportDecision)
 
   const weak =
     /^minimal$/i.test(profileStatus) ||
@@ -38,7 +55,6 @@ export function getRuntimeVisibility(record: any) {
 
   if (indexabilityStatus) {
     const publish = indexabilityStatus === 'PUBLISH'
-
     return {
       canRender: !hidden,
       canIndex: !hidden && publish,
@@ -47,10 +63,11 @@ export function getRuntimeVisibility(record: any) {
     }
   }
 
-  // Respect pre-computed pipeline fields when present
-  const sitemapIncluded = record?.sitemap_included
+  // Handle string booleans from data pipeline (e.g. sitemap_included: "true")
+  const sitemapIncluded = coerceBool(record?.sitemap_included)
   const robotsField = text(record?.robots || '')
-  if (typeof sitemapIncluded === 'boolean' && robotsField) {
+
+  if (sitemapIncluded !== null && robotsField) {
     const publish = sitemapIncluded && /^index/i.test(robotsField)
     return {
       canRender: !hidden,
@@ -62,7 +79,7 @@ export function getRuntimeVisibility(record: any) {
 
   const indexableStatus = hasIndexableStatus(profileStatus)
   const indexableQuality = hasIndexableQuality(summaryQuality)
-  const evidenceSupported = /^(strong|moderate|human|clinical|commercial_ready)$/i.test(evidenceTier) || indexableStatus
+  const evidenceSupported = isEvidenceSupported(evidenceTier) || indexableStatus
 
   const strong =
     indexableStatus &&
