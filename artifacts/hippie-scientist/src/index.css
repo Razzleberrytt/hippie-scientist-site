@@ -54,25 +54,25 @@
 }
 
 :root {
-  --background: 240 10% 4%;
-  --foreground: 0 0% 98%;
-  --card: 240 10% 6%;
-  --card-foreground: 0 0% 98%;
-  --popover: 240 10% 6%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 160 100% 50%;
-  --primary-foreground: 240 10% 4%;
-  --secondary: 240 5% 15%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 5% 15%;
-  --muted-foreground: 240 5% 65%;
-  --accent: 240 5% 15%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5% 15%;
-  --input: 240 5% 15%;
-  --ring: 160 100% 50%;
+  --background: 0 0% 100%;
+  --foreground: 240 10% 8%;
+  --card: 0 0% 98%;
+  --card-foreground: 240 10% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 8%;
+  --primary: 160 60% 35%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 5% 94%;
+  --secondary-foreground: 240 10% 15%;
+  --muted: 240 5% 94%;
+  --muted-foreground: 240 5% 45%;
+  --accent: 240 5% 94%;
+  --accent-foreground: 240 10% 15%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 240 5% 88%;
+  --input: 240 5% 88%;
+  --ring: 160 60% 35%;
 
   --app-font-sans: 'Outfit', sans-serif;
   --app-font-serif: Georgia, serif;
