@@ -1,0 +1,89 @@
+{
+  "slug": "calycosin",
+  "name": "calycosin",
+  "summary": "Calycosin is an isoflavone associated especially with Astragalus-derived phytochemistry. The literature emphasizes vascular, estrogen-related, and antioxidant signaling in preclinical models more than replicated human trials.",
+  "description": "Isoflavonoid from Astragalus associated with estrogenic and survival signaling.",
+  "effects": [
+    "energy",
+    "heart_health"
+  ],
+  "primary_effects": [
+    "energy",
+    "heart_health"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "AMPK Signaling"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "AMPK Signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "AMPK Signaling"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies",
+    "effects are preparation- and dose-specific.",
+    "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapie"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People focused on cardiovascular health"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "calycosin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

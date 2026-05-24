@@ -1,0 +1,78 @@
+{
+  "slug": "iron",
+  "name": "Iron",
+  "summary": "Corrects iron deficiency anemia effectively.",
+  "description": "Corrects iron deficiency anemia effectively.",
+  "effects": [
+    "blood_health",
+    "energy"
+  ],
+  "primary_effects": [
+    "blood_health",
+    "energy"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Avoid in hemochromatosis."
+  ],
+  "interactions": [
+    "Avoid in hemochromatosis."
+  ],
+  "side_effects": [],
+  "dosage": "RDA: 8 mg/day adult men, 18 mg/day premenopausal women; therapeutic iron dosing should be clinician-guided; adult UL 45 mg/day",
+  "typical_dosage": "RDA: 8 mg/day adult men, 18 mg/day premenopausal women; therapeutic iron dosing should be clinician-guided; adult UL 45 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for iron-deficiency contexts",
+    "not generic fatigue"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Iron supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Elemental iron dose clearly listed",
+    "ferrous bisglycinate or ferrous sulfate selected intentionally",
+    "avoid high-dose iron without labs"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

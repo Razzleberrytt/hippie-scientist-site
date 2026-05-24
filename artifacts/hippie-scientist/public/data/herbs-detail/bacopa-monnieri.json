@@ -1,0 +1,29 @@
+{
+  "name": "bacopa monnieri",
+  "slug": "bacopa-monnieri",
+  "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Bacosides support cholinergic signaling",
+    "antioxidant defenses",
+    "neuroinflammatory modulation",
+    "ERK/PI3K-Akt signaling",
+    "and BDNF-related synaptic plasticity."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May cause nausea, diarrhea, abdominal cramping, fatigue, or sedation. Use caution with sedatives, thyroid-active drugs, pregnancy, and sensitive GI conditions.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,25 @@
+{
+  "id": "curcumol",
+  "slug": "curcumol",
+  "name": "curcumol",
+  "summary": "Sesquiterpenoid from zedoary associated with inflammatory pathway modulation.",
+  "description": "Sesquiterpenoid from zedoary associated with inflammatory pathway modulation.",
+  "compoundClass": "curcuminoid / diarylheptanoid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "COX/LOX",
+    "inflammatory cytokines",
+    "AMPK"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human evidence is mostly formulation-dependent. High-dose curcuminoids may cause GI upset and interact with anticoagulants/antiplatelets.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

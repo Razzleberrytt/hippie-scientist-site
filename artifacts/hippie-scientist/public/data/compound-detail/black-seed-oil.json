@@ -1,0 +1,90 @@
+{
+  "slug": "black-seed-oil",
+  "name": "Black Seed Oil",
+  "summary": "Black Seed Oil is tracked for Nigella sativa oil contains thymoquinone with antioxidant and metabolic pathway effects with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Black Seed Oil is tracked for Nigella sativa oil contains thymoquinone with antioxidant and metabolic pathway effects with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "inflammation",
+    "respiratory"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "respiratory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Avoid during pregnancy unless supervised",
+    "use caution with anticoagulants",
+    "diabetes medications",
+    "low blood pressure",
+    "and surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Not verified",
+  "typical_dosage": "Not verified",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority respiratory/inflammatory support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Cold-pressed black seed oil",
+    "thymoquinone disclosure preferred",
+    "avoid vague proprietary immune blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

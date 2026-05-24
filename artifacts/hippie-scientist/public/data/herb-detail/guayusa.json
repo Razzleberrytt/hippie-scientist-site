@@ -1,0 +1,87 @@
+{
+  "slug": "guayusa",
+  "name": "Guayusa",
+  "summary": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+  "description": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+  "effects": [
+    "antioxidant"
+  ],
+  "primary_effects": [
+    "antioxidant"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmia",
+    "severe anxiety/insomnia",
+    "pregnancy/breastfeeding caution",
+    "and stimulant sensitivity."
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "theophylline",
+    "decongestants",
+    "and stimulant medications."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "guayusa capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 88,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

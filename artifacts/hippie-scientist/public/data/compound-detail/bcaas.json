@@ -1,0 +1,72 @@
+{
+  "slug": "bcaas",
+  "name": "Bcaas",
+  "summary": "BCAAs may reduce muscle soreness but limited effect on performance.",
+  "description": "BCAAs may reduce muscle soreness but limited effect on performance.",
+  "effects": [
+    "performance"
+  ],
+  "primary_effects": [
+    "performance"
+  ],
+  "mechanisms": [
+    "Provide substrates for muscle metabolism."
+  ],
+  "raw_mechanisms": [
+    "Provide substrates for muscle metabolism."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Provide substrates for muscle metabolism."
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Caution in liver disease."
+  ],
+  "interactions": [
+    "Caution in liver disease."
+  ],
+  "side_effects": [],
+  "dosage": "5-20 g/day",
+  "typical_dosage": "5-20 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority amino-acid support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "alias_redirect_only",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "BLOCKED",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "blocked-decision:alias_redirect_only"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

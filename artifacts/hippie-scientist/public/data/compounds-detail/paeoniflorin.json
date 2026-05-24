@@ -1,0 +1,24 @@
+{
+  "id": "paeoniflorin",
+  "slug": "paeoniflorin",
+  "name": "paeoniflorin",
+  "summary": "Monoterpene glycoside associated with inflammatory and survival pathway effects.",
+  "description": "Monoterpene glycoside associated with inflammatory and survival pathway effects.",
+  "compoundClass": "monoterpene glycoside / phenolic from Paeonia",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "immune cytokines",
+    "smooth muscle/analgesic signaling",
+    "antioxidant response"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preparation-derived. Caution with anticoagulants, pregnancy, and immune-modulating therapies.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

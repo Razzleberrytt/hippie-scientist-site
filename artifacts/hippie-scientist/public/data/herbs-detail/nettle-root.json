@@ -1,0 +1,26 @@
+{
+  "name": "nettle root",
+  "slug": "nettle-root",
+  "summary": "It is best framed distinctly from nettle leaf.",
+  "description": "It is best framed distinctly from nettle leaf.",
+  "primaryActions": [],
+  "mechanisms": [
+    "phytosterol/lignan effects on SHBG/androgen signaling",
+    "prostate inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May affect diuretics, blood pressure, glucose, and anticoagulant therapy; avoid pregnancy at medicinal doses.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,82 @@
+{
+  "slug": "saw-palmetto-extract",
+  "name": "Saw Palmetto Extract",
+  "summary": "Saw palmetto extract has high-quality negative evidence for BPH symptom improvement versus placebo despite plausible anti-androgen mechanisms.",
+  "description": "Standardized Serenoa repens extract; distinct formulation row for clinical trial evidence.",
+  "effects": [
+    "prostate_health"
+  ],
+  "primary_effects": [
+    "prostate_health"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with anticoagulants",
+    "hormone-sensitive conditions",
+    "liver/pancreas history",
+    "and before surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "320 mg/day extract was tested; up to 960 mg/day showed no benefit in a large RCT",
+  "typical_dosage": "320 mg/day extract was tested; up to 960 mg/day showed no benefit in a large RCT",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only for urinary/prostate symptoms because large RCT evidence is negative"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Saw Palmetto Extract supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a top pick",
+    "if listed",
+    "extract fatty-acid content should be disclosed and negative RCT context shown"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

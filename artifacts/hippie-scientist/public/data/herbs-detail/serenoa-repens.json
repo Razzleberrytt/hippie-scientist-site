@@ -1,0 +1,26 @@
+{
+  "name": "serenoa repens",
+  "slug": "serenoa-repens",
+  "summary": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+  "description": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "5-alpha-reductase and androgen-signaling modulation",
+    "prostate inflammatory-pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "GI upset/headache possible; caution with hormone-sensitive conditions, anticoagulants, and perioperative use.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

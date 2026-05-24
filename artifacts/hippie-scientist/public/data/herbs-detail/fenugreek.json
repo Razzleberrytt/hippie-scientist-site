@@ -1,0 +1,27 @@
+{
+  "name": "fenugreek",
+  "slug": "fenugreek",
+  "summary": "Fenugreek lean herb row for high-speed phytochemical ingestion.",
+  "description": "Fenugreek lean herb row for high-speed phytochemical ingestion.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Galactomannan fiber slows carbohydrate absorption and bile-acid recycling",
+    "4-hydroxyisoleucine may affect insulin secretion/sensitivity",
+    "saponins influence lipid metabolism."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May cause gas, diarrhea, hypoglycemia, or maple-syrup body odor. Use caution with antidiabetic drugs, anticoagulants/antiplatelets, pregnancy, and legume/peanut allergy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

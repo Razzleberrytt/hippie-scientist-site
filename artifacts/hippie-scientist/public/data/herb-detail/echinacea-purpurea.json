@@ -1,0 +1,86 @@
+{
+  "slug": "echinacea-purpurea",
+  "name": "Echinacea (Echinacea purpurea)",
+  "summary": "Echinacea Purpurea centers on the unspecified.",
+  "description": "Echinacea Purpurea centers on the unspecified. Key reported compounds include alkamides; chicoric acid; echinacoside; caffeic acid; cynarin.",
+  "effects": [
+    "anti-inflammatory"
+  ],
+  "primary_effects": [
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "autoimmune conditions (theoretical)",
+    "ragweed allergy"
+  ],
+  "interactions": [
+    "immunosuppressants (theoretical)"
+  ],
+  "side_effects": [],
+  "dosage": "Extracts (variable alkylamide/cichoric acid content): 300-1000 mg/day equivalent; significant variability by species and preparation",
+  "typical_dosage": "Extracts (variable alkylamide/cichoric acid content): 300-1000 mg/day equivalent; significant variability by species and preparation",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Echinacea (Echinacea purpurea) tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 78,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

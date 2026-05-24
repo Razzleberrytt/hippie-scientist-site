@@ -1,0 +1,79 @@
+{
+  "slug": "lithium-orotate",
+  "name": "Lithium Orotate",
+  "summary": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking. Safety concerns should be framed from lithium's narrow therapeutic window and kidney/thyroid risk.",
+  "description": "Supplemental lithium salt with mechanisms extrapolated from pharmaceutical lithium, not directly proven for this form.",
+  "effects": [
+    "liver_health",
+    "mood"
+  ],
+  "primary_effects": [
+    "liver_health",
+    "mood"
+  ],
+  "mechanisms": [
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Risk of lithium toxicity",
+    "kidney and thyroid effects are class-related",
+    "medical supervision is appropriate for lithium exposure.",
+    "medical supervision is appropriate for"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Lithium Orotate supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

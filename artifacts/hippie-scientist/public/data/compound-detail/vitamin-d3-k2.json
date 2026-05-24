@@ -1,0 +1,90 @@
+{
+  "slug": "vitamin-d3-k2",
+  "name": "Vitamin D3 + K2",
+  "summary": "Vitamin D3 + K2 combines vitamin D repletion with vitamin K-dependent calcium protein activation; sleep evidence is deficiency-dependent and mixed.",
+  "description": "Combination nutrient formulation pairing cholecalciferol with menaquinones.",
+  "effects": [
+    "bone_health",
+    "immunity"
+  ],
+  "primary_effects": [
+    "bone_health",
+    "immunity"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Avoid high-dose use with hypercalcemia",
+    "granulomatous disease",
+    "kidney stones",
+    "or without monitoring"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "1000–4000 IU/day vitamin D3; personalize with 25(OH)D testing",
+  "typical_dosage": "1000–4000 IU/day vitamin D3; personalize with 25(OH)D testing",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for deficiency-related immune and bone support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Vitamin D3 + K2 supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Vitamin D3 preferred",
+    "clear IU dose",
+    "third-party tested",
+    "combine with K2 only when appropriate"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

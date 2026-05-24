@@ -1,0 +1,91 @@
+{
+  "slug": "rosmarinic-acid",
+  "name": "rosmarinic acid",
+  "summary": "Rosmarinic acid is a caffeic-acid ester abundant in rosemary, lemon balm, perilla, and other Lamiaceae herbs. It is most convincing as an anti-inflammatory and mast-cell-modulating compound, but isolated-compound human evidence remains thin.",
+  "description": "Polyphenol in rosemary and lemon balm with anti-inflammatory properties.",
+  "effects": [
+    "energy",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "energy",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Food/herb exposure is generally low-risk",
+    "isolated high-dose safety is less established. Caution with pregnancy",
+    "anticoagulant use",
+    "and complex immune therapy contexts.",
+    "isolated high-dose safety is"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for inflammation or pain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "rosmarinic acid supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

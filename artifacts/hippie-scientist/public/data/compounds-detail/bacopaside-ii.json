@@ -1,0 +1,25 @@
+{
+  "id": "bacopaside-ii",
+  "slug": "bacopaside-ii",
+  "name": "bacopaside ii",
+  "summary": "Bacopa triterpenoid saponin associated with nootropic activity and kinase-linked neuroprotective signaling.",
+  "description": "Bacopa triterpenoid saponin associated with nootropic activity and kinase-linked neuroprotective signaling.",
+  "compoundClass": "saponin / glycoside",
+  "mechanisms": [
+    "MARK4 inhibition",
+    "cholinergic modulation"
+  ],
+  "targets": [
+    "AMPK",
+    "PPAR",
+    "immune cytokines",
+    "membrane signaling",
+    "glucose/lipid metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

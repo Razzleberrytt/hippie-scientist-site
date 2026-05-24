@@ -1,0 +1,26 @@
+{
+  "id": "naringenin",
+  "slug": "naringenin",
+  "name": "naringenin",
+  "summary": "Citrus flavanone reported to influence AMPK and PI3K/Akt signaling.",
+  "description": "Citrus flavanone reported to influence AMPK and PI3K/Akt signaling.",
+  "compoundClass": "flavanone / citrus flavonoid",
+  "mechanisms": [
+    "AMPK activation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "AMPK",
+    "PPAR signaling",
+    "NF-κB",
+    "endothelial nitric oxide",
+    "antioxidant response",
+    "drug transporters"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Citrus-derived compounds are generally food-associated, but grapefruit/citrus extracts can interact with CYP3A4/OATP/P-gp substrates.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

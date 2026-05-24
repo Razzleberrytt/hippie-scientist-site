@@ -1,0 +1,26 @@
+{
+  "name": "elderberry",
+  "slug": "elderberry",
+  "summary": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+  "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "anthocyanin/flavonoid antiviral and cytokine-modulating effects",
+    "influenza/respiratory symptom pathway support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Use cooked/standardized berry preparations; raw/unripe parts can contain cyanogenic glycosides; caution in autoimmune/immunosuppressed contexts.",
+  "contraindications": [
+    "Autoimmune/transplant immunosuppression without clinician review",
+    "pregnancy/breastfeeding without guidance"
+  ],
+  "interactions": [
+    "May counter immunosuppressants",
+    "caution with diuretics or antidiabetics depending product."
+  ],
+  "preparation": "Cooked syrup, lozenges, extracts; avoid raw/unripe berries and non-berry plant parts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

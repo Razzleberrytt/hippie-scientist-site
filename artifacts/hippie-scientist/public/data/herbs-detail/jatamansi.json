@@ -1,0 +1,26 @@
+{
+  "name": "jatamansi",
+  "slug": "jatamansi",
+  "summary": "It should be framed as a traditional aromatic rhizome with modest clinical depth.",
+  "description": "It should be framed as a traditional aromatic rhizome with modest clinical depth.",
+  "primaryActions": [],
+  "mechanisms": [
+    "calming support",
+    "traditional nervous-system support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

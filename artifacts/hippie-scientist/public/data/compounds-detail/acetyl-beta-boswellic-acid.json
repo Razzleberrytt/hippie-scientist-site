@@ -1,0 +1,24 @@
+{
+  "id": "acetyl-beta-boswellic-acid",
+  "slug": "acetyl-beta-boswellic-acid",
+  "name": "acetyl-beta-boswellic acid",
+  "summary": "Acetylated boswellic acid linked to leukotriene-pathway suppression in Boswellia.",
+  "description": "Acetylated boswellic acid linked to leukotriene-pathway suppression in Boswellia.",
+  "compoundClass": "pentacyclic triterpene acid / boswellic acid",
+  "mechanisms": [
+    "5-lipoxygenase inhibition",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "5-LOX",
+    "NF-κB",
+    "leukotriene pathways",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Boswellia extracts can cause GI upset and may interact with anticoagulants/anti-inflammatory drugs; pregnancy safety is not established.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

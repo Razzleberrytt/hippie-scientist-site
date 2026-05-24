@@ -1,0 +1,28 @@
+{
+  "name": "garcinia mangostana",
+  "slug": "garcinia-mangostana",
+  "summary": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
+  "description": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
+  "primaryActions": [],
+  "mechanisms": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation",
+    "apoptosis pathway modulation (caspase activation)",
+    "STAT3 inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Human evidence is limited; concentrated xanthone products may cause GI upset or interact with anticoagulants.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "bleeding disorder/anticoagulant use without review"
+  ],
+  "interactions": [
+    "Theoretical anticoagulant/antiplatelet interactions",
+    "product-specific evidence limited."
+  ],
+  "preparation": "Pericarp/rind extracts, juice blends, powders; fruit pulp differs from rind extract.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

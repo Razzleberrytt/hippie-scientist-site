@@ -1,0 +1,93 @@
+{
+  "slug": "ginsenoside-rb1",
+  "name": "ginsenoside rb1",
+  "summary": "Major ginsenoside with neuroprotective and metabolic signaling effects.",
+  "description": "Major ginsenoside with neuroprotective and metabolic signaling effects.",
+  "effects": [
+    "energy",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "energy",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Limited human safety data",
+    "Safety inferred from ginseng extracts. Caution with anticoagulants",
+    "antidiabetics",
+    "stimulants",
+    "immunosuppressants",
+    "and hormone-sensitive contexts.",
+    "Safety inferred from ginseng extracts. Caution with anticoagulan"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for inflammation or pain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "ginsenoside rb1 supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

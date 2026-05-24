@@ -1,0 +1,26 @@
+{
+  "name": "holy basil purple",
+  "slug": "holy-basil-purple",
+  "summary": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability.",
+  "description": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability.",
+  "primaryActions": [],
+  "mechanisms": [
+    "adaptogenic support",
+    "antioxidant"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,33 @@
+{
+  "name": "black pepper",
+  "slug": "black-pepper",
+  "summary": "It should be framed specifically around piperine and digestive relevance rather than as a stand-alone tonic.",
+  "description": "It should be framed specifically around piperine and digestive relevance rather than as a stand-alone tonic.",
+  "primaryActions": [],
+  "mechanisms": [
+    "piperine modulation of CYP3A4/CYP2C9/CYP2D6 and P-gp",
+    "UGT/glucuronidation effects",
+    "TRPV1 sensory signaling",
+    "NF-κB modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Food use is low-risk; concentrated piperine extracts can alter drug exposure. Use caution with narrow-therapeutic-index drugs and multi-supplement stacks.",
+  "contraindications": [
+    "Use cautiously with prescription polypharmacy",
+    "pregnancy/breastfeeding supplements",
+    "ulcers/reflux sensitivity",
+    "and perioperative anticoagulant use."
+  ],
+  "interactions": [
+    "May increase exposure of CYP/P-gp substrates and enhance curcumin or other supplement bioavailability",
+    "caution with anticoagulants",
+    "antiepileptics",
+    "immunosuppressants",
+    "and cardiovascular drugs."
+  ],
+  "preparation": "Distinguish culinary black pepper from standardized high-piperine extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

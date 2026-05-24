@@ -1,0 +1,22 @@
+{
+  "id": "withanoside-iv",
+  "slug": "withanoside-iv",
+  "name": "withanoside iv",
+  "summary": "Steroidal lactone glycoside from ashwagandha associated with neuroregenerative activity.",
+  "description": "Steroidal lactone glycoside from ashwagandha associated with neuroregenerative activity.",
+  "compoundClass": "withanolide / steroidal lactone",
+  "mechanisms": [
+    "BDNF upregulation",
+    "neurite outgrowth promotion"
+  ],
+  "targets": [
+    "Neurotrophic signaling nodes",
+    "cholinergic systems"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence usually comes from Withania extracts. Caution with pregnancy, liver disease, sedatives, thyroid medications, and autoimmune disease.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
+}

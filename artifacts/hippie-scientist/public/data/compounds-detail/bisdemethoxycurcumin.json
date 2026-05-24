@@ -1,0 +1,25 @@
+{
+  "id": "bisdemethoxycurcumin",
+  "slug": "bisdemethoxycurcumin",
+  "name": "bisdemethoxycurcumin",
+  "summary": "Curcuminoid linked to inflammatory pathway suppression and redox signaling.",
+  "description": "Curcuminoid linked to inflammatory pathway suppression and redox signaling.",
+  "compoundClass": "curcuminoid / diarylheptanoid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "COX/LOX",
+    "inflammatory cytokines",
+    "AMPK"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human evidence is mostly formulation-dependent. High-dose curcuminoids may cause GI upset and interact with anticoagulants/antiplatelets.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

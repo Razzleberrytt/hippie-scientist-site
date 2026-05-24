@@ -1,0 +1,31 @@
+{
+  "name": "artemisia capillaris",
+  "slug": "artemisia-capillaris",
+  "summary": "Artemisia capillaris lean monograph row enriched in bulk mode.",
+  "description": "Artemisia capillaris lean monograph row enriched in bulk mode.",
+  "primaryActions": [],
+  "mechanisms": [
+    "NF-κB inhibition",
+    "voltage-gated calcium channel modulation",
+    "5-lipoxygenase inhibition",
+    "Nrf2 activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease",
+    "bleeding disorder or upcoming surgery"
+  ],
+  "interactions": [
+    "Potential interaction concern with anticoagulants/antiplatelets",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

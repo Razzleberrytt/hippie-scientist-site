@@ -1,0 +1,28 @@
+{
+  "name": "gotu kola",
+  "slug": "gotu-kola",
+  "summary": "NO support.",
+  "description": "NO support.",
+  "primaryActions": [],
+  "mechanisms": [
+    "asiaticoside/madecassoside collagen synthesis",
+    "microcirculation/endothelial effects",
+    "antioxidant/NF-κB modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Rare liver injury reported; avoid pregnancy and liver disease; caution with sedatives and hepatotoxic drugs.",
+  "contraindications": [
+    "Liver disease",
+    "pregnancy/breastfeeding without guidance",
+    "upcoming surgery"
+  ],
+  "interactions": [
+    "May potentiate sedatives and hepatotoxic drugs/supplements",
+    "caution with antidiabetics."
+  ],
+  "preparation": "Leaf tea/powder, tincture, extracts standardized to asiaticoside/madecassoside; topical use differs.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

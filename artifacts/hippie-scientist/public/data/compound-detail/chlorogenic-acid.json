@@ -1,0 +1,89 @@
+{
+  "slug": "chlorogenic-acid",
+  "name": "chlorogenic acid",
+  "summary": "Caffeoylquinic acid widely reported from coffee and artichoke with AMPK and glucose-metabolism pathway effects.",
+  "description": "Caffeoylquinic acid widely reported from coffee and artichoke with AMPK and glucose-metabolism pathway effects.",
+  "effects": [
+    "metabolism",
+    "weight"
+  ],
+  "primary_effects": [
+    "metabolism",
+    "weight"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Use caution with caffeine sensitivity",
+    "anxiety",
+    "insomnia",
+    "hypertension",
+    "pregnancy",
+    "and stimulant stacking"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Green coffee extract studies used about 180–200 mg/day chlorogenic-acid enriched products in older trials",
+  "typical_dosage": "Green coffee extract studies used about 180–200 mg/day chlorogenic-acid enriched products in older trials",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only weight-loss profile because trials are small/high-bias and effect size is uncertain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "chlorogenic acid supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as top pick",
+    "chlorogenic acid content disclosed",
+    "avoid dramatic fat-loss claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,24 @@
+{
+  "id": "farnesol",
+  "slug": "farnesol",
+  "name": "farnesol",
+  "summary": "Sesquiterpene alcohol linked to lipid-signaling and pathway modulation.",
+  "description": "Sesquiterpene alcohol linked to lipid-signaling and pathway modulation.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "PPAR activation",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

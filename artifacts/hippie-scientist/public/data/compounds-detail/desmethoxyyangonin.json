@@ -1,0 +1,24 @@
+{
+  "id": "desmethoxyyangonin",
+  "slug": "desmethoxyyangonin",
+  "name": "desmethoxyyangonin",
+  "summary": "Minor kavalactone from kava associated with monoamine and GABAergic signaling effects.",
+  "description": "Minor kavalactone from kava associated with monoamine and GABAergic signaling effects.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "MAO-B inhibition",
+    "GABA-A modulation"
+  ],
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

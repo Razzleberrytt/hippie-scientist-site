@@ -1,0 +1,26 @@
+{
+  "name": "soursop",
+  "slug": "soursop",
+  "summary": "It must be framed carefully because anticancer folklore claims greatly exceed evidence and safety certainty.",
+  "description": "It must be framed carefully because anticancer folklore claims greatly exceed evidence and safety certainty.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional wellness support",
+    "antioxidant"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Avoid high-dose or chronic supplement use; annonaceous acetogenins have neurotoxicity concerns. Caution with Parkinsonism, neurologic disease, pregnancy, and sedating medications.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,27 @@
+{
+  "name": "rehmannia prepared",
+  "slug": "rehmannia-prepared",
+  "summary": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially.",
+  "description": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional restorative support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease",
+    "significant kidney disease or unstable electrolytes"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

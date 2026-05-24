@@ -1,0 +1,22 @@
+{
+  "id": "glucomoringin",
+  "slug": "glucomoringin",
+  "name": "glucomoringin",
+  "summary": "Glucosinolate from moringa that yields bioactive isothiocyanates after hydrolysis.",
+  "description": "Glucosinolate from moringa that yields bioactive isothiocyanates after hydrolysis.",
+  "compoundClass": "phytochemical constituent",
+  "mechanisms": [
+    "Nrf2 activation",
+    "isothiocyanate signaling"
+  ],
+  "targets": [
+    "Phase II detox enzymes",
+    "electrophile sensors"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
+}

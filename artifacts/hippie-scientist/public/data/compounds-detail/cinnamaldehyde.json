@@ -1,0 +1,22 @@
+{
+  "id": "cinnamaldehyde",
+  "slug": "cinnamaldehyde",
+  "name": "cinnamaldehyde",
+  "summary": "Major aromatic aldehyde in cinnamon bark influencing metabolic and inflammatory signaling.",
+  "description": "Major aromatic aldehyde in cinnamon bark influencing metabolic and inflammatory signaling.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "AMPK activation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "TRPA1",
+    "inflammatory enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
+}

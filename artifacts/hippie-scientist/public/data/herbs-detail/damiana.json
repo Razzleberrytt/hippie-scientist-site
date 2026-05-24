@@ -1,0 +1,31 @@
+{
+  "name": "damiana",
+  "slug": "damiana",
+  "summary": "Mechanism context: mood support, calming support, libido support. Safety: Human evidence is limited. Use conservative dosing; avoid stacking with sedatives, stimulants, or sexual-performance products without review.. Interactions tracked: Potential additive CNS effects with sedatives, alcohol, anxiolytics.",
+  "description": "Mechanism context: mood support, calming support, libido support. Safety: Human evidence is limited. Use conservative dosing; avoid stacking with sedatives, stimulants, or sexual-performance products without review.. Interactions tracked: Potential additive CNS effects with sedatives, alcohol, anxiolytics.",
+  "primaryActions": [],
+  "mechanisms": [
+    "mood support",
+    "calming support",
+    "libido support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Human evidence is limited. Use conservative dosing; avoid stacking with sedatives, stimulants, or sexual-performance products without review.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "seizure disorder without clinician review",
+    "planned surgery or complex psychiatric medication regimens."
+  ],
+  "interactions": [
+    "Potential additive CNS effects with sedatives",
+    "alcohol",
+    "anxiolytics",
+    "and serotonergic or stimulant stacks",
+    "diabetes medication caution is theoretical."
+  ],
+  "preparation": "Leaf is used as tea, tincture, capsules, or aromatic blends; avoid high-dose extracts until safety is reviewed.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,28 @@
+{
+  "name": "milk thistle",
+  "slug": "milk-thistle",
+  "summary": "Milk Thistle centers on the seed; fruit.",
+  "description": "Milk Thistle centers on the seed; fruit. Key reported compounds include silybin A/B; isosilybin A/B; silychristin; silydianin; isosilychristin. Typical preparation forms: Seed/fruit extracts standardized to silymarin. Silymarin flavonolignans exhibit antioxidant, anti-inflammatory and antifibrotic activity relevant to hepatoprotection. Interaction profile: Possible CYP2C9/CYP3A4 interaction risk; may affect warfarin and some other drugs. Use caution or avoid in: Asteraceae allergy; caution in pregnancy/breastfeeding.",
+  "primaryActions": [],
+  "mechanisms": [
+    "silybin/silymarin antioxidant signaling",
+    "Nrf2 activation",
+    "NF-κB inhibition",
+    "hepatic glutathione and membrane-stabilizing effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "GI upset/allergy possible; caution with diabetes medications and CYP-metabolized drugs; avoid relying on it as treatment for serious liver disease.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease"
+  ],
+  "interactions": [
+    "May affect drug transport and metabolism in susceptible users."
+  ],
+  "preparation": "Seed extract is more practical than whole seed; standardized silymarin products are common.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

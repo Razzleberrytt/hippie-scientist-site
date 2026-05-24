@@ -1,0 +1,25 @@
+{
+  "id": "mangiferin",
+  "slug": "mangiferin",
+  "name": "mangiferin",
+  "summary": "Xanthone glucoside linked to metabolic and redox-responsive signaling.",
+  "description": "Xanthone glucoside linked to metabolic and redox-responsive signaling.",
+  "compoundClass": "xanthone / polyphenol",
+  "mechanisms": [
+    "AMPK activation",
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "apoptosis signaling",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

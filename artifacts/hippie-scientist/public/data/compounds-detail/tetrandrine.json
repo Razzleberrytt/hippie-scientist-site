@@ -1,0 +1,25 @@
+{
+  "id": "tetrandrine",
+  "slug": "tetrandrine",
+  "name": "tetrandrine",
+  "summary": "Bisbenzylisoquinoline alkaloid known for calcium-channel-related and NF-κB pathway activity.",
+  "description": "Bisbenzylisoquinoline alkaloid known for calcium-channel-related and NF-κB pathway activity.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "voltage-gated calcium channel modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

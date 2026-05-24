@@ -1,0 +1,29 @@
+{
+  "name": "hops",
+  "slug": "hops",
+  "summary": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+  "description": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "calming support",
+    "sleep support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "severe depression",
+    "hormone-sensitive conditions without review"
+  ],
+  "interactions": [
+    "May potentiate sedatives",
+    "alcohol",
+    "sleep medications",
+    "and other CNS depressants."
+  ],
+  "preparation": "Strobile tea/tincture/extract; often combined with valerian or passionflower.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

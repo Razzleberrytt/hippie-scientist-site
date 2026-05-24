@@ -1,0 +1,24 @@
+{
+  "id": "morroniside",
+  "slug": "morroniside",
+  "name": "morroniside",
+  "summary": "Morroniside is a Cornus iridoid with cytoprotective pathway activity.",
+  "description": "Morroniside is a Cornus iridoid with cytoprotective pathway activity.",
+  "compoundClass": "iridoid glycoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "inflammatory cytokines",
+    "gut/liver metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

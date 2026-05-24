@@ -1,0 +1,27 @@
+{
+  "name": "brassica juncea",
+  "slug": "brassica-juncea",
+  "summary": "Minimum source-backed intake for Brassica juncea.",
+  "description": "Minimum source-backed intake for Brassica juncea. Active compound support includes sulforaphane under current workbook standards. Mechanism support retained at Nrf2 activation level for second-anchor cluster completion.",
+  "primaryActions": [],
+  "mechanisms": [
+    "glucosinolate-myrosinase isothiocyanate formation",
+    "Nrf2 antioxidant-response activation",
+    "phase II detoxification enzyme induction"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Human safety data are limited for concentrated extracts. Use caution in pregnancy/breastfeeding, significant medical conditions, or prescription polypharmacy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

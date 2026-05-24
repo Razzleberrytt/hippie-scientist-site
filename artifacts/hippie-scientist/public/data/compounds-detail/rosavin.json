@@ -1,0 +1,24 @@
+{
+  "id": "rosavin",
+  "slug": "rosavin",
+  "name": "rosavin",
+  "summary": "Phenylpropanoid glycoside from Rhodiola linked to metabolic and cytoprotective signaling.",
+  "description": "Phenylpropanoid glycoside from Rhodiola linked to metabolic and cytoprotective signaling.",
+  "compoundClass": "phenylpropanoid glycoside / rosavin",
+  "mechanisms": [
+    "AMPK activation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "HPA-axis stress response",
+    "monoamine signaling",
+    "AMPK",
+    "antioxidant response"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

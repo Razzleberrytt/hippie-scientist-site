@@ -1,0 +1,25 @@
+{
+  "name": "carob",
+  "slug": "carob",
+  "summary": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+  "description": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "metabolic support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "Severe constipation/obstruction risk",
+    "carob allergy"
+  ],
+  "interactions": [
+    "Fiber/tannin content may reduce absorption of some oral medications if taken together."
+  ],
+  "preparation": "Pod powder, gum, syrup, and fiber/tannin extracts; gum and pod powder differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

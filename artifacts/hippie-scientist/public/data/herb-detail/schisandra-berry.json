@@ -1,0 +1,86 @@
+{
+  "slug": "schisandra-berry",
+  "name": "Schisandra Berry",
+  "summary": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
+  "description": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
+  "effects": [
+    "stress"
+  ],
+  "primary_effects": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "active reflux/ulcer sensitivity",
+    "complex medication regimens without review"
+  ],
+  "interactions": [
+    "Potential CYP/P-gp interactions",
+    "caution with immunosuppressants",
+    "sedatives",
+    "anticoagulants",
+    "and hepatically metabolized drugs."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "schisandra berry tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "research-pending-effect",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

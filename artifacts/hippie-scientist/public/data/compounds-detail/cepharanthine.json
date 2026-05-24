@@ -1,0 +1,25 @@
+{
+  "id": "cepharanthine",
+  "slug": "cepharanthine",
+  "name": "cepharanthine",
+  "summary": "Bisbenzylisoquinoline alkaloid associated with NF-κB suppression and PI3K/Akt pathway effects.",
+  "description": "Bisbenzylisoquinoline alkaloid associated with NF-κB suppression and PI3K/Akt pathway effects.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

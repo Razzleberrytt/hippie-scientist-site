@@ -1,0 +1,25 @@
+{
+  "id": "emodin",
+  "slug": "emodin",
+  "name": "emodin",
+  "summary": "Anthraquinone reported from rhubarb with NF-κB and MAPK pathway activity.",
+  "description": "Anthraquinone reported from rhubarb with NF-κB and MAPK pathway activity.",
+  "compoundClass": "anthraquinone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "MAPK",
+    "apoptosis signaling",
+    "intestinal motility pathways",
+    "CYP/P-gp interaction pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Anthraquinone laxative-like activity may cause diarrhea, electrolyte shifts, and interaction risks. Avoid chronic high-dose use, pregnancy, kidney disease, and stimulant-laxative stacking.",
+  "evidenceLevel": "preclinical; safety_known_by_class",
+  "relatedCompounds": []
+}

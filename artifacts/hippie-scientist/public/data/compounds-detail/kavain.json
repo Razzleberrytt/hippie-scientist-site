@@ -1,0 +1,24 @@
+{
+  "id": "kavain",
+  "slug": "kavain",
+  "name": "kavain",
+  "summary": "Major kavalactone with calming and channel-modulating pharmacology.",
+  "description": "Major kavalactone with calming and channel-modulating pharmacology.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "GABA-A modulation",
+    "voltage-gated sodium channel modulation"
+  ],
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

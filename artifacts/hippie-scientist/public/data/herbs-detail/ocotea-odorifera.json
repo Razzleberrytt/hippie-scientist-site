@@ -1,0 +1,26 @@
+{
+  "name": "ocotea odorifera",
+  "slug": "ocotea-odorifera",
+  "summary": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
+  "description": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "TRP channel modulation",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Safrole-related safety concerns; avoid concentrated internal use and pregnancy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

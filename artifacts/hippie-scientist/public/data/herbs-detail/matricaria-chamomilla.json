@@ -1,0 +1,27 @@
+{
+  "name": "matricaria chamomilla",
+  "slug": "matricaria-chamomilla",
+  "summary": "Matricaria chamomilla contains Farnesol and is linked here to PPAR activation.",
+  "description": "Matricaria chamomilla contains Farnesol and is linked here to PPAR activation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "apigenin GABA-A receptor interaction",
+    "flavonoid anti-inflammatory signaling",
+    "smooth-muscle and digestive-spasm modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Allergy risk with Asteraceae sensitivity; sedation possible; caution with CNS depressants and anticoagulants.",
+  "contraindications": [
+    "Asteraceae/ragweed allergy",
+    "anticoagulant use without clinician review",
+    "pregnancy at medicinal doses without guidance"
+  ],
+  "interactions": [
+    "May potentiate sedatives/CNS depressants and anticoagulants/antiplatelets in susceptible users."
+  ],
+  "preparation": "Flower infusion, tincture, capsules, steam-distilled essential oil, and topical preparations.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

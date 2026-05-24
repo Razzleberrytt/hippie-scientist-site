@@ -1,0 +1,28 @@
+{
+  "name": "marshmallow",
+  "slug": "marshmallow",
+  "summary": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
+  "description": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "mucilage polysaccharide barrier effects",
+    "local soothing demulcent action",
+    "mild anti-inflammatory signaling in mucosal tissues"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May slow absorption of oral medications if taken together. Use caution with diabetes medications because mucilage/fiber may affect glucose handling.",
+  "contraindications": [
+    "Difficulty swallowing",
+    "severe GI obstruction risk",
+    "and use in infants without supervision."
+  ],
+  "interactions": [
+    "Separate from oral medications by at least 1–2 hours to reduce absorption interference",
+    "monitor with antidiabetic therapy."
+  ],
+  "preparation": "Cold infusion or mucilage-rich preparations are most aligned with traditional demulcent use.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

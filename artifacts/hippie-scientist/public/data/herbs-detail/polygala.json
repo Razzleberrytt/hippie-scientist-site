@@ -1,0 +1,26 @@
+{
+  "name": "polygala",
+  "slug": "polygala",
+  "summary": "It is best framed as a traditional nootropic-style root with limited modern clinical depth.",
+  "description": "It is best framed as a traditional nootropic-style root with limited modern clinical depth.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional cognitive support",
+    "calming support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "gastritis/ulcer sensitivity"
+  ],
+  "interactions": [
+    "Potential additive sedation or cognitive-drug interactions",
+    "limited clinical data."
+  ],
+  "preparation": "Processed root decoction/extract; raw high-dose use may be irritating.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

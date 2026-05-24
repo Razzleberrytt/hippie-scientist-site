@@ -1,0 +1,32 @@
+{
+  "name": "wormwood",
+  "slug": "wormwood",
+  "summary": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+  "description": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+  "primaryActions": [],
+  "mechanisms": [
+    "thujone interaction with GABA-A signaling",
+    "bitter-receptor digestive signaling",
+    "sesquiterpene lactone inflammatory-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Thujone-containing preparations can be neurotoxic at high exposure and may provoke seizures. Avoid concentrated essential oil or high-thujone products.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "seizure disorder",
+    "liver disease",
+    "children",
+    "and internal essential-oil use."
+  ],
+  "interactions": [
+    "Avoid with antiepileptics",
+    "sedatives",
+    "alcohol",
+    "and other neuroactive supplements or medicines."
+  ],
+  "preparation": "Use only regulated low-thujone preparations; essential oil is not equivalent to tea or standardized extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

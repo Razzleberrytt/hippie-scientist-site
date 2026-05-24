@@ -1,0 +1,74 @@
+{
+  "slug": "sodium",
+  "name": "Sodium",
+  "summary": "Excess sodium intake increases blood pressure and cardiovascular risk.",
+  "description": "Excess sodium intake increases blood pressure and cardiovascular risk.",
+  "effects": [
+    "electrolytes",
+    "hydration"
+  ],
+  "primary_effects": [
+    "electrolytes",
+    "hydration"
+  ],
+  "mechanisms": [
+    "Vascular Function Support"
+  ],
+  "raw_mechanisms": [
+    "Vascular Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Vascular Function Support"
+  ],
+  "evidence_grade": "strong",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Limit in hypertension."
+  ],
+  "interactions": [
+    "Limit in hypertension."
+  ],
+  "side_effects": [],
+  "dosage": "1500-2300 mg/day",
+  "typical_dosage": "1500-2300 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only electrolyte profile unless paired with sweat-loss context"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically relevant dose",
+    "contaminant testing",
+    "avoid vague extract labels without active amounts"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,80 @@
+{
+  "slug": "passionflower-extract",
+  "name": "Passionflower Extract",
+  "summary": "Passionflower Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+  "description": "Passionflower Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "Limited-to-moderate human evidence",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Avoid with pregnancy",
+    "sedatives",
+    "alcohol",
+    "driving",
+    "surgery without clinician knowledge",
+    "and CNS depressant stacking"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "500 mg oral Passiflora incarnata used 90 minutes before surgery in a preoperative anxiety RCT",
+  "typical_dosage": "500 mg oral Passiflora incarnata used 90 minutes before surgery in a preoperative anxiety RCT",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority calming/sleep support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Passiflora incarnata identity clear",
+    "dose disclosed",
+    "avoid multi-sedative blends hiding passionflower amount"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "tryptophan",
+  "name": "Tryptophan",
+  "summary": "L-tryptophan has moderate evidence for modest sleep latency reduction.",
+  "description": "Essential amino acid precursor to serotonin and melatonin.",
+  "effects": [
+    "mood",
+    "sleep"
+  ],
+  "primary_effects": [
+    "mood",
+    "sleep"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Nausea and serotonin syndrome risk",
+    "avoid with SSRIs or MAOIs.",
+    "Drowsiness",
+    "historical EMS contamination issue was product-related.",
+    "ssri"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "1-3 g/day",
+  "typical_dosage": "1-3 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority sleep/mood support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Tryptophan supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clear dose per serving",
+    "form matches intended timing",
+    "avoid sedative proprietary blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

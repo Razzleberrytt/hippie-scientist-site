@@ -1,0 +1,80 @@
+{
+  "slug": "l-arginine",
+  "name": "arginine",
+  "summary": "Improves endothelial function but inconsistent outcomes.",
+  "description": "Improves endothelial function but inconsistent outcomes.",
+  "effects": [
+    "blood_flow",
+    "performance"
+  ],
+  "primary_effects": [
+    "blood_flow",
+    "performance"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "raw_mechanisms": [
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Avoid after MI."
+  ],
+  "interactions": [
+    "Avoid after MI."
+  ],
+  "side_effects": [],
+  "dosage": "3-8 g/day",
+  "typical_dosage": "3-8 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for fatigue or performance demands"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "arginine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

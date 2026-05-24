@@ -1,0 +1,24 @@
+{
+  "id": "mangiferin-aglycone",
+  "slug": "mangiferin-aglycone",
+  "name": "mangiferin aglycone",
+  "summary": "Xanthone-related metabolite linked to metabolic and redox-responsive pathways.",
+  "description": "Xanthone-related metabolite linked to metabolic and redox-responsive pathways.",
+  "compoundClass": "xanthone / polyphenol",
+  "mechanisms": [
+    "AMPK activation",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "apoptosis signaling",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

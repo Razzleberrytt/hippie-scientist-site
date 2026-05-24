@@ -1,0 +1,82 @@
+{
+  "slug": "tribulus-terrestris",
+  "name": "Tribulus terrestris",
+  "summary": "Human RCT evidence does not support Tribulus for increasing testosterone, strength, or body composition in trained men.",
+  "description": "Human RCT evidence does not support Tribulus for increasing testosterone, strength, or body composition in trained men.",
+  "effects": [
+    "mens_health"
+  ],
+  "primary_effects": [
+    "mens_health"
+  ],
+  "mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "raw_mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with prostate/hormone-sensitive conditions",
+    "diabetes medications",
+    "blood pressure medications",
+    "and pregnancy"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Human studies vary; testosterone claims not supported reliably",
+  "typical_dosage": "Human studies vary; testosterone claims not supported reliably",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only testosterone-booster profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Tribulus terrestris supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote for testosterone",
+    "saponin standardization disclosed if listed",
+    "avoid hormone-booster blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

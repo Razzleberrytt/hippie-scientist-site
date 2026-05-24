@@ -1,0 +1,22 @@
+{
+  "id": "forskolin",
+  "slug": "forskolin",
+  "name": "forskolin",
+  "summary": "Diterpene from Coleus known for direct adenylyl cyclase activation.",
+  "description": "Diterpene from Coleus known for direct adenylyl cyclase activation.",
+  "compoundClass": "labdane diterpene",
+  "mechanisms": [
+    "adenylyl cyclase activation",
+    "cAMP signaling"
+  ],
+  "targets": [
+    "adenylyl cyclase/cAMP",
+    "adenylyl cyclase"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

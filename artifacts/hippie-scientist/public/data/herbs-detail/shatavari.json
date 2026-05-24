@@ -1,0 +1,28 @@
+{
+  "name": "shatavari",
+  "slug": "shatavari",
+  "summary": "It is best framed around steroidal saponins with hormonal-context caution.",
+  "description": "It is best framed around steroidal saponins with hormonal-context caution.",
+  "primaryActions": [],
+  "mechanisms": [
+    "women's-health support",
+    "soothing support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Hormone- or cycle-related traditional use requires caution in pregnancy, breastfeeding, hormone-sensitive conditions, and with hormone therapies.",
+  "contraindications": [
+    "Pregnancy/lactation use should be clinician-guided",
+    "hormone-sensitive conditions without review"
+  ],
+  "interactions": [
+    "May interact with hormone therapies",
+    "diuretics",
+    "lithium",
+    "or antidiabetics."
+  ],
+  "preparation": "Root powder, ghee preparations, decoction, and extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

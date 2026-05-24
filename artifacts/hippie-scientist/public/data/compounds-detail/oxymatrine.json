@@ -1,0 +1,25 @@
+{
+  "id": "oxymatrine",
+  "slug": "oxymatrine",
+  "name": "oxymatrine",
+  "summary": "Matrine-related alkaloid associated with TGF-β-linked fibrosis pathways and NF-κB inhibition.",
+  "description": "Matrine-related alkaloid associated with TGF-β-linked fibrosis pathways and NF-κB inhibition.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "TGF-β signaling modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "hyperforin",
+  "slug": "hyperforin",
+  "name": "hyperforin",
+  "summary": "Hyperforin is a St.",
+  "description": "Hyperforin is a St. John’s wort phloroglucinol known for TRPC6 and neurotransmitter effects.",
+  "compoundClass": "prenylated phloroglucinol",
+  "mechanisms": [
+    "TRPC6 channel modulation",
+    "monoamine reuptake inhibition"
+  ],
+  "targets": [
+    "pathway targets not fully resolved"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

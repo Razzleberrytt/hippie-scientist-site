@@ -1,0 +1,26 @@
+{
+  "name": "jujube",
+  "slug": "jujube",
+  "summary": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
+  "description": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
+  "primaryActions": [],
+  "mechanisms": [
+    "calming support",
+    "nutritive support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Diabetes/glucose management if using sweet fruit products",
+    "pregnancy supplement dosing without guidance"
+  ],
+  "interactions": [
+    "May add to sedatives if seed extracts are used",
+    "monitor glucose with high fruit intake."
+  ],
+  "preparation": "Fruit, seed extracts, decoction, teas; seed and fruit differ pharmacologically.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

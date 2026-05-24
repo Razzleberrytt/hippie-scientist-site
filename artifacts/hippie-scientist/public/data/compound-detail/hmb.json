@@ -1,0 +1,86 @@
+{
+  "slug": "hmb",
+  "name": "HMB",
+  "summary": "Decision-ready summary: HMB is best framed for muscle preservation during training stress; older adult lean-mass support; recovery context; safety screen: serious kidney disease review.",
+  "description": "HMB supports muscle preservation; strength; recovery with moderate confidence in this merged decision layer.",
+  "effects": [
+    "performance",
+    "recovery"
+  ],
+  "primary_effects": [
+    "performance",
+    "recovery"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation",
+    "mTOR Signaling"
+  ],
+  "raw_mechanisms": [
+    "Stress Response Modulation",
+    "mTOR Signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Stress Response Modulation",
+    "mTOR Signaling"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "serious kidney disease review"
+  ],
+  "interactions": [
+    "Limited data."
+  ],
+  "side_effects": [],
+  "dosage": "3 g/day",
+  "typical_dosage": "3 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only muscle-preservation profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active extract or pure amino acid",
+    "avoid stimulant blends",
+    "review sedative stacking"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

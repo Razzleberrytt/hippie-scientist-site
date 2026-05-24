@@ -1,0 +1,28 @@
+{
+  "name": "olive leaf",
+  "slug": "olive-leaf",
+  "summary": "Bulk-ingested support row carrying Oleuropein with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Oleuropein with pathway-level mechanism coverage.",
+  "primaryActions": [],
+  "mechanisms": [
+    "oleuropein/hydroxytyrosol antioxidant signaling",
+    "ACE/endothelial nitric oxide modulation",
+    "lipid and blood-pressure pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May lower blood pressure/glucose; monitor with antihypertensive or antidiabetic therapy; GI effects possible.",
+  "contraindications": [
+    "Hypotension",
+    "hypoglycemia risk",
+    "pregnancy/breastfeeding without guidance"
+  ],
+  "interactions": [
+    "May potentiate antihypertensives and antidiabetics",
+    "caution with anticoagulants if product has vascular effects."
+  ],
+  "preparation": "Leaf tea, powder, and oleuropein-standardized extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

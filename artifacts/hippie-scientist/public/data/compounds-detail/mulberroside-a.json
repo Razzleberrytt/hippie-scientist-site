@@ -1,0 +1,22 @@
+{
+  "id": "mulberroside-a",
+  "slug": "mulberroside-a",
+  "name": "mulberroside a",
+  "summary": "Mulberry stilbene glycoside associated with postprandial glycemic control.",
+  "description": "Mulberry stilbene glycoside associated with postprandial glycemic control.",
+  "compoundClass": "stilbene glycoside",
+  "mechanisms": [
+    "glucose absorption modulation",
+    "alpha-glucosidase inhibition"
+  ],
+  "targets": [
+    "alpha-glucosidase",
+    "glucose transport/metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

@@ -1,0 +1,29 @@
+{
+  "name": "pomegranate",
+  "slug": "pomegranate",
+  "summary": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+  "description": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "vascular support",
+    "antioxidant",
+    "Nrf2 activation",
+    "NF-κB inhibition",
+    "MAPK pathway modulation",
+    "ellagitannin-mediated antioxidant signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May affect circulation, blood pressure, or platelet function; use caution with anticoagulants/antiplatelets, antihypertensives, heart medications, and before surgery.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Polyphenol-rich extracts may alter drug metabolism in some contexts."
+  ],
+  "preparation": "Juice and rind extracts differ substantially in tannin density.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

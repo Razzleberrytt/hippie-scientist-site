@@ -1,0 +1,32 @@
+{
+  "name": "aloe vera",
+  "slug": "aloe-vera",
+  "summary": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+  "description": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "acemannan immune modulation",
+    "anthraquinone laxative effects",
+    "AMPK/glucose-metabolism and wound-healing pathways"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Oral latex/whole-leaf aloe can cause diarrhea, electrolyte loss, and drug interactions; avoid pregnancy and kidney disease.",
+  "contraindications": [
+    "Pregnancy",
+    "inflammatory bowel disease",
+    "kidney disease",
+    "oral latex use in children"
+  ],
+  "interactions": [
+    "Oral latex may interact with diuretics",
+    "digoxin",
+    "corticosteroids",
+    "laxatives",
+    "and antidiabetics."
+  ],
+  "preparation": "Inner leaf gel for topical/digestive products; latex/whole-leaf laxative products carry higher risk.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

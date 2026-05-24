@@ -1,0 +1,97 @@
+{
+  "slug": "garlic-aged-extract",
+  "name": "Garlic Aged Extract",
+  "summary": "Aged garlic extract has moderate human evidence for blood pressure and modest lipid improvements with a different constituent profile than raw garlic.",
+  "description": "Aged Allium sativum extract enriched in S-allyl cysteine and antioxidant compounds.",
+  "effects": [
+    "blood_pressure",
+    "cardiovascular"
+  ],
+  "primary_effects": [
+    "blood_pressure",
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Use caution with anticoagulants",
+    "antiplatelets",
+    "surgery",
+    "bleeding disorders",
+    "GERD",
+    "and garlic allergy"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Aged garlic extract commonly 600–1200 mg/day in BP/lipid studies",
+  "typical_dosage": "Aged garlic extract commonly 600–1200 mg/day in BP/lipid studies",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority blood-pressure/cholesterol support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Garlic Aged Extract supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Aged garlic extract preferred",
+    "S-allyl cysteine or aged-extract identity disclosed",
+    "avoid odorless vague garlic products"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

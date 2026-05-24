@@ -1,0 +1,24 @@
+{
+  "id": "beta-caryophyllene",
+  "slug": "beta-caryophyllene",
+  "name": "beta-caryophyllene",
+  "summary": "Sesquiterpene linked to cannabinoid-receptor and inflammatory signaling.",
+  "description": "Sesquiterpene linked to cannabinoid-receptor and inflammatory signaling.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "CB2 receptor agonism",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

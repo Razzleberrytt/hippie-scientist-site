@@ -1,0 +1,74 @@
+{
+  "slug": "lycopene",
+  "name": "Lycopene",
+  "summary": "Lycopene is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Cardiovascular Health. Current workbook signals support mechanistic context around Oxidative Stress Modulation; Vascular Function Support, not treatment claims.",
+  "description": "Lycopene is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Cardiovascular Health. Current workbook signals support mechanistic context around Oxidative Stress Modulation; Vascular Function Support, not treatment claims.",
+  "effects": [
+    "heart_health"
+  ],
+  "primary_effects": [
+    "heart_health"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support"
+  ],
+  "evidence_grade": "limited",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Generally well tolerated",
+    "very high intake may cause lycopenodermia."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Not verified",
+  "typical_dosage": "Not verified",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People focused on cardiovascular health"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically relevant dose",
+    "contaminant testing",
+    "avoid vague extract labels without active amounts"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,30 @@
+{
+  "name": "skullcap",
+  "slug": "skullcap",
+  "summary": "GABAergic.",
+  "description": "GABAergic.",
+  "primaryActions": [],
+  "mechanisms": [
+    "GABAA",
+    "NF-κB inhibition",
+    "PI3K/Akt modulation",
+    "COX inhibition",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "liver disease",
+    "sedative use without review"
+  ],
+  "interactions": [
+    "May add to sedatives/CNS depressants",
+    "caution with hepatotoxic drugs/supplements."
+  ],
+  "preparation": "Aerial parts of American skullcap as tea/tincture; roots of Chinese skullcap are a different herb.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

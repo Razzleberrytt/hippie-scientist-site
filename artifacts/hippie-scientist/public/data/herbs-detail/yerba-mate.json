@@ -1,0 +1,35 @@
+{
+  "name": "yerba mate",
+  "slug": "yerba-mate",
+  "summary": "Mechanism context: caffeine/theobromine adenosine-receptor antagonism, chlorogenic-acid antioxidant signaling, AMPK-related metabolic signaling. Safety: Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.. Interactions tracked: Additive effects with stimulants, caffeine, theophylline.",
+  "description": "Mechanism context: caffeine/theobromine adenosine-receptor antagonism, chlorogenic-acid antioxidant signaling, AMPK-related metabolic signaling. Safety: Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.. Interactions tracked: Additive effects with stimulants, caffeine, theophylline.",
+  "primaryActions": [],
+  "mechanisms": [
+    "caffeine/theobromine adenosine-receptor antagonism",
+    "chlorogenic-acid antioxidant signaling",
+    "AMPK-related metabolic signaling",
+    "saponin-mediated lipid metabolism"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmia",
+    "severe anxiety/insomnia",
+    "pregnancy/breastfeeding caution",
+    "and stimulant sensitivity."
+  ],
+  "interactions": [
+    "Additive effects with stimulants",
+    "caffeine",
+    "theophylline",
+    "decongestants",
+    "and stimulant medications",
+    "CYP1A2-modulating drugs may alter caffeine exposure."
+  ],
+  "preparation": "Prefer moderate-temperature tea/extracts with disclosed caffeine content; avoid very hot repeated consumption and energy-drink style stacking.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

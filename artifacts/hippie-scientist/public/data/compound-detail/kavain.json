@@ -1,0 +1,86 @@
+{
+  "slug": "kavain",
+  "name": "kavain",
+  "summary": "Major kavalactone with calming and channel-modulating pharmacology.",
+  "description": "Major kavalactone with calming and channel-modulating pharmacology.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Avoid with liver disease",
+    "alcohol",
+    "hepatotoxic drugs",
+    "sedatives",
+    "pregnancy",
+    "and driving",
+    "liver-risk warnings required"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "120–240 mg/day kavalactones used in a 6-week GAD safety RCT",
+  "typical_dosage": "120–240 mg/day kavalactones used in a 6-week GAD safety RCT",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Blocked due to liver toxicity concerns"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "kavain supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as casual calming supplement",
+    "kavalactone dose and extraction method must be disclosed"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

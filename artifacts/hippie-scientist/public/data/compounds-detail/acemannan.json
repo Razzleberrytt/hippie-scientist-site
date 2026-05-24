@@ -1,0 +1,21 @@
+{
+  "id": "acemannan",
+  "slug": "acemannan",
+  "name": "acemannan",
+  "summary": "Acetylated mannose-rich polysaccharide from aloe gel commonly associated with immunomodulatory and wound-healing activity.",
+  "description": "Acetylated mannose-rich polysaccharide from aloe gel commonly associated with immunomodulatory and wound-healing activity.",
+  "compoundClass": "acetylated polysaccharide",
+  "mechanisms": [
+    "TLR4 modulation",
+    "NF-κB modulation"
+  ],
+  "targets": [
+    "NF-κB"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

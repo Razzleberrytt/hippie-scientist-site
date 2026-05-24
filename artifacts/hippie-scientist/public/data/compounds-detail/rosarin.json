@@ -1,0 +1,24 @@
+{
+  "id": "rosarin",
+  "slug": "rosarin",
+  "name": "rosarin",
+  "summary": "Rhodiola glycoside associated with stress-response and signaling pathway effects.",
+  "description": "Rhodiola glycoside associated with stress-response and signaling pathway effects.",
+  "compoundClass": "phenylpropanoid glycoside / rosavin",
+  "mechanisms": [
+    "AMPK activation",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "HPA-axis stress response",
+    "monoamine signaling",
+    "AMPK",
+    "antioxidant response"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

@@ -1,0 +1,35 @@
+{
+  "name": "kava",
+  "slug": "kava",
+  "summary": "Kava centers on the root; rhizome.",
+  "description": "Kava centers on the root; rhizome. Key reported compounds include kavain; dihydrokavain; methysticin; dihydromethysticin; yangonin; desmethoxyyangonin; flavokavain A/B/C. Typical preparation forms: Traditional aqueous root beverage; modern standardized root extracts. Kavalactones modulate GABA-A receptors and ion channels, producing anxiolytic and sedative effects without classical benzodiazepine-site binding. Interaction profile: Additive sedation with CNS depressants and alcohol; possible hepatic enzyme interactions. Use caution or avoid in: Liver disease, pregnancy, breastfeeding, concurrent CNS depressants or hepatotoxic drugs.",
+  "primaryActions": [],
+  "mechanisms": [
+    "GABA-A receptor positive modulation",
+    "voltage-gated sodium and calcium channel modulation",
+    "monoamine oxidase-B inhibition",
+    "glutamate/excitatory signaling modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Not for active/history liver disease, heavy alcohol use, or concurrent hepatotoxic drugs/supplements. Rare serious liver injury has been reported. Additive sedation is possible with benzodiazepines, barbiturates, opioids, sleep aids, alcohol, and other CNS depressants. Avoid driving after use; avoid pregnancy/breastfeeding.",
+  "contraindications": [
+    "Active or previous liver disease",
+    "pregnancy/breastfeeding",
+    "current alcohol misuse",
+    "perioperative sedation risk unless medically supervised."
+  ],
+  "interactions": [
+    "CNS depressants",
+    "alcohol",
+    "benzodiazepines",
+    "opioids",
+    "sleep medicines",
+    "hepatotoxic drugs/supplements",
+    "and possible CYP-mediated interactions."
+  ],
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

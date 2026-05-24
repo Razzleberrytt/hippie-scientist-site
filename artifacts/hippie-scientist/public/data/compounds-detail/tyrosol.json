@@ -1,0 +1,25 @@
+{
+  "id": "tyrosol",
+  "slug": "tyrosol",
+  "name": "tyrosol",
+  "summary": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "description": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "compoundClass": "olive phenolic secoiridoid/phenylethanol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "lipid oxidation",
+    "endothelial signaling",
+    "antioxidant response"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

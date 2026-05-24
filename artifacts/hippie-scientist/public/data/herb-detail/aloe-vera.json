@@ -1,0 +1,102 @@
+{
+  "slug": "aloe-vera",
+  "name": "Aloe Vera",
+  "summary": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+  "description": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+  "effects": [
+    "immune",
+    "metabolic",
+    "skin-support"
+  ],
+  "primary_effects": [
+    "immune",
+    "metabolic",
+    "skin-support"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Pregnancy",
+    "inflammatory bowel disease",
+    "kidney disease",
+    "oral latex use in children"
+  ],
+  "interactions": [
+    "Oral latex may interact with diuretics",
+    "digoxin",
+    "corticosteroids",
+    "laxatives",
+    "and antidiabetics."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "aloe vera capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 83,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

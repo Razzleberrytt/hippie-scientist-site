@@ -1,0 +1,30 @@
+{
+  "name": "passionflower",
+  "slug": "passionflower",
+  "summary": "EMA supports passionflower for relief of mild mental stress and to aid sleep on the basis of long-standing traditional use.",
+  "description": "EMA supports passionflower for relief of mild mental stress and to aid sleep on the basis of long-standing traditional use. That is useful, but it is weaker than strong modern clinical efficacy. Keep the positioning around traditional calming use and avoid overclaiming a clean single-target GABA story.",
+  "primaryActions": [],
+  "mechanisms": [
+    "GABAergic signaling modulation",
+    "harman alkaloid and flavonoid CNS effects",
+    "anxiolytic receptor-pathway activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Sedation possible; avoid combining with alcohol, benzodiazepines, opioids, or other CNS depressants; avoid pregnancy.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "heavy sedative use"
+  ],
+  "interactions": [
+    "May potentiate benzodiazepines",
+    "sleep aids",
+    "opioids",
+    "alcohol",
+    "and other CNS depressants."
+  ],
+  "preparation": "Aerial-part tea, tincture, capsules, and standardized extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

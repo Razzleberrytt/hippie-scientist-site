@@ -1,0 +1,22 @@
+{
+  "id": "elephantopin",
+  "slug": "elephantopin",
+  "name": "elephantopin",
+  "summary": "Sesquiterpene lactone associated with inflammatory signaling control.",
+  "description": "Sesquiterpene lactone associated with inflammatory signaling control.",
+  "compoundClass": "sesquiterpene lactone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "MAPK"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

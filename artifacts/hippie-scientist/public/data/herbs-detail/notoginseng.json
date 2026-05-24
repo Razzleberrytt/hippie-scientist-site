@@ -1,0 +1,29 @@
+{
+  "name": "notoginseng",
+  "slug": "notoginseng",
+  "summary": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+  "description": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+  "primaryActions": [],
+  "mechanisms": [
+    "vascular support",
+    "recovery support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May affect platelet aggregation and bleeding risk; use caution with anticoagulants/antiplatelets, before surgery, and during pregnancy unless supervised.",
+  "contraindications": [
+    "Pregnancy",
+    "anticoagulant/antiplatelet use without clinician review",
+    "upcoming surgery"
+  ],
+  "interactions": [
+    "May interact with anticoagulants",
+    "antiplatelets",
+    "antihypertensives",
+    "and antidiabetics."
+  ],
+  "preparation": "Root powder, decoction, extracts; saponin-standardized products exist.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

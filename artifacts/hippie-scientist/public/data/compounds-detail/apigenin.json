@@ -1,0 +1,27 @@
+{
+  "id": "apigenin",
+  "slug": "apigenin",
+  "name": "apigenin",
+  "summary": "Apigenin is a flavone found in chamomile, parsley, and related plants, with frequent discussion in neuroinflammatory and calm-support research. The evidence base is still dominated by in vitro and animal work despite clear mechanistic interest.",
+  "description": "Flavone found in chamomile and parsley, frequently linked to GABAergic and PI3K/Akt-related effects.",
+  "compoundClass": "flavone polyphenol",
+  "mechanisms": [
+    "GABA-A receptor modulation",
+    "PI3K/Akt modulation",
+    "NF-kB suppression",
+    "Nrf2-related antioxidant signaling"
+  ],
+  "targets": [
+    "GABAergic signaling",
+    "NF-κB",
+    "Nrf2",
+    "PI3K/Akt",
+    "inflammatory mediators"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Food exposure is low-risk; concentrated apigenin may be sedating and may interact with sedatives or CYP-metabolized drugs. Pregnancy/breastfeeding caution at supplement doses.",
+  "evidenceLevel": "preclinical; human_limited",
+  "relatedCompounds": []
+}

@@ -1,0 +1,26 @@
+{
+  "name": "cranberry",
+  "slug": "cranberry",
+  "summary": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+  "description": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+  "primaryActions": [],
+  "mechanisms": [
+    "proanthocyanidin anti-adhesion effects against uropathogenic E. coli",
+    "urinary-tract anti-adherence signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "GI upset possible; caution with recurrent kidney stones and warfarin-sensitive patients; avoid treating active UTI without care.",
+  "contraindications": [
+    "History of kidney stones/oxalate stones",
+    "warfarin use requires clinician review"
+  ],
+  "interactions": [
+    "Warfarin interaction concern is reported",
+    "monitor INR if used with anticoagulation."
+  ],
+  "preparation": "Juice, capsules, tablets, and PAC-standardized extracts; sugar content varies in juices.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

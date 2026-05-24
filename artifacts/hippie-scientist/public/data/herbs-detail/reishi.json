@@ -1,0 +1,28 @@
+{
+  "name": "reishi",
+  "slug": "reishi",
+  "summary": "Immune modulation.",
+  "description": "Immune modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "β-glucan immune modulation",
+    "triterpene effects on inflammatory signaling",
+    "antioxidant pathways"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "GI upset, dizziness, rash possible; caution with anticoagulants/antiplatelets, immunosuppressants, and perioperative use.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

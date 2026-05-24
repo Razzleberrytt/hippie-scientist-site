@@ -1,0 +1,30 @@
+{
+  "compounds_update": [
+    {
+      "id": "muscimol",
+      "name": "Muscimol"
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine"
+    }
+  ],
+  "herbs_update": [
+    {
+      "id": "amanita_muscaria",
+      "name": "Amanita muscaria"
+    }
+  ],
+  "compounds_new": [
+    {
+      "id": "valerenic_acid",
+      "name": "Valerenic acid"
+    }
+  ],
+  "notes": {
+    "data_quality": "Conservative structured entries",
+    "gaps_remaining": [
+      "pharmacokinetics missing"
+    ]
+  }
+}

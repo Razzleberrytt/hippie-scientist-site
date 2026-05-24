@@ -1,0 +1,28 @@
+{
+  "name": "mangifera indica",
+  "slug": "mangifera-indica",
+  "summary": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
+  "description": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "AMPK activation",
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

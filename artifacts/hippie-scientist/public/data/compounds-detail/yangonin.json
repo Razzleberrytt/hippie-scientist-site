@@ -1,0 +1,24 @@
+{
+  "id": "yangonin",
+  "slug": "yangonin",
+  "name": "yangonin",
+  "summary": "Yangonin is a kavalactone with cannabinoid-related and monoamine-associated signaling.",
+  "description": "Yangonin is a kavalactone with cannabinoid-related and monoamine-associated signaling.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "CB1 receptor modulation",
+    "MAO-B inhibition"
+  ],
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

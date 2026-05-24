@@ -1,0 +1,26 @@
+{
+  "name": "acerola",
+  "slug": "acerola",
+  "summary": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+  "description": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+  "primaryActions": [],
+  "mechanisms": [
+    "antioxidant",
+    "nutritive support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
+  "contraindications": [
+    "Kidney stone risk",
+    "iron overload conditions",
+    "G6PD deficiency caution with very high vitamin C dosing"
+  ],
+  "interactions": [
+    "May affect iron absorption and some lab results at high vitamin C intakes."
+  ],
+  "preparation": "Fruit powder, juice, extracts, and vitamin C-standardized products.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

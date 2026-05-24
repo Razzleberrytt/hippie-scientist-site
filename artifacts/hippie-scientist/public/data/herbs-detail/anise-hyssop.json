@@ -1,0 +1,25 @@
+{
+  "name": "anise hyssop",
+  "slug": "anise-hyssop",
+  "summary": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+  "description": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+  "primaryActions": [],
+  "mechanisms": [
+    "endocannabinoid_modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

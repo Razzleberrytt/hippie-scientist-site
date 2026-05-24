@@ -1,0 +1,25 @@
+{
+  "id": "garcinol",
+  "slug": "garcinol",
+  "name": "garcinol",
+  "summary": "Polyisoprenylated benzophenone linked to inflammatory and epigenetic signaling.",
+  "description": "Polyisoprenylated benzophenone linked to inflammatory and epigenetic signaling.",
+  "compoundClass": "xanthone / polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "HAT inhibition",
+    "STAT3 inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "antioxidant response",
+    "apoptosis signaling",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

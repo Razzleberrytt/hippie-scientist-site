@@ -1,0 +1,31 @@
+{
+  "name": "coptis",
+  "slug": "coptis",
+  "summary": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine.",
+  "description": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine.",
+  "primaryActions": [],
+  "mechanisms": [
+    "AMPK activation",
+    "NF-kB pathway inhibition",
+    "mitochondrial complex I inhibition",
+    "NF-κB inhibition",
+    "MAPK modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Berberine-containing herb; avoid in pregnancy/breastfeeding and infants. Caution with antidiabetic drugs, anticoagulants, CYP/P-gp substrates, and bilirubin-risk contexts.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "CYP/P-gp substrate medicines",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,31 @@
+{
+  "name": "coffee",
+  "slug": "coffee",
+  "summary": "Mechanism context: chlorogenic-acid AMPK/glucose-metabolism effects, caffeine adenosine-receptor antagonism, endothelial and antioxidant signaling. Safety: Caffeine can worsen insomnia, anxiety, reflux, palpitations, and hypertension in sensitive users; pregnancy dose limits apply.. Interactions tracked: May interact with stimulants, sedatives, beta-agonists.",
+  "description": "Mechanism context: chlorogenic-acid AMPK/glucose-metabolism effects, caffeine adenosine-receptor antagonism, endothelial and antioxidant signaling. Safety: Caffeine can worsen insomnia, anxiety, reflux, palpitations, and hypertension in sensitive users; pregnancy dose limits apply.. Interactions tracked: May interact with stimulants, sedatives, beta-agonists.",
+  "primaryActions": [],
+  "mechanisms": [
+    "chlorogenic-acid AMPK/glucose-metabolism effects",
+    "caffeine adenosine-receptor antagonism",
+    "endothelial and antioxidant signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Caffeine can worsen insomnia, anxiety, reflux, palpitations, and hypertension in sensitive users; pregnancy dose limits apply.",
+  "contraindications": [
+    "Severe caffeine sensitivity",
+    "uncontrolled arrhythmia/anxiety",
+    "pregnancy caffeine limits"
+  ],
+  "interactions": [
+    "May interact with stimulants",
+    "sedatives",
+    "beta-agonists",
+    "lithium",
+    "and CYP1A2 substrates."
+  ],
+  "preparation": "Brewed coffee, espresso, decaf, green coffee extract; caffeine/chlorogenic acid content varies.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

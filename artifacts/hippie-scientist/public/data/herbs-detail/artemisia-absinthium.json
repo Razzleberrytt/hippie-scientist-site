@@ -1,0 +1,29 @@
+{
+  "name": "artemisia absinthium",
+  "slug": "artemisia-absinthium",
+  "summary": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+  "description": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Thujone-mediated GABA-A antagonism",
+    "bitter sesquiterpene lactone digestive signaling",
+    "TRP channel interaction",
+    "inflammatory pathway modulation."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Thujone-containing wormwood can cause seizures/neurotoxicity at high doses; avoid in pregnancy, breastfeeding, seizure disorders, children, and with alcohol, sedatives, or other CNS-active drugs.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "seizure disorder or sedative/alcohol use"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

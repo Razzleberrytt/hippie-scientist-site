@@ -1,0 +1,22 @@
+{
+  "id": "atractylenolide-iii",
+  "slug": "atractylenolide-iii",
+  "name": "atractylenolide iii",
+  "summary": "Sesquiterpene lactone associated with immune and cytoprotective pathways.",
+  "description": "Sesquiterpene lactone associated with immune and cytoprotective pathways.",
+  "compoundClass": "terpenoid",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "PI3K/Akt"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

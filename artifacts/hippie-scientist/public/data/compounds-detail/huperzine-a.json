@@ -1,0 +1,25 @@
+{
+  "id": "huperzine-a",
+  "slug": "huperzine-a",
+  "name": "huperzine a",
+  "summary": "Lycopodium alkaloid widely associated with cholinergic and glutamatergic signaling.",
+  "description": "Lycopodium alkaloid widely associated with cholinergic and glutamatergic signaling.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "acetylcholinesterase inhibition",
+    "NMDA receptor modulation"
+  ],
+  "targets": [
+    "CNS/autonomic receptors",
+    "ion channels",
+    "CYP/P-gp",
+    "inflammatory signaling",
+    "apoptosis pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

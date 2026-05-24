@@ -1,0 +1,25 @@
+{
+  "id": "piperlongumine",
+  "slug": "piperlongumine",
+  "name": "piperlongumine",
+  "summary": "Amide alkaloid from long pepper associated with redox-stress and inflammatory signaling.",
+  "description": "Amide alkaloid from long pepper associated with redox-stress and inflammatory signaling.",
+  "compoundClass": "alkaloid / amide",
+  "mechanisms": [
+    "ROS-mediated signaling modulation",
+    "STAT3 inhibition",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "ROS stress-response pathways",
+    "NF-κB",
+    "apoptosis signaling",
+    "glutathione/oxidative-stress balance"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Primarily preclinical; isolated high-dose human safety is not established. Avoid pregnancy, liver disease, and complex oncology regimens without supervision.",
+  "evidenceLevel": "preclinical_high_caution",
+  "relatedCompounds": []
+}

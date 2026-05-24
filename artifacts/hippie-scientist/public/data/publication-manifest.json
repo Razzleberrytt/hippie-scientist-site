@@ -1,0 +1,1039 @@
+{
+  "generatedAt": "2026-05-24T03:57:35.986Z",
+  "source": "workbook+summary-indexes",
+  "entities": {
+    "herbs": [
+      {
+        "slug": "acerola",
+        "name": "Acerola"
+      },
+      {
+        "slug": "agarikon",
+        "name": "Agarikon"
+      },
+      {
+        "slug": "ajwain",
+        "name": "Ajwain"
+      },
+      {
+        "slug": "aloe-vera",
+        "name": "Aloe Vera"
+      },
+      {
+        "slug": "american-yellow-lotus",
+        "name": "American Yellow Lotus"
+      },
+      {
+        "slug": "andrographis-paniculata",
+        "name": "Andrographis Paniculata"
+      },
+      {
+        "slug": "anemarrhena-asphodeloides",
+        "name": "Anemarrhena Asphodeloides"
+      },
+      {
+        "slug": "angelica-archangelica",
+        "name": "Angelica Archangelica"
+      },
+      {
+        "slug": "angelica-dahurica",
+        "name": "Angelica Dahurica"
+      },
+      {
+        "slug": "angelica-pubescens",
+        "name": "Angelica Pubescens"
+      },
+      {
+        "slug": "angelica-root",
+        "name": "Angelica Root"
+      },
+      {
+        "slug": "angelica-sinensis",
+        "name": "Angelica Sinensis"
+      },
+      {
+        "slug": "anise-hyssop",
+        "name": "Anise Hyssop"
+      },
+      {
+        "slug": "arjuna",
+        "name": "Arjuna"
+      },
+      {
+        "slug": "artemisia-absinthium",
+        "name": "Artemisia Absinthium"
+      },
+      {
+        "slug": "artemisia-annua",
+        "name": "Artemisia Annua"
+      },
+      {
+        "slug": "artemisia-capillaris",
+        "name": "Artemisia Capillaris"
+      },
+      {
+        "slug": "artichoke",
+        "name": "Artichoke"
+      },
+      {
+        "slug": "ashitaba",
+        "name": "Ashitaba"
+      },
+      {
+        "slug": "ashoka",
+        "name": "Ashoka"
+      },
+      {
+        "slug": "ashwagandha",
+        "name": "Ashwagandha (Withania somnifera)"
+      },
+      {
+        "slug": "astragalus",
+        "name": "Astragalus"
+      },
+      {
+        "slug": "astragalus-membranaceus",
+        "name": "Astragalus Membranaceus"
+      },
+      {
+        "slug": "atractylodes",
+        "name": "Atractylodes"
+      },
+      {
+        "slug": "atractylodes-macrocephala",
+        "name": "Atractylodes Macrocephala"
+      },
+      {
+        "slug": "bacopa",
+        "name": "Bacopa"
+      },
+      {
+        "slug": "bael",
+        "name": "Bael"
+      },
+      {
+        "slug": "bayberry",
+        "name": "Bayberry"
+      },
+      {
+        "slug": "berberis",
+        "name": "Berberis"
+      },
+      {
+        "slug": "berberis-vulgaris",
+        "name": "Berberis Vulgaris"
+      },
+      {
+        "slug": "black-cohosh",
+        "name": "Black Cohosh (Actaea racemosa)"
+      },
+      {
+        "slug": "black-seed",
+        "name": "Black Seed"
+      },
+      {
+        "slug": "black-tea",
+        "name": "Black Tea"
+      },
+      {
+        "slug": "blue-lotus",
+        "name": "Blue Lotus"
+      },
+      {
+        "slug": "blueberry",
+        "name": "Blueberry"
+      },
+      {
+        "slug": "boldo",
+        "name": "Boldo"
+      },
+      {
+        "slug": "boswellia-carterii",
+        "name": "Boswellia Carterii"
+      },
+      {
+        "slug": "boswellia-serrata",
+        "name": "Boswellia"
+      },
+      {
+        "slug": "brassica-juncea",
+        "name": "Brassica Juncea"
+      },
+      {
+        "slug": "brassica-oleracea",
+        "name": "Brassica Oleracea"
+      },
+      {
+        "slug": "buckwheat",
+        "name": "Buckwheat"
+      },
+      {
+        "slug": "bupleurum",
+        "name": "Bupleurum"
+      },
+      {
+        "slug": "bupleurum-falcatum",
+        "name": "Bupleurum Falcatum"
+      },
+      {
+        "slug": "burdock",
+        "name": "Burdock"
+      },
+      {
+        "slug": "butterbur",
+        "name": "Butterbur"
+      },
+      {
+        "slug": "calamus",
+        "name": "Calamus"
+      },
+      {
+        "slug": "calendula",
+        "name": "Calendula"
+      },
+      {
+        "slug": "capsicum-frutescens",
+        "name": "Capsicum Frutescens"
+      },
+      {
+        "slug": "caraway",
+        "name": "Caraway"
+      },
+      {
+        "slug": "carob",
+        "name": "Carob"
+      },
+      {
+        "slug": "cassia-alata",
+        "name": "Cassia Alata"
+      },
+      {
+        "slug": "cat-s-claw",
+        "name": "Cat's Claw"
+      },
+      {
+        "slug": "catuba",
+        "name": "Catuba"
+      },
+      {
+        "slug": "cayenne",
+        "name": "Cayenne"
+      },
+      {
+        "slug": "celastrus-paniculatus",
+        "name": "Celastrus Paniculatus"
+      },
+      {
+        "slug": "chaga",
+        "name": "Chaga"
+      },
+      {
+        "slug": "chinese-skullcap",
+        "name": "Chinese Skullcap"
+      },
+      {
+        "slug": "chuanxiong",
+        "name": "Chuanxiong"
+      },
+      {
+        "slug": "cichorium-intybus",
+        "name": "Cichorium Intybus"
+      },
+      {
+        "slug": "cissus",
+        "name": "Cissus"
+      },
+      {
+        "slug": "cistanche",
+        "name": "Cistanche"
+      },
+      {
+        "slug": "cistanche-deserticola",
+        "name": "Cistanche Deserticola"
+      },
+      {
+        "slug": "citrus-bergamia",
+        "name": "Citrus Bergamia"
+      },
+      {
+        "slug": "citrus-sinensis",
+        "name": "Citrus Sinensis"
+      },
+      {
+        "slug": "clove",
+        "name": "Clove"
+      },
+      {
+        "slug": "cnidium-monnieri",
+        "name": "Cnidium Monnieri"
+      },
+      {
+        "slug": "codonopsis",
+        "name": "Codonopsis"
+      },
+      {
+        "slug": "coffee-cherry",
+        "name": "Coffee Cherry"
+      },
+      {
+        "slug": "coleus-forskohlii",
+        "name": "Coleus Forskohlii"
+      },
+      {
+        "slug": "commiphora-mukul",
+        "name": "Commiphora Mukul"
+      },
+      {
+        "slug": "coptis",
+        "name": "Coptis"
+      },
+      {
+        "slug": "coptis-chinensis",
+        "name": "Coptis Chinensis"
+      },
+      {
+        "slug": "coriandrum-sativum",
+        "name": "Coriandrum Sativum"
+      },
+      {
+        "slug": "cornus-officinalis",
+        "name": "Cornus Officinalis"
+      },
+      {
+        "slug": "corydalis",
+        "name": "Corydalis"
+      },
+      {
+        "slug": "cranberry",
+        "name": "Cranberry (Vaccinium macrocarpon)"
+      },
+      {
+        "slug": "crocus-sativus",
+        "name": "Crocus Sativus"
+      },
+      {
+        "slug": "curcuma-wenyujin",
+        "name": "Curcuma Wenyujin"
+      },
+      {
+        "slug": "curcuma-zedoaria",
+        "name": "Curcuma Zedoaria"
+      },
+      {
+        "slug": "curry-leaf",
+        "name": "Curry Leaf"
+      },
+      {
+        "slug": "cyclea-peltata",
+        "name": "Cyclea Peltata"
+      },
+      {
+        "slug": "cymbopogon-citratus",
+        "name": "Cymbopogon Citratus"
+      },
+      {
+        "slug": "damiana",
+        "name": "Damiana"
+      },
+      {
+        "slug": "dandelion",
+        "name": "Dandelion"
+      },
+      {
+        "slug": "danshen",
+        "name": "Danshen"
+      },
+      {
+        "slug": "daphne-odora",
+        "name": "Daphne Odora"
+      },
+      {
+        "slug": "dendrobium",
+        "name": "Dendrobium"
+      },
+      {
+        "slug": "dong-quai",
+        "name": "Dong Quai"
+      },
+      {
+        "slug": "echinacea-purpurea",
+        "name": "Echinacea (Echinacea purpurea)"
+      },
+      {
+        "slug": "elderberry",
+        "name": "Elderberry"
+      },
+      {
+        "slug": "elecampane",
+        "name": "Elecampane"
+      },
+      {
+        "slug": "elephantopus-scaber",
+        "name": "Elephantopus Scaber"
+      },
+      {
+        "slug": "eleuthero",
+        "name": "Eleuthero"
+      },
+      {
+        "slug": "embelia-ribes",
+        "name": "Embelia Ribes"
+      },
+      {
+        "slug": "epimedium",
+        "name": "Epimedium"
+      },
+      {
+        "slug": "epimedium-brevicornum",
+        "name": "Epimedium Brevicornum"
+      },
+      {
+        "slug": "eucalyptus",
+        "name": "Eucalyptus"
+      },
+      {
+        "slug": "eucommia",
+        "name": "Eucommia"
+      },
+      {
+        "slug": "fennel",
+        "name": "Fennel"
+      },
+      {
+        "slug": "feverfew",
+        "name": "Feverfew"
+      },
+      {
+        "slug": "ficus-carica",
+        "name": "Ficus Carica"
+      },
+      {
+        "slug": "fingerroot",
+        "name": "Fingerroot"
+      },
+      {
+        "slug": "fraxinus-rhynchophylla",
+        "name": "Fraxinus Rhynchophylla"
+      },
+      {
+        "slug": "galangal",
+        "name": "Galangal"
+      },
+      {
+        "slug": "garcinia-indica",
+        "name": "Garcinia Indica"
+      },
+      {
+        "slug": "garcinia-mangostana",
+        "name": "Garcinia Mangostana"
+      },
+      {
+        "slug": "garlic",
+        "name": "Garlic (Allium sativum)"
+      },
+      {
+        "slug": "gastrodia",
+        "name": "Gastrodia"
+      },
+      {
+        "slug": "ginger",
+        "name": "Ginger (Zingiber officinale)"
+      },
+      {
+        "slug": "ginkgo-biloba",
+        "name": "Ginkgo"
+      },
+      {
+        "slug": "glycyrrhiza-glabra",
+        "name": "Glycyrrhiza Glabra"
+      },
+      {
+        "slug": "goldenseal",
+        "name": "Goldenseal"
+      },
+      {
+        "slug": "gotu-kola",
+        "name": "Gotu Kola (Centella asiatica)"
+      },
+      {
+        "slug": "grapefruit",
+        "name": "Grapefruit"
+      },
+      {
+        "slug": "guarana",
+        "name": "Guarana"
+      },
+      {
+        "slug": "guayusa",
+        "name": "Guayusa"
+      },
+      {
+        "slug": "gudmar",
+        "name": "Gudmar"
+      },
+      {
+        "slug": "gymnema-sylvestre",
+        "name": "Gymnema"
+      },
+      {
+        "slug": "harpagophytum-procumbens",
+        "name": "Harpagophytum Procumbens"
+      },
+      {
+        "slug": "holy-basil",
+        "name": "Holy Basil / Tulsi (Ocimum tenuiflorum)"
+      },
+      {
+        "slug": "holy-basil-purple",
+        "name": "Holy Basil Purple"
+      },
+      {
+        "slug": "holy-basil-seed",
+        "name": "Holy Basil Seed"
+      },
+      {
+        "slug": "honeysuckle",
+        "name": "Honeysuckle"
+      },
+      {
+        "slug": "hops",
+        "name": "Hops"
+      },
+      {
+        "slug": "horse-chestnut",
+        "name": "Horse Chestnut"
+      },
+      {
+        "slug": "houttuynia",
+        "name": "Houttuynia"
+      },
+      {
+        "slug": "huperzia-serrata",
+        "name": "Huperzia Serrata"
+      },
+      {
+        "slug": "hypericum-perforatum",
+        "name": "Hypericum Perforatum"
+      },
+      {
+        "slug": "isatis",
+        "name": "Isatis"
+      },
+      {
+        "slug": "japanese-knotweed",
+        "name": "Japanese Knotweed"
+      },
+      {
+        "slug": "jatamansi",
+        "name": "Jatamansi"
+      },
+      {
+        "slug": "jujube",
+        "name": "Jujube"
+      },
+      {
+        "slug": "juniper",
+        "name": "Juniper"
+      },
+      {
+        "slug": "kanna",
+        "name": "Kanna"
+      },
+      {
+        "slug": "kuding-tea",
+        "name": "Kuding Tea"
+      },
+      {
+        "slug": "kudzu",
+        "name": "Kudzu"
+      },
+      {
+        "slug": "lagerstroemia-speciosa",
+        "name": "Banaba"
+      },
+      {
+        "slug": "lavandula-angustifolia",
+        "name": "Lavender"
+      },
+      {
+        "slug": "lawsonia-inermis",
+        "name": "Lawsonia Inermis"
+      },
+      {
+        "slug": "lemon-verbena",
+        "name": "Lemon Verbena"
+      },
+      {
+        "slug": "lemongrass",
+        "name": "Lemongrass"
+      },
+      {
+        "slug": "licorice",
+        "name": "Licorice"
+      },
+      {
+        "slug": "ligusticum-chuanxiong",
+        "name": "Ligusticum Chuanxiong"
+      },
+      {
+        "slug": "lithospermum-erythrorhizon",
+        "name": "Lithospermum Erythrorhizon"
+      },
+      {
+        "slug": "lobelia-inflata",
+        "name": "Lobelia Inflata"
+      },
+      {
+        "slug": "longan",
+        "name": "Longan"
+      },
+      {
+        "slug": "luo-han-guo",
+        "name": "Luo Han Guo"
+      },
+      {
+        "slug": "maca",
+        "name": "Maca (Lepidium meyenii)"
+      },
+      {
+        "slug": "maitake-d-fraction",
+        "name": "Maitake D-fraction"
+      },
+      {
+        "slug": "mangifera-indica",
+        "name": "Mangifera Indica"
+      },
+      {
+        "slug": "mangosteen",
+        "name": "Mangosteen"
+      },
+      {
+        "slug": "maral-root",
+        "name": "Maral Root"
+      },
+      {
+        "slug": "marshmallow",
+        "name": "Marshmallow"
+      },
+      {
+        "slug": "matricaria-chamomilla",
+        "name": "Chamomile"
+      },
+      {
+        "slug": "milk-oats",
+        "name": "Milk Oats"
+      },
+      {
+        "slug": "milk-thistle",
+        "name": "Milk Thistle (Silybum marianum)"
+      },
+      {
+        "slug": "morinda-citrifolia",
+        "name": "Morinda Citrifolia"
+      },
+      {
+        "slug": "moringa",
+        "name": "Moringa"
+      },
+      {
+        "slug": "morus-alba",
+        "name": "Morus Alba"
+      },
+      {
+        "slug": "mucuna",
+        "name": "Mucuna"
+      },
+      {
+        "slug": "mugwort",
+        "name": "Mugwort"
+      },
+      {
+        "slug": "muira-puama",
+        "name": "Muira Puama"
+      },
+      {
+        "slug": "mulberry-leaf",
+        "name": "Mulberry Leaf"
+      },
+      {
+        "slug": "myristica-fragrans",
+        "name": "Myristica Fragrans"
+      },
+      {
+        "slug": "myrtle",
+        "name": "Myrtle"
+      },
+      {
+        "slug": "neem",
+        "name": "Neem"
+      },
+      {
+        "slug": "nelumbo-nucifera",
+        "name": "Nelumbo Nucifera"
+      },
+      {
+        "slug": "nettle-root",
+        "name": "Nettle Root"
+      },
+      {
+        "slug": "nicotiana-glauca",
+        "name": "Nicotiana Glauca"
+      },
+      {
+        "slug": "nicotiana-tabacum",
+        "name": "Nicotiana Tabacum"
+      },
+      {
+        "slug": "nigella-sativa",
+        "name": "Nigella Sativa"
+      },
+      {
+        "slug": "noni",
+        "name": "Noni"
+      },
+      {
+        "slug": "notoginseng",
+        "name": "Notoginseng"
+      },
+      {
+        "slug": "oatstraw",
+        "name": "Oatstraw"
+      },
+      {
+        "slug": "ocimum-basilicum",
+        "name": "Ocimum Basilicum"
+      },
+      {
+        "slug": "ocotea-odorifera",
+        "name": "Ocotea Odorifera"
+      },
+      {
+        "slug": "olea-europaea",
+        "name": "Olive Leaf"
+      },
+      {
+        "slug": "ophiopogon",
+        "name": "Ophiopogon"
+      },
+      {
+        "slug": "orange-peel",
+        "name": "Orange Peel"
+      },
+      {
+        "slug": "oregano",
+        "name": "Oregano"
+      },
+      {
+        "slug": "paeonia-lactiflora",
+        "name": "Paeonia Lactiflora"
+      },
+      {
+        "slug": "paeonia-suffruticosa",
+        "name": "Paeonia Suffruticosa"
+      },
+      {
+        "slug": "panax-ginseng",
+        "name": "Asian Ginseng"
+      },
+      {
+        "slug": "papaya-leaf",
+        "name": "Papaya Leaf"
+      },
+      {
+        "slug": "parsley",
+        "name": "Parsley"
+      },
+      {
+        "slug": "pastinaca-sativa",
+        "name": "Pastinaca Sativa"
+      },
+      {
+        "slug": "pau-d-arco",
+        "name": "Pau D'arco"
+      },
+      {
+        "slug": "peppermint",
+        "name": "Peppermint (Mentha × piperita)"
+      },
+      {
+        "slug": "perilla",
+        "name": "Perilla"
+      },
+      {
+        "slug": "phellodendron",
+        "name": "Phellodendron"
+      },
+      {
+        "slug": "phellodendron-amurense",
+        "name": "Phellodendron Amurense"
+      },
+      {
+        "slug": "piper-longum",
+        "name": "Piper Longum"
+      },
+      {
+        "slug": "piper-methysticum",
+        "name": "Kava"
+      },
+      {
+        "slug": "piper-nigrum",
+        "name": "Black Pepper"
+      },
+      {
+        "slug": "plantago-lanceolata",
+        "name": "Plantago Lanceolata"
+      },
+      {
+        "slug": "plantago-major",
+        "name": "Plantago Major"
+      },
+      {
+        "slug": "plumbago-zeylanica",
+        "name": "Plumbago Zeylanica"
+      },
+      {
+        "slug": "polygala",
+        "name": "Polygala"
+      },
+      {
+        "slug": "pomegranate",
+        "name": "Pomegranate"
+      },
+      {
+        "slug": "poria",
+        "name": "Poria"
+      },
+      {
+        "slug": "psoralea-corylifolia",
+        "name": "Psoralea Corylifolia"
+      },
+      {
+        "slug": "psyllium",
+        "name": "Psyllium"
+      },
+      {
+        "slug": "pueraria-lobata",
+        "name": "Pueraria Lobata"
+      },
+      {
+        "slug": "pueraria-mirifica",
+        "name": "Pueraria Mirifica"
+      },
+      {
+        "slug": "punarnava",
+        "name": "Punarnava"
+      },
+      {
+        "slug": "raspberry-leaf",
+        "name": "Raspberry Leaf"
+      },
+      {
+        "slug": "red-clover",
+        "name": "Red Clover"
+      },
+      {
+        "slug": "rehmannia-glutinosa",
+        "name": "Rehmannia Glutinosa"
+      },
+      {
+        "slug": "rehmannia-prepared",
+        "name": "Rehmannia Prepared"
+      },
+      {
+        "slug": "reishi",
+        "name": "Reishi (Ganoderma lucidum)"
+      },
+      {
+        "slug": "rheum-palmatum",
+        "name": "Rheum Palmatum"
+      },
+      {
+        "slug": "rhodiola",
+        "name": "Rhodiola"
+      },
+      {
+        "slug": "rice-bran",
+        "name": "Rice Bran"
+      },
+      {
+        "slug": "rooibos",
+        "name": "Rooibos"
+      },
+      {
+        "slug": "rose-hips",
+        "name": "Rose Hips"
+      },
+      {
+        "slug": "roselle-seed",
+        "name": "Roselle Seed"
+      },
+      {
+        "slug": "rosemary",
+        "name": "Rosemary"
+      },
+      {
+        "slug": "saffron",
+        "name": "Saffron"
+      },
+      {
+        "slug": "sage",
+        "name": "Sage"
+      },
+      {
+        "slug": "saw-palmetto",
+        "name": "Saw Palmetto (Serenoa repens)"
+      },
+      {
+        "slug": "schisandra",
+        "name": "Schisandra (Schisandra chinensis)"
+      },
+      {
+        "slug": "schisandra-berry",
+        "name": "Schisandra Berry"
+      },
+      {
+        "slug": "schisandra-chinensis",
+        "name": "Schisandra Chinensis"
+      },
+      {
+        "slug": "scutellaria-baicalensis",
+        "name": "Scutellaria Baicalensis"
+      },
+      {
+        "slug": "selaginella-tamariscina",
+        "name": "Selaginella Tamariscina"
+      },
+      {
+        "slug": "serenoa-repens",
+        "name": "Serenoa Repens"
+      },
+      {
+        "slug": "shankhpushpi",
+        "name": "Shankhpushpi"
+      },
+      {
+        "slug": "shatavari",
+        "name": "Shatavari"
+      },
+      {
+        "slug": "sophora-alopecuroides",
+        "name": "Sophora Alopecuroides"
+      },
+      {
+        "slug": "sophora-flavescens",
+        "name": "Sophora Flavescens"
+      },
+      {
+        "slug": "soursop",
+        "name": "Soursop"
+      },
+      {
+        "slug": "soybean",
+        "name": "Soybean"
+      },
+      {
+        "slug": "st-johns-wort",
+        "name": "St. John's Wort (Hypericum perforatum)"
+      },
+      {
+        "slug": "stellera-chamaejasme",
+        "name": "Stellera Chamaejasme"
+      },
+      {
+        "slug": "stephania-cepharantha",
+        "name": "Stephania Cepharantha"
+      },
+      {
+        "slug": "stephania-japonica",
+        "name": "Stephania Japonica"
+      },
+      {
+        "slug": "stephania-tetrandra",
+        "name": "Stephania Tetrandra"
+      },
+      {
+        "slug": "suma",
+        "name": "Suma"
+      },
+      {
+        "slug": "syzygium-aromaticum",
+        "name": "Syzygium Aromaticum"
+      },
+      {
+        "slug": "tamarind",
+        "name": "Tamarind"
+      },
+      {
+        "slug": "thunder-god-vine",
+        "name": "Thunder God Vine"
+      },
+      {
+        "slug": "thyme",
+        "name": "Thyme"
+      },
+      {
+        "slug": "tongkat-ali",
+        "name": "Tongkat Ali"
+      },
+      {
+        "slug": "tribulus-terrestris",
+        "name": "Tribulus (Tribulus terrestris)"
+      },
+      {
+        "slug": "tripterygium-wilfordii",
+        "name": "Tripterygium Wilfordii"
+      },
+      {
+        "slug": "turkey-tail",
+        "name": "Turkey Tail"
+      },
+      {
+        "slug": "turmeric",
+        "name": "Turmeric (Curcuma longa)"
+      },
+      {
+        "slug": "valerian",
+        "name": "Valeriana officinalis"
+      },
+      {
+        "slug": "valeriana-officinalis",
+        "name": "Valerian"
+      },
+      {
+        "slug": "verbena-officinalis",
+        "name": "Verbena Officinalis"
+      },
+      {
+        "slug": "white-peony",
+        "name": "White Peony"
+      },
+      {
+        "slug": "wild-yam",
+        "name": "Wild Yam"
+      },
+      {
+        "slug": "wormwood",
+        "name": "Wormwood"
+      },
+      {
+        "slug": "yarrow",
+        "name": "Yarrow"
+      },
+      {
+        "slug": "yerba-mate",
+        "name": "Yerba Mate"
+      },
+      {
+        "slug": "yohimbe",
+        "name": "Yohimbe"
+      }
+    ],
+    "compounds": []
+  },
+  "counts": {
+    "herbs_total": 285,
+    "herbs_eligible": 256,
+    "compounds_total": 235,
+    "compounds_eligible": 0
+  }
+}

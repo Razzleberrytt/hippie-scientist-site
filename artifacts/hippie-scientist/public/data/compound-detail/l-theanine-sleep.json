@@ -1,0 +1,88 @@
+{
+  "slug": "l-theanine-sleep",
+  "name": "L-Theanine (Sleep Use)",
+  "summary": "L-theanine has limited-moderate evidence for sleep quality, especially stress-related sleep disturbance.",
+  "description": "Use-context row for L-theanine in sleep formulations.",
+  "effects": [
+    "focus",
+    "stress"
+  ],
+  "primary_effects": [
+    "focus",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Use caution with low blood pressure",
+    "sedative stacking",
+    "or strong calming blends"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "100-400",
+  "typical_dosage": "100-400",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for calm-focus support especially with caffeine"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "L-Theanine (Sleep Use) supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Pure L-theanine",
+    "100–200 mg per serving",
+    "caffeine-free unless intentionally paired"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

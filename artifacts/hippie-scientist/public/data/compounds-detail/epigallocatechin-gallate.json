@@ -1,0 +1,24 @@
+{
+  "id": "epigallocatechin-gallate",
+  "slug": "epigallocatechin-gallate",
+  "name": "epigallocatechin gallate",
+  "summary": "Major green tea catechin widely studied for metabolic and inflammatory pathway effects.",
+  "description": "Major green tea catechin widely studied for metabolic and inflammatory pathway effects.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "AMPK activation",
+    "NF-κB inhibition",
+    "EGFR modulation"
+  ],
+  "targets": [
+    "AMPK",
+    "EGFR",
+    "IKK complex"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "human / animal / in vitro",
+  "relatedCompounds": []
+}

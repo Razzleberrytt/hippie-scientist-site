@@ -1,0 +1,31 @@
+{
+  "name": "cnidium monnieri",
+  "slug": "cnidium-monnieri",
+  "summary": "Cnidium monnieri lean monograph row enriched in bulk mode.",
+  "description": "Cnidium monnieri lean monograph row enriched in bulk mode.",
+  "primaryActions": [],
+  "mechanisms": [
+    "PDE4 inhibition",
+    "PI3K/Akt modulation",
+    "acetylcholinesterase inhibition",
+    "voltage-gated calcium channel modulation",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "bleeding disorder or upcoming surgery"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "anticoagulants/antiplatelets",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

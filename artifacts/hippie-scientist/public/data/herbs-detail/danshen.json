@@ -1,0 +1,30 @@
+{
+  "name": "danshen",
+  "slug": "danshen",
+  "summary": "It is best framed around tanshinones and salvianolic acids with specific vascular-support positioning.",
+  "description": "It is best framed around tanshinones and salvianolic acids with specific vascular-support positioning.",
+  "primaryActions": [],
+  "mechanisms": [
+    "cardiovascular support",
+    "vascular support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May increase bleeding risk and alter blood pressure; use caution with anticoagulants/antiplatelets, antihypertensives, digoxin/heart medicines, and before surgery.",
+  "contraindications": [
+    "Pregnancy",
+    "anticoagulant/antiplatelet therapy without clinician review",
+    "upcoming surgery"
+  ],
+  "interactions": [
+    "May interact with warfarin",
+    "aspirin",
+    "antiplatelets",
+    "antihypertensives",
+    "and cardiovascular drugs."
+  ],
+  "preparation": "Root decoction, granules, injections in clinical settings, and standardized extracts; route matters greatly.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

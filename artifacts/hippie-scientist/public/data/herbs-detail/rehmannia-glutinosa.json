@@ -1,0 +1,28 @@
+{
+  "name": "rehmannia glutinosa",
+  "slug": "rehmannia-glutinosa",
+  "summary": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
+  "description": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "AMPK activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease",
+    "significant kidney disease or unstable electrolytes"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

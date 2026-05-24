@@ -1,0 +1,87 @@
+{
+  "slug": "coenzyme-q10-ubiquinol",
+  "name": "Ubiquinol CoQ10",
+  "summary": "Decision-ready summary: Ubiquinol CoQ10 is best framed for statin-associated muscle symptoms; heart failure support; mitochondrial fatigue; safety screen: warfarin or anticoagulant management; planned surgery.",
+  "description": "Ubiquinol CoQ10 supports heart; mitochondria; fatigue with high confidence in this merged decision layer.",
+  "effects": [
+    "energy",
+    "heart_health"
+  ],
+  "primary_effects": [
+    "energy",
+    "heart_health"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "moderate-high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "warfarin or anticoagulant management",
+    "planned surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "100–300 mg/day",
+  "typical_dosage": "100–300 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People focused on mitochondrial energy",
+    "migraine support",
+    "or statin-associated CoQ10 depletion"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Coenzyme Q10 Ubiquinol supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Ubiquinol or quality ubiquinone",
+    "softgel with fat",
+    "third-party tested"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

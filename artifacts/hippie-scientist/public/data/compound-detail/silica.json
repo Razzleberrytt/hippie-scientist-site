@@ -1,0 +1,69 @@
+{
+  "slug": "silica",
+  "name": "Silica",
+  "summary": "Bioavailable silicon forms such as orthosilicic acid have limited evidence for bone and connective tissue support.",
+  "description": "Silicon-related nutrient involved in collagen synthesis and bone formation biology.",
+  "effects": [
+    "skin_hair_nails"
+  ],
+  "primary_effects": [
+    "skin_hair_nails"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with kidney disease and pregnancy/breastfeeding due to limited supplemental safety data"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Orthosilicic acid/silicon doses vary; no general consumer dose should be assumed",
+  "typical_dosage": "Orthosilicic acid/silicon doses vary; no general consumer dose should be assumed",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only beauty/mineral profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Silica supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Orthosilicic acid or bioavailable silicon form disclosed",
+    "avoid vague hair/skin blends without dose"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

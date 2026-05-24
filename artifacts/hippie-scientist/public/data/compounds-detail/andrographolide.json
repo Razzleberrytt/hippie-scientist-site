@@ -1,0 +1,26 @@
+{
+  "id": "andrographolide",
+  "slug": "andrographolide",
+  "name": "andrographolide",
+  "summary": "Diterpene lactone from andrographis with strong pathway-level inflammatory signaling effects.",
+  "description": "Diterpene lactone from andrographis with strong pathway-level inflammatory signaling effects.",
+  "compoundClass": "labdane diterpenoid lactone",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "JAK/STAT modulation",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "Nrf2",
+    "JAK/STAT",
+    "MAPK",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Human evidence is mostly from Andrographis extracts. Potential allergy, GI upset, and rare hypersensitivity; avoid pregnancy and caution with immunosuppressants/anticoagulants.",
+  "evidenceLevel": "human_indirect_from_andrographis; preclinical",
+  "relatedCompounds": []
+}

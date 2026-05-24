@@ -1,0 +1,27 @@
+{
+  "name": "morus alba",
+  "slug": "morus-alba",
+  "summary": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation.",
+  "description": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "1-deoxynojirimycin α-glucosidase inhibition",
+    "postprandial glucose modulation",
+    "AMPK and lipid-metabolism effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May potentiate glucose-lowering drugs; GI effects possible; pregnancy safety uncertain.",
+  "contraindications": [
+    "Hypoglycemia risk",
+    "pregnancy/breastfeeding without clinician guidance"
+  ],
+  "interactions": [
+    "May potentiate antidiabetic drugs and other alpha-glucosidase inhibitors",
+    "monitor glucose."
+  ],
+  "preparation": "Leaf tea, powder, tablets, and extracts standardized to DNJ or flavonoids.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

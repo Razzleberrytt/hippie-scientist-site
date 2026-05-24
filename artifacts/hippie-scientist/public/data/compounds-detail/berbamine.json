@@ -1,0 +1,22 @@
+{
+  "id": "berbamine",
+  "slug": "berbamine",
+  "name": "berbamine",
+  "summary": "Bis-benzylisoquinoline alkaloid from barberry-type plants with anti-inflammatory and signaling-modulatory activity.",
+  "description": "Bis-benzylisoquinoline alkaloid from barberry-type plants with anti-inflammatory and signaling-modulatory activity.",
+  "compoundClass": "alkaloid",
+  "mechanisms": [
+    "JAK/STAT inhibition",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "NF-κB",
+    "JAK/STAT"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Isolated alkaloid exposure may affect CYP/P-gp handling, glucose, blood pressure, and GI tolerance; avoid pregnancy/breastfeeding unless clinician-directed.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

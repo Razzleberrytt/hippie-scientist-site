@@ -1,0 +1,89 @@
+{
+  "slug": "silymarin",
+  "name": "Silymarin",
+  "summary": "Decision-ready summary: Silymarin is best framed for liver enzyme support context; antioxidant liver support; toxin-exposure research context; safety screen: ragweed allergy; estrogen-sensitive conditions; medication review.",
+  "description": "Silymarin supports liver support; antioxidant with moderate confidence in this merged decision layer.",
+  "effects": [
+    "inflammation",
+    "liver_health"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "liver_health"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "ragweed allergy",
+    "estrogen-sensitive conditions",
+    "medication review"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "140–420 mg/day standardized extract",
+  "typical_dosage": "140–420 mg/day standardized extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for inflammation or pain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Silymarin supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Legalon-style standardized silymarin",
+    "active content disclosed",
+    "avoid detox/hangover positioning"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

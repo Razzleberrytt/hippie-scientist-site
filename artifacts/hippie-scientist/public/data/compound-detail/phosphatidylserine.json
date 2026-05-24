@@ -1,0 +1,98 @@
+{
+  "slug": "phosphatidylserine",
+  "name": "Phosphatidylserine",
+  "summary": "Decision-ready summary: Phosphatidylserine is best framed for age-related memory support; stress response; exercise cortisol context; safety screen: anticoagulants caution; soy allergy if soy-derived.",
+  "description": "Phosphatidylserine supports memory; stress; cognition with moderate confidence in this merged decision layer.",
+  "effects": [
+    "brain_health",
+    "stress"
+  ],
+  "primary_effects": [
+    "brain_health",
+    "stress"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "anticoagulants caution",
+    "soy allergy if soy-derived"
+  ],
+  "interactions": [
+    "Limited data."
+  ],
+  "side_effects": [],
+  "dosage": "300 mg/day used in memory/cognition contexts; higher doses studied for stress/cortisol response",
+  "typical_dosage": "300 mg/day used in memory/cognition contexts; higher doses studied for stress/cortisol response",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority cognitive/stress support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Phosphatidylserine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Phosphatidylserine dose clearly listed",
+    "soy-free/sunflower source if needed",
+    "avoid brain blends hiding PS amount"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

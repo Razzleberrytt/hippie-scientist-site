@@ -1,0 +1,95 @@
+{
+  "slug": "panax-ginseng-extract",
+  "name": "Panax Ginseng Extract",
+  "summary": "Panax Ginseng Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Neurotransmitter Modulation; Vascular Function Support; Glucose Metabolism Support; Endothelial Function Support, not treatment claims.",
+  "description": "Panax Ginseng Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Neurotransmitter Modulation; Vascular Function Support; Glucose Metabolism Support; Endothelial Function Support, not treatment claims.",
+  "effects": [
+    "cognition",
+    "energy"
+  ],
+  "primary_effects": [
+    "cognition",
+    "energy"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Insomnia",
+    "GI upset",
+    "and hypoglycemia possible",
+    "caution anticoagulants and diabetes medications."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "200-400 mg/day",
+  "typical_dosage": "200-400 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard energy/cognition support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

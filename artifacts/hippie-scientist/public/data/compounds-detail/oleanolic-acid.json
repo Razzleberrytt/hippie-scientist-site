@@ -1,0 +1,26 @@
+{
+  "id": "oleanolic-acid",
+  "slug": "oleanolic-acid",
+  "name": "oleanolic acid",
+  "summary": "Pentacyclic triterpene associated with cytoprotective and inflammatory signaling control.",
+  "description": "Pentacyclic triterpene associated with cytoprotective and inflammatory signaling control.",
+  "compoundClass": "triterpene / triterpenoid acid",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-κB inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "AMPK",
+    "PPAR",
+    "inflammatory cytokines",
+    "apoptosis signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

@@ -1,0 +1,27 @@
+{
+  "name": "american yellow lotus",
+  "slug": "american-yellow-lotus",
+  "summary": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+  "description": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+  "primaryActions": [],
+  "mechanisms": [
+    "aporphine alkaloid dopaminergic modulation",
+    "CNS sedative signaling",
+    "acetylcholinesterase and oxidative-stress pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active alkaloid herb; avoid combining with sedatives, alcohol, dopamine-active drugs, or driving. Avoid pregnancy/breastfeeding and use caution with psychiatric conditions.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

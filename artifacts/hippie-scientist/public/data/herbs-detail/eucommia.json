@@ -1,0 +1,25 @@
+{
+  "name": "eucommia",
+  "slug": "eucommia",
+  "summary": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality.",
+  "description": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality.",
+  "primaryActions": [],
+  "mechanisms": [
+    "connective tissue support",
+    "cardiometabolic support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May affect circulation, blood pressure, or platelet function; use caution with anticoagulants/antiplatelets, antihypertensives, heart medications, and before surgery.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "hypotension or hypoglycemia risk"
+  ],
+  "interactions": [
+    "May potentiate antihypertensive or antidiabetic agents."
+  ],
+  "preparation": "Bark/leaf tea, decoction, powders, and extracts; bark and leaf chemistry differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

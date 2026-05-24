@@ -1,0 +1,78 @@
+{
+  "slug": "eleuthero-extract",
+  "name": "Eleuthero Extract",
+  "summary": "Evidence for fatigue or stress adaptation is insufficient for authority status without verified RCT support.",
+  "description": "Evidence for fatigue or stress adaptation is insufficient for authority status without verified RCT support.",
+  "effects": [
+    "endurance",
+    "stress"
+  ],
+  "primary_effects": [
+    "endurance",
+    "stress"
+  ],
+  "mechanisms": [
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Insomnia",
+    "irritability",
+    "and blood pressure effects possible",
+    "caution hypertension and stimulants."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Not established",
+  "typical_dosage": "Not established",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only adaptogen profile with limited modern evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

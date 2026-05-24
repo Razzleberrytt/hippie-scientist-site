@@ -1,0 +1,27 @@
+{
+  "name": "crocus sativus",
+  "slug": "crocus-sativus",
+  "summary": "Lean bulk ingestion row for Crocus sativus.",
+  "description": "Lean bulk ingestion row for Crocus sativus. Key active compounds include Crocin; Crocetin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "crocin/crocetin antioxidant signaling",
+    "serotonergic/dopaminergic modulation",
+    "HPA-axis and inflammatory-pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "High doses may cause GI/CNS effects and uterine stimulation; avoid pregnancy-level medicinal dosing; monitor with serotonergic drugs.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,26 @@
+{
+  "name": "lemon verbena",
+  "slug": "lemon-verbena",
+  "summary": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability.",
+  "description": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability.",
+  "primaryActions": [],
+  "mechanisms": [
+    "calming support",
+    "digestive support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "kidney disease caution at high doses"
+  ],
+  "interactions": [
+    "Low documented interaction burden",
+    "caution with sedatives if used for sleep."
+  ],
+  "preparation": "Leaf infusion, tincture, aromatic extract, and essential-oil products.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

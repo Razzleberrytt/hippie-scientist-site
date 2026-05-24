@@ -1,0 +1,29 @@
+{
+  "name": "noni",
+  "slug": "noni",
+  "summary": "It should be framed conservatively because broad folk claims exceed the strength of modern evidence.",
+  "description": "It should be framed conservatively because broad folk claims exceed the strength of modern evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional wellness support",
+    "antioxidant"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
+  "contraindications": [
+    "Liver disease",
+    "kidney disease/hyperkalemia risk",
+    "pregnancy/breastfeeding without guidance"
+  ],
+  "interactions": [
+    "Caution with potassium-sparing diuretics",
+    "ACE inhibitors/ARBs",
+    "anticoagulants",
+    "and hepatotoxic drugs."
+  ],
+  "preparation": "Fruit juice, puree, powder, and leaf products; fruit and leaf safety differ.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "uva-ursi",
+  "name": "Uva Ursi",
+  "summary": "Uva ursi has limited evidence for urinary symptoms and meaningful safety concerns from arbutin/hydroquinone exposure.",
+  "description": "Arctostaphylos uva-ursi botanical containing arbutin, a hydroquinone precursor.",
+  "effects": [
+    "urinary_health"
+  ],
+  "primary_effects": [
+    "urinary_health"
+  ],
+  "mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Potential hepatotoxicity",
+    "short-term use only",
+    "avoid pregnancy and prolonged use."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Blocked urinary herb due to safety and insufficient modern evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Uva Ursi supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a general consumer product",
+    "keep as research/reference unless human supplement evidence and safety context are added"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

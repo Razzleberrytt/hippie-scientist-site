@@ -1,0 +1,23 @@
+{
+  "id": "dihydrokavain",
+  "slug": "dihydrokavain",
+  "name": "dihydrokavain",
+  "summary": "Major kavalactone from kava linked to calming CNS activity through GABAergic mechanisms.",
+  "description": "Major kavalactone from kava linked to calming CNS activity through GABAergic mechanisms.",
+  "compoundClass": "kavalactone",
+  "mechanisms": [
+    "GABA-A modulation"
+  ],
+  "targets": [
+    "GABAergic signaling",
+    "voltage-gated ion channels",
+    "monoamine signaling",
+    "CYP enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

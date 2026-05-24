@@ -1,0 +1,22 @@
+{
+  "id": "epicatechin-gallate",
+  "slug": "epicatechin-gallate",
+  "name": "epicatechin gallate",
+  "summary": "Gallated catechin from tea with anti-inflammatory signaling effects.",
+  "description": "Gallated catechin from tea with anti-inflammatory signaling effects.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK modulation"
+  ],
+  "targets": [
+    "Inflammatory kinases",
+    "redox-active enzymes"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "animal / in vitro",
+  "relatedCompounds": []
+}

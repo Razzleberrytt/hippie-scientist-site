@@ -1,0 +1,21 @@
+{
+  "id": "gurmarin",
+  "slug": "gurmarin",
+  "name": "gurmarin",
+  "summary": "Peptide constituent associated with sweet-signal blocking and glycemic effects.",
+  "description": "Peptide constituent associated with sweet-signal blocking and glycemic effects.",
+  "compoundClass": "peptide",
+  "mechanisms": [
+    "sweet taste receptor modulation",
+    "glucose absorption modulation"
+  ],
+  "targets": [
+    "glucose transport/metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

@@ -1,0 +1,28 @@
+{
+  "name": "turkey tail",
+  "slug": "turkey-tail",
+  "summary": "Immune modulation.",
+  "description": "Immune modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "PSK/PSP beta-glucan immune signaling",
+    "dectin-1/TLR pathway modulation",
+    "macrophage/NK-cell cytokine signaling",
+    "NF-κB immune-response modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Immune-active mushroom extract; use caution with immunosuppressants, transplant medicines, autoimmune disease, and during active cancer treatment unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

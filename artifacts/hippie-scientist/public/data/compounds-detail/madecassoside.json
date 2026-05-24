@@ -1,0 +1,25 @@
+{
+  "id": "madecassoside",
+  "slug": "madecassoside",
+  "name": "madecassoside",
+  "summary": "Centella triterpene glycoside associated with inflammatory and tissue-repair signaling.",
+  "description": "Centella triterpene glycoside associated with inflammatory and tissue-repair signaling.",
+  "compoundClass": "triterpenoid saponin glycoside",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "TGF-β signaling modulation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "TGF-β",
+    "collagen remodeling",
+    "NF-κB",
+    "wound-healing and barrier pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly Centella/topical-derived evidence. Caution with liver disease, sedatives, pregnancy, and prolonged high-dose extracts.",
+  "evidenceLevel": "human_indirect_from_centella; preclinical",
+  "relatedCompounds": []
+}

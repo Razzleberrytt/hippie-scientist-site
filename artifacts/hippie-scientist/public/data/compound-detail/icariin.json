@@ -1,0 +1,81 @@
+{
+  "slug": "icariin",
+  "name": "icariin",
+  "summary": "icariin is tracked for Inhibits PDE5 increasing nitric oxide signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "icariin is tracked for Inhibits PDE5 increasing nitric oxide signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "blood_flow",
+    "libido"
+  ],
+  "primary_effects": [
+    "blood_flow",
+    "libido"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "raw_mechanisms": [
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with heart rhythm issues",
+    "blood pressure medications",
+    "nitrates/PDE-5 inhibitors",
+    "anticoagulants",
+    "and hormone-sensitive conditions"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "No reliable standardized consumer dose; icariin content varies widely",
+  "typical_dosage": "No reliable standardized consumer dose; icariin content varies widely",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only libido/blood-flow profile due to weak human evidence and interaction risk"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "icariin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as top pick",
+    "if listed",
+    "species",
+    "extract ratio",
+    "and icariin percentage must be disclosed"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

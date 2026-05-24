@@ -1,0 +1,24 @@
+{
+  "id": "gymnemic-acid",
+  "slug": "gymnemic-acid",
+  "name": "gymnemic acid",
+  "summary": "Triterpenoid saponin complex from gymnema linked to intestinal glucose handling.",
+  "description": "Triterpenoid saponin complex from gymnema linked to intestinal glucose handling.",
+  "compoundClass": "triterpenoid saponin mixture",
+  "mechanisms": [
+    "glucose absorption modulation",
+    "AMPK activation"
+  ],
+  "targets": [
+    "sweet taste receptors",
+    "intestinal glucose absorption",
+    "insulin signaling",
+    "AMPK-related pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May lower blood glucose or reduce sweet taste perception. Monitor with antidiabetic therapies; avoid pregnancy/breastfeeding unless supervised.",
+  "evidenceLevel": "human_indirect_from_gymnema; preclinical",
+  "relatedCompounds": []
+}

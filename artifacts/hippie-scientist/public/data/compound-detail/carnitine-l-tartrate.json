@@ -1,0 +1,80 @@
+{
+  "slug": "carnitine-l-tartrate",
+  "name": "Carnitine L Tartrate",
+  "summary": "Human RCT evidence supports L-carnitine L-tartrate for exercise recovery and muscle-damage markers in trained or active adults; fat-loss claims are not established.",
+  "description": "Human RCT evidence supports L-carnitine L-tartrate for exercise recovery and muscle-damage markers in trained or active adults; fat-loss claims are not established.",
+  "effects": [
+    "body_composition",
+    "energy"
+  ],
+  "primary_effects": [
+    "body_composition",
+    "energy"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with seizure history",
+    "thyroid-medication context",
+    "anticoagulants",
+    "pregnancy",
+    "and TMAO/cardiometabolic concerns"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "1–3 g/day L-carnitine forms used in human studies; form and context matter",
+  "typical_dosage": "1–3 g/day L-carnitine forms used in human studies; form and context matter",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority body-composition/fatigue support",
+    "more useful in deficiency/older or specific clinical contexts"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Carnitine form disclosed",
+    "grams per serving clear",
+    "avoid fat-burner blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

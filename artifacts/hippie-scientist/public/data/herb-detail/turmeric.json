@@ -1,0 +1,98 @@
+{
+  "slug": "turmeric",
+  "name": "Turmeric (Curcuma longa)",
+  "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+  "description": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+  "effects": [
+    "inflammation",
+    "joint_support",
+    "antioxidant_support"
+  ],
+  "primary_effects": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "evidence_grade": "b+",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Anticoagulants",
+    "gallstones"
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "gallstones"
+  ],
+  "side_effects": [],
+  "dosage": "500-2000 mg curcuminoids daily",
+  "typical_dosage": "500-2000 mg curcuminoids daily",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "curcumin 95 curcuminoids piperine supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Look for 95% curcuminoids plus piperine/phytosome",
+    "avoid plain turmeric powder marketed as high-potency curcumin",
+    "check anticoagulant cautions."
+  ],
+  "profile_status": "near_complete",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:near_complete",
+      "research-pending-effect",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

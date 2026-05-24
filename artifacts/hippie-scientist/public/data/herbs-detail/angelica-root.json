@@ -1,0 +1,27 @@
+{
+  "name": "angelica root",
+  "slug": "angelica-root",
+  "summary": "It should be framed carefully because furanocoumarin context matters for some use cases.",
+  "description": "It should be framed carefully because furanocoumarin context matters for some use cases.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "traditional cycle support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "bleeding disorder or upcoming surgery"
+  ],
+  "interactions": [
+    "Potential interaction concern with anticoagulants/antiplatelets",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

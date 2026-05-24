@@ -1,0 +1,33 @@
+{
+  "name": "angelica sinensis",
+  "slug": "angelica-sinensis",
+  "summary": "Mechanism context: ligustilide/ferulic-acid smooth-muscle and vascular effects, platelet-modulating activity, estrogen-receptor-related signaling. Safety: Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.. Interactions tracked: Potential additive bleeding risk with anticoagulants, antiplatelets, NSAIDs.",
+  "description": "Mechanism context: ligustilide/ferulic-acid smooth-muscle and vascular effects, platelet-modulating activity, estrogen-receptor-related signaling. Safety: Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.. Interactions tracked: Potential additive bleeding risk with anticoagulants, antiplatelets, NSAIDs.",
+  "primaryActions": [],
+  "mechanisms": [
+    "ligustilide/ferulic-acid smooth-muscle and vascular effects",
+    "platelet-modulating activity",
+    "estrogen-receptor-related signaling",
+    "NF-κB modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.",
+  "contraindications": [
+    "Pregnancy",
+    "bleeding disorders",
+    "hormone-sensitive conditions",
+    "surgery",
+    "and anticoagulant/antiplatelet therapy without supervision."
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants",
+    "antiplatelets",
+    "NSAIDs",
+    "and some herbal blood-thinning stacks."
+  ],
+  "preparation": "Evidence often comes from traditional formulas; single-herb confidence should remain conservative.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

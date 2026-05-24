@@ -1,0 +1,27 @@
+{
+  "id": "puerarin",
+  "slug": "puerarin",
+  "name": "puerarin",
+  "summary": "Puerarin is the major isoflavone linked to kudzu-derived materials and has been studied in vascular, metabolic, and estrogen-related contexts. Human evidence exists, especially in Asia, but it is narrower and less replicated than the strongest compound-level literatures.",
+  "description": "Major kudzu isoflavone linked to metabolic and estrogen-related signaling.",
+  "compoundClass": "isoflavone / phytoestrogen",
+  "mechanisms": [
+    "AMPK activation",
+    "PI3K/Akt modulation",
+    "endothelial nitric-oxide signaling",
+    "estrogen-receptor modulation"
+  ],
+  "targets": [
+    "estrogen receptor signaling",
+    "AMPK",
+    "PPAR",
+    "antioxidant response",
+    "bone/metabolic signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

@@ -1,0 +1,26 @@
+{
+  "id": "epicatechin",
+  "slug": "epicatechin",
+  "name": "epicatechin",
+  "summary": "Flavan-3-ol associated with cacao and tea, commonly linked to PI3K/Akt and endothelial nitric oxide signaling.",
+  "description": "Flavan-3-ol associated with cacao and tea, commonly linked to PI3K/Akt and endothelial nitric oxide signaling.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "eNOS activation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "AMPK",
+    "endothelial nitric oxide",
+    "antioxidant response",
+    "lipid/glucose signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

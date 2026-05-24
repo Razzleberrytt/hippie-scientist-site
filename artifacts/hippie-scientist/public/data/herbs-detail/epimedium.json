@@ -1,0 +1,32 @@
+{
+  "name": "epimedium",
+  "slug": "epimedium",
+  "summary": "Epimedium is represented here primarily through icariin and related prenylated flavonoids such as epimedin A, B, and C.",
+  "description": "Epimedium is represented here primarily through icariin and related prenylated flavonoids such as epimedin A, B, and C. The herb is commonly positioned for libido and circulation support, but a more disciplined framing keeps it in the traditional-use / limited-human-evidence tier. Mechanistic interest often centers on PDE-related signaling, endothelial nitric oxide activity, and broader bone-support and anti-inflammatory pathways observed in preclinical work.",
+  "primaryActions": [],
+  "mechanisms": [
+    "PDE-related signaling",
+    "nitric oxide signaling",
+    "sexual function",
+    "bone support",
+    "flavonoid activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Use caution in people with blood-pressure instability, hormone-sensitive conditions, or high sensitivity to activating supplements. Keep positioning moderate rather than performance-driven.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "hormone-sensitive conditions without review",
+    "arrhythmia/cardiovascular disease caution"
+  ],
+  "interactions": [
+    "May interact with antihypertensives",
+    "PDE5 inhibitors",
+    "anticoagulants",
+    "and hormone therapies."
+  ],
+  "preparation": "Leaf extracts standardized to icariin/flavonoids; often used in formulas.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

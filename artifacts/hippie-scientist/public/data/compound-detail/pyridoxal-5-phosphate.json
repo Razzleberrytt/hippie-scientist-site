@@ -1,0 +1,78 @@
+{
+  "slug": "pyridoxal-5-phosphate",
+  "name": "Pyridoxal-5-phosphate",
+  "summary": "Decision-ready summary: Pyridoxal-5-phosphate is best framed for B6 repletion; homocysteine metabolism; neurotransmitter cofactor support; safety screen: high-dose chronic use; neuropathy risk.",
+  "description": "Pyridoxal-5-phosphate supports B vitamin; metabolism; neurotransmitters with moderate-high confidence in this merged decision layer.",
+  "effects": [
+    "mood"
+  ],
+  "primary_effects": [
+    "mood"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "high-dose chronic use",
+    "neuropathy risk"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Pyridoxal-5-Phosphate supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

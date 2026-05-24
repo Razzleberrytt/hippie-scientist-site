@@ -1,0 +1,75 @@
+{
+  "slug": "indole-3-carbinol",
+  "name": "Indole-3-carbinol",
+  "summary": "Indole-3-carbinol is a indole compound associated with cruciferous vegetables. Evidence level: moderate.",
+  "description": "Indole-3-carbinol is cataloged as a indole compound. Reported mechanism notes: Modulates estrogen metabolism (human-supported via downstream metabolites such as DIM formed in vivo); additional mechanisms (preclinical).",
+  "effects": [
+    "research_only"
+  ],
+  "primary_effects": [
+    "research_only"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Generally safe with limited long- term data",
+    "Generally safe",
+    "high-dose effects unclear"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "200-400 mg/day",
+  "typical_dosage": "200-400 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Indole-3-carbinol supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a general consumer product",
+    "keep as research/reference unless human supplement evidence and safety context are added"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

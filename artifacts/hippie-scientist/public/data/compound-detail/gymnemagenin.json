@@ -1,0 +1,88 @@
+{
+  "slug": "gymnemagenin",
+  "name": "gymnemagenin",
+  "summary": "Triterpenoid aglycone linked to glycemic regulation and intestinal glucose handling.",
+  "description": "Triterpenoid aglycone linked to glycemic regulation and intestinal glucose handling.",
+  "effects": [
+    "blood_sugar"
+  ],
+  "primary_effects": [
+    "blood_sugar"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with diabetes medications",
+    "hypoglycemia risk",
+    "pregnancy",
+    "and surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Gymnema extract dosing varies; product-specific gymnemic acid content should be disclosed",
+  "typical_dosage": "Gymnema extract dosing varies; product-specific gymnemic acid content should be disclosed",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only glucose-support herb profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "gymnemagenin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Gymnemic acid standardization disclosed",
+    "dose transparency required",
+    "avoid glucose-cure claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

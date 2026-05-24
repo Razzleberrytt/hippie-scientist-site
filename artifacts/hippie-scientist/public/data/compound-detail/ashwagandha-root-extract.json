@@ -1,0 +1,91 @@
+{
+  "slug": "ashwagandha-root-extract",
+  "name": "Ashwagandha Root Extract",
+  "summary": "Reduces stress, cortisol levels, and anxiety scores.",
+  "description": "Reduces stress, cortisol levels, and anxiety scores.",
+  "effects": [
+    "recovery",
+    "stress"
+  ],
+  "primary_effects": [
+    "recovery",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Avoid in pregnancy",
+    "caution with sedatives."
+  ],
+  "interactions": [
+    "Avoid in pregnancy",
+    "caution with sedatives."
+  ],
+  "side_effects": [],
+  "dosage": "300-600",
+  "typical_dosage": "300-600",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard stress/recovery support",
+    "not a testosterone booster"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized root extract",
+    "5% withanolides or branded KSM-66/Sensoril-style extract",
+    "avoid proprietary blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 95,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

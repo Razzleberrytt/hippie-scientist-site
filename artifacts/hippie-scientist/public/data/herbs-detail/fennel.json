@@ -1,0 +1,27 @@
+{
+  "name": "fennel",
+  "slug": "fennel",
+  "summary": "It is best handled as an aromatic seed botanical with traditional GI-support use and modest mechanistic confidence.",
+  "description": "It is best handled as an aromatic seed botanical with traditional GI-support use and modest mechanistic confidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "anethole-related smooth-muscle effects",
+    "phytoestrogenic signaling",
+    "COX/NO inflammatory modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Avoid in pregnancy at medicinal doses; caution in estrogen-sensitive conditions and with seizure disorders; allergy possible.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "hormone-sensitive conditions without clinician review"
+  ],
+  "interactions": [
+    "Possible estrogenic interaction concerns with concentrated use."
+  ],
+  "preparation": "Tea or crushed seed is traditional; extracts concentrate volatile constituents.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

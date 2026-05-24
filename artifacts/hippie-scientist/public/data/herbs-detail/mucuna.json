@@ -1,0 +1,31 @@
+{
+  "name": "mucuna",
+  "slug": "mucuna",
+  "summary": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+  "description": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+  "primaryActions": [],
+  "mechanisms": [
+    "natural L-DOPA dopaminergic replacement pathway",
+    "antioxidant and mitochondrial support mechanisms"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Can cause levodopa-like adverse effects; caution with Parkinson’s drugs, MAO inhibitors, psychosis, pregnancy, and cardiovascular disease.",
+  "contraindications": [
+    "Psychosis/bipolar risk",
+    "melanoma history caution",
+    "pregnancy/breastfeeding",
+    "use with levodopa drugs without clinician supervision"
+  ],
+  "interactions": [
+    "May interact with levodopa/carbidopa",
+    "MAOIs",
+    "antipsychotics",
+    "antihypertensives",
+    "and dopaminergic drugs."
+  ],
+  "preparation": "Seed powder/extract standardized to L-DOPA; product content varies widely.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

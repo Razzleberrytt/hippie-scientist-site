@@ -1,0 +1,27 @@
+{
+  "name": "celastrus paniculatus",
+  "slug": "celastrus-paniculatus",
+  "summary": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
+  "description": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
+  "primaryActions": [],
+  "mechanisms": [
+    "celastrine/beta-amyrin triterpenoid signaling",
+    "acetylcholinesterase and neuroinflammatory pathway modulation",
+    "NF-κB/oxidative-stress pathway effects"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

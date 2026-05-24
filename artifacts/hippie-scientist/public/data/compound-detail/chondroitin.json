@@ -1,0 +1,74 @@
+{
+  "slug": "chondroitin",
+  "name": "Chondroitin",
+  "summary": "Decision-ready summary: Chondroitin is best framed for knee osteoarthritis comfort; cartilage-support context; safety screen: warfarin; bleeding disorder; planned surgery.",
+  "description": "Chondroitin supports joint health; osteoarthritis; cartilage with moderate confidence in this merged decision layer.",
+  "effects": [
+    "joint_health",
+    "mobility"
+  ],
+  "primary_effects": [
+    "joint_health",
+    "mobility"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "warfarin",
+    "bleeding disorder",
+    "planned surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "800–1200 mg/day chondroitin sulfate in osteoarthritis trials",
+  "typical_dosage": "800–1200 mg/day chondroitin sulfate in osteoarthritis trials",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority cartilage/joint support with mixed evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Chondroitin Sulfate supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Chondroitin sulfate dose clearly listed",
+    "third-party tested",
+    "avoid joint blends hiding chondroitin dose"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,25 @@
+{
+  "id": "ferulic-acid",
+  "slug": "ferulic-acid",
+  "name": "ferulic acid",
+  "summary": "Phenolic acid common in grains and Angelica-related herbs, linked to Nrf2 and PI3K/Akt signaling.",
+  "description": "Phenolic acid common in grains and Angelica-related herbs, linked to Nrf2 and PI3K/Akt signaling.",
+  "compoundClass": "phenolic acid / polyphenol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "antioxidant response",
+    "glucose/lipid signaling",
+    "gut microbiome metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

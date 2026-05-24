@@ -1,0 +1,85 @@
+{
+  "slug": "gotu-kola",
+  "name": "Gotu Kola (Centella asiatica)",
+  "summary": "Gotu kola has moderate human support for chronic venous insufficiency symptoms, with additional cognitive claims remaining limited.",
+  "description": "Centella asiatica extract rich in triterpenoid saponins used in vascular and wound-healing contexts.",
+  "effects": [
+    "focus",
+    "heart_health"
+  ],
+  "primary_effects": [
+    "focus",
+    "heart_health"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Generally well tolerated",
+    "rare hepatotoxicity reports."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People needing better focus and clarity"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Gotu Kola (Centella asiatica) supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

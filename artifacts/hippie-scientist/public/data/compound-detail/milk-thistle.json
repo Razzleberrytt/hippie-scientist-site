@@ -1,0 +1,93 @@
+{
+  "slug": "milk-thistle",
+  "name": "Milk Thistle",
+  "summary": "Decision-ready summary: Milk Thistle is best framed for liver enzyme support context; antioxidant liver-support framing; supplement hepatoprotection context; safety screen: ragweed allergy; estrogen-sensitive conditions; CYP medication review.",
+  "description": "Milk Thistle supports liver enzymes; liver support; antioxidant with moderate confidence in this merged decision layer.",
+  "effects": [
+    "antioxidant",
+    "liver_health"
+  ],
+  "primary_effects": [
+    "antioxidant",
+    "liver_health"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "ragweed allergy",
+    "estrogen-sensitive conditions",
+    "CYP medication review"
+  ],
+  "interactions": [
+    "May interact with CYP enzymes."
+  ],
+  "side_effects": [],
+  "dosage": "140–420 mg/day silymarin extract",
+  "typical_dosage": "140–420 mg/day silymarin extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard liver-support profile with moderate evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Milk Thistle supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized silymarin extract",
+    "% silymarin disclosed",
+    "avoid detox/hangover claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

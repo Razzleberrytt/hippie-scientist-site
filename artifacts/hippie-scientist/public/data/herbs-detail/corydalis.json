@@ -1,0 +1,34 @@
+{
+  "name": "corydalis",
+  "slug": "corydalis",
+  "summary": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
+  "description": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
+  "primaryActions": [],
+  "mechanisms": [
+    "tetrahydropalmatine-related dopamine D1/D2 modulation",
+    "GABAergic and opioid-pathway interaction",
+    "calcium-channel and nociceptive signaling modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS depression, dizziness, sedation, and liver-safety concerns have been reported with Corydalis-containing products. Avoid combining with sedatives or alcohol.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "liver disease",
+    "seizure disorder",
+    "heavy alcohol use",
+    "and use of sedatives without medical oversight."
+  ],
+  "interactions": [
+    "Potential additive effects with benzodiazepines",
+    "opioids",
+    "sleep aids",
+    "alcohol",
+    "antipsychotics",
+    "and hepatotoxic drugs."
+  ],
+  "preparation": "Evidence and risks depend strongly on species, alkaloid profile, and dose; avoid unstandardized high-dose extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,26 @@
+{
+  "id": "thearubigin",
+  "slug": "thearubigin",
+  "name": "thearubigin",
+  "summary": "Complex black tea polyphenol fraction broadly associated with inflammatory and redox pathway modulation.",
+  "description": "Complex black tea polyphenol fraction broadly associated with inflammatory and redox pathway modulation.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "AMPK",
+    "endothelial nitric oxide",
+    "antioxidant response",
+    "lipid/glucose signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

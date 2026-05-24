@@ -1,0 +1,26 @@
+{
+  "name": "white peony",
+  "slug": "white-peony",
+  "summary": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
+  "description": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional cycle support",
+    "calming support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "contraindications": [
+    "Pregnancy without clinician guidance",
+    "anticoagulant use without review"
+  ],
+  "interactions": [
+    "Potential additive bleeding risk with anticoagulants/antiplatelets",
+    "may interact with immunomodulators."
+  ],
+  "preparation": "Root decoction/extract; often paired with licorice or other TCM herbs.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

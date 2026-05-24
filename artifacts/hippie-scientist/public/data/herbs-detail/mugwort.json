@@ -1,0 +1,29 @@
+{
+  "name": "mugwort",
+  "slug": "mugwort",
+  "summary": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+  "description": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+  "primaryActions": [],
+  "mechanisms": [
+    "digestive support",
+    "traditional cycle support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "contraindications": [
+    "Pregnancy",
+    "seizure disorder",
+    "Asteraceae allergy",
+    "internal essential-oil use"
+  ],
+  "interactions": [
+    "Caution with anticonvulsants",
+    "sedatives",
+    "and drugs affected by seizure threshold."
+  ],
+  "preparation": "Leaf tea/tincture, smoke/incense, and essential oil; internal essential oil is not appropriate for casual use.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

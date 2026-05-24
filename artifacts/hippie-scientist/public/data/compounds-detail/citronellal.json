@@ -1,0 +1,24 @@
+{
+  "id": "citronellal",
+  "slug": "citronellal",
+  "name": "citronellal",
+  "summary": "Monoterpene aldehyde common in citronella-type oils, recognized for aromatic and sensory-channel activity.",
+  "description": "Monoterpene aldehyde common in citronella-type oils, recognized for aromatic and sensory-channel activity.",
+  "compoundClass": "terpene / essential-oil constituent",
+  "mechanisms": [
+    "TRPA1 modulation",
+    "sensory ion-channel modulation"
+  ],
+  "targets": [
+    "TRP channels",
+    "antimicrobial membranes",
+    "COX/LOX",
+    "GABAergic or adrenergic signaling depending compound"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

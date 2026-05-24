@@ -1,0 +1,35 @@
+{
+  "name": "goldenseal",
+  "slug": "goldenseal",
+  "summary": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine.",
+  "description": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine.",
+  "primaryActions": [],
+  "mechanisms": [
+    "AMPK activation",
+    "NF-kB pathway inhibition",
+    "mitochondrial complex I inhibition",
+    "NF-κB inhibition",
+    "PI3K/Akt modulation",
+    "MAPK pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Berberine/hydrastine-containing herb; avoid in pregnancy/breastfeeding and infants. High interaction potential with CYP/P-gp substrates, diabetes medicines, anticoagulants, and narrow-therapeutic-index drugs.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "infants/newborns",
+    "complex medication regimens without clinician review"
+  ],
+  "interactions": [
+    "Potential CYP3A4/CYP2D6/P-gp interactions",
+    "caution with cyclosporine",
+    "tacrolimus",
+    "antidiabetics",
+    "anticoagulants",
+    "and many drugs."
+  ],
+  "preparation": "Root/rhizome powder, tincture, extracts; sustainability and adulteration issues are important.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

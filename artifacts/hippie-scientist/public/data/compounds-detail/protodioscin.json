@@ -1,0 +1,25 @@
+{
+  "id": "protodioscin",
+  "slug": "protodioscin",
+  "name": "protodioscin",
+  "summary": "Steroidal saponin associated with nitric-oxide and survival pathway signaling.",
+  "description": "Steroidal saponin associated with nitric-oxide and survival pathway signaling.",
+  "compoundClass": "saponin / glycoside",
+  "mechanisms": [
+    "NO signaling modulation",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "AMPK",
+    "PPAR",
+    "immune cytokines",
+    "membrane signaling",
+    "glucose/lipid metabolism"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

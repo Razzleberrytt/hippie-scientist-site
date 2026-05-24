@@ -1,0 +1,31 @@
+{
+  "name": "rosemary",
+  "slug": "rosemary",
+  "summary": "Mechanism context: cognition, antioxidant, digestive support. Safety: Generally well tolerated; review concentrated extract use.. Interactions tracked: Caution with concentrated extracts alongside anticoagulants..",
+  "description": "Mechanism context: cognition, antioxidant, digestive support. Safety: Generally well tolerated; review concentrated extract use.. Interactions tracked: Caution with concentrated extracts alongside anticoagulants..",
+  "primaryActions": [],
+  "mechanisms": [
+    "cognition",
+    "antioxidant",
+    "digestive support",
+    "Nrf2 activation",
+    "NF-κB inhibition",
+    "STAT3 inhibition",
+    "AMPK activation",
+    "PI3K/Akt modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated; review concentrated extract use.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Caution with concentrated extracts alongside anticoagulants."
+  ],
+  "preparation": "Leaf infusion for mild use; extracts provide higher diterpene exposure.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

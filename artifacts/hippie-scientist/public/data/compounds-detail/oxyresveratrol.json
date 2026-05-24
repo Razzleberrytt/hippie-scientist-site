@@ -1,0 +1,25 @@
+{
+  "id": "oxyresveratrol",
+  "slug": "oxyresveratrol",
+  "name": "oxyresveratrol",
+  "summary": "Mulberry stilbene linked to carbohydrate-processing and signaling effects.",
+  "description": "Mulberry stilbene linked to carbohydrate-processing and signaling effects.",
+  "compoundClass": "stilbene polyphenol",
+  "mechanisms": [
+    "alpha-glucosidase inhibition",
+    "PI3K/Akt modulation"
+  ],
+  "targets": [
+    "SIRT1/AMPK",
+    "Nrf2",
+    "NF-κB",
+    "endothelial signaling",
+    "platelet aggregation pathways"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "May affect bleeding risk and drug metabolism at supplement doses; GI upset and headache are possible.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

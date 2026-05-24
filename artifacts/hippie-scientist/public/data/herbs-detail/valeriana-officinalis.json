@@ -1,0 +1,32 @@
+{
+  "name": "valeriana officinalis",
+  "slug": "valeriana-officinalis",
+  "summary": "Valeriana officinalis contains Valerenic acid and is linked here to GABA-A modulation.",
+  "description": "Valeriana officinalis contains Valerenic acid and is linked here to GABA-A modulation.",
+  "primaryActions": [],
+  "mechanisms": [
+    "valerenic-acid GABA-A receptor modulation",
+    "GABA degradation/transport effects",
+    "adenosine and serotonergic sleep-pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Sedation and next-day drowsiness possible; avoid alcohol, benzodiazepines, opioids, and other CNS depressants.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without clinician guidance",
+    "heavy sedative use",
+    "upcoming anesthesia"
+  ],
+  "interactions": [
+    "May potentiate alcohol",
+    "benzodiazepines",
+    "barbiturates",
+    "sleep aids",
+    "opioids",
+    "and other CNS depressants."
+  ],
+  "preparation": "Root/rhizome tea, tincture, capsules, and standardized extracts; odor reflects volatile constituents.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

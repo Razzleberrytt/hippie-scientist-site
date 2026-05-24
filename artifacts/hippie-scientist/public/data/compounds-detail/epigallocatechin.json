@@ -1,0 +1,26 @@
+{
+  "id": "epigallocatechin",
+  "slug": "epigallocatechin",
+  "name": "epigallocatechin",
+  "summary": "Tea catechin involved in redox regulation and cell signaling.",
+  "description": "Tea catechin involved in redox regulation and cell signaling.",
+  "compoundClass": "flavanol / tea polyphenol",
+  "mechanisms": [
+    "Nrf2 activation",
+    "MAPK modulation"
+  ],
+  "targets": [
+    "Nrf2",
+    "NF-κB",
+    "AMPK",
+    "endothelial nitric oxide",
+    "antioxidant response",
+    "lipid/glucose signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

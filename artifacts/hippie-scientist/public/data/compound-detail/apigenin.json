@@ -1,0 +1,87 @@
+{
+  "slug": "apigenin",
+  "name": "Apigenin",
+  "summary": "Decision-ready summary: Apigenin is best framed for relaxation; sleep support; mild anxiety context; safety screen: sedatives; anticoagulants caution; pregnancy safety uncertainty.",
+  "description": "Apigenin supports sleep; calm; flavonoid with low-moderate confidence in this merged decision layer.",
+  "effects": [
+    "sleep"
+  ],
+  "primary_effects": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "low",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "sedatives",
+    "anticoagulants caution",
+    "pregnancy safety uncertainty"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Not established",
+  "typical_dosage": "Not established",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only flavonoid sleep profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "apigenin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clear dose per serving",
+    "form matches intended timing",
+    "avoid sedative proprietary blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "research_archive_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:research_archive_runtime"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

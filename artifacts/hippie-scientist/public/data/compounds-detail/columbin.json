@@ -1,0 +1,22 @@
+{
+  "id": "columbin",
+  "slug": "columbin",
+  "name": "columbin",
+  "summary": "Diterpenoid from Tinospora cordifolia linked to anti-inflammatory activity.",
+  "description": "Diterpenoid from Tinospora cordifolia linked to anti-inflammatory activity.",
+  "compoundClass": "terpenoid",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK modulation"
+  ],
+  "targets": [
+    "NF-κB",
+    "MAPK"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
+  "evidenceLevel": "in_vitro",
+  "relatedCompounds": []
+}

@@ -1,0 +1,24 @@
+{
+  "id": "angelicin",
+  "slug": "angelicin",
+  "name": "angelicin",
+  "summary": "Angelicin is a furocoumarin associated with photosensitizing pharmacology and occasional discussion in skin and bone research. The evidence base is primarily mechanistic, with efficacy claims constrained by limited human data and safety context.",
+  "description": "Angular furocoumarin reported from Psoralea/Angelica with NF-κB and MAPK pathway activity.",
+  "compoundClass": "coumarin / furanocoumarin",
+  "mechanisms": [
+    "NF-κB inhibition",
+    "MAPK pathway modulation"
+  ],
+  "targets": [
+    "CYP enzymes",
+    "P-gp/OATP transporters",
+    "photoreactive DNA crosslinking",
+    "inflammatory signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

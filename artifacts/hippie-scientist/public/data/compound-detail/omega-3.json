@@ -1,0 +1,99 @@
+{
+  "slug": "omega-3",
+  "name": "Omega-3 fatty acids",
+  "summary": "Decision-ready summary: Omega-3 fatty acids is best framed for triglyceride reduction; cardiovascular support; inflammation modulation; safety screen: bleeding disorder; anticoagulants at high dose; fish allergy.",
+  "description": "Omega-3 fatty acids supports cardio; triglycerides; inflammation with high confidence in this merged decision layer.",
+  "effects": [
+    "brain_health",
+    "cardiovascular"
+  ],
+  "primary_effects": [
+    "brain_health",
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "high",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "bleeding disorder",
+    "anticoagulants at high dose",
+    "fish allergy"
+  ],
+  "interactions": [
+    "Caution with anticoagulants."
+  ],
+  "side_effects": [],
+  "dosage": "1000-3000",
+  "typical_dosage": "1000-3000",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for triglyceride/cardiovascular support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Omega-3 Fatty Acids (EPA/DHA) supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "EPA and DHA amounts clearly listed",
+    "third-party oxidation/heavy-metal testing",
+    "avoid fish oil without EPA/DHA amounts"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

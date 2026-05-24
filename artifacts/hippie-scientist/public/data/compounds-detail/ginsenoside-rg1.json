@@ -1,0 +1,25 @@
+{
+  "id": "ginsenoside-rg1",
+  "slug": "ginsenoside-rg1",
+  "name": "ginsenoside rg1",
+  "summary": "Major ginsenoside associated with neurovascular and survival signaling.",
+  "description": "Major ginsenoside associated with neurovascular and survival signaling.",
+  "compoundClass": "triterpenoid saponin / ginsenoside",
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "NO signaling modulation",
+    "Nrf2 activation"
+  ],
+  "targets": [
+    "AMPK",
+    "PI3K/Akt",
+    "Nrf2",
+    "neurotrophic and inflammatory signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Safety is mostly inferred from Panax/ginseng extracts. Caution with anticoagulants, antidiabetics, stimulants, and hormone-sensitive contexts.",
+  "evidenceLevel": "preclinical_plus_human_indirect",
+  "relatedCompounds": []
+}

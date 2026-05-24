@@ -1,0 +1,25 @@
+{
+  "id": "acetyl-11-keto-beta-boswellic-acid",
+  "slug": "acetyl-11-keto-beta-boswellic-acid",
+  "name": "acetyl-11-keto-beta-boswellic acid",
+  "summary": "Acetyl-11-keto-beta-boswellic acid is a boswellic acid emphasized in Boswellia standardization discussions. Its relevance is mechanistically strong for inflammatory pathways, but isolated-compound human evidence is much thinner than extract-level evidence.",
+  "description": "AKBA-type boswellic acid widely used as a core Boswellia marker compound.",
+  "compoundClass": "pentacyclic triterpene acid / boswellic acid",
+  "mechanisms": [
+    "5-lipoxygenase inhibition",
+    "leukotriene-pathway suppression",
+    "NF-kB-related inflammatory signaling reduction"
+  ],
+  "targets": [
+    "5-LOX",
+    "NF-κB",
+    "leukotriene pathways",
+    "inflammatory cytokines"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Boswellia extracts can cause GI upset and may interact with anticoagulants/anti-inflammatory drugs; pregnancy safety is not established.",
+  "evidenceLevel": "human_limited",
+  "relatedCompounds": []
+}

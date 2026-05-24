@@ -1,0 +1,79 @@
+{
+  "slug": "5-htp",
+  "name": "5-HTP",
+  "summary": "5-HTP may support sleep onset or mood context through serotonin precursor pathways, but use is highly interaction-dependent.",
+  "description": "Serotonin-precursor support for mood-adjacent sleep; avoid casual use with serotonergic medications.",
+  "effects": [
+    "mood",
+    "sleep"
+  ],
+  "primary_effects": [
+    "mood",
+    "sleep"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "low-moderate",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "SSRIs/SNRIs/MAOIs",
+    "bipolar disorder",
+    "serotonin syndrome risk"
+  ],
+  "interactions": [
+    "Avoid with SSRIs."
+  ],
+  "side_effects": [],
+  "dosage": "100-300 mg/day",
+  "typical_dosage": "100-300 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only serotonin-support profile due to interaction/safety concerns"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "5-HTP supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clear dose per serving",
+    "form matches intended timing",
+    "avoid sedative proprietary blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

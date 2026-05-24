@@ -1,0 +1,30 @@
+{
+  "name": "lavandula angustifolia",
+  "slug": "lavandula-angustifolia",
+  "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
+  "description": "Lean bulk ingestion row for Lavandula angustifolia. Key active compounds include Linalool.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Linalool/linalyl acetate modulate limbic signaling",
+    "voltage-gated calcium-channel activity",
+    "serotonergic tone",
+    "and GABA-A–related anxiolytic pathways."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May cause sedation, GI upset, lavender burps, or allergy. Avoid non-standard oral essential oil use; caution with CNS depressants, alcohol, driving, and pregnancy.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "internal essential-oil use",
+    "prepubertal endocrine concerns with topical overuse are debated"
+  ],
+  "interactions": [
+    "May potentiate sedatives",
+    "sleep medications",
+    "and CNS depressants."
+  ],
+  "preparation": "Flower tea, aromatherapy, topical diluted essential oil, and oral standardized oil capsules.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

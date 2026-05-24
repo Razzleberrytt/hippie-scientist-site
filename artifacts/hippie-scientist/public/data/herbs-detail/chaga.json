@@ -1,0 +1,27 @@
+{
+  "name": "chaga",
+  "slug": "chaga",
+  "summary": "Oxidative stress.",
+  "description": "Oxidative stress.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Nrf2",
+    "NF-κB inhibition",
+    "apoptosis pathway modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "High oxalate exposure and immune effects are concerns; avoid with kidney disease, kidney stones, anticoagulants/antiplatelets, and immunosuppressants unless supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

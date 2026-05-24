@@ -1,0 +1,28 @@
+{
+  "name": "pueraria mirifica",
+  "slug": "pueraria-mirifica",
+  "summary": "It is best framed very cautiously due to potent estrogenic positioning.",
+  "description": "It is best framed very cautiously due to potent estrogenic positioning.",
+  "primaryActions": [],
+  "mechanisms": [
+    "Miroestrol/deoxymiroestrol phytoestrogen activity",
+    "estrogen receptor modulation",
+    "isoflavone-related endocrine signaling."
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Avoid or use clinician supervision in pregnancy, breastfeeding, hormone-sensitive cancers/conditions, unexplained vaginal bleeding, or concurrent estrogen/SERM/endocrine therapy.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "hormone-sensitive conditions without clinician review"
+  ],
+  "interactions": [
+    "Potential interaction concern with hormonal therapies",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

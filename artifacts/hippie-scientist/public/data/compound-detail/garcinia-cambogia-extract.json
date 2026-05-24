@@ -1,0 +1,77 @@
+{
+  "slug": "garcinia-cambogia-extract",
+  "name": "Garcinia Cambogia Extract",
+  "summary": "Garcinia Cambogia Extract is tracked for Hydroxycitric acid inhibits ATP citrate lyase reducing lipogenesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Garcinia Cambogia Extract is tracked for Hydroxycitric acid inhibits ATP citrate lyase reducing lipogenesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "weight"
+  ],
+  "primary_effects": [
+    "weight"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "evidence_grade": "Low/mixed human evidence",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Avoid with liver disease",
+    "pregnancy/breastfeeding",
+    "diabetes medications",
+    "serotonergic drugs",
+    "and hepatotoxic drugs"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Hydroxycitric acid/garcinia doses vary widely; no general consumer dose should be promoted",
+  "typical_dosage": "Hydroxycitric acid/garcinia doses vary widely; no general consumer dose should be promoted",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only weight-loss profile due to modest/uncertain efficacy and liver-safety concerns"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as top pick",
+    "HCA percentage disclosed if listed",
+    "avoid rapid weight-loss claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

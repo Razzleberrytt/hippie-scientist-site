@@ -1,0 +1,87 @@
+{
+  "slug": "melatonin",
+  "name": "Melatonin",
+  "summary": "Decision-ready summary: Melatonin is best framed for sleep-onset latency; jet lag; circadian rhythm shift; safety screen: sedatives; pregnancy without clinician guidance; autoimmune conditions review.",
+  "description": "Melatonin supports sleep onset; circadian rhythm; jet lag with high confidence in this merged decision layer.",
+  "effects": [
+    "circadian",
+    "sleep"
+  ],
+  "primary_effects": [
+    "circadian",
+    "sleep"
+  ],
+  "mechanisms": [
+    "Immune Signaling Modulation",
+    "Hormonal Signaling Context"
+  ],
+  "raw_mechanisms": [
+    "Immune Signaling Modulation",
+    "Hormonal Signaling Context"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Immune Signaling Modulation",
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "high",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "sedatives",
+    "pregnancy without clinician guidance",
+    "autoimmune conditions review"
+  ],
+  "interactions": [
+    "Caution with sedatives."
+  ],
+  "side_effects": [],
+  "dosage": "0.3-5",
+  "typical_dosage": "0.3-5",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for circadian adjustment and jet-lag support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "melatonin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Low-dose melatonin",
+    "USP/third-party tested",
+    "avoid high-dose gummies as default"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

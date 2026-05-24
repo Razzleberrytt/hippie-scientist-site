@@ -1,0 +1,27 @@
+{
+  "name": "burdock",
+  "slug": "burdock",
+  "summary": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+  "description": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional skin support",
+    "anti-inflammatory"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "contraindications": [
+    "Asteraceae allergy",
+    "pregnancy/breastfeeding without clinician guidance",
+    "hypoglycemia risk"
+  ],
+  "interactions": [
+    "May add to antidiabetic or diuretic effects",
+    "use caution with lithium/diuretics if high intake."
+  ],
+  "preparation": "Root tea/decoction, tincture, food root, and seed preparations; root and seed are not interchangeable.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,94 @@
+{
+  "slug": "inositol-hexanicotinate",
+  "name": "Inositol Hexanicotinate",
+  "summary": "Inositol hexanicotinate is a flush-free niacin form that is better tolerated but does not reliably reproduce nicotinic acid's lipid effects. Evidence supports caution against treating it as an equivalent niacin substitute.",
+  "description": "Ester of inositol and nicotinic acid marketed as flush-free niacin; lipid effects appear weak or ineffective compared with nicotinic acid.",
+  "effects": [
+    "hormone_health",
+    "metabolic_health"
+  ],
+  "primary_effects": [
+    "hormone_health",
+    "metabolic_health"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Less flushing than nicotinic acid",
+    "rare hepatotoxicity possible",
+    "may mislead if used as lipid-lowering substitute."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "2–4 g/day for metabolic use; higher psychiatric doses studied",
+  "typical_dosage": "2–4 g/day for metabolic use; higher psychiatric doses studied",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard insulin-signaling/PCOS-context support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "Inositol Hexanicotinate supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active extract or pure amino acid",
+    "avoid stimulant blends",
+    "review sedative stacking"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

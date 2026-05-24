@@ -1,0 +1,73 @@
+{
+  "slug": "dandelion-root",
+  "name": "Dandelion Root",
+  "summary": "Dandelion root is traditionally used for digestive and diuretic support, but human clinical evidence is minimal.",
+  "description": "Taraxacum officinale root with mostly traditional/preclinical support.",
+  "effects": [
+    "digestion",
+    "fluid_balance"
+  ],
+  "primary_effects": [
+    "digestion",
+    "fluid_balance"
+  ],
+  "mechanisms": [
+    "mild choleretic/diuretic effects (preclinical/traditional)"
+  ],
+  "raw_mechanisms": [
+    "mild choleretic/diuretic effects (preclinical/traditional)"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "mild choleretic/diuretic effects (preclinical/traditional)"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Generally well tolerated",
+    "possible allergic reactions."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "1–3 g/day or standardized extract",
+  "typical_dosage": "1–3 g/day or standardized extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only detox/diuretic herb profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Dandelion Root supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Fruiting body or dual extract clearly stated",
+    "beta-glucan content preferred",
+    "avoid mycelium-on-grain without disclosure"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

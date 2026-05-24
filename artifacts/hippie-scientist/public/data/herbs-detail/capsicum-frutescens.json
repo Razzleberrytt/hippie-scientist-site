@@ -1,0 +1,30 @@
+{
+  "name": "capsicum frutescens",
+  "slug": "capsicum-frutescens",
+  "summary": "Pepper species used for topical and metabolic effects.",
+  "description": "Pepper species used for topical and metabolic effects.",
+  "primaryActions": [],
+  "mechanisms": [
+    "TRPV1 receptor activation followed by nociceptor desensitization",
+    "substance P depletion",
+    "CGRP/neuropeptide modulation",
+    "peripheral nociceptive signaling inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Topical use can cause burning, erythema, coughing, and eye irritation. Avoid mucous membranes, broken skin, occlusive dressings, and immediate hot showers. High-concentration patches require supervised application. Oral high-dose products may worsen reflux/GI irritation.",
+  "contraindications": [
+    "Broken or inflamed skin for topical use",
+    "known chili/capsaicin allergy",
+    "uncontrolled reflux for oral products."
+  ],
+  "interactions": [
+    "Additive skin irritation with other topical rubs",
+    "oral products may theoretically compound antihypertensive or anticoagulant regimens",
+    "but clinical evidence is limited."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "meta_analysis",
+  "relatedHerbs": [],
+  "region": ""
+}

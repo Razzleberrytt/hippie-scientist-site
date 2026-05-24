@@ -1,0 +1,23 @@
+{
+  "id": "kahweol",
+  "slug": "kahweol",
+  "name": "kahweol",
+  "summary": "Coffee diterpene often paired with cafestol and associated with redox and inflammatory pathway modulation.",
+  "description": "Coffee diterpene often paired with cafestol and associated with redox and inflammatory pathway modulation.",
+  "compoundClass": "diterpene / coffee alkaloid-related constituent",
+  "mechanisms": [
+    "Nrf2 activation",
+    "NF-κB inhibition"
+  ],
+  "targets": [
+    "lipid metabolism",
+    "bile acid signaling",
+    "adenosine/glucose metabolism depending compound"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Coffee matrix matters. Cafestol/kahweol can raise LDL with unfiltered coffee; caffeine-related effects may apply to coffee products.",
+  "evidenceLevel": "human_indirect",
+  "relatedCompounds": []
+}

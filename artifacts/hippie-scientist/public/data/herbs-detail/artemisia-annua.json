@@ -1,0 +1,30 @@
+{
+  "name": "artemisia annua",
+  "slug": "artemisia-annua",
+  "summary": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
+  "description": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
+  "primaryActions": [],
+  "mechanisms": [
+    "artemisinin endoperoxide activation under iron/heme conditions",
+    "parasite oxidative damage pathways",
+    "NF-κB and cytokine modulation reported preclinically"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Do not use crude Artemisia as a substitute for approved antimalarial therapy. Pregnancy, liver disease, and drug-interaction contexts require medical supervision.",
+  "contraindications": [
+    "Pregnancy/breastfeeding unless medically indicated",
+    "serious infection without medical care",
+    "liver disease",
+    "and unsupervised antimalarial use."
+  ],
+  "interactions": [
+    "Potential CYP/P-gp interactions and additive effects with antimalarials",
+    "hepatotoxic drugs",
+    "and seizure-threshold-lowering agents."
+  ],
+  "preparation": "Separate whole-herb Artemisia preparations from purified artemisinin derivatives; evidence and safety are not interchangeable.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

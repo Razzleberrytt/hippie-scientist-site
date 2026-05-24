@@ -1,0 +1,87 @@
+{
+  "slug": "momordica-charantia",
+  "name": "Bitter Melon",
+  "summary": "Contains charantin and polypeptide-p which lower blood glucose.",
+  "description": "Contains charantin and polypeptide-p which lower blood glucose.",
+  "effects": [
+    "metabolic"
+  ],
+  "primary_effects": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Antidiabetics",
+    "pregnancy avoid"
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "pregnancy avoid"
+  ],
+  "side_effects": [],
+  "dosage": "1000-2000 mg extract",
+  "typical_dosage": "1000-2000 mg extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Bitter Melon tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 90,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

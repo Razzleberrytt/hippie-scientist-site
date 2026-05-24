@@ -1,0 +1,30 @@
+{
+  "name": "neem",
+  "slug": "neem",
+  "summary": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
+  "description": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
+  "primaryActions": [],
+  "mechanisms": [
+    "traditional skin support",
+    "antimicrobial support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "Pregnancy/trying to conceive",
+    "children",
+    "liver disease",
+    "hypoglycemia risk",
+    "breastfeeding without guidance"
+  ],
+  "interactions": [
+    "May potentiate antidiabetics",
+    "immunosuppressants",
+    "and hepatotoxic drugs/supplements."
+  ],
+  "preparation": "Leaf, bark, seed oil, and topical preparations differ greatly; avoid internal neem oil.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

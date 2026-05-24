@@ -1,0 +1,33 @@
+{
+  "name": "coffee cherry",
+  "slug": "coffee-cherry",
+  "summary": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+  "description": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+  "primaryActions": [],
+  "mechanisms": [
+    "chlorogenic-acid antioxidant signaling",
+    "caffeine adenosine-receptor antagonism",
+    "polyphenol Nrf2/AMPK-related pathways"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Caffeine content varies; concentrated products may cause insomnia, anxiety, palpitations, reflux, or blood-pressure effects.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmias",
+    "severe anxiety/insomnia",
+    "pregnancy/breastfeeding caution",
+    "and stimulant sensitivity."
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "decongestants",
+    "theophylline",
+    "and CYP1A2-modulating drugs."
+  ],
+  "preparation": "Disclose caffeine and polyphenol content; avoid stacking with coffee/energy products.",
+  "traditionalUses": [],
+  "evidenceLevel": "in_vitro",
+  "relatedHerbs": [],
+  "region": ""
+}

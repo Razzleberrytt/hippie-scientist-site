@@ -1,0 +1,26 @@
+{
+  "name": "daphne odora",
+  "slug": "daphne-odora",
+  "summary": "Daphne odora lean monograph row enriched in bulk mode.",
+  "description": "Daphne odora lean monograph row enriched in bulk mode.",
+  "primaryActions": [],
+  "mechanisms": [
+    "JAK/STAT inhibition",
+    "NF-κB inhibition"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "High-caution plant; toxic diterpenes/coumarin-related constituents may irritate skin and mucosa. Avoid internal supplement use outside expert supervision.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

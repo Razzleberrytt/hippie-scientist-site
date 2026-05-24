@@ -1,0 +1,26 @@
+{
+  "name": "holy basil seed",
+  "slug": "holy-basil-seed",
+  "summary": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases.",
+  "description": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases.",
+  "primaryActions": [],
+  "mechanisms": [
+    "demulcent support",
+    "digestive support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Leaf preparations are commonly used as teas, powders, tinctures, or standardized extracts; topical use may differ from oral use.",
+  "traditionalUses": [],
+  "evidenceLevel": "none",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,35 @@
+{
+  "name": "guarana",
+  "slug": "guarana",
+  "summary": "Mechanism context: caffeine-mediated adenosine A1/A2A antagonism, methylxanthine CNS stimulation, catecholamine/arousal signaling. Safety: Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.. Interactions tracked: Additive effects with caffeine, stimulants, theophylline.",
+  "description": "Mechanism context: caffeine-mediated adenosine A1/A2A antagonism, methylxanthine CNS stimulation, catecholamine/arousal signaling. Safety: Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.. Interactions tracked: Additive effects with caffeine, stimulants, theophylline.",
+  "primaryActions": [],
+  "mechanisms": [
+    "caffeine-mediated adenosine A1/A2A antagonism",
+    "methylxanthine CNS stimulation",
+    "catecholamine/arousal signaling",
+    "polyphenol antioxidant signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmia",
+    "severe anxiety/insomnia",
+    "stimulant sensitivity",
+    "and unsupervised pediatric use."
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "theophylline",
+    "decongestants",
+    "and some ADHD medications",
+    "CYP1A2 inhibitors may increase caffeine exposure."
+  ],
+  "preparation": "Use standardized preparations that disclose caffeine content; avoid concentrated stimulant blends.",
+  "traditionalUses": [],
+  "evidenceLevel": "human_limited",
+  "relatedHerbs": [],
+  "region": ""
+}

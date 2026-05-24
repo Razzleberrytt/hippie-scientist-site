@@ -1,0 +1,76 @@
+{
+  "slug": "devils-claw",
+  "name": "Devils Claw Extract",
+  "summary": "Devils Claw Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Inflammation. Current workbook signals support mechanistic context around Inflammatory Signaling Modulation, not treatment claims.",
+  "description": "Devils Claw Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Inflammation. Current workbook signals support mechanistic context around Inflammatory Signaling Modulation, not treatment claims.",
+  "effects": [
+    "inflammation",
+    "joint_health"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "joint_health"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "evidence_grade": "Limited-to-moderate human evidence",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Avoid with ulcers",
+    "gallstones/bile duct disease",
+    "anticoagulants",
+    "pregnancy",
+    "and NSAID/GI risk stacking"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "50–100 mg/day harpagoside-equivalent in several pain studies",
+  "typical_dosage": "50–100 mg/day harpagoside-equivalent in several pain studies",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority herbal mobility support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Harpagophytum procumbens extract",
+    "harpagoside content disclosed",
+    "avoid vague joint blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

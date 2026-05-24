@@ -1,0 +1,78 @@
+{
+  "slug": "testosterone-boosters-generic",
+  "name": "Testosterone Boosters Generic",
+  "summary": "Generic testosterone-booster blends should not be treated as evidence-based; claims must be evaluated ingredient by ingredient, and many products have unsupported claims or dosing below evidence-based levels.",
+  "description": "Generic testosterone-booster blends should not be treated as evidence-based; claims must be evaluated ingredient by ingredient, and many products have unsupported claims or dosing below evidence-based levels.",
+  "effects": [
+    "testosterone"
+  ],
+  "primary_effects": [
+    "testosterone"
+  ],
+  "mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "raw_mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "evidence_grade": "avoid",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "hormone-sensitive conditions",
+    "prostate concerns",
+    "liver disease",
+    "endocrine medication use",
+    "pregnancy",
+    "or anyone needing medical testosterone evaluation"
+  ],
+  "interactions": [
+    "see source ledger",
+    "interaction risk depends on medications and health context"
+  ],
+  "side_effects": [],
+  "dosage": "not applicable; require ingredient-specific dosing",
+  "typical_dosage": "not applicable; require ingredient-specific dosing",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for low testosterone or performance concerns"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

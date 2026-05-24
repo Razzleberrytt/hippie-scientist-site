@@ -1,0 +1,84 @@
+{
+  "slug": "skullcap",
+  "name": "Skullcap",
+  "summary": "Skullcap entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "Skullcap is cataloged as flavonoid-rich Scutellaria botanical. Reported mechanisms: GABA-A receptor interaction (preclinical); anti-inflammatory effects.",
+  "effects": [
+    "anxiety",
+    "sleep"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "sleep"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "evidence_grade": "insufficient",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Liver injury has been reported with some skullcap-containing products",
+    "species adulteration is a concern.",
+    "hepatotoxicity reports often adulteration-related",
+    "sedation"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Not established",
+  "typical_dosage": "Not established",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for poor sleep"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_query": "Skullcap supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clear dose per serving",
+    "form matches intended timing",
+    "avoid sedative proprietary blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

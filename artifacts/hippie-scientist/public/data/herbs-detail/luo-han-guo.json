@@ -1,0 +1,27 @@
+{
+  "name": "luo han guo",
+  "slug": "luo-han-guo",
+  "summary": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+  "description": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+  "primaryActions": [],
+  "mechanisms": [
+    "throat support",
+    "sweetener-adjacent support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "antihypertensives/diuretics",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "Fruit/berry preparations are commonly used as foods, juices, powders, capsules, or extracts; sugar and extract concentration vary.",
+  "traditionalUses": [],
+  "evidenceLevel": "traditional",
+  "relatedHerbs": [],
+  "region": ""
+}

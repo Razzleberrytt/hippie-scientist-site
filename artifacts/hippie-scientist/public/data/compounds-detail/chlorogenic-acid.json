@@ -1,0 +1,24 @@
+{
+  "id": "chlorogenic-acid",
+  "slug": "chlorogenic-acid",
+  "name": "chlorogenic acid",
+  "summary": "Caffeoylquinic acid widely reported from coffee and artichoke with AMPK and glucose-metabolism pathway effects.",
+  "description": "Caffeoylquinic acid widely reported from coffee and artichoke with AMPK and glucose-metabolism pathway effects.",
+  "compoundClass": "caffeoylquinic acid / phenolic acid",
+  "mechanisms": [
+    "AMPK activation",
+    "glucose metabolism modulation"
+  ],
+  "targets": [
+    "AMPK",
+    "glucose absorption pathways",
+    "antioxidant enzymes",
+    "inflammatory signaling"
+  ],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally food-associated; supplement doses may cause GI upset or caffeine-like effects if delivered via coffee/green coffee extracts. Caution with stimulant sensitivity and antidiabetic drugs.",
+  "evidenceLevel": "human_limited; food_based_evidence",
+  "relatedCompounds": []
+}
