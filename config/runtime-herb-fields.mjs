@@ -101,6 +101,8 @@ export const HERB_RUNTIME_FIELDS = [
 
   // Affiliate/runtime product display
   'affiliate_ready',
+  'affiliate_url',
+  'affiliate_label',
   'affiliate_query',
   'default_product_type',
   'preferred_vendor_url',

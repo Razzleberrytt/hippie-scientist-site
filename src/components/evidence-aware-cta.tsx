@@ -1,4 +1,5 @@
 import { buildDecisionVisualProfile } from '@/lib/decision-visuals'
+import { getAffiliateSourcingContext } from '@/lib/monetization-context'
 
 type EvidenceAwareCTAProps = {
   title?: string
@@ -46,6 +47,8 @@ export default function EvidenceAwareCTA({
   record,
 }: EvidenceAwareCTAProps) {
   const visuals = buildDecisionVisualProfile(record || {})
+  const affiliate = getAffiliateSourcingContext(record || {})
+  const showAffiliateButton = affiliate.affiliateReady && affiliate.affiliateUrl
   const recommendationCards = [
     {
       label: 'Formulation Notes',
@@ -79,6 +82,29 @@ export default function EvidenceAwareCTA({
         <p className="compact-copy">
           {description}
         </p>
+      
+
+      {showAffiliateButton ? (
+        <div className="rounded-3xl border border-brand-900/10 bg-white/80 p-4 shadow-sm">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="max-w-2xl">
+              <p className="eyebrow-label">Optional sourcing link</p>
+              <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                This link is provided for sourcing review only. Compare labels, ingredient form,
+                serving context, and seller transparency before considering any product.
+              </p>
+            </div>
+            <a
+              href={affiliate.affiliateUrl}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-brand-900/15 bg-brand-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+            >
+              {affiliate.affiliateLabel}
+            </a>
+          </div>
+        </div>
+      ) : null}
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
