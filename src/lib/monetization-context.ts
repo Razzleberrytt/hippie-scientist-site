@@ -7,8 +7,20 @@ export type MonetizationReadiness = {
   cautions: string[]
 }
 
+export type AffiliateSourcingContext = {
+  affiliateReady: boolean
+  affiliateUrl: string
+  affiliateLabel: string
+}
+
 function normalize(value: unknown) {
   return text(value).toLowerCase()
+}
+
+function booleanish(value: unknown) {
+  if (typeof value === 'boolean') return value
+  const normalized = normalize(value)
+  return ['1', 'true', 'yes', 'y'].includes(normalized)
 }
 
 function evidenceLevel(record: any) {
@@ -94,4 +106,12 @@ export function buildSourcingNotes(record: any) {
     'Prefer standardization details when relevant',
     'Avoid products relying on exaggerated benefit claims',
   ]
+}
+
+export function getAffiliateSourcingContext(record: any): AffiliateSourcingContext {
+  return {
+    affiliateReady: booleanish(record?.affiliate_ready || record?.affiliateReady),
+    affiliateUrl: text(record?.affiliate_url || record?.affiliateUrl),
+    affiliateLabel: text(record?.affiliate_label || record?.affiliateLabel) || 'Check sourcing options',
+  }
 }
