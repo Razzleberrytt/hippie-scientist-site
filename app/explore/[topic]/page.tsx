@@ -72,7 +72,7 @@ const TOPIC_CONTEXT: Record<string, { intro: string; sections: { title: string; 
     signals: ['Inflammation', 'Oxidative stress', 'Hydration', 'Muscle function', 'Energy metabolism', 'Mobility'],
     links: [
       { label: 'Inflammation pathway', href: '/pathways/inflammation', description: 'Immune, oxidative-stress, and recovery-adjacent pathway relationships.' },
-      { label: 'Recovery goal guide', href: '/goals/recovery', description: 'Outcome-led guide for repair, performance recovery, and mobility support.' },
+      { label: 'Recovery Support Ecosystem', href: '/ecosystems/recovery', description: 'Outcome-led guide for repair, performance recovery, and mobility support.' },
       { label: 'Joint support guide', href: '/best-supplements-for-joint-support', description: 'Inflammation-adjacent guide for mobility and joint-support decisions.' },
     ],
   },

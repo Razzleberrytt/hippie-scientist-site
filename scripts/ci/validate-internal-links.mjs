@@ -69,7 +69,7 @@ console.log(`Found ${htmlFiles.length} HTML files to scan for internal links.`)
 let errorCount = 0
 const checkedLinks = new Map()
 
-const hrefRegex = /href=["']((?:\/[^"'>]+)|(?:[^"':>]+))["']/g
+const hrefRegex = /href=["']([^"']*)["']/g
 
 for (const file of htmlFiles) {
   const relativeFile = path.relative(outDir, file)

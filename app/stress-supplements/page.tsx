@@ -17,7 +17,7 @@ export default function Page() {
       <h1 className='text-4xl font-black text-white'>Best Supplements for Stress</h1>
       <p className='max-w-2xl text-white/80'>Explore stress-support supplements with practical dosage, timing, and safety context. This guide connects the main stress stack with the compounds that support calm, resilience, and daily recovery.</p>
       <div className='flex flex-wrap gap-3'>
-        <Link href='/goals/stress' className='inline-flex min-h-11 items-center rounded-2xl bg-emerald-300 px-5 py-2 font-bold text-black transition hover:bg-emerald-200 active:scale-[0.99]'>Explore Stress Supplements</Link>
+        <Link href='/ecosystems/stress' className='inline-flex min-h-11 items-center rounded-2xl bg-emerald-300 px-5 py-2 font-bold text-black transition hover:bg-emerald-200 active:scale-[0.99]'>Explore Stress Supplements</Link>
         <Link href='/stacks/stress' className='inline-flex min-h-11 items-center rounded-2xl border border-white/10 px-5 py-2 font-bold text-white/80 transition hover:bg-white/5 hover:text-white'>View Stress Stack</Link>
       </div>
       <section className='rounded-3xl border border-white/10 bg-black/15 p-5'>

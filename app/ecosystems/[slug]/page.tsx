@@ -32,21 +32,28 @@ export async function generateMetadata({ params }: EcosystemRouteProps) {
 function profileHref(profile: string) {
   const normalized = profile.toLowerCase()
 
+  const aliasMap: Record<string, string> = {
+    'nac': 'n-acetylcysteine',
+    'citicoline': 'cdp-choline',
+    'collagen': 'collagen-peptides',
+  }
+  const resolved = aliasMap[normalized] ?? normalized
+
   const compounds = new Set([
     'creatine',
     'theanine',
     'glycine',
     'taurine',
-    'nac',
+    'n-acetylcysteine',
     'magnesium',
     'magnesium-glycinate',
   ])
 
-  if (compounds.has(normalized)) {
-    return `/compounds/${normalized}`
+  if (compounds.has(resolved)) {
+    return `/compounds/${resolved}`
   }
 
-  return `/herbs/${normalized}`
+  return `/herbs/${resolved}`
 }
 
 function stimulationTone(value: string) {

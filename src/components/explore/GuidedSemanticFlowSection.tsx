@@ -2,28 +2,28 @@ import Link from 'next/link'
 
 const guidedFlows = [
   {
-    slug: 'dopamine-system',
+    href: '/supernodes/dopamine-systems',
     title: 'Follow dopamine exploration pathways',
     description:
       'Navigate motivation systems, adaptive reward pathways, and educational continuity flows related to focus and stimulation regulation.',
     category: 'foundational pathway',
   },
   {
-    slug: 'gaba-system',
+    href: '/supernodes/gaba-systems',
     title: 'Explore calm signaling ecosystems',
     description:
       'Follow interconnected educational systems related to calm regulation, nervous system continuity, and recovery-oriented exploration.',
     category: 'continuity ecosystem',
   },
   {
-    slug: 'recovery-neuroscience',
+    href: '/supernodes/sleep-recovery-ecosystems',
     title: 'Traverse recovery neuroscience systems',
     description:
       'Discover adaptive educational transitions related to restoration, overstimulation recovery, and semantic continuity pathways.',
     category: 'adaptive traversal',
   },
   {
-    slug: 'neuroplasticity',
+    href: '/education/how-learning-affects-neuroplasticity',
     title: 'Understand neuroplasticity progression',
     description:
       'Explore connected educational systems focused on adaptation, resilience, learning pathways, and continuity-aware cognition.',
@@ -38,23 +38,23 @@ export function GuidedSemanticFlowSection() {
         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700">
           Guided Exploration Flows
         </p>
-
+ 
         <h2 className="text-3xl font-semibold tracking-tight text-ink">
           Navigate educational ecosystems intentionally
         </h2>
-
+ 
         <p className="max-w-3xl text-base leading-7 text-muted">
           Follow adaptive semantic exploration routes designed to
           reduce overwhelm while improving continuity-oriented
           educational discovery.
         </p>
       </div>
-
+ 
       <div className="grid gap-5 md:grid-cols-2">
         {guidedFlows.map((flow) => (
           <Link
-            key={flow.slug}
-            href={`/explore/${flow.slug}`}
+            key={flow.href}
+            href={flow.href}
             className="group rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50/70 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg"
           >
             <div className="space-y-5">

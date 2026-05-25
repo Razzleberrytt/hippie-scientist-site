@@ -4,16 +4,16 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 const herbs = [
   {
-    href: '/herbs/calea-zacatechichi',
-    title: 'Calea Zacatechichi',
+    href: '/herbs/valerian',
+    title: 'Valerian',
   },
   {
     href: '/herbs/mugwort',
     title: 'Mugwort',
   },
   {
-    href: '/herbs/african-dream-root',
-    title: 'African Dream Root',
+    href: '/herbs/passionflower',
+    title: 'Passionflower',
   },
 ]
 

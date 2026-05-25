@@ -4,10 +4,6 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 const profiles = [
   {
-    href: '/herbs/amanita-muscaria',
-    title: 'Amanita Muscaria',
-  },
-  {
     href: '/herbs/blue-lotus',
     title: 'Blue Lotus',
   },

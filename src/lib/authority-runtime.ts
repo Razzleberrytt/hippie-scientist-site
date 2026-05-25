@@ -1,6 +1,9 @@
 import { cache } from 'react'
 import { getSearchSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeMapEntries } from '@/lib/runtime-related-maps'
+import { getValidComparisonSlug } from '@/lib/comparison-utils'
+import { getStacks } from '@/lib/runtime-data'
+import { mergeStackEcosystems } from '@/lib/stack-ecosystems'
 
 function normalizeSlug(value: unknown) {
   return typeof value === 'string'
@@ -54,13 +57,45 @@ export async function getAuthorityHubRecords(slug: string, limit = 12) {
 }
 
 export async function getAuthorityComparisons(slug: string, limit = 8) {
-  const entries = await getRuntimeMapEntries('comparison', normalizeSlug(slug))
-  return hydrateEntries(entries, limit)
+  const normalized = normalizeSlug(slug)
+  const entries = await getRuntimeMapEntries('comparison', normalized)
+  const hydrated = await hydrateEntries(entries, limit)
+  
+  return hydrated
+    .map((comparison: any) => {
+      const compSlug = getValidComparisonSlug(normalized, comparison.slug)
+      if (!compSlug) return null
+      
+      const parts = compSlug.split('-vs-')
+      const formatPart = (p: string) => p.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+      const name = `${formatPart(parts[0])} vs ${formatPart(parts[1])}`
+      
+      return {
+        ...comparison,
+        slug: compSlug,
+        name,
+      }
+    })
+    .filter((item): item is any => item !== null)
 }
 
 export async function getAuthorityStacks(slug: string, limit = 8) {
-  const entries = await getRuntimeMapEntries('stack', normalizeSlug(slug))
-  return hydrateEntries(entries, limit)
+  const normalized = normalizeSlug(slug)
+  const rawStacks = await getStacks()
+  const allStacks = mergeStackEcosystems(rawStacks)
+  
+  const matchingStacks = allStacks.filter(stack => {
+    const compounds = stack.compounds || stack.stack || []
+    return compounds.some((c: any) => {
+      const cSlug = normalizeSlug(c.compound_slug || c.compound || c.slug)
+      return cSlug === normalized
+    })
+  })
+  
+  return matchingStacks.slice(0, limit).map(stack => ({
+    slug: stack.slug,
+    name: stack.title || stack.slug,
+  }))
 }
 
 export async function getBestForRankings(slug: string, limit = 24) {

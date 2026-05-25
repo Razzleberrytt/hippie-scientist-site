@@ -12,10 +12,6 @@ const systems = [
     title: 'Mugwort',
   },
   {
-    href: '/herbs/calea-zacatechichi',
-    title: 'Calea Zacatechichi',
-  },
-  {
     href: '/protocols/deep-sleep-support',
     title: 'Deep Sleep Support',
   },

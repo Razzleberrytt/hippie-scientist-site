@@ -250,7 +250,7 @@ function HerbCard({ herb, featured = false }: { herb: any; featured?: boolean })
 const browsePaths = [
   {
     label: 'Stress & calm',
-    href: '/goals/anxiety',
+    href: '/best-supplements-for-stress',
     description: 'Calming herbs, adaptogens, and interaction context.',
   },
   {

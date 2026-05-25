@@ -235,8 +235,9 @@ function weightedSearchScore(item: SearchItem, relevanceScore: number, intent: S
 }
 
 function normalizeItem(item: any, type: SearchType): SearchItem | null {
-  const slug = text(item.slug || item.id)
-  if (!slug) return null
+  const rawSlug = text(item.slug || item.id)
+  if (!rawSlug) return null
+  const slug = rawSlug.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
   const name = getName(item)
   if (!name || !isClean(name)) return null

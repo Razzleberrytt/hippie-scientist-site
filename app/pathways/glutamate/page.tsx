@@ -8,10 +8,6 @@ const systems = [
     title: 'Dissociative Mechanisms',
   },
   {
-    href: '/herbs/amanita-muscaria',
-    title: 'Amanita Muscaria',
-  },
-  {
     href: '/education/what-is-neuropharmacology',
     title: 'Neuropharmacology',
   },
