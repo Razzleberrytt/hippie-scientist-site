@@ -7,11 +7,18 @@ const summaryDir = path.join(process.cwd(), 'public', 'data', 'summary-indexes')
 type SummaryRecord = Record<string, any>
 type AlphabeticalShards = Record<string, SummaryRecord[]>
 
+const summaryCache = new Map<string, unknown>()
+
 async function readJsonFile<T>(fileName: string, fallback: T): Promise<T> {
+  if (summaryCache.has(fileName)) {
+    return summaryCache.get(fileName) as T
+  }
   try {
     const raw = await fs.readFile(path.join(summaryDir, fileName), 'utf8')
     const parsed = JSON.parse(raw)
-    return parsed ?? fallback
+    const result = parsed ?? fallback
+    summaryCache.set(fileName, result)
+    return result as T
   } catch {
     return fallback
   }

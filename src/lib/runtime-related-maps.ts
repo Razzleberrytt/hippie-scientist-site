@@ -74,7 +74,12 @@ function sanitizeEntries(entries: unknown): RuntimeMapEntry[] {
     .slice(0, MAX_RUNTIME_MAP_ENTRIES)
 }
 
+const mapCache = new Map<string, RuntimeMap>()
+
 async function readMap(fileName: string): Promise<RuntimeMap> {
+  if (mapCache.has(fileName)) {
+    return mapCache.get(fileName)!
+  }
   try {
     const raw = await fs.readFile(path.join(MAP_DIR, fileName), 'utf8')
     const parsed = JSON.parse(raw)
@@ -83,11 +88,13 @@ async function readMap(fileName: string): Promise<RuntimeMap> {
       return {}
     }
 
-    return Object.fromEntries(
+    const result = Object.fromEntries(
       Object.entries(parsed)
         .map(([slug, entries]) => [text(slug), sanitizeEntries(entries)])
         .filter(([slug, entries]) => Boolean(slug) && Array.isArray(entries)),
     ) as RuntimeMap
+    mapCache.set(fileName, result)
+    return result
   } catch {
     return {}
   }

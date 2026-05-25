@@ -367,7 +367,22 @@ function normalizeRows(rows, fn) {
 }
 
 function details(dir, rows) {
-  fs.rmSync(dir, { recursive: true, force: true })
+  let retries = 5
+  while (retries > 0) {
+    try {
+      fs.rmSync(dir, { recursive: true, force: true })
+      break
+    } catch (e) {
+      if (e.code === 'EBUSY' && retries > 1) {
+        retries--
+        // Synchronous sleep/wait for 100ms
+        const start = Date.now()
+        while (Date.now() - start < 100) {}
+      } else {
+        throw e
+      }
+    }
+  }
   ensureDir(dir)
   for (const row of rows) writeJson(path.join(dir, `${row.slug}.json`), row)
 }

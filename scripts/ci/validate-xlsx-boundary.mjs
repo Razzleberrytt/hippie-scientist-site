@@ -1,4 +1,6 @@
-import { execSync } from 'node:child_process'
+import fs from 'node:fs'
+import path from 'node:path'
+
 const allowed = new Set([
   'scripts/data/workbook-parser.mjs',
   'scripts/data/report-migration-parity.mjs',
@@ -13,8 +15,35 @@ const allowed = new Set([
   'scripts/verify-workbook-import-reconciliation.mjs',
   'scripts/import-xlsx-monographs.mjs'
 ])
-const out = execSync("rg -l \"from ['\\\"]xlsx['\\\"]|require\\(['\\\"]xlsx['\\\"]\\)\" scripts", {encoding:'utf8'}).trim()
-const files = out?out.split('\n').filter(Boolean):[]
-const bad=files.filter(f=>!allowed.has(f))
-if(bad.length){console.error('xlsx import boundary violation:\n'+bad.join('\n'));process.exit(1)}
+
+const regex = /from ['"]xlsx['"]|require\(['"]xlsx['"]\)/
+
+function getFiles(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true })
+  const files = entries.flatMap((entry) => {
+    const res = path.join(dir, entry.name)
+    return entry.isDirectory() ? getFiles(res) : res
+  })
+  return files
+}
+
+const allFiles = getFiles('scripts')
+const xlsxFiles = []
+
+for (const file of allFiles) {
+  if (/\.(js|ts|mjs|tsx|jsx)$/.test(file)) {
+    const content = fs.readFileSync(file, 'utf8')
+    if (regex.test(content)) {
+      const normalizedPath = path.normalize(file).replace(/\\/g, '/')
+      xlsxFiles.push(normalizedPath)
+    }
+  }
+}
+
+const bad = xlsxFiles.filter(f => !allowed.has(f))
+if (bad.length) {
+  console.error('xlsx import boundary violation:\n' + bad.join('\n'))
+  process.exit(1)
+}
 console.log('validate-xlsx-boundary: OK')
+

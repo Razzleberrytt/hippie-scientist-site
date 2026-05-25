@@ -7,11 +7,18 @@ const dataDir = path.join(process.cwd(), 'public', 'data')
 
 type RuntimeRecord = Record<string, any>
 
+const fileCache = new Map<string, unknown>()
+
 async function readJsonFile(fileName: string): Promise<unknown> {
+  if (fileCache.has(fileName)) {
+    return fileCache.get(fileName)
+  }
   const filePath = path.join(dataDir, fileName)
   try {
     const raw = await fs.readFile(filePath, 'utf8')
-    return JSON.parse(raw)
+    const parsed = JSON.parse(raw)
+    fileCache.set(fileName, parsed)
+    return parsed
   } catch {
     return []
   }
