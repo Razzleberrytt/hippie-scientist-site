@@ -14,6 +14,7 @@ export default [
       'node_modules/**',
       'next-env.d.ts',
       'scripts/data/build-runtime-from-workbook.mjs',
+      'scratch/**',
     ],
   },
   js.configs.recommended,
