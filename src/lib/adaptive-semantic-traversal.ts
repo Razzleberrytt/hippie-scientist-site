@@ -68,6 +68,19 @@ function adaptiveTraversalType(candidate: any): AdaptiveTraversalItem['type'] {
   return 'profile'
 }
 
+function getSupernodeHref(ecosystemSlug: string): string | undefined {
+  const mapping: Record<string, string> = {
+    'gaba-ecosystem': 'gaba-systems',
+    'dopamine-ecosystem': 'dopamine-systems',
+    'stress-response-ecosystem': 'adaptogen-ecosystems',
+    'mitochondrial-ecosystem': 'mitochondrial-ecosystems',
+    'neuroinflammation-ecosystem': 'neuroinflammation-ecosystems',
+    'sleep-recovery-ecosystem': 'sleep-recovery-ecosystems',
+  }
+  const supernodeSlug = mapping[ecosystemSlug]
+  return supernodeSlug ? `/supernodes/${supernodeSlug}` : undefined
+}
+
 export function buildAdaptiveTraversal(
   source: any,
   candidates: any[] = [],
@@ -103,13 +116,13 @@ export function buildAdaptiveTraversal(
       return {
         title: `Explore the ${ecosystem.title}`,
         description: ecosystem.summary,
-        href: `/supernodes/${ecosystem.slug.replace('-ecosystem', '-systems')}`,
+        href: getSupernodeHref(ecosystem.slug),
         type: 'ecosystem',
         score: overlap.length * 3,
         signals: ecosystem.pathways.slice(0, 4).map(title),
       }
     })
-    .filter((item) => item.score > 0)
+    .filter((item) => item.score > 0 && item.href !== undefined)
 
   return [...profileItems, ...ecosystemItems]
     .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))

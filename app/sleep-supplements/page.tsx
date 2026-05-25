@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 }
 
 const comparisonLinks = [
-  { href: '/compare/magnesium-vs-glycine', label: 'Magnesium vs Glycine' },
+  { href: '/compare/glycine-vs-magnesium', label: 'Magnesium vs Glycine' },
   { href: '/compare/caffeine-vs-l-theanine', label: 'Caffeine vs L-Theanine' },
 ]
 

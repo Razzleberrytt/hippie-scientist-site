@@ -2,28 +2,28 @@ import Link from 'next/link'
 
 const affiliateFlows = [
   {
-    slug: 'focus-support',
+    slug: 'focus',
     title: 'Focus & cognition support systems',
     description:
       'Explore educational buying pathways related to cognition-oriented continuity systems and adaptive focus ecosystems.',
     intent: 'educational optimization',
   },
   {
-    slug: 'stress-regulation',
+    slug: 'anxiety',
     title: 'Stress-regulation educational pathways',
     description:
       'Discover continuity-aware educational systems related to calm support, adaptive recovery ecosystems, and resilience exploration.',
     intent: 'continuity support',
   },
   {
-    slug: 'sleep-continuity',
+    slug: 'sleep',
     title: 'Sleep continuity ecosystems',
     description:
       'Navigate educational product ecosystems related to recovery continuity, restoration systems, and adaptive nighttime support.',
     intent: 'recovery ecosystem',
   },
   {
-    slug: 'metabolic-support',
+    slug: 'recovery',
     title: 'Metabolic educational systems',
     description:
       'Explore adaptive educational buying ecosystems focused on continuity-aware energy systems and metabolic pathway support.',

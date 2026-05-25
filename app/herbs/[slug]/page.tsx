@@ -18,6 +18,7 @@ import {
 } from '@/lib/ai-semantic-navigation'
 import { buildMeta } from '@/lib/seo'
 import { buildAuthorityProfileModel } from '@/lib/authority-profile'
+import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { buildInternalLinkDensity } from '@/lib/internal-link-density'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { getEvidenceLabel } from '@/lib/evidence'
@@ -409,8 +410,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const relatedCompoundLinks = getRelatedLinks(relatedCompounds, 'compound')
   const comparisonLinks = comparisonRecords
     .filter((record: any) => record?.slug)
-    .map((record: any) => ({ label: formatDisplayLabel(record.name || record.title || record.slug), href: `/compare/${record.slug}` }))
-    .filter((item: any) => item.label)
+    .map((record: any) => {
+      const compSlug = getValidComparisonSlug(sourceSlug, record.slug)
+      if (!compSlug) return null
+      return {
+        label: formatDisplayLabel(record.name || record.title || record.slug),
+        href: `/compare/${compSlug}`,
+      }
+    })
+    .filter((item): item is { label: string; href: string } => item !== null)
     .slice(0, 4)
 
   const herbJsonLd = {

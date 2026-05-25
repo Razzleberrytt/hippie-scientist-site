@@ -23,6 +23,7 @@ import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { getFeaturedCollections } from '@/lib/collections'
+import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 import { buildContinuationPrompts, buildSemanticNarrative } from '@/lib/semantic-exploration-narratives'
 import { buildSourcingNotes, getMonetizationReadiness } from '@/lib/monetization-context'
@@ -569,7 +570,18 @@ export default async function CompoundPage({ params }: PageProps) {
             {
               title: 'Related comparisons',
               description: 'Side-by-side pages for closer tradeoff decisions.',
-              links: comparisonRecords.slice(0, 4).map((item:any) => ({ href: `/compare/${item.slug}`, label: formatDisplayLabel(item.name || item.title || item.slug) })),
+              links: comparisonRecords
+                .filter((item: any) => item?.slug)
+                .map((item: any) => {
+                  const compSlug = getValidComparisonSlug(sourceSlug, item.slug)
+                  if (!compSlug) return null
+                  return {
+                    href: `/compare/${compSlug}`,
+                    label: formatDisplayLabel(item.name || item.title || item.slug)
+                  }
+                })
+                .filter((item): item is { href: string; label: string } => item !== null)
+                .slice(0, 4),
             },
             {
               title: 'Alternatives and adjacencies',

@@ -98,7 +98,7 @@ export default async function TopSleepPage() {
           Natural sleep herbs often support relaxation, reduce stress, or improve sleep onset. Popular examples include valerian, ashwagandha, lemon balm, and calming botanicals.
         </p>
         <div className='mt-4 flex flex-wrap gap-2'>
-          <Link href='/compare/ashwagandha-vs-rhodiola-rosea'>Ashwagandha vs Rhodiola</Link>
+          <Link href='/compare/ashwagandha-vs-rhodiola'>Ashwagandha vs Rhodiola</Link>
           <Link href='/top/stress'>Best herbs for stress</Link>
           <Link href='/top/focus'>Best supplements for focus</Link>
         </div>

@@ -65,6 +65,19 @@ function matchingEcosystems(signals: string[]) {
     .sort((a, b) => b.score - a.score)
 }
 
+function getSupernodeHref(ecosystemSlug: string): string | undefined {
+  const mapping: Record<string, string> = {
+    'gaba-ecosystem': 'gaba-systems',
+    'dopamine-ecosystem': 'dopamine-systems',
+    'stress-response-ecosystem': 'adaptogen-ecosystems',
+    'mitochondrial-ecosystem': 'mitochondrial-ecosystems',
+    'neuroinflammation-ecosystem': 'neuroinflammation-ecosystems',
+    'sleep-recovery-ecosystem': 'sleep-recovery-ecosystems',
+  }
+  const supernodeSlug = mapping[ecosystemSlug]
+  return supernodeSlug ? `/supernodes/${supernodeSlug}` : undefined
+}
+
 export function buildSemanticNavigationSuggestions(
   record: any,
   relatedRecords: any[] = [],
@@ -86,12 +99,12 @@ export function buildSemanticNavigationSuggestions(
           signals: collectSignals(firstRelated).slice(0, 4).map(title),
         }
       : null,
-    firstEcosystem
+    firstEcosystem && getSupernodeHref(firstEcosystem.slug)
       ? {
           intent: 'continue-ecosystem',
           title: `Continue into the ${firstEcosystem.title}`,
           description: firstEcosystem.summary,
-          href: `/supernodes/${firstEcosystem.slug.replace('-ecosystem', '-systems')}`,
+          href: getSupernodeHref(firstEcosystem.slug),
           signals: firstEcosystem.pathways.slice(0, 4).map(title),
         }
       : null,

@@ -111,7 +111,7 @@ export default async function CortisolPage() {
         description='Educational first-look option for cortisol, stress-response, and adaptogen-support research.'
         href={bestLinks[0]?.url || '#'}
         cta={`View ${bestLabel} options →`}
-        secondaryHref='/compare/ashwagandha-vs-rhodiola-rosea'
+        secondaryHref='/compare/ashwagandha-vs-rhodiola'
         secondaryCta='Compare alternatives →'
       />
 
@@ -154,7 +154,7 @@ export default async function CortisolPage() {
         <div className='mt-4 flex flex-wrap gap-2'>
           <Link href='/top/stress' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100'>Best herbs for stress</Link>
           <Link href='/top/top-3-herbs-for-stress' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70'>Top 3 herbs for stress</Link>
-          <Link href='/compare/ashwagandha-vs-rhodiola-rosea' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70'>Ashwagandha vs rhodiola</Link>
+          <Link href='/compare/ashwagandha-vs-rhodiola' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70'>Ashwagandha vs rhodiola</Link>
         </div>
       </section>
     </main>

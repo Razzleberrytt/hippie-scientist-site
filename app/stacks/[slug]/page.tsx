@@ -11,6 +11,7 @@ import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
 import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
+import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 
 type Params = { params: Promise<{ slug: string }> }
 type StackItemRecord = Record<string, any>
@@ -34,13 +35,23 @@ const groupByRole = (items: StackItemRecord[]): RoleGroups => {
   return groups
 }
 
-function stackItemToRecord(item: StackItemRecord) {
-  const slug = item.compound_slug || item.compound || item.slug
+const SLUG_MAPPING: Record<string, string> = {
+  'citicoline': 'cdp-choline',
+  'collagen': 'collagen-peptides',
+}
+
+function resolveStackItemSlug(item: StackItemRecord) {
+  const raw = item.compound_slug || item.compound || item.slug || ''
+  return SLUG_MAPPING[raw] || raw
+}
+
+function stackItemToRecord(item: StackItemRecord, herbSlugs: Set<string> = new Set()) {
+  const slug = resolveStackItemSlug(item)
   return {
     slug,
     name: item.compound || item.name || slug,
     displayName: item.compound || item.name || slug,
-    entityType: 'compound',
+    entityType: herbSlugs.has(slug) ? 'herb' : 'compound',
     effects: [item.role, item.rationale].filter(Boolean),
     mechanisms: [item.rationale].filter(Boolean),
     pathways: [item.role].filter(Boolean),
@@ -71,10 +82,13 @@ export default async function StackPage({ params }: Params) {
   const stack = stacks.find(s => s.slug === slug)
   if (!stack) return notFound()
 
+  const { herbRecords } = await getUnifiedRuntimeRecords()
+  const herbSlugs = new Set(herbRecords.map((h: any) => h.slug))
+
   const items: StackItemRecord[] = [...(stack.compounds || stack.stack || [])]
   const groups = groupByRole(items)
   const goal = formatGoal(stackGoal(stack))
-  const relatedRecords = items.map(stackItemToRecord).filter((record) => record.slug)
+  const relatedRecords = items.map(item => stackItemToRecord(item, herbSlugs)).filter((record) => record.slug)
   const stackRecord = {
     slug: stack.slug,
     name: stack.title,
@@ -141,23 +155,29 @@ export default async function StackPage({ params }: Params) {
       <section id="stack" className="grid gap-8 lg:grid-cols-3">
         <div className="space-y-4">
           <h2 className="text-lg font-bold text-ink">Anchor</h2>
-          {groups.anchor.map((item, i) => (
-            <StackCard key={i} item={item} />
-          ))}
+          {groups.anchor.map((item, i) => {
+            const itemSlug = resolveStackItemSlug(item)
+            const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
+            return <StackCard key={i} item={item} entityType={entityType} />
+          })}
         </div>
 
         <div className="space-y-4">
           <h2 className="text-lg font-bold text-ink">Amplifier</h2>
-          {groups.amplifier.map((item, i) => (
-            <StackCard key={i} item={item} />
-          ))}
+          {groups.amplifier.map((item, i) => {
+            const itemSlug = resolveStackItemSlug(item)
+            const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
+            return <StackCard key={i} item={item} entityType={entityType} />
+          })}
         </div>
 
         <div className="space-y-4">
           <h2 className="text-lg font-bold text-ink">Support</h2>
-          {groups.support.map((item, i) => (
-            <StackCard key={i} item={item} />
-          ))}
+          {groups.support.map((item, i) => {
+            const itemSlug = resolveStackItemSlug(item)
+            const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
+            return <StackCard key={i} item={item} entityType={entityType} />
+          })}
         </div>
       </section>
 

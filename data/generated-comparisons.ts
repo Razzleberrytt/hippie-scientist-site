@@ -29,4 +29,5 @@ export const generatedComparisons = [
   'lions-mane-vs-alpha-gpc',
   'bacopa-vs-lions-mane',
   'fat-burner-vs-caffeine-pills',
+  'creatine-vs-caffeine',
 ] as const

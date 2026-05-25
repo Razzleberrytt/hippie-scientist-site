@@ -134,12 +134,12 @@ export default async function TopicHubPage({ params }: TopicRouteProps) {
             ]}
             stacks={[
               {
-                href: '/stacks/sleep-support',
-                label: 'Sleep Support Stack',
+                href: '/stacks/sleep-recovery-stack',
+                label: 'Sleep Recovery Stack',
               },
               {
-                href: '/stacks/focus-support',
-                label: 'Focus Support Stack',
+                href: '/stacks/calm-focus-stack',
+                label: 'Calm Focus Stack',
               },
             ]}
           />

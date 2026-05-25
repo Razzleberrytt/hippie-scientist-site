@@ -256,7 +256,7 @@ export function ProfileDecisionLayer({
                 <div className="space-y-2">
                   {topRelated.map((item) => {
                     const label = cleanEditorialText(formatDisplayLabel(item?.name || item?.slug))
-                    const slug = cleanEditorialText(text(item?.slug))
+                    const slug = item?.slug
                     const targetType = item?.entityType === 'herb' || item?.entityType === 'compound' ? item.entityType : entityType
                     if (!isRenderableText(label) || !isRenderableText(slug)) return null
 

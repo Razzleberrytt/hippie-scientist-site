@@ -97,7 +97,7 @@ export default async function TopThreeStressHerbsPage() {
         description='Educational first-look option for stress, calm, and cortisol-support research.'
         href={bestLinks[0]?.url || '#'}
         cta={`View ${bestLabel} options →`}
-        secondaryHref='/compare/ashwagandha-vs-rhodiola-rosea'
+        secondaryHref='/compare/ashwagandha-vs-rhodiola'
         secondaryCta='Compare alternatives →'
       />
 
@@ -140,7 +140,7 @@ export default async function TopThreeStressHerbsPage() {
         <h2 className='text-2xl font-bold'>Related guides</h2>
         <div className='mt-4 flex flex-wrap gap-2'>
           <Link href='/top/stress' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100 hover:bg-emerald-300/15'>Best herbs for stress</Link>
-          <Link href='/compare/ashwagandha-vs-rhodiola-rosea' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Ashwagandha vs rhodiola</Link>
+          <Link href='/compare/ashwagandha-vs-rhodiola' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Ashwagandha vs rhodiola</Link>
           <Link href='/top/sleep' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best herbs for sleep</Link>
           <Link href='/top/focus' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best supplements for focus</Link>
         </div>

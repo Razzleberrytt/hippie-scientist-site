@@ -235,7 +235,7 @@ function getName(record: any) {
 }
 
 function routeFor(record: any, fallbackType: EntityType) {
-  const slug = cleanEditorialText(record?.slug)
+  const slug = record?.slug
   if (!isRenderableText(slug)) return undefined
   const type = record?.entityType === 'herb' || record?.entityType === 'compound' ? record.entityType : fallbackType
   return `/${type === 'herb' ? 'herbs' : 'compounds'}/${slug}`

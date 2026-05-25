@@ -4,7 +4,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 const topicLinks = [
   { slug: 'stress-response', title: 'Stress Response', description: 'Explore stress-load patterns, recovery sequencing, and adaptogenic context.' },
   { slug: 'sleep-recovery', title: 'Sleep Recovery', description: 'Understand sleep-support pathways, evening sequencing, and next-day carryover.' },
-  { slug: 'cognitive-longevity', title: 'Cognitive Longevity', description: 'Review long-horizon cognition support with evidence and safety framing.' },
+  { slug: 'cognitive-performance', title: 'Cognitive Performance', description: 'Review long-horizon cognition support with evidence and safety framing.' },
 ]
 
 export default function TopicsIndexPage() {

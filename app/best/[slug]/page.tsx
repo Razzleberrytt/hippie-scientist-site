@@ -8,6 +8,7 @@ import { cleanSummary } from '@/lib/display-utils'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
 import { bestPages } from '@/data/best'
 import { bestForSlugs } from '@/app/authority-links'
+import { getValidComparisonSlug } from '@/lib/comparison-utils'
 
 type BestRouteParams = Promise<{ slug: string }>
 
@@ -38,16 +39,16 @@ function getAuthorityLinks(slug: string) {
       label: 'Stress Response Hub',
     },
     {
-      href: '/ecosystems/cognitive-longevity',
-      label: 'Cognitive Longevity Ecosystem',
+      href: '/ecosystems/cognition',
+      label: 'Cognitive Support Ecosystem',
     },
     {
       href: '/protocols/non-stimulant-focus',
       label: 'Morning Focus Protocol',
     },
     {
-      href: '/stacks/focus-support',
-      label: 'Focus Support Stack',
+      href: '/stacks/calm-focus-stack',
+      label: 'Calm Focus Stack',
     },
   ].filter((item) => {
     if (normalized.includes('focus')) return true
@@ -158,7 +159,7 @@ export default async function Page({ params }: BestRouteProps) {
                 View full breakdown
               </Link>
 
-              <Link href={`/compare/${c.slug}-vs-rhodiola`} className="underline">
+              <Link href={getValidComparisonSlug(c.slug, 'rhodiola') ? `/compare/${getValidComparisonSlug(c.slug, 'rhodiola')}` : '/compare'} className="underline">
                 Related comparisons
               </Link>
             </div>

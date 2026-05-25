@@ -24,8 +24,14 @@ const formatCompoundName = (compound: string) =>
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ')
 
-export default function StackCard({ item }: { item: StackItem }) {
-  const compoundSlug = item.compound_slug || item.compound || ''
+const SLUG_MAPPING: Record<string, string> = {
+  'citicoline': 'cdp-choline',
+  'collagen': 'collagen-peptides',
+}
+
+export default function StackCard({ item, entityType = 'compound' }: { item: StackItem; entityType?: 'herb' | 'compound' }) {
+  const rawSlug = item.compound_slug || item.compound || ''
+  const compoundSlug = SLUG_MAPPING[rawSlug] || rawSlug
   const displayName = item.display_name || formatCompoundName(compoundSlug)
   const evidence = item.evidence_tier || item.evidence_grade || 'Limited'
   const dosage = item.dosage_range || item.dosage || 'See profile'
@@ -42,7 +48,7 @@ export default function StackCard({ item }: { item: StackItem }) {
       </p>
 
       {compoundSlug ? (
-        <Link href={`/compounds/${compoundSlug}`} className='mt-4 inline-block text-sm font-bold text-teal-700 hover:text-teal-900'>
+        <Link href={entityType === 'herb' ? `/herbs/${compoundSlug}` : `/compounds/${compoundSlug}`} className='mt-4 inline-block text-sm font-bold text-teal-700 hover:text-teal-900'>
           Full profile →
         </Link>
       ) : null}

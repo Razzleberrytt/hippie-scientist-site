@@ -9,10 +9,10 @@ export const authorityTopicSlugs = [
 ]
 
 export const authorityEcosystemSlugs = [
-  'stress-response',
-  'sleep-recovery',
-  'cognitive-longevity',
-  'inflammatory-pathways',
+  'sleep',
+  'stress',
+  'cognition',
+  'recovery',
 ]
 
 export const bestForSlugs = [
@@ -28,14 +28,17 @@ export const comparisonSlugs = [
 ]
 
 export const stackSlugs = [
-  'sleep-support',
-  'focus-support',
-  'stress-support',
+  'sleep-recovery-stack',
+  'calm-focus-stack',
+  'stress-resilience-stack',
 ]
 
 export const protocolSlugs = [
-  'morning-focus',
-  'deep-sleep',
+  'burnout-recovery',
+  'deep-sleep-support',
+  'non-stimulant-focus',
+  'overstimulation-recovery',
+  'recovery-oriented-productivity',
   'stress-regulation',
 ]
 
@@ -45,6 +48,6 @@ export const authorityHomeLinks = [
   { href: '/best/sleep', label: 'Best for Sleep' },
   { href: '/best/focus', label: 'Best for Focus' },
   { href: '/compare/ashwagandha-vs-rhodiola', label: 'Ashwagandha vs Rhodiola' },
-  { href: '/stacks/sleep-support', label: 'Sleep Support Stack' },
+  { href: '/stacks/sleep-recovery-stack', label: 'Sleep Recovery Stack' },
   { href: '/protocols/deep-sleep-support', label: 'Deep Sleep Protocol' },
 ]
