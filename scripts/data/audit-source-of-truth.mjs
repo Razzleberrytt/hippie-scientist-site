@@ -30,7 +30,7 @@ const NEVER_BLOCK_PATHS = new Set([
   'next.config.mjs',
   'data/goals.ts',
 ])
-const NEVER_BLOCK_PREFIXES = ['src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/']
+const NEVER_BLOCK_PREFIXES = ['src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/', 'config/', 'data/', 'agent/']
 const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'src/content/', 'content/', 'reports/', 'data/blog/']
 const EXPLICIT_BLOCK_PATHS = new Set([
   'public/database.json',
