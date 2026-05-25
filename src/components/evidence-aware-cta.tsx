@@ -48,7 +48,7 @@ export default function EvidenceAwareCTA({
 }: EvidenceAwareCTAProps) {
   const visuals = buildDecisionVisualProfile(record || {})
   const affiliate = getAffiliateSourcingContext(record || {})
-  const showAffiliateButton = affiliate.affiliateReady && affiliate.affiliateUrl
+  const showAffiliateButton = Boolean(affiliate.affiliateUrl)
   const recommendationCards = [
     {
       label: 'Formulation Notes',

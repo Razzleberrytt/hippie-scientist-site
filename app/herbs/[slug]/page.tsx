@@ -16,7 +16,7 @@ import {
   buildSemanticAssistantSummary,
   buildSemanticNavigationSuggestions,
 } from '@/lib/ai-semantic-navigation'
-import { buildMeta } from '@/lib/seo'
+import { buildMeta, herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
 import { buildAuthorityProfileModel } from '@/lib/authority-profile'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { buildInternalLinkDensity } from '@/lib/internal-link-density'
@@ -45,10 +45,12 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
+import AffiliateCTACard from '@/components/affiliate-cta-card'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
+import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -256,29 +258,6 @@ function ChipList({ items, limit = items.length }: { items: string[]; limit?: nu
   )
 }
 
-function CompactDetails({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
-  return (
-    <details className="group border-t border-brand-900/10 py-6 first:border-t-0 first:pt-0">
-      <summary className="cursor-pointer list-none">
-        <div className="flex items-start justify-between gap-4">
-          <div className="space-y-1">
-            <h2 className="text-lg font-semibold tracking-tight text-ink">{title}</h2>
-            {description ? <p className="text-sm leading-6 text-muted">{description}</p> : null}
-          </div>
-          <span className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700 group-open:hidden">
-            Open
-          </span>
-          <span className="hidden text-xs font-bold uppercase tracking-[0.14em] text-brand-700 group-open:inline-flex">
-            Hide
-          </span>
-        </div>
-      </summary>
-      <div className="mt-5 space-y-7 pt-2">
-        {children}
-      </div>
-    </details>
-  )
-}
 
 function LinkDensitySection({ links }: { links: ReturnType<typeof buildInternalLinkDensity> }) {
   const items = [...links.guides, ...links.ecosystems, ...links.compares].slice(0, 9)
@@ -421,36 +400,155 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .filter((item): item is { label: string; href: string } => item !== null)
     .slice(0, 4)
 
-  const herbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'DietarySupplement',
+  const herbJsonLd = generateHerbJsonLd({
     name: displayName,
+    slug: herb.slug,
     description: summary,
-    url: `https://www.thehippiescientist.net/herbs/${herb.slug}`,
-    ...(herb.latin_name ? { alternateName: herb.latin_name } : {}),
-    ...(effects.length > 0 ? { activeIngredient: effects.join(', ') } : {}),
-    safetyConsideration:
-      'Educational content only. Consult a healthcare professional before use.',
-  }
+    latinName: botanicalName || undefined,
+  })
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Herbs',
-        item: 'https://www.thehippiescientist.net/herbs',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: displayName,
-        item: `https://www.thehippiescientist.net/herbs/${herb.slug}`,
-      },
-    ],
-  }
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: 'Herbs', url: 'https://www.thehippiescientist.net/herbs' },
+    { name: displayName, url: `https://www.thehippiescientist.net/herbs/${herb.slug}` },
+  ])
+
+  const tabs = [
+    {
+      id: 'evidence-benefits',
+      label: 'Evidence & Benefits',
+      content: (
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Evidence summary</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
+            <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
+              {displayName} is categorized as {researchMaturity.toLowerCase()} with a {researchStyle.toLowerCase()} evidence style. Interpret benefits by outcome, preparation, dose, and the safety context above.
+            </p>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-2">
+            {focusAreas.length > 0 ? <BriefCard label="Primary evidence topics"><ChipList items={focusAreas} limit={6} /></BriefCard> : null}
+            {evidenceLimitations.length > 0 ? <BriefCard label="Evidence limitations" value={evidenceLimitations.slice(0, 2).join(' ')} /> : null}
+          </div>
+
+          <div className="space-y-6">
+            {focusAreas.length > 0 ? (
+              <div className="border-t border-brand-900/10 pt-6">
+                <h3 className="text-lg font-semibold tracking-tight text-ink">Human evidence</h3>
+                <p className="text-sm leading-6 text-muted mb-3">Outcome areas and human-facing evidence signals exposed by the profile.</p>
+                <ChipList items={focusAreas} />
+              </div>
+            ) : null}
+            {mechanisms.length > 0 ? (
+              <div className="border-t border-brand-900/10 pt-6">
+                <h3 className="text-lg font-semibold tracking-tight text-ink">Preclinical evidence & mechanisms</h3>
+                <p className="text-sm leading-6 text-muted mb-3">Mechanistic and pathway context; not proof of clinical effect by itself.</p>
+                <ChipList items={mechanisms} />
+              </div>
+            ) : null}
+            {traditionalUses.length > 0 ? (
+              <div className="border-t border-brand-900/10 pt-6">
+                <h3 className="text-lg font-semibold tracking-tight text-ink">Traditional use</h3>
+                <p className="text-sm leading-6 text-muted mb-3">Traditional or historical-use language from the source profile.</p>
+                <ChipList items={traditionalUses} />
+              </div>
+            ) : null}
+            {pathwayClusters.length > 0 ? (
+              <div className="border-t border-brand-900/10 pt-6">
+                <h3 className="text-lg font-semibold tracking-tight text-ink">Mechanism clusters</h3>
+                <p className="text-sm leading-6 text-muted mb-3">Grouped pathway signals for deeper research.</p>
+                <div className="grid gap-3 md:grid-cols-2 mt-3">
+                  {pathwayClusters.map(cluster => (
+                    <div key={cluster.title} className="border-l border-brand-900/10 py-1 pl-4">
+                      <h4 className="text-sm font-semibold text-ink">{cluster.title}</h4>
+                      <p className="mt-1 text-xs leading-5 text-muted">{cluster.description}</p>
+                      <div className="mt-3"><ChipList items={cluster.mechanisms} /></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+            {evidenceLimitations.length > 0 ? (
+              <div className="border-t border-brand-900/10 pt-6">
+                <h3 className="text-lg font-semibold tracking-tight text-ink">Limitations</h3>
+                <p className="text-sm leading-6 text-muted mb-3">Reasons to avoid over-reading the available profile data.</p>
+                <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
+                  {evidenceLimitations.map(item => <li key={item}>• {item}</li>)}
+                </ul>
+              </div>
+            ) : null}
+            {topUses.length > 0 ? (
+              <div className="border-t border-brand-900/10 pt-6">
+                <h3 className="text-lg font-semibold tracking-tight text-ink">Uses and effects</h3>
+                <p className="text-sm leading-6 text-muted mb-3">Most visible signals.</p>
+                <ChipList items={topUses} />
+                {hiddenUses.length > 0 ? (
+                  <details className="mt-5 border-t border-brand-900/10 pt-4">
+                    <summary className="cursor-pointer text-sm font-bold text-ink">Show all reported effects</summary>
+                    <div className="mt-4"><ChipList items={hiddenUses} /></div>
+                  </details>
+                ) : null}
+              </div>
+            ) : null}
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-support',
+      label: 'Decision Support',
+      content: (
+        <div className="space-y-8">
+          <ProfileDecisionLayer record={herb} entityType="herb" relatedRecords={relatedProfiles} effects={effects} summary={summary} />
+          <DecisionVisualGrid record={herb} />
+          <WhyThisInsteadPanel record={herb} alternatives={relatedProfiles} />
+          <DecisionClarityFieldManual record={herb} entityType="herb" relatedRecords={relatedProfiles} effects={effects} summary={summary} />
+        </div>
+      )
+    },
+    {
+      id: 'ai-assistant-map',
+      label: 'AI Assistant & Map',
+      content: (
+        <div className="space-y-8">
+          <SemanticArtworkPanel slug={herb.slug} kind="botanical" title={displayName} subtitle="Botanical ecosystem artwork for evidence-aware pathway exploration." height={260} />
+          <GuidedExplorationPanel overview={narrative.overview} pathways={narrative.pathways} exploration={narrative.exploration} prompts={prompts} />
+          <SemanticVisibilityGate minHeight={420}>
+            <SemanticGraphMap title="Profile relationship map" description="A lightweight map of pathway signals, mechanism overlap, and connected semantic profiles." nodes={graph.nodes} edges={graph.edges} />
+          </SemanticVisibilityGate>
+          <RuntimeOrchestratedDiscovery record={herb} />
+          <CompactRelatedPathways record={herb} />
+          {featuredCollections.length > 0 ? (
+            <div className="border-t border-brand-900/10 pt-5">
+              <p className="eyebrow-label">Featured in collections</p>
+              <div className="mt-3 flex flex-wrap gap-4">
+                {featuredCollections.slice(0, 4).map((collection) => (
+                  <Link key={collection.slug} href={collection.href} className="border-b border-brand-900/10 py-1 text-sm font-semibold text-ink transition hover:border-brand-700/40">
+                    {collection.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
+      )
+    },
+    {
+      id: 'authority-sourcing',
+      label: 'Authority & Sourcing',
+      content: (
+        <div className="space-y-8">
+          <AffiliateCTACard record={herb} displayName={displayName} />
+          <AuthorityProfileShell model={authorityModel} record={herb} />
+          <AuthorityEditorialLayer record={herb} entityType="herb" effects={effects} summary={summary} />
+          <SemanticAssistantPanel headline={assistant.headline} body={assistant.body} signals={assistant.signals} suggestions={assistantSuggestions} />
+          <ProfileAuthoritySections record={herb} entityType="herb" relatedRecords={relatedProfiles} comparisonRecords={comparisonRecords} stackRecords={stackRecords} effects={effects} summary={summary} />
+          <EvidenceAwareCTA readiness={readiness} sourcingNotes={sourcingNotes} record={herb} />
+          <LinkDensitySection links={internalLinks} />
+        </div>
+      )
+    }
+  ]
 
   return (
     <main className="mx-auto max-w-6xl space-y-12 px-4 py-8 sm:space-y-16 sm:py-10">
@@ -560,120 +658,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         ) : null}
       </section>
 
-      <section className="space-y-5">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Evidence summary</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
-          <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
-            {displayName} is categorized as {researchMaturity.toLowerCase()} with a {researchStyle.toLowerCase()} evidence style. Interpret benefits by outcome, preparation, dose, and the safety context above.
-          </p>
-        </div>
-
-        <div className="mt-4 grid gap-3 md:grid-cols-2">
-          {focusAreas.length > 0 ? <BriefCard label="Primary evidence topics"><ChipList items={focusAreas} limit={6} /></BriefCard> : null}
-          {evidenceLimitations.length > 0 ? <BriefCard label="Evidence limitations" value={evidenceLimitations.slice(0, 2).join(' ')} /> : null}
-        </div>
-
-        <div className="mt-5 space-y-3">
-          {focusAreas.length > 0 ? (
-            <CompactDetails title="Human evidence" description="Outcome areas and human-facing evidence signals exposed by the profile.">
-              <ChipList items={focusAreas} />
-            </CompactDetails>
-          ) : null}
-          {mechanisms.length > 0 ? (
-            <CompactDetails title="Animal / preclinical evidence and mechanisms" description="Mechanistic and pathway context; not proof of clinical effect by itself.">
-              <ChipList items={mechanisms} />
-            </CompactDetails>
-          ) : null}
-          {traditionalUses.length > 0 ? (
-            <CompactDetails title="Traditional use" description="Traditional or historical-use language from the source profile.">
-              <ChipList items={traditionalUses} />
-            </CompactDetails>
-          ) : null}
-          {pathwayClusters.length > 0 ? (
-            <CompactDetails title="Mechanism clusters" description="Grouped pathway signals for deeper research.">
-              <div className="grid gap-3 md:grid-cols-2">
-                {pathwayClusters.map(cluster => (
-                  <div key={cluster.title} className="border-l border-brand-900/10 py-1 pl-4">
-                    <h3 className="text-sm font-semibold text-ink">{cluster.title}</h3>
-                    <p className="mt-1 text-xs leading-5 text-muted">{cluster.description}</p>
-                    <div className="mt-3"><ChipList items={cluster.mechanisms} /></div>
-                  </div>
-                ))}
-              </div>
-            </CompactDetails>
-          ) : null}
-          {evidenceLimitations.length > 0 ? (
-            <CompactDetails title="Limitations" description="Reasons to avoid over-reading the available profile data.">
-              <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
-                {evidenceLimitations.map(item => <li key={item}>• {item}</li>)}
-              </ul>
-            </CompactDetails>
-          ) : null}
-        </div>
-      </section>
-
-      {topUses.length > 0 ? (
-        <section className="border-t border-brand-900/10 pt-6">
-          <p className="eyebrow-label">Uses and effects</p>
-          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Most visible signals</h2>
-          <div className="mt-4"><ChipList items={topUses} /></div>
-          {hiddenUses.length > 0 ? (
-            <details className="mt-5 border-t border-brand-900/10 pt-4">
-              <summary className="cursor-pointer text-sm font-bold text-ink">Show all reported effects</summary>
-              <div className="mt-4"><ChipList items={hiddenUses} /></div>
-            </details>
-          ) : null}
-        </section>
-      ) : null}
-
-      <section className="space-y-4">
-        <div className="space-y-1">
-          <p className="eyebrow-label">Deep research</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Long-form context, collapsed by default</h2>
-        </div>
-
-        <CompactDetails title="Decision tools and alternatives" description="Decision layer, visual grid, alternatives, and field-manual context.">
-          <ProfileDecisionLayer record={herb} entityType="herb" relatedRecords={relatedProfiles} effects={effects} summary={summary} />
-          <DecisionVisualGrid record={herb} />
-          <WhyThisInsteadPanel record={herb} alternatives={relatedProfiles} />
-          <DecisionClarityFieldManual record={herb} entityType="herb" relatedRecords={relatedProfiles} effects={effects} summary={summary} />
-        </CompactDetails>
-
-        <CompactDetails title="Authority, editorial, and assistant panels" description="Generated authority shell, editorial layer, assistant panel, and detailed authority sections.">
-          <AuthorityProfileShell model={authorityModel} record={herb} />
-          <AuthorityEditorialLayer record={herb} entityType="herb" effects={effects} summary={summary} />
-          <SemanticAssistantPanel headline={assistant.headline} body={assistant.body} signals={assistant.signals} suggestions={assistantSuggestions} />
-          <ProfileAuthoritySections record={herb} entityType="herb" relatedRecords={relatedProfiles} comparisonRecords={comparisonRecords} stackRecords={stackRecords} effects={effects} summary={summary} />
-        </CompactDetails>
-
-        <CompactDetails title="Exploration map and discovery rails" description="Guided exploration, semantic graph map, orchestrated discovery, pathways, and collection links.">
-          <SemanticArtworkPanel slug={herb.slug} kind="botanical" title={displayName} subtitle="Botanical ecosystem artwork for evidence-aware pathway exploration." height={260} />
-          <GuidedExplorationPanel overview={narrative.overview} pathways={narrative.pathways} exploration={narrative.exploration} prompts={prompts} />
-          <SemanticVisibilityGate minHeight={420}>
-            <SemanticGraphMap title="Profile relationship map" description="A lightweight map of pathway signals, mechanism overlap, and connected semantic profiles." nodes={graph.nodes} edges={graph.edges} />
-          </SemanticVisibilityGate>
-          <RuntimeOrchestratedDiscovery record={herb} />
-          <CompactRelatedPathways record={herb} />
-          {featuredCollections.length > 0 ? (
-            <div className="border-t border-brand-900/10 pt-5">
-              <p className="eyebrow-label">Featured in collections</p>
-              <div className="mt-3 flex flex-wrap gap-4">
-                {featuredCollections.slice(0, 4).map((collection) => (
-                  <Link key={collection.slug} href={collection.href} className="border-b border-brand-900/10 py-1 text-sm font-semibold text-ink transition hover:border-brand-700/40">
-                    {collection.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null}
-        </CompactDetails>
-
-        <CompactDetails title="Sourcing, CTAs, and internal research links" description="Monetization readiness, sourcing notes, and broader internal-link density.">
-          <EvidenceAwareCTA readiness={readiness} sourcingNotes={sourcingNotes} record={herb} />
-          <LinkDensitySection links={internalLinks} />
-        </CompactDetails>
-      </section>
+      <DetailTabDashboard tabs={tabs} />
 
       <RelatedDiscoveryGroups
         eyebrow="Related navigation"

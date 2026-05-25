@@ -61,7 +61,7 @@ function walk(dir) {
   while (stack.length) {
     const current = stack.pop()
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'dist' || entry.name === '.next' || entry.name === 'out') continue
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'dist' || entry.name === '.next' || entry.name === 'out' || entry.name === 'scratch') continue
       const abs = path.join(current, entry.name)
       if (entry.isDirectory()) stack.push(abs)
       else out.push(abs)

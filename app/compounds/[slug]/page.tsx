@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getCompoundBySlug } from '@/lib/runtime-data'
@@ -13,7 +12,7 @@ import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
-import { buildMeta } from '@/lib/seo'
+import { buildMeta, compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
 import {
   normalizeEvidenceLevel,
   normalizeSafetyLevel,
@@ -43,10 +42,12 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
+import AffiliateCTACard from '@/components/affiliate-cta-card'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
+import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -184,21 +185,6 @@ function ChipList({ items, limit = items.length }: { items: string[]; limit?: nu
 }
 
 
-function CompactDisclosure({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <details className="group border-t border-brand-900/10 py-6 first:border-t-0 first:pt-0">
-      <summary className="cursor-pointer list-none">
-        <span className="flex items-center justify-between gap-4 text-base font-semibold tracking-tight text-ink">
-          <span>{title}</span>
-          <span className="text-sm font-bold uppercase tracking-[0.14em] text-brand-700">Open</span>
-        </span>
-      </summary>
-      <div className="mt-6 space-y-7">
-        {children}
-      </div>
-    </details>
-  )
-}
 
 export default async function CompoundPage({ params }: PageProps) {
   const { slug } = await params
@@ -304,35 +290,182 @@ export default async function CompoundPage({ params }: PageProps) {
     mechanismHints.length ? `Mechanism signals include ${mechanismHints.slice(0, 3).join(', ')}.` : '',
   ].filter(Boolean)).slice(0, 5)
 
-  const compoundJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'DietarySupplement',
+  const compoundJsonLd = generateCompoundJsonLd({
     name: displayName,
+    slug: compound.slug,
     description: summary,
-    url: `https://www.thehippiescientist.net/compounds/${compound.slug}`,
-    ...(effects.length > 0 ? { activeIngredient: effects.join(', ') } : {}),
-    safetyConsideration:
-      'Educational content only. Consult a healthcare professional before use.',
-  }
+    category: compound.compoundClass || compound.class || undefined,
+  })
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Compounds',
-        item: 'https://www.thehippiescientist.net/compounds',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: displayName,
-        item: `https://www.thehippiescientist.net/compounds/${compound.slug}`,
-      },
-    ],
-  }
+  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
+    { name: 'Compounds', url: 'https://www.thehippiescientist.net/compounds' },
+    { name: displayName, url: `https://www.thehippiescientist.net/compounds/${compound.slug}` },
+  ])
+
+  const tabs = [
+    {
+      id: 'evidence-outcomes',
+      label: 'Evidence & Outcomes',
+      content: (
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <p className="eyebrow-label">Evidence summary</p>
+            <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
+            <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
+              Use this profile as an evidence-aware orientation, not a guarantee of outcomes. Human data quality, formulation differences, and dosing variability can change real-world effects.
+            </p>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-2">
+            {effects.length > 0 ? (
+              <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">Primary evidence topics</p>
+                <div className="mt-3"><ChipList items={effects} limit={8} /></div>
+              </div>
+            ) : null}
+            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">What we still do not know</p>
+              <ul className="mt-3 space-y-2 text-sm leading-6 text-[#46574d]">
+                <li>• Long-term effects can differ from short-term study windows.</li>
+                <li>• Individual response varies across genetics, baseline health, and concurrent stack choices.</li>
+                <li>• Mechanistic signals may not translate directly into clinically meaningful outcomes.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-brand-900/10 pt-6">
+            <h3 className="text-lg font-semibold tracking-tight text-ink mb-3">Evidence snapshot metrics</h3>
+            <EvidenceSnapshotCard snapshot={snapshot} />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'decision-support',
+      label: 'Decision Support',
+      content: (
+        <div className="space-y-8">
+          <ProfileDecisionLayer
+            record={compound}
+            entityType="compound"
+            relatedRecords={semanticRelated}
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
+          <DecisionVisualGrid record={compound} />
+          <WhyThisInsteadPanel
+            record={compound}
+            alternatives={semanticRelated}
+          />
+          <DecisionClarityFieldManual
+            record={compound}
+            entityType="compound"
+            relatedRecords={semanticRelated}
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'ai-assistant-map',
+      label: 'AI Assistant & Map',
+      content: (
+        <div className="space-y-8">
+          <SemanticArtworkPanel
+            slug={compound.slug}
+            kind="compound"
+            title={displayName}
+            subtitle="Compound ecosystem artwork for mechanism-aware pathway exploration."
+            height={260}
+          />
+          <AuthorityEditorialLayer
+            record={compound}
+            entityType="compound"
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
+          <SemanticAssistantPanel
+            headline={assistant.headline}
+            body={assistant.body}
+            signals={assistant.signals}
+            suggestions={assistantSuggestions}
+          />
+          <GuidedExplorationPanel
+            overview={narrative.overview}
+            pathways={narrative.pathways}
+            exploration={narrative.exploration}
+            prompts={prompts}
+          />
+          <SemanticVisibilityGate minHeight={420}>
+            <SemanticGraphMap
+              title="Compound relationship map"
+              description="A lightweight map of mechanism overlap, pathway continuity, and connected semantic profiles."
+              nodes={graph.nodes}
+              edges={graph.edges}
+            />
+          </SemanticVisibilityGate>
+          <ProfileAuthoritySections
+            record={compound}
+            entityType="compound"
+            relatedRecords={semanticRelated}
+            comparisonRecords={comparisonRecords}
+            stackRecords={stackRecords}
+            effects={effects}
+            mechanisms={mechanisms}
+            summary={summary}
+          />
+        </div>
+      )
+    },
+    {
+      id: 'authority-sourcing',
+      label: 'Authority & Sourcing',
+      content: (
+        <div className="space-y-8">
+          <AffiliateCTACard record={compound} displayName={displayName} />
+          <EvidenceAwareCTA
+            readiness={readiness}
+            sourcingNotes={sourcingNotes}
+            record={compound}
+          />
+          <RuntimeOrchestratedDiscovery
+            record={compound}
+          />
+          <CompactRelatedPathways record={compound} />
+          {featuredCollections.length > 0 ? (
+            <div className="border-t border-brand-900/10 pt-5">
+              <p className="eyebrow-label">Featured in collections</p>
+              <div className="mt-3 flex flex-wrap gap-4">
+                {featuredCollections.slice(0, 4).map((collection:any) => (
+                  <Link
+                    key={collection.slug}
+                    href={collection.href}
+                    className="border-b border-brand-900/10 py-1 text-sm font-semibold text-ink transition hover:border-brand-700/40"
+                  >
+                    {collection.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {sources.length > 0 ? (
+            <div className="border-t border-brand-900/10 pt-6">
+              <h3 className="text-lg font-semibold tracking-tight text-ink mb-3">Research and source context</h3>
+              <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+                {sources.slice(0, 10).map((source:string) => (
+                  <li key={source}>{source}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+      )
+    }
+  ]
 
   return (
     <>
@@ -420,146 +553,7 @@ export default async function CompoundPage({ params }: PageProps) {
           ) : null}
         </section>
 
-        <section className="space-y-5">
-          <div className="space-y-2">
-            <p className="eyebrow-label">Evidence summary</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
-            <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
-              Use this profile as an evidence-aware orientation, not a guarantee of outcomes. Human data quality, formulation differences, and dosing variability can change real-world effects.
-            </p>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-2">
-            {effects.length > 0 ? (
-              <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">Primary evidence topics</p>
-                <div className="mt-3"><ChipList items={effects} limit={8} /></div>
-              </div>
-            ) : null}
-            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">What we still do not know</p>
-              <ul className="mt-3 space-y-2 text-sm leading-6 text-[#46574d]">
-                <li>• Long-term effects can differ from short-term study windows.</li>
-                <li>• Individual response varies across genetics, baseline health, and concurrent stack choices.</li>
-                <li>• Mechanistic signals may not translate directly into clinically meaningful outcomes.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <CompactDisclosure title="Evidence snapshot metrics">
-          <EvidenceSnapshotCard snapshot={snapshot} />
-        </CompactDisclosure>
-
-        <CompactDisclosure title="Decision support and practical notes">
-          <ProfileDecisionLayer
-            record={compound}
-            entityType="compound"
-            relatedRecords={semanticRelated}
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-
-          <DecisionVisualGrid record={compound} />
-
-          <WhyThisInsteadPanel
-            record={compound}
-            alternatives={semanticRelated}
-          />
-
-          <DecisionClarityFieldManual
-            record={compound}
-            entityType="compound"
-            relatedRecords={semanticRelated}
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-        </CompactDisclosure>
-
-        <CompactDisclosure title="Authority, exploration, and semantic analysis">
-          <SemanticArtworkPanel
-            slug={compound.slug}
-            kind="compound"
-            title={displayName}
-            subtitle="Compound ecosystem artwork for mechanism-aware pathway exploration."
-            height={260}
-          />
-
-          <AuthorityEditorialLayer
-            record={compound}
-            entityType="compound"
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-
-          <SemanticAssistantPanel
-            headline={assistant.headline}
-            body={assistant.body}
-            signals={assistant.signals}
-            suggestions={assistantSuggestions}
-          />
-
-          <GuidedExplorationPanel
-            overview={narrative.overview}
-            pathways={narrative.pathways}
-            exploration={narrative.exploration}
-            prompts={prompts}
-          />
-
-          <SemanticVisibilityGate minHeight={420}>
-            <SemanticGraphMap
-              title="Compound relationship map"
-              description="A lightweight map of mechanism overlap, pathway continuity, and connected semantic profiles."
-              nodes={graph.nodes}
-              edges={graph.edges}
-            />
-          </SemanticVisibilityGate>
-
-          <ProfileAuthoritySections
-            record={compound}
-            entityType="compound"
-            relatedRecords={semanticRelated}
-            comparisonRecords={comparisonRecords}
-            stackRecords={stackRecords}
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-        </CompactDisclosure>
-
-        <CompactDisclosure title="Related discovery, pathways, and collections">
-          <EvidenceAwareCTA
-            readiness={readiness}
-            sourcingNotes={sourcingNotes}
-            record={compound}
-          />
-
-          <RuntimeOrchestratedDiscovery
-            record={compound}
-          />
-
-          <CompactRelatedPathways record={compound} />
-
-          {featuredCollections.length > 0 ? (
-            <div className="border-t border-brand-900/10 pt-5">
-              <p className="eyebrow-label">Featured in collections</p>
-              <div className="mt-3 flex flex-wrap gap-4">
-                {featuredCollections.slice(0, 4).map((collection:any) => (
-                  <Link
-                    key={collection.slug}
-                    href={collection.href}
-                    className="border-b border-brand-900/10 py-1 text-sm font-semibold text-ink transition hover:border-brand-700/40"
-                  >
-                    {collection.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null}
-        </CompactDisclosure>
+        <DetailTabDashboard tabs={tabs} />
 
 
 
@@ -598,16 +592,6 @@ export default async function CompoundPage({ params }: PageProps) {
             },
           ]}
         />
-
-        {sources.length > 0 ? (
-          <CompactDisclosure title="Research and source context">
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
-              {sources.slice(0, 10).map((source:string) => (
-                <li key={source}>{source}</li>
-              ))}
-            </ul>
-          </CompactDisclosure>
-        ) : null}
       </main>
     </>
   )

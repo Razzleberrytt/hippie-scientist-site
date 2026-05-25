@@ -6,6 +6,9 @@ import Fuse from 'fuse.js'
 import compoundsSummaryData from '@/public/data/compounds-summary.json'
 import herbsSummaryData from '@/public/data/herbs-summary.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import DosingSafetyChecker from '@/components/search/DosingSafetyChecker'
+import { ShieldAlert } from 'lucide-react'
+import clsx from 'clsx'
 import {
   decisionChipClass,
   decisionMetadataClusterClass,
@@ -40,6 +43,11 @@ type SearchItem = {
   safetyPenalty: number
   uncertaintyPenalty: number
   translationalPenalty: number
+  avoid_if?: string[]
+  side_effects?: string[]
+  contraindications?: string[]
+  interactions?: string[]
+  typical_dosage?: string
 }
 
 type DiscoveryPath = {
@@ -270,6 +278,11 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
     uncertaintyPenalty: orchestration.uncertaintyPenalty,
     translationalPenalty: orchestration.translationalPenalty,
     searchText: [name, slug, aliases, summary, effects.join(' '), evidence, safety, quality].join(' '),
+    typical_dosage: text(item.typical_dosage || item.typicalDosage || item.preparation || item.dosage),
+    avoid_if: list(item.avoid_if || item.avoidIf || item.contraindications || item.interactions || item.safetyNotes || item.safety),
+    side_effects: list(item.side_effects || item.sideEffects || item.safetyNotes),
+    contraindications: list(item.contraindications || item.avoid_if || item.avoidIf),
+    interactions: list(item.interactions),
   }
 }
 
@@ -436,6 +449,9 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
 export default function SearchClient() {
   const [query, setQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState<FilterType>('All')
+  const [trialsFilter, setTrialsFilter] = useState(false)
+  const [safetyFilter, setSafetyFilter] = useState(false)
+  const [mechanismFilter, setMechanismFilter] = useState(false)
 
   const normalizedQuery = query.trim()
   const searchIntent = getSearchIntent(normalizedQuery)
@@ -445,6 +461,13 @@ export default function SearchClient() {
     const compounds = (compoundsSummaryData as any[]).map(item => normalizeItem(item, 'Compound')).filter(Boolean) as SearchItem[]
     return [...herbs, ...compounds].sort(compareAuthority)
   }, [])
+
+  const suggestions = useMemo(() => {
+    if (!normalizedQuery) return []
+    return searchItems
+      .filter(item => item.name.toLowerCase().includes(normalizedQuery.toLowerCase()))
+      .slice(0, 5)
+  }, [normalizedQuery, searchItems])
 
   const fuse = useMemo(() => new Fuse(searchItems, {
     keys: [
@@ -459,7 +482,7 @@ export default function SearchClient() {
   }), [searchItems])
 
   const results = useMemo(() => {
-    const baseResults = !normalizedQuery
+    let baseResults = !normalizedQuery
       ? searchItems.slice(0, 18)
       : fuse.search(normalizedQuery)
           .map(result => ({
@@ -473,17 +496,36 @@ export default function SearchClient() {
             return compareAuthority(a.item, b.item)
           })
           .map(result => result.item)
-          .slice(0, 36)
 
-    if (activeFilter === 'All') return baseResults
+    if (activeFilter !== 'All') {
+      baseResults = baseResults.filter(item => item.type === activeFilter)
+    }
 
-    return baseResults.filter(item => item.type === activeFilter)
-  }, [normalizedQuery, searchIntent, fuse, searchItems, activeFilter])
+    if (trialsFilter) {
+      baseResults = baseResults.filter(item =>
+        ['Strong evidence', 'Moderate evidence'].includes(item.evidence)
+      )
+    }
+
+    if (safetyFilter) {
+      baseResults = baseResults.filter(item =>
+        item.safety === 'Generally well tolerated'
+      )
+    }
+
+    if (mechanismFilter) {
+      baseResults = baseResults.filter(item =>
+        item.mechanismScore > 0.4 || item.effects.length > 2
+      )
+    }
+
+    return baseResults.slice(0, 36)
+  }, [normalizedQuery, searchIntent, fuse, searchItems, activeFilter, trialsFilter, safetyFilter, mechanismFilter])
 
   const herbs = results.filter(item => item.type === 'Herb')
   const compounds = results.filter(item => item.type === 'Compound')
   const hasResults = results.length > 0
-  const hasActiveSearch = Boolean(normalizedQuery) || activeFilter !== 'All'
+  const hasActiveSearch = Boolean(normalizedQuery) || activeFilter !== 'All' || trialsFilter || safetyFilter || mechanismFilter
   const resultLabel = hasActiveSearch ? `${results.length} matches` : 'High-signal starting points'
 
   function selectDiscovery(queryValue: string) {
@@ -494,6 +536,9 @@ export default function SearchClient() {
   function resetSearch() {
     setQuery('')
     setActiveFilter('All')
+    setTrialsFilter(false)
+    setSafetyFilter(false)
+    setMechanismFilter(false)
   }
 
   return (
@@ -524,8 +569,7 @@ export default function SearchClient() {
                   </button>
                 ))}
               </div>
-
-              <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-2.5 sm:p-4 shadow-sm sm:p-4">
+              <div className="relative rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-2.5 sm:p-4 shadow-sm">
                 <label htmlFor="site-search" className="sr-only">Search herbs and compounds</label>
                 <input
                   id="site-search"
@@ -534,7 +578,37 @@ export default function SearchClient() {
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Try sleep, magnesium, stress, inflammation..."
                   className="min-h-12 w-full rounded-[1.1rem] border border-brand-900/10 bg-white px-4 py-3 text-base font-medium text-ink shadow-sm outline-none transition-all placeholder:text-[#7b887f] focus:border-brand-600/30 focus:bg-white focus:ring-4 focus:ring-brand-500/15 sm:px-5 sm:text-lg"
+                  autoComplete="off"
                 />
+
+                {suggestions.length > 0 && (
+                  <div className="absolute left-2.5 right-2.5 mt-2 z-50 rounded-xl border border-brand-900/10 bg-white/95 p-2 shadow-lg backdrop-blur-xl">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted px-2 py-1">Quick match suggestions</p>
+                    <ul className="space-y-0.5">
+                      {suggestions.map((suggestion) => (
+                        <li key={suggestion.slug}>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setQuery(suggestion.name)
+                            }}
+                            className="w-full text-left px-2.5 py-2 text-sm rounded-lg hover:bg-slate-50 transition flex items-center justify-between"
+                          >
+                            <span className="font-semibold text-ink">{suggestion.name}</span>
+                            <span className={clsx(
+                              "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border",
+                              suggestion.type === 'Herb'
+                                ? "border-emerald-700/10 bg-emerald-50 text-emerald-800"
+                                : "border-blue-700/10 bg-blue-50 text-blue-800"
+                            )}>
+                              {suggestion.type}
+                            </span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
               <details className="rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-2.5 sm:p-4" open={hasActiveSearch || undefined}>
@@ -573,6 +647,47 @@ export default function SearchClient() {
                       </button>
                     ))}
                   </div>
+                  <div className="border-t border-brand-900/10 pt-3.5 space-y-2">
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand-800">Advanced Safety & Evidence filters</p>
+                    <div className="flex flex-wrap gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setTrialsFilter(v => !v)}
+                        className={clsx(
+                          "min-h-9 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition",
+                          trialsFilter
+                            ? "bg-brand-800 border-brand-800 text-white shadow-sm"
+                            : "bg-white border-brand-900/10 text-brand-900 hover:bg-slate-50"
+                        )}
+                      >
+                        Human Trials Available
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setSafetyFilter(v => !v)}
+                        className={clsx(
+                          "min-h-9 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition",
+                          safetyFilter
+                            ? "bg-brand-800 border-brand-800 text-white shadow-sm"
+                            : "bg-white border-brand-900/10 text-brand-900 hover:bg-slate-50"
+                        )}
+                      >
+                        High Safety Rating
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setMechanismFilter(v => !v)}
+                        className={clsx(
+                          "min-h-9 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition",
+                          mechanismFilter
+                            ? "bg-brand-800 border-brand-800 text-white shadow-sm"
+                            : "bg-white border-brand-900/10 text-brand-900 hover:bg-slate-50"
+                        )}
+                      >
+                        Clear Mechanisms Mapped
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </details>
 
@@ -583,6 +698,20 @@ export default function SearchClient() {
               </div>
             </div>
           </section>
+
+          {/* Dosing safety checker */}
+          <details className="rounded-[1.5rem] border border-amber-200 bg-[#fffdf7] p-2.5 sm:p-4 shadow-sm">
+            <summary className="flex min-h-12 cursor-pointer items-center justify-between gap-4 text-sm font-bold text-amber-900">
+              <span className="flex items-center gap-2">
+                <ShieldAlert className="h-5 w-5 text-amber-700 shrink-0" />
+                <span>Personalized Dosing & Safety Reference Checker</span>
+              </span>
+              <span className="text-amber-700">Open Dosing Checker →</span>
+            </summary>
+            <div className="mt-4">
+              <DosingSafetyChecker items={searchItems} />
+            </div>
+          </details>
 
           <GuidedDiscovery onSelect={selectDiscovery} />
 

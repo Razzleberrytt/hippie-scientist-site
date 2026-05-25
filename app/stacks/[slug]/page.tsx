@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getStacks } from '@/lib/runtime-data'
+import { itemListJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import { mergeStackEcosystems } from '@/lib/stack-ecosystems'
 import { buildSemanticAssistantSummary, buildSemanticNavigationSuggestions } from '@/lib/ai-semantic-navigation'
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
@@ -103,8 +104,30 @@ export default async function StackPage({ params }: Params) {
   const assistantSuggestions = buildSemanticNavigationSuggestions(stackRecord, relatedRecords, 5)
   const graph = buildSemanticGraphVisual(stackRecord, relatedRecords, 14)
 
+  const stackListJsonLd = itemListJsonLd({
+    name: stack.title,
+    path: `/stacks/${stack.slug}`,
+    items: relatedRecords.map(item => ({
+      name: item.name,
+      url: item.entityType === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`,
+    })),
+  })
+
+  const stackBreadcrumbJsonLd = breadcrumbJsonLd([
+    { name: 'Stacks', url: 'https://www.thehippiescientist.net/stacks' },
+    { name: stack.title, url: `https://www.thehippiescientist.net/stacks/${stack.slug}` },
+  ])
+
   return (
     <div className="space-y-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(stackListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(stackBreadcrumbJsonLd) }}
+      />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
           <div className="space-y-5">

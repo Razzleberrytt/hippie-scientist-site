@@ -9,48 +9,64 @@ export const metadata: Metadata = {
 
 export default function GoalsPage() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-9 lg:px-8">
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
-        <p className="text-xs uppercase tracking-[0.2em] text-emerald-700">Goal decision system</p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
+        <p className="eyebrow-label">Goal decision system</p>
+        <h1 className="heading-premium mt-3 text-ink">
           Choose by outcome, then compare options clearly.
         </h1>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-700 sm:text-base">
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
           These pages are educational comparison summaries designed for fast scanning. They are intended to
           help readers compare evidence context, tolerance considerations, and practical tradeoffs — not to
           diagnose, prescribe, or replace professional care.
         </p>
 
-        <div className="mt-4 flex flex-wrap gap-2.5 text-xs font-medium uppercase tracking-[0.14em]">
-          <Link href="/education/research-methodology" className="text-emerald-800 underline-offset-4 hover:underline">
-            Research methodology
+        <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
+          <Link href="/education/research-methodology" className="text-brand-700 hover:text-brand-800 hover:underline">
+            Research methodology →
           </Link>
-          <Link href="/education/evidence-hierarchy" className="text-emerald-800 underline-offset-4 hover:underline">
-            Evidence hierarchy
+          <Link href="/education/evidence-hierarchy" className="text-brand-700 hover:text-brand-800 hover:underline">
+            Evidence hierarchy →
           </Link>
-          <Link href="/disclaimer" className="text-emerald-800 underline-offset-4 hover:underline">
-            Disclaimer
+          <Link href="/disclaimer" className="text-brand-700 hover:text-brand-800 hover:underline">
+            Disclaimer →
           </Link>
         </div>
       </section>
 
-      <section className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {goals.map((goal) => (
           <Link
             key={goal.slug}
             href={`/goals/${goal.slug}`}
-            className="group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
+            className="group card-premium p-6 flex flex-col justify-between"
           >
-            <h2 className="text-lg font-semibold text-slate-900">{goal.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600">{goal.description}</p>
-            <ul className="mt-3 space-y-1 text-xs text-slate-500">
-              {goal.options.slice(0, 3).map((option) => (
-                <li key={option.slug} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  <span>{option.name}</span>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <h2 className="text-lg font-semibold text-ink group-hover:text-brand-800 transition">
+                {goal.title}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted line-clamp-3">
+                {goal.description}
+              </p>
+            </div>
+            <div className="mt-4 pt-4 border-t border-brand-900/5">
+              <p className="text-[10px] uppercase font-bold tracking-wider text-brand-700 mb-2">Options compared</p>
+              <div className="flex flex-wrap gap-1.5">
+                {goal.options.slice(0, 3).map((option) => (
+                  <span
+                    key={option.slug}
+                    className="inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-800 border border-brand-100/50"
+                  >
+                    {option.name}
+                  </span>
+                ))}
+                {goal.options.length > 3 && (
+                  <span className="text-[10px] font-semibold text-muted self-center">
+                    +{goal.options.length - 3} more
+                  </span>
+                )}
+              </div>
+            </div>
           </Link>
         ))}
       </section>
