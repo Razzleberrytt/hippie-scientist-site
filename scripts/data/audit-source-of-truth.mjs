@@ -19,12 +19,18 @@ const NEVER_BLOCK_PATHS = new Set([
   'AGENTS.md',
   'CHANGELOG.md',
   'README.md',
+  'package.json',
   'package-lock.json',
   'next-env.d.ts',
   'eslint.config.js',
+  'tsconfig.json',
+  'tsconfig.strict-candidates.json',
+  'tailwind.config.ts',
+  'postcss.config.js',
+  'next.config.mjs',
   'data/goals.ts',
 ])
-const NEVER_BLOCK_PREFIXES = ['src/lib/', 'scripts/', '.github/', 'types/', 'utils/']
+const NEVER_BLOCK_PREFIXES = ['src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/']
 const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'src/content/', 'content/', 'reports/', 'data/blog/']
 const EXPLICIT_BLOCK_PATHS = new Set([
   'public/database.json',
@@ -55,7 +61,7 @@ function walk(dir) {
   while (stack.length) {
     const current = stack.pop()
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'dist' || entry.name === '.next') continue
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'dist' || entry.name === '.next' || entry.name === 'out') continue
       const abs = path.join(current, entry.name)
       if (entry.isDirectory()) stack.push(abs)
       else out.push(abs)
