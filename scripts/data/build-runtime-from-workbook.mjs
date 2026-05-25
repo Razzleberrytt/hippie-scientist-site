@@ -235,7 +235,9 @@ function visibility(base, type) {
 function affiliate(base) {
   return {
     ...base,
-    affiliate_ready: Boolean(base.affiliate_ready),
+    affiliate_ready: bool(base.affiliate_ready),
+    affiliate_url: clean(base.affiliate_url),
+    affiliate_label: clean(base.affiliate_label) || 'Check sourcing options',
   }
 }
 
@@ -291,6 +293,8 @@ function profile(row, type, taxonomy) {
     conditions: firstList(row, ['conditions', 'best_for', 'best for']),
     tags: firstList(row, ['tags']), keywords: firstList(row, ['keywords']),
     affiliate_ready: bool(first(row, ['affiliate_ready', 'affiliate ready'])),
+    affiliate_url: clean(first(row, ['affiliate_url', 'affiliate url'])),
+    affiliate_label: clean(first(row, ['affiliate_label', 'affiliate label'])) || 'Check sourcing options',
     affiliate_query: clean(first(row, ['affiliate_query', 'affiliate query'])),
     default_product_type: clean(first(row, ['default_product_type', 'default product type'])),
     buying_criteria: firstList(row, ['buying_criteria', 'buying criteria']),
