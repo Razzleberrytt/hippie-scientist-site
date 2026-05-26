@@ -1,6 +1,12 @@
 import { clampScore } from '@/lib/runtime-render-guards'
 
-function buildContinuityMap(source: any, candidates: any[]) {
+type ContinuityMap = {
+  cluster: string
+  continuity: number
+  related: any[]
+}
+
+function buildContinuityMap(source: any, candidates: any[]): ContinuityMap[] {
   const baseClusters = Array.isArray(source?.clusters)
     ? source.clusters.slice(0, 4)
     : []

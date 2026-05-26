@@ -508,7 +508,7 @@ function inferNextBestSteps(record: any, entityType: EntityType, relatedRecords:
     .map((step) => ({
       ...step,
       label: cleanEditorialText(step.label),
-      note: cleanEditorialText(step.note),
+      note: cleanEditorialText('note' in step ? step.note : ""),
     }))
     .filter((step) => isRenderableText(step.label))
     .slice(0, 4)
@@ -547,7 +547,7 @@ function cleanModel(model: DecisionClarityModel): DecisionClarityModel {
       .map((step) => ({
         ...step,
         label: cleanEditorialText(step.label),
-        note: cleanEditorialText(step.note),
+        note: cleanEditorialText('note' in step ? step.note : ""),
       }))
       .filter((step) => isRenderableText(step.label))
       .slice(0, 4),
