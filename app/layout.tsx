@@ -35,6 +35,7 @@ const navLinks = [
   { href: '/stacks', label: 'Stacks' },
   { href: '/compare', label: 'Compare' },
   { href: '/learn', label: 'Learn' },
+  { href: '/blog', label: 'Blog' },
   { href: '/search', label: 'Search' },
   { href: '/about', label: 'About' },
 ]
@@ -109,7 +110,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <h2 className='font-semibold text-ink'>Explore</h2>
+                  <p className='font-semibold text-ink'>Explore</p>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/herbs' className='text-muted hover:text-ink transition'>Herbs</Link>
@@ -125,7 +126,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 <div className='space-y-3'>
-                  <h2 className='font-semibold text-ink'>Legal & Transparency</h2>
+                  <p className='font-semibold text-ink'>Legal & Transparency</p>
 
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/privacy' className='text-muted hover:text-ink transition'>Privacy Policy</Link>
