@@ -41,7 +41,7 @@ export const decisionMetricShellClass =
 export const decisionMetadataClusterClass =
   'flex flex-wrap items-center gap-2.5 sm:gap-3'
 
-function compactText(value?: unknown) {
+function compactText(value?: unknown): string {
   if (value == null) return ''
   if (Array.isArray(value)) return value.map(compactText).filter(Boolean).join(' ')
   if (typeof value === 'object') return Object.values(value as Record<string, unknown>).map(compactText).filter(Boolean).join(' ')

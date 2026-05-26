@@ -1,12 +1,10 @@
-import webpack from 'next/dist/compiled/webpack/webpack-lib.js'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
-  webpack: (config) => {
+  webpack: (config, { webpack }) => {
     const buildDate = new Date().toISOString().split('T')[0]
     const buildTime = new Date().toISOString()
     const commitHash = process.env.COMMIT_HASH || 'unknown'

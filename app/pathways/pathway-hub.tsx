@@ -145,8 +145,14 @@ function RecordCard({ record, href, type }: { record: any; href: string; type: '
   )
 }
 
+
+function getPathwayConfig(pathway: PathwaySlug): PathwayConfig {
+  const normalizedPathway = normalizePathway(pathway)
+  return configs[normalizedPathway as keyof typeof configs] ?? configs.gaba
+}
+
 export function generatePathwayMetadata(pathway: PathwaySlug): Metadata {
-  const config = configs[pathway]
+  const config = getPathwayConfig(pathway)
   const meta = buildMeta({
     title: `${config.title} | The Hippie Scientist`,
     description: config.summary,
@@ -168,8 +174,7 @@ export function generatePathwayMetadata(pathway: PathwaySlug): Metadata {
 }
 
 export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
-  const normalizedPathway = normalizePathway(pathway)
-  const config = configs[normalizedPathway as keyof typeof configs]
+  const config = getPathwayConfig(pathway)
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
 
   const relatedHerbs = getRelatedPathwayRecords(herbs, pathway)
