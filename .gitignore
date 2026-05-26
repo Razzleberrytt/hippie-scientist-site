@@ -1,9 +1,14 @@
 node_modules
 /src/**/*.js
 .next
+.next/
 out
+out/
 dist
 node_modules/
+*.tsbuildinfo
+npm-audit*.json
+audit*.json
 
 
 # Ignore intermediate data and old site
