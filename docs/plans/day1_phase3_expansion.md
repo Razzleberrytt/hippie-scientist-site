@@ -149,7 +149,49 @@ This implementation planning document outlines the three clusters and nine atomi
 
 ---
 
-## Handoff / Next Step Notes
-- [ ] Cluster 1 Implementation Completed
-- [ ] Cluster 2 Implementation Completed
-- [ ] Cluster 3 Implementation Completed
+## Handoff / Handoff Summary
+- [x] Cluster 1 Implementation Completed & Verified
+- [x] Cluster 2 Implementation Completed & Verified
+- [x] Cluster 3 Implementation Completed & Verified
+
+### Completed Work Summaries
+
+#### Cluster 1: Custom Regimen Planner & Constituent Yield Aggregator
+- **Task 1.1**: Implemented `/protocols/planner` static route rendering the interactive `RegimenPlannerClient`.
+- **Task 1.2**: Created cumulative audits tracking total daily caffeine limits (>400mg) and sedative CNS loading (alerting if multiple GABAergic agents are scheduled).
+- **Task 1.3**: Built URL parameter state serialization, JSON backup file import/export, and standard `@media print` CSS layout grid support.
+
+#### Cluster 2: Relational Knowledge Graph & Semantic Explore Hub
+- **Task 2.1**: Created `/explore/graph` route rendering the `RelationalGraphClient` mapping objectives (Focus, Calm, Sleep, Mood, Neuroplasticity) to biological target pathways and solutions.
+- **Task 2.2**: Integrated a real-time synergy pairing workspace mapping Caffeine + L-Theanine, Curcumin + Piperine, and Caffeine + CoQ10. Highlights active synergies and displays partner recommendations.
+- **Task 2.3**: Built high-fidelity interactive GRADE scorecard showing study counts, patient sample size, and risk-of-bias metrics.
+
+#### Cluster 3: Sourcing Comparison & Sourcing Cart
+- **Task 3.1**: Built `/compare/sourcing` static route and the `SourcingComparerClient` calculating cost per serving, daily cost, and cost tiers.
+- **Task 3.2**: Programmed extract active compound yield per dollar metrics (e.g. active constituent mg per $1.00 spent) allowing standardizations comparison.
+- **Task 3.3**: Created Sourcing Cart staging area with GMP, COA, and third-party laboratory verification checklist, plus outbound Amazon search redirects using central `AFFILIATE_TAGS.amazon` tag config.
+
+### Changed Files
+- [page.tsx](file:///c:/hippies/app/protocols/planner/page.tsx) [NEW]
+- [RegimenPlannerClient.tsx](file:///c:/hippies/src/components/protocols/RegimenPlannerClient.tsx) [NEW]
+- [RegimenPlannerClient.test.tsx](file:///c:/hippies/src/components/protocols/__tests__/RegimenPlannerClient.test.tsx) [NEW]
+- [page.tsx](file:///c:/hippies/app/explore/graph/page.tsx) [NEW]
+- [RelationalGraphClient.tsx](file:///c:/hippies/src/components/graph/RelationalGraphClient.tsx) [NEW/MODIFY]
+- [RelationalGraphClient.test.tsx](file:///c:/hippies/src/components/graph/__tests__/RelationalGraphClient.test.tsx) [NEW]
+- [page.tsx](file:///c:/hippies/app/compare/sourcing/page.tsx) [NEW]
+- [SourcingComparerClient.tsx](file:///c:/hippies/src/components/sourcing/SourcingComparerClient.tsx) [NEW]
+- [SourcingComparerClient.test.tsx](file:///c:/hippies/src/components/sourcing/__tests__/SourcingComparerClient.test.tsx) [NEW]
+
+### Architectural Decisions & Risk Assessments
+- **Static Export Preservation**: Added all new pages as pure client/static-supported pages without using node-runtime codes, middlewares, or dynamic routes.
+- **Accessory Safety**: Checked all accessibility label identifiers (`id`, `htmlFor`) to ensure tests and users have semantic interactions.
+- **Affiliate Tag Governance**: Directly imported and dynamically resolved the Amazon affiliate tag from `config/affiliate.ts`.
+
+### Validation Checks Run
+- TypeScript compilation: `npm run typecheck` (**PASS**)
+- ESLint syntax & styles: `npm run lint` (**PASS**)
+- Static Export validation: `npm run validate:static-export` (**PASS**)
+- Route SEO check: `npm run validate:route-seo` (**PASS**)
+- Production build: `npm run build` (**PASS**)
+- Vitest unit tests: `npm run test` (**32 of 32 tests passed cleanly**)
+
