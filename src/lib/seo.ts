@@ -1,3 +1,8 @@
+import type { Metadata } from 'next'
+import { getRuntimeVisibility } from './runtime-visibility'
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { getEvidenceLabel } from '@/lib/evidence'
+
 export const SITE_URL = 'https://www.thehippiescientist.net'
 export const SITE_NAME = 'The Hippie Scientist'
 export const TWITTER_HANDLE = '@thehippiescientist'
@@ -243,6 +248,9 @@ export type HerbJsonLdArgs = {
   image?: string
   breadcrumbId?: string
   governedSummary?: GovernedSummarySignals
+  evidenceGrade?: string
+  safetyNotes?: string
+  primaryEffects?: string[]
 }
 
 export function herbJsonLd(herb: HerbJsonLdArgs) {
@@ -262,35 +270,40 @@ export function herbJsonLd(herb: HerbJsonLdArgs) {
     : []
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': ['MedicalWebPage', 'WebPage'],
     name: `${herb.name} Herb Guide`,
     description:
       herb.description || `${herb.name} herb profile — effects, safety, and pharmacology.`,
     url,
     mainEntityOfPage: url,
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+    medicalAudience: 'Consumer',
+    aspect: ['treatment', 'safety', 'pharmacology', 'efficacy'],
     ...(herb.breadcrumbId ? { breadcrumb: { '@id': herb.breadcrumbId } } : {}),
     ...(hasGoverned
       ? {
           about: {
-            '@type': 'Thing',
+            '@type': 'MedicalTherapy',
             name: herb.latinName || herb.name,
             description: `Governed review: ${String(
               governed?.evidenceLabelTitle || governed?.evidenceLabel || 'insufficient evidence',
             ).toLowerCase()}. Educational reference only.`,
+            ...(herb.evidenceGrade ? { evidenceLevel: herb.evidenceGrade } : {}),
+            ...(herb.safetyNotes ? { safetyWarnings: herb.safetyNotes } : {}),
+            ...(herb.primaryEffects ? { duplicateTherapy: herb.primaryEffects } : {}),
           },
           ...(hasPart.length ? { hasPart } : {}),
         }
-      : {}),
-    ...(herb.image ? { image: herb.image } : {}),
-    ...(!hasGoverned
-      ? {
+      : {
           about: {
-            '@type': 'Thing',
+            '@type': 'MedicalTherapy',
             name: herb.latinName || herb.name,
+            ...(herb.evidenceGrade ? { evidenceLevel: herb.evidenceGrade } : {}),
+            ...(herb.safetyNotes ? { safetyWarnings: herb.safetyNotes } : {}),
+            ...(herb.primaryEffects ? { duplicateTherapy: herb.primaryEffects } : {}),
           },
-        }
-      : {}),
+        }),
+    ...(herb.image ? { image: herb.image } : {}),
   }
 }
 
@@ -301,6 +314,8 @@ export type CompoundJsonLdArgs = {
   category?: string
   breadcrumbId?: string
   governedSummary?: GovernedSummarySignals
+  evidenceGrade?: string
+  safetyNotes?: string
 }
 
 export function compoundJsonLd(compound: CompoundJsonLdArgs) {
@@ -320,13 +335,15 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
     : []
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': ['MedicalWebPage', 'WebPage'],
     name: `${compound.name} Compound Guide`,
     description:
       compound.description || `${compound.name} pharmacology, effects, and safety profile.`,
     url,
     mainEntityOfPage: url,
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+    medicalAudience: 'Consumer',
+    aspect: ['treatment', 'safety', 'pharmacology', 'efficacy'],
     ...(compound.breadcrumbId ? { breadcrumb: { '@id': compound.breadcrumbId } } : {}),
     about: {
       '@type': 'ChemicalSubstance',
@@ -339,6 +356,8 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
             ).toLowerCase()}. Educational reference only.`,
           }
         : {}),
+      ...(compound.evidenceGrade ? { evidenceLevel: compound.evidenceGrade } : {}),
+      ...(compound.safetyNotes ? { safetyWarnings: compound.safetyNotes } : {}),
     },
     ...(hasPart.length ? { hasPart } : {}),
   }
@@ -464,3 +483,61 @@ export function commonSupplementFaqJsonLd(pagePath: string) {
     ],
   })
 }
+
+export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): Metadata {
+  const displayName = formatDisplayLabel(record.name || record.slug)
+  const evidence = formatDisplayLabel(record.evidenceLevel || record.evidence_tier || record.evidenceTier || record.evidence_grade || getEvidenceLabel(record))
+
+  // Construct premium, intent-aware titles
+  let titleSuffix = type === 'herb' ? 'Herb Profile: Benefits, Effects & Safety' : 'Benefits, Effects & Safety'
+  if (evidence.toLowerCase().includes('strong') || evidence.toLowerCase().includes('moderate') || evidence.toLowerCase().includes('human')) {
+    titleSuffix += ' | Evidence-Based Guide'
+  } else if (evidence.toLowerCase().includes('traditional')) {
+    titleSuffix += ' | Traditional Use Guide'
+  } else {
+    titleSuffix += ' | The Hippie Scientist'
+  }
+  const title = `${displayName} ${titleSuffix}`
+
+  // Construct dynamic description
+  const cleanDesc = cleanSummary(record.summary || record.description || '', type)
+  const firstSentence = cleanDesc.match(/[^.!?]+[.!?]+/)?.[0] || cleanDesc
+
+  const safetyNotes = text(record.safetyNotes || record.safety_notes || record.safety).toLowerCase()
+  let safetySnippet = ''
+  if (safetyNotes.includes('avoid') || safetyNotes.includes('caution') || safetyNotes.includes('interaction')) {
+    safetySnippet = ' Review safety and drug interactions before use.'
+  }
+
+  const rawDescription = `${firstSentence} Rated with ${evidence.toLowerCase()}.` + safetySnippet + ' Educational reference only.'
+  const description = formatMetaDescription(rawDescription, `${displayName} effects, mechanisms, dosage, and safety.`, 155)
+
+  const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`
+  const meta = buildMeta({
+    title,
+    description,
+    path,
+  })
+
+  const visibility = getRuntimeVisibility(record)
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.url },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: 'article',
+      url: meta.url,
+      images: [meta.image],
+    },
+    robots: visibility.canIndex
+      ? undefined
+      : {
+          index: false,
+          follow: true,
+        },
+  }
+}
+

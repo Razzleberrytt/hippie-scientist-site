@@ -17,8 +17,7 @@ import {
   buildSemanticAssistantSummary,
   buildSemanticNavigationSuggestions,
 } from '@/lib/ai-semantic-navigation'
-import { herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
-import { buildEntityMetadata } from '@/lib/metadata-engine'
+import { herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
 import { buildAuthorityProfileModel } from '@/lib/authority-profile'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { buildInternalLinkDensity } from '@/lib/internal-link-density'
@@ -76,8 +75,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  const visibility = getRuntimeVisibility(herb)
-  return buildEntityMetadata(herb, { kind: 'herb', path: `/herbs/${herb.slug}`, canIndex: visibility.canIndex })
+  return generateDetailMetadata(herb, 'herb')
 }
 
 function getEffects(herb: any) {
@@ -389,6 +387,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
     slug: herb.slug,
     description: summary,
     latinName: botanicalName || undefined,
+    evidenceGrade: getEvidenceStrength(herb),
+    safetyNotes: herb.safetyNotes || herb.safety_notes || herb.safety || undefined,
+    primaryEffects: getEffects(herb),
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([

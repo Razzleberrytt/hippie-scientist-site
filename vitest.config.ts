@@ -12,6 +12,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@/components': path.resolve(__dirname, './src/components'),
+      '@/lib/display-utils': path.resolve(__dirname, './lib/display-utils'),
+      '@/lib/evidence': path.resolve(__dirname, './lib/evidence'),
+      '@/lib/safety-classification': path.resolve(__dirname, './lib/safety-classification'),
       '@/lib': path.resolve(__dirname, './src/lib'),
       '@/config': path.resolve(__dirname, './config'),
       '@/types': path.resolve(__dirname, './src/types'),

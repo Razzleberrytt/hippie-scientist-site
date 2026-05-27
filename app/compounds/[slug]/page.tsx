@@ -13,8 +13,7 @@ import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
-import { buildEntityMetadata } from '@/lib/metadata-engine'
+import { compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
 import {
   normalizeEvidenceLevel,
   normalizeSafetyLevel,
@@ -69,8 +68,7 @@ export async function generateMetadata({ params }: PageProps) {
 
   if (!compound) return {}
 
-  const visibility = getRuntimeVisibility(compound)
-  return buildEntityMetadata(compound, { kind: 'compound', path: `/compounds/${compound.slug}`, canIndex: visibility.canIndex })
+  return generateDetailMetadata(compound, 'compound')
 }
 
 
@@ -278,6 +276,8 @@ export default async function CompoundPage({ params }: PageProps) {
     slug: compound.slug,
     description: summary,
     category: compound.compoundClass || compound.class || undefined,
+    evidenceGrade: evidenceLevel || undefined,
+    safetyNotes: compound.safetyNotes || compound.safety_notes || compound.safety || undefined,
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([

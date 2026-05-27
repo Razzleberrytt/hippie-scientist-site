@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
 import { getCompoundBySlug } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
-import { faqPageJsonLd, breadcrumbJsonLd } from '@/lib/seo'
+import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
@@ -148,7 +148,25 @@ export default async function GoalDecisionPage({
   const goalBreadcrumbJsonLd = breadcrumbJsonLd([
     { name: 'Goals', url: 'https://www.thehippiescientist.net/goals' },
     { name: goal.title, url: `https://www.thehippiescientist.net/goals/${goal.slug}` },
-  ])
+  ], { id: `https://www.thehippiescientist.net/goals/${goal.slug}#breadcrumb` })
+
+  const goalCollectionJsonLd = collectionPageJsonLd({
+    title: `${goal.title} | The Hippie Scientist`,
+    description: goal.description,
+    path: `/goals/${goal.slug}`,
+    itemListId: `https://www.thehippiescientist.net/goals/${goal.slug}#item-list`,
+    breadcrumbId: `https://www.thehippiescientist.net/goals/${goal.slug}#breadcrumb`,
+  })
+
+  const goalItemListJsonLd = itemListJsonLd({
+    id: `https://www.thehippiescientist.net/goals/${goal.slug}#item-list`,
+    name: `${goal.title} Options`,
+    path: `/goals/${goal.slug}`,
+    items: goal.options.map(opt => ({
+      name: opt.name,
+      url: opt.slug ? `/compounds/${opt.slug}` : `/goals/${goal.slug}`,
+    })),
+  })
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
@@ -161,6 +179,14 @@ export default async function GoalDecisionPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(goalBreadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(goalCollectionJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(goalItemListJsonLd) }}
       />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">{goal.eyebrow}</p>
