@@ -163,10 +163,11 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
 
           {/* Ingredient Selector */}
           <div className='space-y-1.5'>
-            <label className='text-xs font-bold uppercase tracking-wider text-slate-400'>
+            <label htmlFor="ingredient-select" className='text-xs font-bold uppercase tracking-wider text-slate-400'>
               Select Ingredient
             </label>
             <select
+              id="ingredient-select"
               value={selectedSlug}
               onChange={e => handleItemChange(e.target.value)}
               className='w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none bg-white'
@@ -182,7 +183,7 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
           {/* Weight Input */}
           <div className='space-y-1.5'>
             <div className='flex items-center justify-between'>
-              <label className='text-xs font-bold uppercase tracking-wider text-slate-400'>
+              <label htmlFor="body-weight-input" className='text-xs font-bold uppercase tracking-wider text-slate-400'>
                 Body Weight
               </label>
               <div className='flex rounded-lg overflow-hidden border border-slate-200 text-xs'>
@@ -203,6 +204,7 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
               </div>
             </div>
             <input
+              id="body-weight-input"
               type='number'
               value={weight}
               onChange={e => setWeight(Math.max(1, parseInt(e.target.value) || 0))}
