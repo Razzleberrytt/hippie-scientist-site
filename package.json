@@ -38,7 +38,7 @@
     "verify:types": "npm run typecheck",
     "lint": "eslint . --max-warnings=0",
     "build": "node scripts/build-blog.mjs && npm run data:build && npm run data:validate && npm run guard:source-of-truth && node scripts/build-production.mjs && npm run verify:build",
-    "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:static-export && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run validate:direct-dependencies && npm run validate:xlsx-boundary && npm run validate:security-headers && npm run data:verify && node scripts/ci/validate-build-seo-metadata.mjs",
+    "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && npm run validate:static-export && npm run validate:public-json-imports && npm run validate:quarantine-imports && npm run validate:direct-dependencies && npm run validate:xlsx-boundary && npm run validate:security-headers && npm run data:verify && node scripts/ci/validate-build-seo-metadata.mjs && npm run validate:safety-enums && npm run audit:metadata",
     "data:verify": "node scripts/data/verify-generated-data.mjs",
     "validate:workbook-source": "node scripts/ci/validate-workbook-source.mjs",
     "check:node": "node scripts/ci/check-node-version.mjs",
@@ -52,7 +52,9 @@
     "validate:direct-dependencies": "node scripts/ci/validate-direct-dependencies.mjs",
     "validate:xlsx-boundary": "node scripts/ci/validate-xlsx-boundary.mjs",
     "validate:security-headers": "node scripts/ci/validate-security-headers.mjs",
-    "typecheck:strict-candidates": "tsc -p tsconfig.strict-candidates.json --noEmit"
+    "typecheck:strict-candidates": "tsc -p tsconfig.strict-candidates.json --noEmit",
+    "validate:safety-enums": "node scripts/ci/validate-safety-enums.mjs",
+    "audit:metadata": "node scripts/ci/audit-metadata-duplicates.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
