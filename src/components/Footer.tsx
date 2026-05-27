@@ -64,7 +64,7 @@ export default function Footer() {
                 <ul className='space-y-2'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href}>
+                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -81,7 +81,7 @@ export default function Footer() {
                 <ul className='space-y-2'>
                   {safetyLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href}>
+                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -107,7 +107,7 @@ export default function Footer() {
                 <ul className='space-y-2'>
                   {availableLegalLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href}>
+                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>

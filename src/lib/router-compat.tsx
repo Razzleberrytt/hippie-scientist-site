@@ -16,6 +16,7 @@ type BaseCompatProps = Omit<
 > & {
   to?: NextLinkProps["href"];
   href?: NextLinkProps["href"];
+  prefetch?: boolean;
   className?: ClassNameValue;
   children?: ReactNode;
 };

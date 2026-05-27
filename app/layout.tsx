@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import DesktopNav from '@/components/desktop-nav'
-import MobileNav from '@/components/mobile-nav'
+import Header from '@/components/Header'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import './globals.css'
 import '@/styles/foundation-readability.css'
@@ -28,16 +27,7 @@ const organizationJsonLd = {
   description: siteDescription,
 }
 
-const navLinks = [
-  { href: '/herbs', label: 'Herbs' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/goals', label: 'Goals' },
-  { href: '/stacks', label: 'Stacks' },
-  { href: '/compare', label: 'Compare' },
-  { href: '/learn', label: 'Learn' },
-  { href: '/search', label: 'Search' },
-  { href: '/about', label: 'About' },
-]
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -74,20 +64,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a href='#main-content' className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink focus:shadow-lg'>Skip to main content</a>
 
         <div className='min-h-screen bg-background text-ink'>
-          <header className='sticky top-0 z-50 border-b border-brand-900/10 bg-white/[0.88] shadow-[0_1px_0_rgba(17,24,39,0.02)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/[0.78]'>
-            <div className='container-page flex min-h-[72px] items-center justify-between gap-6 py-3'>
-              <Link
-                href='/'
-                className='inline-flex items-center rounded-full px-1 py-2 text-lg font-black tracking-tight text-ink transition hover:text-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white'
-              >
-                The Hippie Scientist
-              </Link>
-
-              <DesktopNav links={navLinks} />
-
-              <MobileNav links={navLinks} />
-            </div>
-          </header>
+          <Header />
 
           <main id='main-content' className='pb-[calc(env(safe-area-inset-bottom)+4rem)] md:pb-8'>
             {children}
