@@ -265,32 +265,33 @@ const browsePaths = [
   },
 ]
 
-export default function HerbsIndexClient({ herbs: sourceHerbs, initialQuery = '', initialContext = ''}: { herbs: any[]; initialQuery?: string; initialContext?: string }) {
+export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: any[]; allHerbs?: any[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const query = firstParam(initialQuery)
   const context = firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
+  const baseHerbs = [...(allHerbs || sourceHerbs)].sort((a: any, b: any) => scoreHerb(b) - scoreHerb(a))
   const herbs = [...sourceHerbs].sort((a: any, b: any) => scoreHerb(b) - scoreHerb(a))
 
-  const visibleHerbs = filterHerbs(herbs, query, activeFilter)
+  const visibleHerbs = filterHerbs(baseHerbs, query, activeFilter)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
-  const totalProfiles = herbs.length
+  const totalProfiles = baseHerbs.length
 
-  const readyProfiles = herbs.filter((herb: any) =>
+  const readyProfiles = baseHerbs.filter((herb: any) =>
     /complete|strong|high|ready/i.test(
       text(herb.profile_status || herb.summary_quality || herb.safety?.confidence)
     )
   ).length
 
-  const evidenceForward = herbs.filter((herb: any) =>
+  const evidenceForward = baseHerbs.filter((herb: any) =>
     /human|clinical|strong|high/i.test(
       text(herb.evidence_tier || herb.evidence_grade || herb.evidenceLevel)
     )
   ).length
 
-  const safetyMapped = herbs.filter((herb: any) => getSafety(herb) !== 'Needs review').length
-  const featuredHerbs = hasActiveFilters ? [] : herbs.slice(0, 6)
-  const libraryHerbs = hasActiveFilters ? visibleHerbs : herbs.slice(featuredHerbs.length)
+  const safetyMapped = baseHerbs.filter((herb: any) => getSafety(herb) !== 'Needs review').length
+  const featuredHerbs = hasActiveFilters || paginated ? [] : baseHerbs.slice(0, 6)
+  const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
 
   return (
     <div className="min-h-screen px-3 py-5 text-ink sm:px-4 sm:py-8">
@@ -412,7 +413,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, initialQuery = ''
                     </h2>
                   </div>
                   <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
-                    {hasActiveFilters ? visibleHerbs.length : totalProfiles} profiles
+                    {hasActiveFilters ? visibleHerbs.length : paginated ? herbs.length : totalProfiles} profiles
                   </span>
                 </div>
 
@@ -422,6 +423,9 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, initialQuery = ''
                   ))}
                 </div>
               </section>
+            ) : null}
+            {paginated && !hasActiveFilters && totalPages > 1 ? (
+              <p className="text-sm text-[#5f6f66]">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
             ) : null}
           </>
         )}
