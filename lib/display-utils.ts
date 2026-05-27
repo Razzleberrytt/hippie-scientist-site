@@ -1,6 +1,7 @@
 const INTERNAL_PATTERNS = [
   /research[_\s-]*only/i,
   /lean\s+(?:(?:herb|monograph)\s+)?row/i,
+  /lean\s+bulk\s+ingestion\s+row/i,
   /high\s+speed\s+phytochemical\s+ingestion/i,
   /(?:^|\b)(?:is\s+)?tracked\s+for\b/i,
   /conservative\s+evidence\s+framing/i,
@@ -95,6 +96,7 @@ export function hideInternalValue(value: unknown): boolean {
     'lean row',
     'lean herb row',
     'lean monograph row',
+    'lean bulk ingestion row',
     'high speed phytochemical ingestion',
     'bulk enrichment',
     'bulk mode',
