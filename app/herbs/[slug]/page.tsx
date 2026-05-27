@@ -17,7 +17,8 @@ import {
   buildSemanticAssistantSummary,
   buildSemanticNavigationSuggestions,
 } from '@/lib/ai-semantic-navigation'
-import { buildMeta, herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
+import { herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
+import { buildEntityMetadata } from '@/lib/metadata-engine'
 import { buildAuthorityProfileModel } from '@/lib/authority-profile'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { buildInternalLinkDensity } from '@/lib/internal-link-density'
@@ -76,30 +77,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const visibility = getRuntimeVisibility(herb)
-  const meta = buildMeta({
-    title: `${formatDisplayLabel(herb.name || herb.slug)} | Herb`,
-    description: cleanSummary(herb.summary || herb.description || '', 'herb'),
-    path: `/herbs/${herb.slug}`,
-  })
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    alternates: { canonical: meta.url },
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      type: 'article',
-      url: meta.url,
-      images: [meta.image],
-    },
-    robots: visibility.canIndex
-      ? undefined
-      : {
-          index: false,
-          follow: true,
-        },
-  }
+  return buildEntityMetadata(herb, { kind: 'herb', path: `/herbs/${herb.slug}`, canIndex: visibility.canIndex })
 }
 
 function getEffects(herb: any) {

@@ -13,7 +13,8 @@ import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { buildMeta, compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
+import { compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
+import { buildEntityMetadata } from '@/lib/metadata-engine'
 import {
   normalizeEvidenceLevel,
   normalizeSafetyLevel,
@@ -69,31 +70,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (!compound) return {}
 
   const visibility = getRuntimeVisibility(compound)
-
-  const meta = buildMeta({
-    title: `${formatDisplayLabel(compound.name)} Benefits, Effects & Safety | The Hippie Scientist`,
-    description: cleanSummary(compound.summary || compound.description, 'compound'),
-    path: `/compounds/${compound.slug}`,
-  })
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    alternates: { canonical: meta.url },
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      type: 'article',
-      url: meta.url,
-      images: [meta.image],
-    },
-    robots: visibility.canIndex
-      ? undefined
-      : {
-          index: false,
-          follow: true,
-        },
-  }
+  return buildEntityMetadata(compound, { kind: 'compound', path: `/compounds/${compound.slug}`, canIndex: visibility.canIndex })
 }
 
 

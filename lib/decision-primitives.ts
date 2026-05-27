@@ -1,3 +1,5 @@
+import { normalizeSafetyEnum } from './safety-enum'
+
 export const STANDARD_EVIDENCE_LABELS = [
   'Strong evidence',
   'Moderate evidence',
@@ -98,18 +100,9 @@ export function normalizeDecisionSafety(value?: unknown, options: { hasSafetyNot
   const canonical = matchesCanonicalSafety(raw)
   if (canonical) return canonical
 
-  const text = raw.toLowerCase().replace(/[_-]+/g, ' ')
-
-  if (/\b(needs? review|review needed|unknown|tbd|draft|placeholder|profile pending)\b/.test(text)) return 'Needs review'
-  if (/\b(limited safety|limited data|low data|no safety data|insufficient safety)\b/.test(text)) return 'Limited safety data'
-  if (/\b(interaction|interacts|warfarin|ssri|maoi|anticoagul|antiplatelet|cns depressant|sedative stack|polypharmacy)\b/.test(text)) return 'Interaction risk'
-  if (/\b(avoid|contraindicat|caution|consult|clinician|medication|pregnan|breastfeeding|liver|kidney|seizure|bleed|sedat|toxic|risk|high concern|do not)\b/.test(text)) return 'Use caution'
-  if (/\b(generally|well tolerated|low concern|low risk|food use|food derived|safe|high confidence|standard caution)\b/.test(text)) return 'Generally well tolerated'
-  if (/\b(low)\b/.test(text)) return 'Limited safety data'
-  if (/\b(medium|some safety|safety notes available|safety context)\b/.test(text)) return 'Use caution'
-  if (/\b(high)\b/.test(text)) return 'Generally well tolerated'
-
-  return options.hasSafetyNotes ? 'Use caution' : 'Needs review'
+  const normalized = normalizeSafetyEnum(raw).value
+  if (normalized === 'Needs review' && options.hasSafetyNotes) return 'Use caution'
+  return normalized
 }
 
 export function getDecisionSafetyTone(labelOrValue?: unknown, options: { hasSafetyNotes?: boolean } = {}): DecisionSafetyTone {
