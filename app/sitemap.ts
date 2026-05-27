@@ -150,6 +150,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
     }),
 
+    route('/blog', {
+      priority: 0.7,
+      changeFrequency: 'weekly',
+    }),
+
     route('/stacks', {
       priority: 0.7,
       changeFrequency: 'monthly',
@@ -296,6 +301,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'monthly',
       }),
     ),
+
+
+    route('/blog/categories', {
+      priority: 0.55,
+      changeFrequency: 'monthly',
+    }),
+
+    route('/blog/tags', {
+      priority: 0.5,
+      changeFrequency: 'monthly',
+    }),
 
     ...posts
       .map(post => ({
