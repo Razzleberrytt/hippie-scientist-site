@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
+import CitationDrawer from '@/components/education/CitationDrawer'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 
@@ -125,6 +126,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </footer>
 
           <MobileBottomNav />
+          <CitationDrawer />
         </div>
       </body>
     </html>
