@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { getHerbBySlug } from '@/lib/runtime-data'
 import { getHerbMetadataRecord } from '@/lib/runtime-metadata-cache'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { normalizeSlug } from '@/lib/slug-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
@@ -288,10 +289,15 @@ function LinkDensitySection({ links }: { links: ReturnType<typeof buildInternalL
 
 export default async function HerbDetailPage({ params }: PageProps) {
   const { slug } = await params
-  const herb = await getHerbBySlug(slug)
+  const normalizedSlug = normalizeSlug(slug)
+  const herb = await getHerbBySlug(normalizedSlug)
 
   if (!herb || !getRuntimeVisibility(herb).canRender) {
     notFound()
+  }
+
+  if (slug !== normalizedSlug || normalizeSlug(herb.slug) != normalizedSlug) {
+    redirect(`/herbs/${normalizeSlug(herb.slug)}/`)
   }
 
   const {

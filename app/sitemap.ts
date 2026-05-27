@@ -31,13 +31,14 @@ type SlugRecord = {
   slug?: string
   updatedAt?: string
   last_updated?: string
+  date?: string
 }
 
 const cleanSlug = (value: unknown): string =>
   typeof value === 'string' ? value.trim() : ''
 
 const getLastModified = (record?: SlugRecord) => {
-  const candidate = record?.updatedAt || record?.last_updated
+  const candidate = record?.updatedAt || record?.last_updated || record?.date
 
   if (!candidate) return stableDate
 

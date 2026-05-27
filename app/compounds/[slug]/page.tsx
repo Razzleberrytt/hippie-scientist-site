@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { getCompoundBySlug } from '@/lib/runtime-data'
 import { getCompoundMetadataRecord } from '@/lib/runtime-metadata-cache'
@@ -12,6 +12,7 @@ import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { normalizeSlug } from '@/lib/slug-utils'
 import { buildMeta, compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd } from '@/lib/seo'
 import {
   normalizeEvidenceLevel,
@@ -188,10 +189,15 @@ function ChipList({ items, limit = items.length }: { items: string[]; limit?: nu
 
 export default async function CompoundPage({ params }: PageProps) {
   const { slug } = await params
-  const compound = await getCompoundBySlug(slug)
+  const normalizedSlug = normalizeSlug(slug)
+  const compound = await getCompoundBySlug(normalizedSlug)
 
   if (!compound || !getRuntimeVisibility(compound).canRender) {
     notFound()
+  }
+
+  if (slug !== normalizedSlug || normalizeSlug(compound.slug) != normalizedSlug) {
+    redirect(`/compounds/${normalizeSlug(compound.slug)}/`)
   }
 
   const {
