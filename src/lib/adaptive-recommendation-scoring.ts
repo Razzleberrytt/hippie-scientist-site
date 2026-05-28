@@ -81,14 +81,35 @@ export function buildAdaptiveRecommendationScores(
       const continuityScore = overlapScore(record, candidate)
       const ecosystemScore = ecosystemDensity(candidate)
 
+      // Safety Penalty Gate: deduct if cautions/warnings or contraindications exist
+      let safetyPenalty = 0
+      const safetyLevel = safeText(candidate.safety_level || candidate.safetyLevel).toLowerCase()
+      if (safetyLevel.includes('caution')) {
+        safetyPenalty += 5
+      } else if (safetyLevel.includes('warning') || safetyLevel.includes('high')) {
+        safetyPenalty += 15
+      }
+
+      const contraindications = safeArray(candidate.contraindications)
+      if (contraindications.length > 0) {
+        safetyPenalty += 5
+      }
+
+      // Clinical Trial Boost: boost based on RCT/meta-analysis counts
+      const clinicalTrials = Number(candidate.clinical_trial_count ?? candidate.clinicalTrialCount ?? 0)
+      const metaAnalyses = Number(candidate.meta_analysis_count ?? candidate.metaAnalysisCount ?? 0)
+      const trialBoost = Math.min(clinicalTrials * 2 + metaAnalyses * 4, 10)
+
+      const baseAdaptiveScore = Math.round(
+        authority.authorityScore * 0.24 +
+          evidence.confidenceScore * 0.24 +
+          governance.freshnessScore * 0.18 +
+          continuityScore * 0.2 +
+          ecosystemScore * 0.14,
+      )
+
       const adaptiveScore = clampScore(
-        Math.round(
-          authority.authorityScore * 0.24 +
-            evidence.confidenceScore * 0.24 +
-            governance.freshnessScore * 0.18 +
-            continuityScore * 0.2 +
-            ecosystemScore * 0.14,
-        ),
+        baseAdaptiveScore + trialBoost - safetyPenalty,
         0,
       )
 
