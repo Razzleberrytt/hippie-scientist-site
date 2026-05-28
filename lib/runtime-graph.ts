@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { RELATIONSHIP_TYPES } from './graph-relationship-types'
 import type {
   GraphNodeType,
   GraphRelationshipType,
@@ -656,7 +657,7 @@ export function getRelatedProfiles(
             id: `${node.slug || node.id}-${candidate.slug || candidate.id}`,
             source: node.slug || node.id || '',
             target: candidate.slug || candidate.id || '',
-            type: 'semantic-overlap' as GraphRelationshipType,
+            type: RELATIONSHIP_TYPES.SEMANTIC_OVERLAP as GraphRelationshipType,
             weight: overlapScore,
             rationale: 'Related by shared mechanisms, pathways, or topic ecosystem context.',
             mechanisms,
@@ -689,7 +690,7 @@ export function getRelatedProfiles(
           id: `${node?.slug || profileKeys(profile)[0]}-${ecosystem.slug || ecosystem.id}-${slug}`,
           source: node?.slug || profileKeys(profile)[0] || '',
           target: slug || '',
-          type: 'ecosystem-continuity' as GraphRelationshipType,
+          type: RELATIONSHIP_TYPES.ECOSYSTEM_CONTINUITY as GraphRelationshipType,
           weight: 20 + sharedItems(ecosystem.topics, node?.topics).length * 3 + sharedItems(ecosystem.pathways, node?.pathways).length * 2,
           rationale: 'Related by topic ecosystem continuity; use as contextual discovery rather than outcome equivalence.',
           evidence_context: ecosystem.retrieval_summary,
@@ -704,7 +705,7 @@ export function getRelatedProfiles(
       id: `${node?.slug || profileKeys(profile)[0]}-authority-${supernode.slug || supernode.id}`,
       source: node?.slug || profileKeys(profile)[0] || '',
       target: supernode.slug || supernode.id || '',
-      type: 'authority-hub' as GraphRelationshipType,
+      type: RELATIONSHIP_TYPES.AUTHORITY_HUB as GraphRelationshipType,
       weight: 30 + numericSignal(supernode.relationship_density),
       rationale: 'Authority hub with dense relationship coverage for nearby topics and pathways; evidence tier should control interpretation.',
       evidence_context: supernode.retrieval_summary,
