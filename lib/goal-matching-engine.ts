@@ -41,7 +41,7 @@ export function rankEntitiesForGoal(goal: string, graphInput?: GraphRuntime): Go
   const targetGoal = normalize(goal)
   const synonyms = GOAL_SYNONYMS[targetGoal] || [targetGoal]
 
-  const nodes = graph.nodes || []
+  const nodes = (graph.nodes || []) as GraphNode[]
   const matches: GoalMatch[] = []
 
   nodes.forEach((node) => {

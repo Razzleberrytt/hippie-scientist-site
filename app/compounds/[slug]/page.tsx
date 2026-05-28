@@ -49,6 +49,7 @@ import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
+import { SemanticIntelligenceDashboard } from '@/components/SemanticIntelligenceDashboard'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -336,6 +337,7 @@ export default async function CompoundPage({ params }: PageProps) {
             mechanisms={mechanisms}
             summary={summary}
           />
+          <SemanticIntelligenceDashboard node={compound as any} />
           <DecisionVisualGrid record={compound} />
           <WhyThisInsteadPanel
             record={compound}

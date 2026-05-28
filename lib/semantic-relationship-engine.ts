@@ -20,8 +20,8 @@ function getOverlap<T>(arr1: T[], arr2: T[]): T[] {
 
 export function getMechanismOverlap(slugA: string, slugB: string, graphInput?: GraphRuntime): string[] {
   const graph = graphInput || loadRuntimeGraph()
-  const nodeA = getGraphNode(graph, slugA)
-  const nodeB = getGraphNode(graph, slugB)
+  const nodeA = getGraphNode(graph, slugA) as GraphNode | null
+  const nodeB = getGraphNode(graph, slugB) as GraphNode | null
   if (!nodeA || !nodeB) return []
   return getOverlap(nodeA.mechanisms || [], nodeB.mechanisms || [])
 }

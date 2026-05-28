@@ -23,7 +23,7 @@ export type HubCandidate = {
 
 export function getRelatedPageSuggestions(slug: string, graphInput?: GraphRuntime): PageSuggestion[] {
   const graph = graphInput || loadRuntimeGraph()
-  const node = getGraphNode(graph, slug)
+  const node: GraphNode | null = getGraphNode(graph, slug) as GraphNode | null
   if (!node) return []
 
   const suggestions: PageSuggestion[] = []
@@ -66,7 +66,7 @@ export function getRelatedPageSuggestions(slug: string, graphInput?: GraphRuntim
 
 export function getInternalLinkCandidates(text: string, graphInput?: GraphRuntime): LinkCandidate[] {
   const graph = graphInput || loadRuntimeGraph()
-  const nodes = graph.nodes || []
+  const nodes = (graph.nodes || []) as GraphNode[]
   const candidates: LinkCandidate[] = []
 
   const lowerText = text.toLowerCase()
@@ -91,7 +91,7 @@ export function getInternalLinkCandidates(text: string, graphInput?: GraphRuntim
 
 export function getMechanismHubCandidates(graphInput?: GraphRuntime): HubCandidate[] {
   const graph = graphInput || loadRuntimeGraph()
-  const nodes = graph.nodes || []
+  const nodes = (graph.nodes || []) as GraphNode[]
   const counts: Record<string, string[]> = {}
 
   nodes.forEach((node) => {
@@ -113,7 +113,7 @@ export function getMechanismHubCandidates(graphInput?: GraphRuntime): HubCandida
 
 export function getEffectHubCandidates(graphInput?: GraphRuntime): HubCandidate[] {
   const graph = graphInput || loadRuntimeGraph()
-  const nodes = graph.nodes || []
+  const nodes = (graph.nodes || []) as GraphNode[]
   const counts: Record<string, string[]> = {}
 
   nodes.forEach((node) => {
@@ -135,7 +135,7 @@ export function getEffectHubCandidates(graphInput?: GraphRuntime): HubCandidate[
 
 export function getGoalHubCandidates(graphInput?: GraphRuntime): HubCandidate[] {
   const graph = graphInput || loadRuntimeGraph()
-  const nodes = graph.nodes || []
+  const nodes = (graph.nodes || []) as GraphNode[]
   const counts: Record<string, string[]> = {}
 
   nodes.forEach((node) => {

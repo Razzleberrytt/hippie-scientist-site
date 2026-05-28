@@ -80,7 +80,7 @@ export function getNHopNeighbors(slug: string, hops: number = 1, graphInput?: Gr
 
   for (let i = 0; i < hops; i++) {
     const nextLevel = new Set<string>()
-    const relationships = graph.relationships || []
+    const relationships = (graph.relationships || []) as GraphRelationship[]
 
     relationships.forEach((rel) => {
       const source = rel.source

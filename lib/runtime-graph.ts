@@ -4,8 +4,6 @@ import { RELATIONSHIP_TYPES } from './graph-relationship-types'
 import type {
   GraphNodeType,
   GraphRelationshipType,
-  EvidenceTier,
-  AuthorityRole,
   GraphNode,
   GraphRelationship,
   GraphEcosystem,
@@ -191,11 +189,15 @@ function normalizeRelationship(value: unknown): GraphRelationship | null {
   const record = asRecord(value)
   if (!record) return null
 
+  const source = slugify(record.source)
+  const target = slugify(record.target)
+  if (source === target) return null
+
   return {
     ...record,
     id: asText(record.id),
-    source: slugify(record.source),
-    target: slugify(record.target),
+    source,
+    target,
     type: asText(record.type) as GraphRelationshipType,
     weight: Number(record.weight) || 0,
     rationale: asText(record.rationale),

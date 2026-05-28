@@ -52,6 +52,7 @@ import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
+import { SemanticIntelligenceDashboard } from '@/components/SemanticIntelligenceDashboard'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -485,6 +486,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       content: (
         <div className="space-y-8">
           <ProfileDecisionLayer record={herb} entityType="herb" relatedRecords={relatedProfiles} effects={effects} summary={summary} />
+          <SemanticIntelligenceDashboard node={herb as any} />
           <DecisionVisualGrid record={herb} />
           <WhyThisInsteadPanel record={herb} alternatives={relatedProfiles} />
           <DecisionClarityFieldManual record={herb} entityType="herb" relatedRecords={relatedProfiles} effects={effects} summary={summary} />

@@ -56,8 +56,8 @@ export function validateGraphIntegrity(graph: GraphRuntime): IntegrityReport {
   const errors: IntegrityError[] = []
   const warnings: IntegrityWarning[] = []
 
-  const nodes = graph.nodes || []
-  const relationships = graph.relationships || []
+  const nodes: GraphNode[] = graph.nodes || []
+  const relationships: GraphRelationship[] = graph.relationships || []
   const topics = graph.topics || []
   const pathways = graph.pathways || []
   const comparisons = graph.comparisons || []
