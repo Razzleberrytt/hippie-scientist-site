@@ -147,9 +147,15 @@ export async function generateMetadata({
     }
   }
 
+  const matches = rankEntitiesForGoal(goalSlug)
+  const topMatches = matches.slice(0, 3).map(m => m.name).join(', ')
+  const description = topMatches
+    ? `Compare ${topMatches}, and more for ${goalSlug} support. Compare by evidence confidence, safety caveats, timing, and practical tradeoffs.`
+    : `${goal.description} Educational comparison only; not medical advice.`
+
   return {
-    title: `${goal.title} | The Hippie Scientist`,
-    description: `${goal.description} Educational comparison only; not medical advice.`,
+    title: `${goal.title} Guide | The Hippie Scientist`,
+    description: description.slice(0, 155),
   }
 }
 
