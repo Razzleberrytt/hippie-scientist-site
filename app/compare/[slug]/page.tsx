@@ -98,6 +98,11 @@ function sharedSignals(a: any, b: any) {
   return getSignals(a).filter((item) => bSet.has(item.toLowerCase()))
 }
 
+function divergentSignals(a: any, b: any) {
+  const bSet = new Set(getSignals(b).map((item) => item.toLowerCase()))
+  return getSignals(a).filter((item) => !bSet.has(item.toLowerCase()))
+}
+
 const evidenceLabel = (score: number) => {
   if (score >= 5) return 'Stronger'
   if (score >= 4) return 'Moderate'
@@ -154,6 +159,12 @@ export default async function Page({ params }: Params) {
   const signalsA = getSignals(a)
   const signalsB = getSignals(b)
   const overlap = sharedSignals(a, b)
+  const uniqueA = divergentSignals(a, b)
+  const uniqueB = divergentSignals(b, a)
+
+  const chooseWinnerIf = `You prioritize a stronger clinical evidence base (${evidenceLabel(evidenceScore(winner))} Evidence), or if your goals align with the primary outcomes of ${firstItems(getSignals(winner), 'general support').slice(0, 2).join(' and ')}.`
+
+  const chooseLoserIf = `You seek an alternative pathway profile, or if your goals focus specifically on ${firstItems(getSignals(loser), 'targeted support').slice(0, 2).join(' and ')}.`
   const syntheticCompareNode = {
     slug,
     displayName: title,
@@ -253,6 +264,10 @@ export default async function Page({ params }: Params) {
           <p className="eyebrow-label">Better default</p>
           <h2 className="max-w-none text-3xl font-semibold text-ink">{displayName(winner)}</h2>
           <p className="text-sm font-semibold leading-6 text-[#46574d]">Usually the better starting point based on the current evidence and profile signals.</p>
+          <div className="rounded-xl bg-white/70 p-3 border border-emerald-900/5 text-xs text-[#33443a] space-y-1">
+            <p className="font-bold uppercase tracking-wider text-emerald-800 text-[9px]">Choose this if:</p>
+            <p className="leading-relaxed">{chooseWinnerIf}</p>
+          </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link href={`/compounds/${winner.slug}`} className="button-primary text-center">View full profile →</Link>
             <AffiliateBlock compound={winner.slug} compact />
@@ -263,6 +278,10 @@ export default async function Page({ params }: Params) {
           <p className="eyebrow-label">Alternative</p>
           <h2 className="max-w-none text-3xl font-semibold text-ink">{displayName(loser)}</h2>
           <p className="text-sm leading-6 text-[#46574d]">Still worth considering if it better matches your goal, tolerance, timing, or product preference.</p>
+          <div className="rounded-xl bg-brand-50/50 p-3 border border-brand-900/5 text-xs text-[#46574d] space-y-1">
+            <p className="font-bold uppercase tracking-wider text-brand-800 text-[9px]">Consider this instead if:</p>
+            <p className="leading-relaxed">{chooseLoserIf}</p>
+          </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link href={`/compounds/${loser.slug}`} className="button-secondary text-center">View profile →</Link>
             <AffiliateBlock compound={loser.slug} compact />
@@ -369,17 +388,17 @@ export default async function Page({ params }: Params) {
             </div>
           </article>
           <article className="compact-card section-rhythm-compact">
-            <p className="eyebrow-label">{displayName(a)} signals</p>
+            <p className="eyebrow-label">Unique to {displayName(a)}</p>
             <div className="flex flex-wrap gap-2">
-              {signalsA.slice(0, 5).map((signal) => (
+              {(uniqueA.length > 0 ? uniqueA : ['specific targets']).slice(0, 5).map((signal) => (
                 <PathwayVisualChip key={signal} pathway={signal} />
               ))}
             </div>
           </article>
           <article className="compact-card section-rhythm-compact">
-            <p className="eyebrow-label">{displayName(b)} signals</p>
+            <p className="eyebrow-label">Unique to {displayName(b)}</p>
             <div className="flex flex-wrap gap-2">
-              {signalsB.slice(0, 5).map((signal) => (
+              {(uniqueB.length > 0 ? uniqueB : ['specific targets']).slice(0, 5).map((signal) => (
                 <PathwayVisualChip key={signal} pathway={signal} />
               ))}
             </div>
