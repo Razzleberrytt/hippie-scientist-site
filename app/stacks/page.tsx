@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import LibraryEmptyState from '@/components/decision/LibraryEmptyState'
 
 export const metadata: Metadata = {
   title: 'Evidence-Based Supplement Stacks',
@@ -52,29 +53,6 @@ const roleBadge = (role?: string) => {
 }
 
 
-function InlineEmptyState({
-  title,
-  description,
-  links,
-}: {
-  title: string
-  description: string
-  links: { href: string; label: string }[]
-}) {
-  return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-6 text-slate-600 shadow-sm sm:p-7">
-      <h2 className="text-2xl font-black tracking-tight text-slate-950">{title}</h2>
-      <p className="mt-2 max-w-2xl">{description}</p>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em] text-emerald-700 transition hover:border-emerald-300 hover:text-emerald-900">
-            {link.label}
-          </Link>
-        ))}
-      </div>
-    </div>
-  )
-}
 
 function StackIngredient({ item }: { item: { compound?: string; dosage?: string; timing?: string; role?: string } }) {
   return (
@@ -104,10 +82,11 @@ export default function StacksPage() {
   if (stackItems.length === 0) {
     return (
       <main className="space-y-8 px-1 sm:px-0">
-        <InlineEmptyState
+        <LibraryEmptyState
           title="Stack profiles are still being expanded."
-          description="The stack library is temporarily light while profiles finish generating. You can explore goals, compounds, or search while the next stack guides become available."
-          links={recoveryLinks}
+          description="The stack library is temporarily light while profiles finish generating. Explore goals, compounds, or search while the next stack guides become available."
+          recoveryLinks={recoveryLinks}
+          suggestedSearches={['ashwagandha', 'l-theanine', 'sleep stack', 'focus stack']}
         />
       </main>
     )
@@ -135,8 +114,8 @@ export default function StacksPage() {
               <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slate-500">Steps</div>
             </div>
             <div className="rounded-xl bg-white px-3 py-3 shadow-sm">
-              <div className="text-2xl font-black text-amber-700">Safe</div>
-              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slate-500">First</div>
+              <div className="text-2xl font-black text-amber-700">⚠</div>
+              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slate-500">Caution notes</div>
             </div>
           </div>
         </div>
@@ -212,10 +191,11 @@ export default function StacksPage() {
             ))}
           </div>
         ) : (
-          <InlineEmptyState
+          <LibraryEmptyState
             title="More stack profiles are being prepared."
-            description="The featured stack is available now, and the broader stack library will fill in as additional profiles finish generating. Explore goals, compounds, or search meanwhile."
-            links={recoveryLinks}
+            description="The featured stack is available now. The broader stack library will fill in as additional profiles finish generating."
+            recoveryLinks={recoveryLinks}
+            suggestedSearches={['sleep', 'stress', 'focus', 'performance']}
           />
         )}
       </section>

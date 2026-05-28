@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { goals } from '@/data/goals'
+import DecisionCtaGroup from '@/components/decision/DecisionCtaGroup'
 
 export const metadata: Metadata = {
   title: 'Supplement Goal Decision Guides',
@@ -34,7 +35,16 @@ export default function GoalsPage() {
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Decision CTAs — primary actions above the goal grid */}
+      <DecisionCtaGroup
+        ctas={[
+          { label: 'Browse goal paths', href: '#goals', variant: 'primary' },
+          { label: 'Search the library', href: '/search', variant: 'secondary' },
+          { label: 'Compare compounds', href: '/compare', variant: 'ghost' },
+        ]}
+      />
+
+      <section id="goals" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {goals.map((goal) => (
           <Link
             key={goal.slug}
