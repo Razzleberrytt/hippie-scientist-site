@@ -19,15 +19,24 @@
     "Mitochondrial Support",
     "Metabolic Regulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Mitochondrial Support",
-    "Metabolic Regulation"
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Metabolic regulation"
   ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "metabolic"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

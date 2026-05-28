@@ -19,14 +19,20 @@
   "raw_mechanisms": [
     "endocannabinoid_modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "endocannabinoid_modulation"
+  "canonical_mechanisms": [
+    "Endocannabinoid modulation"
   ],
+  "mechanism_categories": [
+    "neuro-immune"
+  ],
+  "mechanism_classes": [
+    "Receptor interaction"
+  ],
+  "mechanism_target_systems": [
+    "nervous-system/immune"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

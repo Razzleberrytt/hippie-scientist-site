@@ -23,18 +23,32 @@
     "Stress Response Modulation",
     "AMPK Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Metabolic Regulation",
-    "Cellular Protection",
-    "Stress Response Modulation",
-    "AMPK Signaling"
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Metabolic regulation",
+    "Cellular protection",
+    "HPA-axis modulation",
+    "AMPK activation"
   ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "metabolic",
+    "cellular resilience",
+    "stress/neuroendocrine",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

@@ -20,15 +20,25 @@
     "Hormonal Signaling Context",
     "Stress Response Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Hormonal signaling context",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "endocrine",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "Hormonal Signaling Context",
-    "Stress Response Modulation"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",

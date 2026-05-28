@@ -19,15 +19,22 @@
     "Metabolic Regulation",
     "Hormonal Signaling Context"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Hormonal Signaling Context"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Hormonal signaling context"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

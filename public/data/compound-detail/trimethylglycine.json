@@ -19,15 +19,22 @@
     "Metabolic Regulation",
     "Vascular Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Vascular Function Support"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Vascular function support"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

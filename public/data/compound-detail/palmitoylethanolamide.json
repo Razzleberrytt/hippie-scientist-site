@@ -23,18 +23,29 @@
     "Neuroprotective Activity",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Immune Signaling Modulation",
-    "Neuroprotective Activity",
-    "Lipid Metabolism Support"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Immune modulation",
+    "Neuroprotective activity",
+    "Lipid metabolism support"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "immune-system",
+    "nervous system",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

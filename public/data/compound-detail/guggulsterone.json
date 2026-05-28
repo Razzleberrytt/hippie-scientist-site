@@ -25,19 +25,33 @@
     "AMPK Signaling",
     "NF-kB Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Cellular Protection",
-    "Immune Signaling Modulation",
-    "AMPK Signaling",
-    "NF-kB Modulation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Cellular protection",
+    "Immune modulation",
+    "AMPK activation",
+    "NF-kB inhibition"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune",
+    "metabolic",
+    "inflammatory"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "cellular resilience",
+    "immune-system",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

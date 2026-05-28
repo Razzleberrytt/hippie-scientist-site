@@ -25,17 +25,31 @@
     "Glucose Metabolism Support",
     "Endothelial Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Vascular function support",
+    "Glucose regulation",
+    "Nitric oxide modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "cardiovascular",
+    "metabolic/endocrine",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Neurotransmitter Modulation",
-    "Vascular Function Support",
-    "Glucose Metabolism Support",
-    "Endothelial Function Support"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "moderate",
   "evidence_tier": "Mechanistic Evidence",

@@ -23,15 +23,28 @@
     "Stress Response Modulation",
     "SIRT1 Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "metabolic",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Mitochondrial Support",
-    "Metabolic Regulation",
-    "Stress Response Modulation",
     "SIRT1 Signaling"
   ],
   "evidence_grade": "moderate",

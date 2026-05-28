@@ -21,16 +21,27 @@
     "Neurotransmitter Modulation",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "metabolic",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Mitochondrial Support",
-    "Metabolic Regulation",
-    "Neurotransmitter Modulation",
-    "Lipid Metabolism Support"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "b",
   "evidence_tier": "Strong Human Evidence",

@@ -27,19 +27,36 @@
     "Neuroprotective Activity",
     "Nrf2 Activation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
-    "Stress Response Modulation",
-    "Neuroprotective Activity",
-    "Nrf2 Activation"
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "HPA-axis modulation",
+    "Neuroprotective activity",
+    "Nrf2 activation"
   ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "stress",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic",
+    "stress/neuroendocrine",
+    "nervous system",
+    "redox/cellular-defense"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "limited",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

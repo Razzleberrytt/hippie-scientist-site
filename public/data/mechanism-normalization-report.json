@@ -1,83 +1,15 @@
 {
   "reportVersion": 1,
-  "canonicalMechanisms": 0,
+  "canonicalMechanisms": 53,
   "records": 912,
-  "fullyMappedRecords": 0,
-  "partiallyMappedRecords": 0,
-  "unmappedRecords": 911,
+  "fullyMappedRecords": 671,
+  "partiallyMappedRecords": 166,
+  "unmappedRecords": 74,
   "noRawMechanismRecords": 1,
   "unmappedMechanisms": [
     {
-      "term": "Inflammatory Signaling Modulation",
-      "count": 391
-    },
-    {
-      "term": "Metabolic Regulation",
-      "count": 320
-    },
-    {
-      "term": "Oxidative Stress Modulation",
-      "count": 297
-    },
-    {
-      "term": "Stress Response Modulation",
-      "count": 223
-    },
-    {
-      "term": "NF-kB Modulation",
-      "count": 199
-    },
-    {
-      "term": "Vascular Function Support",
-      "count": 190
-    },
-    {
       "term": "Neurotransmitter Modulation",
       "count": 175
-    },
-    {
-      "term": "Neuroprotective Activity",
-      "count": 146
-    },
-    {
-      "term": "Mitochondrial Support",
-      "count": 138
-    },
-    {
-      "term": "Immune Signaling Modulation",
-      "count": 133
-    },
-    {
-      "term": "AMPK Signaling",
-      "count": 97
-    },
-    {
-      "term": "Hormonal Signaling Context",
-      "count": 89
-    },
-    {
-      "term": "Lipid Metabolism Support",
-      "count": 79
-    },
-    {
-      "term": "Glucose Metabolism Support",
-      "count": 72
-    },
-    {
-      "term": "Nrf2 Activation",
-      "count": 60
-    },
-    {
-      "term": "Cellular Protection",
-      "count": 51
-    },
-    {
-      "term": "Endothelial Function Support",
-      "count": 38
-    },
-    {
-      "term": "mTOR Signaling",
-      "count": 9
     },
     {
       "term": "general phytochemical signaling",
@@ -152,10 +84,6 @@
       "count": 1
     },
     {
-      "term": "Autophagy Support",
-      "count": 1
-    },
-    {
       "term": "buffering intracellular pH.",
       "count": 1
     },
@@ -193,14 +121,6 @@
     },
     {
       "term": "demulcent support",
-      "count": 1
-    },
-    {
-      "term": "endocannabinoid modulation",
-      "count": 1
-    },
-    {
-      "term": "endocannabinoid_modulation",
       "count": 1
     },
     {
@@ -356,10 +276,6 @@
       "count": 1
     },
     {
-      "term": "PPARγ activation",
-      "count": 1
-    },
-    {
       "term": "Prevents bacterial adhesion (E. coli) to urinary tract epithelium.",
       "count": 1
     },
@@ -425,10 +341,6 @@
     },
     {
       "term": "TRPM8 receptor activation",
-      "count": 1
-    },
-    {
-      "term": "TRPV1 activation",
       "count": 1
     },
     {

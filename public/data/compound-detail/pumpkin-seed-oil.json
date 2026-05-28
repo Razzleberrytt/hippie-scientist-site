@@ -25,18 +25,28 @@
     "Hormonal Signaling Context",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Metabolic Regulation",
-    "Hormonal Signaling Context",
-    "Lipid Metabolism Support"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Metabolic regulation",
+    "Hormonal signaling context",
+    "Lipid metabolism support"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "metabolic",
+    "endocrine",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "low-moderate",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

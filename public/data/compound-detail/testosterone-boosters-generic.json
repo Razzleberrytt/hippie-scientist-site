@@ -15,14 +15,20 @@
   "raw_mechanisms": [
     "Hormonal Signaling Context"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Hormonal Signaling Context"
+  "canonical_mechanisms": [
+    "Hormonal signaling context"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "avoid",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

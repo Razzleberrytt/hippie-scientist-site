@@ -25,19 +25,35 @@
     "AMPK Signaling",
     "NF-kB Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Immune Signaling Modulation",
-    "Hormonal Signaling Context",
-    "Stress Response Modulation",
-    "AMPK Signaling",
-    "NF-kB Modulation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Immune modulation",
+    "Hormonal signaling context",
+    "HPA-axis modulation",
+    "AMPK activation",
+    "NF-kB inhibition"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune",
+    "stress",
+    "metabolic",
+    "inflammatory"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "immune-system",
+    "endocrine",
+    "stress/neuroendocrine",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

@@ -19,15 +19,22 @@
     "Cellular Protection",
     "Vascular Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Cellular Protection",
-    "Vascular Function Support"
+  "canonical_mechanisms": [
+    "Cellular protection",
+    "Vascular function support"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "cellular resilience",
+    "cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "high",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

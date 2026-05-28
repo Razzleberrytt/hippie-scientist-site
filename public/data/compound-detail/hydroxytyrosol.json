@@ -27,19 +27,35 @@
     "Stress Response Modulation",
     "NF-kB Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Vascular Function Support",
-    "Stress Response Modulation",
-    "NF-kB Modulation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Vascular function support",
+    "HPA-axis modulation",
+    "NF-kB inhibition"
   ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "stress",
+    "inflammatory"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "cardiovascular",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

@@ -19,15 +19,25 @@
     "5-HT1A activity",
     "TRPV1 activation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Endocannabinoid modulation",
+    "TRPV1 modulation"
+  ],
+  "mechanism_categories": [
+    "neuro-immune",
+    "ion-channel"
+  ],
+  "mechanism_classes": [
+    "Receptor interaction",
+    "Ion-channel/receptor modulation"
+  ],
+  "mechanism_target_systems": [
+    "nervous-system/immune",
+    "sensory-nervous-system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "endocannabinoid modulation",
-    "5-HT1A activity",
-    "TRPV1 activation"
+    "5-HT1A activity"
   ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",

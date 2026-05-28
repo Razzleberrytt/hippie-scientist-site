@@ -17,15 +17,24 @@
     "Metabolic Regulation",
     "Glucose Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Glucose Metabolism Support"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Glucose regulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "Limited human evidence",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

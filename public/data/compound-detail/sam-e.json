@@ -21,15 +21,23 @@
     "Neurotransmitter Modulation",
     "Vascular Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Vascular function support"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "cardiovascular"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Neurotransmitter Modulation",
-    "Vascular Function Support"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "moderate-high",
   "evidence_tier": "Mechanistic Evidence",

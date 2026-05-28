@@ -17,13 +17,20 @@
     "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Anti-inflammatory"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation"
   ],
   "evidence_grade": "c",

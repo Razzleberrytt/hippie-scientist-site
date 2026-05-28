@@ -27,19 +27,33 @@
     "Vascular Function Support",
     "Immune Signaling Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "Immune Signaling Modulation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Vascular function support",
+    "Immune modulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic",
+    "cardiovascular",
+    "immune-system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

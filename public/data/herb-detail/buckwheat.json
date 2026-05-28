@@ -29,19 +29,32 @@
     "Nrf2 Activation",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "NF-kB Modulation",
-    "Nrf2 Activation",
-    "Lipid Metabolism Support"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Vascular function support",
+    "NF-kB inhibition",
+    "Nrf2 activation",
+    "Lipid metabolism support"
   ],
+  "mechanism_categories": [
+    "core",
+    "inflammatory",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "cardiovascular",
+    "redox/cellular-defense",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

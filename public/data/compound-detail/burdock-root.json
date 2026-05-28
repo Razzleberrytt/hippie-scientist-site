@@ -23,17 +23,28 @@
     "Stress Response Modulation",
     "Neuroprotective Activity"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Stress Response Modulation",
-    "Neuroprotective Activity"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
   ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

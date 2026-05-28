@@ -27,19 +27,35 @@
     "Immune Signaling Modulation",
     "Stress Response Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Vascular Function Support",
-    "Immune Signaling Modulation",
-    "Stress Response Modulation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Vascular function support",
+    "Immune modulation",
+    "HPA-axis modulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "immune",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "cardiovascular",
+    "immune-system",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

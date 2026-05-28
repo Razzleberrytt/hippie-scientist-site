@@ -19,16 +19,26 @@
     "Metabolic Regulation",
     "Glucose Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Metabolic Regulation",
-    "Glucose Metabolism Support"
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Metabolic regulation",
+    "Glucose regulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "metabolic",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

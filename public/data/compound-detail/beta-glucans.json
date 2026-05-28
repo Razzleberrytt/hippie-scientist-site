@@ -27,19 +27,33 @@
     "Glucose Metabolism Support",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "Immune Signaling Modulation",
-    "Glucose Metabolism Support",
-    "Lipid Metabolism Support"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Vascular function support",
+    "Immune modulation",
+    "Glucose regulation",
+    "Lipid metabolism support"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "cardiovascular",
+    "immune-system",
+    "metabolic/endocrine",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

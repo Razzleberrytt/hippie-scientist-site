@@ -17,14 +17,20 @@
   "raw_mechanisms": [
     "Oxidative Stress Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress Modulation"
+  "canonical_mechanisms": [
+    "Antioxidant"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "limited",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

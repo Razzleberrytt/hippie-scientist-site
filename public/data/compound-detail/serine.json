@@ -17,15 +17,22 @@
     "Cellular Protection",
     "Neuroprotective Activity"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Cellular Protection",
-    "Neuroprotective Activity"
+  "canonical_mechanisms": [
+    "Cellular protection",
+    "Neuroprotective activity"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "cellular resilience",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

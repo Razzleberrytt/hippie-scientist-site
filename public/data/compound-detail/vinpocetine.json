@@ -23,17 +23,28 @@
     "Neuroprotective Activity",
     "Glucose Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "Neuroprotective Activity",
-    "Glucose Metabolism Support"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Vascular function support",
+    "Neuroprotective activity",
+    "Glucose regulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "cardiovascular",
+    "nervous system",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "limited",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

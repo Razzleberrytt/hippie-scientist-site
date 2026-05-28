@@ -16,14 +16,20 @@
   "raw_mechanisms": [
     "Stress Response Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Stress Response Modulation"
+  "canonical_mechanisms": [
+    "HPA-axis modulation"
   ],
+  "mechanism_categories": [
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

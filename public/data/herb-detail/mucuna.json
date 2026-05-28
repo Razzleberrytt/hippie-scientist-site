@@ -21,16 +21,29 @@
     "Neurotransmitter Modulation",
     "Stress Response Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "mitochondrial",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Neurotransmitter Modulation",
-    "Stress Response Modulation"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",

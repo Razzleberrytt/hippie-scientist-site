@@ -26,18 +26,33 @@
     "Neuroprotective Activity",
     "NF-kB Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Hormonal signaling context",
+    "HPA-axis modulation",
+    "Neuroprotective activity",
+    "NF-kB inhibition"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "inflammatory"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "endocrine",
+    "stress/neuroendocrine",
+    "nervous system",
+    "immune/inflammatory"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Neurotransmitter Modulation",
-    "Hormonal Signaling Context",
-    "Stress Response Modulation",
-    "Neuroprotective Activity",
-    "NF-kB Modulation"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",

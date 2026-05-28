@@ -19,15 +19,25 @@
     "Stress Response Modulation",
     "AMPK Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "HPA-axis modulation",
+    "AMPK activation"
+  ],
+  "mechanism_categories": [
+    "stress",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "Stress Response Modulation",
-    "AMPK Signaling"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",

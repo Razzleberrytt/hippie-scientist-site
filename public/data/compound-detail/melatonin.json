@@ -19,15 +19,23 @@
     "Immune Signaling Modulation",
     "Hormonal Signaling Context"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Immune Signaling Modulation",
-    "Hormonal Signaling Context"
+  "canonical_mechanisms": [
+    "Immune modulation",
+    "Hormonal signaling context"
   ],
+  "mechanism_categories": [
+    "immune",
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune-system",
+    "endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "high",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

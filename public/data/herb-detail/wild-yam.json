@@ -17,14 +17,21 @@
     "PI3K/Akt modulation",
     "PPARγ activation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "PPAR activation"
+  ],
+  "mechanism_categories": [
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Nuclear receptor modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "PI3K/Akt modulation",
-    "PPARγ activation"
+    "PI3K/Akt modulation"
   ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",

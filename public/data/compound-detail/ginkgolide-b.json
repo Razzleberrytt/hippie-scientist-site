@@ -21,16 +21,24 @@
     "Vascular Function Support",
     "Neuroprotective Activity"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Vascular Function Support",
-    "Neuroprotective Activity"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Vascular function support",
+    "Neuroprotective activity"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "cardiovascular",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

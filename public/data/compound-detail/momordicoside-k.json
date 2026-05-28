@@ -25,19 +25,33 @@
     "Immune Signaling Modulation",
     "AMPK Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Cellular Protection",
-    "Vascular Function Support",
-    "Immune Signaling Modulation",
-    "AMPK Signaling"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Cellular protection",
+    "Vascular function support",
+    "Immune modulation",
+    "AMPK activation"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "cellular resilience",
+    "cardiovascular",
+    "immune-system",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

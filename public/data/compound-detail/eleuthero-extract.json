@@ -19,15 +19,24 @@
     "Immune Signaling Modulation",
     "Stress Response Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Immune Signaling Modulation",
-    "Stress Response Modulation"
+  "canonical_mechanisms": [
+    "Immune modulation",
+    "HPA-axis modulation"
   ],
+  "mechanism_categories": [
+    "immune",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune-system",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "insufficient",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

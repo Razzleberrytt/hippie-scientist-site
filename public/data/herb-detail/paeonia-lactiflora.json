@@ -25,17 +25,28 @@
     "Hormonal Signaling Context",
     "NF-kB Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Immune Signaling Modulation",
-    "Hormonal Signaling Context",
-    "NF-kB Modulation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Immune modulation",
+    "Hormonal signaling context",
+    "NF-kB inhibition"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune",
+    "inflammatory"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "immune-system",
+    "endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

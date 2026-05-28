@@ -27,19 +27,34 @@
     "Immune Signaling Modulation",
     "NF-kB Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Vascular Function Support",
-    "Immune Signaling Modulation",
-    "NF-kB Modulation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Vascular function support",
+    "Immune modulation",
+    "NF-kB inhibition"
   ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "immune",
+    "inflammatory"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "cardiovascular",
+    "immune-system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "insufficient",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

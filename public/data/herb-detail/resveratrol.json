@@ -27,17 +27,30 @@
     "Vascular Function Support",
     "SIRT1 Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Vascular function support"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic",
+    "cardiovascular"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
-    "Vascular Function Support",
     "SIRT1 Signaling"
   ],
   "evidence_grade": "b",

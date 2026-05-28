@@ -17,15 +17,24 @@
     "Stress Response Modulation",
     "Nrf2 Activation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Stress Response Modulation",
-    "Nrf2 Activation"
+  "canonical_mechanisms": [
+    "HPA-axis modulation",
+    "Nrf2 activation"
   ],
+  "mechanism_categories": [
+    "stress",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine",
+    "redox/cellular-defense"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

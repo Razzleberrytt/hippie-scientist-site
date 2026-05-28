@@ -27,19 +27,37 @@
     "Stress Response Modulation",
     "Nrf2 Activation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Immune Signaling Modulation",
-    "Stress Response Modulation",
-    "Nrf2 Activation"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Immune modulation",
+    "HPA-axis modulation",
+    "Nrf2 activation"
   ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "immune",
+    "stress",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "immune-system",
+    "stress/neuroendocrine",
+    "redox/cellular-defense"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

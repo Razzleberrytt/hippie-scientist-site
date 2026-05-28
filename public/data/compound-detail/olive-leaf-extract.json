@@ -23,18 +23,32 @@
     "Neuroprotective Activity",
     "Endothelial Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Vascular Function Support",
-    "Stress Response Modulation",
-    "Neuroprotective Activity",
-    "Endothelial Function Support"
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Vascular function support",
+    "HPA-axis modulation",
+    "Neuroprotective activity",
+    "Nitric oxide modulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "cardiovascular",
+    "stress/neuroendocrine",
+    "nervous system",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "limited",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

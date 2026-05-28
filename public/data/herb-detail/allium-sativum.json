@@ -21,17 +21,28 @@
     "Lipid Metabolism Support",
     "Endothelial Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "Lipid Metabolism Support",
-    "Endothelial Function Support"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Vascular function support",
+    "Lipid metabolism support",
+    "Nitric oxide modulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "cardiovascular",
+    "metabolic/cardiovascular",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

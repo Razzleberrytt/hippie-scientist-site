@@ -27,19 +27,35 @@
     "Glucose Metabolism Support",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Mitochondrial Support",
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "AMPK Signaling",
-    "Glucose Metabolism Support",
-    "Lipid Metabolism Support"
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Vascular function support",
+    "AMPK activation",
+    "Glucose regulation",
+    "Lipid metabolism support"
   ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect",
+    "Signaling pathway modulation",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "metabolic",
+    "cardiovascular",
+    "metabolic/mitochondrial",
+    "metabolic/endocrine",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

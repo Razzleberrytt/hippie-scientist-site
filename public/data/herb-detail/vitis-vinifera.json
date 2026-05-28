@@ -23,18 +23,32 @@
     "Stress Response Modulation",
     "Endothelial Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Vascular Function Support",
-    "Stress Response Modulation",
-    "Endothelial Function Support"
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Vascular function support",
+    "HPA-axis modulation",
+    "Nitric oxide modulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "cardiovascular",
+    "stress/neuroendocrine",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

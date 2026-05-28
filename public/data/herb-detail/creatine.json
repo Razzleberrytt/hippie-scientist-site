@@ -17,15 +17,24 @@
     "Mitochondrial Support",
     "Neuroprotective Activity"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Mitochondrial Support",
-    "Neuroprotective Activity"
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Neuroprotective activity"
   ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

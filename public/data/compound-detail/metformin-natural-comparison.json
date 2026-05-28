@@ -21,16 +21,27 @@
     "AMPK Signaling",
     "Glucose Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "AMPK Signaling",
-    "Glucose Metabolism Support"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "AMPK activation",
+    "Glucose regulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "metabolic/mitochondrial",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [

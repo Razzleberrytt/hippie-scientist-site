@@ -23,17 +23,29 @@
     "NF-kB Modulation",
     "Nrf2 Activation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Cellular Protection",
-    "NF-kB Modulation",
-    "Nrf2 Activation"
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Cellular protection",
+    "NF-kB inhibition",
+    "Nrf2 activation"
   ],
+  "mechanism_categories": [
+    "core",
+    "inflammatory",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "cellular resilience",
+    "immune/inflammatory",
+    "redox/cellular-defense"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

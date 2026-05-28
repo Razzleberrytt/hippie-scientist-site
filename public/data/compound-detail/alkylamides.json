@@ -19,16 +19,25 @@
     "Immune Signaling Modulation",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Immune Signaling Modulation",
-    "Lipid Metabolism Support"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Immune modulation",
+    "Lipid metabolism support"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "immune-system",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

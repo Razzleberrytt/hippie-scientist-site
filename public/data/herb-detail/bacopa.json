@@ -23,15 +23,23 @@
     "Neurotransmitter Modulation",
     "Neuroprotective Activity"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Neurotransmitter Modulation",
-    "Neuroprotective Activity"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",

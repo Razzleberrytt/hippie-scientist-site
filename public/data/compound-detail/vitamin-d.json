@@ -19,15 +19,23 @@
     "Metabolic Regulation",
     "Immune Signaling Modulation"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Immune Signaling Modulation"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Immune modulation"
   ],
+  "mechanism_categories": [
+    "core",
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "immune-system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

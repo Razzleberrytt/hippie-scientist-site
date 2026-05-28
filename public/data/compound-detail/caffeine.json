@@ -25,17 +25,29 @@
     "Stress Response Modulation",
     "Neuroprotective Activity"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Vascular function support",
+    "Hormonal signaling context",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "cardiovascular",
+    "endocrine",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "Vascular Function Support",
-    "Hormonal Signaling Context",
-    "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "high",
   "evidence_tier": "Moderate Human Evidence",

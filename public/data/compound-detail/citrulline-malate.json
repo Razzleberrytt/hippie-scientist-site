@@ -21,16 +21,28 @@
     "Vascular Function Support",
     "Endothelial Function Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Mitochondrial Support",
-    "Vascular Function Support",
-    "Endothelial Function Support"
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Vascular function support",
+    "Nitric oxide modulation"
   ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "cardiovascular",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "moderate-high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

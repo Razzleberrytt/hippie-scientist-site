@@ -19,16 +19,24 @@
     "Vascular Function Support",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "Lipid Metabolism Support"
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Vascular function support",
+    "Lipid metabolism support"
   ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "cardiovascular",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "high",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

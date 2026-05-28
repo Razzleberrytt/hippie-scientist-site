@@ -25,17 +25,27 @@
     "Cellular Protection",
     "Lipid Metabolism Support"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Cellular protection",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "cellular resilience",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Neurotransmitter Modulation",
-    "Cellular Protection",
-    "Lipid Metabolism Support"
+    "Neurotransmitter Modulation"
   ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",

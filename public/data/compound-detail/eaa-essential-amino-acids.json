@@ -15,14 +15,20 @@
   "raw_mechanisms": [
     "mTOR Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "mTOR Signaling"
+  "canonical_mechanisms": [
+    "mTOR modulation"
   ],
+  "mechanism_categories": [
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic/cellular-growth"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "strong",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

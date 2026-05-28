@@ -19,15 +19,24 @@
     "Stress Response Modulation",
     "mTOR Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Stress Response Modulation",
-    "mTOR Signaling"
+  "canonical_mechanisms": [
+    "HPA-axis modulation",
+    "mTOR modulation"
   ],
+  "mechanism_categories": [
+    "stress",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine",
+    "metabolic/cellular-growth"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "moderate",
   "evidence_tier": "Mechanistic Evidence",
   "contraindications": [

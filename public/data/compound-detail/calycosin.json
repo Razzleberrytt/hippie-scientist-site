@@ -27,19 +27,34 @@
     "Hormonal Signaling Context",
     "AMPK Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
-    "Vascular Function Support",
-    "Hormonal Signaling Context",
-    "AMPK Signaling"
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Vascular function support",
+    "Hormonal signaling context",
+    "AMPK activation"
   ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic",
+    "cardiovascular",
+    "endocrine",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
   "contraindications": [

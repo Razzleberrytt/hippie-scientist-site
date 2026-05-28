@@ -23,15 +23,26 @@
     "Metabolic Regulation",
     "SIRT1 Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
     "SIRT1 Signaling"
   ],
   "evidence_grade": "c",

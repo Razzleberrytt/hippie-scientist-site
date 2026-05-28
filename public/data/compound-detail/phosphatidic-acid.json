@@ -17,15 +17,24 @@
     "Mitochondrial Support",
     "mTOR Signaling"
   ],
-  "canonical_mechanisms": [],
-  "mechanism_categories": [],
-  "mechanism_classes": [],
-  "mechanism_target_systems": [],
-  "mechanism_normalization_status": "unmapped",
-  "unmapped_mechanisms": [
-    "Mitochondrial Support",
-    "mTOR Signaling"
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "mTOR modulation"
   ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "metabolic/cellular-growth"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
   "contraindications": [

@@ -135,12 +135,12 @@ function normalizeAlias(value) {
 }
 
 function canonicalMechanismRow(row) {
-  const label = clean(first(row, ['canonical_label', 'canonical label', 'label', 'name', 'mechanism']))
+  const label = clean(first(row, ['canonical_label', 'canonical label', 'display_name', 'display name', 'label', 'name', 'mechanism']))
   if (!label) return null
-  const id = slug(first(row, ['canonical_mechanism_id', 'canonical mechanism id', 'id', 'slug']) || label)
+  const id = slug(first(row, ['canonical_mechanism_id', 'canonical mechanism id', 'canonical_slug', 'canonical slug', 'id', 'slug']) || label)
   const synonyms = uniqueList([
     label,
-    first(row, ['synonyms', 'aliases', 'example_terms', 'example terms']),
+    first(row, ['synonyms', 'aliases', 'allowed_aliases', 'allowed aliases', 'example_terms', 'example terms']),
   ])
   return stripRecord({
     id,
