@@ -1,46 +1,41 @@
-# Handoff Notes — Phase 2 Semantic Intelligence & Decision Engine Sprint
+# Handoff Notes — Phase 3 Public Decision Surfaces, SEO, and Affiliate Revenue Readiness
 
-Phase 2 (Semantic Intelligence & Decision Engine Layer) has been planned, implemented, optimized, and validated successfully.
+Phase 3 (Public Decision Surfaces, SEO, and Affiliate Revenue Readiness) has been successfully implemented and validated.
 
 ## Completed Tasks
 
-### Phase 2A — Semantic Relationship Engine
-- Implemented `lib/semantic-relationship-engine.ts` with deterministic scoring for:
-  - Shared categories / types.
-  - Overlapping mechanisms (fuzzy-matched terms).
-  - Overlapping outcomes/effects.
-  - Safety conflicts (cautions/flags).
-  - Alternatives (mechanistic overlap within the same type).
-- Built auditable rationale strings to back up each score.
-- Added comprehensive unit tests in `src/lib/__tests__/semantic-relationship-engine.test.ts`.
+### Phase 3A & 3B — Decision Surface Components & detail page integrations
+- Created the reusable, disclosure-compliant `SourcingCta` component under `src/components/sourcing/SourcingCta.tsx`.
+- Integrated `SourcingCta` across Herbs and Compounds detail page templates under the "Authority & Sourcing" tab, separating evidence from monetization.
+- Integrated `getEvidenceConfidence` and human efficacy flag mapping directly into the detail page above-fold "5-second profile read" snapshots.
 
-### Phase 2B — Goal Matching Engine
-- Implemented `lib/goal-matching-engine.ts` supporting 9 core goals (sleep, stress, anxiety, focus, energy, inflammation, pain, cognition, longevity).
-- Features evidence-aware multipliers, safety-aware filters, confidence scores, and structured explanations.
-- Added unit tests in `src/lib/__tests__/goal-matching-engine.test.ts`.
+### Phase 3C — Goal Page Upgrade
+- Expanded the central goal definitions list in `data/goals.ts` from 4 to 9 initial goals (sleep, stress, anxiety, focus, energy, inflammation, pain, cognition, longevity) with titles and descriptions.
+- Refactored `app/goals/[goal]/page.tsx` to dynamically query and rank herbs and compounds matching the target goal using the Phase 2 `rankEntitiesForGoal` engine.
+- Upgraded sitemap generation dynamically to include the 9 goal paths.
 
-### Phase 2C — Evidence Confidence Utilities
-- Implemented `lib/evidence-confidence.ts` to grade and normalize evidence quality (Strong Human, Moderate Human, Limited/Preliminary Human, Mechanistic/Preclinical, and Traditional Use).
-- Provides confidence index percentages, downgrade reasons, and authority-tier alignment.
-- Added unit tests in `src/lib/__tests__/evidence-confidence.test.ts`.
+### Phase 3D — Compare Page Enrichment
+- Refactored `app/compare/[slug]/page.tsx` to calculate and render mechanisms unique to each compound (divergent mechanisms).
+- Added explicit, dynamic "Choose this if" and "Consider this instead if" comparison logic to the Winner and Loser comparison cards.
 
-### Phase 2D — Semantic SEO Support
-- Implemented `lib/semantic-seo.ts` to generate internal link suggestions, related page comparisons, and mechanism/effect/goal hub lists.
-- Added unit tests in `src/lib/__tests__/semantic-seo.test.ts`.
+### Phase 3E & 3F — Affiliate Revenue Readiness & SEO Metadata
+- Standardized Amazon outbound links to use the centralized `AFFILIATE_TAGS.amazon` config.
+- Improved dynamic goal page metadata (meta descriptions now list the top 3 ranked ingredients for the corresponding goal).
 
-### Phase 2E — UI Integration
-- Created the presentational dashboard component `<SemanticIntelligenceDashboard />` in [SemanticIntelligenceDashboard.tsx](file:///c:/hippies/src/components/SemanticIntelligenceDashboard.tsx).
-- Safely integrated the dashboard into:
-  - Herb Detail Pages (`app/herbs/[slug]/page.tsx`)
-  - Compound Detail Pages (`app/compounds/[slug]/page.tsx`)
-  Under the "Decision Support" tab.
+### Phase 3G — Business Coverage Report
+- Generated `docs/reports/phase3_decision_surface_coverage.md` detailing missing attributes (e.g. `best_for`, `avoid_if` safety flags, affiliate ASINs) across all 520 entities to guide future authoring.
 
-### Performance Optimizations (Crucial)
-- **O(1) Graph Traversal Cache**: Integrated `WeakMap` cached `getNodeMap(graph)` inside `lib/runtime-graph.ts` to eliminate O(N^2) string manipulations and slug checks. This reduced Next.js static build page generation times by over 10x (avoiding Next.js page prerendering timeouts).
-- **Concurrency-Optimized Build Audits**: Rewrote `scripts/ci/audit-internal-links.mjs`, `scripts/ci/audit-structured-data.mjs`, and `scripts/ci/audit-seo-routes.mjs` to bypass static Next.js assets (`_next`) and read HTML files in parallel batches of 100 using `fs/promises` and `Promise.all`. This reduced post-build audit verification times from 6+ minutes to under 5 seconds!
+---
 
 ## Verification & Build Status
-- **Linter**: `npm run lint` passes cleanly with `max-warnings=0`.
-- **Typecheck**: `npm run typecheck` passes with `0 errors`.
-- **Tests**: `npm run test` runs 24 files with **111 total tests** passing successfully.
-- **Production Build**: `npm run build` generates all 1435 pages and completes all 10+ post-build audits successfully.
+
+- **Typecheck & Linter**: `npm run check:fast` passes cleanly.
+- **Tests**: `npm run test` executes successfully.
+- **Production Build Check**: `npm run check` (next build + static export audits) runs and compiles cleanly.
+
+---
+
+## Recommended Phase 4 Tasks
+1. **Workbook Content Enrichment:** Populate `best_for` summaries, `avoid_if` contraindication tags, and direct Amazon product listing links inside `data-sources/herb_monograph_master.xlsx` to resolve the coverage gaps.
+2. **Comparison Routing Expansion:** Automate comparison page generation for the top-20 most popular supplement pairs.
+3. **Safety Checker Visibility:** Surface dynamic drug-supplement safety warnings prominently across goal hub decision pages.
