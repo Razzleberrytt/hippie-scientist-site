@@ -46,13 +46,15 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
-import AffiliateCTACard from '@/components/affiliate-cta-card'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
 import { SemanticIntelligenceDashboard } from '@/components/SemanticIntelligenceDashboard'
+import { getEvidenceConfidence } from '@/lib/evidence-confidence'
+import { SourcingCta } from '@/components/sourcing/SourcingCta'
+
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -341,6 +343,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const sourcingNotes = buildSourcingNotes(herb)
   const authorityModel = buildAuthorityProfileModel(herb)
   const internalLinks = buildInternalLinkDensity(herb)
+  const confidenceObj = getEvidenceConfidence(herb as any)
   const displayName = formatDisplayLabel(herb.name || herb.slug)
   const botanicalName = cleanText(herb.latin_name || herb.botanical_name || herb.scientific_name)
   const briefSummary = getPlainEnglishSummary(herb)
@@ -525,7 +528,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       label: 'Authority & Sourcing',
       content: (
         <div className="space-y-8">
-          <AffiliateCTACard record={herb} displayName={displayName} />
+          <SourcingCta record={herb} displayName={displayName} />
           <AuthorityProfileShell model={authorityModel} record={herb} />
           <AuthorityEditorialLayer record={herb} entityType="herb" effects={effects} summary={summary} />
           <SemanticAssistantPanel headline={assistant.headline} body={assistant.body} signals={assistant.signals} suggestions={assistantSuggestions} />
@@ -601,6 +604,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 typicalOnset: timeline || 'Timing varies by preparation, dose, and context.',
                 useCautionIf: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : '',
                 uncertain: mechanisms.length ? `Mechanism hints are preliminary: ${mechanisms.slice(0, 3).join(', ')}. Real-world effects can differ across people and products.` : '',
+                confidenceLabel: confidenceObj.confidenceLabel,
+                evidenceWeight: confidenceObj.evidenceWeight,
+                humanEvidenceFlag: confidenceObj.humanEvidenceFlag,
+                evidenceExplanation: confidenceObj.evidenceExplanation,
               })}
             />
           </div>

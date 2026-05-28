@@ -43,13 +43,14 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import GuidedExplorationPanel from '@/components/guided-exploration-panel'
 import EvidenceAwareCTA from '@/components/evidence-aware-cta'
-import AffiliateCTACard from '@/components/affiliate-cta-card'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
 import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
 import { SemanticIntelligenceDashboard } from '@/components/SemanticIntelligenceDashboard'
+import { getEvidenceConfidence } from '@/lib/evidence-confidence'
+import { SourcingCta } from '@/components/sourcing/SourcingCta'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -251,6 +252,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const assistantSuggestions = buildSemanticNavigationSuggestions(compound, semanticRelated, 5)
   const readiness = getMonetizationReadiness(compound)
   const sourcingNotes = buildSourcingNotes(compound)
+  const confidenceObj = getEvidenceConfidence(compound as any)
 
   const sources = getSources(compound)
     .map((source:any) => text(source))
@@ -411,7 +413,7 @@ export default async function CompoundPage({ params }: PageProps) {
       label: 'Authority & Sourcing',
       content: (
         <div className="space-y-8">
-          <AffiliateCTACard record={compound} displayName={displayName} />
+          <SourcingCta record={compound} displayName={displayName} />
           <EvidenceAwareCTA
             readiness={readiness}
             sourcingNotes={sourcingNotes}
@@ -501,6 +503,10 @@ export default async function CompoundPage({ params }: PageProps) {
                 typicalOnset: timeline || 'Timing varies by dose, form, and context.',
                 useCautionIf: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : '',
                 uncertain: mechanismHints.length ? `Mechanism hints are preliminary: ${mechanismHints.slice(0, 3).join(', ')}. Real-world response can vary by person and product.` : '',
+                confidenceLabel: confidenceObj.confidenceLabel,
+                evidenceWeight: confidenceObj.evidenceWeight,
+                humanEvidenceFlag: confidenceObj.humanEvidenceFlag,
+                evidenceExplanation: confidenceObj.evidenceExplanation,
               })}
             />
           </div>
