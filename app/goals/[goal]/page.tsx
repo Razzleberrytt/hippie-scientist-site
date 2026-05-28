@@ -2,15 +2,26 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
-import { getCompoundBySlug } from '@/lib/runtime-data'
+import { getHerbBySlug, getCompoundBySlug } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
+import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
 
 type EnrichedGoalOption = {
-  option: (typeof goals)[number]['options'][number]
+  option: {
+    slug: string
+    name: string
+    bestFor: string
+    speed: string
+    evidence: string
+    risk: string
+    avoidIf: string
+    whyPeopleStop: string
+    form: string
+  }
   compound?: RuntimeCompound
   profileHref: string
   evidenceLabel: string
@@ -40,49 +51,73 @@ const cleanList = (value: unknown): string[] => {
 
 const unique = (values: string[]): string[] => Array.from(new Set(values.filter(Boolean)))
 
-function buildEnrichedOption(option: (typeof goals)[number]['options'][number], compound?: RuntimeCompound): EnrichedGoalOption {
+function buildDynamicEnrichedOption(
+  match: { slug: string; name: string; type: 'herb' | 'compound' | 'stack'; score: number; confidence: number; reasons: string[]; bestFor: string[]; avoidIf: string[] },
+  record: any,
+  staticOpt?: (typeof goals)[number]['options'][number]
+): EnrichedGoalOption {
   const evidenceLabel = normalizeDecisionEvidence(
-    compound?.evidence_level ||
-      compound?.evidenceLevel ||
-      compound?.evidence_tier ||
-      compound?.evidenceTier ||
-      compound?.evidence_grade ||
-      option.evidence,
-    'Needs review',
+    record?.evidence_level ||
+      record?.evidenceLevel ||
+      record?.evidence_tier ||
+      record?.evidenceTier ||
+      record?.evidence_grade ||
+      staticOpt?.evidence ||
+      'Needs review',
+    'Needs review'
   )
 
   const safetyLabel = normalizeDecisionSafety(
-    compound?.safety_level ||
-      compound?.safetyLevel ||
-      compound?.safety_rating ||
-      compound?.safetyRating ||
-      option.risk,
+    record?.safety_level ||
+      record?.safetyLevel ||
+      record?.safety_rating ||
+      record?.safetyRating ||
+      staticOpt?.risk ||
+      'Standard caution'
   )
 
   const mechanismTags = unique([
-    ...cleanList(compound?.canonical_mechanisms),
-    ...cleanList(compound?.primary_mechanisms),
-    ...cleanList(compound?.primaryMechanisms),
-    ...cleanList(compound?.mechanisms),
-    ...cleanList(compound?.mechanism_of_action),
+    ...cleanList(record?.canonical_mechanisms),
+    ...cleanList(record?.primary_mechanisms),
+    ...cleanList(record?.primaryMechanisms),
+    ...cleanList(record?.mechanisms),
+    ...cleanList(record?.mechanism_of_action),
   ]).slice(0, 4)
 
   const mechanismCategoryTags = unique([
-    ...cleanList(compound?.mechanism_categories),
-    ...cleanList(compound?.mechanism_classes),
-    ...cleanList(compound?.mechanism_target_systems),
+    ...cleanList(record?.mechanism_categories),
+    ...cleanList(record?.mechanism_classes),
+    ...cleanList(record?.mechanism_target_systems),
   ]).slice(0, 4)
 
   const pathwayTags = unique([
-    ...cleanList(compound?.pathways),
-    ...cleanList(compound?.systems),
-    ...cleanList(compound?.targets),
+    ...cleanList(record?.pathways),
+    ...cleanList(record?.systems),
+    ...cleanList(record?.targets),
   ]).slice(0, 4)
+
+  const bestForVal = staticOpt?.bestFor || match.bestFor.join(', ') || (record?.best_for ? cleanList(record.best_for).join(', ') : 'Goal support')
+  const speedVal = staticOpt?.speed || (record?.time_to_effect ? String(record.time_to_effect) : record?.onset ? String(record.onset) : 'Timing varies')
+  const avoidIfVal = staticOpt?.avoidIf || match.avoidIf.join(', ') || (record?.avoid_if ? cleanList(record.avoid_if).join(', ') : '')
+  const whyPeopleStopVal = staticOpt?.whyPeopleStop || (record?.why_people_stop ? String(record.why_people_stop) : record?.side_effects ? String(record.side_effects) : 'Varying compliance')
+  const formVal = staticOpt?.form || (record?.form ? String(record.form) : record?.typical_preparation ? String(record.typical_preparation) : 'Standard form')
+
+  const option = {
+    slug: match.slug,
+    name: match.name,
+    bestFor: bestForVal,
+    speed: speedVal,
+    evidence: staticOpt?.evidence || evidenceLabel,
+    risk: staticOpt?.risk || safetyLabel,
+    avoidIf: avoidIfVal,
+    whyPeopleStop: whyPeopleStopVal,
+    form: formVal,
+  }
 
   return {
     option,
-    compound,
-    profileHref: compound?.slug ? `/compounds/${compound.slug}` : '',
+    compound: record,
+    profileHref: record?.slug ? `/${match.type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}` : '',
     evidenceLabel,
     safetyLabel,
     mechanismTags,
@@ -130,10 +165,15 @@ export default async function GoalDecisionPage({
     notFound()
   }
 
+  const matches = rankEntitiesForGoal(goalSlug)
+
   const enrichedOptions = await Promise.all(
-    goal.options.map(async (option) => {
-      const compound = await getCompoundBySlug(option.slug)
-      return buildEnrichedOption(option, compound)
+    matches.map(async (match) => {
+      const staticOpt = goal.options.find((opt) => opt.slug === match.slug)
+      const record = match.type === 'herb'
+        ? await getHerbBySlug(match.slug)
+        : await getCompoundBySlug(match.slug)
+      return buildDynamicEnrichedOption(match, record, staticOpt)
     })
   )
 
@@ -162,9 +202,9 @@ export default async function GoalDecisionPage({
     id: `https://www.thehippiescientist.net/goals/${goal.slug}#item-list`,
     name: `${goal.title} Options`,
     path: `/goals/${goal.slug}`,
-    items: goal.options.map(opt => ({
-      name: opt.name,
-      url: opt.slug ? `/compounds/${opt.slug}` : `/goals/${goal.slug}`,
+    items: enrichedOptions.map(opt => ({
+      name: opt.option.name,
+      url: opt.profileHref || `/goals/${goal.slug}`,
     })),
   })
 
