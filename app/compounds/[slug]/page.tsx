@@ -51,6 +51,7 @@ import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
 import { SemanticIntelligenceDashboard } from '@/components/SemanticIntelligenceDashboard'
 import { getEvidenceConfidence } from '@/lib/evidence-confidence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
+import RelationalUi from '@/components/decision/RelationalUi'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -345,6 +346,7 @@ export default async function CompoundPage({ params }: PageProps) {
             record={compound}
             alternatives={semanticRelated}
           />
+          <RelationalUi record={compound} relatedRecords={semanticRelated} />
           <DecisionClarityFieldManual
             record={compound}
             entityType="compound"

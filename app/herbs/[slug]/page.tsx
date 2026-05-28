@@ -53,6 +53,7 @@ import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snap
 import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
 import { SemanticIntelligenceDashboard } from '@/components/SemanticIntelligenceDashboard'
 import { getEvidenceConfidence } from '@/lib/evidence-confidence'
+import RelationalUi from '@/components/decision/RelationalUi'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 
 
@@ -492,6 +493,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <SemanticIntelligenceDashboard node={herb as any} />
           <DecisionVisualGrid record={herb} />
           <WhyThisInsteadPanel record={herb} alternatives={relatedProfiles} />
+          <RelationalUi record={herb} relatedRecords={relatedProfiles} />
           <DecisionClarityFieldManual record={herb} entityType="herb" relatedRecords={relatedProfiles} effects={effects} summary={summary} />
         </div>
       )
