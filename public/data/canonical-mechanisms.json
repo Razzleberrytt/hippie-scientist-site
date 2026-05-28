@@ -1,1 +1,20 @@
-[]
+{
+  "inflammatory signaling modulation": "Inflammatory Signaling",
+  "nf-kb modulation": "Inflammatory Signaling",
+  "nf-kb": "Inflammatory Signaling",
+  "metabolic regulation": "Metabolic Regulation",
+  "oxidative stress modulation": "Oxidative Stress",
+  "stress response modulation": "Stress Response Modulation",
+  "neurotransmitter modulation": "Neurotransmitter Modulation",
+  "neuroprotective activity": "Cellular Protection",
+  "mitochondrial support": "Mitochondrial Support",
+  "immune signaling modulation": "Inflammatory Signaling",
+  "ampk signaling": "Metabolic Regulation",
+  "hormonal signaling context": "Metabolic Regulation",
+  "lipid metabolism support": "Metabolic Regulation",
+  "glucose metabolism support": "Metabolic Regulation",
+  "nrf2 activation": "Oxidative Stress",
+  "cellular protection": "Cellular Protection",
+  "endothelial function support": "Vascular Function",
+  "mtor signaling": "Metabolic Regulation"
+}
