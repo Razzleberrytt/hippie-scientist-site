@@ -9,6 +9,10 @@ type DetailSnapshotInput = {
   typicalOnset?: string
   useCautionIf?: string
   uncertain?: string
+  confidenceLabel?: string
+  evidenceWeight?: number
+  humanEvidenceFlag?: boolean
+  evidenceExplanation?: string
 }
 
 type CompareSnapshotInput = {
@@ -20,6 +24,10 @@ type CompareSnapshotInput = {
   typicalOnset?: string
   useCautionIf?: string
   uncertain?: string
+  confidenceLabel?: string
+  evidenceWeight?: number
+  humanEvidenceFlag?: boolean
+  evidenceExplanation?: string
 }
 
 const DEFAULTS = {
@@ -37,6 +45,18 @@ export function buildDetailEvidenceSnapshotFields(input: DetailSnapshotInput): E
   return [
     { label: 'Best fit', value: input.bestFit || DEFAULTS.bestFit, tone: 'best-fit' },
     { label: 'Human evidence', value: input.humanEvidence || DEFAULTS.humanEvidence },
+    {
+      label: 'Evidence confidence',
+      value: input.confidenceLabel && input.evidenceWeight !== undefined
+        ? `${input.confidenceLabel} (${(input.evidenceWeight * 100).toFixed(0)}% Index) — ${input.evidenceExplanation || ''}`
+        : DEFAULTS.humanEvidence
+    },
+    {
+      label: 'Human trials mapped',
+      value: input.humanEvidenceFlag !== undefined
+        ? (input.humanEvidenceFlag ? 'Yes — clinical outcomes observed in human populations.' : 'No — primarily preclinical, cell-model, or traditional-use signals only.')
+        : 'Review underlying research context for details.'
+    },
     { label: 'Safety level', value: input.safetyLevel || DEFAULTS.safetyLevel, tone: 'caution' },
     { label: 'Tolerance risk', value: input.toleranceRisk || DEFAULTS.toleranceRisk },
     { label: 'Stimulation/sedation profile', value: input.regulationProfile || DEFAULTS.regulationProfile },
@@ -50,6 +70,18 @@ export function buildCompareEvidenceSnapshotFields(input: CompareSnapshotInput):
   return [
     { label: 'Best fit', value: input.bestFit || DEFAULTS.bestFit, tone: 'best-fit' },
     { label: 'Human evidence', value: input.humanEvidence || DEFAULTS.humanEvidence },
+    {
+      label: 'Evidence confidence',
+      value: input.confidenceLabel && input.evidenceWeight !== undefined
+        ? `${input.confidenceLabel} (${(input.evidenceWeight * 100).toFixed(0)}% Index) — ${input.evidenceExplanation || ''}`
+        : DEFAULTS.humanEvidence
+    },
+    {
+      label: 'Human trials mapped',
+      value: input.humanEvidenceFlag !== undefined
+        ? (input.humanEvidenceFlag ? 'Yes — clinical outcomes observed in human populations.' : 'No — primarily preclinical, cell-model, or traditional-use signals only.')
+        : 'Review underlying research context for details.'
+    },
     { label: 'Safety level', value: input.safetyLevel || DEFAULTS.safetyLevel, tone: 'caution' },
     { label: 'Tolerance risk', value: input.toleranceRisk || DEFAULTS.toleranceRisk },
     { label: 'Stimulation/sedation profile', value: input.regulationProfile || DEFAULTS.regulationProfile },
@@ -58,3 +90,4 @@ export function buildCompareEvidenceSnapshotFields(input: CompareSnapshotInput):
     { label: 'What remains uncertain', value: input.uncertain || DEFAULTS.uncertain },
   ]
 }
+
