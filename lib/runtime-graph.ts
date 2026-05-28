@@ -1,8 +1,27 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import type {
+  GraphNodeType,
+  GraphRelationshipType,
+  EvidenceTier,
+  AuthorityRole,
+  GraphNode,
+  GraphRelationship,
+  GraphEcosystem,
+  GraphCandidate,
+  GraphRuntime,
+} from '../src/types/graph'
 
 type GraphRecord = Record<string, unknown>
-type GraphInput = GraphRuntime | null | undefined
+type GraphInput = {
+  nodes?: unknown[]
+  relationships?: unknown[]
+  topics?: unknown[]
+  pathways?: unknown[]
+  comparisons?: unknown[]
+  stacks?: unknown[]
+  supernodes?: unknown[]
+} | null | undefined
 
 type ProfileInput = GraphRecord | string
 
@@ -51,81 +70,17 @@ function isGraphLike(value: unknown): boolean {
     .some((key) => Array.isArray(record[key]))
 }
 
-export type GraphNode = GraphRecord & {
-  id?: string
-  slug?: string
-  name?: string
-  type?: string
-  aliases?: string[]
-  topics?: string[]
-  pathways?: string[]
-  mechanisms?: string[]
-  effects?: string[]
-  summary?: string
-  retrieval_summary?: string
-}
-
-export type GraphRelationship = GraphRecord & {
-  id?: string
-  source?: string
-  target?: string
-  type?: string
-  weight?: string | number
-  rationale?: string
-  evidence_context?: string
-  pathways?: string[]
-  mechanisms?: string[]
-  topics?: string[]
-}
-
-export type GraphEcosystem = GraphRecord & {
-  id?: string
-  slug?: string
-  name?: string
-  kind?: string
-  summary?: string
-  retrieval_summary?: string
-  anchors?: string[]
-  herbs?: string[]
-  compounds?: string[]
-  mechanisms?: string[]
-  pathways?: string[]
-  topics?: string[]
-  companions?: string[]
-  related_pathways?: string[]
-  profile_type?: string
-  graph_score?: string | number
-  relationship_density?: string | number
-}
-
-export type GraphCandidate = GraphRecord & {
-  id?: string
-  source?: string
-  target?: string
-  type?: string
-  rationale?: string
-  evidence_context?: string
-  framing?: string
-  weight?: string | number
-  mechanism_overlap?: string[]
-  pathway_overlap?: string[]
-  topic_overlap?: string[]
-  mechanism_complementarity?: string[]
-  pathway_complementarity?: string[]
-  ecosystem_overlap?: string[]
-  safety_gate?: string
-}
-
-export type GraphRuntime = {
-  __normalized?: boolean
-  nodes?: GraphNode[]
-  relationships?: GraphRelationship[]
-  topics?: GraphEcosystem[]
-  pathways?: GraphEcosystem[]
-  comparisons?: GraphCandidate[]
-  stacks?: GraphCandidate[]
-  supernodes?: GraphEcosystem[]
-}
+export type {
+  GraphNodeType,
+  GraphRelationshipType,
+  EvidenceTier,
+  AuthorityRole,
+  GraphNode,
+  GraphRelationship,
+  GraphEcosystem,
+  GraphCandidate,
+  GraphRuntime,
+} from '../src/types/graph'
 
 const GRAPH_DIR = join(process.cwd(), 'public', 'data', 'graph')
 const GRAPH_FILES = {
@@ -220,7 +175,7 @@ function normalizeNode(value: unknown): GraphNode | null {
     id: asText(record.id),
     slug: slugify(record.slug || record.id || record.name),
     name: asText(record.name),
-    type: asText(record.type),
+    type: asText(record.type) as GraphNodeType,
     aliases: unique(record.aliases),
     topics: unique(record.topics),
     pathways: unique(record.pathways),
@@ -240,8 +195,8 @@ function normalizeRelationship(value: unknown): GraphRelationship | null {
     id: asText(record.id),
     source: slugify(record.source),
     target: slugify(record.target),
-    type: asText(record.type),
-    weight: asText(record.weight) || 0,
+    type: asText(record.type) as GraphRelationshipType,
+    weight: Number(record.weight) || 0,
     rationale: asText(record.rationale),
     evidence_context: asText(record.evidence_context),
     pathways: unique(record.pathways),
@@ -271,8 +226,8 @@ function normalizeEcosystem(value: unknown): GraphEcosystem | null {
     companions: unique(record.companions),
     related_pathways: unique(record.related_pathways || record.relatedPathways),
     profile_type: asText(record.profile_type || record.profileType),
-    graph_score: asText(record.graph_score || record.graphScore) || 0,
-    relationship_density: asText(record.relationship_density || record.relationshipDensity) || 0,
+    graph_score: Number(record.graph_score || record.graphScore) || 0,
+    relationship_density: Number(record.relationship_density || record.relationshipDensity) || 0,
   }
 }
 
@@ -286,7 +241,7 @@ function normalizeCandidate(value: unknown): GraphCandidate | null {
     source: slugify(record.source),
     target: slugify(record.target),
     type: asText(record.type),
-    weight: asText(record.weight) || 0,
+    weight: Number(record.weight) || 0,
     rationale: asText(record.rationale),
     evidence_context: asText(record.evidence_context),
     framing: asText(record.framing),
@@ -699,15 +654,15 @@ export function getRelatedProfiles(
 
           return {
             id: `${node.slug || node.id}-${candidate.slug || candidate.id}`,
-            source: node.slug || node.id,
-            target: candidate.slug || candidate.id,
-            type: 'semantic-overlap',
+            source: node.slug || node.id || '',
+            target: candidate.slug || candidate.id || '',
+            type: 'semantic-overlap' as GraphRelationshipType,
             weight: overlapScore,
             rationale: 'Related by shared mechanisms, pathways, or topic ecosystem context.',
             mechanisms,
             pathways,
             topics,
-          }
+          } as GraphRelationship
         })
         .filter((candidate) => {
           const mechanismCount = asList(candidate.mechanisms).length
@@ -732,31 +687,31 @@ export function getRelatedProfiles(
         .slice(0, 4)
         .map((slug) => ({
           id: `${node?.slug || profileKeys(profile)[0]}-${ecosystem.slug || ecosystem.id}-${slug}`,
-          source: node?.slug || profileKeys(profile)[0],
-          target: slug,
-          type: 'ecosystem-continuity',
+          source: node?.slug || profileKeys(profile)[0] || '',
+          target: slug || '',
+          type: 'ecosystem-continuity' as GraphRelationshipType,
           weight: 20 + sharedItems(ecosystem.topics, node?.topics).length * 3 + sharedItems(ecosystem.pathways, node?.pathways).length * 2,
           rationale: 'Related by topic ecosystem continuity; use as contextual discovery rather than outcome equivalence.',
           evidence_context: ecosystem.retrieval_summary,
           mechanisms: unique(ecosystem.mechanisms).slice(0, 6),
           pathways: unique(ecosystem.pathways).slice(0, 6),
           topics: unique([ecosystem.name, ...(ecosystem.topics || [])]).slice(0, 6),
-        }))
+        }) as GraphRelationship)
     )
 
   const authorityFallback = getAuthoritySupernodes(graph, profile, MAX_AUTHORITY_HUBS)
     .map((supernode) => ({
       id: `${node?.slug || profileKeys(profile)[0]}-authority-${supernode.slug || supernode.id}`,
-      source: node?.slug || profileKeys(profile)[0],
-      target: supernode.slug || supernode.id,
-      type: 'authority-hub',
+      source: node?.slug || profileKeys(profile)[0] || '',
+      target: supernode.slug || supernode.id || '',
+      type: 'authority-hub' as GraphRelationshipType,
       weight: 30 + numericSignal(supernode.relationship_density),
       rationale: 'Authority hub with dense relationship coverage for nearby topics and pathways; evidence tier should control interpretation.',
       evidence_context: supernode.retrieval_summary,
       mechanisms: unique(supernode.mechanisms).slice(0, 6),
       pathways: unique(supernode.pathways).slice(0, 6),
       topics: unique(supernode.topics).slice(0, 6),
-    }))
+    }) as GraphRelationship)
 
   const results = dedupeByOtherEndpoint(
     sortCandidates([...direct, ...semanticFallback, ...ecosystemFallback, ...authorityFallback]),
