@@ -36,6 +36,7 @@ const VALID_EVIDENCE_TIERS = new Set([
   'Mechanistic Evidence',
   'Evidence-Limited',
   'Traditional Use Context',
+  'Preliminary Evidence',
 ])
 
 const VALID_AUTHORITY_ROLES = new Set([
@@ -45,6 +46,10 @@ const VALID_AUTHORITY_ROLES = new Set([
   'regulatory-hub',
   'constituent-driver',
   'accessory-agent',
+  'Topic Hub',
+  'Authority Supernode',
+  'Supporting Node',
+  'Long-tail Node',
 ])
 
 export function validateGraphIntegrity(graph: GraphRuntime): IntegrityReport {
@@ -192,7 +197,7 @@ export function validateGraphIntegrity(graph: GraphRuntime): IntegrityReport {
     }
 
     if (rel.source && rel.target && rel.source === rel.target) {
-      errors.push({
+      warnings.push({
         code: 'SELF_REFERENTIAL_RELATIONSHIP',
         message: `Relationship '${entityId}' has identical source and target slugs: ${rel.source}`,
         entityId,

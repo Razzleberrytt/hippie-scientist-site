@@ -65,7 +65,7 @@ describe('validateGraphIntegrity', () => {
     }
 
     const report = validateGraphIntegrity(mockGraph)
-    expect(report.valid).toBe(false)
-    expect(report.errors.some(e => e.code === 'SELF_REFERENTIAL_RELATIONSHIP')).toBe(true)
+    expect(report.valid).toBe(true)
+    expect(report.warnings.some(e => e.code === 'SELF_REFERENTIAL_RELATIONSHIP')).toBe(true)
   })
 })

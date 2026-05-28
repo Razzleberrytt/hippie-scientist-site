@@ -16,6 +16,7 @@ export type EvidenceTier =
   | 'Mechanistic Evidence'
   | 'Evidence-Limited'
   | 'Traditional Use Context'
+  | 'Preliminary Evidence'
 
 export type AuthorityRole =
   | 'core-anchor'
@@ -24,6 +25,10 @@ export type AuthorityRole =
   | 'regulatory-hub'
   | 'constituent-driver'
   | 'accessory-agent'
+  | 'Topic Hub'
+  | 'Authority Supernode'
+  | 'Supporting Node'
+  | 'Long-tail Node'
 
 export type GraphRecord = Record<string, unknown>
 
