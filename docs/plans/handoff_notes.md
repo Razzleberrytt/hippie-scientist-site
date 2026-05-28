@@ -1,43 +1,46 @@
-# Handoff Notes — Phase 1 Knowledge Graph Sprint
+# Handoff Notes — Phase 2 Semantic Intelligence & Decision Engine Sprint
 
-All tasks of the Phase 1 Knowledge Graph Sprint have been executed, typechecked, tested, and validated successfully.
+Phase 2 (Semantic Intelligence & Decision Engine Layer) has been planned, implemented, optimized, and validated successfully.
 
 ## Completed Tasks
 
-1. **Canonical Graph Type Schema** (`src/types/graph.ts`):
-   - Defined structured, typed unions for node types, relationship types, evidence tiers, and authority roles.
-   - Centralized interfaces for `GraphNode`, `GraphRelationship`, `GraphEcosystem`, `GraphCandidate`, and `GraphRuntime`.
-   - Updated `lib/runtime-graph.ts` to import and re-export these canonical types.
+### Phase 2A — Semantic Relationship Engine
+- Implemented `lib/semantic-relationship-engine.ts` with deterministic scoring for:
+  - Shared categories / types.
+  - Overlapping mechanisms (fuzzy-matched terms).
+  - Overlapping outcomes/effects.
+  - Safety conflicts (cautions/flags).
+  - Alternatives (mechanistic overlap within the same type).
+- Built auditable rationale strings to back up each score.
+- Added comprehensive unit tests in `src/lib/__tests__/semantic-relationship-engine.test.ts`.
 
-2. **Normalize Relationship Type Constants** (`lib/graph-relationship-types.ts`):
-   - Created constants for standard relationship type strings.
-   - Refactored fallback type definitions inside `lib/runtime-graph.ts` to leverage this catalog.
+### Phase 2B — Goal Matching Engine
+- Implemented `lib/goal-matching-engine.ts` supporting 9 core goals (sleep, stress, anxiety, focus, energy, inflammation, pain, cognition, longevity).
+- Features evidence-aware multipliers, safety-aware filters, confidence scores, and structured explanations.
+- Added unit tests in `src/lib/__tests__/goal-matching-engine.test.ts`.
 
-3. **Entity Integrity Validator** (`lib/graph-integrity.ts`):
-   - Implemented `validateGraphIntegrity(graph: GraphRuntime)` to verify that all endpoints (source and target) exist, check duplicate slugs/IDs, look for missing required fields, and validate evidence tiers/authority roles.
-   - Added robust vitest test suite (`src/lib/__tests__/graph-integrity.test.ts`).
+### Phase 2C — Evidence Confidence Utilities
+- Implemented `lib/evidence-confidence.ts` to grade and normalize evidence quality (Strong Human, Moderate Human, Limited/Preliminary Human, Mechanistic/Preclinical, and Traditional Use).
+- Provides confidence index percentages, downgrade reasons, and authority-tier alignment.
+- Added unit tests in `src/lib/__tests__/evidence-confidence.test.ts`.
 
-4. **Canonical Mechanism Taxonomy** (`lib/canonical-mechanisms.ts`):
-   - Implemented title case cleaning, fuzzy-matching ignoring delimiters, and direct mappings for mechanism terms.
-   - Integrated with `clusterMechanisms` from `lib/mechanism-clusters.ts`.
-   - Seeded `public/data/canonical-mechanisms.json`.
-   - Added vitest tests (`src/lib/__tests__/canonical-mechanisms.test.ts`).
+### Phase 2D — Semantic SEO Support
+- Implemented `lib/semantic-seo.ts` to generate internal link suggestions, related page comparisons, and mechanism/effect/goal hub lists.
+- Added unit tests in `src/lib/__tests__/semantic-seo.test.ts`.
 
-5. **Cross-Entity Link Resolver** (`lib/graph-links.ts`):
-   - Created `getEntityLinks(slug: string, graph?: GraphRuntime)` to retrieve all related relationships, comparisons, stacks, topic/pathway ecosystems, and supernodes for an entity.
-   - Added vitest tests (`src/lib/__tests__/graph-links.test.ts`).
+### Phase 2E — UI Integration
+- Created the presentational dashboard component `<SemanticIntelligenceDashboard />` in [SemanticIntelligenceDashboard.tsx](file:///c:/hippies/src/components/SemanticIntelligenceDashboard.tsx).
+- Safely integrated the dashboard into:
+  - Herb Detail Pages (`app/herbs/[slug]/page.tsx`)
+  - Compound Detail Pages (`app/compounds/[slug]/page.tsx`)
+  Under the "Decision Support" tab.
 
-6. **Graph Query Utilities** (`lib/graph-query.ts`):
-   - Built queries to filter nodes by pathway, mechanism, or topic.
-   - Created `getCompareGroup` for comparing multiple slugs and returning shared pathways/mechanisms/topics.
-   - Implemented `getNHopNeighbors(slug, hops, graph)` for path-traversal.
-   - Added vitest tests (`src/lib/__tests__/graph-query.test.ts`).
+### Performance Optimizations (Crucial)
+- **O(1) Graph Traversal Cache**: Integrated `WeakMap` cached `getNodeMap(graph)` inside `lib/runtime-graph.ts` to eliminate O(N^2) string manipulations and slug checks. This reduced Next.js static build page generation times by over 10x (avoiding Next.js page prerendering timeouts).
+- **Concurrency-Optimized Build Audits**: Rewrote `scripts/ci/audit-internal-links.mjs`, `scripts/ci/audit-structured-data.mjs`, and `scripts/ci/audit-seo-routes.mjs` to bypass static Next.js assets (`_next`) and read HTML files in parallel batches of 100 using `fs/promises` and `Promise.all`. This reduced post-build audit verification times from 6+ minutes to under 5 seconds!
 
-7. **Runtime Export Validation Script** (`scripts/validate-graph-export.mjs`):
-   - Added a build-time script that loads export files from `public/data/graph/*.json` and runs `validateGraphIntegrity`.
-   - Hardened `lib/runtime-graph.ts` loader to filter out self-referential relationships, preventing runtime regressions.
-
-## Verification
-- Running `npm run typecheck` passes with **0 errors**.
-- Running `npm run test` passes with **101 passing tests**.
-- Executing `npx tsx scripts/validate-graph-export.mjs` validates the public graph data successfully.
+## Verification & Build Status
+- **Linter**: `npm run lint` passes cleanly with `max-warnings=0`.
+- **Typecheck**: `npm run typecheck` passes with `0 errors`.
+- **Tests**: `npm run test` runs 24 files with **111 total tests** passing successfully.
+- **Production Build**: `npm run build` generates all 1435 pages and completes all 10+ post-build audits successfully.
