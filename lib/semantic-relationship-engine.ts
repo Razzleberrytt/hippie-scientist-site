@@ -89,7 +89,14 @@ export function scoreRelationshipStrength(slugA: string, slugB: string, graphInp
   }
 }
 
+const relatedEntitiesCache = new Map<string, RelatedEntity[]>()
+
 export function getRelatedEntities(slug: string, graphInput?: GraphRuntime): RelatedEntity[] {
+  const cacheKey = slug
+  if (!graphInput && relatedEntitiesCache.has(cacheKey)) {
+    return relatedEntitiesCache.get(cacheKey)!
+  }
+
   const graph = graphInput || loadRuntimeGraph()
   const node = getGraphNode(graph, slug)
   if (!node) return []
@@ -119,7 +126,11 @@ export function getRelatedEntities(slug: string, graphInput?: GraphRuntime): Rel
     }
   })
 
-  return results.sort((a, b) => b.score - a.score)
+  const sorted = results.sort((a, b) => b.score - a.score)
+  if (!graphInput) {
+    relatedEntitiesCache.set(cacheKey, sorted)
+  }
+  return sorted
 }
 
 export function getAlternatives(slug: string, graphInput?: GraphRuntime): RelatedEntity[] {

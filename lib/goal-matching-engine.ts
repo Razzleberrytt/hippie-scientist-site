@@ -36,9 +36,16 @@ function list(value: unknown): string[] {
   return value ? [String(value)] : []
 }
 
+const goalMatchesCache = new Map<string, GoalMatch[]>()
+
 export function rankEntitiesForGoal(goal: string, graphInput?: GraphRuntime): GoalMatch[] {
-  const graph = graphInput || loadRuntimeGraph()
   const targetGoal = normalize(goal)
+  const cacheKey = targetGoal
+  if (!graphInput && goalMatchesCache.has(cacheKey)) {
+    return goalMatchesCache.get(cacheKey)!
+  }
+
+  const graph = graphInput || loadRuntimeGraph()
   const synonyms = GOAL_SYNONYMS[targetGoal] || [targetGoal]
 
   const nodes = (graph.nodes || []) as GraphNode[]
@@ -151,5 +158,9 @@ export function rankEntitiesForGoal(goal: string, graphInput?: GraphRuntime): Go
     }
   })
 
-  return matches.sort((a, b) => b.score - a.score)
+  const sorted = matches.sort((a, b) => b.score - a.score)
+  if (!graphInput) {
+    goalMatchesCache.set(cacheKey, sorted)
+  }
+  return sorted
 }

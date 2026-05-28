@@ -103,6 +103,26 @@ let graphCache: GraphRuntime | null = null
 const relatedProfilesCache = new Map<string, GraphRelationship[]>()
 const comparisonCandidatesCache = new Map<string, GraphCandidate[]>()
 const stackCandidatesCache = new Map<string, GraphCandidate[]>()
+const nodeMapCache = new WeakMap<GraphRuntime, Map<string, GraphNode>>()
+
+function getNodeMap(graph: GraphRuntime): Map<string, GraphNode> {
+  let map = nodeMapCache.get(graph)
+  if (!map) {
+    map = new Map<string, GraphNode>()
+    const nodes = graph.nodes || []
+    for (const node of nodes) {
+      const keys = nodeKeys(node)
+      for (const key of keys) {
+        if (!map.has(key)) {
+          map.set(key, node)
+        }
+      }
+    }
+    nodeMapCache.set(graph, map)
+  }
+  return map
+}
+
 
 function asRecord(value: unknown): GraphRecord | null {
   return value && typeof value === 'object' && !Array.isArray(value)
@@ -603,7 +623,13 @@ export function getGraphNode(
   maybeProfile?: ProfileInput
 ): GraphNode | null {
   const { graph, profile } = resolveProfileArgs(graphOrProfile, maybeProfile)
-  return getNodes(graph).find((node) => matchesProfile(node, profile)) || null
+  const map = getNodeMap(graph)
+  const targetKeys = profileKeys(profile)
+  for (const key of targetKeys) {
+    const found = map.get(key)
+    if (found) return found
+  }
+  return null
 }
 
 export function getRelatedProfiles(
