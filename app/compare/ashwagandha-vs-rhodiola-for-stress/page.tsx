@@ -1,0 +1,98 @@
+import Link from 'next/link'
+import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+
+export default function AshwagandhaVsRhodiolaForStressPage() {
+  return (
+    <main className="container-page py-10 space-y-10">
+      <AuthorityJsonLd
+        title="Ashwagandha vs Rhodiola for Stress"
+        description="Evidence-aware comparison of ashwagandha and rhodiola for stress patterns, fatigue, calm support, safety, and supplement selection."
+        url="https://thehippiescientist.net/compare/ashwagandha-vs-rhodiola-for-stress"
+        type="Article"
+      />
+
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Compare', href: '/compare' },
+          { label: 'Ashwagandha vs Rhodiola for Stress' },
+        ]}
+      />
+
+      <section className="space-y-5 max-w-4xl">
+        <p className="eyebrow-label">Educational Comparison</p>
+        <h1 className="text-5xl font-bold tracking-tight text-ink">
+          Ashwagandha vs Rhodiola for Stress: Which Adaptogen Fits Your Situation?
+        </h1>
+        <p className="text-lg leading-8 text-[#46574d]">
+          Ashwagandha usually fits tense, wired, sleep-disrupting stress. Rhodiola usually fits stress that feels more like fatigue, burnout, and low stamina. Neither herb should be treated as a replacement for medical care.
+        </p>
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="card-premium p-6 space-y-4">
+          <p className="eyebrow-label">Calming Adaptogen</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">Ashwagandha</h2>
+          <p className="text-sm leading-7 text-[#46574d]">
+            Better suited for stress patterns involving tension, evening rumination, and sleep-adjacent stress. It has strong commercial demand, but it also carries meaningful safety caveats.
+          </p>
+          <Link href="/herbs/ashwagandha" className="chip-readable">Explore Ashwagandha</Link>
+        </div>
+
+        <div className="card-premium p-6 space-y-4">
+          <p className="eyebrow-label">Anti-Fatigue Adaptogen</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">Rhodiola</h2>
+          <p className="text-sm leading-7 text-[#46574d]">
+            Better suited for fatigue-heavy stress, cognitive burnout, and low resilience. It is often positioned as more energizing, so late-day use may not fit everyone.
+          </p>
+          <Link href="/herbs/rhodiola" className="chip-readable">Explore Rhodiola</Link>
+        </div>
+      </section>
+
+      <section className="card-premium p-6 space-y-5 max-w-5xl">
+        <p className="eyebrow-label">Fast Decision</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-ink">Which one makes more sense?</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm text-left">
+            <thead className="text-ink">
+              <tr className="border-b border-black/10">
+                <th className="py-3 pr-4 font-semibold">Factor</th>
+                <th className="py-3 pr-4 font-semibold">Ashwagandha</th>
+                <th className="py-3 pr-4 font-semibold">Rhodiola</th>
+              </tr>
+            </thead>
+            <tbody className="text-[#46574d]">
+              <tr className="border-b border-black/10"><td className="py-3 pr-4 font-medium text-ink">Best fit</td><td className="py-3 pr-4">Tense stress, calm support, sleep-linked stress</td><td className="py-3 pr-4">Fatigue, burnout, low stamina</td></tr>
+              <tr className="border-b border-black/10"><td className="py-3 pr-4 font-medium text-ink">Feel</td><td className="py-3 pr-4">More calming</td><td className="py-3 pr-4">More activating</td></tr>
+              <tr className="border-b border-black/10"><td className="py-3 pr-4 font-medium text-ink">Main caution</td><td className="py-3 pr-4">Pregnancy, thyroid, liver, autoimmune, sedative concerns</td><td className="py-3 pr-4">Insomnia, stimulation, bipolar-spectrum caution</td></tr>
+              <tr><td className="py-3 pr-4 font-medium text-ink">Bottom line</td><td className="py-3 pr-4">Better for wired stress</td><td className="py-3 pr-4">Better for tired stress</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="grid gap-6 lg:grid-cols-3">
+        <div className="card-premium p-6 space-y-3"><p className="eyebrow-label">Stress Pattern</p><h2 className="text-2xl font-semibold tracking-tight text-ink">Wired vs tired</h2><p className="text-sm leading-7 text-[#46574d]">The better choice depends less on which herb is more popular and more on whether the stress pattern is overactivated or depleted.</p></div>
+        <div className="card-premium p-6 space-y-3"><p className="eyebrow-label">Product Filter</p><h2 className="text-2xl font-semibold tracking-tight text-ink">Look for standardization</h2><p className="text-sm leading-7 text-[#46574d]">For either herb, prefer transparent extract standardization, clear plant part labeling, and third-party testing where available.</p></div>
+        <div className="card-premium p-6 space-y-3"><p className="eyebrow-label">Safety</p><h2 className="text-2xl font-semibold tracking-tight text-ink">Do not ignore cautions</h2><p className="text-sm leading-7 text-[#46574d]">Pregnancy, psychiatric medication, thyroid concerns, liver history, autoimmune disease, or bipolar-spectrum conditions deserve clinician review before use.</p></div>
+      </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <p className="eyebrow-label">FAQ</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-ink">Common questions</h2>
+        <div className="space-y-4 text-sm leading-7 text-[#46574d]">
+          <div><h3 className="text-lg font-semibold text-ink">Is ashwagandha or rhodiola better for stress?</h3><p>Ashwagandha usually fits tense, sleep-disrupting stress. Rhodiola usually fits fatigue-heavy stress and burnout.</p></div>
+          <div><h3 className="text-lg font-semibold text-ink">Can you take ashwagandha and rhodiola together?</h3><p>Some products combine adaptogens, but combining them can make effects and side effects harder to judge. Start conservatively and review medication or health concerns first.</p></div>
+          <div><h3 className="text-lg font-semibold text-ink">Which one is better for fatigue?</h3><p>Rhodiola is usually the more fatigue-oriented option. Ashwagandha is usually more calming and sleep-adjacent.</p></div>
+        </div>
+      </section>
+
+      <div className="flex flex-wrap gap-3">
+        <Link href="/compare/rhodiola-vs-ashwagandha" className="chip-readable">Rhodiola vs Ashwagandha</Link>
+        <Link href="/protocols/stress-regulation" className="chip-readable">Stress Regulation</Link>
+        <Link href="/education/what-are-adaptogens" className="chip-readable">Adaptogens</Link>
+      </div>
+    </main>
+  )
+}
