@@ -2,7 +2,9 @@ import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 
-const siteUrl = 'https://www.thehippiescientist.net'
+// Bare domain (no www) — consistent with layout.tsx and sitemap.ts.
+// Configure a 301 www→bare redirect in Cloudflare.
+const siteUrl = 'https://thehippiescientist.net'
 
 const disallowedRoutes = [
   '/analytics',
@@ -30,10 +32,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: disallowedRoutes,
       },
-      {
-        userAgent: 'Google-Extended',
-        allow: '/',
-      },
+      // OPTIONAL — uncomment to block Gemini AI training on your content:
+      // {
+      //   userAgent: 'Google-Extended',
+      //   disallow: '/',
+      // },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,

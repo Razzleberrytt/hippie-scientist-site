@@ -19,13 +19,12 @@ import {
 
 export const dynamic = 'force-static'
 
-const siteUrl = 'https://www.thehippiescientist.net'
-const stableDate = new Date('2026-01-01')
+// Bare domain (no www) — consistent with layout.tsx and robots.ts.
+// Configure a 301 www→bare redirect in Cloudflare.
+const siteUrl = 'https://thehippiescientist.net'
+
 const editorialDate = new Date('2026-04-01')
-const MAX_SITEMAP_ROUTES = Number.parseInt(
-  process.env.SITEMAP_MAX_ROUTES || '5000',
-  10,
-)
+const MAX_SITEMAP_ROUTES = Number.parseInt(process.env.SITEMAP_MAX_ROUTES || '5000', 10)
 
 type SlugRecord = {
   slug?: string
@@ -39,12 +38,9 @@ const cleanSlug = (value: unknown): string =>
 
 const getLastModified = (record?: SlugRecord) => {
   const candidate = record?.updatedAt || record?.last_updated || record?.date
-
-  if (!candidate) return stableDate
-
+  if (!candidate) return editorialDate
   const parsed = new Date(candidate)
-
-  return Number.isNaN(parsed.getTime()) ? stableDate : parsed
+  return Number.isNaN(parsed.getTime()) ? editorialDate : parsed
 }
 
 const route = (
@@ -68,18 +64,12 @@ function stabilizeSitemapRoutes(
 
   for (const entry of routes) {
     if (!entry?.url) continue
-
     const existing = byUrl.get(entry.url)
-
     if (!existing) {
       byUrl.set(entry.url, entry)
       continue
     }
-
-    const existingPriority = Number(existing.priority || 0)
-    const nextPriority = Number(entry.priority || 0)
-
-    if (nextPriority > existingPriority) {
+    if (Number(entry.priority || 0) > Number(existing.priority || 0)) {
       byUrl.set(entry.url, entry)
     }
   }
@@ -87,11 +77,7 @@ function stabilizeSitemapRoutes(
   return [...byUrl.values()]
     .sort((a, b) => {
       const priorityDelta = Number(b.priority || 0) - Number(a.priority || 0)
-
-      if (priorityDelta !== 0) {
-        return priorityDelta
-      }
-
+      if (priorityDelta !== 0) return priorityDelta
       return String(a.url).localeCompare(String(b.url))
     })
     .slice(0, Math.max(0, MAX_SITEMAP_ROUTES))
@@ -135,161 +121,84 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((herb) => herb.slug)
 
   return stabilizeSitemapRoutes([
-    route('/', {
-      priority: 1,
-      changeFrequency: 'weekly',
-    }),
-
-    route('/compounds', {
-      priority: 0.8,
-      changeFrequency: 'weekly',
-    }),
-
-    route('/herbs', {
-      priority: 0.8,
-      changeFrequency: 'weekly',
-    }),
-
-    route('/blog', {
-      priority: 0.7,
-      changeFrequency: 'weekly',
-    }),
-
-    route('/stacks', {
-      priority: 0.7,
-      changeFrequency: 'monthly',
-    }),
-
-    route('/goals', {
-      priority: 0.7,
-      changeFrequency: 'weekly',
-    }),
-
-    route('/compare', {
-      priority: 0.7,
-      changeFrequency: 'monthly',
-    }),
-
-    route('/topics', {
-      priority: 0.7,
-      changeFrequency: 'weekly',
-    }),
-
-    route('/ecosystems', {
-      priority: 0.7,
-      changeFrequency: 'weekly',
-    }),
-
-    route('/protocols', {
-      priority: 0.7,
-      changeFrequency: 'monthly',
-    }),
+    // Differentiated priorities — homepage and library pages ranked above thin pages
+    route('/', { priority: 1.0, changeFrequency: 'weekly' }),
+    route('/compounds', { priority: 0.9, changeFrequency: 'weekly' }),
+    route('/herbs', { priority: 0.9, changeFrequency: 'weekly' }),
+    route('/blog', { priority: 0.8, changeFrequency: 'weekly' }),
+    route('/goals', { priority: 0.8, changeFrequency: 'weekly' }),
+    route('/stacks', { priority: 0.7, changeFrequency: 'monthly' }),
+    // /compare omitted — page is blank. Re-add once the tool renders correctly.
+    route('/topics', { priority: 0.7, changeFrequency: 'weekly' }),
+    route('/ecosystems', { priority: 0.7, changeFrequency: 'weekly' }),
+    route('/protocols', { priority: 0.7, changeFrequency: 'monthly' }),
+    // /safety-checker added — working tool previously missing from sitemap
+    route('/safety-checker', { priority: 0.7, changeFrequency: 'monthly' }),
 
     ...seoEntryPages.map(page =>
-      route(`/${page.route}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/${page.route}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...clusterRoutes.map((path) =>
-      route(path, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(path, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...pathwayRoutes.map((path) =>
-      route(path, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(path, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...scientificCollections.map(collection =>
-      route(`/collections/${collection.slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/collections/${collection.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...goalConfigs.map(g =>
-      route(`/goals/${g.slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/goals/${g.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...bestPages.map(p =>
-      route(`/best/${p.slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/best/${p.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...supplementComparisons.map(c =>
-      route(`/compare/${c.slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/compare/${c.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...authorityTopicSlugs.map((slug) =>
-      route(`/topics/${slug}`, {
-        priority: 0.7,
-        changeFrequency: 'weekly',
-      }),
+      route(`/topics/${slug}`, { priority: 0.7, changeFrequency: 'weekly' }),
     ),
 
     ...authorityEcosystemSlugs.map((slug) =>
-      route(`/ecosystems/${slug}`, {
-        priority: 0.7,
-        changeFrequency: 'weekly',
-      }),
+      route(`/ecosystems/${slug}`, { priority: 0.7, changeFrequency: 'weekly' }),
     ),
 
     ...bestForSlugs.map((slug) =>
-      route(`/best/${slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/best/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...comparisonSlugs.map((slug) =>
-      route(`/compare/${slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/compare/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...stackSlugs.map((slug) =>
-      route(`/stacks/${slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/stacks/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...protocolSlugs.map((slug) =>
-      route(`/protocols/${slug}`, {
-        priority: 0.7,
-        changeFrequency: 'monthly',
-      }),
+      route(`/protocols/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...stacks
       .map(s => cleanSlug(s.slug))
       .filter(Boolean)
       .map(s =>
-        route(`/stacks/${s}`, {
-          priority: 0.7,
-          changeFrequency: 'monthly',
-        }),
+        route(`/stacks/${s}`, { priority: 0.7, changeFrequency: 'monthly' }),
       ),
 
+    // Herb & compound profiles — priority 0.9, real lastModified dates
     ...herbRecords.map((record) =>
       route(`/herbs/${record.slug}`, {
         lastModified: getLastModified(record),
-        priority: 0.8,
+        priority: 0.9,
         changeFrequency: 'monthly',
       }),
     ),
@@ -297,21 +206,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...compoundRecords.map((record) =>
       route(`/compounds/${record.slug}`, {
         lastModified: getLastModified(record),
-        priority: 0.8,
+        priority: 0.9,
         changeFrequency: 'monthly',
       }),
     ),
 
-
-    route('/blog/categories', {
-      priority: 0.55,
-      changeFrequency: 'monthly',
-    }),
-
-    route('/blog/tags', {
-      priority: 0.5,
-      changeFrequency: 'monthly',
-    }),
+    route('/blog/categories', { priority: 0.55, changeFrequency: 'monthly' }),
+    route('/blog/tags', { priority: 0.5, changeFrequency: 'monthly' }),
 
     ...posts
       .map(post => ({
@@ -322,7 +223,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .map(post =>
         route(`/blog/${post.slug}`, {
           lastModified: getLastModified(post),
-          priority: 0.6,
+          priority: 0.8,
           changeFrequency: 'monthly',
         }),
       ),

@@ -87,3 +87,9 @@ data-sources/*
 !data-sources/herb_monograph_master.xlsx
 data-sources/*.csv
 data-sources/*.json
+
+# Agent/CI build artifacts that should not be committed
+*.tsbuildinfo
+npm-audit*.json
+*.xlxs.xlsx
+site_map.md

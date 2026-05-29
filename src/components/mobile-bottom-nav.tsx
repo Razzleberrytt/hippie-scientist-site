@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GitCompare, Leaf, Search, Sparkles, Target } from 'lucide-react'
+import { Leaf, Search, Shield, Sparkles, Target } from 'lucide-react'
 
 const navItems = [
   {
@@ -21,9 +21,9 @@ const navItems = [
     Icon: Target,
   },
   {
-    href: '/compare',
-    label: 'Compare',
-    Icon: GitCompare,
+    href: '/safety-checker',
+    label: 'Safety',
+    Icon: Shield,
   },
   {
     href: '/search',
