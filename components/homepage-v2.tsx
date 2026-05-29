@@ -118,22 +118,19 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <div className='overflow-x-clip bg-site-bg'>
-      <div className='mx-auto max-w-6xl space-y-8 px-4 pb-6 pt-7 sm:px-6 sm:space-y-10 sm:pb-8 sm:pt-10 lg:px-8'>
+      <div className='mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-5 sm:px-6 sm:space-y-8 sm:pb-8 sm:pt-8 lg:px-8'>
 
         {/* Hero */}
-        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-6 shadow-sm sm:px-7 sm:py-8 lg:py-10'>
+        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-4 py-5 shadow-sm sm:px-6 sm:py-7'>
           <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
-            <p role='doc-subtitle' className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
+            <p role='doc-subtitle' className='mb-3 inline-flex text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-700'>
               Evidence-aware botanical research
             </p>
-            <h1 className='font-display text-[2.65rem] font-semibold leading-[0.96] tracking-[-0.055em] text-ink sm:text-6xl md:text-7xl'>
+            <h1 className='font-display text-[2.35rem] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-5xl md:text-6xl'>
               <span className='block'>The Hippie Scientist</span>
             </h1>
-            <p className='mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg font-medium'>
-              Compare herbs and compounds using evidence, safety context, and practical decision filters — not wellness hype.
-            </p>
-            <p className='mt-2 max-w-2xl text-sm leading-6 text-muted'>
-              Use these profiles to orient decisions thoughtfully based on clinical data. Individual response varies.
+            <p className='mt-4 max-w-2xl text-base font-medium leading-7 text-muted'>
+              Compare herbs and compounds by evidence strength, safety context, and practical fit — not wellness hype.
             </p>
             <div className='mt-5 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
               {primaryActions.map((action, index) => (
@@ -150,9 +147,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 </Link>
               ))}
             </div>
-            <p className='mt-5 max-w-2xl rounded-full border border-brand-900/10 bg-white/85 px-4 py-2 text-xs leading-5 text-muted sm:text-sm'>
-              Evidence strength, safety context, and uncertainty are kept visible so comparisons stay cautious.
-            </p>
+
           </div>
         </section>
 
@@ -168,7 +163,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               <Link
                 key={goal.slug}
                 href={`/goals/${goal.slug}`}
-                className='group flex flex-col justify-between rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
+                className='group flex flex-col justify-between rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div>
                   <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>{goal.eyebrow}</span>
@@ -215,7 +210,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               <Link
                 key={cluster.href}
                 href={cluster.href}
-                className='group flex flex-col justify-between rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
+                className='group flex flex-col justify-between rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div>
                   <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>{cluster.eyebrow}</span>
@@ -263,7 +258,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         </section>
 
         {/* Disclaimer */}
-        <section className='rounded-2xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5'>
+        <section className='rounded-[1rem] border border-amber-200/80 bg-amber-50/60 p-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
             <p className='max-w-4xl text-sm leading-6 text-amber-950/85'>
               <strong>Important Notice:</strong> Natural does not automatically mean safe or effective. The information here supports comparison and mechanistic research. Always consult a physician and review potential contraindications before beginning any supplement routine.

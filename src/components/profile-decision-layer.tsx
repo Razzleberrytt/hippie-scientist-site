@@ -158,10 +158,10 @@ function DecisionCard({ item }: { item: DecisionItem }) {
   if (!shouldRenderCard(label, value)) return null
 
   return (
-    <div className={`rounded-2xl border p-4 ${decisionCardClass(item.tone)}`}>
+    <div className={`rounded-[0.9rem] border p-3 ${decisionCardClass(item.tone)}`}>
       <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] opacity-65">{label}</p>
       {isDuplicateTitleBody(label, value) ? null : (
-        <p className="mt-2 text-sm font-semibold leading-6">{value}</p>
+        <p className="mt-1.5 text-sm font-semibold leading-5">{value}</p>
       )}
     </div>
   )
@@ -219,34 +219,34 @@ export function ProfileDecisionLayer({
     .slice(0, 3)
 
   return (
-    <section className="card-premium overflow-hidden p-0">
-      <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-6 p-5 sm:p-7 lg:p-8">
-          <div className="space-y-3">
+    <section className="card-premium overflow-hidden p-0 shadow-sm">
+      <div className="grid gap-0 lg:grid-cols-[1fr_0.7fr]">
+        <div className="space-y-4 p-4 sm:p-5 lg:p-6">
+          <div className="space-y-2">
             <p className="eyebrow-label">Decision Layer</p>
-            <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              {name ? `${name}: quick interpretation` : 'Quick interpretation'}
+            <h2 className="max-w-2xl text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              {name ? `${name}: quick read` : 'Quick read'}
             </h2>
             {isRenderableText(quickTake) ? (
-              <p className="detail-reading max-w-3xl text-[#46574d]">
+              <p className="max-w-3xl text-sm leading-6 text-[#46574d]">
                 {quickTake}
               </p>
             ) : null}
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
             {decisionItems.map((item) => (
               <DecisionCard key={item.label} item={item} />
             ))}
           </div>
         </div>
 
-        <aside className="border-t border-brand-900/10 bg-brand-50/50 p-5 sm:p-7 lg:border-l lg:border-t-0 lg:p-8">
-          <div className="space-y-5">
+        <aside className="border-t border-brand-900/10 bg-brand-50/40 p-4 sm:p-5 lg:border-l lg:border-t-0 lg:p-6">
+          <div className="space-y-4">
             <div className="space-y-2">
               <p className="eyebrow-label">Guided Next Step</p>
-              <p className="text-sm leading-7 text-[#46574d]">
-                Use this profile as a decision starting point, then compare nearby profiles before interpreting mechanisms or research depth.
+              <p className="text-sm leading-6 text-[#46574d]">
+                Compare nearby profiles before acting on mechanisms or research depth.
               </p>
             </div>
 
@@ -264,7 +264,7 @@ export function ProfileDecisionLayer({
                       <Link
                         key={slug}
                         href={getRelatedHref(targetType, slug)}
-                        className="block rounded-2xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm font-semibold text-[#33443a] transition hover:border-brand-700/25 hover:bg-white hover:text-brand-800"
+                        className="block rounded-[0.85rem] border border-brand-900/10 bg-white/70 px-3 py-2 text-sm font-semibold text-[#33443a] transition hover:border-brand-700/25 hover:bg-white hover:text-brand-800"
                       >
                         {label}
                       </Link>

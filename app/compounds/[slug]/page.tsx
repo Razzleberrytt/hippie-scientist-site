@@ -297,7 +297,7 @@ export default async function CompoundPage({ params }: PageProps) {
         <div className="space-y-6">
           <div className="space-y-2">
             <p className="eyebrow-label">Evidence summary</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
             <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
               Use this profile as an evidence-aware orientation, not a guarantee of outcomes. Human data quality, formulation differences, and dosing variability can change real-world effects.
             </p>
@@ -470,7 +470,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
       <ReadingProgress />
 
-      <main className="mx-auto max-w-7xl space-y-12 px-4 py-8 pb-24 sm:space-y-16 sm:py-10 sm:pb-32">
+      <main className="mx-auto max-w-7xl space-y-8 px-4 py-6 pb-20 sm:space-y-10 sm:py-8 sm:pb-24">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -479,7 +479,7 @@ export default async function CompoundPage({ params }: PageProps) {
           ]}
         />
 
-        <section className="hero-shell rounded-[2rem] p-4 sm:p-6 lg:p-8">
+        <section className="hero-shell rounded-[1.25rem] p-4 sm:p-5 lg:p-6">
           <div className="grid gap-5 lg:grid-cols-[minmax(0,0.82fr)_minmax(340px,1.18fr)] lg:items-start">
             <div className="space-y-4 lg:pt-2">
               <CompoundHero
@@ -495,7 +495,7 @@ export default async function CompoundPage({ params }: PageProps) {
               title="5-second profile read"
               subtitle="Educational overview only. Individual effects and side-effect sensitivity can vary."
               badge="Start here"
-              className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6"
+              className="rounded-[1.1rem] border border-brand-900/10 bg-white/95 p-4 shadow-sm lg:sticky lg:top-6"
               fields={buildDetailEvidenceSnapshotFields({
                 bestFit: effects.slice(0, 3).join(', '),
                 humanEvidence: evidenceLevel,
@@ -530,10 +530,10 @@ export default async function CompoundPage({ params }: PageProps) {
           </section>
         ) : null}
 
-        <section className="rounded-3xl bg-amber-50/70 p-5 sm:p-6">
+        <section className="rounded-[1.1rem] bg-amber-50/70 p-4 sm:p-5">
           <div className="space-y-2">
             <p className="eyebrow-label text-amber-900">Safety first</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">Review cautions before use</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-ink">Review cautions before use</h2>
             <p className="max-w-4xl text-sm leading-6 text-[#5f4a24]">
               Educational-only framing: individual response varies by dose, formulation, concurrent medications, and health context. {safetySummary}
             </p>

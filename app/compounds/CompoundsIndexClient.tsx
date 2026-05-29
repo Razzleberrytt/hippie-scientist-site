@@ -303,23 +303,21 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
   const libraryCompounds = hasActiveFilters ? visibleCompounds : compounds.slice(featuredCompounds.length)
 
   return (
-    <div className="min-h-screen px-3 py-5 text-ink sm:px-4 sm:py-8">
-      <div className="mx-auto max-w-7xl space-y-8 sm:space-y-12">
-        <section className="hero-shell relative overflow-hidden rounded-[1.7rem] border border-white/50 px-5 py-7 shadow-sm sm:rounded-[2.2rem] sm:px-8 sm:py-10 lg:px-12">
-          <div className="!absolute right-[-8rem] top-[-8rem] h-72 w-72 rounded-full bg-emerald-200/25 blur-3xl" />
-
-          <div className="relative grid gap-6 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
-            <div className="max-w-3xl space-y-4">
+    <div className="min-h-screen px-3 py-4 text-ink sm:px-4 sm:py-6">
+      <div className="mx-auto max-w-7xl space-y-6 sm:space-y-8">
+        <section className="hero-shell relative overflow-hidden rounded-[1.25rem] border border-white/60 px-4 py-5 shadow-sm sm:px-6 sm:py-7">
+          <div className="relative grid gap-4 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
+            <div className="max-w-3xl space-y-3">
               <p className="eyebrow-label">Compound decision library</p>
-              <h1 className="max-w-[13ch] text-balance font-display text-4xl font-semibold leading-[1.04] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+              <h1 className="max-w-[16ch] text-balance font-display text-3xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl">
                 Compound research library
               </h1>
-              <p className="max-w-2xl text-base leading-7 text-[#46574d] sm:text-lg sm:leading-8">
+              <p className="max-w-2xl text-sm leading-6 text-[#46574d] sm:text-base">
                 Scan bioactive molecules by practical context first, then compare evidence, safety notes, and mechanism hints before opening a full compound profile.
               </p>
             </div>
 
-            <div className="rounded-[1.35rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm backdrop-blur sm:p-4">
+            <div className="rounded-[1rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm backdrop-blur">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">Library signal</p>
               <div className="mt-3 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
@@ -330,7 +328,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
           </div>
         </section>
 
-        <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-4 shadow-[var(--shadow-card-calm)] sm:p-6" aria-labelledby="compound-search-heading">
+        <section className="rounded-[1rem] border border-brand-900/10 bg-white/85 p-4 shadow-sm sm:p-5" aria-labelledby="compound-search-heading">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-2">
               <p className="eyebrow-label">Search and filter</p>
@@ -339,7 +337,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
             <Link href="/herbs" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse herb sources →</Link>
           </div>
 
-          <form action="/compounds" className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto]">
+          <form action="/compounds" className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
             <label className="sr-only" htmlFor="compound-search">Search compounds</label>
             <input
               id="compound-search"
@@ -347,10 +345,10 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
               type="search"
               defaultValue={query}
               placeholder="Search compound, mechanism, source herb, or safety note"
-              className="min-h-12 w-full rounded-full border border-brand-900/10 bg-white px-4 text-base text-ink shadow-sm placeholder:text-[#7b8a81]"
+              className="min-h-11 w-full rounded-full border border-brand-900/10 bg-white px-4 text-sm text-ink shadow-sm placeholder:text-[#7b8a81]"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
-            <button type="submit" className="button-primary min-h-12 px-6 py-3">
+            <button type="submit" className="button-primary min-h-11 px-5 py-2.5">
               Search
             </button>
           </form>
@@ -364,7 +362,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
           />
         </section>
 
-        <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm sm:p-5">
+        <section className="rounded-[1rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl space-y-2">
               <p className="eyebrow-label">Common starting points</p>
@@ -377,7 +375,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
               <Link
                 key={path.label}
                 href={path.href}
-                className="group rounded-[1.1rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white"
+                className="group rounded-[0.9rem] border border-brand-900/10 bg-white/80 p-3 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
               >
                 <h3 className="text-lg font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
                 <p className="mt-2 text-sm leading-6 text-[#46574d]">{path.description}</p>
@@ -404,7 +402,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
                   </p>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                   {featuredCompounds.map((compound: any) => (
                     <CompoundCard key={compound.slug} compound={compound} featured />
                   ))}
@@ -426,7 +424,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
                   </span>
                 </div>
 
-                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                   {libraryCompounds.map((compound: any) => (
                     <CompoundCard key={compound.slug} compound={compound} />
                   ))}
