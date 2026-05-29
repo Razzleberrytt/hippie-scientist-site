@@ -32,20 +32,19 @@ export default async function Page() {
   const bestLinks = getHerbSearchLinks(bestLabel)
 
   return (
-    <main className='mx-auto max-w-5xl space-y-6 px-4 py-8 text-white sm:px-6 lg:px-8'>
-      <section className='rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.18),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-6 shadow-2xl shadow-black/25 sm:p-8'>
-        <p className='text-xs font-bold uppercase tracking-[0.2em] text-violet-100/70'>Sleep guide</p>
-        <h1 className='mt-3 text-4xl font-black tracking-tight sm:text-6xl'>Top 3 Natural Sleep Aids</h1>
-        <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>A simple starting point for herbs commonly discussed around sleep onset, relaxation, and nighttime calm. Educational only, not medical advice.</p>
+    <main className='container-page py-10 space-y-8'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Sleep guide</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Top 3 Natural Sleep Aids</h1>
+        <p className='mt-4 text-muted'>A simple starting point for herbs commonly discussed around sleep onset, relaxation, and nighttime calm. Educational only, not medical advice.</p>
       </section>
 
-
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold text-white'>How to use this ranking responsibly</h2>
-        <p className='mt-3 text-sm leading-6 text-white/70'>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
+        <p className='mt-3 text-sm leading-6 text-muted'>
           This page is an educational comparison starting point. Ranking position reflects dataset signals, not a guarantee that one option will work best for you.
         </p>
-        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
           <li>Evidence quality and study design vary by herb or compound.</li>
           <li>Safety context matters: medications, health conditions, and pregnancy or nursing status can change fit.</li>
           <li>Individual response varies, so use full profiles and clinical guidance before decisions.</li>
@@ -62,14 +61,14 @@ export default async function Page() {
         secondaryCta='See full sleep guide →'
       />
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold'>Fast answer</h2>
-        <ul className='mt-4 space-y-3 text-sm leading-6 text-white/70'>
-          <li><strong className='text-white'>Valerian</strong> is commonly discussed for sleep onset and nighttime rest.</li>
-          <li><strong className='text-white'>Lemon balm</strong> is often connected with gentle calm and relaxation.</li>
-          <li><strong className='text-white'>Passionflower</strong> is often framed around relaxation and nervous-system support.</li>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Fast answer</h2>
+        <ul className='mt-4 space-y-3 text-sm leading-6 text-muted'>
+          <li><strong className='text-ink'>Valerian</strong> is commonly discussed for sleep onset and nighttime rest.</li>
+          <li><strong className='text-ink'>Lemon balm</strong> is often connected with gentle calm and relaxation.</li>
+          <li><strong className='text-ink'>Passionflower</strong> is often framed around relaxation and nervous-system support.</li>
         </ul>
-        <p className='mt-4 text-sm leading-6 text-white/60'>
+        <p className='mt-4 text-sm leading-6 text-muted'>
           Sleep-note nuance: these are often chosen for different reasons (sleep onset, tension reduction, nighttime calm), so matching the pattern is usually more helpful than rotating randomly.
         </p>
       </section>
@@ -79,27 +78,30 @@ export default async function Page() {
           const name = label(h)
           const links = getHerbSearchLinks(name)
           return (
-            <article key={h.slug} className='rounded-3xl border border-white/10 bg-white/[0.04] p-5'>
-              <p className='text-xs font-bold uppercase tracking-[0.2em] text-violet-100/65'>Pick #{i + 1}</p>
-              <h2 className='mt-2 text-3xl font-bold'>{name}</h2>
-              <p className='mt-4 text-sm leading-6 text-white/68'>{summary(h)}</p>
-              <div className='mt-5 flex flex-wrap gap-2'>
-                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950 hover:bg-emerald-200'>View {name} products →</a> : null}
-                <Link href={`/herbs/${h.slug}/`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 hover:bg-white/5'>Learn more →</Link>
+            <article key={h.slug} className='card-premium p-6 flex flex-col justify-between'>
+              <div>
+                <p className='text-xs font-semibold uppercase tracking-wider text-emerald-700'>Pick #{i + 1}</p>
+                <h2 className='mt-2 text-2xl font-semibold text-ink'>{name}</h2>
+                <p className='mt-3 text-sm leading-6 text-muted'>{summary(h)}</p>
+              </div>
+              <div className='mt-4 flex flex-wrap gap-4'>
+                <Link href={`/herbs/${h.slug}/`} className='text-sm font-medium text-emerald-700 hover:underline'>Learn more</Link>
+                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='text-sm font-medium text-emerald-700 hover:underline'>Compare products</a> : null}
               </div>
             </article>
           )
         })}
       </section>
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-        <h2 className='text-2xl font-bold'>Related guides</h2>
-        <div className='mt-4 flex flex-wrap gap-2'>
-          <Link href='/top/sleep' className='rounded-2xl border border-violet-300/20 bg-violet-300/10 px-4 py-2 text-sm font-bold text-violet-100'>Best herbs for sleep</Link>
-          <Link href='/top/stress' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70'>Best herbs for stress</Link>
-          <Link href='/top/top-3-herbs-for-anxiety' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70'>Top 3 herbs for anxiety</Link>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Related guides</h2>
+        <div className='mt-4 flex flex-wrap gap-4'>
+          <Link href='/top/sleep' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for sleep</Link>
+          <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
+          <Link href='/top/top-3-herbs-for-anxiety' className='text-sm font-medium text-emerald-700 hover:underline'>Top 3 herbs for anxiety</Link>
         </div>
       </section>
     </main>
   )
 }
+

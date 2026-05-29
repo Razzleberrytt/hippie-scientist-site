@@ -13,19 +13,28 @@ const comparisonLinks = [
 
 export default function Page() {
   return (
-    <div className='space-y-6 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8'>
-      <h1 className='text-4xl font-black text-white'>Best Supplements for Sleep</h1>
-      <p className='max-w-2xl text-white/80'>Compare science-backed sleep supplements with practical dosage, timing, and safety context. Start with the full sleep goal guide, then drill into the stack and individual compounds.</p>
-      <div className='flex flex-wrap gap-3'>
-        <Link href='/goals/sleep' className='inline-flex min-h-11 items-center rounded-2xl bg-emerald-300 px-5 py-2 font-bold text-black transition hover:bg-emerald-200 active:scale-[0.99]'>Explore Sleep Supplements</Link>
-        <Link href='/stacks/sleep' className='inline-flex min-h-11 items-center rounded-2xl border border-white/10 px-5 py-2 font-bold text-white/80 transition hover:bg-white/5 hover:text-white'>View Sleep Stack</Link>
-      </div>
-      <section className='rounded-3xl border border-white/10 bg-black/15 p-5'>
-        <h2 className='text-xl font-bold text-white'>Related Comparisons</h2>
-        <div className='mt-3 flex flex-wrap gap-3'>
-          {comparisonLinks.map(link => <Link key={link.href} href={link.href} className='rounded-xl border border-white/10 px-3 py-2 text-sm text-white/75 hover:bg-white/5'>{link.label}</Link>)}
+    <div className='container-page py-10 space-y-8'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Category</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Best Supplements for Sleep</h1>
+        <p className='mt-4 max-w-2xl text-muted'>Compare science-backed sleep supplements with practical dosage, timing, and safety context. Start with the full sleep goal guide, then drill into the stack and individual compounds.</p>
+        <div className='mt-6 flex flex-wrap gap-3'>
+          <Link href='/goals/sleep' className='inline-flex min-h-11 items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'>Explore Sleep Supplements</Link>
+          <Link href='/stacks/sleep' className='inline-flex min-h-11 items-center rounded-full border border-stone-200 bg-white/50 px-5 py-2.5 text-sm font-medium text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'>View Sleep Stack</Link>
+        </div>
+      </section>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Related Comparisons</h2>
+        <div className='mt-4 flex flex-wrap gap-3'>
+          {comparisonLinks.map(link => (
+            <Link key={link.href} href={link.href} className='rounded-xl border border-brand-900/10 px-3 py-2 text-sm text-emerald-700 hover:bg-stone-50/50 hover:border-brand-900/20 transition'>
+              {link.label}
+            </Link>
+          ))}
         </div>
       </section>
     </div>
   )
 }
+

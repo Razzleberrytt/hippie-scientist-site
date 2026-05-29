@@ -23,11 +23,11 @@ export default async function Page(){
   const bestLabel = best ? label(best) : 'Caffeine'
 
   return (
-    <main className='mx-auto max-w-5xl space-y-6 px-4 py-8 text-white sm:px-6 lg:px-8'>
-      <section className='rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-6 shadow-2xl shadow-black/25 sm:p-8'>
-        <p className='text-xs font-bold uppercase tracking-[0.2em] text-blue-100/70'>Focus guide</p>
-        <h1 className='mt-3 text-4xl font-black tracking-tight sm:text-6xl'>Top 3 Supplements for Focus</h1>
-        <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>A simple starting point for cognitive performance, clarity, and focus-related supplement research. Educational only.</p>
+    <main className='container-page py-10 space-y-8'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Focus guide</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Top 3 Supplements for Focus</h1>
+        <p className='mt-4 text-muted'>A simple starting point for cognitive performance, clarity, and focus-related supplement research. Educational only.</p>
       </section>
 
       <AffiliateConversionCard
@@ -42,13 +42,15 @@ export default async function Page(){
 
       <section className='grid gap-4'>
         {picks.map((c,i)=>(
-          <article key={c.slug} className='rounded-3xl border border-white/10 bg-white/[0.04] p-5'>
-            <p className='text-xs font-bold uppercase tracking-[0.2em] text-blue-100/65'>Pick #{i+1}</p>
-            <h2 className='mt-2 text-3xl font-bold'>{label(c)}</h2>
-            <p className='mt-4 text-sm text-white/70'>{c.summary}</p>
-            <div className='mt-5 flex gap-2'>
-              <a href={buildAmazonSearchUrl(`${label(c)} supplement`)} target='_blank' rel='noopener noreferrer sponsored' className='bg-emerald-300 text-black px-4 py-2 rounded-xl font-bold'>View products →</a>
-              <Link href={`/compounds/${c.slug}`}>Learn more →</Link>
+          <article key={c.slug} className='card-premium p-6 flex flex-col justify-between'>
+            <div>
+              <p className='text-xs font-semibold uppercase tracking-wider text-emerald-700'>Pick #{i+1}</p>
+              <h2 className='mt-2 text-2xl font-semibold text-ink'>{label(c)}</h2>
+              <p className='mt-3 text-sm text-muted'>{c.summary}</p>
+            </div>
+            <div className='mt-4 flex flex-wrap gap-4'>
+              <Link href={`/compounds/${c.slug}`} className='text-sm font-medium text-emerald-700 hover:underline'>Learn more</Link>
+              <a href={buildAmazonSearchUrl(`${label(c)} supplement`)} target='_blank' rel='noopener noreferrer sponsored' className='text-sm font-medium text-emerald-700 hover:underline'>View products</a>
             </div>
           </article>
         ))}
@@ -56,3 +58,4 @@ export default async function Page(){
     </main>
   )
 }
+

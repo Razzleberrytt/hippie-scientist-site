@@ -67,48 +67,48 @@ export default async function StressPage() {
   const ranked = herbs.filter(matchesGoal).sort((a, b) => scoreFor(b) - scoreFor(a)).slice(0, 12)
 
   return (
-    <main className='mx-auto max-w-6xl space-y-6 px-4 py-8 sm:px-6 lg:px-8'>
-      <section className='rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.16),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.07),rgba(255,255,255,0.025))] p-6 shadow-2xl shadow-black/25 sm:p-8'>
-        <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100/70'>Stress guide</p>
-        <h1 className='mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl'>Best Herbs for Stress</h1>
-        <p className='mt-4 max-w-3xl text-base leading-7 text-white/70'>
+    <main className='container-page py-10 space-y-8'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Stress guide</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Best Herbs for Stress</h1>
+        <p className='mt-4 text-muted'>
           These herbs are commonly connected with stress, anxiety, calm, cortisol, and adaptogen-style support. Rankings use the current workbook dataset as a discovery layer, not as personal medical advice.
         </p>
-        <p className='mt-3 max-w-3xl text-sm leading-6 text-white/60'>
+        <p className='mt-3 text-sm text-muted'>
           Practical use: treat this page as a shortlist builder. The right fit often depends on whether stress shows up as tension, fatigue, or sleep disruption.
         </p>
       </section>
 
-
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold text-white'>How to use this ranking responsibly</h2>
-        <p className='mt-3 text-sm leading-6 text-white/70'>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
+        <p className='mt-3 text-sm leading-6 text-muted'>
           This page is an educational comparison starting point. Ranking position reflects dataset signals, not a guarantee that one option will work best for you.
         </p>
-        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
           <li>Evidence quality and study design vary by herb or compound.</li>
           <li>Safety context matters: medications, health conditions, and pregnancy or nursing status can change fit.</li>
           <li>Individual response varies, so use full profiles and clinical guidance before decisions.</li>
         </ul>
       </section>
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold text-white'>What herbs help with stress and anxiety?</h2>
-        <p className='mt-3 text-sm leading-6 text-white/65'>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>What herbs help with stress and anxiety?</h2>
+        <p className='mt-3 text-sm text-muted'>
           Common stress-support herbs include adaptogens and calming botanicals such as ashwagandha, rhodiola, lemon balm, passionflower, and other plants that may appear in the dataset when their profile mentions stress, calm, cortisol, anxiety, relaxation, or adaptogen context.
         </p>
-        <div className='mt-4 flex flex-wrap gap-2'>
-          <Link href='/compare/ashwagandha-vs-rhodiola' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm font-bold text-emerald-100 hover:bg-emerald-300/15'>Compare ashwagandha vs rhodiola</Link>
-          <Link href='/top/sleep' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best herbs for sleep</Link>
-          <Link href='/top/focus' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/70 hover:bg-white/5'>Best supplements for focus</Link>
+        <div className='mt-4 flex flex-wrap gap-4'>
+          <Link href='/compare/ashwagandha-vs-rhodiola' className='text-sm font-medium text-emerald-700 hover:underline'>Compare ashwagandha vs rhodiola</Link>
+          <Link href='/top/sleep' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for sleep</Link>
+          <Link href='/top/focus' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for focus</Link>
         </div>
       </section>
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold text-white'>How stress-support approaches differ</h2>
-        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
-          <li><strong className='text-white'>Adaptogen-leaning picks:</strong> often discussed for resilience and all-day load management.</li>
-          <li><strong className='text-white'>Calming botanicals:</strong> usually used for situational tension or evening downshift.</li>
-          <li><strong className='text-white'>Mixed-profile options:</strong> can overlap with sleep and focus goals, so context matters.</li>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How stress-support approaches differ</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
+          <li><strong className='text-ink'>Adaptogen-leaning picks:</strong> often discussed for resilience and all-day load management.</li>
+          <li><strong className='text-ink'>Calming botanicals:</strong> usually used for situational tension or evening downshift.</li>
+          <li><strong className='text-ink'>Mixed-profile options:</strong> can overlap with sleep and focus goals, so context matters.</li>
         </ul>
       </section>
 
@@ -117,29 +117,32 @@ export default async function StressPage() {
           const label = titleFor(herb)
           const links = getHerbSearchLinks(label)
           return (
-            <article key={herb.slug} className='rounded-3xl border border-white/10 bg-white/[0.04] p-5'>
-              <div className='flex items-start justify-between gap-3'>
-                <h2 className='text-xl font-bold text-white'>#{index + 1} {label}</h2>
-                <span className='rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/55'>Score {scoreFor(herb) || 'N/A'}</span>
+            <article key={herb.slug} className='card-premium p-6 flex flex-col justify-between'>
+              <div>
+                <div className='flex items-start justify-between gap-3'>
+                  <h2 className='text-xl font-semibold text-ink'>#{index + 1} {label}</h2>
+                  <span className='rounded-full border border-brand-900/10 bg-brand-900/5 px-3 py-1 text-xs text-muted'>Score {scoreFor(herb) || 'N/A'}</span>
+                </div>
+                <p className='mt-3 text-sm text-muted'>{cleanSummary(text(herb.summary) || text(herb.description), 'herb')}</p>
               </div>
-              <p className='mt-3 text-sm leading-6 text-white/65'>{cleanSummary(text(herb.summary) || text(herb.description), 'herb')}</p>
-              <div className='mt-4 flex flex-wrap gap-2'>
-                <Link href={`/herbs/${herb.slug}/`} className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75 transition hover:bg-white/5 hover:text-white'>Read {label} profile</Link>
-                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-emerald-200'>Compare {label} products →</a> : null}
+              <div className='mt-4 flex flex-col gap-2'>
+                <Link href={`/herbs/${herb.slug}/`} className='text-sm font-medium text-emerald-700 hover:underline'>Read {label} profile</Link>
+                {links[0] ? <a href={links[0].url} target='_blank' rel='noopener noreferrer sponsored' className='text-sm font-medium text-emerald-700 hover:underline'>Compare products</a> : null}
               </div>
             </article>
           )
         })}
       </section>
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-        <h2 className='text-2xl font-bold text-white'>Related natural wellness guides</h2>
-        <div className='mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3'>
-          <Link href='/top/sleep' className='rounded-2xl border border-violet-300/20 bg-violet-300/10 p-4 text-white hover:bg-violet-300/15'>Best herbs for sleep</Link>
-          <Link href='/top/focus' className='rounded-2xl border border-blue-300/20 bg-blue-300/10 p-4 text-white hover:bg-blue-300/15'>Best supplements for focus</Link>
-          <Link href='/herbs' className='rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 text-white hover:bg-emerald-300/15'>Browse all herbs</Link>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Related natural wellness guides</h2>
+        <div className='mt-4 grid gap-4 sm:grid-cols-3'>
+          <Link href='/top/sleep' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Best herbs for sleep</Link>
+          <Link href='/top/focus' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Best supplements for focus</Link>
+          <Link href='/herbs' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Browse all herbs</Link>
         </div>
       </section>
     </main>
   )
 }
+

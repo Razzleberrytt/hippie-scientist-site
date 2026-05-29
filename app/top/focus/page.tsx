@@ -38,66 +38,72 @@ export default async function FocusPage() {
   const ranked = compounds.sort((a, b) => scoreFor(b) - scoreFor(a)).slice(0, 12)
 
   return (
-    <main className='mx-auto max-w-6xl space-y-6 px-4 py-8 text-white'>
-      <section className='rounded-[2rem] border border-white/10 bg-white/[0.04] p-6'>
-        <h1 className='text-4xl font-bold'>Best Supplements for Focus</h1>
-        <p className='mt-4 text-white/70'>
+    <main className='container-page py-10 space-y-8'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Focus guide</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Best Supplements for Focus</h1>
+        <p className='mt-4 text-muted'>
           These supplements are often discussed for focus, memory, and cognitive performance. Rankings are based on dataset signals and research context.
         </p>
-        <p className='mt-3 text-sm leading-6 text-white/60'>
+        <p className='mt-3 text-sm text-muted'>
           For beginners: separate short-term alertness tools from longer-horizon support. A useful stack decision is often about tradeoffs (speed vs steadiness), not just “strongest” effect.
         </p>
       </section>
 
-
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold text-white'>How to use this ranking responsibly</h2>
-        <p className='mt-3 text-sm leading-6 text-white/70'>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
+        <p className='mt-3 text-sm leading-6 text-muted'>
           This page is an educational comparison starting point. Ranking position reflects dataset signals, not a guarantee that one option will work best for you.
         </p>
-        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
           <li>Evidence quality and study design vary by herb or compound.</li>
           <li>Safety context matters: medications, health conditions, and pregnancy or nursing status can change fit.</li>
           <li>Individual response varies, so use full profiles and clinical guidance before decisions.</li>
         </ul>
       </section>
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-        <h2 className='text-2xl font-bold'>What supplements improve focus?</h2>
-        <p className='mt-3 text-white/65'>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>What supplements improve focus?</h2>
+        <p className='mt-3 text-sm text-muted'>
           Popular focus supplements include compounds that influence neurotransmitters, energy metabolism, and stress response — such as caffeine, L-theanine, creatine, and others found in the dataset.
         </p>
-        <div className='mt-4 flex flex-wrap gap-2'>
-          <Link href='/compare/creatine-vs-caffeine'>Creatine vs caffeine</Link>
-          <Link href='/top/stress'>Best herbs for stress</Link>
-          <Link href='/top/sleep'>Best herbs for sleep</Link>
+        <div className='mt-4 flex flex-wrap gap-4'>
+          <Link href='/compare/creatine-vs-caffeine' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
+          <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
+          <Link href='/top/sleep' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for sleep</Link>
         </div>
       </section>
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-        <h2 className='text-2xl font-bold'>How approaches differ</h2>
-        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
-          <li><strong className='text-white'>Stimulant-forward:</strong> faster perceived alertness, but tolerance and timing are practical constraints.</li>
-          <li><strong className='text-white'>Stress-buffering:</strong> can feel gentler and steadier when focus drops are stress-linked.</li>
-          <li><strong className='text-white'>Energy-metabolism support:</strong> usually framed as consistency over time, not immediate “kick.”</li>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How approaches differ</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
+          <li><strong className='text-ink'>Stimulant-forward:</strong> faster perceived alertness, but tolerance and timing are practical constraints.</li>
+          <li><strong className='text-ink'>Stress-buffering:</strong> can feel gentler and steadier when focus drops are stress-linked.</li>
+          <li><strong className='text-ink'>Energy-metabolism support:</strong> usually framed as consistency over time, not immediate “kick.”</li>
         </ul>
       </section>
 
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {ranked.map((c, i) => (
-          <div key={c.slug} className='border p-4 rounded-xl'>
-            <h2 className='font-bold'>#{i + 1} {titleFor(c)}</h2>
-            <p className='text-sm text-white/70'>{cleanSummary(c.summary || c.description, 'compound')}</p>
-            <a href={buildAmazonSearchUrl(c.slug)} target='_blank' rel='noopener noreferrer nofollow sponsored' className='mt-3 inline-block bg-emerald-300 text-black px-3 py-1 rounded'>Compare {titleFor(c)} products →</a>
-            <Link href={`/compounds/${c.slug}`} className='block mt-2 text-sm'>Read full profile →</Link>
+          <div key={c.slug} className='card-premium p-6 flex flex-col justify-between'>
+            <div>
+              <p className='text-xs font-semibold uppercase tracking-wider text-emerald-700'>Pick #{i + 1}</p>
+              <h2 className='mt-2 text-xl font-semibold text-ink'>{titleFor(c)}</h2>
+              <p className='mt-3 text-sm text-muted'>{cleanSummary(c.summary || c.description, 'compound')}</p>
+            </div>
+            <div className='mt-4 flex flex-col gap-2'>
+              <Link href={`/compounds/${c.slug}`} className='text-sm font-medium text-emerald-700 hover:underline'>Read full profile</Link>
+              <a href={buildAmazonSearchUrl(c.slug)} target='_blank' rel='noopener noreferrer nofollow sponsored' className='text-sm font-medium text-emerald-700 hover:underline'>Compare products</a>
+            </div>
           </div>
         ))}
       </div>
 
-      <section className='border-t border-white/10 pt-6'>
-        <h2 className='text-2xl font-bold'>Related guides</h2>
-        <div className='mt-3 flex gap-3 flex-wrap'>
-          <Link href='/top/stress'>Best herbs for stress</Link>
-          <Link href='/top/sleep'>Best herbs for sleep</Link>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Related guides</h2>
+        <div className='mt-4 flex flex-wrap gap-4'>
+          <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
+          <Link href='/top/sleep' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for sleep</Link>
         </div>
       </section>
     </main>

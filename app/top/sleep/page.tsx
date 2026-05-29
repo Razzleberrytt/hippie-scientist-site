@@ -68,44 +68,45 @@ export default async function TopSleepPage() {
   const topThree = ranked.slice(0, 3)
 
   return (
-    <main className='mx-auto max-w-6xl space-y-6 px-4 py-8 text-white'>
-      <section className='rounded-[2rem] border border-white/10 bg-white/[0.04] p-6'>
-        <h1 className='text-4xl font-bold'>Best Herbs for Sleep</h1>
-        <p className='mt-4 text-white/70'>
+    <main className='container-page py-10 space-y-8'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Sleep guide</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Best Herbs for Sleep</h1>
+        <p className='mt-4 text-muted'>
           These herbs are often discussed as natural sleep aids for insomnia, relaxation, and sleep-quality support.
         </p>
-        <p className='mt-3 text-sm leading-6 text-white/60'>
+        <p className='mt-3 text-sm text-muted'>
           Quick framing: most options are better understood as “sleep context” tools (wind-down, calm, stress load) rather than direct insomnia treatments.
         </p>
       </section>
 
-
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold text-white'>How to use this ranking responsibly</h2>
-        <p className='mt-3 text-sm leading-6 text-white/70'>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
+        <p className='mt-3 text-sm leading-6 text-muted'>
           This page is an educational comparison starting point. Ranking position reflects dataset signals, not a guarantee that one option will work best for you.
         </p>
-        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
           <li>Evidence quality and study design vary by herb or compound.</li>
           <li>Safety context matters: medications, health conditions, and pregnancy or nursing status can change fit.</li>
           <li>Individual response varies, so use full profiles and clinical guidance before decisions.</li>
         </ul>
       </section>
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-        <h2 className='text-2xl font-bold'>What herbs help with sleep and insomnia?</h2>
-        <p className='mt-3 text-white/65'>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>What herbs help with sleep and insomnia?</h2>
+        <p className='mt-3 text-sm text-muted'>
           Natural sleep herbs often support relaxation, reduce stress, or improve sleep onset. Popular examples include valerian, ashwagandha, lemon balm, and calming botanicals.
         </p>
-        <div className='mt-4 flex flex-wrap gap-2'>
-          <Link href='/compare/ashwagandha-vs-rhodiola'>Ashwagandha vs Rhodiola</Link>
-          <Link href='/top/stress'>Best herbs for stress</Link>
-          <Link href='/top/focus'>Best supplements for focus</Link>
+        <div className='mt-4 flex flex-wrap gap-4'>
+          <Link href='/compare/ashwagandha-vs-rhodiola' className='text-sm font-medium text-emerald-700 hover:underline'>Ashwagandha vs Rhodiola</Link>
+          <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
+          <Link href='/top/focus' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for focus</Link>
         </div>
       </section>
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5 sm:p-6'>
-        <h2 className='text-2xl font-bold text-white'>Beginner decision notes</h2>
-        <ul className='mt-3 space-y-2 text-sm leading-6 text-white/65'>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Beginner decision notes</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
           <li>If your issue is a racing mind, start with calmer, gentler profiles first.</li>
           <li>If the issue is stress spillover, prioritize stress-support context over “strongest sleep herb.”</li>
           <li>Keep timing and next-day grogginess in mind when comparing options.</li>
@@ -113,21 +114,21 @@ export default async function TopSleepPage() {
       </section>
 
       <section>
-        <h2 className='text-xl font-semibold'>Top 3 Herbs</h2>
+        <h2 className='text-2xl font-semibold text-ink'>Top 3 Herbs</h2>
         <div className='mt-4 grid gap-4'>
           {topThree.map(herb => {
             const label = herbLabel(herb)
             const links = getHerbSearchLinks(label)
             return (
-              <article key={herb.slug} className='border p-4 rounded-xl'>
-                <h3 className='text-lg font-semibold'>{label}</h3>
-                <p className='mt-2 text-sm text-white/70'>
+              <article key={herb.slug} className='card-premium p-6'>
+                <h3 className='text-xl font-semibold text-ink'>{label}</h3>
+                <p className='mt-2 text-sm text-muted'>
                   {cleanSummary(herb.mechanism_summary || herb.summary, 'herb')}
                 </p>
-                <div className='mt-3 flex gap-2 flex-wrap'>
-                  <Link href={`/herbs/${herb.slug}`}>Read {label} profile</Link>
+                <div className='mt-4 flex gap-4'>
+                  <Link href={`/herbs/${herb.slug}`} className='text-sm font-medium text-emerald-700 hover:underline'>Read profile</Link>
                   {links[0] && (
-                    <a href={links[0].url} target='_blank' rel='noopener noreferrer nofollow sponsored'>Compare {label} products →</a>
+                    <a href={links[0].url} target='_blank' rel='noopener noreferrer nofollow sponsored' className='text-sm font-medium text-emerald-700 hover:underline'>Compare products</a>
                   )}
                 </div>
               </article>
@@ -136,13 +137,14 @@ export default async function TopSleepPage() {
         </div>
       </section>
 
-      <section className='border-t border-white/10 pt-6'>
-        <h2 className='text-2xl font-bold'>Related guides</h2>
-        <div className='mt-3 flex gap-3 flex-wrap'>
-          <Link href='/top/stress'>Best herbs for stress</Link>
-          <Link href='/top/focus'>Best supplements for focus</Link>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Related guides</h2>
+        <div className='mt-4 flex flex-wrap gap-4'>
+          <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
+          <Link href='/top/focus' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for focus</Link>
         </div>
       </section>
     </main>
   )
 }
+

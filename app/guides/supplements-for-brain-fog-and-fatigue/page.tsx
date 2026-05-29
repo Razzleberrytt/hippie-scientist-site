@@ -9,30 +9,31 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className='mx-auto max-w-3xl space-y-6 px-4 py-10 text-white'>
-      <section className='rounded-[2rem] border border-white/10 bg-white/[0.04] p-6'>
-        <p className='text-xs font-bold uppercase tracking-[0.2em] text-emerald-100/70'>Guide</p>
-        <h1 className='mt-3 text-4xl font-black'>Supplements for Brain Fog and Fatigue</h1>
-        <p className='mt-4 text-white/70'>Brain fog and fatigue can overlap with poor sleep, stress, low energy availability, or inconsistent focus. This guide points you toward research pages, not medical advice.</p>
+    <div className='container-page py-10 space-y-8 max-w-3xl'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Guide</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Supplements for Brain Fog and Fatigue</h1>
+        <p className='mt-4 text-muted'>Brain fog and fatigue can overlap with poor sleep, stress, low energy availability, or inconsistent focus. This guide points you toward research pages, not medical advice.</p>
       </section>
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-        <h2 className='text-2xl font-bold'>Fast answer</h2>
-        <ul className='mt-4 list-disc space-y-2 pl-5 text-white/70'>
-          <li><strong className='text-white'>Creatine</strong> is commonly discussed for energy metabolism and performance context.</li>
-          <li><strong className='text-white'>Rhodiola</strong> is often framed around stress-linked fatigue.</li>
-          <li><strong className='text-white'>Caffeine + L-theanine</strong> is a popular focus stack when stimulation needs smoothing.</li>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Fast answer</h2>
+        <ul className='mt-4 list-disc space-y-2 pl-5 text-muted'>
+          <li><strong className='text-ink'>Creatine</strong> is commonly discussed for energy metabolism and performance context.</li>
+          <li><strong className='text-ink'>Rhodiola</strong> is often framed around stress-linked fatigue.</li>
+          <li><strong className='text-ink'>Caffeine + L-theanine</strong> is a popular focus stack when stimulation needs smoothing.</li>
         </ul>
       </section>
 
-      <section className='rounded-3xl border border-white/10 bg-white/[0.035] p-5'>
-        <h2 className='text-2xl font-bold'>Where to go next</h2>
-        <div className='mt-4 flex flex-wrap gap-2'>
-          <Link href='/top/best-supplements-for-brain-fog' className='rounded-2xl bg-emerald-300 px-4 py-2 text-sm font-bold text-slate-950'>Best supplements for brain fog</Link>
-          <Link href='/top/best-supplements-for-fatigue' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75'>Best supplements for fatigue</Link>
-          <Link href='/compare/creatine-vs-caffeine' className='rounded-2xl border border-white/10 px-4 py-2 text-sm font-bold text-white/75'>Creatine vs caffeine</Link>
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Where to go next</h2>
+        <div className='mt-4 flex flex-wrap gap-4'>
+          <Link href='/top/best-supplements-for-brain-fog' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
+          <Link href='/top/best-supplements-for-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for fatigue</Link>
+          <Link href='/compare/creatine-vs-caffeine' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
+

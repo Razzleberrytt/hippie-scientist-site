@@ -8,18 +8,25 @@ export const metadata: Metadata = {
 
 export default function Page(){
   return (
-    <main className='mx-auto max-w-3xl p-6 text-white space-y-6'>
-      <h1 className='text-4xl font-bold'>Best Natural Sleep Aids That Work</h1>
-      <p className='text-white/70'>Sleep issues are often tied to stress and nervous system activation.</p>
-      <ul className='list-disc ml-5 text-white/70'>
-        <li>Valerian → sleep onset</li>
-        <li>Lemon balm → calming</li>
-        <li>Passionflower → relaxation</li>
-      </ul>
-      <div className='mt-6 flex gap-2'>
-        <Link href='/top/top-3-natural-sleep-aids'>Top sleep aids →</Link>
-        <Link href='/compare/magnesium-vs-melatonin'>Magnesium vs melatonin →</Link>
-      </div>
-    </main>
+    <div className='container-page py-10 space-y-8 max-w-3xl'>
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
+        <p className='eyebrow-label'>Guide</p>
+        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Best Natural Sleep Aids That Work</h1>
+        <p className='mt-4 text-muted'>Sleep issues are often tied to stress and nervous system activation.</p>
+      </section>
+
+      <section className='card-premium p-6'>
+        <ul className='list-disc pl-5 mt-2 space-y-2 text-muted'>
+          <li><strong className='text-ink'>Valerian:</strong> sleep onset</li>
+          <li><strong className='text-ink'>Lemon balm:</strong> calming</li>
+          <li><strong className='text-ink'>Passionflower:</strong> relaxation</li>
+        </ul>
+        <div className='mt-6 flex gap-4 flex-wrap'>
+          <Link href='/top/top-3-natural-sleep-aids' className='text-sm font-medium text-emerald-700 hover:underline'>Top sleep aids →</Link>
+          <Link href='/compare/magnesium-vs-melatonin' className='text-sm font-medium text-emerald-700 hover:underline'>Magnesium vs melatonin →</Link>
+        </div>
+      </section>
+    </div>
   )
 }
+
