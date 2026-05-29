@@ -1,15 +1,15 @@
 {
   "reportVersion": 1,
   "canonicalMechanisms": 53,
-  "records": 912,
-  "fullyMappedRecords": 671,
-  "partiallyMappedRecords": 166,
+  "records": 907,
+  "fullyMappedRecords": 669,
+  "partiallyMappedRecords": 163,
   "unmappedRecords": 74,
   "noRawMechanismRecords": 1,
   "unmappedMechanisms": [
     {
       "term": "Neurotransmitter Modulation",
-      "count": 175
+      "count": 172
     },
     {
       "term": "general phytochemical signaling",

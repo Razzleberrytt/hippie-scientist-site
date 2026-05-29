@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T03:57:35.986Z",
+  "generatedAt": "2026-05-29T05:41:35.480Z",
   "source": "workbook+summary-indexes",
   "entities": {
     "herbs": [
@@ -190,10 +190,6 @@
       {
         "slug": "calendula",
         "name": "Calendula"
-      },
-      {
-        "slug": "capsicum-frutescens",
-        "name": "Capsicum Frutescens"
       },
       {
         "slug": "caraway",
@@ -1032,7 +1028,7 @@
   },
   "counts": {
     "herbs_total": 285,
-    "herbs_eligible": 256,
+    "herbs_eligible": 255,
     "compounds_total": 235,
     "compounds_eligible": 0
   }

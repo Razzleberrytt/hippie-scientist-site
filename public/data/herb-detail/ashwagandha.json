@@ -1,8 +1,8 @@
 {
   "slug": "ashwagandha",
   "name": "Ashwagandha (Withania somnifera)",
-  "summary": "Ashwagandha centers on the root.",
-  "description": "Ashwagandha centers on the root. Key reported compounds include withaferin A; withanolide D; withanolide A; withanoside IV; sitoindosides; alkaloids.",
+  "summary": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
   "effects": [
     "sleep",
     "stress"
@@ -11,73 +11,61 @@
     "sleep"
   ],
   "mechanisms": [
-    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation",
     "Hormonal Signaling Context",
-    "Stress Response Modulation",
-    "Neuroprotective Activity",
-    "NF-kB Modulation"
+    "Stress Response Modulation"
   ],
   "raw_mechanisms": [
-    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation",
     "Hormonal Signaling Context",
-    "Stress Response Modulation",
-    "Neuroprotective Activity",
-    "NF-kB Modulation"
+    "Stress Response Modulation"
   ],
   "canonical_mechanisms": [
-    "Antioxidant",
+    "Anti-inflammatory",
     "Hormonal signaling context",
-    "HPA-axis modulation",
-    "Neuroprotective activity",
-    "NF-kB inhibition"
+    "HPA-axis modulation"
   ],
   "mechanism_categories": [
     "core",
-    "stress",
-    "inflammatory"
+    "stress"
   ],
   "mechanism_classes": [
     "Physiological effect",
-    "Neuroendocrine modulation",
-    "Signaling pathway modulation"
+    "Neuroendocrine modulation"
   ],
   "mechanism_target_systems": [
-    "redox/mitochondrial",
+    "immune/inflammatory",
     "endocrine",
-    "stress/neuroendocrine",
-    "nervous system",
-    "immune/inflammatory"
+    "stress/neuroendocrine"
   ],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
     "Neurotransmitter Modulation"
   ],
-  "evidence_grade": "b",
-  "evidence_tier": "Moderate Human Evidence",
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
   "contraindications": [
-    "pregnancy",
-    "autoimmune conditions",
-    "hyperthyroidism"
+    "Hyperthyroidism",
+    "sedatives"
   ],
   "interactions": [
-    "sedatives",
-    "thyroid hormone",
-    "immunosuppressants"
+    "Hyperthyroidism",
+    "sedatives"
   ],
   "side_effects": [],
-  "dosage": "Root extract standardized to 1.5-5% withanolides: 300-600 mg/day; variability across extracts and proprietary formulations",
-  "typical_dosage": "Root extract standardized to 1.5-5% withanolides: 300-600 mg/day; variability across extracts and proprietary formulations",
+  "dosage": "300-600 mg extract (KSM-66 or equivalent)",
+  "typical_dosage": "300-600 mg extract (KSM-66 or equivalent)",
   "forms": [],
   "available_forms": [],
   "conditions": [],
   "tags": [],
   "keywords": [],
   "affiliate_ready": false,
-  "affiliate_url": "https://www.amazon.com/s?k=organic+ashwagandha&tag=razzleberry02-20",
+  "affiliate_url": "https://www.amazon.com/s?k=organic+withania-somnifera&tag=razzleberry02-20",
   "affiliate_label": "Check sourcing options",
-  "affiliate_query": "Ashwagandha (Withania somnifera) standardized extract capsule supplement",
+  "affiliate_query": "Ashwagandha standardized extract capsule supplement",
   "default_product_type": "",
   "amazon_affiliate_url": "",
   "iherb_affiliate_url": "",
@@ -87,27 +75,27 @@
     "third-party testing",
     "avoid if listed contraindications apply"
   ],
-  "profile_status": "partial",
+  "profile_status": "top50_authority_patched",
   "runtime_export_decision": "limited",
   "visibility_tier": "public",
   "robots": "index,follow",
   "sitemap_included": true,
   "indexability_status": "eligible",
   "indexability_score": {
-    "status": "NEEDS_REVIEW",
-    "score": 68,
-    "robots": "noindex,follow",
-    "sitemap_included": false,
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
     "reasons": [
       "effect-present",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
-      "profile-status:partial",
+      "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],

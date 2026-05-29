@@ -1,15 +1,17 @@
 {
   "slug": "capsicum-annuum",
   "name": "Capsicum",
-  "summary": "Capsicum is tracked for fat_loss,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-  "description": "Capsicum is tracked for fat_loss,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "Pepper species used for topical and metabolic effects.",
+  "description": "Pepper species used for topical and metabolic effects.",
   "effects": [
     "metabolic",
-    "analgesic"
+    "analgesic",
+    "skin-support"
   ],
   "primary_effects": [
     "metabolic",
-    "analgesic"
+    "analgesic",
+    "skin-support"
   ],
   "mechanisms": [
     "Metabolic Regulation"
@@ -31,26 +33,30 @@
   ],
   "mechanism_normalization_status": "fully_mapped",
   "unmapped_mechanisms": [],
-  "evidence_grade": "b",
+  "evidence_grade": "a",
   "evidence_tier": "Strong Human Evidence",
   "contraindications": [
-    "GI disorders"
+    "Broken or inflamed skin for topical use",
+    "known chili/capsaicin allergy",
+    "uncontrolled reflux for oral products."
   ],
   "interactions": [
-    "GI disorders"
+    "Additive skin irritation with other topical rubs",
+    "oral products may theoretically compound antihypertensive or anticoagulant regimens",
+    "but clinical evidence is limited."
   ],
   "side_effects": [],
-  "dosage": "2-10 mg capsaicin",
-  "typical_dosage": "2-10 mg capsaicin",
+  "dosage": "",
+  "typical_dosage": "",
   "forms": [],
   "available_forms": [],
   "conditions": [],
   "tags": [],
   "keywords": [],
   "affiliate_ready": false,
-  "affiliate_url": "https://www.amazon.com/s?k=organic+capsicum-annuum&tag=razzleberry02-20",
+  "affiliate_url": "https://www.amazon.com/s?k=organic+capsicum-frutescens&tag=razzleberry02-20",
   "affiliate_label": "Check sourcing options",
-  "affiliate_query": "Capsicum capsule, tea, or standardized extract supplement",
+  "affiliate_query": "capsicum frutescens tea, capsule, or standardized extract depending on goal supplement",
   "default_product_type": "",
   "amazon_affiliate_url": "",
   "iherb_affiliate_url": "",
@@ -60,7 +66,7 @@
     "third-party testing",
     "avoid if listed contraindications apply"
   ],
-  "profile_status": "top50_authority_patched",
+  "profile_status": "partial",
   "runtime_export_decision": "limited",
   "visibility_tier": "public",
   "robots": "index,follow",
@@ -68,7 +74,7 @@
   "indexability_status": "eligible",
   "indexability_score": {
     "status": "PUBLISH",
-    "score": 100,
+    "score": 83,
     "robots": "index,follow",
     "sitemap_included": true,
     "reasons": [
@@ -77,9 +83,9 @@
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
-      "profile-status:top50_authority_patched",
+      "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },

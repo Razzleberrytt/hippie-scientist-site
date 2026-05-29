@@ -158,44 +158,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "alpha-gpc",
-    "name": "Alpha-GPC",
-    "summary": "Alpha-GPC is tracked for cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "primary_effects": [
-      "cognitive"
-    ],
-    "effects": [
-      "cognitive"
-    ],
-    "evidence_grade": "a",
-    "evidence_tier": "Strong Human Evidence",
-    "profile_status": "top50_authority_patched",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "PUBLISH",
-      "score": 100,
-      "robots": "index,follow",
-      "sitemap_included": true,
-      "reasons": [
-        "effect-present",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:top50_authority_patched",
-        "safety-context",
-        "summary-depth",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "panax-quinquefolius",
     "name": "American Ginseng",
     "summary": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
@@ -887,8 +849,8 @@
     "indexability_reasons": []
   },
   {
-    "slug": "withania-somnifera",
-    "name": "Ashwagandha",
+    "slug": "ashwagandha",
+    "name": "Ashwagandha (Withania somnifera)",
     "summary": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "primary_effects": [
       "sleep"
@@ -921,45 +883,6 @@
         "safety-context",
         "summary-depth",
         "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "ashwagandha",
-    "name": "Ashwagandha (Withania somnifera)",
-    "summary": "Ashwagandha centers on the root.",
-    "primary_effects": [
-      "sleep"
-    ],
-    "effects": [
-      "sleep",
-      "stress"
-    ],
-    "evidence_grade": "b",
-    "evidence_tier": "Moderate Human Evidence",
-    "profile_status": "partial",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NEEDS_REVIEW",
-      "score": 68,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "effect-present",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:partial",
-        "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
       ]
     },
     "indexability_reasons": []
@@ -2233,46 +2156,6 @@
   {
     "slug": "capsicum-annuum",
     "name": "Capsicum",
-    "summary": "Capsicum is tracked for fat_loss,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "primary_effects": [
-      "metabolic",
-      "analgesic"
-    ],
-    "effects": [
-      "metabolic",
-      "analgesic"
-    ],
-    "evidence_grade": "b",
-    "evidence_tier": "Strong Human Evidence",
-    "profile_status": "top50_authority_patched",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "PUBLISH",
-      "score": 100,
-      "robots": "index,follow",
-      "sitemap_included": true,
-      "reasons": [
-        "effect-coverage",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:top50_authority_patched",
-        "safety-context",
-        "summary-depth",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "capsicum-frutescens",
-    "name": "Capsicum Frutescens",
     "summary": "Pepper species used for topical and metabolic effects.",
     "primary_effects": [
       "metabolic",
@@ -2979,48 +2862,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "citicoline",
-    "name": "Citicoline",
-    "summary": "Citicoline is tracked for cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "primary_effects": [
-      "cognitive",
-      "neuroprotective",
-      "energy"
-    ],
-    "effects": [
-      "cognitive",
-      "neuroprotective",
-      "energy"
-    ],
-    "evidence_grade": "a",
-    "evidence_tier": "Strong Human Evidence",
-    "profile_status": "top50_authority_patched",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "PUBLISH",
-      "score": 100,
-      "robots": "index,follow",
-      "sitemap_included": true,
-      "reasons": [
-        "effect-coverage",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:top50_authority_patched",
-        "safety-context",
-        "summary-depth",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "citrus-bergamia",
     "name": "Citrus Bergamia",
     "summary": "Citrus bergamia lean monograph row enriched in bulk mode.",
@@ -3644,44 +3485,6 @@
         "identity-present",
         "mechanism-context",
         "profile-status:partial",
-        "safety-context",
-        "summary-depth",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "creatine",
-    "name": "Creatine",
-    "summary": "Creatine is tracked for sleep,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "primary_effects": [
-      "sleep"
-    ],
-    "effects": [
-      "sleep"
-    ],
-    "evidence_grade": "a",
-    "evidence_tier": "Strong Human Evidence",
-    "profile_status": "top50_authority_patched",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "PUBLISH",
-      "score": 100,
-      "robots": "index,follow",
-      "sitemap_included": true,
-      "reasons": [
-        "effect-present",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:top50_authority_patched",
         "safety-context",
         "summary-depth",
         "summary-quality-missing"
