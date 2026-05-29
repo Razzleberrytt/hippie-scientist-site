@@ -37,16 +37,30 @@
 - Reason: `npm run check` alias is identical to `npm run build` which builds and runs intensive post-build audits. Standalone verification scripts were tested.
 
 ## Fixes Applied
-- None yet.
+- Centralized affiliate tag config to use `AFFILIATE_TAGS.amazon` from `config/affiliate.ts` and cleared hardcoded `razzleberry02-20` strings in code.
+- Replaced the homepage with detailed decision outcome links, specialized discovery guide grids, and safety notices.
+- Expanded the three placeholder SEO/Discovery cluster pages with detailed comparative layouts and internal links.
+- Resolved `NavCard` ESLint unused variable check failure.
+- Enhanced the `audit-internal-links.mjs` script with batch and file logging to easily debug build runs.
 
 ## Files Changed
-- None yet.
+- `components/homepage-v2.tsx`
+- `app/natural-anxiolytics-beyond-ashwagandha/page.tsx`
+- `app/sleep-herbs-vs-melatonin/page.tsx`
+- `app/psychedelic-adjacent-herbs/page.tsx`
+- `components/AffiliateBlock.tsx`
+- `data/product-picks.ts`
+- `lib/amazon-auto.ts`
+- `scripts/ci/audit-internal-links.mjs`
+- `docs/plans/antigravity2_handoff.md`
 
 ## Validation Result
 - Clean lint and typecheck (`npm run check:fast` passes cleanly).
+- 127/127 tests in the Vitest suite passed.
+- Production static export build (`npm run build`) completed successfully with sitemap, route-manifest, and link density checks validating cleanly.
 
 ## Remaining Blockers
 - None.
 
 ## Recommended Next Task
-- Execute the sprint changes outlined in the Implementation Plan.
+- Expand data enrichment in the source workbook (`data-sources/herb_monograph_master.xlsx`) to populate additional Amazon product pick ASINs and the `best_for` / `avoid_if` fields.
