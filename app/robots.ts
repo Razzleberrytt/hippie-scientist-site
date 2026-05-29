@@ -31,11 +31,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: disallowedRoutes,
       },
-      // OPTIONAL — uncomment to block Gemini AI training on your content:
-      // {
-      //   userAgent: 'Google-Extended',
-      //   disallow: '/',
-      // },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,
