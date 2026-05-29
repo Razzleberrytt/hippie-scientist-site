@@ -11,9 +11,8 @@ const siteName = 'The Hippie Scientist'
 const siteDescription =
   'Evidence-aware research on herbs, compounds, mechanisms, safety context, and practical supplement decisions.'
 
-// Canonical domain is thehippiescientist.net (no www).
-// A 301 www→bare redirect should be configured in Cloudflare.
-const siteUrl = 'https://thehippiescientist.net'
+// Canonical production domain. Cloudflare redirects should resolve to this host.
+const siteUrl = 'https://www.thehippiescientist.net'
 
 // Enhanced JSON-LD: logo + SearchAction for Google Knowledge Panel and Sitelinks Searchbox
 const websiteJsonLd = {

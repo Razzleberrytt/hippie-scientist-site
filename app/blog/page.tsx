@@ -3,6 +3,8 @@ import Link from 'next/link'
 import posts from '../../data/blog/posts.json'
 import { ContentIdentityCard, SemanticBrowseModule } from '@/components/scientific-discovery'
 
+export const dynamic = 'force-static'
+
 const allPosts = posts as any[]
 
 const getPostSortValue = (post: any): number => {

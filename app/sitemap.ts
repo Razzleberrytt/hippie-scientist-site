@@ -19,11 +19,16 @@ import {
 
 export const dynamic = 'force-static'
 
-// Bare domain (no www) — consistent with layout.tsx and robots.ts.
-// Configure a 301 www→bare redirect in Cloudflare.
-const siteUrl = 'https://thehippiescientist.net'
+// Canonical production domain. Keep sitemap URLs aligned with Cloudflare's www canonical host.
+const siteUrl = 'https://www.thehippiescientist.net'
 
-const editorialDate = new Date('2026-04-01')
+const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH
+  ? Number.parseInt(process.env.SOURCE_DATE_EPOCH, 10)
+  : Number.NaN
+const buildTimestamp = Number.isFinite(sourceDateEpoch)
+  ? sourceDateEpoch * 1000
+  : Date.now()
+const editorialDate = new Date(buildTimestamp)
 const MAX_SITEMAP_ROUTES = Number.parseInt(process.env.SITEMAP_MAX_ROUTES || '5000', 10)
 
 type SlugRecord = {
@@ -95,6 +100,12 @@ const clusterRoutes = [
   '/psychedelic-adjacent-herbs',
 ]
 
+const staticMvpRoutes = [
+  '/a-tier',
+  '/faq',
+  '/learn',
+]
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [herbs, runtimeCompounds] = await Promise.all([
     getHerbSummaryIndex(),
@@ -134,6 +145,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     route('/protocols', { priority: 0.7, changeFrequency: 'monthly' }),
     // /safety-checker added — working tool previously missing from sitemap
     route('/safety-checker', { priority: 0.7, changeFrequency: 'monthly' }),
+
+    ...staticMvpRoutes.map((path) =>
+      route(path, { priority: 0.65, changeFrequency: 'monthly' }),
+    ),
 
     ...seoEntryPages.map(page =>
       route(`/${page.route}`, { priority: 0.7, changeFrequency: 'monthly' }),
