@@ -16,7 +16,7 @@
     "test:watch": "vitest",
     "check:ui": "npm run lint && npm run typecheck && npm run validate:static-export && npm run validate:route-seo",
     "check:data": "npm run data:build && npm run data:validate && npm run data:verify",
-    "check:full": "npm run build",
+    "check:full": "npm run lint && npm run typecheck && npm run build",
     "agent:run": "node agent/orchestrator/run-orchestrator.js",
     "agent:review": "node scripts/review-patches.mjs",
     "semantic:governance": "node scripts/ci/semantic-governance-check.mjs",
