@@ -8,7 +8,7 @@ if(!fs.existsSync(outDir)){console.error('Build output not found at out/. Run np
 walk(outDir)
 const routes=new Set(files.map(f=>'/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/+/g,'/').replace(/\/$/,'')||'/'))
 const graph=new Map([...routes].map(r=>[r,new Set()]))
-const hrefRe=/href=["']([^"'#]+)["']/g
+const hrefRe=/href=["'](\/[^"'#\s>]+)["']/g
 
 async function run() {
   const batchSize = 100

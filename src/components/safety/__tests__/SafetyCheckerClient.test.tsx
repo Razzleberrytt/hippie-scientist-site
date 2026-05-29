@@ -50,7 +50,7 @@ describe('SafetyCheckerClient', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
     
     expect(screen.getByText(/Search Ingredients/i)).toBeInTheDocument()
-    expect(screen.getByText(/Add two or more items/i)).toBeInTheDocument()
+    expect(screen.getByText(/Add items/i)).toBeInTheDocument()
   })
 
   it('scans and alerts for CNS Depressant / GABAergic overlap', async () => {
@@ -108,5 +108,43 @@ describe('SafetyCheckerClient', () => {
     fireEvent.click(clearBtn)
 
     expect(screen.getByText(/No items selected/i)).toBeInTheDocument()
+  })
+
+  it('scans and alerts for Drug-Supplement SSRI + serotonergic danger overlap', () => {
+    render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
+    
+    // Add Kanna Extract (serotonergic supplement)
+    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    fireEvent.focus(input)
+    fireEvent.change(input, { target: { value: 'Kanna' } })
+    fireEvent.click(screen.getByText('Kanna Extract'))
+
+    // Add SSRI antidepressant
+    const ssriBtn = screen.getByText('SSRI / SNRI Antidepressants')
+    fireEvent.click(ssriBtn)
+
+    // Assert Warning is visible
+    expect(screen.getByText(/Drug-Supplement Serotonin Toxicity Risk/i)).toBeInTheDocument()
+    expect(screen.getByText(/Stacking serotonergic medications with serotonergic supplements/i)).toBeInTheDocument()
+    expect(screen.getByText(/Risk Level: high/i)).toBeInTheDocument()
+  })
+
+  it('scans and alerts for Drug-Supplement MAOI + serotonergic danger overlap', () => {
+    render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
+    
+    // Add Kanna Extract (serotonergic supplement)
+    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    fireEvent.focus(input)
+    fireEvent.change(input, { target: { value: 'Kanna' } })
+    fireEvent.click(screen.getByText('Kanna Extract'))
+
+    // Add MAO Inhibitors
+    const maoiBtn = screen.getByText('MAO Inhibitors (MAOIs)')
+    fireEvent.click(maoiBtn)
+
+    // Assert Warning is visible
+    expect(screen.getByText(/Critical MAOI Drug-Supplement Contraindication/i)).toBeInTheDocument()
+    expect(screen.getByText(/matched a Monoamine Oxidase Inhibitor/i)).toBeInTheDocument()
+    expect(screen.getByText(/Risk Level: high/i)).toBeInTheDocument()
   })
 })

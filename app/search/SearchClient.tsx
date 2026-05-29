@@ -446,6 +446,39 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
   )
 }
 
+const LAYPERSON_SYNONYMS: Record<string, string[]> = {
+  sleep: ['insomnia', 'somnifera', 'melatonin', 'rest', 'gabaergic', 'wind down', 'relaxation'],
+  stress: ['cortisol', 'adaptogen', 'adrenal', 'anxiety', 'calm'],
+  anxiety: ['anxiolytic', 'nervous', 'calm', 'relax', 'tension', 'stress'],
+  focus: ['attention', 'concentration', 'nootropic', 'caffeine', 'dopamine', 'alertness'],
+  energy: ['fatigue', 'stamina', 'vitality', 'atp', 'mitochondrial', 'caffeine'],
+  pain: ['analgesic', 'inflammation', 'inflammatory', 'antinociceptive', 'joint'],
+  brain: ['cognition', 'nootropic', 'memory', 'acetylcholine', 'neurological'],
+  aging: ['longevity', 'antioxidant', 'senescence', 'sirt1', 'autophagy'],
+  heart: ['cardiovascular', 'blood pressure', 'circulation', 'cholesterol'],
+  gut: ['digestion', 'probiotic', 'microbiome', 'gastrointestinal'],
+}
+
+function expandQuery(query: string): string {
+  const normalized = query.toLowerCase().trim()
+  if (!normalized) return ''
+  const words = normalized.split(/\s+/)
+  const expandedWords = new Set<string>(words)
+  
+  words.forEach(word => {
+    if (LAYPERSON_SYNONYMS[word]) {
+      LAYPERSON_SYNONYMS[word].forEach(syn => expandedWords.add(syn))
+    }
+    Object.keys(LAYPERSON_SYNONYMS).forEach(key => {
+      if (word.includes(key) || key.includes(word)) {
+        LAYPERSON_SYNONYMS[key].forEach(syn => expandedWords.add(syn))
+      }
+    })
+  })
+  
+  return Array.from(expandedWords).join(' ')
+}
+
 export default function SearchClient() {
   const [query, setQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState<FilterType>('All')
@@ -462,10 +495,19 @@ export default function SearchClient() {
     return [...herbs, ...compounds].sort(compareAuthority)
   }, [])
 
+  const expandedQueryText = useMemo(() => {
+    return expandQuery(normalizedQuery)
+  }, [normalizedQuery])
+
   const suggestions = useMemo(() => {
     if (!normalizedQuery) return []
+    const lowerQuery = normalizedQuery.toLowerCase()
     return searchItems
-      .filter(item => item.name.toLowerCase().includes(normalizedQuery.toLowerCase()))
+      .filter(item => {
+        const matchesName = item.name.toLowerCase().includes(lowerQuery)
+        const matchesText = item.searchText.toLowerCase().includes(lowerQuery)
+        return matchesName || (matchesText && lowerQuery.length > 2)
+      })
       .slice(0, 5)
   }, [normalizedQuery, searchItems])
 
@@ -484,7 +526,7 @@ export default function SearchClient() {
   const results = useMemo(() => {
     let baseResults = !normalizedQuery
       ? searchItems.slice(0, 18)
-      : fuse.search(normalizedQuery)
+      : fuse.search(expandedQueryText)
           .map(result => ({
             item: result.item,
             relevanceScore: 1 - (result.score ?? 1),
@@ -520,7 +562,7 @@ export default function SearchClient() {
     }
 
     return baseResults.slice(0, 36)
-  }, [normalizedQuery, searchIntent, fuse, searchItems, activeFilter, trialsFilter, safetyFilter, mechanismFilter])
+  }, [normalizedQuery, expandedQueryText, searchIntent, fuse, searchItems, activeFilter, trialsFilter, safetyFilter, mechanismFilter])
 
   const herbs = results.filter(item => item.type === 'Herb')
   const compounds = results.filter(item => item.type === 'Compound')
