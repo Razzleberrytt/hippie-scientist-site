@@ -72,12 +72,22 @@ function canIndex(record) {
   return indexableStatus && indexableQuality && evidenceSupported && !hasResearchPending
 }
 
-function isCompoundEligible(compound) {
+function isCompoundEligible(compound, herbCounts) {
+  const cid = String(compound?.id || compound?.slug || compound?.canonicalCompoundId || '').trim()
+  const computedHerbCount = herbCounts[cid] || 0
+  const hasHerbCoverage = computedHerbCount > 0
+
   const reverseLookupReady = String(compound?.reverseLookupReady ?? '').trim() === 'Yes'
-  const herbCount = Number.parseInt(String(compound?.herbCount ?? '').trim(), 10)
-  const hasHerbCoverage = Number.isFinite(herbCount) && herbCount > 0
-  const hasMechanism = text(compound?.mechanism).length > 0
-  return (reverseLookupReady || hasHerbCoverage) && hasMechanism
+  
+  const readinessTier = String(compound?.readiness_tier ?? '').trim().toUpperCase()
+  const isReadinessAB = readinessTier === 'A' || readinessTier === 'B'
+  
+  const siteExportStatus = String(compound?.site_export_status_v2 ?? '').trim().toLowerCase()
+  const isExportReady = siteExportStatus === 'runtime_export_ready' || siteExportStatus === 'limited_runtime_candidate'
+
+  const hasMechanism = text(compound?.mechanism || compound?.mechanisms).length > 0
+  
+  return (reverseLookupReady || hasHerbCoverage || isReadinessAB || isExportReady) && hasMechanism
 }
 
 function run() {
@@ -88,6 +98,15 @@ function run() {
   const workbookHerbs = readJson('workbook-herbs.json', [])
   const workbookCompounds = readJson('workbook-compounds.json', [])
   const herbSummaryIndex = readJson('summary-indexes/herbs-summary.json', [])
+  const mapData = readJson('workbook-herb-compound-map.json', [])
+
+  const herbCounts = {}
+  for (const entry of mapData) {
+    const cid = String(entry.canonicalCompoundId || entry.compoundSlug || '').trim()
+    if (cid) {
+      herbCounts[cid] = (herbCounts[cid] || 0) + 1
+    }
+  }
 
   const workbookHerbSlugSet = new Set((Array.isArray(workbookHerbs) ? workbookHerbs : []).map((row) => text(row?.slug)).filter(Boolean))
 
@@ -98,8 +117,8 @@ function run() {
     .sort((a, b) => a.slug.localeCompare(b.slug))
 
   const eligibleCompounds = (Array.isArray(workbookCompounds) ? workbookCompounds : [])
-    .filter((compound) => isCompoundEligible(compound))
-    .map((compound) => String(compound?.id ?? compound?.canonicalCompoundId ?? '').trim())
+    .filter((compound) => isCompoundEligible(compound, herbCounts))
+    .map((compound) => String(compound?.id ?? compound?.canonicalCompoundId ?? compound?.slug ?? '').trim())
     .filter(Boolean)
   const uniqueEligibleCompounds = [...new Set(eligibleCompounds)].sort((a, b) => a.localeCompare(b))
 

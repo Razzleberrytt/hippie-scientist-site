@@ -11,7 +11,6 @@ const disallowedRoutes = [
   '/dashboard',
   '/dashboard/revenue',
   '/data-fix',
-  '/graph',
   '/theme',
   '/preview',
   '/drafts',

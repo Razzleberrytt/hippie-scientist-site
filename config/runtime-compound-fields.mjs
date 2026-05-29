@@ -131,4 +131,6 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'indexability_reasons',
   'meta_title',
   'meta_description',
+  'site_export_status_v2',
+  'readiness_tier',
 ]

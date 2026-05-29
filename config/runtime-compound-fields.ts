@@ -28,4 +28,6 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'best_for',
   'affiliate_ready',
   'affiliate_query',
+  'site_export_status_v2',
+  'readiness_tier',
 ] as const

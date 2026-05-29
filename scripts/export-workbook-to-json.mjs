@@ -355,6 +355,8 @@ function exportCompounds(workbook, diagnostics, resolvedSheets) {
     relatedCompounds: splitSemicolonOrCommaList(row.relatedCompounds),
     herbCount: cleanScalar(row.herbCount),
     reverseLookupReady: cleanScalar(row.reverseLookupReady),
+    site_export_status_v2: cleanScalar(row.site_export_status_v2),
+    readiness_tier: cleanScalar(row.readiness_tier),
   }))
 
   const deduped = dedupeBy(records.filter(record => Boolean(record.name)), record => record.id || record.name).map(record => {
