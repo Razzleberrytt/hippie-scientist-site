@@ -1,27 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getCompounds, getStacks } from '@/lib/runtime-data'
-import AffiliateBlock from '@/components/AffiliateBlock'
+import { getStacks } from '@/lib/runtime-data'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { bestPages } from '@/data/best'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
-import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
-import { buildContinuationPrompts, buildSemanticNarrative } from '@/lib/semantic-exploration-narratives'
-import {
-  buildSemanticAssistantSummary,
-  buildSemanticNavigationSuggestions,
-} from '@/lib/ai-semantic-navigation'
-import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
-import SemanticGraphMap from '@/components/semantic-graph-map'
-import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
-import GuidedExplorationPanel from '@/components/guided-exploration-panel'
-import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
-import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
-import { buildCompareEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
+import { getAffiliateShopLinks } from '@/lib/affiliate'
+import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -36,7 +24,7 @@ const formatSlug = (value: string) =>
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 
 const displayName = (compound: any) => compound?.displayName || compound?.name || formatSlug(compound?.slug || 'Compound')
-const summary = (compound: any) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the compound profile for more detail.'
+const summary = (compound: any) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the profile for more detail.'
 
 const evidenceScore = (compound: any) => {
   const text = `${compound?.evidence_grade ?? ''} ${compound?.evidenceTier ?? ''} ${compound?.tier_level ?? ''} ${compound?.evidence ?? ''} ${compound?.summary_quality ?? ''}`.toLowerCase()
@@ -57,7 +45,6 @@ const getComparisonConfig = (slug: string) => supplementComparisons.find(item =>
 const allComparisonSlugs = Array.from(new Set([
   ...generatedComparisons,
   ...supplementComparisons.map(item => item.slug),
-  // compound-vs-compound pairs (first 25 compounds, adjacent pairs)
   '11-keto-beta-boswellic-acid-vs-acemannan',
   'acemannan-vs-acetyl-11-keto-beta-boswellic-acid',
   'acetyl-11-keto-beta-boswellic-acid-vs-acetyl-beta-boswellic-acid',
@@ -91,16 +78,6 @@ function getSignals(compound: any) {
     ...list(compound?.mechanisms),
     ...list(compound?.pathways),
   ].map(formatDisplayLabel).filter(isClean)).slice(0, 6)
-}
-
-function sharedSignals(a: any, b: any) {
-  const bSet = new Set(getSignals(b).map((item) => item.toLowerCase()))
-  return getSignals(a).filter((item) => bSet.has(item.toLowerCase()))
-}
-
-function divergentSignals(a: any, b: any) {
-  const bSet = new Set(getSignals(b).map((item) => item.toLowerCase()))
-  return getSignals(a).filter((item) => !bSet.has(item.toLowerCase()))
 }
 
 const evidenceLabel = (score: number) => {
@@ -142,41 +119,32 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 }
 
+function isFieldEmpty(val: any): boolean {
+  if (val === null || val === undefined) return true
+  const str = String(val).trim().toLowerCase()
+  return str === '' || str === 'nan' || str === 'null' || str === 'undefined'
+}
+
 export default async function Page({ params }: Params) {
   const { slug } = await params
   const config = getComparisonConfig(slug)
   const [aSlug, bSlug] = slug.split('-vs-')
-  const [compounds, stacks] = await Promise.all([getCompounds(), getStacks()])
+  
+  // Load unified records (handles both herbs and compounds)
+  const { allRecords } = await getUnifiedRuntimeRecords()
+  const stacks = await getStacks()
 
-  const a = config ? findCompound(compounds, config.a.candidates) : compounds.find((c: any) => c.slug === aSlug)
-  const b = config ? findCompound(compounds, config.b.candidates) : compounds.find((c: any) => c.slug === bSlug)
+  const a = config ? findCompound(allRecords, config.a.candidates) : allRecords.find((c: any) => c.slug === aSlug)
+  const b = config ? findCompound(allRecords, config.b.candidates) : allRecords.find((c: any) => c.slug === bSlug)
   if (!a || !b) return notFound()
 
   const winner = evidenceScore(a) >= evidenceScore(b) ? a : b
   const loser = winner.slug === a.slug ? b : a
   const title = config?.title || `${displayName(a)} vs ${displayName(b)}`
   const pageSummary = config?.summary || `Compare ${displayName(a)} and ${displayName(b)} by evidence, fit, safety, and practical use.`
-  const signalsA = getSignals(a)
-  const signalsB = getSignals(b)
-  const overlap = sharedSignals(a, b)
-  const uniqueA = divergentSignals(a, b)
-  const uniqueB = divergentSignals(b, a)
 
   const chooseWinnerIf = `You prioritize a stronger clinical evidence base (${evidenceLabel(evidenceScore(winner))} Evidence), or if your goals align with the primary outcomes of ${firstItems(getSignals(winner), 'general support').slice(0, 2).join(' and ')}.`
-
   const chooseLoserIf = `You seek an alternative pathway profile, or if your goals focus specifically on ${firstItems(getSignals(loser), 'targeted support').slice(0, 2).join(' and ')}.`
-  const syntheticCompareNode = {
-    slug,
-    displayName: title,
-    effects: overlap.length > 0 ? overlap : [...signalsA, ...signalsB].slice(0, 8),
-    mechanisms: overlap,
-    pathways: [...signalsA, ...signalsB].slice(0, 8),
-  }
-  const graph = buildSemanticGraphVisual(syntheticCompareNode, [a, b], 12)
-  const narrative = buildSemanticNarrative(syntheticCompareNode, [a, b])
-  const prompts = buildContinuationPrompts(syntheticCompareNode, [winner, loser])
-  const assistant = buildSemanticAssistantSummary(syntheticCompareNode, [a, b])
-  const assistantSuggestions = buildSemanticNavigationSuggestions(syntheticCompareNode, [a, b], 5)
 
   const relatedStack = stacks.find((s: any) =>
     (s.compounds || s.stack || []).some((i: any) => {
@@ -189,7 +157,7 @@ export default async function Page({ params }: Params) {
     .filter(item => item.slug !== slug)
     .filter(item =>
       item.a.candidates.includes(a.slug) || item.b.candidates.includes(a.slug) ||
-      item.a.candidates.includes(b.slug) || item.b.candidates.includes(b.slug) ||
+      item.b.candidates.includes(b.slug) || item.b.candidates.includes(b.slug) ||
       item.a.candidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug)) ||
       item.b.candidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug))
     )
@@ -198,10 +166,11 @@ export default async function Page({ params }: Params) {
   const relatedBestPages = bestPages
     .filter(page => page.compoundCandidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug)))
     .slice(0, 3)
+
   const evidenceA = evidenceScore(a)
   const evidenceB = evidenceScore(b)
-  const cautionA = firstItems(list(a?.safety_flags || a?.safetyNotes || a?.contraindications).map(formatDisplayLabel).filter(isClean), 'Review interactions, health conditions, and timing fit.')
-  const cautionB = firstItems(list(b?.safety_flags || b?.safetyNotes || b?.contraindications).map(formatDisplayLabel).filter(isClean), 'Review interactions, health conditions, and timing fit.')
+  const cautionA = list(a?.safety_flags || a?.safetyNotes || a?.contraindications).map(formatDisplayLabel).filter(isClean)
+  const cautionB = list(b?.safety_flags || b?.safetyNotes || b?.contraindications).map(formatDisplayLabel).filter(isClean)
   const timingA = formatDisplayLabel(a?.time_to_effect) || 'Timing varies'
   const timingB = formatDisplayLabel(b?.time_to_effect) || 'Timing varies'
   const durationA = formatDisplayLabel(a?.duration) || 'Not consistently reported'
@@ -209,229 +178,201 @@ export default async function Page({ params }: Params) {
   const costA = formatDisplayLabel(a?.cost) || 'Price varies by product quality'
   const costB = formatDisplayLabel(b?.cost) || 'Price varies by product quality'
 
-  return (
-    <main className="space-y-8">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
-          <div className="relative max-w-4xl">
-            <p className="eyebrow-label">Semantic Comparison</p>
-            <h1 className="heading-premium mt-3 text-ink">{title}</h1>
-            <p className="detail-reading mt-5 text-base text-[#46574d] sm:text-lg">{pageSummary}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              <span className="chip-readable">Decision guide</span>
-              <span className="chip-readable">Evidence signals compared</span>
-              <span className="chip-readable">Mechanism contrast</span>
-            </div>
-          </div>
+  const renderRow = (label: string, valA: React.ReactNode, valB: React.ReactNode, rawValA?: any, rawValB?: any) => {
+    const isEmptyA = rawValA !== undefined ? isFieldEmpty(rawValA) : !valA
+    const isEmptyB = rawValB !== undefined ? isFieldEmpty(rawValB) : !valB
+    if (isEmptyA && isEmptyB) return null
+    return (
+      <div className="grid gap-4 py-5 border-b border-brand-900/10 last:border-0 sm:grid-cols-[180px_1fr_1fr] items-start">
+        <div className="text-xs font-bold uppercase tracking-wider text-brand-900/60 pt-0.5">{label}</div>
+        <div className="text-sm text-ink leading-relaxed">
+          {!isEmptyA ? valA : <span className="text-muted font-normal italic">Not available</span>}
+        </div>
+        <div className="text-sm text-ink leading-relaxed">
+          {!isEmptyB ? valB : <span className="text-muted font-normal italic">Not available</span>}
+        </div>
+      </div>
+    )
+  }
 
-          <SemanticArtworkPanel
-            slug={winner.slug}
-            kind="comparison"
-            title={`${displayName(a)} vs ${displayName(b)}`}
-            subtitle="Comparison ecosystem artwork for mechanism overlap, evidence contrast, and decision-oriented exploration."
-            height={300}
-          />
+  const renderVerdictCell = (compound: any, verdictText: string) => {
+    const shopLinks = getAffiliateShopLinks(compound, displayName(compound), compound.entityType)
+    const cta = shopLinks.find(l => l.url)
+    return (
+      <div className="space-y-4">
+        <p className="leading-relaxed text-[#35453d] bg-emerald-50/50 p-4 rounded-xl border border-emerald-900/5 text-sm">
+          {verdictText}
+        </p>
+        {cta ? (
+          <a
+            href={cta.url}
+            target="_blank"
+            rel="nofollow sponsored noopener noreferrer"
+            className="inline-flex w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2.5 text-xs font-bold text-white transition hover:bg-brand-900"
+          >
+            {cta.label} →
+          </a>
+        ) : null}
+      </div>
+    )
+  }
+
+  return (
+    <main className="mx-auto max-w-5xl px-4 py-8 space-y-10">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
+        <p className="eyebrow-label">Semantic Comparison</p>
+        <h1 className="heading-premium mt-3 text-ink">{title}</h1>
+        <p className="detail-reading mt-5 text-base text-[#46574d] sm:text-lg">{pageSummary}</p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          <span className="chip-readable">Decision guide</span>
+          <span className="chip-readable">Evidence signals compared</span>
+          <span className="chip-readable">Mechanism contrast</span>
         </div>
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-2">
+      {/* Side-by-Side Quick Cards */}
+      <section className="grid gap-6 sm:grid-cols-2">
         {[a, b].map((compound: any) => (
-          <article key={compound.slug} className="compact-card section-rhythm-compact">
-            <SemanticArtworkPanel
-              slug={compound.slug}
-              kind="compound"
-              title={displayName(compound)}
-              subtitle="Compound visual identity for comparison context."
-              height={220}
-            />
-            <div className="flex flex-wrap gap-2">
-              <span className="identity-kicker">Evidence signal: {evidenceScore(compound)}/5</span>
-            </div>
-            <h2 className="max-w-none text-2xl font-semibold tracking-tight text-ink">{displayName(compound)}</h2>
-            <p className="text-sm leading-6 text-[#46574d]">{summary(compound)}</p>
-            <div className="flex flex-wrap gap-2 border-t border-brand-900/10 pt-3">
-              {getSignals(compound).slice(0, 5).map((signal) => (
+          <article key={compound.slug} className="card-premium p-6 space-y-3">
+            <span className="identity-kicker">Evidence signal: {evidenceScore(compound)}/5</span>
+            <h2 className="text-xl font-bold text-ink">{displayName(compound)}</h2>
+            <p className="text-sm leading-relaxed text-muted">{summary(compound)}</p>
+            <div className="flex flex-wrap gap-2 pt-2 border-t border-brand-900/5">
+              {getSignals(compound).slice(0, 4).map((signal) => (
                 <PathwayVisualChip key={signal} pathway={signal} />
               ))}
             </div>
-            <Link href={`/compounds/${compound.slug}`} className="text-sm font-semibold text-brand-800 hover:text-brand-700">Open full profile →</Link>
+            <div className="pt-2">
+              <Link href={compound.entityType === 'herb' ? `/herbs/${compound.slug}` : `/compounds/${compound.slug}`} className="text-sm font-bold text-teal-700 hover:text-teal-900">
+                Open full profile →
+              </Link>
+            </div>
           </article>
         ))}
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-        <article className="compact-card section-rhythm-compact bg-emerald-50/80">
-          <p className="eyebrow-label">Better default</p>
-          <h2 className="max-w-none text-3xl font-semibold text-ink">{displayName(winner)}</h2>
-          <p className="text-sm font-semibold leading-6 text-[#46574d]">Usually the better starting point based on the current evidence and profile signals.</p>
-          <div className="rounded-xl bg-white/70 p-3 border border-emerald-900/5 text-xs text-[#33443a] space-y-1">
-            <p className="font-bold uppercase tracking-wider text-emerald-800 text-[9px]">Choose this if:</p>
-            <p className="leading-relaxed">{chooseWinnerIf}</p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={`/compounds/${winner.slug}`} className="button-primary text-center">View full profile →</Link>
-            <AffiliateBlock compound={winner.slug} compact />
-          </div>
-        </article>
+      {/* Comparison Table */}
+      <section className="card-premium p-6 sm:p-8 space-y-6">
+        <div>
+          <h2 className="text-xl font-bold text-ink">Comparison Table</h2>
+          <p className="text-sm text-muted mt-1">Tradeoffs, timing, safety, and evidence signals compared.</p>
+        </div>
 
-        <article className="compact-card section-rhythm-compact">
-          <p className="eyebrow-label">Alternative</p>
-          <h2 className="max-w-none text-3xl font-semibold text-ink">{displayName(loser)}</h2>
-          <p className="text-sm leading-6 text-[#46574d]">Still worth considering if it better matches your goal, tolerance, timing, or product preference.</p>
-          <div className="rounded-xl bg-brand-50/50 p-3 border border-brand-900/5 text-xs text-[#46574d] space-y-1">
-            <p className="font-bold uppercase tracking-wider text-brand-800 text-[9px]">Consider this instead if:</p>
-            <p className="leading-relaxed">{chooseLoserIf}</p>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={`/compounds/${loser.slug}`} className="button-secondary text-center">View profile →</Link>
-            <AffiliateBlock compound={loser.slug} compact />
-          </div>
-        </article>
-      </section>
+        {/* Table Headers */}
+        <div className="grid gap-4 pb-4 border-b border-brand-900/15 sm:grid-cols-[180px_1fr_1fr] font-bold text-xs uppercase tracking-wider text-brand-900/70">
+          <div>Attribute</div>
+          <div>{displayName(a)}</div>
+          <div>{displayName(b)}</div>
+        </div>
 
-      <EvidenceSnapshotPanel
-        title="Fast decision snapshot"
-        subtitle="Educational comparison only. Individual response, tolerance, and side effects vary."
-        fields={buildCompareEvidenceSnapshotFields({
-          bestFit: `Start with ${displayName(winner)} when you want the stronger evidence signal and a clearer starting point for comparison.`,
-          humanEvidence: `${displayName(a)}: ${evidenceLabel(evidenceA)} (${evidenceA}/5) • ${displayName(b)}: ${evidenceLabel(evidenceB)} (${evidenceB}/5)`,
-          safetyLevel: `Shared baseline: review medications, health conditions, and timing fit before use. ${displayName(a)}: ${cautionA[0]} ${displayName(b)}: ${cautionB[0]}`,
-          toleranceRisk: `${displayName(a)}: ${formatDisplayLabel(a?.tolerance_risk) || 'Unclear; monitor response.'} ${displayName(b)}: ${formatDisplayLabel(b?.tolerance_risk) || 'Unclear; monitor response.'}`,
-          regulationProfile: `${displayName(a)}: ${profileLabel(a)} • ${displayName(b)}: ${profileLabel(b)}`,
-          typicalOnset: `${displayName(a)}: ${timingA} • ${displayName(b)}: ${timingB}`,
-          useCautionIf: unique([...cautionA, ...cautionB]).slice(0, 3).join(', '),
-          uncertain: 'Long-term outcomes, product standardization, and real-world effect size can vary. Choose based on top constraint first and reassess after conservative trials.',
-        })}
-        className="compact-card section-rhythm-compact border border-brand-900/15 bg-white/95"
-        columnsClassName="grid gap-4 md:grid-cols-2"
-      />
+        <div className="flex flex-col">
+          {renderRow('Evidence Level', 
+            <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
+              {evidenceLabel(evidenceA)} ({evidenceA}/5)
+            </span>, 
+            <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
+              {evidenceLabel(evidenceB)} ({evidenceB}/5)
+            </span>
+          )}
 
-      <section className="compact-card section-rhythm-compact">
-        <p className="eyebrow-label">Scan-first framing</p>
-        <h2 className="compact-heading">Compare high-impact factors before details.</h2>
-        <div className="grid gap-3 md:grid-cols-2">
-          {[
-            { label: 'Evidence strength', a: `${evidenceLabel(evidenceA)} (${evidenceA}/5)`, b: `${evidenceLabel(evidenceB)} (${evidenceB}/5)` },
-            { label: 'Safety', a: cautionA[0], b: cautionB[0] },
-            { label: 'Stimulation / sedation profile', a: profileLabel(a), b: profileLabel(b) },
-            { label: 'Tolerance risk', a: formatDisplayLabel(a?.tolerance_risk) || 'Unclear; monitor response', b: formatDisplayLabel(b?.tolerance_risk) || 'Unclear; monitor response' },
-            { label: 'Onset', a: timingA, b: timingB },
-            { label: 'Duration', a: durationA, b: durationB },
-            { label: 'Cost/value', a: costA, b: costB },
-            { label: 'Mechanism confidence', a: signalsA.length > 0 ? 'Some pathway signal clarity' : 'Low mechanism clarity', b: signalsB.length > 0 ? 'Some pathway signal clarity' : 'Low mechanism clarity' },
-          ].map((row) => (
-            <article key={row.label} className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 md:col-span-1">
-              <p className="text-xs font-semibold uppercase tracking-wide text-muted">{row.label}</p>
-              <p className="mt-2 text-sm leading-6 text-[#46574d]"><strong>{displayName(a)}:</strong> {row.a}</p>
-              <p className="text-sm leading-6 text-[#46574d]"><strong>{displayName(b)}:</strong> {row.b}</p>
-            </article>
-          ))}
+          {renderRow('Onset & Duration',
+            <div>
+              <p className="font-semibold">{timingA}</p>
+              <p className="text-xs text-muted mt-0.5">{durationA}</p>
+            </div>,
+            <div>
+              <p className="font-semibold">{timingB}</p>
+              <p className="text-xs text-muted mt-0.5">{durationB}</p>
+            </div>,
+            a?.time_to_effect || a?.onset,
+            b?.time_to_effect || b?.onset
+          )}
+
+          {renderRow('Safety', 
+            <p>{a.safetyNotes || (cautionA.length > 0 ? cautionA.join(', ') : null)}</p>, 
+            <p>{b.safetyNotes || (cautionB.length > 0 ? cautionB.join(', ') : null)}</p>,
+            a.safetyNotes || (cautionA.length > 0 ? cautionA.join(', ') : null),
+            b.safetyNotes || (cautionB.length > 0 ? cautionB.join(', ') : null)
+          )}
+
+          {renderRow('Best For', 
+            <p>{a.best_for || a.summary}</p>, 
+            <p>{b.best_for || b.summary}</p>,
+            a.best_for || a.summary,
+            b.best_for || b.summary
+          )}
+
+          {renderRow('Cost Tier', 
+            <p>{costA}</p>, 
+            <p>{costB}</p>,
+            a?.cost,
+            b?.cost
+          )}
+
+          {renderRow('Stimulation Profile', 
+            <p className="font-semibold text-emerald-700">{profileLabel(a)}</p>, 
+            <p className="font-semibold text-emerald-700">{profileLabel(b)}</p>
+          )}
+
+          {renderRow('Interactions',
+            <div>
+              {list(a.interactions).length > 0 ? (
+                <ul className="space-y-1">
+                  {list(a.interactions).map((item) => <li key={item}>• {item}</li>)}
+                </ul>
+              ) : null}
+            </div>,
+            <div>
+              {list(b.interactions).length > 0 ? (
+                <ul className="space-y-1">
+                  {list(b.interactions).map((item) => <li key={item}>• {item}</li>)}
+                </ul>
+              ) : null}
+            </div>,
+            list(a.interactions).length > 0 ? 'available' : null,
+            list(b.interactions).length > 0 ? 'available' : null
+          )}
+
+          {renderRow('Verdict & Sourcing',
+            renderVerdictCell(a, winner.slug === a.slug ? chooseWinnerIf : chooseLoserIf),
+            renderVerdictCell(b, winner.slug === b.slug ? chooseWinnerIf : chooseLoserIf)
+          )}
         </div>
       </section>
 
-      <section className="grid gap-4 lg:grid-cols-2">
-        <article className="compact-card section-rhythm-compact">
-          <p className="eyebrow-label">What remains uncertain</p>
-          <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
-            <li>• Long-term outcome evidence is still limited for many compounds.</li>
-            <li>• Product standardization and third-party testing quality can vary across brands.</li>
-            <li>• Some signals come from small or short-duration studies, so effect size can shift in broader use.</li>
-            <li>• Individual response variation is common, including differences in tolerance and side effects.</li>
-          </ul>
-        </article>
-        <article className="compact-card section-rhythm-compact bg-amber-50/70">
-          <p className="eyebrow-label">Beginner notes</p>
-          <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
-            <li>• Start conservatively and avoid escalating quickly.</li>
-            <li>• Avoid stacking multiple stimulants or multiple calming compounds at first.</li>
-            <li>• Evaluate one variable at a time so you can observe fit, tolerance, and tradeoffs clearly.</li>
-          </ul>
-        </article>
-      </section>
-
-      <SemanticAssistantPanel
-        headline={assistant.headline}
-        body={assistant.body}
-        signals={assistant.signals}
-        suggestions={assistantSuggestions}
-      />
-
-      <GuidedExplorationPanel
-        overview={narrative.overview}
-        pathways={narrative.pathways}
-        exploration={narrative.exploration}
-        prompts={prompts}
-      />
-
-      <SemanticVisibilityGate minHeight={420}>
-        <SemanticGraphMap
-          title="Comparison relationship map"
-          description="A lightweight map of overlap signals, evidence relationships, and semantic contrast between the compared profiles."
-          nodes={graph.nodes}
-          edges={graph.edges}
-        />
-      </SemanticVisibilityGate>
-
-      <section className="compact-section section-rhythm-balanced">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Overlap + divergence</p>
-          <h2 className="compact-heading">Where these profiles converge and separate.</h2>
-          <p className="compact-copy">Overlap chips show shared semantic signals; each side keeps its own mechanism and pathway identity so the comparison does not collapse into a simplistic winner claim.</p>
-        </div>
-        <div className="grid gap-4 lg:grid-cols-3">
-          <article className="compact-card section-rhythm-compact">
-            <p className="eyebrow-label">Shared signals</p>
-            <div className="flex flex-wrap gap-2">
-              {(overlap.length > 0 ? overlap : ['evidence context']).map((signal) => (
-                <PathwayVisualChip key={signal} pathway={signal} />
-              ))}
-            </div>
-          </article>
-          <article className="compact-card section-rhythm-compact">
-            <p className="eyebrow-label">Unique to {displayName(a)}</p>
-            <div className="flex flex-wrap gap-2">
-              {(uniqueA.length > 0 ? uniqueA : ['specific targets']).slice(0, 5).map((signal) => (
-                <PathwayVisualChip key={signal} pathway={signal} />
-              ))}
-            </div>
-          </article>
-          <article className="compact-card section-rhythm-compact">
-            <p className="eyebrow-label">Unique to {displayName(b)}</p>
-            <div className="flex flex-wrap gap-2">
-              {(uniqueB.length > 0 ? uniqueB : ['specific targets']).slice(0, 5).map((signal) => (
-                <PathwayVisualChip key={signal} pathway={signal} />
-              ))}
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="grid gap-4 lg:grid-cols-3">
+      {/* Routine Integration & Navigation */}
+      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {relatedStack && (
-          <article className="compact-card section-rhythm-compact">
-            <h2 className="max-w-none text-xl font-semibold text-ink">Use it in a routine</h2>
-            <p className="text-sm leading-6 text-[#46574d]">These options may make more sense inside a goal-based stack.</p>
-            <Link href={`/stacks/${relatedStack.slug}`} className="text-sm font-semibold text-brand-800">View stack →</Link>
+          <article className="card-premium p-5 space-y-2">
+            <h3 className="font-bold text-ink">Use in a routine</h3>
+            <p className="text-sm text-muted">These options can be stacked for goal-based synergy.</p>
+            <Link href={`/stacks/${relatedStack.slug}`} className="inline-block text-sm font-bold text-teal-700 hover:text-teal-900">
+              View stack →
+            </Link>
           </article>
         )}
 
         {relatedComparisons.length > 0 && (
-          <article className="compact-card section-rhythm-compact">
-            <h2 className="max-w-none text-xl font-semibold text-ink">Related comparisons</h2>
-            <div className="grid gap-2">
+          <article className="card-premium p-5 space-y-2">
+            <h3 className="font-bold text-ink">Related comparisons</h3>
+            <div className="flex flex-col gap-2">
               {relatedComparisons.map(item => (
-                <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-800">{item.title} →</Link>
+                <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
+                  {item.title} →
+                </Link>
               ))}
             </div>
           </article>
         )}
 
         {relatedBestPages.length > 0 && (
-          <article className="compact-card section-rhythm-compact">
-            <h2 className="max-w-none text-xl font-semibold text-ink">Best-of guides</h2>
-            <div className="grid gap-2">
+          <article className="card-premium p-5 space-y-2">
+            <h3 className="font-bold text-ink">Best-of guides</h3>
+            <div className="flex flex-col gap-2">
               {relatedBestPages.map(page => (
-                <Link key={page.slug} href={`/best/${page.slug}`} className="text-sm font-semibold text-brand-800">{page.title} →</Link>
+                <Link key={page.slug} href={`/best/${page.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
+                  {page.title} →
+                </Link>
               ))}
             </div>
           </article>
@@ -451,7 +392,7 @@ export default async function Page({ params }: Params) {
             title: 'Beginner-friendly next reads',
             description: 'Start with practical overviews before advanced stacking.',
             links: [
-              { href: `/compounds/${winner.slug}`, label: `${displayName(winner)} profile` },
+              { href: `/${winner.entityType === 'herb' ? 'herbs' : 'compounds'}/${winner.slug}`, label: `${displayName(winner)} profile` },
               { href: '/learn', label: 'Learn evidence basics' },
             ],
           },
@@ -468,7 +409,6 @@ export default async function Page({ params }: Params) {
             description: 'Use goal pages when choosing by outcome instead of ingredient.',
             links: [
               { href: '/goals', label: 'Browse goal guides' },
-              { href: '/goals', label: 'Find a beginner-friendly goal path' },
             ],
           },
         ]}

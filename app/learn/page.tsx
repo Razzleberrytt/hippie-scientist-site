@@ -42,7 +42,7 @@ const startHereCards = [
   {
     title: 'Start with the basics',
     body: 'Begin with the Education Hub to learn what a supplement claim means and which claims are mostly marketing.',
-    href: '/education',
+    href: '/education/',
     cta: 'Start with the basics',
   },
   {
@@ -121,7 +121,7 @@ export default function LearnPage() {
 
           <div className='flex flex-wrap gap-3 pt-2'>
             <Link
-              href='/education'
+              href='/education/'
               className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
             >
               Explore Education Hub

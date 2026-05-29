@@ -6,6 +6,7 @@ import { getHerbBySlug, getCompoundBySlug } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
+import { getAffiliateShopLinks } from '@/lib/affiliate'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
@@ -334,53 +335,73 @@ export default async function GoalDecisionPage({
           stay conservative rather than inventing missing evidence, mechanism, or safety details.
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {enrichedOptions.map(({ option, evidenceLabel, safetyLabel, mechanismTags, mechanismCategoryTags, pathwayTags }) => (
-            <article key={`${option.slug}-runtime-signals`} className="rounded-2xl border border-brand-900/10 bg-white/60 p-5 backdrop-blur-sm">
-              <h3 className="text-base font-semibold text-ink">{option.name}</h3>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
-                  Evidence: {evidenceLabel}
-                </span>
-                <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800 border border-amber-100/50">
-                  Safety: {safetyLabel}
-                </span>
+          {enrichedOptions.map(({ option, evidenceLabel, safetyLabel, mechanismTags, mechanismCategoryTags, pathwayTags, compound }) => (
+            <article key={`${option.slug}-runtime-signals`} className="rounded-2xl border border-brand-900/10 bg-white/60 p-5 backdrop-blur-sm flex flex-col justify-between">
+              <div>
+                <h3 className="text-base font-semibold text-ink">{option.name}</h3>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
+                    Evidence: {evidenceLabel}
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-1 text-xs font-semibold text-amber-800 border border-amber-100/50">
+                    Safety: {safetyLabel}
+                  </span>
+                </div>
+                {mechanismTags.length > 0 ? (
+                  <div className="mt-4 pt-3 border-t border-brand-900/5">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Mechanism tags</p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {mechanismTags.map((tag) => (
+                        <span key={`${option.slug}-${tag}`} className="inline-flex rounded-full bg-brand-50/50 border border-brand-900/5 px-2 py-0.5 text-xs text-brand-900 font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+                {mechanismCategoryTags.length > 0 ? (
+                  <div className="mt-3">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Mechanism categories</p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {mechanismCategoryTags.map((tag) => (
+                        <span key={`${option.slug}-${tag}`} className="inline-flex rounded-full bg-brand-50/50 border border-brand-900/5 px-2 py-0.5 text-xs text-brand-900 font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+                {pathwayTags.length > 0 ? (
+                  <div className="mt-3">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Pathway tags</p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {pathwayTags.map((tag) => (
+                        <span key={`${option.slug}-${tag}`} className="inline-flex rounded-full bg-brand-50/50 border border-brand-900/5 px-2 py-0.5 text-xs text-brand-900 font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
               </div>
-              {mechanismTags.length > 0 ? (
-                <div className="mt-4 pt-3 border-t border-brand-900/5">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Mechanism tags</p>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {mechanismTags.map((tag) => (
-                      <span key={`${option.slug}-${tag}`} className="inline-flex rounded-full bg-brand-50/50 border border-brand-900/5 px-2 py-0.5 text-xs text-brand-900 font-medium">
-                        {tag}
-                      </span>
-                    ))}
+              {/* Sourcing CTA */}
+              {(() => {
+                const shopLinks = getAffiliateShopLinks(compound, option.name, compound?.entityType)
+                const cta = shopLinks.find(l => l.url)
+                if (!cta) return null
+                return (
+                  <div className="mt-5 pt-3 border-t border-brand-900/10">
+                    <a
+                      href={cta.url}
+                      target="_blank"
+                      rel="nofollow sponsored noopener noreferrer"
+                      className="inline-flex w-full items-center justify-center rounded-full bg-brand-950 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-brand-900"
+                    >
+                      {cta.label} →
+                    </a>
                   </div>
-                </div>
-              ) : null}
-              {mechanismCategoryTags.length > 0 ? (
-                <div className="mt-3">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Mechanism categories</p>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {mechanismCategoryTags.map((tag) => (
-                      <span key={`${option.slug}-${tag}`} className="inline-flex rounded-full bg-brand-50/50 border border-brand-900/5 px-2 py-0.5 text-xs text-brand-900 font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
-              {pathwayTags.length > 0 ? (
-                <div className="mt-3">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Pathway tags</p>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {pathwayTags.map((tag) => (
-                      <span key={`${option.slug}-${tag}`} className="inline-flex rounded-full bg-brand-50/50 border border-brand-900/5 px-2 py-0.5 text-xs text-brand-900 font-medium">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
+                )
+              })()}
             </article>
           ))}
         </div>

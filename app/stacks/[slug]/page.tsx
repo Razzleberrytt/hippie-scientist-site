@@ -4,15 +4,10 @@ import { notFound } from 'next/navigation'
 import { getStacks } from '@/lib/runtime-data'
 import { itemListJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import { mergeStackEcosystems } from '@/lib/stack-ecosystems'
-import { buildSemanticAssistantSummary, buildSemanticNavigationSuggestions } from '@/lib/ai-semantic-navigation'
-import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 import StackCard from '@/components/StackCard'
-import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
-import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
-import SemanticGraphMap from '@/components/semantic-graph-map'
-import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
+import { getAffiliateShopLinks } from '@/lib/affiliate'
 
 type Params = { params: Promise<{ slug: string }> }
 type StackItemRecord = Record<string, any>
@@ -69,10 +64,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const stacks = mergeStackEcosystems(await getStacks())
   const stack = stacks.find(s => s.slug === slug)
-  const goal = formatGoal(stackGoal(stack))
 
   return {
-    title: stack ? `${stack.title} | Best Supplements for ${goal}` : 'Stack',
+    title: stack ? stack.title : 'Stack',
     description: stack?.summary || 'Evidence-based supplement stack.',
   }
 }
@@ -83,26 +77,13 @@ export default async function StackPage({ params }: Params) {
   const stack = stacks.find(s => s.slug === slug)
   if (!stack) return notFound()
 
-  const { herbRecords } = await getUnifiedRuntimeRecords()
+  const { herbRecords, allRecords } = await getUnifiedRuntimeRecords()
   const herbSlugs = new Set(herbRecords.map((h: any) => h.slug))
 
   const items: StackItemRecord[] = [...(stack.compounds || stack.stack || [])]
   const groups = groupByRole(items)
   const goal = formatGoal(stackGoal(stack))
   const relatedRecords = items.map(item => stackItemToRecord(item, herbSlugs)).filter((record) => record.slug)
-  const stackRecord = {
-    slug: stack.slug,
-    name: stack.title,
-    displayName: stack.title,
-    entityType: 'stack',
-    summary: stack.summary,
-    effects: [stack.primary_effect, stack.goal, stack.goal_slug].filter(Boolean),
-    mechanisms: items.map((item) => item.rationale).filter(Boolean),
-    pathways: [stack.goal_slug, stack.primary_effect, stack.evidence_level].filter(Boolean),
-  }
-  const assistant = buildSemanticAssistantSummary(stackRecord, relatedRecords)
-  const assistantSuggestions = buildSemanticNavigationSuggestions(stackRecord, relatedRecords, 5)
-  const graph = buildSemanticGraphVisual(stackRecord, relatedRecords, 14)
 
   const stackListJsonLd = itemListJsonLd({
     name: stack.title,
@@ -118,6 +99,16 @@ export default async function StackPage({ params }: Params) {
     { name: stack.title, url: `https://www.thehippiescientist.net/stacks/${stack.slug}` },
   ])
 
+  // Helper to resolve affiliate fields for a stack item card
+  const getCardAffiliateProps = (item: StackItemRecord, entityType: 'herb' | 'compound') => {
+    const itemSlug = resolveStackItemSlug(item)
+    const record = (allRecords as any[]).find(r => r.slug === itemSlug)
+    if (!record) return {}
+    const shopLinks = getAffiliateShopLinks(record, (record as any).name || itemSlug, entityType)
+    const primary = shopLinks.find(l => l.url)
+    return primary ? { affiliateUrl: primary.url, affiliateLabel: primary.label } : {}
+  }
+
   return (
     <div className="space-y-12">
       <script
@@ -129,51 +120,25 @@ export default async function StackPage({ params }: Params) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(stackBreadcrumbJsonLd) }}
       />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,420px)] lg:items-stretch">
-          <div className="space-y-5">
-            <p className="eyebrow-label">Semantic Stack</p>
-            <h1 className="heading-premium text-ink">Best Supplements for {goal}</h1>
-            <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
-              {stack.summary || 'Stack designed from available human evidence and mechanism support.'}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {[stack.primary_effect, stack.time_to_effect, stack.evidence_level].filter(Boolean).map((signal: string) => (
-                <PathwayVisualChip key={signal} pathway={signal} />
-              ))}
-            </div>
-            <Link
-              href="#stack"
-              className="button-primary inline-flex rounded-full px-5 py-3 text-sm"
-            >
-              Open full stack ↓
-            </Link>
+        <div className="space-y-5">
+          <p className="eyebrow-label">Semantic Stack</p>
+          <h1 className="heading-premium text-ink">Best Supplements for {goal}</h1>
+          <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
+            {stack.summary || 'Stack designed from available human evidence and mechanism support.'}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {[stack.primary_effect, stack.time_to_effect, stack.evidence_level].filter(Boolean).map((signal: string) => (
+              <PathwayVisualChip key={signal} pathway={signal} />
+            ))}
           </div>
-
-          <SemanticArtworkPanel
-            slug={stack.goal_slug || stack.slug}
-            kind="pathway"
-            title={stack.title || `Best Supplements for ${goal}`}
-            subtitle="Stack ecosystem artwork for routine-level semantic exploration."
-            height={300}
-          />
+          <Link
+            href="#stack"
+            className="button-primary inline-flex rounded-full px-5 py-3 text-sm"
+          >
+            Open full stack ↓
+          </Link>
         </div>
       </section>
-
-      <SemanticAssistantPanel
-        headline={assistant.headline}
-        body={assistant.body}
-        signals={assistant.signals}
-        suggestions={assistantSuggestions}
-      />
-
-      <SemanticVisibilityGate minHeight={420}>
-        <SemanticGraphMap
-          title="Stack relationship map"
-          description="A lightweight map of stack components, roles, and routine-level semantic continuity."
-          nodes={graph.nodes}
-          edges={graph.edges}
-        />
-      </SemanticVisibilityGate>
 
       <section id="stack" className="grid gap-8 lg:grid-cols-3">
         <div className="space-y-4">
@@ -181,7 +146,8 @@ export default async function StackPage({ params }: Params) {
           {groups.anchor.map((item, i) => {
             const itemSlug = resolveStackItemSlug(item)
             const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
-            return <StackCard key={i} item={item} entityType={entityType} />
+            const affProps = getCardAffiliateProps(item, entityType)
+            return <StackCard key={i} item={item} entityType={entityType} {...affProps} />
           })}
         </div>
 
@@ -190,7 +156,8 @@ export default async function StackPage({ params }: Params) {
           {groups.amplifier.map((item, i) => {
             const itemSlug = resolveStackItemSlug(item)
             const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
-            return <StackCard key={i} item={item} entityType={entityType} />
+            const affProps = getCardAffiliateProps(item, entityType)
+            return <StackCard key={i} item={item} entityType={entityType} {...affProps} />
           })}
         </div>
 
@@ -199,7 +166,8 @@ export default async function StackPage({ params }: Params) {
           {groups.support.map((item, i) => {
             const itemSlug = resolveStackItemSlug(item)
             const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
-            return <StackCard key={i} item={item} entityType={entityType} />
+            const affProps = getCardAffiliateProps(item, entityType)
+            return <StackCard key={i} item={item} entityType={entityType} {...affProps} />
           })}
         </div>
       </section>

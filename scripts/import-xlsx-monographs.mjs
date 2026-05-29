@@ -87,6 +87,8 @@ const JUNK_TOKENS = new Set([
   '[object object]',
   'object object',
   'nan',
+  'NaN',
+  'NAN',
   'nil',
   'nill',
   'n.a.',
@@ -144,6 +146,11 @@ function cleanText(value) {
   for (const pattern of citationArtifactPatterns) {
     output = output.replace(pattern, '')
   }
+
+  // Remove common column header name leaks and variations of 'nan'
+  output = output
+    .replace(/\b(nan|NaN|NAN)\b/g, '')
+    .replace(/\b(Herb Description|Summary|moa|Active Compounds|Safety Notes|Contraindications|Interactions|Mechanism Tags|Preparation|Typical Dosage|Region|Scientific Name)\b/gi, '')
 
   return output.replace(/\s+/g, ' ').trim()
 }

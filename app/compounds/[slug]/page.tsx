@@ -4,55 +4,19 @@ import { getCompoundBySlug } from '@/lib/runtime-data'
 import { getCompoundMetadataRecord } from '@/lib/runtime-metadata-cache'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import TrustBar from '@/components/ui/TrustBar'
 import ReadingProgress from '@/components/ui/ReadingProgress'
-import CompoundHero from '@/components/ui/CompoundHero'
 import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
-import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
-import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
 import { compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
-import {
-  normalizeEvidenceLevel,
-  normalizeSafetyLevel,
-  getSources,
-} from '@/lib/evidence-utils'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
-import { getFeaturedCollections } from '@/lib/collections'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
-import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
-import { buildContinuationPrompts, buildSemanticNarrative } from '@/lib/semantic-exploration-narratives'
-import { buildSourcingNotes, getMonetizationReadiness } from '@/lib/monetization-context'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
-import {
-  buildSemanticAssistantSummary,
-  buildSemanticNavigationSuggestions,
-} from '@/lib/ai-semantic-navigation'
-import ProfileAuthoritySections from '@/components/profile-authority-sections'
-import { ProfileDecisionLayer } from '@/components/profile-decision-layer'
-import DecisionClarityFieldManual from '@/components/decision-clarity-field-manual'
-import DecisionVisualGrid from '@/components/decision-visual-grid'
-import WhyThisInsteadPanel from '@/components/why-this-instead-panel'
-import RuntimeOrchestratedDiscovery from '@/components/runtime/runtime-orchestrated-discovery'
-import AuthorityEditorialLayer from '@/components/profile/AuthorityEditorialLayer'
-import SemanticArtworkPanel from '@/components/semantic-artwork-panel'
-import SemanticGraphMap from '@/components/semantic-graph-map'
-import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
-import GuidedExplorationPanel from '@/components/guided-exploration-panel'
-import EvidenceAwareCTA from '@/components/evidence-aware-cta'
-import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
-import EvidenceSnapshotPanel from '@/components/ui/EvidenceSnapshotPanel'
-import { buildDetailEvidenceSnapshotFields } from '@/components/ui/evidence-snapshot-fields'
-import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
-import DetailTabDashboard from '@/components/ui/DetailTabDashboard'
-import { SemanticIntelligenceDashboard } from '@/components/SemanticIntelligenceDashboard'
-import { getEvidenceConfidence } from '@/lib/evidence-confidence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
-import RelationalUi from '@/components/decision/RelationalUi'
+import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -80,19 +44,6 @@ const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|no
 const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk|pregnancy|liver|kidney|sedat|bleed/i
 
 
-const CALMING_PATTERN = /calm|relax|sleep|sedat|anxiolytic|anxiety|stress|gaba|parasympathetic/i
-const STIMULATING_PATTERN = /stimulat|energ|fatigue|alert|caffeine|adrenergic|dopaminergic|nootropic|performance/i
-
-function getRegulationProfile(signals: string[]) {
-  const joined = signals.join(' ').toLowerCase()
-  const calming = CALMING_PATTERN.test(joined)
-  const stimulating = STIMULATING_PATTERN.test(joined)
-
-  if (calming && stimulating) return 'Mixed: calming and stimulating signals both appear in the profile.'
-  if (calming) return 'Leans calming / down-shifting based on listed effects and pathways.'
-  if (stimulating) return 'Leans stimulating / activating based on listed effects and pathways.'
-  return 'No clear calming or stimulating tilt in the available profile data.'
-}
 
 function getSafetyTone(summary: string, avoidIf: string[]) {
   if (avoidIf.length || CAUTION_PATTERN.test(summary)) return 'Use extra caution'
@@ -149,21 +100,6 @@ function getMechanismHints(compound: any, provided: string[]) {
   ]).slice(0, 6)
 }
 
-function ChipList({ items, limit = items.length }: { items: string[]; limit?: number }) {
-  const visible = items.slice(0, limit)
-  if (!visible.length) return null
-
-  return (
-    <div className="flex flex-wrap gap-2">
-      {visible.map((item) => (
-        <span key={item} className="chip-readable text-xs">
-          {item}
-        </span>
-      ))}
-    </div>
-  )
-}
-
 
 
 export default async function CompoundPage({ params }: PageProps) {
@@ -207,7 +143,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const [
     relatedBySlug,
     comparisonBySlug,
-    stackBySlug,
+    _stackBySlug,
     ecosystemContinuityRecords,
   ] = await Promise.all([
     getBatchedRuntimeRecords('related', [compound], allRecords, 8),
@@ -215,6 +151,7 @@ export default async function CompoundPage({ params }: PageProps) {
     getBatchedRuntimeRecords('stack', [compound], allRecords, 6),
     getEcosystemContinuityRecords(compound, allRecords, 6),
   ])
+
 
   const relatedCandidates = (relatedBySlug[sourceSlug] || [])
     .filter((item:any) => getRuntimeVisibility(item).canRender)
@@ -242,41 +179,13 @@ export default async function CompoundPage({ params }: PageProps) {
     .filter((item:any) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
 
-  const stackRecords = (stackBySlug[sourceSlug] || [])
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
-    .slice(0, 6)
-
-  const featuredCollections = getFeaturedCollections(compound)
-  const graph = buildSemanticGraphVisual(compound, semanticRelated, 14)
-  const narrative = buildSemanticNarrative(compound, semanticRelated)
-  const prompts = buildContinuationPrompts(compound, semanticRelated)
-  const assistant = buildSemanticAssistantSummary(compound, semanticRelated)
-  const assistantSuggestions = buildSemanticNavigationSuggestions(compound, semanticRelated, 5)
-  const readiness = getMonetizationReadiness(compound)
-  const sourcingNotes = buildSourcingNotes(compound)
-  const confidenceObj = getEvidenceConfidence(compound as any)
-
-  const sources = getSources(compound)
-    .map((source:any) => text(source))
-    .filter(isClean)
   const displayName = formatDisplayLabel(compound.name || compound.slug)
-  const shopLinks = getAffiliateShopLinks(compound, displayName, 'compound')
-  const primaryShopLink = shopLinks[0]
   const quickSummary = firstSentences(summary, 1) || 'Compound profile with safety, mechanism, and fit context.'
   const timeline = getTimeline(compound)
   const avoidIf = getAvoidIf(compound)
   const safetySummary = getSafetySummary(compound, avoidIf)
   const mechanismHints = getMechanismHints(compound, mechanisms)
-  const topSignals = unique([...effects, ...mechanismHints]).slice(0, 8)
-  const regulationProfile = getRegulationProfile([...topSignals, safetySummary])
   const safetyTone = getSafetyTone(safetySummary, avoidIf)
-  const keyTakeaways = unique([
-    effects.length ? `Most often explored for ${effects.slice(0, 3).join(', ')}.` : '',
-    evidenceLevel ? `Evidence: ${evidenceLevel.toLowerCase()}.` : '',
-    safetySummary ? `Safety first: ${safetySummary}` : '',
-    timeline ? `Timeline/onset context: ${timeline}.` : '',
-    mechanismHints.length ? `Mechanism signals include ${mechanismHints.slice(0, 3).join(', ')}.` : '',
-  ].filter(Boolean)).slice(0, 5)
 
   const compoundJsonLd = generateCompoundJsonLd({
     name: displayName,
@@ -292,172 +201,8 @@ export default async function CompoundPage({ params }: PageProps) {
     { name: displayName, url: `https://www.thehippiescientist.net/compounds/${compound.slug}` },
   ])
 
-  const tabs = [
-    {
-      id: 'evidence-outcomes',
-      label: 'Evidence & Outcomes',
-      content: (
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <p className="eyebrow-label">Evidence summary</p>
-            <h2 className="text-lg font-semibold tracking-tight text-ink">What the current profile supports</h2>
-            <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
-              Use this profile as an evidence-informed orientation, not a guarantee of outcomes. Human data quality, formulation differences, and dosing variability can change real-world effects.
-            </p>
-          </div>
-
-          <div className="grid gap-3 md:grid-cols-2">
-            {effects.length > 0 ? (
-              <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">Primary evidence topics</p>
-                <div className="mt-3"><ChipList items={effects} limit={8} /></div>
-              </div>
-            ) : null}
-            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-              <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">What we still do not know</p>
-              <ul className="mt-2 grid gap-1.5 text-sm leading-6 text-[#46574d] sm:grid-cols-2">
-                <li>• Long-term effects can differ from short-term study windows.</li>
-                <li>• Individual response varies across genetics, baseline health, and concurrent stack choices.</li>
-                <li>• Mechanistic signals may not translate directly into clinically meaningful outcomes.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-brand-900/10 pt-4">
-            <h3 className="text-lg font-semibold tracking-tight text-ink mb-3">Evidence snapshot metrics</h3>
-            <EvidenceSnapshotCard snapshot={snapshot} />
-          </div>
-        </div>
-      )
-    },
-    {
-      id: 'decision-support',
-      label: 'Decision Support',
-      content: (
-        <div className="space-y-8">
-          <ProfileDecisionLayer
-            record={compound}
-            entityType="compound"
-            relatedRecords={semanticRelated}
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-          <SemanticIntelligenceDashboard node={compound as any} />
-          <DecisionVisualGrid record={compound} />
-          <WhyThisInsteadPanel
-            record={compound}
-            alternatives={semanticRelated}
-          />
-          <RelationalUi record={compound} relatedRecords={semanticRelated} />
-          <DecisionClarityFieldManual
-            record={compound}
-            entityType="compound"
-            relatedRecords={semanticRelated}
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-        </div>
-      )
-    },
-    {
-      id: 'ai-assistant-map',
-      label: 'AI Assistant & Map',
-      content: (
-        <div className="space-y-8">
-          <SemanticArtworkPanel
-            slug={compound.slug}
-            kind="compound"
-            title={displayName}
-            subtitle="Compound ecosystem artwork for mechanism-aware pathway exploration."
-            height={260}
-          />
-          <AuthorityEditorialLayer
-            record={compound}
-            entityType="compound"
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-          <SemanticAssistantPanel
-            headline={assistant.headline}
-            body={assistant.body}
-            signals={assistant.signals}
-            suggestions={assistantSuggestions}
-          />
-          <GuidedExplorationPanel
-            overview={narrative.overview}
-            pathways={narrative.pathways}
-            exploration={narrative.exploration}
-            prompts={prompts}
-          />
-          <SemanticVisibilityGate minHeight={420}>
-            <SemanticGraphMap
-              title="Compound relationship map"
-              description="A lightweight map of mechanism overlap, pathway continuity, and connected semantic profiles."
-              nodes={graph.nodes}
-              edges={graph.edges}
-            />
-          </SemanticVisibilityGate>
-          <ProfileAuthoritySections
-            record={compound}
-            entityType="compound"
-            relatedRecords={semanticRelated}
-            comparisonRecords={comparisonRecords}
-            stackRecords={stackRecords}
-            effects={effects}
-            mechanisms={mechanisms}
-            summary={summary}
-          />
-        </div>
-      )
-    },
-    {
-      id: 'authority-sourcing',
-      label: 'Authority & Sourcing',
-      content: (
-        <div className="space-y-8">
-          <SourcingCta record={compound} displayName={displayName} />
-          <EvidenceAwareCTA
-            readiness={readiness}
-            sourcingNotes={sourcingNotes}
-            record={compound}
-          />
-          <RuntimeOrchestratedDiscovery
-            record={compound}
-          />
-          <CompactRelatedPathways record={compound} />
-          {featuredCollections.length > 0 ? (
-            <div className="border-t border-brand-900/10 pt-5">
-              <p className="eyebrow-label">Featured in collections</p>
-              <div className="mt-3 flex flex-wrap gap-4">
-                {featuredCollections.slice(0, 4).map((collection:any) => (
-                  <Link
-                    key={collection.slug}
-                    href={collection.href}
-                    className="border-b border-brand-900/10 py-1 text-sm font-semibold text-ink transition hover:border-brand-700/40"
-                  >
-                    {collection.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null}
-          {sources.length > 0 ? (
-            <div className="border-t border-brand-900/10 pt-4">
-              <h3 className="text-lg font-semibold tracking-tight text-ink mb-3">Research and source context</h3>
-              <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
-                {sources.slice(0, 10).map((source:string) => (
-                  <li key={source}>{source}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-        </div>
-      )
-    }
-  ]
+  const activeShopLinks = getAffiliateShopLinks(compound, displayName, 'compound')
+  const affiliateCtaLink = activeShopLinks.find(link => link.url)
 
   return (
     <>
@@ -465,7 +210,6 @@ export default async function CompoundPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(compoundJsonLd) }}
       />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -473,7 +217,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
       <ReadingProgress />
 
-      <main className="mx-auto max-w-7xl space-y-5 px-4 py-4 pb-16 sm:space-y-6 sm:py-6 sm:pb-20">
+      <main className="mx-auto max-w-4xl space-y-8 px-4 py-6 pb-20">
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -482,144 +226,154 @@ export default async function CompoundPage({ params }: PageProps) {
           ]}
         />
 
-        <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 p-3 sm:p-4">
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,0.8fr)_minmax(320px,1.2fr)] lg:items-start">
-            <div className="space-y-3">
-              <CompoundHero
-                compound={{ ...compound, summary: quickSummary }}
-                evidenceLevel={evidenceLevel}
-                safetyLevel={safetyLevel}
-              />
+        {/* Title Header */}
+        <header className="space-y-3">
+          <div className="space-y-1">
+            <p className="eyebrow-label">Compound Profile</p>
+            <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              {displayName}
+            </h1>
+            {compound.compoundClass || compound.class ? (
+              <p className="text-sm italic text-muted">{compound.compoundClass || compound.class}</p>
+            ) : null}
+          </div>
+          <p className="text-base leading-7 text-[#46574d]">{quickSummary}</p>
+        </header>
 
-              <EvidenceBadgeGroup record={compound} compact />
+        {/* Section 1: Quick Stats */}
+        <section className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">
+          <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence level</p>
+              <p className="mt-1 text-sm font-semibold text-ink">{evidenceLevel || 'Mixed or uncertain'}</p>
             </div>
+            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</p>
+              <p className="mt-1 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</p>
+            </div>
+            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</p>
+              <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {safetyLevel || 'Standard'} caution</p>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {effects.length > 0 && (
+              <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted font-semibold">Best for</p>
+                <p className="mt-1 text-sm text-ink">{effects.slice(0, 3).join(', ')}</p>
+              </div>
+            )}
+            {avoidIf.length > 0 && (
+              <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
+                <p className="mt-1 text-sm text-[#5f4a24]">{avoidIf.slice(0, 3).join(', ')}</p>
+              </div>
+            )}
+          </div>
+        </section>
 
-            <div className="space-y-3">
-              <div className="grid gap-2 rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-3 shadow-sm sm:grid-cols-2">
-                <div>
-                  <p className="eyebrow-label">Best for</p>
-                  <p className="mt-1 text-sm font-semibold leading-5 text-ink">{effects.slice(0, 3).join(', ') || 'Compare fit before use'}</p>
-                </div>
-                <div>
-                  <p className="eyebrow-label text-amber-900">Avoid / review if</p>
-                  <p className="mt-1 text-sm font-semibold leading-5 text-[#5f4a24]">{avoidIf.slice(0, 2).join(', ') || safetyTone}</p>
+        {/* Affiliate CTA right after Quick Stats */}
+        {affiliateCtaLink && (
+          <section className="bg-emerald-50/50 border border-emerald-700/10 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800">Sourcing Options</h4>
+              <p className="text-sm text-emerald-900/80">Compare options and check trusted third-party tested formats.</p>
+            </div>
+            <a
+              href={affiliateCtaLink.url}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              className="button-primary w-full sm:w-auto text-center font-bold px-5 py-2.5 rounded-full"
+            >
+              {affiliateCtaLink.label} →
+            </a>
+          </section>
+        )}
+
+        {/* Section 2: Safety */}
+        <section className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">
+          <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
+          <p className="text-sm leading-6 text-[#5f4a24]">{safetySummary}</p>
+        </section>
+
+        {/* Section 3: Evidence Summary */}
+        <section className="card-premium p-4 sm:p-5 space-y-4">
+          <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
+          <div className="space-y-3 text-sm leading-6 text-[#46574d]">
+            <p>
+              {displayName} has a <strong>{evidenceLevel?.toLowerCase() || 'mixed or uncertain'}</strong> evidence rating.
+            </p>
+            <EvidenceSnapshotCard snapshot={snapshot} />
+          </div>
+        </section>
+
+        {/* Section 4: Mechanisms (Collapsible) */}
+        {mechanismHints.length > 0 && (
+          <section className="card-premium p-4 sm:p-5">
+            <details className="group">
+              <summary className="flex cursor-pointer items-center justify-between font-bold text-ink text-lg select-none">
+                <span>Mechanisms &amp; Biological Pathways</span>
+                <span className="text-brand-500 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <div className="mt-4 pt-4 border-t border-brand-900/10 space-y-4">
+                <p className="text-sm leading-6 text-muted">
+                  Preclinical mechanism details from scientific profiles; these represent plausible pathways but do not guarantee clinical efficacy in humans.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {mechanismHints.map(m => (
+                    <span key={m} className="chip-readable text-xs">{m}</span>
+                  ))}
                 </div>
               </div>
-
-              {primaryShopLink ? (
-                <a
-                  href={primaryShopLink.url}
-                  target="_blank"
-                  rel="nofollow sponsored noopener noreferrer"
-                  className="flex items-center justify-between gap-3 rounded-[0.85rem] border border-emerald-700/20 bg-emerald-50 px-3 py-2.5 text-sm font-bold text-emerald-900 shadow-sm hover:bg-emerald-100"
-                >
-                  <span>{primaryShopLink.label}</span>
-                  <span aria-hidden="true">→</span>
-                </a>
-              ) : null}
-
-              <nav aria-label="Profile sections" className="flex flex-wrap gap-2 text-xs font-bold text-brand-800">
-                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#evidence-outcomes-tab">Evidence</a>
-                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#safety">Safety</a>
-                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#mechanism-fit-tab">Mechanism</a>
-                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#authority-sourcing-tab">Products</a>
-              </nav>
-
-              <EvidenceSnapshotPanel
-              title="5-second profile read"
-              subtitle="Educational overview. Individual response varies."
-              badge="Start here"
-              className="rounded-[0.85rem] border border-brand-900/10 bg-white/95 p-3 shadow-sm lg:sticky lg:top-4"
-              fields={buildDetailEvidenceSnapshotFields({
-                bestFit: effects.slice(0, 3).join(', '),
-                humanEvidence: evidenceLevel,
-                safetyLevel: `${safetyTone}: ${safetySummary}`,
-                toleranceRisk: formatDisplayLabel(compound.tolerance_risk || compound.toleranceRisk),
-                regulationProfile,
-                typicalOnset: timeline || 'Timing varies by dose, form, and context.',
-                useCautionIf: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : '',
-                uncertain: mechanismHints.length ? `Mechanism: ${mechanismHints.slice(0, 3).join(', ')}.` : '',
-                confidenceLabel: confidenceObj.confidenceLabel,
-                evidenceWeight: confidenceObj.evidenceWeight,
-                humanEvidenceFlag: confidenceObj.humanEvidenceFlag,
-                evidenceExplanation: confidenceObj.evidenceExplanation,
-              })}
-            />
-            </div>
-          </div>
-        </section>
-
-        <TrustBar />
-
-        {keyTakeaways.length > 0 ? (
-          <section className="border-t border-brand-900/10 pt-4">
-            <p className="eyebrow-label">Key takeaways</p>
-            <ul className="mt-2 grid gap-1.5 text-sm leading-6 text-[#46574d] sm:grid-cols-2">
-              {keyTakeaways.map(item => (
-                <li key={item} className="flex gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            </details>
           </section>
-        ) : null}
+        )}
 
-        <section id="safety" className="rounded-[0.9rem] bg-amber-50/70 p-3 sm:p-4">
-          <div className="space-y-2">
-            <p className="eyebrow-label text-amber-900">Safety first</p>
-            <h2 className="text-lg font-semibold tracking-tight text-ink">Review cautions before use</h2>
-            <p className="max-w-4xl text-sm leading-6 text-[#5f4a24]">
-              Educational-only framing: individual response varies by dose, formulation, concurrent medications, and health context. {safetySummary}
-            </p>
+        {/* Section 5: Compare Nearby + CTA */}
+        <section className="card-premium p-4 sm:p-5 space-y-4">
+          <div className="space-y-1">
+            <h2 className="text-lg font-bold text-ink">Compare &amp; Sourcing</h2>
+            <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
           </div>
-          {avoidIf.length > 0 ? (
-            <div className="mt-4">
-              <h3 className="text-sm font-semibold text-ink">Avoid / review first if</h3>
-              <div className="mt-2"><ChipList items={avoidIf} limit={6} /></div>
-            </div>
-          ) : null}
+          <SourcingCta record={compound} displayName={displayName} />
+
+          <div className="grid gap-4 sm:grid-cols-2 pt-2">
+            {semanticRelated.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Related alternatives</h3>
+                <div className="flex flex-col gap-2">
+                  {semanticRelated.slice(0, 4).map(item => (
+                    <Link key={item.slug} href={item.entityType === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`} className="text-sm font-semibold text-brand-800 hover:underline">{formatDisplayLabel(item.name || item.slug)}</Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {comparisonRecords.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Tradeoffs</h3>
+                <div className="flex flex-col gap-2">
+                  {comparisonRecords
+                    .filter((item: any) => item?.slug)
+                    .map((item: any) => {
+                      const compSlug = getValidComparisonSlug(sourceSlug, item.slug)
+                      if (!compSlug) return null
+                      return (
+                        <Link key={item.slug} href={`/compare/${compSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">Compare {formatDisplayLabel(item.name || item.slug)}</Link>
+                      )
+                    })
+                    .filter(Boolean)}
+                </div>
+              </div>
+            )}
+          </div>
         </section>
 
-        <DetailTabDashboard tabs={tabs} />
-
-
-
-        <RelatedDiscoveryGroups
-          eyebrow="Related navigation"
-          title="Related decisions"
-          groups={[
-            {
-              title: 'Related comparisons',
-              description: 'Side-by-side pages for closer tradeoff decisions.',
-              links: comparisonRecords
-                .filter((item: any) => item?.slug)
-                .map((item: any) => {
-                  const compSlug = getValidComparisonSlug(sourceSlug, item.slug)
-                  if (!compSlug) return null
-                  return {
-                    href: `/compare/${compSlug}`,
-                    label: formatDisplayLabel(item.name || item.title || item.slug)
-                  }
-                })
-                .filter((item): item is { href: string; label: string } => item !== null)
-                .slice(0, 4),
-            },
-            {
-              title: 'Alternatives and adjacencies',
-              description: 'Compounds and herbs with overlapping pathway signals.',
-              links: semanticRelated.slice(0, 4).map((item:any) => ({ href: item.entityType === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`, label: formatDisplayLabel(item.name || item.displayName || item.slug) })),
-            },
-            {
-              title: 'Beginner-friendly next reads',
-              description: 'Start with educational explainers before stacking.',
-              links: [
-                { href: '/learn', label: 'Learn evidence and safety basics' },
-                { href: '/goals', label: 'Browse goals guides' },
-              ],
-            },
-          ]}
-        />
+        <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
+          <Link href="/compounds" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
+            ← Back to compounds library
+          </Link>
+        </div>
       </main>
     </>
   )

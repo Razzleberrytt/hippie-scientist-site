@@ -41,9 +41,17 @@ const PLACEHOLDER_PATTERNS = [
 const GENERIC_CATEGORY_PATTERNS = /^(?:general|unknown|other|misc(?:ellaneous)?|n\/a)$/i
 
 function cleanNarrative(value) {
-  const text = asText(value).replace(/\s+/g, ' ')
+  let text = asText(value).replace(/\s+/g, ' ')
   if (!text) return ''
   if (PLACEHOLDER_PATTERNS.some(pattern => pattern.test(text))) return ''
+  
+  // Clean column header leaks and nan variations
+  text = text
+    .replace(/\b(nan|NaN|NAN)\b/g, '')
+    .replace(/\b(Herb Description|Summary|moa|Active Compounds|Safety Notes|Contraindications|Interactions|Mechanism Tags|Preparation|Typical Dosage|Region|Scientific Name)\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
   return text
 }
 
@@ -329,20 +337,26 @@ function buildHerbSummary(record, governedSummaryByEntity) {
     name: normalizeDisplayName(common || scientific || slug, slug),
     common,
     scientific,
-    summary: asText(record.summary || record.description || record.mechanism),
-    description: asText(record.description || record.summary),
+    summary: cleanNarrative(record.summary || record.description || record.mechanism),
+    description: cleanNarrative(record.description || record.summary),
     primaryActions,
     mechanisms,
     confidence: asText(record.confidence || 'low').toLowerCase(),
     activeCompounds,
-    safetyNotes: asText(record.safetyNotes || record.safety),
+    safetyNotes: cleanNarrative(record.safetyNotes || record.safety),
     contraindications: splitList(record.contraindications),
     interactions: splitList(record.interactions),
-    preparation: asText(record.preparation),
+    preparation: cleanNarrative(record.preparation),
     traditionalUses: splitList(record.traditionalUses || record.therapeuticUses),
     evidenceLevel: asText(record.evidenceLevel),
     relatedHerbs: normalizeSlugLinks(record.relatedHerbs),
     region: asText(record.region),
+    affiliate_ready: record.affiliate_ready !== undefined ? record.affiliate_ready : record.affiliateReady,
+    affiliate_url: record.affiliate_url || record.affiliateUrl || '',
+    affiliate_label: record.affiliate_label || record.affiliateLabel || '',
+    affiliate_query: record.affiliate_query || record.affiliateQuery || '',
+    amazon_affiliate_url: record.amazon_affiliate_url || record.amazonAffiliateUrl || '',
+    iherb_affiliate_url: record.iherb_affiliate_url || record.iherbAffiliateUrl || '',
   }
 }
 
@@ -365,9 +379,15 @@ function buildCompoundSummary(record, governedSummaryByEntity) {
     pathways: splitList(record.pathways || record.pathwayTargets),
     foundIn,
     bioavailability: asText(record.bioavailability || record.pharmacokinetics),
-    safetyNotes: asText(record.safetyNotes || record.safety),
+    safetyNotes: cleanNarrative(record.safetyNotes || record.safety),
     evidenceLevel: asText(record.evidenceLevel || governedSummary?.evidenceLabelTitle),
     relatedCompounds: normalizeSlugLinks(record.relatedCompounds),
+    affiliate_ready: record.affiliate_ready !== undefined ? record.affiliate_ready : record.affiliateReady,
+    affiliate_url: record.affiliate_url || record.affiliateUrl || '',
+    affiliate_label: record.affiliate_label || record.affiliateLabel || '',
+    affiliate_query: record.affiliate_query || record.affiliateQuery || '',
+    amazon_affiliate_url: record.amazon_affiliate_url || record.amazonAffiliateUrl || '',
+    iherb_affiliate_url: record.iherb_affiliate_url || record.iherbAffiliateUrl || '',
   }
 }
 
@@ -406,6 +426,12 @@ function writeEntityDetails(records, targetDir) {
       evidenceLevel: summaryRecord.evidenceLevel,
       relatedHerbs: summaryRecord.relatedHerbs,
       region: summaryRecord.region,
+      affiliate_ready: summaryRecord.affiliate_ready,
+      affiliate_url: summaryRecord.affiliate_url,
+      affiliate_label: summaryRecord.affiliate_label,
+      affiliate_query: summaryRecord.affiliate_query,
+      amazon_affiliate_url: summaryRecord.amazon_affiliate_url,
+      iherb_affiliate_url: summaryRecord.iherb_affiliate_url,
     }
     writeJson(path.join(targetDir, `${slug}.json`), detailRecord)
     writtenSlugs.add(slug)
