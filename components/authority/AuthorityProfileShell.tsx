@@ -23,6 +23,13 @@ function toneBadge(tone: AuthoritySignal['tone']) {
   return 'Context'
 }
 
+function formatReadinessLabel(label: string) {
+  const normalized = label.replace(/-/g, ' ').trim().toLowerCase()
+  if (!normalized || normalized === 'developing') return 'Evidence profile developing'
+  if (normalized === 'concise') return 'Concise evidence profile'
+  return normalized.replace(/\b\w/g, character => character.toUpperCase())
+}
+
 function AuthoritySignalCard({ signal }: { signal: AuthoritySignal }) {
   const label = cleanEditorialText(signal.label)
   const description = cleanEditorialText(signal.description)
@@ -107,7 +114,7 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
             </p>
           </div>
           <div className="rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-3 text-sm font-semibold text-ink shadow-sm">
-            {model.readinessLabel.replace(/-/g, ' ')} · {model.readinessScore}
+            {formatReadinessLabel(model.readinessLabel)}
           </div>
         </div>
       </section>
