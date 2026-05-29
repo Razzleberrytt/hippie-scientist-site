@@ -1,17 +1,17 @@
 {
-  "name": "cayenne",
+  "name": "Cayenne",
   "slug": "cayenne",
   "summary": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
   "description": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "TRPV1 activation/desensitization",
-    "substance P depletion",
-    "neurogenic inflammation modulation",
-    "local vasodilation signaling"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Capsaicin can irritate skin, eyes, GI tract, and mucosa. Caution with ulcers/reflux, anticoagulants/antiplatelets, and before surgery; keep topical products away from eyes.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -20,9 +20,9 @@
     "Potential interaction concern with anticoagulants/antiplatelets",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

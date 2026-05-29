@@ -1,15 +1,16 @@
 {
-  "name": "catuba",
+  "name": "Catuba",
   "slug": "catuba",
   "summary": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth.",
   "description": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "traditional vitality support",
-    "mood support"
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +19,9 @@
     "Potential interaction concern with sedatives/CNS depressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

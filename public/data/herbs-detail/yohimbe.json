@@ -1,17 +1,18 @@
 {
-  "name": "yohimbe",
+  "name": "Yohimbe",
   "slug": "yohimbe",
   "summary": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects.",
-  "description": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects. The herb is more appropriately framed around safety review than routine recommendation. Potential effects include increased alertness and sexual-function relevance, but tolerability can be poor and adverse effects may include anxiety, tachycardia, blood-pressure elevation, agitation, insomnia, and gastrointestinal distress. Use should be conservative and exclusion-heavy in people with cardiovascular, psychiatric, seizure, renal, or hepatic vulnerability.",
-  "primaryActions": [],
+  "description": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects. The herb is more appropriately framed around safety review than routine recommendation.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
   "mechanisms": [
-    "yohimbine alpha-2 adrenergic receptor antagonism",
-    "increased sympathetic outflow",
-    "norepinephrine signaling",
-    "serotonergic and dopaminergic modulation"
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "High-risk stimulant herb. Reported adverse events include anxiety, agitation, hypertension, tachycardia, GI distress, and rare serious cardiovascular/neurologic events.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Hypertension",
     "arrhythmia",
@@ -30,9 +31,9 @@
     "antihypertensives",
     "and drugs affecting blood pressure or heart rhythm."
   ],
-  "preparation": "Do not equate crude bark products with pharmaceutical yohimbine; supplement yohimbine content can vary substantially.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

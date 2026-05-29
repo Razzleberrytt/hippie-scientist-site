@@ -1,15 +1,17 @@
 {
-  "name": "schisandra chinensis",
+  "name": "Schisandra Chinensis",
   "slug": "schisandra-chinensis",
   "summary": "Lean bulk ingestion row for Schisandra chinensis.",
   "description": "Lean bulk ingestion row for Schisandra chinensis. Key active compounds include Schisandrin.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "Nrf2 activation",
-    "PI3K/Akt modulation"
+    "Stress Response Modulation",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Hepatobiliary-active potential; use caution with liver disease, gallbladder disease, bile-duct obstruction, hepatotoxic drugs, and pregnancy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without guidance",
     "active reflux/ulcer sensitivity",
@@ -22,9 +24,9 @@
     "anticoagulants",
     "and hepatically metabolized drugs."
   ],
-  "preparation": "Berry decoction, powder, tincture, and lignan-standardized extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

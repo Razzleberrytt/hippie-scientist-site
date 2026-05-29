@@ -1,0 +1,21 @@
+{
+  "id": "agmatine-sulfate",
+  "slug": "agmatine-sulfate",
+  "name": "Agmatine sulfate",
+  "summary": "Decision-ready summary: Agmatine sulfate is best framed for neuropathic pain research context; nitric oxide modulation; mood support context; safety screen: blood pressure medications; psychiatric medications; limited safety data.",
+  "description": "Agmatine sulfate supports pain; mood; nitric oxide with low confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

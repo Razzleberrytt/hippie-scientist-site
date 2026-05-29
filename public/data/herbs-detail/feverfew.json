@@ -1,16 +1,19 @@
 {
-  "name": "feverfew",
+  "name": "Feverfew",
   "slug": "feverfew",
-  "summary": "Mechanism context: parthenolide-mediated NF-κB inhibition, serotonin/platelet modulation, TRPA1 and prostaglandin-pathway effects. Safety: Avoid in pregnancy; possible mouth ulcers/GI upset; allergy risk in Asteraceae-sensitive users; caution with anticoagulants/antiplatelets.. Interactions tracked: May increase bleeding risk with anticoagulants/antiplatelets/NSAIDs, caution with migraine medications..",
-  "description": "Mechanism context: parthenolide-mediated NF-κB inhibition, serotonin/platelet modulation, TRPA1 and prostaglandin-pathway effects. Safety: Avoid in pregnancy; possible mouth ulcers/GI upset; allergy risk in Asteraceae-sensitive users; caution with anticoagulants/antiplatelets.. Interactions tracked: May increase bleeding risk with anticoagulants/antiplatelets/NSAIDs, caution with migraine medications..",
-  "primaryActions": [],
+  "summary": "feverfew is tracked for inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "analgesic"
+  ],
   "mechanisms": [
-    "parthenolide-mediated NF-κB inhibition",
-    "serotonin/platelet modulation",
-    "TRPA1 and prostaglandin-pathway effects"
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Avoid in pregnancy; possible mouth ulcers/GI upset; allergy risk in Asteraceae-sensitive users; caution with anticoagulants/antiplatelets.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy",
     "Asteraceae/ragweed allergy",
@@ -21,9 +24,9 @@
     "May increase bleeding risk with anticoagulants/antiplatelets/NSAIDs",
     "caution with migraine medications."
   ],
-  "preparation": "Leaf capsules/extracts standardized to parthenolide; fresh leaf chewing increases mouth irritation risk.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

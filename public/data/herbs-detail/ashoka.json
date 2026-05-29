@@ -1,14 +1,19 @@
 {
-  "name": "ashoka",
+  "name": "Ashoka",
   "slug": "ashoka",
   "summary": "It should be framed conservatively because traditional gynecologic use is much stronger than modern evidence.",
   "description": "It should be framed conservatively because traditional gynecologic use is much stronger than modern evidence.",
-  "primaryActions": [],
+  "primaryActions": [
+    "hormonal",
+    "reproductive",
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "traditional cycle support"
+    "Inflammatory Signaling Modulation",
+    "Hormonal Signaling Context"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Hormone- or cycle-related traditional use requires caution in pregnancy, breastfeeding, hormone-sensitive conditions, and with hormone therapies.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -17,9 +22,9 @@
     "Potential additive effects with medications affecting the same body system",
     "review high-dose extracts with a clinician."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

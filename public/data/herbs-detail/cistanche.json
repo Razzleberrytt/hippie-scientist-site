@@ -1,15 +1,16 @@
 {
-  "name": "cistanche",
+  "name": "Cistanche",
   "slug": "cistanche",
   "summary": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
   "description": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
-  "primaryActions": [],
+  "primaryActions": [
+    "sleep"
+  ],
   "mechanisms": [
-    "traditional restorative support",
-    "fatigue support"
+    "Neuroprotective Activity"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without guidance",
     "diarrhea-prone conditions"
@@ -18,9 +19,9 @@
     "Limited clinical interaction data",
     "caution with laxatives and glucose-lowering therapies."
   ],
-  "preparation": "Stem decoction, powder, and extracts standardized to echinacoside/acteoside.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,0 +1,23 @@
+{
+  "name": "Lion’s Mane",
+  "slug": "lions-mane",
+  "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+  "description": "Lion’s Mane is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Neurobiology. Current workbook signals support mechanistic context around Neuroprotective Activity, not treatment claims.",
+  "primaryActions": [
+    "cognitive",
+    "neuroprotective",
+    "mood"
+  ],
+  "mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [],
+  "interactions": [],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

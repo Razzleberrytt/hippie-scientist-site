@@ -4,22 +4,18 @@
   "name": "saikosaponin a",
   "summary": "Triterpene saponin from Bupleurum with NF-κB and PI3K/Akt pathway activity.",
   "description": "Triterpene saponin from Bupleurum with NF-κB and PI3K/Akt pathway activity.",
-  "compoundClass": "triterpenoid saponin",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "NF-κB",
-    "MAPK",
-    "HPA-axis signaling",
-    "inflammatory cytokines",
-    "apoptosis signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human safety is formula/herb-derived. Bupleurum-containing products have liver-safety reports; caution with liver disease, immunomodulators, and pregnancy.",
-  "evidenceLevel": "preclinical; human_indirect_from_bupleurum",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -1,0 +1,18 @@
+{
+  "id": "saccharomyces-boulardii",
+  "slug": "saccharomyces-boulardii",
+  "name": "Saccharomyces boulardii",
+  "summary": "Decision-ready summary: Saccharomyces boulardii is best framed for antibiotic-associated diarrhea risk; traveler’s diarrhea context; gut resilience; safety screen: central venous catheter; severe immunocompromise; critical illness.",
+  "description": "Saccharomyces boulardii supports diarrhea; gut; antibiotic-associated diarrhea with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Immune Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

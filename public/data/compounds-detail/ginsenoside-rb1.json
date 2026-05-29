@@ -4,23 +4,20 @@
   "name": "ginsenoside rb1",
   "summary": "Major ginsenoside with neuroprotective and metabolic signaling effects.",
   "description": "Major ginsenoside with neuroprotective and metabolic signaling effects.",
-  "compoundClass": "triterpenoid saponin / ginsenoside",
+  "compoundClass": "",
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "cholinergic modulation",
-    "Nrf2 activation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
   ],
-  "targets": [
-    "AMPK",
-    "PI3K/Akt",
-    "Nrf2",
-    "neurotrophic signaling",
-    "inflammatory cytokines"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Safety inferred from ginseng extracts. Caution with anticoagulants, antidiabetics, stimulants, immunosuppressants, and hormone-sensitive contexts.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

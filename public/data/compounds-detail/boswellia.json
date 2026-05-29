@@ -1,0 +1,18 @@
+{
+  "id": "boswellia",
+  "slug": "boswellia",
+  "name": "Boswellia",
+  "summary": "Boswellia entry from SciSpace evidence pass. Evidence level: moderate.",
+  "description": "Boswellia is cataloged as boswellic acid botanical. Reported mechanisms: 5-lipoxygenase inhibition; leukotriene reduction.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,16 +1,19 @@
 {
-  "name": "mulberry leaf",
+  "name": "Mulberry Leaf",
   "slug": "mulberry-leaf",
   "summary": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
   "description": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
-  "primaryActions": [],
+  "primaryActions": [
+    "metabolic"
+  ],
   "mechanisms": [
-    "1-deoxynojirimycin α-glucosidase inhibition",
-    "postprandial glucose modulation",
-    "AMPK and lipid-metabolism effects"
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May potentiate glucose-lowering drugs; GI effects possible; pregnancy safety uncertain.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Hypoglycemia risk",
     "pregnancy/breastfeeding without clinician guidance"
@@ -19,9 +22,9 @@
     "May potentiate antidiabetic drugs and other alpha-glucosidase inhibitors",
     "monitor glucose."
   ],
-  "preparation": "Leaf tea, powder, tablets, and extracts standardized to DNJ or flavonoids.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,0 +1,20 @@
+{
+  "id": "red-yeast-rice",
+  "slug": "red-yeast-rice",
+  "name": "Red Yeast Rice",
+  "summary": "Decision-ready summary: Red Yeast Rice is best framed for LDL cholesterol reduction when medically appropriate; statin-like supplement comparison; safety screen: statins; liver disease; pregnancy; CYP3A4 inhibitors.",
+  "description": "Red Yeast Rice supports LDL cholesterol; cardiovascular risk factor with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

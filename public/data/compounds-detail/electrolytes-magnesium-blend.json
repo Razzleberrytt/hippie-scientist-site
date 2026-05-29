@@ -1,0 +1,19 @@
+{
+  "id": "electrolytes-magnesium-blend",
+  "slug": "electrolytes-magnesium-blend",
+  "name": "Electrolytes - Magnesium Blend",
+  "summary": "Magnesium blends support deficiency correction and neuromuscular function, but cramp evidence is mixed.",
+  "description": "Blend of magnesium salts used for electrolyte and deficiency contexts.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

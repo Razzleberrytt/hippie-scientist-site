@@ -1,0 +1,20 @@
+{
+  "id": "probiotics-bifidobacterium",
+  "slug": "probiotics-bifidobacterium",
+  "name": "Probiotics - Bifidobacterium spp.",
+  "summary": "Bifidobacterium probiotics have moderate, strain-specific evidence for IBS and digestive health outcomes.",
+  "description": "Category row for Bifidobacterium strains; clinical effects depend on strain and population.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

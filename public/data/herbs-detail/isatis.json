@@ -1,17 +1,17 @@
 {
-  "name": "isatis",
+  "name": "Isatis",
   "slug": "isatis",
   "summary": "It is best framed as a traditional-use herb with limited modern clinical depth.",
   "description": "It is best framed as a traditional-use herb with limited modern clinical depth.",
-  "primaryActions": [],
+  "primaryActions": [
+    "immune"
+  ],
   "mechanisms": [
-    "traditional immune support",
-    "throat support",
-    "CDK inhibition",
-    "STAT3 inhibition"
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -20,9 +20,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

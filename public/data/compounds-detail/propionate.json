@@ -1,0 +1,20 @@
+{
+  "id": "propionate",
+  "slug": "propionate",
+  "name": "propionate",
+  "summary": "propionate is tracked for short- chain fatty acid activating FFAR2/3, improving insulin sensitivity and satiety signaling; short- chain fatty acid with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+  "description": "propionate is tracked for short- chain fatty acid activating FFAR2/3, improving insulin sensitivity and satiety signaling; short- chain fatty acid with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

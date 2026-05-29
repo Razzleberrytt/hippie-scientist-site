@@ -1,19 +1,21 @@
 {
-  "name": "scutellaria baicalensis",
+  "name": "Scutellaria Baicalensis",
   "slug": "scutellaria-baicalensis",
   "summary": "Lean bulk ingestion row for Scutellaria baicalensis.",
   "description": "Lean bulk ingestion row for Scutellaria baicalensis. Key active compounds include Baicalin; Baicalein; Wogonin.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "baicalin/baicalein/wogonin modulation of NF-κB",
-    "MAPK",
-    "PI3K/Akt",
-    "Nrf2",
-    "cytokines",
-    "and oxidative-stress pathways"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally studied as extracts/compounds, but liver injury reports and adulteration/quality issues exist for skullcap products. Use caution with liver disease.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Liver disease",
     "pregnancy/breastfeeding",
@@ -26,9 +28,9 @@
     "immunosuppressants",
     "and hepatotoxic drugs."
   ],
-  "preparation": "Species identity matters; distinguish Scutellaria baicalensis from American skullcap and adulterated materials.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

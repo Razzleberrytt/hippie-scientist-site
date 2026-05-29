@@ -4,22 +4,20 @@
   "name": "oleacein",
   "summary": "Oleacein is an olive secoiridoid linked to antioxidant-response and inflammatory pathway control.",
   "description": "Oleacein is an olive secoiridoid linked to antioxidant-response and inflammatory pathway control.",
-  "compoundClass": "olive phenolic secoiridoid/phenylethanol",
+  "compoundClass": "",
   "mechanisms": [
-    "Nrf2 activation",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "Nrf2",
-    "NF-κB",
-    "lipid oxidation",
-    "endothelial signaling",
-    "antioxidant response"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
-  "evidenceLevel": "human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

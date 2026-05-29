@@ -1,0 +1,33 @@
+{
+  "name": "Indian Barberry",
+  "slug": "berberis-aristata",
+  "summary": "Indian Barberry is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Indian Barberry is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "digestive",
+    "liver-protective",
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "CYP3A4 substrates",
+    "metformin (additive)",
+    "pregnancy contraindicated"
+  ],
+  "interactions": [
+    "CYP3A4 substrates",
+    "metformin (additive)",
+    "pregnancy contraindicated"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

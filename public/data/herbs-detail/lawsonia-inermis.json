@@ -1,15 +1,17 @@
 {
-  "name": "lawsonia inermis",
+  "name": "Lawsonia Inermis",
   "slug": "lawsonia-inermis",
   "summary": "Lawsonia inermis contains Lawsone and is linked here to MAPK pathway modulation.",
   "description": "Lawsonia inermis contains Lawsone and is linked here to MAPK pathway modulation.",
-  "primaryActions": [],
+  "primaryActions": [
+    "skin-support",
+    "antimicrobial"
+  ],
   "mechanisms": [
-    "MAPK pathway modulation",
-    "NF-κB inhibition"
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +20,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

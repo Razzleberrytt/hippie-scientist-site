@@ -1,15 +1,18 @@
 {
-  "name": "suma",
+  "name": "Suma",
   "slug": "suma",
   "summary": "It should be framed conservatively because traditional-use breadth exceeds evidence depth.",
   "description": "It should be framed conservatively because traditional-use breadth exceeds evidence depth.",
-  "primaryActions": [],
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
   "mechanisms": [
-    "traditional restorative support",
-    "adaptogenic support"
+    "Inflammatory Signaling Modulation",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +21,9 @@
     "Potential additive effects with medications affecting the same body system",
     "review high-dose extracts with a clinician."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

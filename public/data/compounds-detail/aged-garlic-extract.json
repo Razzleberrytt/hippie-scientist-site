@@ -1,0 +1,23 @@
+{
+  "id": "aged-garlic-extract",
+  "slug": "aged-garlic-extract",
+  "name": "Aged Garlic Extract",
+  "summary": "Aged garlic extract reduces systolic and diastolic blood pressure in hypertensive patients.",
+  "description": "Aged garlic extract reduces systolic and diastolic blood pressure in hypertensive patients.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

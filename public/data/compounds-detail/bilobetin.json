@@ -4,20 +4,18 @@
   "name": "bilobetin",
   "summary": "Biflavone from Ginkgo and related taxa associated with inflammatory pathway modulation.",
   "description": "Biflavone from Ginkgo and related taxa associated with inflammatory pathway modulation.",
-  "compoundClass": "terpene lactone / biflavone",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "MAPK modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "platelet activating factor",
-    "antioxidant response",
-    "cerebral blood flow signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Ginkgo constituents are extract-specific. Bleeding interaction concerns apply with anticoagulants/antiplatelets.",
-  "evidenceLevel": "human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

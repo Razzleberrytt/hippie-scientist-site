@@ -1,0 +1,18 @@
+{
+  "id": "coconut-water-powder",
+  "slug": "coconut-water-powder",
+  "name": "Coconut Water Powder",
+  "summary": "Coconut water powder provides electrolytes and carbohydrate; evidence suggests rehydration comparable to sports drinks in limited studies.",
+  "description": "Dehydrated coconut water electrolyte/carbohydrate product.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

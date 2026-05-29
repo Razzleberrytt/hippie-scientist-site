@@ -21,7 +21,7 @@ const REQUIRED_WORKBOOK_SHEETS = {
   herbs: ['Herb Master V3'],
   compounds: ['Compound Master V3'],
   herbCompoundMap: ['Herb Compound Map V3'],
-  claimRows: ['Claim Rows'],
+  claimRows: ['Study Registry'],
   researchQueue: ['Research Queue'],
 }
 const REQUIRED_SHEET_KEYS = Object.keys(REQUIRED_WORKBOOK_SHEETS)

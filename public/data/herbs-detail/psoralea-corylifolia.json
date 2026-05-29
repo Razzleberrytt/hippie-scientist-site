@@ -1,17 +1,20 @@
 {
-  "name": "psoralea corylifolia",
+  "name": "Psoralea Corylifolia",
   "slug": "psoralea-corylifolia",
   "summary": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
   "description": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "psoralen/isopsoralen furanocoumarin photosensitization",
-    "estrogenic signaling",
-    "CYP interaction potential",
-    "oxidative-stress and inflammatory-pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "High caution: photosensitivity, burns, hepatotoxicity reports, and interaction risks. Avoid unsupervised internal use or UV exposure after use.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding",
     "liver disease",
@@ -25,9 +28,9 @@
     "anticoagulants",
     "and hormone-active therapies unless supervised."
   ],
-  "preparation": "Therapeutic use requires controlled dosing and light-exposure management; crude supplements are not interchangeable with monitored phototherapy.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

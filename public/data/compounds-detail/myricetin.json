@@ -4,23 +4,20 @@
   "name": "myricetin",
   "summary": "Polyhydroxylated flavonol reported from tea and berry sources with MAPK and NF-κB pathway activity.",
   "description": "Polyhydroxylated flavonol reported from tea and berry sources with MAPK and NF-κB pathway activity.",
-  "compoundClass": "flavonol / flavonoid",
+  "compoundClass": "",
   "mechanisms": [
-    "MAPK pathway modulation",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation"
   ],
-  "targets": [
-    "AMPK",
-    "Nrf2",
-    "NF-κB",
-    "inflammatory cytokines",
-    "endothelial nitric oxide",
-    "antioxidant response"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -4,19 +4,16 @@
   "name": "lagerstroemin",
   "summary": "Ellagitannin linked to glucose transport and metabolic regulation.",
   "description": "Ellagitannin linked to glucose transport and metabolic regulation.",
-  "compoundClass": "ellagitannin",
+  "compoundClass": "",
   "mechanisms": [
-    "PPAR activation",
-    "glucose uptake modulation"
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
   ],
-  "targets": [
-    "PPARα/γ",
-    "glucose transport/metabolism"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
-  "evidenceLevel": "in_vitro",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

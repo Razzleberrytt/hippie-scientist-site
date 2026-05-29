@@ -1,0 +1,18 @@
+{
+  "id": "st-johns-wort",
+  "slug": "st-johns-wort",
+  "name": "St. John's Wort",
+  "summary": "St. John's Wort entry from SciSpace evidence pass.",
+  "description": "St. John's Wort is cataloged as naphthodianthrone/phloroglucinol botanical.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

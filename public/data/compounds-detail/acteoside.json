@@ -4,22 +4,20 @@
   "name": "acteoside",
   "summary": "Phenylethanoid glycoside with inflammatory pathway modulation.",
   "description": "Phenylethanoid glycoside with inflammatory pathway modulation.",
-  "compoundClass": "phenylethanoid glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "MAPK pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "Nrf2",
-    "NF-κB",
-    "antioxidant response",
-    "inflammatory cytokines",
-    "neuroprotective signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preclinical/extract-derived; safety depends on source herb and product quality.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -1,17 +1,21 @@
 {
-  "name": "phellodendron amurense",
+  "name": "Phellodendron Amurense",
   "slug": "phellodendron-amurense",
   "summary": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion.",
   "description": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antimicrobial",
+    "anti-inflammatory",
+    "metabolic"
+  ],
   "mechanisms": [
-    "AMPK activation",
-    "NF-κB inhibition",
-    "PI3K/Akt modulation",
-    "MAPK pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May affect glucose, blood pressure, CYP/P-gp drug handling, and GI tolerance. Avoid pregnancy/breastfeeding unless clinician-directed.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -22,9 +26,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

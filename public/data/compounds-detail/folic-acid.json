@@ -1,0 +1,18 @@
+{
+  "id": "folic-acid",
+  "slug": "folic-acid",
+  "name": "Folic Acid",
+  "summary": "Reduces risk of neural tube defects in pregnancy.",
+  "description": "Reduces risk of neural tube defects in pregnancy.",
+  "compoundClass": "",
+  "mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

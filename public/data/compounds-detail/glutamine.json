@@ -1,0 +1,20 @@
+{
+  "id": "glutamine",
+  "slug": "glutamine",
+  "name": "Glutamine",
+  "summary": "May improve gut barrier function in critical illness and some GI disorders.",
+  "description": "May improve gut barrier function in critical illness and some GI disorders.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "glucomannan",
+  "slug": "glucomannan",
+  "name": "Glucomannan",
+  "summary": "Decision-ready summary: Glucomannan is best framed for satiety; LDL cholesterol support; constipation support; safety screen: swallowing difficulty; bowel obstruction; medication timing conflicts.",
+  "description": "Glucomannan supports satiety; fiber; cholesterol with moderate-high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

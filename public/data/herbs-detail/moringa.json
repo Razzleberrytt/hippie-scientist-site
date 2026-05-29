@@ -1,17 +1,22 @@
 {
-  "name": "moringa",
+  "name": "Moringa",
   "slug": "moringa",
-  "summary": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
+  "summary": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood -all.",
   "description": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant",
+    "metabolic"
+  ],
   "mechanisms": [
-    "isothiocyanate and glucosinolate Nrf2 activation",
-    "AMPK-related glucose/lipid signaling",
-    "NF-κB modulation",
-    "polyphenol antioxidant pathways"
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Nrf2 Activation",
+    "Glucose Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Leaf preparations are commonly used as foods; concentrated extracts need caution. Avoid root/bark preparations in pregnancy; monitor if using antidiabetic or antihypertensive medication.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding caution for concentrated extracts",
     "especially non-leaf parts",
@@ -21,9 +26,9 @@
     "Potential additive effects with antidiabetic and antihypertensive therapies",
     "theoretical interaction with thyroid-active therapy in high-dose extracts."
   ],
-  "preparation": "Human relevance is strongest for leaf powder/extracts; root and bark preparations carry different safety concerns.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

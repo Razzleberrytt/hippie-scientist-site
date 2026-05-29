@@ -1,16 +1,19 @@
 {
-  "name": "fingerroot",
+  "name": "Fingerroot",
   "slug": "fingerroot",
   "summary": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
   "description": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "antimicrobial"
+  ],
   "mechanisms": [
-    "panduratin A/pinostrobin NF-κB and MAPK modulation",
-    "COX/LOX inflammatory signaling",
-    "antimicrobial membrane and biofilm-pathway effects"
+    "Inflammatory Signaling Modulation",
+    "Cellular Protection",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -19,9 +22,9 @@
     "Potential additive effects with medications affecting the same body system",
     "review high-dose extracts with a clinician."
   ],
-  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

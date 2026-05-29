@@ -1,18 +1,20 @@
 {
-  "name": "cichorium intybus",
+  "name": "Cichorium Intybus",
   "slug": "cichorium-intybus",
   "summary": "Cichorium intybus lean monograph row enriched in bulk mode.",
   "description": "Cichorium intybus lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "liver-protective"
+  ],
   "mechanisms": [
-    "Inulin-type fructan prebiotic fermentation to short-chain fatty acids",
-    "bile-acid and lipid metabolism modulation",
-    "Bifidobacterium enrichment",
-    "NF-κB inflammatory modulation",
-    "5-lipoxygenase-related signaling."
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "NF-kB Modulation",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Inulin/chicory can cause gas, bloating, diarrhea, or IBS/FODMAP intolerance; allergy risk exists in Asteraceae-sensitive users; caution with pregnancy/breastfeeding, gallbladder disease, and diabetes medications when using concentrated products.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -22,9 +24,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "meta_analysis",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,0 +1,23 @@
+{
+  "id": "phosphatidylserine",
+  "slug": "phosphatidylserine",
+  "name": "Phosphatidylserine",
+  "summary": "Decision-ready summary: Phosphatidylserine is best framed for age-related memory support; stress response; exercise cortisol context; safety screen: anticoagulants caution; soy allergy if soy-derived.",
+  "description": "Phosphatidylserine supports memory; stress; cognition with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

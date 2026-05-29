@@ -1,27 +1,22 @@
 {
   "id": "curcumin",
   "slug": "curcumin",
-  "name": "curcumin",
-  "summary": "Curcuminoid from turmeric commonly linked to NF-κB inhibition and Nrf2 activation.",
-  "description": "Curcuminoid from turmeric commonly linked to NF-κB inhibition and Nrf2 activation.",
-  "compoundClass": "diarylheptanoid polyphenol",
+  "name": "Curcumin",
+  "summary": "Decision-ready summary: Curcumin is best framed for osteoarthritis discomfort; inflammatory pain; exercise soreness; safety screen: anticoagulants; gallbladder disease; planned surgery.",
+  "description": "Curcumin supports joint pain; inflammation; soreness with high confidence in this merged decision layer.",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "Nrf2 activation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "NF-κB",
-    "Nrf2",
-    "COX-2",
-    "LOX",
-    "STAT3",
-    "AMPK",
-    "inflammatory cytokines"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Generally well tolerated in many trials, but high-dose extracts can cause GI upset and may interact with anticoagulants/antiplatelets or gallbladder disease contexts; piperine coformulas change exposure.",
-  "evidenceLevel": "human_limited; multiple_meta_analyses_by_indication",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

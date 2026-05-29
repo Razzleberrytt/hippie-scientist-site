@@ -1,0 +1,18 @@
+{
+  "id": "cimifugoside",
+  "slug": "cimifugoside",
+  "name": "Cimifugoside",
+  "summary": "Cimifugoside is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Cimifugoside is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

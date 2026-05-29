@@ -4,18 +4,17 @@
   "name": "silychristin",
   "summary": "Flavonolignan from milk thistle contributing to antioxidant and transporter-related activity.",
   "description": "Flavonolignan from milk thistle contributing to antioxidant and transporter-related activity.",
-  "compoundClass": "phytochemical constituent",
+  "compoundClass": "",
   "mechanisms": [
-    "Nrf2 activation",
-    "ABC transporter modulation"
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Nrf2 Activation"
   ],
-  "targets": [
-    "Nrf2"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
-  "evidenceLevel": "in_vitro",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

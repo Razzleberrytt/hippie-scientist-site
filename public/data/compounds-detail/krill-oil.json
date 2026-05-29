@@ -1,0 +1,20 @@
+{
+  "id": "krill-oil",
+  "slug": "krill-oil",
+  "name": "Krill Oil",
+  "summary": "Krill Oil is best framed as a conservative research profile with mechanistic evidence and a focus on Inflammation; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Inflammatory Signaling Modulation; Metabolic Regulation; Lipid Metabolism Support, not treatment claims.",
+  "description": "Krill Oil is best framed as a conservative research profile with mechanistic evidence and a focus on Inflammation; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Inflammatory Signaling Modulation; Metabolic Regulation; Lipid Metabolism Support, not treatment claims.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

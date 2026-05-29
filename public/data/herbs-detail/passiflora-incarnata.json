@@ -1,0 +1,29 @@
+{
+  "name": "Passionflower",
+  "slug": "passiflora-incarnata",
+  "summary": "Passionflower is used for mild mental stress and sleep tension; evidence is traditional/emerging rather than strong.",
+  "description": "Traditional mild-stress and sleep support with cautious evidence framing.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Sedatives",
+    "SSRIs (theoretical MAOI overlap)"
+  ],
+  "interactions": [
+    "Sedatives",
+    "SSRIs (theoretical MAOI overlap)"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

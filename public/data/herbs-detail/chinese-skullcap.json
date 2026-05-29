@@ -1,17 +1,20 @@
 {
-  "name": "chinese skullcap",
+  "name": "Chinese Skullcap",
   "slug": "chinese-skullcap",
   "summary": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin.",
   "description": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant"
+  ],
   "mechanisms": [
-    "baicalin/baicalein/wogonin NF-κB inhibition",
-    "MAPK and PI3K/Akt modulation",
-    "Nrf2 antioxidant signaling",
-    "cytokine modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Use caution with liver disease and poor-quality products; rare liver injury reports exist for skullcap-containing supplements.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Liver disease",
     "pregnancy/breastfeeding",
@@ -23,9 +26,9 @@
     "hepatotoxic drugs",
     "and immune-modulating therapies."
   ],
-  "preparation": "Require verified species identity and extract standardization; avoid products with unclear botanical identity.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

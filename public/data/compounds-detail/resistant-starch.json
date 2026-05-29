@@ -1,0 +1,19 @@
+{
+  "id": "resistant-starch",
+  "slug": "resistant-starch",
+  "name": "Resistant Starch",
+  "summary": "Decision-ready summary: Resistant Starch is best framed for gut microbiome support; insulin sensitivity context; satiety support; safety screen: IBS/FODMAP sensitivity; bloating-prone users.",
+  "description": "Resistant Starch supports gut microbiome; insulin sensitivity; satiety with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

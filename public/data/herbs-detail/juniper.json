@@ -1,16 +1,18 @@
 {
-  "name": "juniper",
+  "name": "Juniper",
   "slug": "juniper",
   "summary": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance.",
   "description": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance.",
-  "primaryActions": [],
+  "primaryActions": [
+    "digestive"
+  ],
   "mechanisms": [
     "digestive support",
     "urinary support",
     "aromatic support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Avoid during pregnancy and use cautiously with kidney disease. Concentrated preparations may irritate the urinary tract and may interact with diuretics or lithium.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy",
     "kidney disease",
@@ -21,9 +23,9 @@
     "May add to diuretics and affect lithium handling",
     "caution with nephrotoxic drugs."
   ],
-  "preparation": "Berry tea/tincture, culinary spice, and essential oil; internal essential oil is high risk.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

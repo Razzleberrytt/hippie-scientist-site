@@ -4,21 +4,18 @@
   "name": "esculetin",
   "summary": "Hydroxycoumarin reported from chicory and Artemisia with lipoxygenase and NF-κB pathway effects.",
   "description": "Hydroxycoumarin reported from chicory and Artemisia with lipoxygenase and NF-κB pathway effects.",
-  "compoundClass": "coumarin / furanocoumarin",
+  "compoundClass": "",
   "mechanisms": [
-    "5-lipoxygenase inhibition",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "CYP enzymes",
-    "P-gp/OATP transporters",
-    "photoreactive DNA crosslinking",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

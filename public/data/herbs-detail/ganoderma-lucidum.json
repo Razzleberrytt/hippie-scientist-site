@@ -1,0 +1,29 @@
+{
+  "name": "Reishi",
+  "slug": "ganoderma-lucidum",
+  "summary": "Reishi is tracked for energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Reishi is tracked for energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "energy"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulants",
+    "immunosuppressants"
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "immunosuppressants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

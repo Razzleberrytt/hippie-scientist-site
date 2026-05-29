@@ -4,21 +4,19 @@
   "name": "ligustilide",
   "summary": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-κB effects.",
   "description": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-κB effects.",
-  "compoundClass": "phthalide",
+  "compoundClass": "",
   "mechanisms": [
-    "voltage-gated calcium channel modulation",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "NF-kB Modulation",
+    "Endothelial Function Support"
   ],
-  "targets": [
-    "smooth muscle relaxation",
-    "nitric oxide/endothelial signaling",
-    "platelet aggregation pathways",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly extract-derived evidence. Potential additive bleeding, blood pressure, or sedative effects depending source herb.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -1,0 +1,20 @@
+{
+  "id": "vitamin-k2",
+  "slug": "vitamin-k2",
+  "name": "Vitamin K2",
+  "summary": "May improve bone mineral density and reduce vascular calcification.",
+  "description": "May improve bone mineral density and reduce vascular calcification.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,16 +1,20 @@
 {
-  "name": "artichoke",
+  "name": "Artichoke",
   "slug": "artichoke",
   "summary": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
   "description": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant",
+    "digestive",
+    "liver-protective"
+  ],
   "mechanisms": [
-    "caffeoylquinic-acid signaling",
-    "bile-acid/cholesterol metabolism",
-    "HMG-CoA reductase and hepatic antioxidant modulation"
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Avoid/caution with bile-duct obstruction, gallstones, and Asteraceae allergy; may cause GI effects.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Bile duct obstruction",
     "gallstones without clinician guidance",
@@ -20,9 +24,9 @@
     "May add to lipid-lowering or bile-flow effects",
     "theoretical interaction with anticoagulants if high vitamin K diet changes."
   ],
-  "preparation": "Leaf extracts standardized to caffeoylquinic acids/cynarin-like phenolics; food artichoke differs from leaf extract.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

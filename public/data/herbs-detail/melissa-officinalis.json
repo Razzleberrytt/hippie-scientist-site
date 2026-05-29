@@ -1,0 +1,34 @@
+{
+  "name": "Lemon Balm",
+  "slug": "melissa-officinalis",
+  "summary": "Lemon balm may support gentle calm, stress-related sleep, and relaxed focus without heavy sedation.",
+  "description": "Gentle calming support for stress/sleep/focus contexts.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Additive with CNS depressants (benzodiazepines",
+    "alcohol)",
+    "caution in hypothyroidism"
+  ],
+  "interactions": [
+    "Additive with CNS depressants (benzodiazepines",
+    "alcohol)",
+    "caution in hypothyroidism"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,28 +1,25 @@
 {
-  "name": "boswellia serrata",
+  "name": "Boswellia",
   "slug": "boswellia-serrata",
   "summary": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
   "description": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "AKBA/boswellic-acid 5-lipoxygenase inhibition",
-    "leukotriene reduction",
-    "NF-κB and MMP inflammatory-pathway modulation"
+    "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "GI effects possible; caution with anticoagulants/antiplatelets and pregnancy; product standardization matters.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Pregnancy/breastfeeding without clinician guidance",
-    "anticoagulant use without review"
+    "NSAIDs (caution)"
   ],
   "interactions": [
-    "Potential additive effects with anti-inflammatory drugs",
-    "anticoagulants",
-    "and immunomodulators."
+    "NSAIDs (caution)"
   ],
-  "preparation": "Resin extracts standardized to boswellic acids/AKBA; gum resin and extract potency differ.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,17 +1,16 @@
 {
-  "name": "grapefruit",
+  "name": "Grapefruit",
   "slug": "grapefruit",
-  "summary": "Mechanism context: intestinal CYP3A4 mechanism-based inhibition by furanocoumarins, P-gp modulation, OATP transporter effects. Safety: Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.. Interactions tracked: CYP3A4, P-gp, and OATP-mediated interactions.",
-  "description": "Mechanism context: intestinal CYP3A4 mechanism-based inhibition by furanocoumarins, P-gp modulation, OATP transporter effects. Safety: Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.. Interactions tracked: CYP3A4, P-gp, and OATP-mediated interactions.",
-  "primaryActions": [],
+  "summary": "grapefruit is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "digestive"
+  ],
   "mechanisms": [
-    "intestinal CYP3A4 mechanism-based inhibition by furanocoumarins",
-    "P-gp modulation",
-    "OATP transporter effects",
-    "naringin/naringenin flavonoid signaling"
+    "Metabolic Regulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Avoid or medically supervise with drugs labeled for grapefruit interaction",
     "narrow-therapeutic-index drugs",
@@ -23,9 +22,9 @@
     "and OATP-mediated interactions",
     "effects may persist beyond a single serving."
   ],
-  "preparation": "Interaction risk varies by whole fruit, juice, cultivar, dose, and furanocoumarin content.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

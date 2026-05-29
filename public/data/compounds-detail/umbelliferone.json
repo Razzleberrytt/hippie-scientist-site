@@ -4,21 +4,18 @@
   "name": "umbelliferone",
   "summary": "Simple coumarin distributed across Apiaceae with antioxidant-response and MAPK pathway activity.",
   "description": "Simple coumarin distributed across Apiaceae with antioxidant-response and MAPK pathway activity.",
-  "compoundClass": "coumarin / furanocoumarin",
+  "compoundClass": "",
   "mechanisms": [
-    "Nrf2 activation",
-    "MAPK pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Nrf2 Activation"
   ],
-  "targets": [
-    "CYP enzymes",
-    "P-gp/OATP transporters",
-    "photoreactive DNA crosslinking",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

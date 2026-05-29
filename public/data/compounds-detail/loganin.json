@@ -4,21 +4,20 @@
   "name": "loganin",
   "summary": "Loganin is an iridoid glycoside tied to antioxidant-response and survival pathways.",
   "description": "Loganin is an iridoid glycoside tied to antioxidant-response and survival pathways.",
-  "compoundClass": "iridoid glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "Nrf2 activation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "NF-κB",
-    "antioxidant response",
-    "inflammatory cytokines",
-    "gut/liver metabolism"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

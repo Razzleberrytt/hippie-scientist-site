@@ -1,17 +1,18 @@
 {
-  "name": "bupleurum",
+  "name": "Bupleurum",
   "slug": "bupleurum",
   "summary": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
   "description": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "traditional liver support",
-    "traditional stress support",
-    "NF-κB inhibition",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Hepatobiliary-active potential; use caution with liver disease, gallbladder disease, bile-duct obstruction, hepatotoxic drugs, and pregnancy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -21,9 +22,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

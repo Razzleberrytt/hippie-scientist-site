@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T05:41:35.480Z",
+  "generatedAt": "2026-05-29T06:21:03.635Z",
   "source": "workbook+summary-indexes",
   "entities": {
     "herbs": [
@@ -14,6 +14,10 @@
       {
         "slug": "ajwain",
         "name": "Ajwain"
+      },
+      {
+        "slug": "allium-sativum",
+        "name": "Garlic"
       },
       {
         "slug": "aloe-vera",
@@ -72,6 +76,10 @@
         "name": "Artemisia Capillaris"
       },
       {
+        "slug": "artemisia-dracunculus",
+        "name": "Tarragon"
+      },
+      {
         "slug": "artichoke",
         "name": "Artichoke"
       },
@@ -118,6 +126,10 @@
       {
         "slug": "berberis",
         "name": "Berberis"
+      },
+      {
+        "slug": "berberis-aristata",
+        "name": "Indian Barberry"
       },
       {
         "slug": "berberis-vulgaris",
@@ -192,6 +204,14 @@
         "name": "Calendula"
       },
       {
+        "slug": "camellia-sinensis",
+        "name": "Green Tea"
+      },
+      {
+        "slug": "capsicum-annuum",
+        "name": "Capsicum"
+      },
+      {
         "slug": "caraway",
         "name": "Caraway"
       },
@@ -236,6 +256,10 @@
         "name": "Cichorium Intybus"
       },
       {
+        "slug": "cinnamomum-verum",
+        "name": "Cinnamon"
+      },
+      {
         "slug": "cissus",
         "name": "Cissus"
       },
@@ -268,6 +292,10 @@
         "name": "Codonopsis"
       },
       {
+        "slug": "coffea-arabica",
+        "name": "Coffee"
+      },
+      {
         "slug": "coffee-cherry",
         "name": "Coffee Cherry"
       },
@@ -288,6 +316,10 @@
         "name": "Coptis Chinensis"
       },
       {
+        "slug": "cordyceps-sinensis",
+        "name": "Cordyceps"
+      },
+      {
         "slug": "coriandrum-sativum",
         "name": "Coriandrum Sativum"
       },
@@ -304,6 +336,10 @@
         "name": "Cranberry (Vaccinium macrocarpon)"
       },
       {
+        "slug": "crataegus-monogyna",
+        "name": "Hawthorn"
+      },
+      {
         "slug": "crocus-sativus",
         "name": "Crocus Sativus"
       },
@@ -314,6 +350,10 @@
       {
         "slug": "curcuma-zedoaria",
         "name": "Curcuma Zedoaria"
+      },
+      {
+        "slug": "curcumin",
+        "name": "Curcumin"
       },
       {
         "slug": "curry-leaf",
@@ -368,6 +408,10 @@
         "name": "Elephantopus Scaber"
       },
       {
+        "slug": "elettaria-cardamomum",
+        "name": "Cardamom"
+      },
+      {
         "slug": "eleuthero",
         "name": "Eleuthero"
       },
@@ -384,12 +428,20 @@
         "name": "Epimedium Brevicornum"
       },
       {
+        "slug": "eschscholzia-californica",
+        "name": "California Poppy"
+      },
+      {
         "slug": "eucalyptus",
         "name": "Eucalyptus"
       },
       {
         "slug": "eucommia",
         "name": "Eucommia"
+      },
+      {
+        "slug": "evening-primrose",
+        "name": "Evening Primrose (Oenothera biennis)"
       },
       {
         "slug": "fennel",
@@ -414,6 +466,10 @@
       {
         "slug": "galangal",
         "name": "Galangal"
+      },
+      {
+        "slug": "ganoderma-lucidum",
+        "name": "Reishi"
       },
       {
         "slug": "garcinia-indica",
@@ -456,6 +512,10 @@
         "name": "Grapefruit"
       },
       {
+        "slug": "green-tea-extract",
+        "name": "Green Tea Extract"
+      },
+      {
         "slug": "guarana",
         "name": "Guarana"
       },
@@ -474,6 +534,14 @@
       {
         "slug": "harpagophytum-procumbens",
         "name": "Harpagophytum Procumbens"
+      },
+      {
+        "slug": "hericium-erinaceus",
+        "name": "Lion's Mane"
+      },
+      {
+        "slug": "hibiscus-sabdariffa",
+        "name": "Hibiscus"
       },
       {
         "slug": "holy-basil",
@@ -572,6 +640,10 @@
         "name": "Ligusticum Chuanxiong"
       },
       {
+        "slug": "lions-mane",
+        "name": "Lion’s Mane"
+      },
+      {
         "slug": "lithospermum-erythrorhizon",
         "name": "Lithospermum Erythrorhizon"
       },
@@ -590,6 +662,10 @@
       {
         "slug": "maca",
         "name": "Maca (Lepidium meyenii)"
+      },
+      {
+        "slug": "magnolia-officinalis",
+        "name": "Magnolia"
       },
       {
         "slug": "maitake-d-fraction",
@@ -616,12 +692,20 @@
         "name": "Chamomile"
       },
       {
+        "slug": "melissa-officinalis",
+        "name": "Lemon Balm"
+      },
+      {
         "slug": "milk-oats",
         "name": "Milk Oats"
       },
       {
         "slug": "milk-thistle",
         "name": "Milk Thistle (Silybum marianum)"
+      },
+      {
+        "slug": "momordica-charantia",
+        "name": "Bitter Melon"
       },
       {
         "slug": "morinda-citrifolia",
@@ -732,12 +816,20 @@
         "name": "Asian Ginseng"
       },
       {
+        "slug": "panax-quinquefolius",
+        "name": "American Ginseng"
+      },
+      {
         "slug": "papaya-leaf",
         "name": "Papaya Leaf"
       },
       {
         "slug": "parsley",
         "name": "Parsley"
+      },
+      {
+        "slug": "passiflora-incarnata",
+        "name": "Passionflower"
       },
       {
         "slug": "pastinaca-sativa",
@@ -762,6 +854,10 @@
       {
         "slug": "phellodendron-amurense",
         "name": "Phellodendron Amurense"
+      },
+      {
+        "slug": "phosphatidylserine",
+        "name": "Phosphatidylserine"
       },
       {
         "slug": "piper-longum",
@@ -820,6 +916,10 @@
         "name": "Punarnava"
       },
       {
+        "slug": "quercetin",
+        "name": "Quercetin"
+      },
+      {
         "slug": "raspberry-leaf",
         "name": "Raspberry Leaf"
       },
@@ -838,6 +938,10 @@
       {
         "slug": "reishi",
         "name": "Reishi (Ganoderma lucidum)"
+      },
+      {
+        "slug": "resveratrol",
+        "name": "Resveratrol"
       },
       {
         "slug": "rheum-palmatum",
@@ -876,6 +980,14 @@
         "name": "Sage"
       },
       {
+        "slug": "salacia-reticulata",
+        "name": "Salacia"
+      },
+      {
+        "slug": "salvia-miltiorrhiza",
+        "name": "Salvia miltiorrhiza"
+      },
+      {
         "slug": "saw-palmetto",
         "name": "Saw Palmetto (Serenoa repens)"
       },
@@ -896,6 +1008,10 @@
         "name": "Scutellaria Baicalensis"
       },
       {
+        "slug": "scutellaria-lateriflora",
+        "name": "Skullcap"
+      },
+      {
         "slug": "selaginella-tamariscina",
         "name": "Selaginella Tamariscina"
       },
@@ -910,6 +1026,10 @@
       {
         "slug": "shatavari",
         "name": "Shatavari"
+      },
+      {
+        "slug": "silybum-marianum",
+        "name": "Milk Thistle"
       },
       {
         "slug": "sophora-alopecuroides",
@@ -960,6 +1080,14 @@
         "name": "Tamarind"
       },
       {
+        "slug": "terminalia-arjuna",
+        "name": "Terminalia arjuna"
+      },
+      {
+        "slug": "theobroma-cacao",
+        "name": "Cacao"
+      },
+      {
         "slug": "thunder-god-vine",
         "name": "Thunder God Vine"
       },
@@ -976,6 +1104,10 @@
         "name": "Tribulus (Tribulus terrestris)"
       },
       {
+        "slug": "trigonella-foenum-graecum",
+        "name": "Fenugreek"
+      },
+      {
         "slug": "tripterygium-wilfordii",
         "name": "Tripterygium Wilfordii"
       },
@@ -988,6 +1120,10 @@
         "name": "Turmeric (Curcuma longa)"
       },
       {
+        "slug": "tyrosine",
+        "name": "L-Tyrosine"
+      },
+      {
         "slug": "valerian",
         "name": "Valeriana officinalis"
       },
@@ -998,6 +1134,10 @@
       {
         "slug": "verbena-officinalis",
         "name": "Verbena Officinalis"
+      },
+      {
+        "slug": "vitis-vinifera",
+        "name": "Grape"
       },
       {
         "slug": "white-peony",
@@ -1027,9 +1167,9 @@
     "compounds": []
   },
   "counts": {
-    "herbs_total": 285,
-    "herbs_eligible": 255,
-    "compounds_total": 235,
+    "herbs_total": 290,
+    "herbs_eligible": 290,
+    "compounds_total": 614,
     "compounds_eligible": 0
   }
 }

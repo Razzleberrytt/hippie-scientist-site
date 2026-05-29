@@ -1,28 +1,23 @@
 {
   "id": "quercetin",
   "slug": "quercetin",
-  "name": "quercetin",
-  "summary": "Quercetin is a broadly distributed flavonol found in many herbs, fruits, and vegetables. Human supplementation literature exists for blood-pressure, inflammatory, and exercise-recovery questions, but the overall signal is still mixed and endpoint-specific.",
-  "description": "Flavonol widely distributed in herbs and fruits, commonly linked to NF-κB, PI3K/Akt, and Nrf2 pathway modulation.",
-  "compoundClass": "flavonol polyphenol",
+  "name": "Quercetin",
+  "summary": "Decision-ready summary: Quercetin is best framed for allergy symptom context; inflammatory support; oxidative-stress support; safety screen: kidney disease high dose; anticoagulants; CYP medication review.",
+  "description": "Quercetin supports allergy; inflammation; antioxidant with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-kB suppression",
-    "Nrf2 activation",
-    "PI3K/Akt modulation",
-    "mast-cell mediator stabilization",
-    "antioxidant redox signaling"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "NF-κB",
-    "Nrf2",
-    "PI3K/Akt",
-    "mast-cell mediators",
-    "CYP/P-gp interaction pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Food exposure is generally safe; high-dose supplements may affect drug transport/metabolism. Caution with anticoagulants, immunosuppressants, and kidney disease at high doses.",
-  "evidenceLevel": "human_limited; preclinical_strong",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

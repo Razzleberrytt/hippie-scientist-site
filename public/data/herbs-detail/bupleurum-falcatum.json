@@ -1,15 +1,18 @@
 {
-  "name": "bupleurum falcatum",
+  "name": "Bupleurum Falcatum",
   "slug": "bupleurum-falcatum",
   "summary": "Lean bulk ingestion row for Bupleurum falcatum.",
   "description": "Lean bulk ingestion row for Bupleurum falcatum. Key active compounds include Saikosaponin A.",
-  "primaryActions": [],
+  "primaryActions": [
+    "liver-protective",
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "NF-κB inhibition",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Hepatobiliary-active potential; use caution with liver disease, gallbladder disease, bile-duct obstruction, hepatotoxic drugs, and pregnancy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -19,9 +22,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

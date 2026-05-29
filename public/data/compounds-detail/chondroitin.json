@@ -1,0 +1,18 @@
+{
+  "id": "chondroitin",
+  "slug": "chondroitin",
+  "name": "Chondroitin",
+  "summary": "Decision-ready summary: Chondroitin is best framed for knee osteoarthritis comfort; cartilage-support context; safety screen: warfarin; bleeding disorder; planned surgery.",
+  "description": "Chondroitin supports joint health; osteoarthritis; cartilage with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

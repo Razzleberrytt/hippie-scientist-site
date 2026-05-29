@@ -1,26 +1,33 @@
 {
-  "name": "sophora flavescens",
+  "name": "Sophora Flavescens",
   "slug": "sophora-flavescens",
-  "summary": "It should be framed conservatively because alkaloid-rich roots can have stronger tolerability issues.",
-  "description": "It should be framed conservatively because alkaloid-rich roots can have stronger tolerability issues.",
-  "primaryActions": [],
+  "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
+  "description": "Sophora flavescens lean monograph row enriched in bulk mode.",
+  "primaryActions": [
+    "research-pending"
+  ],
   "mechanisms": [
-    "traditional skin support",
-    "GI support"
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Alkaloid-rich herb; use caution with liver disease, immunosuppressants, pregnancy/breastfeeding, and medications with narrow therapeutic windows.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "Pregnancy/breastfeeding",
+    "liver disease",
+    "arrhythmia/cardiac disease without clinician review",
+    "complex medication regimens."
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Potential interactions with hepatotoxic drugs",
+    "antiarrhythmics",
+    "immunomodulators",
+    "and sedative/CNS-active medicines are plausible and extract-specific."
   ],
-  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

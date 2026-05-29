@@ -4,25 +4,18 @@
   "name": "eugenol",
   "summary": "Eugenol is a phenylpropanoid most associated with clove and other aromatic herbs. It is best supported by preclinical work showing analgesic, anti-inflammatory, antimicrobial, and membrane-active effects rather than broad human outcome evidence.",
   "description": "Phenylpropanoid from clove associated with COX inhibition and TRP channel activity.",
-  "compoundClass": "phenylpropanoid",
+  "compoundClass": "",
   "mechanisms": [
-    "COX-2 inhibition",
-    "TRPV1/TRPA1 modulation",
-    "voltage-gated sodium-channel effects",
-    "membrane disruption",
-    "NF-kB suppression"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "TRPV1",
-    "COX/LOX pathways",
-    "NF-κB",
-    "microbial membrane effects",
-    "local anesthetic signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Food/flavor exposure differs from essential-oil or concentrated use. High doses may irritate mucosa and affect bleeding or liver safety; caution with anticoagulants and dental/topical overuse.",
-  "evidenceLevel": "human_limited_topical; preclinical",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

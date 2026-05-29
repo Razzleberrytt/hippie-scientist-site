@@ -1,0 +1,19 @@
+{
+  "id": "tetrahydroharmine",
+  "slug": "tetrahydroharmine",
+  "name": "Tetrahydroharmine",
+  "summary": "Tetrahydroharmine entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "Tetrahydroharmine is cataloged as beta-carboline alkaloid. Reported mechanisms: weak MAO-A inhibition; serotonin reuptake inhibition.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

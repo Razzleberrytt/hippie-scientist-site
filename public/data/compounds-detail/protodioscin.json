@@ -1,25 +1,18 @@
 {
   "id": "protodioscin",
   "slug": "protodioscin",
-  "name": "protodioscin",
-  "summary": "Steroidal saponin associated with nitric-oxide and survival pathway signaling.",
-  "description": "Steroidal saponin associated with nitric-oxide and survival pathway signaling.",
-  "compoundClass": "saponin / glycoside",
+  "name": "Protodioscin",
+  "summary": "Protodioscin is a steroidal saponin associated with tribulus. Evidence level: mixed.",
+  "description": "Protodioscin is cataloged as a steroidal saponin. Reported mechanism notes: Primary mechanism (preclinical); not supported in humans.",
+  "compoundClass": "",
   "mechanisms": [
-    "NO signaling modulation",
-    "PI3K/Akt modulation"
+    "Hormonal Signaling Context"
   ],
-  "targets": [
-    "AMPK",
-    "PPAR",
-    "immune cytokines",
-    "membrane signaling",
-    "glucose/lipid metabolism"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

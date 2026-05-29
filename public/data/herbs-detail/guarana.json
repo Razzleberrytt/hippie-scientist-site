@@ -1,17 +1,19 @@
 {
-  "name": "guarana",
+  "name": "Guarana",
   "slug": "guarana",
-  "summary": "Mechanism context: caffeine-mediated adenosine A1/A2A antagonism, methylxanthine CNS stimulation, catecholamine/arousal signaling. Safety: Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.. Interactions tracked: Additive effects with caffeine, stimulants, theophylline.",
-  "description": "Mechanism context: caffeine-mediated adenosine A1/A2A antagonism, methylxanthine CNS stimulation, catecholamine/arousal signaling. Safety: Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.. Interactions tracked: Additive effects with caffeine, stimulants, theophylline.",
-  "primaryActions": [],
+  "summary": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "energy"
+  ],
   "mechanisms": [
-    "caffeine-mediated adenosine A1/A2A antagonism",
-    "methylxanthine CNS stimulation",
-    "catecholamine/arousal signaling",
-    "polyphenol antioxidant signaling"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Uncontrolled hypertension",
     "arrhythmia",
@@ -27,9 +29,9 @@
     "and some ADHD medications",
     "CYP1A2 inhibitors may increase caffeine exposure."
   ],
-  "preparation": "Use standardized preparations that disclose caffeine content; avoid concentrated stimulant blends.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

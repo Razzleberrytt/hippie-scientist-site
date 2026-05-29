@@ -1,0 +1,20 @@
+{
+  "id": "lavender",
+  "slug": "lavender",
+  "name": "Lavender",
+  "summary": "Lavender entry from SciSpace evidence pass. Evidence level: moderate.",
+  "description": "Lavender is cataloged as monoterpene-rich botanical. Reported mechanisms: GABA-A modulation; reduced sympathetic activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

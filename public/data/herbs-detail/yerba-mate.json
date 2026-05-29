@@ -1,17 +1,23 @@
 {
-  "name": "yerba mate",
+  "name": "Yerba Mate",
   "slug": "yerba-mate",
-  "summary": "Mechanism context: caffeine/theobromine adenosine-receptor antagonism, chlorogenic-acid antioxidant signaling, AMPK-related metabolic signaling. Safety: Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.. Interactions tracked: Additive effects with stimulants, caffeine, theophylline.",
-  "description": "Mechanism context: caffeine/theobromine adenosine-receptor antagonism, chlorogenic-acid antioxidant signaling, AMPK-related metabolic signaling. Safety: Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.. Interactions tracked: Additive effects with stimulants, caffeine, theophylline.",
-  "primaryActions": [],
+  "summary": "yerba mate is tracked for fat_loss,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "energy"
+  ],
   "mechanisms": [
-    "caffeine/theobromine adenosine-receptor antagonism",
-    "chlorogenic-acid antioxidant signaling",
-    "AMPK-related metabolic signaling",
-    "saponin-mediated lipid metabolism"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Uncontrolled hypertension",
     "arrhythmia",
@@ -27,9 +33,9 @@
     "and stimulant medications",
     "CYP1A2-modulating drugs may alter caffeine exposure."
   ],
-  "preparation": "Prefer moderate-temperature tea/extracts with disclosed caffeine content; avoid very hot repeated consumption and energy-drink style stacking.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

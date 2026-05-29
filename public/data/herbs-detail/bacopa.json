@@ -1,31 +1,31 @@
 {
-  "name": "bacopa",
+  "name": "Bacopa",
   "slug": "bacopa",
-  "summary": "It is best framed around bacosides with slower-onset cognitive relevance.",
-  "description": "It is best framed around bacosides with slower-onset cognitive relevance.",
-  "primaryActions": [],
+  "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+  "primaryActions": [
+    "antioxidant",
+    "cognitive",
+    "neuroprotective"
+  ],
   "mechanisms": [
-    "Bacosides support cholinergic signaling and synaptic plasticity",
-    "modulate oxidative stress",
-    "neuroinflammation",
-    "ERK/PI3K-Akt pathways",
-    "and BDNF-related signaling."
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Common adverse effects include nausea, cramping, diarrhea, and fatigue/sedation. Use caution with sedatives, thyroid-active therapy, pregnancy, and GI sensitivity.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Pregnancy/breastfeeding without guidance",
-    "bradycardia or cholinergic medication use without review"
+    "Sedatives",
+    "thyroid medications (possible interaction)"
   ],
   "interactions": [
-    "May interact with sedatives",
-    "thyroid medications",
-    "anticholinergics/cholinergics",
-    "and antiepileptics."
+    "Sedatives",
+    "thyroid medications (possible interaction)"
   ],
-  "preparation": "Whole herb extracts standardized to bacosides; onset in trials is often weeks, not acute.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

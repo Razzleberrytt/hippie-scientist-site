@@ -1,18 +1,23 @@
 {
-  "name": "blueberry",
+  "name": "Blueberry",
   "slug": "blueberry",
-  "summary": "Mechanism context: Anthocyanin-polyphenol activity, endothelial nitric oxide signaling, Nrf2 antioxidant response. Safety: Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium products are used.. Interactions tracked: Potential additive effects with antidiabetics or anticoagulants in concentrated extracts..",
-  "description": "Mechanism context: Anthocyanin-polyphenol activity, endothelial nitric oxide signaling, Nrf2 antioxidant response. Safety: Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium products are used.. Interactions tracked: Potential additive effects with antidiabetics or anticoagulants in concentrated extracts..",
-  "primaryActions": [],
+  "summary": "blueberry is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "cognitive"
+  ],
   "mechanisms": [
-    "Anthocyanin-polyphenol activity",
-    "endothelial nitric oxide signaling",
-    "Nrf2 antioxidant response",
-    "NF-κB inflammatory modulation",
-    "AMPK and PPAR-related metabolic signaling."
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "AMPK Signaling"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium products are used.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Anticoagulant use without review for high-dose extracts",
     "diabetes medication monitoring if large intake changes"
@@ -20,9 +25,9 @@
   "interactions": [
     "Potential additive effects with antidiabetics or anticoagulants in concentrated extracts."
   ],
-  "preparation": "Whole berries, juice, powder, freeze-dried extracts, anthocyanin-rich concentrates.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "meta_analysis",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,0 +1,23 @@
+{
+  "id": "silymarin",
+  "slug": "silymarin",
+  "name": "Silymarin",
+  "summary": "Decision-ready summary: Silymarin is best framed for liver enzyme support context; antioxidant liver support; toxin-exposure research context; safety screen: ragweed allergy; estrogen-sensitive conditions; medication review.",
+  "description": "Silymarin supports liver support; antioxidant with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

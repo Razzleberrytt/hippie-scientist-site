@@ -1,0 +1,20 @@
+{
+  "id": "plant-sterols",
+  "slug": "plant-sterols",
+  "name": "Plant Sterols",
+  "summary": "Decision-ready summary: Plant Sterols is best framed for LDL cholesterol reduction; heart-health food/supplement strategy; safety screen: sitosterolemia; fat-soluble nutrient monitoring context.",
+  "description": "Plant Sterols supports LDL cholesterol; heart health with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

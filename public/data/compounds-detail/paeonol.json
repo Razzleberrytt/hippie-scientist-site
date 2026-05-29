@@ -4,21 +4,20 @@
   "name": "paeonol",
   "summary": "Phenolic ketone associated with inflammatory and antioxidant-response signaling.",
   "description": "Phenolic ketone associated with inflammatory and antioxidant-response signaling.",
-  "compoundClass": "monoterpene glycoside / phenolic from Paeonia",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "Nrf2 activation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
   ],
-  "targets": [
-    "NF-κB",
-    "immune cytokines",
-    "smooth muscle/analgesic signaling",
-    "antioxidant response"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preparation-derived. Caution with anticoagulants, pregnancy, and immune-modulating therapies.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

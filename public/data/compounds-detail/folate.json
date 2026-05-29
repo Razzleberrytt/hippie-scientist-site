@@ -1,0 +1,18 @@
+{
+  "id": "folate",
+  "slug": "folate",
+  "name": "Folate",
+  "summary": "Folate is essential for DNA synthesis and one-carbon metabolism, with strong evidence for neural tube defect prevention.",
+  "description": "Vitamin B9 family involved in DNA synthesis, repair, and methylation-related one-carbon metabolism.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

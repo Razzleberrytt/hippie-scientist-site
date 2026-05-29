@@ -4,21 +4,18 @@
   "name": "senkyunolide a",
   "summary": "Phthalide derivative commonly reported from chuanxiong and Angelica with MAPK and ion-channel-linked activity.",
   "description": "Phthalide derivative commonly reported from chuanxiong and Angelica with MAPK and ion-channel-linked activity.",
-  "compoundClass": "phthalide",
+  "compoundClass": "",
   "mechanisms": [
-    "MAPK pathway modulation",
-    "voltage-gated calcium channel modulation"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
   ],
-  "targets": [
-    "smooth muscle relaxation",
-    "nitric oxide/endothelial signaling",
-    "platelet aggregation pathways",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly extract-derived evidence. Potential additive bleeding, blood pressure, or sedative effects depending source herb.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

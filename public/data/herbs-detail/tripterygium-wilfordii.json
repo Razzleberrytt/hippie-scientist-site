@@ -1,18 +1,19 @@
 {
-  "name": "tripterygium wilfordii",
+  "name": "Tripterygium Wilfordii",
   "slug": "tripterygium-wilfordii",
   "summary": "Lean bulk ingestion row for Tripterygium wilfordii.",
   "description": "Lean bulk ingestion row for Tripterygium wilfordii. Key active compounds include Celastrol.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "tonic"
+  ],
   "mechanisms": [
-    "triptolide/celastrol-mediated NF-κB inhibition",
-    "HSP90 inhibition",
-    "calcineurin/T-cell signaling suppression",
-    "JAK/STAT modulation",
-    "pro-inflammatory cytokine inhibition"
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "High-toxicity herb; requires specialist supervision. Reproductive toxicity/infertility, severe GI effects, bone-marrow suppression, hepatotoxicity, nephrotoxicity, infection risk, and clinically important drug interactions are possible. Avoid pregnancy/breastfeeding and fertility attempts.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding",
     "fertility attempts",
@@ -29,9 +30,9 @@
     "and antiplatelets",
     "specialist-only context."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "meta_analysis",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

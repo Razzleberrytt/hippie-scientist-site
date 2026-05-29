@@ -1,15 +1,18 @@
 {
-  "name": "elecampane",
+  "name": "Elecampane",
   "slug": "elecampane",
   "summary": "It is best framed as a bitter aromatic root with traditional bronchial relevance.",
   "description": "It is best framed as a bitter aromatic root with traditional bronchial relevance.",
-  "primaryActions": [],
+  "primaryActions": [
+    "digestive",
+    "respiratory"
+  ],
   "mechanisms": [
     "traditional respiratory support",
     "digestive support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +21,9 @@
     "Potential additive effects with medications affecting the same body system",
     "review high-dose extracts with a clinician."
   ],
-  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

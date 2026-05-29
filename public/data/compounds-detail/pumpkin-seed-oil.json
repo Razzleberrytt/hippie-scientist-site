@@ -1,0 +1,22 @@
+{
+  "id": "pumpkin-seed-oil",
+  "slug": "pumpkin-seed-oil",
+  "name": "Pumpkin seed oil",
+  "summary": "Decision-ready summary: Pumpkin seed oil is best framed for BPH urinary symptoms; hair support context; lipid support; safety screen: anticoagulants caution; seed allergy.",
+  "description": "Pumpkin seed oil supports prostate; urinary; lipids with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

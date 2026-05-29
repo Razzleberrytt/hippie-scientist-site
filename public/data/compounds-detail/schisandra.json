@@ -1,0 +1,20 @@
+{
+  "id": "schisandra",
+  "slug": "schisandra",
+  "name": "Schisandra",
+  "summary": "Decision-ready summary: Schisandra is best framed for stress adaptation context; liver-enzyme support context; endurance research context; safety screen: pregnancy; CYP medication review; liver medication review.",
+  "description": "Schisandra supports stress; liver enzymes; endurance with low confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

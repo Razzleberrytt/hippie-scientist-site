@@ -4,21 +4,18 @@
   "name": "bacoside a",
   "summary": "Bacopa saponin fraction associated with cognitive signaling support.",
   "description": "Bacopa saponin fraction associated with cognitive signaling support.",
-  "compoundClass": "triterpenoid saponin mixture",
+  "compoundClass": "",
   "mechanisms": [
-    "cholinergic modulation",
-    "ERK pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
   ],
-  "targets": [
-    "cholinergic signaling",
-    "antioxidant enzymes",
-    "synaptic plasticity",
-    "neuroinflammatory pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human safety is mostly Bacopa-extract derived. GI upset and sedation may occur; caution with sedatives, thyroid-active therapy, and pregnancy.",
-  "evidenceLevel": "human_indirect_from_bacopa; preclinical",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

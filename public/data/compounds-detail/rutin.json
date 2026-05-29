@@ -4,23 +4,20 @@
   "name": "rutin",
   "summary": "Flavonol glycoside commonly reported from buckwheat and St.",
   "description": "Flavonol glycoside commonly reported from buckwheat and St. John's wort with inflammatory pathway activity.",
-  "compoundClass": "flavonol / flavonoid",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation"
   ],
-  "targets": [
-    "AMPK",
-    "Nrf2",
-    "NF-κB",
-    "inflammatory cytokines",
-    "endothelial nitric oxide",
-    "antioxidant response"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

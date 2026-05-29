@@ -4,21 +4,18 @@
   "name": "bisabolol",
   "summary": "Sesquiterpene alcohol associated with inflammatory pathway control.",
   "description": "Sesquiterpene alcohol associated with inflammatory pathway control.",
-  "compoundClass": "terpene / essential-oil constituent",
+  "compoundClass": "",
   "mechanisms": [
-    "COX inhibition",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "TRP channels",
-    "antimicrobial membranes",
-    "COX/LOX",
-    "GABAergic or adrenergic signaling depending compound"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

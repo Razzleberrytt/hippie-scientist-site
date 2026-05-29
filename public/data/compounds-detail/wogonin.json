@@ -4,24 +4,20 @@
   "name": "wogonin",
   "summary": "Wogonin is a flavone associated with Scutellaria research and immune-neuroinflammatory pathway studies. The compound is biologically interesting, but isolated human efficacy evidence remains thin.",
   "description": "Scutellaria flavone associated with NF-κB inhibition and PI3K/Akt pathway effects.",
-  "compoundClass": "flavone aglycone",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-kB suppression",
-    "Nrf2-related antioxidant signaling",
-    "GABA-A-related neuroactive modulation",
-    "apoptosis pathway effects"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity"
   ],
-  "targets": [
-    "NF-κB",
-    "MAPK",
-    "PI3K/Akt",
-    "apoptosis signaling",
-    "inflammatory cytokines"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preclinical and extract-derived. Isolated-dose human safety is not well established; caution with liver disease, anticoagulants/antiplatelets, sedatives, and pregnancy.",
-  "evidenceLevel": "preclinical; human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

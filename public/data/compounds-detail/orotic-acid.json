@@ -1,0 +1,18 @@
+{
+  "id": "orotic-acid",
+  "slug": "orotic-acid",
+  "name": "Orotic Acid",
+  "summary": "Pyrimidine synthesis intermediate with insufficient therapeutic evidence and animal toxicity concerns at high doses.",
+  "description": "Intermediate in pyrimidine biosynthesis.",
+  "compoundClass": "",
+  "mechanisms": [
+    "pyrimidine synthesis intermediate"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

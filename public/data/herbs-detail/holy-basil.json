@@ -1,32 +1,34 @@
 {
-  "name": "holy basil",
+  "name": "Holy Basil / Tulsi Ocimum tenuiflorum",
   "slug": "holy-basil",
-  "summary": "Holy Basil centers on the leaf; aerial parts.",
-  "description": "Holy Basil centers on the leaf; aerial parts. Key reported compounds include eugenol; ursolic acid; rosmarinic acid. Typical preparation forms: Leaf extracts, teas. Adaptogenic; anti-inflammatory; modulates cortisol and stress pathways. Interaction profile: Anticoagulants, antidiabetic drugs. Use caution or avoid in: Pregnancy (limited data).",
-  "primaryActions": [],
+  "summary": "Holy basil is best framed for stress adaptation over time, not acute anxiety relief.",
+  "description": "Stress adaptation and recovery support; effects are preparation- and duration-dependent.",
+  "primaryActions": [
+    "stress_adaptation",
+    "cortisol_modulation",
+    "metabolic_support"
+  ],
   "mechanisms": [
-    "eugenol/ursolic-acid signaling",
-    "cortisol/stress-axis modulation",
-    "AMPK/glucose and inflammatory-pathway effects"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May lower glucose and affect clotting; caution with diabetes drugs, anticoagulants, pregnancy, and perioperative use.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Pregnancy attempts/pregnancy without clinician guidance",
-    "hypoglycemia risk",
-    "bleeding disorder",
-    "upcoming surgery"
+    "pregnancy (insufficient data)",
+    "diabetes (monitor glucose)"
   ],
   "interactions": [
-    "May add to antidiabetic",
-    "antihypertensive",
-    "sedative",
-    "anticoagulant",
-    "or antiplatelet effects."
+    "antidiabetic drugs",
+    "anticoagulants (theoretical)"
   ],
-  "preparation": "Leaf tea, tincture, powder, and standardized extracts; seed preparations are a different data object.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

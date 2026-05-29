@@ -1,18 +1,22 @@
 {
-  "name": "citrus bergamia",
+  "name": "Citrus Bergamia",
   "slug": "citrus-bergamia",
   "summary": "Citrus bergamia lean monograph row enriched in bulk mode.",
   "description": "Citrus bergamia lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "cardiovascular",
+    "metabolic"
+  ],
   "mechanisms": [
-    "Bergamot flavonoid/polyphenol signaling",
-    "HMG-CoA reductase–related cholesterol synthesis modulation",
-    "AMPK activation",
-    "LDL receptor expression support",
-    "endothelial nitric oxide and NF-κB modulation."
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Clinically relevant caution: bergamot extracts may cause GI upset; photosensitizing furocoumarins can be present in some citrus preparations; use caution with statins/lipid-lowering therapy, CYP-interacting drugs, pregnancy/breastfeeding, and liver disease unless supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -23,9 +27,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "meta_analysis",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

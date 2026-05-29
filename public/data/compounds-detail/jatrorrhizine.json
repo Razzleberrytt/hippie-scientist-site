@@ -4,21 +4,20 @@
   "name": "jatrorrhizine",
   "summary": "Protoberberine alkaloid associated with glucose and inflammatory signaling regulation.",
   "description": "Protoberberine alkaloid associated with glucose and inflammatory signaling regulation.",
-  "compoundClass": "protoberberine isoquinoline alkaloid",
+  "compoundClass": "",
   "mechanisms": [
-    "AMPK activation",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
   ],
-  "targets": [
-    "AMPK",
-    "NF-κB",
-    "lipid/glucose metabolism",
-    "microbial targets"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preclinical. Use berberine-family cautions: avoid pregnancy/breastfeeding and monitor with antidiabetic, antihypertensive, anticoagulant, and CYP/P-gp substrate drugs.",
-  "evidenceLevel": "preclinical; human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

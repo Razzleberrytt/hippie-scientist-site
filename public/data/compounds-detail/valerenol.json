@@ -4,19 +4,18 @@
   "name": "valerenol",
   "summary": "Valerenol is a valerian constituent linked to positive modulation of GABA-A signaling.",
   "description": "Valerenol is a valerian constituent linked to positive modulation of GABA-A signaling.",
-  "compoundClass": "sesquiterpenoid / valerian constituent",
+  "compoundClass": "",
   "mechanisms": [
-    "GABA-A modulation"
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
   ],
-  "targets": [
-    "GABA-A signaling",
-    "adenosine signaling",
-    "CNS calming pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Evidence mostly comes from valerian extracts. Sedation and additive effects with CNS depressants are key concerns.",
-  "evidenceLevel": "human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -1,0 +1,22 @@
+{
+  "id": "omega-3-epa-dominant",
+  "slug": "omega-3-epa-dominant",
+  "name": "Omega-3 EPA-Dominant",
+  "summary": "EPA-dominant omega-3 formulations have moderate evidence for depressive symptom reduction in some analyses.",
+  "description": "EPA-focused omega-3 formulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

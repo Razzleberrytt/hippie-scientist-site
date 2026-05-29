@@ -1,0 +1,18 @@
+{
+  "id": "probiotics-lactobacillus",
+  "slug": "probiotics-lactobacillus",
+  "name": "Probiotics - Lactobacillus spp.",
+  "summary": "Lactobacillus probiotics have moderate, strain-specific evidence for antibiotic-associated diarrhea prevention and modest IBS symptom improvement.",
+  "description": "Category row for Lactobacillus strains; effects are strain-, dose-, and indication-specific.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Immune Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

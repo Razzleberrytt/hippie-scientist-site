@@ -1,0 +1,18 @@
+{
+  "id": "boswellic-acids",
+  "slug": "boswellic-acids",
+  "name": "boswellic acids",
+  "summary": "boswellic acids is tracked for Inhibits 5-lipoxygenase reducing leukotriene synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "boswellic acids is tracked for Inhibits 5-lipoxygenase reducing leukotriene synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

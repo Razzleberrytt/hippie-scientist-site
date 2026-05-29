@@ -1,21 +1,19 @@
 {
-  "name": "thyme",
+  "name": "Thyme",
   "slug": "thyme",
-  "summary": "Mechanism context: respiratory support, antimicrobial, digestive support. Safety: Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.. Interactions tracked: Potential additive irritation with other essential oils, theoretical caution with anticoagulants for high-dose extracts..",
-  "description": "Mechanism context: respiratory support, antimicrobial, digestive support. Safety: Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.. Interactions tracked: Potential additive irritation with other essential oils, theoretical caution with anticoagulants for high-dose extracts..",
-  "primaryActions": [],
+  "summary": "thyme is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "sleep"
+  ],
   "mechanisms": [
-    "respiratory support",
-    "antimicrobial",
-    "digestive support",
-    "NF-κB inhibition",
-    "MAPK pathway modulation",
-    "TRPA1 activation",
-    "membrane disruption",
-    "GABA-A modulation"
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding for medicinal-dose essential oil",
     "significant GI irritation",
@@ -25,9 +23,9 @@
     "Potential additive irritation with other essential oils",
     "theoretical caution with anticoagulants for high-dose extracts."
   ],
-  "preparation": "Leaf is used as tea, culinary herb, tincture, syrup, or steam aromatic; essential oil should not be taken internally without qualified guidance.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

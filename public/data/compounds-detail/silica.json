@@ -1,0 +1,18 @@
+{
+  "id": "silica",
+  "slug": "silica",
+  "name": "Silica",
+  "summary": "Bioavailable silicon forms such as orthosilicic acid have limited evidence for bone and connective tissue support.",
+  "description": "Silicon-related nutrient involved in collagen synthesis and bone formation biology.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

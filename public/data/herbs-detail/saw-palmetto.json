@@ -1,32 +1,27 @@
 {
-  "name": "saw palmetto",
+  "name": "Saw Palmetto Serenoa repens",
   "slug": "saw-palmetto",
   "summary": "Saw Palmetto centers on the berry.",
-  "description": "Saw Palmetto centers on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitosterol). Typical preparation forms: Berry extracts. 5-alpha-reductase inhibition; anti-androgenic effects. Interaction profile: Hormonal therapies, anticoagulants. Use caution or avoid in: Pregnancy.",
-  "primaryActions": [],
+  "description": "Saw Palmetto centers on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitosterol).",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "5-alpha-reductase inhibition",
-    "androgen receptor signaling modulation",
-    "anti-inflammatory COX/LOX pathway modulation",
-    "prostate epithelial anti-edema effects"
+    "Inflammatory Signaling Modulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "GI upset and headache can occur. Caution with anticoagulants/antiplatelets and before surgery. Avoid pregnancy/breastfeeding. New or worsening urinary symptoms require medical evaluation because LUTS can overlap with prostate cancer or infection.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Pregnancy/breastfeeding",
-    "unexplained urinary symptoms without medical evaluation",
-    "perioperative use without clinician review."
+    "hormone-sensitive conditions (theoretical)"
   ],
   "interactions": [
-    "Anticoagulants",
-    "antiplatelets",
-    "hormone-active therapies",
-    "and perioperative medications",
-    "possible additive bleeding concern."
+    "anticoagulants (limited evidence)"
   ],
-  "preparation": "Fruit/berry preparations are commonly used as foods, juices, powders, capsules, or extracts; sugar and extract concentration vary.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "meta_analysis",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

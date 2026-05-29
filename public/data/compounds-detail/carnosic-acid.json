@@ -4,23 +4,20 @@
   "name": "carnosic acid",
   "summary": "Carnosic acid is a diterpene phenol best known from rosemary and sage. It is mainly supported by antioxidant, neuroprotective, and anti-inflammatory preclinical literature rather than robust human trials.",
   "description": "Diterpene phenol associated with rosemary-family herbs and linked to Nrf2 and NF-κB pathways.",
-  "compoundClass": "phenolic diterpene",
+  "compoundClass": "",
   "mechanisms": [
-    "Nrf2 activation",
-    "NF-kB suppression",
-    "redox-sensitive signaling modulation",
-    "mitochondrial protection pathways"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
   ],
-  "targets": [
-    "Nrf2",
-    "NF-κB",
-    "oxidative-stress signaling",
-    "lipid peroxidation pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Primarily food/herb exposure through rosemary/sage; concentrated isolated-dose safety is less established. Caution with anticoagulants, pregnancy, and liver disease at high doses.",
-  "evidenceLevel": "preclinical; human_indirect_from_rosemary",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

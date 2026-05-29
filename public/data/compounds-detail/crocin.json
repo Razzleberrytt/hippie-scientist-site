@@ -4,21 +4,20 @@
   "name": "crocin",
   "summary": "Saffron carotenoid glycoside reported to influence PI3K/Akt and MAPK signaling.",
   "description": "Saffron carotenoid glycoside reported to influence PI3K/Akt and MAPK signaling.",
-  "compoundClass": "carotenoid glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "MAPK pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "Nrf2",
-    "NF-κB",
-    "oxidative-stress signaling",
-    "serotonergic and dopaminergic pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human safety is mostly inferred from saffron trials. Avoid pregnancy-dose escalation; caution with serotonergic drugs, anticoagulants, and hypotension-prone users.",
-  "evidenceLevel": "human_indirect_from_saffron; preclinical",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

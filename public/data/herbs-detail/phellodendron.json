@@ -1,16 +1,20 @@
 {
-  "name": "phellodendron",
+  "name": "Phellodendron",
   "slug": "phellodendron",
   "summary": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
   "description": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "AMPK activation",
-    "NF-kB pathway inhibition",
-    "mitochondrial complex I inhibition"
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Berberine-containing bark; avoid in pregnancy/breastfeeding and infants. Caution with antidiabetic drugs, anticoagulants, CYP/P-gp substrates, and bilirubin-risk contexts.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -20,9 +24,9 @@
     "CYP/P-gp substrate medicines",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

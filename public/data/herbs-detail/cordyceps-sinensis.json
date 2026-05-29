@@ -1,0 +1,29 @@
+{
+  "name": "Cordyceps",
+  "slug": "cordyceps-sinensis",
+  "summary": "Cordyceps militaris is most often discussed around cordycepin plus polysaccharides and related nucleosides.",
+  "description": "Cordyceps militaris is most often discussed around cordycepin plus polysaccharides and related nucleosides. Commercial interest is high, but the evidence base is still strongest at the preclinical and cultivation/constituent level rather than for broad human outcome claims.",
+  "primaryActions": [
+    "energy",
+    "immune",
+    "adaptogenic"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Immunosuppressants"
+  ],
+  "interactions": [
+    "Immunosuppressants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

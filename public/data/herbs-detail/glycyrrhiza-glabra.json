@@ -1,16 +1,16 @@
 {
-  "name": "glycyrrhiza glabra",
+  "name": "Glycyrrhiza Glabra",
   "slug": "glycyrrhiza-glabra",
   "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
   "description": "Lean bulk ingestion row for Glycyrrhiza glabra. Key active compounds include Glycyrrhizin.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "glycyrrhizin/glycyrrhetinic-acid 11β-HSD2 inhibition",
-    "mineralocorticoid pathway activation",
-    "anti-inflammatory signaling"
+    "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Real risk of hypertension, hypokalemia, edema, arrhythmia; avoid with hypertension, kidney disease, pregnancy, diuretics, digoxin.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Hypertension",
     "kidney disease",
@@ -27,9 +27,9 @@
     "antiarrhythmics",
     "and stimulant laxatives."
   ],
-  "preparation": "Whole root, deglycyrrhizinated licorice (DGL), extracts, teas, and TCM formula components differ in glycyrrhizin exposure.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

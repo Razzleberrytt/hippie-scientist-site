@@ -4,21 +4,16 @@
   "name": "anabasine",
   "summary": "Pyridine alkaloid associated with nicotinic receptor activity.",
   "description": "Pyridine alkaloid associated with nicotinic receptor activity.",
-  "compoundClass": "alkaloid",
+  "compoundClass": "",
   "mechanisms": [
-    "nicotinic acetylcholine receptor modulation"
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation"
   ],
-  "targets": [
-    "CNS/autonomic receptors",
-    "ion channels",
-    "CYP/P-gp",
-    "inflammatory signaling",
-    "apoptosis pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

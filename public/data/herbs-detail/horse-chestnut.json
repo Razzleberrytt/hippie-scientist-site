@@ -1,16 +1,18 @@
 {
-  "name": "horse chestnut",
+  "name": "Horse Chestnut",
   "slug": "horse-chestnut",
   "summary": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin.",
   "description": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "tonic"
+  ],
   "mechanisms": [
-    "aescin venotonic effects",
-    "capillary permeability reduction",
-    "NF-κB/inflammatory edema modulation"
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Use only processed seed extract; raw seeds/bark/leaves are toxic; caution with anticoagulants, kidney disease, and pregnancy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -21,9 +23,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

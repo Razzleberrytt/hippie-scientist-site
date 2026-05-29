@@ -4,22 +4,20 @@
   "name": "gymnemagenin",
   "summary": "Triterpenoid aglycone linked to glycemic regulation and intestinal glucose handling.",
   "description": "Triterpenoid aglycone linked to glycemic regulation and intestinal glucose handling.",
-  "compoundClass": "triterpene / triterpenoid acid",
+  "compoundClass": "",
   "mechanisms": [
-    "glucose absorption modulation",
-    "AMPK activation"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Glucose Metabolism Support"
   ],
-  "targets": [
-    "NF-κB",
-    "AMPK",
-    "PPAR",
-    "inflammatory cytokines",
-    "apoptosis signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

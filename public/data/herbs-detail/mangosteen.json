@@ -1,15 +1,18 @@
 {
-  "name": "mangosteen",
+  "name": "Mangosteen",
   "slug": "mangosteen",
   "summary": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence.",
   "description": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant"
+  ],
   "mechanisms": [
-    "antioxidant",
-    "traditional wellness support"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without clinician guidance",
     "bleeding disorder/anticoagulant use without review"
@@ -18,9 +21,9 @@
     "Theoretical anticoagulant/antiplatelet interactions",
     "product-specific evidence limited."
   ],
-  "preparation": "Pericarp/rind extracts, juice blends, powders; fruit pulp differs from rind extract.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

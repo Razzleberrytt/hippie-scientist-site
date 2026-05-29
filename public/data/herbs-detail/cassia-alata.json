@@ -1,15 +1,17 @@
 {
-  "name": "cassia alata",
+  "name": "Cassia Alata",
   "slug": "cassia-alata",
   "summary": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
   "description": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "MAPK pathway",
-    "NF-kB inhibition"
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +20,9 @@
     "Potential additive effects with medications affecting the same body system",
     "review high-dose extracts with a clinician."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

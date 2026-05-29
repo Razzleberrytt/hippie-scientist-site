@@ -3,7 +3,7 @@ import fs from 'node:fs';import path from 'node:path'
 import fsPromises from 'node:fs/promises'
 const root=process.cwd(), outDir=path.join(root,'out'); if(!fs.existsSync(outDir)){console.error('out/ not found');process.exit(1)}
 const files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name.endsWith('.html'))files.push(f)}};walk(outDir)
-const isNonIndexableRoute=(route)=>route.startsWith('/_not-found')||route.startsWith('/opengraph-image')||route.startsWith('/twitter-image')||route.startsWith('/robots.txt')||route.startsWith('/sitemap.xml')
+const isNonIndexableRoute=(route)=>route.startsWith('/_not-found')||route.startsWith('/opengraph-image')||route.startsWith('/twitter-image')||route.startsWith('/robots.txt')||route.startsWith('/sitemap.xml')||route.startsWith('/blogdata')
 const rows=[]
 
 async function run() {

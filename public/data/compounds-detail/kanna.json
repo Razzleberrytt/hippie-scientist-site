@@ -1,0 +1,19 @@
+{
+  "id": "kanna",
+  "slug": "kanna",
+  "name": "Kanna Sceletium tortuosum",
+  "summary": "Kanna has preliminary human evidence for anxiety/mood effects but remains limited by small studies and extract variability.",
+  "description": "Sceletium extract containing mesembrine-type alkaloids with serotonin transporter and PDE4-related activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -4,21 +4,17 @@
   "name": "xanthotoxin",
   "summary": "Linear furocoumarin reported from Angelica and parsnip with MAPK and phosphodiesterase-related activity.",
   "description": "Linear furocoumarin reported from Angelica and parsnip with MAPK and phosphodiesterase-related activity.",
-  "compoundClass": "coumarin / furanocoumarin",
+  "compoundClass": "",
   "mechanisms": [
-    "MAPK pathway modulation",
-    "PDE inhibition"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support"
   ],
-  "targets": [
-    "CYP enzymes",
-    "P-gp/OATP transporters",
-    "photoreactive DNA crosslinking",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

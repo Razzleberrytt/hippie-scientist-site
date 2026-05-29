@@ -1,32 +1,29 @@
 {
-  "name": "valerian",
+  "name": "Valeriana officinalis",
   "slug": "valerian",
-  "summary": "Valerian centers on the root; rhizome.",
-  "description": "Valerian centers on the root; rhizome. Key reported compounds include valerenic acid; valerenol; valerenal; valepotriates (valtrate, isovaltrate); sesquiterpenoids. Typical preparation forms: Dried roots/rhizomes as teas, tinctures, or extracts. Valerenic acid derivatives modulate GABA-A signaling and may inhibit GABA breakdown. Interaction profile: May potentiate sedatives and alcohol. Use caution or avoid in: Pregnancy, breastfeeding, liver disease, concurrent CNS depressants.",
-  "primaryActions": [],
+  "summary": "Valerian may support sleep onset and nighttime relaxation, with results varying by root preparation.",
+  "description": "Sleep-onset and relaxation herb; preparation quality matters.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
   "mechanisms": [
-    "valerenic-acid GABA-A receptor modulation",
-    "GABA degradation/transport effects",
-    "adenosine and serotonergic sleep-pathway modulation"
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Sedation and next-day drowsiness possible; avoid combining with alcohol, benzodiazepines, opioids, or other CNS depressants.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Pregnancy/breastfeeding without clinician guidance",
-    "heavy sedative use",
-    "upcoming anesthesia"
+    "pregnancy",
+    "caution with alcohol"
   ],
   "interactions": [
-    "May potentiate alcohol",
-    "benzodiazepines",
-    "barbiturates",
-    "sleep aids",
-    "opioids",
-    "and other CNS depressants."
+    "CNS depressants",
+    "benzodiazepines"
   ],
-  "preparation": "Root/rhizome tea, tincture, capsules, and standardized extracts; odor reflects volatile constituents.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

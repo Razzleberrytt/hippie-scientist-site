@@ -1,15 +1,19 @@
 {
-  "name": "cistanche deserticola",
+  "name": "Cistanche Deserticola",
   "slug": "cistanche-deserticola",
   "summary": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation.",
   "description": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation.",
-  "primaryActions": [],
+  "primaryActions": [
+    "energy",
+    "reproductive",
+    "tonic"
+  ],
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "Nrf2 activation"
+    "Neuroprotective Activity",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Human evidence is limited; GI effects possible due to laxative/moistening traditional use.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without guidance",
     "diarrhea-prone conditions"
@@ -18,9 +22,9 @@
     "Limited clinical interaction data",
     "caution with laxatives and glucose-lowering therapies."
   ],
-  "preparation": "Stem decoction, powder, and extracts standardized to echinacoside/acteoside.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

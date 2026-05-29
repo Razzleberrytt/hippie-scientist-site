@@ -4,19 +4,17 @@
   "name": "schisandrin b",
   "summary": "Lignan from Schisandra with hepatoprotective and redox-modulating actions.",
   "description": "Lignan from Schisandra with hepatoprotective and redox-modulating actions.",
-  "compoundClass": "lignan",
+  "compoundClass": "",
   "mechanisms": [
-    "Nrf2 activation",
-    "mitochondrial protection"
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Nrf2 Activation"
   ],
-  "targets": [
-    "Mitochondrial redox systems",
-    "antioxidant enzymes"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Schisandra-type lignans can affect drug-metabolizing enzymes/transporters; caution with complex medication regimens.",
-  "evidenceLevel": "animal / in vitro",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

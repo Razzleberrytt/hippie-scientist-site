@@ -4,22 +4,20 @@
   "name": "timosaponin aiii",
   "summary": "Steroidal saponin associated with survival and apoptotic signaling.",
   "description": "Steroidal saponin associated with survival and apoptotic signaling.",
-  "compoundClass": "saponin / glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "apoptosis pathway modulation (caspase activation)"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
   ],
-  "targets": [
-    "AMPK",
-    "PPAR",
-    "immune cytokines",
-    "membrane signaling",
-    "glucose/lipid metabolism"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

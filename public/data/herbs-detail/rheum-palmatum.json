@@ -1,16 +1,16 @@
 {
-  "name": "rheum palmatum",
+  "name": "Rheum Palmatum",
   "slug": "rheum-palmatum",
   "summary": "Lean bulk ingestion row for Rheum palmatum.",
   "description": "Lean bulk ingestion row for Rheum palmatum. Key active compounds include Emodin; Rhein.",
-  "primaryActions": [],
+  "primaryActions": [
+    "research-pending"
+  ],
   "mechanisms": [
-    "NF-κB inhibition",
-    "MAPK pathway modulation",
-    "PI3K/Akt modulation"
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -19,9 +19,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

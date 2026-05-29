@@ -1,0 +1,29 @@
+{
+  "name": "Skullcap",
+  "slug": "scutellaria-lateriflora",
+  "summary": "GABAergic.",
+  "description": "GABAergic.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Sedatives",
+    "liver disease"
+  ],
+  "interactions": [
+    "Sedatives",
+    "liver disease"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

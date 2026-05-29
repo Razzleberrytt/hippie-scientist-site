@@ -1,28 +1,31 @@
 {
-  "name": "gotu kola",
+  "name": "Gotu Kola Centella asiatica",
   "slug": "gotu-kola",
-  "summary": "NO support.",
-  "description": "NO support.",
-  "primaryActions": [],
+  "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+  "description": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+  "primaryActions": [
+    "cognitive_support",
+    "circulation",
+    "calm_focus"
+  ],
   "mechanisms": [
-    "asiaticoside/madecassoside collagen synthesis",
-    "microcirculation/endothelial effects",
-    "antioxidant/NF-κB modulation"
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Rare liver injury reported; avoid pregnancy and liver disease; caution with sedatives and hepatotoxic drugs.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Liver disease",
-    "pregnancy/breastfeeding without guidance",
-    "upcoming surgery"
+    "Sedatives"
   ],
   "interactions": [
-    "May potentiate sedatives and hepatotoxic drugs/supplements",
-    "caution with antidiabetics."
+    "Sedatives"
   ],
-  "preparation": "Leaf tea/powder, tincture, extracts standardized to asiaticoside/madecassoside; topical use differs.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,28 +1,32 @@
 {
-  "name": "olea europaea",
+  "name": "Olive Leaf",
   "slug": "olea-europaea",
   "summary": "Lean bulk ingestion row for Olea europaea.",
   "description": "Lean bulk ingestion row for Olea europaea. Key active compounds include Oleuropein; Hydroxytyrosol.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "metabolic"
+  ],
   "mechanisms": [
-    "oleuropein/hydroxytyrosol antioxidant signaling",
-    "ACE/endothelial nitric oxide modulation",
-    "lipid and blood-pressure pathway effects"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Glucose Metabolism Support",
+    "Endothelial Function Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May lower blood pressure/glucose; monitor with antihypertensive or antidiabetic therapy; GI effects possible.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Hypotension",
-    "hypoglycemia risk",
-    "pregnancy/breastfeeding without guidance"
+    "Antihypertensives"
   ],
   "interactions": [
-    "May potentiate antihypertensives and antidiabetics",
-    "caution with anticoagulants if product has vascular effects."
+    "Antihypertensives"
   ],
-  "preparation": "Leaf tea, powder, and oleuropein-standardized extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

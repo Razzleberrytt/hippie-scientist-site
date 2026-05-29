@@ -1,19 +1,17 @@
 {
-  "name": "oregano",
+  "name": "Oregano",
   "slug": "oregano",
-  "summary": "Mechanism context: antimicrobial, digestive support, respiratory support. Safety: Culinary use is generally low-risk; oregano oil/high-thymol or carvacrol extracts can irritate GI mucosa and skin.. Interactions tracked: Potential additive irritation with essential oils, theoretical bleeding or glucose interaction concerns at high supplemental doses..",
-  "description": "Mechanism context: antimicrobial, digestive support, respiratory support. Safety: Culinary use is generally low-risk; oregano oil/high-thymol or carvacrol extracts can irritate GI mucosa and skin.. Interactions tracked: Potential additive irritation with essential oils, theoretical bleeding or glucose interaction concerns at high supplemental doses..",
-  "primaryActions": [],
+  "summary": "oregano is tracked for sleep with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "sleep"
+  ],
   "mechanisms": [
-    "antimicrobial",
-    "digestive support",
-    "respiratory support",
-    "TRPA1 activation",
-    "membrane disruption",
-    "GABA-A modulation"
+    "Neurotransmitter Modulation",
+    "Cellular Protection"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary use is generally low-risk; oregano oil/high-thymol or carvacrol extracts can irritate GI mucosa and skin.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding for medicinal-dose essential oil",
     "Lamiaceae allergy",
@@ -23,9 +21,9 @@
     "Potential additive irritation with essential oils",
     "theoretical bleeding or glucose interaction concerns at high supplemental doses."
   ],
-  "preparation": "Leaf is used as food, tea, capsules, and tincture; oregano oil should be treated as a concentrated product, not a food-dose herb.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

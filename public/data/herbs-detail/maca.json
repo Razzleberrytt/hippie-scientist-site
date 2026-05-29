@@ -1,27 +1,28 @@
 {
-  "name": "maca",
+  "name": "Maca Lepidium meyenii",
   "slug": "maca",
   "summary": "Maca centers on the root; hypocotyl.",
-  "description": "Maca centers on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates. Typical preparation forms: Dried root powder, extracts. May influence endocrine signaling and energy metabolism (unclear mechanism). Interaction profile: Limited data. Use caution or avoid in: Hormone-sensitive conditions (caution).",
-  "primaryActions": [],
+  "description": "Maca centers on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates.",
+  "primaryActions": [
+    "energy",
+    "hormonal",
+    "reproductive"
+  ],
   "mechanisms": [
-    "macamide/macaene signaling",
-    "HPA-axis and NO-related sexual-function pathways",
-    "non-estrogenic neuroendocrine modulation"
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Avoid assuming hormone-like replacement; caution in hormone-sensitive conditions and pregnancy due to limited long-term data.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Hormone-sensitive conditions without clinician review",
-    "pregnancy/breastfeeding without clinician guidance"
+    "hormone-sensitive conditions (unclear relevance)"
   ],
   "interactions": [
-    "Limited interaction data",
-    "review with hormone therapies or fertility treatments."
+    "none well established"
   ],
-  "preparation": "Gelatinized or raw root powder and extracts; color phenotypes may differ.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

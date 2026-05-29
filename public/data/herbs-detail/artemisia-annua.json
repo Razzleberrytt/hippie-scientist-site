@@ -1,16 +1,21 @@
 {
-  "name": "artemisia annua",
+  "name": "Artemisia Annua",
   "slug": "artemisia-annua",
-  "summary": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
-  "description": "Internal cross-linking supports Artemisia Annua through compounds such as artemisinin.",
-  "primaryActions": [],
+  "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+  "description": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+  "primaryActions": [
+    "antiviral",
+    "immune",
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "artemisinin endoperoxide activation under iron/heme conditions",
-    "parasite oxidative damage pathways",
-    "NF-κB and cytokine modulation reported preclinically"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Do not use crude Artemisia as a substitute for approved antimalarial therapy. Pregnancy, liver disease, and drug-interaction contexts require medical supervision.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding unless medically indicated",
     "serious infection without medical care",
@@ -22,9 +27,9 @@
     "hepatotoxic drugs",
     "and seizure-threshold-lowering agents."
   ],
-  "preparation": "Separate whole-herb Artemisia preparations from purified artemisinin derivatives; evidence and safety are not interchangeable.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,0 +1,25 @@
+{
+  "name": "Lion's Mane",
+  "slug": "hericium-erinaceus",
+  "summary": "NGF stimulation.",
+  "description": "NGF stimulation.",
+  "primaryActions": [
+    "cognitive"
+  ],
+  "mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Unknown"
+  ],
+  "interactions": [
+    "Unknown"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,15 +1,18 @@
 {
-  "name": "cyclea peltata",
+  "name": "Cyclea Peltata",
   "slug": "cyclea-peltata",
   "summary": "Cyclea peltata lean monograph row enriched in bulk mode.",
   "description": "Cyclea peltata lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "digestive"
+  ],
   "mechanisms": [
-    "voltage-gated calcium channel modulation",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Alkaloid-rich traditional herb; human safety data are limited. Avoid pregnancy/breastfeeding and unsupervised high-dose use.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +21,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

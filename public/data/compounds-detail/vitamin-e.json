@@ -1,0 +1,23 @@
+{
+  "id": "vitamin-e",
+  "slug": "vitamin-e",
+  "name": "Vitamin E",
+  "summary": "No mortality benefit; high doses may increase risk.",
+  "description": "No mortality benefit; high doses may increase risk.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

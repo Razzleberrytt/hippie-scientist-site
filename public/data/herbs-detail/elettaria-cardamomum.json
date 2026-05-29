@@ -1,0 +1,28 @@
+{
+  "name": "Cardamom",
+  "slug": "elettaria-cardamomum",
+  "summary": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+  "description": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+  "primaryActions": [
+    "antioxidant",
+    "cardiovascular",
+    "diuretic"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Limited data"
+  ],
+  "interactions": [
+    "Limited data"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

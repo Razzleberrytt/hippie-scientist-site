@@ -1,28 +1,23 @@
 {
   "id": "resveratrol",
   "slug": "resveratrol",
-  "name": "resveratrol",
-  "summary": "Resveratrol is a stilbene polyphenol best known from knotweed and grape-derived materials. It has substantial human literature across cardiometabolic and inflammatory biomarkers, although outcomes vary by dose, formulation, and population.",
-  "description": "Stilbene best known from knotweed and grape sources, strongly linked to SIRT1, AMPK, and NF-κB pathways.",
-  "compoundClass": "stilbene polyphenol",
+  "name": "Resveratrol",
+  "summary": "Decision-ready summary: Resveratrol is best framed for cardiometabolic markers; endothelial function; oxidative stress markers; safety screen: anticoagulants; hormone-sensitive conditions caution; surgery window.",
+  "description": "Resveratrol supports cardio; polyphenol; aging with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
   "mechanisms": [
-    "SIRT1 activation",
-    "AMPK activation",
-    "NF-kB suppression",
-    "Nrf2 signaling support",
-    "endothelial nitric-oxide pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context"
   ],
-  "targets": [
-    "SIRT1",
-    "AMPK",
-    "Nrf2",
-    "NF-κB",
-    "endothelial nitric oxide signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Usually well tolerated short-term; caution with anticoagulants/antiplatelets, hormone-sensitive conditions, pregnancy, and high-dose extracts.",
-  "evidenceLevel": "human_limited; multiple_meta_analyses_by_marker",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

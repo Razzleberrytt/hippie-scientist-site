@@ -1,16 +1,17 @@
 {
-  "name": "punarnava",
+  "name": "Punarnava",
   "slug": "punarnava",
   "summary": "Internal cross-linking supports Punarnava through compounds such as punarnavine.",
   "description": "Internal cross-linking supports Punarnava through compounds such as punarnavine.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "diuretic"
+  ],
   "mechanisms": [
-    "kidney support",
-    "diuretic support",
-    "anti-inflammatory"
+    "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May affect fluid balance or urinary tract irritation; use caution with kidney disease, diuretics, lithium, pregnancy, and dehydration risk.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -20,9 +21,9 @@
     "Potential interaction concern with antihypertensives/diuretics",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

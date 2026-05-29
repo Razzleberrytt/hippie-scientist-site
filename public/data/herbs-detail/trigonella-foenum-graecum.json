@@ -1,0 +1,29 @@
+{
+  "name": "Fenugreek",
+  "slug": "trigonella-foenum-graecum",
+  "summary": "Saponins and fiber reduce glucose absorption and improve insulin sensitivity.",
+  "description": "Saponins and fiber reduce glucose absorption and improve insulin sensitivity.",
+  "primaryActions": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Antidiabetics",
+    "anticoagulants"
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "anticoagulants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

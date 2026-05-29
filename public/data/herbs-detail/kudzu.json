@@ -1,17 +1,22 @@
 {
-  "name": "kudzu",
+  "name": "Kudzu",
   "slug": "kudzu",
-  "summary": "Mechanism context: puerarin/daidzin/daidzein isoflavone activity, aldehyde dehydrogenase modulation, estrogen-receptor interaction. Safety: Isoflavone-rich preparations may interact with hormone-sensitive conditions and anticoagulant/antiplatelet therapy. Alcohol-use claims should not replace medical care.. Interactions tracked: Potential additive effects with anticoagulants/antiplatelets and hormone-active therapies, caution with diabetes or blood-pressure medications..",
-  "description": "Mechanism context: puerarin/daidzin/daidzein isoflavone activity, aldehyde dehydrogenase modulation, estrogen-receptor interaction. Safety: Isoflavone-rich preparations may interact with hormone-sensitive conditions and anticoagulant/antiplatelet therapy. Alcohol-use claims should not replace medical care.. Interactions tracked: Potential additive effects with anticoagulants/antiplatelets and hormone-active therapies, caution with diabetes or blood-pressure medications..",
-  "primaryActions": [],
+  "summary": "kudzu is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "hormonal"
+  ],
   "mechanisms": [
-    "puerarin/daidzin/daidzein isoflavone activity",
-    "aldehyde dehydrogenase modulation",
-    "estrogen-receptor interaction",
-    "antioxidant and vascular signaling"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Isoflavone-rich preparations may interact with hormone-sensitive conditions and anticoagulant/antiplatelet therapy. Alcohol-use claims should not replace medical care.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding caution",
     "hormone-sensitive cancers or conditions",
@@ -21,9 +26,9 @@
     "Potential additive effects with anticoagulants/antiplatelets and hormone-active therapies",
     "caution with diabetes or blood-pressure medications."
   ],
-  "preparation": "Evidence is strongest for standardized kudzu root extracts or isolated puerarin/daidzin; do not generalize to all crude preparations.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

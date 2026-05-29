@@ -1,0 +1,23 @@
+{
+  "id": "panax-ginseng",
+  "slug": "panax-ginseng",
+  "name": "Panax Ginseng",
+  "summary": "Decision-ready summary: Panax Ginseng is best framed for fatigue reduction; cognitive performance context; energy support; safety screen: warfarin; hypertension; insomnia; stimulant sensitivity.",
+  "description": "Panax Ginseng supports energy; cognition; fatigue with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

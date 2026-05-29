@@ -1,15 +1,16 @@
 {
-  "name": "maral root",
+  "name": "Maral Root",
   "slug": "maral-root",
   "summary": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
   "description": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "adaptogenic support",
-    "recovery support"
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +19,9 @@
     "Potential additive effects with medications affecting the same body system",
     "review high-dose extracts with a clinician."
   ],
-  "preparation": "Root/rhizome preparations are commonly used as teas, decoctions, powders, capsules, or standardized extracts depending on tradition.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,17 +1,22 @@
 {
-  "name": "arjuna",
+  "name": "Arjuna",
   "slug": "arjuna",
   "summary": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
   "description": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant",
+    "cardiovascular",
+    "tonic"
+  ],
   "mechanisms": [
-    "endothelial nitric oxide signaling",
-    "antioxidant myocardial protection",
-    "lipid-modulating tannins/flavonoids",
-    "mild positive inotropic and vascular effects"
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Use cautiously with diagnosed heart disease unless supervised. Possible additive effects with antihypertensives, nitrates, beta-blockers, digoxin-like regimens, antiplatelets, or anticoagulants.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Unstable angina",
     "heart failure without clinician oversight",
@@ -25,9 +30,9 @@
     "and cardiac-medication effects",
     "monitor with cardiovascular drugs."
   ],
-  "preparation": "Evidence is most relevant to bark preparations or standardized extracts used in clinical studies.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

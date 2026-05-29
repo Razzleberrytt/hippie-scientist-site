@@ -1,17 +1,23 @@
 {
-  "name": "morinda citrifolia",
+  "name": "Morinda Citrifolia",
   "slug": "morinda-citrifolia",
   "summary": "Morinda citrifolia lean monograph row enriched in bulk mode.",
   "description": "Morinda citrifolia lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "liver-protective"
+  ],
   "mechanisms": [
-    "NF-κB/COX inflammatory modulation",
-    "Nrf2-related antioxidant signaling",
-    "potassium-rich juice electrolyte effects",
-    "AKT/NF-κB signaling reported in preclinical contexts."
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Noni has case reports of liver injury and can be high in potassium; avoid or use caution with liver disease, kidney disease, ACE inhibitors/ARBs, potassium-sparing diuretics, warfarin-sensitive regimens, pregnancy, and breastfeeding.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -22,9 +28,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

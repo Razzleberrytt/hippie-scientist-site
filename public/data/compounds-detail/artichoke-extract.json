@@ -1,0 +1,23 @@
+{
+  "id": "artichoke-extract",
+  "slug": "artichoke-extract",
+  "name": "Artichoke Extract",
+  "summary": "Decision-ready summary: Artichoke Extract is best framed for indigestion support; cholesterol context; bile-flow support; safety screen: bile duct obstruction; gallstones; ragweed allergy.",
+  "description": "Artichoke Extract supports digestion; cholesterol; bile flow with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

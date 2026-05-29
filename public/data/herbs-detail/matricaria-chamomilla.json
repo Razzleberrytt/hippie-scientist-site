@@ -1,27 +1,26 @@
 {
-  "name": "matricaria chamomilla",
+  "name": "Chamomile",
   "slug": "matricaria-chamomilla",
-  "summary": "Matricaria chamomilla contains Farnesol and is linked here to PPAR activation.",
-  "description": "Matricaria chamomilla contains Farnesol and is linked here to PPAR activation.",
-  "primaryActions": [],
+  "summary": "Chamomile may support mild anxiety or sleep quality, especially as evening tea or standardized extract.",
+  "description": "Gentle sleep/stress support with modest human evidence and traditional use.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
   "mechanisms": [
-    "apigenin GABA-A receptor interaction",
-    "flavonoid anti-inflammatory signaling",
-    "smooth-muscle and digestive-spasm modulation"
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Allergy risk with Asteraceae sensitivity; sedation possible; caution with CNS depressants and anticoagulants.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Asteraceae/ragweed allergy",
-    "anticoagulant use without clinician review",
-    "pregnancy at medicinal doses without guidance"
+    "Anticoagulants (coumarin content)"
   ],
   "interactions": [
-    "May potentiate sedatives/CNS depressants and anticoagulants/antiplatelets in susceptible users."
+    "Anticoagulants (coumarin content)"
   ],
-  "preparation": "Flower infusion, tincture, capsules, steam-distilled essential oil, and topical preparations.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

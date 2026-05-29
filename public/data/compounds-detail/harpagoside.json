@@ -2,23 +2,21 @@
   "id": "harpagoside",
   "slug": "harpagoside",
   "name": "harpagoside",
-  "summary": "Harpagoside is a devil’s claw iridoid associated with pain and inflammatory pathway modulation.",
-  "description": "Harpagoside is a devil’s claw iridoid associated with pain and inflammatory pathway modulation.",
-  "compoundClass": "iridoid glycoside",
+  "summary": "Harpagoside is a devil's claw iridoid associated with pain and inflammatory pathway modulation.",
+  "description": "Harpagoside is a devil's claw iridoid associated with pain and inflammatory pathway modulation.",
+  "compoundClass": "",
   "mechanisms": [
-    "COX inhibition",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "NF-κB",
-    "antioxidant response",
-    "inflammatory cytokines",
-    "gut/liver metabolism"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -1,17 +1,19 @@
 {
-  "name": "cymbopogon citratus",
+  "name": "Cymbopogon Citratus",
   "slug": "cymbopogon-citratus",
   "summary": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
   "description": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
-  "primaryActions": [],
+  "primaryActions": [
+    "sleep"
+  ],
   "mechanisms": [
-    "Citral/myrcene activity",
-    "GABA-A-related signaling",
-    "vascular smooth-muscle and ACE-related effects",
-    "PI3K/Akt and NF-κB modulation."
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Tea-level use is usually tolerated, but concentrated essential oil can irritate skin/mucosa and may cause CNS or GI effects; caution in pregnancy, breastfeeding, sedative use, hypotension, and antihypertensive therapy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding supplement dosing without guidance",
     "internal essential-oil use"
@@ -20,9 +22,9 @@
     "Low documented interaction burden",
     "caution with sedatives or antihypertensives at high doses."
   ],
-  "preparation": "Leaf tea, culinary herb, tincture, and essential oil for topical/aromatic use.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

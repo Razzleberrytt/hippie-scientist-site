@@ -4,22 +4,20 @@
   "name": "curdione",
   "summary": "Curcuma sesquiterpenoid linked to survival and apoptotic pathways.",
   "description": "Curcuma sesquiterpenoid linked to survival and apoptotic pathways.",
-  "compoundClass": "curcuminoid / diarylheptanoid",
+  "compoundClass": "",
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "apoptosis pathway modulation (caspase activation)"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
   ],
-  "targets": [
-    "NF-κB",
-    "Nrf2",
-    "COX/LOX",
-    "inflammatory cytokines",
-    "AMPK"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human evidence is mostly formulation-dependent. High-dose curcuminoids may cause GI upset and interact with anticoagulants/antiplatelets.",
-  "evidenceLevel": "human_limited",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

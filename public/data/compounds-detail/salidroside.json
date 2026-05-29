@@ -1,25 +1,22 @@
 {
   "id": "salidroside",
   "slug": "salidroside",
-  "name": "salidroside",
+  "name": "Salidroside",
   "summary": "Rhodiola marker glycoside associated with metabolic and cytoprotective pathway activity.",
   "description": "Rhodiola marker glycoside associated with metabolic and cytoprotective pathway activity.",
-  "compoundClass": "phenylethanoid glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "AMPK activation",
-    "PI3K/Akt modulation",
-    "Nrf2 activation"
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Stress Response Modulation",
+    "Glucose Metabolism Support"
   ],
-  "targets": [
-    "HPA-axis stress pathways",
-    "Nrf2",
-    "AMPK",
-    "mitochondrial and inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human evidence mainly derives from Rhodiola extracts. Avoid pregnancy/breastfeeding and caution with bipolar disorder, stimulants, antidepressants, and sedatives.",
-  "evidenceLevel": "human_indirect_from_rhodiola_extracts",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

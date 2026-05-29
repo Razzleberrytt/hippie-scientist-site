@@ -1,0 +1,18 @@
+{
+  "id": "iberogast",
+  "slug": "iberogast",
+  "name": "Iberogast",
+  "summary": "Iberogast is best framed as a conservative research profile with mechanistic evidence and a focus on Digestive Health. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+  "description": "Iberogast is best framed as a conservative research profile with mechanistic evidence and a focus on Digestive Health. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+  "compoundClass": "",
+  "mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

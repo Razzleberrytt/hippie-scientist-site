@@ -1,0 +1,28 @@
+{
+  "name": "Salvia miltiorrhiza",
+  "slug": "salvia-miltiorrhiza",
+  "summary": "Danshen/Salvia miltiorrhiza has pharmacology and clinical literature in cardiovascular contexts, but product and preparation differences require conservative interpretation.",
+  "description": "Danshen/Salvia miltiorrhiza has pharmacology and clinical literature in cardiovascular contexts, but product and preparation differences require conservative interpretation.",
+  "primaryActions": [
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Caution with anticoagulants and antiplatelets."
+  ],
+  "interactions": [
+    "Caution with anticoagulants and antiplatelets."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

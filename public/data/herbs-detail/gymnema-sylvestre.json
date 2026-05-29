@@ -1,34 +1,26 @@
 {
-  "name": "gymnema sylvestre",
+  "name": "Gymnema",
   "slug": "gymnema-sylvestre",
-  "summary": "Gymnema sylvestre contains Gymnemagenin and is linked here to glucose absorption modulation.",
-  "description": "Gymnema sylvestre contains Gymnemagenin and is linked here to glucose absorption modulation.",
-  "primaryActions": [],
+  "summary": "Gymnemic acids reduce intestinal glucose absorption and may support beta-cell function.",
+  "description": "Gymnemic acids reduce intestinal glucose absorption and may support beta-cell function.",
+  "primaryActions": [
+    "metabolic"
+  ],
   "mechanisms": [
-    "gymnemic acid sweet-taste receptor antagonism",
-    "SGLT1/intestinal glucose absorption inhibition",
-    "pancreatic beta-cell and insulin-secretion effects",
-    "AMPK activation",
-    "lipid-metabolism modulation"
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Hypoglycemia risk increases with insulin, sulfonylureas, GLP-1 agonists, SGLT2 inhibitors, metformin, or other glucose-lowering medicines. Monitor glucose. GI upset can occur. Avoid pregnancy/breastfeeding. Stop before surgery because glucose variability may complicate perioperative management.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Pregnancy/breastfeeding",
-    "hypoglycemia-prone patients without monitoring",
-    "perioperative use without clinician review."
+    "Antidiabetic medications"
   ],
   "interactions": [
-    "Antidiabetics including insulin",
-    "sulfonylureas",
-    "GLP-1 agonists",
-    "SGLT2 inhibitors",
-    "and metformin",
-    "may compound glucose-lowering effects."
+    "Antidiabetic medications"
   ],
-  "preparation": "Leaf powder/extracts standardized to gymnemic acids; chewing/tea can reduce sweet taste temporarily.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "meta_analysis",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

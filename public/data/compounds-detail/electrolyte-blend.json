@@ -1,0 +1,19 @@
+{
+  "id": "electrolyte-blend",
+  "slug": "electrolyte-blend",
+  "name": "Electrolyte Blend",
+  "summary": "Electrolyte blends are most useful for rehydration when sweat loss, heat exposure, diarrhea, vomiting, or prolonged exercise increases sodium and fluid needs; they should not be treated as a fat-loss or energy shortcut.",
+  "description": "Electrolyte blends are most useful for rehydration when sweat loss, heat exposure, diarrhea, vomiting, or prolonged exercise increases sodium and fluid needs; they should not be treated as a fat-loss or energy shortcut.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

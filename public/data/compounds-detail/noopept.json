@@ -1,0 +1,18 @@
+{
+  "id": "noopept",
+  "slug": "noopept",
+  "name": "Noopept",
+  "summary": "Synthetic peptide-like nootropic with insufficient reliable human evidence.",
+  "description": "Synthetic nootropic compound proposed to affect glutamatergic signaling and neurotrophic pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

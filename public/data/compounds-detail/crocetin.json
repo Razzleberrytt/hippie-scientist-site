@@ -4,22 +4,20 @@
   "name": "crocetin",
   "summary": "Saffron carotenoid aglycone linked to PI3K/Akt and Nrf2 pathway activity.",
   "description": "Saffron carotenoid aglycone linked to PI3K/Akt and Nrf2 pathway activity.",
-  "compoundClass": "apocarotenoid",
+  "compoundClass": "",
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "Nrf2 activation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
   ],
-  "targets": [
-    "Nrf2",
-    "NF-κB",
-    "oxidative-stress signaling",
-    "lipid metabolism",
-    "retinal/neurovascular pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human evidence is limited and often saffron-derived. Caution with pregnancy, serotonergic drugs, anticoagulants, and blood-pressure-lowering regimens.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

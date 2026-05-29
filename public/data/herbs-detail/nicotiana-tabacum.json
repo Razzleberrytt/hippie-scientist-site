@@ -1,17 +1,17 @@
 {
-  "name": "nicotiana tabacum",
+  "name": "Nicotiana Tabacum",
   "slug": "nicotiana-tabacum",
   "summary": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation.",
   "description": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stimulant"
+  ],
   "mechanisms": [
-    "nicotinic acetylcholine receptor modulation",
-    "NF-κB inhibition",
-    "nicotinic acetylcholine receptor agonism",
-    "dopamine release modulation"
+    "Neurotransmitter Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Nicotine-containing plant; toxic and addictive exposure risk. Not appropriate as a wellness supplement.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -22,9 +22,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

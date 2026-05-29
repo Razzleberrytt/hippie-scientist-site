@@ -4,22 +4,17 @@
   "name": "huperzine b",
   "summary": "Minor huperzine alkaloid linked to cholinergic support pathways.",
   "description": "Minor huperzine alkaloid linked to cholinergic support pathways.",
-  "compoundClass": "alkaloid",
+  "compoundClass": "",
   "mechanisms": [
-    "acetylcholinesterase inhibition",
-    "NMDA receptor modulation"
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
   ],
-  "targets": [
-    "CNS/autonomic receptors",
-    "ion channels",
-    "CYP/P-gp",
-    "inflammatory signaling",
-    "apoptosis pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

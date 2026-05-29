@@ -1,16 +1,16 @@
 {
-  "name": "guayusa",
+  "name": "Guayusa",
   "slug": "guayusa",
   "summary": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
   "description": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant"
+  ],
   "mechanisms": [
-    "caffeine-mediated adenosine A1/A2A antagonism",
-    "theobromine methylxanthine effects",
-    "chlorogenic-acid antioxidant signaling"
+    "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Caffeine-containing herb; may worsen insomnia, anxiety, palpitations, reflux, and blood pressure in sensitive users.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Uncontrolled hypertension",
     "arrhythmia",
@@ -25,9 +25,9 @@
     "decongestants",
     "and stimulant medications."
   ],
-  "preparation": "Use moderate brewed preparations or products with disclosed caffeine content; avoid concentrated stimulant blends.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

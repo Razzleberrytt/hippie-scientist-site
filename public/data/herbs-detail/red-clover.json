@@ -1,16 +1,20 @@
 {
-  "name": "red clover",
+  "name": "Red Clover",
   "slug": "red-clover",
   "summary": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
   "description": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant",
+    "hormonal"
+  ],
   "mechanisms": [
-    "isoflavone phytoestrogen signaling via estrogen receptors",
-    "lipid-metabolism modulation",
-    "antioxidant signaling"
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Avoid/caution in estrogen-sensitive cancers or hormone therapy contexts; possible anticoagulant interaction concerns.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding",
     "hormone-sensitive cancer/condition without clinician review",
@@ -19,9 +23,9 @@
   "interactions": [
     "May interact with hormone therapies and anticoagulants/antiplatelets."
   ],
-  "preparation": "Flowering tops as tea, tincture, or isoflavone-standardized extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

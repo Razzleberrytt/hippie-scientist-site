@@ -1,18 +1,23 @@
 {
-  "name": "rice bran",
+  "name": "Rice Bran",
   "slug": "rice-bran",
-  "summary": "Mechanism context: γ-oryzanol and phytosterol effects on cholesterol absorption, bile-acid excretion and lipid metabolism modulation, AMPK/PPAR metabolic signaling. Safety: Usually food-derived, but bran products can cause GI effects and may carry contaminant concerns if poorly sourced; use caution with diabetes medications, lipid-lowering therapy, grain allergy, and products lacking contaminant/heavy-metal quality controls.. Interactions tracked: Potential interaction concern with antidiabetic medicines, use clinician review for high-dose extracts or chronic use..",
-  "description": "Mechanism context: γ-oryzanol and phytosterol effects on cholesterol absorption, bile-acid excretion and lipid metabolism modulation, AMPK/PPAR metabolic signaling. Safety: Usually food-derived, but bran products can cause GI effects and may carry contaminant concerns if poorly sourced; use caution with diabetes medications, lipid-lowering therapy, grain allergy, and products lacking contaminant/heavy-metal quality controls.. Interactions tracked: Potential interaction concern with antidiabetic medicines, use clinician review for high-dose extracts or chronic use..",
-  "primaryActions": [],
+  "summary": "rice bran is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "cardiovascular"
+  ],
   "mechanisms": [
-    "γ-oryzanol and phytosterol effects on cholesterol absorption",
-    "bile-acid excretion and lipid metabolism modulation",
-    "AMPK/PPAR metabolic signaling",
-    "Nrf2 antioxidant response",
-    "dietary fiber/prebiotic effects."
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Usually food-derived, but bran products can cause GI effects and may carry contaminant concerns if poorly sourced; use caution with diabetes medications, lipid-lowering therapy, grain allergy, and products lacking contaminant/heavy-metal quality controls.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -21,9 +26,9 @@
     "Potential interaction concern with antidiabetic medicines",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "meta_analysis",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

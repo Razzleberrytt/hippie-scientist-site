@@ -1,15 +1,17 @@
 {
-  "name": "gastrodia",
+  "name": "Gastrodia",
   "slug": "gastrodia",
   "summary": "It should be framed conservatively because traditional neurologic use is broader than modern evidence.",
   "description": "It should be framed conservatively because traditional neurologic use is broader than modern evidence.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "traditional nervous-system support",
-    "calming support"
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
   ],
   "activeCompounds": [],
-  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without guidance",
     "sedative use without review"
@@ -18,9 +20,9 @@
     "May add to CNS depressant or antihypertensive effects",
     "limited interaction data."
   ],
-  "preparation": "Tuber decoction, powder, extract; often used in formulas.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

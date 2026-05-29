@@ -1,17 +1,18 @@
 {
-  "name": "chuanxiong",
+  "name": "Chuanxiong",
   "slug": "chuanxiong",
   "summary": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
   "description": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "ligustilide/tetramethylpyrazine-related vasodilation",
-    "platelet aggregation modulation",
-    "nitric-oxide and calcium-channel signaling",
-    "inflammatory-pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Potential bleeding and blood-pressure effects. Use caution with cardiovascular disease or anticoagulant/antiplatelet therapy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy",
     "bleeding disorders",
@@ -25,9 +26,9 @@
     "nitrates",
     "and migraine/circulation formulas."
   ],
-  "preparation": "Most clinical evidence is formula-based; single-herb evidence remains limited.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

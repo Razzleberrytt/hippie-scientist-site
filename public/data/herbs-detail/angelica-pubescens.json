@@ -1,15 +1,19 @@
 {
-  "name": "angelica pubescens",
+  "name": "Angelica Pubescens",
   "slug": "angelica-pubescens",
   "summary": "Angelica pubescens lean monograph row enriched in bulk mode.",
   "description": "Angelica pubescens lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "analgesic",
+    "cardiovascular"
+  ],
   "mechanisms": [
-    "PDE4 inhibition",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -19,9 +23,9 @@
     "Potential interaction concern with anticoagulants/antiplatelets",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

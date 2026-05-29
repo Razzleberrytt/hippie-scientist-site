@@ -4,24 +4,20 @@
   "name": "calycosin",
   "summary": "Calycosin is an isoflavone associated especially with Astragalus-derived phytochemistry. The literature emphasizes vascular, estrogen-related, and antioxidant signaling in preclinical models more than replicated human trials.",
   "description": "Isoflavonoid from Astragalus associated with estrogenic and survival signaling.",
-  "compoundClass": "isoflavone / phytoestrogen",
+  "compoundClass": "",
   "mechanisms": [
-    "Estrogen-receptor beta modulation",
-    "PI3K/Akt signaling",
-    "Nrf2-related antioxidant response",
-    "endothelial signaling support"
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "AMPK Signaling"
   ],
-  "targets": [
-    "estrogen receptor signaling",
-    "AMPK",
-    "PPAR",
-    "antioxidant response",
-    "bone/metabolic signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
-  "evidenceLevel": "human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

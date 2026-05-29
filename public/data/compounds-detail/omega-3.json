@@ -1,0 +1,23 @@
+{
+  "id": "omega-3",
+  "slug": "omega-3",
+  "name": "Omega-3 fatty acids",
+  "summary": "Decision-ready summary: Omega-3 fatty acids is best framed for triglyceride reduction; cardiovascular support; inflammation modulation; safety screen: bleeding disorder; anticoagulants at high dose; fish allergy.",
+  "description": "Omega-3 fatty acids supports cardio; triglycerides; inflammation with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

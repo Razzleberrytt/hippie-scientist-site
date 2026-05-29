@@ -1,0 +1,22 @@
+{
+  "id": "nicotinic-acid",
+  "slug": "nicotinic-acid",
+  "name": "Nicotinic Acid",
+  "summary": "Nicotinic acid is a vitamin B3 form with strong lipid effects but limited cardiovascular outcome benefit when added to statins. Safety concerns include flushing, hepatotoxicity, hyperglycemia, and gout.",
+  "description": "GPR109A-activating niacin form with lipid-lowering effects; clinical outcome benefit is constrained by modern RCT results.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

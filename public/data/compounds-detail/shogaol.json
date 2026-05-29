@@ -1,0 +1,19 @@
+{
+  "id": "shogaol",
+  "slug": "shogaol",
+  "name": "shogaol",
+  "summary": "shogaol is tracked for Modulates inflammatory pathways via NF-kB inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "shogaol is tracked for Modulates inflammatory pathways via NF-kB inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

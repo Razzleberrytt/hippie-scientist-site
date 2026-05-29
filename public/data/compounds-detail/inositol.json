@@ -1,0 +1,20 @@
+{
+  "id": "inositol",
+  "slug": "inositol",
+  "name": "Inositol",
+  "summary": "Improves insulin sensitivity and ovulatory function in PCOS.",
+  "description": "Improves insulin sensitivity and ovulatory function in PCOS.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

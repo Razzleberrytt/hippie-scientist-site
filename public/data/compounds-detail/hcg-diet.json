@@ -1,0 +1,19 @@
+{
+  "id": "hcg-diet",
+  "slug": "hcg-diet",
+  "name": "HCG Diet",
+  "summary": "HCG should not be promoted for weight loss: FDA warns against HCG weight-loss products, and clinical evidence shows weight loss comes from severe calorie restriction rather than HCG.",
+  "description": "HCG should not be promoted for weight loss: FDA warns against HCG weight-loss products, and clinical evidence shows weight loss comes from severe calorie restriction rather than HCG.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

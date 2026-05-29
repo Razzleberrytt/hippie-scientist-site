@@ -1,0 +1,20 @@
+{
+  "id": "beetroot-extract",
+  "slug": "beetroot-extract",
+  "name": "Beetroot extract",
+  "summary": "Decision-ready summary: Beetroot extract is best framed for blood pressure support; endurance performance; nitric oxide support; safety screen: hypotension; nitrate medications; kidney-stone susceptibility.",
+  "description": "Beetroot extract supports blood flow; endurance; blood pressure with moderate-high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

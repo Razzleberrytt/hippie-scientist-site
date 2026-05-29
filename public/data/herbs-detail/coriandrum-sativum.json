@@ -1,16 +1,20 @@
 {
-  "name": "coriandrum sativum",
+  "name": "Coriandrum Sativum",
   "slug": "coriandrum-sativum",
   "summary": "Coriandrum sativum lean monograph row enriched in bulk mode.",
   "description": "Coriandrum sativum lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "sleep"
+  ],
   "mechanisms": [
-    "Linalool-mediated GABA-A/glutamatergic modulation",
-    "α-glucosidase and insulin-signaling effects",
-    "Nrf2 and MAPK pathway modulation."
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Nrf2 Activation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary use is usually low risk; concentrated extracts may affect glucose or sedation; caution with Apiaceae allergy, diabetes medications, sedatives, pregnancy/breastfeeding, and perioperative use.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -21,9 +25,9 @@
     "sedatives/CNS depressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

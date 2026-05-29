@@ -1,16 +1,20 @@
 {
-  "name": "atractylodes macrocephala",
+  "name": "Atractylodes Macrocephala",
   "slug": "atractylodes-macrocephala",
   "summary": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
   "description": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
-  "primaryActions": [],
+  "primaryActions": [
+    "digestive",
+    "immune",
+    "tonic"
+  ],
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "NF-κB inhibition",
-    "MAPK pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -19,9 +23,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

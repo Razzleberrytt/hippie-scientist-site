@@ -1,0 +1,19 @@
+{
+  "id": "yohimbe",
+  "slug": "yohimbe",
+  "name": "Yohimbe Pausinystalia johimbe",
+  "summary": "Yohimbe/yohimbine has older human evidence for erectile dysfunction but substantial cardiovascular and neuropsychiatric safety concerns.",
+  "description": "Alpha-2 adrenergic antagonist botanical/pharmaceutical compound source; safety limits general supplement use.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

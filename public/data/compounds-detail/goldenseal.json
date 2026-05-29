@@ -1,0 +1,19 @@
+{
+  "id": "goldenseal",
+  "slug": "goldenseal",
+  "name": "Goldenseal",
+  "summary": "Goldenseal contains berberine and hydrastine, but strong human efficacy evidence is lacking and interaction risk is meaningful.",
+  "description": "Hydrastis canadensis botanical with antimicrobial preclinical activity and CYP interaction concerns.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

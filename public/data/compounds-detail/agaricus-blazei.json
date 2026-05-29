@@ -1,0 +1,18 @@
+{
+  "id": "agaricus-blazei",
+  "slug": "agaricus-blazei",
+  "name": "Agaricus blazei",
+  "summary": "Agaricus blazei has limited human evidence for immune marker changes without clear clinical outcome benefit.",
+  "description": "Beta-glucan-containing mushroom with small human studies and limited outcomes evidence.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Immune Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

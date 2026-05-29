@@ -4,22 +4,20 @@
   "name": "arjunolic acid",
   "summary": "Triterpenoid from Terminalia arjuna associated with cardioprotective effects.",
   "description": "Triterpenoid from Terminalia arjuna associated with cardioprotective effects.",
-  "compoundClass": "triterpene / triterpenoid acid",
+  "compoundClass": "",
   "mechanisms": [
-    "PPAR activation",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "NF-κB",
-    "AMPK",
-    "PPAR",
-    "inflammatory cytokines",
-    "apoptosis signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

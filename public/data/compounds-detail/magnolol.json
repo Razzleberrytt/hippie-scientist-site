@@ -4,21 +4,19 @@
   "name": "magnolol",
   "summary": "Bioactive lignan from Magnolia with neuroprotective and anti-inflammatory effects.",
   "description": "Bioactive lignan from Magnolia with neuroprotective and anti-inflammatory effects.",
-  "compoundClass": "neolignan",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "GABA-A modulation"
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "GABA-A signaling",
-    "NF-κB",
-    "cannabinoid/endocannabinoid signaling",
-    "inflammatory cytokines"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Sedation and additive CNS depressant effects are possible; pregnancy safety is not established.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

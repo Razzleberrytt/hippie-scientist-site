@@ -1,15 +1,16 @@
 {
-  "name": "schisandra berry",
+  "name": "Schisandra Berry",
   "slug": "schisandra-berry",
   "summary": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
   "description": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "adaptogenic support",
-    "hepatoprotective support"
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Can affect CYP/P-gp drug metabolism; review use with narrow-therapeutic-index drugs, sedatives, hepatotoxic drugs, and pregnancy/breastfeeding.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without guidance",
     "active reflux/ulcer sensitivity",
@@ -22,9 +23,9 @@
     "anticoagulants",
     "and hepatically metabolized drugs."
   ],
-  "preparation": "Berry decoction, powder, tincture, and lignan-standardized extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

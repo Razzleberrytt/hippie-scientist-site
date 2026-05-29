@@ -1,8 +1,8 @@
 {
   "slug": "chaga",
   "name": "Chaga",
-  "summary": "Oxidative stress.",
-  "description": "Oxidative stress.",
+  "summary": "A medicinal mushroom widely used in traditional medicine, best known for its rich antioxidant content and potential to support immune function, modulate inflammation, and manage cellular stress.",
+  "description": "Chaga (Inonotus obliquus) is a parasitic fungus that grows primarily on birch trees in cold climates. Widely celebrated in traditional Siberian and Northern European folklore, it is highly valued for its rich content of bioactive compounds—including beta-glucans, triterpenoids, and polyphenols. While human clinical trials are limited, research highlights its strong antioxidant activity, potential for immune system support, and role in modulating inflammatory pathways.",
   "effects": [
     "stress"
   ],
@@ -105,8 +105,8 @@
       "profile-status:partial",
       "research-pending-effect",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],

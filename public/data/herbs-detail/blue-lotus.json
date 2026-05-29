@@ -1,16 +1,17 @@
 {
-  "name": "blue lotus",
+  "name": "Blue Lotus",
   "slug": "blue-lotus",
-  "summary": "Mechanism context: calming support, mood support, sleep support. Safety: Limited human safety data. Treat as a CNS-active botanical; avoid driving or combining with alcohol/sedatives.. Interactions tracked: Possible additive sedation with alcohol, benzodiazepines, sleep aids.",
-  "description": "Mechanism context: calming support, mood support, sleep support. Safety: Limited human safety data. Treat as a CNS-active botanical; avoid driving or combining with alcohol/sedatives.. Interactions tracked: Possible additive sedation with alcohol, benzodiazepines, sleep aids.",
-  "primaryActions": [],
+  "summary": "blue lotus is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
   "mechanisms": [
-    "calming support",
-    "mood support",
-    "sleep support"
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Limited human safety data. Treat as a CNS-active botanical; avoid driving or combining with alcohol/sedatives.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding",
     "sedative-sensitive users",
@@ -25,9 +26,9 @@
     "antihistamines",
     "and other calming botanicals."
   ],
-  "preparation": "Flower is used as tea, tincture, smoking blend, or extract; ingestion route and concentration strongly affect risk.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

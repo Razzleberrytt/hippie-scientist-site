@@ -1,16 +1,18 @@
 {
-  "name": "raspberry leaf",
+  "name": "Raspberry Leaf",
   "slug": "raspberry-leaf",
-  "summary": "Mechanism context: Uterine smooth-muscle tone modulation, calcium-channel/oxytocin-related uterine signaling uncertainty, tannin/polyphenol NF-κB and Nrf2 modulation.. Safety: Use during pregnancy only with obstetric supervision; avoid in high-risk pregnancy, preterm labor risk, prior uterine surgery concerns, bleeding disorders, or concurrent uterotonic/labor-inducing agents unless directed by a clinician.. Interactions tracked: Limited interaction data, caution with uterotonic agents or sedatives if blended products..",
-  "description": "Mechanism context: Uterine smooth-muscle tone modulation, calcium-channel/oxytocin-related uterine signaling uncertainty, tannin/polyphenol NF-κB and Nrf2 modulation.. Safety: Use during pregnancy only with obstetric supervision; avoid in high-risk pregnancy, preterm labor risk, prior uterine surgery concerns, bleeding disorders, or concurrent uterotonic/labor-inducing agents unless directed by a clinician.. Interactions tracked: Limited interaction data, caution with uterotonic agents or sedatives if blended products..",
-  "primaryActions": [],
+  "summary": "raspberry leaf is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
   "mechanisms": [
-    "Uterine smooth-muscle tone modulation",
-    "calcium-channel/oxytocin-related uterine signaling uncertainty",
-    "tannin/polyphenol NF-κB and Nrf2 modulation."
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Use during pregnancy only with obstetric supervision; avoid in high-risk pregnancy, preterm labor risk, prior uterine surgery concerns, bleeding disorders, or concurrent uterotonic/labor-inducing agents unless directed by a clinician.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "High-risk pregnancy",
     "early pregnancy without clinician guidance",
@@ -20,9 +22,9 @@
     "Limited interaction data",
     "caution with uterotonic agents or sedatives if blended products."
   ],
-  "preparation": "Leaf tea/infusion, tablets, tincture; fruit is a separate food entry.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -4,21 +4,18 @@
   "name": "withanolide a",
   "summary": "Withanolide from ashwagandha associated with neuroactive pathway modulation.",
   "description": "Withanolide from ashwagandha associated with neuroactive pathway modulation.",
-  "compoundClass": "withanolide / steroidal lactone",
+  "compoundClass": "",
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "cholinergic modulation"
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "HPA-axis modulation",
-    "NF-κB",
-    "GABAergic signaling",
-    "apoptosis pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Evidence usually comes from Withania extracts. Caution with pregnancy, liver disease, sedatives, thyroid medications, and autoimmune disease.",
-  "evidenceLevel": "human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

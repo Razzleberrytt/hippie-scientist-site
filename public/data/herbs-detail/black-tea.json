@@ -1,16 +1,23 @@
 {
-  "name": "black tea",
+  "name": "Black Tea",
   "slug": "black-tea",
-  "summary": "Mechanism context: theaflavin/catechin antioxidant signaling, endothelial nitric oxide effects, lipid and blood-pressure pathway modulation. Safety: Caffeine-related insomnia/anxiety/reflux possible; caution with stimulants, iron absorption, and anticoagulant-sensitive users.. Interactions tracked: May interact with stimulants, sedatives, iron supplements.",
-  "description": "Mechanism context: theaflavin/catechin antioxidant signaling, endothelial nitric oxide effects, lipid and blood-pressure pathway modulation. Safety: Caffeine-related insomnia/anxiety/reflux possible; caution with stimulants, iron absorption, and anticoagulant-sensitive users.. Interactions tracked: May interact with stimulants, sedatives, iron supplements.",
-  "primaryActions": [],
+  "summary": "black tea is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "cardiovascular"
+  ],
   "mechanisms": [
-    "theaflavin/catechin antioxidant signaling",
-    "endothelial nitric oxide effects",
-    "lipid and blood-pressure pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Caffeine-related insomnia/anxiety/reflux possible; caution with stimulants, iron absorption, and anticoagulant-sensitive users.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Severe caffeine sensitivity",
     "pregnancy caffeine limits",
@@ -22,9 +29,9 @@
     "iron supplements",
     "and some cardiovascular drugs."
   ],
-  "preparation": "Oxidized Camellia sinensis leaf infusion; theaflavin/thearubigin content varies with processing.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

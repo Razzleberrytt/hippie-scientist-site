@@ -1,0 +1,21 @@
+{
+  "id": "ginseng-panax-white",
+  "slug": "ginseng-panax-white",
+  "name": "Panax White Ginseng",
+  "summary": "White ginseng is less processed Panax ginseng with less extract-specific evidence than red ginseng.",
+  "description": "Less processed Panax ginseng root form with similar but not identical ginsenoside profile.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

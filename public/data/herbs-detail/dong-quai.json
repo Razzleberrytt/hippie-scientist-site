@@ -1,17 +1,20 @@
 {
-  "name": "dong quai",
+  "name": "Dong Quai",
   "slug": "dong-quai",
-  "summary": "Mechanism context: ligustilide and ferulic-acid vascular signaling, smooth-muscle modulation, phytoestrogen-like activity. Safety: May increase bleeding risk and may not be appropriate in hormone-sensitive conditions. Pregnancy avoidance is important due to uterine/circulatory concerns.. Interactions tracked: Caution with anticoagulants, antiplatelets, NSAIDs.",
-  "description": "Mechanism context: ligustilide and ferulic-acid vascular signaling, smooth-muscle modulation, phytoestrogen-like activity. Safety: May increase bleeding risk and may not be appropriate in hormone-sensitive conditions. Pregnancy avoidance is important due to uterine/circulatory concerns.. Interactions tracked: Caution with anticoagulants, antiplatelets, NSAIDs.",
-  "primaryActions": [],
+  "summary": "dong quai is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "hormonal",
+    "cardiovascular"
+  ],
   "mechanisms": [
-    "ligustilide and ferulic-acid vascular signaling",
-    "smooth-muscle modulation",
-    "phytoestrogen-like activity",
-    "platelet and inflammatory-pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May increase bleeding risk and may not be appropriate in hormone-sensitive conditions. Pregnancy avoidance is important due to uterine/circulatory concerns.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy",
     "bleeding disorders",
@@ -26,9 +29,9 @@
     "estrogenic therapies",
     "and photosensitizing drugs."
   ],
-  "preparation": "Often studied in formulas; do not generalize formula evidence to single-herb Angelica sinensis.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

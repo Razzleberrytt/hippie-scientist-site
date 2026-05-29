@@ -1,0 +1,23 @@
+{
+  "id": "alpha-gpc",
+  "slug": "alpha-gpc",
+  "name": "Alpha-GPC",
+  "summary": "Decision-ready summary: Alpha-GPC is best framed for cognitive performance; memory support; power output support; safety screen: low blood pressure; cholinergic sensitivity; anticholinergic medication conflicts.",
+  "description": "Alpha-GPC supports memory; focus; performance with moderate-high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

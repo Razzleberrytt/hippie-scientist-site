@@ -1,27 +1,23 @@
 {
   "id": "epigallocatechin-gallate-egcg",
   "slug": "epigallocatechin-gallate-egcg",
-  "name": "epigallocatechin gallate egcg",
-  "summary": "Major tea catechin with widely reported AMPK, NF-κB, and PI3K/Akt pathway activity.",
-  "description": "Major tea catechin with widely reported AMPK, NF-κB, and PI3K/Akt pathway activity.",
-  "compoundClass": "flavanol / tea polyphenol",
+  "name": "EGCG",
+  "summary": "Decision-ready summary: EGCG is best framed for fat oxidation support; cardiometabolic markers; antioxidant polyphenol intake; safety screen: liver disease; high-dose fasting use; stimulant sensitivity.",
+  "description": "EGCG supports metabolic; polyphenols; fat oxidation with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
   "mechanisms": [
-    "AMPK activation",
-    "NF-κB inhibition",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
   ],
-  "targets": [
-    "Nrf2",
-    "NF-κB",
-    "AMPK",
-    "endothelial nitric oxide",
-    "antioxidant response",
-    "lipid/glucose signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
-  "evidenceLevel": "human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

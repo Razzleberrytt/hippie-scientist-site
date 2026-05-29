@@ -1,24 +1,22 @@
 {
   "id": "glycyrrhizin",
   "slug": "glycyrrhizin",
-  "name": "glycyrrhizin",
+  "name": "Glycyrrhizin",
   "summary": "Triterpene saponin from licorice with HMGB1 and NF-κB pathway activity.",
   "description": "Triterpene saponin from licorice with HMGB1 and NF-κB pathway activity.",
-  "compoundClass": "triterpenoid saponin glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "HMGB1 inhibition",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "11β-HSD2",
-    "mineralocorticoid-like sodium/potassium balance",
-    "HMGB1",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Can contribute to hypertension, hypokalemia, edema, and arrhythmia risk. Avoid with uncontrolled hypertension, kidney disease, pregnancy unless supervised, diuretics, digoxin, corticosteroids, and antihypertensives.",
-  "evidenceLevel": "human_safety_known; mechanism_and_interaction_supported",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

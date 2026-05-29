@@ -1,15 +1,18 @@
 {
-  "name": "longan",
+  "name": "Longan",
   "slug": "longan",
   "summary": "It should be framed as a food-like fruit botanical with modest modern evidence.",
   "description": "It should be framed as a food-like fruit botanical with modest modern evidence.",
-  "primaryActions": [],
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
   "mechanisms": [
-    "nutritive support",
-    "calming support"
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +21,9 @@
     "Potential interaction concern with sedatives/CNS depressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Fruit/berry preparations are commonly used as foods, juices, powders, capsules, or extracts; sugar and extract concentration vary.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

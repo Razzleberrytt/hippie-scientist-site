@@ -1,0 +1,18 @@
+{
+  "id": "morning-glory-seed",
+  "slug": "morning-glory-seed",
+  "name": "Morning Glory Seeds Ipomoea spp.",
+  "summary": "Morning glory seeds may contain LSA-related ergoline alkaloids, but clinical evidence is absent and toxicity concerns dominate.",
+  "description": "Ipomoea seed material associated with ergoline alkaloid exposure and toxicology reports rather than validated therapeutic use.",
+  "compoundClass": "",
+  "mechanisms": [
+    "LSA-related serotonergic receptor agonism (preclinical/pharmacological inference)"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,15 +1,18 @@
 {
-  "name": "cissus",
+  "name": "Cissus",
   "slug": "cissus",
   "summary": "It is best framed conservatively because evidence is mixed and product positioning often outruns the data.",
   "description": "It is best framed conservatively because evidence is mixed and product positioning often outruns the data.",
-  "primaryActions": [],
+  "primaryActions": [
+    "anti-inflammatory",
+    "analgesic"
+  ],
   "mechanisms": [
-    "connective tissue support",
-    "recovery support"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without clinician guidance",
     "diabetes medications without monitoring"
@@ -18,9 +21,9 @@
     "May potentiate antidiabetic agents",
     "caution with anticoagulants if blended products include additional actives."
   ],
-  "preparation": "Stem extracts/powders; extracts vary in ketosteroid/flavonoid standardization.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

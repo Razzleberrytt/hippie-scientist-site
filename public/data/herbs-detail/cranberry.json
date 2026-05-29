@@ -1,26 +1,25 @@
 {
-  "name": "cranberry",
+  "name": "Cranberry Vaccinium macrocarpon",
   "slug": "cranberry",
   "summary": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
   "description": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antimicrobial"
+  ],
   "mechanisms": [
-    "proanthocyanidin anti-adhesion effects against uropathogenic E. coli",
-    "urinary-tract anti-adherence signaling"
+    "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "GI upset possible; caution with recurrent kidney stones and warfarin-sensitive patients; avoid treating active UTI without care.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "History of kidney stones/oxalate stones",
-    "warfarin use requires clinician review"
+    "history of kidney stones (oxalate)"
   ],
   "interactions": [
-    "Warfarin interaction concern is reported",
-    "monitor INR if used with anticoagulation."
+    "warfarin (case reports of interaction)"
   ],
-  "preparation": "Juice, capsules, tablets, and PAC-standardized extracts; sugar content varies in juices.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

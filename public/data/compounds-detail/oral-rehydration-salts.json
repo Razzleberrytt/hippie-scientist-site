@@ -1,0 +1,20 @@
+{
+  "id": "oral-rehydration-salts",
+  "slug": "oral-rehydration-salts",
+  "name": "Oral rehydration salts",
+  "summary": "Decision-ready summary: Oral rehydration salts is best framed for dehydration from diarrhea; electrolyte replacement; heat illness support; safety screen: severe kidney disease; fluid restriction; hypernatremia risk.",
+  "description": "Oral rehydration salts supports hydration; electrolytes; diarrhea with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

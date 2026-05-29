@@ -1,0 +1,19 @@
+{
+  "id": "coconut-oil",
+  "slug": "coconut-oil",
+  "name": "Coconut Oil",
+  "summary": "Coconut Oil is tracked for Contains saturated fatty acids and medium-chain fatty acid fractions; effects depend on comparator fat and dietary context with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
+  "description": "Coconut Oil is tracked for Contains saturated fatty acids and medium-chain fatty acid fractions; effects depend on comparator fat and dietary context with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

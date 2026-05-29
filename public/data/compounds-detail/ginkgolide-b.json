@@ -4,20 +4,17 @@
   "name": "ginkgolide b",
   "summary": "Terpene lactone from Ginkgo biloba affecting platelet activating factor.",
   "description": "Terpene lactone from Ginkgo biloba affecting platelet activating factor.",
-  "compoundClass": "diterpene lactone / platelet-activating-factor antagonist",
+  "compoundClass": "",
   "mechanisms": [
-    "PAF receptor antagonism",
-    "neuroprotection"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Neuroprotective Activity"
   ],
-  "targets": [
-    "PAF receptor",
-    "platelet activation",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human safety is mainly tied to Ginkgo preparations; caution with anticoagulants/antiplatelets, surgery, seizure risk, and bleeding disorders.",
-  "evidenceLevel": "human_indirect_from_ginkgo_extracts",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

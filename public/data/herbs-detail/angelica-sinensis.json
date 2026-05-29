@@ -1,17 +1,21 @@
 {
-  "name": "angelica sinensis",
+  "name": "Angelica Sinensis",
   "slug": "angelica-sinensis",
-  "summary": "Mechanism context: ligustilide/ferulic-acid smooth-muscle and vascular effects, platelet-modulating activity, estrogen-receptor-related signaling. Safety: Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.. Interactions tracked: Potential additive bleeding risk with anticoagulants, antiplatelets, NSAIDs.",
-  "description": "Mechanism context: ligustilide/ferulic-acid smooth-muscle and vascular effects, platelet-modulating activity, estrogen-receptor-related signaling. Safety: Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.. Interactions tracked: Potential additive bleeding risk with anticoagulants, antiplatelets, NSAIDs.",
-  "primaryActions": [],
+  "summary": "angelica sinensis is tracked for inflammation,cardiovascular,hormone with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "hormonal",
+    "cardiovascular"
+  ],
   "mechanisms": [
-    "ligustilide/ferulic-acid smooth-muscle and vascular effects",
-    "platelet-modulating activity",
-    "estrogen-receptor-related signaling",
-    "NF-κB modulation"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy",
     "bleeding disorders",
@@ -25,9 +29,9 @@
     "NSAIDs",
     "and some herbal blood-thinning stacks."
   ],
-  "preparation": "Evidence often comes from traditional formulas; single-herb confidence should remain conservative.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

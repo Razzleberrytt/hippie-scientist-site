@@ -1,0 +1,19 @@
+{
+  "id": "mct-oil",
+  "slug": "mct-oil",
+  "name": "MCT Oil",
+  "summary": "MCT Oil is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Lipid Metabolism Support, not treatment claims.",
+  "description": "MCT Oil is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Lipid Metabolism Support, not treatment claims.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

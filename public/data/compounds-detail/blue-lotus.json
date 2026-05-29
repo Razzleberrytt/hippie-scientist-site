@@ -1,0 +1,18 @@
+{
+  "id": "blue-lotus",
+  "slug": "blue-lotus",
+  "name": "Blue Lotus",
+  "summary": "Blue Lotus entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "Blue Lotus is cataloged as aporphine alkaloid botanical. Reported mechanisms: dopaminergic activity suggested; mild sedative effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

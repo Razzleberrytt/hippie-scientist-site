@@ -1,0 +1,19 @@
+{
+  "id": "creatine-hcl",
+  "slug": "creatine-hcl",
+  "name": "Creatine HCl",
+  "summary": "Creatine monohydrate has strong evidence, but creatine HCl should not inherit formulation-specific authority without direct comparative human evidence.",
+  "description": "Creatine monohydrate has strong evidence, but creatine HCl should not inherit formulation-specific authority without direct comparative human evidence.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

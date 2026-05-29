@@ -1,0 +1,21 @@
+{
+  "id": "licorice-root",
+  "slug": "licorice-root",
+  "name": "Licorice Root",
+  "summary": "Licorice Root entry from SciSpace evidence pass. Evidence level: limited/safety-limited.",
+  "description": "Licorice Root is cataloged as triterpenoid saponin botanical. Reported mechanisms: glycyrrhizin inhibits 11β-HSD2 increasing cortisol activity; anti-inflammatory effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

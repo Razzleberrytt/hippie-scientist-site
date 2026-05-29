@@ -4,22 +4,20 @@
   "name": "aescin",
   "summary": "Mixture of triterpene saponins from horse chestnut best known for venotonic and vascular permeability effects.",
   "description": "Mixture of triterpene saponins from horse chestnut best known for venotonic and vascular permeability effects.",
-  "compoundClass": "saponin / glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "endothelial barrier modulation"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
   ],
-  "targets": [
-    "AMPK",
-    "PPAR",
-    "immune cytokines",
-    "membrane signaling",
-    "glucose/lipid metabolism"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -1,0 +1,21 @@
+{
+  "id": "lemon-balm",
+  "slug": "lemon-balm",
+  "name": "Lemon balm",
+  "summary": "Lemon balm may support gentle calm, stress-related sleep, and relaxed focus with preparation-dependent effects.",
+  "description": "",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

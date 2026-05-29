@@ -1,0 +1,19 @@
+{
+  "id": "eleuthero-extract",
+  "slug": "eleuthero-extract",
+  "name": "Eleuthero Extract",
+  "summary": "Evidence for fatigue or stress adaptation is insufficient for authority status without verified RCT support.",
+  "description": "Evidence for fatigue or stress adaptation is insufficient for authority status without verified RCT support.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

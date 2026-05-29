@@ -4,22 +4,16 @@
   "name": "asiaticoside",
   "summary": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
   "description": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
-  "compoundClass": "triterpenoid saponin glycoside",
+  "compoundClass": "",
   "mechanisms": [
-    "TGF-β signaling modulation",
-    "MAPK pathway modulation",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "collagen synthesis",
-    "TGF-β signaling",
-    "wound-healing pathways",
-    "NF-κB"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human safety mostly from Centella extracts/topicals. Caution with liver disease, sedatives, pregnancy, and high-dose prolonged supplementation.",
-  "evidenceLevel": "human_indirect_from_centella; preclinical",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

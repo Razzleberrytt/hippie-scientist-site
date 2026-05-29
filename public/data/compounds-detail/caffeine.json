@@ -1,0 +1,22 @@
+{
+  "id": "caffeine",
+  "slug": "caffeine",
+  "name": "Caffeine",
+  "summary": "Decision-ready summary: Caffeine is best framed for alertness; reaction time; fatigue reduction; safety screen: anxiety disorder; uncontrolled hypertension; arrhythmia.",
+  "description": "Caffeine supports energy; focus; performance with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "ibogaine",
+  "slug": "ibogaine",
+  "name": "Ibogaine",
+  "summary": "Ibogaine entry from SciSpace evidence pass. Evidence level: limited observational.",
+  "description": "Ibogaine is cataloged as indole alkaloid. Reported mechanisms: NMDA antagonism; opioid receptor modulation; monoamine reuptake inhibition; noribogaine metabolite effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

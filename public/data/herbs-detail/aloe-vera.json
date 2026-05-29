@@ -1,16 +1,22 @@
 {
-  "name": "aloe vera",
+  "name": "Aloe Vera",
   "slug": "aloe-vera",
   "summary": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
   "description": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
-  "primaryActions": [],
+  "primaryActions": [
+    "immune",
+    "metabolic",
+    "skin-support"
+  ],
   "mechanisms": [
-    "acemannan immune modulation",
-    "anthraquinone laxative effects",
-    "AMPK/glucose-metabolism and wound-healing pathways"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Oral latex/whole-leaf aloe can cause diarrhea, electrolyte loss, and drug interactions; avoid pregnancy and kidney disease.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy",
     "inflammatory bowel disease",
@@ -24,9 +30,9 @@
     "laxatives",
     "and antidiabetics."
   ],
-  "preparation": "Inner leaf gel for topical/digestive products; latex/whole-leaf laxative products carry higher risk.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

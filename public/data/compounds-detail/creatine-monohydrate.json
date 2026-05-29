@@ -1,0 +1,20 @@
+{
+  "id": "creatine-monohydrate",
+  "slug": "creatine-monohydrate",
+  "name": "Creatine monohydrate",
+  "summary": "Decision-ready summary: Creatine monohydrate is best framed for strength and power output; lean mass support; cognitive fatigue resistance; safety screen: advanced kidney disease; active renal monitoring concerns.",
+  "description": "Creatine monohydrate supports strength; muscle; cognitive fatigue with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

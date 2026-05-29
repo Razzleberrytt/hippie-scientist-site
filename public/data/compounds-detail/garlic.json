@@ -1,0 +1,20 @@
+{
+  "id": "garlic",
+  "slug": "garlic",
+  "name": "Garlic",
+  "summary": "Garlic modestly reduces total cholesterol and blood pressure.",
+  "description": "Garlic modestly reduces total cholesterol and blood pressure.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

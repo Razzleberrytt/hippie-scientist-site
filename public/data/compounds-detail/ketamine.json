@@ -1,0 +1,19 @@
+{
+  "id": "ketamine",
+  "slug": "ketamine",
+  "name": "Ketamine",
+  "summary": "Ketamine entry from SciSpace evidence pass. Evidence level: high clinical-specific.",
+  "description": "Ketamine is cataloged as arylcyclohexylamine dissociative anesthetic. Reported mechanisms: NMDA receptor antagonism; glutamate/AMPA activation; BDNF/mTOR synaptogenesis pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neuroprotective Activity",
+    "mTOR Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

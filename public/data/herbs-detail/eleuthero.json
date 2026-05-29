@@ -1,18 +1,19 @@
 {
-  "name": "eleuthero",
+  "name": "Eleuthero",
   "slug": "eleuthero",
   "summary": "Stress resilience.",
   "description": "Stress resilience.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "HPA axis",
-    "HPA-axis modulation",
-    "immune modulation",
-    "AMPK activation",
-    "stress response modulation"
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "AMPK Signaling"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Uncontrolled hypertension",
     "pregnancy/breastfeeding without guidance",
@@ -21,9 +22,9 @@
   "interactions": [
     "Use caution with stimulants or blood pressure-active agents."
   ],
-  "preparation": "Root decoction or extract; standardized eleutheroside products are common.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

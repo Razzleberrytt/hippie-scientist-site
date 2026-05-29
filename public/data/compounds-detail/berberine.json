@@ -1,29 +1,22 @@
 {
   "id": "berberine",
   "slug": "berberine",
-  "name": "berberine",
-  "summary": "Berberine is a protoberberine alkaloid concentrated in barberry-type herbs and used most often in metabolic research. Human evidence is strongest for glucose and lipid endpoints, while mechanistic literature consistently points to energy-sensing and inflammatory pathway effects.",
-  "description": "Isoquinoline alkaloid best known from barberry-type herbs with metabolic and inflammatory signaling activity.",
-  "compoundClass": "isoquinoline alkaloid",
+  "name": "Berberine",
+  "summary": "Decision-ready summary: Berberine is best framed for fasting glucose support; insulin resistance context; triglyceride/LDL support; safety screen: pregnancy; breastfeeding; diabetes medications; CYP/P-gp medication review.",
+  "description": "Berberine supports blood sugar; lipids; metabolic with high confidence in this merged decision layer.",
+  "compoundClass": "",
   "mechanisms": [
-    "AMPK activation",
-    "NF-kB suppression",
-    "PI3K/Akt modulation",
-    "gut-microbiome signaling effects",
-    "LDLR/PCSK9-related lipid regulation"
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
   ],
-  "targets": [
-    "AMPK",
-    "PCSK9",
-    "LDLR",
-    "gut microbiota",
-    "NF-κB",
-    "CYP/P-gp interaction pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "GI upset is common. Avoid pregnancy/breastfeeding and neonatal exposure; caution with antidiabetic drugs, antihypertensives, anticoagulants, immunosuppressants, and CYP/P-gp substrates.",
-  "evidenceLevel": "human_limited; meta_analysis_for_metabolic_markers",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

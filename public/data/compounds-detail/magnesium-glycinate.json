@@ -1,0 +1,20 @@
+{
+  "id": "magnesium-glycinate",
+  "slug": "magnesium-glycinate",
+  "name": "Magnesium glycinate",
+  "summary": "Magnesium glycinate may fit sleep-quality or muscle-tension goals when magnesium intake is low or tolerability matters.",
+  "description": "Chelated magnesium option for relaxation and repletion contexts.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -4,21 +4,20 @@
   "name": "schisandrin",
   "summary": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
   "description": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
-  "compoundClass": "dibenzocyclooctadiene lignan",
+  "compoundClass": "",
   "mechanisms": [
-    "Nrf2 activation",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "Nrf2 Activation"
   ],
-  "targets": [
-    "Nrf2",
-    "CYP3A/P-gp pathways",
-    "mitochondrial oxidative-stress signaling",
-    "inflammatory cytokines"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human safety is mostly extract-derived. Caution with CYP3A/P-gp substrate drugs, pregnancy, liver disease, and complex medication regimens.",
-  "evidenceLevel": "preclinical; human_indirect_from_schisandra",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

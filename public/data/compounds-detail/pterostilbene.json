@@ -4,22 +4,20 @@
   "name": "pterostilbene",
   "summary": "Dimethylated stilbene associated with berry and grape sources and linked to AMPK and PPAR signaling.",
   "description": "Dimethylated stilbene associated with berry and grape sources and linked to AMPK and PPAR signaling.",
-  "compoundClass": "stilbene polyphenol",
+  "compoundClass": "",
   "mechanisms": [
-    "AMPK activation",
-    "PPAR activation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling"
   ],
-  "targets": [
-    "SIRT1/AMPK",
-    "Nrf2",
-    "NF-κB",
-    "endothelial signaling",
-    "platelet aggregation pathways"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "May affect bleeding risk and drug metabolism at supplement doses; GI upset and headache are possible.",
-  "evidenceLevel": "human_limited",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

@@ -1,0 +1,19 @@
+{
+  "id": "cinnamon-extract",
+  "slug": "cinnamon-extract",
+  "name": "Cinnamon extract",
+  "summary": "Decision-ready summary: Cinnamon extract is best framed for blood glucose support; insulin sensitivity support; safety screen: liver disease; anticoagulant medication caution; pregnancy high-dose caution.",
+  "description": "Cinnamon extract supports glucose; metabolic with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

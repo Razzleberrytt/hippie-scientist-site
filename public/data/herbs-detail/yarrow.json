@@ -1,16 +1,17 @@
 {
-  "name": "yarrow",
+  "name": "Yarrow",
   "slug": "yarrow",
-  "summary": "Mechanism context: digestive support, anti-inflammatory, women's health. Safety: Asteraceae-family herb; allergy is a practical concern. Avoid high-dose or prolonged internal use without review.. Interactions tracked: Potential additive effects with anticoagulants/antiplatelets, possible allergy cross-reactivity with ragweed-family plants..",
-  "description": "Mechanism context: digestive support, anti-inflammatory, women's health. Safety: Asteraceae-family herb; allergy is a practical concern. Avoid high-dose or prolonged internal use without review.. Interactions tracked: Potential additive effects with anticoagulants/antiplatelets, possible allergy cross-reactivity with ragweed-family plants..",
-  "primaryActions": [],
-  "mechanisms": [
-    "digestive support",
+  "summary": "yarrow is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
     "anti-inflammatory",
-    "women's health"
+    "digestive"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Asteraceae-family herb; allergy is a practical concern. Avoid high-dose or prolonged internal use without review.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Asteraceae/ragweed allergy",
     "pregnancy",
@@ -20,9 +21,9 @@
     "Potential additive effects with anticoagulants/antiplatelets",
     "possible allergy cross-reactivity with ragweed-family plants."
   ],
-  "preparation": "Flowering tops are used as tea, tincture, compress, or topical preparation; essential oil use requires separate safety review.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

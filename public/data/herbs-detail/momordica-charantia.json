@@ -1,0 +1,29 @@
+{
+  "name": "Bitter Melon",
+  "slug": "momordica-charantia",
+  "summary": "Contains charantin and polypeptide-p which lower blood glucose.",
+  "description": "Contains charantin and polypeptide-p which lower blood glucose.",
+  "primaryActions": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Antidiabetics",
+    "pregnancy avoid"
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "pregnancy avoid"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

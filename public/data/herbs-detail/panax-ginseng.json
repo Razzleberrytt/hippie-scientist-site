@@ -1,28 +1,30 @@
 {
-  "name": "panax ginseng",
+  "name": "Asian Ginseng",
   "slug": "panax-ginseng",
-  "summary": "Energy + stress.",
-  "description": "Energy + stress.",
-  "primaryActions": [],
+  "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+  "description": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+  "primaryActions": [
+    "cognitive",
+    "metabolic"
+  ],
   "mechanisms": [
-    "Ginsenosides modulate AMPK and PI3K/Akt signaling",
-    "nitric-oxide/endothelial pathways",
-    "HPA-axis stress signaling",
-    "and glucose uptake/insulin-sensitivity pathways."
+    "Metabolic Regulation",
+    "Neuroprotective Activity",
+    "Glucose Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May cause insomnia, headache, blood pressure changes, or hypoglycemia. Use caution with antidiabetic drugs, anticoagulants/antiplatelets, stimulants, and hormone-sensitive conditions.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "Stimulants",
+    "anticoagulants"
   ],
   "interactions": [
-    "Potential interaction concern with antidiabetic medicines",
-    "use clinician review for high-dose extracts or chronic use."
+    "Stimulants",
+    "anticoagulants"
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

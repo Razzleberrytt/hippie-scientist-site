@@ -1,16 +1,23 @@
 {
-  "name": "soybean",
+  "name": "Soybean",
   "slug": "soybean",
-  "summary": "Mechanism context: isoflavone estrogen-receptor modulation, lipid metabolism and bone-turnover signaling, antioxidant pathways. Safety: Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.. Interactions tracked: May affect levothyroxine absorption timing, review with hormone therapies and anticoagulants if diet changes are large..",
-  "description": "Mechanism context: isoflavone estrogen-receptor modulation, lipid metabolism and bone-turnover signaling, antioxidant pathways. Safety: Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.. Interactions tracked: May affect levothyroxine absorption timing, review with hormone therapies and anticoagulants if diet changes are large..",
-  "primaryActions": [],
+  "summary": "soybean is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "hormonal"
+  ],
   "mechanisms": [
-    "isoflavone estrogen-receptor modulation",
-    "lipid metabolism and bone-turnover signaling",
-    "antioxidant pathways"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Soy allergy",
     "hormone-sensitive conditions without clinician review",
@@ -20,9 +27,9 @@
     "May affect levothyroxine absorption timing",
     "review with hormone therapies and anticoagulants if diet changes are large."
   ],
-  "preparation": "Whole soy foods, protein isolate, isoflavone extracts; fermented/nonfermented forms differ.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

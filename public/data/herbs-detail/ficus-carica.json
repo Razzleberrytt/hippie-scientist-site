@@ -1,17 +1,19 @@
 {
-  "name": "ficus carica",
+  "name": "Ficus Carica",
   "slug": "ficus-carica",
   "summary": "Ficus carica lean monograph row enriched in bulk mode.",
   "description": "Ficus carica lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant",
+    "hormonal"
+  ],
   "mechanisms": [
-    "Polyphenol-mediated NF-κB/MAPK modulation",
-    "latex protease activity",
-    "antioxidant pathway support",
-    "estrogen-receptor activity remains uncertain."
+    "Oxidative Stress Modulation",
+    "Hormonal Signaling Context",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Fig latex can trigger allergy or skin irritation; caution with latex/fruit allergy, diabetes medications, anticoagulants, pregnancy/breastfeeding, and concentrated latex or leaf extracts.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -22,9 +24,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

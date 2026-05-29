@@ -1,0 +1,26 @@
+{
+  "name": "Tarragon",
+  "slug": "artemisia-dracunculus",
+  "summary": "Tarragon is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Tarragon is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Antidiabetics"
+  ],
+  "interactions": [
+    "Antidiabetics"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

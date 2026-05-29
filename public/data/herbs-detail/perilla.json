@@ -1,16 +1,16 @@
 {
-  "name": "perilla",
+  "name": "Perilla",
   "slug": "perilla",
   "summary": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
   "description": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant"
+  ],
   "mechanisms": [
-    "seasonal support",
-    "antioxidant",
-    "aromatic support"
+    "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding supplement use without guidance",
     "anticoagulant use without review"
@@ -19,9 +19,9 @@
     "May add to anticoagulant/antiplatelet effects",
     "limited clinical data."
   ],
-  "preparation": "Leaf tea/culinary use, seed oil, extracts standardized to rosmarinic acid or ALA.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

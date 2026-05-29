@@ -1,16 +1,18 @@
 {
-  "name": "syzygium aromaticum",
+  "name": "Syzygium Aromaticum",
   "slug": "syzygium-aromaticum",
   "summary": "Lean bulk ingestion row for Syzygium aromaticum.",
   "description": "Lean bulk ingestion row for Syzygium aromaticum. Key active compounds include Eugenol.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "Eugenol-mediated COX/LOX modulation",
-    "TRPV1/TRPA1 sensory receptor activity",
-    "platelet aggregation and oxidative-stress pathway effects."
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Concentrated clove preparations may cause mucosal irritation, bleeding risk, or liver toxicity at high doses; avoid essential oil ingestion without supervision and use caution with anticoagulants, surgery, pregnancy, children, and liver disease.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Bleeding disorder",
     "liver disease",
@@ -21,9 +23,9 @@
     "May increase bleeding risk with anticoagulants/antiplatelets",
     "caution with hepatotoxic drugs."
   ],
-  "preparation": "Culinary buds, teas, diluted topical oil; essential oil requires careful dilution.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

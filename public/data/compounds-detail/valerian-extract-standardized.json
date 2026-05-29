@@ -1,0 +1,19 @@
+{
+  "id": "valerian-extract-standardized",
+  "slug": "valerian-extract-standardized",
+  "name": "Valerian Extract Standardized",
+  "summary": "Standardized valerian extract has mixed evidence for sleep quality and should remain limited/inconsistent.",
+  "description": "Standardized Valeriana officinalis extract, usually valerenic-acid focused.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "proanthocyanidins",
+  "slug": "proanthocyanidins",
+  "name": "Proanthocyanidins",
+  "summary": "Proanthocyanidins is a polyphenols associated with cranberry. Evidence level: moderate.",
+  "description": "Proanthocyanidins is cataloged as a polyphenols. Reported mechanism notes: Primary inhibition of bacterial adhesion (human-supported via extracts); additional mechanisms (preclinical).",
+  "compoundClass": "",
+  "mechanisms": [
+    "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+    "additional mechanisms (preclinical)"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

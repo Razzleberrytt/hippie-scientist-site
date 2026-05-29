@@ -1,26 +1,23 @@
 {
   "id": "andrographolide",
   "slug": "andrographolide",
-  "name": "andrographolide",
-  "summary": "Diterpene lactone from andrographis with strong pathway-level inflammatory signaling effects.",
-  "description": "Diterpene lactone from andrographis with strong pathway-level inflammatory signaling effects.",
-  "compoundClass": "labdane diterpenoid lactone",
+  "name": "Andrographolide",
+  "summary": "Decision-ready summary: Andrographolide is best framed for upper respiratory symptom support; immune response modulation; safety screen: pregnancy; autoimmune disease caution; anticoagulants.",
+  "description": "Andrographolide supports immune; respiratory with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
   "mechanisms": [
-    "NF-κB inhibition",
-    "JAK/STAT modulation",
-    "MAPK pathway modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
   ],
-  "targets": [
-    "NF-κB",
-    "Nrf2",
-    "JAK/STAT",
-    "MAPK",
-    "inflammatory cytokines"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Human evidence is mostly from Andrographis extracts. Potential allergy, GI upset, and rare hypersensitivity; avoid pregnancy and caution with immunosuppressants/anticoagulants.",
-  "evidenceLevel": "human_indirect_from_andrographis; preclinical",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

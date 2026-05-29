@@ -1,16 +1,19 @@
 {
-  "name": "saffron",
+  "name": "Saffron",
   "slug": "saffron",
   "summary": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
   "description": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "crocin/crocetin antioxidant signaling",
-    "serotonergic and dopaminergic modulation",
-    "HPA-axis and inflammatory-pathway effects"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "High doses may cause GI/CNS effects and uterine stimulation; avoid pregnancy-level medicinal dosing; monitor with serotonergic drugs.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +21,9 @@
   "interactions": [
     "Use caution with serotonergic medications and anticoagulants."
   ],
-  "preparation": "Threads or standardized extract; aroma-rich preparations emphasize safranal exposure.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

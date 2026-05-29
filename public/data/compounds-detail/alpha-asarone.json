@@ -4,19 +4,17 @@
   "name": "alpha-asarone",
   "summary": "Phenylpropanoid ether from Acorus species studied for CNS-active and cholinergic effects.",
   "description": "Phenylpropanoid ether from Acorus species studied for CNS-active and cholinergic effects.",
-  "compoundClass": "phenylpropanoid ether",
+  "compoundClass": "",
   "mechanisms": [
-    "GABA-A modulation",
-    "acetylcholinesterase inhibition"
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
   ],
-  "targets": [
-    "GABA-A receptors",
-    "acetylcholinesterase"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "High-caution aromatic compound with toxicology concerns; avoid concentrated internal use and pregnancy.",
-  "evidenceLevel": "in_vitro",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

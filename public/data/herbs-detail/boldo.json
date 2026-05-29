@@ -1,15 +1,17 @@
 {
-  "name": "boldo",
+  "name": "Boldo",
   "slug": "boldo",
   "summary": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
   "description": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
-  "primaryActions": [],
+  "primaryActions": [
+    "digestive"
+  ],
   "mechanisms": [
     "digestive support",
     "hepatobiliary support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Avoid high-dose or prolonged internal use; alkaloid/essential-oil rich preparations may irritate the GI tract and are inappropriate in pregnancy, liver disease, or bile-duct obstruction.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
@@ -19,9 +21,9 @@
     "Potential additive effects with medications affecting the same body system",
     "review high-dose extracts with a clinician."
   ],
-  "preparation": "Aromatic herb/spice forms and essential oils differ greatly; essential oils require conservative topical/diluted use and are not interchangeable with teas.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

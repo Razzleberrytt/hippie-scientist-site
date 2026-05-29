@@ -1,15 +1,16 @@
 {
-  "name": "stellera chamaejasme",
+  "name": "Stellera Chamaejasme",
   "slug": "stellera-chamaejasme",
   "summary": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
   "description": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "research-pending"
+  ],
   "mechanisms": [
-    "JAK/STAT inhibition",
-    "NF-κB inhibition"
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "High-caution plant; toxic diterpenoid constituents and irritant effects are possible. Avoid internal supplement use outside expert supervision.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -18,9 +19,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

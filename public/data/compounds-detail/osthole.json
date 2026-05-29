@@ -4,21 +4,17 @@
   "name": "osthole",
   "summary": "Prenylated coumarin reported from Cnidium and related Apiaceae with PDE4-linked and PI3K/Akt signaling activity.",
   "description": "Prenylated coumarin reported from Cnidium and related Apiaceae with PDE4-linked and PI3K/Akt signaling activity.",
-  "compoundClass": "coumarin / furanocoumarin",
+  "compoundClass": "",
   "mechanisms": [
-    "PDE4 inhibition",
-    "PI3K/Akt modulation"
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support"
   ],
-  "targets": [
-    "CYP enzymes",
-    "P-gp/OATP transporters",
-    "photoreactive DNA crosslinking",
-    "inflammatory signaling"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
-  "evidenceLevel": "preclinical_plus_human_indirect",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

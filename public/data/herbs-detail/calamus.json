@@ -1,16 +1,16 @@
 {
-  "name": "calamus",
+  "name": "Calamus",
   "slug": "calamus",
   "summary": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
   "description": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
-  "primaryActions": [],
+  "primaryActions": [
+    "sleep"
+  ],
   "mechanisms": [
-    "asarone-rich volatile oil activity",
-    "GABAergic and cholinergic CNS effects reported preclinically",
-    "smooth-muscle signaling"
+    "Neurotransmitter Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "High-caution herb because beta-asarone-containing preparations have toxicology and regulatory concerns. Avoid internal use unless verified beta-asarone-free and professionally supervised.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding",
     "children",
@@ -24,9 +24,9 @@
     "antiepileptics",
     "and other neuroactive agents."
   ],
-  "preparation": "Distinguish beta-asarone-free Acorus calamus chemotypes from beta-asarone-containing materials; do not generalize safety across chemotypes.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

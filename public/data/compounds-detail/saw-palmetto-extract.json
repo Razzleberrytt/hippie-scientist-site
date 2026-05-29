@@ -1,0 +1,21 @@
+{
+  "id": "saw-palmetto-extract",
+  "slug": "saw-palmetto-extract",
+  "name": "Saw Palmetto Extract",
+  "summary": "Saw palmetto extract has high-quality negative evidence for BPH symptom improvement versus placebo despite plausible anti-androgen mechanisms.",
+  "description": "Standardized Serenoa repens extract; distinct formulation row for clinical trial evidence.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

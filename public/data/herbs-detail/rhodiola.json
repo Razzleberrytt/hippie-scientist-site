@@ -1,27 +1,27 @@
 {
-  "name": "rhodiola",
+  "name": "Rhodiola",
   "slug": "rhodiola",
-  "summary": "Adaptogenic stress modulation.",
-  "description": "Adaptogenic stress modulation.",
-  "primaryActions": [],
+  "summary": "Rhodiola may support stress-related fatigue and mental stamina; avoid framing it as a bedtime calming herb.",
+  "description": "Adaptogen-style fatigue support with activation/insomnia caution in sensitive users.",
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "adaptogen",
-    "fatigue resistance",
-    "cognitive support"
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "AMPK Signaling"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "SSRIs (theoretical serotonin effects)"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "SSRIs (theoretical serotonin effects)"
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

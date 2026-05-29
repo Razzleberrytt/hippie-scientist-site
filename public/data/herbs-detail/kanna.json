@@ -1,16 +1,17 @@
 {
-  "name": "kanna",
+  "name": "Kanna",
   "slug": "kanna",
   "summary": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
   "description": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
-  "primaryActions": [],
+  "primaryActions": [
+    "stress"
+  ],
   "mechanisms": [
-    "mesembrine alkaloid serotonin reuptake modulation",
-    "PDE4 inhibition",
-    "monoamine and stress-response pathway effects"
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "CNS-active and potentially serotonergic. Avoid casual stacking with antidepressants or empathogenic/stimulant products.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding",
     "bipolar/mania risk",
@@ -28,9 +29,9 @@
     "stimulants",
     "and serotonergic supplements."
   ],
-  "preparation": "Fermented aerial material, capsules, extracts, tinctures, and chewed preparations exist; standardized extracts can be much stronger than traditional use.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

@@ -1,29 +1,25 @@
 {
-  "name": "piper nigrum",
+  "name": "Black Pepper",
   "slug": "piper-nigrum",
   "summary": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism.",
   "description": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism.",
-  "primaryActions": [],
+  "primaryActions": [
+    "research-pending"
+  ],
   "mechanisms": [
-    "piperine modulation of CYP3A4/CYP2C9/CYP2D6 and P-gp",
-    "UGT/glucuronidation effects",
-    "TRPV1 signaling",
-    "inflammatory-pathway modulation"
+    "Metabolic Regulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Food use is low-risk; high-piperine extracts may alter exposure to prescription drugs or other supplements.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Prescription polypharmacy",
-    "pregnancy/breastfeeding supplement use",
-    "significant reflux/ulcer disease",
-    "and perioperative anticoagulant use."
+    "Many medications (CYP interactions)"
   ],
   "interactions": [
-    "Potentially increases exposure of CYP/P-gp substrates and bioavailability-enhanced botanicals such as curcumin."
+    "Many medications (CYP interactions)"
   ],
-  "preparation": "Culinary black pepper differs from standardized piperine extracts used in studies.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "human_limited",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

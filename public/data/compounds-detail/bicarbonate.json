@@ -1,0 +1,18 @@
+{
+  "id": "bicarbonate",
+  "slug": "bicarbonate",
+  "name": "Bicarbonate",
+  "summary": "Improves high-intensity exercise performance.",
+  "description": "Improves high-intensity exercise performance.",
+  "compoundClass": "",
+  "mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

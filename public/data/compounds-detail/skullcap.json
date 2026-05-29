@@ -1,0 +1,21 @@
+{
+  "id": "skullcap",
+  "slug": "skullcap",
+  "name": "Skullcap",
+  "summary": "Skullcap entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "Skullcap is cataloged as flavonoid-rich Scutellaria botanical. Reported mechanisms: GABA-A receptor interaction (preclinical); anti-inflammatory effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

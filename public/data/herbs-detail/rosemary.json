@@ -1,21 +1,23 @@
 {
-  "name": "rosemary",
+  "name": "Rosemary",
   "slug": "rosemary",
-  "summary": "Mechanism context: cognition, antioxidant, digestive support. Safety: Generally well tolerated; review concentrated extract use.. Interactions tracked: Caution with concentrated extracts alongside anticoagulants..",
-  "description": "Mechanism context: cognition, antioxidant, digestive support. Safety: Generally well tolerated; review concentrated extract use.. Interactions tracked: Caution with concentrated extracts alongside anticoagulants..",
-  "primaryActions": [],
-  "mechanisms": [
-    "cognition",
+  "summary": "rosemary is tracked for cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+  "primaryActions": [
+    "anti-inflammatory",
     "antioxidant",
-    "digestive support",
-    "Nrf2 activation",
-    "NF-κB inhibition",
-    "STAT3 inhibition",
-    "AMPK activation",
-    "PI3K/Akt modulation"
+    "digestive"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neuroprotective Activity",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated; review concentrated extract use.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -23,9 +25,9 @@
   "interactions": [
     "Caution with concentrated extracts alongside anticoagulants."
   ],
-  "preparation": "Leaf infusion for mild use; extracts provide higher diterpene exposure.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

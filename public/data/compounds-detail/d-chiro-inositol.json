@@ -1,0 +1,19 @@
+{
+  "id": "d-chiro-inositol",
+  "slug": "d-chiro-inositol",
+  "name": "D-Chiro Inositol",
+  "summary": "May improve insulin sensitivity and ovulation; limited evidence.",
+  "description": "May improve insulin sensitivity and ovulation; limited evidence.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

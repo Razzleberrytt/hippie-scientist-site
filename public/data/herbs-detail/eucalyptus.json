@@ -1,16 +1,18 @@
 {
-  "name": "eucalyptus",
+  "name": "Eucalyptus",
   "slug": "eucalyptus",
-  "summary": "Mechanism context: respiratory support, antimicrobial, anti-inflammatory. Safety: Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.. Interactions tracked: Avoid combining internal oil with sedatives or hepatotoxic exposures, topical products may irritate skin or mucosa..",
-  "description": "Mechanism context: respiratory support, antimicrobial, anti-inflammatory. Safety: Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.. Interactions tracked: Avoid combining internal oil with sedatives or hepatotoxic exposures, topical products may irritate skin or mucosa..",
-  "primaryActions": [],
-  "mechanisms": [
-    "respiratory support",
+  "summary": "eucalyptus is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
     "antimicrobial",
-    "anti-inflammatory"
+    "respiratory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Infants/young children for oil exposure near face",
     "asthma/bronchospasm sensitivity",
@@ -20,9 +22,9 @@
     "Avoid combining internal oil with sedatives or hepatotoxic exposures",
     "topical products may irritate skin or mucosa."
   ],
-  "preparation": "Leaf is used as tea or steam; essential oil is used diluted topically or aromatically and should not be taken internally without medical supervision.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

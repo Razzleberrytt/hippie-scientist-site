@@ -1,0 +1,19 @@
+{
+  "id": "d-ribose",
+  "slug": "d-ribose",
+  "name": "D-Ribose",
+  "summary": "Pentose sugar involved in ATP synthesis with limited evidence in fatigue/cardiac populations.",
+  "description": "Sugar component used in nucleotide and ATP-related metabolism.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

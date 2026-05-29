@@ -4,19 +4,17 @@
   "name": "ajoene",
   "summary": "Organosulfur garlic derivative formed from allicin breakdown and linked to antiplatelet and inflammatory signaling effects.",
   "description": "Organosulfur garlic derivative formed from allicin breakdown and linked to antiplatelet and inflammatory signaling effects.",
-  "compoundClass": "organosulfur compound",
+  "compoundClass": "",
   "mechanisms": [
-    "platelet aggregation inhibition",
-    "NF-κB inhibition"
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
   ],
-  "targets": [
-    "NF-κB",
-    "platelet aggregation"
-  ],
+  "targets": [],
   "pathways": [],
   "foundIn": [],
   "bioavailability": "",
-  "safetyNotes": "May affect platelet activity; use caution with anticoagulants/antiplatelets and before surgery.",
-  "evidenceLevel": "in_vitro",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
   "relatedCompounds": []
 }

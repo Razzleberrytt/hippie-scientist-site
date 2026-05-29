@@ -1,16 +1,19 @@
 {
-  "name": "garcinia indica",
+  "name": "Garcinia Indica",
   "slug": "garcinia-indica",
   "summary": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
   "description": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
-  "primaryActions": [],
+  "primaryActions": [
+    "antioxidant",
+    "metabolic"
+  ],
   "mechanisms": [
-    "NF-κB inhibition",
-    "HAT inhibition",
-    "STAT3 inhibition"
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -20,9 +23,9 @@
     "immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "none",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }

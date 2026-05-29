@@ -1,0 +1,20 @@
+{
+  "id": "cannabidiol",
+  "slug": "cannabidiol",
+  "name": "Cannabidiol",
+  "summary": "Cannabidiol entry from SciSpace evidence pass. Evidence level: high indication-specific.",
+  "description": "Cannabidiol is cataloged as phytocannabinoid. Reported mechanisms: endocannabinoid modulation; 5-HT1A activity; TRPV1 activation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "endocannabinoid modulation",
+    "5-HT1A activity",
+    "TRPV1 activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

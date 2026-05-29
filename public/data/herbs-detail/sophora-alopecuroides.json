@@ -1,16 +1,16 @@
 {
-  "name": "sophora alopecuroides",
+  "name": "Sophora Alopecuroides",
   "slug": "sophora-alopecuroides",
   "summary": "Sophora alopecuroides lean monograph row enriched in bulk mode.",
   "description": "Sophora alopecuroides lean monograph row enriched in bulk mode.",
-  "primaryActions": [],
+  "primaryActions": [
+    "research-pending"
+  ],
   "mechanisms": [
-    "PI3K/Akt modulation",
-    "NF-κB inhibition",
-    "TGF-β signaling modulation"
+    "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Alkaloid-rich herb with toxicity concerns. Avoid pregnancy/breastfeeding and avoid unsupervised high-dose or long-term use.",
+  "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -19,9 +19,9 @@
     "Potential interaction concern with immunosuppressants",
     "use clinician review for high-dose extracts or chronic use."
   ],
-  "preparation": "Preparation varies by tradition and product form; food/tea use should not be treated as equivalent to concentrated extracts.",
+  "preparation": "",
   "traditionalUses": [],
-  "evidenceLevel": "in_vitro",
+  "evidenceLevel": "",
   "relatedHerbs": [],
   "region": ""
 }
