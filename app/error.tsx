@@ -14,51 +14,51 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
   }, [error])
 
   return (
-    <div className='mx-auto max-w-3xl py-10'>
-      <div className='rounded-3xl border border-white/10 bg-white/[0.03] p-8 sm:p-10'>
-        <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+    <div className='mx-auto max-w-3xl py-10 px-4'>
+      <div className='rounded-3xl border border-stone-200 bg-stone-50/50 p-8 sm:p-10 shadow-sm'>
+        <p className='text-sm font-semibold uppercase tracking-[0.2em] text-stone-500'>
           Something went wrong
         </p>
 
-        <h1 className='mt-3 text-4xl font-bold tracking-tight sm:text-5xl'>
+        <h1 className='mt-3 text-4xl font-bold tracking-tight text-stone-900 sm:text-5xl'>
           We hit an unexpected error
         </h1>
 
-        <p className='mt-4 max-w-2xl text-base leading-7 text-white/75'>
+        <p className='mt-4 max-w-2xl text-base leading-7 text-stone-600'>
           Try the page again. If the problem keeps happening, go back to a main
           section of the site and continue browsing from there.
         </p>
 
         {error.digest ? (
-          <p className='mt-4 text-sm text-white/50'>Reference: {error.digest}</p>
+          <p className='mt-4 text-sm text-stone-500'>Reference: {error.digest}</p>
         ) : null}
 
         <div className='mt-6 flex flex-wrap gap-3'>
           <button
             type='button'
             onClick={reset}
-            className='rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:opacity-90'
+            className='rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'
           >
             Try again
           </button>
 
           <Link
             href='/'
-            className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
+            className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
           >
             Go home
           </Link>
 
           <Link
             href='/herbs'
-            className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
+            className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
           >
             Herbs
           </Link>
 
           <Link
             href='/compounds'
-            className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
+            className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
           >
             Compounds
           </Link>
