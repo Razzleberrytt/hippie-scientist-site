@@ -6,6 +6,18 @@ export const metadata: Metadata = {
   title: 'Neurochemical Pathways',
   description:
     'Explore educational guides to serotonin, dopamine, GABA, and neurochemical signaling systems related to cognition, mood, stress, and recovery.',
+  alternates: { canonical: '/pathways' },
+  openGraph: {
+    title: 'Neurochemical Pathways',
+    description:
+      'Explore educational guides to serotonin, dopamine, GABA, and neurochemical signaling systems related to cognition, mood, stress, and recovery.',
+    url: '/pathways',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neurochemical Pathways',
+    description: 'Educational guides to serotonin, dopamine, GABA, and neurochemical signaling systems.',
+  },
 }
 
 const pathways = [

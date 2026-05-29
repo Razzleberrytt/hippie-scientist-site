@@ -49,18 +49,18 @@ const roleBadge = (role?: string) => {
   if (role === 'anchor') return 'bg-emerald-50 text-emerald-800 border-emerald-200'
   if (role === 'amplifier') return 'bg-amber-50 text-amber-800 border-amber-200'
   if (role === 'finisher') return 'bg-indigo-50 text-indigo-800 border-indigo-200'
-  return 'bg-slate-50 text-slate-700 border-slate-200'
+  return 'bg-stone-50 text-muted border-brand-900/10'
 }
 
 
 
 function StackIngredient({ item }: { item: { compound?: string; dosage?: string; timing?: string; role?: string } }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+    <div className="rounded-xl border border-brand-900/10 bg-stone-50/60 px-4 py-3">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="truncate text-base font-black text-slate-950">{formatLabel(item.compound)}</p>
-          <p className="mt-1 text-sm text-slate-600">{item.dosage} · {item.timing}</p>
+          <p className="truncate text-base font-black text-ink">{formatLabel(item.compound)}</p>
+          <p className="mt-1 text-sm text-muted">{item.dosage} · {item.timing}</p>
         </div>
         <span className={`shrink-0 rounded-full border px-2.5 py-1 text-[0.65rem] font-black uppercase tracking-[0.12em] ${roleBadge(item.role)}`}>
           {formatLabel(item.role)}
@@ -81,59 +81,59 @@ export default function StacksPage() {
 
   if (stackItems.length === 0) {
     return (
-      <main className="space-y-8 px-1 sm:px-0">
+      <div className="space-y-8 px-1 sm:px-0">
         <LibraryEmptyState
           title="Stack profiles are still being expanded."
           description="The stack library is temporarily light while profiles finish generating. Explore goals, compounds, or search while the next stack guides become available."
           recoveryLinks={recoveryLinks}
           suggestedSearches={['ashwagandha', 'l-theanine', 'sleep stack', 'focus stack']}
         />
-      </main>
+      </div>
     )
   }
 
   return (
-    <main className="space-y-8 px-1 sm:px-0">
-      <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="space-y-8 px-1 sm:px-0">
+      <section className="hero-shell rounded-3xl border border-brand-900/10 p-6 shadow-sm sm:p-8">
         <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.24em] text-emerald-700">Decision guides</p>
-            <h1 className="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">Supplement stacks</h1>
-            <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700">
+            <p className="eyebrow-label">Decision guides</p>
+            <h1 className="mt-2 text-4xl font-black tracking-tight text-ink sm:text-6xl">Supplement stacks</h1>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
               Start from a goal, then drill into compounds, timing, safety notes, and product-search paths without scrolling through the whole database.
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-2 text-center">
-            <div className="rounded-xl bg-white px-3 py-3 shadow-sm">
-              <div className="text-2xl font-black text-slate-950">{stackItems.length}</div>
-              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slate-500">Stacks</div>
+          <div className="grid grid-cols-3 gap-2 rounded-2xl border border-brand-900/10 bg-stone-50/50 p-2 text-center">
+            <div className="rounded-xl bg-white/90 px-3 py-3 shadow-sm">
+              <div className="text-2xl font-black text-ink">{stackItems.length}</div>
+              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-muted">Stacks</div>
             </div>
-            <div className="rounded-xl bg-white px-3 py-3 shadow-sm">
+            <div className="rounded-xl bg-white/90 px-3 py-3 shadow-sm">
               <div className="text-2xl font-black text-emerald-700">3</div>
-              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slate-500">Steps</div>
+              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-muted">Steps</div>
             </div>
-            <div className="rounded-xl bg-white px-3 py-3 shadow-sm">
+            <div className="rounded-xl bg-white/90 px-3 py-3 shadow-sm">
               <div className="text-2xl font-black text-amber-700">⚠</div>
-              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-slate-500">Caution notes</div>
+              <div className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-muted">Caution notes</div>
             </div>
           </div>
         </div>
       </section>
 
       {featured ? (
-        <section className="rounded-3xl border border-emerald-200 bg-white p-5 shadow-md shadow-emerald-950/5 sm:p-7">
+        <section className="card-premium p-5 shadow-md sm:p-7">
           <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-700">Featured stack</p>
-              <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">{featured.title}</h2>
-              <p className="mt-3 max-w-2xl text-base leading-7 text-slate-700">{featured.short_description}</p>
+              <p className="eyebrow-label">Featured stack</p>
+              <h2 className="mt-2 text-3xl font-black tracking-tight text-ink sm:text-5xl">{featured.title}</h2>
+              <p className="mt-3 max-w-2xl text-base leading-7 text-muted">{featured.short_description}</p>
               {featured.who_for ? (
-                <p className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm leading-6 text-slate-700">
+                <p className="mt-4 rounded-xl bg-emerald-50 p-3 text-sm leading-6 text-ink">
                   <span className="font-black text-emerald-800">Best for:</span> {featured.who_for}
                 </p>
               ) : null}
-              <Link href={`/stacks/${featured.slug}`} className="mt-5 inline-flex rounded-xl bg-emerald-500 px-5 py-3 text-base font-black text-white shadow-sm transition hover:bg-emerald-600">
+              <Link href={`/stacks/${featured.slug}`} className="mt-5 inline-flex rounded-xl bg-brand-850 px-5 py-3 text-base font-black text-white shadow-sm transition hover:bg-brand-900 hover:-translate-y-0.5">
                 Open full stack →
               </Link>
             </div>
@@ -150,9 +150,9 @@ export default function StacksPage() {
       <section className="space-y-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-emerald-700">Browse by goal</p>
-            <h2 className="mt-1 text-3xl font-black text-slate-950">Stack library</h2>
-            <p className="mt-1 text-sm text-slate-600">Each stack shows the actual pattern before the click.</p>
+            <p className="eyebrow-label">Browse by goal</p>
+            <h2 className="mt-1 text-3xl font-black text-ink">Stack library</h2>
+            <p className="mt-1 text-sm text-muted">Each stack shows the actual pattern before the click.</p>
           </div>
           <Link href="/goals" className="text-sm font-black text-emerald-700 hover:text-emerald-900">Explore goal guides →</Link>
         </div>
@@ -163,15 +163,15 @@ export default function StacksPage() {
               <Link
                 key={s.slug}
                 href={`/stacks/${s.slug}`}
-                className="group flex min-h-72 flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-300 hover:shadow-md"
+                className="group flex min-h-72 flex-col card-premium p-5 transition hover:-translate-y-0.5 hover:shadow-md"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.16em] text-emerald-800">{formatLabel(s.goal)}</span>
-                  <span className="text-xs font-bold text-slate-500">{(s.stack ?? []).length} compounds</span>
+                  <span className="text-xs font-bold text-muted">{(s.stack ?? []).length} compounds</span>
                 </div>
 
-                <h3 className="mt-4 text-2xl font-black tracking-tight text-slate-950 group-hover:text-emerald-800">{s.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{s.short_description}</p>
+                <h3 className="mt-4 text-2xl font-black tracking-tight text-ink group-hover:text-emerald-800">{s.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">{s.short_description}</p>
 
                 <div className="mt-4 space-y-2">
                   {(s.stack ?? []).slice(0, 3).map((item, index) => (
@@ -185,7 +185,7 @@ export default function StacksPage() {
                       <span className="font-black">Use caution with:</span> {s.avoid_if}
                     </p>
                   ) : null}
-                  <span className="mt-4 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1">See dosage, timing & risks →</span>
+                  <span className="mt-4 inline-flex text-sm font-black text-emerald-700 transition group-hover:translate-x-1">See dosage, timing &amp; risks →</span>
                 </div>
               </Link>
             ))}
@@ -199,6 +199,6 @@ export default function StacksPage() {
           />
         )}
       </section>
-    </main>
+    </div>
   )
 }

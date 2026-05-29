@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllCompounds } from '@/lib/server/runtime-data'
 import {
@@ -34,6 +35,22 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
+
+export const metadata: Metadata = {
+  title: 'Explore Herbs & Compounds | Semantic Discovery',
+  description: 'Navigate herbs and compounds through semantic relationships, evidence maturity, archetypes, mechanisms, and shared research pathways.',
+  alternates: { canonical: '/explore' },
+  openGraph: {
+    title: 'Explore Herbs & Compounds | Semantic Discovery',
+    description: 'Navigate herbs and compounds through semantic relationships, evidence maturity, archetypes, mechanisms, and shared research pathways.',
+    url: '/explore',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Explore Herbs & Compounds | Semantic Discovery',
+    description: 'Navigate herbs and compounds through semantic ecosystems and evidence pathways.',
+  },
+}
 
 const hubIntro = [
   {

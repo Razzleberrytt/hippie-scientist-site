@@ -1,5 +1,22 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+
+export const metadata: Metadata = {
+  title: 'Supplement Protocol Guides',
+  description: 'Evidence-aware protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',
+  alternates: { canonical: '/protocols' },
+  openGraph: {
+    title: 'Supplement Protocol Guides',
+    description: 'Evidence-aware protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',
+    url: '/protocols',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Supplement Protocol Guides',
+    description: 'Evidence-aware protocol guides for stress, sleep, focus, and recovery systems.',
+  },
+}
 
 const protocols = [
   { slug: 'stress-regulation', title: 'Stress Regulation' },

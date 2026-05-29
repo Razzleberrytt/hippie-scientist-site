@@ -1,8 +1,20 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Psychedelic-Adjacent Herbs & Harm Reduction | The Hippie Scientist',
   description: 'Evidence-aware harm reduction guide for traditional, ritual, and dream-adjacent botanicals like Blue Lotus and Kanna.',
+  alternates: { canonical: '/psychedelic-adjacent-herbs' },
+  openGraph: {
+    title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
+    description: 'Evidence-aware harm reduction guide for traditional, ritual, and dream-adjacent botanicals like Blue Lotus and Kanna.',
+    url: '/psychedelic-adjacent-herbs',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
+    description: 'Evidence-aware harm reduction guide for traditional and ritual botanicals.',
+  },
 }
 
 export default function PsychedelicAdjacentHerbsPage() {

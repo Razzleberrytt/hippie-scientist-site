@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   title: 'Neuroscience and Neuropharmacology Education',
   description:
     'Explore evidence-aware education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+  alternates: { canonical: '/education' },
+  openGraph: {
+    title: 'Neuroscience and Neuropharmacology Education',
+    description:
+      'Explore evidence-aware education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+    url: '/education',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neuroscience and Neuropharmacology Education',
+    description:
+      'Explore evidence-aware education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+  },
 }
 
 const supernodes = [

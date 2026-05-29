@@ -1,5 +1,22 @@
+import type { Metadata } from 'next'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import RelatedComparisonSystems from '@/components/comparisons/related-comparison-systems'
+
+export const metadata: Metadata = {
+  title: 'Neuropharmacology & Compound Comparisons',
+  description: 'Educational comparison systems covering adaptogens, cognition-oriented compounds, stress neurobiology, recovery systems, and psychoactive education.',
+  alternates: { canonical: '/comparisons' },
+  openGraph: {
+    title: 'Neuropharmacology & Compound Comparisons',
+    description: 'Educational comparison systems covering adaptogens, cognition-oriented compounds, stress neurobiology, recovery systems, and psychoactive education.',
+    url: '/comparisons',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Neuropharmacology & Compound Comparisons',
+    description: 'Educational comparison systems for herbs, adaptogens, and nootropics.',
+  },
+}
 
 const comparisonClusters = [
   {

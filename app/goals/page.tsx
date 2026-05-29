@@ -6,6 +6,17 @@ import DecisionCtaGroup from '@/components/decision/DecisionCtaGroup'
 export const metadata: Metadata = {
   title: 'Supplement Goal Decision Guides',
   description: 'Start with your goal — sleep, focus, stress, inflammation, or pain — then compare herbs and compounds by evidence, safety, and tradeoffs.',
+  alternates: { canonical: '/goals' },
+  openGraph: {
+    title: 'Supplement Goal Decision Guides',
+    description: 'Start with your goal — sleep, focus, stress, inflammation, or pain — then compare herbs and compounds by evidence, safety, and tradeoffs.',
+    url: '/goals',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Supplement Goal Decision Guides',
+    description: 'Start with your goal to compare herbs and compounds by evidence, safety, and tradeoffs.',
+  },
 }
 
 export default function GoalsPage() {

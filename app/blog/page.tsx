@@ -37,6 +37,17 @@ const inferArticleStyle = (post: any) => {
 export const metadata: Metadata = {
   title: 'Research Notes & Herb Guides',
   description: '75+ evidence-aware research notes on herbs, compounds, mechanisms, safety, and preparation — organized by research style and topic.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'Research Notes & Herb Guides',
+    description: '75+ evidence-aware research notes on herbs, compounds, mechanisms, safety, and preparation — organized by research style and topic.',
+    url: '/blog',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Research Notes & Herb Guides',
+    description: '75+ evidence-aware research notes on herbs, compounds, mechanisms, safety, and preparation.',
+  },
 }
 
 export default function BlogPage() {
@@ -46,7 +57,7 @@ export default function BlogPage() {
 
   return (
     <div className="section-spacing pb-20">
-      <section className="hero-shell rounded-[2rem] border border-white/50 p-6 shadow-card sm:p-8 lg:p-10">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
         <p className="eyebrow-label">Scientific editorial layer</p>
         <h1 className="mt-3 heading-premium max-w-4xl">Research notes that connect the library.</h1>
         <p className="mt-5 text-reading max-w-3xl text-muted-soft">

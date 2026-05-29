@@ -26,6 +26,18 @@ export async function generateMetadata({ params }: BlogRouteProps) {
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${resolvedParams.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${resolvedParams.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+    },
   }
 }
 
@@ -144,7 +156,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
 
       <Link href="/blog" className="text-sm font-bold text-brand-800">← Back to research notes</Link>
 
-      <section className="hero-shell rounded-[2rem] border border-white/50 p-6 shadow-card sm:p-8 lg:p-10">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-3">
           <span className="identity-kicker">Article</span>
           <span className="identity-kicker">{inferResearchStyle(post)}</span>

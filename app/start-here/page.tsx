@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: 'Start Here | The Hippie Scientist',
   description:
     'A calm, evidence-first onboarding guide for learning how to evaluate supplement claims, compare tradeoffs, and choose where to begin.',
+  alternates: { canonical: '/start-here' },
+  openGraph: {
+    title: 'Start Here | The Hippie Scientist',
+    description:
+      'A calm, evidence-first onboarding guide for learning how to evaluate supplement claims, compare tradeoffs, and choose where to begin.',
+    url: '/start-here',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Start Here | The Hippie Scientist',
+    description: 'An evidence-first onboarding guide for evaluating supplement claims and tradeoffs.',
+  },
 }
 
 const siteWorksCards = [
