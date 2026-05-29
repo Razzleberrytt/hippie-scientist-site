@@ -19,7 +19,7 @@ export default function MisconceptionCallout({
 
       <div className="rounded-2xl bg-white p-5 space-y-3 border border-[#e6e1d4]">
         <p className="text-xs font-semibold uppercase tracking-wide text-[#5c6b63]">
-          Evidence-aware interpretation
+          Evidence-informed interpretation
         </p>
 
         <p className="text-sm leading-7 text-[#46574d]">

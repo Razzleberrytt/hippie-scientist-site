@@ -26,7 +26,7 @@ export default function SemanticOperatingSystem({
   source,
   candidates = [],
   title = 'Semantic exploration command center',
-  description = 'A unified layer for continuing research threads, following adjacent pathways, comparing related profiles, and moving through evidence-aware ecosystems.',
+  description = 'A unified layer for continuing research threads, following adjacent pathways, comparing related profiles, and moving through research ecosystems.',
 }: SemanticOperatingSystemProps) {
   const current = source || fallbackSource()
   const traversal = buildAdaptiveTraversal(current, candidates, 6)

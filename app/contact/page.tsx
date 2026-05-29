@@ -64,7 +64,7 @@ export default function ContactPage() {
             </p>
 
             <p>
-              The project focuses on evidence-aware summaries of herbs, compounds, pathways, mechanisms, and related wellness research topics.
+              The project focuses on evidence-informed summaries of herbs, compounds, pathways, mechanisms, and related wellness research topics.
             </p>
 
             <div className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>

@@ -26,7 +26,7 @@ export default function HarmReductionPage() {
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Psychoactive Harm Reduction"
-        description="Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and evidence-aware educational guidance."
+        description="Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and educational guidance."
         url="https://thehippiescientist.net/psychoactive/harm-reduction"
         type="Article"
       />
@@ -47,7 +47,7 @@ export default function HarmReductionPage() {
         </h1>
 
         <p className="text-lg leading-8 text-[#46574d]">
-          Educational harm-reduction exploration focused on interaction awareness, neurochemical safety, pathway overlap, psychoactive ethnobotany, and conservative evidence-aware interpretation.
+          Educational harm-reduction exploration focused on interaction awareness, neurochemical safety, pathway overlap, psychoactive ethnobotany, and conservative evidence-informed interpretation.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">

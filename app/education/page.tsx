@@ -6,19 +6,19 @@ import EducationSupernodeGrid from '@/components/education/education-supernode-g
 export const metadata: Metadata = {
   title: 'Neuroscience and Neuropharmacology Education',
   description:
-    'Explore evidence-aware education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+    'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
   alternates: { canonical: '/education' },
   openGraph: {
     title: 'Neuroscience and Neuropharmacology Education',
     description:
-      'Explore evidence-aware education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+      'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
     url: '/education',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Neuroscience and Neuropharmacology Education',
     description:
-      'Explore evidence-aware education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
+      'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
   },
 }
 
@@ -47,7 +47,7 @@ const supernodes = [
   {
     title: 'Adaptogens and Stress Resilience',
     description:
-      'Educational exploration of adaptogens, stress-response physiology, neuroendocrine adaptation, burnout systems, and evidence-aware resilience biology.',
+      'Educational exploration of adaptogens, stress-response physiology, neuroendocrine adaptation, burnout systems, and resilience biology.',
     href: '/education/what-are-adaptogens',
     category: 'Stress Physiology',
   },
@@ -178,7 +178,7 @@ export default function EducationHubPage() {
     <main className='container-page py-10 space-y-16'>
       <AuthorityJsonLd
         title='Neuroscience and Neuropharmacology Education'
-        description='Evidence-aware educational ecosystem covering neurochemistry, cognition systems, stress biology, recovery neuropharmacology, psychoactive education, and systems-oriented neuroscience.'
+        description='Evidence-informed educational ecosystem covering neurochemistry, cognition systems, stress biology, recovery neuropharmacology, psychoactive education, and systems-oriented neuroscience.'
         url='https://thehippiescientist.net/education'
         type='CollectionPage'
       />
@@ -196,7 +196,7 @@ export default function EducationHubPage() {
           <p>
             The Hippie Scientist educational ecosystem explores neurochemistry,
             cognition systems, stress neurobiology, psychoactive education,
-            recovery-oriented neuroscience, and evidence-aware
+            recovery-oriented neuroscience, and evidence-informed
             neuropharmacology through a systems-oriented framework.
           </p>
 

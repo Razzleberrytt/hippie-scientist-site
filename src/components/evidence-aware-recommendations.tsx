@@ -98,7 +98,7 @@ export default function EvidenceAwareRecommendations({
       label: 'Preparation Context',
     },
     {
-      title: 'Evidence-aware sourcing signals',
+      title: 'Evidence-informed sourcing signals',
       description:
         'Standardization transparency, third-party testing, and ingredient clarity matter more than aggressive marketing claims.',
       confidence: 'stronger',

@@ -4,17 +4,17 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
 export const metadata: Metadata = {
   title: 'Supplement Protocol Guides',
-  description: 'Evidence-aware protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',
+  description: 'Evidence-informed protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',
   alternates: { canonical: '/protocols' },
   openGraph: {
     title: 'Supplement Protocol Guides',
-    description: 'Evidence-aware protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',
+    description: 'Evidence-informed protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',
     url: '/protocols',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Supplement Protocol Guides',
-    description: 'Evidence-aware protocol guides for stress, sleep, focus, and recovery systems.',
+    description: 'Evidence-informed protocol guides for stress, sleep, focus, and recovery systems.',
   },
 }
 
@@ -32,7 +32,7 @@ export default function ProtocolsIndexPage() {
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Protocols"
-        description="Evidence-aware protocol pages for stress, sleep, focus, and recovery systems."
+        description="Evidence-informed protocol pages for stress, sleep, focus, and recovery systems."
         url="https://thehippiescientist.net/protocols"
         type="CollectionPage"
       />

@@ -65,7 +65,7 @@ export function buildHerbViralHooks(herb: ViralHerb): HerbViralHooks {
     didYouKnow,
     beginnerExplanation: `${name} is best understood as a plant profile with effects, mechanisms, and safety boundaries that change by preparation and person.`,
     safetyInsight: `Safety insight: ${safety}`,
-    whyItMatters: `${name} matters because understanding its mechanism and risks helps people make lower-risk, evidence-aware decisions.`,
+    whyItMatters: `${name} matters because understanding its mechanism and risks helps people make lower-risk, lower-risk decisions.`,
   }
 }
 

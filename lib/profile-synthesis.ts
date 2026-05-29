@@ -122,5 +122,5 @@ export function buildDiscoveryNarrative(relatedCount: number, input: SynthesisIn
     return 'Related profiles are prioritized for comparable evidence maturity, shared mechanisms, and caution-aware context.'
   }
 
-  return 'Related profiles below emphasize mechanism fit and evidence-aware comparison rather than implying equivalent clinical confidence.'
+  return 'Related profiles below emphasize mechanism fit and careful comparison rather than implying equivalent clinical confidence.'
 }

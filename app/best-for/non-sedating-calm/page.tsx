@@ -26,7 +26,7 @@ export default function NonSedatingCalmPage() {
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Best Compounds for Non-Sedating Calm"
-        description="Educational exploration of non-sedating calming systems, stress-response support, calm focus, and evidence-aware neuropharmacology."
+        description="Educational exploration of non-sedating calming systems, stress-response support, calm focus, and neuropharmacology."
         url="https://thehippiescientist.net/best-for/non-sedating-calm"
         type="CollectionPage"
       />

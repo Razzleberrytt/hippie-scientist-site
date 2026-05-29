@@ -16,9 +16,9 @@ type EvidenceAwareCTAProps = {
 function levelLabel(level: EvidenceAwareCTAProps['readiness']['level']) {
   switch (level) {
     case 'high':
-      return 'Evidence-forward context'
+      return 'Good sourcing context'
     case 'moderate':
-      return 'Moderate evidence context'
+      return 'Moderate context'
     case 'review':
       return 'Needs additional review'
     default:
@@ -40,8 +40,8 @@ function levelClass(level: EvidenceAwareCTAProps['readiness']['level']) {
 }
 
 export default function EvidenceAwareCTA({
-  title = 'Evidence-aware sourcing guidance',
-  description = 'Product and sourcing context should remain secondary to evidence quality, safety considerations, and mechanism uncertainty.',
+  title = 'Sourcing checkpoint',
+  description = 'Compare form, dose, label transparency, and safety fit before buying.',
   readiness,
   sourcingNotes = [],
   record,
@@ -85,20 +85,19 @@ export default function EvidenceAwareCTA({
       
 
       {showAffiliateButton ? (
-        <div className="rounded-3xl border border-brand-900/10 bg-white/80 p-4 shadow-sm">
+        <div className="rounded-[0.9rem] border border-brand-900/10 bg-white/85 p-3 shadow-sm">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-2xl">
               <p className="eyebrow-label">Optional sourcing link</p>
-              <p className="mt-1 text-sm leading-6 text-[#46574d]">
-                This link is provided for sourcing review only. Compare labels, ingredient form,
-                serving context, and seller transparency before considering any product.
+              <p className="mt-1 text-sm leading-5 text-[#46574d]">
+                Compare labels, ingredient form, serving context, and seller transparency.
               </p>
             </div>
             <a
               href={affiliate.affiliateUrl}
               target="_blank"
               rel="nofollow sponsored noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-brand-900/15 bg-brand-950 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+              className="inline-flex items-center justify-center rounded-full border border-brand-900/15 bg-brand-950 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
             >
               {affiliate.affiliateLabel}
             </a>
@@ -107,18 +106,18 @@ export default function EvidenceAwareCTA({
       ) : null}
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
         {recommendationCards.map((card) => (
-          <article key={card.label} className="rounded-2xl border border-brand-900/10 bg-white/75 p-4 shadow-sm">
+          <article key={card.label} className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-3 shadow-sm">
             <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-brand-900/55">{card.label}</p>
-            <p className="mt-2 text-sm font-semibold leading-6 text-[#33443a]">{card.value}</p>
+            <p className="mt-1 text-sm font-semibold leading-5 text-[#33443a]">{card.value}</p>
           </article>
         ))}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr]">
+      <div className="grid gap-3 lg:grid-cols-[1fr_0.9fr]">
         <article className="compact-card section-rhythm-compact">
-          <p className="eyebrow-label">Why this profile may warrant deeper exploration</p>
+          <p className="eyebrow-label">Why it may fit</p>
 
           <div className="flex flex-wrap gap-2">
             {readiness.reasons.length > 0 ? (
@@ -136,9 +135,9 @@ export default function EvidenceAwareCTA({
         </article>
 
         <article className="compact-card section-rhythm-compact">
-          <p className="eyebrow-label">Evidence-aware sourcing notes</p>
+          <p className="eyebrow-label">Sourcing notes</p>
 
-          <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
+          <ul className="space-y-1.5 text-sm leading-6 text-[#46574d]">
             {sourcingNotes.slice(0, 5).map((note) => (
               <li key={note}>• {note}</li>
             ))}

@@ -100,7 +100,7 @@ export default function WhyNeuroscienceIsDifficultPage() {
         </div>
       </section>
       <SafetyNotice>
-        Educational neuroscience content is not a substitute for individualized medical guidance, evidence-aware clinical evaluation, or mental-health support.
+        Educational neuroscience content is not a substitute for individualized medical guidance, clinical evaluation, or mental-health support.
       </SafetyNotice>
       <section className="space-y-5">
         <div className="space-y-2">

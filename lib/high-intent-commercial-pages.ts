@@ -34,7 +34,7 @@ export function buildCommercialPageBlueprint(record: any): CommercialPageBluepri
     slug: `best-${slug}`,
     title: intent === 'forms' ? `Best ${name} forms` : `Best ${name} buying guide`,
     intent,
-    description: `Evidence-aware commercial guide for ${name}, focused on formulation quality, transparent labeling, safety context, and realistic expectations.`,
+    description: `Evidence-informed commercial guide for ${name}, focused on formulation quality, transparent labeling, safety context, and realistic expectations.`,
     safetyNote: context.readiness === 'avoid'
       ? 'Product recommendations should not be prioritized until safety context is reviewed.'
       : 'Product guidance is educational and should not replace medical advice.',

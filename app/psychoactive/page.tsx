@@ -53,7 +53,7 @@ export default function PsychoactiveHubPage() {
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Psychoactive Research Hub"
-        description="Evidence-aware psychoactive ethnobotany, neuropharmacology, harm reduction, and semantic educational discovery."
+        description="Evidence-informed psychoactive ethnobotany, neuropharmacology, harm reduction, and semantic educational discovery."
         url="https://thehippiescientist.net/psychoactive"
         type="CollectionPage"
         breadcrumbs={[
@@ -90,7 +90,7 @@ export default function PsychoactiveHubPage() {
         </div>
 
         <p className="text-lg leading-8 text-[#46574d]">
-          Educational exploration of psychoactive herbs, ethnobotany, neuropharmacology, mechanism systems, and harm reduction through an evidence-aware semantic discovery architecture.
+          Educational exploration of psychoactive herbs, ethnobotany, neuropharmacology, mechanism systems, and harm reduction through an evidence-informed semantic discovery architecture.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">

@@ -194,7 +194,7 @@ export function classifyDiscoveryGroups(base: any, relatedRecords: any[] = []): 
     },
     {
       title: 'Authority-Weighted Discovery',
-      description: 'Profiles are ranked by shared outcomes, mechanism continuity, ecosystem density, safety calibration, and evidence-aware discovery score.',
+      description: 'Profiles are ranked by shared outcomes, mechanism continuity, ecosystem density, safety calibration, and discovery score.',
       items: dedupe([...authorityMatches, ...orchestrationMatches]).slice(0, 6),
     },
     {

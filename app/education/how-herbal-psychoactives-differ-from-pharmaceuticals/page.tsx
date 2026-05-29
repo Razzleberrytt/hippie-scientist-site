@@ -26,7 +26,7 @@ export default function HerbalVsPharmaPage() {
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="How Herbal Psychoactives Differ From Pharmaceuticals"
-        description="Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and evidence-aware comparison."
+        description="Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and careful comparison."
         url="https://thehippiescientist.net/education/how-herbal-psychoactives-differ-from-pharmaceuticals"
         type="Article"
       />
@@ -47,7 +47,7 @@ export default function HerbalVsPharmaPage() {
         </h1>
 
         <p className="text-lg leading-8 text-[#46574d]">
-          Educational exploration of herbal psychoactives, ethnobotanical systems, pharmaceutical neuropharmacology, pathway overlap, and evidence-aware interpretation.
+          Educational exploration of herbal psychoactives, ethnobotanical systems, pharmaceutical neuropharmacology, pathway overlap, and evidence-informed interpretation.
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">

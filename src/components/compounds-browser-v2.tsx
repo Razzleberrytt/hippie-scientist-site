@@ -71,7 +71,7 @@ export default function CompoundsBrowserV2({ items }: Props) {
         <div className='pointer-events-none absolute -right-12 -top-10 h-40 w-40 rounded-full bg-emerald-300/35 blur-3xl' />
         <p className='text-[11px] font-black uppercase tracking-[0.24em] text-emerald-700'>Compounds v2.0</p>
         <h1 className='mt-2 text-3xl font-black leading-tight text-slate-900 sm:text-5xl'>Find compounds by outcome, not hype.</h1>
-        <p className='mt-3 max-w-2xl text-sm leading-6 text-slate-700 sm:text-base'>Fast, thumb-friendly discovery for evidence-aware compounds. Filter, scan, and jump straight into detailed profiles.</p>
+        <p className='mt-3 max-w-2xl text-sm leading-6 text-slate-700 sm:text-base'>Fast, thumb-friendly discovery for evidence-informed compounds. Filter, scan, and jump straight into detailed profiles.</p>
       </section>
 
       <section className='mt-4 space-y-3 rounded-2xl border border-white/50 bg-white/65 p-3.5 backdrop-blur-md sm:p-4'>

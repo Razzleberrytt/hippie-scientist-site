@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: LearnRouteProps): Promise<Met
   if (!post) {
     return {
       title: 'Learn | The Hippie Scientist',
-      description: 'Evidence-aware educational content and practical learning guides.',
+      description: 'Evidence-informed educational content and practical learning guides.',
     }
   }
 
@@ -101,7 +101,7 @@ export default async function Page({ params }: LearnRouteProps) {
             },
             {
               title: 'Apply what you learned',
-              description: 'Move from concepts into evidence-aware profiles.',
+              description: 'Move from concepts into profiles.',
               links: post.relatedLinks,
             },
             {

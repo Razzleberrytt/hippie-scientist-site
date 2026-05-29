@@ -51,7 +51,7 @@ export default function EntheogenEducationPage() {
         </p>
 
         <p className="text-base leading-8 text-[#5c6b63]">
-          Educational exploration of entheogens involves neuropharmacology, serotonergic systems, consciousness-oriented ethnobotany, historical traditions, and evidence-aware harm reduction.
+          Educational exploration of entheogens involves neuropharmacology, serotonergic systems, consciousness-oriented ethnobotany, historical traditions, and evidence-informed harm reduction.
         </p>
       </section>
 

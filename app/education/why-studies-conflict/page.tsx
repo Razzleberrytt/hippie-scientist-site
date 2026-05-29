@@ -100,7 +100,7 @@ export default function WhyStudiesConflictPage() {
         </div>
       </section>
       <SafetyNotice>
-        Educational content discussing scientific uncertainty is not a substitute for individualized medical guidance or evidence-aware clinical evaluation.
+        Educational content discussing scientific uncertainty is not a substitute for individualized medical guidance or clinical evaluation.
       </SafetyNotice>
       <section className="space-y-5">
         <div className="space-y-2">

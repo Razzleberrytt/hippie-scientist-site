@@ -11,7 +11,7 @@ const label = (h: Herb) => h.displayName || h.name || h.slug
 
 export const metadata: Metadata = {
   title: 'Best Herbs for Overthinking (2026 Guide)',
-  description: 'Evidence-aware educational guide to herbs often used in overthinking and racing-thought contexts.',
+  description: 'Evidence-informed educational guide to herbs often used in overthinking and racing-thought contexts.',
 }
 
 export default async function Page() {

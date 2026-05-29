@@ -11,7 +11,7 @@ export function buildScientificHumanTone() {
   return {
     headlineStyle: 'calm-authoritative',
     editorialStyle: 'scientific-but-human',
-    trustStyle: 'evidence-aware',
+    trustStyle: 'evidence-informed',
     onboardingStyle: 'guided-exploration',
   }
 }

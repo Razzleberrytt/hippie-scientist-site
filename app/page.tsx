@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Herbs, Compounds, and Evidence-Based Supplement Guides',
     description:
-      'Explore evidence-aware guides on herbs, compounds, stacks, and supplement decisions with mechanism, safety, and tradeoff context.',
+      'Compare herbs, compounds, stacks, and supplement decisions by fit, safety, and evidence.',
     url: '/',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Herbs, Compounds, and Evidence-Based Supplement Guides',
     description:
-      'Explore evidence-aware guides on herbs, compounds, stacks, and supplement decisions with mechanism, safety, and tradeoff context.',
+      'Compare herbs, compounds, stacks, and supplement decisions by fit, safety, and evidence.',
   },
 }
 

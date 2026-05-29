@@ -10,7 +10,7 @@ export const bestExploredTopics: BestExploredTopic[] = [
   {
     slug: 'sleep',
     title: 'Best explored for sleep support',
-    description: 'Evidence-aware exploration of calming, circadian, and recovery-oriented profiles connected to sleep quality pathways.',
+    description: 'Evidence-informed exploration of calming, circadian, and recovery-oriented profiles connected to sleep quality pathways.',
     keywords: ['sleep', 'gaba', 'relaxation', 'calm', 'circadian', 'recovery'],
     intent: 'sleep',
   },
@@ -31,7 +31,7 @@ export const bestExploredTopics: BestExploredTopic[] = [
   {
     slug: 'inflammation',
     title: 'Best explored for inflammation pathways',
-    description: 'Evidence-aware exploration of oxidative stress, inflammatory signaling, and recovery-oriented ecosystems.',
+    description: 'Evidence-informed exploration of oxidative stress, inflammatory signaling, and recovery-oriented ecosystems.',
     keywords: ['inflammation', 'oxidative', 'immune', 'recovery', 'pain'],
     intent: 'inflammation',
   },

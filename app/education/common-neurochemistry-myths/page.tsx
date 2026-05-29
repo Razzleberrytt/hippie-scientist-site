@@ -27,7 +27,7 @@ export default function NeurochemistryMythsPage() {
     <main className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Common Neurochemistry Myths"
-        description="Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-aware scientific interpretation."
+        description="Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-informed scientific interpretation."
         url="https://thehippiescientist.net/education/common-neurochemistry-myths"
         type="Article"
       />

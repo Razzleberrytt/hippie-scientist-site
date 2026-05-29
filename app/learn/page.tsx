@@ -105,7 +105,7 @@ export default function LearnPage() {
             <p className='eyebrow-label'>Learn the basics</p>
 
             <h1 className='text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
-              Evidence-aware supplement education
+              Evidence-informed supplement education
             </h1>
           </div>
 
@@ -199,7 +199,7 @@ export default function LearnPage() {
           <p className='eyebrow-label'>Featured Guides</p>
 
           <h2 className='mt-2 text-3xl font-semibold text-ink'>
-            Practical evidence-aware learning
+            Practical evidence-informed learning
           </h2>
         </div>
 

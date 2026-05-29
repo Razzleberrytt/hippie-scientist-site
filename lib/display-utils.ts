@@ -175,9 +175,9 @@ export function unique(items: string[]) {
 export function cleanSummary(value: unknown, type: 'herb' | 'compound' = 'compound') {
   if (!value || typeof value !== 'string') {
     if (type === 'herb') {
-      return 'Evidence-aware botanical profile with mechanism, safety, and practical context.'
+      return 'Botanical profile with evidence, safety, and practical fit.'
     }
-    return 'Evidence-aware compound profile with mechanism, safety, and practical context.'
+    return 'Compound profile with evidence, safety, and practical fit.'
   }
 
   const summary = text(value)
@@ -185,10 +185,10 @@ export function cleanSummary(value: unknown, type: 'herb' | 'compound' = 'compou
   if (isClean(summary)) return summary
 
   if (type === 'herb') {
-    return 'Evidence-aware botanical profile with mechanism, safety, and practical context.'
+    return 'Botanical profile with evidence, safety, and practical fit.'
   }
 
-  return 'Evidence-aware compound profile with mechanism, safety, and practical context.'
+  return 'Compound profile with evidence, safety, and practical fit.'
 }
 
 

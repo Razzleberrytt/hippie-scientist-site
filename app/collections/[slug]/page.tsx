@@ -62,7 +62,7 @@ export default async function CollectionPage({ params }: Params) {
         sections={[
           { title: 'Biological context', body: `This collection groups ${collection.itemType} profiles around shared workbook signals so readers can compare adjacent biology before opening individual profiles.` },
           { title: 'Research focus', body: 'Matching records are filtered by collection intent and summarized with concise profile excerpts rather than unsupported recommendations.' },
-          { title: 'Discovery method', body: 'Theme chips and profile cards make the route useful as a crawlable bridge between broad search intent and evidence-aware depth pages.' },
+          { title: 'Discovery method', body: 'Theme chips and profile cards make the route useful as a crawlable bridge between broad search intent and evidence-informed depth pages.' },
         ]}
       />
 
@@ -84,7 +84,7 @@ export default async function CollectionPage({ params }: Params) {
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div className="space-y-2">
             <p className="eyebrow-label">Matching profiles</p>
-            <h2 className="text-3xl font-semibold tracking-tight text-ink">Evidence-aware collection cards</h2>
+            <h2 className="text-3xl font-semibold tracking-tight text-ink">Evidence-informed collection cards</h2>
           </div>
           <span className="chip-readable">{items.length} matches</span>
         </div>

@@ -17,7 +17,7 @@ const faqItems = [
   {
     question: 'Why is harm reduction important?',
     answer:
-      'Psychoactive substances can interact with medications, neurochemical systems, sleep architecture, or mental health conditions. Educational and evidence-aware harm reduction helps reduce unnecessary risk.',
+      'Psychoactive substances can interact with medications, neurochemical systems, sleep architecture, or mental health conditions. Educational and evidence-informed harm reduction helps reduce unnecessary risk.',
   },
 ]
 

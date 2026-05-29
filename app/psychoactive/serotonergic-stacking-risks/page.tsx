@@ -26,7 +26,7 @@ export default function SerotonergicRisksPage() {
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Serotonergic Stacking Risks"
-        description="Educational exploration of serotonergic overlap, psychoactive interaction awareness, mood-system safety, and evidence-aware harm reduction."
+        description="Educational exploration of serotonergic overlap, psychoactive interaction awareness, mood-system safety, and evidence-informed harm reduction."
         url="https://thehippiescientist.net/psychoactive/serotonergic-stacking-risks"
         type="Article"
       />

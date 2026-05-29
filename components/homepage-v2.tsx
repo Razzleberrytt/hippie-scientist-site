@@ -118,29 +118,29 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <div className='overflow-x-clip bg-site-bg'>
-      <div className='mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-5 sm:px-6 sm:space-y-8 sm:pb-8 sm:pt-8 lg:px-8'>
+      <div className='mx-auto max-w-6xl space-y-5 px-4 pb-5 pt-4 sm:px-6 sm:space-y-6 sm:pb-6 sm:pt-6 lg:px-8'>
 
         {/* Hero */}
-        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-4 py-5 shadow-sm sm:px-6 sm:py-7'>
+        <section className='rounded-[0.95rem] border border-brand-900/10 bg-white/90 px-4 py-4 shadow-sm sm:px-5 sm:py-5'>
           <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
-            <p role='doc-subtitle' className='mb-3 inline-flex text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-700'>
-              Evidence-aware botanical research
+            <p role='doc-subtitle' className='mb-2 inline-flex text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-700'>
+              Herbs + supplements, ranked by fit
             </p>
-            <h1 className='font-display text-[2.35rem] font-semibold leading-[1] tracking-[-0.045em] text-ink sm:text-5xl md:text-6xl'>
+            <h1 className='font-display text-[2rem] font-semibold leading-[1] tracking-[-0.04em] text-ink sm:text-4xl md:text-5xl'>
               <span className='block'>The Hippie Scientist</span>
             </h1>
-            <p className='mt-4 max-w-2xl text-base font-medium leading-7 text-muted'>
-              Compare herbs and compounds by evidence strength, safety context, and practical fit — not wellness hype.
+            <p className='mt-3 max-w-2xl text-sm font-medium leading-6 text-muted'>
+              Find what fits your goal, what to avoid, and where the evidence is strongest.
             </p>
-            <div className='mt-5 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
+            <div className='mt-4 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
               {primaryActions.map((action, index) => (
                 <Link
                   key={action.href}
                   href={action.href}
                   className={
                     index === 0
-                      ? 'rounded-full border border-brand-900/15 bg-white px-4 py-2.5 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/25 hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
-                      : 'rounded-full border border-brand-900/10 bg-white/90 px-4 py-2.5 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
+                      ? 'rounded-full border border-brand-900/15 bg-white px-3 py-2 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/25 hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
+                      : 'rounded-full border border-brand-900/10 bg-white/90 px-3 py-2 text-sm font-semibold text-ink transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-2 focus-visible:ring-offset-site-bg'
                   }
                 >
                   {action.label}
@@ -152,10 +152,10 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         </section>
 
         {/* Goal Guides */}
-        <section className='space-y-4'>
+        <section className='space-y-3'>
           <SectionHeader
             title='Browse by goal decision path'
-            subtitle='Select your outcome to compare evidence, safety constraints, typical onset, and practical tradeoffs side-by-side.'
+            subtitle='Choose a goal and compare evidence, safety, onset, and tradeoffs.'
             as='h2'
           />
           <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
@@ -163,14 +163,14 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               <Link
                 key={goal.slug}
                 href={`/goals/${goal.slug}`}
-                className='group flex flex-col justify-between rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
+                className='group flex flex-col justify-between rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-3 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div>
                   <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>{goal.eyebrow}</span>
                   <h3 className='mt-1 text-base font-bold text-ink transition group-hover:text-brand-700'>{goal.title}</h3>
-                  <p className='mt-2 line-clamp-2 text-xs leading-relaxed text-muted'>{goal.description}</p>
+                  <p className='mt-1 line-clamp-2 text-xs leading-relaxed text-muted'>{goal.description}</p>
                 </div>
-                <div className='mt-3 flex items-center justify-between border-t border-brand-900/5 pt-3 text-xs font-semibold text-brand-700'>
+                <div className='mt-2 flex items-center justify-between border-t border-brand-900/5 pt-2 text-xs font-semibold text-brand-700'>
                   <span>Compare options</span>
                   <span className='transition group-hover:translate-x-1'>→</span>
                 </div>
@@ -180,44 +180,44 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         </section>
 
         {/* Research Clusters */}
-        <section className='space-y-4'>
+        <section className='space-y-3'>
           <SectionHeader
             title='Specialized research clusters'
-            subtitle='Deep-dive comparison clusters addressing common search questions, active compounds, and safety boundaries.'
+            subtitle='Comparison clusters for common decisions and safety boundaries.'
             as='h2'
           />
-          <div className='grid gap-4 sm:grid-cols-3'>
+          <div className='grid gap-2 sm:grid-cols-3'>
             {[
               {
                 href: '/natural-anxiolytics-beyond-ashwagandha',
                 eyebrow: 'Anxiolytic cluster',
                 title: 'Beyond Ashwagandha',
-                desc: 'Compare calming botanicals like L-Theanine and Kava through structured evidence-strength profiles.',
+                desc: 'Compare calming options and safety tradeoffs.',
               },
               {
                 href: '/sleep-herbs-vs-melatonin',
                 eyebrow: 'Sleep comparison',
                 title: 'Sleep Herbs vs Melatonin',
-                desc: 'Contrast hormone-based circadian shifting against natural relaxation and muscle wind-down options.',
+                desc: 'Contrast circadian shifting with wind-down options.',
               },
               {
                 href: '/psychedelic-adjacent-herbs',
                 eyebrow: 'Harm reduction',
                 title: 'Psychedelic-Adjacent Herbs',
-                desc: 'Review conservative profile assessments, interaction boundaries, and safety warnings first.',
+                desc: 'Review interaction boundaries and safety warnings first.',
               },
             ].map((cluster) => (
               <Link
                 key={cluster.href}
                 href={cluster.href}
-                className='group flex flex-col justify-between rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
+                className='group flex flex-col justify-between rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-3 shadow-sm transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div>
                   <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>{cluster.eyebrow}</span>
                   <h3 className='mt-1 text-base font-bold text-ink transition group-hover:text-brand-700'>{cluster.title}</h3>
-                  <p className='mt-1.5 text-xs leading-relaxed text-muted'>{cluster.desc}</p>
+                  <p className='mt-1 text-xs leading-relaxed text-muted'>{cluster.desc}</p>
                 </div>
-                <span className='mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand-700'>
+                <span className='mt-2 inline-flex items-center gap-1 text-xs font-semibold text-brand-700'>
                   Open comparison <span className='transition group-hover:translate-x-1'>→</span>
                 </span>
               </Link>
@@ -230,7 +230,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Popular research starting points'
-              subtitle='Examples of evidence-aware profiles — not endorsements or medical recommendations.'
+              subtitle='Popular profiles to compare first.'
               as='h2'
             />
             <div className='flex flex-wrap gap-3 text-sm font-semibold'>
@@ -244,7 +244,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 key={item.href}
                 href={item.href}
                 aria-label={`View ${item.meta} for ${item.title}`}
-                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-3 transition hover:border-brand-900/20 hover:bg-white'
+                className='group rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-3 transition hover:border-brand-900/20 hover:bg-white'
               >
                 <div className='relative'>
                   <span className='inline-flex text-xs font-semibold uppercase tracking-[0.16em] text-brand-700'>{item.meta}</span>
@@ -258,10 +258,10 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         </section>
 
         {/* Disclaimer */}
-        <section className='rounded-[1rem] border border-amber-200/80 bg-amber-50/60 p-4'>
+        <section className='rounded-[0.85rem] border border-amber-200/80 bg-amber-50/60 p-3'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
             <p className='max-w-4xl text-sm leading-6 text-amber-950/85'>
-              <strong>Important Notice:</strong> Natural does not automatically mean safe or effective. The information here supports comparison and mechanistic research. Always consult a physician and review potential contraindications before beginning any supplement routine.
+              <strong>Important Notice:</strong> Natural does not automatically mean safe or effective. Use this for comparison only. Review contraindications and ask a clinician before starting supplements.
             </p>
             <Link
               href='/disclaimer'

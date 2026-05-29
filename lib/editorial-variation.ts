@@ -57,7 +57,7 @@ export function buildVariedSummary(input: EditorialInput) {
       : `Current coverage leans exploratory, with ${join(focus)} providing biological plausibility rather than proof of effect.`,
     tone === 'strong'
       ? `Evidence maturity is comparatively higher here, though safety and applicability still require context.`
-      : `The useful reading frame is mechanistic and evidence-aware, with restraint around practical conclusions.`,
+      : `The useful reading frame is mechanistic and evidence-informed, with restraint around practical conclusions.`,
   ]
 
   return choices[variant(input, choices.length)]

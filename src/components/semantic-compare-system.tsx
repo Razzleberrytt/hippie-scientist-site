@@ -176,7 +176,7 @@ export default function SemanticCompareSystem({
   return (
     <div className="section-rhythm-balanced">
       <CompareRail
-        eyebrow="Evidence-aware alternatives"
+        eyebrow="Evidence-informed alternatives"
         title="Stronger evidence comparisons"
         description="Profiles surfaced through broader human evidence, richer clinical interpretation, or stronger publication maturity."
         items={strongerEvidence}

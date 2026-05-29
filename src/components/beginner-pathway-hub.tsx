@@ -9,7 +9,7 @@ export default function BeginnerPathwayHub() {
       <div className="space-y-2">
         <p className="eyebrow-label">Beginner Onboarding</p>
         <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-          Guided starting pathways for evidence-aware exploration
+          Guided starting pathways for evidence-informed exploration
         </h2>
         <p className="detail-reading max-w-3xl text-[#46574d]">
           Start with a practical goal instead of jumping randomly between profiles. These onboarding pathways help organize exploration by fit, stimulation level, recovery orientation, and expected timeline.

@@ -33,7 +33,7 @@ export const semanticCollections: SemanticCollection[] = [
   {
     slug: 'inflammation-and-recovery-networks',
     title: 'Inflammation and recovery networks',
-    description: 'Evidence-aware profiles connected to inflammatory signaling, oxidative stress, repair, and recovery ecosystems.',
+    description: 'Profiles connected to inflammatory signaling, oxidative stress, repair, and recovery ecosystems.',
     intent: 'mechanism',
     keywords: ['inflammation', 'recovery', 'oxidative', 'pain', 'immune', 'cox', 'nf-kb'],
   },

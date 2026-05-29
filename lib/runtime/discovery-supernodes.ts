@@ -31,7 +31,7 @@ export const DISCOVERY_SUPERNODES: DiscoverySupernode[] = [
     href: '/education/what-are-adaptogens',
     title: 'What Are Adaptogens?',
     description:
-      'Evidence-aware exploration of stress-response systems, resilience biology, and adaptogenic neuropharmacology.',
+      'Evidence-informed exploration of stress-response systems, resilience biology, and adaptogenic neuropharmacology.',
     category: 'Stress Physiology',
   },
   {

@@ -7,7 +7,7 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Ashwagandha vs Rhodiola for Stress"
-        description="Evidence-aware comparison of ashwagandha and rhodiola for stress patterns, fatigue, calm support, safety, and supplement selection."
+        description="Evidence-informed comparison of ashwagandha and rhodiola for stress patterns, fatigue, calm support, safety, and supplement selection."
         url="https://thehippiescientist.net/compare/ashwagandha-vs-rhodiola-for-stress"
         type="Article"
       />

@@ -21,7 +21,7 @@ const systems = [
   {
     href: '/compounds/l-theanine',
     title: 'L-Theanine',
-    description: 'Evidence-aware calm-focus compound frequently discussed in cognition-support ecosystems.',
+    description: 'Evidence-informed calm-focus compound frequently discussed in cognition-support ecosystems.',
   },
   {
     href: '/education/scientific-but-human-neuroscience',
@@ -68,7 +68,7 @@ export default function NootropicEducationPage() {
     <main className='container-page py-10 space-y-12'>
       <AuthorityJsonLd
         title='What Is a Nootropic?'
-        description='Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and evidence-aware cognitive support.'
+        description='Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.'
         url='https://thehippiescientist.net/education/what-is-a-nootropic'
         type='Article'
       />

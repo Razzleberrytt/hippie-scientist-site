@@ -12,7 +12,7 @@ export default function Page() {
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <p className="eyebrow-label">Stress education</p>
         <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">How to Lower Cortisol Naturally</h1>
-        <p className="detail-reading mt-4 text-muted">Cortisol follows daily rhythms. Use this as a decision guide for sleep, routine stressors, and evidence-aware supplement exploration.</p>
+        <p className="detail-reading mt-4 text-muted">Cortisol follows daily rhythms. Use this as a decision guide for sleep, routine stressors, and evidence-informed supplement exploration.</p>
       </section>
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {['Ashwagandha', 'Rhodiola', 'Holy Basil'].map((item) => (

@@ -17,7 +17,7 @@ export const learnPosts: LearnPost[] = [
   {
     slug: 'cognitive-stack-that-actually-makes-sense',
     title: 'The Cognitive Stack That Actually Makes Sense',
-    description: 'A practical, evidence-aware cognitive stack using Gotu Kola, Bacopa, Lion’s Mane, Ginkgo, Rhodiola, and L-Theanine.',
+    description: 'A practical, evidence-informed cognitive stack using Gotu Kola, Bacopa, Lion’s Mane, Ginkgo, Rhodiola, and L-Theanine.',
     category: 'Cognition',
     readingTime: '6 min read',
     hero: 'Most brain stacks online are random. This one is built around clear roles: calm focus, memory, circulation, fatigue resistance, and long-term cognitive support.',
