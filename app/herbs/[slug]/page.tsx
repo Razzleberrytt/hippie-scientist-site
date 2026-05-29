@@ -410,7 +410,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <div className="space-y-6">
           <div className="space-y-2">
             <p className="eyebrow-label">Evidence summary</p>
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
+            <h2 className="text-xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
             <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
               {displayName} is categorized as {researchMaturity.toLowerCase()} with a {researchStyle.toLowerCase()} evidence style. Interpret benefits by outcome, preparation, dose, and the safety context above.
             </p>
@@ -543,7 +543,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   ]
 
   return (
-    <main className="mx-auto max-w-6xl space-y-12 px-4 py-8 sm:space-y-16 sm:py-10">
+    <main className="mx-auto max-w-6xl space-y-8 px-4 py-6 sm:space-y-10 sm:py-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(herbJsonLd) }}
@@ -562,7 +562,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <span className="text-ink">{displayName}</span>
       </nav>
 
-      <section className="hero-shell rounded-[1.75rem] p-4 sm:p-6 lg:p-8">
+      <section className="hero-shell rounded-[1.25rem] p-4 sm:p-5 lg:p-6">
         <div className="space-y-4">
           <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.14em] text-muted">
             <Link href="/herbs" className="transition hover:text-ink">Back to herbs</Link>
@@ -574,7 +574,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             <div className="space-y-3 lg:pt-2">
               <div className="space-y-2">
                 <p className="eyebrow-label">Herb research brief</p>
-                <h1 className="text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+                <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
                   {displayName}
                 </h1>
                 {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
@@ -596,7 +596,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
               title="5-second profile read"
               subtitle="Educational overview only. Individual response and tolerance can vary."
               badge="Start here"
-              className="rounded-[1.65rem] border border-brand-900/10 bg-white/95 p-4 shadow-[0_18px_45px_rgba(47,64,52,0.12)] sm:p-5 lg:sticky lg:top-6"
+              className="rounded-[1.1rem] border border-brand-900/10 bg-white/95 p-4 shadow-sm lg:sticky lg:top-6"
               fields={buildDetailEvidenceSnapshotFields({
                 bestFit: topUses.slice(0, 3).join(', '),
                 humanEvidence: evidenceStrength || researchMaturity,
@@ -630,10 +630,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <section className="rounded-3xl bg-amber-50/70 p-5 sm:p-6">
+      <section className="rounded-[1.1rem] bg-amber-50/70 p-4 sm:p-5">
         <div className="space-y-2">
           <p className="eyebrow-label text-amber-900">Safety first</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">Review cautions before use</h2>
+          <h2 className="text-xl font-semibold tracking-tight text-ink">Review cautions before use</h2>
           <p className="max-w-4xl text-sm leading-6 text-[#5f4a24]">{safetySummary}</p>
         </div>
 

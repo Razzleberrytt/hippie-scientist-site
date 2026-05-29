@@ -58,26 +58,26 @@ export default function BlogPage() {
   const remainingPosts = sortedPosts.slice(1)
 
   return (
-    <div className="section-spacing pb-20">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
+    <div className="section-spacing pb-16">
+      <section className="hero-shell rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
         <p className="eyebrow-label">Scientific editorial layer</p>
-        <h1 className="mt-3 heading-premium max-w-4xl">Research notes that connect the library.</h1>
-        <p className="mt-5 text-reading max-w-3xl text-muted-soft">
-          Articles are not separate from the database — they are the interpretive layer that explains mechanisms, preparation choices, traditional context, safety limits, and evidence maturity.
+        <h1 className="mt-2 heading-premium max-w-3xl">Research notes that connect the library.</h1>
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-soft">
+          Mechanisms, preparation choices, traditional context, safety limits, and evidence maturity — organized for fast scanning.
         </p>
-        <p className="mt-4 text-sm font-semibold text-[#46574d]">{sortedPosts.length} research notes available</p>
+        <p className="mt-3 text-sm font-semibold text-[#46574d]">{sortedPosts.length} research notes available</p>
       </section>
 
       {featuredPost ? (
         <section className="surface-depth card-spacing">
           <p className="eyebrow-label">Latest research note</p>
-          <Link href={`/blog/${featuredPost.slug}`} className="identity-article scientific-card mt-5 group">
+          <Link href={`/blog/${featuredPost.slug}`} className="identity-article scientific-card mt-4 group">
             <div className="flex flex-wrap items-center gap-3">
               <span className="identity-kicker">{inferArticleStyle(featuredPost)}</span>
               <span className="identity-meta">{formatDate(featuredPost.date)} • {featuredPost.readingTime}</span>
             </div>
-            <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-ink group-hover:text-brand-800">{featuredPost.title}</h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-[#46574d] sm:text-base">{truncateText(featuredPost.excerpt, 280)}</p>
+            <h2 className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight text-ink group-hover:text-brand-800 sm:text-3xl">{featuredPost.title}</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-[#46574d]">{truncateText(featuredPost.excerpt, 190)}</p>
             <span className="mt-5 inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-0.5">Read note →</span>
           </Link>
         </section>
@@ -85,7 +85,7 @@ export default function BlogPage() {
 
       <SemanticBrowseModule
         eyebrow="Browse articles by research style"
-        title="Choose the kind of scientific context you need."
+        title="Choose the context you need."
         groups={[
           { title: 'Research digests', description: 'Evidence summaries with limitations and cautious interpretation.', href: '/blog', meta: 'Evidence' },
           { title: 'Pharmacology basics', description: 'Mechanism-first explainers for pathways, compounds, and receptor context.', href: '/blog', meta: 'Mechanism' },

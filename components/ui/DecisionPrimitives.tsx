@@ -89,23 +89,21 @@ export function DecisionFilterGroup({
   open?: boolean
 }) {
   const itemClass = (active: boolean) =>
-    `min-h-12 rounded-[1rem] border px-3 py-3 text-sm font-semibold leading-snug transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`
+    `rounded-full border px-3 py-2 text-xs font-semibold leading-tight transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`
 
   return (
-    <details className="mt-4 rounded-[1.2rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 shadow-none sm:p-4" open={open || undefined}>
-      <summary className="flex min-h-12 items-center justify-between gap-4 text-sm font-bold text-ink">
+    <details className="mt-3 rounded-[1rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 shadow-none" open={open || undefined}>
+      <summary className="flex min-h-10 items-center justify-between gap-4 text-sm font-bold text-ink">
         <span>Refine by context</span>
         <span className="text-brand-800" aria-hidden="true">↓</span>
       </summary>
-      <div className="mt-3 grid gap-2 sm:mt-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-3 flex flex-wrap gap-2">
         <Link href={buildHref('all', query)} className={itemClass(activeFilter === 'all')}>
           All contexts
-          <span className="mt-1 block text-xs font-medium leading-5 text-[#64746a]">Keep the scan broad.</span>
         </Link>
         {options.map(option => (
           <Link key={option.value} href={buildHref(option.value, query)} className={itemClass(activeFilter === option.value)}>
             {option.label}
-            <span className="mt-1 block text-xs font-medium leading-5 text-[#64746a]">{option.hint}</span>
           </Link>
         ))}
       </div>
@@ -141,11 +139,11 @@ export function DecisionProfileCard({
   return (
     <Link
       href={href}
-      className="group flex h-full min-h-[15rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[16rem] sm:p-5"
+      className="group flex h-full flex-col rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-200 hover:border-brand-700/20 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
     >
       <div className="flex flex-1 flex-col">
         <div className="flex min-w-0 items-start justify-between gap-3">
-          <h3 className="min-w-0 break-words text-[1.3rem] font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-2xl">
+          <h3 className="min-w-0 break-words text-lg font-semibold leading-tight tracking-tight text-ink transition group-hover:text-brand-800 sm:text-xl">
             {name}
           </h3>
           {featured ? (
@@ -155,16 +153,16 @@ export function DecisionProfileCard({
           ) : null}
         </div>
 
-        <p className="mt-3 line-clamp-2 text-[0.95rem] leading-6 text-[#46574d]">
+        <p className="mt-2 line-clamp-2 text-sm leading-5 text-[#46574d]">
           {summary || fallbackSummary}
         </p>
 
-        <div className="mt-4 rounded-[1.1rem] border border-brand-900/10 bg-brand-50/45 p-3">
+        <div className="mt-3 rounded-[0.9rem] border border-brand-900/10 bg-brand-50/45 p-3">
           <p className={`${decisionMicroLabelClass} text-brand-800`}>Best-for context</p>
-          <p className="mt-1.5 text-base font-semibold leading-6 text-[#203329]">{bestFor}</p>
+          <p className="mt-1 text-sm font-semibold leading-5 text-[#203329]">{bestFor}</p>
         </div>
 
-        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+        <div className="mt-3 grid gap-2 sm:grid-cols-3">
           <DecisionMetric label="Evidence" value={evidence} />
           <DecisionMetric label="Safety" value={safety} />
           <DecisionMetric label="Time" value={timeToEffect} />
@@ -181,8 +179,8 @@ export function DecisionProfileCard({
         ) : null}
       </div>
 
-      <div className="mt-4 flex min-h-11 items-center justify-center rounded-full bg-brand-800 px-4 py-3 text-sm font-bold text-white transition group-hover:bg-brand-900 group-focus-visible:bg-brand-900">
-        View profile <span className="ml-2 transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+      <div className="mt-3 text-sm font-bold text-brand-800 transition group-hover:text-brand-900">
+        View profile <span aria-hidden="true">→</span>
       </div>
     </Link>
   )
