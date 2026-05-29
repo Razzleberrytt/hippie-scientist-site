@@ -45,7 +45,7 @@ export default async function CompoundsPage() {
     }))
 
   return (
-    <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
+    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
         <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-5xl">Compound profiles and mechanism guides</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg">
@@ -66,9 +66,20 @@ export default async function CompoundsPage() {
         </section>
       ) : null}
 
+      {/* Server-rendered link index for SEO crawlability — the interactive card grid is rendered by CompoundsIndexClient below */}
+      <nav aria-label="Compound profiles index" className="sr-only">
+        <ul>
+          {compounds.map((compound: any) => (
+            <li key={compound.slug}>
+              <Link href={`/compounds/${compound.slug}`}>{compound.displayName || compound.name || compound.slug}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       <Suspense fallback={null}>
         <CompoundsIndexClient compounds={compounds} />
       </Suspense>
-    </main>
+    </div>
   )
 }

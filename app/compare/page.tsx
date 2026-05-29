@@ -53,7 +53,7 @@ export default async function ComparePage() {
     }))
 
   return (
-    <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
+    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
         <p className="eyebrow-label">Evidence-aware comparison</p>
         <div className="mt-3 max-w-3xl space-y-4">
@@ -112,6 +112,6 @@ export default async function ComparePage() {
         </div>
         <CompareTableClient compounds={safeCompounds} />
       </section>
-    </main>
+    </div>
   )
 }

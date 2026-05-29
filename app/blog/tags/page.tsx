@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 
 export default function BlogTagsPage() {
   const tags = getBlogTags()
-  return <main className="section-spacing pb-20"><h1>Blog tags</h1><ul className="mt-6 space-y-3">{tags.map(tag => <li key={tag.slug}>{tag.label} ({tag.count})</li>)}</ul></main>
+  return <div className="section-spacing pb-20"><h1>Blog tags</h1><ul className="mt-6 space-y-3">{tags.map(tag => <li key={tag.slug}><a href={`/blog?tag=${tag.slug}`} className="text-brand-800 hover:underline font-medium">{tag.label}</a> <span className="text-muted">({tag.count})</span></li>)}</ul></div>
 }

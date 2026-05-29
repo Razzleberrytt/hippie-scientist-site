@@ -9,5 +9,5 @@ export const metadata: Metadata = {
 
 export default function BlogCategoriesPage() {
   const categories = getBlogCategories()
-  return <main className="section-spacing pb-20"><h1>Blog categories</h1><ul className="mt-6 space-y-3">{categories.map(category => <li key={category.slug}><span>{category.label}</span> <span>({category.count})</span></li>)}</ul></main>
+  return <div className="section-spacing pb-20"><h1>Blog categories</h1><ul className="mt-6 space-y-3">{categories.map(category => <li key={category.slug}><a href={`/blog?category=${category.slug}`} className="text-brand-800 hover:underline font-medium">{category.label}</a> <span className="text-muted">({category.count})</span></li>)}</ul></div>
 }

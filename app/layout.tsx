@@ -119,7 +119,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 </p>
 
                 <p className='text-sm text-muted'>
-                  © 2026 The Hippie Scientist
+                  © {new Date().getFullYear()} The Hippie Scientist
                 </p>
               </section>
             </div>

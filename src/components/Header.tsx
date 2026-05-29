@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/goals', label: 'Goals' },
   { href: '/stacks', label: 'Stacks' },
   { href: '/compare', label: 'Compare' },
+  { href: '/blog', label: 'Blog' },
   { href: '/learn', label: 'Learn' },
   { href: '/search', label: 'Search' },
   { href: '/about', label: 'About' },

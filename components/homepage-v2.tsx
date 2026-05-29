@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
 import { goals } from '@/data/goals'

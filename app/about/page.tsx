@@ -12,45 +12,41 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className='space-y-8'>
-      <section className='rounded-3xl border border-white/10 bg-white/[0.03] p-6 sm:p-8'>
-        <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+    <div className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-12'>
+      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10'>
+        <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>
           About
         </p>
 
-        <h1 className='mt-2 text-4xl font-bold tracking-tight sm:text-5xl'>
+        <h1 className='mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
           About The Hippie Scientist
         </h1>
 
-        <p className='mt-4 max-w-3xl text-base leading-7 text-white/75 sm:text-lg'>
+        <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
           The Hippie Scientist is a plain-English, science-first educational site
-          about herbs, compounds, and related research notes.
+          about herbs, compounds, and related research notes. The goal is to make
+          complicated topics easier to browse without pretending that internet
+          content replaces personal medical advice.
         </p>
 
-        <p className='mt-3 max-w-3xl text-sm leading-6 text-white/65 sm:text-base'>
-          The goal is to make complicated topics easier to browse and understand
-          without pretending internet content is the same thing as personal
-          medical advice.
-        </p>
-
-        <div className='mt-6 flex flex-wrap gap-3'>
+        <div className='mt-7 flex flex-wrap gap-3'>
           <Link
             href='/herbs'
-            className='rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition hover:opacity-90'
+            className='rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900'
           >
             Browse herbs
           </Link>
 
           <Link
             href='/compounds'
-            className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
+            className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'
           >
             Browse compounds
           </Link>
 
           <Link
             href='/blog'
-            className='rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/30 hover:bg-white/5'
+            className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'
           >
             Read the blog
           </Link>
@@ -58,40 +54,40 @@ export default function AboutPage() {
       </section>
 
       <section className='grid gap-4 lg:grid-cols-3'>
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+        <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm'>
+          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>
             What you will find
           </p>
 
-          <h2 className='mt-3 text-2xl font-semibold'>Structured profiles</h2>
+          <h2 className='mt-3 text-xl font-semibold text-ink'>Structured profiles</h2>
 
-          <p className='mt-3 text-sm leading-6 text-white/70'>
-            Herb and compound pages are meant to be easy to scan, with summaries,
+          <p className='mt-3 text-sm leading-6 text-muted'>
+            Herb and compound pages are easy to scan, with summaries,
             mechanisms, safety notes, and related reading where available.
           </p>
         </div>
 
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+        <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm'>
+          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>
             How to use it
           </p>
 
-          <h2 className='mt-3 text-2xl font-semibold'>Start broad, then narrow</h2>
+          <h2 className='mt-3 text-xl font-semibold text-ink'>Start broad, then narrow</h2>
 
-          <p className='mt-3 text-sm leading-6 text-white/70'>
+          <p className='mt-3 text-sm leading-6 text-muted'>
             Use the libraries to explore a topic, then open specific detail pages
             and blog posts for more context.
           </p>
         </div>
 
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+        <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm'>
+          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>
             Important note
           </p>
 
-          <h2 className='mt-3 text-2xl font-semibold'>Educational only</h2>
+          <h2 className='mt-3 text-xl font-semibold text-ink'>Educational only</h2>
 
-          <p className='mt-3 text-sm leading-6 text-white/70'>
+          <p className='mt-3 text-sm leading-6 text-muted'>
             This site is for education and research context. It is not diagnosis,
             treatment, or personal medical advice.
           </p>
@@ -99,14 +95,14 @@ export default function AboutPage() {
       </section>
 
       <section className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr]'>
-        <div className='ds-card'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+        <div className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-8'>
+          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>
             What the project is trying to do
           </p>
 
-          <h2 className='mt-3 text-3xl font-semibold'>Readable science communication</h2>
+          <h2 className='mt-3 text-2xl font-semibold text-ink'>Readable science communication</h2>
 
-          <div className='mt-4 space-y-4 text-sm leading-7 text-white/75 sm:text-base'>
+          <div className='mt-4 space-y-4 text-sm leading-7 text-muted sm:text-base'>
             <p>
               A lot of herb and supplement information online is either too vague,
               too salesy, or too technical to be useful for beginners.
@@ -118,49 +114,69 @@ export default function AboutPage() {
             </p>
 
             <p>
-              Over time, the site can keep improving with better summaries, better
+              Over time, the site keeps improving with better summaries, better
               navigation, and more complete profile pages.
             </p>
           </div>
         </div>
 
-        <aside className='ds-card h-fit'>
-          <p className='text-sm font-medium uppercase tracking-[0.2em] text-white/50'>
+        <aside className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm h-fit'>
+          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>
             Good starting points
           </p>
 
           <div className='mt-4 space-y-3'>
             <Link
               href='/herbs'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
+              className='block rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-4 transition hover:border-brand-700/20 hover:bg-white hover:-translate-y-0.5 shadow-sm'
             >
-              <p className='text-sm font-semibold text-white'>Herb library</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
+              <p className='text-sm font-semibold text-ink'>Herb library</p>
+              <p className='mt-1 text-sm leading-6 text-muted'>
                 Browse plant profiles and quick summaries.
               </p>
             </Link>
 
             <Link
               href='/compounds'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
+              className='block rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-4 transition hover:border-brand-700/20 hover:bg-white hover:-translate-y-0.5 shadow-sm'
             >
-              <p className='text-sm font-semibold text-white'>Compound library</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
+              <p className='text-sm font-semibold text-ink'>Compound library</p>
+              <p className='mt-1 text-sm leading-6 text-muted'>
                 Review constituents, classes, and concise notes.
               </p>
             </Link>
 
             <Link
               href='/blog'
-              className='block rounded-2xl border border-white/10 px-4 py-4 transition hover:border-white/25 hover:bg-white/5'
+              className='block rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-4 transition hover:border-brand-700/20 hover:bg-white hover:-translate-y-0.5 shadow-sm'
             >
-              <p className='text-sm font-semibold text-white'>Blog</p>
-              <p className='mt-1 text-sm leading-6 text-white/65'>
+              <p className='text-sm font-semibold text-ink'>Blog</p>
+              <p className='mt-1 text-sm leading-6 text-muted'>
                 Read explainers, comparisons, and practical notes.
+              </p>
+            </Link>
+
+            <Link
+              href='/goals'
+              className='block rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-4 transition hover:border-brand-700/20 hover:bg-white hover:-translate-y-0.5 shadow-sm'
+            >
+              <p className='text-sm font-semibold text-ink'>Goal guides</p>
+              <p className='mt-1 text-sm leading-6 text-muted'>
+                Find options by what you are trying to support.
               </p>
             </Link>
           </div>
         </aside>
+      </section>
+
+      <section className='rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950'>
+        <p className='font-semibold'>Disclaimer</p>
+        <p className='mt-1'>
+          All content on this site is educational. It is not intended as medical
+          advice, diagnosis, or treatment. Always consult a qualified healthcare
+          professional before making decisions about supplements, medications, or
+          health interventions.
+        </p>
       </section>
     </div>
   )

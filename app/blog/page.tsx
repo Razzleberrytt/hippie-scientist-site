@@ -45,7 +45,7 @@ export default function BlogPage() {
   const remainingPosts = sortedPosts.slice(1)
 
   return (
-    <main className="section-spacing pb-20">
+    <div className="section-spacing pb-20">
       <section className="hero-shell rounded-[2rem] border border-white/50 p-6 shadow-card sm:p-8 lg:p-10">
         <p className="eyebrow-label">Scientific editorial layer</p>
         <h1 className="mt-3 heading-premium max-w-4xl">Research notes that connect the library.</h1>
@@ -103,6 +103,6 @@ export default function BlogPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }
