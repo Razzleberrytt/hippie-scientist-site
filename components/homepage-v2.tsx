@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
+import { goals } from '@/data/goals'
 
 type RuntimeFeature = Record<string, unknown>
 
@@ -17,11 +18,6 @@ type LandingCard = {
   meta: string
 }
 
-type NavCard = {
-  href: string
-  title: string
-  description?: string
-}
 
 type SectionHeaderProps = {
   title: string
@@ -67,16 +63,10 @@ function interleaveFeatured(herbs: LandingCard[], compounds: LandingCard[]) {
 }
 
 const primaryActions = [
-  { label: 'Start with goals', href: '/goals' },
-  { label: 'Compare options', href: '/compare' },
-  { label: 'Search evidence notes', href: '/search' },
+  { label: 'Goal Decision Guides', href: '/goals' },
+  { label: 'Side-by-Side Compare', href: '/compare' },
+  { label: 'Safety Interaction Checker', href: '/safety-checker' },
 ]
-
-const goalsBridge: NavCard = {
-  title: 'Explore by goal',
-  href: '/goals',
-  description: 'Use practical decision guides to narrow options before reviewing full herb and compound profiles.',
-}
 
 const featuredFallbacks: LandingCard[] = [
   {
@@ -137,8 +127,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <main className='overflow-x-clip bg-site-bg'>
-      <div className='mx-auto max-w-6xl space-y-6 px-4 pb-6 pt-7 sm:px-6 sm:space-y-8 sm:pb-8 sm:pt-10 lg:px-8'>
-        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-5 shadow-sm sm:px-7 sm:py-8 lg:py-10'>
+      <div className='mx-auto max-w-6xl space-y-8 px-4 pb-6 pt-7 sm:px-6 sm:space-y-10 sm:pb-8 sm:pt-10 lg:px-8'>
+        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 px-4 py-6 shadow-sm sm:px-7 sm:py-8 lg:py-10'>
           <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
             <p role='doc-subtitle' className='mb-4 inline-flex text-xs font-semibold uppercase tracking-[0.2em] text-brand-700'>
               Evidence-aware botanical research
@@ -148,12 +138,12 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               <span className='block'>The Hippie Scientist</span>
             </h1>
 
-            <p className='mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg'>
-              Compare herbs and compounds with evidence strength, mechanism context, and safety tradeoffs presented in a clear, practical format.
+            <p className='mt-5 max-w-2xl text-base leading-7 text-muted sm:text-lg font-medium'>
+              The Hippie Scientist helps you compare herbs and compounds using evidence, safety, and practical decision filters.
             </p>
 
             <p className='mt-2 max-w-2xl text-sm leading-6 text-muted'>
-              Use these profiles to orient decisions thoughtfully — and remember that results vary between individuals.
+              Use these profiles to orient decisions thoughtfully based on clinical data, not wellness hype. Individual response varies.
             </p>
 
             <div className='mt-5 grid w-full max-w-2xl gap-2 sm:grid-cols-3'>
@@ -177,11 +167,110 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
+        {/* Goal Guides Section */}
+        <section className='space-y-4'>
+          <SectionHeader
+            title='Browse by goal decision path'
+            subtitle='Select your outcome to compare evidence, safety constraints, typical onset, and practical tradeoffs side-by-side.'
+            as='h2'
+          />
+          <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+            {goals.map((goal) => (
+              <Link
+                key={goal.slug}
+                href={`/goals/${goal.slug}`}
+                className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white shadow-sm flex flex-col justify-between'
+              >
+                <div>
+                  <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>
+                    {goal.eyebrow}
+                  </span>
+                  <h3 className='mt-1 text-base font-bold text-ink group-hover:text-brand-700 transition'>
+                    {goal.title.replace(' decisions', '').replace(' resilience', '')}
+                  </h3>
+                  <p className='mt-2 text-xs leading-relaxed text-muted line-clamp-2'>
+                    {goal.description}
+                  </p>
+                </div>
+                <div className='mt-3 pt-3 border-t border-brand-900/5 flex items-center justify-between text-xs font-semibold text-brand-700'>
+                  <span>Compare options</span>
+                  <span className='transition group-hover:translate-x-1'>→</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Specialized Discovery Clusters */}
+        <section className='space-y-4'>
+          <SectionHeader
+            title='Specialized research clusters'
+            subtitle='Deep-dive comparison clusters addressing common search questions, active compounds, and safety boundaries.'
+            as='h2'
+          />
+          <div className='grid gap-4 sm:grid-cols-3'>
+            <Link
+              href='/natural-anxiolytics-beyond-ashwagandha'
+              className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white shadow-sm flex flex-col justify-between'
+            >
+              <div>
+                <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>Anxiolytic cluster</span>
+                <h3 className='mt-1 text-base font-bold text-ink group-hover:text-brand-700 transition'>
+                  Beyond Ashwagandha
+                </h3>
+                <p className='mt-1.5 text-xs leading-relaxed text-muted'>
+                  Compare calming botanicals like L-Theanine and Kava through structured evidence-strength profiles.
+                </p>
+              </div>
+              <span className='mt-3 text-xs font-semibold text-brand-700 inline-flex items-center gap-1'>
+                Open comparison <span className='transition group-hover:translate-x-1'>→</span>
+              </span>
+            </Link>
+
+            <Link
+              href='/sleep-herbs-vs-melatonin'
+              className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white shadow-sm flex flex-col justify-between'
+            >
+              <div>
+                <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>Sleep comparison</span>
+                <h3 className='mt-1 text-base font-bold text-ink group-hover:text-brand-700 transition'>
+                  Sleep Herbs vs Melatonin
+                </h3>
+                <p className='mt-1.5 text-xs leading-relaxed text-muted'>
+                  Contrast hormone-based circadian shifting against natural relaxation and muscle wind-down options.
+                </p>
+              </div>
+              <span className='mt-3 text-xs font-semibold text-brand-700 inline-flex items-center gap-1'>
+                Open comparison <span className='transition group-hover:translate-x-1'>→</span>
+              </span>
+            </Link>
+
+            <Link
+              href='/psychedelic-adjacent-herbs'
+              className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:border-brand-900/20 hover:bg-white shadow-sm flex flex-col justify-between'
+            >
+              <div>
+                <span className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>Harm reduction</span>
+                <h3 className='mt-1 text-base font-bold text-ink group-hover:text-brand-700 transition'>
+                  Psychedelic-Adjacent Herbs
+                </h3>
+                <p className='mt-1.5 text-xs leading-relaxed text-muted'>
+                  Review conservative profile assessments, interaction boundaries, and safety warnings first.
+                </p>
+              </div>
+              <span className='mt-3 text-xs font-semibold text-brand-700 inline-flex items-center gap-1'>
+                Open comparison <span className='transition group-hover:translate-x-1'>→</span>
+              </span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Popular Profiles Library links */}
         <section className='space-y-2.5 sm:space-y-3'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
-              title='Popular starting points'
-              subtitle='Examples for quick orientation — not endorsements or personalized recommendations.'
+              title='Popular research starting points'
+              subtitle='Examples of evidence-aware profiles — not endorsements or medical recommendations.'
               as='h2'
             />
             <div className='flex flex-wrap gap-3 text-sm font-semibold'>
@@ -219,30 +308,13 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <section className='space-y-2'>
-          <SectionHeader
-            title='Explore by practical context'
-            subtitle='Need a fast triage path? Start with goals, then dive deeper only where needed.'
-            as='h2'
-          />
-          <Link
-            href={goalsBridge.href}
-            className='group block rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 transition hover:border-brand-900/20 hover:bg-white'
-          >
-            <h3 className='text-sm font-semibold tracking-tight text-ink'>{goalsBridge.title}</h3>
-            <p className='mt-1 text-sm leading-5 text-muted'>{goalsBridge.description}</p>
-            <span className='mt-2 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:translate-x-0.5'>
-              Open goals guides <span aria-hidden='true'>→</span>
-            </span>
-          </Link>
-        </section>
-
-        <section className='rounded-2xl border border-amber-200/80 bg-amber-50/60 p-3 sm:p-3.5'>
+        {/* Educational safety disclaimer */}
+        <section className='rounded-2xl border border-amber-200/80 bg-amber-50/60 p-4 sm:p-5'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
-            <p className='text-sm leading-5 text-amber-950/75'>
-              Natural does not automatically mean safe or effective. These pages support comparison and pathway understanding — not medical care.
+            <p className='text-sm leading-6 text-amber-950/85 max-w-4xl'>
+              <strong>Important Notice:</strong> Natural does not automatically mean safe or effective. The information here supports comparison and mechanistic research. Always consult a physician and review potential contraindications before beginning any supplement routine.
             </p>
-            <Link href='/disclaimer' className='shrink-0 text-sm font-semibold text-amber-900/90 transition hover:text-amber-950'>
+            <Link href='/disclaimer' className='shrink-0 text-sm font-semibold text-amber-900/90 transition hover:text-amber-950 whitespace-nowrap'>
               Read disclaimer →
             </Link>
           </div>

@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import data from '@/public/data/affiliate-products.json'
+import { AFFILIATE_TAGS } from '@/config/affiliate'
 import AffiliateProductCard from './AffiliateProductCard'
 
 const normalize = (str: string) =>
@@ -36,7 +37,7 @@ export default function AffiliateBlock({ compound, intentLabel, compact = false 
       <div className='rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.06] p-3'>
         {intentLabel ? <p className='mb-2 text-xs font-black uppercase tracking-[0.16em] text-emerald-100'>{intentLabel}</p> : null}
         <a
-          href={`https://www.amazon.com/s?k=${encodeURIComponent(`${displayName} supplement`)}&tag=razzleberry02-20`}
+          href={`https://www.amazon.com/s?k=${encodeURIComponent(`${displayName} supplement`)}&tag=${AFFILIATE_TAGS.amazon}`}
           target='_blank'
           rel='noopener noreferrer sponsored'
           className='block w-full rounded-xl bg-emerald-300 py-2.5 text-center text-sm font-black text-black hover:bg-emerald-200'

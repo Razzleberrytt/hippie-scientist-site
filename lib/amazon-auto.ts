@@ -1,5 +1,7 @@
+import { AFFILIATE_TAGS } from '@/config/affiliate'
+
 export function generateAmazonProductPicks(slug: string) {
-  const base = `https://www.amazon.com/s?k=${encodeURIComponent(slug)}&tag=razzleberry02-20`
+  const base = `https://www.amazon.com/s?k=${encodeURIComponent(slug)}&tag=${AFFILIATE_TAGS.amazon}`
 
   return {
     top: {

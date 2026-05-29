@@ -12,16 +12,25 @@ const hrefRe=/href=["'](\/[^"'#\s>]+)["']/g
 
 async function run() {
   const batchSize = 100
+  console.log(`[internal-links] Starting audit of ${files.length} HTML files in batches of ${batchSize}...`)
   for (let i = 0; i < files.length; i += batchSize) {
+    console.log(`[internal-links] Processing batch ${i / batchSize + 1}/${Math.ceil(files.length / batchSize)} (files ${i} to ${Math.min(i + batchSize, files.length)})...`)
     const batch = files.slice(i, i + batchSize)
-    await Promise.all(batch.map(async (f) => {
+    await Promise.all(batch.map(async (f, idx) => {
       const route='/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/$/,'')||'/';
+      const fileIndex = i + idx;
+      console.log(`[internal-links] Scanning ${fileIndex}: ${route}`);
       const html=await fsPromises.readFile(f,'utf8');
+      const start = Date.now();
       for(const m of html.matchAll(hrefRe)){
         const h=m[1];
         if(!h.startsWith('/')) continue;
         const t=h.split('?')[0].replace(/\/$/,'')||'/';
         if(graph.has(t)) graph.get(route).add(t)
+      }
+      const duration = Date.now() - start;
+      if (duration > 100) {
+        console.log(`[internal-links] Warning: File ${fileIndex} ${route} took ${duration}ms to scan regex`);
       }
     }))
   }

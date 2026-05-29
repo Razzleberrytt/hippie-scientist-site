@@ -1,3 +1,5 @@
+import { AFFILIATE_TAGS } from '@/config/affiliate'
+
 export type ProductPick = {
   compound_slug: string
   name: string
@@ -13,7 +15,7 @@ export const productPicks: ProductPick[] = [
     name: 'Curcumin C3 Complex',
     brand: 'Sports Research',
     type: 'top',
-    url: 'https://www.amazon.com/dp/B00X4QMZXS?tag=razzleberry02-20',
+    url: `https://www.amazon.com/dp/B00X4QMZXS?tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'High bioavailability with black pepper extract'
   },
   {
@@ -21,7 +23,7 @@ export const productPicks: ProductPick[] = [
     name: 'NatureWise Curcumin',
     brand: 'NatureWise',
     type: 'budget',
-    url: 'https://www.amazon.com/dp/B00ZAU8F0Y?tag=razzleberry02-20',
+    url: `https://www.amazon.com/dp/B00ZAU8F0Y?tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Affordable and widely used'
   },
   {
@@ -29,7 +31,7 @@ export const productPicks: ProductPick[] = [
     name: 'Thorne Meriva 500-SF',
     brand: 'Thorne',
     type: 'premium',
-    url: 'https://www.amazon.com/dp/B0797BBP3C?tag=razzleberry02-20',
+    url: `https://www.amazon.com/dp/B0797BBP3C?tag=${AFFILIATE_TAGS.amazon}`,
     notes: 'Clinically studied formulation'
   }
 ]
