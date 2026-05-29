@@ -97,7 +97,7 @@ export default async function Page({ params }: BestRouteProps) {
         <h1 className="text-3xl font-bold">Best Supplements for Focus</h1>
 
         <p className="text-neutral-600 leading-7 max-w-3xl">
-          Evidence-aware rankings connected into semantic authority hubs, ecosystem pathways, protocol systems, and mechanism-aware stack discovery.
+          Evidence-informed rankings connected into semantic authority hubs, ecosystem pathways, protocol systems, and mechanism-aware stack discovery.
         </p>
       </div>
 

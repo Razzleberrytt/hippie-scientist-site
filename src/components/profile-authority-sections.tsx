@@ -513,7 +513,7 @@ function EcosystemIntelligence({ record, relatedRecords, entityType, compact }: 
     },
     {
       title: 'Related Topics',
-      description: 'Adjacent topics can guide exploration while keeping claims evidence-aware.',
+      description: 'Adjacent topics can guide exploration while keeping claims evidence-informed.',
       items: fields.relatedTopics.slice(0, 8),
     },
   ].filter(section => section.items.length > 0)
@@ -532,7 +532,7 @@ function EcosystemIntelligence({ record, relatedRecords, entityType, compact }: 
       title={fields.authoritySupernode ? 'Authority Ecosystem Anchor' : 'Semantic Ecosystem'}
       compact={compact}
       description={fields.authoritySupernode
-        ? 'This profile acts as a high-density navigation anchor in the workbook knowledge graph; relationships remain conservative and evidence-aware.'
+        ? 'This profile acts as a high-density navigation anchor in the workbook knowledge graph; relationships remain conservative and evidence-informed.'
         : 'Workbook ecosystem fields are normalized into compact discovery context so profiles connect without creating noisy recommendation grids.'}
     >
       {authorityItems.length > 0 ? <AuthoritySignals signals={authorityItems.slice(0, 6)} /> : null}
@@ -744,7 +744,7 @@ function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, c
     <AuthorityCard
       title="Graph Intelligence"
       compact={compact}
-      description="Graph candidates are shown as evidence-aware context only. They do not imply superiority, treatment recommendations, or dosing guidance."
+      description="Graph candidates are shown as context only. They do not imply superiority, treatment recommendations, or dosing guidance."
     >
       <div className="space-y-6">
         {comparisons.length > 0 ? (

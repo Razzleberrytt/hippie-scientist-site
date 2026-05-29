@@ -34,7 +34,7 @@ export function buildProtocolRecommendations(record: RuntimeRecord) {
       .replace(/\s+/g, '-')}`,
     title: `${tag} Protocol`,
     summary:
-      'Evidence-aware protocol exploration generated from semantic ecosystem overlap and pathway continuity.',
+      'Evidence-informed protocol exploration generated from semantic ecosystem overlap and pathway continuity.',
     tags: [tag],
   })).filter((item) => shouldRenderCard(item.title, item.summary))
 }

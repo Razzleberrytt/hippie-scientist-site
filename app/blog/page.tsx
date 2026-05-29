@@ -38,17 +38,17 @@ const inferArticleStyle = (post: any) => {
 
 export const metadata: Metadata = {
   title: 'Research Notes & Herb Guides',
-  description: '75+ evidence-aware research notes on herbs, compounds, mechanisms, safety, and preparation — organized by research style and topic.',
+  description: '75+ research notes on herbs, compounds, safety, and preparation.',
   alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Research Notes & Herb Guides',
-    description: '75+ evidence-aware research notes on herbs, compounds, mechanisms, safety, and preparation — organized by research style and topic.',
+    description: '75+ research notes on herbs, compounds, safety, and preparation.',
     url: '/blog',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Research Notes & Herb Guides',
-    description: '75+ evidence-aware research notes on herbs, compounds, mechanisms, safety, and preparation.',
+    description: '75+ research notes on herbs, compounds, mechanisms, safety, and preparation.',
   },
 }
 
@@ -58,27 +58,27 @@ export default function BlogPage() {
   const remainingPosts = sortedPosts.slice(1)
 
   return (
-    <div className="section-spacing pb-16">
-      <section className="hero-shell rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
-        <p className="eyebrow-label">Scientific editorial layer</p>
-        <h1 className="mt-2 heading-premium max-w-3xl">Research notes that connect the library.</h1>
+    <div className="section-spacing pb-10">
+      <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 p-4 shadow-sm sm:p-5">
+        <p className="eyebrow-label">Research notes</p>
+        <h1 className="mt-2 heading-premium max-w-3xl">Research notes</h1>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-soft">
-          Mechanisms, preparation choices, traditional context, safety limits, and evidence maturity — organized for fast scanning.
+          Mechanisms, preparations, safety limits, and evidence maturity for fast scanning.
         </p>
-        <p className="mt-3 text-sm font-semibold text-[#46574d]">{sortedPosts.length} research notes available</p>
+        <p className="mt-2 text-sm font-semibold text-[#46574d]">{sortedPosts.length} research notes available</p>
       </section>
 
       {featuredPost ? (
         <section className="surface-depth card-spacing">
           <p className="eyebrow-label">Latest research note</p>
-          <Link href={`/blog/${featuredPost.slug}`} className="identity-article scientific-card mt-4 group">
-            <div className="flex flex-wrap items-center gap-3">
+          <Link href={`/blog/${featuredPost.slug}`} className="identity-article scientific-card mt-3 group">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="identity-kicker">{inferArticleStyle(featuredPost)}</span>
               <span className="identity-meta">{formatDate(featuredPost.date)} • {featuredPost.readingTime}</span>
             </div>
-            <h2 className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight text-ink group-hover:text-brand-800 sm:text-3xl">{featuredPost.title}</h2>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-[#46574d]">{truncateText(featuredPost.excerpt, 190)}</p>
-            <span className="mt-5 inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-0.5">Read note →</span>
+            <h2 className="mt-2 max-w-3xl text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800 sm:text-2xl">{featuredPost.title}</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-[#46574d]">{truncateText(featuredPost.excerpt, 140)}</p>
+            <span className="mt-3 inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-0.5">Read note →</span>
           </Link>
         </section>
       ) : null}
@@ -96,19 +96,19 @@ export default function BlogPage() {
         ]}
       />
 
-      <section className="space-y-5">
+      <section className="space-y-4">
         <div>
           <p className="eyebrow-label">Archive</p>
           <h2 className="mt-2 max-w-3xl">All research notes</h2>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {remainingPosts.map(post => (
             <ContentIdentityCard
               key={post.slug}
               item={{
                 href: `/blog/${post.slug}`,
                 title: post.title,
-                description: truncateText(post.excerpt, 190),
+                description: truncateText(post.excerpt, 130),
                 meta: `${inferArticleStyle(post)} • ${formatDate(post.date)}`,
                 kind: 'article',
               }}

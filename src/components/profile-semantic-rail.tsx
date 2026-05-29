@@ -117,7 +117,7 @@ export default function ProfileSemanticRail({
 
       <RailSection
         title="Comparison Candidates"
-        description="Evidence-aware comparison prompts for side-by-side exploration, not superiority claims."
+        description="Evidence-informed comparison prompts for side-by-side exploration, not superiority claims."
         items={compactComparisons}
         entityType={entityType}
         reason="Comparison"

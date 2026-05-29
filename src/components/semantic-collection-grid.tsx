@@ -16,7 +16,7 @@ export default function SemanticCollectionGrid() {
         </h2>
 
         <p className="compact-copy">
-          Collections organize herbs and compounds into evidence-aware semantic ecosystems centered around pathways, mechanisms, goals, and research continuity.
+          Collections organize herbs and compounds into semantic ecosystems centered around pathways, mechanisms, goals, and research continuity.
         </p>
       </div>
 

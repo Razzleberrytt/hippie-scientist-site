@@ -1,7 +1,7 @@
 export const homepageMessaging = {
   heroHeadline: 'A field guide to herbs, compounds, mechanisms, and evidence — written for careful explorers.',
   heroSubhead:
-    'Explore herbs, compounds, pathways, and research summaries through practical goals, comparisons, and evidence-aware guidance.',
+    'Explore herbs, compounds, pathways, and research summaries through practical goals, comparisons, and practical guidance.',
   primaryCTA: {
     label: 'Explore Herbs',
     href: '/herbs',

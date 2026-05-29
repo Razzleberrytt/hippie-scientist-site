@@ -24,7 +24,7 @@ export default function AuthorityHubTemplate({
       <section className="space-y-5">
         <div className="space-y-2">
           <p className="eyebrow-label">Related Profiles</p>
-          <h2>Evidence-aware discovery</h2>
+          <h2>Evidence-informed discovery</h2>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

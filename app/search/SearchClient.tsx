@@ -120,7 +120,7 @@ const discoveryFilters: IntentPrompt[] = [
   { label: 'Stimulating', query: 'energy motivation stimulation', helper: 'Activation-oriented profiles.' },
   { label: 'Beginner-friendly', query: 'beginner safety low risk', helper: 'Safer orientation for first-time exploration.' },
   { label: 'Low tolerance risk', query: 'low tolerance risk safety', helper: 'Prioritize conservative safety framing.' },
-  { label: 'Evidence-aware', query: 'clinical evidence human trial', helper: 'Bias toward stronger study context.' },
+  { label: 'Evidence-informed', query: 'clinical evidence human trial', helper: 'Bias toward stronger study context.' },
   { label: 'Sleep-supportive', query: 'sleep recovery wind down', helper: 'Evening and sleep-adjacent support.' },
   { label: 'Daytime-friendly', query: 'daytime focus non sedating', helper: 'Use when you need calmer daytime function.' },
 ]

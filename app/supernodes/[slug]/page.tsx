@@ -115,7 +115,7 @@ function SupernodeCard({ record }: { record: any }) {
         </h2>
 
         <p className="line-clamp-3 text-sm leading-6 text-[#46574d]">
-          {getSummary(record) || 'Evidence-aware semantic profile connected to this supernode.'}
+          {getSummary(record) || 'Evidence-informed semantic profile connected to this supernode.'}
         </p>
       </div>
 

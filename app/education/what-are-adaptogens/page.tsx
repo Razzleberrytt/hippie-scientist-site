@@ -68,7 +68,7 @@ export default function AdaptogensEducationPage() {
     <main className='container-page py-10 space-y-12'>
       <AuthorityJsonLd
         title='What Are Adaptogens?'
-        description='Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-aware adaptogenic neuropharmacology.'
+        description='Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-informed adaptogenic neuropharmacology.'
         url='https://thehippiescientist.net/education/what-are-adaptogens'
         type='Article'
       />
@@ -99,7 +99,7 @@ export default function AdaptogensEducationPage() {
           Educational adaptogen exploration commonly intersects with cortisol
           biology, autonomic nervous-system signaling, burnout physiology,
           sleep recovery, fatigue neurobiology, inflammatory signaling, and
-          evidence-aware neuropharmacology.
+          neuropharmacology.
         </p>
       </section>
 

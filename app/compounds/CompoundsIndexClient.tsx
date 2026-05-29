@@ -213,9 +213,9 @@ function buildFilterHref(value: string, query: string) {
 
 function StatCard({ value, label }: { value: number; label: string }) {
   return (
-    <div className="min-w-0 rounded-[1.1rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm backdrop-blur sm:p-4">
-      <p className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{value}</p>
-      <p className="mt-1 text-[0.66rem] font-bold uppercase leading-snug tracking-[0.12em] text-[#5f6f66] sm:text-[0.68rem] sm:tracking-[0.14em]">{label}</p>
+    <div className="min-w-0 rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm sm:p-3">
+      <p className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">{value}</p>
+      <p className="mt-0.5 text-[0.62rem] font-bold uppercase leading-snug tracking-[0.1em] text-[#5f6f66]">{label}</p>
     </div>
   )
 }
@@ -303,23 +303,23 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
   const libraryCompounds = hasActiveFilters ? visibleCompounds : compounds.slice(featuredCompounds.length)
 
   return (
-    <div className="min-h-screen px-3 py-4 text-ink sm:px-4 sm:py-6">
-      <div className="mx-auto max-w-7xl space-y-6 sm:space-y-8">
-        <section className="hero-shell relative overflow-hidden rounded-[1.25rem] border border-white/60 px-4 py-5 shadow-sm sm:px-6 sm:py-7">
-          <div className="relative grid gap-4 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
-            <div className="max-w-3xl space-y-3">
+    <div className="px-2 py-2 text-ink sm:px-3 sm:py-3">
+      <div className="mx-auto max-w-7xl space-y-4 sm:space-y-4">
+        <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
+          <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
+            <div className="max-w-3xl space-y-2">
               <p className="eyebrow-label">Compound decision library</p>
-              <h1 className="max-w-[16ch] text-balance font-display text-3xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl">
+              <h1 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
                 Compound research library
               </h1>
-              <p className="max-w-2xl text-sm leading-6 text-[#46574d] sm:text-base">
+              <p className="max-w-2xl text-sm leading-6 text-[#46574d]">
                 Scan bioactive molecules by practical context first, then compare evidence, safety notes, and mechanism hints before opening a full compound profile.
               </p>
             </div>
 
-            <div className="rounded-[1rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm backdrop-blur">
+            <div className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">Library signal</p>
-              <div className="mt-3 grid grid-cols-3 gap-2">
+              <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
                 <StatCard value={evidenceForward} label="Evidence-led" />
                 <StatCard value={safetyMapped} label="Safety notes" />
@@ -328,16 +328,16 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
           </div>
         </section>
 
-        <section className="rounded-[1rem] border border-brand-900/10 bg-white/85 p-4 shadow-sm sm:p-5" aria-labelledby="compound-search-heading">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl space-y-2">
+        <section className="rounded-[0.85rem] border border-brand-900/10 bg-white/85 p-3 shadow-sm sm:p-4" aria-labelledby="compound-search-heading">
+          <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Search and filter</p>
               <h2 id="compound-search-heading" className="compact-heading">Start with the decision you need to make.</h2>
             </div>
             <Link href="/herbs" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse herb sources →</Link>
           </div>
 
-          <form action="/compounds" className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
+          <form action="/compounds" className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
             <label className="sr-only" htmlFor="compound-search">Search compounds</label>
             <input
               id="compound-search"
@@ -345,10 +345,10 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
               type="search"
               defaultValue={query}
               placeholder="Search compound, mechanism, source herb, or safety note"
-              className="min-h-11 w-full rounded-full border border-brand-900/10 bg-white px-4 text-sm text-ink shadow-sm placeholder:text-[#7b8a81]"
+              className="min-h-10 w-full rounded-full border border-brand-900/10 bg-white px-4 text-sm text-ink shadow-sm placeholder:text-[#7b8a81]"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
-            <button type="submit" className="button-primary min-h-11 px-5 py-2.5">
+            <button type="submit" className="button-primary min-h-10 px-4 py-2">
               Search
             </button>
           </form>
@@ -362,23 +362,23 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
           />
         </section>
 
-        <section className="rounded-[1rem] border border-brand-900/10 bg-white/70 p-4 shadow-sm">
+        <section className="rounded-[0.85rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="max-w-2xl space-y-2">
+            <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Common starting points</p>
               <h2 className="compact-heading">Use broader guides if you are still orienting.</h2>
             </div>
           </div>
 
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
+          <div className="mt-3 grid gap-2 md:grid-cols-3">
             {browsePaths.map(path => (
               <Link
                 key={path.label}
                 href={path.href}
-                className="group rounded-[0.9rem] border border-brand-900/10 bg-white/80 p-3 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
+                className="group rounded-[0.75rem] border border-brand-900/10 bg-white/85 p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
               >
-                <h3 className="text-lg font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#46574d]">{path.description}</p>
+                <h3 className="text-base font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
+                <p className="mt-1 text-sm leading-5 text-[#46574d]">{path.description}</p>
               </Link>
             ))}
           </div>
@@ -391,18 +391,18 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
         ) : (
           <>
             {featuredCompounds.length > 0 ? (
-              <section className="space-y-5">
+              <section className="space-y-4">
                 <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                  <div className="max-w-2xl space-y-2">
+                  <div className="max-w-2xl space-y-1.5">
                     <p className="eyebrow-label">Start here</p>
-                    <h2 className="compact-heading">High-signal profiles for learning the card pattern.</h2>
+                    <h2 className="compact-heading">High-signal starting points.</h2>
                   </div>
                   <p className="max-w-md text-sm leading-6 text-[#5f6f66]">
-                    Sorted by evidence signals, profile readiness, and mechanism mapping—not by promised outcomes.
+                    Sorted by evidence, safety, and profile readiness.
                   </p>
                 </div>
 
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
                   {featuredCompounds.map((compound: any) => (
                     <CompoundCard key={compound.slug} compound={compound} featured />
                   ))}
@@ -411,9 +411,9 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
             ) : null}
 
             {libraryCompounds.length > 0 ? (
-              <section className="space-y-5">
+              <section className="space-y-4">
                 <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                  <div className="max-w-2xl space-y-2">
+                  <div className="max-w-2xl space-y-1.5">
                     <p className="eyebrow-label">{hasActiveFilters ? 'Matching compounds' : 'All compounds'}</p>
                     <h2 className="compact-heading">
                       {hasActiveFilters ? 'Profiles matching your scan.' : 'Browse every published compound profile.'}
@@ -424,7 +424,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
                   </span>
                 </div>
 
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
                   {libraryCompounds.map((compound: any) => (
                     <CompoundCard key={compound.slug} compound={compound} />
                   ))}

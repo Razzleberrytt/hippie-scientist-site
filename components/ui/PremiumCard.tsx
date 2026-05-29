@@ -35,7 +35,7 @@ export default function PremiumCard({
     <article className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-6 sm:p-7 shadow-[0_10px_30px_rgba(29,74,47,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="eyebrow text-brand-700">
-          Evidence-aware profile
+          Evidence-informed profile
         </div>
 
         <div className="flex shrink-0 flex-wrap justify-end gap-2">

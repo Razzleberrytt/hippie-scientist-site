@@ -199,7 +199,7 @@ export default function ProfileProgressiveDisclosure({
         <p className="eyebrow-label">Read Deeper</p>
         <h2 className="compact-heading">Details without the wall of text.</h2>
         <p className="compact-copy">
-          The main page keeps interpretation first. Expand these sections only when you want the deeper evidence, mechanism, safety, or practical context.
+          The main page keeps interpretation first. Expand only when you need deeper evidence, safety, or practical context.
         </p>
       </div>
 

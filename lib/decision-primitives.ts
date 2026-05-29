@@ -26,22 +26,22 @@ export type DecisionSafetyTone = 'ok' | 'caution' | 'interaction' | 'review' | '
 export type DecisionEvidenceTone = 'strong' | 'moderate' | 'limited' | 'mixed' | 'preliminary' | 'traditional' | 'insufficient' | 'review'
 
 export const decisionBadgeClass =
-  'inline-flex min-h-7 max-w-full items-center rounded-full border px-2.5 py-1 text-[0.72rem] font-semibold leading-snug break-words'
+  'inline-flex min-h-6 max-w-full items-center rounded-full border px-2 py-0.5 text-[0.68rem] font-semibold leading-snug break-words'
 
 export const decisionStatusBadgeClass =
   `${decisionBadgeClass} text-[0.72rem] uppercase tracking-[0.08em]`
 
 export const decisionChipClass =
-  'inline-flex min-h-7 max-w-full items-center rounded-full border border-brand-900/10 bg-white/75 px-2.5 py-1 text-[0.72rem] font-semibold leading-snug text-[#5f6f66] break-words'
+  'inline-flex min-h-6 max-w-full items-center rounded-full border border-brand-900/10 bg-white/75 px-2 py-0.5 text-[0.68rem] font-semibold leading-snug text-[#5f6f66] break-words'
 
 export const decisionMicroLabelClass =
-  'text-[0.68rem] font-bold uppercase tracking-[0.1em] leading-none'
+  'text-[0.64rem] font-bold uppercase tracking-[0.09em] leading-none'
 
 export const decisionMetricShellClass =
-  'min-w-0 rounded-[0.8rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-2.5 py-2'
+  'min-w-0 rounded-[0.65rem] border border-brand-900/10 bg-[#fbfaf6]/85 px-2 py-1.5'
 
 export const decisionMetadataClusterClass =
-  'flex flex-wrap items-center gap-2'
+  'flex flex-wrap items-center gap-1.5'
 
 function compactText(value?: unknown): string {
   if (value == null) return ''

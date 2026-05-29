@@ -121,7 +121,7 @@ export default function SemanticSearchDiscovery({ records }: SemanticSearchDisco
         </h2>
 
         <p className="compact-copy">
-          Search surfaces pathway-adjacent profiles, mechanism overlap, and evidence-aware semantic relationships instead of relying only on exact keyword matching.
+          Search surfaces pathway-adjacent profiles, mechanism overlap, and semantic relationships instead of relying only on exact keyword matching.
         </p>
       </div>
 

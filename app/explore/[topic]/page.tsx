@@ -31,7 +31,7 @@ const TOPIC_CONTEXT: Record<string, { intro: string; sections: { title: string; 
     links: [
       { label: 'GABA pathway', href: '/pathways/gaba', description: 'Inhibitory-tone and relaxation context that commonly overlaps with sleep-support profiles.' },
       { label: 'Sleep goal guide', href: '/goals/sleep', description: 'Outcome-led guide for comparing sleep quality, latency, and nighttime relaxation.' },
-      { label: 'Sleep compounds collection', href: '/collections/best-studied-sleep-compounds', description: 'Evidence-aware collection for compounds frequently researched in sleep contexts.' },
+      { label: 'Sleep compounds collection', href: '/collections/best-studied-sleep-compounds', description: 'Evidence-informed collection for compounds frequently researched in sleep contexts.' },
     ],
   },
   focus: {
@@ -58,7 +58,7 @@ const TOPIC_CONTEXT: Record<string, { intro: string; sections: { title: string; 
     signals: ['Stress signaling', 'Adaptogens', 'GABA overlap', 'Cortisol context', 'Mood support', 'Sleep overlap'],
     links: [
       { label: 'GABA pathway', href: '/pathways/gaba', description: 'Calming and inhibitory signaling context related to stress and relaxation.' },
-      { label: 'Stress supplement guide', href: '/best-supplements-for-stress', description: 'Decision guide for stress resilience and evidence-aware supplement comparisons.' },
+      { label: 'Stress supplement guide', href: '/best-supplements-for-stress', description: 'Decision guide for stress resilience and supplement comparisons.' },
       { label: 'Adaptogens for stress', href: '/collections/adaptogens-for-stress', description: 'Botanical collection organized around adaptation and resilience language.' },
     ],
   },

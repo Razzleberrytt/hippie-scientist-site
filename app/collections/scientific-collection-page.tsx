@@ -47,7 +47,7 @@ function buildCollectionIntro(collection: ScientificCollection) {
   return [
     {
       title: 'Biological context',
-      body: `${collection.title} groups ${subject} by shared effect language, pathway signals, and evidence-aware research context rather than by alphabetical browsing.`,
+      body: `${collection.title} groups ${subject} by shared effect language, pathway signals, and practical research context rather than by alphabetical browsing.`,
     },
     {
       title: 'Research focus',
@@ -226,7 +226,7 @@ export async function ScientificCollectionPage({ slug }: CollectionPageProps) {
 
       <section className="space-y-6">
         <div className="space-y-2">
-          <p className="eyebrow-label">Evidence-aware discovery</p>
+          <p className="eyebrow-label">Evidence-informed discovery</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">
             {collection.primaryType === 'herb' ? 'Primary herbs' : collection.primaryType === 'compound' ? 'Primary compounds' : 'Matching records'}
           </h2>

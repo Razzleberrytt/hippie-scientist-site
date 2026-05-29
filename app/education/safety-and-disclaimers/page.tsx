@@ -40,7 +40,7 @@ export default function SafetyAndDisclaimersPage() {
       </SafetyNotice>
 
       <SafetyNotice title="Psychoactive and interaction awareness">
-        Psychoactive substances may influence mood systems, cardiovascular signaling, cognition, emotional processing, sedation pathways, and medication interactions. Conservative harm-reduction principles and evidence-aware interpretation are important.
+        Psychoactive substances may influence mood systems, cardiovascular signaling, cognition, emotional processing, sedation pathways, and medication interactions. Conservative harm-reduction principles and evidence-informed interpretation are important.
       </SafetyNotice>
 
       <ResearchLimitations

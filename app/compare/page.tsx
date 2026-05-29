@@ -55,7 +55,7 @@ export default async function ComparePage() {
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-        <p className="eyebrow-label">Evidence-aware comparison</p>
+        <p className="eyebrow-label">Evidence-informed comparison</p>
         <div className="mt-3 max-w-3xl space-y-4">
           <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-5xl">
             Compare herbs, supplements, and compounds

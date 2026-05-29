@@ -100,7 +100,7 @@ export default function PlaceboAndContextEffectsPage() {
         </div>
       </section>
       <SafetyNotice>
-        Educational content discussing placebo and context effects is not a substitute for individualized medical guidance or evidence-aware clinical evaluation.
+        Educational content discussing placebo and context effects is not a substitute for individualized medical guidance or clinical evaluation.
       </SafetyNotice>
       <section className="space-y-5">
         <div className="space-y-2">

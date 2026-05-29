@@ -8,7 +8,7 @@ import HerbsIndexClient from './HerbsIndexClient'
 
 export const metadata: Metadata = {
   title: 'Herb Profiles & Research Library',
-  description: 'Browse evidence-aware profiles for 100+ herbs — mechanisms, safety notes, active compounds, and research context in plain language.',
+  description: 'Browse profiles for 100+ herbs — mechanisms, safety notes, active compounds, and research context in plain language.',
   alternates: { canonical: '/herbs' },
 }
 
@@ -17,11 +17,8 @@ export default async function HerbsPage() {
   const pageData = paginateItems(herbs, 1, HERBS_PAGE_SIZE)
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
-      <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-        <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-5xl">Herb profiles and supplement research</h1>
-      </section>
-      <nav className="rounded-xl border border-brand-900/10 bg-white/80 p-4 text-sm">
+    <div className="mx-auto max-w-6xl space-y-5 px-4 py-4 sm:py-6">
+      <nav className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-3 text-sm">
         <p className="font-semibold">Page 1 of {pageData.totalPages}</p>
         {pageData.hasNext ? <Link rel="next" href="/herbs/page/2">Next page →</Link> : null}
       </nav>

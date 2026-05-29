@@ -13,6 +13,7 @@ import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
 import { buildSemanticNarrative, buildContinuationPrompts } from '@/lib/semantic-exploration-narratives'
 import { buildSourcingNotes, getMonetizationReadiness } from '@/lib/monetization-context'
+import { getAffiliateShopLinks } from '@/lib/affiliate'
 import {
   buildSemanticAssistantSummary,
   buildSemanticNavigationSuggestions,
@@ -118,7 +119,7 @@ function firstSentences(value: string, limit = 2) {
 
 function getPlainEnglishSummary(herb: any) {
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
-  return firstSentences(summary, 2) || `${formatDisplayLabel(herb.name || herb.slug)} is tracked as an evidence-aware botanical profile with safety, use, and mechanism context.`
+  return firstSentences(summary, 1) || `${formatDisplayLabel(herb.name || herb.slug)} profile with safety, use, and evidence context.`
 }
 
 function getEvidenceStrength(herb: any) {
@@ -346,6 +347,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const internalLinks = buildInternalLinkDensity(herb)
   const confidenceObj = getEvidenceConfidence(herb as any)
   const displayName = formatDisplayLabel(herb.name || herb.slug)
+  const shopLinks = getAffiliateShopLinks(herb, displayName, 'herb')
+  const primaryShopLink = shopLinks[0]
   const botanicalName = cleanText(herb.latin_name || herb.botanical_name || herb.scientific_name)
   const briefSummary = getPlainEnglishSummary(herb)
   const evidenceStrength = getEvidenceStrength(herb)
@@ -367,7 +370,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const hiddenUses = unique([...effects, ...traditionalUses, ...focusAreas]).slice(8)
   const keyTakeaways = unique([
     topUses.length ? `Most often explored for ${topUses.slice(0, 3).join(', ')}.` : '',
-    evidenceStrength ? `Evidence context: ${evidenceStrength}; overall maturity reads as ${researchMaturity.toLowerCase()}.` : '',
+    evidenceStrength ? `Evidence: ${evidenceStrength}; maturity: ${researchMaturity.toLowerCase()}.` : '',
     safetySummary ? `Safety first: ${safetySummary}` : '',
     timeline ? `Timeline/onset context: ${timeline}.` : '',
     mechanisms.length ? `Mechanism signals include ${mechanisms.slice(0, 3).join(', ')}.` : '',
@@ -410,7 +413,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <div className="space-y-6">
           <div className="space-y-2">
             <p className="eyebrow-label">Evidence summary</p>
-            <h2 className="text-xl font-semibold tracking-tight text-ink">What the current profile supports</h2>
+            <h2 className="text-lg font-semibold tracking-tight text-ink">What the current profile supports</h2>
             <p className="max-w-4xl text-sm leading-6 text-[#46574d]">
               {displayName} is categorized as {researchMaturity.toLowerCase()} with a {researchStyle.toLowerCase()} evidence style. Interpret benefits by outcome, preparation, dose, and the safety context above.
             </p>
@@ -423,28 +426,28 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
           <div className="space-y-6">
             {focusAreas.length > 0 ? (
-              <div className="border-t border-brand-900/10 pt-6">
+              <div className="border-t border-brand-900/10 pt-4">
                 <h3 className="text-lg font-semibold tracking-tight text-ink">Human evidence</h3>
                 <p className="text-sm leading-6 text-muted mb-3">Outcome areas and human-facing evidence signals exposed by the profile.</p>
                 <ChipList items={focusAreas} />
               </div>
             ) : null}
             {mechanisms.length > 0 ? (
-              <div className="border-t border-brand-900/10 pt-6">
+              <div className="border-t border-brand-900/10 pt-4">
                 <h3 className="text-lg font-semibold tracking-tight text-ink">Preclinical evidence & mechanisms</h3>
                 <p className="text-sm leading-6 text-muted mb-3">Mechanistic and pathway context; not proof of clinical effect by itself.</p>
                 <ChipList items={mechanisms} />
               </div>
             ) : null}
             {traditionalUses.length > 0 ? (
-              <div className="border-t border-brand-900/10 pt-6">
+              <div className="border-t border-brand-900/10 pt-4">
                 <h3 className="text-lg font-semibold tracking-tight text-ink">Traditional use</h3>
                 <p className="text-sm leading-6 text-muted mb-3">Traditional or historical-use language from the source profile.</p>
                 <ChipList items={traditionalUses} />
               </div>
             ) : null}
             {pathwayClusters.length > 0 ? (
-              <div className="border-t border-brand-900/10 pt-6">
+              <div className="border-t border-brand-900/10 pt-4">
                 <h3 className="text-lg font-semibold tracking-tight text-ink">Mechanism clusters</h3>
                 <p className="text-sm leading-6 text-muted mb-3">Grouped pathway signals for deeper research.</p>
                 <div className="grid gap-3 md:grid-cols-2 mt-3">
@@ -459,7 +462,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
               </div>
             ) : null}
             {evidenceLimitations.length > 0 ? (
-              <div className="border-t border-brand-900/10 pt-6">
+              <div className="border-t border-brand-900/10 pt-4">
                 <h3 className="text-lg font-semibold tracking-tight text-ink">Limitations</h3>
                 <p className="text-sm leading-6 text-muted mb-3">Reasons to avoid over-reading the available profile data.</p>
                 <ul className="space-y-2 text-sm leading-6 text-[#46574d]">
@@ -468,7 +471,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
               </div>
             ) : null}
             {topUses.length > 0 ? (
-              <div className="border-t border-brand-900/10 pt-6">
+              <div className="border-t border-brand-900/10 pt-4">
                 <h3 className="text-lg font-semibold tracking-tight text-ink">Uses and effects</h3>
                 <p className="text-sm leading-6 text-muted mb-3">Most visible signals.</p>
                 <ChipList items={topUses} />
@@ -503,7 +506,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       label: 'AI Assistant & Map',
       content: (
         <div className="space-y-8">
-          <SemanticArtworkPanel slug={herb.slug} kind="botanical" title={displayName} subtitle="Botanical ecosystem artwork for evidence-aware pathway exploration." height={260} />
+          <SemanticArtworkPanel slug={herb.slug} kind="botanical" title={displayName} subtitle="Botanical ecosystem artwork for evidence-informed pathway exploration." height={260} />
           <GuidedExplorationPanel overview={narrative.overview} pathways={narrative.pathways} exploration={narrative.exploration} prompts={prompts} />
           <SemanticVisibilityGate minHeight={420}>
             <SemanticGraphMap title="Profile relationship map" description="A lightweight map of pathway signals, mechanism overlap, and connected semantic profiles." nodes={graph.nodes} edges={graph.edges} />
@@ -543,7 +546,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   ]
 
   return (
-    <main className="mx-auto max-w-6xl space-y-8 px-4 py-6 sm:space-y-10 sm:py-8">
+    <main className="mx-auto max-w-6xl space-y-5 px-4 py-4 sm:space-y-6 sm:py-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(herbJsonLd) }}
@@ -554,7 +557,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-muted">
+      <nav className="flex flex-wrap items-center gap-2 text-xs text-muted">
         <Link href="/herbs" className="transition hover:text-ink">
           Herbs
         </Link>
@@ -562,25 +565,25 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <span className="text-ink">{displayName}</span>
       </nav>
 
-      <section className="hero-shell rounded-[1.25rem] p-4 sm:p-5 lg:p-6">
-        <div className="space-y-4">
-          <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.14em] text-muted">
+      <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 p-3 sm:p-4">
+        <div className="space-y-3">
+          <div className="flex flex-wrap items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-muted">
             <Link href="/herbs" className="transition hover:text-ink">Back to herbs</Link>
             <Link href="/compare" className="transition hover:text-ink">Compare</Link>
             <Link href={`/search?q=${encodeURIComponent(displayName)}`} className="transition hover:text-ink">Search related</Link>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-[minmax(0,0.82fr)_minmax(340px,1.18fr)] lg:items-start">
-            <div className="space-y-3 lg:pt-2">
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,0.8fr)_minmax(320px,1.2fr)] lg:items-start">
+            <div className="space-y-3">
               <div className="space-y-2">
-                <p className="eyebrow-label">Herb research brief</p>
-                <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                <p className="eyebrow-label">Herb brief</p>
+                <h1 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
                   {displayName}
                 </h1>
                 {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
               </div>
 
-              <p className="max-w-2xl text-sm leading-6 text-[#46574d] sm:text-base">
+              <p className="max-w-2xl text-sm leading-6 text-[#46574d]">
                 {briefSummary}
               </p>
 
@@ -592,11 +595,42 @@ export default async function HerbDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            <EvidenceSnapshotPanel
+            <div className="space-y-3">
+              <div className="grid gap-2 rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-3 shadow-sm sm:grid-cols-2">
+                <div>
+                  <p className="eyebrow-label">Best for</p>
+                  <p className="mt-1 text-sm font-semibold leading-5 text-ink">{topUses.slice(0, 3).join(', ') || 'Compare fit before use'}</p>
+                </div>
+                <div>
+                  <p className="eyebrow-label text-amber-900">Avoid / review if</p>
+                  <p className="mt-1 text-sm font-semibold leading-5 text-[#5f4a24]">{avoidIf.slice(0, 2).join(', ') || safetyTone}</p>
+                </div>
+              </div>
+
+              {primaryShopLink ? (
+                <a
+                  href={primaryShopLink.url}
+                  target="_blank"
+                  rel="nofollow sponsored noopener noreferrer"
+                  className="flex items-center justify-between gap-3 rounded-[0.85rem] border border-emerald-700/20 bg-emerald-50 px-3 py-2.5 text-sm font-bold text-emerald-900 shadow-sm hover:bg-emerald-100"
+                >
+                  <span>{primaryShopLink.label}</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+              ) : null}
+
+              <nav aria-label="Profile sections" className="flex flex-wrap gap-2 text-xs font-bold text-brand-800">
+                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#evidence-benefits-tab">Evidence</a>
+                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#safety">Safety</a>
+                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#mechanism-fit-tab">Mechanism</a>
+                <a className="rounded-full border border-brand-900/10 bg-white px-2.5 py-1 hover:bg-brand-50" href="#authority-sourcing-tab">Products</a>
+              </nav>
+
+              <EvidenceSnapshotPanel
               title="5-second profile read"
-              subtitle="Educational overview only. Individual response and tolerance can vary."
+              subtitle="Educational overview. Individual response varies."
               badge="Start here"
-              className="rounded-[1.1rem] border border-brand-900/10 bg-white/95 p-4 shadow-sm lg:sticky lg:top-6"
+              className="rounded-[0.85rem] border border-brand-900/10 bg-white/95 p-3 shadow-sm lg:sticky lg:top-4"
               fields={buildDetailEvidenceSnapshotFields({
                 bestFit: topUses.slice(0, 3).join(', '),
                 humanEvidence: evidenceStrength || researchMaturity,
@@ -605,21 +639,22 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 regulationProfile,
                 typicalOnset: timeline || 'Timing varies by preparation, dose, and context.',
                 useCautionIf: avoidIf.length ? avoidIf.slice(0, 3).join(', ') : '',
-                uncertain: mechanisms.length ? `Mechanism hints are preliminary: ${mechanisms.slice(0, 3).join(', ')}. Real-world effects can differ across people and products.` : '',
+                uncertain: mechanisms.length ? `Mechanism: ${mechanisms.slice(0, 3).join(', ')}.` : '',
                 confidenceLabel: confidenceObj.confidenceLabel,
                 evidenceWeight: confidenceObj.evidenceWeight,
                 humanEvidenceFlag: confidenceObj.humanEvidenceFlag,
                 evidenceExplanation: confidenceObj.evidenceExplanation,
               })}
             />
+            </div>
           </div>
         </div>
       </section>
 
       {keyTakeaways.length > 0 ? (
-        <section className="border-t border-brand-900/10 pt-6">
+        <section className="border-t border-brand-900/10 pt-4">
           <p className="eyebrow-label">Key takeaways</p>
-          <ul className="mt-3 space-y-2 text-sm leading-6 text-[#46574d]">
+          <ul className="mt-2 grid gap-1.5 text-sm leading-6 text-[#46574d] sm:grid-cols-2">
             {keyTakeaways.map(item => (
               <li key={item} className="flex gap-2">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
@@ -630,17 +665,17 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <section className="rounded-[1.1rem] bg-amber-50/70 p-4 sm:p-5">
+      <section id="safety" className="rounded-[0.9rem] bg-amber-50/70 p-3 sm:p-4">
         <div className="space-y-2">
           <p className="eyebrow-label text-amber-900">Safety first</p>
-          <h2 className="text-xl font-semibold tracking-tight text-ink">Review cautions before use</h2>
+          <h2 className="text-lg font-semibold tracking-tight text-ink">Review cautions before use</h2>
           <p className="max-w-4xl text-sm leading-6 text-[#5f4a24]">{safetySummary}</p>
         </div>
 
         {safetyGroups.length > 0 ? (
-          <details className="mt-5 border-t border-amber-900/15 pt-4">
+          <details className="mt-3 border-t border-amber-900/15 pt-3">
             <summary className="cursor-pointer text-sm font-bold text-ink">View full safety notes</summary>
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="mt-3 grid gap-3 md:grid-cols-2">
               {safetyGroups.map(group => (
                 <div key={group.title} className="space-y-2">
                   <h3 className="text-sm font-semibold text-ink">{group.title}</h3>
@@ -658,7 +693,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       <RelatedDiscoveryGroups
         eyebrow="Related navigation"
-        title="Keep researching with context"
+        title="Related decisions"
         groups={[
           { title: 'Related herbs', description: 'Profiles with overlapping effects or decision signals.', links: relatedHerbLinks },
           { title: 'Related compounds', description: 'Mechanism-adjacent compounds to contrast with this herb.', links: relatedCompoundLinks },

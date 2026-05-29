@@ -96,7 +96,7 @@ export function getSemanticArtwork(slug?: string | null, kind: SemanticArtworkKi
     slug: normalized || 'default',
     kind,
     title: 'Scientific ecosystem visual',
-    alt: 'Abstract scientific ecosystem artwork representing evidence-aware semantic relationships',
+    alt: 'Abstract scientific ecosystem artwork representing semantic relationships',
     palette: { base: '#f4f8f2', mid: '#deeae1', accent: '#2f7d4b', ink: '#173322' },
     motifs: ['network', 'evidence', 'pathway'],
   }

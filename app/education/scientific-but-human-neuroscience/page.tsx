@@ -24,7 +24,7 @@ const principles = [
 const faqs = [
   {
     question: 'What does scientific but human mean?',
-    answer: 'Scientific but human neuroscience emphasizes evidence-aware interpretation while recognizing emotional context, biological variability, subjective experiences, stress physiology, and recovery-oriented cognition systems.',
+    answer: 'Scientific but human neuroscience emphasizes evidence-informed interpretation while recognizing emotional context, biological variability, subjective experiences, stress physiology, and recovery-oriented cognition systems.',
   },
   {
     question: 'Why avoid oversimplified neuroscience?',
@@ -94,7 +94,7 @@ export default function ScientificButHumanNeurosciencePage() {
           between stress physiology, emotional regulation, recovery biology,
           attentional systems, environmental context, nervous-system sensitivity, and
           biological variability. Scientific literacy may become stronger when
-          neuroscience remains both evidence-aware and emotionally human.
+          neuroscience remains both evidence-informed and emotionally human.
         </p>
       </section>
 
@@ -148,7 +148,7 @@ export default function ScientificButHumanNeurosciencePage() {
 
       <SafetyNotice>
         Educational neuroscience content is not a substitute for individualized
-        medical guidance, evidence-aware clinical evaluation, or mental-health
+        medical guidance, clinical evaluation, or mental-health
         support.
       </SafetyNotice>
 

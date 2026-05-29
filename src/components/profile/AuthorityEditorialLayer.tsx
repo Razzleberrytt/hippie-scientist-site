@@ -77,7 +77,7 @@ export default function AuthorityEditorialLayer({
           </h2>
 
           <p className="max-w-3xl text-sm leading-7 text-[#5b6b61]">
-            A compact, evidence-aware reading of the profile before deeper mechanism and safety context.
+            A compact, compact reading of the profile before deeper mechanism and safety context.
           </p>
         </div>
 

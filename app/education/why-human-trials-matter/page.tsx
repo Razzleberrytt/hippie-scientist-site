@@ -9,7 +9,7 @@ export default function HumanTrialsMatterPage() {
     <main className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Human Trials Matter"
-        description="Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-aware scientific interpretation."
+        description="Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-informed scientific interpretation."
         url="https://thehippiescientist.net/education/why-human-trials-matter"
         type="Article"
       />

@@ -56,7 +56,7 @@ const relatedSystems = [
     href: '/education/what-are-adaptogens',
     title: 'What Are Adaptogens?',
     description:
-      'Evidence-aware educational framework covering resilience biology, stress-response systems, and adaptogenic neuropharmacology.',
+      'Evidence-informed educational framework covering resilience biology, stress-response systems, and adaptogenic neuropharmacology.',
   },
   {
     href: '/education/what-is-a-nootropic',

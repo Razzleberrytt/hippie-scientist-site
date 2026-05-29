@@ -108,7 +108,7 @@ function AuthorityCard({ record }: { record: any }) {
         </h2>
 
         <p className="line-clamp-3 text-sm leading-6 text-[#46574d]">
-          {getSummary(record) || 'Evidence-aware profile connected to this goal-oriented research hub.'}
+          {getSummary(record) || 'Evidence-informed profile connected to this goal-oriented research hub.'}
         </p>
       </div>
 
@@ -156,7 +156,7 @@ export default async function BestExploredHubPage({ params }: BestForRouteProps)
             <div className="max-w-4xl space-y-5">
               <div className="flex flex-wrap items-center gap-2">
                 <p className="eyebrow-label">Best Explored For</p>
-                <span className="chip-readable">Evidence-aware goal hub</span>
+                <span className="chip-readable">Evidence-informed goal hub</span>
               </div>
 
               <h1 className="max-w-[14ch]">{topic.title}</h1>

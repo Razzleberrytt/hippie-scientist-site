@@ -211,7 +211,7 @@ export default async function ExplorePage() {
       <SemanticVisibilityGate minHeight={440}>
         <SemanticGraphMap
           title="Explore relationship atlas"
-          description="A lightweight atlas map of discovery ecosystems, semantic continuity, and evidence-aware exploration clusters."
+          description="A lightweight atlas map of discovery ecosystems, semantic continuity, and exploration clusters."
           nodes={syntheticGraph.nodes}
           edges={syntheticGraph.edges}
         />
@@ -272,7 +272,7 @@ export default async function ExplorePage() {
             </h2>
 
             <p className="detail-reading text-base">
-              Semantic continuity, ecosystem resilience, and bridge reinforcement are combined to prioritize stable scientific discovery pathways.
+              Semantic continuity, ecosystem resilience, and bridge reinforcement are combined to prioritize stable research pathways.
             </p>
           </div>
 

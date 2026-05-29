@@ -22,7 +22,7 @@ export default function ProtocolTemplate({
       <section className="space-y-5">
         <div className="space-y-2">
           <p className="eyebrow-label">Suggested Components</p>
-          <h2>Evidence-aware protocol profiles</h2>
+          <h2>Evidence-informed protocol profiles</h2>
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
