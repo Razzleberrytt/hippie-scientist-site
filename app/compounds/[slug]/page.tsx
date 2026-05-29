@@ -13,7 +13,7 @@ import { CompactRelatedPathways } from '@/app/pathways/pathway-hub'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
+import { SITE_URL, compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
 import {
   normalizeEvidenceLevel,
   normalizeSafetyLevel,
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 
-const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal/i
+const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal|developing/i
 const CAUTION_PATTERN = /avoid|caution|interaction|contraindication|warning|risk|pregnancy|liver|kidney|sedat|bleed/i
 
 
@@ -285,8 +285,8 @@ export default async function CompoundPage({ params }: PageProps) {
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Compounds', url: 'https://www.thehippiescientist.net/compounds' },
-    { name: displayName, url: `https://www.thehippiescientist.net/compounds/${compound.slug}` },
+    { name: 'Compounds', url: `${SITE_URL}/compounds` },
+    { name: displayName, url: `${SITE_URL}/compounds/${compound.slug}` },
   ])
 
   const tabs = [

@@ -8,6 +8,7 @@ import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
 import { seoEntryPages } from './seo-entry-pages'
 import { scientificCollections } from '@/lib/collections'
+import { SITE_URL } from '@/lib/seo'
 import {
   authorityEcosystemSlugs,
   authorityTopicSlugs,
@@ -19,11 +20,19 @@ import {
 
 export const dynamic = 'force-static'
 
-// Bare domain (no www) — consistent with layout.tsx and robots.ts.
-// Configure a 301 www→bare redirect in Cloudflare.
-const siteUrl = 'https://thehippiescientist.net'
-
-const editorialDate = new Date('2026-04-01')
+// Static shell routes use a build-aware fallback when no per-record updatedAt exists.
+// SOURCE_DATE_EPOCH supports reproducible builds; BUILD_TIME can be injected by CI
+// (for example, Cloudflare Pages or GitHub Actions); otherwise this snapshots at build time.
+const editorialDate = (() => {
+  if (process.env.SOURCE_DATE_EPOCH) {
+    return new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000)
+  }
+  if (process.env.BUILD_TIME) {
+    const d = new Date(process.env.BUILD_TIME)
+    if (!Number.isNaN(d.getTime())) return d
+  }
+  return new Date()
+})()
 const MAX_SITEMAP_ROUTES = Number.parseInt(process.env.SITEMAP_MAX_ROUTES || '5000', 10)
 
 type SlugRecord = {
@@ -51,7 +60,7 @@ const route = (
     changeFrequency?: MetadataRoute.Sitemap[number]['changeFrequency']
   },
 ): MetadataRoute.Sitemap[number] => ({
-  url: path === '/' ? `${siteUrl}/` : `${siteUrl}${path}`,
+  url: path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`,
   lastModified: options?.lastModified || editorialDate,
   changeFrequency: options?.changeFrequency || 'monthly',
   priority: options?.priority || 0.6,

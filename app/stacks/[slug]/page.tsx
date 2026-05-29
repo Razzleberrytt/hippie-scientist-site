@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getStacks } from '@/lib/runtime-data'
-import { itemListJsonLd, breadcrumbJsonLd } from '@/lib/seo'
+import { SITE_URL, itemListJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import { mergeStackEcosystems } from '@/lib/stack-ecosystems'
 import { buildSemanticAssistantSummary, buildSemanticNavigationSuggestions } from '@/lib/ai-semantic-navigation'
 import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
@@ -114,8 +114,8 @@ export default async function StackPage({ params }: Params) {
   })
 
   const stackBreadcrumbJsonLd = breadcrumbJsonLd([
-    { name: 'Stacks', url: 'https://www.thehippiescientist.net/stacks' },
-    { name: stack.title, url: `https://www.thehippiescientist.net/stacks/${stack.slug}` },
+    { name: 'Stacks', url: `${SITE_URL}/stacks` },
+    { name: stack.title, url: `${SITE_URL}/stacks/${stack.slug}` },
   ])
 
   return (

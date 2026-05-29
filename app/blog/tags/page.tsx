@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import { SITE_URL } from '@/lib/seo'
 import { getBlogTags } from '@/lib/blog-taxonomy'
 
 export const metadata: Metadata = {
   title: 'Blog Tags | The Hippie Scientist',
   description: 'Browse static blog tags to explore herb research notes by theme, mechanism, and safety context.',
-  alternates: { canonical: 'https://www.thehippiescientist.net/blog/tags' },
+  alternates: { canonical: `${SITE_URL}/blog/tags` },
 }
 
 export default function BlogTagsPage() {

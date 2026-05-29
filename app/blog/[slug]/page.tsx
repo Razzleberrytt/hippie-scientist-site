@@ -3,6 +3,7 @@ import Link from 'next/link'
 import posts from '../../../data/blog/posts.json'
 import { getAllCompounds, getAllHerbs } from '@/lib/server/runtime-data'
 import { ResearchContinuityBlock } from '@/components/scientific-discovery'
+import { SITE_URL } from '@/lib/seo'
 import { findArticleEntities } from '@/lib/editorial-discovery'
 
 const allPosts = posts as any[]
@@ -105,12 +106,12 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
     publisher: {
       '@type': 'Organization',
       name: 'The Hippie Scientist',
-      url: 'https://www.thehippiescientist.net',
+      url: SITE_URL,
     },
     articleSection: inferResearchStyle(post),
     datePublished: post.date || '2026-01-01',
     dateModified: post.updatedAt || post.date || '2026-01-01',
-    mainEntityOfPage: `https://www.thehippiescientist.net/blog/${post.slug}`,
+    mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
   }
 
   const breadcrumbJsonLd = {
@@ -121,13 +122,13 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Blog',
-        item: 'https://www.thehippiescientist.net/blog',
+        item: `${SITE_URL}/blog`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: post.title,
-        item: `https://www.thehippiescientist.net/blog/${post.slug}`,
+        item: `${SITE_URL}/blog/${post.slug}`,
       },
     ],
   }

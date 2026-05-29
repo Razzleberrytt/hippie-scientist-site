@@ -1,4 +1,4 @@
-import type { AuthorityProfileModel, AuthoritySignal } from '@/lib/authority-profile'
+import { formatAuthorityReadinessLabel, type AuthorityProfileModel, type AuthoritySignal } from '@/lib/authority-profile'
 import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 import {
   buildCommonMistakesSection,
@@ -88,6 +88,7 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
   const humanEvidence = record ? buildHumanEvidenceSummary(record) : null
   const commonMistakes = record ? dedupeEditorialItems(buildCommonMistakesSection(record), 4) : []
   const outcomeGuidance = record ? buildOutcomeSpecificGuidance(record) : []
+  const readinessBadge = formatAuthorityReadinessLabel(model.readinessLabel)
   const renderableOutcomeGuidance = outcomeGuidance
     .map((item) => ({
       outcome: cleanEditorialText(item.outcome),
@@ -107,7 +108,7 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
             </p>
           </div>
           <div className="rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-3 text-sm font-semibold text-ink shadow-sm">
-            {model.readinessLabel.replace(/-/g, ' ')} · {model.readinessScore}
+            {readinessBadge}
           </div>
         </div>
       </section>

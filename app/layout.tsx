@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import CitationDrawer from '@/components/education/CitationDrawer'
+import { SITE_URL } from '@/lib/seo'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 
@@ -11,23 +12,19 @@ const siteName = 'The Hippie Scientist'
 const siteDescription =
   'Evidence-aware research on herbs, compounds, mechanisms, safety context, and practical supplement decisions.'
 
-// Canonical domain is thehippiescientist.net (no www).
-// A 301 www→bare redirect should be configured in Cloudflare.
-const siteUrl = 'https://thehippiescientist.net'
-
 // Enhanced JSON-LD: logo + SearchAction for Google Knowledge Panel and Sitelinks Searchbox
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: siteName,
-  url: siteUrl,
+  url: SITE_URL,
   description: siteDescription,
-  image: `${siteUrl}/og-default.png`,
+  image: `${SITE_URL}/og-default.png`,
   potentialAction: {
     '@type': 'SearchAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/search?q={search_term_string}`,
+      urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
     },
     'query-input': 'required name=search_term_string',
   },
@@ -37,11 +34,11 @@ const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: siteName,
-  url: siteUrl,
+  url: SITE_URL,
   description: siteDescription,
   logo: {
     '@type': 'ImageObject',
-    url: `${siteUrl}/logo.png`,
+    url: `${SITE_URL}/logo.png`,
     width: 512,
     height: 512,
   },
@@ -52,7 +49,7 @@ const organizationJsonLd = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: { default: siteName, template: `%s | ${siteName}` },
   description: siteDescription,
   openGraph: {
@@ -60,7 +57,7 @@ export const metadata: Metadata = {
     title: siteName,
     description: siteDescription,
     siteName,
-    url: siteUrl,
+    url: SITE_URL,
   },
   twitter: {
     card: 'summary_large_image',

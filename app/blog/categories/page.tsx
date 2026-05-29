@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import { SITE_URL } from '@/lib/seo'
 import { getBlogCategories } from '@/lib/blog-taxonomy'
 
 export const metadata: Metadata = {
   title: 'Blog Categories | The Hippie Scientist',
   description: 'Browse static blog categories with canonical archive links and topic-specific article coverage.',
-  alternates: { canonical: 'https://www.thehippiescientist.net/blog/categories' },
+  alternates: { canonical: `${SITE_URL}/blog/categories` },
 }
 
 export default function BlogCategoriesPage() {

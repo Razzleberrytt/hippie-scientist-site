@@ -35,7 +35,7 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
       expect(meta.description).toContain('Ashwagandha is an adaptogenic herb.')
       expect(meta.description).toContain('Rated with strong')
       expect(meta.description).toContain('Review safety and drug interactions before use.')
-      expect(meta.alternates?.canonical).toBe('https://www.thehippiescientist.net/herbs/ashwagandha')
+      expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/herbs/ashwagandha')
     })
 
     it('generates correct metadata for a compound', () => {
@@ -43,7 +43,7 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
 
       expect(meta.title).toContain('L Theanine')
       expect(meta.title).toContain('Evidence-Based Guide')
-      expect(meta.alternates?.canonical).toBe('https://www.thehippiescientist.net/compounds/l-theanine')
+      expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/compounds/l-theanine')
     })
 
     it('sets robots to noindex if record is not indexable', () => {

@@ -9,6 +9,8 @@ export type AuthoritySignal = {
   tone?: 'strong' | 'moderate' | 'caution' | 'neutral'
 }
 
+export type AuthorityReadinessLabel = 'authority-ready' | 'developing' | 'research-needed'
+
 export type AuthorityProfileModel = {
   executiveSummary: AuthoritySignal[]
   bestFor: AuthoritySignal[]
@@ -19,7 +21,7 @@ export type AuthorityProfileModel = {
   stackCompatibility: AuthoritySignal[]
   editorialInterpretation: AuthoritySignal
   readinessScore: number
-  readinessLabel: 'authority-ready' | 'developing' | 'research-needed'
+  readinessLabel: AuthorityReadinessLabel
 }
 
 function title(value: unknown) {
@@ -154,11 +156,17 @@ export function buildEditorialInterpretation(record: any): AuthoritySignal {
   }
 }
 
+export function formatAuthorityReadinessLabel(label: AuthorityReadinessLabel): string {
+  if (label === 'authority-ready') return 'Authority profile ready'
+  if (label === 'research-needed') return 'Research review needed'
+  return 'Profile in review'
+}
+
 export function buildAuthorityProfileModel(record: any): AuthorityProfileModel {
   const semantic = buildSemanticIntelligenceReport(record)
   const evidence = buildResearchKnowledgeReport(record)
   const readinessScore = semantic.totalScore + Math.min(30, evidence.evidenceWeight)
-  const readinessLabel: AuthorityProfileModel['readinessLabel'] =
+  const readinessLabel: AuthorityReadinessLabel =
     readinessScore >= 48 ? 'authority-ready' : readinessScore >= 28 ? 'developing' : 'research-needed'
 
   return {

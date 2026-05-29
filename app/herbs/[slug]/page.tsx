@@ -17,7 +17,7 @@ import {
   buildSemanticAssistantSummary,
   buildSemanticNavigationSuggestions,
 } from '@/lib/ai-semantic-navigation'
-import { herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
+import { SITE_URL, herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
 import { buildAuthorityProfileModel } from '@/lib/authority-profile'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { buildInternalLinkDensity } from '@/lib/internal-link-density'
@@ -93,7 +93,7 @@ function getEffects(herb: any) {
 }
 
 
-const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal/i
+const WEAK_PATTERN = /research[-\s]?pending|placeholder|unknown|not specified|not available|insufficient|needs review|minimal|developing/i
 
 function cleanItems(value: unknown, limit = 8) {
   const values = Array.isArray(value) ? value.flatMap(item => list(item)) : list(value)
@@ -398,8 +398,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Herbs', url: 'https://www.thehippiescientist.net/herbs' },
-    { name: displayName, url: `https://www.thehippiescientist.net/herbs/${herb.slug}` },
+    { name: 'Herbs', url: `${SITE_URL}/herbs` },
+    { name: displayName, url: `${SITE_URL}/herbs/${herb.slug}` },
   ])
 
   const tabs = [

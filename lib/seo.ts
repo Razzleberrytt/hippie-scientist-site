@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = 'https://www.thehippiescientist.net'
+export const SITE_URL = 'https://thehippiescientist.net'
 const DEFAULT_SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_DESCRIPTION_MAX_LENGTH = 155
 
@@ -48,7 +48,7 @@ const withLeadingSlash = (value: string) => {
 const compactWhitespace = (value: string) => value.replace(/\s+/g, ' ').trim()
 
 export function buildCanonicalUrl(path = '/', options: CanonicalUrlOptions = {}): string {
-  const siteUrl = options.siteUrl || DEFAULT_SITE_URL
+  const siteUrl = options.siteUrl || SITE_URL
   const url = new URL(isAbsoluteUrl(path) ? path : withLeadingSlash(path), siteUrl)
   const allowedParams = new Set((options.keepQueryParams || []).map(param => param.toLowerCase()))
   const canonicalSearch = new URLSearchParams()
