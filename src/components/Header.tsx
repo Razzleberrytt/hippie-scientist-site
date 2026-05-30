@@ -6,15 +6,14 @@ import MobileNav from './mobile-nav'
 import '../styles/navbar.css'
 
 const navLinks = [
+  { href: '/goals', label: 'Goals' },
+  { href: '/start-here/quiz', label: 'Quiz' },
+  { href: '/safety-checker', label: 'Safety' },
   { href: '/herbs', label: 'Herbs' },
   { href: '/compounds', label: 'Compounds' },
-  { href: '/goals', label: 'Goals' },
-  { href: '/stacks', label: 'Stacks' },
   { href: '/compare', label: 'Compare' },
-  { href: '/blog', label: 'Blog' },
   { href: '/learn', label: 'Learn' },
   { href: '/search', label: 'Search' },
-  { href: '/about', label: 'About' },
 ]
 
 export default function Header() {
