@@ -2,28 +2,28 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Leaf, Search, Shield, Sparkles, Target } from 'lucide-react'
+import { ClipboardList, Leaf, Search, Shield, Target } from 'lucide-react'
 
 const navItems = [
-  {
-    href: '/herbs',
-    label: 'Herbs',
-    Icon: Leaf,
-  },
-  {
-    href: '/compounds',
-    label: 'Compounds',
-    Icon: Sparkles,
-  },
   {
     href: '/goals',
     label: 'Goals',
     Icon: Target,
   },
   {
+    href: '/start-here/quiz',
+    label: 'Quiz',
+    Icon: ClipboardList,
+  },
+  {
     href: '/safety-checker',
     label: 'Safety',
     Icon: Shield,
+  },
+  {
+    href: '/herbs',
+    label: 'Herbs',
+    Icon: Leaf,
   },
   {
     href: '/search',
