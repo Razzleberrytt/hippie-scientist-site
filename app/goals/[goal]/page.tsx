@@ -7,6 +7,7 @@ import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decisi
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
+import SleepDecisionExperience from './SleepDecisionExperience'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
@@ -148,6 +149,13 @@ export async function generateMetadata({
     }
   }
 
+  if (goalSlug === 'sleep') {
+    return {
+      title: 'Sleep Decision Guide | The Hippie Scientist',
+      description: 'Choose a sleep supplement starting point by evidence, speed, safety, product quality, and practical fit before shopping.',
+    }
+  }
+
   const matches = rankEntitiesForGoal(goalSlug)
   const topMatches = matches.slice(0, 3).map(m => m.name).join(', ')
   const description = topMatches
@@ -215,8 +223,8 @@ export default async function GoalDecisionPage({
     })),
   })
 
-  return (
-    <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
+  const structuredData = (
+    <>
       {goalFaqJsonLd && (
         <script
           type="application/ld+json"
@@ -235,6 +243,22 @@ export default async function GoalDecisionPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(goalItemListJsonLd) }}
       />
+    </>
+  )
+
+  if (goal.slug === 'sleep') {
+    return (
+      <SleepDecisionExperience
+        goal={goal}
+        enrichedOptions={enrichedOptions}
+        structuredData={structuredData}
+      />
+    )
+  }
+
+  return (
+    <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
+      {structuredData}
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">{goal.eyebrow}</p>
         <h1 className="heading-premium mt-3 text-ink">
