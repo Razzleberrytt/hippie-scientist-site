@@ -24,8 +24,8 @@ export default function Page() {
       </section>
       <p className="text-sm text-muted">Safety note: do not use supplement content as a substitute for medical evaluation, especially with endocrine conditions, medications, pregnancy, or mental health crises.</p>
       <div className="flex gap-4">
-        <Link href="/top/best-herbs-for-cortisol" className="text-sm font-medium text-emerald-700 hover:underline">Best cortisol herbs</Link>
-        <Link href="/top/stress" className="text-sm font-medium text-emerald-700 hover:underline">Stress guides</Link>
+        <Link href="/guides/how-to-lower-cortisol-naturally" className="text-sm font-medium text-emerald-700 hover:underline">Best cortisol herbs</Link>
+        <Link href="/goals/stress" className="text-sm font-medium text-emerald-700 hover:underline">Stress guides</Link>
       </div>
     </main>
   )

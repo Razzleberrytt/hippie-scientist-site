@@ -203,7 +203,7 @@ const nextDecisions = [
   { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha', note: 'Compare calming stress support with fatigue-oriented stress support.' },
   { label: 'Ashwagandha vs Rhodiola for Stress', href: '/compare/ashwagandha-vs-rhodiola-for-stress', note: 'Choose by wired-versus-tired stress pattern.' },
   { label: 'Stress / Calm goal guide', href: '/goals/stress', note: 'See other stress-support options and caution groups.' },
-  { label: 'Best Adaptogens for Stress', href: '/best-adaptogens-for-stress', note: 'Compare ashwagandha with other adaptogens before buying.' },
+  { label: 'Best Adaptogens for Stress', href: '/guides/best-adaptogens-for-stress', note: 'Compare ashwagandha with other adaptogens before buying.' },
 ]
 
 function SectionHeader({ kicker, title, children }: { kicker: string; title: string; children?: React.ReactNode }) {

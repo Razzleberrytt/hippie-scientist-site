@@ -28,8 +28,8 @@ export default function Page() {
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Where to go next</h2>
         <div className='mt-4 flex flex-wrap gap-4'>
-          <Link href='/top/best-supplements-for-brain-fog' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
-          <Link href='/top/best-supplements-for-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for fatigue</Link>
+          <Link href='/guides/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
+          <Link href='/guides/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for fatigue</Link>
           <Link href='/compare/creatine-vs-caffeine' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
         </div>
       </section>

@@ -19,7 +19,7 @@ const systems = [
     description: 'Recovery-oriented educational protocol focused on stress systems and nervous-system stabilization.',
   },
   {
-    href: '/best-for/non-sedating-calm',
+    href: '/goals/anxiety',
     title: 'Non-Sedating Calm',
     description: 'Educational calm-focus discovery system emphasizing stress-aware neuropharmacology.',
   },

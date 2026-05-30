@@ -22,7 +22,7 @@ export default function Page(){
           <li><strong className='text-ink'>Passionflower:</strong> relaxation</li>
         </ul>
         <div className='mt-6 flex gap-4 flex-wrap'>
-          <Link href='/top/top-3-natural-sleep-aids' className='text-sm font-medium text-emerald-700 hover:underline'>Top sleep aids →</Link>
+          <Link href='/guides/best-supplements-for-sleep' className='text-sm font-medium text-emerald-700 hover:underline'>Top sleep aids →</Link>
           <Link href='/compare/magnesium-vs-melatonin' className='text-sm font-medium text-emerald-700 hover:underline'>Magnesium vs melatonin →</Link>
         </div>
       </section>

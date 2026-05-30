@@ -6,6 +6,7 @@ import StackBuilderClient from '@/components/stacks/StackBuilderClient'
 export const metadata: Metadata = {
   title: 'Interactive Supplement Stack Builder',
   description: 'Design and validate custom herb and compound stacks. Check for mechanism overlap, safety concerns, and target receptor redundancies in real time.',
+  robots: { index: false, follow: true },
 }
 
 export default async function StackBuilderPage() {

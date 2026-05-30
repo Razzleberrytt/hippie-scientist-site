@@ -19,7 +19,7 @@ export default function Page() {
         <article className="card-premium p-5"><h2 className="text-xl font-semibold text-ink">Melatonin</h2><p className="mt-2 text-sm text-muted">Often used for sleep schedule alignment rather than broad stress support.</p></article>
       </section>
       <div className="flex gap-4">
-        <Link href="/top/top-3-natural-sleep-aids" className="text-sm font-medium text-emerald-700 hover:underline">Top sleep aids</Link>
+        <Link href="/guides/best-supplements-for-sleep" className="text-sm font-medium text-emerald-700 hover:underline">Top sleep aids</Link>
         <Link href="/compare/magnesium-vs-melatonin" className="text-sm font-medium text-emerald-700 hover:underline">Full comparison</Link>
       </div>
     </main>

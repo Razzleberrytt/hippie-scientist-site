@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: TopicRouteProps): Promise<Met
     title,
     description:
       'Evidence-aware semantic authority hub covering mechanisms, pathways, related herbs, compounds, stacks, and comparisons.',
+    robots: { index: false, follow: true },
   }
 }
 

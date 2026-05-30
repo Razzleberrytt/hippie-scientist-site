@@ -7,6 +7,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Contextual Sourcing Comparer & Active Yield Auditor | The Hippie Scientist',
   description: 'Compare typical servings cost, dosage standardization efficiency, active yield metrics, and purchase safety quality checklists.',
+  robots: { index: false, follow: true },
 }
 
 export default async function SourcingComparerPage() {

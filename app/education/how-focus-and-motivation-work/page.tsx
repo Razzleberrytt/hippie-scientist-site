@@ -36,7 +36,7 @@ const related = [
     title: 'What Is a Nootropic?',
   },
   {
-    href: '/best-for/non-sedating-calm',
+    href: '/goals/focus',
     title: 'Non-Sedating Calm',
   },
 ]

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { semanticSupernodes, getSemanticSupernode } from '@/lib/semantic-supernodes'
@@ -24,6 +25,17 @@ type SupernodeRouteProps = {
 
 export function generateStaticParams() {
   return semanticSupernodes.map((node) => ({ slug: node.slug }))
+}
+
+export async function generateMetadata({ params }: SupernodeRouteProps): Promise<Metadata> {
+  const resolvedParams = await params
+  const node = getSemanticSupernode(resolvedParams.slug)
+
+  return {
+    title: node ? `${node.title} | The Hippie Scientist` : 'Semantic Supernode',
+    description: node?.description || 'Semantic relationship hub for advanced supplement research.',
+    robots: { index: false, follow: true },
+  }
 }
 
 function normalize(value: unknown) {

@@ -43,11 +43,11 @@ export const protocolSlugs = [
 ]
 
 export const authorityHomeLinks = [
-  { href: '/topics/stress-response', label: 'Stress Response Hub' },
-  { href: '/topics/sleep-recovery', label: 'Sleep Recovery Hub' },
-  { href: '/best/sleep', label: 'Best for Sleep' },
-  { href: '/best/focus', label: 'Best for Focus' },
-  { href: '/compare/ashwagandha-vs-rhodiola', label: 'Ashwagandha vs Rhodiola' },
+  { href: '/goals/stress', label: 'Stress Goal Hub' },
+  { href: '/goals/sleep', label: 'Sleep Goal Hub' },
+  { href: '/guides/best-supplements-for-sleep', label: 'Best Supplements for Sleep' },
+  { href: '/guides/best-supplements-for-focus', label: 'Best Supplements for Focus' },
+  { href: '/compare/rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
   { href: '/stacks/sleep-recovery-stack', label: 'Sleep Recovery Stack' },
-  { href: '/protocols/deep-sleep-support', label: 'Deep Sleep Protocol' },
+  { href: '/learn/safety', label: 'Safety Basics' },
 ]

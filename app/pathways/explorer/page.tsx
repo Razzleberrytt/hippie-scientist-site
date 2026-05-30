@@ -7,6 +7,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Biological Pathway Connectivity Explorer',
   description: 'Explore biological receptor connections mapping target neurochemical networks (GABA, Dopamine, Serotonin, Acetylcholine) to modulating herbs and compounds.',
+  robots: { index: false, follow: true },
 }
 
 export default async function PathwayExplorerPage() {

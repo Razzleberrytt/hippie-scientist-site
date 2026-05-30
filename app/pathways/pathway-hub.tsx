@@ -47,7 +47,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     ],
     related: [
       { label: 'Dopamine', href: '/pathways/dopamine', description: 'Motivation, focus, reward, and cognition-adjacent neurotransmitter signals.' },
-      { label: 'Stress', href: '/best-supplements-for-stress', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
+      { label: 'Stress', href: '/guides/best-supplements-for-stress', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
       { label: 'Sleep', href: '/goals/sleep', description: 'Decision guide for sleep quality, nighttime relaxation, and circadian support.' },
       { label: 'Recovery', href: '/goals/recovery', description: 'Recovery-adjacent inflammation, repair, mobility, and oxidative-stress context.' },
     ],
@@ -83,7 +83,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     related: [
       { label: 'GABA', href: '/pathways/gaba', description: 'Neurotransmitter and sleep-adjacent signals with calming pathway context.' },
       { label: 'Dopamine', href: '/pathways/dopamine', description: 'Motivation, focus, and cognition-adjacent neurotransmitter context.' },
-      { label: 'Joint support', href: '/best-supplements-for-joint-support', description: 'Goal guide for mobility and inflammation-adjacent supplement decisions.' },
+      { label: 'Joint support', href: '/guides/best-supplements-for-joint-support', description: 'Goal guide for mobility and inflammation-adjacent supplement decisions.' },
     ],
   },
 }
@@ -193,7 +193,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
   const authorityAnchors = getAuthorityAnchorRecords(relatedRecords, 4)
   const mechanisms = unique([...relatedRecords.flatMap(getMechanisms), ...ecosystemSignals]).slice(0, 12)
   const effects = unique(relatedRecords.flatMap(getEffects)).slice(0, 12)
-  const supportedRelated = config.related.filter((item) => item.href.startsWith('/pathways/') || item.href.startsWith('/goals/') || item.href.startsWith('/best-supplements-for-'))
+  const supportedRelated = config.related.filter((item) => item.href.startsWith('/pathways/') || item.href.startsWith('/goals/') || item.href.startsWith('/guides/'))
 
   return (
     <main className="mx-auto max-w-6xl space-y-10 px-4 py-10">

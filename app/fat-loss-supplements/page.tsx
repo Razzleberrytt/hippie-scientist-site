@@ -19,7 +19,7 @@ export default function Page() {
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Best Supplements for Fat Loss</h1>
         <p className='mt-4 max-w-2xl text-muted'>Compare fat loss supplements with real-world dosing, timing, and safety considerations. This page helps you move from individual compounds into a complete fat-loss stack strategy.</p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/best-supplements-for-fat-loss' className='inline-flex min-h-11 items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'>Explore Fat Loss Supplements</Link>
+          <Link href='/guides/best-supplements-for-fat-loss' className='inline-flex min-h-11 items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'>Explore Fat Loss Supplements</Link>
           <Link href='/stacks/fat-loss' className='inline-flex min-h-11 items-center rounded-full border border-stone-200 bg-white/50 px-5 py-2.5 text-sm font-medium text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'>View Fat Loss Stack</Link>
         </div>
       </section>

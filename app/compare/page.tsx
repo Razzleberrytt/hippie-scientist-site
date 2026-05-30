@@ -17,7 +17,7 @@ const popularComparisonPairs = [
   { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },
   { label: 'L-Theanine vs Magnesium', href: '/compare/l-theanine-vs-magnesium' },
   { label: 'Sleep herbs vs Melatonin', href: '/sleep-herbs-vs-melatonin' },
-  { label: 'Stimulating vs Sedating Compounds', href: '/comparisons/stimulating-vs-sedating-compounds' },
+  { label: 'Dynamic comparison matrix', href: '/compare/dynamic' },
 ]
 
 const guidanceCards = [

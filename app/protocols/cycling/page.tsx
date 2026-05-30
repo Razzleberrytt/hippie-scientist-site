@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Supplement Tolerance Cycling Protocols & Washout Planner',
   description:
     'Plan off-cycle washout schedules and resensitization calendars for stimulants, adaptogens, and cognitive compounds.',
+  robots: { index: false, follow: true },
 }
 
 export default function CyclingProtocolPage() {

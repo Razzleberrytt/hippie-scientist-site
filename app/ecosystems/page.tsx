@@ -1,6 +1,13 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { getEcosystemHubs } from '@/lib/ecosystem-hubs'
+
+export const metadata: Metadata = {
+  title: 'Ecosystems',
+  description: 'Ecosystem hubs for mechanism continuity, pathway context, and practical exploration order.',
+  robots: { index: false, follow: true },
+}
 
 const hubs = getEcosystemHubs()
 

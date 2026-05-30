@@ -23,7 +23,7 @@ export default function Page() {
         </ul>
       </section>
       <div className="flex flex-wrap gap-4">
-        <Link href="/top/top-3-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
+        <Link href="/guides/best-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
         <Link href="/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
       </div>
     </main>

@@ -32,7 +32,7 @@ const related = [
     title: 'GABA Pathway',
   },
   {
-    href: '/best-for/sleep-support',
+    href: '/goals/sleep',
     title: 'Sleep Support',
   },
   {

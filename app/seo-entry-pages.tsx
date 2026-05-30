@@ -142,6 +142,15 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   },
 ]
 
+const canonicalGuideRouteOverrides: Record<string, string> = {
+  'best-supplements-for-blood-pressure': 'guides/best-supplements-for-blood-pressure-support',
+}
+
+const manualGuideSeoEntryPages: SeoEntryConfig[] = manualSeoEntryPages.map((page) => ({
+  ...page,
+  route: canonicalGuideRouteOverrides[page.route] || `guides/${page.route}`,
+}))
+
 const guideTopics = [
   ['sleep', 'natural sleep aids'], ['sleep', 'supplements for deep sleep'], ['sleep', 'supplements for insomnia'], ['sleep', 'melatonin alternatives'], ['sleep', 'calming supplements for sleep'], ['sleep', 'nighttime relaxation supplements'], ['sleep', 'sleep onset supplements'], ['sleep', 'sleep stack supplements'], ['sleep', 'non habit forming sleep aids'], ['sleep', 'magnesium for sleep'], ['sleep', 'glycine for sleep'], ['sleep', 'theanine for sleep'],
   ['stress', 'natural anxiety supplements'], ['stress', 'herbs for stress relief'], ['stress', 'supplements for cortisol'], ['stress', 'adaptogens for anxiety'], ['stress', 'calming supplements'], ['stress', 'stress relief supplements'], ['stress', 'supplements for panic support'], ['stress', 'ashwagandha alternatives'], ['stress', 'rhodiola vs ashwagandha'], ['stress', 'kava alternatives'], ['stress', 'relaxation supplements'], ['stress', 'non sedating anxiety supplements'],
@@ -173,9 +182,17 @@ const generatedSeoEntryPages: SeoEntryConfig[] = guideTopics.map(([goalSlug, top
   ],
 }))
 
-export const seoEntryPages: SeoEntryConfig[] = [...manualSeoEntryPages, ...generatedSeoEntryPages]
+export const seoEntryPages: SeoEntryConfig[] = [
+  ...manualSeoEntryPages,
+  ...manualGuideSeoEntryPages,
+  ...generatedSeoEntryPages,
+]
 
-const siteUrl = 'https://thehippiescientist.net'
+export const canonicalGuidePages: SeoEntryConfig[] = seoEntryPages.filter((page) =>
+  page.route.startsWith('guides/'),
+)
+
+const siteUrl = 'https://www.thehippiescientist.net'
 
 const clean = (value: unknown): string => {
   if (value === null || value === undefined) return ''
@@ -316,15 +333,20 @@ function breadcrumbSchema(page: SeoEntryConfig) {
 export function generateSeoEntryMetadata(route: string): Metadata {
   const page = seoEntryPages.find((item) => item.route === route)
   if (!page) return { title: 'Supplement Guide | The Hippie Scientist' }
+  const canonicalRoute = manualSeoEntryPages.some((item) => item.route === route)
+    ? canonicalGuideRouteOverrides[route] || `guides/${route}`
+    : page.route
+  const isDeprecatedRoute = canonicalRoute !== page.route
 
   return {
     title: page.title,
     description: page.intro,
-    alternates: { canonical: `/${page.route}` },
+    alternates: { canonical: `/${canonicalRoute}` },
+    robots: isDeprecatedRoute ? { index: false, follow: true } : undefined,
     openGraph: {
       title: page.title,
       description: page.intro,
-      url: `/${page.route}`,
+      url: `/${canonicalRoute}`,
       type: 'article',
     },
   }

@@ -7,6 +7,7 @@ import '../styles/navbar.css'
 
 const navLinks = [
   { href: '/goals', label: 'Goals' },
+  { href: '/guides', label: 'Guides' },
   { href: '/start-here/quiz', label: 'Quiz' },
   { href: '/safety-checker', label: 'Safety' },
   { href: '/herbs', label: 'Herbs' },

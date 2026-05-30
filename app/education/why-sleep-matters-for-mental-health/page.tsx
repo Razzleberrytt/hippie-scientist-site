@@ -19,7 +19,7 @@ const relatedSystems = [
     title: 'Stress and the Brain',
   },
   {
-    href: '/best-for/sleep-support',
+    href: '/goals/sleep',
     title: 'Sleep Support',
   },
 ]

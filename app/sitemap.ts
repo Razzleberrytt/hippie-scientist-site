@@ -3,23 +3,14 @@ import postsData from '@/data/blog/posts.json'
 import stacksData from '@/public/data/stacks.json'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import { bestPages } from '@/data/best'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
-import { seoEntryPages } from './seo-entry-pages'
+import { canonicalGuidePages } from './seo-entry-pages'
 import { scientificCollections } from '@/lib/collections'
-import {
-  authorityEcosystemSlugs,
-  authorityTopicSlugs,
-  bestForSlugs,
-  comparisonSlugs,
-  protocolSlugs,
-  stackSlugs,
-} from './authority-links'
+import { comparisonSlugs, stackSlugs } from './authority-links'
 
 export const dynamic = 'force-static'
 
-// Canonical production domain. Keep sitemap URLs aligned with Cloudflare's www canonical host.
 const siteUrl = 'https://www.thehippiescientist.net'
 
 const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH
@@ -70,11 +61,7 @@ function stabilizeSitemapRoutes(
   for (const entry of routes) {
     if (!entry?.url) continue
     const existing = byUrl.get(entry.url)
-    if (!existing) {
-      byUrl.set(entry.url, entry)
-      continue
-    }
-    if (Number(entry.priority || 0) > Number(existing.priority || 0)) {
+    if (!existing || Number(entry.priority || 0) > Number(existing.priority || 0)) {
       byUrl.set(entry.url, entry)
     }
   }
@@ -88,10 +75,13 @@ function stabilizeSitemapRoutes(
     .slice(0, Math.max(0, MAX_SITEMAP_ROUTES))
 }
 
-const pathwayRoutes = [
-  '/pathways/gaba',
-  '/pathways/dopamine',
-  '/pathways/inflammation',
+const canonicalStaticRoutes = [
+  '/compare',
+  '/faq',
+  '/guides',
+  '/learn',
+  '/buy-guide',
+  '/safety-checker',
 ]
 
 const clusterRoutes = [
@@ -100,10 +90,15 @@ const clusterRoutes = [
   '/psychedelic-adjacent-herbs',
 ]
 
-const staticMvpRoutes = [
-  '/a-tier',
-  '/faq',
-  '/learn',
+const staticGuideRoutes = [
+  '/guides/best-herbs-for-stress-and-anxiety-at-night',
+  '/guides/best-natural-sleep-aids-that-work',
+  '/guides/best-supplements-for-overthinking',
+  '/guides/focus-without-caffeine-crash',
+  '/guides/how-to-lower-cortisol-naturally',
+  '/guides/magnesium-vs-melatonin',
+  '/guides/natural-alternatives-to-anxiety-medication',
+  '/guides/supplements-for-brain-fog-and-fatigue',
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -132,62 +127,39 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((herb) => herb.slug)
 
   return stabilizeSitemapRoutes([
-    // Differentiated priorities — homepage and library pages ranked above thin pages
     route('/', { priority: 1.0, changeFrequency: 'weekly' }),
     route('/compounds', { priority: 0.9, changeFrequency: 'weekly' }),
     route('/herbs', { priority: 0.9, changeFrequency: 'weekly' }),
-    route('/blog', { priority: 0.8, changeFrequency: 'weekly' }),
     route('/goals', { priority: 0.8, changeFrequency: 'weekly' }),
     route('/stacks', { priority: 0.7, changeFrequency: 'monthly' }),
-    // /compare omitted — page is blank. Re-add once the tool renders correctly.
-    route('/topics', { priority: 0.7, changeFrequency: 'weekly' }),
-    route('/ecosystems', { priority: 0.7, changeFrequency: 'weekly' }),
-    route('/protocols', { priority: 0.7, changeFrequency: 'monthly' }),
-    // /safety-checker added — working tool previously missing from sitemap
-    route('/safety-checker', { priority: 0.7, changeFrequency: 'monthly' }),
+    route('/blog', { priority: 0.65, changeFrequency: 'weekly' }),
 
-    ...staticMvpRoutes.map((path) =>
+    ...canonicalStaticRoutes.map((path) =>
       route(path, { priority: 0.65, changeFrequency: 'monthly' }),
     ),
 
-    ...seoEntryPages.map(page =>
+    ...canonicalGuidePages.map((page) =>
       route(`/${page.route}`, { priority: 0.7, changeFrequency: 'monthly' }),
+    ),
+
+    ...staticGuideRoutes.map((path) =>
+      route(path, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...clusterRoutes.map((path) =>
       route(path, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
-    ...pathwayRoutes.map((path) =>
-      route(path, { priority: 0.7, changeFrequency: 'monthly' }),
-    ),
-
-    ...scientificCollections.map(collection =>
+    ...scientificCollections.map((collection) =>
       route(`/collections/${collection.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
-    ...goalConfigs.map(g =>
-      route(`/goals/${g.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
+    ...goalConfigs.map((goal) =>
+      route(`/goals/${goal.slug}`, { priority: 0.75, changeFrequency: 'monthly' }),
     ),
 
-    ...bestPages.map(p =>
-      route(`/best/${p.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
-    ),
-
-    ...supplementComparisons.map(c =>
-      route(`/compare/${c.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
-    ),
-
-    ...authorityTopicSlugs.map((slug) =>
-      route(`/topics/${slug}`, { priority: 0.7, changeFrequency: 'weekly' }),
-    ),
-
-    ...authorityEcosystemSlugs.map((slug) =>
-      route(`/ecosystems/${slug}`, { priority: 0.7, changeFrequency: 'weekly' }),
-    ),
-
-    ...bestForSlugs.map((slug) =>
-      route(`/best/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
+    ...supplementComparisons.map((comparison) =>
+      route(`/compare/${comparison.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
     ...comparisonSlugs.map((slug) =>
@@ -195,21 +167,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
 
     ...stackSlugs.map((slug) =>
-      route(`/stacks/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
-    ),
-
-    ...protocolSlugs.map((slug) =>
-      route(`/protocols/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
+      route(`/stacks/${slug}`, { priority: 0.65, changeFrequency: 'monthly' }),
     ),
 
     ...stacks
-      .map(s => cleanSlug(s.slug))
+      .map((stack) => cleanSlug(stack.slug))
       .filter(Boolean)
-      .map(s =>
-        route(`/stacks/${s}`, { priority: 0.7, changeFrequency: 'monthly' }),
+      .map((slug) =>
+        route(`/stacks/${slug}`, { priority: 0.65, changeFrequency: 'monthly' }),
       ),
 
-    // Herb & compound profiles — priority 0.9, real lastModified dates
     ...herbRecords.map((record) =>
       route(`/herbs/${record.slug}`, {
         lastModified: getLastModified(record),
@@ -226,19 +193,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }),
     ),
 
-    route('/blog/categories', { priority: 0.55, changeFrequency: 'monthly' }),
-    route('/blog/tags', { priority: 0.5, changeFrequency: 'monthly' }),
-
     ...posts
-      .map(post => ({
+      .map((post) => ({
         slug: cleanSlug(post.slug),
         updatedAt: post.updatedAt || post.last_updated,
       }))
-      .filter(post => post.slug)
-      .map(post =>
+      .filter((post) => post.slug)
+      .map((post) =>
         route(`/blog/${post.slug}`, {
           lastModified: getLastModified(post),
-          priority: 0.8,
+          priority: 0.6,
           changeFrequency: 'monthly',
         }),
       ),

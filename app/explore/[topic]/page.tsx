@@ -58,7 +58,7 @@ const TOPIC_CONTEXT: Record<string, { intro: string; sections: { title: string; 
     signals: ['Stress signaling', 'Adaptogens', 'GABA overlap', 'Cortisol context', 'Mood support', 'Sleep overlap'],
     links: [
       { label: 'GABA pathway', href: '/pathways/gaba', description: 'Calming and inhibitory signaling context related to stress and relaxation.' },
-      { label: 'Stress supplement guide', href: '/best-supplements-for-stress', description: 'Decision guide for stress resilience and supplement comparisons.' },
+      { label: 'Stress supplement guide', href: '/guides/best-supplements-for-stress', description: 'Decision guide for stress resilience and supplement comparisons.' },
       { label: 'Adaptogens for stress', href: '/collections/adaptogens-for-stress', description: 'Botanical collection organized around adaptation and resilience language.' },
     ],
   },
@@ -73,7 +73,7 @@ const TOPIC_CONTEXT: Record<string, { intro: string; sections: { title: string; 
     links: [
       { label: 'Inflammation pathway', href: '/pathways/inflammation', description: 'Immune, oxidative-stress, and recovery-adjacent pathway relationships.' },
       { label: 'Recovery Support Ecosystem', href: '/ecosystems/recovery', description: 'Outcome-led guide for repair, performance recovery, and mobility support.' },
-      { label: 'Joint support guide', href: '/best-supplements-for-joint-support', description: 'Inflammation-adjacent guide for mobility and joint-support decisions.' },
+      { label: 'Joint support guide', href: '/guides/best-supplements-for-joint-support', description: 'Inflammation-adjacent guide for mobility and joint-support decisions.' },
     ],
   },
 }

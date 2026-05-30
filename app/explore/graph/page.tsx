@@ -7,6 +7,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Biological Relational Knowledge Graph Explorer | The Hippie Scientist',
   description: 'Explore neurochemical pathways, biological target networks, and evidence confidence certitude mappings for cognitive and wellness objectives.',
+  robots: { index: false, follow: true },
 }
 
 export default async function ExploreGraphPage() {

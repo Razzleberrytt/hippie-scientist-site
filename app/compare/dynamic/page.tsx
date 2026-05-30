@@ -7,6 +7,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Dynamic Ingredient Comparison Matrix',
   description: 'Select and compare any two herbs, compounds, or adaptogens side-by-side on evidence strength, mechanisms, safety profiles, and dosages.',
+  robots: { index: false, follow: true },
 }
 
 export default async function DynamicComparePage() {

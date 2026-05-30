@@ -7,6 +7,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Personalized Daily Protocol Planner & Schedule Builder',
   description: 'Design, audit, and export your custom daily supplement schedule. Group ingredients by Morning, Afternoon, Evening, and Night, auditing caffeine levels and sedative overlaps.',
+  robots: { index: false, follow: true },
 }
 
 export default async function RegimenPlannerPage() {

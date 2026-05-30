@@ -24,7 +24,7 @@ export default function Page() {
           <li>Use sleep consistency to reduce next-day overreliance on stimulants.</li>
         </ol>
         <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="/top/top-3-supplements-for-focus" className="text-sm font-medium text-emerald-700 hover:underline">Top focus supplements</Link>
+          <Link href="/guides/best-supplements-for-focus" className="text-sm font-medium text-emerald-700 hover:underline">Top focus supplements</Link>
           <Link href="/compare/caffeine-vs-l-theanine" className="text-sm font-medium text-emerald-700 hover:underline">Caffeine vs L-theanine</Link>
         </div>
       </section>

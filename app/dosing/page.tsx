@@ -7,6 +7,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Dynamic Dosage & Active Molecular Yield Calculator',
   description: 'Compute customized supplement dosing ranges based on body weight and experience levels. Calculate active chemical yields and cycle notes.',
+  robots: { index: false, follow: true },
 }
 
 export default async function DosingPage() {

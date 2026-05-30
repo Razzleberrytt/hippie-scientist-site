@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Supplement Protocol Guides',
   description: 'Evidence-informed protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',
   alternates: { canonical: '/protocols' },
+  robots: { index: false, follow: true },
   openGraph: {
     title: 'Supplement Protocol Guides',
     description: 'Evidence-informed protocol pages for stress regulation, sleep support, focus, burnout recovery, and recovery-oriented productivity.',

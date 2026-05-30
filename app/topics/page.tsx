@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+
+export const metadata: Metadata = {
+  title: 'Topic Hubs',
+  description: 'Topic-level hubs connecting herbs, compounds, protocols, and comparisons.',
+  robots: { index: false, follow: true },
+}
 
 const topicLinks = [
   { slug: 'stress-response', title: 'Stress Response', description: 'Explore stress-load patterns, recovery sequencing, and adaptogenic context.' },
