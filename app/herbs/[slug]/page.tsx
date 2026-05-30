@@ -20,6 +20,7 @@ import {
   deriveResearchStyle,
 } from '@/lib/research-intelligence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
+import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
 
 
 type PageProps = {
@@ -329,6 +330,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
           )}
         </div>
       </section>
+
+      {normalizedSlug === 'ashwagandha' && <AshwagandhaStressClaim />}
 
       {/* Section 2: Safety */}
       <section className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">
