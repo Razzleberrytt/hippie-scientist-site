@@ -32,6 +32,10 @@ const SHEETS = {
   stressEvidenceClaims: ['Stress Evidence Claims'],
   stressEvidenceSources: ['Stress Evidence Sources'],
   stressSafetyNotes: ['Stress Safety Notes'],
+  anxietyOutcomeProblems: ['Anxiety OutcomeProblems', 'Anxiety Outcome Problems'],
+  anxietyEvidenceClaims: ['Anxiety Evidence Claims'],
+  anxietyEvidenceSources: ['Anxiety Evidence Sources'],
+  anxietySafetyNotes: ['Anxiety Safety Notes'],
 }
 
 const SLEEP_PROBLEMS = new Set([
@@ -96,6 +100,37 @@ const STRESS_PROBLEM_LABELS = {
   },
 }
 
+const ANXIETY_PROBLEMS = new Set([
+  'generalized_tension',
+  'situational_anxiety',
+  'social_anxiety',
+  'physical_tension',
+  'anxious_sleep_onset',
+])
+
+const ANXIETY_PROBLEM_LABELS = {
+  generalized_tension: {
+    title: 'Generalized tension',
+    description: 'Persistent background worry or daily low-level anxiety that does not fully reset.',
+  },
+  situational_anxiety: {
+    title: 'Situational anxiety',
+    description: 'Anxiety tied to specific events, transitions, or anticipatory pressure.',
+  },
+  social_anxiety: {
+    title: 'Social anxiety',
+    description: 'Nervousness or performance pressure in social or high-visibility situations.',
+  },
+  physical_tension: {
+    title: 'Physical tension',
+    description: 'Somatic anxiety patterns including muscle tightness, shallow breathing, or restlessness.',
+  },
+  anxious_sleep_onset: {
+    title: 'Anxious sleep onset',
+    description: 'Worry loops or nervous arousal that delay sleep or prevent full wind-down.',
+  },
+}
+
 const EVIDENCE_ENGINE_GOALS = {
   sleep: {
     goal: 'sleep',
@@ -112,6 +147,14 @@ const EVIDENCE_ENGINE_GOALS = {
     fallbackProblemLabels: STRESS_PROBLEM_LABELS,
     validProblems: STRESS_PROBLEMS,
     defaultDecisionGroup: 'Other stress support',
+  },
+  anxiety: {
+    goal: 'anxiety',
+    problemField: 'anxiety_problem',
+    problemAliases: ['anxiety_problem', 'anxiety problem', 'problem'],
+    fallbackProblemLabels: ANXIETY_PROBLEM_LABELS,
+    validProblems: ANXIETY_PROBLEMS,
+    defaultDecisionGroup: 'Other anxiety support',
   },
 }
 
@@ -675,6 +718,13 @@ function main() {
     read(wb, SHEETS.stressEvidenceSources, true),
     read(wb, SHEETS.stressSafetyNotes, true)
   )
+  const anxietyEvidenceEngine = buildEvidenceEngine(
+    EVIDENCE_ENGINE_GOALS.anxiety,
+    read(wb, SHEETS.anxietyOutcomeProblems, true),
+    read(wb, SHEETS.anxietyEvidenceClaims, true),
+    read(wb, SHEETS.anxietyEvidenceSources, true),
+    read(wb, SHEETS.anxietySafetyNotes, true)
+  )
   const normalizationReport = mechanismReport(herbs, compounds, taxonomy.mechanisms)
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
@@ -695,13 +745,15 @@ function main() {
   writeJson(path.join(outDir, 'knowledge-graph.json'), graph)
   writeJson(path.join(outDir, 'evidence-engine', 'sleep.json'), sleepEvidenceEngine)
   writeJson(path.join(outDir, 'evidence-engine', 'stress.json'), stressEvidenceEngine)
+  writeJson(path.join(outDir, 'evidence-engine', 'anxiety.json'), anxietyEvidenceEngine)
   writeJson(path.join(outDir, 'agent-patches.json'), [])
   details(path.join(outDir, 'herb-detail'), herbs)
   details(path.join(outDir, 'compound-detail'), compounds)
-  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, sleepEvidenceClaims: sleepEvidenceEngine.claims.length, sleepSafetyNotes: sleepEvidenceEngine.safetyNotes.length, stressEvidenceClaims: stressEvidenceEngine.claims.length, stressSafetyNotes: stressEvidenceEngine.safetyNotes.length } })
+  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, sleepEvidenceClaims: sleepEvidenceEngine.claims.length, sleepSafetyNotes: sleepEvidenceEngine.safetyNotes.length, stressEvidenceClaims: stressEvidenceEngine.claims.length, stressSafetyNotes: stressEvidenceEngine.safetyNotes.length, anxietyEvidenceClaims: anxietyEvidenceEngine.claims.length, anxietySafetyNotes: anxietyEvidenceEngine.safetyNotes.length } })
   console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
   console.log(`[data] sleep evidence engine: ${sleepEvidenceEngine.claims.length} claims, ${sleepEvidenceEngine.safetyNotes.length} safety notes`)
   console.log(`[data] stress evidence engine: ${stressEvidenceEngine.claims.length} claims, ${stressEvidenceEngine.safetyNotes.length} safety notes`)
+  console.log(`[data] anxiety evidence engine: ${anxietyEvidenceEngine.claims.length} claims, ${anxietyEvidenceEngine.safetyNotes.length} safety notes`)
   console.log(`[data] canonical mechanisms: ${taxonomy.mechanisms.length}; unmapped mechanism terms: ${normalizationReport.unmappedMechanisms.length}`)
 }
 

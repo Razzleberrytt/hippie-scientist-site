@@ -13,7 +13,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
 type RuntimeRecord = Record<string, any>
-type GoalEvidenceSlug = 'sleep' | 'stress'
+type GoalEvidenceSlug = 'sleep' | 'stress' | 'anxiety'
 
 export type SleepEvidenceClaim = EvidenceEngineClaim & { sleep_problem: string }
 export type SleepEvidenceSource = EvidenceEngineSource
@@ -30,6 +30,14 @@ export type StressEvidenceEnginePayload = EvidenceEnginePayload<'stress'> & {
   claims: StressEvidenceClaim[]
   safetyNotes: StressSafetyNote[]
   sourcesByClaim: Record<string, StressEvidenceSource[]>
+}
+export type AnxietyEvidenceClaim = EvidenceEngineClaim & { anxiety_problem: string }
+export type AnxietyEvidenceSource = EvidenceEngineSource
+export type AnxietySafetyNote = EvidenceEngineSafetyNote
+export type AnxietyEvidenceEnginePayload = EvidenceEnginePayload<'anxiety'> & {
+  claims: AnxietyEvidenceClaim[]
+  safetyNotes: AnxietySafetyNote[]
+  sourcesByClaim: Record<string, AnxietyEvidenceSource[]>
 }
 
 const fileCache = new Map<string, unknown>()
@@ -196,6 +204,11 @@ export const getSleepEvidenceEngine = cache(async (): Promise<SleepEvidenceEngin
 export const getStressEvidenceEngine = cache(async (): Promise<StressEvidenceEnginePayload> => {
   const payload = await getGoalEvidenceEngine('stress')
   return normalizeEvidenceEnginePayload('stress', payload) as StressEvidenceEnginePayload
+})
+
+export const getAnxietyEvidenceEngine = cache(async (): Promise<AnxietyEvidenceEnginePayload> => {
+  const payload = await getGoalEvidenceEngine('anxiety')
+  return normalizeEvidenceEnginePayload('anxiety', payload) as AnxietyEvidenceEnginePayload
 })
 
 export const getGoalEvidenceEngine = cache(async (goalSlug: string): Promise<EvidenceEnginePayload | null> => {

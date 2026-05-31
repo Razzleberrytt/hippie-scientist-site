@@ -1,0 +1,29 @@
+{
+  "goal": "anxiety",
+  "updatedAt": "2026-05-31T00:00:00.000Z",
+  "problemLabels": {
+    "generalized_tension": {
+      "title": "Generalized tension",
+      "description": "Persistent background worry or daily low-level anxiety that does not fully reset."
+    },
+    "situational_anxiety": {
+      "title": "Situational anxiety",
+      "description": "Anxiety tied to specific events, transitions, or anticipatory pressure."
+    },
+    "social_anxiety": {
+      "title": "Social anxiety",
+      "description": "Nervousness or performance pressure in social or high-visibility situations."
+    },
+    "physical_tension": {
+      "title": "Physical tension",
+      "description": "Somatic anxiety patterns including muscle tightness, shallow breathing, or restlessness."
+    },
+    "anxious_sleep_onset": {
+      "title": "Anxious sleep onset",
+      "description": "Worry loops or nervous arousal that delay sleep or prevent full wind-down."
+    }
+  },
+  "claims": [],
+  "safetyNotes": [],
+  "sourcesByClaim": {}
+}
