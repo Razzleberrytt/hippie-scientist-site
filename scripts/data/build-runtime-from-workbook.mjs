@@ -497,7 +497,7 @@ function published(v) {
 }
 
 function outcomeProblemLabelRow(row) {
-  const key = slug(first(row, ['problem_key', 'problem key', 'problem_slug', 'problem slug', 'key', 'slug']))
+  const key = lower(first(row, ['problem_key', 'problem key', 'problem_slug', 'problem slug', 'key', 'slug']))
   if (!key) return null
   return stripRecord({
     key,
@@ -507,12 +507,14 @@ function outcomeProblemLabelRow(row) {
 }
 
 function toProblemLabels(rows, fallbackLabels) {
-  const labels = normalizeRows(rows, outcomeProblemLabelRow)
+  const seen = new Set()
+  const labels = rows.map(outcomeProblemLabelRow).filter(Boolean).filter((r) => {
+    if (!r.key || seen.has(r.key)) return false
+    seen.add(r.key)
+    return true
+  })
   if (!labels.length) return fallbackLabels
-
-  const mapped = Object.fromEntries(
-    labels.map((item) => [item.key, { title: item.title || item.key, description: item.description || '' }])
-  )
+  const mapped = Object.fromEntries(labels.map((item) => [item.key, { title: item.title || item.key, description: item.description || '' }]))
   return Object.keys(mapped).length > 0 ? mapped : fallbackLabels
 }
 
@@ -610,10 +612,11 @@ function buildEvidenceEngine(config, problemRows, claimRows, sourceRows, safetyR
       ])
     ),
   }
+  const resolvedValidProblems = new Set(Object.keys(problemLabels).length > 0 ? Object.keys(problemLabels) : config.validProblems)
   const errors = validateEvidenceEnginePayload(payload, {
     goal: config.goal,
     problemField: config.problemField,
-    validProblems: new Set(Object.keys(problemLabels).length > 0 ? Object.keys(problemLabels) : config.validProblems),
+    validProblems: resolvedValidProblems,
   })
 
   if (errors.length > 0) {

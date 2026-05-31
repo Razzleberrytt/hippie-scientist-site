@@ -1,6 +1,6 @@
 {
   "goal": "stress",
-  "updatedAt": "2026-05-31T12:56:57.243Z",
+  "updatedAt": "2026-05-31T13:24:59.497Z",
   "config": {
     "heroHeadline": "I want calmer stress response. What does the evidence actually support?",
     "heroCta": "Start with the stress pattern",
@@ -31,7 +31,204 @@
       "description": "Rumination, cognitive fatigue, or pressure-linked focus disruption."
     }
   },
-  "claims": [],
-  "safetyNotes": [],
-  "sourcesByClaim": {}
+  "claims": [
+    {
+      "claim_id": "ashwagandha-baseline-tension",
+      "ingredient_slug": "ashwagandha-extract-ksm-66",
+      "ingredient_name": "Ashwagandha",
+      "stress_problem": "baseline_tension",
+      "claim_statement": "Ashwagandha is the most evidence-supported adaptogen for persistent background stress, with multiple RCTs showing cortisol reduction and validated stress-scale improvement.",
+      "confidence_tier": "strong_human",
+      "evidence_summary": "Multiple RCTs using KSM-66 and Sensoril extracts report reductions in serum cortisol and validated stress-scale scores versus placebo in chronically stressed adults.",
+      "limitations": "Most trials are 8–12 weeks in populations selected for moderate-to-high baseline stress. Extract standardisation, dose, and preparation form vary across studies.",
+      "best_fit": "Persistent background stress in adults without contraindicated conditions, especially when cortisol context is relevant.",
+      "not_best_fit": "Thyroid conditions, autoimmune disease, pregnancy, breastfeeding, or concurrent sedative or immunosuppressant medication use.",
+      "decision_group": "Adaptogenic support",
+      "display_order": 1,
+      "published": true
+    },
+    {
+      "claim_id": "l-theanine-acute-stress",
+      "ingredient_slug": "l-theanine",
+      "ingredient_name": "L-Theanine",
+      "stress_problem": "acute_stress",
+      "claim_statement": "L-theanine is a plausible first-pass option for acute tension, with the most consistent signal around psychophysiological arousal during acute stress tasks.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "Human crossover studies report reduced heart rate, cortisol, and subjective stress responses during controlled acute stress tasks versus placebo.",
+      "limitations": "Most studies use controlled lab stressors rather than real-world situations. Dose, timing, and caffeine co-administration vary; effects may not generalise to chronic high-stress contexts.",
+      "best_fit": "Short-term tension or pre-event stress where a non-sedating calming option is preferred and next-day heaviness is a concern.",
+      "not_best_fit": "Blood pressure medication contexts, persistent panic patterns, or expectations of a strong sedating effect.",
+      "decision_group": "Acute calming support",
+      "display_order": 2,
+      "published": true
+    },
+    {
+      "claim_id": "rhodiola-stress-reactivity",
+      "ingredient_slug": "rhodiola-extract-shr5",
+      "ingredient_name": "Rhodiola Rosea",
+      "stress_problem": "stress_reactivity",
+      "claim_statement": "Rhodiola rosea is a candidate for stress-reactivity and burnout contexts where repeated stress demands are driving exhaustion and heightened response.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Human trials include signals on stress-related fatigue, burnout symptoms, and performance under load, but study populations and extract quality vary considerably.",
+      "limitations": "Trial heterogeneity, variability in extract composition, and lack of standardisation limit how broadly results generalise. Drug-herb interactions are possible.",
+      "best_fit": "Stress-related fatigue or burnout where reactivity and recovery capacity — rather than acute calming — are the primary concern.",
+      "not_best_fit": "Bipolar disorder, stimulant sensitivity, blood pressure management contexts, or expectations of an acute anti-anxiety effect.",
+      "decision_group": "Adaptogenic support",
+      "display_order": 3,
+      "published": true
+    },
+    {
+      "claim_id": "magnesium-stress-sleep-spillover",
+      "ingredient_slug": "magnesium",
+      "ingredient_name": "Magnesium",
+      "stress_problem": "stress_sleep_spillover",
+      "claim_statement": "Magnesium is most decision-useful when stress is carrying into bedtime or next-day recovery, particularly where muscle tension or dietary insufficiency may be relevant.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Studies report associations between magnesium status, stress hormones, and sleep quality, with some RCTs showing benefit in older adults and high-stress populations.",
+      "limitations": "Many studies are observational or in specific populations such as older adults or athletes. Benefit may depend on baseline magnesium status rather than supplementation broadly.",
+      "best_fit": "Stress with nighttime tension, poor sleep continuity, or low dietary magnesium intake context.",
+      "not_best_fit": "Kidney disease, severe sleep disorders requiring medical evaluation, or expectations of a direct acute anxiolytic effect.",
+      "decision_group": "Relaxation and recovery support",
+      "display_order": 4,
+      "published": true
+    },
+    {
+      "claim_id": "phosphatidylserine-cognitive-stress",
+      "ingredient_slug": "phosphatidylserine",
+      "ingredient_name": "Phosphatidylserine",
+      "stress_problem": "cognitive_stress_load",
+      "claim_statement": "Phosphatidylserine has the clearest fit when the stress pattern is cognitively loaded — sustained pressure, cortisol-driven focus disruption, or performance anxiety.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "Human RCTs in exercise-stressed and cognitively loaded populations show cortisol blunting and cognitive performance retention under stress conditions.",
+      "limitations": "Most robust evidence is in exercise-stressed populations. Source (soy- vs bovine-derived), dose, and cognitive demand type matter. General office stress evidence is more limited.",
+      "best_fit": "Cognitive fatigue under sustained pressure, performance anxiety, or exercise-related stress where cortisol management is relevant.",
+      "not_best_fit": "Blood-thinning medication, shellfish or soy allergy depending on source, or general non-cognitively-loaded stress patterns.",
+      "decision_group": "Cognitive stress support",
+      "display_order": 5,
+      "published": true
+    }
+  ],
+  "safetyNotes": [
+    {
+      "safety_id": "ashwagandha-thyroid-autoimmune",
+      "ingredient_slug": "ashwagandha-extract-ksm-66",
+      "risk_type": "autoimmune",
+      "severity": "high",
+      "warning": "Ashwagandha may elevate thyroid hormone levels and has been reported to exacerbate autoimmune conditions in some individuals.",
+      "decision_effect": "Do not use self-directed with thyroid medications, diagnosed autoimmune disease, or immunosuppressants without clinician guidance.",
+      "published": true
+    },
+    {
+      "safety_id": "ashwagandha-pregnancy",
+      "ingredient_slug": "ashwagandha-extract-ksm-66",
+      "risk_type": "pregnancy_breastfeeding",
+      "severity": "high",
+      "warning": "Ashwagandha is contraindicated in pregnancy due to potential uterotonic effects and is not recommended during breastfeeding.",
+      "decision_effect": "Stop or avoid use during pregnancy and breastfeeding.",
+      "published": true
+    },
+    {
+      "safety_id": "l-theanine-blood-pressure",
+      "ingredient_slug": "l-theanine",
+      "risk_type": "blood_pressure",
+      "severity": "moderate",
+      "warning": "Low blood pressure or antihypertensive medication can change the risk calculation for calming compounds.",
+      "decision_effect": "Review medication context before using as an acute stress option.",
+      "published": true
+    },
+    {
+      "safety_id": "magnesium-kidney-disease",
+      "ingredient_slug": "magnesium",
+      "risk_type": "kidney_disease",
+      "severity": "high",
+      "warning": "Kidney disease changes magnesium handling and can make supplementation unsafe without clinician guidance.",
+      "decision_effect": "Do not use magnesium as a self-directed stress experiment with kidney disease.",
+      "published": true
+    },
+    {
+      "safety_id": "phosphatidylserine-medication-interaction",
+      "ingredient_slug": "phosphatidylserine",
+      "risk_type": "medication_interaction",
+      "severity": "moderate",
+      "warning": "Phosphatidylserine may have mild anticoagulant properties; the interaction with blood-thinning medications is not well characterised.",
+      "decision_effect": "Review anticoagulant or antiplatelet medication context before adding phosphatidylserine.",
+      "published": true
+    },
+    {
+      "safety_id": "rhodiola-medication-interaction",
+      "ingredient_slug": "rhodiola-extract-shr5",
+      "risk_type": "medication_interaction",
+      "severity": "moderate",
+      "warning": "Rhodiola may interact with stimulants, antidepressants, and blood pressure medications; its mild activating effect can worsen agitation or insomnia in sensitive individuals.",
+      "decision_effect": "Review current medications and start with a low dose; avoid late-day use if stimulant sensitivity is a concern.",
+      "published": true
+    }
+  ],
+  "sourcesByClaim": {
+    "ashwagandha-baseline-tension": [
+      {
+        "source_id": "src-ashwagandha-ksm66-2012",
+        "claim_id": "ashwagandha-baseline-tension",
+        "citation_label": "Chandrasekhar 2012",
+        "source_type": "randomized_trial",
+        "title": "Safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults",
+        "year": 2012,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
+        "source_note": "KSM-66 RCT; cortisol reduction and perceived stress improvement in chronically stressed adults.",
+        "published": true
+      }
+    ],
+    "l-theanine-acute-stress": [
+      {
+        "source_id": "src-theanine-stress-2007",
+        "claim_id": "l-theanine-acute-stress",
+        "citation_label": "Kimura 2007",
+        "source_type": "randomized_trial",
+        "title": "L-theanine reduces psychological and physiological stress responses",
+        "year": 2007,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
+        "source_note": "Human crossover study measuring heart rate and salivary IgA under an acute stress task; placebo-controlled.",
+        "published": true
+      }
+    ],
+    "rhodiola-stress-reactivity": [
+      {
+        "source_id": "src-rhodiola-fatigue-2009",
+        "claim_id": "rhodiola-stress-reactivity",
+        "citation_label": "Olsson 2009",
+        "source_type": "randomized_trial",
+        "title": "A randomised, double-blind, placebo-controlled, parallel-group study of the standardised extract SHR-5 of Rhodiola rosea in the treatment of subjects with stress-related fatigue",
+        "year": 2009,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
+        "source_note": "SHR-5 extract RCT; fatigue, burnout, and cognitive performance signals in stressed adults.",
+        "published": true
+      }
+    ],
+    "magnesium-stress-sleep-spillover": [
+      {
+        "source_id": "src-magnesium-stress-review-2017",
+        "claim_id": "magnesium-stress-sleep-spillover",
+        "citation_label": "Boyle 2017",
+        "source_type": "systematic_review",
+        "title": "The Effect of Magnesium Supplementation on Subjective Anxiety and Stress: A Systematic Review",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28471731/",
+        "source_note": "Systematic review; concludes modest benefit in stressed populations with possible baseline-status dependency.",
+        "published": true
+      }
+    ],
+    "phosphatidylserine-cognitive-stress": [
+      {
+        "source_id": "src-ps-cognitive-stress-2004",
+        "claim_id": "phosphatidylserine-cognitive-stress",
+        "citation_label": "Hellhammer 2004",
+        "source_type": "randomized_trial",
+        "title": "Effects of soy lecithin phosphatidic acid and phosphatidylserine complex (PAS) on the endocrine and psychological responses to mental stress",
+        "year": 2004,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15117107/",
+        "source_note": "RCT measuring cortisol and psychological responses to mental stress tasks; soy-derived PS complex.",
+        "published": true
+      }
+    ]
+  }
 }
