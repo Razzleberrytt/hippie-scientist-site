@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 type SleepHerb = {
   slug: string
@@ -66,6 +70,10 @@ export default async function TopSleepPage() {
     })
 
   const topThree = ranked.slice(0, 3)
+  const revenueProducts = ['magnesium', 'l-theanine']
+    .map(slug => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap(set => set.products)
 
   return (
     <main className='container-page py-10 space-y-8'>
@@ -136,6 +144,21 @@ export default async function TopSleepPage() {
           })}
         </div>
       </section>
+
+      <EmailCapture
+        headline='Get the sleep supplement shortlist'
+        description='Occasional notes on sleep-support evidence, timing, safety context, and product-quality checks.'
+        location='top-sleep'
+      />
+
+      <div className='space-y-3'>
+        <AffiliateDisclosure />
+        <RecommendationSection
+          title='Sleep-support product picks'
+          description='Affiliate recommendations for common sleep-support compounds. Review safety, dose, and product quality before buying.'
+          products={revenueProducts}
+        />
+      </div>
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related guides</h2>

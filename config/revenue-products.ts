@@ -151,6 +151,8 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
 
 const revenueProductAliases: Record<string, string> = {
   'ashwagandha-root': 'ashwagandha',
+  'ashwagandha-root-extract': 'ashwagandha',
+  'ashwagandha-extract-ksm-66': 'ashwagandha',
   'magnesium-glycinate': 'magnesium',
   'magnesium-citrate': 'magnesium',
   'magnesium-threonate': 'magnesium',
@@ -158,6 +160,7 @@ const revenueProductAliases: Record<string, string> = {
   'l-theanine-sleep': 'l-theanine',
   rhodiola: 'rhodiola',
   'rhodiola-rosea': 'rhodiola',
+  'rhodiola-extract-shr5': 'rhodiola',
   'lions-mane': 'lions-mane',
   'lion-s-mane': 'lions-mane',
   lionmane: 'lions-mane',

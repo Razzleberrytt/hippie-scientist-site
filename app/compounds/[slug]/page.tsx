@@ -17,6 +17,7 @@ import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
+import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
@@ -311,6 +312,20 @@ export default async function CompoundPage({ params }: PageProps) {
           </div>
         </section>
 
+        <EmailCapture
+          headline={`Get the ${displayName} evidence notes`}
+          description="Occasional research updates, safety context, and product-quality checks for supplement decisions."
+          location={`compound-${normalizedSlug}`}
+        />
+
+        {revenueProducts ? (
+          <RecommendationSection
+            title={revenueProducts.title}
+            description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
+            products={revenueProducts.products}
+          />
+        ) : null}
+
         {/* Section 4: Mechanisms (Collapsible) */}
         {mechanismHints.length > 0 && (
           <section className="card-premium p-4 sm:p-5">
@@ -340,14 +355,6 @@ export default async function CompoundPage({ params }: PageProps) {
             <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
           </div>
           <SourcingCta record={compound} displayName={displayName} />
-
-          {revenueProducts ? (
-            <RecommendationSection
-              title={revenueProducts.title}
-              description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
-              products={revenueProducts.products}
-            />
-          ) : null}
 
           <div className="grid gap-4 sm:grid-cols-2 pt-2">
             {semanticRelated.length > 0 && (

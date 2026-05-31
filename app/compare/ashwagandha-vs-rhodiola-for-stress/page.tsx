@@ -1,8 +1,17 @@
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 export default function AshwagandhaVsRhodiolaForStressPage() {
+  const revenueProducts = ['ashwagandha', 'rhodiola']
+    .map(slug => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap(set => set.products)
+
   return (
     <main className="container-page py-10 space-y-10">
       <AuthorityJsonLd
@@ -87,6 +96,21 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
           <div><h3 className="text-lg font-semibold text-ink">Which one is better for fatigue?</h3><p>Rhodiola is usually the more fatigue-oriented option. Ashwagandha is usually more calming and sleep-adjacent.</p></div>
         </div>
       </section>
+
+      <EmailCapture
+        headline="Get the stress adaptogen shortlist"
+        description="Occasional notes on ashwagandha, rhodiola, stress-support evidence, safety context, and product-quality checks."
+        location="compare-ashwagandha-vs-rhodiola-for-stress"
+      />
+
+      <div className="space-y-3">
+        <AffiliateDisclosure />
+        <RecommendationSection
+          title="Ashwagandha and rhodiola product picks"
+          description="Affiliate recommendations for this comparison. Review safety, dose, timing, and product quality before buying."
+          products={revenueProducts}
+        />
+      </div>
 
       <div className="flex flex-wrap gap-3">
         <Link href="/compare/rhodiola-vs-ashwagandha" className="chip-readable">Rhodiola vs Ashwagandha</Link>

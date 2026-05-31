@@ -5,6 +5,10 @@ import { goalConfigs } from '@/data/goals'
 import { getCompounds } from '@/lib/runtime-data'
 import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
 import { isClean } from '@/lib/display-utils'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 type SeoEntryConfig = {
   route: string
@@ -196,6 +200,15 @@ export const indexableGuidePages: SeoEntryConfig[] = manualGuideSeoEntryPages
 
 const siteUrl = 'https://www.thehippiescientist.net'
 
+const revenueProductSlugs: Record<string, string[]> = {
+  'best-supplements-for-sleep': ['magnesium', 'l-theanine'],
+  'best-supplements-for-stress': ['ashwagandha', 'rhodiola', 'l-theanine'],
+  'best-supplements-for-focus': ['l-theanine', 'lions-mane'],
+  'guides/best-supplements-for-sleep': ['magnesium', 'l-theanine'],
+  'guides/best-supplements-for-stress': ['ashwagandha', 'rhodiola', 'l-theanine'],
+  'guides/best-supplements-for-focus': ['l-theanine', 'lions-mane'],
+}
+
 const clean = (value: unknown): string => {
   if (value === null || value === undefined) return ''
   if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(', ')
@@ -374,6 +387,10 @@ export async function SeoEntryPage({ route }: { route: string }) {
   const relatedGuides = seoEntryPages
     .filter((item) => item.route !== page.route && item.goalSlug === page.goalSlug)
     .slice(0, 6)
+  const revenueProducts = (revenueProductSlugs[page.route] || [])
+    .map(slug => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap(set => set.products)
 
   return (
     <main className="space-y-10">
@@ -485,6 +502,25 @@ export async function SeoEntryPage({ route }: { route: string }) {
         <p className="mt-2 text-sm leading-6 text-amber-900/85">{sentence(goal.safetyNote)} Supplements are not risk-free, especially when combined with medications, medical conditions, pregnancy, surgery, sedatives, stimulants, or blood-pressure concerns.</p>
         <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Review full safety guidance →</Link>
       </section>
+
+      {revenueProducts.length > 0 ? (
+        <>
+          <EmailCapture
+            headline={`Get the ${goal.title.toLowerCase()} supplement shortlist`}
+            description={`Occasional notes on ${goal.title.toLowerCase()} evidence, safety context, and product-quality checks before you compare products.`}
+            location={page.route}
+          />
+
+          <div className="space-y-3">
+            <AffiliateDisclosure />
+            <RecommendationSection
+              title={`${goal.title} product picks`}
+              description={`Affiliate recommendations for common ${goal.title.toLowerCase()} support options. Review safety, dose, and product quality before buying.`}
+              products={revenueProducts}
+            />
+          </div>
+        </>
+      ) : null}
 
       <ConversionAffiliateCard name={page.h1} intent={page.searchIntent} variant="dark" />
 

@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 type HerbRecord = {
   slug: string
@@ -65,6 +69,10 @@ export const metadata: Metadata = {
 export default async function StressPage() {
   const herbs = (await getHerbs()) as HerbRecord[]
   const ranked = herbs.filter(matchesGoal).sort((a, b) => scoreFor(b) - scoreFor(a)).slice(0, 12)
+  const revenueProducts = ['ashwagandha', 'rhodiola', 'l-theanine']
+    .map(slug => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap(set => set.products)
 
   return (
     <main className='container-page py-10 space-y-8'>
@@ -133,6 +141,21 @@ export default async function StressPage() {
           )
         })}
       </section>
+
+      <EmailCapture
+        headline='Get the stress supplement shortlist'
+        description='Occasional notes on stress-support evidence, adaptogen tradeoffs, safety context, and product-quality checks.'
+        location='top-stress'
+      />
+
+      <div className='space-y-3'>
+        <AffiliateDisclosure />
+        <RecommendationSection
+          title='Stress-support product picks'
+          description='Affiliate recommendations for common stress-support compounds. Review safety, dose, and product quality before buying.'
+          products={revenueProducts}
+        />
+      </div>
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related natural wellness guides</h2>

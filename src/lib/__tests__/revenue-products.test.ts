@@ -15,6 +15,9 @@ describe('revenue product recommendations', () => {
 
   it('supports common herb and compound slug aliases', () => {
     expect(getRevenueProductSet('rhodiola-rosea')?.slug).toBe('rhodiola')
+    expect(getRevenueProductSet('rhodiola-extract-shr5')?.slug).toBe('rhodiola')
+    expect(getRevenueProductSet('ashwagandha-root-extract')?.slug).toBe('ashwagandha')
+    expect(getRevenueProductSet('ashwagandha-extract-ksm-66')?.slug).toBe('ashwagandha')
     expect(getRevenueProductSet('theanine')?.slug).toBe('l-theanine')
     expect(getRevenueProductSet('magnesium-glycinate')?.slug).toBe('magnesium')
   })

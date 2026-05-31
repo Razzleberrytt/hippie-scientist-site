@@ -3,6 +3,10 @@ import Link from 'next/link'
 import { getCompounds } from '@/lib/runtime-data'
 import { buildAmazonSearchUrl } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 type CompoundRecord = {
   slug: string
@@ -36,6 +40,10 @@ export const metadata: Metadata = {
 export default async function FocusPage() {
   const compounds = (await getCompounds()) as CompoundRecord[]
   const ranked = compounds.sort((a, b) => scoreFor(b) - scoreFor(a)).slice(0, 12)
+  const revenueProducts = ['l-theanine', 'lions-mane']
+    .map(slug => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap(set => set.products)
 
   return (
     <main className='container-page py-10 space-y-8'>
@@ -97,6 +105,21 @@ export default async function FocusPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      <EmailCapture
+        headline='Get the focus supplement shortlist'
+        description='Occasional notes on focus-support evidence, stimulant tradeoffs, safety context, and product-quality checks.'
+        location='top-focus'
+      />
+
+      <div className='space-y-3'>
+        <AffiliateDisclosure />
+        <RecommendationSection
+          title='Focus-support product picks'
+          description='Affiliate recommendations for common focus-support compounds. Review safety, dose, and product quality before buying.'
+          products={revenueProducts}
+        />
       </div>
 
       <section className='card-premium p-6'>
