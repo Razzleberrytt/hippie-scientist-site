@@ -4,6 +4,7 @@ import { cache } from 'react'
 import type {
   EvidenceEngineClaim,
   EvidenceEnginePayload,
+  EvidenceProblemLabel,
   EvidenceEngineSafetyNote,
   EvidenceEngineSource,
 } from '@/lib/evidence-engine'
@@ -12,6 +13,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
 type RuntimeRecord = Record<string, any>
+type GoalEvidenceSlug = 'sleep' | 'stress'
 
 export type SleepEvidenceClaim = EvidenceEngineClaim & { sleep_problem: string }
 export type SleepEvidenceSource = EvidenceEngineSource
@@ -31,6 +33,57 @@ export type StressEvidenceEnginePayload = EvidenceEnginePayload<'stress'> & {
 }
 
 const fileCache = new Map<string, unknown>()
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+}
+
+function cleanString(value: unknown): string {
+  return typeof value === 'string' ? value : ''
+}
+
+function normalizeProblemLabels(value: unknown): Record<string, EvidenceProblemLabel> {
+  if (!isRecord(value)) return {}
+
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([key, label]) => {
+      if (!key || !isRecord(label)) return []
+      return [[key, {
+        title: cleanString(label.title),
+        description: cleanString(label.description),
+      }]]
+    })
+  )
+}
+
+function normalizeEvidenceSourcesByClaim(value: unknown): Record<string, EvidenceEngineSource[]> {
+  if (!isRecord(value)) return {}
+
+  return Object.fromEntries(
+    Object.entries(value).flatMap(([claimId, sources]) => {
+      if (!claimId || !Array.isArray(sources)) return []
+      return [[claimId, sources.filter(isRecord) as EvidenceEngineSource[]]]
+    })
+  )
+}
+
+function normalizeEvidenceEnginePayload<GoalSlug extends GoalEvidenceSlug>(
+  goalSlug: GoalSlug,
+  payload: EvidenceEnginePayload | null
+): EvidenceEnginePayload<GoalSlug> {
+  if (!isRecord(payload)) {
+    return { goal: goalSlug, updatedAt: '', problemLabels: {}, claims: [], safetyNotes: [], sourcesByClaim: {} }
+  }
+
+  return {
+    goal: goalSlug,
+    updatedAt: cleanString(payload.updatedAt),
+    problemLabels: normalizeProblemLabels(payload.problemLabels),
+    claims: Array.isArray(payload.claims) ? payload.claims.filter(isRecord) as EvidenceEngineClaim[] : [],
+    safetyNotes: Array.isArray(payload.safetyNotes) ? payload.safetyNotes.filter(isRecord) as EvidenceEngineSafetyNote[] : [],
+    sourcesByClaim: normalizeEvidenceSourcesByClaim(payload.sourcesByClaim),
+  }
+}
 
 async function readJsonFile(fileName: string): Promise<unknown> {
   if (fileCache.has(fileName)) {
@@ -137,64 +190,30 @@ export const getClaims = cache(async (): Promise<RuntimeRecord[]> => {
 
 export const getSleepEvidenceEngine = cache(async (): Promise<SleepEvidenceEnginePayload> => {
   const payload = await getGoalEvidenceEngine('sleep')
-  if (!payload || Array.isArray(payload) || typeof payload !== 'object') {
-    return { goal: 'sleep', updatedAt: '', problemLabels: {}, claims: [], safetyNotes: [], sourcesByClaim: {} }
-  }
-
-  const candidate = payload as Partial<SleepEvidenceEnginePayload>
-  return {
-    goal: 'sleep',
-    updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
-    problemLabels: candidate.problemLabels && typeof candidate.problemLabels === 'object' && !Array.isArray(candidate.problemLabels)
-      ? candidate.problemLabels
-      : {},
-    claims: Array.isArray(candidate.claims) ? candidate.claims : [],
-    safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes : [],
-    sourcesByClaim: candidate.sourcesByClaim && typeof candidate.sourcesByClaim === 'object' && !Array.isArray(candidate.sourcesByClaim)
-      ? candidate.sourcesByClaim
-      : {},
-  }
+  return normalizeEvidenceEnginePayload('sleep', payload) as SleepEvidenceEnginePayload
 })
 
 export const getStressEvidenceEngine = cache(async (): Promise<StressEvidenceEnginePayload> => {
   const payload = await getGoalEvidenceEngine('stress')
-  if (!payload || Array.isArray(payload) || typeof payload !== 'object') {
-    return { goal: 'stress', updatedAt: '', problemLabels: {}, claims: [], safetyNotes: [], sourcesByClaim: {} }
-  }
-
-  const candidate = payload as Partial<StressEvidenceEnginePayload>
-  return {
-    goal: 'stress',
-    updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
-    problemLabels: candidate.problemLabels && typeof candidate.problemLabels === 'object' && !Array.isArray(candidate.problemLabels)
-      ? candidate.problemLabels
-      : {},
-    claims: Array.isArray(candidate.claims) ? candidate.claims : [],
-    safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes : [],
-    sourcesByClaim: candidate.sourcesByClaim && typeof candidate.sourcesByClaim === 'object' && !Array.isArray(candidate.sourcesByClaim)
-      ? candidate.sourcesByClaim
-      : {},
-  }
+  return normalizeEvidenceEnginePayload('stress', payload) as StressEvidenceEnginePayload
 })
 
 export const getGoalEvidenceEngine = cache(async (goalSlug: string): Promise<EvidenceEnginePayload | null> => {
+  if (!isSafeSlug(goalSlug)) return null
+
   const payload = await readJsonFile(`evidence-engine/${goalSlug}.json`)
-  if (!payload || Array.isArray(payload) || typeof payload !== 'object') {
+  if (!isRecord(payload)) {
     return null
   }
 
   const candidate = payload as Partial<EvidenceEnginePayload>
   return {
     goal: typeof candidate.goal === 'string' ? candidate.goal : goalSlug,
-    updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
-    problemLabels: candidate.problemLabels && typeof candidate.problemLabels === 'object' && !Array.isArray(candidate.problemLabels)
-      ? candidate.problemLabels
-      : {},
-    claims: Array.isArray(candidate.claims) ? candidate.claims : [],
-    safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes : [],
-    sourcesByClaim: candidate.sourcesByClaim && typeof candidate.sourcesByClaim === 'object' && !Array.isArray(candidate.sourcesByClaim)
-      ? candidate.sourcesByClaim
-      : {},
+    updatedAt: cleanString(candidate.updatedAt),
+    problemLabels: normalizeProblemLabels(candidate.problemLabels),
+    claims: Array.isArray(candidate.claims) ? candidate.claims.filter(isRecord) as EvidenceEngineClaim[] : [],
+    safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes.filter(isRecord) as EvidenceEngineSafetyNote[] : [],
+    sourcesByClaim: normalizeEvidenceSourcesByClaim(candidate.sourcesByClaim),
   }
 })
 

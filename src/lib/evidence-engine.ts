@@ -1,3 +1,18 @@
+export type EvidenceConfidenceTier =
+  | 'strong_human'
+  | 'moderate_human'
+  | 'limited_human'
+  | 'mixed'
+  | 'mechanistic_only'
+  | 'insufficient'
+
+export type EvidenceSafetySeverity = 'low' | 'moderate' | 'high'
+
+export type EvidenceProblemLabel = {
+  title: string
+  description: string
+}
+
 export type EvidenceEngineClaim = {
   claim_id: string
   ingredient_slug: string
@@ -6,7 +21,7 @@ export type EvidenceEngineClaim = {
   stress_problem?: string
   problem?: string
   claim_statement: string
-  confidence_tier: string
+  confidence_tier: EvidenceConfidenceTier | string
   evidence_summary: string
   limitations: string
   best_fit: string
@@ -32,7 +47,7 @@ export type EvidenceEngineSafetyNote = {
   safety_id: string
   ingredient_slug: string
   risk_type: string
-  severity: 'low' | 'moderate' | 'high' | string
+  severity: EvidenceSafetySeverity | string
   warning: string
   decision_effect: string
   published: boolean
@@ -41,7 +56,7 @@ export type EvidenceEngineSafetyNote = {
 export type EvidenceEnginePayload<GoalSlug extends string = string> = {
   goal: GoalSlug
   updatedAt: string
-  problemLabels: Record<string, { title: string; description: string }>
+  problemLabels: Record<string, EvidenceProblemLabel>
   claims: EvidenceEngineClaim[]
   safetyNotes: EvidenceEngineSafetyNote[]
   sourcesByClaim: Record<string, EvidenceEngineSource[]>
@@ -53,7 +68,7 @@ export type EvidenceConfidenceDisplay = {
   description: string
 }
 
-export const confidenceDisplays: Record<string, EvidenceConfidenceDisplay> = {
+export const confidenceDisplays: Record<EvidenceConfidenceTier, EvidenceConfidenceDisplay> = {
   strong_human: {
     label: 'Strong human evidence',
     tone: 'bg-emerald-50 text-emerald-800 ring-emerald-100',
@@ -86,18 +101,26 @@ export const confidenceDisplays: Record<string, EvidenceConfidenceDisplay> = {
   },
 }
 
-export const safetySeverityTones: Record<string, string> = {
+export const safetySeverityTones: Record<EvidenceSafetySeverity, string> = {
   low: 'border-amber-600/20 bg-amber-50/70 text-amber-950',
   moderate: 'border-orange-700/20 bg-orange-50/70 text-orange-950',
   high: 'border-rose-700/20 bg-rose-50/80 text-rose-950',
 }
 
 export function getConfidenceDisplay(tier: string): EvidenceConfidenceDisplay {
-  return confidenceDisplays[tier] || confidenceDisplays.insufficient
+  return isEvidenceConfidenceTier(tier) ? confidenceDisplays[tier] : confidenceDisplays.insufficient
 }
 
 export function getSafetySeverityTone(severity: string): string {
-  return safetySeverityTones[severity] || safetySeverityTones.moderate
+  return isEvidenceSafetySeverity(severity) ? safetySeverityTones[severity] : safetySeverityTones.moderate
+}
+
+export function isEvidenceConfidenceTier(value: string): value is EvidenceConfidenceTier {
+  return value in confidenceDisplays
+}
+
+export function isEvidenceSafetySeverity(value: string): value is EvidenceSafetySeverity {
+  return value in safetySeverityTones
 }
 
 export function formatEvidenceLabel(value: string): string {

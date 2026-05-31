@@ -42,6 +42,21 @@ function clean(value) {
   return String(value).replace(/\s+/g, ' ').trim()
 }
 
+function isRecord(value) {
+  return value && typeof value === 'object' && !Array.isArray(value)
+}
+
+function isSafeExternalUrl(value) {
+  const text = clean(value)
+  if (!text) return false
+  try {
+    const url = new URL(text)
+    return url.protocol === 'https:' || url.protocol === 'http:'
+  } catch {
+    return false
+  }
+}
+
 function requireFields(record, fields, label, errors) {
   for (const field of fields) {
     if (!clean(record?.[field])) errors.push(`${label} missing required field: ${field}`)
@@ -67,23 +82,25 @@ export function validateEvidenceEnginePayload(payload, options) {
   if (payload?.goal !== goal) errors.push(`payload goal must be ${goal}`)
   if (!Array.isArray(payload?.claims)) errors.push('payload claims must be an array')
   if (!Array.isArray(payload?.safetyNotes)) errors.push('payload safetyNotes must be an array')
-  if (!payload?.problemLabels || typeof payload.problemLabels !== 'object' || Array.isArray(payload.problemLabels)) {
+  if (!isRecord(payload?.problemLabels)) {
     errors.push('payload problemLabels must be an object')
   }
-  if (!payload?.sourcesByClaim || typeof payload.sourcesByClaim !== 'object' || Array.isArray(payload.sourcesByClaim)) {
+  if (!isRecord(payload?.sourcesByClaim)) {
     errors.push('payload sourcesByClaim must be an object')
   }
 
   const claims = Array.isArray(payload?.claims) ? payload.claims : []
   const safetyNotes = Array.isArray(payload?.safetyNotes) ? payload.safetyNotes : []
-  const problemLabels = payload?.problemLabels && typeof payload.problemLabels === 'object' && !Array.isArray(payload.problemLabels)
+  const problemLabels = isRecord(payload?.problemLabels)
     ? payload.problemLabels
     : {}
-  const sourcesByClaim = payload?.sourcesByClaim && typeof payload.sourcesByClaim === 'object' ? payload.sourcesByClaim : {}
+  const sourcesByClaim = isRecord(payload?.sourcesByClaim) ? payload.sourcesByClaim : {}
+  const claimIds = new Set()
 
   for (const [problemKey, problemLabel] of Object.entries(problemLabels)) {
     if (!clean(problemKey)) errors.push('problemLabels must not include empty keys')
-    if (!problemLabel || typeof problemLabel !== 'object' || Array.isArray(problemLabel)) {
+    if (!validProblems.has(problemKey)) errors.push(`problemLabels has unsupported key: ${problemKey}`)
+    if (!isRecord(problemLabel)) {
       errors.push(`problemLabels.${problemKey} must be an object`)
       continue
     }
@@ -91,6 +108,10 @@ export function validateEvidenceEnginePayload(payload, options) {
   }
 
   for (const claim of claims) {
+    if (!isRecord(claim)) {
+      errors.push('payload claims must contain only objects')
+      continue
+    }
     const label = `claim ${clean(claim?.claim_id) || '(unknown)'}`
     requireFields(claim, [
       'claim_id',
@@ -108,6 +129,11 @@ export function validateEvidenceEnginePayload(payload, options) {
 
     if (claim?.[problemField] && !validProblems.has(claim[problemField])) {
       errors.push(`${label} has invalid ${problemField}: ${claim[problemField]}`)
+    }
+
+    if (claim?.claim_id) {
+      if (claimIds.has(claim.claim_id)) errors.push(`${label} duplicates claim_id`)
+      claimIds.add(claim.claim_id)
     }
 
     if (claim?.confidence_tier && !EVIDENCE_CONFIDENCE_TIERS.has(claim.confidence_tier)) {
@@ -130,12 +156,17 @@ export function validateEvidenceEnginePayload(payload, options) {
   }
 
   for (const [claimId, sources] of Object.entries(sourcesByClaim)) {
+    if (!claimIds.has(claimId)) errors.push(`sourcesByClaim.${claimId} does not match a published claim`)
     if (!Array.isArray(sources)) {
       errors.push(`sourcesByClaim.${claimId} must be an array`)
       continue
     }
 
     for (const source of sources) {
+      if (!isRecord(source)) {
+        errors.push(`sourcesByClaim.${claimId} must contain only source objects`)
+        continue
+      }
       const label = `source ${clean(source?.source_id) || '(unknown)'}`
       requireFields(source, [
         'source_id',
@@ -146,10 +177,22 @@ export function validateEvidenceEnginePayload(payload, options) {
         'year',
         'url',
       ], label, errors)
+
+      if (source?.claim_id && source.claim_id !== claimId) {
+        errors.push(`${label} claim_id must match sourcesByClaim key: ${claimId}`)
+      }
+
+      if (source?.url && !isSafeExternalUrl(source.url)) {
+        errors.push(`${label} has invalid url: ${source.url}`)
+      }
     }
   }
 
   for (const note of safetyNotes) {
+    if (!isRecord(note)) {
+      errors.push('payload safetyNotes must contain only objects')
+      continue
+    }
     const label = `safety note ${clean(note?.safety_id) || '(unknown)'}`
     requireFields(note, [
       'safety_id',

@@ -96,6 +96,25 @@ const STRESS_PROBLEM_LABELS = {
   },
 }
 
+const EVIDENCE_ENGINE_GOALS = {
+  sleep: {
+    goal: 'sleep',
+    problemField: 'sleep_problem',
+    problemAliases: ['sleep_problem', 'sleep problem'],
+    fallbackProblemLabels: SLEEP_PROBLEM_LABELS,
+    validProblems: SLEEP_PROBLEMS,
+    defaultDecisionGroup: 'Other sleep support',
+  },
+  stress: {
+    goal: 'stress',
+    problemField: 'stress_problem',
+    problemAliases: ['stress_problem', 'stress problem', 'problem'],
+    fallbackProblemLabels: STRESS_PROBLEM_LABELS,
+    validProblems: STRESS_PROBLEMS,
+    defaultDecisionGroup: 'Other stress support',
+  },
+}
+
 const GRAPH_SHEETS = {
   topics: ['Topic Ecosystems'],
   pathways: ['Pathway Ecosystems'],
@@ -430,7 +449,7 @@ function toProblemLabels(rows, fallbackLabels) {
   return Object.keys(mapped).length > 0 ? mapped : fallbackLabels
 }
 
-function sleepEvidenceClaimRow(row) {
+function evidenceClaimRow(row, config) {
   const claimId = slug(first(row, ['claim_id', 'claim id', 'id']))
   const ingredientName = clean(first(row, ['ingredient_name', 'ingredient name', 'name']))
   const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']) || ingredientName)
@@ -440,20 +459,20 @@ function sleepEvidenceClaimRow(row) {
     claim_id: claimId,
     ingredient_slug: ingredientSlug,
     ingredient_name: ingredientName,
-    sleep_problem: lower(first(row, ['sleep_problem', 'sleep problem'])),
+    [config.problemField]: lower(first(row, config.problemAliases)),
     claim_statement: compact(first(row, ['claim_statement', 'claim statement', 'claim'])),
     confidence_tier: lower(first(row, ['confidence_tier', 'confidence tier'])),
     evidence_summary: compact(first(row, ['evidence_summary', 'evidence summary'])),
     limitations: compact(first(row, ['limitations', 'limitation'])),
     best_fit: compact(first(row, ['best_fit', 'best fit'])),
     not_best_fit: compact(first(row, ['not_best_fit', 'not best fit'])),
-    decision_group: clean(first(row, ['decision_group', 'decision group', 'group'])) || 'Other sleep support',
+    decision_group: clean(first(row, ['decision_group', 'decision group', 'group'])) || config.defaultDecisionGroup,
     display_order: num(first(row, ['display_order', 'display order', 'order'])) ?? 999,
     published: published(first(row, ['published', 'publish'])),
   })
 }
 
-function sleepEvidenceSourceRow(row) {
+function evidenceSourceRow(row) {
   const sourceId = slug(first(row, ['source_id', 'source id', 'id']))
   const claimId = slug(first(row, ['claim_id', 'claim id']))
   if (!sourceId && !claimId) return null
@@ -471,7 +490,7 @@ function sleepEvidenceSourceRow(row) {
   })
 }
 
-function sleepSafetyNoteRow(row) {
+function evidenceSafetyNoteRow(row) {
   const safetyId = slug(first(row, ['safety_id', 'safety id', 'id']))
   const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']))
   if (!safetyId && !ingredientSlug) return null
@@ -487,41 +506,13 @@ function sleepSafetyNoteRow(row) {
   })
 }
 
-function stressEvidenceClaimRow(row) {
-  const claimId = slug(first(row, ['claim_id', 'claim id', 'id']))
-  const ingredientName = clean(first(row, ['ingredient_name', 'ingredient name', 'name']))
-  const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']) || ingredientName)
-  if (!claimId && !ingredientSlug && !ingredientName) return null
-
-  return stripRecord({
-    claim_id: claimId,
-    ingredient_slug: ingredientSlug,
-    ingredient_name: ingredientName,
-    stress_problem: lower(first(row, ['stress_problem', 'stress problem', 'problem'])),
-    claim_statement: compact(first(row, ['claim_statement', 'claim statement', 'claim'])),
-    confidence_tier: lower(first(row, ['confidence_tier', 'confidence tier'])),
-    evidence_summary: compact(first(row, ['evidence_summary', 'evidence summary'])),
-    limitations: compact(first(row, ['limitations', 'limitation'])),
-    best_fit: compact(first(row, ['best_fit', 'best fit'])),
-    not_best_fit: compact(first(row, ['not_best_fit', 'not best fit'])),
-    decision_group: clean(first(row, ['decision_group', 'decision group', 'group'])) || 'Other stress support',
-    display_order: num(first(row, ['display_order', 'display order', 'order'])) ?? 999,
-    published: published(first(row, ['published', 'publish'])),
-  })
-}
-
-function stressEvidenceSourceRow(row) {
-  return sleepEvidenceSourceRow(row)
-}
-
-function stressSafetyNoteRow(row) {
-  return sleepSafetyNoteRow(row)
-}
-
-function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
-  const claims = normalizeRows(claimRows, sleepEvidenceClaimRow)
-  const sources = normalizeRows(sourceRows, sleepEvidenceSourceRow)
-  const safetyNotes = normalizeRows(safetyRows, sleepSafetyNoteRow)
+function buildEvidenceEngine(config, problemRows, claimRows, sourceRows, safetyRows) {
+  const claims = normalizeRows(claimRows, (row) => evidenceClaimRow(row, config))
+  const sources = normalizeRows(sourceRows, evidenceSourceRow)
+  const safetyNotes = normalizeRows(safetyRows, evidenceSafetyNoteRow)
+  const problemLabels = problemRows
+    ? toProblemLabels(problemRows, config.fallbackProblemLabels)
+    : config.fallbackProblemLabels
 
   const publishedSources = sources.filter((source) => source.published)
   const publishedSourcesByClaim = new Map()
@@ -539,54 +530,7 @@ function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
     .sort((a, b) => clean(a.ingredient_slug).localeCompare(clean(b.ingredient_slug)) || clean(a.risk_type).localeCompare(clean(b.risk_type)))
 
   const payload = {
-    goal: 'sleep',
-    updatedAt: new Date().toISOString(),
-    problemLabels: SLEEP_PROBLEM_LABELS,
-    claims: publishedClaims,
-    safetyNotes: publishedSafetyNotes,
-    sourcesByClaim: Object.fromEntries(
-      publishedClaims.map((claim) => [
-        claim.claim_id,
-        (publishedSourcesByClaim.get(claim.claim_id) || []).sort((a, b) => clean(a.citation_label).localeCompare(clean(b.citation_label))),
-      ])
-    ),
-  }
-  const errors = validateEvidenceEnginePayload(payload, {
-    goal: 'sleep',
-    problemField: 'sleep_problem',
-    validProblems: SLEEP_PROBLEMS,
-  })
-
-  if (errors.length > 0) {
-    throw new Error(`[sleep-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
-  }
-
-  return payload
-}
-
-function buildStressEvidenceEngine(problemRows, claimRows, sourceRows, safetyRows) {
-  const claims = normalizeRows(claimRows, stressEvidenceClaimRow)
-  const sources = normalizeRows(sourceRows, stressEvidenceSourceRow)
-  const safetyNotes = normalizeRows(safetyRows, stressSafetyNoteRow)
-  const problemLabels = toProblemLabels(problemRows, STRESS_PROBLEM_LABELS)
-
-  const publishedSources = sources.filter((source) => source.published)
-  const publishedSourcesByClaim = new Map()
-  for (const source of publishedSources) {
-    if (!publishedSourcesByClaim.has(source.claim_id)) publishedSourcesByClaim.set(source.claim_id, [])
-    publishedSourcesByClaim.get(source.claim_id).push(source)
-  }
-
-  const publishedClaims = claims
-    .filter((claim) => claim.published)
-    .sort((a, b) => (a.display_order ?? 999) - (b.display_order ?? 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
-
-  const publishedSafetyNotes = safetyNotes
-    .filter((note) => note.published)
-    .sort((a, b) => clean(a.ingredient_slug).localeCompare(clean(b.ingredient_slug)) || clean(a.risk_type).localeCompare(clean(b.risk_type)))
-
-  const payload = {
-    goal: 'stress',
+    goal: config.goal,
     updatedAt: new Date().toISOString(),
     problemLabels,
     claims: publishedClaims,
@@ -599,13 +543,13 @@ function buildStressEvidenceEngine(problemRows, claimRows, sourceRows, safetyRow
     ),
   }
   const errors = validateEvidenceEnginePayload(payload, {
-    goal: 'stress',
-    problemField: 'stress_problem',
-    validProblems: new Set(Object.keys(problemLabels).length > 0 ? Object.keys(problemLabels) : STRESS_PROBLEMS),
+    goal: config.goal,
+    problemField: config.problemField,
+    validProblems: new Set(Object.keys(problemLabels).length > 0 ? Object.keys(problemLabels) : config.validProblems),
   })
 
   if (errors.length > 0) {
-    throw new Error(`[stress-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
+    throw new Error(`[${config.goal}-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
   }
 
   return payload
@@ -717,12 +661,15 @@ function main() {
   const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
   const herbCompoundMap = normalizeRows(read(wb, SHEETS.map), mapRow)
   const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))
-  const sleepEvidenceEngine = buildSleepEvidenceEngine(
+  const sleepEvidenceEngine = buildEvidenceEngine(
+    EVIDENCE_ENGINE_GOALS.sleep,
+    null,
     read(wb, SHEETS.sleepEvidenceClaims, true),
     read(wb, SHEETS.sleepEvidenceSources, true),
     read(wb, SHEETS.sleepSafetyNotes, true)
   )
-  const stressEvidenceEngine = buildStressEvidenceEngine(
+  const stressEvidenceEngine = buildEvidenceEngine(
+    EVIDENCE_ENGINE_GOALS.stress,
     read(wb, SHEETS.stressOutcomeProblems, true),
     read(wb, SHEETS.stressEvidenceClaims, true),
     read(wb, SHEETS.stressEvidenceSources, true),
