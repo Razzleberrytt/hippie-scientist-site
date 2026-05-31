@@ -15,31 +15,6 @@ const dataDir = path.join(process.cwd(), 'public', 'data')
 
 type RuntimeRecord = Record<string, any>
 
-export type SleepEvidenceClaim = EvidenceEngineClaim & { sleep_problem: string }
-export type SleepEvidenceSource = EvidenceEngineSource
-export type SleepSafetyNote = EvidenceEngineSafetyNote
-export type SleepEvidenceEnginePayload = EvidenceEnginePayload<'sleep'> & {
-  claims: SleepEvidenceClaim[]
-  safetyNotes: SleepSafetyNote[]
-  sourcesByClaim: Record<string, SleepEvidenceSource[]>
-}
-export type StressEvidenceClaim = EvidenceEngineClaim & { stress_problem: string }
-export type StressEvidenceSource = EvidenceEngineSource
-export type StressSafetyNote = EvidenceEngineSafetyNote
-export type StressEvidenceEnginePayload = EvidenceEnginePayload<'stress'> & {
-  claims: StressEvidenceClaim[]
-  safetyNotes: StressSafetyNote[]
-  sourcesByClaim: Record<string, StressEvidenceSource[]>
-}
-export type AnxietyEvidenceClaim = EvidenceEngineClaim & { anxiety_problem: string }
-export type AnxietyEvidenceSource = EvidenceEngineSource
-export type AnxietySafetyNote = EvidenceEngineSafetyNote
-export type AnxietyEvidenceEnginePayload = EvidenceEnginePayload<'anxiety'> & {
-  claims: AnxietyEvidenceClaim[]
-  safetyNotes: AnxietySafetyNote[]
-  sourcesByClaim: Record<string, AnxietyEvidenceSource[]>
-}
-
 const fileCache = new Map<string, unknown>()
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -52,7 +27,7 @@ function cleanString(value: unknown): string {
 
 function normalizeConfig(value: unknown): EvidenceEngineConfig | undefined {
   if (!isRecord(value)) return undefined
-  const fields = ['heroHeadline', 'heroCta', 'orientationHeading', 'orientationSubtext', 'safetyHeading', 'safetyBody'] as const
+  const fields = ['problemField', 'heroHeadline', 'heroCta', 'orientationHeading', 'orientationSubtext', 'safetyHeading', 'safetyBody'] as const
   const config: Partial<EvidenceEngineConfig> = {}
   for (const field of fields) {
     if (typeof value[field] === 'string') config[field] = value[field] as string
@@ -83,29 +58,6 @@ function normalizeEvidenceSourcesByClaim(value: unknown): Record<string, Evidenc
       return [[claimId, sources.filter(isRecord) as EvidenceEngineSource[]]]
     })
   )
-}
-
-function normalizeEvidenceEnginePayload<GoalSlug extends string>(
-  goalSlug: GoalSlug,
-  payload: EvidenceEnginePayload | null
-): EvidenceEnginePayload<GoalSlug> {
-  if (!isRecord(payload)) {
-    return { goal: goalSlug, updatedAt: '', problemLabels: {}, claims: [], safetyNotes: [], sourcesByClaim: {} }
-  }
-
-  const normalized: EvidenceEnginePayload<GoalSlug> = {
-    goal: goalSlug,
-    updatedAt: cleanString(payload.updatedAt),
-    problemLabels: normalizeProblemLabels(payload.problemLabels),
-    claims: Array.isArray(payload.claims) ? payload.claims.filter(isRecord) as EvidenceEngineClaim[] : [],
-    safetyNotes: Array.isArray(payload.safetyNotes) ? payload.safetyNotes.filter(isRecord) as EvidenceEngineSafetyNote[] : [],
-    sourcesByClaim: normalizeEvidenceSourcesByClaim(payload.sourcesByClaim),
-  }
-
-  const config = normalizeConfig(payload.config)
-  if (config) normalized.config = config
-
-  return normalized
 }
 
 async function readJsonFile(fileName: string): Promise<unknown> {
@@ -209,21 +161,6 @@ export const getStacks = cache(async (): Promise<RuntimeRecord[]> => {
 export const getClaims = cache(async (): Promise<RuntimeRecord[]> => {
   const claims = await readJsonFile('claims.json')
   return Array.isArray(claims) ? claims : []
-})
-
-export const getSleepEvidenceEngine = cache(async (): Promise<SleepEvidenceEnginePayload> => {
-  const payload = await getGoalEvidenceEngine('sleep')
-  return normalizeEvidenceEnginePayload('sleep', payload) as SleepEvidenceEnginePayload
-})
-
-export const getStressEvidenceEngine = cache(async (): Promise<StressEvidenceEnginePayload> => {
-  const payload = await getGoalEvidenceEngine('stress')
-  return normalizeEvidenceEnginePayload('stress', payload) as StressEvidenceEnginePayload
-})
-
-export const getAnxietyEvidenceEngine = cache(async (): Promise<AnxietyEvidenceEnginePayload> => {
-  const payload = await getGoalEvidenceEngine('anxiety')
-  return normalizeEvidenceEnginePayload('anxiety', payload) as AnxietyEvidenceEnginePayload
 })
 
 export const getGoalEvidenceEngine = cache(async (goalSlug: string): Promise<EvidenceEnginePayload | null> => {

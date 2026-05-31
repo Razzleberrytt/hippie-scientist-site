@@ -2,6 +2,7 @@
   "goal": "anxiety",
   "updatedAt": "2026-05-31T12:56:57.243Z",
   "config": {
+    "problemField": "anxiety_problem",
     "heroHeadline": "I want calmer anxiety support. What does the evidence actually support?",
     "heroCta": "Start with the anxiety pattern",
     "orientationHeading": "Start by naming the anxiety pattern",
