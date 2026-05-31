@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
 import { goals } from '@/data/goals'
+import EmailCapture from './EmailCapture'
+import NewsletterCtaBlock from './NewsletterCtaBlock'
 
 type RuntimeFeature = Record<string, unknown>
 type HomepageV2Props = { featuredHerbs?: RuntimeFeature[]; featuredCompounds?: RuntimeFeature[] }
@@ -386,6 +388,19 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </Link>
           </div>
         </section>
+
+        <EmailCapture
+          headline='Get the supplement safety checklist'
+          description='Join the list for safety-first supplement notes and the checklist landing page before you compare products.'
+          ctaLabel='Get the checklist'
+          location='homepage'
+        />
+
+        <NewsletterCtaBlock
+          title='Browse evidence-first newsletter notes'
+          description='Use the archive for concise supplement safety and sourcing updates.'
+          location='homepage-newsletter'
+        />
 
         {/* Popular Profiles */}
         <section className='space-y-2.5 sm:space-y-3'>

@@ -7,6 +7,7 @@ import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decisi
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
+import EmailCapture from '../../../components/EmailCapture'
 import GoalDecisionExperience from './GoalDecisionExperience'
 
 type GoalRouteParams = { goal: string }
@@ -515,6 +516,12 @@ export default async function GoalDecisionPage({
           })}
         </div>
       </section>
+
+      <EmailCapture
+        headline={`Get ${goal.title.toLowerCase()} updates`}
+        description="Join for new evidence notes, product-quality checklists, and conservative supplement decision guides."
+        location={`goal-${goal.slug}`}
+      />
 
       <footer className="rounded-2xl border border-brand-900/10 bg-brand-950/[0.02] p-5 text-xs leading-6 text-muted">
         Educational only. Not medical advice. Evidence varies by population, preparation, and study design.

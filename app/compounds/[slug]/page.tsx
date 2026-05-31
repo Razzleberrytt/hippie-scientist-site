@@ -17,6 +17,8 @@ import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
+import RecommendationSection from '../../../components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -203,6 +205,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
   const activeShopLinks = getAffiliateShopLinks(compound, displayName, 'compound')
   const affiliateCtaLink = activeShopLinks.find(link => link.url)
+  const revenueProducts = getRevenueProductSet(normalizedSlug)
 
   return (
     <>
@@ -337,6 +340,14 @@ export default async function CompoundPage({ params }: PageProps) {
             <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
           </div>
           <SourcingCta record={compound} displayName={displayName} />
+
+          {revenueProducts ? (
+            <RecommendationSection
+              title={revenueProducts.title}
+              description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
+              products={revenueProducts.products}
+            />
+          ) : null}
 
           <div className="grid gap-4 sm:grid-cols-2 pt-2">
             {semanticRelated.length > 0 && (
