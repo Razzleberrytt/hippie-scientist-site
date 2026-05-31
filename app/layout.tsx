@@ -110,6 +110,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <Link href='/compounds' className='text-muted hover:text-ink transition'>Compounds</Link>
                     <Link href='/goals' className='text-muted hover:text-ink transition'>Goals</Link>
                     <Link href='/guides' className='text-muted hover:text-ink transition'>Guides</Link>
+                    <Link href='/compare' className='text-muted hover:text-ink transition'>Compare</Link>
                     <Link href='/stacks' className='text-muted hover:text-ink transition'>Stacks</Link>
                     <Link href='/learn' className='text-muted hover:text-ink transition'>Learn</Link>
                     <Link href='/search' className='text-muted hover:text-ink transition'>Search</Link>
@@ -121,6 +122,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <h2 className='font-semibold text-ink'>Tools</h2>
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/safety-checker' className='text-muted hover:text-ink transition'>Safety Interaction Checker</Link>
+                    <Link href='/learn/product-quality' className='text-muted hover:text-ink transition'>Product Quality Guide</Link>
                     <Link href='/dosing' className='text-muted hover:text-ink transition'>Dosing Guide</Link>
                   </div>
                   <h2 className='mt-4 font-semibold text-ink'>Legal &amp; Transparency</h2>

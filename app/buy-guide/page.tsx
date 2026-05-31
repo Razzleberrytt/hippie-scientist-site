@@ -7,6 +7,11 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Supplement Sourcing Checklist & Buying Guide',
   description: 'A scientific buying guide listing specific quality standards, standardized extracts, certificate of analysis (COA) requirements, and affiliate sourcing links.',
+  alternates: { canonical: '/learn/product-quality' },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default async function BuyGuidePage() {

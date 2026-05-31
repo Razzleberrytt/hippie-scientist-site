@@ -192,6 +192,8 @@ export const canonicalGuidePages: SeoEntryConfig[] = seoEntryPages.filter((page)
   page.route.startsWith('guides/'),
 )
 
+export const indexableGuidePages: SeoEntryConfig[] = manualGuideSeoEntryPages
+
 const siteUrl = 'https://www.thehippiescientist.net'
 
 const clean = (value: unknown): string => {
@@ -324,7 +326,7 @@ function breadcrumbSchema(page: SeoEntryConfig) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Supplement Guides', item: `${siteUrl}/goals` },
+      { '@type': 'ListItem', position: 2, name: 'Supplement Guides', item: `${siteUrl}/guides` },
       { '@type': 'ListItem', position: 3, name: page.h1, item: `${siteUrl}/${page.route}` },
     ],
   }
@@ -337,12 +339,14 @@ export function generateSeoEntryMetadata(route: string): Metadata {
     ? canonicalGuideRouteOverrides[route] || `guides/${route}`
     : page.route
   const isDeprecatedRoute = canonicalRoute !== page.route
+  const isGeneratedGuideRoute = route.startsWith('guides/')
+    && !indexableGuidePages.some((item) => item.route === route)
 
   return {
     title: page.title,
     description: page.intro,
     alternates: { canonical: `/${canonicalRoute}` },
-    robots: isDeprecatedRoute ? { index: false, follow: true } : undefined,
+    robots: isDeprecatedRoute || isGeneratedGuideRoute ? { index: false, follow: true } : undefined,
     openGraph: {
       title: page.title,
       description: page.intro,

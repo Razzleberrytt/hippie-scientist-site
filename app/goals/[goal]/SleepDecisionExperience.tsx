@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import { getAffiliateShopLinks } from '@/lib/affiliate'
 import type { Goal } from '@/data/goals'
+import type { SleepEvidenceClaim, SleepEvidenceEnginePayload, SleepSafetyNote } from '@/lib/runtime-data'
 
 type SleepOption = {
   option: {
@@ -15,7 +15,6 @@ type SleepOption = {
     whyPeopleStop: string
     form: string
   }
-  compound?: Record<string, any>
   profileHref: string
   evidenceLabel: string
   safetyLabel: string
@@ -24,154 +23,107 @@ type SleepOption = {
 type SleepDecisionExperienceProps = {
   goal: Goal
   enrichedOptions: SleepOption[]
+  sleepEvidence: SleepEvidenceEnginePayload
   structuredData?: ReactNode
 }
 
-const shortlistOrder = ['melatonin', 'l-theanine', 'magnesium']
-
-const shortlistCopy: Record<string, {
-  useCase: string
-  timeToEffect: string
-  safetySummary: string
-  why: string
-  bestIf: string
-  tradeoff: string
-}> = {
-  melatonin: {
-    useCase: 'Sleep-onset trouble, jet lag, or schedule-shift problems where circadian timing is the main issue.',
-    timeToEffect: 'Usually 30–60 minutes for bedtime use; schedule effects depend on timing consistency.',
-    safetySummary: 'Low-to-moderate risk for many adults, but review pregnancy, autoimmune conditions, morning grogginess, and sedative stacking.',
-    why: 'It is the most direct fit when the decision is about sleep timing rather than general relaxation.',
-    bestIf: 'Your bedtime is drifting later, travel disrupted your schedule, or you need a short-term timing cue.',
-    tradeoff: 'Not the best default for chronic stress-driven insomnia or people who wake groggy from small doses.',
+const sleepProblemLabels: Record<string, { title: string; description: string }> = {
+  sleep_onset: {
+    title: 'Sleep onset',
+    description: 'Trouble getting sleepy or shifting into bedtime.',
   },
-  'l-theanine': {
-    useCase: 'Racing thoughts, bedtime tension, or a calm-down ritual when you want less next-day heaviness.',
-    timeToEffect: 'Often framed as a 30–90 minute pre-bed option.',
-    safetySummary: 'Generally lower risk, but be cautious with sedatives, alcohol, blood-pressure medication, or very low blood pressure.',
-    why: 'It gives anxious, overthinking sleepers a gentler first experiment before stronger sedating approaches.',
-    bestIf: 'Your main barrier is mental noise rather than a shifted body clock.',
-    tradeoff: 'May feel too subtle for severe insomnia or frequent middle-of-the-night waking.',
+  sleep_quality: {
+    title: 'Sleep quality',
+    description: 'Light, unrefreshing, or inconsistent sleep.',
   },
-  magnesium: {
-    useCase: 'Nightly wind-down, low dietary magnesium suspicion, muscle tension, or relaxation routines.',
-    timeToEffect: 'Often days to 2 weeks; not usually an instant knockout aid.',
-    safetySummary: 'Low risk for many adults, but kidney disease requires clinician clearance; dose escalation can cause GI effects.',
-    why: 'It is a practical, low-intensity default when sleep quality overlaps with tension or inadequate intake.',
-    bestIf: 'You want a conservative routine ingredient rather than a direct hypnotic.',
-    tradeoff: 'Benefits are more likely when intake is low or tension is part of the sleep problem.',
+  night_waking: {
+    title: 'Night waking',
+    description: 'Waking during the night or struggling to return to sleep.',
+  },
+  racing_mind: {
+    title: 'Racing mind',
+    description: 'Mental noise, tension, or bedtime rumination.',
+  },
+  relaxation: {
+    title: 'Relaxation',
+    description: 'A gentler wind-down target before stronger sedating approaches.',
   },
 }
 
-const matrix = [
-  { label: 'Best evidence', pick: 'Melatonin', note: 'Strongest fit for circadian timing and sleep-onset decisions.' },
-  { label: 'Fastest acting', pick: 'Melatonin or L-Theanine', note: 'Both can be used in the 30–90 minute pre-bed window, for different problems.' },
-  { label: 'Lowest risk', pick: 'Magnesium or L-Theanine', note: 'Most conservative starting points when medication and health context are uncomplicated.' },
-  { label: 'Lowest cost', pick: 'Magnesium', note: 'Usually inexpensive per serving and easy to compare across brands.' },
-  { label: 'Most popular', pick: 'Melatonin', note: 'Familiar and widely available, but popularity should not override fit or safety.' },
-]
-
-const safetyItems = [
-  {
-    title: 'Do not use supplements to mask a medical sleep problem',
-    body: 'Loud snoring, witnessed apnea, severe daytime sleepiness, restless legs, chest symptoms, or insomnia lasting weeks deserves clinician evaluation before supplement experimentation.',
+const confidenceLabels: Record<string, { label: string; tone: string; description: string }> = {
+  strong_human: {
+    label: 'Strong human evidence',
+    tone: 'bg-emerald-50 text-emerald-800 ring-emerald-100',
+    description: 'Supported by multiple human studies or strong human-focused synthesis.',
   },
-  {
-    title: 'Review medication and sedative stacking',
-    body: 'Be cautious combining sleep supplements with alcohol, benzodiazepines, Z-drugs, opioids, antihistamines, antidepressants, blood-pressure medication, or other sedating products.',
+  moderate_human: {
+    label: 'Moderate human evidence',
+    tone: 'bg-teal-50 text-teal-800 ring-teal-100',
+    description: 'Human evidence exists, but population, dose, or outcome certainty is still limited.',
   },
-  {
-    title: 'Pregnancy, lactation, children, and complex conditions change the decision',
-    body: 'Use clinician guidance for pregnancy or nursing, pediatric use, bipolar-spectrum history, autoimmune conditions, seizure disorders, kidney disease, liver disease, or planned procedures.',
+  limited_human: {
+    label: 'Limited human evidence',
+    tone: 'bg-amber-50 text-amber-800 ring-amber-100',
+    description: 'Some human signal, but not enough to treat the claim as settled.',
   },
-  {
-    title: 'Start with one variable',
-    body: 'Avoid beginning with a multi-ingredient sleep stack. One option at a time makes benefit, side effects, and next-day grogginess easier to interpret.',
+  mixed: {
+    label: 'Mixed evidence',
+    tone: 'bg-orange-50 text-orange-800 ring-orange-100',
+    description: 'Findings vary enough that fit and limitations matter more than the headline.',
   },
-]
-
-const qualityGuide = [
-  {
-    title: 'Forms that matter',
-    body: 'Magnesium glycinate is commonly chosen for evening tolerance; citrate can be more laxative; L-threonate is more cognition-positioned and often pricier. Melatonin dose and release type matter more than exotic branding.',
+  mechanistic_only: {
+    label: 'Mechanistic only',
+    tone: 'bg-slate-50 text-slate-700 ring-slate-200',
+    description: 'Biological plausibility without enough direct human outcome evidence.',
   },
-  {
-    title: 'Standardization and labeling',
-    body: 'Botanical products should name the plant part and extract ratio or marker compounds. Single-ingredient labels are easier to evaluate than proprietary blends.',
+  insufficient: {
+    label: 'Insufficient evidence',
+    tone: 'bg-zinc-50 text-zinc-700 ring-zinc-200',
+    description: 'Not enough reliable evidence for a confident sleep decision.',
   },
-  {
-    title: 'Marketing traps',
-    body: 'Avoid “maximum strength” melatonin by default, mega-stacks with many sedatives, vague “clinically proven blend” claims, and products that hide exact ingredient amounts.',
-  },
-  {
-    title: 'Quality indicators',
-    body: 'Prefer clear dosage, lot-level testing or third-party quality seals, allergen transparency, realistic claims, and brands that publish contact and manufacturing information.',
-  },
-]
-
-const comparisons = [
-  {
-    href: '/compare/magnesium-glycinate-vs-l-threonate-for-sleep',
-    title: 'Magnesium Glycinate vs L-Threonate',
-    body: 'Use this when you are choosing between a routine sleep form and a higher-cost cognition-positioned form.',
-  },
-  {
-    href: '/compare/apigenin-vs-melatonin',
-    title: 'Apigenin vs Melatonin',
-    body: 'Use this when you are deciding between relaxation-positioned and circadian-timing approaches.',
-  },
-  {
-    href: '/compare/melatonin-vs-l-theanine',
-    title: 'Melatonin vs L-Theanine',
-    body: 'Use this when the core question is body-clock timing versus a racing mind.',
-  },
-  {
-    href: '/sleep-herbs-vs-melatonin',
-    title: 'Melatonin vs Non-Melatonin Approaches',
-    body: 'Use this broader guide when you want botanical and non-melatonin tradeoffs before buying.',
-  },
-]
-
-const alternatives = [
-  {
-    name: 'Lemon Balm',
-    href: '/compounds/lemon-balm',
-    role: 'Gentle botanical alternative',
-    note: 'Consider when bedtime restlessness is mild and you prefer an herb-first routine; product consistency varies.',
-  },
-  {
-    name: 'Glycine',
-    href: '/compounds/glycine',
-    role: 'Non-sedating sleep-quality option',
-    note: 'Consider when you want a simple amino-acid option and are not mainly trying to shift circadian timing.',
-  },
-  {
-    name: 'Apigenin',
-    href: '/compounds/apigenin',
-    role: 'Relaxation-positioned alternative',
-    note: 'Consider as a research option, but review sedatives, anticoagulants, and pregnancy uncertainty first.',
-  },
-]
-
-function getOption(slug: string, enrichedOptions: SleepOption[], goal: Goal): SleepOption {
-  const enriched = enrichedOptions.find((item) => item.option.slug === slug)
-  if (enriched) return enriched
-
-  const fallback = goal.options.find((option) => option.slug === slug)
-  if (!fallback) {
-    throw new Error(`Missing sleep decision option: ${slug}`)
-  }
-
-  return {
-    option: fallback,
-    profileHref: `/compounds/${fallback.slug}`,
-    evidenceLabel: fallback.evidence,
-    safetyLabel: fallback.risk,
-  }
 }
 
-export default function SleepDecisionExperience({ goal, enrichedOptions, structuredData }: SleepDecisionExperienceProps) {
-  const shortlist = shortlistOrder.map((slug) => getOption(slug, enrichedOptions, goal))
+const safetyTone: Record<string, string> = {
+  low: 'border-amber-600/20 bg-amber-50/70 text-amber-950',
+  moderate: 'border-orange-700/20 bg-orange-50/70 text-orange-950',
+  high: 'border-rose-700/20 bg-rose-50/80 text-rose-950',
+}
+
+function groupClaims(claims: SleepEvidenceClaim[]) {
+  return claims.reduce<Record<string, SleepEvidenceClaim[]>>((groups, claim) => {
+    const group = claim.decision_group || 'Other sleep support'
+    groups[group] = groups[group] || []
+    groups[group].push(claim)
+    return groups
+  }, {})
+}
+
+function safetyByIngredient(notes: SleepSafetyNote[]) {
+  return notes.reduce<Record<string, SleepSafetyNote[]>>((groups, note) => {
+    groups[note.ingredient_slug] = groups[note.ingredient_slug] || []
+    groups[note.ingredient_slug].push(note)
+    return groups
+  }, {})
+}
+
+function profileHrefFor(claim: SleepEvidenceClaim, enrichedOptions: SleepOption[]) {
+  const option = enrichedOptions.find((item) => item.option.slug === claim.ingredient_slug)
+  return option?.profileHref || `/compounds/${claim.ingredient_slug}`
+}
+
+function confidenceFor(tier: string) {
+  return confidenceLabels[tier] || confidenceLabels.insufficient
+}
+
+export default function SleepDecisionExperience({
+  enrichedOptions,
+  sleepEvidence,
+  structuredData,
+}: SleepDecisionExperienceProps) {
+  const claims = sleepEvidence.claims
+  const claimGroups = groupClaims(claims)
+  const safetyGroups = safetyByIngredient(sleepEvidence.safetyNotes)
+  const hasEvidence = claims.length > 0
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
@@ -180,180 +132,186 @@ export default function SleepDecisionExperience({ goal, enrichedOptions, structu
       <section className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="eyebrow-label">Sleep decision experience</p>
-            <h1 className="heading-premium mt-3 text-ink">I want better sleep. What should I actually try?</h1>
+            <p className="eyebrow-label">Sleep evidence engine</p>
+            <h1 className="heading-premium mt-3 text-ink">I want better sleep. What does the evidence actually support?</h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-muted">
-              A 60–120 second decision guide for choosing a first sleep-support experiment from existing Hippie Scientist data—evidence first, safety before sourcing, and no ten-tab research spiral.
+              A workbook-backed sleep decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a href="#shortlist" className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
-                Show me the shortlist
+              <a href="#sleep-orientation" className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
+                Start with the sleep problem
               </a>
               <a href="#safety-first" className="inline-flex min-h-11 items-center justify-center rounded-full border border-brand-900/10 bg-white/70 px-5 py-2.5 text-sm font-semibold text-brand-900 transition hover:border-brand-700/30 hover:bg-white">
-                Check safety first
+                Review safety warnings
               </a>
             </div>
           </div>
 
           <div className="rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Fast answer</p>
-            <ol className="mt-4 space-y-3 text-sm leading-6 text-muted">
-              <li><strong className="text-ink">Body clock problem?</strong> Start by researching low-dose melatonin timing.</li>
-              <li><strong className="text-ink">Racing mind?</strong> Start with L-theanine before stronger sedatives.</li>
-              <li><strong className="text-ink">Tension or low-intake context?</strong> Compare magnesium forms.</li>
-            </ol>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Proof of concept</p>
+            <dl className="mt-4 space-y-3 text-sm leading-6 text-muted">
+              <div>
+                <dt className="font-semibold text-ink">Workbook claims</dt>
+                <dd>{claims.length} published sleep claims</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-ink">Safety notes</dt>
+                <dd>{sleepEvidence.safetyNotes.length} ingredient warnings</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-ink">Last generated</dt>
+                <dd>{sleepEvidence.updatedAt ? new Date(sleepEvidence.updatedAt).toLocaleDateString('en-US') : 'Awaiting workbook rows'}</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
 
-      <section id="shortlist" className="card-premium p-6 sm:p-8">
+      <section id="sleep-orientation" className="card-premium p-6 sm:p-8">
         <div className="max-w-3xl">
-          <p className="eyebrow-label">Recommended starting options</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">Start with one of these three—not a giant stack</h2>
+          <p className="eyebrow-label">Sleep problem orientation</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">Start by naming the sleep problem</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            These are not prescriptions. They are the most decision-useful first options because each answers a different sleep problem: timing, mental quieting, or routine relaxation.
+            The same ingredient can look useful or weak depending on whether the issue is timing, mental arousal, waking, or general sleep quality.
           </p>
         </div>
-
-        <div className="mt-6 grid gap-4 lg:grid-cols-3">
-          {shortlist.map(({ option, profileHref, evidenceLabel, safetyLabel }) => {
-            const copy = shortlistCopy[option.slug]
+        <div className="mt-6 grid gap-3 md:grid-cols-5">
+          {Object.entries(sleepProblemLabels).map(([key, problem]) => {
+            const count = claims.filter((claim) => claim.sleep_problem === key).length
             return (
-              <article key={option.slug} className="rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="text-xl font-semibold text-ink">{option.name}</h3>
-                  <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-bold text-emerald-800 ring-1 ring-emerald-100">{evidenceLabel}</span>
-                </div>
-                <dl className="mt-4 space-y-3 text-sm leading-6">
-                  <div>
-                    <dt className="font-semibold text-ink">Typical use case</dt>
-                    <dd className="text-muted">{copy.useCase}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-ink">Time to effect</dt>
-                    <dd className="text-muted">{copy.timeToEffect}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-ink">Safety summary</dt>
-                    <dd className="text-muted">{copy.safetySummary}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-semibold text-ink">Why it made the shortlist</dt>
-                    <dd className="text-muted">{copy.why}</dd>
-                  </div>
-                </dl>
-                <div className="mt-5 rounded-2xl bg-brand-50/50 p-4 text-xs leading-6 text-brand-950 ring-1 ring-brand-900/5">
-                  <strong>Best if:</strong> {copy.bestIf}<br />
-                  <strong>Main tradeoff:</strong> {copy.tradeoff}<br />
-                  <strong>Risk label:</strong> {safetyLabel}
-                </div>
-                {profileHref ? (
-                  <Link href={profileHref} className="mt-4 inline-flex text-sm font-semibold text-brand-800 hover:text-brand-700 hover:underline">
-                    Read the full profile →
-                  </Link>
-                ) : null}
+              <article key={key} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
+                <h3 className="text-sm font-semibold text-ink">{problem.title}</h3>
+                <p className="mt-2 text-xs leading-5 text-muted">{problem.description}</p>
+                <p className="mt-3 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">{count} claim{count === 1 ? '' : 's'}</p>
               </article>
             )
           })}
         </div>
       </section>
 
-      <section className="card-premium p-6 sm:p-8">
-        <p className="eyebrow-label">Quick decision matrix</p>
-        <h2 className="mt-2 text-2xl font-semibold text-ink">Choose by the constraint that matters most tonight</h2>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {matrix.map((item) => (
-            <article key={item.label} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">{item.label}</p>
-              <h3 className="mt-2 text-base font-semibold text-ink">{item.pick}</h3>
-              <p className="mt-2 text-xs leading-5 text-muted">{item.note}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      {hasEvidence ? (
+        <section id="shortlist" className="card-premium p-6 sm:p-8">
+          <div className="max-w-3xl">
+            <p className="eyebrow-label">Claim-backed shortlist</p>
+            <h2 className="mt-2 text-2xl font-semibold text-ink">Published workbook claims, grouped by decision role</h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              These are not rankings or personalized recommendations. Each card shows the claim, evidence summary, limitation, source trail, and ingredient-specific safety notes.
+            </p>
+          </div>
+
+          <div className="mt-6 space-y-6">
+            {Object.entries(claimGroups).map(([group, groupClaims]) => (
+              <section key={group} className="rounded-3xl border border-brand-900/10 bg-white/60 p-5">
+                <h3 className="text-lg font-semibold text-ink">{group}</h3>
+                <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                  {groupClaims.map((claim) => {
+                    const confidence = confidenceFor(claim.confidence_tier)
+                    const sources = sleepEvidence.sourcesByClaim[claim.claim_id] || []
+                    const safetyNotes = safetyGroups[claim.ingredient_slug] || []
+                    return (
+                      <article key={claim.claim_id} className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                          <div>
+                            <h4 className="text-xl font-semibold text-ink">{claim.ingredient_name}</h4>
+                            <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">
+                              {sleepProblemLabels[claim.sleep_problem]?.title || claim.sleep_problem}
+                            </p>
+                          </div>
+                          <span className={`inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-bold ring-1 ${confidence.tone}`}>
+                            {confidence.label}
+                          </span>
+                        </div>
+
+                        <p className="mt-4 text-sm font-semibold leading-6 text-ink">{claim.claim_statement}</p>
+                        <dl className="mt-4 space-y-3 text-sm leading-6">
+                          <div>
+                            <dt className="font-semibold text-ink">Evidence summary</dt>
+                            <dd className="text-muted">{claim.evidence_summary}</dd>
+                          </div>
+                          <div>
+                            <dt className="font-semibold text-ink">Limitations</dt>
+                            <dd className="text-muted">{claim.limitations}</dd>
+                          </div>
+                          <div className="grid gap-3 sm:grid-cols-2">
+                            <div className="rounded-xl bg-brand-50/50 p-3 ring-1 ring-brand-900/5">
+                              <dt className="font-semibold text-ink">Best fit</dt>
+                              <dd className="mt-1 text-muted">{claim.best_fit}</dd>
+                            </div>
+                            <div className="rounded-xl bg-zinc-50 p-3 ring-1 ring-zinc-200">
+                              <dt className="font-semibold text-ink">Not best fit</dt>
+                              <dd className="mt-1 text-muted">{claim.not_best_fit}</dd>
+                            </div>
+                          </div>
+                        </dl>
+
+                        <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-700 ring-1 ring-slate-200">
+                          <strong>{confidence.label}:</strong> {confidence.description}
+                        </div>
+
+                        {safetyNotes.length > 0 ? (
+                          <div className="mt-4 space-y-2">
+                            <p className="text-xs font-bold uppercase tracking-[0.14em] text-rose-800">Ingredient safety warnings</p>
+                            {safetyNotes.map((note) => (
+                              <div key={note.safety_id} className={`rounded-xl border p-3 text-xs leading-5 ${safetyTone[note.severity] || safetyTone.moderate}`}>
+                                <strong>{note.risk_type.replace(/_/g, ' ')}:</strong> {note.warning}
+                                <span className="mt-1 block">{note.decision_effect}</span>
+                              </div>
+                            ))}
+                          </div>
+                        ) : null}
+
+                        <div className="mt-4">
+                          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Claim-specific sources</p>
+                          <ul className="mt-2 space-y-2 text-sm leading-6">
+                            {sources.map((source) => (
+                              <li key={source.source_id}>
+                                <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:text-brand-700 hover:underline">
+                                  {source.citation_label}
+                                </a>
+                                <span className="text-muted"> - {source.title} ({source.year})</span>
+                                {source.source_note ? <span className="block text-xs text-muted">{source.source_note}</span> : null}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <Link href={profileHrefFor(claim, enrichedOptions)} className="mt-5 inline-flex text-sm font-semibold text-brand-800 hover:text-brand-700 hover:underline">
+                          Read the full profile
+                        </Link>
+                      </article>
+                    )
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+        </section>
+      ) : (
+        <section className="card-premium p-6 sm:p-8">
+          <p className="eyebrow-label">Awaiting workbook rows</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">The sleep Evidence Engine payload is ready, but no claims are published yet</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Add published rows to the Sleep Evidence Claims, Sleep Evidence Sources, and Sleep Safety Notes workbook sheets, then rebuild the static data.
+          </p>
+        </section>
+      )}
 
       <section id="safety-first" className="rounded-[2rem] border border-rose-700/15 bg-rose-50/70 p-6 shadow-sm sm:p-8">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-rose-800">Safety first</p>
-          <h2 className="mt-2 text-2xl font-semibold text-rose-950">Pause before buying if any of these apply</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-rose-950">Sleep supplement decisions change when risk context changes</h2>
           <p className="mt-3 text-sm leading-7 text-rose-900">
-            Sleep supplements can be reasonable experiments, but they are not appropriate for every sleep problem or every medication context.
+            Do not use supplements to mask loud snoring, witnessed apnea, severe daytime sleepiness, persistent insomnia, chest symptoms, or complex medication situations.
           </p>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {safetyItems.map((item) => (
-            <article key={item.title} className="rounded-2xl border border-rose-900/10 bg-white/70 p-5">
-              <h3 className="text-base font-semibold text-rose-950">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-rose-900">{item.body}</p>
+          {sleepEvidence.safetyNotes.map((note) => (
+            <article key={`${note.safety_id}-global`} className={`rounded-2xl border p-5 ${safetyTone[note.severity] || safetyTone.moderate}`}>
+              <h3 className="text-base font-semibold capitalize">{note.ingredient_slug.replace(/-/g, ' ')}</h3>
+              <p className="mt-2 text-sm leading-6">{note.warning}</p>
+              <p className="mt-2 text-xs font-semibold leading-5">{note.decision_effect}</p>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="card-premium p-6 sm:p-8">
-        <p className="eyebrow-label">Product quality guide</p>
-        <h2 className="mt-2 text-2xl font-semibold text-ink">What to check before you purchase</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {qualityGuide.map((item) => (
-            <article key={item.title} className="rounded-2xl border border-brand-900/10 bg-white/70 p-5">
-              <h3 className="text-base font-semibold text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{item.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="card-premium p-6 sm:p-8">
-        <p className="eyebrow-label">Compare next</p>
-        <h2 className="mt-2 text-2xl font-semibold text-ink">Still deciding? Compare the exact tradeoff</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {comparisons.map((comparison) => (
-            <Link key={comparison.href} href={comparison.href} className="rounded-2xl border border-brand-900/10 bg-white/70 p-5 transition hover:border-brand-700/25 hover:bg-white hover:shadow-sm">
-              <h3 className="text-base font-semibold text-ink">{comparison.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{comparison.body}</p>
-              <span className="mt-3 inline-flex text-sm font-semibold text-brand-800">Open comparison →</span>
-            </Link>
-          ))}
-        </div>
-
-        <div className="mt-6 rounded-2xl border border-brand-900/10 bg-brand-50/40 p-5">
-          <h3 className="text-base font-semibold text-ink">Alternative options to keep on the bench</h3>
-          <div className="mt-4 grid gap-3 md:grid-cols-3">
-            {alternatives.map((alternative) => (
-              <Link key={alternative.name} href={alternative.href} className="rounded-xl bg-white/70 p-4 text-sm ring-1 ring-brand-900/5 transition hover:bg-white hover:ring-brand-700/20">
-                <span className="block font-semibold text-ink">{alternative.name}</span>
-                <span className="mt-1 block text-xs font-bold uppercase tracking-[0.12em] text-brand-700">{alternative.role}</span>
-                <span className="mt-2 block text-xs leading-5 text-muted">{alternative.note}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="card-premium p-6 sm:p-8">
-        <p className="eyebrow-label">Sourcing</p>
-        <h2 className="mt-2 text-2xl font-semibold text-ink">If you decide to shop, use the checklist above first</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
-          Sourcing links come after safety and product-quality guidance by design. Use them only after you know which sleep problem you are trying to solve and which caution notes apply.
-        </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {shortlist.map(({ option, compound }) => {
-            const shopLinks = getAffiliateShopLinks(compound, option.name, compound?.entityType)
-            const cta = shopLinks.find((link) => link.url)
-            return (
-              <article key={`${option.slug}-source`} className="rounded-2xl border border-brand-900/10 bg-white/70 p-5">
-                <h3 className="text-base font-semibold text-ink">{option.name}</h3>
-                <p className="mt-2 text-xs leading-5 text-muted">Check dose transparency, form, testing signals, and whether a single-ingredient product is enough before considering blends.</p>
-                {cta ? (
-                  <a href={cta.url} target="_blank" rel="nofollow sponsored noopener noreferrer" className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2.5 text-xs font-bold text-white transition hover:bg-brand-900">
-                    {cta.label} →
-                  </a>
-                ) : (
-                  <span className="mt-4 inline-flex text-xs font-semibold text-muted">No sourcing link available.</span>
-                )}
-              </article>
-            )
-          })}
         </div>
       </section>
 

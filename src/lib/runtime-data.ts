@@ -7,6 +7,52 @@ const dataDir = path.join(process.cwd(), 'public', 'data')
 
 type RuntimeRecord = Record<string, any>
 
+export type SleepEvidenceClaim = {
+  claim_id: string
+  ingredient_slug: string
+  ingredient_name: string
+  sleep_problem: string
+  claim_statement: string
+  confidence_tier: string
+  evidence_summary: string
+  limitations: string
+  best_fit: string
+  not_best_fit: string
+  decision_group: string
+  display_order: number
+  published: boolean
+}
+
+export type SleepEvidenceSource = {
+  source_id: string
+  claim_id: string
+  citation_label: string
+  source_type: string
+  title: string
+  year: number | string
+  url: string
+  source_note?: string
+  published: boolean
+}
+
+export type SleepSafetyNote = {
+  safety_id: string
+  ingredient_slug: string
+  risk_type: string
+  severity: 'low' | 'moderate' | 'high' | string
+  warning: string
+  decision_effect: string
+  published: boolean
+}
+
+export type SleepEvidenceEnginePayload = {
+  goal: 'sleep'
+  updatedAt: string
+  claims: SleepEvidenceClaim[]
+  safetyNotes: SleepSafetyNote[]
+  sourcesByClaim: Record<string, SleepEvidenceSource[]>
+}
+
 const fileCache = new Map<string, unknown>()
 
 async function readJsonFile(fileName: string): Promise<unknown> {
@@ -110,6 +156,24 @@ export const getStacks = cache(async (): Promise<RuntimeRecord[]> => {
 export const getClaims = cache(async (): Promise<RuntimeRecord[]> => {
   const claims = await readJsonFile('claims.json')
   return Array.isArray(claims) ? claims : []
+})
+
+export const getSleepEvidenceEngine = cache(async (): Promise<SleepEvidenceEnginePayload> => {
+  const payload = await readJsonFile('evidence-engine/sleep.json')
+  if (!payload || Array.isArray(payload) || typeof payload !== 'object') {
+    return { goal: 'sleep', updatedAt: '', claims: [], safetyNotes: [], sourcesByClaim: {} }
+  }
+
+  const candidate = payload as Partial<SleepEvidenceEnginePayload>
+  return {
+    goal: 'sleep',
+    updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
+    claims: Array.isArray(candidate.claims) ? candidate.claims : [],
+    safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes : [],
+    sourcesByClaim: candidate.sourcesByClaim && typeof candidate.sourcesByClaim === 'object' && !Array.isArray(candidate.sourcesByClaim)
+      ? candidate.sourcesByClaim
+      : {},
+  }
 })
 
 export const getCompoundCardPayload = cache(async (): Promise<RuntimeRecord[]> => {

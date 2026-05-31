@@ -4,6 +4,11 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Best Supplements for Sleep | The Hippie Scientist',
   description: 'Science-backed supplements for sleep. Dosage, effects, and safety.',
+  alternates: { canonical: '/guides/best-supplements-for-sleep' },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 const comparisonLinks = [

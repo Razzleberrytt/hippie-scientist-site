@@ -5,7 +5,7 @@ import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summ
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { supplementComparisons } from '@/data/comparisons'
 import { goalConfigs } from '@/data/goals'
-import { canonicalGuidePages } from './seo-entry-pages'
+import { indexableGuidePages } from './seo-entry-pages'
 import { scientificCollections } from '@/lib/collections'
 import { comparisonSlugs, stackSlugs } from './authority-links'
 
@@ -80,7 +80,7 @@ const canonicalStaticRoutes = [
   '/faq',
   '/guides',
   '/learn',
-  '/buy-guide',
+  '/learn/product-quality',
   '/safety-checker',
 ]
 
@@ -138,7 +138,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       route(path, { priority: 0.65, changeFrequency: 'monthly' }),
     ),
 
-    ...canonicalGuidePages.map((page) =>
+    ...indexableGuidePages.map((page) =>
       route(`/${page.route}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 

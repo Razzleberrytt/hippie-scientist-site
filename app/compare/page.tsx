@@ -68,7 +68,7 @@ export default async function ComparePage() {
               href="/compare/dynamic" 
               className="inline-flex items-center gap-2 rounded-full bg-brand-850 hover:bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow transition hover:-translate-y-0.5 focus:outline-none"
             >
-              Launch Dynamic Comparison Matrix →
+              Launch Dynamic Comparison Matrix
             </Link>
           </div>
         </div>
@@ -100,6 +100,22 @@ export default async function ComparePage() {
         <p className="mt-1">
           This page is educational and does not replace medical advice. Evidence strength reflects research signal quality, not guaranteed outcomes, and individual response varies. Review medications, health conditions, pregnancy or nursing status, and clinician guidance before using supplements.
         </p>
+      </section>
+
+      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+        <p className="eyebrow-label">Decision next step</p>
+        <h2 className="mt-2 text-xl font-semibold text-ink">Use comparisons to choose a safer path</h2>
+        <div className="mt-4 grid gap-3 text-sm leading-6 text-muted md:grid-cols-3">
+          <Link href="/goals" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
+            Start from your goal
+          </Link>
+          <Link href="/safety-checker" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
+            Check safety context
+          </Link>
+          <Link href="/learn/product-quality" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
+            Review product quality
+          </Link>
+        </div>
       </section>
 
       <section className="space-y-4">

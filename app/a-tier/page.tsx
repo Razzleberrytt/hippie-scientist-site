@@ -1,7 +1,18 @@
 import fs from 'fs'
 import path from 'path'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Card from '@/components/ui/Card'
+
+export const metadata: Metadata = {
+  title: 'A-Tier Compounds',
+  description: 'Higher-trust compounds grouped by domain for conservative comparison.',
+  alternates: { canonical: '/goals' },
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 type Domain = 'cognition' | 'sleep' | 'metabolic' | 'inflammation' | 'performance'
 const DOMAIN_ORDER: Domain[] = ['cognition', 'sleep', 'metabolic', 'inflammation', 'performance']

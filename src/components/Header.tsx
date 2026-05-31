@@ -8,13 +8,9 @@ import '../styles/navbar.css'
 const navLinks = [
   { href: '/goals', label: 'Goals' },
   { href: '/guides', label: 'Guides' },
-  { href: '/start-here/quiz', label: 'Quiz' },
-  { href: '/safety-checker', label: 'Safety' },
-  { href: '/herbs', label: 'Herbs' },
-  { href: '/compounds', label: 'Compounds' },
   { href: '/compare', label: 'Compare' },
+  { href: '/safety-checker', label: 'Safety' },
   { href: '/learn', label: 'Learn' },
-  { href: '/search', label: 'Search' },
 ]
 
 export default function Header() {

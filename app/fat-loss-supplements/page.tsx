@@ -4,6 +4,11 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Best Supplements for Fat Loss | The Hippie Scientist',
   description: 'Science-backed supplements for fat loss. Dosage, effects, and safety.',
+  alternates: { canonical: '/guides/best-supplements-for-fat-loss' },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 const comparisons = [

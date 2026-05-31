@@ -9,6 +9,8 @@
     "canonicalMechanisms": 53,
     "topics": 0,
     "pathways": 0,
-    "supernodes": 0
+    "supernodes": 0,
+    "sleepEvidenceClaims": 5,
+    "sleepSafetyNotes": 6
   }
 }

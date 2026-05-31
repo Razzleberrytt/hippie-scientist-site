@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { canonicalGuidePages } from '../seo-entry-pages'
+import { indexableGuidePages } from '../seo-entry-pages'
 
 export const metadata: Metadata = {
   title: 'Supplement Guides',
@@ -22,7 +22,7 @@ const priorityRoutes = new Set([
   'guides/supplements-for-brain-fog-and-fatigue',
 ])
 
-const featuredGuides = canonicalGuidePages
+const featuredGuides = indexableGuidePages
   .filter((page) => priorityRoutes.has(page.route))
   .sort((a, b) => a.h1.localeCompare(b.h1))
 

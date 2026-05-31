@@ -4,6 +4,10 @@ import { redirect } from 'next/navigation'
 export const metadata: Metadata = {
   title: 'Build',
   description: 'Build your herb and compound learning stack.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default function BuildPage() {

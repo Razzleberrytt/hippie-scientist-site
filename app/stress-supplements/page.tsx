@@ -4,6 +4,11 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Best Supplements for Stress | The Hippie Scientist',
   description: 'Science-backed supplements for stress. Dosage, effects, and safety.',
+  alternates: { canonical: '/guides/best-supplements-for-stress' },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 const comparisons = [
@@ -19,7 +24,7 @@ export default function Page() {
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Best Supplements for Stress</h1>
         <p className='mt-4 max-w-2xl text-muted'>Explore stress-support supplements with practical dosage, timing, and safety context. This guide connects the main stress stack with the compounds that support calm, resilience, and daily recovery.</p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/ecosystems/stress' className='inline-flex min-h-11 items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'>Explore Stress Supplements</Link>
+          <Link href='/goals/stress' className='inline-flex min-h-11 items-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'>Explore Stress Supplements</Link>
           <Link href='/stacks/stress' className='inline-flex min-h-11 items-center rounded-full border border-stone-200 bg-white/50 px-5 py-2.5 text-sm font-medium text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'>View Stress Stack</Link>
         </div>
       </section>

@@ -24,7 +24,57 @@ const SHEETS = {
   map: ['Herb Compound Map V3'],
   claims: ['Study Registry'],
   canonicalMechanisms: ['Canonical_Mechanisms', 'Canonical Mechanisms'],
+  sleepEvidenceClaims: ['Sleep Evidence Claims'],
+  sleepEvidenceSources: ['Sleep Evidence Sources'],
+  sleepSafetyNotes: ['Sleep Safety Notes'],
 }
+
+const SLEEP_CONFIDENCE_TIERS = new Set([
+  'strong_human',
+  'moderate_human',
+  'limited_human',
+  'mixed',
+  'mechanistic_only',
+  'insufficient',
+])
+
+const SLEEP_PROBLEMS = new Set([
+  'sleep_onset',
+  'sleep_quality',
+  'night_waking',
+  'racing_mind',
+  'relaxation',
+])
+
+const SLEEP_SAFETY_SEVERITIES = new Set(['low', 'moderate', 'high'])
+
+const SLEEP_RISK_TYPES = new Set([
+  'pregnancy_breastfeeding',
+  'sedative_stacking',
+  'medication_interaction',
+  'next_day_grogginess',
+  'kidney_disease',
+  'autoimmune',
+  'liver',
+  'blood_pressure',
+  'pediatric',
+  'complex_condition',
+])
+
+const SLEEP_BLOCKED_TERMS = [
+  /\bcure\b/i,
+  /\btreats\b/i,
+  /\btreatment\b/i,
+  /\bprevents\b/i,
+  /\bguaranteed\b/i,
+  /\bclinically proven\b/i,
+  /\bmiracle\b/i,
+  /\brisk-free\b/i,
+  /\bdoctor recommended\b/i,
+  /\bFDA approved\b/i,
+  /\bbest supplement\b/i,
+  /\bno side effects\b/i,
+]
 
 const GRAPH_SHEETS = {
   topics: ['Topic Ecosystems'],
@@ -335,6 +385,204 @@ function claimRow(row) {
   return stripRecord({ id: id || pmid, title, claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion'])), pmid, doi: clean(first(row, ['doi', 'DOI'])), source_url: clean(first(row, ['source_url', 'url', 'link'])), evidence_tier: clean(first(row, ['evidence_tier', 'study_type'])), profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug'])) })
 }
 
+function published(v) {
+  if (v === null || v === undefined || clean(v) === '') return false
+  return bool(v)
+}
+
+function sleepEvidenceClaimRow(row) {
+  const claimId = slug(first(row, ['claim_id', 'claim id', 'id']))
+  const ingredientName = clean(first(row, ['ingredient_name', 'ingredient name', 'name']))
+  const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']) || ingredientName)
+  if (!claimId && !ingredientSlug && !ingredientName) return null
+
+  return stripRecord({
+    claim_id: claimId,
+    ingredient_slug: ingredientSlug,
+    ingredient_name: ingredientName,
+    sleep_problem: lower(first(row, ['sleep_problem', 'sleep problem'])),
+    claim_statement: compact(first(row, ['claim_statement', 'claim statement', 'claim'])),
+    confidence_tier: lower(first(row, ['confidence_tier', 'confidence tier'])),
+    evidence_summary: compact(first(row, ['evidence_summary', 'evidence summary'])),
+    limitations: compact(first(row, ['limitations', 'limitation'])),
+    best_fit: compact(first(row, ['best_fit', 'best fit'])),
+    not_best_fit: compact(first(row, ['not_best_fit', 'not best fit'])),
+    decision_group: clean(first(row, ['decision_group', 'decision group', 'group'])) || 'Other sleep support',
+    display_order: num(first(row, ['display_order', 'display order', 'order'])) ?? 999,
+    published: published(first(row, ['published', 'publish'])),
+  })
+}
+
+function sleepEvidenceSourceRow(row) {
+  const sourceId = slug(first(row, ['source_id', 'source id', 'id']))
+  const claimId = slug(first(row, ['claim_id', 'claim id']))
+  if (!sourceId && !claimId) return null
+
+  return stripRecord({
+    source_id: sourceId,
+    claim_id: claimId,
+    citation_label: clean(first(row, ['citation_label', 'citation label', 'citation'])),
+    source_type: lower(first(row, ['source_type', 'source type', 'type'])),
+    title: compact(first(row, ['title', 'source_title', 'source title'])),
+    year: num(first(row, ['year'])) ?? clean(first(row, ['year'])),
+    url: clean(first(row, ['url', 'source_url', 'source url', 'link'])),
+    source_note: compact(first(row, ['source_note', 'source note', 'note'])),
+    published: published(first(row, ['published', 'publish'])),
+  })
+}
+
+function sleepSafetyNoteRow(row) {
+  const safetyId = slug(first(row, ['safety_id', 'safety id', 'id']))
+  const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']))
+  if (!safetyId && !ingredientSlug) return null
+
+  return stripRecord({
+    safety_id: safetyId,
+    ingredient_slug: ingredientSlug,
+    risk_type: lower(first(row, ['risk_type', 'risk type'])),
+    severity: lower(first(row, ['severity'])),
+    warning: compact(first(row, ['warning', 'safety_warning', 'safety warning'])),
+    decision_effect: compact(first(row, ['decision_effect', 'decision effect'])),
+    published: published(first(row, ['published', 'publish'])),
+  })
+}
+
+function findBlockedTerms(record, fields) {
+  const findings = []
+  for (const field of fields) {
+    const value = clean(record[field])
+    if (!value) continue
+    for (const pattern of SLEEP_BLOCKED_TERMS) {
+      if (pattern.test(value)) findings.push(`${field}: ${pattern.source}`)
+    }
+  }
+  return findings
+}
+
+function validateRequired(record, fields, label, errors) {
+  for (const field of fields) {
+    if (!clean(record[field])) errors.push(`${label} missing required field: ${field}`)
+  }
+}
+
+function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
+  const claims = normalizeRows(claimRows, sleepEvidenceClaimRow)
+  const sources = normalizeRows(sourceRows, sleepEvidenceSourceRow)
+  const safetyNotes = normalizeRows(safetyRows, sleepSafetyNoteRow)
+  const errors = []
+
+  const publishedSources = sources.filter((source) => source.published)
+  const publishedSourcesByClaim = new Map()
+  for (const source of publishedSources) {
+    if (!publishedSourcesByClaim.has(source.claim_id)) publishedSourcesByClaim.set(source.claim_id, [])
+    publishedSourcesByClaim.get(source.claim_id).push(source)
+  }
+
+  const publishedClaims = claims
+    .filter((claim) => claim.published)
+    .sort((a, b) => (a.display_order ?? 999) - (b.display_order ?? 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
+
+  for (const claim of publishedClaims) {
+    const label = `Sleep Evidence Claims ${claim.claim_id || claim.ingredient_slug || '(unknown)'}`
+    validateRequired(claim, [
+      'claim_id',
+      'ingredient_slug',
+      'ingredient_name',
+      'sleep_problem',
+      'claim_statement',
+      'confidence_tier',
+      'evidence_summary',
+      'limitations',
+      'best_fit',
+      'not_best_fit',
+      'decision_group',
+    ], label, errors)
+
+    if (claim.sleep_problem && !SLEEP_PROBLEMS.has(claim.sleep_problem)) {
+      errors.push(`${label} has invalid sleep_problem: ${claim.sleep_problem}`)
+    }
+
+    if (claim.confidence_tier && !SLEEP_CONFIDENCE_TIERS.has(claim.confidence_tier)) {
+      errors.push(`${label} has invalid confidence_tier: ${claim.confidence_tier}`)
+    }
+
+    if (!publishedSourcesByClaim.has(claim.claim_id)) {
+      errors.push(`${label} must have at least one published source`)
+    }
+
+    const blockedTerms = findBlockedTerms(claim, [
+      'claim_statement',
+      'evidence_summary',
+      'limitations',
+      'best_fit',
+      'not_best_fit',
+      'decision_group',
+    ])
+    for (const blockedTerm of blockedTerms) {
+      errors.push(`${label} contains blocked term in ${blockedTerm}`)
+    }
+  }
+
+  for (const source of publishedSources) {
+    const label = `Sleep Evidence Sources ${source.source_id || source.claim_id || '(unknown)'}`
+    validateRequired(source, [
+      'source_id',
+      'claim_id',
+      'citation_label',
+      'source_type',
+      'title',
+      'year',
+      'url',
+    ], label, errors)
+  }
+
+  const publishedSafetyNotes = safetyNotes
+    .filter((note) => note.published)
+    .sort((a, b) => clean(a.ingredient_slug).localeCompare(clean(b.ingredient_slug)) || clean(a.risk_type).localeCompare(clean(b.risk_type)))
+
+  for (const note of publishedSafetyNotes) {
+    const label = `Sleep Safety Notes ${note.safety_id || note.ingredient_slug || '(unknown)'}`
+    validateRequired(note, [
+      'safety_id',
+      'ingredient_slug',
+      'risk_type',
+      'severity',
+      'warning',
+      'decision_effect',
+    ], label, errors)
+
+    if (note.risk_type && !SLEEP_RISK_TYPES.has(note.risk_type)) {
+      errors.push(`${label} has invalid risk_type: ${note.risk_type}`)
+    }
+
+    if (note.severity && !SLEEP_SAFETY_SEVERITIES.has(note.severity)) {
+      errors.push(`${label} has invalid severity: ${note.severity}`)
+    }
+
+    const blockedTerms = findBlockedTerms(note, ['warning', 'decision_effect'])
+    for (const blockedTerm of blockedTerms) {
+      errors.push(`${label} contains blocked term in ${blockedTerm}`)
+    }
+  }
+
+  if (errors.length > 0) {
+    throw new Error(`[sleep-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
+  }
+
+  return {
+    goal: 'sleep',
+    updatedAt: new Date().toISOString(),
+    claims: publishedClaims,
+    safetyNotes: publishedSafetyNotes,
+    sourcesByClaim: Object.fromEntries(
+      publishedClaims.map((claim) => [
+        claim.claim_id,
+        (publishedSourcesByClaim.get(claim.claim_id) || []).sort((a, b) => clean(a.citation_label).localeCompare(clean(b.citation_label))),
+      ])
+    ),
+  }
+}
+
 function graphRow(row, kind) {
   const source = slug(first(row, ['source', 'source slug', 'from', 'profile a', 'anchor', 'profile']))
   const target = slug(first(row, ['target', 'target slug', 'to', 'profile b', 'companion', 'candidate']))
@@ -363,11 +611,11 @@ function graphRow(row, kind) {
 function normalizeRows(rows, fn) {
   const seen = new Set()
   return rows.map(fn).filter(Boolean).filter((r) => {
-    const key = clean(r.id || r.slug || `${r.source}-${r.target}`)
+    const key = clean(r.id || r.slug || r.claim_id || r.source_id || r.safety_id || `${r.source}-${r.target}`)
     if (!key || seen.has(key)) return false
     seen.add(key)
     return true
-  }).sort((a, b) => clean(a.id || a.slug || a.name).localeCompare(clean(b.id || b.slug || b.name)))
+  }).sort((a, b) => clean(a.id || a.slug || a.claim_id || a.source_id || a.safety_id || a.name).localeCompare(clean(b.id || b.slug || b.claim_id || b.source_id || b.safety_id || b.name)))
 }
 
 function details(dir, rows) {
@@ -441,6 +689,11 @@ function main() {
   const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
   const herbCompoundMap = normalizeRows(read(wb, SHEETS.map), mapRow)
   const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))
+  const sleepEvidenceEngine = buildSleepEvidenceEngine(
+    read(wb, SHEETS.sleepEvidenceClaims, true),
+    read(wb, SHEETS.sleepEvidenceSources, true),
+    read(wb, SHEETS.sleepSafetyNotes, true)
+  )
   const normalizationReport = mechanismReport(herbs, compounds, taxonomy.mechanisms)
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
@@ -459,11 +712,13 @@ function main() {
   writeJson(path.join(outDir, 'stack-synergy.json'), graph.stacks || [])
   writeJson(path.join(outDir, 'sparse-recovery.json'), graph.sparseRecovery || [])
   writeJson(path.join(outDir, 'knowledge-graph.json'), graph)
+  writeJson(path.join(outDir, 'evidence-engine', 'sleep.json'), sleepEvidenceEngine)
   writeJson(path.join(outDir, 'agent-patches.json'), [])
   details(path.join(outDir, 'herb-detail'), herbs)
   details(path.join(outDir, 'compound-detail'), compounds)
-  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length } })
+  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, sleepEvidenceClaims: sleepEvidenceEngine.claims.length, sleepSafetyNotes: sleepEvidenceEngine.safetyNotes.length } })
   console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
+  console.log(`[data] sleep evidence engine: ${sleepEvidenceEngine.claims.length} claims, ${sleepEvidenceEngine.safetyNotes.length} safety notes`)
   console.log(`[data] canonical mechanisms: ${taxonomy.mechanisms.length}; unmapped mechanism terms: ${normalizationReport.unmappedMechanisms.length}`)
 }
 

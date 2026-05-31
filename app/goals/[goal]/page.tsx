@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
-import { getHerbBySlug, getCompoundBySlug } from '@/lib/runtime-data'
+import { getHerbBySlug, getCompoundBySlug, getSleepEvidenceEngine } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
@@ -151,8 +151,8 @@ export async function generateMetadata({
 
   if (goalSlug === 'sleep') {
     return {
-      title: 'Sleep Decision Guide | The Hippie Scientist',
-      description: 'Choose a sleep supplement starting point by evidence, speed, safety, product quality, and practical fit before shopping.',
+      title: 'Sleep Evidence Engine | The Hippie Scientist',
+      description: 'Review sleep supplement claims by problem fit, evidence confidence, limitations, source links, and safety warnings.',
     }
   }
 
@@ -247,10 +247,13 @@ export default async function GoalDecisionPage({
   )
 
   if (goal.slug === 'sleep') {
+    const sleepEvidence = await getSleepEvidenceEngine()
+
     return (
       <SleepDecisionExperience
         goal={goal}
         enrichedOptions={enrichedOptions}
+        sleepEvidence={sleepEvidence}
         structuredData={structuredData}
       />
     )

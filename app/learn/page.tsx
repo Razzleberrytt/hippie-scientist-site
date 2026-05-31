@@ -25,30 +25,30 @@ import EducationSupernodeGrid from '@/components/education/education-supernode-g
 
 const educationHubs = [
   {
-    title: 'Stress and brain basics',
-    href: '/education/scientific-but-human-neuroscience',
+    title: 'Product quality before buying',
+    href: '/learn/product-quality',
   },
   {
-    title: 'Focus and resilience guides',
-    href: '/education/cognitive-resilience-systems',
+    title: 'Adaptogens without hype',
+    href: '/learn/adaptogens-explained-without-hype',
   },
   {
-    title: 'Stress and cognition patterns',
-    href: '/education/stress-and-cognition-continuity',
+    title: 'Cognitive stack basics',
+    href: '/learn/cognitive-stack-that-actually-makes-sense',
   },
 ]
 
 const startHereCards = [
   {
     title: 'Start with the basics',
-    body: 'Begin with the Education Hub to learn what a supplement claim means and which claims are mostly marketing.',
-    href: '/education/',
+    body: 'Begin with goal-led decision pages so learning stays connected to evidence, safety, and practical next steps.',
+    href: '/goals',
     cta: 'Start with the basics',
   },
   {
     title: 'Learn how to read evidence',
     body: 'Use the glossary and evidence guides to check study quality, dosing context, and what is still uncertain.',
-    href: '/education/neuroscience-glossary',
+    href: '/learn/adaptogens-explained-without-hype',
     cta: 'Learn how to read evidence',
   },
   {
@@ -70,28 +70,28 @@ const supernodes = [
     title: 'Stress Neurobiology',
     description:
       'Plain-language education on stress physiology, burnout patterns, nervous-system regulation, and recovery-oriented cognition.',
-    href: '/education/how-stress-affects-the-brain',
+    href: '/goals/stress',
     category: 'Recovery Neuroscience',
   },
   {
     title: 'Neuroplasticity and Learning',
     description:
       'How memory, attention, repetition, sleep, and adaptation shape learning over time without reducing everything to hype.',
-    href: '/education/how-learning-affects-neuroplasticity',
+    href: '/learn/cognitive-stack-that-actually-makes-sense',
     category: 'Cognition Systems',
   },
   {
     title: 'Adaptogens and Recovery',
     description:
       'A careful look at adaptogens, stress signaling, fatigue, resilience claims, and where the evidence still has limits.',
-    href: '/education/what-are-adaptogens',
+    href: '/learn/adaptogens-explained-without-hype',
     category: 'Stress Physiology',
   },
   {
     title: 'Psychoactive Systems',
     description:
       'Education on altered states, perception, emotional intensity, and safety context without romanticizing risky use.',
-    href: '/education/understanding-altered-states',
+    href: '/psychedelic-adjacent-herbs',
     category: 'Safety context',
   },
 ]
@@ -121,17 +121,17 @@ export default function LearnPage() {
 
           <div className='flex flex-wrap gap-3 pt-2'>
             <Link
-              href='/education/'
+              href='/goals'
               className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
             >
-              Explore Education Hub
+              Explore Goal Guides
             </Link>
 
             <Link
-              href='/education/neuroscience-glossary'
+              href='/learn/product-quality'
               className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
             >
-              Neuroscience Glossary
+              Product Quality Guide
             </Link>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function LearnPage() {
 
       <EducationSupernodeGrid
         title='Explore major education hubs'
-        description='Move from basic concepts into deeper systems: stress biology, cognition, neuroplasticity, adaptogens, and psychoactive education.'
+    description='Move from basic concepts into deeper systems: stress biology, cognition, neuroplasticity, adaptogens, and psychoactive education.'
         items={supernodes}
       />
 

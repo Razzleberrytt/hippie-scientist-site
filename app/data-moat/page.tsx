@@ -7,6 +7,10 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Platform Evidence Trust Score & Data Moat Dashboard',
   description: 'View real-time database completeness stats, GRADE evidence tier distributions, and cited reference coverage profiles.',
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default async function DataMoatPage() {

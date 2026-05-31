@@ -4,6 +4,11 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Best Supplements for Cognition | The Hippie Scientist',
   description: 'Science-backed supplements for cognition. Dosage, effects, and safety.',
+  alternates: { canonical: '/guides/best-nootropics-for-focus' },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 const comparisons = [
