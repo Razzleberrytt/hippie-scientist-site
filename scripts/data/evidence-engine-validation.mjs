@@ -12,12 +12,17 @@ export const EVIDENCE_SAFETY_SEVERITIES = new Set(['low', 'moderate', 'high'])
 export const EVIDENCE_RISK_TYPES = new Set([
   'pregnancy_breastfeeding',
   'sedative_stacking',
+  'stimulant_stacking',
   'medication_interaction',
+  'anticoagulant_interaction',
   'next_day_grogginess',
   'kidney_disease',
   'autoimmune',
   'liver',
   'blood_pressure',
+  'gastrointestinal',
+  'seizure_risk',
+  'allergic_reaction',
   'pediatric',
   'complex_condition',
 ])

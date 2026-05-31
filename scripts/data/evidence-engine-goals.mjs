@@ -71,34 +71,55 @@ const STRESS_PROBLEM_LABELS = {
   },
 }
 
+const FOCUS_PROBLEMS = new Set([
+  'attention_maintenance',
+  'decision_fatigue',
+  'task_switching',
+  'cognitive_load',
+])
+
+const FOCUS_PROBLEM_LABELS = {
+  attention_maintenance: {
+    title: 'Attention maintenance',
+    description: 'Difficulty sustaining focus without mental drift or cognitive fatigue over extended periods.',
+  },
+  decision_fatigue: {
+    title: 'Decision fatigue',
+    description: 'Degraded decision quality or executive function from repeated or high-stakes choices.',
+  },
+  task_switching: {
+    title: 'Task switching',
+    description: 'Difficulty shifting between contexts with interference carryover or restart friction.',
+  },
+  cognitive_load: {
+    title: 'Cognitive load',
+    description: 'Mental overload from simultaneously managing multiple priorities or information streams.',
+  },
+}
+
 const ANXIETY_PROBLEMS = new Set([
-  'generalized_tension',
-  'situational_anxiety',
-  'social_anxiety',
+  'situational_nervousness',
   'physical_tension',
-  'anxious_sleep_onset',
+  'racing_thoughts',
+  'anticipatory_worry',
 ])
 
 const ANXIETY_PROBLEM_LABELS = {
-  generalized_tension: {
-    title: 'Generalized tension',
-    description: 'Persistent background worry or daily low-level anxiety that does not fully reset.',
-  },
-  situational_anxiety: {
-    title: 'Situational anxiety',
-    description: 'Anxiety tied to specific events, transitions, or anticipatory pressure.',
-  },
-  social_anxiety: {
-    title: 'Social anxiety',
-    description: 'Nervousness or performance pressure in social or high-visibility situations.',
+  situational_nervousness: {
+    title: 'Situational nervousness',
+    description: 'Nervousness or anxiety tied to specific events, triggers, or performance situations.',
   },
   physical_tension: {
     title: 'Physical tension',
     description: 'Somatic anxiety patterns including muscle tightness, shallow breathing, or restlessness.',
   },
-  anxious_sleep_onset: {
-    title: 'Anxious sleep onset',
-    description: 'Worry loops or nervous arousal that delay sleep or prevent full wind-down.',
+  racing_thoughts: {
+    title: 'Racing thoughts',
+    description: 'Mental loops, intrusive thoughts, or cognitive over-activity that worsen anxiety.',
+  },
+  anticipatory_worry: {
+    title: 'Anticipatory worry',
+    description: 'Future-focused worry patterns that escalate before anticipated events or decisions.',
   },
 }
 
@@ -141,6 +162,26 @@ export const EVIDENCE_ENGINE_GOALS = [
       orientationSubtext: 'The same ingredient can look useful or weak depending on acute pressure, baseline tension, reactivity, and sleep spillover.',
       safetyHeading: 'Stress-support decisions change when risk context changes',
       safetyBody: 'Do not use supplements to mask persistent panic symptoms, severe mood instability, unsafe medication interactions, or other complex clinical situations.',
+    },
+  },
+  {
+    goal: 'focus',
+    problemField: 'focus_problem',
+    problemAliases: ['focus_problem', 'focus problem', 'problem'],
+    problemSheetCandidates: ['Focus OutcomeProblems', 'Focus Outcome Problems'],
+    claimSheetCandidates: ['Focus Evidence Claims'],
+    sourceSheetCandidates: ['Focus Evidence Sources'],
+    safetySheetCandidates: ['Focus Safety Notes'],
+    fallbackProblemLabels: FOCUS_PROBLEM_LABELS,
+    validProblems: FOCUS_PROBLEMS,
+    defaultDecisionGroup: 'Other focus support',
+    config: {
+      heroHeadline: 'I want better focus. What does the evidence actually support?',
+      heroCta: 'Start with the focus problem',
+      orientationHeading: 'Start by naming the focus problem',
+      orientationSubtext: 'The same ingredient can look useful or weak depending on whether the issue is sustained attention, task-switching, cognitive load, or decision fatigue.',
+      safetyHeading: 'Focus supplement decisions change when risk context changes',
+      safetyBody: 'Do not use supplements to mask ADHD, cognitive impairment, severe fatigue, medication interactions, or other clinical situations requiring professional evaluation.',
     },
   },
   {

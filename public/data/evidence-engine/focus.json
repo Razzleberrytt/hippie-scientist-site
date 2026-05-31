@@ -1,0 +1,296 @@
+{
+  "goal": "focus",
+  "updatedAt": "2026-05-31T18:31:50.532Z",
+  "config": {
+    "problemField": "focus_problem",
+    "heroHeadline": "I want better focus. What does the evidence actually support?",
+    "heroCta": "Start with the focus problem",
+    "orientationHeading": "Start by naming the focus problem",
+    "orientationSubtext": "The same ingredient can look useful or weak depending on whether the issue is sustained attention, task-switching, cognitive load, or decision fatigue.",
+    "safetyHeading": "Focus supplement decisions change when risk context changes",
+    "safetyBody": "Do not use supplements to mask ADHD, cognitive impairment, severe fatigue, medication interactions, or other clinical situations requiring professional evaluation."
+  },
+  "problemLabels": {
+    "attention_maintenance": {
+      "title": "Attention maintenance",
+      "description": "Difficulty sustaining focus without mental drift or cognitive fatigue over extended periods."
+    },
+    "cognitive_load": {
+      "title": "Cognitive load",
+      "description": "Mental overload from simultaneously managing multiple priorities or information streams."
+    },
+    "decision_fatigue": {
+      "title": "Decision fatigue",
+      "description": "Degraded decision quality or executive function from repeated or high-stakes choices."
+    },
+    "task_switching": {
+      "title": "Task switching",
+      "description": "Difficulty shifting between contexts with interference carryover or restart friction."
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "l-theanine-attention-maintenance",
+      "ingredient_slug": "l-theanine",
+      "ingredient_name": "L-Theanine",
+      "focus_problem": "attention_maintenance",
+      "claim_statement": "L-theanine may support sustained attention and reduce mind-wandering without producing sedation.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Small human EEG and attention studies associate L-theanine with increased alpha-wave activity and improved selective attention under mild cognitive demand.",
+      "limitations": "Evidence base is small, tasks are often artificial, and effects may be subtle without caffeine co-administration.",
+      "best_fit": "Quiet sustained-attention tasks where sedation is not acceptable.",
+      "not_best_fit": "High-stimulation environments, panic-prone profiles, or expectations of strong stimulant-like focus.",
+      "decision_group": "Attention support",
+      "display_order": 1,
+      "published": true
+    },
+    {
+      "claim_id": "l-theanine-task-switching",
+      "ingredient_slug": "l-theanine",
+      "ingredient_name": "L-Theanine",
+      "focus_problem": "task_switching",
+      "claim_statement": "L-theanine combined with caffeine has the strongest acute evidence for reducing task-switching errors and attention carryover.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Human trials combining L-theanine and caffeine show improved cognitive flexibility, reaction time, and reduced commission errors during multi-task paradigms.",
+      "limitations": "Benefits are largely attributed to the combination, not theanine alone; dose matching matters.",
+      "best_fit": "Context-switching work environments where caffeine is already in use and cognitive smoothing is the goal.",
+      "not_best_fit": "Caffeine-sensitive users, anxious profiles, or situations where a pure sedation-free profile is needed without caffeine.",
+      "decision_group": "Cognitive switching support",
+      "display_order": 2,
+      "published": true
+    },
+    {
+      "claim_id": "bacopa-attention-maintenance",
+      "ingredient_slug": "bacopa",
+      "ingredient_name": "Bacopa",
+      "focus_problem": "attention_maintenance",
+      "claim_statement": "Bacopa monnieri has the most consistent human trial evidence among botanicals for sustained attention and information processing speed.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "Multiple RCTs in healthy adults report improvements in attention, processing speed, and visual information retention after 8-12 weeks of supplementation.",
+      "limitations": "Benefits require extended supplementation (weeks), GI side effects are common, and effect sizes vary by population and extract.",
+      "best_fit": "Long-term sustained-attention optimization in cognitively healthy adults willing to tolerate an 8-12 week onset window.",
+      "not_best_fit": "Acute focus demands, GI-sensitive individuals, or situations requiring immediate effect.",
+      "decision_group": "Sustained attention support",
+      "display_order": 3,
+      "published": true
+    },
+    {
+      "claim_id": "bacopa-cognitive-load",
+      "ingredient_slug": "bacopa",
+      "ingredient_name": "Bacopa",
+      "focus_problem": "cognitive_load",
+      "claim_statement": "Bacopa may reduce working memory load and improve cognitive performance under conditions of mental complexity.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "RCTs and meta-analyses report improvements on working memory and spatial memory tasks, suggesting a capacity benefit relevant to cognitive load reduction.",
+      "limitations": "Effects are modest and slow-onset; evidence for extreme cognitive-load conditions is limited.",
+      "best_fit": "Cognitively demanding work requiring accurate working memory over extended periods.",
+      "not_best_fit": "Short-term acute cognitive demands or situations where GI side effects are not tolerable.",
+      "decision_group": "Cognitive load support",
+      "display_order": 4,
+      "published": true
+    },
+    {
+      "claim_id": "lions-mane-cognitive-load",
+      "ingredient_slug": "lions-mane",
+      "ingredient_name": "Lion's Mane",
+      "focus_problem": "cognitive_load",
+      "claim_statement": "Lion's mane mushroom has early-stage human evidence suggesting benefits for cognitive function that may be relevant to cognitive load capacity.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "A small randomized trial in older adults with mild cognitive concerns reported improved cognitive scores after 16 weeks; NGF-stimulating mechanisms are supported in animal models.",
+      "limitations": "Human evidence is limited to one small RCT in a specific population; relevance to healthy-adult cognitive load is extrapolated.",
+      "best_fit": "An exploratory add-on for users interested in neurotrophin pathways who can accept a weak evidence base.",
+      "not_best_fit": "Acute needs, strong-evidence requirements, or use as a primary cognitive support without other strategies.",
+      "decision_group": "Cognitive load support",
+      "display_order": 5,
+      "published": true
+    },
+    {
+      "claim_id": "ginkgo-attention-maintenance",
+      "ingredient_slug": "ginkgo",
+      "ingredient_name": "Ginkgo",
+      "focus_problem": "attention_maintenance",
+      "claim_statement": "Ginkgo biloba has moderate human evidence for supporting attention speed and accuracy, particularly in populations with attention-related concerns.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "Systematic reviews and meta-analyses confirm attention and processing speed benefits across multiple trials, with the clearest signals in older adults or those with cognitive complaints.",
+      "limitations": "Effects in young healthy adults are less consistent; anticoagulant interaction context is a routine safety check.",
+      "best_fit": "Attention and processing speed support in adults with concern about age-related cognitive changes.",
+      "not_best_fit": "Anticoagulant users, pre-surgical contexts, or when seeking primarily neuroprotective rather than acute attention effects.",
+      "decision_group": "Attention support",
+      "display_order": 6,
+      "published": true
+    },
+    {
+      "claim_id": "rhodiola-decision-fatigue",
+      "ingredient_slug": "rhodiola",
+      "ingredient_name": "Rhodiola",
+      "focus_problem": "decision_fatigue",
+      "claim_statement": "Rhodiola rosea has the clearest evidence base among adaptogens for reducing mental fatigue and cognitive performance decline under sustained demands.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "RCTs in physicians and students under high-load conditions report reduced mental fatigue, improved cognitive endurance, and subjective well-being. Effect onset is within days to 2 weeks.",
+      "limitations": "Evidence is moderate and extrapolation to everyday decision fatigue requires care; stimulant-like effects may disrupt sleep if used late in the day.",
+      "best_fit": "Decision fatigue and cognitive burnout in high-workload contexts, especially when stress overlap is present.",
+      "not_best_fit": "Bipolar-spectrum risk without clinician oversight, or late-day use in sleep-sensitive individuals.",
+      "decision_group": "Decision fatigue support",
+      "display_order": 7,
+      "published": true
+    }
+  ],
+  "safetyNotes": [
+    {
+      "safety_id": "bacopa-gi-effects-focus",
+      "ingredient_slug": "bacopa",
+      "risk_type": "gastrointestinal",
+      "severity": "moderate",
+      "warning": "Bacopa monnieri commonly causes GI side effects including nausea, diarrhea, and stomach cramping, particularly at higher doses or when taken without food.",
+      "decision_effect": "Take Bacopa with food and reduce dose if GI symptoms emerge.",
+      "published": true
+    },
+    {
+      "safety_id": "bacopa-pregnancy-focus",
+      "ingredient_slug": "bacopa",
+      "risk_type": "pregnancy_breastfeeding",
+      "severity": "high",
+      "warning": "Bacopa has demonstrated uterotonic activity in animal models and is considered unsafe to use during pregnancy.",
+      "decision_effect": "Do not use Bacopa as a self-directed focus supplement during pregnancy.",
+      "published": true
+    },
+    {
+      "safety_id": "ginkgo-anticoagulant-focus",
+      "ingredient_slug": "ginkgo",
+      "risk_type": "anticoagulant_interaction",
+      "severity": "high",
+      "warning": "Ginkgo biloba has antiplatelet activity and may potentiate anticoagulant medications (warfarin, aspirin, NSAIDs), increasing bleeding risk.",
+      "decision_effect": "Review anticoagulant or blood-thinning medication context before use; avoid self-directed use in pre-surgical settings.",
+      "published": true
+    },
+    {
+      "safety_id": "ginkgo-seizure-risk-focus",
+      "ingredient_slug": "ginkgo",
+      "risk_type": "seizure_risk",
+      "severity": "moderate",
+      "warning": "A contaminant (ginkgotoxin) present in poorly processed Ginkgo can cause seizures; product quality and standardization matter for safety.",
+      "decision_effect": "Use only standardized 24% flavone glycosides / 6% terpene lactone extracts; avoid crude or unstandardized preparations.",
+      "published": true
+    },
+    {
+      "safety_id": "l-theanine-sedative-stacking-focus",
+      "ingredient_slug": "l-theanine",
+      "risk_type": "sedative_stacking",
+      "severity": "moderate",
+      "warning": "Stacking L-theanine with alcohol, sedatives, or multiple calming agents may produce unpredictable sedation levels.",
+      "decision_effect": "Avoid stacking until single-ingredient response and medication context are established.",
+      "published": true
+    },
+    {
+      "safety_id": "lions-mane-allergy-focus",
+      "ingredient_slug": "lions-mane",
+      "risk_type": "allergic_reaction",
+      "severity": "moderate",
+      "warning": "Lion's mane is a mushroom allergen; individuals with mushroom or fungal allergies should approach with caution.",
+      "decision_effect": "Start with a low dose and monitor for itching, rash, or respiratory symptoms before regular use.",
+      "published": true
+    },
+    {
+      "safety_id": "rhodiola-stimulant-stacking-focus",
+      "ingredient_slug": "rhodiola",
+      "risk_type": "stimulant_stacking",
+      "severity": "moderate",
+      "warning": "Rhodiola has mild stimulant-like effects and can cause insomnia, irritability, or overstimulation when combined with other stimulant compounds or taken late in the day.",
+      "decision_effect": "Avoid late-day dosing; reduce dose or avoid stacking with other stimulants if jitteriness or sleep disruption emerges.",
+      "published": true
+    }
+  ],
+  "sourcesByClaim": {
+    "l-theanine-attention-maintenance": [
+      {
+        "source_id": "src-theanine-egawa-2016-foc",
+        "claim_id": "l-theanine-attention-maintenance",
+        "citation_label": "Egawa 2016",
+        "source_type": "randomized_trial",
+        "title": "L-Theanine improves working memory and attention-switching in healthy adults",
+        "year": 2016,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27396874/",
+        "source_note": "Double-blind crossover trial showing improved attention and working memory in healthy adults; supports sustained attention framing for L-theanine.",
+        "published": true
+      }
+    ],
+    "l-theanine-task-switching": [
+      {
+        "source_id": "src-theanine-giesbrecht-2010-foc",
+        "claim_id": "l-theanine-task-switching",
+        "citation_label": "Giesbrecht 2010",
+        "source_type": "randomized_trial",
+        "title": "The combination of L-theanine and caffeine improves cognitive performance and increases subjective alertness",
+        "year": 2010,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19840080/",
+        "source_note": "Crossover RCT confirming combined L-theanine and caffeine benefits on task-switching and attention; supports focus task-switching framing.",
+        "published": true
+      }
+    ],
+    "bacopa-attention-maintenance": [
+      {
+        "source_id": "src-bacopa-stough-2001-foc",
+        "claim_id": "bacopa-attention-maintenance",
+        "citation_label": "Stough 2001",
+        "source_type": "randomized_trial",
+        "title": "The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects",
+        "year": 2001,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11498727/",
+        "source_note": "One of the first well-controlled RCTs showing Bacopa improvements in visual information processing speed after 12 weeks.",
+        "published": true
+      }
+    ],
+    "bacopa-cognitive-load": [
+      {
+        "source_id": "src-bacopa-kongkeaw-2014-foc",
+        "claim_id": "bacopa-cognitive-load",
+        "citation_label": "Kongkeaw 2014",
+        "source_type": "meta_analysis",
+        "title": "Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract",
+        "year": 2014,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24252493/",
+        "source_note": "Meta-analysis of 9 RCTs confirming cognitive performance improvements; supports working memory and cognitive load framing.",
+        "published": true
+      }
+    ],
+    "lions-mane-cognitive-load": [
+      {
+        "source_id": "src-lions-mane-mori-2009-foc",
+        "claim_id": "lions-mane-cognitive-load",
+        "citation_label": "Mori 2009",
+        "source_type": "randomized_trial",
+        "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment",
+        "year": 2009,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
+        "source_note": "16-week RCT in adults with mild cognitive impairment showing cognitive score improvements; primary human evidence for lion's mane cognitive benefits.",
+        "published": true
+      }
+    ],
+    "ginkgo-attention-maintenance": [
+      {
+        "source_id": "src-ginkgo-brondino-2013-foc",
+        "claim_id": "ginkgo-attention-maintenance",
+        "citation_label": "Brondino 2013",
+        "source_type": "systematic_review",
+        "title": "A systematic review and meta-analysis of Ginkgo biloba in neuropsychiatric disorders",
+        "year": 2013,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23781171/",
+        "source_note": "Systematic review covering attention, cognition, and neuropsychiatric outcomes; supports the attention-maintenance framing.",
+        "published": true
+      }
+    ],
+    "rhodiola-decision-fatigue": [
+      {
+        "source_id": "src-rhodiola-darbinyan-2000-foc",
+        "claim_id": "rhodiola-decision-fatigue",
+        "citation_label": "Darbinyan 2000",
+        "source_type": "randomized_trial",
+        "title": "Rhodiola rosea in stress induced fatigue -- a double blind cross-over study of a standardized extract SHR-5",
+        "year": 2000,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11081987/",
+        "source_note": "Classic crossover trial in physicians under night-shift stress showing reduced fatigue and improved cognitive performance; core evidence for cognitive fatigue framing.",
+        "published": true
+      }
+    ]
+  }
+}

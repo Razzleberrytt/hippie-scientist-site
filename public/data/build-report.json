@@ -14,7 +14,9 @@
     "sleepSafetyNotes": 6,
     "stressEvidenceClaims": 6,
     "stressSafetyNotes": 8,
-    "anxietyEvidenceClaims": 0,
-    "anxietySafetyNotes": 0
+    "focusEvidenceClaims": 7,
+    "focusSafetyNotes": 7,
+    "anxietyEvidenceClaims": 7,
+    "anxietySafetyNotes": 8
   }
 }
