@@ -204,9 +204,11 @@ const revenueProductSlugs: Record<string, string[]> = {
   'best-supplements-for-sleep': ['magnesium', 'l-theanine'],
   'best-supplements-for-stress': ['ashwagandha', 'rhodiola', 'l-theanine'],
   'best-supplements-for-focus': ['l-theanine', 'lions-mane'],
+  'best-nootropics-for-focus': ['l-theanine', 'lions-mane'],
   'guides/best-supplements-for-sleep': ['magnesium', 'l-theanine'],
   'guides/best-supplements-for-stress': ['ashwagandha', 'rhodiola', 'l-theanine'],
   'guides/best-supplements-for-focus': ['l-theanine', 'lions-mane'],
+  'guides/best-nootropics-for-focus': ['l-theanine', 'lions-mane'],
 }
 
 const clean = (value: unknown): string => {

@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Sleep | The Hippie Scientist',
@@ -17,6 +21,11 @@ const comparisonLinks = [
 ]
 
 export default function Page() {
+  const revenueProducts = ['magnesium', 'l-theanine']
+    .map(slug => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap(set => set.products)
+
   return (
     <div className='container-page py-10 space-y-8'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
@@ -28,6 +37,21 @@ export default function Page() {
           <Link href='/stacks/sleep' className='inline-flex min-h-11 items-center rounded-full border border-stone-200 bg-white/50 px-5 py-2.5 text-sm font-medium text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'>View Sleep Stack</Link>
         </div>
       </section>
+
+      <EmailCapture
+        headline='Get the sleep supplement shortlist'
+        description='Occasional notes on sleep-support evidence, timing, safety context, and product-quality checks.'
+        location='sleep-supplements'
+      />
+
+      <div className='space-y-3'>
+        <AffiliateDisclosure />
+        <RecommendationSection
+          title='Sleep-support product picks'
+          description='Affiliate recommendations for common sleep-support compounds. Review safety, dose, and product quality before buying.'
+          products={revenueProducts}
+        />
+      </div>
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related Comparisons</h2>
