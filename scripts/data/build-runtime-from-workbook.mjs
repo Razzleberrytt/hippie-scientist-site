@@ -13,6 +13,7 @@ import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mj
 import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
 import { scoreIndexability } from './indexability-policy.mjs'
+import { validateEvidenceEnginePayload } from './evidence-engine-validation.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -29,15 +30,6 @@ const SHEETS = {
   sleepSafetyNotes: ['Sleep Safety Notes'],
 }
 
-const SLEEP_CONFIDENCE_TIERS = new Set([
-  'strong_human',
-  'moderate_human',
-  'limited_human',
-  'mixed',
-  'mechanistic_only',
-  'insufficient',
-])
-
 const SLEEP_PROBLEMS = new Set([
   'sleep_onset',
   'sleep_quality',
@@ -45,36 +37,6 @@ const SLEEP_PROBLEMS = new Set([
   'racing_mind',
   'relaxation',
 ])
-
-const SLEEP_SAFETY_SEVERITIES = new Set(['low', 'moderate', 'high'])
-
-const SLEEP_RISK_TYPES = new Set([
-  'pregnancy_breastfeeding',
-  'sedative_stacking',
-  'medication_interaction',
-  'next_day_grogginess',
-  'kidney_disease',
-  'autoimmune',
-  'liver',
-  'blood_pressure',
-  'pediatric',
-  'complex_condition',
-])
-
-const SLEEP_BLOCKED_TERMS = [
-  /\bcure\b/i,
-  /\btreats\b/i,
-  /\btreatment\b/i,
-  /\bprevents\b/i,
-  /\bguaranteed\b/i,
-  /\bclinically proven\b/i,
-  /\bmiracle\b/i,
-  /\brisk-free\b/i,
-  /\bdoctor recommended\b/i,
-  /\bFDA approved\b/i,
-  /\bbest supplement\b/i,
-  /\bno side effects\b/i,
-]
 
 const GRAPH_SHEETS = {
   topics: ['Topic Ecosystems'],
@@ -447,29 +409,10 @@ function sleepSafetyNoteRow(row) {
   })
 }
 
-function findBlockedTerms(record, fields) {
-  const findings = []
-  for (const field of fields) {
-    const value = clean(record[field])
-    if (!value) continue
-    for (const pattern of SLEEP_BLOCKED_TERMS) {
-      if (pattern.test(value)) findings.push(`${field}: ${pattern.source}`)
-    }
-  }
-  return findings
-}
-
-function validateRequired(record, fields, label, errors) {
-  for (const field of fields) {
-    if (!clean(record[field])) errors.push(`${label} missing required field: ${field}`)
-  }
-}
-
 function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
   const claims = normalizeRows(claimRows, sleepEvidenceClaimRow)
   const sources = normalizeRows(sourceRows, sleepEvidenceSourceRow)
   const safetyNotes = normalizeRows(safetyRows, sleepSafetyNoteRow)
-  const errors = []
 
   const publishedSources = sources.filter((source) => source.published)
   const publishedSourcesByClaim = new Map()
@@ -482,94 +425,11 @@ function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
     .filter((claim) => claim.published)
     .sort((a, b) => (a.display_order ?? 999) - (b.display_order ?? 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
 
-  for (const claim of publishedClaims) {
-    const label = `Sleep Evidence Claims ${claim.claim_id || claim.ingredient_slug || '(unknown)'}`
-    validateRequired(claim, [
-      'claim_id',
-      'ingredient_slug',
-      'ingredient_name',
-      'sleep_problem',
-      'claim_statement',
-      'confidence_tier',
-      'evidence_summary',
-      'limitations',
-      'best_fit',
-      'not_best_fit',
-      'decision_group',
-    ], label, errors)
-
-    if (claim.sleep_problem && !SLEEP_PROBLEMS.has(claim.sleep_problem)) {
-      errors.push(`${label} has invalid sleep_problem: ${claim.sleep_problem}`)
-    }
-
-    if (claim.confidence_tier && !SLEEP_CONFIDENCE_TIERS.has(claim.confidence_tier)) {
-      errors.push(`${label} has invalid confidence_tier: ${claim.confidence_tier}`)
-    }
-
-    if (!publishedSourcesByClaim.has(claim.claim_id)) {
-      errors.push(`${label} must have at least one published source`)
-    }
-
-    const blockedTerms = findBlockedTerms(claim, [
-      'claim_statement',
-      'evidence_summary',
-      'limitations',
-      'best_fit',
-      'not_best_fit',
-      'decision_group',
-    ])
-    for (const blockedTerm of blockedTerms) {
-      errors.push(`${label} contains blocked term in ${blockedTerm}`)
-    }
-  }
-
-  for (const source of publishedSources) {
-    const label = `Sleep Evidence Sources ${source.source_id || source.claim_id || '(unknown)'}`
-    validateRequired(source, [
-      'source_id',
-      'claim_id',
-      'citation_label',
-      'source_type',
-      'title',
-      'year',
-      'url',
-    ], label, errors)
-  }
-
   const publishedSafetyNotes = safetyNotes
     .filter((note) => note.published)
     .sort((a, b) => clean(a.ingredient_slug).localeCompare(clean(b.ingredient_slug)) || clean(a.risk_type).localeCompare(clean(b.risk_type)))
 
-  for (const note of publishedSafetyNotes) {
-    const label = `Sleep Safety Notes ${note.safety_id || note.ingredient_slug || '(unknown)'}`
-    validateRequired(note, [
-      'safety_id',
-      'ingredient_slug',
-      'risk_type',
-      'severity',
-      'warning',
-      'decision_effect',
-    ], label, errors)
-
-    if (note.risk_type && !SLEEP_RISK_TYPES.has(note.risk_type)) {
-      errors.push(`${label} has invalid risk_type: ${note.risk_type}`)
-    }
-
-    if (note.severity && !SLEEP_SAFETY_SEVERITIES.has(note.severity)) {
-      errors.push(`${label} has invalid severity: ${note.severity}`)
-    }
-
-    const blockedTerms = findBlockedTerms(note, ['warning', 'decision_effect'])
-    for (const blockedTerm of blockedTerms) {
-      errors.push(`${label} contains blocked term in ${blockedTerm}`)
-    }
-  }
-
-  if (errors.length > 0) {
-    throw new Error(`[sleep-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
-  }
-
-  return {
+  const payload = {
     goal: 'sleep',
     updatedAt: new Date().toISOString(),
     claims: publishedClaims,
@@ -581,6 +441,17 @@ function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
       ])
     ),
   }
+  const errors = validateEvidenceEnginePayload(payload, {
+    goal: 'sleep',
+    problemField: 'sleep_problem',
+    validProblems: SLEEP_PROBLEMS,
+  })
+
+  if (errors.length > 0) {
+    throw new Error(`[sleep-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
+  }
+
+  return payload
 }
 
 function graphRow(row, kind) {

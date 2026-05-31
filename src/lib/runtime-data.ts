@@ -1,53 +1,22 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { cache } from 'react'
+import type {
+  EvidenceEngineClaim,
+  EvidenceEnginePayload,
+  EvidenceEngineSafetyNote,
+  EvidenceEngineSource,
+} from '@/lib/evidence-engine'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
 type RuntimeRecord = Record<string, any>
 
-export type SleepEvidenceClaim = {
-  claim_id: string
-  ingredient_slug: string
-  ingredient_name: string
-  sleep_problem: string
-  claim_statement: string
-  confidence_tier: string
-  evidence_summary: string
-  limitations: string
-  best_fit: string
-  not_best_fit: string
-  decision_group: string
-  display_order: number
-  published: boolean
-}
-
-export type SleepEvidenceSource = {
-  source_id: string
-  claim_id: string
-  citation_label: string
-  source_type: string
-  title: string
-  year: number | string
-  url: string
-  source_note?: string
-  published: boolean
-}
-
-export type SleepSafetyNote = {
-  safety_id: string
-  ingredient_slug: string
-  risk_type: string
-  severity: 'low' | 'moderate' | 'high' | string
-  warning: string
-  decision_effect: string
-  published: boolean
-}
-
-export type SleepEvidenceEnginePayload = {
-  goal: 'sleep'
-  updatedAt: string
+export type SleepEvidenceClaim = EvidenceEngineClaim & { sleep_problem: string }
+export type SleepEvidenceSource = EvidenceEngineSource
+export type SleepSafetyNote = EvidenceEngineSafetyNote
+export type SleepEvidenceEnginePayload = EvidenceEnginePayload<'sleep'> & {
   claims: SleepEvidenceClaim[]
   safetyNotes: SleepSafetyNote[]
   sourcesByClaim: Record<string, SleepEvidenceSource[]>

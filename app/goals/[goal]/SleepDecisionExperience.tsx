@@ -1,7 +1,13 @@
 import type { ReactNode } from 'react'
-import Link from 'next/link'
+import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
 import type { Goal } from '@/data/goals'
-import type { SleepEvidenceClaim, SleepEvidenceEnginePayload, SleepSafetyNote } from '@/lib/runtime-data'
+import {
+  formatEvidenceLabel,
+  getSafetySeverityTone,
+  groupClaimsByDecisionGroup,
+  groupSafetyNotesByIngredient,
+} from '@/lib/evidence-engine'
+import type { SleepEvidenceClaim, SleepEvidenceEnginePayload } from '@/lib/runtime-data'
 
 type SleepOption = {
   option: {
@@ -50,69 +56,9 @@ const sleepProblemLabels: Record<string, { title: string; description: string }>
   },
 }
 
-const confidenceLabels: Record<string, { label: string; tone: string; description: string }> = {
-  strong_human: {
-    label: 'Strong human evidence',
-    tone: 'bg-emerald-50 text-emerald-800 ring-emerald-100',
-    description: 'Supported by multiple human studies or strong human-focused synthesis.',
-  },
-  moderate_human: {
-    label: 'Moderate human evidence',
-    tone: 'bg-teal-50 text-teal-800 ring-teal-100',
-    description: 'Human evidence exists, but population, dose, or outcome certainty is still limited.',
-  },
-  limited_human: {
-    label: 'Limited human evidence',
-    tone: 'bg-amber-50 text-amber-800 ring-amber-100',
-    description: 'Some human signal, but not enough to treat the claim as settled.',
-  },
-  mixed: {
-    label: 'Mixed evidence',
-    tone: 'bg-orange-50 text-orange-800 ring-orange-100',
-    description: 'Findings vary enough that fit and limitations matter more than the headline.',
-  },
-  mechanistic_only: {
-    label: 'Mechanistic only',
-    tone: 'bg-slate-50 text-slate-700 ring-slate-200',
-    description: 'Biological plausibility without enough direct human outcome evidence.',
-  },
-  insufficient: {
-    label: 'Insufficient evidence',
-    tone: 'bg-zinc-50 text-zinc-700 ring-zinc-200',
-    description: 'Not enough reliable evidence for a confident sleep decision.',
-  },
-}
-
-const safetyTone: Record<string, string> = {
-  low: 'border-amber-600/20 bg-amber-50/70 text-amber-950',
-  moderate: 'border-orange-700/20 bg-orange-50/70 text-orange-950',
-  high: 'border-rose-700/20 bg-rose-50/80 text-rose-950',
-}
-
-function groupClaims(claims: SleepEvidenceClaim[]) {
-  return claims.reduce<Record<string, SleepEvidenceClaim[]>>((groups, claim) => {
-    const group = claim.decision_group || 'Other sleep support'
-    groups[group] = groups[group] || []
-    groups[group].push(claim)
-    return groups
-  }, {})
-}
-
-function safetyByIngredient(notes: SleepSafetyNote[]) {
-  return notes.reduce<Record<string, SleepSafetyNote[]>>((groups, note) => {
-    groups[note.ingredient_slug] = groups[note.ingredient_slug] || []
-    groups[note.ingredient_slug].push(note)
-    return groups
-  }, {})
-}
-
 function profileHrefFor(claim: SleepEvidenceClaim, enrichedOptions: SleepOption[]) {
   const option = enrichedOptions.find((item) => item.option.slug === claim.ingredient_slug)
   return option?.profileHref || `/compounds/${claim.ingredient_slug}`
-}
-
-function confidenceFor(tier: string) {
-  return confidenceLabels[tier] || confidenceLabels.insufficient
 }
 
 export default function SleepDecisionExperience({
@@ -121,8 +67,8 @@ export default function SleepDecisionExperience({
   structuredData,
 }: SleepDecisionExperienceProps) {
   const claims = sleepEvidence.claims
-  const claimGroups = groupClaims(claims)
-  const safetyGroups = safetyByIngredient(sleepEvidence.safetyNotes)
+  const claimGroups = groupClaimsByDecisionGroup(claims)
+  const safetyGroups = groupSafetyNotesByIngredient(sleepEvidence.safetyNotes)
   const hasEvidence = claims.length > 0
 
   return (
@@ -205,80 +151,17 @@ export default function SleepDecisionExperience({
                 <h3 className="text-lg font-semibold text-ink">{group}</h3>
                 <div className="mt-4 grid gap-4 lg:grid-cols-2">
                   {groupClaims.map((claim) => {
-                    const confidence = confidenceFor(claim.confidence_tier)
                     const sources = sleepEvidence.sourcesByClaim[claim.claim_id] || []
                     const safetyNotes = safetyGroups[claim.ingredient_slug] || []
                     return (
-                      <article key={claim.claim_id} className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
-                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                          <div>
-                            <h4 className="text-xl font-semibold text-ink">{claim.ingredient_name}</h4>
-                            <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">
-                              {sleepProblemLabels[claim.sleep_problem]?.title || claim.sleep_problem}
-                            </p>
-                          </div>
-                          <span className={`inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-bold ring-1 ${confidence.tone}`}>
-                            {confidence.label}
-                          </span>
-                        </div>
-
-                        <p className="mt-4 text-sm font-semibold leading-6 text-ink">{claim.claim_statement}</p>
-                        <dl className="mt-4 space-y-3 text-sm leading-6">
-                          <div>
-                            <dt className="font-semibold text-ink">Evidence summary</dt>
-                            <dd className="text-muted">{claim.evidence_summary}</dd>
-                          </div>
-                          <div>
-                            <dt className="font-semibold text-ink">Limitations</dt>
-                            <dd className="text-muted">{claim.limitations}</dd>
-                          </div>
-                          <div className="grid gap-3 sm:grid-cols-2">
-                            <div className="rounded-xl bg-brand-50/50 p-3 ring-1 ring-brand-900/5">
-                              <dt className="font-semibold text-ink">Best fit</dt>
-                              <dd className="mt-1 text-muted">{claim.best_fit}</dd>
-                            </div>
-                            <div className="rounded-xl bg-zinc-50 p-3 ring-1 ring-zinc-200">
-                              <dt className="font-semibold text-ink">Not best fit</dt>
-                              <dd className="mt-1 text-muted">{claim.not_best_fit}</dd>
-                            </div>
-                          </div>
-                        </dl>
-
-                        <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-700 ring-1 ring-slate-200">
-                          <strong>{confidence.label}:</strong> {confidence.description}
-                        </div>
-
-                        {safetyNotes.length > 0 ? (
-                          <div className="mt-4 space-y-2">
-                            <p className="text-xs font-bold uppercase tracking-[0.14em] text-rose-800">Ingredient safety warnings</p>
-                            {safetyNotes.map((note) => (
-                              <div key={note.safety_id} className={`rounded-xl border p-3 text-xs leading-5 ${safetyTone[note.severity] || safetyTone.moderate}`}>
-                                <strong>{note.risk_type.replace(/_/g, ' ')}:</strong> {note.warning}
-                                <span className="mt-1 block">{note.decision_effect}</span>
-                              </div>
-                            ))}
-                          </div>
-                        ) : null}
-
-                        <div className="mt-4">
-                          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Claim-specific sources</p>
-                          <ul className="mt-2 space-y-2 text-sm leading-6">
-                            {sources.map((source) => (
-                              <li key={source.source_id}>
-                                <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:text-brand-700 hover:underline">
-                                  {source.citation_label}
-                                </a>
-                                <span className="text-muted"> - {source.title} ({source.year})</span>
-                                {source.source_note ? <span className="block text-xs text-muted">{source.source_note}</span> : null}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <Link href={profileHrefFor(claim, enrichedOptions)} className="mt-5 inline-flex text-sm font-semibold text-brand-800 hover:text-brand-700 hover:underline">
-                          Read the full profile
-                        </Link>
-                      </article>
+                      <EvidenceClaimCard
+                        key={claim.claim_id}
+                        claim={claim}
+                        problemLabel={sleepProblemLabels[claim.sleep_problem]?.title || claim.sleep_problem}
+                        profileHref={profileHrefFor(claim, enrichedOptions)}
+                        safetyNotes={safetyNotes}
+                        sources={sources}
+                      />
                     )
                   })}
                 </div>
@@ -306,8 +189,8 @@ export default function SleepDecisionExperience({
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           {sleepEvidence.safetyNotes.map((note) => (
-            <article key={`${note.safety_id}-global`} className={`rounded-2xl border p-5 ${safetyTone[note.severity] || safetyTone.moderate}`}>
-              <h3 className="text-base font-semibold capitalize">{note.ingredient_slug.replace(/-/g, ' ')}</h3>
+            <article key={`${note.safety_id}-global`} className={`rounded-2xl border p-5 ${getSafetySeverityTone(note.severity)}`}>
+              <h3 className="text-base font-semibold capitalize">{formatEvidenceLabel(note.ingredient_slug)}</h3>
               <p className="mt-2 text-sm leading-6">{note.warning}</p>
               <p className="mt-2 text-xs font-semibold leading-5">{note.decision_effect}</p>
             </article>
