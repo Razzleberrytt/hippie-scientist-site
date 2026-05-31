@@ -14,6 +14,7 @@ import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
 import { scoreIndexability } from './indexability-policy.mjs'
 import { validateEvidenceEnginePayload } from './evidence-engine-validation.mjs'
+import { getEvidenceEngineGoalConfigs } from './evidence-engine-goals.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -25,94 +26,6 @@ const SHEETS = {
   map: ['Herb Compound Map V3'],
   claims: ['Study Registry'],
   canonicalMechanisms: ['Canonical_Mechanisms', 'Canonical Mechanisms'],
-  sleepEvidenceClaims: ['Sleep Evidence Claims'],
-  sleepEvidenceSources: ['Sleep Evidence Sources'],
-  sleepSafetyNotes: ['Sleep Safety Notes'],
-  stressOutcomeProblems: ['Stress OutcomeProblems', 'Stress Outcome Problems'],
-  stressEvidenceClaims: ['Stress Evidence Claims'],
-  stressEvidenceSources: ['Stress Evidence Sources'],
-  stressSafetyNotes: ['Stress Safety Notes'],
-}
-
-const SLEEP_PROBLEMS = new Set([
-  'sleep_onset',
-  'sleep_quality',
-  'night_waking',
-  'racing_mind',
-  'relaxation',
-])
-
-const SLEEP_PROBLEM_LABELS = {
-  sleep_onset: {
-    title: 'Sleep onset',
-    description: 'Trouble getting sleepy or shifting into bedtime.',
-  },
-  sleep_quality: {
-    title: 'Sleep quality',
-    description: 'Light, unrefreshing, or inconsistent sleep.',
-  },
-  night_waking: {
-    title: 'Night waking',
-    description: 'Waking during the night or struggling to return to sleep.',
-  },
-  racing_mind: {
-    title: 'Racing mind',
-    description: 'Mental noise, tension, or bedtime rumination.',
-  },
-  relaxation: {
-    title: 'Relaxation',
-    description: 'A gentler wind-down target before stronger sedating approaches.',
-  },
-}
-
-const STRESS_PROBLEMS = new Set([
-  'acute_stress',
-  'stress_reactivity',
-  'baseline_tension',
-  'stress_sleep_spillover',
-  'cognitive_stress_load',
-])
-
-const STRESS_PROBLEM_LABELS = {
-  acute_stress: {
-    title: 'Acute stress',
-    description: 'Short-term spikes in tension, pressure, or overwhelm.',
-  },
-  stress_reactivity: {
-    title: 'Stress reactivity',
-    description: 'Feeling easily triggered with stronger physical or emotional responses.',
-  },
-  baseline_tension: {
-    title: 'Baseline tension',
-    description: 'Persistent background strain that does not fully reset.',
-  },
-  stress_sleep_spillover: {
-    title: 'Stress-sleep spillover',
-    description: 'Stress carrying into bedtime, sleep continuity, or next-day recovery.',
-  },
-  cognitive_stress_load: {
-    title: 'Cognitive stress load',
-    description: 'Rumination, cognitive fatigue, or pressure-linked focus disruption.',
-  },
-}
-
-const EVIDENCE_ENGINE_GOALS = {
-  sleep: {
-    goal: 'sleep',
-    problemField: 'sleep_problem',
-    problemAliases: ['sleep_problem', 'sleep problem'],
-    fallbackProblemLabels: SLEEP_PROBLEM_LABELS,
-    validProblems: SLEEP_PROBLEMS,
-    defaultDecisionGroup: 'Other sleep support',
-  },
-  stress: {
-    goal: 'stress',
-    problemField: 'stress_problem',
-    problemAliases: ['stress_problem', 'stress problem', 'problem'],
-    fallbackProblemLabels: STRESS_PROBLEM_LABELS,
-    validProblems: STRESS_PROBLEMS,
-    defaultDecisionGroup: 'Other stress support',
-  },
 }
 
 const GRAPH_SHEETS = {
@@ -661,19 +574,17 @@ function main() {
   const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
   const herbCompoundMap = normalizeRows(read(wb, SHEETS.map), mapRow)
   const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))
-  const sleepEvidenceEngine = buildEvidenceEngine(
-    EVIDENCE_ENGINE_GOALS.sleep,
-    null,
-    read(wb, SHEETS.sleepEvidenceClaims, true),
-    read(wb, SHEETS.sleepEvidenceSources, true),
-    read(wb, SHEETS.sleepSafetyNotes, true)
-  )
-  const stressEvidenceEngine = buildEvidenceEngine(
-    EVIDENCE_ENGINE_GOALS.stress,
-    read(wb, SHEETS.stressOutcomeProblems, true),
-    read(wb, SHEETS.stressEvidenceClaims, true),
-    read(wb, SHEETS.stressEvidenceSources, true),
-    read(wb, SHEETS.stressSafetyNotes, true)
+  const evidenceEngines = Object.fromEntries(
+    getEvidenceEngineGoalConfigs().map((config) => [
+      config.goal,
+      buildEvidenceEngine(
+        config,
+        config.problemSheetCandidates ? read(wb, config.problemSheetCandidates, true) : null,
+        read(wb, config.claimSheetCandidates, true),
+        read(wb, config.sourceSheetCandidates, true),
+        read(wb, config.safetySheetCandidates, true)
+      ),
+    ])
   )
   const normalizationReport = mechanismReport(herbs, compounds, taxonomy.mechanisms)
 
@@ -693,15 +604,23 @@ function main() {
   writeJson(path.join(outDir, 'stack-synergy.json'), graph.stacks || [])
   writeJson(path.join(outDir, 'sparse-recovery.json'), graph.sparseRecovery || [])
   writeJson(path.join(outDir, 'knowledge-graph.json'), graph)
-  writeJson(path.join(outDir, 'evidence-engine', 'sleep.json'), sleepEvidenceEngine)
-  writeJson(path.join(outDir, 'evidence-engine', 'stress.json'), stressEvidenceEngine)
+  for (const [goal, payload] of Object.entries(evidenceEngines)) {
+    writeJson(path.join(outDir, 'evidence-engine', `${goal}.json`), payload)
+  }
   writeJson(path.join(outDir, 'agent-patches.json'), [])
   details(path.join(outDir, 'herb-detail'), herbs)
   details(path.join(outDir, 'compound-detail'), compounds)
-  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, sleepEvidenceClaims: sleepEvidenceEngine.claims.length, sleepSafetyNotes: sleepEvidenceEngine.safetyNotes.length, stressEvidenceClaims: stressEvidenceEngine.claims.length, stressSafetyNotes: stressEvidenceEngine.safetyNotes.length } })
+  const evidenceEngineCounts = Object.fromEntries(
+    Object.entries(evidenceEngines).flatMap(([goal, payload]) => [
+      [`${goal}EvidenceClaims`, payload.claims.length],
+      [`${goal}SafetyNotes`, payload.safetyNotes.length],
+    ])
+  )
+  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, ...evidenceEngineCounts } })
   console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
-  console.log(`[data] sleep evidence engine: ${sleepEvidenceEngine.claims.length} claims, ${sleepEvidenceEngine.safetyNotes.length} safety notes`)
-  console.log(`[data] stress evidence engine: ${stressEvidenceEngine.claims.length} claims, ${stressEvidenceEngine.safetyNotes.length} safety notes`)
+  for (const [goal, payload] of Object.entries(evidenceEngines)) {
+    console.log(`[data] ${goal} evidence engine: ${payload.claims.length} claims, ${payload.safetyNotes.length} safety notes`)
+  }
   console.log(`[data] canonical mechanisms: ${taxonomy.mechanisms.length}; unmapped mechanism terms: ${normalizationReport.unmappedMechanisms.length}`)
 }
 
