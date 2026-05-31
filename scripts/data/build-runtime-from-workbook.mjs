@@ -391,6 +391,7 @@ function evidenceSourceRow(row) {
   if (!sourceId && !claimId) return null
 
   return stripRecord({
+    id: sourceId,
     source_id: sourceId,
     claim_id: claimId,
     citation_label: clean(first(row, ['citation_label', 'citation label', 'citation'])),

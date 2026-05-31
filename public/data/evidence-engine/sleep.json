@@ -1,6 +1,6 @@
 {
   "goal": "sleep",
-  "updatedAt": "2026-05-31T12:56:57.241Z",
+  "updatedAt": "2026-05-31T17:57:37.069Z",
   "config": {
     "problemField": "sleep_problem",
     "heroHeadline": "I want better sleep. What does the evidence actually support?",
@@ -168,6 +168,7 @@
   "sourcesByClaim": {
     "melatonin-sleep-onset": [
       {
+        "id": "src-melatonin-meta-2013",
         "source_id": "src-melatonin-meta-2013",
         "claim_id": "melatonin-sleep-onset",
         "citation_label": "Ferracioli-Oda 2013",
@@ -181,6 +182,7 @@
     ],
     "magnesium-sleep-quality": [
       {
+        "id": "src-magnesium-older-adults-2012",
         "source_id": "src-magnesium-older-adults-2012",
         "claim_id": "magnesium-sleep-quality",
         "citation_label": "Abbasi 2012",
@@ -194,6 +196,7 @@
     ],
     "l-theanine-racing-mind": [
       {
+        "id": "src-theanine-stress-sleep-2019",
         "source_id": "src-theanine-stress-sleep-2019",
         "claim_id": "l-theanine-racing-mind",
         "citation_label": "Hidese 2019",
@@ -207,6 +210,7 @@
     ],
     "glycine-sleep-quality": [
       {
+        "id": "src-glycine-sleep-2007",
         "source_id": "src-glycine-sleep-2007",
         "claim_id": "glycine-sleep-quality",
         "citation_label": "Yamadera 2007",
@@ -220,6 +224,7 @@
     ],
     "lemon-balm-relaxation": [
       {
+        "id": "src-lemon-balm-relaxation-2014",
         "source_id": "src-lemon-balm-relaxation-2014",
         "claim_id": "lemon-balm-relaxation",
         "citation_label": "Scholey 2014",

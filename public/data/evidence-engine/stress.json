@@ -1,6 +1,6 @@
 {
   "goal": "stress",
-  "updatedAt": "2026-05-31T15:26:06.024Z",
+  "updatedAt": "2026-05-31T17:57:37.071Z",
   "config": {
     "problemField": "stress_problem",
     "heroHeadline": "I want calmer stress response. What does the evidence actually support?",
@@ -201,6 +201,7 @@
   "sourcesByClaim": {
     "l-theanine-acute-stress": [
       {
+        "id": "src-theanine-kimura-2007",
         "source_id": "src-theanine-kimura-2007",
         "claim_id": "l-theanine-acute-stress",
         "citation_label": "Kimura 2007",
@@ -214,6 +215,7 @@
     ],
     "ashwagandha-baseline-tension": [
       {
+        "id": "src-ashwagandha-lopresti-2019",
         "source_id": "src-ashwagandha-lopresti-2019",
         "claim_id": "ashwagandha-baseline-tension",
         "citation_label": "Lopresti 2019",
@@ -227,6 +229,7 @@
     ],
     "rhodiola-cognitive-stress-load": [
       {
+        "id": "src-rhodiola-olsson-2009",
         "source_id": "src-rhodiola-olsson-2009",
         "claim_id": "rhodiola-cognitive-stress-load",
         "citation_label": "Olsson 2009",
@@ -240,6 +243,7 @@
     ],
     "phosphatidylserine-stress-reactivity": [
       {
+        "id": "src-phosphatidylserine-hellhammer-2004",
         "source_id": "src-phosphatidylserine-hellhammer-2004",
         "claim_id": "phosphatidylserine-stress-reactivity",
         "citation_label": "Hellhammer 2004",
@@ -253,6 +257,7 @@
     ],
     "magnesium-baseline-tension": [
       {
+        "id": "src-magnesium-boyle-2017",
         "source_id": "src-magnesium-boyle-2017",
         "claim_id": "magnesium-baseline-tension",
         "citation_label": "Boyle 2017",
@@ -266,6 +271,7 @@
     ],
     "l-theanine-stress-sleep-spillover": [
       {
+        "id": "src-theanine-hidese-2019",
         "source_id": "src-theanine-hidese-2019",
         "claim_id": "l-theanine-stress-sleep-spillover",
         "citation_label": "Hidese 2019",
