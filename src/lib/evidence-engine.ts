@@ -3,6 +3,7 @@ export type EvidenceEngineClaim = {
   ingredient_slug: string
   ingredient_name: string
   sleep_problem?: string
+  stress_problem?: string
   problem?: string
   claim_statement: string
   confidence_tier: string

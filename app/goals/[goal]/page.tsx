@@ -2,12 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
-import { getHerbBySlug, getCompoundBySlug, getSleepEvidenceEngine } from '@/lib/runtime-data'
+import { getHerbBySlug, getCompoundBySlug, getSleepEvidenceEngine, getStressEvidenceEngine } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import SleepDecisionExperience from './SleepDecisionExperience'
+import StressDecisionExperience from './StressDecisionExperience'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
@@ -254,6 +255,19 @@ export default async function GoalDecisionPage({
         goal={goal}
         enrichedOptions={enrichedOptions}
         sleepEvidence={sleepEvidence}
+        structuredData={structuredData}
+      />
+    )
+  }
+
+  if (goal.slug === 'stress') {
+    const stressEvidence = await getStressEvidenceEngine()
+
+    return (
+      <StressDecisionExperience
+        goal={goal}
+        enrichedOptions={enrichedOptions}
+        stressEvidence={stressEvidence}
         structuredData={structuredData}
       />
     )

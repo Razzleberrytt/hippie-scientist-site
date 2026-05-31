@@ -1,0 +1,29 @@
+{
+  "goal": "stress",
+  "updatedAt": "2026-05-31T04:43:39.173Z",
+  "problemLabels": {
+    "acute_stress": {
+      "title": "Acute stress",
+      "description": "Short-term spikes in tension, pressure, or overwhelm."
+    },
+    "stress_reactivity": {
+      "title": "Stress reactivity",
+      "description": "Feeling easily triggered with stronger physical or emotional responses."
+    },
+    "baseline_tension": {
+      "title": "Baseline tension",
+      "description": "Persistent background strain that does not fully reset."
+    },
+    "stress_sleep_spillover": {
+      "title": "Stress-sleep spillover",
+      "description": "Stress carrying into bedtime, sleep continuity, or next-day recovery."
+    },
+    "cognitive_stress_load": {
+      "title": "Cognitive stress load",
+      "description": "Rumination, cognitive fatigue, or pressure-linked focus disruption."
+    }
+  },
+  "claims": [],
+  "safetyNotes": [],
+  "sourcesByClaim": {}
+}

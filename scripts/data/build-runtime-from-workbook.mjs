@@ -28,6 +28,10 @@ const SHEETS = {
   sleepEvidenceClaims: ['Sleep Evidence Claims'],
   sleepEvidenceSources: ['Sleep Evidence Sources'],
   sleepSafetyNotes: ['Sleep Safety Notes'],
+  stressOutcomeProblems: ['Stress OutcomeProblems', 'Stress Outcome Problems'],
+  stressEvidenceClaims: ['Stress Evidence Claims'],
+  stressEvidenceSources: ['Stress Evidence Sources'],
+  stressSafetyNotes: ['Stress Safety Notes'],
 }
 
 const SLEEP_PROBLEMS = new Set([
@@ -58,6 +62,37 @@ const SLEEP_PROBLEM_LABELS = {
   relaxation: {
     title: 'Relaxation',
     description: 'A gentler wind-down target before stronger sedating approaches.',
+  },
+}
+
+const STRESS_PROBLEMS = new Set([
+  'acute_stress',
+  'stress_reactivity',
+  'baseline_tension',
+  'stress_sleep_spillover',
+  'cognitive_stress_load',
+])
+
+const STRESS_PROBLEM_LABELS = {
+  acute_stress: {
+    title: 'Acute stress',
+    description: 'Short-term spikes in tension, pressure, or overwhelm.',
+  },
+  stress_reactivity: {
+    title: 'Stress reactivity',
+    description: 'Feeling easily triggered with stronger physical or emotional responses.',
+  },
+  baseline_tension: {
+    title: 'Baseline tension',
+    description: 'Persistent background strain that does not fully reset.',
+  },
+  stress_sleep_spillover: {
+    title: 'Stress-sleep spillover',
+    description: 'Stress carrying into bedtime, sleep continuity, or next-day recovery.',
+  },
+  cognitive_stress_load: {
+    title: 'Cognitive stress load',
+    description: 'Rumination, cognitive fatigue, or pressure-linked focus disruption.',
   },
 }
 
@@ -375,6 +410,26 @@ function published(v) {
   return bool(v)
 }
 
+function outcomeProblemLabelRow(row) {
+  const key = slug(first(row, ['problem_key', 'problem key', 'problem_slug', 'problem slug', 'key', 'slug']))
+  if (!key) return null
+  return stripRecord({
+    key,
+    title: clean(first(row, ['title', 'label', 'problem_title', 'problem title'])),
+    description: compact(first(row, ['description', 'problem_description', 'problem description'])),
+  })
+}
+
+function toProblemLabels(rows, fallbackLabels) {
+  const labels = normalizeRows(rows, outcomeProblemLabelRow)
+  if (!labels.length) return fallbackLabels
+
+  const mapped = Object.fromEntries(
+    labels.map((item) => [item.key, { title: item.title || item.key, description: item.description || '' }])
+  )
+  return Object.keys(mapped).length > 0 ? mapped : fallbackLabels
+}
+
 function sleepEvidenceClaimRow(row) {
   const claimId = slug(first(row, ['claim_id', 'claim id', 'id']))
   const ingredientName = clean(first(row, ['ingredient_name', 'ingredient name', 'name']))
@@ -432,6 +487,37 @@ function sleepSafetyNoteRow(row) {
   })
 }
 
+function stressEvidenceClaimRow(row) {
+  const claimId = slug(first(row, ['claim_id', 'claim id', 'id']))
+  const ingredientName = clean(first(row, ['ingredient_name', 'ingredient name', 'name']))
+  const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']) || ingredientName)
+  if (!claimId && !ingredientSlug && !ingredientName) return null
+
+  return stripRecord({
+    claim_id: claimId,
+    ingredient_slug: ingredientSlug,
+    ingredient_name: ingredientName,
+    stress_problem: lower(first(row, ['stress_problem', 'stress problem', 'problem'])),
+    claim_statement: compact(first(row, ['claim_statement', 'claim statement', 'claim'])),
+    confidence_tier: lower(first(row, ['confidence_tier', 'confidence tier'])),
+    evidence_summary: compact(first(row, ['evidence_summary', 'evidence summary'])),
+    limitations: compact(first(row, ['limitations', 'limitation'])),
+    best_fit: compact(first(row, ['best_fit', 'best fit'])),
+    not_best_fit: compact(first(row, ['not_best_fit', 'not best fit'])),
+    decision_group: clean(first(row, ['decision_group', 'decision group', 'group'])) || 'Other stress support',
+    display_order: num(first(row, ['display_order', 'display order', 'order'])) ?? 999,
+    published: published(first(row, ['published', 'publish'])),
+  })
+}
+
+function stressEvidenceSourceRow(row) {
+  return sleepEvidenceSourceRow(row)
+}
+
+function stressSafetyNoteRow(row) {
+  return sleepSafetyNoteRow(row)
+}
+
 function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
   const claims = normalizeRows(claimRows, sleepEvidenceClaimRow)
   const sources = normalizeRows(sourceRows, sleepEvidenceSourceRow)
@@ -473,6 +559,53 @@ function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
 
   if (errors.length > 0) {
     throw new Error(`[sleep-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
+  }
+
+  return payload
+}
+
+function buildStressEvidenceEngine(problemRows, claimRows, sourceRows, safetyRows) {
+  const claims = normalizeRows(claimRows, stressEvidenceClaimRow)
+  const sources = normalizeRows(sourceRows, stressEvidenceSourceRow)
+  const safetyNotes = normalizeRows(safetyRows, stressSafetyNoteRow)
+  const problemLabels = toProblemLabels(problemRows, STRESS_PROBLEM_LABELS)
+
+  const publishedSources = sources.filter((source) => source.published)
+  const publishedSourcesByClaim = new Map()
+  for (const source of publishedSources) {
+    if (!publishedSourcesByClaim.has(source.claim_id)) publishedSourcesByClaim.set(source.claim_id, [])
+    publishedSourcesByClaim.get(source.claim_id).push(source)
+  }
+
+  const publishedClaims = claims
+    .filter((claim) => claim.published)
+    .sort((a, b) => (a.display_order ?? 999) - (b.display_order ?? 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
+
+  const publishedSafetyNotes = safetyNotes
+    .filter((note) => note.published)
+    .sort((a, b) => clean(a.ingredient_slug).localeCompare(clean(b.ingredient_slug)) || clean(a.risk_type).localeCompare(clean(b.risk_type)))
+
+  const payload = {
+    goal: 'stress',
+    updatedAt: new Date().toISOString(),
+    problemLabels,
+    claims: publishedClaims,
+    safetyNotes: publishedSafetyNotes,
+    sourcesByClaim: Object.fromEntries(
+      publishedClaims.map((claim) => [
+        claim.claim_id,
+        (publishedSourcesByClaim.get(claim.claim_id) || []).sort((a, b) => clean(a.citation_label).localeCompare(clean(b.citation_label))),
+      ])
+    ),
+  }
+  const errors = validateEvidenceEnginePayload(payload, {
+    goal: 'stress',
+    problemField: 'stress_problem',
+    validProblems: new Set(Object.keys(problemLabels).length > 0 ? Object.keys(problemLabels) : STRESS_PROBLEMS),
+  })
+
+  if (errors.length > 0) {
+    throw new Error(`[stress-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
   }
 
   return payload
@@ -589,6 +722,12 @@ function main() {
     read(wb, SHEETS.sleepEvidenceSources, true),
     read(wb, SHEETS.sleepSafetyNotes, true)
   )
+  const stressEvidenceEngine = buildStressEvidenceEngine(
+    read(wb, SHEETS.stressOutcomeProblems, true),
+    read(wb, SHEETS.stressEvidenceClaims, true),
+    read(wb, SHEETS.stressEvidenceSources, true),
+    read(wb, SHEETS.stressSafetyNotes, true)
+  )
   const normalizationReport = mechanismReport(herbs, compounds, taxonomy.mechanisms)
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
@@ -608,12 +747,14 @@ function main() {
   writeJson(path.join(outDir, 'sparse-recovery.json'), graph.sparseRecovery || [])
   writeJson(path.join(outDir, 'knowledge-graph.json'), graph)
   writeJson(path.join(outDir, 'evidence-engine', 'sleep.json'), sleepEvidenceEngine)
+  writeJson(path.join(outDir, 'evidence-engine', 'stress.json'), stressEvidenceEngine)
   writeJson(path.join(outDir, 'agent-patches.json'), [])
   details(path.join(outDir, 'herb-detail'), herbs)
   details(path.join(outDir, 'compound-detail'), compounds)
-  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, sleepEvidenceClaims: sleepEvidenceEngine.claims.length, sleepSafetyNotes: sleepEvidenceEngine.safetyNotes.length } })
+  writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, sleepEvidenceClaims: sleepEvidenceEngine.claims.length, sleepSafetyNotes: sleepEvidenceEngine.safetyNotes.length, stressEvidenceClaims: stressEvidenceEngine.claims.length, stressSafetyNotes: stressEvidenceEngine.safetyNotes.length } })
   console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
   console.log(`[data] sleep evidence engine: ${sleepEvidenceEngine.claims.length} claims, ${sleepEvidenceEngine.safetyNotes.length} safety notes`)
+  console.log(`[data] stress evidence engine: ${stressEvidenceEngine.claims.length} claims, ${stressEvidenceEngine.safetyNotes.length} safety notes`)
   console.log(`[data] canonical mechanisms: ${taxonomy.mechanisms.length}; unmapped mechanism terms: ${normalizationReport.unmappedMechanisms.length}`)
 }
 

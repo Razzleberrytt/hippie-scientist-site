@@ -21,6 +21,14 @@ export type SleepEvidenceEnginePayload = EvidenceEnginePayload<'sleep'> & {
   safetyNotes: SleepSafetyNote[]
   sourcesByClaim: Record<string, SleepEvidenceSource[]>
 }
+export type StressEvidenceClaim = EvidenceEngineClaim & { stress_problem: string }
+export type StressEvidenceSource = EvidenceEngineSource
+export type StressSafetyNote = EvidenceEngineSafetyNote
+export type StressEvidenceEnginePayload = EvidenceEnginePayload<'stress'> & {
+  claims: StressEvidenceClaim[]
+  safetyNotes: StressSafetyNote[]
+  sourcesByClaim: Record<string, StressEvidenceSource[]>
+}
 
 const fileCache = new Map<string, unknown>()
 
@@ -136,6 +144,27 @@ export const getSleepEvidenceEngine = cache(async (): Promise<SleepEvidenceEngin
   const candidate = payload as Partial<SleepEvidenceEnginePayload>
   return {
     goal: 'sleep',
+    updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
+    problemLabels: candidate.problemLabels && typeof candidate.problemLabels === 'object' && !Array.isArray(candidate.problemLabels)
+      ? candidate.problemLabels
+      : {},
+    claims: Array.isArray(candidate.claims) ? candidate.claims : [],
+    safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes : [],
+    sourcesByClaim: candidate.sourcesByClaim && typeof candidate.sourcesByClaim === 'object' && !Array.isArray(candidate.sourcesByClaim)
+      ? candidate.sourcesByClaim
+      : {},
+  }
+})
+
+export const getStressEvidenceEngine = cache(async (): Promise<StressEvidenceEnginePayload> => {
+  const payload = await getGoalEvidenceEngine('stress')
+  if (!payload || Array.isArray(payload) || typeof payload !== 'object') {
+    return { goal: 'stress', updatedAt: '', problemLabels: {}, claims: [], safetyNotes: [], sourcesByClaim: {} }
+  }
+
+  const candidate = payload as Partial<StressEvidenceEnginePayload>
+  return {
+    goal: 'stress',
     updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
     problemLabels: candidate.problemLabels && typeof candidate.problemLabels === 'object' && !Array.isArray(candidate.problemLabels)
       ? candidate.problemLabels
