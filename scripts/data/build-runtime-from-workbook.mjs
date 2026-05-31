@@ -139,6 +139,14 @@ const EVIDENCE_ENGINE_GOALS = {
     fallbackProblemLabels: SLEEP_PROBLEM_LABELS,
     validProblems: SLEEP_PROBLEMS,
     defaultDecisionGroup: 'Other sleep support',
+    config: {
+      heroHeadline: 'I want better sleep. What does the evidence actually support?',
+      heroCta: 'Start with the sleep problem',
+      orientationHeading: 'Start by naming the sleep problem',
+      orientationSubtext: 'The same ingredient can look useful or weak depending on whether the issue is timing, mental arousal, waking, or general sleep quality.',
+      safetyHeading: 'Sleep supplement decisions change when risk context changes',
+      safetyBody: 'Do not use supplements to mask loud snoring, witnessed apnea, severe daytime sleepiness, persistent insomnia, chest symptoms, or complex medication situations.',
+    },
   },
   stress: {
     goal: 'stress',
@@ -147,6 +155,14 @@ const EVIDENCE_ENGINE_GOALS = {
     fallbackProblemLabels: STRESS_PROBLEM_LABELS,
     validProblems: STRESS_PROBLEMS,
     defaultDecisionGroup: 'Other stress support',
+    config: {
+      heroHeadline: 'I want calmer stress response. What does the evidence actually support?',
+      heroCta: 'Start with the stress pattern',
+      orientationHeading: 'Start by naming the stress pattern',
+      orientationSubtext: 'The same ingredient can look useful or weak depending on acute pressure, baseline tension, reactivity, and sleep spillover.',
+      safetyHeading: 'Stress-support decisions change when risk context changes',
+      safetyBody: 'Do not use supplements to mask persistent panic symptoms, severe mood instability, unsafe medication interactions, or other complex clinical situations.',
+    },
   },
   anxiety: {
     goal: 'anxiety',
@@ -155,6 +171,14 @@ const EVIDENCE_ENGINE_GOALS = {
     fallbackProblemLabels: ANXIETY_PROBLEM_LABELS,
     validProblems: ANXIETY_PROBLEMS,
     defaultDecisionGroup: 'Other anxiety support',
+    config: {
+      heroHeadline: 'I want calmer anxiety support. What does the evidence actually support?',
+      heroCta: 'Start with the anxiety pattern',
+      orientationHeading: 'Start by naming the anxiety pattern',
+      orientationSubtext: 'The same ingredient can look useful or weak depending on generalized tension, situational triggers, social pressure, physical symptoms, and sleep interference.',
+      safetyHeading: 'Anxiety-support decisions change when risk context changes',
+      safetyBody: 'Do not use supplements to mask persistent panic disorders, severe anxiety, medication interactions, or other complex clinical situations.',
+    },
   },
 }
 
@@ -575,6 +599,7 @@ function buildEvidenceEngine(config, problemRows, claimRows, sourceRows, safetyR
   const payload = {
     goal: config.goal,
     updatedAt: new Date().toISOString(),
+    ...(config.config ? { config: config.config } : {}),
     problemLabels,
     claims: publishedClaims,
     safetyNotes: publishedSafetyNotes,

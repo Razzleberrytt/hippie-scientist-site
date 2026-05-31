@@ -1,6 +1,14 @@
 {
   "goal": "stress",
-  "updatedAt": "2026-05-31T11:32:01.256Z",
+  "updatedAt": "2026-05-31T12:56:57.243Z",
+  "config": {
+    "heroHeadline": "I want calmer stress response. What does the evidence actually support?",
+    "heroCta": "Start with the stress pattern",
+    "orientationHeading": "Start by naming the stress pattern",
+    "orientationSubtext": "The same ingredient can look useful or weak depending on acute pressure, baseline tension, reactivity, and sleep spillover.",
+    "safetyHeading": "Stress-support decisions change when risk context changes",
+    "safetyBody": "Do not use supplements to mask persistent panic symptoms, severe mood instability, unsafe medication interactions, or other complex clinical situations."
+  },
   "problemLabels": {
     "acute_stress": {
       "title": "Acute stress",
