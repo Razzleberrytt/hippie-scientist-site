@@ -2,6 +2,7 @@
   "goal": "stress",
   "updatedAt": "2026-05-31T15:26:06.024Z",
   "config": {
+    "problemField": "stress_problem",
     "heroHeadline": "I want calmer stress response. What does the evidence actually support?",
     "heroCta": "Start with the stress pattern",
     "orientationHeading": "Start by naming the stress pattern",

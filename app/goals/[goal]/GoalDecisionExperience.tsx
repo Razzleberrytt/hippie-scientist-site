@@ -53,7 +53,7 @@ export default function GoalDecisionExperience({
   const safetyGroups = groupSafetyNotesByIngredient(evidence.safetyNotes)
   const hasEvidence = claims.length > 0
 
-  const problemField = `${goal.slug}_problem`
+  const problemField = config.problemField ?? `${goal.slug}_problem`
   const orientationId = `${goal.slug}-orientation`
   const heroHeadline = config.heroHeadline ?? `${goal.title}: What does the evidence actually support?`
   const heroDescription = `A workbook-backed ${goal.slug} decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.`

@@ -445,7 +445,10 @@ function buildEvidenceEngine(config, problemRows, claimRows, sourceRows, safetyR
   const payload = {
     goal: config.goal,
     updatedAt: new Date().toISOString(),
-    ...(config.config ? { config: config.config } : {}),
+    config: {
+      problemField: config.problemField,
+      ...(config.config || {}),
+    },
     problemLabels,
     claims: publishedClaims,
     safetyNotes: publishedSafetyNotes,

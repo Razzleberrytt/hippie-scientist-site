@@ -30,6 +30,7 @@ export type EvidenceEngineClaim = {
 }
 
 export type EvidenceEngineConfig = {
+  problemField?: string
   heroHeadline?: string
   heroCta?: string
   orientationHeading?: string
