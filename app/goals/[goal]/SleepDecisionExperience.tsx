@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
 import type { Goal } from '@/data/goals'
 import {
+  type EvidenceEngineClaim,
   formatEvidenceLabel,
   getSafetySeverityTone,
   groupClaimsByDecisionGroup,
@@ -56,6 +57,10 @@ const sleepProblemLabels: Record<string, { title: string; description: string }>
   },
 }
 
+function getProblemKey(claim: EvidenceEngineClaim): string {
+  return claim.sleep_problem || claim.problem || ''
+}
+
 function profileHrefFor(claim: SleepEvidenceClaim, enrichedOptions: SleepOption[]) {
   const option = enrichedOptions.find((item) => item.option.slug === claim.ingredient_slug)
   return option?.profileHref || `/compounds/${claim.ingredient_slug}`
@@ -67,6 +72,10 @@ export default function SleepDecisionExperience({
   structuredData,
 }: SleepDecisionExperienceProps) {
   const claims = sleepEvidence.claims
+  const problemLabels = {
+    ...sleepProblemLabels,
+    ...(sleepEvidence.problemLabels || {}),
+  }
   const claimGroups = groupClaimsByDecisionGroup(claims)
   const safetyGroups = groupSafetyNotesByIngredient(sleepEvidence.safetyNotes)
   const hasEvidence = claims.length > 0
@@ -122,8 +131,8 @@ export default function SleepDecisionExperience({
           </p>
         </div>
         <div className="mt-6 grid gap-3 md:grid-cols-5">
-          {Object.entries(sleepProblemLabels).map(([key, problem]) => {
-            const count = claims.filter((claim) => claim.sleep_problem === key).length
+          {Object.entries(problemLabels).map(([key, problem]) => {
+            const count = claims.filter((claim) => getProblemKey(claim) === key).length
             return (
               <article key={key} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
                 <h3 className="text-sm font-semibold text-ink">{problem.title}</h3>
@@ -157,7 +166,7 @@ export default function SleepDecisionExperience({
                       <EvidenceClaimCard
                         key={claim.claim_id}
                         claim={claim}
-                        problemLabel={sleepProblemLabels[claim.sleep_problem]?.title || claim.sleep_problem}
+                        problemLabel={problemLabels[getProblemKey(claim)]?.title || getProblemKey(claim)}
                         profileHref={profileHrefFor(claim, enrichedOptions)}
                         safetyNotes={safetyNotes}
                         sources={sources}

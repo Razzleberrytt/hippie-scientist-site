@@ -40,6 +40,7 @@ export type EvidenceEngineSafetyNote = {
 export type EvidenceEnginePayload<GoalSlug extends string = string> = {
   goal: GoalSlug
   updatedAt: string
+  problemLabels: Record<string, { title: string; description: string }>
   claims: EvidenceEngineClaim[]
   safetyNotes: EvidenceEngineSafetyNote[]
   sourcesByClaim: Record<string, EvidenceEngineSource[]>

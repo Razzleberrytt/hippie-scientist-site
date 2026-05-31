@@ -67,13 +67,28 @@ export function validateEvidenceEnginePayload(payload, options) {
   if (payload?.goal !== goal) errors.push(`payload goal must be ${goal}`)
   if (!Array.isArray(payload?.claims)) errors.push('payload claims must be an array')
   if (!Array.isArray(payload?.safetyNotes)) errors.push('payload safetyNotes must be an array')
+  if (!payload?.problemLabels || typeof payload.problemLabels !== 'object' || Array.isArray(payload.problemLabels)) {
+    errors.push('payload problemLabels must be an object')
+  }
   if (!payload?.sourcesByClaim || typeof payload.sourcesByClaim !== 'object' || Array.isArray(payload.sourcesByClaim)) {
     errors.push('payload sourcesByClaim must be an object')
   }
 
   const claims = Array.isArray(payload?.claims) ? payload.claims : []
   const safetyNotes = Array.isArray(payload?.safetyNotes) ? payload.safetyNotes : []
+  const problemLabels = payload?.problemLabels && typeof payload.problemLabels === 'object' && !Array.isArray(payload.problemLabels)
+    ? payload.problemLabels
+    : {}
   const sourcesByClaim = payload?.sourcesByClaim && typeof payload.sourcesByClaim === 'object' ? payload.sourcesByClaim : {}
+
+  for (const [problemKey, problemLabel] of Object.entries(problemLabels)) {
+    if (!clean(problemKey)) errors.push('problemLabels must not include empty keys')
+    if (!problemLabel || typeof problemLabel !== 'object' || Array.isArray(problemLabel)) {
+      errors.push(`problemLabels.${problemKey} must be an object`)
+      continue
+    }
+    requireFields(problemLabel, ['title', 'description'], `problemLabels.${problemKey}`, errors)
+  }
 
   for (const claim of claims) {
     const label = `claim ${clean(claim?.claim_id) || '(unknown)'}`

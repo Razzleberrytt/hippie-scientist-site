@@ -38,6 +38,29 @@ const SLEEP_PROBLEMS = new Set([
   'relaxation',
 ])
 
+const SLEEP_PROBLEM_LABELS = {
+  sleep_onset: {
+    title: 'Sleep onset',
+    description: 'Trouble getting sleepy or shifting into bedtime.',
+  },
+  sleep_quality: {
+    title: 'Sleep quality',
+    description: 'Light, unrefreshing, or inconsistent sleep.',
+  },
+  night_waking: {
+    title: 'Night waking',
+    description: 'Waking during the night or struggling to return to sleep.',
+  },
+  racing_mind: {
+    title: 'Racing mind',
+    description: 'Mental noise, tension, or bedtime rumination.',
+  },
+  relaxation: {
+    title: 'Relaxation',
+    description: 'A gentler wind-down target before stronger sedating approaches.',
+  },
+}
+
 const GRAPH_SHEETS = {
   topics: ['Topic Ecosystems'],
   pathways: ['Pathway Ecosystems'],
@@ -432,6 +455,7 @@ function buildSleepEvidenceEngine(claimRows, sourceRows, safetyRows) {
   const payload = {
     goal: 'sleep',
     updatedAt: new Date().toISOString(),
+    problemLabels: SLEEP_PROBLEM_LABELS,
     claims: publishedClaims,
     safetyNotes: publishedSafetyNotes,
     sourcesByClaim: Object.fromEntries(

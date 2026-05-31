@@ -128,15 +128,39 @@ export const getClaims = cache(async (): Promise<RuntimeRecord[]> => {
 })
 
 export const getSleepEvidenceEngine = cache(async (): Promise<SleepEvidenceEnginePayload> => {
-  const payload = await readJsonFile('evidence-engine/sleep.json')
+  const payload = await getGoalEvidenceEngine('sleep')
   if (!payload || Array.isArray(payload) || typeof payload !== 'object') {
-    return { goal: 'sleep', updatedAt: '', claims: [], safetyNotes: [], sourcesByClaim: {} }
+    return { goal: 'sleep', updatedAt: '', problemLabels: {}, claims: [], safetyNotes: [], sourcesByClaim: {} }
   }
 
   const candidate = payload as Partial<SleepEvidenceEnginePayload>
   return {
     goal: 'sleep',
     updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
+    problemLabels: candidate.problemLabels && typeof candidate.problemLabels === 'object' && !Array.isArray(candidate.problemLabels)
+      ? candidate.problemLabels
+      : {},
+    claims: Array.isArray(candidate.claims) ? candidate.claims : [],
+    safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes : [],
+    sourcesByClaim: candidate.sourcesByClaim && typeof candidate.sourcesByClaim === 'object' && !Array.isArray(candidate.sourcesByClaim)
+      ? candidate.sourcesByClaim
+      : {},
+  }
+})
+
+export const getGoalEvidenceEngine = cache(async (goalSlug: string): Promise<EvidenceEnginePayload | null> => {
+  const payload = await readJsonFile(`evidence-engine/${goalSlug}.json`)
+  if (!payload || Array.isArray(payload) || typeof payload !== 'object') {
+    return null
+  }
+
+  const candidate = payload as Partial<EvidenceEnginePayload>
+  return {
+    goal: typeof candidate.goal === 'string' ? candidate.goal : goalSlug,
+    updatedAt: typeof candidate.updatedAt === 'string' ? candidate.updatedAt : '',
+    problemLabels: candidate.problemLabels && typeof candidate.problemLabels === 'object' && !Array.isArray(candidate.problemLabels)
+      ? candidate.problemLabels
+      : {},
     claims: Array.isArray(candidate.claims) ? candidate.claims : [],
     safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes : [],
     sourcesByClaim: candidate.sourcesByClaim && typeof candidate.sourcesByClaim === 'object' && !Array.isArray(candidate.sourcesByClaim)
