@@ -2,13 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
-import { getHerbBySlug, getCompoundBySlug, getSleepEvidenceEngine, getStressEvidenceEngine } from '@/lib/runtime-data'
+import { getHerbBySlug, getCompoundBySlug, getSleepEvidenceEngine, getStressEvidenceEngine, getAnxietyEvidenceEngine } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import SleepDecisionExperience from './SleepDecisionExperience'
 import StressDecisionExperience from './StressDecisionExperience'
+import AnxietyDecisionExperience from './AnxietyDecisionExperience'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
@@ -157,6 +158,13 @@ export async function generateMetadata({
     }
   }
 
+  if (goalSlug === 'anxiety') {
+    return {
+      title: 'Anxiety Evidence Engine | The Hippie Scientist',
+      description: 'Review anxiety supplement claims by problem fit, evidence confidence, limitations, source links, and safety warnings.',
+    }
+  }
+
   const matches = rankEntitiesForGoal(goalSlug)
   const topMatches = matches.slice(0, 3).map(m => m.name).join(', ')
   const description = topMatches
@@ -268,6 +276,19 @@ export default async function GoalDecisionPage({
         goal={goal}
         enrichedOptions={enrichedOptions}
         stressEvidence={stressEvidence}
+        structuredData={structuredData}
+      />
+    )
+  }
+
+  if (goal.slug === 'anxiety') {
+    const anxietyEvidence = await getAnxietyEvidenceEngine()
+
+    return (
+      <AnxietyDecisionExperience
+        goal={goal}
+        enrichedOptions={enrichedOptions}
+        anxietyEvidence={anxietyEvidence}
         structuredData={structuredData}
       />
     )

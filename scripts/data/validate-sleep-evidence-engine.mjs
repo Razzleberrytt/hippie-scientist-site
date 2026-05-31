@@ -16,6 +16,7 @@ const dataDir = process.argv.includes('--data-dir')
 const payloadPaths = {
   sleep: path.resolve(repoRoot, dataDir, 'evidence-engine', 'sleep.json'),
   stress: path.resolve(repoRoot, dataDir, 'evidence-engine', 'stress.json'),
+  anxiety: path.resolve(repoRoot, dataDir, 'evidence-engine', 'anxiety.json'),
 }
 
 const SLEEP_PROBLEMS = new Set([
@@ -67,6 +68,28 @@ function main() {
   }
 
   console.log(`[stress-evidence-engine] validation OK: ${stressPayload.claims.length} claims, ${stressPayload.safetyNotes.length} safety notes`)
+
+  if (!fs.existsSync(payloadPaths.anxiety)) {
+    throw new Error(`[anxiety-evidence-engine] missing generated payload: ${path.relative(repoRoot, payloadPaths.anxiety)}`)
+  }
+
+  const anxietyPayload = JSON.parse(fs.readFileSync(payloadPaths.anxiety, 'utf8'))
+  const anxietyProblems = new Set(
+    Object.keys(anxietyPayload?.problemLabels || {}).filter(Boolean)
+  )
+  const anxietyErrors = validateEvidenceEnginePayload(anxietyPayload, {
+    goal: 'anxiety',
+    problemField: 'anxiety_problem',
+    validProblems: anxietyProblems,
+  })
+
+  if (anxietyErrors.length > 0) {
+    console.error('[anxiety-evidence-engine] validation failed')
+    for (const error of anxietyErrors) console.error(`- ${error}`)
+    process.exit(1)
+  }
+
+  console.log(`[anxiety-evidence-engine] validation OK: ${anxietyPayload.claims.length} claims, ${anxietyPayload.safetyNotes.length} safety notes`)
 }
 
 main()
