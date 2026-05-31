@@ -1,6 +1,14 @@
 {
   "goal": "anxiety",
-  "updatedAt": "2026-05-31T00:00:00.000Z",
+  "updatedAt": "2026-05-31T12:56:57.243Z",
+  "config": {
+    "heroHeadline": "I want calmer anxiety support. What does the evidence actually support?",
+    "heroCta": "Start with the anxiety pattern",
+    "orientationHeading": "Start by naming the anxiety pattern",
+    "orientationSubtext": "The same ingredient can look useful or weak depending on generalized tension, situational triggers, social pressure, physical symptoms, and sleep interference.",
+    "safetyHeading": "Anxiety-support decisions change when risk context changes",
+    "safetyBody": "Do not use supplements to mask persistent panic disorders, severe anxiety, medication interactions, or other complex clinical situations."
+  },
   "problemLabels": {
     "generalized_tension": {
       "title": "Generalized tension",

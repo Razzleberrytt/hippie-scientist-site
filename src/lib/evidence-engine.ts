@@ -17,8 +17,6 @@ export type EvidenceEngineClaim = {
   claim_id: string
   ingredient_slug: string
   ingredient_name: string
-  sleep_problem?: string
-  stress_problem?: string
   problem?: string
   claim_statement: string
   confidence_tier: EvidenceConfidenceTier | string
@@ -29,6 +27,15 @@ export type EvidenceEngineClaim = {
   decision_group: string
   display_order: number
   published: boolean
+}
+
+export type EvidenceEngineConfig = {
+  heroHeadline?: string
+  heroCta?: string
+  orientationHeading?: string
+  orientationSubtext?: string
+  safetyHeading?: string
+  safetyBody?: string
 }
 
 export type EvidenceEngineSource = {
@@ -56,6 +63,7 @@ export type EvidenceEngineSafetyNote = {
 export type EvidenceEnginePayload<GoalSlug extends string = string> = {
   goal: GoalSlug
   updatedAt: string
+  config?: EvidenceEngineConfig
   problemLabels: Record<string, EvidenceProblemLabel>
   claims: EvidenceEngineClaim[]
   safetyNotes: EvidenceEngineSafetyNote[]

@@ -2,14 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
-import { getHerbBySlug, getCompoundBySlug, getSleepEvidenceEngine, getStressEvidenceEngine, getAnxietyEvidenceEngine } from '@/lib/runtime-data'
+import { getHerbBySlug, getCompoundBySlug, getGoalEvidenceEngine } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
-import SleepDecisionExperience from './SleepDecisionExperience'
-import StressDecisionExperience from './StressDecisionExperience'
-import AnxietyDecisionExperience from './AnxietyDecisionExperience'
+import GoalDecisionExperience from './GoalDecisionExperience'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
@@ -151,17 +149,11 @@ export async function generateMetadata({
     }
   }
 
-  if (goalSlug === 'sleep') {
+  const goalEvidence = await getGoalEvidenceEngine(goalSlug)
+  if (goalEvidence) {
     return {
-      title: 'Sleep Evidence Engine | The Hippie Scientist',
-      description: 'Review sleep supplement claims by problem fit, evidence confidence, limitations, source links, and safety warnings.',
-    }
-  }
-
-  if (goalSlug === 'anxiety') {
-    return {
-      title: 'Anxiety Evidence Engine | The Hippie Scientist',
-      description: 'Review anxiety supplement claims by problem fit, evidence confidence, limitations, source links, and safety warnings.',
+      title: `${goal.title} Evidence Engine | The Hippie Scientist`,
+      description: `Review ${goalSlug} supplement claims by problem fit, evidence confidence, limitations, source links, and safety warnings.`,
     }
   }
 
@@ -255,40 +247,13 @@ export default async function GoalDecisionPage({
     </>
   )
 
-  if (goal.slug === 'sleep') {
-    const sleepEvidence = await getSleepEvidenceEngine()
-
+  const goalEvidence = await getGoalEvidenceEngine(goal.slug)
+  if (goalEvidence) {
     return (
-      <SleepDecisionExperience
+      <GoalDecisionExperience
         goal={goal}
         enrichedOptions={enrichedOptions}
-        sleepEvidence={sleepEvidence}
-        structuredData={structuredData}
-      />
-    )
-  }
-
-  if (goal.slug === 'stress') {
-    const stressEvidence = await getStressEvidenceEngine()
-
-    return (
-      <StressDecisionExperience
-        goal={goal}
-        enrichedOptions={enrichedOptions}
-        stressEvidence={stressEvidence}
-        structuredData={structuredData}
-      />
-    )
-  }
-
-  if (goal.slug === 'anxiety') {
-    const anxietyEvidence = await getAnxietyEvidenceEngine()
-
-    return (
-      <AnxietyDecisionExperience
-        goal={goal}
-        enrichedOptions={enrichedOptions}
-        anxietyEvidence={anxietyEvidence}
+        evidence={goalEvidence}
         structuredData={structuredData}
       />
     )

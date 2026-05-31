@@ -3,6 +3,7 @@ import path from 'node:path'
 import { cache } from 'react'
 import type {
   EvidenceEngineClaim,
+  EvidenceEngineConfig,
   EvidenceEnginePayload,
   EvidenceProblemLabel,
   EvidenceEngineSafetyNote,
@@ -49,6 +50,16 @@ function cleanString(value: unknown): string {
   return typeof value === 'string' ? value : ''
 }
 
+function normalizeConfig(value: unknown): EvidenceEngineConfig | undefined {
+  if (!isRecord(value)) return undefined
+  const fields = ['heroHeadline', 'heroCta', 'orientationHeading', 'orientationSubtext', 'safetyHeading', 'safetyBody'] as const
+  const config: Partial<EvidenceEngineConfig> = {}
+  for (const field of fields) {
+    if (typeof value[field] === 'string') config[field] = value[field] as string
+  }
+  return Object.keys(config).length > 0 ? config as EvidenceEngineConfig : undefined
+}
+
 function normalizeProblemLabels(value: unknown): Record<string, EvidenceProblemLabel> {
   if (!isRecord(value)) return {}
 
@@ -82,7 +93,7 @@ function normalizeEvidenceEnginePayload<GoalSlug extends string>(
     return { goal: goalSlug, updatedAt: '', problemLabels: {}, claims: [], safetyNotes: [], sourcesByClaim: {} }
   }
 
-  return {
+  const normalized: EvidenceEnginePayload<GoalSlug> = {
     goal: goalSlug,
     updatedAt: cleanString(payload.updatedAt),
     problemLabels: normalizeProblemLabels(payload.problemLabels),
@@ -90,6 +101,11 @@ function normalizeEvidenceEnginePayload<GoalSlug extends string>(
     safetyNotes: Array.isArray(payload.safetyNotes) ? payload.safetyNotes.filter(isRecord) as EvidenceEngineSafetyNote[] : [],
     sourcesByClaim: normalizeEvidenceSourcesByClaim(payload.sourcesByClaim),
   }
+
+  const config = normalizeConfig(payload.config)
+  if (config) normalized.config = config
+
+  return normalized
 }
 
 async function readJsonFile(fileName: string): Promise<unknown> {
@@ -219,7 +235,7 @@ export const getGoalEvidenceEngine = cache(async (goalSlug: string): Promise<Evi
   }
 
   const candidate = payload as Partial<EvidenceEnginePayload>
-  return {
+  const normalized: EvidenceEnginePayload = {
     goal: typeof candidate.goal === 'string' ? candidate.goal : goalSlug,
     updatedAt: cleanString(candidate.updatedAt),
     problemLabels: normalizeProblemLabels(candidate.problemLabels),
@@ -227,6 +243,11 @@ export const getGoalEvidenceEngine = cache(async (goalSlug: string): Promise<Evi
     safetyNotes: Array.isArray(candidate.safetyNotes) ? candidate.safetyNotes.filter(isRecord) as EvidenceEngineSafetyNote[] : [],
     sourcesByClaim: normalizeEvidenceSourcesByClaim(candidate.sourcesByClaim),
   }
+
+  const config = normalizeConfig(candidate.config)
+  if (config) normalized.config = config
+
+  return normalized
 })
 
 export const getCompoundCardPayload = cache(async (): Promise<RuntimeRecord[]> => {

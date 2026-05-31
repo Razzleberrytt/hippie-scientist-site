@@ -1,6 +1,14 @@
 {
   "goal": "sleep",
-  "updatedAt": "2026-05-31T11:32:01.254Z",
+  "updatedAt": "2026-05-31T12:56:57.241Z",
+  "config": {
+    "heroHeadline": "I want better sleep. What does the evidence actually support?",
+    "heroCta": "Start with the sleep problem",
+    "orientationHeading": "Start by naming the sleep problem",
+    "orientationSubtext": "The same ingredient can look useful or weak depending on whether the issue is timing, mental arousal, waking, or general sleep quality.",
+    "safetyHeading": "Sleep supplement decisions change when risk context changes",
+    "safetyBody": "Do not use supplements to mask loud snoring, witnessed apnea, severe daytime sleepiness, persistent insomnia, chest symptoms, or complex medication situations."
+  },
   "problemLabels": {
     "sleep_onset": {
       "title": "Sleep onset",
