@@ -13,7 +13,6 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
 type RuntimeRecord = Record<string, any>
-type GoalEvidenceSlug = 'sleep' | 'stress' | 'anxiety'
 
 export type SleepEvidenceClaim = EvidenceEngineClaim & { sleep_problem: string }
 export type SleepEvidenceSource = EvidenceEngineSource
@@ -75,7 +74,7 @@ function normalizeEvidenceSourcesByClaim(value: unknown): Record<string, Evidenc
   )
 }
 
-function normalizeEvidenceEnginePayload<GoalSlug extends GoalEvidenceSlug>(
+function normalizeEvidenceEnginePayload<GoalSlug extends string>(
   goalSlug: GoalSlug,
   payload: EvidenceEnginePayload | null
 ): EvidenceEnginePayload<GoalSlug> {
