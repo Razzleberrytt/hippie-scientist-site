@@ -97,7 +97,7 @@ export const confidenceDisplays: Record<EvidenceConfidenceTier, EvidenceConfiden
   insufficient: {
     label: 'Insufficient evidence',
     tone: 'bg-zinc-50 text-zinc-700 ring-zinc-200',
-    description: 'Not enough reliable evidence for a confident sleep decision.',
+    description: 'Not enough reliable evidence to support a confident decision.',
   },
 }
 
@@ -142,4 +142,9 @@ export function groupSafetyNotesByIngredient<Note extends EvidenceEngineSafetyNo
     groups[note.ingredient_slug].push(note)
     return groups
   }, {})
+}
+
+export function getClaimProblemKey(claim: EvidenceEngineClaim, problemField: string): string {
+  const value = (claim as Record<string, unknown>)[problemField]
+  return typeof value === 'string' ? value : (claim.problem || '')
 }

@@ -4,11 +4,12 @@ import type { Goal } from '@/data/goals'
 import {
   type EvidenceEngineClaim,
   formatEvidenceLabel,
+  getClaimProblemKey,
   getSafetySeverityTone,
   groupClaimsByDecisionGroup,
   groupSafetyNotesByIngredient,
 } from '@/lib/evidence-engine'
-import type { SleepEvidenceClaim, SleepEvidenceEnginePayload } from '@/lib/runtime-data'
+import type { SleepEvidenceEnginePayload } from '@/lib/runtime-data'
 
 type SleepOption = {
   option: {
@@ -34,34 +35,11 @@ type SleepDecisionExperienceProps = {
   structuredData?: ReactNode
 }
 
-const sleepProblemLabels: Record<string, { title: string; description: string }> = {
-  sleep_onset: {
-    title: 'Sleep onset',
-    description: 'Trouble getting sleepy or shifting into bedtime.',
-  },
-  sleep_quality: {
-    title: 'Sleep quality',
-    description: 'Light, unrefreshing, or inconsistent sleep.',
-  },
-  night_waking: {
-    title: 'Night waking',
-    description: 'Waking during the night or struggling to return to sleep.',
-  },
-  racing_mind: {
-    title: 'Racing mind',
-    description: 'Mental noise, tension, or bedtime rumination.',
-  },
-  relaxation: {
-    title: 'Relaxation',
-    description: 'A gentler wind-down target before stronger sedating approaches.',
-  },
-}
-
 function getProblemKey(claim: EvidenceEngineClaim): string {
-  return claim.sleep_problem || claim.problem || ''
+  return getClaimProblemKey(claim, 'sleep_problem')
 }
 
-function profileHrefFor(claim: SleepEvidenceClaim, enrichedOptions: SleepOption[]) {
+function profileHrefFor(claim: EvidenceEngineClaim, enrichedOptions: SleepOption[]) {
   const option = enrichedOptions.find((item) => item.option.slug === claim.ingredient_slug)
   return option?.profileHref || `/compounds/${claim.ingredient_slug}`
 }
@@ -72,10 +50,7 @@ export default function SleepDecisionExperience({
   structuredData,
 }: SleepDecisionExperienceProps) {
   const claims = sleepEvidence.claims
-  const problemLabels = {
-    ...sleepProblemLabels,
-    ...(sleepEvidence.problemLabels || {}),
-  }
+  const problemLabels = sleepEvidence.problemLabels
   const claimGroups = groupClaimsByDecisionGroup(claims)
   const safetyGroups = groupSafetyNotesByIngredient(sleepEvidence.safetyNotes)
   const hasEvidence = claims.length > 0
