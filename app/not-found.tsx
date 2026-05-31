@@ -1,19 +1,6 @@
-'use client'
-
-import { useEffect } from 'react'
 import Link from 'next/link'
 
 export default function NotFound() {
-  useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'page_view', {
-        page_title: '404: Page Not Found',
-        page_location: window.location.href,
-        page_path: window.location.pathname,
-      })
-    }
-  }, [])
-
   return (
     <main className='mx-auto max-w-4xl px-6 py-16'>
       <div className='rounded-3xl border border-stone-200 bg-stone-50/50 p-8 sm:p-10 shadow-sm'>
