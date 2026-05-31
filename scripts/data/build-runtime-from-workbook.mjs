@@ -14,7 +14,7 @@ import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
 import { scoreIndexability } from './indexability-policy.mjs'
 import { validateEvidenceEnginePayload } from './evidence-engine-validation.mjs'
-import { getEvidenceEngineGoalConfigs } from './evidence-engine-goals.mjs'
+import { getEvidenceEngineGoalConfigs, normalizeEvidenceProblemKey } from './evidence-engine-goals.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -343,7 +343,7 @@ function published(v) {
 }
 
 function outcomeProblemLabelRow(row) {
-  const key = slug(first(row, ['problem_key', 'problem key', 'problem_slug', 'problem slug', 'key', 'slug']))
+  const key = normalizeEvidenceProblemKey(first(row, ['problem_key', 'problem key', 'problem_slug', 'problem slug', 'key', 'slug']))
   if (!key) return null
   return stripRecord({
     key,
@@ -372,7 +372,7 @@ function evidenceClaimRow(row, config) {
     claim_id: claimId,
     ingredient_slug: ingredientSlug,
     ingredient_name: ingredientName,
-    [config.problemField]: lower(first(row, config.problemAliases)),
+    [config.problemField]: normalizeEvidenceProblemKey(first(row, config.problemAliases)),
     claim_statement: compact(first(row, ['claim_statement', 'claim statement', 'claim'])),
     confidence_tier: lower(first(row, ['confidence_tier', 'confidence tier'])),
     evidence_summary: compact(first(row, ['evidence_summary', 'evidence summary'])),
@@ -497,11 +497,11 @@ function graphRow(row, kind) {
 function normalizeRows(rows, fn) {
   const seen = new Set()
   return rows.map(fn).filter(Boolean).filter((r) => {
-    const key = clean(r.id || r.slug || r.claim_id || r.source_id || r.safety_id || `${r.source}-${r.target}`)
+    const key = clean(r.id || r.slug || r.key || r.claim_id || r.source_id || r.safety_id || (r.source && r.target ? `${r.source}-${r.target}` : ''))
     if (!key || seen.has(key)) return false
     seen.add(key)
     return true
-  }).sort((a, b) => clean(a.id || a.slug || a.claim_id || a.source_id || a.safety_id || a.name).localeCompare(clean(b.id || b.slug || b.claim_id || b.source_id || b.safety_id || b.name)))
+  }).sort((a, b) => clean(a.id || a.slug || a.key || a.claim_id || a.source_id || a.safety_id || a.name).localeCompare(clean(b.id || b.slug || b.key || b.claim_id || b.source_id || b.safety_id || b.name)))
 }
 
 function details(dir, rows) {

@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import {
   getEvidenceEngineGoalConfig,
   getEvidenceEngineGoalConfigs,
+  normalizeEvidenceProblemKey,
 } from './evidence-engine-goals.mjs'
 
 describe('evidence engine goal configs', () => {
@@ -37,5 +38,10 @@ describe('evidence engine goal configs', () => {
       safetySheetCandidates: ['Anxiety Safety Notes'],
     })
     expect(anxiety?.config?.heroHeadline).toContain('anxiety support')
+  })
+
+  it('preserves workbook problem keys with underscores', () => {
+    expect(normalizeEvidenceProblemKey(' acute stress ')).toBe('acute_stress')
+    expect(normalizeEvidenceProblemKey('stress_sleep_spillover')).toBe('stress_sleep_spillover')
   })
 })

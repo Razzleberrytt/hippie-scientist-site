@@ -6,6 +6,17 @@ const SLEEP_PROBLEMS = new Set([
   'relaxation',
 ])
 
+export function normalizeEvidenceProblemKey(value) {
+  return String(value ?? '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/_+/g, '_')
+    .replace(/^_+|_+$/g, '')
+}
+
 const SLEEP_PROBLEM_LABELS = {
   sleep_onset: {
     title: 'Sleep onset',
