@@ -20,6 +20,8 @@ import {
   deriveResearchStyle,
 } from '@/lib/research-intelligence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
+import RecommendationSection from '../../../components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
 
 
@@ -239,6 +241,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const topUses = unique([...effects, ...traditionalUses, ...deriveResearchFocusAreas({ profile: herb })]).slice(0, 8)
   const safetyTone = getSafetyTone(safetySummary, avoidIf)
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
+  const revenueProducts = getRevenueProductSet(normalizedSlug)
   const comparisonLinks = comparisonRecords
     .filter((record: any) => record?.slug)
     .map((record: any) => {
@@ -398,6 +401,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
         </div>
         <SourcingCta record={herb} displayName={displayName} />
+
+        {revenueProducts ? (
+          <RecommendationSection
+            title={revenueProducts.title}
+            description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
+            products={revenueProducts.products}
+          />
+        ) : null}
 
         <div className="grid gap-4 sm:grid-cols-2 pt-2">
           {relatedHerbLinks.length > 0 && (

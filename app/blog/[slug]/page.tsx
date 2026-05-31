@@ -4,6 +4,8 @@ import posts from '../../../data/blog/posts.json'
 import { getAllCompounds, getAllHerbs } from '@/lib/server/runtime-data'
 import { ResearchContinuityBlock } from '@/components/scientific-discovery'
 import { findArticleEntities } from '@/lib/editorial-discovery'
+import EmailCapture from '../../../components/EmailCapture'
+import NewsletterCtaBlock from '../../../components/NewsletterCtaBlock'
 
 const allPosts = posts as any[]
 
@@ -193,6 +195,18 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
           items={relatedItems}
         />
       </section>
+
+      <EmailCapture
+        headline="Get future research notes by email"
+        description="Join for concise supplement safety, sourcing, and evidence updates tied to new articles."
+        location={`blog-${post.slug}`}
+      />
+
+      <NewsletterCtaBlock
+        title="Continue with the newsletter archive"
+        description="Read short notes built for cautious supplement decisions."
+        location={`blog-${post.slug}-newsletter`}
+      />
     </main>
   )
 }

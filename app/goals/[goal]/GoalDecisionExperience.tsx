@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
+import EmailCapture from '../../../components/EmailCapture'
 import type { Goal } from '@/data/goals'
 import {
   type EvidenceEngineClaim,
@@ -190,6 +191,12 @@ export default function GoalDecisionExperience({
           ))}
         </div>
       </section>
+
+      <EmailCapture
+        headline={`Get ${goal.title.toLowerCase()} research updates`}
+        description="Join for practical safety notes, new guide announcements, and evidence-first supplement context."
+        location={`goal-${goal.slug}`}
+      />
 
       <footer className="rounded-2xl border border-brand-900/10 bg-brand-950/[0.02] p-5 text-xs leading-6 text-muted">
         Educational only. Not medical advice. Evidence varies by population, preparation, dose, timing, and study design.
