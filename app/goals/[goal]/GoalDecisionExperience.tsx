@@ -3,14 +3,15 @@ import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
 import type { Goal } from '@/data/goals'
 import {
   type EvidenceEngineClaim,
+  type EvidenceEnginePayload,
   formatEvidenceLabel,
+  getClaimProblemKey,
   getSafetySeverityTone,
   groupClaimsByDecisionGroup,
   groupSafetyNotesByIngredient,
 } from '@/lib/evidence-engine'
-import type { SleepEvidenceClaim, SleepEvidenceEnginePayload } from '@/lib/runtime-data'
 
-type SleepOption = {
+type GoalOption = {
   option: {
     slug: string
     name: string
@@ -27,58 +28,40 @@ type SleepOption = {
   safetyLabel: string
 }
 
-type SleepDecisionExperienceProps = {
+type GoalDecisionExperienceProps = {
   goal: Goal
-  enrichedOptions: SleepOption[]
-  sleepEvidence: SleepEvidenceEnginePayload
+  enrichedOptions: GoalOption[]
+  evidence: EvidenceEnginePayload
   structuredData?: ReactNode
 }
 
-const sleepProblemLabels: Record<string, { title: string; description: string }> = {
-  sleep_onset: {
-    title: 'Sleep onset',
-    description: 'Trouble getting sleepy or shifting into bedtime.',
-  },
-  sleep_quality: {
-    title: 'Sleep quality',
-    description: 'Light, unrefreshing, or inconsistent sleep.',
-  },
-  night_waking: {
-    title: 'Night waking',
-    description: 'Waking during the night or struggling to return to sleep.',
-  },
-  racing_mind: {
-    title: 'Racing mind',
-    description: 'Mental noise, tension, or bedtime rumination.',
-  },
-  relaxation: {
-    title: 'Relaxation',
-    description: 'A gentler wind-down target before stronger sedating approaches.',
-  },
-}
-
-function getProblemKey(claim: EvidenceEngineClaim): string {
-  return claim.sleep_problem || claim.problem || ''
-}
-
-function profileHrefFor(claim: SleepEvidenceClaim, enrichedOptions: SleepOption[]) {
+function profileHrefFor(claim: EvidenceEngineClaim, enrichedOptions: GoalOption[]) {
   const option = enrichedOptions.find((item) => item.option.slug === claim.ingredient_slug)
   return option?.profileHref || `/compounds/${claim.ingredient_slug}`
 }
 
-export default function SleepDecisionExperience({
+export default function GoalDecisionExperience({
+  goal,
   enrichedOptions,
-  sleepEvidence,
+  evidence,
   structuredData,
-}: SleepDecisionExperienceProps) {
-  const claims = sleepEvidence.claims
-  const problemLabels = {
-    ...sleepProblemLabels,
-    ...(sleepEvidence.problemLabels || {}),
-  }
+}: GoalDecisionExperienceProps) {
+  const claims = evidence.claims
+  const problemLabels = evidence.problemLabels
+  const config = evidence.config ?? {}
   const claimGroups = groupClaimsByDecisionGroup(claims)
-  const safetyGroups = groupSafetyNotesByIngredient(sleepEvidence.safetyNotes)
+  const safetyGroups = groupSafetyNotesByIngredient(evidence.safetyNotes)
   const hasEvidence = claims.length > 0
+
+  const problemField = `${goal.slug}_problem`
+  const orientationId = `${goal.slug}-orientation`
+  const heroHeadline = config.heroHeadline ?? `${goal.title}: What does the evidence actually support?`
+  const heroDescription = `A workbook-backed ${goal.slug} decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.`
+  const heroCta = config.heroCta ?? `Start with the ${goal.slug} problem`
+  const orientationHeading = config.orientationHeading ?? `Start by naming the ${goal.slug} problem`
+  const orientationSubtext = config.orientationSubtext ?? `The same ingredient can look useful or weak depending on which ${goal.slug} problem you are targeting.`
+  const safetyHeading = config.safetyHeading ?? `${goal.title} decisions change when risk context changes`
+  const safetyBody = config.safetyBody ?? `Do not use supplements to manage complex clinical situations without professional guidance.`
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
@@ -87,14 +70,14 @@ export default function SleepDecisionExperience({
       <section className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="eyebrow-label">Sleep evidence engine</p>
-            <h1 className="heading-premium mt-3 text-ink">I want better sleep. What does the evidence actually support?</h1>
+            <p className="eyebrow-label">{goal.title} evidence engine</p>
+            <h1 className="heading-premium mt-3 text-ink">{heroHeadline}</h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-muted">
-              A workbook-backed sleep decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.
+              {heroDescription}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a href="#sleep-orientation" className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
-                Start with the sleep problem
+              <a href={`#${orientationId}`} className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
+                {heroCta}
               </a>
               <a href="#safety-first" className="inline-flex min-h-11 items-center justify-center rounded-full border border-brand-900/10 bg-white/70 px-5 py-2.5 text-sm font-semibold text-brand-900 transition hover:border-brand-700/30 hover:bg-white">
                 Review safety warnings
@@ -107,32 +90,32 @@ export default function SleepDecisionExperience({
             <dl className="mt-4 space-y-3 text-sm leading-6 text-muted">
               <div>
                 <dt className="font-semibold text-ink">Workbook claims</dt>
-                <dd>{claims.length} published sleep claims</dd>
+                <dd>{claims.length} published {goal.slug} claims</dd>
               </div>
               <div>
                 <dt className="font-semibold text-ink">Safety notes</dt>
-                <dd>{sleepEvidence.safetyNotes.length} ingredient warnings</dd>
+                <dd>{evidence.safetyNotes.length} ingredient warnings</dd>
               </div>
               <div>
                 <dt className="font-semibold text-ink">Last generated</dt>
-                <dd>{sleepEvidence.updatedAt ? new Date(sleepEvidence.updatedAt).toLocaleDateString('en-US') : 'Awaiting workbook rows'}</dd>
+                <dd>{evidence.updatedAt ? new Date(evidence.updatedAt).toLocaleDateString('en-US') : 'Awaiting workbook rows'}</dd>
               </div>
             </dl>
           </div>
         </div>
       </section>
 
-      <section id="sleep-orientation" className="card-premium p-6 sm:p-8">
+      <section id={orientationId} className="card-premium p-6 sm:p-8">
         <div className="max-w-3xl">
-          <p className="eyebrow-label">Sleep problem orientation</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">Start by naming the sleep problem</h2>
+          <p className="eyebrow-label">{goal.title} problem orientation</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">{orientationHeading}</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            The same ingredient can look useful or weak depending on whether the issue is timing, mental arousal, waking, or general sleep quality.
+            {orientationSubtext}
           </p>
         </div>
         <div className="mt-6 grid gap-3 md:grid-cols-5">
           {Object.entries(problemLabels).map(([key, problem]) => {
-            const count = claims.filter((claim) => getProblemKey(claim) === key).length
+            const count = claims.filter((claim) => getClaimProblemKey(claim, problemField) === key).length
             return (
               <article key={key} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
                 <h3 className="text-sm font-semibold text-ink">{problem.title}</h3>
@@ -160,13 +143,14 @@ export default function SleepDecisionExperience({
                 <h3 className="text-lg font-semibold text-ink">{group}</h3>
                 <div className="mt-4 grid gap-4 lg:grid-cols-2">
                   {groupClaims.map((claim) => {
-                    const sources = sleepEvidence.sourcesByClaim[claim.claim_id] || []
+                    const problemKey = getClaimProblemKey(claim, problemField)
+                    const sources = evidence.sourcesByClaim[claim.claim_id] || []
                     const safetyNotes = safetyGroups[claim.ingredient_slug] || []
                     return (
                       <EvidenceClaimCard
                         key={claim.claim_id}
                         claim={claim}
-                        problemLabel={problemLabels[getProblemKey(claim)]?.title || getProblemKey(claim)}
+                        problemLabel={problemLabels[problemKey]?.title || problemKey}
                         profileHref={profileHrefFor(claim, enrichedOptions)}
                         safetyNotes={safetyNotes}
                         sources={sources}
@@ -181,9 +165,9 @@ export default function SleepDecisionExperience({
       ) : (
         <section className="card-premium p-6 sm:p-8">
           <p className="eyebrow-label">Awaiting workbook rows</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">The sleep Evidence Engine payload is ready, but no claims are published yet</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">The {goal.slug} Evidence Engine payload is ready, but no claims are published yet</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            Add published rows to the Sleep Evidence Claims, Sleep Evidence Sources, and Sleep Safety Notes workbook sheets, then rebuild the static data.
+            Add published rows to the {goal.title} Evidence Claims, {goal.title} Evidence Sources, and {goal.title} Safety Notes workbook sheets, then rebuild the static data.
           </p>
         </section>
       )}
@@ -191,13 +175,13 @@ export default function SleepDecisionExperience({
       <section id="safety-first" className="rounded-[2rem] border border-rose-700/15 bg-rose-50/70 p-6 shadow-sm sm:p-8">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-rose-800">Safety first</p>
-          <h2 className="mt-2 text-2xl font-semibold text-rose-950">Sleep supplement decisions change when risk context changes</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-rose-950">{safetyHeading}</h2>
           <p className="mt-3 text-sm leading-7 text-rose-900">
-            Do not use supplements to mask loud snoring, witnessed apnea, severe daytime sleepiness, persistent insomnia, chest symptoms, or complex medication situations.
+            {safetyBody}
           </p>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {sleepEvidence.safetyNotes.map((note) => (
+          {evidence.safetyNotes.map((note) => (
             <article key={`${note.safety_id}-global`} className={`rounded-2xl border p-5 ${getSafetySeverityTone(note.severity)}`}>
               <h3 className="text-base font-semibold capitalize">{formatEvidenceLabel(note.ingredient_slug)}</h3>
               <p className="mt-2 text-sm leading-6">{note.warning}</p>

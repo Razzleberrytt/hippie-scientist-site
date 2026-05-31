@@ -1,0 +1,37 @@
+{
+  "goal": "anxiety",
+  "updatedAt": "2026-05-31T12:56:57.243Z",
+  "config": {
+    "heroHeadline": "I want calmer anxiety support. What does the evidence actually support?",
+    "heroCta": "Start with the anxiety pattern",
+    "orientationHeading": "Start by naming the anxiety pattern",
+    "orientationSubtext": "The same ingredient can look useful or weak depending on generalized tension, situational triggers, social pressure, physical symptoms, and sleep interference.",
+    "safetyHeading": "Anxiety-support decisions change when risk context changes",
+    "safetyBody": "Do not use supplements to mask persistent panic disorders, severe anxiety, medication interactions, or other complex clinical situations."
+  },
+  "problemLabels": {
+    "generalized_tension": {
+      "title": "Generalized tension",
+      "description": "Persistent background worry or daily low-level anxiety that does not fully reset."
+    },
+    "situational_anxiety": {
+      "title": "Situational anxiety",
+      "description": "Anxiety tied to specific events, transitions, or anticipatory pressure."
+    },
+    "social_anxiety": {
+      "title": "Social anxiety",
+      "description": "Nervousness or performance pressure in social or high-visibility situations."
+    },
+    "physical_tension": {
+      "title": "Physical tension",
+      "description": "Somatic anxiety patterns including muscle tightness, shallow breathing, or restlessness."
+    },
+    "anxious_sleep_onset": {
+      "title": "Anxious sleep onset",
+      "description": "Worry loops or nervous arousal that delay sleep or prevent full wind-down."
+    }
+  },
+  "claims": [],
+  "safetyNotes": [],
+  "sourcesByClaim": {}
+}
