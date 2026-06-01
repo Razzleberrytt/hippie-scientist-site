@@ -1,15 +1,11 @@
-import XLSX from 'xlsx'
+import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
 
 // Workbook parser adapter boundary.
 //
-// xlsx is allowed only in trusted Node build/data scripts. Do not use this
-// parser for browser input, user uploads, request bodies, or remote URLs.
+// ExcelJS is used only for trusted local Node build/data scripts. Do not use
+// this parser for browser input, user uploads, request bodies, or remote URLs.
 // Any future runtime spreadsheet parsing must go through a reviewed safer
-// boundary instead of importing xlsx directly.
-//
-// This module intentionally isolates direct xlsx usage so the workbook
-// pipeline can later migrate to exceljs (or another parser) without
-// rewriting downstream normalization and export logic.
+// boundary.
 //
 // IMPORTANT:
 // Preserve current workbook semantics exactly unless a dedicated
@@ -17,12 +13,21 @@ import XLSX from 'xlsx'
 //
 // Current invariants:
 // - blank cells become ''
-// - row object keys match xlsx sheet_to_json behavior
+// - row object keys match legacy sheet_to_json behavior
 // - workbook shape exposes Sheets + SheetNames
 // - downstream exporters depend on deterministic row object structure
 
-export function readWorkbook(filePath) {
-  return XLSX.readFile(filePath)
+export async function readWorkbook(filePath) {
+  const excelWorkbook = await readWorkbookExcelJS(filePath)
+  const sheetNames = excelWorkbook.getSheetNames()
+  const sheets = Object.fromEntries(
+    sheetNames.map((sheetName) => [sheetName, excelWorkbook.getSheetData(sheetName)]),
+  )
+
+  return {
+    SheetNames: sheetNames,
+    Sheets: sheets,
+  }
 }
 
 export function getSheetNames(workbook) {
@@ -34,10 +39,5 @@ export function getSheet(workbook, sheetName) {
 }
 
 export function sheetToRows(sheet) {
-  if (!sheet) return []
-
-  // Preserve legacy workbook parsing semantics.
-  return XLSX.utils.sheet_to_json(sheet, {
-    defval: '',
-  })
+  return Array.isArray(sheet) ? sheet : []
 }

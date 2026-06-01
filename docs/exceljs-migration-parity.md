@@ -24,3 +24,5 @@ Ready to migrate downstream scripts.
 ```
 
 No discrepancies were reported for dates, numbers, merged cells, formulas, or text fields in the sampled parity check.
+
+Migration complete on June 1, 2026. xlsx removed from package.json.

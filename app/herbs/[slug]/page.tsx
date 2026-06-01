@@ -29,17 +29,40 @@ type PageProps = {
   params: Promise<{ slug: string }>
 }
 
+const HERB_CANONICAL_SOURCE_ALIASES: Record<string, string> = {
+  passionflower: 'passiflora-incarnata',
+  kava: 'piper-methysticum',
+}
+
+const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
+  'allium-sativum': 'garlic',
+  'valeriana-officinalis': 'valerian',
+  'hericium-erinaceus': 'lions-mane',
+  'passiflora-incarnata': 'passionflower',
+  'piper-methysticum': 'kava',
+  'ganoderma-lucidum': 'reishi',
+}
+
 export async function generateStaticParams() {
   const { herbs } = await getUnifiedRuntimeRecords()
 
-  return herbs
+  const dynamicParams = herbs
     .filter((herb: any) => getRuntimeVisibility(herb).canRender)
+    .filter((herb: any) => !DEPRECATED_HERB_CANONICALS[normalizeSlug(herb.slug)])
     .map((herb: any) => ({ slug: herb.slug }))
+
+  return [
+    ...dynamicParams,
+    ...Object.keys(HERB_CANONICAL_SOURCE_ALIASES).map((slug) => ({ slug })),
+  ]
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const herb = await getHerbMetadataRecord(slug)
+  const normalizedSlug = normalizeSlug(slug)
+  const canonicalSlug = DEPRECATED_HERB_CANONICALS[normalizedSlug] || normalizedSlug
+  const sourceSlug = HERB_CANONICAL_SOURCE_ALIASES[canonicalSlug] || canonicalSlug
+  const herb = await getHerbMetadataRecord(sourceSlug)
 
   if (!herb) {
     return {
@@ -47,7 +70,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  return generateDetailMetadata(herb, 'herb')
+  const metadata = generateDetailMetadata({ ...herb, slug: canonicalSlug }, 'herb')
+  if (canonicalSlug !== normalizedSlug) {
+    return {
+      ...metadata,
+      alternates: { canonical: `https://www.thehippiescientist.net/herbs/${canonicalSlug}` },
+      robots: { index: false, follow: true },
+    }
+  }
+
+  return metadata
 }
 
 function getEffects(herb: any) {
@@ -181,14 +213,20 @@ function getRelatedLinks(records: any[], entityType: 'herb' | 'compound', limit 
 export default async function HerbDetailPage({ params }: PageProps) {
   const { slug } = await params
   const normalizedSlug = normalizeSlug(slug)
-  const herb = await getHerbBySlug(normalizedSlug)
+  const canonicalSlug = DEPRECATED_HERB_CANONICALS[normalizedSlug]
+  if (canonicalSlug) {
+    redirect(`/herbs/${canonicalSlug}/`)
+  }
+
+  const sourceSlug = HERB_CANONICAL_SOURCE_ALIASES[normalizedSlug] || normalizedSlug
+  const herb = await getHerbBySlug(sourceSlug)
 
   if (!herb || !getRuntimeVisibility(herb).canRender) {
     notFound()
   }
 
-  if (slug !== normalizedSlug || normalizeSlug(herb.slug) != normalizedSlug) {
-    redirect(`/herbs/${normalizeSlug(herb.slug)}/`)
+  if (slug !== normalizedSlug) {
+    redirect(`/herbs/${normalizedSlug}/`)
   }
 
   const {
@@ -199,7 +237,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   const herbSlugs = new Set(herbs.map((item: any) => item.slug))
   const compoundSlugs = new Set(compounds.map((item: any) => item.slug))
-  const sourceSlug = herb.slug
+  const sourceRecordSlug = herb.slug
 
   const [
     relatedBySlug,
@@ -213,7 +251,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
     getEcosystemContinuityRecords(herb, allRecords, 6),
   ])
 
-  const relatedCandidates = (relatedBySlug[sourceSlug] || [])
+  const relatedCandidates = (relatedBySlug[sourceRecordSlug] || [])
     .filter((item: any) => getRuntimeVisibility(item).canRender)
 
   const relatedHerbs = relatedCandidates
@@ -230,7 +268,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .filter((item: any) => getRuntimeVisibility(item).canRender)
 
 
-  const comparisonRecords = (comparisonBySlug[sourceSlug] || [])
+  const comparisonRecords = (comparisonBySlug[sourceRecordSlug] || [])
     .filter((item: any) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
 
@@ -257,7 +295,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const comparisonLinks = comparisonRecords
     .filter((record: any) => record?.slug)
     .map((record: any) => {
-      const compSlug = getValidComparisonSlug(sourceSlug, record.slug)
+      const compSlug = getValidComparisonSlug(sourceRecordSlug, record.slug)
       if (!compSlug) return null
       return {
         label: formatDisplayLabel(record.name || record.title || record.slug),
@@ -269,7 +307,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   const herbJsonLd = generateHerbJsonLd({
     name: displayName,
-    slug: herb.slug,
+    slug: normalizedSlug,
     description: summary,
     latinName: botanicalName || undefined,
     evidenceGrade: getEvidenceStrength(herb),
@@ -279,7 +317,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
     { name: 'Herbs', url: 'https://www.thehippiescientist.net/herbs' },
-    { name: displayName, url: `https://www.thehippiescientist.net/herbs/${herb.slug}` },
+    { name: displayName, url: `https://www.thehippiescientist.net/herbs/${normalizedSlug}` },
   ])
 
 

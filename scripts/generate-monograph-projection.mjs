@@ -3,7 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import XLSX from 'xlsx'
+import XLSX from './utils/exceljs-xlsx-compat.mjs'
 import { resolveWorkbookPath } from './workbook-source.mjs'
 
 const __filename = fileURLToPath(import.meta.url)

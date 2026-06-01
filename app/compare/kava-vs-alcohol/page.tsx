@@ -38,7 +38,7 @@ export default function KavaVsAlcoholPage() {
           <p className="text-sm leading-7 text-[#46574d]">
             Traditionally used calming ethnobotanical associated with stress modulation, relaxation, and inhibitory signaling systems.
           </p>
-          <Link href="/herbs/piper-methysticum" className="chip-readable">
+          <Link href="/herbs/kava" className="chip-readable">
             Explore Kava
           </Link>
         </div>

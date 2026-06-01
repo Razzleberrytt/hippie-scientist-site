@@ -30,7 +30,7 @@ const faqItems = [
 
 const relatedProfiles = [
   {
-    href: '/herbs/piper-methysticum',
+    href: '/herbs/kava',
     title: 'Kava',
     description:
       'Traditional calming psychoactive herb associated with stress modulation and inhibitory signaling systems.',

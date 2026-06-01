@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import xlsx from 'xlsx';
+import XLSX from './utils/exceljs-xlsx-compat.mjs';
 
 const CANDIDATE_PATHS = [
   'data/import/citations.xlsx',

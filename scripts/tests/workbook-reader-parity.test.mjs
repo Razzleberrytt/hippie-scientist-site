@@ -56,7 +56,7 @@ async function runParity({ log = true } = {}) {
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
 
-  const oldWorkbook = readWorkbook(workbookPath)
+  const oldWorkbook = await readWorkbook(workbookPath)
   const newWorkbook = await readWorkbookExcelJS(workbookPath)
   const oldSheetNames = getSheetNames(oldWorkbook)
   const newSheetNames = new Set(newWorkbook.getSheetNames())
@@ -115,7 +115,7 @@ async function runParity({ log = true } = {}) {
 if (process.env.VITEST) {
   const { expect, test } = await import('vitest')
 
-  test('exceljs workbook reader matches the current xlsx reader sample output', async () => {
+  test('exceljs workbook reader matches the parser adapter sample output', async () => {
     const result = await runParity({ log: false })
     expect(result.discrepancies).toEqual([])
   }, 30000)

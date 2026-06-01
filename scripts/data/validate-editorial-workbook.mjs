@@ -169,13 +169,13 @@ function printIssues(issues) {
   }
 }
 
-function run() {
+async function run() {
   const { strict } = parseArgs(process.argv)
 
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
 
-  const workbook = readWorkbook(workbookPath)
+  const workbook = await readWorkbook(workbookPath)
   const sheetNames = getSheetNames(workbook)
   const issues = []
 
@@ -206,4 +206,7 @@ function run() {
   console.log(`[editorial-workbook] PASS errors=${errors.length} warnings=${warnings.length} strict=${strict}`)
 }
 
-run()
+run().catch((error) => {
+  console.error(error)
+  process.exit(1)
+})

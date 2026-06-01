@@ -25,11 +25,11 @@ function isJunk(value) {
   return !text || JUNK_VALUES.has(text)
 }
 
-function run() {
+async function run() {
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
 
-  const workbook = readWorkbook(workbookPath)
+  const workbook = await readWorkbook(workbookPath)
   const gaps = []
 
   // Audit Herbs Sheet
@@ -133,4 +133,7 @@ function run() {
   console.log('[audit-workbook-gaps] Wrote reports/workbook-gaps-report.md')
 }
 
-run()
+run().catch((error) => {
+  console.error(error)
+  process.exit(1)
+})

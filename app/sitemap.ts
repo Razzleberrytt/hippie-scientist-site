@@ -59,7 +59,45 @@ const deprecatedCompoundSlugs = new Set([
   'taurine-sleep',
   'glycine-sleep',
   'inositol-sleep',
+  'ashwagandha-extract-ksm-66',
+  'ashwagandha-root-extract',
+  'garlic',
+  'garlic-extract',
+  'garlic-aged-extract',
+  'aged-garlic-extract',
+  'ginger',
+  'gingerol',
+  'gingerols',
+  'valerian',
+  'valerian-extract-standardized',
+  'valerian-root-extract',
+  'lions-mane',
+  'passionflower',
+  'passionflower-extract',
+  'passionflower-extract-standardized',
+  'kava',
+  'kavalactones',
+  'reishi',
+  'maca',
+  'maca-root-extract',
+  'elderberry',
+  'resveratrol',
+  'trans-resveratrol',
 ])
+
+const deprecatedHerbSlugs = new Set([
+  'allium-sativum',
+  'valeriana-officinalis',
+  'hericium-erinaceus',
+  'passiflora-incarnata',
+  'piper-methysticum',
+  'ganoderma-lucidum',
+])
+
+const canonicalHerbAliases = [
+  { slug: 'passionflower', sourceSlug: 'passiflora-incarnata' },
+  { slug: 'kava', sourceSlug: 'piper-methysticum' },
+]
 
 const sourceDate = (sourcePath: string) => {
   if (sourceDateCache.has(sourcePath)) {
@@ -277,7 +315,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       created_at: herb.created_at,
       published_date: herb.published_date,
     }))
-    .filter((herb) => herb.slug)
+    .filter((herb) => herb.slug && !deprecatedHerbSlugs.has(herb.slug))
+
+  const herbRecordBySlug = new Map(herbRecords.map((record) => [record.slug, record]))
+  for (const alias of canonicalHerbAliases) {
+    if (!herbRecordBySlug.has(alias.slug)) {
+      const sourceRecord = herbs.find((herb: any) => cleanSlug(herb.slug) === alias.sourceSlug)
+      herbRecords.push({
+        slug: alias.slug,
+        updatedAt: sourceRecord?.updatedAt || sourceRecord?.last_updated,
+        updated_at: sourceRecord?.updated_at,
+        date_modified: sourceRecord?.date_modified,
+        reviewed_date: sourceRecord?.reviewed_date,
+        created_at: sourceRecord?.created_at,
+        published_date: sourceRecord?.published_date,
+      })
+    }
+  }
 
   return stabilizeSitemapRoutes([
     route('/', { priority: 1.0, changeFrequency: 'weekly' }),

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import process from "process";
-import xlsx from "xlsx";
+import XLSX from "./utils/exceljs-xlsx-compat.mjs";
 
 const WORKBOOK_PATH = path.join(process.cwd(), "data-sources", "herb_monograph_master.xlsx");
 const OUTPUT_DIR = path.join(process.cwd(), "public", "data");

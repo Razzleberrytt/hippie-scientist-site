@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import XLSX from "xlsx";
+import XLSX from "../utils/exceljs-xlsx-compat.mjs";
 
 const workbookPath = path.resolve("data-sources/herb_monograph_master.xlsx");
 

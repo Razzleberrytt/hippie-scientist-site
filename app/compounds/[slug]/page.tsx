@@ -44,6 +44,30 @@ const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
   'taurine-sleep': 'taurine',
   'glycine-sleep': 'glycine',
   'inositol-sleep': 'inositol',
+  'ashwagandha-extract-ksm-66': '/herbs/ashwagandha',
+  'ashwagandha-root-extract': '/herbs/ashwagandha',
+  garlic: '/herbs/garlic',
+  'garlic-extract': '/herbs/garlic',
+  'garlic-aged-extract': '/herbs/garlic',
+  'aged-garlic-extract': '/herbs/garlic',
+  ginger: '/herbs/ginger',
+  gingerol: '/herbs/ginger',
+  gingerols: '/herbs/ginger',
+  valerian: '/herbs/valerian',
+  'valerian-extract-standardized': '/herbs/valerian',
+  'valerian-root-extract': '/herbs/valerian',
+  'lions-mane': '/herbs/lions-mane',
+  passionflower: '/herbs/passionflower',
+  'passionflower-extract': '/herbs/passionflower',
+  'passionflower-extract-standardized': '/herbs/passionflower',
+  kava: '/herbs/kava',
+  kavalactones: '/herbs/kava',
+  reishi: '/herbs/reishi',
+  maca: '/herbs/maca',
+  'maca-root-extract': '/herbs/maca',
+  elderberry: '/herbs/elderberry',
+  resveratrol: '/herbs/resveratrol',
+  'trans-resveratrol': '/herbs/resveratrol',
 }
 
 const CANONICAL_COMPOUND_NOTES: Record<string, { title: string; body: string; items?: string[] }> = {
@@ -78,13 +102,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const canonicalSlug = DEPRECATED_COMPOUND_CANONICALS[normalizeSlug(slug)] || slug
+  const normalizedSlug = normalizeSlug(slug)
+  const redirectedCanonical = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
+  if (redirectedCanonical?.startsWith('/')) {
+    return {
+      alternates: { canonical: `https://www.thehippiescientist.net${redirectedCanonical}` },
+      robots: { index: false, follow: true },
+    }
+  }
+
+  const canonicalSlug = redirectedCanonical || normalizedSlug
   const compound = await getCompoundMetadataRecord(canonicalSlug)
 
   if (!compound) return {}
 
   const metadata = generateDetailMetadata(compound, 'compound')
-  if (canonicalSlug !== slug) {
+  if (canonicalSlug !== normalizedSlug) {
     return {
       ...metadata,
       alternates: { canonical: `https://www.thehippiescientist.net/compounds/${canonicalSlug}` },
@@ -163,7 +196,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const normalizedSlug = normalizeSlug(slug)
   const canonicalSlug = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
   if (canonicalSlug) {
-    redirect(`/compounds/${canonicalSlug}/`)
+    redirect(canonicalSlug.startsWith('/') ? `${canonicalSlug}/` : `/compounds/${canonicalSlug}/`)
   }
 
   const compound = await getCompoundBySlug(normalizedSlug)

@@ -30,7 +30,7 @@ export default function NaturalAnxiolyticsPage() {
     },
     {
       name: 'Kava (Piper methysticum)',
-      href: '/herbs/piper-methysticum',
+      href: '/herbs/kava',
       type: 'Botanical Root Extract',
       onset: '20 to 60 minutes',
       mechanism: 'GABA-A receptor positive modulation, sodium/calcium channel blocker.',

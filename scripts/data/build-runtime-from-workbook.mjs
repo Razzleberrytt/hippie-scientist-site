@@ -563,16 +563,15 @@ function mechanismReport(herbs, compounds, canonicalMechanisms) {
   }
 }
 
-function main() {
+async function main() {
   const outDir = args()
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
 
   // Workbook loading is intentionally routed through the parser adapter.
-  // xlsx usage is restricted to trusted local Node build/data scripts.
   // Do not route browser uploads, request bodies, runtime input, or remote
   // URLs through this parsing boundary.
-  const wb = readWorkbook(workbookPath)
+  const wb = await readWorkbook(workbookPath)
 
   for (const required of ['Herb Master V3', 'Compound Master V3']) {
     if (!getSheet(wb, required)) {
@@ -638,4 +637,7 @@ function main() {
   console.log(`[data] canonical mechanisms: ${taxonomy.mechanisms.length}; unmapped mechanism terms: ${normalizationReport.unmappedMechanisms.length}`)
 }
 
-main()
+main().catch((error) => {
+  console.error(error)
+  process.exit(1)
+})

@@ -61,3 +61,8 @@ export async function readWorkbookExcelJS(filePath) {
     },
   }
 }
+
+export async function getSheetData(filePath, sheetName) {
+  const workbook = await readWorkbookExcelJS(filePath)
+  return workbook.getSheetData(sheetName)
+}

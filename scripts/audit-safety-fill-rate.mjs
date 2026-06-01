@@ -90,11 +90,11 @@ function linesForReport(herbSummary, compoundSummary) {
   ]
 }
 
-function main() {
+async function main() {
   const repoRoot = process.cwd()
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
-  const workbook = readWorkbook(workbookPath)
+  const workbook = await readWorkbook(workbookPath)
 
   const herbRows = sheetToRows(getSheet(workbook, SHEETS.herbs))
   const compoundRows = sheetToRows(getSheet(workbook, SHEETS.compounds))
@@ -106,4 +106,7 @@ function main() {
   console.log(report.join('\n'))
 }
 
-main()
+main().catch((error) => {
+  console.error(error)
+  process.exit(1)
+})

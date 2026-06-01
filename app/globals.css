@@ -1,6 +1,83 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+Tailwind v4 manual migration visual check: homepage, herb profile, compound
+profile, /goals, and /blog should retain the warm light theme, emerald actions,
+card borders, and typography scale from the v3 config. No intentional visual
+differences are expected beyond Tailwind v4's generated CSS ordering.
+*/
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui;
+  --font-body: var(--font-inter), Inter, ui-sans-serif, system-ui;
+  --font-display: var(--font-fraunces), Fraunces, ui-serif, Georgia;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-50: #eef8f1;
+  --color-brand-100: #d9f0df;
+  --color-brand-200: #b7dfc2;
+  --color-brand-300: #8ac89c;
+  --color-brand-400: #5dae73;
+  --color-brand-500: #358f52;
+  --color-brand-600: #277441;
+  --color-brand-700: #215d36;
+  --color-brand-800: #1d4a2f;
+  --color-brand-900: #183d28;
+  --color-brand-950: #092417;
+  --color-brand: #1d4a2f;
+
+  --color-sage-50: #f4f7f1;
+  --color-sage-100: #e7eee0;
+  --color-sage-200: #d1dec6;
+  --color-sage-300: #b2c7a1;
+  --color-sage-400: #8daa78;
+  --color-sage-500: #6f8f5c;
+  --color-sage-600: #557247;
+  --color-sage-700: #435a3a;
+  --color-sage-800: #384a32;
+  --color-sage-900: #303f2d;
+
+  --color-paper-50: #fffdf7;
+  --color-paper-100: #fbf6e9;
+  --color-paper-200: #f4ead2;
+  --color-paper-300: #ead8ac;
+  --color-paper-400: #ddc17f;
+  --color-paper-500: #cba65d;
+
+  --color-earth-clay: #a8683d;
+  --color-earth-ochre: #c08a35;
+  --color-earth-moss: #667a3f;
+  --color-earth-bark: #3e2f25;
+
+  --color-evidence-strong: #047857;
+  --color-evidence-moderate: #2563eb;
+  --color-evidence-limited: #b45309;
+  --color-evidence-theoretical: #64748b;
+  --color-evidence-risk: #b91c1c;
+
+  --color-safety-info: #2563eb;
+  --color-safety-caution: #b45309;
+  --color-safety-avoid: #b91c1c;
+  --color-safety-ok: #047857;
+
+  --color-background: #fffdf7;
+  --color-surface: #fbf6e9;
+  --color-ink: #102018;
+  --color-muted: #58665d;
+
+  --shadow-card: 0 18px 45px rgba(16, 32, 24, 0.08);
+  --shadow-soft: 0 24px 70px rgba(16, 32, 24, 0.12);
+  --shadow-glow: 0 0 0 1px rgba(141, 170, 120, 0.18), 0 18px 55px rgba(29, 74, 47, 0.16);
+
+  --radius-organic: 1.75rem;
+  --radius-card: 1.5rem;
+
+  --leading-display: 0.95;
+  --leading-heading: 1.05;
+  --leading-body: 1.75;
+
+  --container-reading: 68ch;
+  --container-prose: 72ch;
+}
 
 :root {
   --font-inter: Inter, "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;

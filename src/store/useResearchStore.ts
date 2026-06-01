@@ -9,7 +9,7 @@ interface ResearchStore {
   isInResearch: (itemSlug: string) => boolean
 }
 
-export const useResearchStore = create<ResearchStore>()(
+export const useResearchStore = create<ResearchStore, [['zustand/persist', ResearchStore]]>(
   persist(
     (set, get) => ({
       researchList: [],

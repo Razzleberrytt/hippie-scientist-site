@@ -13,26 +13,11 @@ function detectExcelLibrary(rootDir) {
     ...(packageJson.devDependencies ?? {}),
   }
 
-  const ordered = ['xlsx', 'exceljs', 'read-excel-file']
+  const ordered = ['exceljs', 'read-excel-file']
   return ordered.find((name) => Object.prototype.hasOwnProperty.call(combinedDeps, name))
 }
 
 async function getWorkbookSummary(workbookPath, libraryName) {
-  if (libraryName === 'xlsx') {
-    const XLSX = require('xlsx')
-    const workbook = XLSX.readFile(workbookPath)
-    return workbook.SheetNames.map((sheetName) => {
-      const rows = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], {
-        header: 1,
-        blankrows: false,
-        defval: '',
-      })
-      const headers = Array.isArray(rows[0]) ? rows[0] : []
-      const rowCount = Math.max(rows.length - 1, 0)
-      return { sheetName, headers, rowCount }
-    })
-  }
-
   if (libraryName === 'exceljs') {
     const ExcelJS = require('exceljs')
     const workbook = new ExcelJS.Workbook()
@@ -71,7 +56,7 @@ async function main() {
 
   const libraryName = detectExcelLibrary(rootDir)
   if (!libraryName) {
-    console.error('Error: No xlsx library found. Install xlsx, exceljs, or read-excel-file.')
+    console.error('Error: No Excel workbook reader found. Install exceljs or read-excel-file.')
     process.exit(1)
   }
 
