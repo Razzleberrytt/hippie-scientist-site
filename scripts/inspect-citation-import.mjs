@@ -68,10 +68,10 @@ function readWorkbook(targetPath) {
   const extension = path.extname(targetPath).toLowerCase();
 
   if (extension === '.xlsx') {
-    const workbook = xlsx.readFile(targetPath, { cellDates: true });
+    const workbook = XLSX.readFile(targetPath, { cellDates: true });
     const sheets = workbook.SheetNames.map((sheetName) => {
       const sheet = workbook.Sheets[sheetName];
-      const rows = xlsx.utils.sheet_to_json(sheet, {
+      const rows = XLSX.utils.sheet_to_json(sheet, {
         header: 1,
         blankrows: false,
         defval: null,
@@ -89,14 +89,14 @@ function readWorkbook(targetPath) {
     };
   }
 
-  const workbook = xlsx.readFile(targetPath, {
+  const workbook = XLSX.readFile(targetPath, {
     type: 'string',
     raw: false,
     codepage: 65001,
   });
   const [sheetName] = workbook.SheetNames;
   const sheet = workbook.Sheets[sheetName];
-  const rows = xlsx.utils.sheet_to_json(sheet, {
+  const rows = XLSX.utils.sheet_to_json(sheet, {
     header: 1,
     blankrows: false,
     defval: null,

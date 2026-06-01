@@ -61,14 +61,14 @@ if (!fs.existsSync(WORKBOOK_PATH)) {
   fail(`Workbook not found at ${WORKBOOK_PATH}`);
 }
 
-const workbook = xlsx.readFile(WORKBOOK_PATH);
+const workbook = XLSX.readFile(WORKBOOK_PATH);
 const sheet = workbook.Sheets["Compound Master V3"];
 
 if (!sheet) {
   fail('Sheet "Compound Master V3" not found');
 }
 
-const rows = xlsx.utils.sheet_to_json(sheet, { defval: "" });
+const rows = XLSX.utils.sheet_to_json(sheet, { defval: "" });
 const skipped = [];
 
 const items = rows
