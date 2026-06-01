@@ -63,7 +63,7 @@ export const scientificCollections: ScientificCollection[] = [
       { title: 'Best-Studied Sleep Compounds', href: '/collections/best-studied-sleep-compounds', description: 'Sleep and relaxation records that often overlap with stress physiology.' },
       { title: 'GABA Pathways', href: '/pathways/gaba', description: 'Calming pathway records related to inhibitory tone and relaxation.' },
       { title: 'Stress Goal Guide', href: '/best-supplements-for-stress', description: 'Intent-oriented stress support navigation from the goal layer.' },
-      { title: 'Natural Anxiolytics', href: '/natural-anxiolytics-beyond-ashwagandha', description: 'Broader harm-aware discovery for calming botanicals beyond one headline herb.' },
+      { title: 'Natural Anxiolytics', href: '/guides/natural-anxiolytics-beyond-ashwagandha', description: 'Broader harm-aware discovery for calming botanicals beyond one headline herb.' },
     ],
   },
   {

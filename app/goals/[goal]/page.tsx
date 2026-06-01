@@ -155,6 +155,7 @@ export async function generateMetadata({
     return {
       title: `${goal.title} Evidence Engine | The Hippie Scientist`,
       description: `Review ${goalSlug} supplement claims by problem fit, evidence confidence, limitations, source links, and safety warnings.`,
+      alternates: { canonical: `/goals/${goal.slug}` },
     }
   }
 
@@ -167,6 +168,7 @@ export async function generateMetadata({
   return {
     title: `${goal.title} Guide | The Hippie Scientist`,
     description: description.slice(0, 155),
+    alternates: { canonical: `/goals/${goal.slug}` },
   }
 }
 

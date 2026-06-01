@@ -10,7 +10,7 @@ describe('evidence engine goal configs', () => {
   it('centralizes currently onboarded Evidence Engine goals', () => {
     const goals = getEvidenceEngineGoalConfigs().map((config) => config.goal)
 
-    expect(goals).toEqual(['sleep', 'stress', 'anxiety'])
+    expect(goals).toEqual(['sleep', 'stress', 'focus', 'anxiety'])
   })
 
   it('keeps problem fields and workbook sheets attached to each goal config', () => {

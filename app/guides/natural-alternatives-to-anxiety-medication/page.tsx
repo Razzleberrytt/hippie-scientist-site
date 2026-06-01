@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Natural Alternatives to Anxiety Medication | Educational Guide',
   description: 'Educational overview of supportive herbs and non-supplement routines for anxiety-related stress patterns.',
+  alternates: { canonical: '/guides/best-herbs-for-anxiety' },
 }
 
 export default function Page() {
@@ -24,7 +25,7 @@ export default function Page() {
       </section>
       <div className="flex flex-wrap gap-4">
         <Link href="/guides/best-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
-        <Link href="/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
+        <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
       </div>
     </main>
   )

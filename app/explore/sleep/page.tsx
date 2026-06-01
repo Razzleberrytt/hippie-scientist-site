@@ -66,7 +66,7 @@ const hubIntro = [
 const graphLinks = [
   { label: 'GABA pathway', href: '/pathways/gaba', description: 'Inhibitory-tone and relaxation pathway context for sleep-adjacent profiles.' },
   { label: 'Sleep goal guide', href: '/goals/sleep', description: 'Outcome-led sleep guide for comparing latency, quality, and relaxation support.' },
-  { label: 'Sleep herbs vs melatonin', href: '/sleep-herbs-vs-melatonin', description: 'Comparison cluster linking botanical sleep supports with melatonin context.' },
+  { label: 'Sleep herbs vs melatonin', href: '/guides/sleep-herbs-vs-melatonin', description: 'Comparison cluster linking botanical sleep supports with melatonin context.' },
   { label: 'Best studied sleep compounds', href: '/collections/best-studied-sleep-compounds', description: 'Collection view for sleep-related compounds with stronger evidence signals.' },
 ]
 

@@ -14,8 +14,8 @@ describe('revenue deployment placements', () => {
       const page = source(path)
 
       expect(page).toContain('EmailCapture')
-      expect(page).toContain('RecommendationSection')
-      expect(page).toContain('getRevenueProductSet')
+      expect(page).toContain('RecommendationGrid')
+      expect(page).toContain('MoneyPageCTAStack')
     }
   })
 

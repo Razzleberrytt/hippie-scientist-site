@@ -7,6 +7,25 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/natural-anxiolytics-beyond-ashwagandha',
+        destination: '/guides/natural-anxiolytics-beyond-ashwagandha',
+        permanent: true,
+      },
+      {
+        source: '/psychedelic-adjacent-herbs',
+        destination: '/guides/psychedelic-adjacent-herbs',
+        permanent: true,
+      },
+      {
+        source: '/sleep-herbs-vs-melatonin',
+        destination: '/guides/sleep-herbs-vs-melatonin',
+        permanent: true,
+      },
+    ]
+  },
   webpack: (config, { webpack }) => {
     const buildDate = new Date().toISOString().split('T')[0]
     const buildTime = new Date().toISOString()

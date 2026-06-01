@@ -12,6 +12,53 @@ import { getAffiliateShopLinks } from '@/lib/affiliate'
 type Params = { params: Promise<{ slug: string }> }
 type StackItemRecord = Record<string, any>
 type RoleGroups = { anchor: StackItemRecord[]; amplifier: StackItemRecord[]; support: StackItemRecord[] }
+type NamedStackDefinition = {
+  parentSlug: string
+  title: string
+  summary: string
+}
+
+const namedStackDefinitions: Record<string, NamedStackDefinition> = {
+  'sleep-recovery-stack': {
+    parentSlug: 'sleep',
+    title: 'Sleep Recovery Stack',
+    summary: 'A named sleep protocol built around circadian timing, neuromuscular relaxation, and bedtime wind-down support.',
+  },
+  'stress-resilience-stack': {
+    parentSlug: 'stress',
+    title: 'Stress Resilience Stack',
+    summary: 'A named stress protocol for comparing anchor adaptogens, acute calm support, and recovery-oriented timing.',
+  },
+  'calm-focus-stack': {
+    parentSlug: 'cognition',
+    title: 'Calm Focus Stack',
+    summary: 'A named cognition protocol focused on alertness, cholinergic support, and stimulation-aware focus.',
+  },
+}
+
+const categoryStackLinks: Record<string, Array<{ slug: string; title: string; description: string }>> = {
+  sleep: [
+    {
+      slug: 'sleep-recovery-stack',
+      title: 'Sleep Recovery Stack',
+      description: namedStackDefinitions['sleep-recovery-stack'].summary,
+    },
+  ],
+  stress: [
+    {
+      slug: 'stress-resilience-stack',
+      title: 'Stress Resilience Stack',
+      description: namedStackDefinitions['stress-resilience-stack'].summary,
+    },
+  ],
+  cognition: [
+    {
+      slug: 'calm-focus-stack',
+      title: 'Calm Focus Stack',
+      description: namedStackDefinitions['calm-focus-stack'].summary,
+    },
+  ],
+}
 
 const formatGoal = (value?: string) =>
   String(value || 'wellness')
@@ -57,37 +104,112 @@ function stackItemToRecord(item: StackItemRecord, herbSlugs: Set<string> = new S
 
 export async function generateStaticParams() {
   const stacks = mergeStackEcosystems(await getStacks())
-  return stacks.map(s => ({ slug: s.slug }))
+  const slugs = new Set([
+    ...stacks.map(s => s.slug),
+    ...Object.keys(namedStackDefinitions),
+  ])
+  return [...slugs].map(slug => ({ slug }))
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const stacks = mergeStackEcosystems(await getStacks())
-  const stack = stacks.find(s => s.slug === slug)
+  const namedStack = namedStackDefinitions[slug]
+  const stack = stacks.find(s => s.slug === (namedStack?.parentSlug || slug))
 
   return {
-    title: stack ? stack.title : 'Stack',
-    description: stack?.summary || 'Evidence-based supplement stack.',
+    title: namedStack?.title || (stack ? stack.title : 'Stack'),
+    description: namedStack?.summary || stack?.summary || 'Evidence-based supplement stack.',
+    alternates: { canonical: `/stacks/${slug}` },
   }
 }
 
 export default async function StackPage({ params }: Params) {
   const { slug } = await params
   const stacks = mergeStackEcosystems(await getStacks())
-  const stack = stacks.find(s => s.slug === slug)
+  const namedStack = namedStackDefinitions[slug]
+  const stack = stacks.find(s => s.slug === (namedStack?.parentSlug || slug))
   if (!stack) return notFound()
+
+  const displayTitle = namedStack?.title || stack.title
+  const displaySummary = namedStack?.summary || stack.summary || 'Stack designed from available human evidence and mechanism support.'
+  const categoryLinks = categoryStackLinks[slug] || []
+  const items: StackItemRecord[] = [...(stack.compounds || stack.stack || [])]
+  const goal = formatGoal(stackGoal(stack))
+
+  if (categoryLinks.length > 0) {
+    const overviewListJsonLd = itemListJsonLd({
+      name: displayTitle,
+      path: `/stacks/${slug}`,
+      items: categoryLinks.map(item => ({
+        name: item.title,
+        url: `/stacks/${item.slug}`,
+      })),
+    })
+
+    const overviewBreadcrumbJsonLd = breadcrumbJsonLd([
+      { name: 'Stacks', url: 'https://www.thehippiescientist.net/stacks' },
+      { name: displayTitle, url: `https://www.thehippiescientist.net/stacks/${slug}` },
+    ])
+
+    return (
+      <div className="space-y-10">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(overviewListJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(overviewBreadcrumbJsonLd) }}
+        />
+        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
+          <p className="eyebrow-label">Stack Overview</p>
+          <h1 className="heading-premium text-ink">{displayTitle}</h1>
+          <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
+            Use this category page to compare named protocols before opening the deeper stack detail.
+          </p>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-3">
+          {categoryLinks.map((item) => (
+            <Link
+              key={item.slug}
+              href={`/stacks/${item.slug}`}
+              className="card-premium p-6 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm"
+            >
+              <p className="eyebrow-label">Named stack</p>
+              <h2 className="mt-2 text-xl font-semibold text-ink">{item.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
+              <span className="mt-4 inline-flex text-sm font-bold text-brand-800">Open protocol -&gt;</span>
+            </Link>
+          ))}
+        </section>
+
+        <section className="compact-section section-rhythm-compact">
+          <p className="eyebrow-label">{goal} ingredients</p>
+          <h2 className="compact-heading">Category-level stack components</h2>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            {items.map((item, index) => (
+              <article key={`${item.compound || item.name || index}`} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
+                <h3 className="text-sm font-semibold text-ink">{item.compound || item.name || 'Stack component'}</h3>
+                <p className="mt-2 text-xs leading-5 text-muted">{item.rationale || item.role || 'Review the named protocol for context.'}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+    )
+  }
 
   const { herbRecords, allRecords } = await getUnifiedRuntimeRecords()
   const herbSlugs = new Set(herbRecords.map((h: any) => h.slug))
 
-  const items: StackItemRecord[] = [...(stack.compounds || stack.stack || [])]
   const groups = groupByRole(items)
-  const goal = formatGoal(stackGoal(stack))
   const relatedRecords = items.map(item => stackItemToRecord(item, herbSlugs)).filter((record) => record.slug)
 
   const stackListJsonLd = itemListJsonLd({
-    name: stack.title,
-    path: `/stacks/${stack.slug}`,
+    name: displayTitle,
+    path: `/stacks/${slug}`,
     items: relatedRecords.map(item => ({
       name: item.name,
       url: item.entityType === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`,
@@ -96,7 +218,10 @@ export default async function StackPage({ params }: Params) {
 
   const stackBreadcrumbJsonLd = breadcrumbJsonLd([
     { name: 'Stacks', url: 'https://www.thehippiescientist.net/stacks' },
-    { name: stack.title, url: `https://www.thehippiescientist.net/stacks/${stack.slug}` },
+    ...(namedStack
+      ? [{ name: formatGoal(namedStack.parentSlug), url: `https://www.thehippiescientist.net/stacks/${namedStack.parentSlug}` }]
+      : []),
+    { name: displayTitle, url: `https://www.thehippiescientist.net/stacks/${slug}` },
   ])
 
   // Helper to resolve affiliate fields for a stack item card
@@ -122,9 +247,9 @@ export default async function StackPage({ params }: Params) {
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <div className="space-y-5">
           <p className="eyebrow-label">Semantic Stack</p>
-          <h1 className="heading-premium text-ink">Best Supplements for {goal}</h1>
+          <h1 className="heading-premium text-ink">{namedStack ? displayTitle : `Best Supplements for ${goal}`}</h1>
           <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
-            {stack.summary || 'Stack designed from available human evidence and mechanism support.'}
+            {displaySummary}
           </p>
           <div className="flex flex-wrap gap-2">
             {[stack.primary_effect, stack.time_to_effect, stack.evidence_level].filter(Boolean).map((signal: string) => (
@@ -137,6 +262,14 @@ export default async function StackPage({ params }: Params) {
           >
             Open full stack ↓
           </Link>
+          {namedStack ? (
+            <Link
+              href={`/stacks/${namedStack.parentSlug}`}
+              className="inline-flex rounded-full border border-brand-900/10 bg-white/70 px-5 py-3 text-sm font-semibold text-brand-900 transition hover:border-brand-700/30 hover:bg-white"
+            >
+              Back to {formatGoal(namedStack.parentSlug)} overview -&gt;
+            </Link>
+          ) : null}
         </div>
       </section>
 

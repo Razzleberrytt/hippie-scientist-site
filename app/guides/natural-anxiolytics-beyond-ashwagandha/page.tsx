@@ -4,11 +4,11 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Natural Anxiolytics Beyond Ashwagandha | The Hippie Scientist',
   description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
-  alternates: { canonical: '/natural-anxiolytics-beyond-ashwagandha' },
+  alternates: { canonical: '/guides/best-herbs-for-anxiety' },
   openGraph: {
     title: 'Natural Anxiolytics Beyond Ashwagandha',
     description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
-    url: '/natural-anxiolytics-beyond-ashwagandha',
+    url: '/guides/natural-anxiolytics-beyond-ashwagandha',
   },
   twitter: {
     card: 'summary_large_image',
@@ -71,6 +71,9 @@ export default function NaturalAnxiolyticsPage() {
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
           <Link href="/herbs/ashwagandha" className="text-brand-700 hover:text-brand-800 hover:underline">
             Read Ashwagandha Profile →
+          </Link>
+          <Link href="/guides/best-herbs-for-anxiety" className="text-brand-700 hover:text-brand-800 hover:underline">
+            Best Herbs for Anxiety Guide →
           </Link>
           <Link href="/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kanna vs SSRIs Guide →

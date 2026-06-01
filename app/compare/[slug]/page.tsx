@@ -400,8 +400,8 @@ export default async function Page({ params }: Params) {
             title: 'Safety context',
             description: 'Read safety framing before trial decisions.',
             links: [
-              { href: '/sleep-herbs-vs-melatonin', label: 'Sleep safety tradeoffs' },
-              { href: '/psychedelic-adjacent-herbs', label: 'Harm-reduction herb context' },
+              { href: '/guides/sleep-herbs-vs-melatonin', label: 'Sleep safety tradeoffs' },
+              { href: '/guides/psychedelic-adjacent-herbs', label: 'Harm-reduction herb context' },
             ],
           },
           {

@@ -1,9 +1,23 @@
 import { defineConfig } from 'vitest/config'
-import react from '@vitejs/plugin-react'
+import { transformWithEsbuild } from 'vite'
 import path from 'path'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    {
+      name: 'vitest-tsx-transform',
+      enforce: 'pre',
+      async transform(code, id) {
+        if (!id.endsWith('.tsx')) return null
+
+        return transformWithEsbuild(code, id, {
+          loader: 'tsx',
+          jsx: 'automatic',
+          jsxImportSource: 'react',
+        })
+      },
+    },
+  ],
   test: {
     environment: 'jsdom',
     globals: true,

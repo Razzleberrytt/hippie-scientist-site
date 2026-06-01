@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import Link from 'next/link'
 import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
 import EmailCapture from '../../../components/EmailCapture'
 import type { Goal } from '@/data/goals'
@@ -105,6 +106,22 @@ export default function GoalDecisionExperience({
           </div>
         </div>
       </section>
+
+      {goal.slug === 'anxiety' ? (
+        <section className="rounded-2xl border border-emerald-700/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
+          <p className="eyebrow-label">Decision guide</p>
+          <h2 className="mt-2 text-xl font-semibold text-ink">Need the broader anxiety herb shortlist?</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The anxiety goal page keeps the evidence engine separate from the canonical decision guide.
+          </p>
+          <Link
+            href="/guides/best-herbs-for-anxiety"
+            className="mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900"
+          >
+            See our full evidence-based guide - Best Herbs for Anxiety
+          </Link>
+        </section>
+      ) : null}
 
       <section id={orientationId} className="card-premium p-6 sm:p-8">
         <div className="max-w-3xl">

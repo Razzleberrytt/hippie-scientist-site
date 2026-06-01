@@ -108,8 +108,8 @@ export default async function Page({ params }: LearnRouteProps) {
               title: 'Read safety context',
               description: 'Use safety-first pages before trialing new compounds.',
               links: [
-                { href: '/sleep-herbs-vs-melatonin', label: 'Sleep herbs vs melatonin' },
-                { href: '/psychedelic-adjacent-herbs', label: 'Psychedelic-adjacent herbs' },
+                { href: '/guides/sleep-herbs-vs-melatonin', label: 'Sleep herbs vs melatonin' },
+                { href: '/guides/psychedelic-adjacent-herbs', label: 'Psychedelic-adjacent herbs' },
                 { href: '/learn', label: 'Browse all learn guides' },
               ],
             },

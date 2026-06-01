@@ -4,11 +4,11 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Sleep Herbs vs Melatonin | The Hippie Scientist',
   description: 'Understand the difference between melatonin (circadian timing) and calming sleep herbs (Magnesium, L-Theanine, Valerian) for sleep routines.',
-  alternates: { canonical: '/sleep-herbs-vs-melatonin' },
+  alternates: { canonical: '/guides/sleep-herbs-vs-melatonin' },
   openGraph: {
     title: 'Sleep Herbs vs Melatonin',
     description: 'Understand the difference between melatonin (circadian timing) and calming sleep herbs (Magnesium, L-Theanine, Valerian) for sleep routines.',
-    url: '/sleep-herbs-vs-melatonin',
+    url: '/guides/sleep-herbs-vs-melatonin',
   },
   twitter: {
     card: 'summary_large_image',

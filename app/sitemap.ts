@@ -91,12 +91,6 @@ const canonicalStaticRoutes = [
   '/safety-checker',
 ]
 
-const clusterRoutes = [
-  '/natural-anxiolytics-beyond-ashwagandha',
-  '/sleep-herbs-vs-melatonin',
-  '/psychedelic-adjacent-herbs',
-]
-
 const staticGuideRoutes = [
   '/guides/best-herbs-for-stress-and-anxiety-at-night',
   '/guides/best-natural-sleep-aids-that-work',
@@ -104,9 +98,14 @@ const staticGuideRoutes = [
   '/guides/focus-without-caffeine-crash',
   '/guides/how-to-lower-cortisol-naturally',
   '/guides/magnesium-vs-melatonin',
+  '/guides/natural-anxiolytics-beyond-ashwagandha',
   '/guides/natural-alternatives-to-anxiety-medication',
+  '/guides/psychedelic-adjacent-herbs',
+  '/guides/sleep-herbs-vs-melatonin',
   '/guides/supplements-for-brain-fog-and-fatigue',
 ]
+
+const categoricalStackSlugs = new Set(['sleep', 'stress', 'cognition'])
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [herbs, runtimeCompounds] = await Promise.all([
@@ -153,10 +152,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       route(path, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
 
-    ...clusterRoutes.map((path) =>
-      route(path, { priority: 0.7, changeFrequency: 'monthly' }),
-    ),
-
     ...scientificCollections.map((collection) =>
       route(`/collections/${collection.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
     ),
@@ -174,14 +169,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
 
     ...stackSlugs.map((slug) =>
-      route(`/stacks/${slug}`, { priority: 0.65, changeFrequency: 'monthly' }),
+      route(`/stacks/${slug}`, { priority: 0.75, changeFrequency: 'weekly' }),
     ),
 
     ...stacks
       .map((stack) => cleanSlug(stack.slug))
       .filter(Boolean)
       .map((slug) =>
-        route(`/stacks/${slug}`, { priority: 0.65, changeFrequency: 'monthly' }),
+        route(`/stacks/${slug}`, {
+          priority: categoricalStackSlugs.has(slug) ? 0.6 : 0.65,
+          changeFrequency: 'monthly',
+        }),
       ),
 
     ...herbRecords.map((record) =>

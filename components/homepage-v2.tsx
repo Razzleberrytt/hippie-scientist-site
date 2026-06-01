@@ -83,7 +83,7 @@ const recommendationPreview = [
 
 const comparisonPreview = [
   {
-    href: '/sleep-herbs-vs-melatonin',
+    href: '/guides/sleep-herbs-vs-melatonin',
     title: 'Sleep herbs vs melatonin',
     desc: 'Compare wind-down support with circadian timing support.',
   },
@@ -98,12 +98,12 @@ const comparisonPreview = [
     desc: 'Compare stimulating adaptogen fit with stress-recovery fit.',
   },
   {
-    href: '/natural-anxiolytics-beyond-ashwagandha',
+    href: '/guides/natural-anxiolytics-beyond-ashwagandha',
     title: 'Beyond ashwagandha',
     desc: 'Compare calming herbs and anxiolytic tradeoffs without one-herb hype.',
   },
   {
-    href: '/psychedelic-adjacent-herbs',
+    href: '/guides/psychedelic-adjacent-herbs',
     title: 'Psychedelic-adjacent herbs',
     desc: 'Review harm-reduction boundaries and interaction warnings first.',
   },
