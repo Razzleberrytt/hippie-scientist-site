@@ -25,28 +25,30 @@ export const metadata: Metadata = {
 }
 
 export default async function Page() {
+  let featuredHerbs: any[] = []
+  let featuredCompounds: any[] = []
+
   try {
     const [herbs, compounds] = await Promise.all([
       getHerbSummaryIndex(),
       getCompoundSummaryIndex(),
     ])
 
-    const featuredHerbs = herbs
+    featuredHerbs = herbs
       .filter((item: any) => getRuntimeVisibility(item).canFeature)
       .slice(0, 3)
 
-    const featuredCompounds = compounds
+    featuredCompounds = compounds
       .filter((item: any) => getRuntimeVisibility(item).canFeature)
       .slice(0, 3)
-
-    return (
-      <HomepageV2
-        featuredHerbs={featuredHerbs}
-        featuredCompounds={featuredCompounds}
-      />
-    )
   } catch (e) {
     console.error('[homepage] Data load failed:', e)
-    return <HomepageV2 featuredHerbs={[]} featuredCompounds={[]} />
   }
+
+  return (
+    <HomepageV2
+      featuredHerbs={featuredHerbs}
+      featuredCompounds={featuredCompounds}
+    />
+  )
 }
