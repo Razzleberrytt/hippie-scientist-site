@@ -7,7 +7,7 @@ const herbsPath = path.join(root, 'public/data/herbs.json')
 const compoundsPath = path.join(root, 'public/data/compounds.json')
 const blogManifestPaths = [
   path.join(root, 'public/blogdata/index.json'),
-  path.join(root, 'src/data/blog/posts.json'),
+  path.join(root, 'data/blog/posts.json'),
 ]
 const outPath = path.join(root, 'src/generated/site-counts.json')
 

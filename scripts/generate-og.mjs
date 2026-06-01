@@ -391,7 +391,7 @@ async function loadJsonMaybe(filePath) {
 
 async function main() {
   const herbs = await loadJsonMaybe("src/data/herbs/herbs.normalized.json");
-  const posts = await loadJsonMaybe("src/data/blog/posts.json");
+  const posts = await loadJsonMaybe("data/blog/posts.json");
   const results = await generateAllOgImages({ posts, herbs });
   writeManifest();
   console.log(

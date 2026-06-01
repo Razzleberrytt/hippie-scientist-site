@@ -93,3 +93,5 @@ data-sources/*.json
 npm-audit*.json
 *.xlxs.xlsx
 site_map.md
+scratch/
+stylua.toml

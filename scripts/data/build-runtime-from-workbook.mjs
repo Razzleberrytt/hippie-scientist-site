@@ -19,6 +19,12 @@ import { getEvidenceEngineGoalConfigs, normalizeEvidenceProblemKey } from './evi
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
+const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH
+  ? Number.parseInt(process.env.SOURCE_DATE_EPOCH, 10)
+  : Number.NaN
+const deterministicUpdatedAt = Number.isFinite(sourceDateEpoch)
+  ? new Date(sourceDateEpoch * 1000).toISOString()
+  : '2026-06-01T00:00:00.000Z'
 
 const SHEETS = {
   herbs: ['Herb Master V3', 'Herb Monographs', 'Site Export Herbs'],
@@ -448,7 +454,7 @@ function buildEvidenceEngine(config, problemRows, claimRows, sourceRows, safetyR
 
   const payload = {
     goal: config.goal,
-    updatedAt: new Date().toISOString(),
+    updatedAt: deterministicUpdatedAt,
     config: {
       problemField: config.problemField,
       ...(config.config || {}),

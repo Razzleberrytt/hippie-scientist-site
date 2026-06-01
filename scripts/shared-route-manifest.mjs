@@ -578,7 +578,7 @@ function auditCollectionRoutes({ herbs, compounds, combos }) {
 }
 
 function getBlogEntries() {
-  const posts = readJson('src/data/blog/posts.json')
+  const posts = readJson('data/blog/posts.json')
   return dedupe(
     posts
       .filter(post => post?.draft !== true)

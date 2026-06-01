@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import postsData from '@/data/blog/posts.json'
+import postsData from '../data/blog/posts.json'
 import stacksData from '@/public/data/stacks.json'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
@@ -18,7 +18,7 @@ const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH
   : Number.NaN
 const buildTimestamp = Number.isFinite(sourceDateEpoch)
   ? sourceDateEpoch * 1000
-  : Date.now()
+  : Date.UTC(2026, 5, 1)
 const editorialDate = new Date(buildTimestamp)
 const MAX_SITEMAP_ROUTES = Number.parseInt(process.env.SITEMAP_MAX_ROUTES || '5000', 10)
 
@@ -76,11 +76,18 @@ function stabilizeSitemapRoutes(
 }
 
 const canonicalStaticRoutes = [
+  '/about',
+  '/affiliate-disclosure',
+  '/a-tier',
+  '/contact',
   '/compare',
+  '/disclaimer',
   '/faq',
   '/guides',
   '/learn',
   '/learn/product-quality',
+  '/methodology',
+  '/privacy',
   '/safety-checker',
 ]
 
@@ -132,7 +139,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     route('/herbs', { priority: 0.9, changeFrequency: 'weekly' }),
     route('/goals', { priority: 0.8, changeFrequency: 'weekly' }),
     route('/stacks', { priority: 0.7, changeFrequency: 'monthly' }),
-    route('/blog', { priority: 0.65, changeFrequency: 'weekly' }),
+    route('/blog', { priority: 0.8, changeFrequency: 'weekly' }),
 
     ...canonicalStaticRoutes.map((path) =>
       route(path, { priority: 0.65, changeFrequency: 'monthly' }),
@@ -197,13 +204,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .map((post) => ({
         slug: cleanSlug(post.slug),
         updatedAt: post.updatedAt || post.last_updated,
+        date: post.date,
       }))
       .filter((post) => post.slug)
       .map((post) =>
         route(`/blog/${post.slug}`, {
           lastModified: getLastModified(post),
-          priority: 0.6,
-          changeFrequency: 'monthly',
+          priority: 0.8,
+          changeFrequency: 'weekly',
         }),
       ),
   ])

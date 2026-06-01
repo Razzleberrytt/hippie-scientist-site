@@ -1,4 +1,4 @@
-import posts from '@/data/blog/posts.json'
+import posts from '../data/blog/posts.json'
 
 export type BlogPostRecord = {
   slug: string
