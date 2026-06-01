@@ -3,6 +3,12 @@ import Link from 'next/link'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
 import { buildAmazonSearchUrl, getHerbSearchLinks } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import { MoneyPageCTAStack } from '@/components/monetization/MoneyPageCTAStack'
+import { RecommendationGrid } from '@/components/monetization/RecommendationGrid'
+import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
+import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 type RecordItem = {
   slug: string
@@ -46,6 +52,11 @@ export default async function Page() {
         <p className='mt-3 text-sm text-muted'>Use this page to separate short-lift options from recovery-oriented options. Fatigue stacks usually work better when matched to pattern, not hype.</p>
       </section>
 
+      <div className='grid gap-4 lg:grid-cols-[1.1fr_0.9fr]'>
+        <TrustMethodologyCallout />
+        <SafetyDisclaimerBox compact />
+      </div>
+
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
         <p className='mt-3 text-sm leading-6 text-muted'>
@@ -76,6 +87,8 @@ export default async function Page() {
         </ul>
       </section>
 
+      <MoneyPageCTAStack goal='fatigue' />
+
       <section className='grid gap-4'>
         {picks.map((item, index) => (
           <article key={`${item.kind}-${item.slug}`} className='card-premium p-6'>
@@ -90,12 +103,38 @@ export default async function Page() {
         ))}
       </section>
 
+      <div className='space-y-3'>
+        <AffiliateDisclosure variant='compact' />
+        <section className='card-premium p-6'>
+          <h2 className='text-2xl font-semibold text-ink'>Fatigue-support recommendation cards</h2>
+          <p className='mt-3 text-sm leading-7 text-muted'>
+            Fatigue can be medical. These cards help compare supplement categories, but persistent, severe, new, or unexplained fatigue deserves evaluation before stimulant stacking or self-treatment.
+          </p>
+          <RecommendationGrid goal='fatigue' className='mt-6' />
+        </section>
+      </div>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to choose cautiously</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
+          <li>Separate short-term alertness from recovery-oriented support.</li>
+          <li>Be cautious with caffeine, rhodiola, tyrosine, and other stimulating combinations.</li>
+          <li>Consider medical contributors such as sleep disruption, anemia, thyroid issues, infection recovery, medication effects, or sleep apnea.</li>
+          <li>Ask a clinician if fatigue is persistent, severe, new, worsening, or impairing daily function.</li>
+        </ul>
+      </section>
+
+      <EmailCaptureBox goal='fatigue' variant='wide' />
+
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related guides</h2>
         <div className='mt-4 flex flex-wrap gap-4'>
           <Link href='/top/focus' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for focus</Link>
           <Link href='/top/best-supplements-for-brain-fog' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
           <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
+          <Link href='/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
+          <Link href='/affiliate-disclosure' className='text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
+          <Link href='/free-guide' className='text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
         </div>
       </section>
     </main>

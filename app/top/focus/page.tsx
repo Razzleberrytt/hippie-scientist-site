@@ -4,9 +4,11 @@ import { getCompounds } from '@/lib/runtime-data'
 import { buildAmazonSearchUrl } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import EmailCapture from '@/components/EmailCapture'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
+import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import { MoneyPageCTAStack } from '@/components/monetization/MoneyPageCTAStack'
+import { RecommendationGrid } from '@/components/monetization/RecommendationGrid'
+import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
+import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 type CompoundRecord = {
   slug: string
@@ -40,10 +42,6 @@ export const metadata: Metadata = {
 export default async function FocusPage() {
   const compounds = (await getCompounds()) as CompoundRecord[]
   const ranked = compounds.sort((a, b) => scoreFor(b) - scoreFor(a)).slice(0, 12)
-  const revenueProducts = ['l-theanine', 'lions-mane']
-    .map(slug => getRevenueProductSet(slug))
-    .filter((set): set is NonNullable<typeof set> => Boolean(set))
-    .flatMap(set => set.products)
 
   return (
     <main className='container-page py-10 space-y-8'>
@@ -57,6 +55,11 @@ export default async function FocusPage() {
           For beginners: separate short-term alertness tools from longer-horizon support. A useful stack decision is often about tradeoffs (speed vs steadiness), not just “strongest” effect.
         </p>
       </section>
+
+      <div className='grid gap-4 lg:grid-cols-[1.1fr_0.9fr]'>
+        <TrustMethodologyCallout />
+        <SafetyDisclaimerBox compact />
+      </div>
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
@@ -91,6 +94,8 @@ export default async function FocusPage() {
         </ul>
       </section>
 
+      <MoneyPageCTAStack goal='focus' />
+
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {ranked.map((c, i) => (
           <div key={c.slug} className='card-premium p-6 flex flex-col justify-between'>
@@ -107,26 +112,37 @@ export default async function FocusPage() {
         ))}
       </div>
 
-      <EmailCapture
-        headline='Get the focus supplement shortlist'
-        description='Occasional notes on focus-support evidence, stimulant tradeoffs, safety context, and product-quality checks.'
-        location='top-focus'
-      />
-
       <div className='space-y-3'>
-        <AffiliateDisclosure />
-        <RecommendationSection
-          title='Focus-support product picks'
-          description='Affiliate recommendations for common focus-support compounds. Review safety, dose, and product quality before buying.'
-          products={revenueProducts}
-        />
+        <AffiliateDisclosure variant='compact' />
+        <section className='card-premium p-6'>
+          <h2 className='text-2xl font-semibold text-ink'>Focus-support recommendation cards</h2>
+          <p className='mt-3 text-sm leading-7 text-muted'>
+            These cards separate stimulant-forward options from steadier support. Watch total caffeine load, anxiety sensitivity, sleep timing, and any stimulant medication context.
+          </p>
+          <RecommendationGrid goal='focus' className='mt-6' />
+        </section>
       </div>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to choose cautiously</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
+          <li>Decide whether you need fast alertness, calmer concentration, or baseline energy support.</li>
+          <li>Avoid casual stimulant stacking, especially with high caffeine intake, anxiety sensitivity, or stimulant medications.</li>
+          <li>Do not use focus supplements to push through sleep deprivation indefinitely.</li>
+          <li>Ask a clinician when focus problems are new, severe, paired with mood symptoms, or medication-related.</li>
+        </ul>
+      </section>
+
+      <EmailCaptureBox goal='focus' variant='wide' />
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related guides</h2>
         <div className='mt-4 flex flex-wrap gap-4'>
           <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
           <Link href='/top/sleep' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for sleep</Link>
+          <Link href='/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
+          <Link href='/affiliate-disclosure' className='text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
+          <Link href='/free-guide' className='text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
         </div>
       </section>
     </main>

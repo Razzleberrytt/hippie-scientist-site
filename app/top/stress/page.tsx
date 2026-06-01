@@ -4,9 +4,11 @@ import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import EmailCapture from '@/components/EmailCapture'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
+import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import { MoneyPageCTAStack } from '@/components/monetization/MoneyPageCTAStack'
+import { RecommendationGrid } from '@/components/monetization/RecommendationGrid'
+import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
+import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 type HerbRecord = {
   slug: string
@@ -69,10 +71,6 @@ export const metadata: Metadata = {
 export default async function StressPage() {
   const herbs = (await getHerbs()) as HerbRecord[]
   const ranked = herbs.filter(matchesGoal).sort((a, b) => scoreFor(b) - scoreFor(a)).slice(0, 12)
-  const revenueProducts = ['ashwagandha', 'rhodiola', 'l-theanine']
-    .map(slug => getRevenueProductSet(slug))
-    .filter((set): set is NonNullable<typeof set> => Boolean(set))
-    .flatMap(set => set.products)
 
   return (
     <main className='container-page py-10 space-y-8'>
@@ -86,6 +84,11 @@ export default async function StressPage() {
           Practical use: treat this page as a shortlist builder. The right fit often depends on whether stress shows up as tension, fatigue, or sleep disruption.
         </p>
       </section>
+
+      <div className='grid gap-4 lg:grid-cols-[1.1fr_0.9fr]'>
+        <TrustMethodologyCallout />
+        <SafetyDisclaimerBox compact />
+      </div>
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
@@ -120,6 +123,8 @@ export default async function StressPage() {
         </ul>
       </section>
 
+      <MoneyPageCTAStack goal='stress' />
+
       <section className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
         {ranked.map((herb, index) => {
           const label = titleFor(herb)
@@ -142,20 +147,28 @@ export default async function StressPage() {
         })}
       </section>
 
-      <EmailCapture
-        headline='Get the stress supplement shortlist'
-        description='Occasional notes on stress-support evidence, adaptogen tradeoffs, safety context, and product-quality checks.'
-        location='top-stress'
-      />
-
       <div className='space-y-3'>
-        <AffiliateDisclosure />
-        <RecommendationSection
-          title='Stress-support product picks'
-          description='Affiliate recommendations for common stress-support compounds. Review safety, dose, and product quality before buying.'
-          products={revenueProducts}
-        />
+        <AffiliateDisclosure variant='compact' />
+        <section className='card-premium p-6'>
+          <h2 className='text-2xl font-semibold text-ink'>Stress-support recommendation cards</h2>
+          <p className='mt-3 text-sm leading-7 text-muted'>
+            These category-level cards are not a replacement for mental health care. Be cautious with sedatives, alcohol, medications, and any supplement that changes alertness or mood.
+          </p>
+          <RecommendationGrid goal='stress' className='mt-6' />
+        </section>
       </div>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to choose cautiously</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
+          <li>Match the option to the pattern: acute tension, evening calm, stress-linked fatigue, or long-running load.</li>
+          <li>Do not use supplements to replace appropriate therapy, crisis support, or prescribed care.</li>
+          <li>Avoid casual combinations with sedatives, alcohol, or medications that affect mood, sleep, or alertness.</li>
+          <li>Ask a clinician when symptoms are severe, persistent, worsening, or paired with medication or health-condition complexity.</li>
+        </ul>
+      </section>
+
+      <EmailCaptureBox goal='stress' variant='wide' />
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related natural wellness guides</h2>
@@ -163,6 +176,9 @@ export default async function StressPage() {
           <Link href='/top/sleep' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Best herbs for sleep</Link>
           <Link href='/top/focus' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Best supplements for focus</Link>
           <Link href='/herbs' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Browse all herbs</Link>
+          <Link href='/methodology' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
+          <Link href='/affiliate-disclosure' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
+          <Link href='/free-guide' className='block rounded-2xl border border-brand-900/10 p-4 hover:bg-stone-50/50 text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
         </div>
       </section>
     </main>

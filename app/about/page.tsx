@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import AffiliateDisclosure from '../../components/AffiliateDisclosure'
 import EmailCapture from '../../components/EmailCapture'
+import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
+import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 export const metadata: Metadata = {
   title: { absolute: 'About The Hippie Scientist | Evidence-First Supplement Research' },
@@ -47,8 +49,17 @@ export default function AboutPage() {
           >
             Goal guides
           </Link>
+
+          <Link
+            href='/methodology'
+            className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'
+          >
+            Methodology
+          </Link>
         </div>
       </section>
+
+      <TrustMethodologyCallout title='What the site is and is not' />
 
       <section className='grid gap-6 lg:grid-cols-[1.1fr_0.9fr]'>
         <article className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-8'>
@@ -107,12 +118,7 @@ export default function AboutPage() {
         location='about'
       />
 
-      <section className='rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950'>
-        <p className='font-semibold'>Medical disclaimer</p>
-        <p className='mt-1'>
-          All content on this site is educational. It is not intended as medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional before making decisions about supplements, medications, or health interventions.
-        </p>
-      </section>
+      <SafetyDisclaimerBox />
     </div>
   )
 }

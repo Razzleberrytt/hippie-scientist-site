@@ -4,9 +4,11 @@ import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import EmailCapture from '@/components/EmailCapture'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
+import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import { MoneyPageCTAStack } from '@/components/monetization/MoneyPageCTAStack'
+import { RecommendationGrid } from '@/components/monetization/RecommendationGrid'
+import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
+import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 type SleepHerb = {
   slug: string
@@ -70,10 +72,6 @@ export default async function TopSleepPage() {
     })
 
   const topThree = ranked.slice(0, 3)
-  const revenueProducts = ['magnesium', 'l-theanine']
-    .map(slug => getRevenueProductSet(slug))
-    .filter((set): set is NonNullable<typeof set> => Boolean(set))
-    .flatMap(set => set.products)
 
   return (
     <main className='container-page py-10 space-y-8'>
@@ -87,6 +85,11 @@ export default async function TopSleepPage() {
           Quick framing: most options are better understood as “sleep context” tools (wind-down, calm, stress load) rather than direct insomnia treatments.
         </p>
       </section>
+
+      <div className='grid gap-4 lg:grid-cols-[1.1fr_0.9fr]'>
+        <TrustMethodologyCallout />
+        <SafetyDisclaimerBox compact />
+      </div>
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>How to use this ranking responsibly</h2>
@@ -109,6 +112,9 @@ export default async function TopSleepPage() {
           <Link href='/compare/ashwagandha-vs-rhodiola' className='text-sm font-medium text-emerald-700 hover:underline'>Ashwagandha vs Rhodiola</Link>
           <Link href='/top/stress' className='text-sm font-medium text-emerald-700 hover:underline'>Best herbs for stress</Link>
           <Link href='/top/focus' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for focus</Link>
+          <Link href='/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
+          <Link href='/affiliate-disclosure' className='text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
+          <Link href='/free-guide' className='text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
         </div>
       </section>
 
@@ -120,6 +126,8 @@ export default async function TopSleepPage() {
           <li>Keep timing and next-day grogginess in mind when comparing options.</li>
         </ul>
       </section>
+
+      <MoneyPageCTAStack goal='sleep' />
 
       <section>
         <h2 className='text-2xl font-semibold text-ink'>Top 3 Herbs</h2>
@@ -145,20 +153,28 @@ export default async function TopSleepPage() {
         </div>
       </section>
 
-      <EmailCapture
-        headline='Get the sleep supplement shortlist'
-        description='Occasional notes on sleep-support evidence, timing, safety context, and product-quality checks.'
-        location='top-sleep'
-      />
-
       <div className='space-y-3'>
-        <AffiliateDisclosure />
-        <RecommendationSection
-          title='Sleep-support product picks'
-          description='Affiliate recommendations for common sleep-support compounds. Review safety, dose, and product quality before buying.'
-          products={revenueProducts}
-        />
+        <AffiliateDisclosure variant='compact' />
+        <section className='card-premium p-6'>
+          <h2 className='text-2xl font-semibold text-ink'>Sleep-support recommendation cards</h2>
+          <p className='mt-3 text-sm leading-7 text-muted'>
+            These are category-level sourcing paths, not promises to treat insomnia. Compare next-day grogginess risk, sedative combinations, alcohol use, pregnancy or nursing status, and medication context before buying.
+          </p>
+          <RecommendationGrid goal='sleep' className='mt-6' />
+        </section>
       </div>
+
+      <section className='card-premium p-6'>
+        <h2 className='text-xl font-semibold text-ink'>How to choose cautiously</h2>
+        <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
+          <li>Start with the sleep pattern: wind-down difficulty, stress spillover, or schedule disruption need different tools.</li>
+          <li>Be cautious with sedatives, alcohol, next-day driving or work demands, and any medication that affects alertness.</li>
+          <li>Do not combine several calming products casually; one change at a time makes response and side effects easier to read.</li>
+          <li>Ask a clinician if sleep problems are persistent, severe, worsening, or tied to pregnancy, nursing, or a health condition.</li>
+        </ul>
+      </section>
+
+      <EmailCaptureBox goal='sleep' variant='wide' />
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related guides</h2>
