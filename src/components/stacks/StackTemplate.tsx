@@ -1,4 +1,10 @@
 import Link from 'next/link'
+import { AFFILIATE_TAGS } from '@/config/affiliate'
+
+function buildStackAmazonUrl(name: string) {
+  const encoded = encodeURIComponent(`${name} supplement third party tested`)
+  return `https://www.amazon.com/s?k=${encoded}&tag=${AFFILIATE_TAGS.amazon}`
+}
 
 export default function StackTemplate({
   title,
@@ -40,12 +46,25 @@ export default function StackTemplate({
                   {record.summary}
                 </p>
 
-                <Link
-                  href={`/${record.entityType}s/${record.slug}`}
-                  className="button-secondary inline-flex rounded-full px-4 py-2 text-sm"
-                >
-                  View Profile
-                </Link>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Link
+                    href={`/${record.entityType}s/${record.slug}`}
+                    className="button-secondary inline-flex rounded-full px-4 py-2 text-sm"
+                  >
+                    View Profile
+                  </Link>
+                  <a
+                    href={buildStackAmazonUrl(record.name)}
+                    target="_blank"
+                    rel="nofollow sponsored noopener noreferrer"
+                    className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-800 transition hover:bg-emerald-100"
+                  >
+                    Shop on Amazon →
+                  </a>
+                </div>
+                <p className="text-[0.65rem] text-muted">
+                  Affiliate link · We may earn a commission at no cost to you
+                </p>
               </div>
             </article>
           ))}

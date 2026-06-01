@@ -10639,7 +10639,7 @@
   {
     "slug": "eleuthero",
     "name": "Eleuthero",
-    "summary": "Stress resilience.",
+    "summary": "Eleuthero (Siberian ginseng) is an adaptogenic root used to support stress resilience and physical endurance. It modulates HPA axis activity and influences cortisol and catecholamine signaling. Human trials report reduced fatigue and improved cognitive performance under stress conditions, particularly in shift workers and athletes.",
     "description": "Stress resilience.",
     "effects": [
       "stress"
@@ -10742,7 +10742,7 @@
     "indexability_reasons": [],
     "meta_title": "",
     "meta_description": "",
-    "safety": "Generally well tolerated for most users.",
+    "safety": "Generally well tolerated. May interact with anticoagulants (warfarin) and immunosuppressants. Avoid combining with stimulants or digoxin. Not recommended during pregnancy without medical supervision.",
     "sources": []
   },
   {
@@ -16911,7 +16911,7 @@
   {
     "slug": "hericium-erinaceus",
     "name": "Lion's Mane",
-    "summary": "NGF stimulation.",
+    "summary": "Lion's Mane (Hericium erinaceus) is a culinary-medicinal mushroom that stimulates Nerve Growth Factor (NGF) synthesis via hericenones and erinacines. Human RCTs demonstrate cognitive improvements in older adults with mild cognitive impairment, and emerging data support mood and nerve regeneration applications.",
     "description": "NGF stimulation.",
     "effects": [
       "cognitive"
@@ -16994,7 +16994,7 @@
     "indexability_reasons": [],
     "meta_title": "",
     "meta_description": "",
-    "safety": "Generally well tolerated for most users.",
+    "safety": "Generally well tolerated. Rare cases of allergic reactions, particularly in individuals with mushroom sensitivities. Use caution if immunocompromised.",
     "sources": []
   },
   {
@@ -24015,7 +24015,7 @@
   {
     "slug": "reishi",
     "name": "Reishi (Ganoderma lucidum)",
-    "summary": "Immune modulation.",
+    "summary": "Reishi (Ganoderma lucidum) is a medicinal mushroom used across East Asian traditions for immune regulation and adaptogenic support. Its beta-glucan polysaccharides and triterpenes (ganoderic acids) modulate innate and adaptive immunity, NK cell activity, and inflammatory signaling. Clinical evidence supports immunomodulatory effects; sleep and fatigue data are emerging.",
     "description": "Immune modulation.",
     "effects": [
       "sleep",
@@ -24116,7 +24116,7 @@
     "indexability_reasons": [],
     "meta_title": "",
     "meta_description": "",
-    "safety": "Generally well tolerated for most users.",
+    "safety": "Generally well tolerated at standard doses. Mild gastrointestinal effects possible. Use caution with anticoagulant medications and in patients with low platelet counts. Discontinue 2 weeks before surgery.",
     "sources": []
   },
   {
@@ -25488,7 +25488,7 @@
   {
     "slug": "schisandra",
     "name": "Schisandra (Schisandra chinensis)",
-    "summary": "Liver + stress.",
+    "summary": "Schisandra (Schisandra chinensis) is a five-flavor berry used in TCM as an adaptogen and liver tonic. Its primary lignans (schisandrin A/B/C) support hepatocyte detoxification via CYP450 modulation and exhibit antioxidant activity. Human data support mild stress reduction and liver enzyme normalization in hepatitis populations.",
     "description": "Liver + stress.",
     "effects": [
       "stress"
@@ -25584,7 +25584,7 @@
     "indexability_reasons": [],
     "meta_title": "",
     "meta_description": "",
-    "safety": "Generally well tolerated for most users.",
+    "safety": "Generally well tolerated. Use caution during pregnancy — traditional use is limited in first trimester. May affect CYP3A4 and P-glycoprotein activity; caution with medications cleared by those pathways.",
     "sources": []
   },
   {
@@ -26313,7 +26313,7 @@
   {
     "slug": "scutellaria-lateriflora",
     "name": "Skullcap",
-    "summary": "GABAergic.",
+    "summary": "American Skullcap (Scutellaria lateriflora) is a North American herb whose flavones (baicalin, scutellarein) act on GABA-A receptors and inhibit monoamine oxidase B at higher concentrations. Small double-blind trials show reduced anxiety without sedation at doses of 100–350 mg. It is distinct from Chinese skullcap (S. baicalensis), though adulteration between species is a sourcing concern.",
     "description": "GABAergic.",
     "effects": [
       "sleep",
@@ -26403,7 +26403,7 @@
     "indexability_reasons": [],
     "meta_title": "",
     "meta_description": "",
-    "safety": "Generally well tolerated for most users.",
+    "safety": "Generally well tolerated. Product adulteration with germander (Teucrium spp.) has been linked to hepatotoxicity in isolated cases — purchase from verified, third-party-tested sources. Mild sedative effects at high doses; caution when driving.",
     "sources": []
   },
   {
@@ -26814,7 +26814,7 @@
   {
     "slug": "st-johns-wort",
     "name": "St. John's Wort (Hypericum perforatum)",
-    "summary": "St.",
+    "summary": "St. John's Wort (Hypericum perforatum) is a yellow-flowered herb with well-studied antidepressant effects for mild-to-moderate depression. Its active constituents (hypericin, hyperforin) inhibit reuptake of serotonin, dopamine, and norepinephrine. Multiple meta-analyses confirm efficacy comparable to low-dose SSRIs for mild depression, with fewer side effects in that population.",
     "description": "St. John's wort centers on the flowering tops.",
     "effects": [
       "stress"
@@ -26904,7 +26904,7 @@
     "indexability_reasons": [],
     "meta_title": "",
     "meta_description": "",
-    "safety": "Generally well tolerated for most users.",
+    "safety": "Clinically significant drug interactions via CYP3A4 and CYP2C9 induction. Can substantially reduce blood levels of oral contraceptives, warfarin, cyclosporine, antiretrovirals, and many other medications. Do not combine with SSRIs or other serotonergic drugs due to serotonin syndrome risk. Photosensitivity reported at high doses. Consult a clinician before use if taking any prescription medications.",
     "sources": []
   },
   {
@@ -28293,7 +28293,7 @@
   {
     "slug": "turkey-tail",
     "name": "Turkey Tail",
-    "summary": "Immune modulation.",
+    "summary": "Turkey Tail (Trametes versicolor) is a shelf mushroom yielding two extensively studied polysaccharopeptides: PSK (krestin) and PSP. These compounds stimulate NK cells, macrophages, and T-cell activity, and PSK is approved in Japan as an adjunct cancer immunotherapy. Human evidence for standalone immune support in healthy populations is limited but supportive.",
     "description": "Immune modulation.",
     "effects": [
       "immune"
@@ -28388,7 +28388,7 @@
     "indexability_reasons": [],
     "meta_title": "",
     "meta_description": "",
-    "safety": "Generally well tolerated for most users.",
+    "safety": "Well tolerated in clinical trials at doses up to 9 g/day. Mild gastrointestinal effects at high doses. No significant drug interactions established. Use caution in severely immunocompromised individuals without medical supervision.",
     "sources": []
   },
   {
