@@ -16,7 +16,7 @@ const popularComparisonPairs = [
   { label: 'Kava vs Alcohol', href: '/compare/kava-vs-alcohol' },
   { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },
   { label: 'L-Theanine vs Magnesium', href: '/compare/l-theanine-vs-magnesium' },
-  { label: 'Sleep herbs vs Melatonin', href: '/sleep-herbs-vs-melatonin' },
+  { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin' },
   { label: 'Dynamic comparison matrix', href: '/compare/dynamic' },
 ]
 

@@ -70,7 +70,13 @@ export default async function CompoundsPage() {
         </ul>
       </nav>
 
-      <Suspense fallback={null}>
+      <Suspense fallback={
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <div key={i} className="animate-pulse rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm h-32" />
+          ))}
+        </div>
+      }>
         <CompoundsIndexClient compounds={compounds} />
       </Suspense>
     </div>

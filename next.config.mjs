@@ -4,6 +4,9 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
   webpack: (config, { webpack }) => {
     const buildDate = new Date().toISOString().split('T')[0]
     const buildTime = new Date().toISOString()

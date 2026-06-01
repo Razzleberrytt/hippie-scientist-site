@@ -10,7 +10,7 @@
     "dev": "next dev --turbo",
     "dev:watch": "nodemon --watch . --exec \"npm run dev\"",
     "start": "next start",
-    "build:fast": "node scripts/build-blog.mjs && node scripts/build-production.mjs",
+    "build:fast": "node scripts/build-blog.mjs && node scripts/validate-data-files.mjs && node scripts/build-production.mjs",
     "check": "npm run check:fast",
     "check:fast": "tsc --noEmit && eslint . --max-warnings=0 && node scripts/build-blog.mjs && node scripts/build-production.mjs",
     "test": "vitest run",
@@ -38,7 +38,7 @@
     "typecheck": "tsc --noEmit",
     "verify:types": "npm run typecheck",
     "lint": "eslint . --max-warnings=0",
-    "build": "node scripts/build-blog.mjs && node scripts/ci/validate-workbook-source.mjs && node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/validate-sleep-evidence-engine.mjs --data-dir=public/data && node scripts/data/postprocess-workbook-payloads.mjs && node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data && node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data && node scripts/data/build-route-manifest.mjs --data-dir=public/data && node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data && node scripts/data/build-export-batches.mjs --data-dir=public/data && node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data && node scripts/data/validate-data-next.mjs && node scripts/ci/semantic-governance-check.mjs && node scripts/ci/report-semantic-scale-summary.mjs && node scripts/data/verify-workbook-only-path.mjs && node scripts/build-production.mjs && node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && node scripts/ci/validate-static-export-compatibility.mjs && node scripts/ci/validate-public-json-imports.mjs && node scripts/ci/validate-quarantine-imports.mjs && node scripts/ci/validate-direct-dependencies.mjs && node scripts/ci/validate-xlsx-boundary.mjs && node scripts/ci/validate-security-headers.mjs && node scripts/data/verify-generated-data.mjs && node scripts/ci/validate-build-seo-metadata.mjs && node scripts/ci/validate-safety-enums.mjs && node scripts/ci/audit-metadata-duplicates.mjs && node scripts/ci/audit-internal-links.mjs && node scripts/ci/audit-structured-data.mjs && node scripts/ci/audit-seo-routes.mjs",
+    "build": "node scripts/build-blog.mjs && node scripts/ci/validate-workbook-source.mjs && node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/validate-sleep-evidence-engine.mjs --data-dir=public/data && node scripts/data/postprocess-workbook-payloads.mjs && node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data && node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data && node scripts/data/build-route-manifest.mjs --data-dir=public/data && node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data && node scripts/data/build-export-batches.mjs --data-dir=public/data && node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data && node scripts/data/validate-data-next.mjs && node scripts/ci/semantic-governance-check.mjs && node scripts/ci/report-semantic-scale-summary.mjs && node scripts/data/verify-workbook-only-path.mjs && node scripts/validate-data-files.mjs && node scripts/build-production.mjs && node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && node scripts/ci/validate-static-export-compatibility.mjs && node scripts/ci/validate-public-json-imports.mjs && node scripts/ci/validate-quarantine-imports.mjs && node scripts/ci/validate-direct-dependencies.mjs && node scripts/ci/validate-xlsx-boundary.mjs && node scripts/ci/validate-security-headers.mjs && node scripts/data/verify-generated-data.mjs && node scripts/ci/validate-build-seo-metadata.mjs && node scripts/ci/validate-safety-enums.mjs && node scripts/ci/audit-metadata-duplicates.mjs && node scripts/ci/audit-internal-links.mjs && node scripts/ci/audit-structured-data.mjs && node scripts/ci/audit-seo-routes.mjs",
     "verify:build": "node scripts/verify-core-routes.mjs && node scripts/verify-redirects.mjs && node scripts/ci/validate-deploy-readiness.mjs && node scripts/ci/validate-static-export-compatibility.mjs && node scripts/ci/validate-public-json-imports.mjs && node scripts/ci/validate-quarantine-imports.mjs && node scripts/ci/validate-direct-dependencies.mjs && node scripts/ci/validate-xlsx-boundary.mjs && node scripts/ci/validate-security-headers.mjs && node scripts/data/verify-generated-data.mjs && node scripts/ci/validate-build-seo-metadata.mjs && node scripts/ci/validate-safety-enums.mjs && node scripts/ci/audit-metadata-duplicates.mjs && node scripts/ci/audit-internal-links.mjs && node scripts/ci/audit-structured-data.mjs && node scripts/ci/audit-seo-routes.mjs",
     "data:verify": "node scripts/data/verify-generated-data.mjs",
     "validate:workbook-source": "node scripts/ci/validate-workbook-source.mjs",
@@ -69,13 +69,12 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.298.0",
     "next": "^15.5.18",
-    "openai": "^4.104.0",
     "react": "^18.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "slugify": "^1.6.6",
     "sonner": "^2.0.7",
-    "zustand": "4.5.2"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
@@ -106,6 +105,7 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.59.1",
     "vitest": "4.1.7",
+    "openai": "^4.104.0",
     "wrangler": "^4.93.0",
     "xlsx": "^0.18.5",
     "zod": "^3.23.8"

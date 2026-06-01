@@ -6,9 +6,12 @@ import MobileNav from './mobile-nav'
 import '../styles/navbar.css'
 
 const navLinks = [
+  { href: '/herbs', label: 'Herbs' },
+  { href: '/compounds', label: 'Compounds' },
   { href: '/goals', label: 'Goals' },
   { href: '/guides', label: 'Guides' },
   { href: '/compare', label: 'Compare' },
+  { href: '/stacks', label: 'Stacks' },
   { href: '/safety-checker', label: 'Safety' },
   { href: '/learn', label: 'Learn' },
 ]
