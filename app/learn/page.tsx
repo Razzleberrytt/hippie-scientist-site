@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Supplement Education Hub',
   description:
     'No hype, no marketing. Learn how to read supplement claims, evaluate evidence, compare adaptogens, nootropics, and herbs, and build safer stacks.',
-  alternates: { canonical: '/learn' },
+  alternates: { canonical: '/education' },
   openGraph: {
     title: 'Learn Supplement Science and Safety Basics',
     description:
       'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
-    url: '/learn',
+    url: '/education',
   },
   twitter: {
     card: 'summary_large_image',
@@ -26,15 +26,15 @@ import EducationSupernodeGrid from '@/components/education/education-supernode-g
 const educationHubs = [
   {
     title: 'Product quality before buying',
-    href: '/learn/product-quality',
+    href: '/education/product-quality',
   },
   {
     title: 'Adaptogens without hype',
-    href: '/learn/adaptogens-explained-without-hype',
+    href: '/education/adaptogens-explained-without-hype',
   },
   {
     title: 'Cognitive stack basics',
-    href: '/learn/cognitive-stack-that-actually-makes-sense',
+    href: '/education/cognitive-stack-that-actually-makes-sense',
   },
 ]
 
@@ -48,19 +48,19 @@ const startHereCards = [
   {
     title: 'Learn how to read evidence',
     body: 'Use the glossary and evidence guides to check study quality, dosing context, and what is still uncertain.',
-    href: '/learn/adaptogens-explained-without-hype',
+    href: '/education/adaptogens-explained-without-hype',
     cta: 'Learn how to read evidence',
   },
   {
     title: 'Understand safety and tradeoffs',
     body: 'Supplement effects vary between individuals. Review medications, sensitivity, sleep impact, and product quality before trying anything.',
-    href: '/learn/adaptogens-explained-without-hype',
+    href: '/education/adaptogens-explained-without-hype',
     cta: 'Understand safety and tradeoffs',
   },
   {
     title: 'Compare before stacking',
     body: 'Compare single herbs and compounds first, then build a stack only when each piece has a clear purpose.',
-    href: '/learn/cognitive-stack-that-actually-makes-sense',
+    href: '/education/cognitive-stack-that-actually-makes-sense',
     cta: 'Compare before stacking',
   },
 ]
@@ -77,14 +77,14 @@ const supernodes = [
     title: 'Neuroplasticity and Learning',
     description:
       'How memory, attention, repetition, sleep, and adaptation shape learning over time without reducing everything to hype.',
-    href: '/learn/cognitive-stack-that-actually-makes-sense',
+    href: '/education/cognitive-stack-that-actually-makes-sense',
     category: 'Cognition Systems',
   },
   {
     title: 'Adaptogens and Recovery',
     description:
       'A careful look at adaptogens, stress signaling, fatigue, resilience claims, and where the evidence still has limits.',
-    href: '/learn/adaptogens-explained-without-hype',
+    href: '/education/adaptogens-explained-without-hype',
     category: 'Stress Physiology',
   },
   {
@@ -207,7 +207,7 @@ export default function LearnPage() {
           {learnPosts.map(post => (
             <Link
               key={post.slug}
-              href={`/learn/${post.slug}`}
+              href={`/education/${post.slug}`}
               className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:shadow-sm'
             >
               <p className='text-xs uppercase tracking-[0.16em] text-muted'>

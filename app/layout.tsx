@@ -122,7 +122,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <h2 className='font-semibold text-ink'>Tools</h2>
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/safety-checker' className='text-muted hover:text-ink transition'>Safety Interaction Checker</Link>
-                    <Link href='/learn/product-quality' className='text-muted hover:text-ink transition'>Product Quality Guide</Link>
+                    <Link href='/education/product-quality' className='text-muted hover:text-ink transition'>Product Quality Guide</Link>
                     <Link href='/dosing' className='text-muted hover:text-ink transition'>Dosing Guide</Link>
                   </div>
                   <h2 className='mt-4 font-semibold text-ink'>Legal &amp; Transparency</h2>

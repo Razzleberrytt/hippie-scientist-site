@@ -106,11 +106,11 @@ export default function KannaVsSSRIsPage() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/pathways/serotonin" className="chip-readable">
+          <Link href="/education/serotonin" className="chip-readable">
             Serotonin Pathway
           </Link>
 
-          <Link href="/psychoactive/serotonergic-stacking-risks" className="chip-readable">
+          <Link href="/about/psychoactives/serotonergic-stacking-risks" className="chip-readable">
             Serotonergic Risks
           </Link>
         </div>

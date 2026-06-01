@@ -16,9 +16,9 @@
 /top/top-3-herbs-for-stress /guides/best-supplements-for-stress 301
 /top/top-3-herbs-for-anxiety /guides/best-herbs-for-anxiety 301
 /top/best-herbs-for-cortisol /guides/how-to-lower-cortisol-naturally 301
-/buy-guide /learn/product-quality 301
-/compare/sourcing /learn/product-quality 301
-/sourcing/substitution /learn/product-quality 301
+/buy-guide /education/product-quality 301
+/compare/sourcing /education/product-quality 301
+/sourcing/substitution /education/product-quality 301
 /sleep-supplements /guides/best-supplements-for-sleep 301
 /stress-supplements /guides/best-supplements-for-stress 301
 /cognition-supplements /guides/best-nootropics-for-focus 301
@@ -35,3 +35,27 @@
 /best/brain-fog /guides/supplements-for-brain-fog-and-fatigue 301
 /best/best-supplements-for-focus /guides/best-supplements-for-focus 301
 /best/non-melatonin-sleep /guides/best-supplements-for-sleep 301
+# NEW REDIRECTS - ROUTE CONSOLIDATION AUDIT (June 1, 2026)
+/learn/ /education/ 301
+/learn/* /education/:splat 301
+/comparisons/* /compare/:splat 301
+/start /start-here/ 301
+/best/* /best-for/:splat 301
+/pathways/ /education/neuroscience-pathways/ 301
+/pathways/* /education/:splat 301
+/protocols/ /guides/ 301
+/protocols/* /guides/:splat 301
+/ecosystems/ /stacks/ 301
+/ecosystems/* /stacks/:splat 301
+/psychoactive/ /about/psychoactives/ 301
+/psychoactive/* /about/psychoactives/:splat 301
+/topics/ /blog/ 301
+/topics/* /blog/:splat 301
+/explore/ /herbs/ 301
+/explore/* /herbs/:splat 301
+/data-moat/ 404
+/data-moat/* 404
+/supernodes/ 404
+/supernodes/* 404
+/sourcing/ 404
+/sourcing/* 404

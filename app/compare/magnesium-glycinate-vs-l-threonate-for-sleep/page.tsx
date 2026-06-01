@@ -177,11 +177,11 @@ export default function MagnesiumGlycinateVsLThreonateForSleepPage() {
           L-Theanine vs Magnesium
         </Link>
 
-        <Link href="/protocols/deep-sleep-support" className="chip-readable">
+        <Link href="/guides/deep-sleep-support" className="chip-readable">
           Deep Sleep Support
         </Link>
 
-        <Link href="/topics/sleep-recovery" className="chip-readable">
+        <Link href="/blog/sleep-recovery" className="chip-readable">
           Sleep Recovery Hub
         </Link>
       </div>

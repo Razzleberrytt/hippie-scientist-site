@@ -114,7 +114,7 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
 
       <div className="flex flex-wrap gap-3">
         <Link href="/compare/rhodiola-vs-ashwagandha" className="chip-readable">Rhodiola vs Ashwagandha</Link>
-        <Link href="/protocols/stress-regulation" className="chip-readable">Stress Regulation</Link>
+        <Link href="/guides/stress-regulation" className="chip-readable">Stress Regulation</Link>
         <Link href="/education/what-are-adaptogens" className="chip-readable">Adaptogens</Link>
       </div>
     </main>

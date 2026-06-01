@@ -15,14 +15,14 @@ export default function DeepSleepSupportPage() {
       <AuthorityJsonLd
         title="Deep Sleep Support Protocol"
         description="Educational deep sleep support protocol focused on calming systems, stress regulation, and sleep-supportive neuropharmacology."
-        url="https://thehippiescientist.net/protocols/deep-sleep-support"
+        url="https://thehippiescientist.net/guides/deep-sleep-support"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Protocols', href: '/protocols' },
+          { label: 'Guides', href: '/guides' },
           { label: 'Deep Sleep Support' },
         ]}
       />
@@ -60,11 +60,11 @@ export default function DeepSleepSupportPage() {
       </section>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/pathways/gaba" className="chip-readable">
+        <Link href="/education/gaba" className="chip-readable">
           GABA Pathway
         </Link>
 
-        <Link href="/psychoactive/calming" className="chip-readable">
+        <Link href="/about/psychoactives/calming" className="chip-readable">
           Calming Psychoactives
         </Link>
 

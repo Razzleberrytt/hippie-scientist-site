@@ -61,7 +61,7 @@ export default function GabaPathwayPage() {
       <AuthorityJsonLd
         title="GABA Pathway"
         description="Educational overview of GABAergic signaling, calming neuropharmacology, inhibitory neurotransmission, and related herbs and compounds."
-        url="https://thehippiescientist.net/pathways/gaba"
+        url="https://thehippiescientist.net/education/gaba"
         type="Article"
         breadcrumbs={[
           {
@@ -69,12 +69,12 @@ export default function GabaPathwayPage() {
             url: 'https://thehippiescientist.net',
           },
           {
-            name: 'Pathways',
-            url: 'https://thehippiescientist.net/pathways',
+            name: 'Education',
+            url: 'https://thehippiescientist.net/education',
           },
           {
             name: 'GABA',
-            url: 'https://thehippiescientist.net/pathways/gaba',
+            url: 'https://thehippiescientist.net/education/gaba',
           },
         ]}
       />
@@ -88,8 +88,8 @@ export default function GabaPathwayPage() {
             href: '/',
           },
           {
-            label: 'Pathways',
-            href: '/pathways',
+            label: 'Education',
+            href: '/education',
           },
           {
             label: 'GABA',
@@ -167,21 +167,21 @@ export default function GabaPathwayPage() {
           </Link>
 
           <Link
-            href="/psychoactive/calming"
+            href="/about/psychoactives/calming"
             className="chip-readable hover:bg-white transition"
           >
             Calming Psychoactives
           </Link>
 
           <Link
-            href="/protocols/deep-sleep-support"
+            href="/guides/deep-sleep-support"
             className="chip-readable hover:bg-white transition"
           >
             Deep Sleep Support
           </Link>
 
           <Link
-            href="/psychoactive/harm-reduction"
+            href="/about/psychoactives/harm-reduction"
             className="chip-readable hover:bg-white transition"
           >
             GABAergic Safety

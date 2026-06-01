@@ -26,25 +26,25 @@ const systems = [
     title: 'GABAergic Systems',
     description:
       'Associated with calming, relaxation, sedation, and nervous-system downregulation.',
-    href: '/pathways/gaba',
+    href: '/education/gaba',
   },
   {
     title: 'Serotonergic Systems',
     description:
       'Associated with mood regulation, emotional processing, perception, and cognition.',
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
   },
   {
     title: 'Dopaminergic Systems',
     description:
       'Associated with motivation, reward processing, focus, and behavioral drive.',
-    href: '/pathways/dopamine',
+    href: '/education/dopamine',
   },
   {
     title: 'Cholinergic Systems',
     description:
       'Associated with dreaming, cognition, memory, and REM-related mechanisms.',
-    href: '/pathways/cholinergic-system',
+    href: '/education/cholinergic-system',
   },
 ]
 
@@ -157,21 +157,21 @@ export default function WhatArePsychoactiveHerbsPage() {
 
         <div className="flex flex-wrap gap-3">
           <Link
-            href="/psychoactive/harm-reduction"
+            href="/about/psychoactives/harm-reduction"
             className="chip-readable hover:bg-white transition"
           >
             Harm Reduction
           </Link>
 
           <Link
-            href="/psychoactive/interactions"
+            href="/about/psychoactives/interactions"
             className="chip-readable hover:bg-white transition"
           >
             Interaction Guide
           </Link>
 
           <Link
-            href="/psychoactive/serotonergic-stacking-risks"
+            href="/about/psychoactives/serotonergic-stacking-risks"
             className="chip-readable hover:bg-white transition"
           >
             Serotonergic Risks

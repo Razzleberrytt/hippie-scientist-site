@@ -37,8 +37,8 @@ export default function GabaVsSerotoninPage() {
             Associated with inhibitory signaling, nervous-system downregulation, relaxation, calming effects, and sleep-supportive mechanisms.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Link href="/pathways/gaba" className="chip-readable">GABA Pathway</Link>
-            <Link href="/psychoactive/calming" className="chip-readable">Calming Psychoactives</Link>
+            <Link href="/education/gaba" className="chip-readable">GABA Pathway</Link>
+            <Link href="/about/psychoactives/calming" className="chip-readable">Calming Psychoactives</Link>
           </div>
         </div>
 
@@ -48,8 +48,8 @@ export default function GabaVsSerotoninPage() {
             Associated with mood regulation, emotional processing, perception, cognition, and certain psychoactive or entheogenic mechanisms.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Link href="/pathways/serotonin" className="chip-readable">Serotonin Pathway</Link>
-            <Link href="/psychoactive/calming" className="chip-readable">Mood Elevation</Link>
+            <Link href="/education/serotonin" className="chip-readable">Serotonin Pathway</Link>
+            <Link href="/about/psychoactives/calming" className="chip-readable">Mood Elevation</Link>
           </div>
         </div>
       </section>

@@ -67,15 +67,15 @@ export default function LTheanineVsMagnesiumPage() {
       </section>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/pathways/gaba" className="chip-readable">
+        <Link href="/education/gaba" className="chip-readable">
           GABA Pathway
         </Link>
 
-        <Link href="/protocols/deep-sleep-support" className="chip-readable">
+        <Link href="/guides/deep-sleep-support" className="chip-readable">
           Deep Sleep Support
         </Link>
 
-        <Link href="/protocols/stress-regulation" className="chip-readable">
+        <Link href="/guides/stress-regulation" className="chip-readable">
           Stress Regulation
         </Link>
       </div>

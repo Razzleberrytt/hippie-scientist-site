@@ -71,11 +71,11 @@ export default function RhodiolaVsAshwagandhaPage() {
           Adaptogens
         </Link>
 
-        <Link href="/protocols/stress-regulation" className="chip-readable">
+        <Link href="/guides/stress-regulation" className="chip-readable">
           Stress Regulation
         </Link>
 
-        <Link href="/protocols/burnout-recovery" className="chip-readable">
+        <Link href="/guides/burnout-recovery" className="chip-readable">
           Burnout Recovery
         </Link>
       </div>

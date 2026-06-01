@@ -49,7 +49,7 @@ export default function PsychedelicAdjacentHerbsPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/psychoactive/serotonergic-stacking-risks" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/about/psychoactives/serotonergic-stacking-risks" className="text-brand-700 hover:text-brand-800 hover:underline">
             Serotonergic Stacking Risks →
           </Link>
           <Link href="/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">

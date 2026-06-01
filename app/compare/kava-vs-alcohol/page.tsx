@@ -61,11 +61,11 @@ export default function KavaVsAlcoholPage() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/psychoactive/harm-reduction" className="chip-readable">
+          <Link href="/about/psychoactives/harm-reduction" className="chip-readable">
             Harm Reduction
           </Link>
 
-          <Link href="/pathways/gaba" className="chip-readable">
+          <Link href="/education/gaba" className="chip-readable">
             GABA Pathway
           </Link>
         </div>
