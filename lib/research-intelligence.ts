@@ -106,8 +106,8 @@ export function classifyResearchMaturity(inputs: EvidenceInputs): ResearchMaturi
   const signalCount = claims.length + mechanisms.length + effects.length + pmids.length
 
   if (!signalCount && !level) return 'Sparse profile'
-  if (/strong|high|clinical|human|a-tier|well studied/.test(level) || pmids.length >= 8 || signalCount >= 14) return 'Better studied'
-  if (/moderate|mixed/.test(level) || pmids.length >= 3 || signalCount >= 7) return 'Moderate / emerging'
+  if (/strong|high|clinical|human|a-tier|well studied/.test(level) || /^a$/.test(level) || pmids.length >= 8 || signalCount >= 14) return 'Better studied'
+  if (/moderate|mixed/.test(level) || /^b$/.test(level) || pmids.length >= 3 || signalCount >= 7) return 'Moderate / emerging'
   return 'Preliminary'
 }
 
@@ -115,7 +115,7 @@ export function deriveResearchStyle(inputs: EvidenceInputs): ResearchStyle {
   const { claims, mechanisms, pmids, traditionalUses, evidence } = normalizeResearchInputs(inputs)
   const level = evidence.toLowerCase()
 
-  if ((/human|clinical|strong|high/.test(level) || pmids.length >= 6) && mechanisms.length <= claims.length + 2) return 'Human-clinical leaning'
+  if ((/human|clinical|strong|high/.test(level) || /^a$/.test(level) || pmids.length >= 6) && mechanisms.length <= claims.length + 2) return 'Human-clinical leaning'
   if (mechanisms.length >= 3 && mechanisms.length >= claims.length + traditionalUses.length) return 'Mechanism-heavy'
   if (traditionalUses.length >= 2 && pmids.length < 3 && mechanisms.length < 4) return 'Traditional-use dominant'
   if (claims.length && mechanisms.length && (pmids.length || traditionalUses.length)) return 'Mixed evidence profile'

@@ -19,11 +19,11 @@
 /buy-guide /education/product-quality 301
 /compare/sourcing /education/product-quality 301
 /sourcing/substitution /education/product-quality 301
-/sleep-supplements /guides/best-supplements-for-sleep 301
-/stress-supplements /guides/best-supplements-for-stress 301
-/cognition-supplements /guides/best-nootropics-for-focus 301
+/sleep-supplements /goals/sleep 301
+/stress-supplements /goals/stress 301
+/cognition-supplements /goals/cognition 301
 /performance-supplements /goals/energy 301
-/fat-loss-supplements /guides/best-supplements-for-fat-loss 301
+/fat-loss-supplements /goals/fat-loss 301
 /a-tier /goals 301
 /start-here /goals 301
 /start/sleep-support /goals/sleep 301
@@ -38,6 +38,7 @@
 # NEW REDIRECTS - ROUTE CONSOLIDATION AUDIT (June 1, 2026)
 /learn/ /education/ 301
 /learn/* /education/:splat 301
+/comparisons /compare 301
 /comparisons/* /compare/:splat 301
 /start /start-here/ 301
 /best/* /best-for/:splat 301
@@ -49,8 +50,10 @@
 /ecosystems/* /stacks/:splat 301
 /psychoactive/ /about/psychoactives/ 301
 /psychoactive/* /about/psychoactives/:splat 301
-/topics/ /blog/ 301
-/topics/* /blog/:splat 301
+/topics /goals 301
+/topics/ /goals/ 301
+/topics/* /goals/:splat 301
+/explore /herbs 301
 /explore/ /herbs/ 301
 /explore/* /herbs/:splat 301
 /data-moat/ 404

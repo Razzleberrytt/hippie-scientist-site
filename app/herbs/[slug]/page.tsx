@@ -128,16 +128,28 @@ function getSafetyTone(summary: string, avoidIf: string[]) {
 function getSafetyDetailGroups(herb: any) {
   const safetyNotes = cleanText(herb.safetyNotes || herb.safety_notes || herb.safety)
   const interactions = cleanItems(herb.interactions, 10)
-  const contraindications = cleanItems(herb.contraindications || herb.avoid, 10)
+
+  // Prefer explicit pregnancy-specific fields; fall back to contraindications only for
+  // items not already shown in the interactions list to avoid verbatim duplication.
+  const pregnancySpecific = cleanItems(
+    herb.pregnancy_cautions || herb.pregnancy_contraindications || herb.contraindications_pregnancy,
+    10,
+  )
+  const interactionSet = new Set(interactions.map((s: string) => s.toLowerCase()))
+  const contraindicationsRaw = cleanItems(herb.contraindications || herb.avoid, 10)
+  const pregnancyItems = pregnancySpecific.length > 0
+    ? pregnancySpecific
+    : contraindicationsRaw.filter((s: string) => !interactionSet.has(s.toLowerCase()))
+
   const cautions = cleanItems(herb.cautions || herb.warnings || herb.safety?.cautionSignals, 10)
   const classifications = getSafetyClassifications(herb, 8)
   const labels = getSafetyLabels(herb, 8)
 
   return [
     { title: 'Medication interactions', items: interactions },
-    { title: 'Pregnancy, breastfeeding, and contraindications', items: contraindications },
+    { title: 'Pregnancy, breastfeeding, and contraindications', items: pregnancyItems },
     { title: 'Chronic-condition and sensitivity cautions', items: cautions },
-    { title: 'Safety classifications', items: classifications.map(item => `${item.label}: ${item.description}`) },
+    { title: 'Safety classifications', items: classifications.map((item: any) => `${item.label}: ${item.description}`) },
     { title: 'Full safety note', items: safetyNotes ? [safetyNotes] : [] },
     { title: 'Safety labels', items: labels },
   ].filter(group => group.items.length > 0)

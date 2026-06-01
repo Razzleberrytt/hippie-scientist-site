@@ -38,4 +38,24 @@ for (const route of coreRoutes) {
 
 assertExists(path.join(staticOutputRoot, '_redirects'), 'Cloudflare redirects file')
 
-console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes and ${staticDir}/_redirects.`)
+// Detect loading spinner in core pages — indicates data pipeline failure
+const LOADING_SENTINEL = 'Loading evidence-driven research'
+const spinnerCheckRoutes = ['/', '/herbs', '/compounds']
+let spinnerFailures = 0
+
+for (const route of spinnerCheckRoutes) {
+  const filePath = routeToStaticPath(route)
+  if (fs.existsSync(filePath)) {
+    const content = fs.readFileSync(filePath, 'utf8')
+    if (content.includes(LOADING_SENTINEL)) {
+      console.error(`[verify:core-routes] LOADING SPINNER DETECTED on ${route} — data pipeline may have produced stale or missing JSON`)
+      spinnerFailures++
+    }
+  }
+}
+
+if (spinnerFailures > 0) {
+  throw new Error(`[verify:core-routes] ${spinnerFailures} page(s) contain the loading spinner — build is not production-ready`)
+}
+
+console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes, ${staticDir}/_redirects, and loading-spinner check passed.`)
