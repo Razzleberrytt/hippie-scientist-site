@@ -1,7 +1,7 @@
 {
   "slug": "schisandra",
   "name": "Schisandra (Schisandra chinensis)",
-  "summary": "Liver + stress.",
+  "summary": "Schisandra (Schisandra chinensis) is a five-flavor berry used in TCM as an adaptogen and liver tonic. Its primary lignans (schisandrin A/B/C) support hepatocyte detoxification via CYP450 modulation and exhibit antioxidant activity. Human data support mild stress reduction and liver enzyme normalization in hepatitis populations.",
   "description": "Liver + stress.",
   "effects": [
     "stress"
@@ -43,6 +43,7 @@
   "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
+  "safety": "Generally well tolerated. Use caution during pregnancy - traditional use is limited in first trimester. May affect CYP3A4 and P-glycoprotein activity; caution with medications cleared by those pathways.",
   "contraindications": [
     "pregnancy (insufficient data)"
   ],
@@ -90,8 +91,8 @@
       "profile-status:partial",
       "research-pending-effect",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],

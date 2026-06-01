@@ -1,7 +1,7 @@
 {
   "slug": "reishi",
   "name": "Reishi (Ganoderma lucidum)",
-  "summary": "Immune modulation.",
+  "summary": "Reishi (Ganoderma lucidum) is a medicinal mushroom used across East Asian traditions for immune regulation and adaptogenic support. Its beta-glucan polysaccharides and triterpenes (ganoderic acids) modulate innate and adaptive immunity, NK cell activity, and inflammatory signaling. Clinical evidence supports immunomodulatory effects; sleep and fatigue data are emerging.",
   "description": "Immune modulation.",
   "effects": [
     "sleep",
@@ -47,6 +47,7 @@
   "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
+  "safety": "Generally well tolerated at standard doses. Mild gastrointestinal effects possible. Use caution with anticoagulant medications and in patients with low platelet counts. Discontinue 2 weeks before surgery.",
   "contraindications": [
     "autoimmune conditions (caution)",
     "bleeding disorders"
@@ -83,10 +84,10 @@
   "sitemap_included": true,
   "indexability_status": "eligible",
   "indexability_score": {
-    "status": "NEEDS_REVIEW",
-    "score": 68,
-    "robots": "noindex,follow",
-    "sitemap_included": false,
+    "status": "PUBLISH",
+    "score": 88,
+    "robots": "index,follow",
+    "sitemap_included": true,
     "reasons": [
       "effect-present",
       "evidence-signal",
@@ -95,8 +96,8 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],

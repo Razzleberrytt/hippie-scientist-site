@@ -1,7 +1,7 @@
 {
   "slug": "turkey-tail",
   "name": "Turkey Tail",
-  "summary": "Immune modulation.",
+  "summary": "Turkey Tail (Trametes versicolor) is a shelf mushroom yielding two extensively studied polysaccharopeptides: PSK (krestin) and PSP. These compounds stimulate NK cells, macrophages, and T-cell activity, and PSK is approved in Japan as an adjunct cancer immunotherapy. Human evidence for standalone immune support in healthy populations is limited but supportive.",
   "description": "Immune modulation.",
   "effects": [
     "immune"
@@ -41,6 +41,7 @@
   "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
+  "safety": "Well tolerated in clinical trials at doses up to 9 g/day. Mild gastrointestinal effects at high doses. No significant drug interactions established. Use caution in severely immunocompromised individuals without medical supervision.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family"
@@ -77,10 +78,10 @@
   "sitemap_included": true,
   "indexability_status": "eligible",
   "indexability_score": {
-    "status": "NEEDS_REVIEW",
-    "score": 68,
-    "robots": "noindex,follow",
-    "sitemap_included": false,
+    "status": "PUBLISH",
+    "score": 88,
+    "robots": "index,follow",
+    "sitemap_included": true,
     "reasons": [
       "effect-present",
       "evidence-signal",
@@ -89,8 +90,8 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],

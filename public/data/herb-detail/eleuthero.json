@@ -1,7 +1,7 @@
 {
   "slug": "eleuthero",
   "name": "Eleuthero",
-  "summary": "Stress resilience.",
+  "summary": "Eleuthero (Siberian ginseng) is an adaptogenic root used to support stress resilience and physical endurance. It modulates HPA axis activity and influences cortisol and catecholamine signaling. Human trials report reduced fatigue and improved cognitive performance under stress conditions, particularly in shift workers and athletes.",
   "description": "Stress resilience.",
   "effects": [
     "stress"
@@ -48,6 +48,7 @@
   "unmapped_mechanisms": [],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
+  "safety": "Generally well tolerated. May interact with anticoagulants (warfarin) and immunosuppressants. Avoid combining with stimulants or digoxin. Not recommended during pregnancy without medical supervision.",
   "contraindications": [
     "Uncontrolled hypertension",
     "pregnancy/breastfeeding without guidance",
@@ -97,8 +98,8 @@
       "profile-status:partial",
       "research-pending-effect",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],

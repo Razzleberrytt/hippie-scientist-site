@@ -1,7 +1,7 @@
 {
   "slug": "hericium-erinaceus",
   "name": "Lion's Mane",
-  "summary": "NGF stimulation.",
+  "summary": "Lion's Mane (Hericium erinaceus) is a culinary-medicinal mushroom that stimulates Nerve Growth Factor (NGF) synthesis via hericenones and erinacines. Human RCTs demonstrate cognitive improvements in older adults with mild cognitive impairment, and emerging data support mood and nerve regeneration applications.",
   "description": "NGF stimulation.",
   "effects": [
     "cognitive"
@@ -31,6 +31,7 @@
   "unmapped_mechanisms": [],
   "evidence_grade": "b",
   "evidence_tier": "Moderate Human Evidence",
+  "safety": "Generally well tolerated. Rare cases of allergic reactions, particularly in individuals with mushroom sensitivities. Use caution if immunocompromised.",
   "contraindications": [
     "Unknown"
   ],
@@ -66,7 +67,7 @@
   "indexability_status": "eligible",
   "indexability_score": {
     "status": "PUBLISH",
-    "score": 80,
+    "score": 100,
     "robots": "index,follow",
     "sitemap_included": true,
     "reasons": [
@@ -77,8 +78,8 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],

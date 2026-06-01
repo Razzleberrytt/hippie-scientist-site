@@ -263,6 +263,9 @@ function read(workbook, candidates, optional = false) {
 
 function profile(row, type, taxonomy) {
   const allowed = type === 'herb' ? HERB_RUNTIME_FIELDS : COMPOUND_RUNTIME_FIELDS
+  const runtimeSafety = type === 'herb'
+    ? compact(first(row, ['runtime_safety', 'runtime safety']))
+    : ''
   const rawMechanisms = uniqueList([
     first(row, ['mechanisms', 'mechanism_of_action', 'mechanism of action']),
     first(row, ['mechanism', 'primary_mechanisms', 'primary mechanisms']),
@@ -284,6 +287,7 @@ function profile(row, type, taxonomy) {
     evidence_tier: clean(first(row, ['evidence_tier', 'evidence tier'])),
     profile_status: clean(first(row, ['profile_status', 'profile status'])),
     runtime_export_decision: clean(first(row, ['runtime_export_decision', 'runtime export decision'])),
+    ...(runtimeSafety ? { safety: runtimeSafety } : {}),
     safety_level: clean(first(row, ['safety_level', 'safety level'])),
     contraindications: firstList(row, ['contraindications', 'avoid_if', 'avoid if']),
     interactions: firstList(row, ['interactions']),

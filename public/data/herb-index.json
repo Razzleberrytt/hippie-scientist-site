@@ -4165,7 +4165,7 @@
   {
     "slug": "eleuthero",
     "name": "Eleuthero",
-    "summary": "Stress resilience.",
+    "summary": "Eleuthero (Siberian ginseng) is an adaptogenic root used to support stress resilience and physical endurance. It modulates HPA axis activity and influences cortisol and catecholamine signaling. Human trials report reduced fatigue and improved cognitive performance under stress conditions, particularly in shift workers and athletes.",
     "primary_effects": [
       "research-pending"
     ],
@@ -4195,8 +4195,8 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
+        "summary-depth",
+        "summary-quality-missing"
       ]
     },
     "indexability_reasons": []
@@ -6610,7 +6610,7 @@
   {
     "slug": "hericium-erinaceus",
     "name": "Lion's Mane",
-    "summary": "NGF stimulation.",
+    "summary": "Lion's Mane (Hericium erinaceus) is a culinary-medicinal mushroom that stimulates Nerve Growth Factor (NGF) synthesis via hericenones and erinacines. Human RCTs demonstrate cognitive improvements in older adults with mild cognitive impairment, and emerging data support mood and nerve regeneration applications.",
     "primary_effects": [
       "cognitive"
     ],
@@ -6628,7 +6628,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 80,
+      "score": 100,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -6639,8 +6639,8 @@
         "mechanism-context",
         "profile-status:top50_authority_patched",
         "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
+        "summary-depth",
+        "summary-quality-missing"
       ]
     },
     "indexability_reasons": []
@@ -9368,7 +9368,7 @@
   {
     "slug": "reishi",
     "name": "Reishi (Ganoderma lucidum)",
-    "summary": "Immune modulation.",
+    "summary": "Reishi (Ganoderma lucidum) is a medicinal mushroom used across East Asian traditions for immune regulation and adaptogenic support. Its beta-glucan polysaccharides and triterpenes (ganoderic acids) modulate innate and adaptive immunity, NK cell activity, and inflammatory signaling. Clinical evidence supports immunomodulatory effects; sleep and fatigue data are emerging.",
     "primary_effects": [
       "sleep"
     ],
@@ -9386,10 +9386,10 @@
     "sitemap_included": true,
     "indexability_status": "eligible",
     "indexability_score": {
-      "status": "NEEDS_REVIEW",
-      "score": 68,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
+      "status": "PUBLISH",
+      "score": 88,
+      "robots": "index,follow",
+      "sitemap_included": true,
       "reasons": [
         "effect-present",
         "evidence-signal",
@@ -9398,8 +9398,8 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
+        "summary-depth",
+        "summary-quality-missing"
       ]
     },
     "indexability_reasons": []
@@ -9916,7 +9916,7 @@
   {
     "slug": "schisandra",
     "name": "Schisandra (Schisandra chinensis)",
-    "summary": "Liver + stress.",
+    "summary": "Schisandra (Schisandra chinensis) is a five-flavor berry used in TCM as an adaptogen and liver tonic. Its primary lignans (schisandrin A/B/C) support hepatocyte detoxification via CYP450 modulation and exhibit antioxidant activity. Human data support mild stress reduction and liver enzyme normalization in hepatitis populations.",
     "primary_effects": [
       "research-pending"
     ],
@@ -9946,8 +9946,8 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
+        "summary-depth",
+        "summary-quality-missing"
       ]
     },
     "indexability_reasons": []
@@ -10228,7 +10228,7 @@
   {
     "slug": "scutellaria-lateriflora",
     "name": "Skullcap",
-    "summary": "GABAergic.",
+    "summary": "American Skullcap (Scutellaria lateriflora) is a North American herb whose flavones (baicalin, scutellarein) act on GABA-A receptors and inhibit monoamine oxidase B at higher concentrations. Small double-blind trials show reduced anxiety without sedation at doses of 100-350 mg. It is distinct from Chinese skullcap (S. baicalensis), though adulteration between species is a sourcing concern.",
     "primary_effects": [
       "sleep"
     ],
@@ -10247,7 +10247,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 80,
+      "score": 100,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -10258,8 +10258,8 @@
         "mechanism-context",
         "profile-status:top50_authority_patched",
         "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
+        "summary-depth",
+        "summary-quality-missing"
       ]
     },
     "indexability_reasons": []
@@ -10425,7 +10425,7 @@
   {
     "slug": "st-johns-wort",
     "name": "St. John's Wort (Hypericum perforatum)",
-    "summary": "St.",
+    "summary": "St. John's Wort (Hypericum perforatum) is a yellow-flowered herb with well-studied antidepressant effects for mild-to-moderate depression. Its active constituents (hypericin, hyperforin) inhibit reuptake of serotonin, dopamine, and norepinephrine. Multiple meta-analyses confirm efficacy comparable to low-dose SSRIs for mild depression, with fewer side effects in that population.",
     "primary_effects": [
       "research-pending"
     ],
@@ -10455,8 +10455,8 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
+        "summary-depth",
+        "summary-quality-missing"
       ]
     },
     "indexability_reasons": []
@@ -11011,7 +11011,7 @@
   {
     "slug": "turkey-tail",
     "name": "Turkey Tail",
-    "summary": "Immune modulation.",
+    "summary": "Turkey Tail (Trametes versicolor) is a shelf mushroom yielding two extensively studied polysaccharopeptides: PSK (krestin) and PSP. These compounds stimulate NK cells, macrophages, and T-cell activity, and PSK is approved in Japan as an adjunct cancer immunotherapy. Human evidence for standalone immune support in healthy populations is limited but supportive.",
     "primary_effects": [
       "immune"
     ],
@@ -11028,10 +11028,10 @@
     "sitemap_included": true,
     "indexability_status": "eligible",
     "indexability_score": {
-      "status": "NEEDS_REVIEW",
-      "score": 68,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
+      "status": "PUBLISH",
+      "score": 88,
+      "robots": "index,follow",
+      "sitemap_included": true,
       "reasons": [
         "effect-present",
         "evidence-signal",
@@ -11040,8 +11040,8 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-quality-missing",
-        "summary-too-thin"
+        "summary-depth",
+        "summary-quality-missing"
       ]
     },
     "indexability_reasons": []

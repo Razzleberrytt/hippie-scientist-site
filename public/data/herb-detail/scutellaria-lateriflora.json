@@ -1,7 +1,7 @@
 {
   "slug": "scutellaria-lateriflora",
   "name": "Skullcap",
-  "summary": "GABAergic.",
+  "summary": "American Skullcap (Scutellaria lateriflora) is a North American herb whose flavones (baicalin, scutellarein) act on GABA-A receptors and inhibit monoamine oxidase B at higher concentrations. Small double-blind trials show reduced anxiety without sedation at doses of 100-350 mg. It is distinct from Chinese skullcap (S. baicalensis), though adulteration between species is a sourcing concern.",
   "description": "GABAergic.",
   "effects": [
     "sleep",
@@ -36,6 +36,7 @@
   ],
   "evidence_grade": "c",
   "evidence_tier": "Limited Human Evidence",
+  "safety": "Generally well tolerated. Product adulteration with germander (Teucrium spp.) has been linked to hepatotoxicity in isolated cases - purchase from verified, third-party-tested sources. Mild sedative effects at high doses; caution when driving.",
   "contraindications": [
     "Sedatives",
     "liver disease"
@@ -73,7 +74,7 @@
   "indexability_status": "eligible",
   "indexability_score": {
     "status": "PUBLISH",
-    "score": 80,
+    "score": 100,
     "robots": "index,follow",
     "sitemap_included": true,
     "reasons": [
@@ -84,8 +85,8 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   "indexability_reasons": [],
