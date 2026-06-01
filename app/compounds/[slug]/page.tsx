@@ -20,9 +20,51 @@ import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-uti
 import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 
 type PageProps = {
   params: Promise<{ slug: string }>
+}
+
+const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
+  coq10: 'coenzyme-q10',
+  'coenzyme-q10-ubiquinol': 'coenzyme-q10',
+  theanine: 'l-theanine',
+  'l-theanine-sleep': 'l-theanine',
+  methyleugenol: 'methyl-eugenol',
+  bcaas: 'bcaa',
+  'green-tea-egcg-isolated': 'green-tea-extract',
+  'green-tea-extract-egcg': 'green-tea-extract',
+  'probiotic-multistrain': 'probiotics',
+  'probiotic-strain-bifidobacterium': 'probiotics',
+  'probiotic-strain-lactobacillus': 'probiotics',
+  'probiotics-bifidobacterium': 'probiotics',
+  'probiotics-lactobacillus': 'probiotics',
+  'taurine-blend': 'taurine',
+  'taurine-sleep': 'taurine',
+  'glycine-sleep': 'glycine',
+  'inositol-sleep': 'inositol',
+}
+
+const CANONICAL_COMPOUND_NOTES: Record<string, { title: string; body: string; items?: string[] }> = {
+  'coenzyme-q10': {
+    title: 'Forms',
+    body: 'CoQ10 products commonly appear as ubiquinone or ubiquinol. Ubiquinone is the oxidized form, while ubiquinol is the reduced form; both point back to the same CoQ10 decision context.',
+    items: ['Ubiquinone: common CoQ10 form used in many standard products.', 'Ubiquinol: reduced CoQ10 form often marketed for absorption-focused formulas.'],
+  },
+  'l-theanine': {
+    title: 'Focus and sleep context',
+    body: 'L-theanine is studied and used in both calm-focus contexts and sleep-support contexts, especially where stress, stimulation smoothing, or wind-down quality is the practical question.',
+  },
+  'green-tea-extract': {
+    title: 'EGCG context',
+    body: 'EGCG is the primary active catechin discussed in green tea extract research, but isolated EGCG and green tea extract should be interpreted inside the broader extract, dose, and safety context.',
+  },
+  probiotics: {
+    title: 'Strains',
+    body: 'Probiotic evidence is strain- and condition-specific. The two primary clinically studied genera represented in this catalog are:',
+    items: ['Lactobacillus', 'Bifidobacterium'],
+  },
 }
 
 export async function generateStaticParams() {
@@ -30,16 +72,27 @@ export async function generateStaticParams() {
 
   return compounds
     .filter((compound:any) => getRuntimeVisibility(compound).canRender)
+    .filter((compound:any) => !DEPRECATED_COMPOUND_CANONICALS[compound.slug])
     .map((compound:any) => ({ slug: compound.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const compound = await getCompoundMetadataRecord(slug)
+  const canonicalSlug = DEPRECATED_COMPOUND_CANONICALS[normalizeSlug(slug)] || slug
+  const compound = await getCompoundMetadataRecord(canonicalSlug)
 
   if (!compound) return {}
 
-  return generateDetailMetadata(compound, 'compound')
+  const metadata = generateDetailMetadata(compound, 'compound')
+  if (canonicalSlug !== slug) {
+    return {
+      ...metadata,
+      alternates: { canonical: `https://www.thehippiescientist.net/compounds/${canonicalSlug}` },
+      robots: { index: false, follow: true },
+    }
+  }
+
+  return metadata
 }
 
 
@@ -108,6 +161,11 @@ function getMechanismHints(compound: any, provided: string[]) {
 export default async function CompoundPage({ params }: PageProps) {
   const { slug } = await params
   const normalizedSlug = normalizeSlug(slug)
+  const canonicalSlug = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
+  if (canonicalSlug) {
+    redirect(`/compounds/${canonicalSlug}/`)
+  }
+
   const compound = await getCompoundBySlug(normalizedSlug)
 
   if (!compound || !getRuntimeVisibility(compound).canRender) {
@@ -207,6 +265,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const activeShopLinks = getAffiliateShopLinks(compound, displayName, 'compound')
   const affiliateCtaLink = activeShopLinks.find(link => link.url)
   const revenueProducts = getRevenueProductSet(normalizedSlug)
+  const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
 
   return (
     <>
@@ -283,6 +342,7 @@ export default async function CompoundPage({ params }: PageProps) {
             <div className="space-y-1">
               <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800">Sourcing Options</h4>
               <p className="text-sm text-emerald-900/80">Compare options and check trusted third-party tested formats.</p>
+              <AffiliateDisclosure variant="compact" />
             </div>
             <a
               href={affiliateCtaLink.url}
@@ -294,6 +354,18 @@ export default async function CompoundPage({ params }: PageProps) {
             </a>
           </section>
         )}
+
+        {canonicalNote ? (
+          <section className="card-premium p-4 sm:p-5 space-y-3">
+            <h2 className="text-lg font-bold text-ink">{canonicalNote.title}</h2>
+            <p className="text-sm leading-6 text-muted">{canonicalNote.body}</p>
+            {canonicalNote.items ? (
+              <ul className="list-disc space-y-1 pl-5 text-sm leading-6 text-muted">
+                {canonicalNote.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            ) : null}
+          </section>
+        ) : null}
 
         {/* Section 2: Safety */}
         <section className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">

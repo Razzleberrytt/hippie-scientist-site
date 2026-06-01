@@ -21,7 +21,7 @@ export default function NaturalAnxiolyticsPage() {
   const alternatives = [
     {
       name: 'L-Theanine',
-      href: '/compounds/theanine',
+      href: '/compounds/l-theanine',
       type: 'Amino Acid',
       onset: '30 to 90 minutes',
       mechanism: 'Promotes alpha brain waves, modulates glutamate receptors.',

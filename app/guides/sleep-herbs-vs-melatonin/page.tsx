@@ -44,7 +44,7 @@ export default function SleepHerbsVsMelatoninPage() {
       onset: '30 to 90 minutes',
       description: 'Crosses the blood-brain barrier to increase alpha brain waves (associated with relaxed alertness) and modulates glutamate to quiet a racing mind at bedtime.',
       cautions: 'Very low risk. Avoid if stacking multiple high-strength central depressants.',
-      href: '/compounds/theanine',
+      href: '/compounds/l-theanine',
     },
     {
       name: 'Valerian Root (Valeriana officinalis)',

@@ -36,6 +36,7 @@ export default function RecommendationSection({
         <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Affiliate-ready sourcing</p>
         <h2 className='mt-3 text-2xl font-semibold text-ink'>{title}</h2>
         <p className='mt-3 text-sm leading-7 text-muted'>{description}</p>
+        <AffiliateDisclosure variant='compact' className='mt-3' />
       </div>
 
       <div className='mt-6 grid gap-4 md:grid-cols-3'>
@@ -47,7 +48,6 @@ export default function RecommendationSection({
         ))}
       </div>
 
-      <AffiliateDisclosure variant='compact' className='mt-5' />
     </section>
   )
 }

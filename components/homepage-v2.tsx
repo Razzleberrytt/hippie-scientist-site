@@ -124,7 +124,7 @@ const featuredFallbacks: LandingCard[] = [
     meta: 'Herb profile',
   },
   {
-    href: '/compounds/theanine',
+    href: '/compounds/l-theanine',
     title: 'L-Theanine',
     description: 'Calm focus, relaxation pathways, and non-sedating support context.',
     meta: 'Compound profile',

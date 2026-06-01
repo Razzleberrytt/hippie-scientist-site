@@ -76,7 +76,7 @@ export const supplementalStackEcosystems: StackEcosystem[] = [
     time_to_effect: '1–8 weeks depending on component and baseline status',
     evidence_level: 'Mixed, component-dependent',
     stack: [
-      { compound_slug: 'coq10', compound: 'CoQ10', role: 'anchor', rationale: 'Mitochondrial electron transport and oxidative stress context.' },
+      { compound_slug: 'coenzyme-q10', compound: 'CoQ10', role: 'anchor', rationale: 'Mitochondrial electron transport and oxidative stress context.' },
       { compound_slug: 'pqq', compound: 'PQQ', role: 'amplifier', rationale: 'Mitochondrial signaling and redox-adjacent exploratory context.' },
       { compound_slug: 'acetyl-l-carnitine', compound: 'Acetyl-L-Carnitine', role: 'support', rationale: 'Fatty-acid transport and cognitive-energy context.' },
       { compound_slug: 'creatine', compound: 'Creatine', role: 'support', rationale: 'Cellular energy buffering and performance context.' },

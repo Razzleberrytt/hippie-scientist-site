@@ -81,6 +81,8 @@ const groupByRole = (items: StackItemRecord[]): RoleGroups => {
 const SLUG_MAPPING: Record<string, string> = {
   'citicoline': 'cdp-choline',
   'collagen': 'collagen-peptides',
+  'coq10': 'coenzyme-q10',
+  'green-tea-extract-egcg': 'green-tea-extract',
 }
 
 function resolveStackItemSlug(item: StackItemRecord) {

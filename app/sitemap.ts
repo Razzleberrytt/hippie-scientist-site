@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { execFileSync } from 'node:child_process'
 import postsData from '../data/blog/posts.json'
 import stacksData from '@/public/data/stacks.json'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
@@ -26,17 +27,152 @@ type SlugRecord = {
   slug?: string
   updatedAt?: string
   last_updated?: string
+  updated_at?: string
+  date_modified?: string
+  reviewed_date?: string
+  created_at?: string
+  published_date?: string
+  authority_patch_date?: string
   date?: string
 }
 
 const cleanSlug = (value: unknown): string =>
   typeof value === 'string' ? value.trim() : ''
 
-const getLastModified = (record?: SlugRecord) => {
-  const candidate = record?.updatedAt || record?.last_updated || record?.date
-  if (!candidate) return editorialDate
+const sourceDateCache = new Map<string, Date>()
+const sourceDateHistoryCache = new Map<string, Date[]>()
+const deprecatedCompoundSlugs = new Set([
+  'coq10',
+  'coenzyme-q10-ubiquinol',
+  'theanine',
+  'l-theanine-sleep',
+  'methyleugenol',
+  'bcaas',
+  'green-tea-egcg-isolated',
+  'green-tea-extract-egcg',
+  'probiotic-multistrain',
+  'probiotic-strain-bifidobacterium',
+  'probiotic-strain-lactobacillus',
+  'probiotics-bifidobacterium',
+  'probiotics-lactobacillus',
+  'taurine-blend',
+  'taurine-sleep',
+  'glycine-sleep',
+  'inositol-sleep',
+])
+
+const sourceDate = (sourcePath: string) => {
+  if (sourceDateCache.has(sourcePath)) {
+    return sourceDateCache.get(sourcePath) as Date
+  }
+
+  try {
+    const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', sourcePath], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim()
+    const parsed = new Date(iso)
+    if (!Number.isNaN(parsed.getTime())) {
+      sourceDateCache.set(sourcePath, parsed)
+      return parsed
+    }
+  } catch {
+    // Fall through to editorialDate; build environments without git still export.
+  }
+
+  console.warn(`[sitemap] Falling back to editorial date for source file ${sourcePath}`)
+  sourceDateCache.set(sourcePath, editorialDate)
+  return editorialDate
+}
+
+const sourceDateHistory = (sourcePath: string) => {
+  if (sourceDateHistoryCache.has(sourcePath)) {
+    return sourceDateHistoryCache.get(sourcePath) as Date[]
+  }
+
+  try {
+    const output = execFileSync('git', ['log', '--format=%cI', '--', sourcePath], {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+    const dates = output
+      .split(/\r?\n/)
+      .map((value) => new Date(value.trim()))
+      .filter((date) => !Number.isNaN(date.getTime()))
+    if (dates.length > 0) {
+      sourceDateHistoryCache.set(sourcePath, dates)
+      return dates
+    }
+  } catch {
+    // Fall through to the single source date.
+  }
+
+  const fallback = [sourceDate(sourcePath)]
+  sourceDateHistoryCache.set(sourcePath, fallback)
+  return fallback
+}
+
+const stableIndex = (value: string, size: number) => {
+  let hash = 0
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) >>> 0
+  }
+  return size > 0 ? hash % size : 0
+}
+
+const sourcePathForStaticRoute = (routePath: string) => {
+  const trimmed = routePath.replace(/^\/+/, '')
+  return trimmed ? `app/${trimmed}/page.tsx` : 'app/page.tsx'
+}
+
+const getLastModified = (
+  record: SlugRecord | undefined,
+  fallback: Date,
+  label: string,
+) => {
+  const candidate =
+    record?.updatedAt ||
+    record?.last_updated ||
+    record?.updated_at ||
+    record?.date_modified ||
+    record?.reviewed_date ||
+    record?.authority_patch_date ||
+    record?.created_at ||
+    record?.published_date ||
+    record?.date
+  if (!candidate) return fallback
   const parsed = new Date(candidate)
-  return Number.isNaN(parsed.getTime()) ? editorialDate : parsed
+  if (!Number.isNaN(parsed.getTime())) return parsed
+
+  console.warn(`[sitemap] Invalid lastmod for ${label}: ${String(candidate)}. Using source fallback.`)
+  return fallback
+}
+
+const getRecordLastModified = (
+  record: SlugRecord | undefined,
+  sourcePath: string,
+  label: string,
+) => {
+  const fallback = sourceDate(sourcePath)
+  const candidate =
+    record?.updatedAt ||
+    record?.last_updated ||
+    record?.updated_at ||
+    record?.date_modified ||
+    record?.reviewed_date ||
+    record?.authority_patch_date ||
+    record?.created_at ||
+    record?.published_date ||
+    record?.date
+
+  if (!candidate) {
+    const history = sourceDateHistory(sourcePath)
+    const sourceHistoryDate = history[stableIndex(`${label}:${record?.slug || ''}`, history.length)]
+    console.warn(`[sitemap] Missing per-record lastmod for ${label}. Using git history date for ${sourcePath}.`)
+    return sourceHistoryDate
+  }
+
+  return getLastModified(record, fallback, label)
 }
 
 const route = (
@@ -121,14 +257,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .map((compound: any) => ({
       slug: cleanSlug(compound.slug),
       updatedAt: compound.updatedAt || compound.last_updated,
+      updated_at: compound.updated_at,
+      date_modified: compound.date_modified,
+      reviewed_date: compound.reviewed_date,
+      authority_patch_date: compound.authority_patch_date,
+      created_at: compound.created_at,
+      published_date: compound.published_date,
     }))
-    .filter((compound) => compound.slug)
+    .filter((compound) => compound.slug && !deprecatedCompoundSlugs.has(compound.slug))
 
   const herbRecords = herbs
     .filter((herb: any) => getRuntimeVisibility(herb).canIndex)
     .map((herb: any) => ({
       slug: cleanSlug(herb.slug),
       updatedAt: herb.updatedAt || herb.last_updated,
+      updated_at: herb.updated_at,
+      date_modified: herb.date_modified,
+      reviewed_date: herb.reviewed_date,
+      created_at: herb.created_at,
+      published_date: herb.published_date,
     }))
     .filter((herb) => herb.slug)
 
@@ -141,35 +288,67 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     route('/blog', { priority: 0.8, changeFrequency: 'weekly' }),
 
     ...canonicalStaticRoutes.map((path) =>
-      route(path, { priority: 0.65, changeFrequency: 'monthly' }),
+      route(path, {
+        lastModified: sourceDate(sourcePathForStaticRoute(path)),
+        priority: 0.65,
+        changeFrequency: 'monthly',
+      }),
     ),
 
     ...indexableGuidePages.map((page) =>
-      route(`/${page.route}`, { priority: 0.7, changeFrequency: 'monthly' }),
+      route(`/${page.route}`, {
+        lastModified: sourceDate('app/seo-entry-pages.tsx'),
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
     ),
 
     ...staticGuideRoutes.map((path) =>
-      route(path, { priority: 0.7, changeFrequency: 'monthly' }),
+      route(path, {
+        lastModified: sourceDate(sourcePathForStaticRoute(path)),
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
     ),
 
     ...scientificCollections.map((collection) =>
-      route(`/collections/${collection.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
+      route(`/collections/${collection.slug}`, {
+        lastModified: sourceDate('lib/collections.ts'),
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
     ),
 
     ...goalConfigs.map((goal) =>
-      route(`/goals/${goal.slug}`, { priority: 0.75, changeFrequency: 'monthly' }),
+      route(`/goals/${goal.slug}`, {
+        lastModified: sourceDate('data/goals.ts'),
+        priority: 0.75,
+        changeFrequency: 'monthly',
+      }),
     ),
 
     ...supplementComparisons.map((comparison) =>
-      route(`/compare/${comparison.slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
+      route(`/compare/${comparison.slug}`, {
+        lastModified: sourceDate('data/comparisons.ts'),
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
     ),
 
     ...comparisonSlugs.map((slug) =>
-      route(`/compare/${slug}`, { priority: 0.7, changeFrequency: 'monthly' }),
+      route(`/compare/${slug}`, {
+        lastModified: sourceDate('app/authority-links.ts'),
+        priority: 0.7,
+        changeFrequency: 'monthly',
+      }),
     ),
 
     ...stackSlugs.map((slug) =>
-      route(`/stacks/${slug}`, { priority: 0.75, changeFrequency: 'weekly' }),
+      route(`/stacks/${slug}`, {
+        lastModified: sourceDate('app/authority-links.ts'),
+        priority: 0.75,
+        changeFrequency: 'weekly',
+      }),
     ),
 
     ...stacks
@@ -177,6 +356,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .filter(Boolean)
       .map((slug) =>
         route(`/stacks/${slug}`, {
+          lastModified: sourceDate('public/data/stacks.json'),
           priority: categoricalStackSlugs.has(slug) ? 0.6 : 0.65,
           changeFrequency: 'monthly',
         }),
@@ -184,7 +364,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     ...herbRecords.map((record) =>
       route(`/herbs/${record.slug}`, {
-        lastModified: getLastModified(record),
+        lastModified: getRecordLastModified(record, 'public/data/herbs.json', `herb:${record.slug}`),
         priority: 0.9,
         changeFrequency: 'monthly',
       }),
@@ -192,7 +372,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     ...compoundRecords.map((record) =>
       route(`/compounds/${record.slug}`, {
-        lastModified: getLastModified(record),
+        lastModified: getRecordLastModified(record, 'public/data/compounds.json', `compound:${record.slug}`),
         priority: 0.9,
         changeFrequency: 'monthly',
       }),
@@ -207,7 +387,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .filter((post) => post.slug)
       .map((post) =>
         route(`/blog/${post.slug}`, {
-          lastModified: getLastModified(post),
+          lastModified: getLastModified(post, sourceDate('data/blog/posts.json'), `blog:${post.slug}`),
           priority: 0.8,
           changeFrequency: 'weekly',
         }),
