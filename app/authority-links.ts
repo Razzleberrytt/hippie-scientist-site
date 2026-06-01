@@ -19,6 +19,8 @@ export const bestForSlugs = [
   'sleep',
   'focus',
   'stress',
+  'anxiety',
+  'energy',
   'inflammation',
 ]
 
@@ -45,9 +47,9 @@ export const protocolSlugs = [
 export const authorityHomeLinks = [
   { href: '/goals/stress', label: 'Stress Goal Hub' },
   { href: '/goals/sleep', label: 'Sleep Goal Hub' },
-  { href: '/guides/best-supplements-for-sleep', label: 'Best Supplements for Sleep' },
-  { href: '/guides/best-supplements-for-focus', label: 'Best Supplements for Focus' },
+  { href: '/top/sleep', label: 'Best Supplements for Sleep' },
+  { href: '/top/focus', label: 'Best Supplements for Focus' },
   { href: '/compare/rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
   { href: '/stacks/sleep-recovery-stack', label: 'Sleep Recovery Stack' },
-  { href: '/learn/safety', label: 'Safety Basics' },
+  { href: '/methodology', label: 'Safety Basics' },
 ]
