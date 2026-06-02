@@ -38,11 +38,16 @@ export function trackRevenueEvent(input: RevenueEventInput) {
   const event = buildRevenueEvent(input)
   window.dispatchEvent(new CustomEvent('ths:revenue-event', { detail: event }))
 
-  const dataLayerTarget = window as Window & {
-    dataLayer?: RevenueEvent[]
+  window.dataLayer = window.dataLayer || []
+  window.dataLayer.push(event)
+
+  if (window.gtag) {
+    window.gtag('event', event.kind, {
+      event_category: event.location,
+      event_label: event.label,
+      event_target: event.target || undefined,
+    })
   }
-  dataLayerTarget.dataLayer = dataLayerTarget.dataLayer || []
-  dataLayerTarget.dataLayer.push(event)
 
   try {
     const existing = window.localStorage.getItem('ths_revenue_events')
@@ -52,6 +57,6 @@ export function trackRevenueEvent(input: RevenueEventInput) {
       window.localStorage.setItem('ths_revenue_events', JSON.stringify(queue.slice(-50)))
     }
   } catch {
-    // Local storage can be unavailable in privacy modes; event dispatch above still works.
+    // localStorage unavailable in privacy modes; custom event + GA4 dispatch still fires.
   }
 }

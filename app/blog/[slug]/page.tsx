@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
   return {
     title: post.title,
     description: post.excerpt,
+    authors: [{ name: 'The Hippie Scientist', url: 'https://thehippiescientist.net/about' }],
     alternates: { canonical: `/blog/${resolvedParams.slug}` },
     openGraph: {
       title: post.title,
@@ -89,8 +90,9 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
     headline: post.title,
     description: post.excerpt,
     author: {
-      '@type': 'Organization',
+      '@type': 'Person',
       name: 'The Hippie Scientist',
+      url: 'https://thehippiescientist.net/about',
     },
     publisher: {
       '@type': 'Organization',
@@ -153,7 +155,13 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
           <span className="identity-meta">{formatDate(post.date)} - {post.readingTime}</span>
         </div>
         <h1 className="mt-4 heading-premium max-w-4xl">{post.title}</h1>
-        <p className="mt-5 text-reading max-w-3xl text-muted-soft">{post.excerpt}</p>
+        <p className="mt-3 text-sm text-muted">
+          By{' '}
+          <a href="/about" rel="author" className="font-medium text-ink hover:underline">
+            The Hippie Scientist
+          </a>
+        </p>
+        <p className="mt-3 text-reading max-w-3xl text-muted-soft">{post.excerpt}</p>
       </section>
 
       <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">

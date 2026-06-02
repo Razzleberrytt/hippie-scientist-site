@@ -11,6 +11,14 @@ function amazonUrl(query: string) {
   return `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${AFFILIATE_TAGS.amazon}`
 }
 
+function amazonAsinUrl(asin: string) {
+  return `https://www.amazon.com/dp/${asin}?tag=${AFFILIATE_TAGS.amazon}`
+}
+
+function amazonProductUrl({ asin, query }: { asin?: string; query: string }) {
+  return asin ? amazonAsinUrl(asin) : amazonUrl(query)
+}
+
 export const revenueProductSets: Record<string, RevenueProductSet> = {
   ashwagandha: {
     slug: 'ashwagandha',
@@ -21,21 +29,21 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'NOW Foods',
         title: 'NOW Ashwagandha 450 mg',
         rationale: 'Budget pick for a simple ashwagandha capsule from a widely available supplement brand.',
-        affiliateUrl: amazonUrl('NOW Ashwagandha 450 mg capsules'),
+        affiliateUrl: amazonProductUrl({ query: 'NOW Ashwagandha 450 mg capsules' }),
       },
       {
         slot: 'overall',
         brand: 'Jarrow Formulas',
         title: 'Jarrow KSM-66 Ashwagandha',
         rationale: 'Best overall pick for users who want a clearly standardized KSM-66 ashwagandha extract.',
-        affiliateUrl: amazonUrl('Jarrow Formulas KSM-66 Ashwagandha'),
+        affiliateUrl: amazonProductUrl({ query: 'Jarrow Formulas KSM-66 Ashwagandha' }),
       },
       {
         slot: 'premium',
         brand: 'Thorne',
         title: 'Thorne Stress Balance',
         rationale: 'Premium pick for users who prioritize practitioner-style branding and broader stress-support context.',
-        affiliateUrl: amazonUrl('Thorne ashwagandha stress balance'),
+        affiliateUrl: amazonProductUrl({ query: 'Thorne ashwagandha stress balance' }),
       },
     ],
   },
@@ -48,21 +56,21 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: "Doctor's Best",
         title: "Doctor's Best High Absorption Magnesium",
         rationale: 'Budget pick for chelated magnesium with clear elemental magnesium labeling.',
-        affiliateUrl: amazonUrl("Doctor's Best High Absorption Magnesium lysinate glycinate"),
+        affiliateUrl: amazonProductUrl({ query: "Doctor's Best High Absorption Magnesium lysinate glycinate" }),
       },
       {
         slot: 'overall',
         brand: 'Pure Encapsulations',
         title: 'Pure Encapsulations Magnesium Glycinate',
         rationale: 'Best overall pick for a cleaner glycinate-style magnesium product.',
-        affiliateUrl: amazonUrl('Pure Encapsulations Magnesium Glycinate'),
+        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Magnesium Glycinate' }),
       },
       {
         slot: 'premium',
         brand: 'Thorne',
         title: 'Thorne Magnesium Bisglycinate',
         rationale: 'Premium pick for users who prefer powder format and a practitioner-oriented brand.',
-        affiliateUrl: amazonUrl('Thorne Magnesium Bisglycinate powder'),
+        affiliateUrl: amazonProductUrl({ query: 'Thorne Magnesium Bisglycinate powder' }),
       },
     ],
   },
@@ -75,21 +83,21 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'NOW Foods',
         title: 'NOW L-Theanine 200 mg',
         rationale: 'Budget pick for plain L-theanine capsules without a complex calming blend.',
-        affiliateUrl: amazonUrl('NOW Foods L-Theanine 200 mg'),
+        affiliateUrl: amazonProductUrl({ query: 'NOW Foods L-Theanine 200 mg' }),
       },
       {
         slot: 'overall',
         brand: 'Jarrow Formulas',
         title: 'Jarrow Theanine 200 mg',
         rationale: 'Best overall pick for a simple 200 mg L-theanine capsule format.',
-        affiliateUrl: amazonUrl('Jarrow Formulas Theanine 200 mg'),
+        affiliateUrl: amazonProductUrl({ query: 'Jarrow Formulas Theanine 200 mg' }),
       },
       {
         slot: 'premium',
         brand: 'Sports Research',
         title: 'Sports Research Suntheanine L-Theanine',
         rationale: 'Premium pick for users who want a Suntheanine-labeled theanine product.',
-        affiliateUrl: amazonUrl('Sports Research Suntheanine L-Theanine 200 mg'),
+        affiliateUrl: amazonProductUrl({ query: 'Sports Research Suntheanine L-Theanine 200 mg' }),
       },
     ],
   },
@@ -102,21 +110,21 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'NOW Foods',
         title: 'NOW Rhodiola 500 mg',
         rationale: 'Budget pick for a common Rhodiola rosea capsule from a mainstream brand.',
-        affiliateUrl: amazonUrl('NOW Rhodiola 500 mg'),
+        affiliateUrl: amazonProductUrl({ query: 'NOW Rhodiola 500 mg' }),
       },
       {
         slot: 'overall',
         brand: 'Gaia Herbs',
         title: 'Gaia Herbs Rhodiola Rosea',
         rationale: 'Best overall pick for users who want a recognizable botanical brand and liquid phyto-caps format.',
-        affiliateUrl: amazonUrl('Gaia Herbs Rhodiola Rosea'),
+        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Rhodiola Rosea' }),
       },
       {
         slot: 'premium',
         brand: 'Thorne',
         title: 'Thorne Rhodiola',
         rationale: 'Premium pick for users prioritizing brand quality signals and transparent standardized extract positioning.',
-        affiliateUrl: amazonUrl('Thorne Rhodiola'),
+        affiliateUrl: amazonProductUrl({ query: 'Thorne Rhodiola' }),
       },
     ],
   },
@@ -128,22 +136,22 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         slot: 'budget',
         brand: 'NOW Foods',
         title: "NOW Lion's Mane",
-        rationale: 'Budget pick for a widely available lion’s mane capsule.',
-        affiliateUrl: amazonUrl("NOW Lion's Mane mushroom supplement"),
+        rationale: "Budget pick for a widely available lion's mane capsule.",
+        affiliateUrl: amazonProductUrl({ query: "NOW Lion's Mane mushroom supplement" }),
       },
       {
         slot: 'overall',
         brand: 'Real Mushrooms',
         title: "Real Mushrooms Lion's Mane",
         rationale: 'Best overall pick for fruiting-body-forward labeling and mushroom-category transparency.',
-        affiliateUrl: amazonUrl("Real Mushrooms Lion's Mane"),
+        affiliateUrl: amazonProductUrl({ query: "Real Mushrooms Lion's Mane" }),
       },
       {
         slot: 'premium',
         brand: 'Host Defense',
         title: "Host Defense Lion's Mane",
         rationale: 'Premium pick for users who prefer a well-known mushroom-specialist brand.',
-        affiliateUrl: amazonUrl("Host Defense Lion's Mane capsules"),
+        affiliateUrl: amazonProductUrl({ query: "Host Defense Lion's Mane capsules" }),
       },
     ],
   },

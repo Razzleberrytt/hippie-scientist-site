@@ -67,6 +67,10 @@ scripts/out/
 
 .eslintcache
 
+# Local environment secrets — never commit
+.env.local
+.env.*.local
+
 # Root-level cleanup artifacts (do not commit)
 DEPLOY_FIX_REPORT.md
 DEPLOY_STRATEGY_REPORT.md
