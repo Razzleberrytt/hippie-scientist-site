@@ -121,9 +121,12 @@ export default function StartHerePage() {
         <h2 className='text-2xl font-semibold tracking-tight text-ink sm:text-3xl'>Choose your path</h2>
         <div className='grid gap-4 md:grid-cols-2 xl:grid-cols-3'>
           {goalPaths.map((path) => (
-            <Link key={path.title} href={path.href} className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:-translate-y-0.5 hover:bg-white'>
+            <Link key={path.title} href={path.href} className='group rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:bg-white hover:border-brand-700/30 cursor-pointer'>
               <h3 className='text-lg font-semibold text-ink'>{path.title}</h3>
               <p className='mt-2 text-sm leading-6 text-muted'>{path.description}</p>
+              <p className='mt-4 text-sm font-semibold text-brand-700 group-hover:text-brand-800 transition flex items-center gap-1.5'>
+                Open guide <span className='group-hover:translate-x-0.5 transition'>→</span>
+              </p>
             </Link>
           ))}
         </div>

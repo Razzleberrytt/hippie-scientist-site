@@ -25,7 +25,8 @@ export default function Header() {
           aria-label='The Hippie Scientist Home'
           className='header-nav-link inline-flex items-center rounded-full px-1 py-2 text-lg font-black tracking-tight text-ink transition hover:text-emerald-700 focus:outline-none'
         >
-          The Hippie Scientist
+          <span className='hidden sm:inline'>The Hippie Scientist</span>
+          <span className='sm:hidden'>THS</span>
         </Link>
 
         {/* Desktop Nav using semantic nav with aria-label */}

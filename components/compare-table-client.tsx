@@ -194,7 +194,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
               {selectedCompounds.map((c) => (
                 <span
                   key={c.slug}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-brand-850 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-brand-700 border-2 border-brand-900 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-md"
                 >
                   <span>{c.name || c.slug}</span>
                   <button

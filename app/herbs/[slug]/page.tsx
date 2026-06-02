@@ -356,11 +356,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
         />
       ) : null}
 
-      {/* Header Breadcrumb */}
+      {/* Header Breadcrumb - use only common name, not scientific name */}
       <nav className="flex items-center gap-2 text-xs text-muted">
         <Link href="/herbs" className="transition hover:text-ink">Herbs</Link>
         <span>/</span>
-        <span className="text-ink">{displayName}</span>
+        <span className="text-ink font-medium">{displayName}</span>
       </nav>
 
       {/* Title Header */}
