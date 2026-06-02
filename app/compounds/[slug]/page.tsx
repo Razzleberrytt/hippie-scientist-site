@@ -19,7 +19,9 @@ import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
 import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
+import StackRecommendationSection from '../../../components/StackRecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import { getStackRecommendations } from '@/lib/recommendation-engine'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 
 type PageProps = {
@@ -298,7 +300,22 @@ export default async function CompoundPage({ params }: PageProps) {
   const activeShopLinks = getAffiliateShopLinks(compound, displayName, 'compound')
   const affiliateCtaLink = activeShopLinks.find(link => link.url)
   const revenueProducts = getRevenueProductSet(normalizedSlug)
+  const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
+
+  const productSchemaJsonLd = revenueProducts?.products[0] ? {
+    '@context': 'https://schema.org/',
+    '@type': 'Product',
+    name: `${displayName} Supplement`,
+    description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '15',
+      highPrice: '50',
+      url: revenueProducts.products.find(p => p.slot === 'overall')?.affiliateUrl ?? revenueProducts.products[0].affiliateUrl,
+    },
+  } : null
 
   return (
     <>
@@ -310,6 +327,12 @@ export default async function CompoundPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {productSchemaJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemaJsonLd) }}
+        />
+      ) : null}
 
       <ReadingProgress />
 
@@ -430,6 +453,11 @@ export default async function CompoundPage({ params }: PageProps) {
             products={revenueProducts.products}
           />
         ) : null}
+
+        <StackRecommendationSection
+          productName={displayName}
+          recommendations={stackRecommendations}
+        />
 
         {/* Section 4: Mechanisms (Collapsible) */}
         {mechanismHints.length > 0 && (

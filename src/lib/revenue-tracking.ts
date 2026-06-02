@@ -60,6 +60,26 @@ export function trackProfileView(profileName: string, profileType: string) {
   }
 }
 
+export function trackRecommendationImpression(sourceProduct: string, recommendedProducts: string[]) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'recommendation_impression', {
+      source_product: sourceProduct,
+      recommended_products: recommendedProducts.join(','),
+      count: recommendedProducts.length,
+    })
+  }
+}
+
+export function trackStackView(stackName: string, products: string[]) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'stack_view', {
+      stack_name: stackName,
+      product_count: products.length,
+      products: products.join(','),
+    })
+  }
+}
+
 export function trackRevenueEvent(input: RevenueEventInput) {
   if (typeof window === 'undefined') return
 
