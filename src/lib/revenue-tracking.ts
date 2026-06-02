@@ -32,6 +32,34 @@ export function buildRevenueEvent(input: RevenueEventInput): RevenueEvent {
   }
 }
 
+export function trackAffiliateClick(productName: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'affiliate_click', {
+      product_name: productName,
+      value: 1,
+      currency: 'USD',
+    })
+  }
+}
+
+export function trackEmailCapture(source: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'email_signup', {
+      signup_source: source,
+      value: 1,
+    })
+  }
+}
+
+export function trackProfileView(profileName: string, profileType: string) {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', 'profile_view', {
+      profile_name: profileName,
+      profile_type: profileType,
+    })
+  }
+}
+
 export function trackRevenueEvent(input: RevenueEventInput) {
   if (typeof window === 'undefined') return
 
