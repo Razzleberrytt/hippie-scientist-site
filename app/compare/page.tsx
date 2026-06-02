@@ -65,9 +65,10 @@ export default async function ComparePage() {
             Use this table to compare who each option may fit, where caution is needed, and which tradeoffs matter most. It is educational decision support, not a medical recommendation.
           </p>
           <div className="pt-2">
-            <Link 
-              href="/compare/dynamic" 
+            <Link
+              href="/compare/dynamic"
               className="inline-flex items-center gap-2 rounded-full bg-brand-850 hover:bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow transition hover:-translate-y-0.5 focus:outline-none"
+              style={{ color: 'white' }}
             >
               Launch Dynamic Comparison Matrix
             </Link>

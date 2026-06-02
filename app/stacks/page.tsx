@@ -140,7 +140,7 @@ export default function StacksPage() {
 
             <div className="grid gap-3">
               {(featured.stack ?? []).slice(0, 3).map((item, index) => (
-                <StackIngredient key={`${featured.slug}-${item.compound}-${index}`} item={item} />
+                item.compound ? <StackIngredient key={`${featured.slug}-${item.compound}-${index}`} item={item} /> : null
               ))}
             </div>
           </div>

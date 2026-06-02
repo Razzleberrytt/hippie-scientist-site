@@ -110,7 +110,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
   const rows: [string, (c: Compound) => any][] = [
     ['Best for', c => summary(c.effects || c.primary_effects)],
     ['Evidence', c => <EvidenceBadge value={text(c.evidence_tier || c.evidenceTier || c.evidence_grade) || 'Limited'} />],
-    ['Time to effect', c => text(c.time_to_effect) || '—'],
+    ['Time to effect', c => text(c.time_to_effect) || 'Not specified'],
     ['Use case', c => getUseCaseLabel(c) || '—'],
     ['Safety notes', c => summary(c.safety_flags || c.safetyNotes || c.contraindications)],
     ['Complexity', c => text(c.complexity) || 'Low'],

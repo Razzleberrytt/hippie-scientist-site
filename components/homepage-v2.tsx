@@ -197,7 +197,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             <p role='doc-subtitle' className='mb-2 inline-flex text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-brand-700'>
               Evidence-first supplement decisions
             </p>
-            <h1 className='font-display text-[2.25rem] font-semibold leading-[1] tracking-[-0.04em] text-ink sm:text-5xl md:text-6xl'>
+            <h1 className='font-display text-[2.25rem] font-semibold leading-[1] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
               Find the right supplement path before you buy.
             </h1>
             <p className='mt-4 max-w-2xl text-sm font-medium leading-6 text-muted sm:text-base sm:leading-7'>
