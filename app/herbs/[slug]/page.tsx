@@ -21,7 +21,9 @@ import {
 } from '@/lib/research-intelligence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import RecommendationSection from '../../../components/RecommendationSection'
+import StackRecommendationSection from '../../../components/StackRecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import { getStackRecommendations } from '@/lib/recommendation-engine'
 import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
 
 
@@ -292,6 +294,22 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const safetyTone = getSafetyTone(safetySummary, avoidIf)
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
   const revenueProducts = getRevenueProductSet(normalizedSlug)
+  const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
+
+  const productSchemaJsonLd = revenueProducts?.products[0] ? {
+    '@context': 'https://schema.org/',
+    '@type': 'Product',
+    name: `${displayName} Supplement`,
+    description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: '15',
+      highPrice: '50',
+      url: revenueProducts.products.find(p => p.slot === 'overall')?.affiliateUrl ?? revenueProducts.products[0].affiliateUrl,
+    },
+  } : null
+
   const comparisonLinks = comparisonRecords
     .filter((record: any) => record?.slug)
     .map((record: any) => {
@@ -331,6 +349,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {productSchemaJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemaJsonLd) }}
+        />
+      ) : null}
 
       {/* Header Breadcrumb */}
       <nav className="flex items-center gap-2 text-xs text-muted">
@@ -459,6 +483,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
             products={revenueProducts.products}
           />
         ) : null}
+
+        <StackRecommendationSection
+          productName={displayName}
+          recommendations={stackRecommendations}
+        />
 
         <div className="grid gap-4 sm:grid-cols-2 pt-2">
           {relatedHerbLinks.length > 0 && (
