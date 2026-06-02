@@ -3,11 +3,16 @@ import Link from 'next/link'
 import posts from '../../../data/blog/posts.json'
 import { getAllCompounds, getAllHerbs } from '@/lib/server/runtime-data'
 import { ResearchContinuityBlock } from '@/components/scientific-discovery'
-import { findArticleEntities } from '@/lib/editorial-discovery'
+import { findArticleEntities, type EditorialEntity } from '@/lib/editorial-discovery'
+import {
+  formatDate,
+  inferResearchStyle,
+  type BlogPost,
+} from '@/lib/blog-index'
 import EmailCapture from '../../../components/EmailCapture'
 import NewsletterCtaBlock from '../../../components/NewsletterCtaBlock'
 
-const allPosts = posts as any[]
+const allPosts: BlogPost[] = posts
 
 type BlogRouteParams = Promise<{ slug: string }>
 
@@ -15,13 +20,13 @@ type BlogRouteProps = {
   params: BlogRouteParams
 }
 
-export async function generateStaticParams() {
-  return allPosts.map((p: any) => ({ slug: p.slug }))
+export function generateStaticParams() {
+  return allPosts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: BlogRouteProps) {
   const resolvedParams = await params
-  const post = allPosts.find((p: any) => p.slug === resolvedParams.slug)
+  const post = allPosts.find((candidate) => candidate.slug === resolvedParams.slug)
 
   if (!post) return {}
 
@@ -41,23 +46,6 @@ export async function generateMetadata({ params }: BlogRouteProps) {
       description: post.excerpt,
     },
   }
-}
-
-const formatDate = (value: string | undefined): string => {
-  if (!value) return 'Undated'
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return value
-  return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date)
-}
-
-const inferResearchStyle = (post: any) => {
-  const value = `${post.title} ${post.excerpt} ${post.content}`.toLowerCase()
-  if (value.includes('research digest')) return 'Evidence synthesis'
-  if (value.includes('pharmacology')) return 'Mechanism-led'
-  if (value.includes('traditional')) return 'Traditional-use led'
-  if (value.includes('safety')) return 'Safety-first'
-  if (value.includes('extraction')) return 'Methods / preparation'
-  return 'Editorial field note'
 }
 
 const renderBlock = (line: string, index: number) => {
@@ -82,17 +70,17 @@ const renderBlock = (line: string, index: number) => {
 
 export default async function BlogPostPage({ params }: BlogRouteProps) {
   const resolvedParams = await params
-  const post = allPosts.find((p: any) => p.slug === resolvedParams.slug)
+  const post = allPosts.find((candidate) => candidate.slug === resolvedParams.slug)
 
   if (!post) return notFound()
 
-  const lines = post.content.split('\n').map((line: string) => line.trim()).filter(Boolean)
+  const lines = (post.content ?? '').split('\n').map((line) => line.trim()).filter(Boolean)
   const [herbs, compounds] = await Promise.all([
     getAllHerbs(),
     getAllCompounds(),
   ])
-  const relatedHerbs = findArticleEntities(post, herbs as any[], 'herb', 3)
-  const relatedCompounds = findArticleEntities(post, compounds as any[], 'compound', 3)
+  const relatedHerbs = findArticleEntities(post, herbs as EditorialEntity[], 'herb', 3)
+  const relatedCompounds = findArticleEntities(post, compounds as EditorialEntity[], 'compound', 3)
   const relatedItems = [...relatedHerbs, ...relatedCompounds]
 
   const articleJsonLd = {
@@ -147,7 +135,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
       />
 
       <nav className="flex items-center gap-2 text-sm text-muted">
-        <Link href="/blog" className="hover:text-ink transition">
+        <Link href="/blog" className="transition hover:text-ink">
           Blog
         </Link>
 
@@ -156,13 +144,13 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         <span className="text-ink">{post.title}</span>
       </nav>
 
-      <Link href="/blog" className="text-sm font-bold text-brand-800">← Back to research notes</Link>
+      <Link href="/blog" className="text-sm font-bold text-brand-800">&lt;- Back to research notes</Link>
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-3">
           <span className="identity-kicker">Article</span>
           <span className="identity-kicker">{inferResearchStyle(post)}</span>
-          <span className="identity-meta">{formatDate(post.date)} • {post.readingTime}</span>
+          <span className="identity-meta">{formatDate(post.date)} - {post.readingTime}</span>
         </div>
         <h1 className="mt-4 heading-premium max-w-4xl">{post.title}</h1>
         <p className="mt-5 text-reading max-w-3xl text-muted-soft">{post.excerpt}</p>
@@ -180,9 +168,9 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
           <div className="mobile-reading-card">
             <p className="eyebrow-label">How to read this</p>
             <ul className="mt-4 space-y-3 text-sm leading-7 text-[#46574d]">
-              <li>• Treat mechanisms as context, not proof.</li>
-              <li>• Look for safety constraints before practical use.</li>
-              <li>• Continue into profiles for structured comparison.</li>
+              <li>Treat mechanisms as context, not proof.</li>
+              <li>Look for safety constraints before practical use.</li>
+              <li>Continue into profiles for structured comparison.</li>
             </ul>
           </div>
         </aside>

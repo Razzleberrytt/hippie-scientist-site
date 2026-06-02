@@ -210,7 +210,7 @@ export function editorialUseCaseLabel(value: unknown): string {
 }
 
 export function isSafeInternalHref(value: unknown): value is string {
-  const href = text(value)
+  const href = typeof value === 'string' ? value.trim() : ''
 
   if (!href || !href.startsWith('/') || href.includes('//')) return false
   if (/\/(undefined|null|nan)(?:\/|$)/i.test(href)) return false

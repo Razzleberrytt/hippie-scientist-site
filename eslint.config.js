@@ -70,6 +70,12 @@ export default [
     },
   },
   {
+    files: ['app/blog/**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'error',
+    },
+  },
+  {
     files: ['src/**/*.{js,jsx,ts,tsx}'],
     rules: {
       'no-console': 'error',
