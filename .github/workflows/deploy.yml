@@ -37,6 +37,9 @@ jobs:
       - name: Check Node version contract
         run: npm run check:node
 
+      - name: Audit high-severity dependencies
+        run: npm run audit:high
+
       - name: Validate workbook source
         run: npm run validate:workbook-source
 

@@ -18,6 +18,27 @@ function readJsonSafe(p) {
   }
 }
 
+function validateGeneratedSitemap() {
+  const outDir = path.join(ROOT, 'out')
+  const sitemapPath = path.join(outDir, 'sitemap.xml')
+
+  if (!fs.existsSync(outDir)) {
+    warn('out directory missing; generated sitemap check skipped before build output exists')
+    return
+  }
+
+  if (!fs.existsSync(sitemapPath)) {
+    console.error('[deploy-readiness] out/sitemap.xml missing')
+    process.exit(1)
+  }
+
+  const sitemap = fs.readFileSync(sitemapPath, 'utf8').trim()
+  if (!sitemap || !sitemap.includes('<urlset')) {
+    console.error('[deploy-readiness] out/sitemap.xml is empty or not a valid sitemap urlset')
+    process.exit(1)
+  }
+}
+
 function main() {
   const herbs = readJsonSafe(path.join(ROOT, 'public/data/herbs.json'))
   const compounds = readJsonSafe(path.join(ROOT, 'public/data/compounds.json'))
@@ -32,9 +53,7 @@ function main() {
     process.exit(1)
   }
 
-  if (!fs.existsSync(path.join(ROOT, 'public/sitemap.xml'))) {
-    warn('sitemap.xml missing (allowed in MVP)')
-  }
+  validateGeneratedSitemap()
 
   if (!fs.existsSync(path.join(ROOT, 'public/data/herbs-detail'))) {
     warn('herbs-detail missing (allowed in MVP)')

@@ -37,17 +37,17 @@ const inferArticleStyle = (post: any) => {
 }
 
 export const metadata: Metadata = {
-  title: 'Research Notes & Herb Guides',
+  title: 'Research Notes',
   description: '75+ research notes on herbs, compounds, safety, and preparation.',
   alternates: { canonical: '/blog' },
   openGraph: {
-    title: 'Research Notes & Herb Guides',
+    title: 'Research Notes',
     description: '75+ research notes on herbs, compounds, safety, and preparation.',
     url: '/blog',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Research Notes & Herb Guides',
+    title: 'Research Notes',
     description: '75+ research notes on herbs, compounds, mechanisms, safety, and preparation.',
   },
 }

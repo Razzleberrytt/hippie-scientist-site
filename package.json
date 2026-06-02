@@ -69,6 +69,7 @@
     "audit:structured-data": "node scripts/ci/audit-structured-data.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "5.2.9",
     "@fontsource/inter": "^5.2.8",
     "clsx": "^2.1.1",
     "csv-parse": "^5.5.6",

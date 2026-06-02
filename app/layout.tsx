@@ -4,6 +4,8 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import CitationDrawer from '@/components/education/CitationDrawer'
+import '@fontsource/inter/index.css'
+import '@fontsource-variable/fraunces/index.css'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 
@@ -60,9 +62,20 @@ export const metadata: Metadata = {
     description: siteDescription,
     siteName,
     url: siteUrl,
+    images: [
+      {
+        url: '/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
+    title: siteName,
+    description: siteDescription,
+    images: ['/og-default.png'],
   },
 }
 
@@ -104,7 +117,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   </p>
                 </div>
                 <div className='space-y-3'>
-                  <h2 className='font-semibold text-ink'>Explore</h2>
+                  <p className='font-semibold text-ink'>Explore</p>
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/herbs' className='text-muted hover:text-ink transition'>Herbs</Link>
                     <Link href='/compounds' className='text-muted hover:text-ink transition'>Compounds</Link>
@@ -119,13 +132,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   </div>
                 </div>
                 <div className='space-y-3'>
-                  <h2 className='font-semibold text-ink'>Tools</h2>
+                  <p className='font-semibold text-ink'>Tools</p>
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/safety-checker' className='text-muted hover:text-ink transition'>Safety Interaction Checker</Link>
                     <Link href='/education/product-quality' className='text-muted hover:text-ink transition'>Product Quality Guide</Link>
                     <Link href='/dosing' className='text-muted hover:text-ink transition'>Dosing Guide</Link>
                   </div>
-                  <h2 className='mt-4 font-semibold text-ink'>Legal &amp; Transparency</h2>
+                  <p className='mt-4 font-semibold text-ink'>Legal &amp; Transparency</p>
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/privacy' className='text-muted hover:text-ink transition'>Privacy Policy</Link>
                     <Link href='/disclaimer' className='text-muted hover:text-ink transition'>Disclaimer</Link>

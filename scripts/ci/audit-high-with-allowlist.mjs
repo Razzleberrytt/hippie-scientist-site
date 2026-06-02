@@ -2,14 +2,25 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 
-const repoRoot = path.resolve(new URL('../..', import.meta.url).pathname)
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const allowlistPath = path.join(repoRoot, 'security', 'audit-allowlist.json')
 
 const allowlist = JSON.parse(fs.readFileSync(allowlistPath, 'utf8'))
 const rules = Array.isArray(allowlist.rules) ? allowlist.rules : []
 
-const auditRun = spawnSync('npm', ['audit', '--json'], { cwd: repoRoot, encoding: 'utf8' })
+const npmCommand = process.platform === 'win32' ? 'npm' : 'npm'
+const auditRun = spawnSync(npmCommand, ['audit', '--json'], {
+  cwd: repoRoot,
+  encoding: 'utf8',
+  shell: process.platform === 'win32',
+})
+if (auditRun.error) {
+  console.error(`[audit:high] FAIL: unable to run ${npmCommand} audit --json`)
+  console.error(auditRun.error.message)
+  process.exit(1)
+}
 const raw = String(auditRun.stdout || '').trim()
 if (!raw) {
   console.error('[audit:high] FAIL: npm audit returned no JSON output')
