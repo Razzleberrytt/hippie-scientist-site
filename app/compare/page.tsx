@@ -68,7 +68,6 @@ export default async function ComparePage() {
             <Link
               href="/compare/dynamic"
               className="inline-flex items-center gap-2 rounded-full bg-brand-850 hover:bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow transition hover:-translate-y-0.5 focus:outline-none"
-              style={{ color: 'white' }}
             >
               Launch Dynamic Comparison Matrix
             </Link>

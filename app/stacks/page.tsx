@@ -136,6 +136,11 @@ export default function StacksPage() {
               <Link href={`/stacks/${featured.slug}`} className="mt-5 inline-flex rounded-xl bg-brand-850 px-5 py-3 text-base font-black text-white shadow-sm transition hover:bg-brand-900 hover:-translate-y-0.5">
                 Open full stack →
               </Link>
+              {featured.cta ? (
+                <Link href={`/stacks/${featured.slug}#products`} className="mt-3 inline-flex rounded-xl border border-brand-850 px-5 py-3 text-base font-black text-brand-850 shadow-sm transition hover:bg-brand-850 hover:text-white hover:-translate-y-0.5">
+                  {featured.cta}
+                </Link>
+              ) : null}
             </div>
 
             <div className="grid gap-3">
