@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
   return {
     title: post.title,
     description: post.excerpt,
-    authors: [{ name: 'The Hippie Scientist', url: 'https://thehippiescientist.net/about' }],
+    authors: [{ name: 'Will', url: 'https://thehippiescientist.net/about' }],
     alternates: { canonical: `/blog/${resolvedParams.slug}` },
     openGraph: {
       title: post.title,
@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
     description: post.excerpt,
     author: {
       '@type': 'Person',
-      name: 'The Hippie Scientist',
+      name: 'Will',
       url: 'https://thehippiescientist.net/about',
     },
     publisher: {
@@ -158,7 +158,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         <p className="mt-3 text-sm text-muted">
           By{' '}
           <a href="/about" rel="author" className="font-medium text-ink hover:underline">
-            The Hippie Scientist
+            Will
           </a>
         </p>
         <p className="mt-3 text-reading max-w-3xl text-muted-soft">{post.excerpt}</p>

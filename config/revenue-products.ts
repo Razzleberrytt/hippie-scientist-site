@@ -36,7 +36,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'Jarrow Formulas',
         title: 'Jarrow KSM-66 Ashwagandha',
         rationale: 'Best overall pick for users who want a clearly standardized KSM-66 ashwagandha extract.',
-        affiliateUrl: amazonProductUrl({ query: 'Jarrow Formulas KSM-66 Ashwagandha' }),
+        affiliateUrl: amazonProductUrl({ asin: 'B07LFMM7N1', query: 'Jarrow Formulas KSM-66 Ashwagandha' }),
       },
       {
         slot: 'premium',
@@ -63,7 +63,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'Pure Encapsulations',
         title: 'Pure Encapsulations Magnesium Glycinate',
         rationale: 'Best overall pick for a cleaner glycinate-style magnesium product.',
-        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Magnesium Glycinate' }),
+        affiliateUrl: amazonProductUrl({ asin: 'B07F7NWYD8', query: 'Pure Encapsulations Magnesium Glycinate' }),
       },
       {
         slot: 'premium',
@@ -90,7 +90,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'Jarrow Formulas',
         title: 'Jarrow Theanine 200 mg',
         rationale: 'Best overall pick for a simple 200 mg L-theanine capsule format.',
-        affiliateUrl: amazonProductUrl({ query: 'Jarrow Formulas Theanine 200 mg' }),
+        affiliateUrl: amazonProductUrl({ asin: 'B01GAOCB56', query: 'Jarrow Formulas Theanine 200 mg' }),
       },
       {
         slot: 'premium',
@@ -117,7 +117,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'Gaia Herbs',
         title: 'Gaia Herbs Rhodiola Rosea',
         rationale: 'Best overall pick for users who want a recognizable botanical brand and liquid phyto-caps format.',
-        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Rhodiola Rosea' }),
+        affiliateUrl: amazonProductUrl({ asin: 'B00E4HSMQE', query: 'Gaia Herbs Rhodiola Rosea' }),
       },
       {
         slot: 'premium',
@@ -144,7 +144,7 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
         brand: 'Real Mushrooms',
         title: "Real Mushrooms Lion's Mane",
         rationale: 'Best overall pick for fruiting-body-forward labeling and mushroom-category transparency.',
-        affiliateUrl: amazonProductUrl({ query: "Real Mushrooms Lion's Mane" }),
+        affiliateUrl: amazonProductUrl({ asin: 'B07YJN369J', query: "Real Mushrooms Lion's Mane" }),
       },
       {
         slot: 'premium',
