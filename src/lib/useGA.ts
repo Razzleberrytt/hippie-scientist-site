@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "@/lib/router-compat";
 import { CONSENT_GRANTED_EVENT, CONSENT_STORAGE_KEY, getConsent } from "./consent";
 import { loadAnalytics } from "./loadAnalytics";
-declare global { interface Window { gtag?: (...args:any[]) => void } }
 
 function hasGrantedConsentFromStorage(): boolean {
   if (typeof window === "undefined") return false;

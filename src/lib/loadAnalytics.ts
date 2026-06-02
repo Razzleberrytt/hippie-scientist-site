@@ -1,12 +1,5 @@
 import { getConsent } from './consent'
 
-declare global {
-  interface Window {
-    dataLayer?: unknown[]
-    gtag?: (...args: any[]) => void
-  }
-}
-
 const GA_ID = 'G-7DFJL2FC6F'
 const PLAUSIBLE_DOMAIN = 'thehippiescientist.net'
 // Preserve the Plausible domain for future use without triggering unused variable warnings.
@@ -32,8 +25,8 @@ export function loadAnalytics() {
 
   if (GA_ID) {
     const dataLayer = (window.dataLayer = window.dataLayer || [])
-    const gtag = (...args: any[]) => {
-      ;(dataLayer as any).push(args)
+    const gtag: NonNullable<Window['gtag']> = (command, ...args) => {
+      dataLayer.push([command, ...args])
     }
     window.gtag = gtag
     gtag('js', new Date())
