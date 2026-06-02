@@ -74,7 +74,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (canonicalSlug !== normalizedSlug) {
     return {
       ...metadata,
-      alternates: { canonical: `https://www.thehippiescientist.net/herbs/${canonicalSlug}` },
+      alternates: { canonical: `https://thehippiescientist.net/herbs/${canonicalSlug}` },
       robots: { index: false, follow: true },
     }
   }
@@ -316,8 +316,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Herbs', url: 'https://www.thehippiescientist.net/herbs' },
-    { name: displayName, url: `https://www.thehippiescientist.net/herbs/${normalizedSlug}` },
+    { name: 'Herbs', url: 'https://thehippiescientist.net/herbs' },
+    { name: displayName, url: `https://thehippiescientist.net/herbs/${normalizedSlug}` },
   ])
 
 

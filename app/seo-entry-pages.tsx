@@ -198,7 +198,7 @@ export const canonicalGuidePages: SeoEntryConfig[] = seoEntryPages.filter((page)
 
 export const indexableGuidePages: SeoEntryConfig[] = manualGuideSeoEntryPages
 
-const siteUrl = 'https://www.thehippiescientist.net'
+const siteUrl = 'https://thehippiescientist.net'
 
 const revenueProductSlugs: Record<string, string[]> = {
   'best-supplements-for-sleep': ['magnesium', 'l-theanine'],

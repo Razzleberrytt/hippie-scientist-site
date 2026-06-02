@@ -12,7 +12,7 @@ import { comparisonSlugs, stackSlugs } from './authority-links'
 
 export const dynamic = 'force-static'
 
-const siteUrl = 'https://www.thehippiescientist.net'
+const siteUrl = 'https://thehippiescientist.net'
 
 const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH
   ? Number.parseInt(process.env.SOURCE_DATE_EPOCH, 10)

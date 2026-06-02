@@ -14,7 +14,7 @@ const siteDescription =
   'Evidence-informed research on herbs, compounds, mechanisms, safety context, and practical supplement decisions.'
 
 // Canonical production domain. Cloudflare redirects should resolve to this host.
-const siteUrl = 'https://www.thehippiescientist.net'
+const siteUrl = 'https://thehippiescientist.net'
 
 // Enhanced JSON-LD: logo + SearchAction for Google Knowledge Panel and Sitelinks Searchbox
 const websiteJsonLd = {

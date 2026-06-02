@@ -95,12 +95,12 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
     publisher: {
       '@type': 'Organization',
       name: 'The Hippie Scientist',
-      url: 'https://www.thehippiescientist.net',
+      url: 'https://thehippiescientist.net',
     },
     articleSection: inferResearchStyle(post),
     datePublished: post.date || '2026-01-01',
     dateModified: post.updatedAt || post.date || '2026-01-01',
-    mainEntityOfPage: `https://www.thehippiescientist.net/blog/${post.slug}`,
+    mainEntityOfPage: `https://thehippiescientist.net/blog/${post.slug}`,
   }
 
   const breadcrumbJsonLd = {
@@ -111,13 +111,13 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Blog',
-        item: 'https://www.thehippiescientist.net/blog',
+        item: 'https://thehippiescientist.net/blog',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: post.title,
-        item: `https://www.thehippiescientist.net/blog/${post.slug}`,
+        item: `https://thehippiescientist.net/blog/${post.slug}`,
       },
     ],
   }

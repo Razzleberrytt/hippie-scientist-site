@@ -35,7 +35,7 @@ export default async function ProductQualityPage() {
       <AuthorityJsonLd
         title="Supplement Product Quality Guide"
         description="Evaluate standardized extracts, transparent labels, third-party testing, and quality checklists before purchasing supplements."
-        url="https://www.thehippiescientist.net/learn/product-quality"
+        url="https://thehippiescientist.net/learn/product-quality"
         type="MedicalWebPage"
       />
 

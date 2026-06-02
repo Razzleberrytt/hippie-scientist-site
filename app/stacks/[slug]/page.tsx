@@ -150,8 +150,8 @@ export default async function StackPage({ params }: Params) {
     })
 
     const overviewBreadcrumbJsonLd = breadcrumbJsonLd([
-      { name: 'Stacks', url: 'https://www.thehippiescientist.net/stacks' },
-      { name: displayTitle, url: `https://www.thehippiescientist.net/stacks/${slug}` },
+      { name: 'Stacks', url: 'https://thehippiescientist.net/stacks' },
+      { name: displayTitle, url: `https://thehippiescientist.net/stacks/${slug}` },
     ])
 
     return (
@@ -219,11 +219,11 @@ export default async function StackPage({ params }: Params) {
   })
 
   const stackBreadcrumbJsonLd = breadcrumbJsonLd([
-    { name: 'Stacks', url: 'https://www.thehippiescientist.net/stacks' },
+    { name: 'Stacks', url: 'https://thehippiescientist.net/stacks' },
     ...(namedStack
-      ? [{ name: formatGoal(namedStack.parentSlug), url: `https://www.thehippiescientist.net/stacks/${namedStack.parentSlug}` }]
+      ? [{ name: formatGoal(namedStack.parentSlug), url: `https://thehippiescientist.net/stacks/${namedStack.parentSlug}` }]
       : []),
-    { name: displayTitle, url: `https://www.thehippiescientist.net/stacks/${slug}` },
+    { name: displayTitle, url: `https://thehippiescientist.net/stacks/${slug}` },
   ])
 
   // Helper to resolve affiliate fields for a stack item card

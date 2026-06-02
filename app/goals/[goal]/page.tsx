@@ -205,20 +205,20 @@ export default async function GoalDecisionPage({
   })
 
   const goalBreadcrumbJsonLd = breadcrumbJsonLd([
-    { name: 'Goals', url: 'https://www.thehippiescientist.net/goals' },
-    { name: goal.title, url: `https://www.thehippiescientist.net/goals/${goal.slug}` },
-  ], { id: `https://www.thehippiescientist.net/goals/${goal.slug}#breadcrumb` })
+    { name: 'Goals', url: 'https://thehippiescientist.net/goals' },
+    { name: goal.title, url: `https://thehippiescientist.net/goals/${goal.slug}` },
+  ], { id: `https://thehippiescientist.net/goals/${goal.slug}#breadcrumb` })
 
   const goalCollectionJsonLd = collectionPageJsonLd({
     title: `${goal.title} | The Hippie Scientist`,
     description: goal.description,
     path: `/goals/${goal.slug}`,
-    itemListId: `https://www.thehippiescientist.net/goals/${goal.slug}#item-list`,
-    breadcrumbId: `https://www.thehippiescientist.net/goals/${goal.slug}#breadcrumb`,
+    itemListId: `https://thehippiescientist.net/goals/${goal.slug}#item-list`,
+    breadcrumbId: `https://thehippiescientist.net/goals/${goal.slug}#breadcrumb`,
   })
 
   const goalItemListJsonLd = itemListJsonLd({
-    id: `https://www.thehippiescientist.net/goals/${goal.slug}#item-list`,
+    id: `https://thehippiescientist.net/goals/${goal.slug}#item-list`,
     name: `${goal.title} Options`,
     path: `/goals/${goal.slug}`,
     items: enrichedOptions.map(opt => ({

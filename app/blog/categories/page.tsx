@@ -4,7 +4,7 @@ import { getBlogCategories } from '@/lib/blog-taxonomy'
 export const metadata: Metadata = {
   title: 'Blog Categories | The Hippie Scientist',
   description: 'Browse static blog categories with canonical archive links and topic-specific article coverage.',
-  alternates: { canonical: 'https://www.thehippiescientist.net/blog/categories' },
+  alternates: { canonical: 'https://thehippiescientist.net/blog/categories' },
   robots: { index: false, follow: true },
 }
 

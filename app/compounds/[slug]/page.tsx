@@ -106,7 +106,7 @@ export async function generateMetadata({ params }: PageProps) {
   const redirectedCanonical = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
   if (redirectedCanonical?.startsWith('/')) {
     return {
-      alternates: { canonical: `https://www.thehippiescientist.net${redirectedCanonical}` },
+      alternates: { canonical: `https://thehippiescientist.net${redirectedCanonical}` },
       robots: { index: false, follow: true },
     }
   }
@@ -120,7 +120,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (canonicalSlug !== normalizedSlug) {
     return {
       ...metadata,
-      alternates: { canonical: `https://www.thehippiescientist.net/compounds/${canonicalSlug}` },
+      alternates: { canonical: `https://thehippiescientist.net/compounds/${canonicalSlug}` },
       robots: { index: false, follow: true },
     }
   }
@@ -291,8 +291,8 @@ export default async function CompoundPage({ params }: PageProps) {
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Compounds', url: 'https://www.thehippiescientist.net/compounds' },
-    { name: displayName, url: `https://www.thehippiescientist.net/compounds/${compound.slug}` },
+    { name: 'Compounds', url: 'https://thehippiescientist.net/compounds' },
+    { name: displayName, url: `https://thehippiescientist.net/compounds/${compound.slug}` },
   ])
 
   const activeShopLinks = getAffiliateShopLinks(compound, displayName, 'compound')

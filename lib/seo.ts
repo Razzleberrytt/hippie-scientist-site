@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = 'https://www.thehippiescientist.net'
+const DEFAULT_SITE_URL = 'https://thehippiescientist.net'
 const DEFAULT_SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_DESCRIPTION_MAX_LENGTH = 155
 
