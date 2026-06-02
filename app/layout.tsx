@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+import Script from 'next/script'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
@@ -8,6 +9,8 @@ import '@fontsource/inter/index.css'
 import '@fontsource-variable/fraunces/index.css'
 import './globals.css'
 import '@/styles/foundation-readability.css'
+
+const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
 
 const siteName = 'The Hippie Scientist'
 const siteDescription =
@@ -47,8 +50,9 @@ const organizationJsonLd = {
     height: 512,
   },
   sameAs: [
-    // 'https://twitter.com/HippieScientist',
-    // 'https://www.youtube.com/@HippieScientist',
+    'https://twitter.com/HippieScientist',
+    'https://www.instagram.com/thehippiescientist',
+    'https://www.youtube.com/@HippieScientist',
   ],
 }
 
@@ -83,6 +87,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body className='font-sans antialiased'>
+        {ga4Id && (
+          <>
+            <Script
+              strategy='afterInteractive'
+              src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
+            />
+            <Script strategy='afterInteractive' id='ga4-init'>
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${ga4Id}');
+              `}
+            </Script>
+          </>
+        )}
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
@@ -115,6 +135,26 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <p className='text-sm leading-6 text-muted'>
                     Educational content grounded in human evidence, mechanisms, pathways, and scientific review.
                   </p>
+                  <div className='flex gap-4 text-sm'>
+                    <a
+                      href='https://twitter.com/HippieScientist'
+                      rel='noopener noreferrer'
+                      target='_blank'
+                      className='text-muted hover:text-ink transition'
+                      title='Follow on Twitter / X'
+                    >
+                      Twitter / X
+                    </a>
+                    <a
+                      href='https://www.instagram.com/thehippiescientist'
+                      rel='noopener noreferrer'
+                      target='_blank'
+                      className='text-muted hover:text-ink transition'
+                      title='Follow on Instagram'
+                    >
+                      Instagram
+                    </a>
+                  </div>
                 </div>
                 <div className='space-y-3'>
                   <p className='font-semibold text-ink'>Explore</p>
