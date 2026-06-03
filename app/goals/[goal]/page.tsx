@@ -327,6 +327,7 @@ export default async function GoalDecisionPage({
                 <th className="py-3 pr-4 font-bold text-ink uppercase tracking-wider text-xs">Compound</th>
                 <th className="py-3 pr-4 font-bold text-ink uppercase tracking-wider text-xs">Potential fit</th>
                 <th className="py-3 pr-4 font-bold text-ink uppercase tracking-wider text-xs">Typical timing window</th>
+                <th className="py-3 pr-4 font-bold text-ink uppercase tracking-wider text-xs">Standardized Form / Quality</th>
                 <th className="py-3 pr-4 font-bold text-ink uppercase tracking-wider text-xs">Evidence context</th>
                 <th className="py-3 font-bold text-ink uppercase tracking-wider text-xs">Caution level</th>
               </tr>
@@ -345,6 +346,7 @@ export default async function GoalDecisionPage({
                   </td>
                   <td className="py-3 pr-4 text-muted">{option.bestFor}</td>
                   <td className="py-3 pr-4 text-muted">{option.speed}</td>
+                  <td className="py-3 pr-4 text-muted">{option.form}</td>
                   <td className="py-3 pr-4">
                     <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
                       {evidenceLabel}

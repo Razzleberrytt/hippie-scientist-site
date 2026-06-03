@@ -191,6 +191,12 @@ function getMechanismHints(compound: any, provided: string[]) {
   ]).slice(0, 6)
 }
 
+function shouldSuppressAffiliate(record: any): boolean {
+  if (!record) return false
+  const safetyText = String(record.safety || record.safetyNotes || record.safety_level || record.safety_rating || '').toLowerCase()
+  return safetyText.includes('high caution') || safetyText.includes('needs-review') || safetyText.includes('needs review') || safetyText.includes('severe')
+}
+
 
 
 export default async function CompoundPage({ params }: PageProps) {
@@ -210,6 +216,8 @@ export default async function CompoundPage({ params }: PageProps) {
   if (slug !== normalizedSlug || normalizeSlug(compound.slug) != normalizedSlug) {
     redirect(`/compounds/${normalizeSlug(compound.slug)}/`)
   }
+
+  const suppressAffiliate = shouldSuppressAffiliate(compound)
 
   const {
     herbs,
@@ -393,7 +401,7 @@ export default async function CompoundPage({ params }: PageProps) {
         </section>
 
         {/* Affiliate CTA right after Quick Stats */}
-        {affiliateCtaLink && (
+        {affiliateCtaLink && !suppressAffiliate && (
           <section className="bg-emerald-50/50 border border-emerald-700/10 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="space-y-1">
               <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800">Sourcing Options</h4>
@@ -446,12 +454,37 @@ export default async function CompoundPage({ params }: PageProps) {
           location={`compound-${normalizedSlug}`}
         />
 
-        {revenueProducts ? (
-          <RecommendationSection
-            title={revenueProducts.title}
-            description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
-            products={revenueProducts.products}
-          />
+        {suppressAffiliate ? (
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 space-y-3">
+            <h3 className="text-lg font-bold text-red-950 flex items-center gap-2">
+              <span role="img" aria-label="Warning">⚠️</span> Sourcing Options Disabled for Safety
+            </h3>
+            <p className="text-sm leading-relaxed text-red-900">
+              Direct product recommendations and affiliate links are suppressed for this compound due to its high caution or needs-review safety classification.
+            </p>
+            <p className="text-xs text-red-800">
+              Evaluate the safety checks, contraindications, and potential medication interactions below under clinician supervision before use.
+            </p>
+          </div>
+        ) : revenueProducts ? (
+          <div className="space-y-6">
+            <RecommendationSection
+              title={revenueProducts.title}
+              description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
+              products={revenueProducts.products}
+            />
+            <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-5 space-y-3 shadow-sm">
+              <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Product Form &amp; Quality Guidelines</h4>
+              <p className="text-xs leading-relaxed text-muted">
+                When sourcing {displayName}, verify the label for:
+              </p>
+              <ul className="list-disc pl-5 text-xs text-muted space-y-1">
+                <li><strong>Standardized Extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
+                <li><strong>Third-Party Testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
+                <li><strong>Form Bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. chelated bisglycinate/glycinate for magnesium, micronized monohydrate for creatine) for optimal onset and digestion tolerance.</li>
+              </ul>
+            </div>
+          </div>
         ) : null}
 
         <StackRecommendationSection
@@ -487,7 +520,7 @@ export default async function CompoundPage({ params }: PageProps) {
             <h2 className="text-lg font-bold text-ink">Compare &amp; Sourcing</h2>
             <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
           </div>
-          <SourcingCta record={compound} displayName={displayName} />
+          {!suppressAffiliate && <SourcingCta record={compound} displayName={displayName} />}
 
           <div className="grid gap-4 sm:grid-cols-2 pt-2">
             {semanticRelated.length > 0 && (

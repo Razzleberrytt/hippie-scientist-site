@@ -9,6 +9,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import { EvidenceBadge } from '@/components/ui'
 
 type SeoEntryConfig = {
   route: string
@@ -33,6 +34,10 @@ type CompoundRecord = {
   mechanism?: string
   evidence?: string
   safety?: string
+  evidenceLevel?: string
+  evidence_tier?: string
+  bestFor?: string
+  form?: string
 }
 
 const manualSeoEntryPages: SeoEntryConfig[] = [
@@ -296,7 +301,11 @@ const sectionFor = (goalSlug: string) => {
   return map[goalSlug] ?? map.focus
 }
 
-const pickLabels = ['Best overall', 'Best fit for this goal', 'Best safety-check profile', 'Worth comparing', 'Alternative option', 'Context-dependent pick', 'Check evidence first', 'Use caution before stacking']
+
+export const firstSentences = (value: string, limit = 2) => {
+  const sentences = value.match(/[^.!?]+[.!?]+|[^.!?]+$/g)?.map(s => s.trim()).filter(Boolean) || []
+  return sentences.slice(0, limit).join(' ')
+}
 
 function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
   const plainGoal = goalTitle.toLowerCase()
@@ -456,22 +465,72 @@ export async function SeoEntryPage({ route }: { route: string }) {
       ) : null}
 
       {linkedCompounds.length > 0 ? (
-        <section className="space-y-4 rounded-3xl border border-emerald-200 bg-emerald-50 p-5">
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800/80">Top picks</p>
-          <h2 className="text-2xl font-black text-slate-950">Start with these compounds</h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {linkedCompounds.slice(0, 6).map((compound, index) => (
-              <article key={compound.slug} className="space-y-3 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-900/10">
-                <p className="text-xs font-black uppercase tracking-[0.16em] text-emerald-700">{pickLabels[index] ?? 'Worth comparing'}</p>
-                <Link href={`/compounds/${compound.slug}`} className="text-lg font-black text-slate-950 hover:text-emerald-800">
-                  {compoundLabel(compound)}
-                </Link>
-                <p className="line-clamp-2 text-sm leading-6 text-slate-600">
-                  {clean(compound.summary || compound.mechanism || compound.evidence) || 'Open the full profile for evidence, dose, and safety context.'}
-                </p>
-                <ConversionAffiliateCard name={compoundLabel(compound)} slug={compound.slug} intent={page.searchIntent} />
-              </article>
-            ))}
+        <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800/80">Sourcing &amp; Comparison Matrix</p>
+          <h2 className="text-2xl font-black text-ink">Commercial Decision Table</h2>
+          <p className="max-w-3xl text-sm leading-relaxed text-muted">Compare candidate compounds by role, evidence strength, caution markers, and standardized active form before you click through to check top-rated products.</p>
+          
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+            <table className="min-w-full divide-y divide-brand-900/10 text-left text-sm">
+              <thead className="bg-brand-50/50 text-xs font-bold uppercase tracking-wider text-muted">
+                <tr>
+                  <th className="px-4 py-3">Compound Name</th>
+                  <th className="px-4 py-3">Primary Fit</th>
+                  <th className="px-4 py-3">Evidence Tier</th>
+                  <th className="px-4 py-3">Caution Level</th>
+                  <th className="px-4 py-3">Quality Form</th>
+                  <th className="px-4 py-3 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/5 bg-white">
+                {linkedCompounds.map((compound) => {
+                  const productSet = getRevenueProductSet(compound.slug)
+                  const topProduct = productSet?.products.find(p => p.slot === 'overall')
+                  const affUrl = topProduct?.affiliateUrl || `https://www.amazon.com/s?k=${encodeURIComponent(compoundLabel(compound) + ' Supplement')}&tag=razzleberry02-20`
+                  const evidence = compound.evidenceLevel || compound.evidence_tier || 'Limited'
+                  const primaryFit = compound.bestFor || (compound.summary ? firstSentences(compound.summary, 1) : 'Targeted support')
+                  const caution = compound.safety || 'Standard'
+                  const qualityForm = compound.form || 'Standard extract'
+                  
+                  return (
+                    <tr key={compound.slug} className="hover:bg-brand-50/20 transition-colors">
+                      <td className="px-4 py-4 whitespace-nowrap font-bold text-ink">
+                        <Link href={`/compounds/${compound.slug}`} className="hover:text-brand-700 hover:underline">
+                          {compoundLabel(compound)}
+                        </Link>
+                      </td>
+                      <td className="px-4 py-4 text-xs text-muted max-w-[200px] truncate">{primaryFit}</td>
+                      <td className="px-4 py-4 whitespace-nowrap">
+                        <EvidenceBadge value={evidence} />
+                      </td>
+                      <td className="px-4 py-4 whitespace-nowrap">
+                        <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-semibold ${
+                          /high|severe|caution|warning|avoid/i.test(caution)
+                            ? 'bg-amber-100 text-amber-800'
+                            : 'bg-green-100 text-green-800'
+                        }`}>
+                          {caution}
+                        </span>
+                      </td>
+                      <td className="px-4 py-4 text-xs text-muted max-w-[150px] truncate">{qualityForm}</td>
+                      <td className="px-4 py-4 whitespace-nowrap text-right text-xs font-semibold">
+                        <a
+                          href={affUrl}
+                          target="_blank"
+                          rel="nofollow sponsored noopener noreferrer"
+                          className="inline-flex rounded-full bg-brand-700 px-3.5 py-1.5 font-bold text-white transition hover:bg-brand-800"
+                        >
+                          Shop Picks →
+                        </a>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className="pt-2">
+            <AffiliateDisclosure variant="compact" />
           </div>
         </section>
       ) : null}

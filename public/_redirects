@@ -39,7 +39,12 @@
 /comparisons /compare 301
 /comparisons/* /compare/:splat 301
 /start /goals 301
-/best/* /best-for/:splat 301
+/best/* /goals/:splat 301
+/best-for/* /goals/:splat 301
+/collections /goals 301
+/collections/* /goals/:splat 301
+/top /goals 301
+/top/* /goals/:splat 301
 /pathways/ /education/ 301
 /pathways/* /education/:splat 301
 /protocols/ /guides/ 301

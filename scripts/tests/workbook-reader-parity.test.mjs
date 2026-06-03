@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { pathToFileURL } from 'node:url'
 import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 import {

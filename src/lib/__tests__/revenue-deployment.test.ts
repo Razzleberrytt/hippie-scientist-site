@@ -9,16 +9,6 @@ function source(path: string) {
 }
 
 describe('revenue deployment placements', () => {
-  test('top commercial-intent pages use email capture and recommendations', () => {
-    for (const path of ['app/top/sleep/page.tsx', 'app/top/stress/page.tsx', 'app/top/focus/page.tsx']) {
-      const page = source(path)
-
-      expect(page).toContain('EmailCapture')
-      expect(page).toContain('RecommendationGrid')
-      expect(page).toContain('MoneyPageCTAStack')
-    }
-  })
-
   test('manual SEO entry pages can render email capture and recommendation sections', () => {
     const page = source('app/seo-entry-pages.tsx')
 

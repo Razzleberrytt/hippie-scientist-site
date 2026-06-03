@@ -1375,6 +1375,222 @@ export const revenueProductSets: Record<string, RevenueProductSet> = {
       },
     ],
   },
+  kanna: {
+    slug: 'kanna',
+    title: 'Kanna product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'NOW Foods',
+        title: 'NOW Kanna 100 mg',
+        rationale: 'Budget pick for a simple Kanna extract capsule.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Kanna capsules' }),
+      },
+      {
+        slot: 'overall',
+        brand: 'UltraKanna',
+        title: 'UltraKanna ET2 Liquid Extract',
+        rationale: 'Best overall for standardized mesembrine-rich alkaloid extract.',
+        affiliateUrl: amazonProductUrl({ query: 'UltraKanna ET2 liquid extract' }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Zembrin',
+        title: 'Zembrin Standardized Kanna',
+        rationale: 'Premium pick for clinically studied, patented Zembrin extract.',
+        affiliateUrl: amazonProductUrl({ query: 'Zembrin standardized Kanna extract' }),
+      },
+    ],
+  },
+  'panax-ginseng': {
+    slug: 'panax-ginseng',
+    title: 'Asian Ginseng product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'NOW Foods',
+        title: 'NOW Panax Ginseng 500 mg',
+        rationale: 'Budget pick for standard Asian Ginseng root capsules.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Panax Ginseng 500 mg capsules' }),
+      },
+      {
+        slot: 'overall',
+        brand: 'Gaia Herbs',
+        title: 'Gaia Herbs Panax Ginseng',
+        rationale: 'Best overall for liquid phyto-caps with traceably sourced ginsenosides.',
+        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Panax Ginseng' }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Auragin',
+        title: 'Auragin Korean Red Ginseng',
+        rationale: 'Premium 100% pure Korean red ginseng tablets without fillers or binders.',
+        affiliateUrl: amazonProductUrl({ query: 'Auragin Korean Red Ginseng' }),
+      },
+    ],
+  },
+  caffeine: {
+    slug: 'caffeine',
+    title: 'Caffeine product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'NOW Foods',
+        title: 'NOW Sports Caffeine 200 mg',
+        rationale: 'Budget pick for plain caffeine anhydrous tablets.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Sports Caffeine 200 mg tablets' }),
+      },
+      {
+        slot: 'overall',
+        brand: 'Kaged Muscle',
+        title: 'Kaged PurCaf Organic Caffeine',
+        rationale: 'Best overall for chemical-free water-extracted organic caffeine from green coffee beans.',
+        affiliateUrl: amazonProductUrl({ query: 'Kaged PurCaf organic caffeine 200 mg' }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Sports Research',
+        title: 'Sports Research L-Theanine + Caffeine',
+        rationale: 'Premium pick pairing 100 mg caffeine with 200 mg L-theanine for jitter-free focus.',
+        affiliateUrl: amazonProductUrl({ query: 'Sports Research Caffeine and L-Theanine' }),
+      },
+    ],
+  },
+  palmitoylethanolamide: {
+    slug: 'palmitoylethanolamide',
+    title: 'PEA (Palmitoylethanolamide) product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'Nutricost',
+        title: 'Nutricost PEA 600 mg',
+        rationale: 'Budget capsule pick for simple micronized PEA support.',
+        affiliateUrl: amazonProductUrl({ query: 'Nutricost Palmitoylethanolamide PEA 600 mg' }),
+      },
+      {
+        slot: 'overall',
+        brand: 'Life Extension',
+        title: 'Life Extension Discomfort Relief (PEA)',
+        rationale: 'Best overall chewable PEA tablets in a clinically studied dosage format.',
+        affiliateUrl: amazonProductUrl({ query: 'Life Extension Discomfort Relief PEA' }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Vitalitus',
+        title: 'Vitalitus Ultramicronized PEA',
+        rationale: 'Premium ultramicronized PEA powder for maximum particle-size absorption quality.',
+        affiliateUrl: amazonProductUrl({ query: 'Vitalitus ultramicronized PEA powder' }),
+      },
+    ],
+  },
+  boswellia: {
+    slug: 'boswellia',
+    title: 'Boswellia product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'NOW Foods',
+        title: 'NOW Boswellia Extract 500 mg',
+        rationale: 'Budget pick for standardized 65% boswellic acids extract capsules.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Boswellia Extract 500 mg' }),
+      },
+      {
+        slot: 'overall',
+        brand: 'Life Extension',
+        title: 'Life Extension 5-Lox Inhibitor (ApresFLEX)',
+        rationale: 'Best overall for patented ApresFLEX Boswellia extract, standardized for high AKBA content.',
+        affiliateUrl: amazonProductUrl({ query: 'Life Extension 5-Lox Inhibitor ApresFLEX' }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Pure Encapsulations',
+        title: 'Pure Encapsulations Boswellia',
+        rationale: 'Premium practitioner-grade Boswellia extract with high-purity standardization.',
+        affiliateUrl: amazonProductUrl({ query: 'Pure Encapsulations Boswellia serrata extract' }),
+      },
+    ],
+  },
+  glucosamine: {
+    slug: 'glucosamine',
+    title: 'Glucosamine product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'NOW Foods',
+        title: 'NOW Glucosamine 1000 mg',
+        rationale: 'Budget pick for standard glucosamine sulfate capsules.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Glucosamine Sulfate 1000 mg' }),
+      },
+      {
+        slot: 'overall',
+        brand: "Doctor's Best",
+        title: "Doctor's Best Glucosamine Chondroitin MSM",
+        rationale: 'Best overall combination formula covering all three major joint structural elements.',
+        affiliateUrl: amazonProductUrl({ query: "Doctors Best Glucosamine Chondroitin MSM" }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Thorne',
+        title: 'Thorne Glucosamine & Chondroitin',
+        rationale: 'Premium practitioner-grade formula combining high-purity glucosamine and chondroitin sulfate.',
+        affiliateUrl: amazonProductUrl({ query: 'Thorne Glucosamine and Chondroitin capsules' }),
+      },
+    ],
+  },
+  chondroitin: {
+    slug: 'chondroitin',
+    title: 'Chondroitin product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'NOW Foods',
+        title: 'NOW Chondroitin Sulfate 600 mg',
+        rationale: 'Budget pick for pure chondroitin sulfate capsules.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Chondroitin Sulfate 600 mg' }),
+      },
+      {
+        slot: 'overall',
+        brand: "Doctor's Best",
+        title: "Doctor's Best Glucosamine Chondroitin MSM",
+        rationale: 'Best overall combination formula covering all three major joint structural elements.',
+        affiliateUrl: amazonProductUrl({ query: "Doctors Best Glucosamine Chondroitin MSM" }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Thorne',
+        title: 'Thorne Glucosamine & Chondroitin',
+        rationale: 'Premium practitioner-grade formula combining high-purity glucosamine and chondroitin sulfate.',
+        affiliateUrl: amazonProductUrl({ query: 'Thorne Glucosamine and Chondroitin capsules' }),
+      },
+    ],
+  },
+  'lemon-balm': {
+    slug: 'lemon-balm',
+    title: 'Lemon Balm product picks',
+    products: [
+      {
+        slot: 'budget',
+        brand: 'NOW Foods',
+        title: 'NOW Lemon Balm 500 mg',
+        rationale: 'Budget capsule pick for evening relaxation and cognitive support.',
+        affiliateUrl: amazonProductUrl({ query: 'NOW Foods Lemon Balm 500 mg capsules' }),
+      },
+      {
+        slot: 'overall',
+        brand: 'Gaia Herbs',
+        title: 'Gaia Herbs Lemon Balm',
+        rationale: 'Best overall liquid phyto-caps with certified organic lemon balm leaf extract.',
+        affiliateUrl: amazonProductUrl({ query: 'Gaia Herbs Lemon Balm' }),
+      },
+      {
+        slot: 'premium',
+        brand: 'Life Extension',
+        title: 'Life Extension Cyracos Lemon Balm',
+        rationale: 'Premium pick utilizing patented Cyracos lemon balm extract, studied for stress and sleep.',
+        affiliateUrl: amazonProductUrl({ query: 'Life Extension Cyracos Lemon Balm' }),
+      },
+    ],
+  },
 }
 
 const revenueProductAliases: Record<string, string> = {
@@ -1454,6 +1670,7 @@ const revenueProductAliases: Record<string, string> = {
   'green-tea-egcg': 'green-tea-extract',
   // vitamin-b12
   cobalamin: 'vitamin-b12',
+  shadowcobalamin: 'vitamin-b12',
   methylcobalamin: 'vitamin-b12',
   'b12': 'vitamin-b12',
   // vitamin-b6
@@ -1467,6 +1684,11 @@ const revenueProductAliases: Record<string, string> = {
   // sam-e
   'same': 'sam-e',
   's-adenosyl-methionine': 'sam-e',
+  // new additions
+  pea: 'palmitoylethanolamide',
+  'melissa-officinalis': 'lemon-balm',
+  'boswellia-serrata': 'boswellia',
+  ginseng: 'panax-ginseng',
 }
 
 export function getRevenueProductSet(slug: string): RevenueProductSet | null {

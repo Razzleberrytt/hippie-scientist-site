@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { BookOpen, GitCompare, Shield, Target } from 'lucide-react'
+import { Leaf, Search, Shield, Sparkles, Target } from 'lucide-react'
 
 const navItems = [
   {
@@ -11,24 +11,24 @@ const navItems = [
     Icon: Target,
   },
   {
-    href: '/guides',
-    label: 'Guides',
-    Icon: BookOpen,
-  },
-  {
-    href: '/compare',
-    label: 'Compare',
-    Icon: GitCompare,
-  },
-  {
     href: '/safety-checker',
     label: 'Safety',
     Icon: Shield,
   },
   {
-    href: '/learn',
-    label: 'Learn',
-    Icon: BookOpen,
+    href: '/herbs',
+    label: 'Herbs',
+    Icon: Leaf,
+  },
+  {
+    href: '/compounds',
+    label: 'Compounds',
+    Icon: Sparkles,
+  },
+  {
+    href: '/search',
+    label: 'Search',
+    Icon: Search,
   },
 ]
 

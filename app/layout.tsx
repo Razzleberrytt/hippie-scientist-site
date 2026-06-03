@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import CitationDrawer from '@/components/education/CitationDrawer'
+import ClickTracker from '@/components/ClickTracker'
 import '@fontsource/inter/index.css'
 import '@fontsource-variable/fraunces/index.css'
 import './globals.css'
@@ -199,6 +200,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </footer>
           <MobileBottomNav />
           <CitationDrawer />
+          <ClickTracker />
         </div>
       </body>
     </html>
