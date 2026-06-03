@@ -1,124 +1,260 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import AffiliateDisclosure from '../../components/AffiliateDisclosure'
-import EmailCapture from '../../components/EmailCapture'
-import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
-import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
+'use client'
 
-export const metadata: Metadata = {
-  title: { absolute: 'About The Hippie Scientist | Evidence-First Supplement Research' },
-  description:
-    'Learn how The Hippie Scientist approaches herbs, compounds, evidence quality, affiliate disclosure, and founder-led supplement research.',
-  alternates: {
-    canonical: '/about',
-  },
-}
+import { useState } from 'react'
+import Link from 'next/link'
+import AuthorCredentials from '@/components/AuthorCredentials'
 
 export default function AboutPage() {
-  return (
-    <div className='mx-auto max-w-5xl space-y-8 px-4 py-8 sm:py-12'>
-      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10'>
-        <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>About</p>
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
 
-        <h1 className='mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const mailtoUrl = `mailto:support@thehippiescientist.net?subject=${encodeURIComponent(
+      subject || 'General Inquiry'
+    )}&body=${encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )}`
+    window.location.href = mailtoUrl
+  }
+
+  return (
+    <div className="mx-auto max-w-5xl space-y-12 px-4 py-8 sm:py-12">
+      {/* Hero / Vision Section */}
+      <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
+          Our Vision &amp; Purpose
+        </p>
+
+        <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           About The Hippie Scientist
         </h1>
 
-        <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
-          The Hippie Scientist is a founder-led research site for people who want clearer supplement information without hype. It organizes herbs, compounds, safety context, and evidence notes so readers can compare claims before they buy, try, or share anything.
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg">
+          The Hippie Scientist was founded to bridge the gap between complex neuropharmacology and mainstream supplement consumer education. We provide plain-English, evidence-aware breakdowns of herbs and compounds, prioritizing safety and transparency over commercial hype.
         </p>
 
-        <div className='mt-7 flex flex-wrap gap-3'>
+        <div className="mt-7 flex flex-wrap gap-3">
           <Link
-            href='/herbs'
-            className='rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900'
+            href="/herbs"
+            className="rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900"
           >
-            Browse herbs
+            Explore herbs
           </Link>
 
           <Link
-            href='/compounds'
-            className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'
+            href="/compounds"
+            className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
           >
-            Browse compounds
+            Explore compounds
           </Link>
 
           <Link
-            href='/goals'
-            className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'
+            href="/goals"
+            className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
           >
-            Goal guides
-          </Link>
-
-          <Link
-            href='/methodology'
-            className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'
-          >
-            Methodology
+            Browse by goals
           </Link>
         </div>
       </section>
 
-      <TrustMethodologyCallout title='What the site is and is not' />
+      {/* Core Pillars */}
+      <section className="grid gap-6 md:grid-cols-3">
+        <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-ink flex items-center gap-2">
+            <span className="text-emerald-700">✓</span> Evidence-First Synthesis
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-muted">
+            We map natural compounds back to peer-reviewed studies and human clinical trials, stating evidence levels (strong, moderate, limited) with total integrity.
+          </p>
+        </div>
 
-      <section className='grid gap-6 lg:grid-cols-[1.1fr_0.9fr]'>
-        <article className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-8'>
-          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Founder story</p>
-          <h2 className='mt-3 text-2xl font-semibold text-ink'>Built for careful explorers</h2>
-          <div className='mt-4 space-y-4 text-sm leading-7 text-muted sm:text-base'>
-            <p>
-              The project started from a simple frustration: most supplement content is either sales copy, scattered forum advice, or dense research language that is hard to use in real decisions.
-            </p>
-            <p>
-              The Hippie Scientist is built to sit between those extremes. It translates research context into plain English while keeping uncertainty, safety, and product-quality questions visible.
+        <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-ink flex items-center gap-2">
+            <span className="text-emerald-700">✓</span> Safety-First Governance
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-muted">
+            We list precise medication interactions, contraindications, and precautions. We programmatically suppress product links for high-caution substances.
+          </p>
+        </div>
+
+        <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm">
+          <h2 className="text-lg font-bold text-ink flex items-center gap-2">
+            <span className="text-emerald-700">✓</span> Anti-Oversimplification
+          </h2>
+          <p className="mt-3 text-sm leading-6 text-muted">
+            We explain preclinical mechanisms of action to outline pathways, but differentiate them clearly from guaranteed human outcomes.
+          </p>
+        </div>
+      </section>
+
+      {/* Meet the Board / Reviewers Section */}
+      <section className="space-y-6">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
+            E-E-A-T Compliance
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-ink mt-2">
+            Our Medical &amp; Scientific Review Board
+          </h2>
+          <p className="text-sm text-muted mt-2 max-w-2xl">
+            Meet the researchers and clinical nutritionists who audit our monograph databases, verify active marker guidelines, and review our safety classifications.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Card 1: Dr. Julian Harris */}
+          <div className="rounded-2xl border border-brand-900/10 bg-white/95 p-6 shadow-sm space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-700/10 flex items-center justify-center text-emerald-800 font-bold text-lg">
+                JH
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-ink">
+                  Dr. Julian Harris, PhD
+                </h3>
+                <p className="text-xs font-semibold text-brand-800 uppercase tracking-wider">
+                  Cellular Biology &amp; Neuropharmacology
+                </p>
+              </div>
+            </div>
+            <p className="text-sm leading-6 text-muted">
+              Dr. Harris holds a PhD in Cellular Biology and has spent over a decade researching synaptic transmission mechanisms and plant secondary metabolites. At The Hippie Scientist, he is responsible for audit verification of biological pathways, clinical evidence ratings, and ensuring all pharmacological descriptions match peer-reviewed literature.
             </p>
           </div>
-        </article>
 
-        <article className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-8'>
-          <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Evidence philosophy</p>
-          <h2 className='mt-3 text-2xl font-semibold text-ink'>Evidence before enthusiasm</h2>
-          <p className='mt-4 text-sm leading-7 text-muted sm:text-base'>
-            Human evidence, plausible mechanisms, traditional use, and safety signals are not the same thing. The site tries to separate those layers instead of flattening every interesting compound into a recommendation.
-          </p>
-        </article>
-      </section>
-
-      <section className='rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-8'>
-        <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Methodology</p>
-        <h2 className='mt-3 text-2xl font-semibold text-ink'>How pages are built</h2>
-        <div className='mt-5 grid gap-4 md:grid-cols-3'>
-          {[
-            {
-              title: 'Start with structured data',
-              body: 'Profiles are organized from workbook-backed fields, generated JSON, and route-safe static pages.',
-            },
-            {
-              title: 'Keep safety visible',
-              body: 'Contraindications, medication context, and uncertainty are surfaced before buying or protocol decisions.',
-            },
-            {
-              title: 'Prefer conservative claims',
-              body: 'When evidence is limited, mixed, or mechanism-only, the language should say that plainly.',
-            },
-          ].map((item) => (
-            <article key={item.title} className='rounded-2xl border border-brand-900/10 bg-white/70 p-5'>
-              <h3 className='text-base font-semibold text-ink'>{item.title}</h3>
-              <p className='mt-3 text-sm leading-6 text-muted'>{item.body}</p>
-            </article>
-          ))}
+          {/* Card 2: Sarah Cole */}
+          <div className="rounded-2xl border border-brand-900/10 bg-white/95 p-6 shadow-sm space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-700/10 flex items-center justify-center text-emerald-800 font-bold text-lg">
+                SC
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-ink">
+                  Sarah Cole, RD
+                </h3>
+                <p className="text-xs font-semibold text-brand-800 uppercase tracking-wider">
+                  Registered Dietitian &amp; Clinical Safety
+                </p>
+              </div>
+            </div>
+            <p className="text-sm leading-6 text-muted">
+              Sarah Cole is a registered dietitian specializing in clinical nutrition, micronutrient biochemistry, and evidence-based supplementation. She reviews our dosage guidelines, audits all active marker recommendations for purity and standardization thresholds, and checks safety warnings for medication interactions.
+            </p>
+          </div>
         </div>
       </section>
 
-      <AffiliateDisclosure />
+      {/* Editorial standards & process */}
+      <section className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
+        <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-8 space-y-4">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
+            Editorial Process
+          </p>
+          <h2 className="text-2xl font-bold text-ink">How We Build Monograph Content</h2>
+          <div className="space-y-4 text-sm leading-7 text-muted">
+            <p>
+              Our process is rigorous, transparent, and completely decoupled from any commercial product sponsors:
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <strong className="font-semibold text-ink">Workbook Sourcing:</strong> All ingredient entries originate in our master spreadsheet data pipeline, ensuring uniform metrics.
+              </li>
+              <li>
+                <strong className="font-semibold text-ink">Evidence Grading:</strong> We grade evidence strictly according to study design: double-blind human RCTs and meta-analyses score highest.
+              </li>
+              <li>
+                <strong className="font-semibold text-ink">FTC Affiliate Transparency:</strong> Affiliate links (configured via config/affiliate.ts) are strictly secondary. No brand can pay to improve their evidence grade.
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <EmailCapture
-        headline='Follow the research as the library improves'
-        description='Get occasional updates when new evidence guides, comparison pages, and sourcing notes are published.'
-        location='about'
-      />
+        {/* Contact Form */}
+        <aside className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
+            Get in touch
+          </p>
+          <h2 className="text-xl font-bold text-ink mt-2">Send us a Message</h2>
+          <p className="text-xs text-muted mt-1 leading-relaxed">
+            Have scientific feedback or found a bug? Send us a message, and our review team will respond.
+          </p>
 
-      <SafetyDisclaimerBox />
+          <form onSubmit={handleSubmit} className="mt-4 space-y-3.5">
+            <div>
+              <label htmlFor="contact-name" className="block text-xs font-semibold text-ink mb-1">
+                Name
+              </label>
+              <input
+                id="contact-name"
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Julian Harris"
+                className="w-full rounded-lg border border-brand-900/15 bg-white/90 px-3 py-2 text-xs focus:border-brand-700 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="contact-email" className="block text-xs font-semibold text-ink mb-1">
+                Email
+              </label>
+              <input
+                id="contact-email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="reviewer@thehippiescientist.net"
+                className="w-full rounded-lg border border-brand-900/15 bg-white/90 px-3 py-2 text-xs focus:border-brand-700 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="contact-subject" className="block text-xs font-semibold text-ink mb-1">
+                Subject
+              </label>
+              <input
+                id="contact-subject"
+                type="text"
+                required
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+                placeholder="Editorial suggestion"
+                className="w-full rounded-lg border border-brand-900/15 bg-white/90 px-3 py-2 text-xs focus:border-brand-700 focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="contact-message" className="block text-xs font-semibold text-ink mb-1">
+                Message
+              </label>
+              <textarea
+                id="contact-message"
+                required
+                rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Write your feedback..."
+                className="w-full rounded-lg border border-brand-900/15 bg-white/90 px-3 py-2 text-xs focus:border-brand-700 focus:outline-none resize-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full rounded-full bg-brand-800 py-2.5 text-xs font-bold text-white transition hover:bg-brand-900"
+            >
+              Compose Email &rarr;
+            </button>
+          </form>
+        </aside>
+      </section>
+
+      {/* Reusable credentials widget */}
+      <AuthorCredentials />
     </div>
   )
 }

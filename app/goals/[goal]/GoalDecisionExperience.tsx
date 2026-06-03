@@ -12,6 +12,8 @@ import {
   groupClaimsByDecisionGroup,
   groupSafetyNotesByIngredient,
 } from '@/lib/evidence-engine'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import AuthorCredentials from '@/components/AuthorCredentials'
 
 type GoalOption = {
   option: {
@@ -68,6 +70,13 @@ export default function GoalDecisionExperience({
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
       {structuredData}
+      <Breadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Goals', href: '/goals' },
+          { label: goal.title },
+        ]}
+      />
 
       <section className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
@@ -214,6 +223,8 @@ export default function GoalDecisionExperience({
         description="Join for practical safety notes, new guide announcements, and evidence-first supplement context."
         location={`goal-${goal.slug}`}
       />
+
+      <AuthorCredentials />
 
       <footer className="rounded-2xl border border-brand-900/10 bg-brand-950/[0.02] p-5 text-xs leading-6 text-muted">
         Educational only. Not medical advice. Evidence varies by population, preparation, dose, timing, and study design.

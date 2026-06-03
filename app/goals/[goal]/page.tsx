@@ -7,6 +7,8 @@ import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decisi
 import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import AuthorCredentials from '@/components/AuthorCredentials'
 import EmailCapture from '../../../components/EmailCapture'
 import GoalDecisionExperience from './GoalDecisionExperience'
 
@@ -265,6 +267,13 @@ export default async function GoalDecisionPage({
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
       {structuredData}
+      <Breadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Goals', href: '/goals' },
+          { label: goal.title },
+        ]}
+      />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">{goal.eyebrow}</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -526,6 +535,8 @@ export default async function GoalDecisionPage({
         description="Join for new evidence notes, product-quality checklists, and conservative supplement decision guides."
         location={`goal-${goal.slug}`}
       />
+
+      <AuthorCredentials />
 
       <footer className="rounded-2xl border border-brand-900/10 bg-brand-950/[0.02] p-5 text-xs leading-6 text-muted">
         Educational only. Not medical advice. Evidence varies by population, preparation, and study design.

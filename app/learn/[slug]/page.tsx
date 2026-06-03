@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getLearnPost, learnPosts } from '../data'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 
 type LearnRouteParams = Promise<{ slug: string }>
 
@@ -41,6 +42,13 @@ export default async function Page({ params }: LearnRouteProps) {
   return (
     <main className="container-page py-10 sm:py-14">
       <article className="space-y-8">
+        <Breadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Learn', href: '/learn' },
+            { label: post.title },
+          ]}
+        />
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
           <p className="eyebrow-label">{post.category} · {post.readingTime}</p>
           <h1 className="mt-3 text-3xl font-semibold text-ink sm:text-4xl">{post.title}</h1>

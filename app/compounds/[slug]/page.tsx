@@ -17,6 +17,7 @@ import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
+import AuthorCredentials from '@/components/AuthorCredentials'
 import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
@@ -552,6 +553,8 @@ export default async function CompoundPage({ params }: PageProps) {
             )}
           </div>
         </section>
+
+        <AuthorCredentials />
 
         <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
           <Link href="/compounds" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">

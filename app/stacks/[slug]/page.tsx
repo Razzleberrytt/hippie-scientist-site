@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getStacks } from '@/lib/runtime-data'
 import { itemListJsonLd, breadcrumbJsonLd } from '@/lib/seo'
+import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { mergeStackEcosystems } from '@/lib/stack-ecosystems'
 import StackCard from '@/components/StackCard'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
@@ -164,6 +165,13 @@ export default async function StackPage({ params }: Params) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(overviewBreadcrumbJsonLd) }}
         />
+        <Breadcrumbs
+          items={[
+            { label: 'Home', href: '/' },
+            { label: 'Stacks', href: '/stacks' },
+            { label: displayTitle },
+          ]}
+        />
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
           <p className="eyebrow-label">Stack Overview</p>
           <h1 className="heading-premium text-ink">{displayTitle}</h1>
@@ -245,6 +253,16 @@ export default async function StackPage({ params }: Params) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(stackBreadcrumbJsonLd) }}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Stacks', href: '/stacks' },
+          ...(namedStack
+            ? [{ label: formatGoal(namedStack.parentSlug), href: `/stacks/${namedStack.parentSlug}` }]
+            : []),
+          { label: displayTitle },
+        ]}
       />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <div className="space-y-5">
