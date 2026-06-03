@@ -57,12 +57,6 @@ jobs:
       - name: Run typecheck
         run: npm run typecheck
 
-      - name: Build data artifacts
-        run: npm run data:build
-
-      - name: Validate data artifacts
-        run: npm run data:validate
-
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth
 

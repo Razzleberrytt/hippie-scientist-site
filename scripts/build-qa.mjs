@@ -11,32 +11,13 @@
  * Or: node scripts/build-qa.mjs
  *
  * Steps executed in parallel:
- * 1. validate-workbook-source
- * 2. validate-sleep-evidence-engine
- * 3. postprocess-workbook-payloads
- * 4. semantic-governance-check
- * 5. report-semantic-scale-summary
- * 6. verify-workbook-only-path
- * 7. validate-data-files
- * 8. verify-core-routes
- * 9. verify-redirects
- * 10. validate-deploy-readiness
- * 11. validate-static-export-compatibility
- * 12. validate-public-json-imports
- * 13. validate-quarantine-imports
- * 14. validate-direct-dependencies
- * 15. validate-xlsx-boundary
- * 16. validate-security-headers
- * 17. validate-build-seo-metadata
- * 18. validate-safety-enums
- * 19. audit-metadata-duplicates
- * 20. audit-internal-links
- * 21. audit-structured-data
- * 22. audit-seo-routes
+ * ~32 verification, validation, and audit checks
+ * Including: data validation, route verification, SEO checks, security validation
+ * Plus: validate-data-next and verify-generated-data (moved from build:deploy)
  *
- * Parallelization: ~22 tasks running concurrently
- * Time estimate: ~15-20s (instead of ~120s sequentially)
- * Savings: ~100s through parallelization
+ * Parallelization: ~32 tasks running concurrently
+ * Time estimate: ~15-20s (instead of ~150s+ sequentially)
+ * Savings: ~130s through parallelization + deferral from deployment pipeline
  */
 
 import { execSync, spawnSync } from 'child_process'
@@ -55,6 +36,7 @@ const qaSteps = [
   'node scripts/data/verify-workbook-only-path.mjs',
   'node scripts/validate-data-files.mjs',
   'node scripts/data/validate-data-next.mjs',
+  'node scripts/data/verify-generated-data.mjs',
 
   // Route verification
   'node scripts/verify-core-routes.mjs',

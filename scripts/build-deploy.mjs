@@ -19,12 +19,10 @@
  * 6. build-sitemap-manifest (SEO sitemap)
  * 7. build-export-batches (batch optimization)
  * 8. build-semantic-snapshots (snapshot generation)
- * 9. validate-data-next (data validation)
- * 10. build-production (next build)
- * 11. verify-generated-data (output verification)
+ * 9. build-production (next build)
  *
- * Time estimate: ~45-60s (instead of ~180s with full validation)
- * Savings: ~120s by deferring non-critical checks to npm run build:qa
+ * Time estimate: ~40-55s (instead of ~180s with full validation)
+ * Savings: ~125s by deferring non-critical checks to npm run build:qa
  */
 
 import { execSync } from 'child_process'
@@ -88,20 +86,10 @@ const steps = [
     outputs: ['public/data/semantic-snapshots/**/*'],
   },
   {
-    name: 'validate-data-next',
-    cmd: 'node scripts/data/validate-data-next.mjs',
-    inputs: ['public/data/**/*'],
-  },
-  {
     name: 'build-production',
     cmd: 'node scripts/build-production.mjs',
     inputs: ['src/**/*', 'public/data/**/*', 'pages/**/*', 'app/**/*'],
     outputs: ['out/**/*', '.next/**/*'],
-  },
-  {
-    name: 'verify-generated-data',
-    cmd: 'node scripts/data/verify-generated-data.mjs',
-    inputs: ['public/data/**/*'],
   },
 ]
 
