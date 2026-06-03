@@ -103,6 +103,15 @@ export const inferResearchStyle = (post: BlogPost): string => {
 export const shouldNoindexBlogPost = (post: Pick<BlogPost, 'slug' | 'title'> & Partial<BlogPost>): boolean => {
   const slug = post.slug || ''
   const corpus = `${post.title ?? ''} ${post.excerpt ?? ''} ${post.content ?? ''}`.toLowerCase()
+  const profileStatus = String(post.profile_status || '').toLowerCase()
+
+  if (post.sitemap_included === false) {
+    return true
+  }
+
+  if (profileStatus === 'draft' || profileStatus === 'archived') {
+    return true
+  }
 
   if (/^2025-(?:08|09|10)-\d{2}-.+-(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)-notes$/.test(slug)) {
     return true

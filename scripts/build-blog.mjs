@@ -6,6 +6,7 @@ const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'blog', 'posts.json');
 
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const PROFILE_STATUS_PATTERN = /^(draft|published|archived)$/;
 
 const toIsoDate = value => {
   const date = new Date(String(value));
@@ -55,8 +56,19 @@ function buildPostFromFile(fileName) {
   }
 
   const excerpt = normalizeExcerpt(data.excerpt, data.summary || content);
+  const profileStatus = String(data.profile_status || '').trim().toLowerCase();
+  const hasProfileStatus = profileStatus.length > 0;
+  const hasSitemapIncluded = Object.prototype.hasOwnProperty.call(data, 'sitemap_included');
 
-  return {
+  if (hasProfileStatus && !PROFILE_STATUS_PATTERN.test(profileStatus)) {
+    throw new Error(`Invalid profile_status "${profileStatus}" in ${fileName}.`);
+  }
+
+  if (hasSitemapIncluded && typeof data.sitemap_included !== 'boolean') {
+    throw new Error(`sitemap_included must be a boolean in ${fileName}.`);
+  }
+
+  const post = {
     slug: rawSlug,
     title,
     excerpt,
@@ -64,6 +76,16 @@ function buildPostFromFile(fileName) {
     readingTime: estimateReadingTime(content),
     content: content.trim(),
   };
+
+  if (hasProfileStatus) {
+    post.profile_status = profileStatus;
+  }
+
+  if (hasSitemapIncluded) {
+    post.sitemap_included = data.sitemap_included;
+  }
+
+  return post;
 }
 
 function run() {
