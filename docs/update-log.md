@@ -1,1 +1,0 @@
-- 2025-07-19: Adjusted mobile Hero layout to fit only one preview card, centered content, and removed extra spacing.
