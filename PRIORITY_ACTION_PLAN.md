@@ -1,6 +1,9 @@
 # The Hippie Scientist - Priority Action Plan
 **90-Day Roadmap for Growth & Optimization**
 
+> [!NOTE]
+> A detailed, granular roadmap has been generated and saved for phased implementation in [GROK_BUILD_MASTER_TASK_LIST.md](file:///c:/hippies/GROK_BUILD_MASTER_TASK_LIST.md).
+
 ---
 
 ## EXECUTIVE SUMMARY: 15-MINUTE BRIEF
