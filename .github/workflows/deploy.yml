@@ -68,7 +68,7 @@ jobs:
         run: npm run guard:source-of-truth
 
       - name: Build app
-        run: npm run build
+        run: npm run build:deploy
 
       - name: Verify build
         run: npm run verify:build
