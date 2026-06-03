@@ -126,7 +126,6 @@ for (const step of steps) {
   try {
     // Check cache first
     const shouldSkip = !process.env.CLEAR_CACHE && process.env.USE_CACHE !== 'false'
-    let skipped = false
 
     if (shouldSkip) {
       const cachedResult = await cache.shouldRunStep(step.name, step.inputs || [])
