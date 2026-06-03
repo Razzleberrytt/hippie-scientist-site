@@ -2,8 +2,9 @@ import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
 import { goals } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
-import EmailCapture from './EmailCapture'
 import NewsletterCtaBlock from './NewsletterCtaBlock'
+import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
+import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
 
 type RuntimeFeature = Record<string, unknown>
 type HomepageV2Props = { featuredHerbs?: RuntimeFeature[]; featuredCompounds?: RuntimeFeature[] }
@@ -141,6 +142,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <div className='overflow-x-clip bg-site-bg'>
+      <StickyChecklistBar storageKey='homepage-sticky-checklist' />
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* Hero */}
@@ -178,6 +180,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </div>
           </div>
         </section>
+
+        <SafetyChecklistPromo goal='default' variant='hero' />
 
         {/* Goal Guides Card Grid */}
         <section className='space-y-4'>
@@ -364,13 +368,6 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </Link>
           </div>
         </section>
-
-        <EmailCapture
-          headline='Get the supplement safety checklist'
-          description='Join the list for safety-first supplement notes and the checklist landing page before you compare products.'
-          ctaLabel='Get the checklist'
-          location='homepage'
-        />
 
         <NewsletterCtaBlock
           title='Browse evidence-first newsletter notes'

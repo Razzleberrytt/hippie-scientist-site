@@ -17,13 +17,18 @@ import { getGoalHubLinks } from '@/lib/goal-hub-links'
 import { getGoalContentExtension, getGoalFaqItems } from '@/data/goal-content'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
+import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
+import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
+import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffiliate'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
-import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+
 import GoalDecisionExperience from './GoalDecisionExperience'
 import GoalHubSections from '@/components/goals/GoalHubSections'
 import GoalContentDepth from '@/components/goals/GoalContentDepth'
-import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
+
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 
@@ -299,7 +304,7 @@ export default async function GoalDecisionPage({
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
       {structuredData}
-      <ScrollEngagementPrompt storageKey={`goal-prompt-${goal.slug}`} />
+      <StickyChecklistBar storageKey={`goal-sticky-${goal.slug}`} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -317,6 +322,8 @@ export default async function GoalDecisionPage({
           <LastUpdatedBadge date={`${SEO_YEAR}-06-01`} />
         </div>
       </section>
+
+      <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="hero" />
 
       <section className="rounded-2xl border border-amber-600/10 bg-amber-50/50 p-6 text-sm leading-7 text-amber-950 shadow-sm">
         <h2 className="text-base font-bold text-amber-950">How to read this guide</h2>
@@ -362,6 +369,8 @@ export default async function GoalDecisionPage({
           </table>
         </div>
       </section>
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
 
       <section className="card-premium p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-ink">Comparison Table</h2>
@@ -463,20 +472,30 @@ export default async function GoalDecisionPage({
               </div>
               {/* Sourcing CTA */}
               {(() => {
+                const revenue = getRevenueProductSet(option.slug)
+                const overall = revenue?.products.find((p) => p.slot === 'overall') ?? revenue?.products[0]
+                if (overall?.affiliateUrl) {
+                  return (
+                    <ProductTrustAffiliate
+                      productName={overall.title || option.name}
+                      brand={overall.brand}
+                      href={overall.affiliateUrl}
+                      rationale={overall.rationale || `Editor starting point for ${option.name} — verify dose and safety on the profile.`}
+                      slotLabel="Best overall"
+                      compact
+                    />
+                  )
+                }
                 const shopLinks = getAffiliateShopLinks(compound, option.name, compound?.entityType)
-                const cta = shopLinks.find(l => l.url)
+                const cta = shopLinks.find((l) => l.url)
                 if (!cta) return null
                 return (
-                  <div className="mt-5 pt-3 border-t border-brand-900/10">
-                    <a
-                      href={cta.url}
-                      target="_blank"
-                      rel="nofollow sponsored noopener noreferrer"
-                      className="inline-flex w-full items-center justify-center rounded-full bg-brand-950 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-brand-900"
-                    >
-                      {cta.label} →
-                    </a>
-                  </div>
+                  <ProductTrustAffiliate
+                    productName={option.name}
+                    href={cta.url}
+                    rationale={`Search filtered for third-party tested ${option.name} supplements — compare standardization on the label before buying.`}
+                    compact
+                  />
                 )
               })()}
             </article>
@@ -575,12 +594,7 @@ export default async function GoalDecisionPage({
         </div>
       </section>
 
-      <EmailCaptureBox
-        goal={goalCaptureGoal(goal.slug)}
-        variant="wide"
-        title="Free evidence-based supplement safety checklist"
-        description="Get the safety checklist plus goal-specific research notes. Educational only — not medical advice."
-      />
+      <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="compact" />
 
       <AuthorCredentials />
 

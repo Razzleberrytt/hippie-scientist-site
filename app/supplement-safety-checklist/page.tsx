@@ -14,17 +14,36 @@ export const metadata: Metadata = buildPageMetadata({
 export default function SupplementSafetyChecklistPage() {
   return (
     <main className='mx-auto max-w-5xl space-y-8 px-4 py-10 sm:px-6 lg:px-8'>
-      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10'>
-        <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Free checklist</p>
+      <section className='rounded-[2rem] border-2 border-emerald-700/25 bg-gradient-to-br from-emerald-50/80 to-white p-6 shadow-sm sm:p-10'>
+        <p className='text-xs font-bold uppercase tracking-[0.18em] text-emerald-800'>Free · No spam funnel</p>
         <h1 className='mt-3 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
-          Check supplement safety before you buy, stack, or increase the dose.
+          The evidence-based supplement safety checklist
         </h1>
         <p className='mt-5 max-w-3xl text-base leading-8 text-muted'>
-          Use a simple safety-first checklist to review medications, pregnancy and breastfeeding, chronic conditions, sedative or stimulant stacking, product form, and dose transparency before making a supplement decision.
+          Use this before any purchase: catch medication conflicts, under-dosed extracts, and risky stacks —
+          the same checks we run before linking affiliate products.
         </p>
+        <ul className='mt-6 grid gap-3 sm:grid-cols-2 text-sm leading-6 text-ink'>
+          {[
+            'Prescription & OTC medication overlap',
+            'Pregnancy, breastfeeding, and chronic conditions',
+            'Sedative / stimulant / serotonergic stacking',
+            'Label dose, form, and third-party testing',
+          ].map((item) => (
+            <li key={item} className='flex gap-2 rounded-xl border border-brand-900/10 bg-white/80 px-4 py-3'>
+              <span className='text-emerald-700' aria-hidden>✓</span>
+              {item}
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <EmailCaptureBox goal='safety-checklist' variant='wide' />
+      <EmailCaptureBox
+        goal='safety-checklist'
+        variant='wide'
+        title='Send me the free safety checklist'
+        description='Enter your email to get the checklist workflow and occasional evidence-first updates. Educational only — not medical advice.'
+      />
 
       <section className='grid gap-4 md:grid-cols-3'>
         {[

@@ -102,17 +102,17 @@ export const leadMagnets: Record<EmailCaptureGoal, LeadMagnet> = {
   },
   'safety-checklist': {
     goal: 'safety-checklist',
-    title: 'Free evidence-based supplement safety checklist',
+    title: 'Free supplement safety checklist (avoid costly mistakes)',
     description:
-      'PDF-style checklist covering medications, dose and form checks, stacking risks, and product-quality markers before you buy.',
-    ctaLabel: 'Send me the checklist',
+      'One-page workflow: check medications, dose & form, stacking risks, and third-party quality markers before any purchase.',
+    ctaLabel: 'Send me the free checklist',
   },
   default: {
     goal: 'default',
-    title: 'Free evidence-based supplement safety checklist',
+    title: 'Free supplement safety checklist (avoid costly mistakes)',
     description:
-      'Practical steps to review medications, dose, form, and stacking risk — plus occasional research updates. Not medical advice.',
-    ctaLabel: 'Get the safety checklist',
+      'Get the evidence-based checklist — meds, dose, form, and stack risk — plus occasional research updates. Not medical advice.',
+    ctaLabel: 'Get the free checklist',
   },
 }
 

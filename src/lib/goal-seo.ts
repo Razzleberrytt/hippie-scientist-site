@@ -13,6 +13,19 @@ const GOAL_SEO_TITLES: Record<string, string> = {
   energy: `Best Energy Supplements ${SEO_YEAR} – Stimulant vs Adaptogen Compared`,
 }
 
+const GOAL_SEO_DESCRIPTIONS: Record<string, string> = {
+  sleep:
+    'Compare melatonin, magnesium, and L-theanine for sleep onset and wind-down — evidence tiers, grogginess risk, and safety before you stack sedatives.',
+  stress:
+    'Ashwagandha vs rhodiola vs L-theanine for stress: evidence strength, thyroid and bipolar cautions, and what people stop for.',
+  anxiety:
+    'Calming options for everyday tension — L-theanine, ashwagandha, and kava compared with medication and liver safety context.',
+  focus:
+    'Caffeine vs L-theanine vs rhodiola for focus: stimulant tradeoffs, sleep impact, and non-stimulant alternatives compared.',
+  pain:
+    'Curcumin, boswellia, and PEA for joint discomfort — onset windows, NSAID-adjacent cautions, and evidence limits explained.',
+}
+
 const GOAL_SEO_ENTRY_ROUTES: Record<string, string> = {
   sleep: '/best-supplements-for-sleep',
   stress: '/best-supplements-for-stress',
@@ -33,6 +46,10 @@ export function buildGoalMetaDescription(
   goal: Goal,
   topNames: string[],
 ): string {
+  const custom = GOAL_SEO_DESCRIPTIONS[goal.slug]
+  if (custom) {
+    return formatMetaDescription(`${custom} Educational only — not medical advice.`, goal.description, 155)
+  }
   const picks = topNames.filter(Boolean).slice(0, 3).join(', ')
   const base = picks
     ? `Compare ${picks} for ${goal.slug} support by evidence strength, safety caveats, timing, and practical tradeoffs.`

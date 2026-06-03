@@ -1,8 +1,12 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
-import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
 import type { Goal } from '@/data/goals'
+import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
+import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
+import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import { SEO_YEAR } from '@/lib/seo'
 import type { GoalContentExtension } from '@/data/goal-content'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 import GoalHubSections from '@/components/goals/GoalHubSections'
@@ -83,6 +87,7 @@ export default function GoalDecisionExperience({
   return (
     <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
       {structuredData}
+      <StickyChecklistBar storageKey={`goal-engine-sticky-${goal.slug}`} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -127,7 +132,14 @@ export default function GoalDecisionExperience({
             </dl>
           </div>
         </div>
+        <div className="mt-6">
+          <LastUpdatedBadge date={evidence.updatedAt || `${SEO_YEAR}-06-01`} />
+        </div>
       </section>
+
+      <SafetyChecklistPromo goal={captureGoal} variant="hero" />
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
 
       {goal.slug === 'anxiety' ? (
         <section className="rounded-2xl border border-emerald-700/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
@@ -242,12 +254,7 @@ export default function GoalDecisionExperience({
         />
       ) : null}
 
-      <EmailCaptureBox
-        goal={captureGoal}
-        variant="wide"
-        title="Free evidence-based supplement safety checklist"
-        description="Get the safety checklist plus evidence-engine updates for this goal. Educational only."
-      />
+      <SafetyChecklistPromo goal={captureGoal} variant="compact" />
 
       <AuthorCredentials />
 
