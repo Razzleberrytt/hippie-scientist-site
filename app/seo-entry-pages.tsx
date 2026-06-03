@@ -10,7 +10,7 @@ import EmailCapture from '@/components/EmailCapture'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { EvidenceBadge } from '@/components/ui'
-import { SITE_URL } from '@/lib/seo'
+import { SITE_URL, buildPageMetadata } from '@/lib/seo'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 
 type SeoEntryConfig = {
@@ -367,6 +367,19 @@ function breadcrumbSchema(page: SeoEntryConfig) {
   }
 }
 
+function articleSchema(page: SeoEntryConfig) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: page.title,
+    description: page.intro,
+    url: `${siteUrl}/${page.route}`,
+    author: { '@type': 'Organization', name: 'The Hippie Scientist' },
+    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: siteUrl },
+    datePublished: '2026-01-01',
+  }
+}
+
 export function generateSeoEntryMetadata(route: string): Metadata {
   const page = seoEntryPages.find((item) => item.route === route)
   if (!page) return { title: 'Supplement Guide | The Hippie Scientist' }
@@ -377,18 +390,16 @@ export function generateSeoEntryMetadata(route: string): Metadata {
   const isGeneratedGuideRoute = route.startsWith('guides/')
     && !indexableGuidePages.some((item) => item.route === route)
 
-  return {
+  let meta = buildPageMetadata({
     title: page.title,
     description: page.intro,
-    alternates: { canonical: `/${canonicalRoute}` },
-    robots: isDeprecatedRoute || isGeneratedGuideRoute ? { index: false, follow: true } : undefined,
-    openGraph: {
-      title: page.title,
-      description: page.intro,
-      url: `/${canonicalRoute}`,
-      type: 'article',
-    },
+    path: `/${canonicalRoute}`,
+    openGraphType: 'article',
+  })
+  if (isDeprecatedRoute || isGeneratedGuideRoute) {
+    meta = { ...meta, robots: { index: false, follow: true } }
   }
+  return meta
 }
 
 export async function SeoEntryPage({ route }: { route: string }) {
@@ -415,7 +426,8 @@ export async function SeoEntryPage({ route }: { route: string }) {
     .flatMap(set => set.products)
 
   return (
-    <main className="space-y-10">
+    <div className="space-y-10">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema(page)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(page)) }} />
 
@@ -624,6 +636,6 @@ export async function SeoEntryPage({ route }: { route: string }) {
           </div>
         </section>
       ) : null}
-    </main>
+    </div>
   )
 }

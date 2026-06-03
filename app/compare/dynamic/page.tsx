@@ -30,7 +30,7 @@ export default async function DynamicComparePage() {
   })
 
   return (
-    <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Dynamic Ingredient Comparison Matrix"
         description="Side-by-side scientific comparison of herbs, compounds, and active extracts."
@@ -49,6 +49,6 @@ export default async function DynamicComparePage() {
       </section>
 
       <DynamicComparerClient herbs={herbs} compounds={compounds} />
-    </main>
+    </div>
   )
 }

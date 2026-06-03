@@ -176,7 +176,7 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
   const assistantSuggestions = buildSemanticNavigationSuggestions(nodeRecord, ranked, 5)
 
   return (
-    <main className="min-h-screen bg-background text-ink">
+    <div className="min-h-screen bg-background text-ink">
       <section className="container-page py-10 sm:py-14 lg:py-18">
         <div className="section-spacing">
           <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
@@ -273,6 +273,6 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
           </section>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

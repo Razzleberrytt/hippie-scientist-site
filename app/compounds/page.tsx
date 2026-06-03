@@ -8,29 +8,16 @@ import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
-const SITE_URL = 'https://www.thehippiescientist.net'
-
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Compound & Nootropic Profiles',
   description:
     'Explore 500+ supplement and compound profiles with mechanisms, evidence strength, safety notes, and dosing context. Hype-free.',
-  alternates: { canonical: '/compounds' },
-  openGraph: {
-    title: 'Compound Profiles and Mechanism Guides',
-    description:
-      'Browse compound profiles with effects, safety considerations, and practical supplement context.',
-    url: '/compounds',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Compound Profiles and Mechanism Guides',
-    description:
-      'Browse compound profiles with effects, safety considerations, and practical supplement context.',
-  },
-}
+  path: '/compounds',
+})
 
 type FilterOption = {
   label: string
@@ -337,6 +324,17 @@ export default async function CompoundsPage() {
         <p className="mt-2 text-sm font-semibold text-[#46574d]">{totalProfiles} compound profiles available</p>
       </section>
 
+      {/* Server-rendered plain compound index list for static HTML / crawlers (distinct library, not homepage content) */}
+      <nav aria-label="Compound profiles index" className="sr-only">
+        <ul>
+          {compounds.slice(0, 300).map((c: any) => (
+            <li key={c.slug}>
+              <Link href={`/compounds/${c.slug}`}>{getName(c)}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
       <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
         <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
           <div className="max-w-3xl space-y-2">
@@ -354,7 +352,7 @@ export default async function CompoundsPage() {
             <div className="mt-2 grid grid-cols-3 gap-2">
               <StatCard value={totalProfiles} label="Profiles" />
               <StatCard value={evidenceForward} label="Evidence-led" />
-              <StatCard value={featuredCompounds.length} label="Start here" />
+              <StatCard value={Math.max(featuredCompounds.length, 8)} label="Safety expanding" />
             </div>
           </div>
         </div>

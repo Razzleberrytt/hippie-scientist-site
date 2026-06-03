@@ -11,7 +11,7 @@ import {
   normalizePathway,
   type PathwaySlug,
 } from '@/lib/pathways'
-import { buildMeta } from '@/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
 import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
@@ -153,24 +153,12 @@ function getPathwayConfig(pathway: PathwaySlug): PathwayConfig {
 
 export function generatePathwayMetadata(pathway: PathwaySlug): Metadata {
   const config = getPathwayConfig(pathway)
-  const meta = buildMeta({
+  return buildPageMetadata({
     title: `${config.title} | The Hippie Scientist`,
     description: config.summary,
     path: `/pathways/${config.slug}`,
+    openGraphType: 'website',
   })
-
-  return {
-    title: meta.title,
-    description: meta.description,
-    alternates: { canonical: meta.url },
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      type: 'website',
-      url: meta.url,
-      images: [meta.image],
-    },
-  }
 }
 
 export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
@@ -196,7 +184,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
   const supportedRelated = config.related.filter((item) => item.href.startsWith('/pathways/') || item.href.startsWith('/goals/') || item.href.startsWith('/guides/'))
 
   return (
-    <main className="mx-auto max-w-6xl space-y-10 px-4 py-10">
+    <div className="mx-auto max-w-6xl space-y-10 px-4 py-10">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-8 shadow-card">
         <div className="max-w-4xl space-y-5">
           <p className="eyebrow-label">{config.eyebrow}</p>
@@ -304,7 +292,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
         </section>
       ) : null}
-    </main>
+    </div>
   )
 }
 

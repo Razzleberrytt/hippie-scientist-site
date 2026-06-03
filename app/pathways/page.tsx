@@ -40,7 +40,7 @@ const pathways = [
 
 export default function PathwaysIndexPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Neurochemical Pathways"
         description="Educational neurochemical pathway hub exploring serotonergic, dopaminergic, GABAergic, and psychoactive signaling systems."
@@ -81,6 +81,6 @@ export default function PathwaysIndexPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

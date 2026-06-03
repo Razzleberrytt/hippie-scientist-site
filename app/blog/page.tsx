@@ -10,27 +10,18 @@ import {
   truncateText,
   type BlogPost,
 } from '@/lib/blog-index'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
 const allPosts: BlogPost[] = posts
-const SITE_URL = 'https://www.thehippiescientist.net'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Research Notes',
-  description: '75+ research notes on herbs, compounds, safety, and preparation.',
-  alternates: { canonical: '/blog' },
-  openGraph: {
-    title: 'Research Notes',
-    description: '75+ research notes on herbs, compounds, safety, and preparation.',
-    url: '/blog',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Research Notes',
-    description: '75+ research notes on herbs, compounds, mechanisms, safety, and preparation.',
-  },
-}
+  description: '75+ research notes on herbs, compounds, safety, and preparation. Mechanisms, evidence, and practical context for evidence-driven readers.',
+  path: '/blog',
+  openGraphType: 'website',
+})
 
 function ArticleCard({ post }: { post: BlogPost }) {
   const style = inferArticleStyle(post)
@@ -144,6 +135,17 @@ export default function BlogPage() {
           ))}
         </div>
       </section>
+
+      {/* Server-rendered plain link index for crawler visibility (progressive enhancement only; cards above are the visual layer) */}
+      <nav aria-label="All research notes index" className="sr-only">
+        <ul>
+          {sortedPosts.map((post: BlogPost) => (
+            <li key={post.slug}>
+              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   )
 }

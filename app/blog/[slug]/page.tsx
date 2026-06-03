@@ -10,6 +10,7 @@ import {
   shouldNoindexBlogPost,
   type BlogPost,
 } from '@/lib/blog-index'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import EmailCapture from '../../../components/EmailCapture'
 import NewsletterCtaBlock from '../../../components/NewsletterCtaBlock'
 
@@ -31,23 +32,20 @@ export async function generateMetadata({ params }: BlogRouteProps) {
 
   if (!post) return {}
 
-  return {
+  const path = `/blog/${resolvedParams.slug}`
+  const base = {
     title: post.title,
-    description: post.excerpt,
-    authors: [{ name: 'Will', url: 'https://www.thehippiescientist.net/about' }],
-    alternates: { canonical: `/blog/${resolvedParams.slug}` },
+    description: post.excerpt || 'Research note with mechanisms, evidence, and safety context.',
+    path,
+    openGraphType: 'article' as const,
+  }
+  const meta = buildPageMetadata(base) // will include full og/twitter + site
+
+  return {
+    ...meta,
+    authors: [{ name: 'Will', url: 'https://thehippiescientist.net/about' }],
+    alternates: { canonical: path },
     robots: shouldNoindexBlogPost(post) ? { index: false, follow: true } : undefined,
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      url: `/blog/${resolvedParams.slug}`,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.excerpt,
-    },
   }
 }
 
@@ -86,56 +84,28 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
   const relatedCompounds = findArticleEntities(post, compounds as EditorialEntity[], 'compound', 3)
   const relatedItems = [...relatedHerbs, ...relatedCompounds]
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt,
-    author: {
-      '@type': 'Person',
-      name: 'Will',
-      url: 'https://www.thehippiescientist.net/about',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'The Hippie Scientist',
-      url: 'https://www.thehippiescientist.net',
-    },
-    articleSection: inferResearchStyle(post),
-    datePublished: post.date || '2026-01-01',
-    dateModified: post.updatedAt || post.date || '2026-01-01',
-    mainEntityOfPage: `https://www.thehippiescientist.net/blog/${post.slug}`,
-  }
-
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Blog',
-        item: 'https://www.thehippiescientist.net/blog',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: post.title,
-        item: `https://www.thehippiescientist.net/blog/${post.slug}`,
-      },
-    ],
-  }
+  // Use reusable breadcrumb + BlogPosting (Article) from central helper
+  const pageBreadcrumb = breadcrumbJsonLd([
+    { name: 'Blog', url: 'https://thehippiescientist.net/blog' },
+    { name: post.title, url: `https://thehippiescientist.net/blog/${post.slug}` },
+  ])
+  const blogLd = blogJsonLd({
+    title: post.title,
+    slug: post.slug,
+    date: post.date || '2026-01-01',
+    excerpt: post.excerpt,
+  }, `/blog/${resolvedParams.slug}`)
 
   return (
-    <main className="mx-auto max-w-5xl space-y-8 px-4 pb-20 sm:px-6 lg:px-8">
+    <article className="mx-auto max-w-5xl space-y-8 px-4 pb-20 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogLd) }}
       />
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
       />
 
       <nav className="flex items-center gap-2 text-sm text-muted">
@@ -205,6 +175,6 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         description="Read short notes built for cautious supplement decisions."
         location={`blog-${post.slug}-newsletter`}
       />
-    </main>
+    </article>
   )
 }

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NewsletterConfirmedPage() {
   return (
-    <main className='mx-auto max-w-3xl space-y-6 px-4 py-16 sm:px-6 lg:px-8'>
+    <div className='mx-auto max-w-3xl space-y-6 px-4 py-16 sm:px-6 lg:px-8'>
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10'>
         <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Confirmed</p>
         <h1 className='mt-3 text-4xl font-bold tracking-tight text-ink'>You are on the list.</h1>
@@ -25,6 +25,6 @@ export default function NewsletterConfirmedPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

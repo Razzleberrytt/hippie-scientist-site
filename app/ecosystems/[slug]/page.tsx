@@ -78,7 +78,7 @@ export default async function EcosystemHubPage({ params }: EcosystemRouteProps) 
   }
 
   return (
-    <main className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:space-y-10 sm:py-10">
+    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:space-y-10 sm:py-10">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <div className="max-w-4xl space-y-5">
           <p className="eyebrow-label">
@@ -216,6 +216,6 @@ export default async function EcosystemHubPage({ params }: EcosystemRouteProps) 
           </ul>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

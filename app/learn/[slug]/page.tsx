@@ -40,7 +40,7 @@ export default async function Page({ params }: LearnRouteProps) {
   const relatedArticles = learnPosts.filter((item) => item.slug !== post.slug).slice(0, 3).map((item) => ({ href: `/learn/${item.slug}`, label: item.title }))
 
   return (
-    <main className="container-page py-10 sm:py-14">
+    <div className="container-page py-10 sm:py-14">
       <article className="space-y-8">
         <Breadcrumbs
           items={[
@@ -124,6 +124,6 @@ export default async function Page({ params }: LearnRouteProps) {
           ]}
         />
       </article>
-    </main>
+    </div>
   )
 }

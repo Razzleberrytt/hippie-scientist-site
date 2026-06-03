@@ -23,7 +23,7 @@ const systems = [
 
 export default function SerotonergicRisksPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Serotonergic Stacking Risks"
         description="Educational exploration of serotonergic overlap, psychoactive interaction awareness, mood-system safety, and evidence-informed harm reduction."
@@ -72,6 +72,6 @@ export default function SerotonergicRisksPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

@@ -1,3 +1,5 @@
+import createBundleAnalyzer from '@next/bundle-analyzer'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
@@ -5,6 +7,10 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   images: {
+    // unoptimized: true is REQUIRED for `output: 'export'` (static) + Cloudflare Pages.
+    // No Next server image optimizer available. We use explicit width/height/sizes/decoding/lazy
+    // + remote CDN images (Amazon) or pre-sized static assets for performance.
+    // See docs/performance.md for strategy and bundle guidance.
     unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: '**.media-amazon.com' },
@@ -33,4 +39,8 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+const withBundleAnalyzer = createBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+export default withBundleAnalyzer(nextConfig)

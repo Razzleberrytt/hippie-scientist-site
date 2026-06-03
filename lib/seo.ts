@@ -1,6 +1,10 @@
-const DEFAULT_SITE_URL = 'https://www.thehippiescientist.net'
+const DEFAULT_SITE_URL = 'https://thehippiescientist.net'
 const DEFAULT_SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_DESCRIPTION_MAX_LENGTH = 155
+export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
+export const DEFAULT_DESCRIPTION = 'Evidence-first herb and compound reference grounded in mechanisms, safety context, and scientific review.'
+export const TWITTER_HANDLE = '@HippieScientist'
+export const DEFAULT_OG_IMAGE = '/og-default.jpg'
 
 type CanonicalUrlOptions = {
   siteUrl?: string

@@ -16,7 +16,7 @@ const topicLinks = [
 
 export default function TopicsIndexPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Topic Hubs"
         description="Topic-level hubs connecting herbs, compounds, protocols, and comparisons."
@@ -37,6 +37,6 @@ export default function TopicsIndexPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

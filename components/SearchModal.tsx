@@ -1,5 +1,15 @@
 'use client'
 
+/* eslint-disable @typescript-eslint/no-namespace */
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'pagefind-modal-trigger': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
+      'pagefind-modal': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
+    }
+  }
+}
+
 /**
  * Pagefind Search Modal Component
  *

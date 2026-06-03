@@ -30,7 +30,7 @@ export default async function SourcingComparerPage() {
   })
 
   return (
-    <main className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-7xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Contextual Sourcing Comparer & Active Yield Auditor"
         description="Compare the financial and active constituent efficiency of botanical and nutritional sources with a built-in quality cart."
@@ -56,6 +56,6 @@ export default async function SourcingComparerPage() {
           Botanical extracts contain varying concentration profiles (e.g. 5% vs 20% active bacosides or withanolides). This comparison dashboard calculates active constituent yield by taking the dosage weight, multiplying it by the standardization percentage, and dividing by the cost per single serving. Pinned cart items include checkmarks for third-party laboratory audits, heavy metals screenings, and certificate of analysis (COA) compliance before redirection to retail sourcing links.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

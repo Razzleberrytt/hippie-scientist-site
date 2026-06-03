@@ -219,7 +219,7 @@ export default async function Page({ params }: Params) {
   }
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 space-y-10">
+    <div className="mx-auto max-w-5xl px-4 py-8 space-y-10">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <p className="eyebrow-label">Semantic Comparison</p>
         <h1 className="heading-premium mt-3 text-ink">{title}</h1>
@@ -414,6 +414,6 @@ export default async function Page({ params }: Params) {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

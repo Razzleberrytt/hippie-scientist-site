@@ -94,8 +94,13 @@ data-sources/*.json
 
 # Agent/CI build artifacts that should not be committed
 *.tsbuildinfo
+tsconfig.tsbuildinfo
+tsconfig.*.tsbuildinfo
 npm-audit*.json
 *.xlxs.xlsx
 site_map.md
 scratch/
-stylua.toml
+validation-report.md
+*_REPORT.md
+*_audit*.json
+*_audit*.md

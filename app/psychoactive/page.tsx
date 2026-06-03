@@ -50,7 +50,7 @@ const education = [
 
 export default function PsychoactiveHubPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Psychoactive Research Hub"
         description="Evidence-informed psychoactive ethnobotany, neuropharmacology, harm reduction, and semantic educational discovery."
@@ -145,6 +145,6 @@ export default function PsychoactiveHubPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -175,7 +175,7 @@ function Section({
 
 export default function EducationHubPage() {
   return (
-    <main className='container-page py-10 space-y-16'>
+    <div className='container-page py-10 space-y-16'>
       <AuthorityJsonLd
         title='Neuroscience and Neuropharmacology Education'
         description='Evidence-informed educational ecosystem covering neurochemistry, cognition systems, stress biology, recovery neuropharmacology, psychoactive education, and systems-oriented neuroscience.'
@@ -289,6 +289,6 @@ export default function EducationHubPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

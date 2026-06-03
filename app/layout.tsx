@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import ClickTracker from '@/components/ClickTracker'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
+import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, SITE_NAME, websiteJsonLd, organizationJsonLd } from '@/lib/seo'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 
@@ -27,83 +28,26 @@ const fraunces = Fraunces({
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
 
-const siteName = 'The Hippie Scientist'
-const siteDescription =
-  'Evidence-informed research on herbs, compounds, mechanisms, safety context, and practical supplement decisions.'
+// Reusable JSON-LD from central helper (WebSite + Organization for homepage)
+const siteWebsiteLd = websiteJsonLd()
+const siteOrgLd = organizationJsonLd()
 
-// Canonical production domain. Cloudflare redirects should resolve to this host.
-const siteUrl = 'https://www.thehippiescientist.net'
-
-// Enhanced JSON-LD: logo + SearchAction for Google Knowledge Panel and Sitelinks Searchbox
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: siteName,
-  url: siteUrl,
-  description: siteDescription,
-  image: `${siteUrl}/og-default.png`,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: `${siteUrl}/search/?q={search_term_string}`,
-    },
-    'query-input': 'required name=search_term_string',
-  },
-}
-
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: siteName,
-  url: siteUrl,
-  description: siteDescription,
-  logo: {
-    '@type': 'ImageObject',
-    url: `${siteUrl}/logo.png`,
-    width: 512,
-    height: 512,
-  },
-  sameAs: [
-    'https://twitter.com/HippieScientist',
-    'https://www.instagram.com/thehippiescientist',
-    'https://www.youtube.com/@HippieScientist',
-  ],
-}
+const rootMetadata = buildPageMetadata({
+  title: DEFAULT_TITLE,
+  description: DEFAULT_DESCRIPTION,
+  path: '/',
+  image: '/og-default.jpg',
+  openGraphType: 'website',
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: { default: siteName, template: `%s | ${siteName}` },
-  description: siteDescription,
-  // Pagefind Component UI stylesheet
-  // Build step (npm run build:pagefind) generates /pagefind/ directory
-  links: [
-    {
-      rel: 'stylesheet',
-      href: '/pagefind/pagefind-ui.css',
-    },
-  ],
-  openGraph: {
-    type: 'website',
-    title: siteName,
-    description: siteDescription,
-    siteName,
-    url: siteUrl,
-    images: [
-      {
-        url: '/og-default.png',
-        width: 1200,
-        height: 630,
-        alt: siteName,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteName,
-    description: siteDescription,
-    images: ['/og-default.png'],
-  },
+  metadataBase: new URL(SITE_URL),
+  title: { default: DEFAULT_TITLE, template: `%s | ${SITE_NAME}` },
+  description: DEFAULT_DESCRIPTION,
+  ...rootMetadata,
+  // ensure template wins for children
+  openGraph: rootMetadata.openGraph,
+  twitter: rootMetadata.twitter,
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -130,18 +74,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Script
           src='/pagefind/pagefind-ui.js'
           strategy='afterInteractive'
-          onLoad={() => {
-            // Optional: Initialize Pagefind with custom config
-            // window.PagefindUI?.({ baseUrl: '/' })
-          }}
         />
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteWebsiteLd) }}
         />
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteOrgLd) }}
         />
         <NavigationSchema />
         <BreadcrumbSchema />
@@ -152,9 +92,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Skip to main content
         </a>
         <div className='min-h-screen bg-background text-ink'>
-          <Navigation />
+          <header>
+            <Navigation />
+          </header>
           <Breadcrumbs />
-          {/* This is the ONLY <main> on the page. Page components must NOT wrap their content in a second <main> tag. */}
+          {/* This is the ONLY <main> landmark on the page (per WCAG/landmark rules). 
+              Page components must use <div>, <section>, <article>, etc. — NEVER another <main>. */}
           <main
             id='main-content'
             className='pb-[calc(env(safe-area-inset-bottom)+4rem)] md:pb-8'

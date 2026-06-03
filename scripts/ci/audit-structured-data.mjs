@@ -7,6 +7,15 @@ const required=['MedicalWebPage','Article','BlogPosting','BreadcrumbList','FAQPa
 const files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name.endsWith('.html'))files.push(f)}};walk(outDir)
 const rows=[]
 
+// Representative pages to explicitly validate per task
+const repChecks = [
+  { route: '/herbs/ashwagandha', types: ['MedicalWebPage', 'BreadcrumbList'] },
+  { route: '/compounds/l-theanine', types: ['MedicalWebPage', 'BreadcrumbList'] },
+  { route: '/blog/2c-b-effects', types: ['BlogPosting', 'BreadcrumbList', 'Article'] },
+  { route: '/faq', types: ['FAQPage', 'BreadcrumbList'] },
+  { route: '/', types: ['WebSite', 'Organization'] },
+]
+
 async function run() {
   const batchSize = 100
   for (let i = 0; i < files.length; i += batchSize) {
@@ -27,9 +36,51 @@ async function run() {
   const familyCoverage=Object.fromEntries(Object.entries(byFamily).map(([k,v])=>[k,{routes:v.count,coverage:Object.fromEntries(required.map(t=>[t,Number((v.hits[t]/v.count*100).toFixed(1))]))}]))
   const missing=rows.map(r=>({route:r.route,missing:required.filter(t=>!r.types[t])})).filter(r=>r.missing.length)
   const malformed=rows.filter(r=>r.blockCount===0).map(r=>r.route)
-  const report={generatedAt:new Date().toISOString(),routeCount:rows.length,familyCoverage,missing,malformed}
+
+  // Representative checks + parse validation + herb desc dup check (task requirement)
+  let repFails = 0
+  for (const rep of repChecks) {
+    const r = rows.find(x => x.route === rep.route || x.route === rep.route + '/')
+    if (!r) {
+      console.error(`[structured-data] missing rep route html: ${rep.route}`)
+      repFails++
+      continue
+    }
+    for (const t of rep.types) {
+      if (!r.types[t]) {
+        console.error(`[structured-data] rep ${rep.route} missing ${t}`)
+        repFails++
+      }
+    }
+    // parse check for ld blocks
+    const html=await fsPromises.readFile(path.join(outDir, (r.route==='/'?'index':r.route.replace(/^\//,'')) + '/index.html' ),'utf8').catch(()=> '');
+    const blocks=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+    for (const b of blocks) {
+      try { JSON.parse(b) } catch { console.error(`[structured-data] invalid JSON-LD on ${rep.route}`); repFails++ }
+    }
+  }
+
+  // Check no mass dup meta descs on herbs (from built html)
+  const herbDescs = new Map()
+  for (const f of files) {
+    if (!f.includes('/herbs/') || f.includes('/herbs/index')) continue
+    const html = await fsPromises.readFile(f, 'utf8')
+    const m = html.match(/<meta\s+[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i)
+    if (m) {
+      const d = m[1].trim()
+      if (d) herbDescs.set(d, (herbDescs.get(d)||0) + 1)
+    }
+  }
+  const dupDescs = [...herbDescs.entries()].filter(([,c]) => c > 1)
+  if (dupDescs.length > 0) {
+    console.error(`[structured-data] duplicate meta descriptions found on ${dupDescs.length} herb pages (e.g. "${dupDescs[0][0].slice(0,60)}..." x${dupDescs[0][1]})`)
+    repFails++
+  }
+
+  const report={generatedAt:new Date().toISOString(),routeCount:rows.length,familyCoverage,missing,malformed,repFails, dupDescHerbs: dupDescs.length}
   fs.mkdirSync(path.join(root,'ops/reports'),{recursive:true});fs.writeFileSync(path.join(root,'ops/reports/structured-data-completeness.json'),JSON.stringify(report,null,2));
-  console.log(`structured-data: routes=${rows.length}, missing=${missing.length}, malformed=${malformed.length}`)
+  console.log(`structured-data: routes=${rows.length}, missing=${missing.length}, malformed=${malformed.length}, repFails=${repFails}, herbDupDescs=${dupDescs.length}`)
+  if (repFails > 0) process.exit(1)
 }
 
 run().catch(err => {

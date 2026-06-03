@@ -33,7 +33,7 @@ export default async function DataMoatPage() {
   })
 
   return (
-    <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Platform Evidence Trust Score & Data Moat Dashboard"
         description="Audits the evidence quality and structural integrity metrics across all active database monographs."
@@ -59,6 +59,6 @@ export default async function DataMoatPage() {
           Completeness metrics evaluate whether each profile contains non-empty text fields for safety cautions, standard dosage inputs, specific molecular targets, and valid PubMed/MEDLINE reference PMIDs. The metrics are rebuilt dynamically with each production static export to verify total catalog integrity.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

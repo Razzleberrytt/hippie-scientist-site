@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { Link } from '@/lib/router-compat'
 import ConsentManager from './ConsentManager'
@@ -54,7 +56,7 @@ export default function Footer() {
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           <div>
             <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
-            <p className='mt-2 text-xs text-white/45'>
+            <p className='mt-2 text-xs text-white/65'>
               Science-first harm reduction for psychoactive botany.
             </p>
           </div>
@@ -66,7 +68,7 @@ export default function Footer() {
                 <ul className='space-y-2'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -83,14 +85,14 @@ export default function Footer() {
                 <ul className='space-y-2'>
                   {safetyLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
                   ))}
                   <li>
                     <button
-                      className='text-sm text-white/55 transition-colors hover:text-white'
+                      className='text-sm text-white/70 transition-colors hover:text-white'
                       type='button'
                       onClick={() => setOpen(true)}
                     >
@@ -109,7 +111,7 @@ export default function Footer() {
                 <ul className='space-y-2'>
                   {availableLegalLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/55 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -120,7 +122,7 @@ export default function Footer() {
           </NonEmpty>
         </div>
 
-        <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/8 pt-4 text-xs text-white/30 sm:flex-row'>
+        <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/8 pt-4 text-xs text-white/65 sm:flex-row'>
           <div>Build {versionStampParts.join(' · ')}</div>
           <div>© 2024-{copyrightYear} The Hippie Scientist - Educational use only. Not medical advice.</div>
         </div>

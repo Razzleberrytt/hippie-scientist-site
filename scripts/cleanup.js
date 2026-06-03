@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* global console, process */
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
@@ -27,9 +26,9 @@ function parseArgs(argv) {
     else if (arg === '--rollback') args.rollback = argv[++index];
     else if (arg === '--help') {
       console.log(`Usage:
-  node cleanup.js --issues issues.csv
-  node cleanup.js --issues issues.csv --apply
-  node cleanup.js --rollback .data-cleanup-backups/<backup-id>
+  node scripts/cleanup.js --issues issues.csv
+  node scripts/cleanup.js --issues issues.csv --apply
+  node scripts/cleanup.js --rollback .data-cleanup-backups/<backup-id>
 
 Options:
   --apply       Write cleaned files back to public/data after backup.
@@ -219,7 +218,7 @@ async function main() {
 
   console.log(`Backup: ${path.relative(root, backupDir)}`);
   console.log(`Logged ${log.length} reviewed changes/skips`);
-  console.log(`Rollback: node cleanup.js --rollback ${path.relative(root, backupDir)}`);
+  console.log(`Rollback: node scripts/cleanup.js --rollback ${path.relative(root, backupDir)}`);
 }
 
 await main().catch((error) => {

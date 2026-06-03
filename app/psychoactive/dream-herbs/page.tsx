@@ -19,7 +19,7 @@ const herbs = [
 
 export default function DreamHerbsPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Dream Herbs"
         description="Educational exploration of oneirogenic herbs, REM-related neuropharmacology, dreaming systems, and psychoactive ethnobotany."
@@ -64,6 +64,6 @@ export default function DreamHerbsPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

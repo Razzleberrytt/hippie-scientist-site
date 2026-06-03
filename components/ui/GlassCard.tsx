@@ -1,13 +1,10 @@
 'use client'
 
-import type { ReactNode } from 'react'
-import { useRef } from 'react'
-import { HTMLMotionProps, motion, useInView, useReducedMotion } from 'framer-motion'
-import { springConfig } from '@/utils/springConfig'
+import type { ReactNode, HTMLAttributes } from 'react'
 
 type GlassVariant = 'light' | 'standard' | 'heavy' | 'glow' | 'frosted'
 
-type GlassCardProps = HTMLMotionProps<'div'> & {
+type GlassCardProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode
   variant?: GlassVariant
   enableShine?: boolean
@@ -26,22 +23,12 @@ export function GlassCard({
   children,
   variant = 'standard',
   enableShine = true,
-  delay = 0,
+  delay: _delay = 0, // delay no longer used without framer
   className = '',
   ...props
 }: GlassCardProps) {
-  const ref = useRef<HTMLDivElement | null>(null)
-  const inView = useInView(ref, { once: true, margin: '-48px' })
-  const reduceMotion = useReducedMotion()
-
   return (
-    <motion.div
-      ref={ref}
-      initial={reduceMotion ? false : { opacity: 0, y: 14, scale: 0.985 }}
-      animate={reduceMotion || inView ? { opacity: 1, y: 0, scale: 1 } : undefined}
-      whileHover={reduceMotion ? undefined : { y: -1 }}
-      whileTap={reduceMotion ? undefined : { scale: 0.985 }}
-      transition={{ ...springConfig.card, delay }}
+    <div
       className={`relative isolate overflow-hidden rounded-2xl border shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition duration-200 motion-safe:hover:-translate-y-[1px] hover:shadow-[0_6px_20px_rgba(0,0,0,0.06)] ${variantClasses[variant]} ${className}`}
       {...props}
     >
@@ -51,6 +38,6 @@ export function GlassCard({
         </span>
       ) : null}
       <div className="relative z-10">{children}</div>
-    </motion.div>
+    </div>
   )
 }

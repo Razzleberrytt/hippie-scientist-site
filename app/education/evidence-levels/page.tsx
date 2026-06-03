@@ -33,7 +33,7 @@ const levels = [
 
 export default function EvidenceLevelsPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Understanding Evidence Levels"
         description="Educational overview of evidence strength systems, human evidence prioritization, mechanistic evidence, and scientific interpretation methodology."
@@ -83,6 +83,6 @@ export default function EvidenceLevelsPage() {
           'Long-term safety data may be limited for many psychoactive systems.',
         ]}
       />
-    </main>
+    </div>
   )
 }

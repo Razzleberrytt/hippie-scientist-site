@@ -17,7 +17,7 @@ export const STANDARD_SAFETY_LABELS = [
   'Generally well tolerated',
   'Use caution',
   'Interaction risk',
-  'Needs review',
+  'Safety review pending',
   'Limited safety data',
 ] as const
 
@@ -95,13 +95,13 @@ export function getDecisionEvidenceTone(labelOrValue?: unknown): DecisionEvidenc
 
 export function normalizeDecisionSafety(value?: unknown, options: { hasSafetyNotes?: boolean } = {}): StandardSafetyLabel {
   const raw = compactText(value)
-  if (!raw) return options.hasSafetyNotes ? 'Use caution' : 'Needs review'
+  if (!raw) return options.hasSafetyNotes ? 'Use caution' : 'Safety review pending'
 
   const canonical = matchesCanonicalSafety(raw)
   if (canonical) return canonical
 
   const normalized = normalizeSafetyEnum(raw).value
-  if (normalized === 'Needs review' && options.hasSafetyNotes) return 'Use caution'
+  if (normalized === 'Safety review pending' && options.hasSafetyNotes) return 'Use caution'
   return normalized
 }
 
@@ -110,13 +110,14 @@ export function getDecisionSafetyTone(labelOrValue?: unknown, options: { hasSafe
   if (label === 'Generally well tolerated') return 'ok'
   if (label === 'Interaction risk') return 'interaction'
   if (label === 'Limited safety data') return 'limited'
-  if (label === 'Needs review') return 'review'
+  if (label === 'Safety review pending') return 'review'
   return 'caution'
 }
 
-export function publicSafetyLabel(labelOrValue?: unknown): StandardSafetyLabel | '' {
-  const label = normalizeDecisionSafety(labelOrValue)
-  return label === 'Needs review' ? '' : label
+export function publicSafetyLabel(labelOrValue?: unknown): StandardSafetyLabel {
+  // Always return the label (including "Safety review pending") so that pending safety status is visible
+  // and not hidden. Callers / metrics decide display; never imply reviewed safety when data is pending.
+  return normalizeDecisionSafety(labelOrValue)
 }
 
 export function evidenceToneClasses(tone: DecisionEvidenceTone) {

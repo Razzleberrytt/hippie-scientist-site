@@ -170,6 +170,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                         setSearchQuery('')
                         setShowDropdown(false)
                       }}
+                      aria-pressed={isSelected}
                       className="w-full text-left px-4 py-2 text-sm hover:bg-brand-50 flex items-center justify-between text-ink transition"
                     >
                       <span>{c.name || c.slug}</span>
@@ -230,6 +231,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                   key={c.slug}
                   type="button"
                   onClick={() => toggleCompound(c.slug)}
+                  aria-pressed={isSelected}
                   className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-semibold transition border ${
                     isSelected
                       ? 'bg-brand-50 border-brand-700 text-brand-800'
@@ -248,7 +250,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
       {/* Comparison Results */}
       {selectedCompounds.length >= 2 ? (
         <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
-          <table className="min-w-[720px] w-full text-left text-sm border-collapse">
+          <table className="min-w-[720px] w-full text-left text-sm border-collapse" aria-label="Comparison matrix of selected compounds across key metrics">
             <thead>
               <tr className="border-b border-brand-900/10 bg-brand-950/[0.01]">
                 <th className="p-4 font-bold text-ink uppercase tracking-wider text-xs w-1/4">Metric</th>

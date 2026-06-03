@@ -4,7 +4,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 export default function LTheanineVsMagnesiumPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="L-Theanine vs Magnesium"
         description="Educational comparison of L-theanine and magnesium, calming systems, stress-response support, and sleep-oriented neuropharmacology."
@@ -79,6 +79,6 @@ export default function LTheanineVsMagnesiumPage() {
           Stress Regulation
         </Link>
       </div>
-    </main>
+    </div>
   )
 }

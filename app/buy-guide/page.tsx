@@ -34,7 +34,7 @@ export default async function BuyGuidePage() {
   })
 
   return (
-    <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Supplement Sourcing Checklist & Buying Guide"
         description="Verify standardized extracts and quality checklists for herbs and compounds before purchasing."
@@ -84,6 +84,6 @@ export default async function BuyGuidePage() {
           Buying guides on this page include affiliate tracking codes to support our scientific research operations at no additional cost to you. We hold strict editorial independence and never accept payment to adjust our safety warnings, evidence ratings, or monograph assessments. Always consult a clinical professional before starting new dietary protocols.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

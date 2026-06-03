@@ -2,7 +2,7 @@ import { getEvidenceTier, hasHumanEvidence, hasMechanismEvidence } from '@/lib/e
 import { cleanSummary, formatDisplayLabel, isClean, text, unique } from '@/lib/display-utils'
 import { getPathwayLabel, getSupportedPathways } from '@/lib/pathways'
 import { collectRuntimeSignals, asList, asLowerText, asText } from '@/lib/runtime-normalize'
-import { buildMeta } from '@/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 
 export type CollectionKind = 'sleep' | 'stress' | 'cholinergic' | 'inflammation' | 'gaba' | 'recovery' | 'relaxation'
 export type CollectionRecordType = 'herb' | 'compound' | 'mixed'
@@ -199,7 +199,7 @@ export function buildCollectionMetadata(collection: unknown) {
   const description = getCollectionDescription(normalized || collection)
   const path = normalized?.slug ? `/collections/${normalized.slug}` : '/collections'
 
-  return buildMeta({ title: `${title} | Scientific Collections`, description, path })
+  return buildPageMetadata({ title: `${title} | Scientific Collections`, description, path })
 }
 
 export function isCollectionMatch(record: any, collection: unknown) {

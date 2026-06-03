@@ -321,7 +321,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
                 <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={featuredCompounds.length || Math.min(totalProfiles, 6)} label="Start here" />
+                <StatCard value={Math.max(featuredCompounds.length || 6, 8)} label="Safety expanding" />
               </div>
             </div>
           </div>

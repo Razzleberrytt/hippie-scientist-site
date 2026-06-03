@@ -4,7 +4,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 export default function MagnesiumGlycinateVsLThreonateForSleepPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Magnesium Glycinate vs L-Threonate for Sleep"
         description="Evidence-informed comparison of magnesium glycinate and magnesium L-threonate for sleep routines, calm support, cognition positioning, safety, and supplement selection."
@@ -185,6 +185,6 @@ export default function MagnesiumGlycinateVsLThreonateForSleepPage() {
           Sleep Recovery Hub
         </Link>
       </div>
-    </main>
+    </div>
   )
 }

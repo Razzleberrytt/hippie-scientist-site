@@ -23,7 +23,7 @@ const systems = [
 
 export default function PsychoactiveInteractionsPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Psychoactive Interactions"
         description="Educational exploration of psychoactive interaction awareness, pathway overlap, neurochemical safety, and evidence-informed harm reduction."
@@ -72,6 +72,6 @@ export default function PsychoactiveInteractionsPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

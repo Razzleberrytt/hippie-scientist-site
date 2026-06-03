@@ -45,6 +45,8 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
             sizes="(max-width: 768px) 100vw, 33vw"
             quality={85}
             unoptimized
+            decoding="async"
+            loading="lazy"
             className="h-full w-full object-cover"
           />
         </div>

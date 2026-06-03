@@ -228,7 +228,7 @@ export default function EfficacyModelerClient() {
   }, [graphPoints, activeIngredient])
 
   return (
-    <main className='space-y-8'>
+    <div className='space-y-8'>
       {/* Selector and Controls Header */}
       <div className='grid gap-6 md:grid-cols-3'>
         {/* Ingredient selection */}
@@ -518,7 +518,7 @@ export default function EfficacyModelerClient() {
           </div>
         )}
       </div>
-    </main>
+    </div>
   )
 }
 

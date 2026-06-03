@@ -65,17 +65,17 @@ const routeContentExpectations = [
   {
     route: '/herbs',
     required: ['Herb Profiles &amp; Research Library', 'Herb profiles index'],
-    forbidden: ['Compound Profiles and Mechanism Guides'],
+    forbidden: ['Compound Profiles and Mechanism Guides', 'Find the right supplement path for your goals.'],
   },
   {
     route: '/compounds',
-    required: ['Compound &amp; Nootropic Profiles', 'Compound profiles index'],
-    forbidden: ['Herb Profiles &amp; Research Library'],
+    required: ['Compound &amp; Nootropic Profiles', 'Compound profiles index', 'Compound research library'],
+    forbidden: ['Herb Profiles &amp; Research Library', 'Find the right supplement path for your goals.'],
   },
   {
     route: '/blog',
     required: ['Research Notes', 'All research notes'],
-    forbidden: [LOADING_SENTINEL],
+    forbidden: [LOADING_SENTINEL, 'Find the right supplement path for your goals.'],
   },
 ]
 
@@ -106,4 +106,40 @@ if (contentFailures > 0) {
   throw new Error(`[verify:core-routes] ${contentFailures} core-route content expectation(s) failed.`)
 }
 
-console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes, ${staticDir}/_redirects, loading-spinner check, and route content expectations passed.`)
+// Sitemap validation: must be valid XML-ish urlset and contain required routes per task (P0 fix)
+const sitemapPath = path.join(staticOutputRoot, 'sitemap.xml')
+let sitemapContent = ''
+if (fs.existsSync(sitemapPath)) {
+  sitemapContent = fs.readFileSync(sitemapPath, 'utf8')
+}
+if (!sitemapContent || !sitemapContent.includes('<urlset')) {
+  console.error('[verify:core-routes] sitemap.xml missing, empty, or invalid (no urlset)')
+  contentFailures++
+}
+const requiredSitemapUrls = [
+  'https://thehippiescientist.net/',
+  'https://thehippiescientist.net/about/',
+  'https://thehippiescientist.net/blog/',
+  'https://thehippiescientist.net/herbs/',
+  'https://thehippiescientist.net/compounds/',
+  'https://thehippiescientist.net/compare/',
+  '/blog/', // at least some blog post
+  '/herbs/', // detail
+  '/compounds/', // detail
+]
+for (const u of requiredSitemapUrls) {
+  if (!sitemapContent.includes(u)) {
+    console.error(`[verify:core-routes] sitemap missing required url: ${u}`)
+    contentFailures++
+  }
+}
+// spot check a couple top/* and collections presence (may be partial)
+if (!sitemapContent.includes('/best-supplements-for-') && !sitemapContent.includes('/collections/')) {
+  console.warn('[verify:core-routes] sitemap may be missing top/best or collections (non-fatal in this check)')
+}
+
+if (contentFailures > 0) {
+  throw new Error(`[verify:core-routes] ${contentFailures} core-route content expectation(s) failed.`)
+}
+
+console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes, ${staticDir}/_redirects, loading-spinner check, route content expectations, and sitemap.xml (required routes + xml) passed.`)

@@ -36,7 +36,7 @@ const exampleCOAEntries: COADocument[] = [
 
 export default function KannaVsSSRIsPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Kanna vs SSRIs"
         description="Educational comparison of kanna and SSRI-related serotonergic systems, mood regulation, emotional processing, and safety considerations."
@@ -115,6 +115,6 @@ export default function KannaVsSSRIsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }
