@@ -11,7 +11,7 @@
  *   const cache = new CacheManager()
  *
  *   // Check if step needs to run
- *   const shouldRun = await cache.shouldRunStep('build-runtime-from-workbook', ['workbook.xlsx', 'data/**\/*.json'])
+ *   const shouldRun = await cache.shouldRunStep('build-runtime-from-workbook', ['workbook.xlsx', 'data/**/*.json'])
  *
  *   // Mark step as complete
  *   await cache.markStepComplete('build-runtime-from-workbook', outputFiles)
@@ -20,9 +20,10 @@
 import fs from 'fs'
 import path from 'path'
 import { createHash } from 'crypto'
-import { glob } from 'glob'
+import globPkg from 'glob'
 import { fileURLToPath } from 'url'
 
+const { glob } = globPkg
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(__dirname, '../..')
 const cacheDir = path.join(projectRoot, '.build-cache')
