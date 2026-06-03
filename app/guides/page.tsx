@@ -47,6 +47,11 @@ const curatedStaticGuides = [
     title: 'Best Natural Sleep Aids That Work',
     intro: 'A sleep-support guide that keeps evidence strength, timing, and safety tradeoffs visible.',
   },
+  {
+    href: '/guides/kratom-7oh-withdrawal-management',
+    title: 'Kratom 7-OH Withdrawal Management',
+    intro: 'Evidence-informed strategies for 7-hydroxymitragynine (7-OH) withdrawal, including symptom timeline, tapering approaches, harm reduction context, and when to seek medical support.',
+  },
 ]
 
 export default function GuidesPage() {

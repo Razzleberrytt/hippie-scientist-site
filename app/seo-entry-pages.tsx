@@ -149,6 +149,15 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
     searchIntent: 'best adaptogens for stress, adaptogen supplements, stress herbs',
     bullets: ['Compare adaptogens by use-case, evidence strength, and safety profile.', 'Avoid assuming adaptogens are interchangeable or risk-free.', 'Use the stress guide for ranked options and safety-first decision support.'],
   },
+  {
+    route: 'kratom-7oh-withdrawal-management',
+    goalSlug: 'stress',
+    title: 'Kratom 7-OH Withdrawal Management | Evidence-Informed Harm Reduction Guide',
+    h1: 'Kratom 7-OH Withdrawal Management',
+    intro: 'Evidence-informed strategies for 7-hydroxymitragynine (7-OH) withdrawal, including symptom timeline, tapering approaches, harm reduction context, and when to seek medical support.',
+    searchIntent: 'kratom 7-oh withdrawal, 7-hydroxymitragynine withdrawal management, kratom withdrawal guide',
+    bullets: ['Understand the 7-OH withdrawal timeline and common symptoms.', 'Compare tapering strategies and harm reduction approaches.', 'Access professional medical and mental health support resources.'],
+  },
 ]
 
 const canonicalGuideRouteOverrides: Record<string, string> = {
