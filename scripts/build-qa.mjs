@@ -109,7 +109,6 @@ Executing ${qaSteps.length} verification & audit steps in parallel...
 
 const results = new Map()
 const errors = []
-let activeCount = 0
 const maxConcurrency = 8 // Allow up to 8 parallel processes
 
 /**
