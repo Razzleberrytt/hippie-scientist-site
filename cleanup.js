@@ -1,3 +1,4 @@
+/* eslint-env node */
 #!/usr/bin/env node
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
