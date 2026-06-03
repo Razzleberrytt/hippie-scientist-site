@@ -1,6 +1,7 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import { canRenderAffiliateLinks } from '@/lib/affiliate'
 import { list, text } from '@/lib/display-utils'
-import { isRestrictedIngredient, isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
 
 type AffiliateCTACardProps = {
   record: any
@@ -9,7 +10,8 @@ type AffiliateCTACardProps = {
 }
 
 function getAffiliateUrl(record: any, displayName: string): string {
-  if (isRestrictedRecord(record) || isRestrictedIngredient(displayName)) return ''
+  // Compliance gate: records flagged doNotMonetize/doNotPromote must not receive Amazon affiliate links.
+  if (!canRenderAffiliateLinks(record) || isRestrictedIngredient(displayName)) return ''
 
   // Prefer a direct product URL if available
   const direct = text(record?.amazon_affiliate_url)

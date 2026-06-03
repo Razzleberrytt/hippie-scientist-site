@@ -13,6 +13,13 @@ function hasResearchPendingEffect(item: any) {
   return list(item?.primary_effects).some((effect) => /research-pending/i.test(effect))
 }
 
+export function canRenderAffiliateLinks(item: any) {
+  if (!item) return false
+
+  // Compliance gate: never monetize or promote records flagged in the master workbook governance columns.
+  return !isRestrictedRecord(item)
+}
+
 export function normalizeAffiliateQuery(name: string, affiliate_query?: string) {
   return text(affiliate_query) || text(name)
 }
@@ -25,7 +32,7 @@ export function buildAmazonSearchUrl(query: string) {
 
 export function canShowAffiliateModule(item: any) {
   if (!item) return false
-  if (isRestrictedRecord(item)) return false
+  if (!canRenderAffiliateLinks(item)) return false
   if (!item.affiliate_ready) return false
   if (/^hide$/i.test(text(item.runtime_export_decision))) return false
   if (/^minimal$/i.test(text(item.profile_status))) return false
@@ -105,4 +112,14 @@ export function getCompoundSearchLinks(compoundName: string): AffiliateSearchLin
       helperText: 'Bulk or mixable options',
     },
   ].filter(link => link.url)
+}
+
+export function getGovernedHerbSearchLinks(herb: any, fallbackName: string): AffiliateSearchLink[] {
+  if (!canRenderAffiliateLinks(herb)) return []
+  return getHerbSearchLinks(text(herb?.displayName || herb?.name || fallbackName))
+}
+
+export function getGovernedCompoundSearchLinks(compound: any, fallbackName: string): AffiliateSearchLink[] {
+  if (!canRenderAffiliateLinks(compound)) return []
+  return getCompoundSearchLinks(text(compound?.displayName || compound?.name || compound?.compoundName || fallbackName))
 }

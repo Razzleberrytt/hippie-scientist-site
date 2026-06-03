@@ -12,6 +12,8 @@ const RESTRICTED_TERMS = [
   'anabasine',
   'anatabine',
   'dmt',
+  'fadogia',
+  'fadogia agrestis',
   'hawaiian baby woodrose',
   'harmaline',
   'harmine',
@@ -51,6 +53,13 @@ function normalize(value: unknown) {
     .trim()
 }
 
+function flagEnabled(value: unknown) {
+  if (value === true) return true
+  if (value === false || value == null) return false
+  const normalized = text(value).toLowerCase()
+  return /^(true|yes|y|1|blocked|restricted)$/i.test(normalized)
+}
+
 export function isRestrictedIngredient(value: unknown) {
   const normalized = normalize(value)
   if (!normalized) return false
@@ -63,8 +72,8 @@ export function isRestrictedIngredient(value: unknown) {
 
 export function isRestrictedRecord(record: any) {
   if (!record) return false
-  if (record.doNotMonetize === true || record.do_not_monetize === true) return true
-  if (record.doNotPromote === true || record.do_not_promote === true) return true
+  if (flagEnabled(record.doNotMonetize) || flagEnabled(record.do_not_monetize)) return true
+  if (flagEnabled(record.doNotPromote) || flagEnabled(record.do_not_promote)) return true
 
   const governanceStatus = [
     record.governance_status,

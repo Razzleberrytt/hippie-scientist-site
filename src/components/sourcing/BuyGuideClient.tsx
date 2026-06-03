@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { canRenderAffiliateLinks } from '@/lib/affiliate'
 
 interface GuideItem {
   slug: string
@@ -29,7 +29,10 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
     const combined = [
       ...herbs.map(item => ({ ...item, type: 'herb' as const })),
       ...compounds.map(item => ({ ...item, type: 'compound' as const })),
-    ].filter(item => !isRestrictedRecord(item))
+    ].filter(item => {
+      // Compliance gate: product-quality pages must not monetize or promote workbook-governed restricted records.
+      return canRenderAffiliateLinks(item)
+    })
 
     return combined.map(item => {
       // Resolve buying criteria

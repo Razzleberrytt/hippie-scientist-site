@@ -1,6 +1,7 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import { canRenderAffiliateLinks } from '@/lib/affiliate'
 import { text } from '@/lib/display-utils'
-import { isRestrictedIngredient, isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
 
 type SourcingCtaProps = {
   record: any
@@ -8,7 +9,8 @@ type SourcingCtaProps = {
 }
 
 export function SourcingCta({ record, displayName }: SourcingCtaProps) {
-  if (isRestrictedRecord(record) || isRestrictedIngredient(displayName)) return null
+  // Compliance gate: never render affiliate CTAs for records flagged doNotMonetize/doNotPromote in source data.
+  if (!canRenderAffiliateLinks(record) || isRestrictedIngredient(displayName)) return null
 
   // 1. Affiliate-ready detection
   const directUrl = text(record?.amazon_affiliate_url || record?.affiliate_url)
