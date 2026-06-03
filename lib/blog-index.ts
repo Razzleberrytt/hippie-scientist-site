@@ -100,6 +100,17 @@ export const inferResearchStyle = (post: BlogPost): string => {
   return 'Editorial field note'
 }
 
+export const shouldNoindexBlogPost = (post: Pick<BlogPost, 'slug' | 'title'> & Partial<BlogPost>): boolean => {
+  const slug = post.slug || ''
+  const corpus = `${post.title ?? ''} ${post.excerpt ?? ''} ${post.content ?? ''}`.toLowerCase()
+
+  if (/^2025-(?:08|09|10)-\d{2}-.+-(?:monday|tuesday|wednesday|thursday|friday|saturday|sunday)-notes$/.test(slug)) {
+    return true
+  }
+
+  return corpus.includes('placeholder reference a') || corpus.includes('placeholder reference b')
+}
+
 export const getBlogStyleGroup = (slug: string): BlogStyleGroup | undefined =>
   BLOG_STYLE_GROUPS.find((group) => group.slug === slug)
 

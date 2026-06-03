@@ -1,5 +1,6 @@
 'use client'
 
+import type { FormEvent } from 'react'
 import { trackRevenueEvent } from '@/lib/revenue-tracking'
 
 export type EnhancedEmailCaptureProps = {
@@ -30,6 +31,21 @@ export function EnhancedEmailCapture({
   const isCompact = variant === 'compact'
   const isInline = variant === 'inline'
 
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    const formData = new FormData(event.currentTarget)
+    if (String(formData.get('website') || '').trim()) {
+      event.preventDefault()
+      return
+    }
+
+    trackRevenueEvent({
+      kind: 'email_signup_attempt',
+      location,
+      label: ctaLabel,
+      target: action,
+    })
+  }
+
   if (isCompact) {
     return (
       <section className={`rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm ${className}`}>
@@ -40,16 +56,13 @@ export function EnhancedEmailCapture({
         <form
           action={action}
           method="get"
-          onSubmit={() =>
-            trackRevenueEvent({
-              kind: 'email_signup_attempt',
-              location,
-              label: ctaLabel,
-              target: action,
-            })
-          }
+          onSubmit={handleSubmit}
           className="mt-4 flex flex-col gap-3 sm:flex-row"
         >
+          <div aria-hidden="true" className="absolute left-[-5000px]">
+            <label htmlFor="email-capture-compact-website">Leave this field empty</label>
+            <input id="email-capture-compact-website" name="website" tabIndex={-1} autoComplete="off" />
+          </div>
           <input
             name="email"
             type="email"
@@ -102,16 +115,13 @@ export function EnhancedEmailCapture({
           <form
             action={action}
             method="get"
-            onSubmit={() =>
-              trackRevenueEvent({
-                kind: 'email_signup_attempt',
-                location,
-                label: ctaLabel,
-                target: action,
-              })
-            }
+            onSubmit={handleSubmit}
             className="mt-5 flex flex-col gap-3 sm:flex-row"
           >
+            <div aria-hidden="true" className="absolute left-[-5000px]">
+              <label htmlFor="email-capture-inline-website">Leave this field empty</label>
+              <input id="email-capture-inline-website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             <input
               name="email"
               type="email"
@@ -167,16 +177,13 @@ export function EnhancedEmailCapture({
         <form
           action={action}
           method="get"
-          onSubmit={() =>
-            trackRevenueEvent({
-              kind: 'email_signup_attempt',
-              location,
-              label: ctaLabel,
-              target: action,
-            })
-          }
+          onSubmit={handleSubmit}
           className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row"
         >
+          <div aria-hidden="true" className="absolute left-[-5000px]">
+            <label htmlFor="email-capture-expanded-website">Leave this field empty</label>
+            <input id="email-capture-expanded-website" name="website" tabIndex={-1} autoComplete="off" />
+          </div>
           <input
             name="email"
             type="email"

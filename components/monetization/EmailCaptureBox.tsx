@@ -1,6 +1,7 @@
 import {
   emailCaptureProviderAction,
   emailCaptureProviderConfigured,
+  emailCaptureProviderHoneypotName,
   type EmailCaptureGoal,
   getLeadMagnet,
 } from '@/content/emailCapture'
@@ -48,6 +49,17 @@ export function EmailCaptureBox({
           method='post'
           className='flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row'
         >
+          {emailCaptureProviderHoneypotName ? (
+            <div aria-hidden='true' className='absolute left-[-5000px]'>
+              <label htmlFor={`email-capture-bot-${leadMagnet.goal}`}>Leave this field empty</label>
+              <input
+                id={`email-capture-bot-${leadMagnet.goal}`}
+                name={emailCaptureProviderHoneypotName}
+                tabIndex={-1}
+                autoComplete='off'
+              />
+            </div>
+          ) : null}
           <label className='sr-only' htmlFor={`email-capture-${leadMagnet.goal}`}>
             Email address
           </label>

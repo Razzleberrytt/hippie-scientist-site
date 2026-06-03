@@ -19,6 +19,19 @@ export const emailCaptureProviderAction =
 
 export const emailCaptureProviderConfigured = emailCaptureProviderAction.length > 0
 
+function getMailchimpHoneypotName(action: string): string {
+  try {
+    const url = new URL(action)
+    const userId = url.searchParams.get('u') || ''
+    const listId = url.searchParams.get('id') || ''
+    return userId && listId ? `b_${userId}_${listId}` : ''
+  } catch {
+    return ''
+  }
+}
+
+export const emailCaptureProviderHoneypotName = getMailchimpHoneypotName(emailCaptureProviderAction)
+
 export const leadMagnets: Record<EmailCaptureGoal, LeadMagnet> = {
   sleep: {
     goal: 'sleep',

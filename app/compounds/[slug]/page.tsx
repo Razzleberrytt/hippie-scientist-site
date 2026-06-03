@@ -94,6 +94,63 @@ const CANONICAL_COMPOUND_NOTES: Record<string, { title: string; body: string; it
   },
 }
 
+const LEGAL_STATUS_WARNINGS: Record<string, { title: string; body: string; items?: string[]; suppressAffiliate?: boolean }> = {
+  '5-meo-dmt': {
+    title: 'US legal status warning',
+    body: '5-MeO-DMT is treated as a Schedule I controlled substance in the United States. This profile is educational and harm-reduction oriented only.',
+    items: ['Do not buy, sell, possess, or use where prohibited.', 'Legal status varies by country and can change quickly.'],
+    suppressAffiliate: true,
+  },
+  dmt: {
+    title: 'US legal status warning',
+    body: 'DMT is a Schedule I controlled substance in the United States. This page is not a sourcing guide or use recommendation.',
+    items: ['Do not buy, sell, possess, or use where prohibited.', 'Review local law before relying on any general educational summary.'],
+    suppressAffiliate: true,
+  },
+  psilocybin: {
+    title: 'US legal status warning',
+    body: 'Psilocybin is federally Schedule I in the United States, even though some states and municipalities have separate reforms or supervised-use programs.',
+    items: ['Federal, state, and local rules may conflict.', 'This page is educational and does not provide legal or medical advice.'],
+    suppressAffiliate: true,
+  },
+  mescaline: {
+    title: 'US legal status warning',
+    body: 'Mescaline is federally Schedule I in the United States, with narrow legal exceptions that do not apply to general supplement use.',
+    items: ['Do not treat ceremonial or religious exceptions as general legality.', 'Legal status varies by source material and jurisdiction.'],
+    suppressAffiliate: true,
+  },
+  ibogaine: {
+    title: 'US legal status warning',
+    body: 'Ibogaine is a Schedule I controlled substance in the United States and has serious cardiac safety concerns reported in clinical and observational contexts.',
+    items: ['This profile is not a treatment recommendation.', 'Medical screening and legal context are essential before any real-world decision.'],
+    suppressAffiliate: true,
+  },
+  'salvinorin-a': {
+    title: 'Legal status warning',
+    body: 'Salvinorin A and Salvia divinorum are not uniformly regulated across jurisdictions. Some US states and countries restrict possession, sale, or use.',
+    items: ['Check current local law before relying on any general summary.', 'This page is educational and harm-reduction oriented only.'],
+    suppressAffiliate: true,
+  },
+  ketamine: {
+    title: 'Controlled prescription drug warning',
+    body: 'Ketamine is a controlled prescription drug in the United States and should only be used in lawful medical contexts under qualified supervision.',
+    items: ['This profile is not a self-treatment guide.', 'Avoid combining with alcohol, sedatives, or other depressants outside clinician direction.'],
+    suppressAffiliate: true,
+  },
+  '7-hydroxymitragynine': {
+    title: 'Regulatory and safety warning',
+    body: '7-hydroxymitragynine is a potent kratom alkaloid under active regulatory scrutiny. Kratom legality varies by state and country, and concentrated products raise safety concerns.',
+    items: ['Check current local restrictions.', 'Avoid interpreting this profile as a buying or dosing recommendation.'],
+    suppressAffiliate: true,
+  },
+  'hcg-diet': {
+    title: 'FDA enforcement warning',
+    body: 'The FDA has warned that over-the-counter HCG weight-loss products are illegal and unsupported, and HCG diet plans often pair the product with unsafe severe calorie restriction.',
+    items: ['HCG is not approved for over-the-counter weight loss.', 'This profile is a warning-oriented reference, not a diet recommendation.'],
+    suppressAffiliate: true,
+  },
+}
+
 export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
 
@@ -218,7 +275,8 @@ export default async function CompoundPage({ params }: PageProps) {
     redirect(`/compounds/${normalizeSlug(compound.slug)}/`)
   }
 
-  const suppressAffiliate = shouldSuppressAffiliate(compound)
+  const legalStatusWarning = LEGAL_STATUS_WARNINGS[normalizedSlug]
+  const suppressAffiliate = shouldSuppressAffiliate(compound) || Boolean(legalStatusWarning?.suppressAffiliate)
 
   const {
     herbs,
@@ -367,6 +425,18 @@ export default async function CompoundPage({ params }: PageProps) {
           </div>
           <p className="text-base leading-7 text-[#46574d]">{quickSummary}</p>
         </header>
+
+        {legalStatusWarning ? (
+          <section className="rounded-2xl border border-red-200 bg-red-50 p-4 sm:p-5 space-y-3">
+            <h2 className="text-lg font-bold text-red-950">{legalStatusWarning.title}</h2>
+            <p className="text-sm leading-6 text-red-900">{legalStatusWarning.body}</p>
+            {legalStatusWarning.items ? (
+              <ul className="list-disc space-y-1 pl-5 text-sm leading-6 text-red-900">
+                {legalStatusWarning.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            ) : null}
+          </section>
+        ) : null}
 
         {/* Section 1: Quick Stats */}
         <section className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">

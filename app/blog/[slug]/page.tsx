@@ -7,6 +7,7 @@ import { findArticleEntities, type EditorialEntity } from '@/lib/editorial-disco
 import {
   formatDate,
   inferResearchStyle,
+  shouldNoindexBlogPost,
   type BlogPost,
 } from '@/lib/blog-index'
 import EmailCapture from '../../../components/EmailCapture'
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
     description: post.excerpt,
     authors: [{ name: 'Will', url: 'https://thehippiescientist.net/about' }],
     alternates: { canonical: `/blog/${resolvedParams.slug}` },
+    robots: shouldNoindexBlogPost(post) ? { index: false, follow: true } : undefined,
     openGraph: {
       title: post.title,
       description: post.excerpt,

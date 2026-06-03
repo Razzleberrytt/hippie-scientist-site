@@ -298,7 +298,6 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
   const totalProfiles = compounds.length
   const evidenceForward = compounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
-  const safetyMapped = compounds.filter((compound: any) => getSafety(compound) !== 'Needs review').length
   const featuredCompounds = hasActiveFilters ? [] : compounds.slice(0, 6)
   const libraryCompounds = hasActiveFilters ? visibleCompounds : compounds.slice(featuredCompounds.length)
 
@@ -313,7 +312,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
                 Compound research library
               </h1>
               <p className="max-w-2xl text-sm leading-6 text-[#46574d]">
-                Scan bioactive molecules by practical context first, then compare evidence, safety notes, and mechanism hints before opening a full compound profile.
+                Scan bioactive molecules by practical context first, then compare evidence, mechanism hints, and caution notes where source data supports them.
               </p>
             </div>
 
@@ -322,7 +321,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
                 <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={safetyMapped} label="Safety notes" />
+                <StatCard value={featuredCompounds.length || Math.min(totalProfiles, 6)} label="Start here" />
               </div>
             </div>
           </div>

@@ -90,58 +90,75 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Meet the Board / Reviewers Section */}
+      {/* Editorial review section */}
       <section className="space-y-6">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
-            E-E-A-T Compliance
+            Editorial Review
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-ink mt-2">
-            Our Medical &amp; Scientific Review Board
+            How Review Works
           </h2>
           <p className="text-sm text-muted mt-2 max-w-2xl">
-            Meet the researchers and clinical nutritionists who audit our monograph databases, verify active marker guidelines, and review our safety classifications.
+            We use a documented editorial process to audit monograph data, evidence language, safety cautions, and affiliate separation before publication.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* Card 1: Dr. Julian Harris */}
+        <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-brand-900/10 bg-white/95 p-6 shadow-sm space-y-4">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-700/10 flex items-center justify-center text-emerald-800 font-bold text-lg">
-                JH
+                1
               </div>
               <div>
                 <h3 className="text-lg font-bold text-ink">
-                  Dr. Julian Harris, PhD
+                  Evidence Audit
                 </h3>
                 <p className="text-xs font-semibold text-brand-800 uppercase tracking-wider">
-                  Cellular Biology &amp; Neuropharmacology
+                  Claim Matching
                 </p>
               </div>
             </div>
             <p className="text-sm leading-6 text-muted">
-              Dr. Harris holds a PhD in Cellular Biology and has spent over a decade researching synaptic transmission mechanisms and plant secondary metabolites. At The Hippie Scientist, he is responsible for audit verification of biological pathways, clinical evidence ratings, and ensuring all pharmacological descriptions match peer-reviewed literature.
+              Evidence claims are checked against the source workbook, cited studies, and study-design context so preclinical mechanisms are not presented as proven human outcomes.
             </p>
           </div>
 
-          {/* Card 2: Sarah Cole */}
           <div className="rounded-2xl border border-brand-900/10 bg-white/95 p-6 shadow-sm space-y-4">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-700/10 flex items-center justify-center text-emerald-800 font-bold text-lg">
-                SC
+                2
               </div>
               <div>
                 <h3 className="text-lg font-bold text-ink">
-                  Sarah Cole, RD
+                  Safety Review
                 </h3>
                 <p className="text-xs font-semibold text-brand-800 uppercase tracking-wider">
-                  Registered Dietitian &amp; Clinical Safety
+                  Conservative Language
                 </p>
               </div>
             </div>
             <p className="text-sm leading-6 text-muted">
-              Sarah Cole is a registered dietitian specializing in clinical nutrition, micronutrient biochemistry, and evidence-based supplementation. She reviews our dosage guidelines, audits all active marker recommendations for purity and standardization thresholds, and checks safety warnings for medication interactions.
+              Caution language is kept explicit when legal status, interaction risk, population exclusions, or dosing uncertainty make a profile inappropriate for casual use.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-brand-900/10 bg-white/95 p-6 shadow-sm space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-700/10 flex items-center justify-center text-emerald-800 font-bold text-lg">
+                3
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-ink">
+                  Commerce Check
+                </h3>
+                <p className="text-xs font-semibold text-brand-800 uppercase tracking-wider">
+                  Affiliate Separation
+                </p>
+              </div>
+            </div>
+            <p className="text-sm leading-6 text-muted">
+              Product and sourcing modules are separated from evidence grades, and affiliate configuration cannot raise an ingredient's rating or suppress caution language.
             </p>
           </div>
         </div>
@@ -193,7 +210,7 @@ export default function AboutPage() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Julian Harris"
+                placeholder="Your name"
                 className="w-full rounded-lg border border-brand-900/15 bg-white/90 px-3 py-2 text-xs focus:border-brand-700 focus:outline-none"
               />
             </div>

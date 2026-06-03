@@ -289,7 +289,6 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
     )
   ).length
 
-  const safetyMapped = baseHerbs.filter((herb: any) => getSafety(herb) !== 'Needs review').length
   const featuredHerbs = hasActiveFilters || paginated ? [] : baseHerbs.slice(0, 6)
   const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
 
@@ -304,7 +303,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                 Herbal research library
               </h1>
               <p className="max-w-2xl text-sm leading-6 text-[#46574d]">
-                Scan by practical context first, then compare evidence, safety, and timing before opening a full herb profile.
+                Scan by practical context first, then compare evidence, timing, and caution notes where source data supports them.
               </p>
             </div>
 
@@ -313,7 +312,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
                 <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={safetyMapped || readyProfiles} label="Safety mapped" />
+                <StatCard value={readyProfiles} label="Review-ready" />
               </div>
             </div>
           </div>

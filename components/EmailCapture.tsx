@@ -1,5 +1,6 @@
 'use client'
 
+import type { FormEvent } from 'react'
 import { trackRevenueEvent } from '@/lib/revenue-tracking'
 
 type EmailCaptureProps = {
@@ -19,6 +20,21 @@ export default function EmailCapture({
   className = '',
   location = 'email-capture',
 }: EmailCaptureProps) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    const formData = new FormData(event.currentTarget)
+    if (String(formData.get('website') || '').trim()) {
+      event.preventDefault()
+      return
+    }
+
+    trackRevenueEvent({
+      kind: 'email_signup_attempt',
+      location,
+      label: ctaLabel,
+      target: action,
+    })
+  }
+
   return (
     <section className={`rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 ${className}`}>
       <div className='grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
@@ -31,14 +47,13 @@ export default function EmailCapture({
         <form
           action={action}
           method='get'
-          onSubmit={() => trackRevenueEvent({
-            kind: 'email_signup_attempt',
-            location,
-            label: ctaLabel,
-            target: action,
-          })}
+          onSubmit={handleSubmit}
           className='flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row'
         >
+          <div aria-hidden='true' className='absolute left-[-5000px]'>
+            <label htmlFor='email-capture-website'>Leave this field empty</label>
+            <input id='email-capture-website' name='website' tabIndex={-1} autoComplete='off' />
+          </div>
           <label className='sr-only' htmlFor='email-capture-address'>Email address</label>
           <input
             id='email-capture-address'

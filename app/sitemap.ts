@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { execFileSync } from 'node:child_process'
 import postsData from '../data/blog/posts.json'
+import { shouldNoindexBlogPost } from '@/lib/blog-index'
 import stacksData from '@/public/data/stacks.json'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
@@ -433,6 +434,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
 
     ...posts
+      .filter((post) => !shouldNoindexBlogPost(post as any))
       .map((post) => ({
         slug: cleanSlug(post.slug),
         updatedAt: post.updatedAt || post.last_updated,
