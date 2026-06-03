@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Search } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import { SearchModal } from './SearchModal'
 import { mainNavigation, NavigationItem } from '@/lib/navigation-config'
 
 /**
@@ -107,14 +108,8 @@ export function Navigation() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
-            {/* Search Button */}
-            <button
-              className="p-2 text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500 transition-colors"
-              aria-label="Search"
-              title="Search all content"
-            >
-              <Search className="w-5 h-5" />
-            </button>
+            {/* Pagefind Search Modal */}
+            <SearchModal />
 
             {/* Mobile Menu Button */}
             <button

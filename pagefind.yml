@@ -1,0 +1,110 @@
+# Pagefind Configuration
+# https://pagefind.app/docs/config/
+#
+# This configuration file customizes how Pagefind indexes The Hippie Scientist site.
+# Run: npm run build:pagefind (after npm run build)
+
+# Source directory containing static HTML files
+# For Next.js static export, this is the "out" directory
+source: out
+
+# Output directory for search index
+# Served from /pagefind/ in production
+output_path: pagefind
+
+# Site root URL for absolute links in search results
+root_selector: html
+
+# Main content area to index
+# Pagefind extracts text from these elements
+body_selector: body
+
+# Elements to exclude from indexing
+# Improves index size and search relevance
+exclude_selectors:
+  - '[aria-hidden="true"]'
+  - '.sr-only'
+  - 'script'
+  - 'style'
+  - 'noscript'
+  - '.no-search'
+  - '.mobile-bottom-nav'
+
+# Elements containing the primary page content
+# Helps Pagefind rank search results higher when content is found in main areas
+index_sections: true
+
+# Heading levels to use as section boundaries
+heading_selector: h1,h2,h3
+
+# Filter settings (faceted search)
+# Configure facets for filtering search results by category
+filters:
+  category:
+    title: Category
+    selector: '[data-pagefind-filter="category"]'
+
+# Metadata extraction from custom attributes
+# These custom attributes can be indexed and used for ranking
+# Example: <article data-pagefind-weight="3" data-pagefind-meta="category:Sleep">
+#
+# Pages can set:
+# - data-pagefind-weight: Numeric weight for ranking (higher = rank higher)
+# - data-pagefind-meta: Custom metadata key:value pairs
+# - data-pagefind-filter: Values for faceted search
+# - data-pagefind-ignore: Skip this element from indexing
+
+# Stemming support (reduce words to root form)
+# "running", "runs", "ran" all match "run"
+stemming: true
+
+# Support for diacritics (accented characters)
+# "café" matches "cafe"
+diacritics: true
+
+# CJK segmentation (Chinese, Japanese, Korean)
+# Enables word segmentation for CJK languages
+cjk: true
+
+# VERBOSE logging during build
+# Useful for debugging indexing issues
+verbose: false
+
+# Prevent indexing of specific file paths
+# Files matching these patterns won't be indexed
+# ignore_glob:
+#   - '/admin/*'
+#   - '/private/*'
+
+# Sitemap generation
+# Pagefind automatically generates sitemap.xml in output_path
+# (This is for internal use by Pagefind, not the search sitemap)
+
+# ===== Site-Specific Configuration =====
+
+# The Hippie Scientist indexing strategy:
+# 1. Index all herbs (Discover > Herbs)
+# 2. Index all compounds (Discover > Compounds)
+# 3. Index blog posts with full text (Learn > Blog)
+# 4. Index education guides (Learn > Education)
+# 5. Index goal pages (Goals)
+# 6. Skip navigation, footer, mobile bottom nav
+
+# Search weighting by page type can be done via data-pagefind-weight:
+# - Herb pages: weight 2 (exact name matches rank high)
+# - Compound pages: weight 2 (exact name matches rank high)
+# - Blog posts: weight 1 (full-text search)
+# - Education guides: weight 1 (full-text search)
+# - Goal pages: weight 1 (category browsing)
+
+# Example usage in page templates:
+# <article data-pagefind-weight="2" data-pagefind-meta="type:herb">
+#   <h1 data-pagefind-meta="name:Ashwagandha">Ashwagandha</h1>
+#   <!-- content -->
+# </article>
+
+# For search ranking to work properly:
+# 1. Ensure each page has meaningful <title> and <meta description>
+# 2. Use h1 for the main topic (herb name, blog title, etc.)
+# 3. Add data-pagefind-weight for key content
+# 4. Mark irrelevant sections with data-pagefind-ignore

@@ -75,6 +75,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: siteName, template: `%s | ${siteName}` },
   description: siteDescription,
+  // Pagefind Component UI stylesheet
+  // Build step (npm run build:pagefind) generates /pagefind/ directory
+  links: [
+    {
+      rel: 'stylesheet',
+      href: '/pagefind/pagefind-ui.css',
+    },
+  ],
   openGraph: {
     type: 'website',
     title: siteName,
@@ -118,6 +126,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Script>
           </>
         )}
+        {/* Pagefind Component UI JavaScript - loads after interactive */}
+        <Script
+          src='/pagefind/pagefind-ui.js'
+          strategy='afterInteractive'
+          onLoad={() => {
+            // Optional: Initialize Pagefind with custom config
+            // window.PagefindUI?.({ baseUrl: '/' })
+          }}
+        />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
