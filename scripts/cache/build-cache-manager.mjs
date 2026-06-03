@@ -11,7 +11,7 @@
  *   const cache = new CacheManager()
  *
  *   // Check if step needs to run
- *   const shouldRun = await cache.shouldRunStep('build-runtime-from-workbook', ['workbook.xlsx', 'data/**/*.json'])
+ *   const shouldRun = await cache.shouldRunStep('build-runtime-from-workbook', ['workbook.xlsx', 'data/*.json'])
  *
  *   // Mark step as complete
  *   await cache.markStepComplete('build-runtime-from-workbook', outputFiles)
