@@ -1,0 +1,20 @@
+{
+  "id": "rhein",
+  "slug": "rhein",
+  "name": "rhein",
+  "summary": "Anthraquinone constituent of rhubarb associated with NF-κB and PI3K/Akt signaling.",
+  "description": "Anthraquinone constituent of rhubarb associated with NF-κB and PI3K/Akt signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

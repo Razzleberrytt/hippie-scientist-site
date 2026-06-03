@@ -1,0 +1,28 @@
+{
+  "name": "Wild Yam",
+  "slug": "wild-yam",
+  "summary": "Wild Yam lean herb row for high-speed phytochemical ingestion.",
+  "description": "Wild Yam lean herb row for high-speed phytochemical ingestion.",
+  "primaryActions": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "PI3K/Akt modulation",
+    "PPARγ activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

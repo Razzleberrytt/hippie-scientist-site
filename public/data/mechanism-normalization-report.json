@@ -1,0 +1,367 @@
+{
+  "reportVersion": 1,
+  "canonicalMechanisms": 53,
+  "records": 907,
+  "fullyMappedRecords": 669,
+  "partiallyMappedRecords": 163,
+  "unmappedRecords": 74,
+  "noRawMechanismRecords": 1,
+  "unmappedMechanisms": [
+    {
+      "term": "Neurotransmitter Modulation",
+      "count": 172
+    },
+    {
+      "term": "general phytochemical signaling",
+      "count": 8
+    },
+    {
+      "term": "digestive support",
+      "count": 7
+    },
+    {
+      "term": "SIRT1 Signaling",
+      "count": 5
+    },
+    {
+      "term": "aromatic support",
+      "count": 3
+    },
+    {
+      "term": "traditional cycle support",
+      "count": 2
+    },
+    {
+      "term": "traditional respiratory support",
+      "count": 2
+    },
+    {
+      "term": "5-HT1A activity",
+      "count": 1
+    },
+    {
+      "term": "5-HT2A receptor agonism",
+      "count": 1
+    },
+    {
+      "term": "Activates protein synthesis via PI3K/Akt pathway",
+      "count": 1
+    },
+    {
+      "term": "additional mechanisms (preclinical)",
+      "count": 1
+    },
+    {
+      "term": "alpha-2 adrenergic and TRP channel activity preclinical",
+      "count": 1
+    },
+    {
+      "term": "alpha-glucosidase inhibition",
+      "count": 1
+    },
+    {
+      "term": "and amylases",
+      "count": 1
+    },
+    {
+      "term": "anthraquinone-related laxative effects (traditional/preclinical)",
+      "count": 1
+    },
+    {
+      "term": "antimicrobial effects in vitro",
+      "count": 1
+    },
+    {
+      "term": "antimicrobial/cytotoxic effects (preclinical)",
+      "count": 1
+    },
+    {
+      "term": "antispasmodic activity in GI tract",
+      "count": 1
+    },
+    {
+      "term": "apoptosis pathway modulation (caspase activation)",
+      "count": 1
+    },
+    {
+      "term": "buffering intracellular pH.",
+      "count": 1
+    },
+    {
+      "term": "calcium signaling",
+      "count": 1
+    },
+    {
+      "term": "cardiac/muscle support",
+      "count": 1
+    },
+    {
+      "term": "carminative effects",
+      "count": 1
+    },
+    {
+      "term": "cellular hydration regulation",
+      "count": 1
+    },
+    {
+      "term": "clot degradation",
+      "count": 1
+    },
+    {
+      "term": "collagen amino acid provision",
+      "count": 1
+    },
+    {
+      "term": "core body temperature reduction",
+      "count": 1
+    },
+    {
+      "term": "cryogenine/vertine-related pharmacology (limited)",
+      "count": 1
+    },
+    {
+      "term": "demulcent support",
+      "count": 1
+    },
+    {
+      "term": "endogenous CB1 agonism",
+      "count": 1
+    },
+    {
+      "term": "FAAH degradation",
+      "count": 1
+    },
+    {
+      "term": "fibrinolysis",
+      "count": 1
+    },
+    {
+      "term": "flavonoid-related effects",
+      "count": 1
+    },
+    {
+      "term": "glycyrrhizin removed",
+      "count": 1
+    },
+    {
+      "term": "hepatobiliary support",
+      "count": 1
+    },
+    {
+      "term": "higher potency than mitragynine preclinical",
+      "count": 1
+    },
+    {
+      "term": "increases gastric acidity",
+      "count": 1
+    },
+    {
+      "term": "Increases muscle carnosine",
+      "count": 1
+    },
+    {
+      "term": "increases total body water",
+      "count": 1
+    },
+    {
+      "term": "inhibitory neurotransmission",
+      "count": 1
+    },
+    {
+      "term": "intestinal smooth-muscle calcium-channel blockade",
+      "count": 1
+    },
+    {
+      "term": "intracellular pH buffering",
+      "count": 1
+    },
+    {
+      "term": "limited pharmacological data",
+      "count": 1
+    },
+    {
+      "term": "lipases",
+      "count": 1
+    },
+    {
+      "term": "lowers gastric pH transiently",
+      "count": 1
+    },
+    {
+      "term": "LSA-related serotonergic receptor agonism (preclinical/pharmacological inference)",
+      "count": 1
+    },
+    {
+      "term": "macronutrient breakdown via proteases",
+      "count": 1
+    },
+    {
+      "term": "Maintains fluid balance and neuromuscular function.",
+      "count": 1
+    },
+    {
+      "term": "mannose-mediated bacterial adhesion interference",
+      "count": 1
+    },
+    {
+      "term": "mechanism unclear",
+      "count": 1
+    },
+    {
+      "term": "mechanism-only and not human-confirmed.",
+      "count": 1
+    },
+    {
+      "term": "mechanism-only.",
+      "count": 1
+    },
+    {
+      "term": "methionine synthase cofactor",
+      "count": 1
+    },
+    {
+      "term": "methylation support",
+      "count": 1
+    },
+    {
+      "term": "mild choleretic/diuretic effects (preclinical/traditional)",
+      "count": 1
+    },
+    {
+      "term": "mucilage barrier formation",
+      "count": 1
+    },
+    {
+      "term": "mucilage coating of GI mucosa",
+      "count": 1
+    },
+    {
+      "term": "mucosal coating",
+      "count": 1
+    },
+    {
+      "term": "mucosal protection",
+      "count": 1
+    },
+    {
+      "term": "myelin-related B12 physiology",
+      "count": 1
+    },
+    {
+      "term": "no unified mechanism can be validated for a proprietary blend category",
+      "count": 1
+    },
+    {
+      "term": "osmotic fluid retention",
+      "count": 1
+    },
+    {
+      "term": "partial mu-opioid receptor agonism with G-protein biased signaling preclinical",
+      "count": 1
+    },
+    {
+      "term": "PI3K/Akt modulation",
+      "count": 1
+    },
+    {
+      "term": "PKC modulation",
+      "count": 1
+    },
+    {
+      "term": "potent kappa-opioid receptor agonism",
+      "count": 1
+    },
+    {
+      "term": "potent mu-opioid receptor agonism",
+      "count": 1
+    },
+    {
+      "term": "Prevents bacterial adhesion (E. coli) to urinary tract epithelium.",
+      "count": 1
+    },
+    {
+      "term": "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+      "count": 1
+    },
+    {
+      "term": "Primary mechanism (preclinical)",
+      "count": 1
+    },
+    {
+      "term": "Proanthocyanidins inhibit bacterial adhesion.",
+      "count": 1
+    },
+    {
+      "term": "proanthocyanidins reduce bacterial adhesion in urinary tract",
+      "count": 1
+    },
+    {
+      "term": "Proposed arginase inhibition could theoretically increase arginine availability",
+      "count": 1
+    },
+    {
+      "term": "proposed cannabinoid-like effects",
+      "count": 1
+    },
+    {
+      "term": "Proposed CNS stimulant or libido effects are not clinically established",
+      "count": 1
+    },
+    {
+      "term": "Provide substrates for muscle metabolism.",
+      "count": 1
+    },
+    {
+      "term": "Provides caffeine",
+      "count": 1
+    },
+    {
+      "term": "pyrimidine synthesis intermediate",
+      "count": 1
+    },
+    {
+      "term": "raises muscle carnosine",
+      "count": 1
+    },
+    {
+      "term": "sigma-1 receptor activity proposed",
+      "count": 1
+    },
+    {
+      "term": "silica provision",
+      "count": 1
+    },
+    {
+      "term": "smooth muscle calcium-channel effects",
+      "count": 1
+    },
+    {
+      "term": "Substrate in muscle protein synthesis and energy production.",
+      "count": 1
+    },
+    {
+      "term": "TRPM8 receptor activation",
+      "count": 1
+    },
+    {
+      "term": "unclear CNS effects",
+      "count": 1
+    },
+    {
+      "term": "urinary support",
+      "count": 1
+    },
+    {
+      "term": "variable and undisclosed",
+      "count": 1
+    },
+    {
+      "term": "visceral antinociception",
+      "count": 1
+    },
+    {
+      "term": "weak CB1/CB2 interaction",
+      "count": 1
+    }
+  ]
+}

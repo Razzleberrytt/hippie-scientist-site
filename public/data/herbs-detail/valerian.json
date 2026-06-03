@@ -1,0 +1,29 @@
+{
+  "name": "Valeriana officinalis",
+  "slug": "valerian",
+  "summary": "Valerian may support sleep onset and nighttime relaxation, with results varying by root preparation.",
+  "description": "Sleep-onset and relaxation herb; preparation quality matters.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy",
+    "caution with alcohol"
+  ],
+  "interactions": [
+    "CNS depressants",
+    "benzodiazepines"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

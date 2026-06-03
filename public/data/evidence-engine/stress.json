@@ -1,0 +1,281 @@
+{
+  "goal": "stress",
+  "updatedAt": "2026-06-01T00:00:00.000Z",
+  "config": {
+    "problemField": "stress_problem",
+    "heroHeadline": "I want calmer stress response. What does the evidence actually support?",
+    "heroCta": "Start with the stress pattern",
+    "orientationHeading": "Start by naming the stress pattern",
+    "orientationSubtext": "The same ingredient can look useful or weak depending on acute pressure, baseline tension, reactivity, and sleep spillover.",
+    "safetyHeading": "Stress-support decisions change when risk context changes",
+    "safetyBody": "Do not use supplements to mask persistent panic symptoms, severe mood instability, unsafe medication interactions, or other complex clinical situations."
+  },
+  "problemLabels": {
+    "acute_stress": {
+      "title": "Acute stress",
+      "description": "Short-term spikes in tension, pressure, or overwhelm."
+    },
+    "baseline_tension": {
+      "title": "Baseline tension",
+      "description": "Persistent background strain that does not fully reset."
+    },
+    "cognitive_stress_load": {
+      "title": "Cognitive stress load",
+      "description": "Rumination, cognitive fatigue, or pressure-linked focus disruption."
+    },
+    "stress_reactivity": {
+      "title": "Stress reactivity",
+      "description": "Feeling easily triggered with stronger physical or emotional responses."
+    },
+    "stress_sleep_spillover": {
+      "title": "Stress-sleep spillover",
+      "description": "Stress carrying into bedtime, sleep continuity, or next-day recovery."
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "l-theanine-acute-stress",
+      "ingredient_slug": "l-theanine",
+      "ingredient_name": "L-Theanine",
+      "stress_problem": "acute_stress",
+      "claim_statement": "L-theanine is a plausible first-pass option when the stress pattern is acute tension or task-linked physiological arousal.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Small human stress-challenge studies report changes in heart-rate, immune, or subjective stress responses after L-theanine exposure.",
+      "limitations": "The evidence base is small, stress tasks are artificial, and effects may be subtle in high-pressure real-world settings.",
+      "best_fit": "Presentation nerves, acute work pressure, or stimulation smoothing where sedation is not desired.",
+      "not_best_fit": "Panic-level symptoms, unsafe medication combinations, or situations needing immediate clinical support.",
+      "decision_group": "Acute calming support",
+      "display_order": 1,
+      "published": true
+    },
+    {
+      "claim_id": "ashwagandha-baseline-tension",
+      "ingredient_slug": "ashwagandha",
+      "ingredient_name": "Ashwagandha",
+      "stress_problem": "baseline_tension",
+      "claim_statement": "Ashwagandha has the clearest stress fit when the issue is ongoing perceived stress rather than a single acute spike.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "Randomized studies in stressed adults report improvements in perceived stress or anxiety-adjacent scales, with some cortisol-related signals.",
+      "limitations": "Trials vary by extract, dose, population, and sponsorship; safety context matters more than broad adaptogen marketing suggests.",
+      "best_fit": "Persistent daily strain where a delayed-onset adaptogen experiment is acceptable.",
+      "not_best_fit": "Pregnancy, breastfeeding, liver concerns, autoimmune or thyroid complexity, or bipolar-spectrum risk without clinician guidance.",
+      "decision_group": "Baseline stress support",
+      "display_order": 2,
+      "published": true
+    },
+    {
+      "claim_id": "rhodiola-cognitive-stress-load",
+      "ingredient_slug": "rhodiola",
+      "ingredient_name": "Rhodiola",
+      "stress_problem": "cognitive_stress_load",
+      "claim_statement": "Rhodiola is most decision-useful when stress shows up as fatigue, pressure-linked cognitive load, or reduced mental stamina.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Human trials in stress-related fatigue suggest possible fatigue and attention benefits, but broader reviews describe mixed and limited evidence.",
+      "limitations": "Effects may depend on extract standardization and may feel activating for sensitive users.",
+      "best_fit": "Demanding work periods where fatigue and cognitive strain dominate over sedation needs.",
+      "not_best_fit": "Overstimulation, insomnia-prone patterns, bipolar-spectrum risk, or stimulant-sensitive stress states.",
+      "decision_group": "Stress-fatigue support",
+      "display_order": 3,
+      "published": true
+    },
+    {
+      "claim_id": "phosphatidylserine-stress-reactivity",
+      "ingredient_slug": "phosphatidylserine",
+      "ingredient_name": "Phosphatidylserine",
+      "stress_problem": "stress_reactivity",
+      "claim_statement": "Phosphatidylserine is a niche option for stress-reactivity questions involving cortisol or ACTH response patterns.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Small human stress-challenge studies using phosphatidic-acid and phosphatidylserine complexes report endocrine and psychological response signals.",
+      "limitations": "Evidence is narrow, often formula-specific, and does not establish broad everyday stress usefulness.",
+      "best_fit": "Research-oriented users comparing stress-reactivity options after lower-risk basics are addressed.",
+      "not_best_fit": "Medication complexity, pregnancy or breastfeeding, or expectations of obvious acute calming.",
+      "decision_group": "Stress-reactivity support",
+      "display_order": 4,
+      "published": true
+    },
+    {
+      "claim_id": "magnesium-baseline-tension",
+      "ingredient_slug": "magnesium",
+      "ingredient_name": "Magnesium",
+      "stress_problem": "baseline_tension",
+      "claim_statement": "Magnesium is most decision-useful when stress overlaps with low intake context, muscle tension, or low-magnesium risk signals.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Human reviews and trials suggest possible subjective stress or anxiety benefits, especially in low-magnesium or combined-nutrient contexts.",
+      "limitations": "Benefits are not uniform, many studies use combinations, and form, dose, kidney status, and gastrointestinal tolerance matter.",
+      "best_fit": "A conservative routine where low dietary intake or physical tension may be relevant.",
+      "not_best_fit": "Kidney disease, severe symptoms, or expectations of a direct sedative effect.",
+      "decision_group": "Foundational tension support",
+      "display_order": 5,
+      "published": true
+    },
+    {
+      "claim_id": "l-theanine-stress-sleep-spillover",
+      "ingredient_slug": "l-theanine",
+      "ingredient_name": "L-Theanine",
+      "stress_problem": "stress_sleep_spillover",
+      "claim_statement": "L-theanine may be a gentle fit when stress carries into sleep quality or bedtime cognitive tension.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Human research is stronger for relaxation and stress-related symptoms than for insomnia, but some trials include sleep-quality signals.",
+      "limitations": "Sleep-specific effects may be modest and should not distract from persistent insomnia, apnea signs, or medication review.",
+      "best_fit": "Evening rumination or stress-related wind-down problems where next-day heaviness is a concern.",
+      "not_best_fit": "Frequent night waking, suspected sleep disorders, sedative stacking, or alcohol-based wind-down routines.",
+      "decision_group": "Stress-sleep bridge support",
+      "display_order": 6,
+      "published": true
+    }
+  ],
+  "safetyNotes": [
+    {
+      "safety_id": "ashwagandha-autoimmune-thyroid-context",
+      "ingredient_slug": "ashwagandha",
+      "risk_type": "autoimmune",
+      "severity": "moderate",
+      "warning": "Autoimmune and thyroid contexts can change the safety calculus for ashwagandha.",
+      "decision_effect": "Pause self-directed use when autoimmune disease, thyroid medication, or thyroid instability is relevant.",
+      "published": true
+    },
+    {
+      "safety_id": "ashwagandha-liver-complexity",
+      "ingredient_slug": "ashwagandha",
+      "risk_type": "liver",
+      "severity": "high",
+      "warning": "Rare liver-injury reports make liver disease, abnormal liver labs, or jaundice symptoms important stop-and-review contexts.",
+      "decision_effect": "Avoid self-directed use when liver risk context is present or symptoms appear.",
+      "published": true
+    },
+    {
+      "safety_id": "ashwagandha-pregnancy-breastfeeding",
+      "ingredient_slug": "ashwagandha",
+      "risk_type": "pregnancy_breastfeeding",
+      "severity": "high",
+      "warning": "Pregnancy and breastfeeding are poor contexts for self-directed ashwagandha use.",
+      "decision_effect": "Do not use ashwagandha as a self-directed stress experiment in pregnancy or breastfeeding.",
+      "published": true
+    },
+    {
+      "safety_id": "l-theanine-blood-pressure",
+      "ingredient_slug": "l-theanine",
+      "risk_type": "blood_pressure",
+      "severity": "low",
+      "warning": "People prone to low blood pressure or lightheadedness should be cautious with calming stacks.",
+      "decision_effect": "Start conservatively and avoid combining with other blood-pressure-lowering inputs without review.",
+      "published": true
+    },
+    {
+      "safety_id": "l-theanine-sedative-stacking",
+      "ingredient_slug": "l-theanine",
+      "risk_type": "sedative_stacking",
+      "severity": "moderate",
+      "warning": "Stacking L-theanine with sedatives, alcohol, or multiple calming agents can make effects less predictable.",
+      "decision_effect": "Avoid stacking until the single-ingredient response and medication context are clear.",
+      "published": true
+    },
+    {
+      "safety_id": "magnesium-kidney-disease-stress",
+      "ingredient_slug": "magnesium",
+      "risk_type": "kidney_disease",
+      "severity": "high",
+      "warning": "Kidney disease changes magnesium handling and can make supplementation unsafe without clinician guidance.",
+      "decision_effect": "Do not use magnesium as a self-directed stress experiment with kidney disease.",
+      "published": true
+    },
+    {
+      "safety_id": "phosphatidylserine-medication-complexity",
+      "ingredient_slug": "phosphatidylserine",
+      "risk_type": "medication_interaction",
+      "severity": "moderate",
+      "warning": "Medication complexity, anticoagulant use, or neurological medication context should be reviewed before phosphatidylserine experimentation.",
+      "decision_effect": "Avoid using phosphatidylserine as a casual stress-reactivity experiment when medication risk is unclear.",
+      "published": true
+    },
+    {
+      "safety_id": "rhodiola-activation-risk",
+      "ingredient_slug": "rhodiola",
+      "risk_type": "complex_condition",
+      "severity": "moderate",
+      "warning": "Rhodiola can feel activating and may be a poor fit for bipolar-spectrum risk, agitation, or insomnia-prone stress.",
+      "decision_effect": "Prefer non-activating options or clinician guidance when activation risk matters.",
+      "published": true
+    }
+  ],
+  "sourcesByClaim": {
+    "l-theanine-acute-stress": [
+      {
+        "source_id": "src-theanine-kimura-2007",
+        "claim_id": "l-theanine-acute-stress",
+        "citation_label": "Kimura 2007",
+        "source_type": "randomized_trial",
+        "title": "L-Theanine reduces psychological and physiological stress responses",
+        "year": 2007,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
+        "source_note": "Small human acute stress task study; useful for acute stress physiology context.",
+        "published": true
+      }
+    ],
+    "ashwagandha-baseline-tension": [
+      {
+        "source_id": "src-ashwagandha-lopresti-2019",
+        "claim_id": "ashwagandha-baseline-tension",
+        "citation_label": "Lopresti 2019",
+        "source_type": "randomized_trial",
+        "title": "An investigation into the stress-relieving and pharmacological actions of an ashwagandha extract",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/",
+        "source_note": "Randomized trial in stressed healthy adults with stress scale and hormone endpoints.",
+        "published": true
+      }
+    ],
+    "rhodiola-cognitive-stress-load": [
+      {
+        "source_id": "src-rhodiola-olsson-2009",
+        "claim_id": "rhodiola-cognitive-stress-load",
+        "citation_label": "Olsson 2009",
+        "source_type": "randomized_trial",
+        "title": "Standardised Rhodiola rosea SHR-5 in subjects with stress-related fatigue",
+        "year": 2009,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
+        "source_note": "Human trial in stress-related fatigue; supports fatigue and cognitive-load framing.",
+        "published": true
+      }
+    ],
+    "phosphatidylserine-stress-reactivity": [
+      {
+        "source_id": "src-phosphatidylserine-hellhammer-2004",
+        "claim_id": "phosphatidylserine-stress-reactivity",
+        "citation_label": "Hellhammer 2004",
+        "source_type": "clinical_trial",
+        "title": "Soy lecithin phosphatidic acid and phosphatidylserine complex responses to mental stress",
+        "year": 2004,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15512856/",
+        "source_note": "Human mental stressor study focused on endocrine and psychological stress responses.",
+        "published": true
+      }
+    ],
+    "magnesium-baseline-tension": [
+      {
+        "source_id": "src-magnesium-boyle-2017",
+        "claim_id": "magnesium-baseline-tension",
+        "citation_label": "Boyle 2017",
+        "source_type": "systematic_review",
+        "title": "The effects of magnesium supplementation on subjective anxiety and stress",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28445426/",
+        "source_note": "Systematic review of subjective anxiety and stress evidence; highlights limitations and heterogeneity.",
+        "published": true
+      }
+    ],
+    "l-theanine-stress-sleep-spillover": [
+      {
+        "source_id": "src-theanine-hidese-2019",
+        "claim_id": "l-theanine-stress-sleep-spillover",
+        "citation_label": "Hidese 2019",
+        "source_type": "randomized_trial",
+        "title": "L-theanine, stress-related symptoms, cognitive functions, and sleep-quality signals",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31623400/",
+        "source_note": "Human trial with stress-related symptom and sleep-quality measures; not a dedicated insomnia trial.",
+        "published": true
+      }
+    ]
+  }
+}

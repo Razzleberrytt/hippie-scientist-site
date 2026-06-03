@@ -1,0 +1,22 @@
+{
+  "id": "acetylshikonin",
+  "slug": "acetylshikonin",
+  "name": "acetylshikonin",
+  "summary": "Shikonin derivative linked to inflammatory and apoptotic signaling.",
+  "description": "Shikonin derivative linked to inflammatory and apoptotic signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

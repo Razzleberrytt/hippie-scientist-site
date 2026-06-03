@@ -1,0 +1,32 @@
+{
+  "name": "Garlic",
+  "slug": "allium-sativum",
+  "summary": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulants",
+    "antiplatelets",
+    "pre-surgery"
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "antiplatelets",
+    "pre-surgery"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,21 @@
+{
+  "id": "bacoside-a",
+  "slug": "bacoside-a",
+  "name": "bacoside a",
+  "summary": "Bacopa saponin fraction associated with cognitive signaling support.",
+  "description": "Bacopa saponin fraction associated with cognitive signaling support.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

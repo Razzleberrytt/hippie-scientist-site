@@ -1,0 +1,95 @@
+{
+  "patch_id": "patch_01KN5FRF15KDEYA3ESM8DTHCM3",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-01T21:38:57.701Z",
+  "operations": [
+    {
+      "op": "set",
+      "task": "link_integrity",
+      "entity_type": "herb",
+      "entity_id": "betel nut",
+      "field": "/activeCompounds",
+      "value": [
+        "alkaloid",
+        "arecoline"
+      ]
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "betel nut",
+      "field": "/mechanism",
+      "value": "endogenous hydrogen sulfide inhibition"
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "betel nut",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5FRF15EC4SYZX0NVYWH08D",
+        "claim": "[mechanism] endogenous hydrogen sulfide inhibition",
+        "source_ids": [
+          "src_01KN5FRF155QAK1T7TEYN83RR3"
+        ]
+      }
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "betel nut",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5FRF1586HYVXHAW63X2ZBN",
+        "claim": "[contraindications] toxicity concern; adverse-effect signal; pregnancy caution",
+        "source_ids": [
+          "src_01KN5FRF153YY95WABWX9WZRSW"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "betel nut",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KN5FK3NRDP1JQG9BCXJB9WRH",
+        "sources": [
+          {
+            "id": "src_01KN5FRF15G17E01PFC4VHGMX7",
+            "title": "Areca nut: a review.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/786304/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5FRF155QAK1T7TEYN83RR3",
+            "title": "Hydrogen sulfide prevents arecoline-induced neurotoxicity via promoting leptin/leptin receptor signaling pathway.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35819076/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5FRF153YY95WABWX9WZRSW",
+            "title": "Is it safe to consume traditional medicinal plants during pregnancy?",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/33164294/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "betel nut",
+      "field": "/_review",
+      "value": {
+        "status": "pending"
+      }
+    }
+  ]
+}

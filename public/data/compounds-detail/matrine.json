@@ -1,0 +1,19 @@
+{
+  "id": "matrine",
+  "slug": "matrine",
+  "name": "matrine",
+  "summary": "Quinolizidine alkaloid from Sophora species commonly linked to PI3K/Akt and NF-κB pathway effects.",
+  "description": "Quinolizidine alkaloid from Sophora species commonly linked to PI3K/Akt and NF-κB pathway effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

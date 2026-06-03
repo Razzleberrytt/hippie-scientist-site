@@ -1,0 +1,20 @@
+{
+  "id": "fenugreek",
+  "slug": "fenugreek",
+  "name": "Fenugreek",
+  "summary": "Fenugreek entry from SciSpace evidence pass. Evidence level: moderate metabolic.",
+  "description": "Fenugreek is cataloged as saponin/alkaloid botanical. Reported mechanisms: glucose metabolism modulation; possible 5-alpha-reductase/aromatase effects preclinical.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

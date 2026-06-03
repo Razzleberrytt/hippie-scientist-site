@@ -1,0 +1,22 @@
+{
+  "id": "palmitoylethanolamide",
+  "slug": "palmitoylethanolamide",
+  "name": "Palmitoylethanolamide",
+  "summary": "Palmitoylethanolamide entry from SciSpace evidence pass. Evidence level: moderate.",
+  "description": "Palmitoylethanolamide is cataloged as fatty acid amide. Reported mechanisms: PPAR-alpha activation; mast cell/neuroinflammation modulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

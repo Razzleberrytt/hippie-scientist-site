@@ -1,0 +1,33 @@
+{
+  "name": "Guayusa",
+  "slug": "guayusa",
+  "summary": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+  "description": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+  "primaryActions": [
+    "antioxidant"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmia",
+    "severe anxiety/insomnia",
+    "pregnancy/breastfeeding caution",
+    "and stimulant sensitivity."
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "theophylline",
+    "decongestants",
+    "and stimulant medications."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

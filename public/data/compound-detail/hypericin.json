@@ -1,0 +1,79 @@
+{
+  "slug": "hypericin",
+  "name": "hypericin",
+  "summary": "Hypericin is a napthodianthrone marker from St.",
+  "description": "Hypericin is a napthodianthrone marker from St. John's wort with photodynamic signaling effects.",
+  "effects": [
+    "research_only"
+  ],
+  "primary_effects": [
+    "research_only"
+  ],
+  "mechanisms": [
+    "PKC modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "raw_mechanisms": [
+    "PKC modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "PKC modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure",
+    "use caution with pregnancy",
+    "liver/kidney disease",
+    "and polypharmacy.",
+    "Mostly preclinical or source-extract evidence. Isolated-co"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=hypericin+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "hypericin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a general consumer product",
+    "keep as research/reference unless human supplement evidence and safety context are added"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

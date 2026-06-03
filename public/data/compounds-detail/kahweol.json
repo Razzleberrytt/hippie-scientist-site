@@ -1,0 +1,23 @@
+{
+  "id": "kahweol",
+  "slug": "kahweol",
+  "name": "kahweol",
+  "summary": "Coffee diterpene often paired with cafestol and associated with redox and inflammatory pathway modulation.",
+  "description": "Coffee diterpene often paired with cafestol and associated with redox and inflammatory pathway modulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

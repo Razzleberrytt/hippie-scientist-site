@@ -1,0 +1,28 @@
+{
+  "name": "Maca Lepidium meyenii",
+  "slug": "maca",
+  "summary": "Maca centers on the root; hypocotyl.",
+  "description": "Maca centers on the root; hypocotyl. Key reported compounds include macamides; macaenes; glucosinolates.",
+  "primaryActions": [
+    "energy",
+    "hormonal",
+    "reproductive"
+  ],
+  "mechanisms": [
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "hormone-sensitive conditions (unclear relevance)"
+  ],
+  "interactions": [
+    "none well established"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

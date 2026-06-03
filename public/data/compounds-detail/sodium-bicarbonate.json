@@ -1,0 +1,18 @@
+{
+  "id": "sodium-bicarbonate",
+  "slug": "sodium-bicarbonate",
+  "name": "sodium bicarbonate",
+  "summary": "Human evidence supports sodium bicarbonate for high-intensity exercise performance, particularly repeated or sustained efforts where acidosis contributes to fatigue.",
+  "description": "Human evidence supports sodium bicarbonate for high-intensity exercise performance, particularly repeated or sustained efforts where acidosis contributes to fatigue.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

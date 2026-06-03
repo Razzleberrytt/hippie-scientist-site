@@ -1,0 +1,23 @@
+{
+  "id": "neoandrographolide",
+  "slug": "neoandrographolide",
+  "name": "neoandrographolide",
+  "summary": "Andrographis diterpene glycoside associated with inflammatory and survival signaling modulation.",
+  "description": "Andrographis diterpene glycoside associated with inflammatory and survival signaling modulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

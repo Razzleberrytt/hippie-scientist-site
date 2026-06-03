@@ -1,0 +1,19 @@
+{
+  "id": "gingerol",
+  "slug": "gingerol",
+  "name": "gingerol",
+  "summary": "gingerol is tracked for Inhibits COX-2 and reduces prostaglandin synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "gingerol is tracked for Inhibits COX-2 and reduces prostaglandin synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

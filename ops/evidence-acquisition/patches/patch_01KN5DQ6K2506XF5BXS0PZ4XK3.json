@@ -1,0 +1,50 @@
+{
+  "patch_id": "patch_01KN5DQ6K2506XF5BXS0PZ4XK3",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-01T21:03:19.139Z",
+  "operations": [
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "american yellow lotus",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DQ6K32QV3DZ98J34ZMYM0",
+        "claim": "[effects] hepatoprotective activity",
+        "source_ids": [
+          "src_01KN5DQ6K3SGCHW4PMZFWQB0EE"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "american yellow lotus",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KN5DMNXTEVE224WVTXGHGECZ",
+        "sources": [
+          {
+            "id": "src_01KN5DQ6K3SGCHW4PMZFWQB0EE",
+            "title": "Ginseng essence, a medicinal and edible herbal formulation, ameliorates carbon tetrachloride-induced oxidative stress and liver injury in rats.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28701872/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "american yellow lotus",
+      "field": "/_review",
+      "value": {
+        "status": "pending"
+      }
+    }
+  ]
+}

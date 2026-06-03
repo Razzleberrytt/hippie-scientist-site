@@ -1,0 +1,102 @@
+{
+  "slug": "phosphatidylserine",
+  "name": "Phosphatidylserine",
+  "summary": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "effects": [
+    "stress"
+  ],
+  "primary_effects": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Cellular Protection",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Cellular protection",
+    "Hormonal signaling context",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "cellular resilience",
+    "endocrine",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Anticoagulants (theoretical)"
+  ],
+  "interactions": [
+    "Anticoagulants (theoretical)"
+  ],
+  "side_effects": [],
+  "dosage": "100-300 mg/day",
+  "typical_dosage": "100-300 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=organic+phosphatidylserine&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Phosphatidylserine capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "research-pending-effect",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

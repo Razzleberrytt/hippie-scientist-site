@@ -1,0 +1,109 @@
+{
+  "slug": "epigallocatechin-gallate-egcg",
+  "name": "EGCG",
+  "summary": "Decision-ready summary: EGCG is best framed for fat oxidation support; cardiometabolic markers; antioxidant polyphenol intake; safety screen: liver disease; high-dose fasting use; stimulant sensitivity.",
+  "description": "EGCG supports metabolic; polyphenols; fat oxidation with moderate confidence in this merged decision layer.",
+  "effects": [
+    "energy",
+    "weight"
+  ],
+  "primary_effects": [
+    "energy",
+    "weight"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Vascular function support",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic",
+    "cardiovascular",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "liver disease",
+    "high-dose fasting use",
+    "stimulant sensitivity"
+  ],
+  "interactions": [
+    "Other hepatotoxic agents",
+    "caffeine confounds metabolic effects"
+  ],
+  "side_effects": [],
+  "dosage": "EGCG/caffeine trial doses vary; avoid high-dose EGCG and fasting use",
+  "typical_dosage": "EGCG/caffeine trial doses vary; avoid high-dose EGCG and fasting use",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority thermogenic support where caffeine tolerance and liver-safety limits are respected"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=epigallocatechin-gallate-egcg+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "epigallocatechin gallate (egcg) supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "EGCG amount and caffeine dose disclosed",
+    "liver-safety warning",
+    "avoid high-dose extract products taken fasting"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

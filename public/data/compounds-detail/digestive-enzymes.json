@@ -1,0 +1,20 @@
+{
+  "id": "digestive-enzymes",
+  "slug": "digestive-enzymes",
+  "name": "Digestive enzymes",
+  "summary": "Decision-ready summary: Digestive enzymes is best framed for meal-related digestive discomfort; enzyme insufficiency support; safety screen: pancreatitis unless clinician-directed; pork allergy for pancreatin forms.",
+  "description": "Digestive enzymes supports digestion; meals with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "macronutrient breakdown via proteases",
+    "lipases",
+    "and amylases"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "valine",
+  "slug": "valine",
+  "name": "Valine",
+  "summary": "Valine supports muscle metabolism but no strong independent ergogenic effect.",
+  "description": "Valine supports muscle metabolism but no strong independent ergogenic effect.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Substrate in muscle protein synthesis and energy production."
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

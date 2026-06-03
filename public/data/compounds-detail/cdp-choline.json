@@ -1,0 +1,21 @@
+{
+  "id": "cdp-choline",
+  "slug": "cdp-choline",
+  "name": "Citicoline / CDP-choline",
+  "summary": "Decision-ready summary: Citicoline / CDP-choline is best framed for attention support; cognitive recovery; memory support; safety screen: cholinergic sensitivity; anticholinergic medication conflict.",
+  "description": "Citicoline / CDP-choline supports focus; memory; cognition with moderate-high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

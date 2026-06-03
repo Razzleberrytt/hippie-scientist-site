@@ -1,0 +1,19 @@
+{
+  "id": "hypericin",
+  "slug": "hypericin",
+  "name": "hypericin",
+  "summary": "Hypericin is a napthodianthrone marker from St.",
+  "description": "Hypericin is a napthodianthrone marker from St. John's wort with photodynamic signaling effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "PKC modulation",
+    "apoptosis pathway modulation (caspase activation)"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

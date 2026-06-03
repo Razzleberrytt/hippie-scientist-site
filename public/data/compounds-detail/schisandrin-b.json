@@ -1,0 +1,20 @@
+{
+  "id": "schisandrin-b",
+  "slug": "schisandrin-b",
+  "name": "schisandrin b",
+  "summary": "Lignan from Schisandra with hepatoprotective and redox-modulating actions.",
+  "description": "Lignan from Schisandra with hepatoprotective and redox-modulating actions.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

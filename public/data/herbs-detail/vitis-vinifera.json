@@ -1,0 +1,29 @@
+{
+  "name": "Grape",
+  "slug": "vitis-vinifera",
+  "summary": "Grape is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulants"
+  ],
+  "interactions": [
+    "Anticoagulants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

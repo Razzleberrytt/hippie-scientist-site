@@ -1,0 +1,93 @@
+{
+  "slug": "niacinamide",
+  "name": "Niacinamide",
+  "summary": "Niacinamide (nicotinamide) is a vitamin B3 form used to prevent or treat niacin deficiency and support NAD+ metabolism. It does not provide nicotinic acid's lipid-lowering effect.",
+  "description": "Non-flushing vitamin B3 form and NAD+ precursor; clinically relevant for deficiency but not lipid lowering.",
+  "effects": [
+    "cholesterol"
+  ],
+  "primary_effects": [
+    "cholesterol"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "mitochondrial",
+    "metabolic",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Generally well tolerated",
+    "high doses may cause liver toxicity."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only lipid profile due to flushing and limited outcome benefit"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=niacinamide+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Niacinamide supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

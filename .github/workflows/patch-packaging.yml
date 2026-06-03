@@ -1,0 +1,31 @@
+name: Patch Packaging
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check:node
+      - run: node scripts/merge-patches.mjs --all
+      - name: Workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Patch Packaging"
+            echo "- Purpose: merge approved patches for packaging"
+            echo "- Branch/ref: $GITHUB_REF"
+            echo "- Command: node scripts/merge-patches.mjs --all"
+            echo "- Status: ${{ job.status }}"
+            echo "- Output path: ops/agent-review"
+          } >> "$GITHUB_STEP_SUMMARY"

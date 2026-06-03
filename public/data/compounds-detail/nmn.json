@@ -1,0 +1,20 @@
+{
+  "id": "nmn",
+  "slug": "nmn",
+  "name": "Nicotinamide Mononucleotide",
+  "summary": "NMN is an NAD+ precursor studied for metabolic and aging-related biomarkers. Human evidence is emerging, with limited clinical outcome data and uncertain long-term safety.",
+  "description": "NAD+ precursor with early human evidence for modest insulin-sensitivity or biomarker effects; clinical endpoints remain unproven.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

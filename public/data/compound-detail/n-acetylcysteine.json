@@ -1,0 +1,100 @@
+{
+  "slug": "n-acetylcysteine",
+  "name": "NAC",
+  "summary": "Decision-ready summary: NAC is best framed for respiratory mucus support; glutathione replenishment; compulsive-behavior research context; safety screen: nitroglycerin; active ulcer; asthma caution.",
+  "description": "NAC supports glutathione; respiratory; compulsive behavior with high confidence in this merged decision layer.",
+  "effects": [
+    "inflammation",
+    "mood"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "mood"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate-high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "nitroglycerin",
+    "active ulcer",
+    "asthma caution"
+  ],
+  "interactions": [
+    "Caution with asthma."
+  ],
+  "side_effects": [],
+  "dosage": "600–2400 mg/day depending on context",
+  "typical_dosage": "600–2400 mg/day depending on context",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People focused on oxidative stress",
+    "glutathione support",
+    "or craving-related support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=n-acetylcysteine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "N-acetylcysteine supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "N-acetylcysteine clearly labeled",
+    "600 mg capsules",
+    "avoid blends hiding NAC dose"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

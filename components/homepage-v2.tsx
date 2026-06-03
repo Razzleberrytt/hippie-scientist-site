@@ -1,0 +1,396 @@
+import Link from 'next/link'
+import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
+import { goals } from '@/data/goals'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import NewsletterCtaBlock from './NewsletterCtaBlock'
+import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
+import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
+
+type RuntimeFeature = Record<string, unknown>
+type HomepageV2Props = { featuredHerbs?: RuntimeFeature[]; featuredCompounds?: RuntimeFeature[] }
+type LandingCard = { href: string; title: string; description: string; meta: string }
+type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
+
+function getFeatureName(item: RuntimeFeature) {
+  return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
+}
+
+function getFeatureDescription(item: RuntimeFeature, type: 'herb' | 'compound') {
+  return cleanSummary(item.short_earthy_summary || item.summary || item.description, type)
+}
+
+function toFeaturedCard(item: RuntimeFeature, type: 'herb' | 'compound'): LandingCard | null {
+  const title = getFeatureName(item)
+  const slug = typeof item.slug === 'string' ? item.slug : ''
+  if (!slug || !isClean(title)) return null
+  return {
+    href: `/${type === 'herb' ? 'herbs' : 'compounds'}/${slug}`,
+    title,
+    description: getFeatureDescription(item, type),
+    meta: type === 'herb' ? 'Herb profile' : 'Compound profile',
+  }
+}
+
+function interleaveFeatured(herbs: LandingCard[], compounds: LandingCard[]) {
+  const mixed: LandingCard[] = []
+  const maxLength = Math.max(herbs.length, compounds.length)
+  for (let i = 0; i < maxLength; i++) {
+    if (herbs[i]) mixed.push(herbs[i])
+    if (compounds[i]) mixed.push(compounds[i])
+  }
+  return mixed.slice(0, 6)
+}
+
+const trustStrip = [
+  'Evidence-weighted guidance',
+  'Safety checkpoints before buying',
+  'Static, privacy-friendly flow',
+]
+
+const wizardSteps = [
+  'Pick a goal and the kind of support you want.',
+  'Flag timing, sedation, stimulant, and experience preferences.',
+  'Review conservative medication, pregnancy, and condition watch-outs.',
+]
+
+const credibilityPillars = [
+  'Human evidence is separated from mechanism-only claims.',
+  'Contraindications and medication flags appear before product-quality CTAs.',
+  'Affiliate context is disclosed without changing the evidence standard.',
+]
+
+// Fallbacks expanded to 6 curated picks instead of alphabetical accidents
+const featuredFallbacks: LandingCard[] = [
+  {
+    href: '/herbs/ashwagandha',
+    title: 'Ashwagandha',
+    description: 'Stress support, recovery context, and realistic evidence interpretation.',
+    meta: 'Herb profile',
+  },
+  {
+    href: '/compounds/l-theanine',
+    title: 'L-Theanine',
+    description: 'Calm focus, relaxation pathways, and non-sedating support context.',
+    meta: 'Compound profile',
+  },
+  {
+    href: '/compounds/creatine',
+    title: 'Creatine',
+    description: 'Performance, recovery, energy buffering, and cognitive support research.',
+    meta: 'Compound profile',
+  },
+  {
+    href: '/herbs/rhodiola-rosea',
+    title: 'Rhodiola Rosea',
+    description: 'Adaptogenic fatigue resistance and mental performance under stress.',
+    meta: 'Herb profile',
+  },
+  {
+    href: '/herbs/lions-mane',
+    title: "Lion's Mane",
+    description: 'NGF stimulation, cognitive support, and neuroprotective research.',
+    meta: 'Herb profile',
+  },
+  {
+    href: '/compounds/magnesium-glycinate',
+    title: 'Magnesium Glycinate',
+    description: 'Sleep quality, muscle relaxation, and nervous system regulation.',
+    meta: 'Compound profile',
+  },
+]
+
+const heroGoals = [
+  { slug: 'sleep', title: 'Sleep Support', bg: 'bg-gradient-to-br from-[hsl(220,60%,97%)] to-[hsl(240,60%,94%)] border-[hsl(220,50%,85%)]', text: 'text-[hsl(220,60%,35%)]', desc: 'Quieting bedtime worry & support for natural onset.' },
+  { slug: 'stress', title: 'Stress & Fatigue', bg: 'bg-gradient-to-br from-[hsl(30,70%,97%)] to-[hsl(15,70%,95%)] border-[hsl(30,50%,85%)]', text: 'text-[hsl(30,70%,35%)]', desc: 'Adaptogens for cortisol regulation & mental burnout.' },
+  { slug: 'anxiety', title: 'Anxiety & Calm', bg: 'bg-gradient-to-br from-[hsl(160,50%,96%)] to-[hsl(180,50%,94%)] border-[hsl(160,40%,85%)]', text: 'text-[hsl(160,60%,30%)]', desc: 'Promoting daytime peace without heavy daytime sedation.' },
+  { slug: 'focus', title: 'Focus & Alertness', bg: 'bg-gradient-to-br from-[hsl(280,50%,97%)] to-[hsl(260,50%,94%)] border-[hsl(280,40%,85%)]', text: 'text-[hsl(280,60%,35%)]', desc: 'Alertness support & smoothing stimulant jitters.' },
+  { slug: 'gut-health', title: 'Gut Health', bg: 'bg-gradient-to-br from-[hsl(100,40%,96%)] to-[hsl(120,40%,94%)] border-[hsl(100,30%,85%)]', text: 'text-[hsl(100,50%,30%)]', desc: 'Evaluating enzymes, prebiotic fibers, & regularity aids.' },
+  { slug: 'pain', title: 'Pain Support', bg: 'bg-gradient-to-br from-[hsl(45,60%,96%)] to-[hsl(35,60%,94%)] border-[hsl(45,50%,85%)]', text: 'text-[hsl(45,60%,30%)]', desc: 'Addressing joint stiffness & chronic inflammatory pain.' },
+  { slug: 'longevity', title: 'Longevity & Cellular', bg: 'bg-gradient-to-br from-[hsl(140,40%,96%)] to-[hsl(150,40%,94%)] border-[hsl(140,30%,85%)]', text: 'text-[hsl(140,50%,30%)]', desc: 'NAD+ synthesis precursors & mitochondrial health.' },
+  { slug: 'joint-support', title: 'Joint & Mobility', bg: 'bg-gradient-to-br from-[hsl(200,60%,96%)] to-[hsl(190,60%,94%)] border-[hsl(200,40%,85%)]', text: 'text-[hsl(200,60%,35%)]', desc: 'Cartilage support & systemic joint integrity.' },
+  { slug: 'recovery', title: 'Exercise Recovery', bg: 'bg-gradient-to-br from-[hsl(310,40%,97%)] to-[hsl(290,40%,94%)] border-[hsl(310,30%,85%)]', text: 'text-[hsl(310,50%,35%)]', desc: 'Energy buffering, soreness reduction, & cell recovery.' },
+]
+
+function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
+  return (
+    <div className='max-w-3xl space-y-2'>
+      <HeadingTag className='text-xl font-semibold tracking-tight text-ink sm:text-2xl'>{title}</HeadingTag>
+      {subtitle ? <p className='text-sm leading-6 text-muted sm:text-base'>{subtitle}</p> : null}
+    </div>
+  )
+}
+
+function ActionCue({ children }: { children: React.ReactNode }) {
+  return (
+    <span className='inline-flex items-center gap-1.5 text-xs font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800'>
+      {children} <span aria-hidden='true'>→</span>
+    </span>
+  )
+}
+
+export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] }: HomepageV2Props) {
+  const herbCards = featuredHerbs
+    .map(i => toFeaturedCard(i, 'herb'))
+    .filter((i): i is LandingCard => Boolean(i))
+    .slice(0, 3)
+  const compoundCards = featuredCompounds
+    .map(i => toFeaturedCard(i, 'compound'))
+    .filter((i): i is LandingCard => Boolean(i))
+    .slice(0, 3)
+  const featured = interleaveFeatured(herbCards, compoundCards)
+  const visibleFeatured = featured.length > 0 ? featured : featuredFallbacks
+
+  return (
+    <div className='overflow-x-clip bg-site-bg'>
+      <StickyChecklistBar storageKey='homepage-sticky-checklist' />
+      <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
+
+        {/* Hero */}
+        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-4 py-8 shadow-sm sm:px-8 sm:py-12'>
+          <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
+            <p role='doc-subtitle' className='mb-3 inline-flex text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-700'>
+              Evidence-first supplement decisions
+            </p>
+            <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
+              Find the right supplement path for your goals.
+            </h1>
+            <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
+              Skip the commercial hype. Select your health pathway below to compare evidence tiers, safety contraindications, and third-party tested sourcing picks.
+            </p>
+            <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
+              <Link
+                href='/start-here/quiz'
+                className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none'
+              >
+                Take the Intake Quiz
+              </Link>
+              <Link
+                href='/safety-checker'
+                className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none'
+              >
+                Check Safety &amp; Medications
+              </Link>
+            </div>
+            <div className='mt-6 flex flex-wrap justify-center gap-2' aria-label='Trust signals'>
+              {trustStrip.map((item) => (
+                <span key={item} className='rounded-full border border-brand-900/10 bg-brand-50 px-3.5 py-1 text-xs font-semibold text-brand-800'>
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <SafetyChecklistPromo goal='default' variant='hero' />
+
+        {/* Goal Guides Card Grid */}
+        <section className='space-y-4'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+            <SectionHeader
+              title='Select a Health Pathway to Compare'
+              subtitle='Each guide compares candidate compounds, evidence grade, standard onset time, and safety boundaries side-by-side.'
+              as='h2'
+            />
+            <Link href='/goals' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              View all 15 goals →
+            </Link>
+          </div>
+
+          <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+            {heroGoals.map((hGoal) => {
+              const fullGoal = goals.find((g) => g.slug === hGoal.slug)
+              const quickPicks = fullGoal?.quickPicks.slice(0, 3) || []
+
+              return (
+                <div
+                  key={hGoal.slug}
+                  className={`flex flex-col justify-between rounded-[1rem] border ${hGoal.bg} p-4 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.01]`}
+                >
+                  <div>
+                    <div className='flex items-center justify-between'>
+                      <span className='text-[10px] font-bold uppercase tracking-wider text-muted'>Goal Pathway</span>
+                      <span className='h-2 w-2 rounded-full bg-brand-700' />
+                    </div>
+                    <Link href={`/goals/${hGoal.slug}`} className='group mt-2 block'>
+                      <h3 className={`text-lg font-bold text-ink transition group-hover:text-brand-700`}>
+                        {hGoal.title}
+                      </h3>
+                      <p className='mt-1 text-xs leading-relaxed text-muted'>{hGoal.desc}</p>
+                    </Link>
+                  </div>
+
+                  <div className='mt-4 border-t border-brand-900/10 pt-3 space-y-2.5'>
+                    <p className='text-[10px] font-bold uppercase tracking-wider text-muted'>Top Sourcing Picks</p>
+                    <div className='space-y-1.5'>
+                      {quickPicks.map((pick) => {
+                        const productSet = getRevenueProductSet(pick.slug)
+                        const overallProduct = productSet?.products.find((p) => p.slot === 'overall')
+                        return (
+                          <div key={pick.slug} className='flex items-baseline justify-between gap-2 text-xs'>
+                            <span className='text-muted truncate max-w-[120px]'>{pick.need}:</span>
+                            {overallProduct ? (
+                              <a
+                                href={overallProduct.affiliateUrl}
+                                target='_blank'
+                                rel='nofollow sponsored noopener noreferrer'
+                                className='font-bold text-brand-700 hover:text-brand-800 hover:underline truncate text-right'
+                              >
+                                {overallProduct.brand} {(overallProduct.title || '').replace(/^[^a-zA-Z]+/g, '').split(' ').slice(1, 3).join(' ')} →
+                              </a>
+                            ) : (
+                              <span className='font-bold text-brand-700'>{pick.option}</span>
+                            )}
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
+
+                  <div className='mt-4 pt-2 border-t border-brand-900/5'>
+                    <Link href={`/goals/${hGoal.slug}`} className='group block'>
+                      <ActionCue>Compare all candidates</ActionCue>
+                    </Link>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* Intake Wizard Entry */}
+        <section className='grid gap-6 rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm lg:grid-cols-[1fr_0.9fr] lg:p-6'>
+          <div>
+            <SectionHeader
+              title='Run the Safety Check &amp; Intake Wizard'
+              subtitle='Answer questions on safety profiles, timing, stimulant limits, and medical watch-outs. Our intake wizard helps narrow 15 pathways down to what fits your body.'
+              as='h2'
+            />
+            <div className='mt-6 flex flex-wrap gap-2.5'>
+              <Link href='/start-here/quiz' className='rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800'>
+                Start safety intake →
+              </Link>
+              <Link href='/start-here' className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink transition hover:bg-brand-50'>
+                Intake Guidelines
+              </Link>
+            </div>
+          </div>
+          <ol className='space-y-2.5 text-sm leading-6 text-muted'>
+            {wizardSteps.map((step, index) => (
+              <li key={step} className='flex gap-3.5 rounded-[0.85rem] bg-brand-50/70 p-4'>
+                <span className='flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-bold text-brand-800'>{index + 1}</span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        {/* Sourcing checklist block */}
+        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>
+          <div className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
+            <div className='space-y-2.5'>
+              <span className='inline-flex rounded-full bg-brand-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-800'>Sourcing Guidelines</span>
+              <h2 className='text-xl font-bold tracking-tight text-ink sm:text-2xl'>Always check for label transparency first.</h2>
+              <p className='max-w-3xl text-sm leading-relaxed text-muted'>
+                Before clicking any sponsored buy link, compare third-party verification (USP, NSF, ConsumerLab), standardization metrics (e.g. 5% ginsenosides), active extract markers, and toxic metal test disclosures.
+              </p>
+              <p className='text-xs leading-5 text-muted'>This site contains qualifying affiliate links, but product criteria stay independent from commissions.</p>
+            </div>
+            <Link href='/buy-guide' className='inline-flex shrink-0 justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-800'>
+              Read Sourcing Guide →
+            </Link>
+          </div>
+        </section>
+
+        {/* Popular Ingredient Profiles */}
+        <section className='space-y-4'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+            <SectionHeader
+              title='Or Browse by Ingredient Library'
+              subtitle='Research profiles on standalone adaptogens, biological compounds, and minerals.'
+              as='h2'
+            />
+            <div className='flex flex-wrap gap-4 text-sm font-bold'>
+              <Link href='/herbs' className='text-brand-700 transition hover:text-brand-800'>Herbs Library <span aria-hidden='true'>→</span></Link>
+              <Link href='/compounds' className='text-brand-700 transition hover:text-brand-800'>Compounds Library <span aria-hidden='true'>→</span></Link>
+            </div>
+          </div>
+          <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
+            {visibleFeatured.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-label={`View ${item.meta} for ${item.title}`}
+                className='group rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-4 transition hover:border-brand-900/20 hover:bg-white'
+              >
+                <div className='relative'>
+                  <span className='inline-flex text-[10px] font-bold uppercase tracking-[0.15em] text-brand-700'>{item.meta}</span>
+                  <h3 className='mt-1.5 text-base font-bold tracking-tight text-ink sm:text-lg group-hover:text-brand-700'>{item.title}</h3>
+                  <p className='mt-1.5 line-clamp-2 text-xs leading-relaxed text-muted'>{item.description}</p>
+                  <div className='mt-2.5'><ActionCue>Open Profile</ActionCue></div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Evidence + Safety Methodology details */}
+        <section className='grid gap-4 lg:grid-cols-2'>
+          <div className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm sm:p-5'>
+            <SectionHeader
+              title='Methodology: Weight of Clinical Evidence'
+              subtitle='Our catalog separates human clinical trial evidence from petri dish mechanistic plausibility.'
+              as='h2'
+            />
+            <ul className='mt-4 space-y-2.5 text-sm leading-6 text-muted'>
+              {credibilityPillars.map((pillar) => (
+                <li key={pillar} className='flex gap-3'>
+                  <span className='mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700' />
+                  <span>{pillar}</span>
+                </li>
+              ))}
+            </ul>
+            <Link href='/education/research-methodology' className='mt-4 inline-flex text-sm font-bold text-brand-700 hover:text-brand-800'>
+              Research Methodology →
+            </Link>
+          </div>
+          <div className='rounded-[1.25rem] border border-amber-200/80 bg-amber-50/50 p-4 shadow-sm sm:p-5'>
+            <SectionHeader
+              title='Safety First: Contraindications'
+              subtitle='Natural ingredients carry biological activity. Contraindications and stack compatibility matter.'
+              as='h2'
+            />
+            <div className='mt-4 grid gap-2.5 text-sm leading-6 text-amber-950/85'>
+              <p className='rounded-[0.85rem] bg-white/60 p-4'>Pregnancy, chronic diseases, planned surgeries, or prescription medications require physician safety clearance.</p>
+              <p className='rounded-[0.85rem] bg-white/60 p-4'>Affiliate recommendation modules are dynamically suppressed for ingredients with cautions or high toxicity margins.</p>
+            </div>
+            <Link href='/safety-checker' className='mt-4 inline-flex text-sm font-bold text-amber-900 hover:text-amber-950'>
+              Check stack compatibility →
+            </Link>
+          </div>
+        </section>
+
+        <NewsletterCtaBlock
+          title='Browse evidence-first newsletter notes'
+          description='Use the archive for concise supplement safety and sourcing updates.'
+          location='homepage-newsletter'
+        />
+
+        {/* Disclaimer */}
+        <section className='rounded-[0.85rem] border border-amber-200/80 bg-amber-50/50 p-4'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
+            <p className='max-w-4xl text-sm leading-relaxed text-amber-950/85'>
+              <strong>Important Notice:</strong> This website is for informational comparison only. Natural compounds carry real risks, side effects, and interaction profiles. Always consult a physician before starting any routine.
+            </p>
+            <Link
+              href='/disclaimer'
+              className='shrink-0 whitespace-nowrap text-sm font-bold text-amber-900/90 transition hover:text-amber-950'
+            >
+              Medical Disclaimer →
+            </Link>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  )
+}

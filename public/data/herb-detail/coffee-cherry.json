@@ -1,0 +1,110 @@
+{
+  "slug": "coffee-cherry",
+  "name": "Coffee Cherry",
+  "summary": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+  "description": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+  "effects": [
+    "antioxidant"
+  ],
+  "primary_effects": [
+    "antioxidant"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Nrf2 Activation"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Nrf2 Activation"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Metabolic regulation",
+    "AMPK activation",
+    "Nrf2 activation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "metabolic",
+    "metabolic/mitochondrial",
+    "redox/cellular-defense"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmias",
+    "severe anxiety/insomnia",
+    "pregnancy/breastfeeding caution",
+    "and stimulant sensitivity."
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "decongestants",
+    "theophylline",
+    "and CYP1A2-modulating drugs."
+  ],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=organic+coffee-cherry&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "coffee cherry capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 88,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

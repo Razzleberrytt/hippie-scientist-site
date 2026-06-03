@@ -1,0 +1,19 @@
+{
+  "id": "lions-mane",
+  "slug": "lions-mane",
+  "name": "Lion's Mane",
+  "summary": "Decision-ready summary: Lion's Mane is best framed for mild cognitive support; mood context; nerve-health research context; safety screen: mushroom allergy; anticoagulant medication review.",
+  "description": "Lion's Mane supports cognition; nerve growth; mood with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "imperatorin",
+  "slug": "imperatorin",
+  "name": "imperatorin",
+  "summary": "Furanocoumarin associated with cholinesterase inhibition and calcium-channel-related signaling effects.",
+  "description": "Furanocoumarin associated with cholinesterase inhibition and calcium-channel-related signaling effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

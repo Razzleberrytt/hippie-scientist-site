@@ -1,0 +1,31 @@
+{
+  "name": "Ashwagandha Withania somnifera",
+  "slug": "ashwagandha",
+  "summary": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Hyperthyroidism",
+    "sedatives"
+  ],
+  "interactions": [
+    "Hyperthyroidism",
+    "sedatives"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

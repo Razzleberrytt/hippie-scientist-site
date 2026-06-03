@@ -1,0 +1,20 @@
+{
+  "id": "acetate",
+  "slug": "acetate",
+  "name": "acetate",
+  "summary": "acetate is tracked for short-chain fatty acid that activates FFAR2/3 to regulate appetite, insulin sensitivity, and lipid metabolism; short-chain with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+  "description": "acetate is tracked for short-chain fatty acid that activates FFAR2/3 to regulate appetite, insulin sensitivity, and lipid metabolism; short-chain with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,19 @@
+{
+  "id": "macamides",
+  "slug": "macamides",
+  "name": "Macamides",
+  "summary": "Macamides is a fatty acid amides associated with maca. Evidence level: mixed.",
+  "description": "",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

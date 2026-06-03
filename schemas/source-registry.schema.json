@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/source-registry.schema.json",
+  "title": "Research source registry",
+  "description": "Reusable source registry for herb and compound research enrichment provenance.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "sourceId",
+      "title",
+      "sourceType",
+      "sourceClass",
+      "evidenceClass",
+      "language",
+      "publicationStatus",
+      "reliabilityTier",
+      "reviewer",
+      "reviewedAt",
+      "active"
+    ],
+    "properties": {
+      "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+      "title": { "type": "string", "minLength": 1 },
+      "shortTitle": { "type": "string", "minLength": 1 },
+      "sourceType": {
+        "type": "string",
+        "enum": [
+          "journal-article",
+          "systematic-review",
+          "meta-analysis",
+          "clinical-trial-registry",
+          "monograph",
+          "regulatory-guidance",
+          "reference-database",
+          "book",
+          "other"
+        ]
+      },
+      "sourceClass": {
+        "type": "string",
+        "enum": [
+          "randomized-human-trial",
+          "non-randomized-human-study",
+          "observational-human-evidence",
+          "systematic-review-meta-analysis",
+          "preclinical-mechanistic-study",
+          "traditional-use-monograph",
+          "regulatory-agency-monograph-guidance",
+          "reference-database-authority"
+        ]
+      },
+      "organization": { "type": "string", "minLength": 1 },
+      "authors": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "uniqueItems": true
+      },
+      "publicationYear": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+      "citationText": { "type": "string", "minLength": 1 },
+      "doi": { "type": "string", "pattern": "^10\\.[0-9]{4,9}\\/.+" },
+      "pmid": { "type": "string", "pattern": "^[1-9][0-9]{4,8}$" },
+      "monographId": { "type": "string", "minLength": 1 },
+      "isbn": { "type": "string", "pattern": "^(?:97[89][- ]?)?[0-9][- 0-9]{8,}[0-9Xx]$" },
+      "canonicalUrl": { "type": "string", "format": "uri" },
+      "accessDate": { "type": "string", "format": "date" },
+      "language": { "type": "string", "minLength": 2 },
+      "jurisdiction": { "type": "string", "minLength": 2 },
+      "region": { "type": "string", "minLength": 2 },
+      "evidenceClass": {
+        "type": "string",
+        "enum": [
+          "human-clinical",
+          "human-observational",
+          "preclinical-mechanistic",
+          "traditional-use",
+          "regulatory-monograph"
+        ]
+      },
+      "studyDesign": {
+        "type": "string",
+        "enum": [
+          "randomized-controlled-trial",
+          "non-randomized-trial",
+          "cohort",
+          "case-control",
+          "cross-sectional",
+          "systematic-review",
+          "meta-analysis",
+          "in-vitro",
+          "in-vivo-animal",
+          "narrative-monograph",
+          "regulatory-guidance",
+          "database-reference",
+          "other"
+        ]
+      },
+      "publicationStatus": {
+        "type": "string",
+        "enum": ["published", "preprint", "withdrawn", "superseded", "archived"]
+      },
+      "reliabilityTier": { "type": "string", "enum": ["tier-a", "tier-b", "tier-c", "tier-d"] },
+      "reviewer": { "type": "string", "minLength": 1 },
+      "reviewedAt": { "type": "string", "format": "date-time" },
+      "notes": { "type": "string" },
+      "active": { "type": "boolean" }
+    }
+  }
+}

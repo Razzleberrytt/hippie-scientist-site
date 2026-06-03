@@ -1,0 +1,92 @@
+{
+  "slug": "bhb",
+  "name": "beta- hydroxybutyrate",
+  "summary": "beta- hydroxybutyrate is tracked for Acts as ketone body providing alternative energy and signaling via HDAC inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "beta- hydroxybutyrate is tracked for Acts as ketone body providing alternative energy and signaling via HDAC inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "energy",
+    "focus"
+  ],
+  "primary_effects": [
+    "energy",
+    "focus"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "HPA-axis modulation",
+    "AMPK activation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "stress/neuroendocrine",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "May cause GI distress and electrolyte imbalance"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "10-25 g acute",
+  "typical_dosage": "10-25 g acute",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People needing better focus and clarity"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=bhb+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "beta- hydroxybutyrate supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

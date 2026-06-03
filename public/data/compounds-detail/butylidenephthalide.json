@@ -1,0 +1,22 @@
+{
+  "id": "butylidenephthalide",
+  "slug": "butylidenephthalide",
+  "name": "butylidenephthalide",
+  "summary": "Phthalide constituent associated with PI3K/Akt and inflammatory pathway modulation.",
+  "description": "Phthalide constituent associated with PI3K/Akt and inflammatory pathway modulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "NF-kB Modulation",
+    "Endothelial Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

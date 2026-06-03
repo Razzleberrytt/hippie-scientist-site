@@ -1,0 +1,20 @@
+{
+  "id": "chaga",
+  "slug": "chaga",
+  "name": "Chaga Inonotus obliquus",
+  "summary": "Chaga has primarily preclinical antioxidant research and notable renal safety concerns from oxalate exposure case reports.",
+  "description": "Fungal preparation with polyphenols and betulinic acid derivatives; lacks robust human efficacy trials.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

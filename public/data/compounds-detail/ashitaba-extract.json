@@ -1,0 +1,19 @@
+{
+  "id": "ashitaba-extract",
+  "slug": "ashitaba-extract",
+  "name": "Ashitaba Extract",
+  "summary": "Human evidence is insufficient for metabolic, cardiovascular, or longevity claims.",
+  "description": "Human evidence is insufficient for metabolic, cardiovascular, or longevity claims.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

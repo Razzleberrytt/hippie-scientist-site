@@ -1,0 +1,39 @@
+{
+  "name": "Yohimbe",
+  "slug": "yohimbe",
+  "summary": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects.",
+  "description": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects. The herb is more appropriately framed around safety review than routine recommendation.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Hypertension",
+    "arrhythmia",
+    "heart disease",
+    "anxiety/panic disorder",
+    "bipolar disorder/mania",
+    "kidney or liver disease",
+    "pregnancy/breastfeeding."
+  ],
+  "interactions": [
+    "Avoid with stimulants",
+    "decongestants",
+    "MAOIs",
+    "antidepressants",
+    "clonidine",
+    "antihypertensives",
+    "and drugs affecting blood pressure or heart rhythm."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

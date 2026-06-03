@@ -1,0 +1,20 @@
+{
+  "id": "theanine",
+  "slug": "theanine",
+  "name": "theanine",
+  "summary": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+  "description": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

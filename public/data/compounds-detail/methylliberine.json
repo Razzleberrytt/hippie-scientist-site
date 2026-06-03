@@ -1,0 +1,19 @@
+{
+  "id": "methylliberine",
+  "slug": "methylliberine",
+  "name": "Methylliberine",
+  "summary": "Purine alkaloid related to caffeine/theacrine; early human PK data but limited efficacy trials.",
+  "description": "Purine alkaloid related to caffeine/theacrine; early human PK data but limited efficacy trials.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

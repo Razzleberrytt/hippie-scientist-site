@@ -1,0 +1,28 @@
+{
+  "name": "Lavender",
+  "slug": "lavandula-angustifolia",
+  "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
+  "description": "Lean bulk ingestion row for Lavandula angustifolia. Key active compounds include Linalool.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Minimal",
+    "caution with sedatives"
+  ],
+  "interactions": [
+    "Minimal",
+    "caution with sedatives"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

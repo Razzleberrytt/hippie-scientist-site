@@ -1,0 +1,97 @@
+{
+  "slug": "ginkgo-biloba",
+  "name": "Ginkgo",
+  "summary": "Ginkgo Biloba centers on the leaf.",
+  "description": "Ginkgo Biloba centers on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin.",
+  "effects": [
+    "cognitive",
+    "cardiovascular",
+    "neuroprotective"
+  ],
+  "primary_effects": [
+    "cognitive",
+    "cardiovascular",
+    "neuroprotective"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Vascular function support",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "cardiovascular",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "a",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Anticoagulants",
+    "SSRIs"
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "SSRIs"
+  ],
+  "side_effects": [],
+  "dosage": "120-240 mg extract (EGb 761)",
+  "typical_dosage": "120-240 mg extract (EGb 761)",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_url": "https://www.amazon.com/s?k=organic+ginkgo-biloba&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Ginkgo capsule, tea, or standardized extract supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "https://www.amazon.com/s?k=standardized+ginkgo+biloba+extract+third+party+tested",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 85,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-quality-missing",
+      "summary-too-thin"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

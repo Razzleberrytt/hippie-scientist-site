@@ -1,0 +1,9 @@
+version: 1
+status: inactive
+mode: manual
+last_updated: 2026-03-30
+notes:
+  - "Queue-driven H-step backlog removed."
+  - "Codex tasks are now selected manually by maintainers/reviewers."
+  - "This file is retained as an inert placeholder for historical compatibility."
+steps: []

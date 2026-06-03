@@ -1,0 +1,100 @@
+{
+  "slug": "inositol",
+  "name": "Inositol",
+  "summary": "Improves insulin sensitivity and ovulatory function in PCOS.",
+  "description": "Improves insulin sensitivity and ovulatory function in PCOS.",
+  "effects": [
+    "hormone_health",
+    "metabolic_health"
+  ],
+  "primary_effects": [
+    "hormone_health",
+    "metabolic_health"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Hormonal signaling context",
+    "Glucose regulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "endocrine",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Limited data."
+  ],
+  "interactions": [
+    "Limited data."
+  ],
+  "side_effects": [],
+  "dosage": "2–4 g/day myo-inositol commonly used in PCOS trials; often paired with folic acid",
+  "typical_dosage": "2–4 g/day myo-inositol commonly used in PCOS trials; often paired with folic acid",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard insulin-signaling/PCOS-context support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=inositol+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Inositol supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Myo-inositol clearly labeled",
+    "2–4 g/day target",
+    "avoid proprietary PCOS blends hiding inositol dose"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 95,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

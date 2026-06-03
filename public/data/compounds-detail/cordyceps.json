@@ -1,0 +1,19 @@
+{
+  "id": "cordyceps",
+  "slug": "cordyceps",
+  "name": "Cordyceps",
+  "summary": "Decision-ready summary: Cordyceps is best framed for fatigue research context; exercise tolerance support; mushroom stack comparison; safety screen: autoimmune disease; anticoagulants; mushroom allergy.",
+  "description": "Cordyceps supports exercise; fatigue; immunity with low confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Immune Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Muira Puama",
+  "slug": "muira-puama",
+  "summary": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
+  "description": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

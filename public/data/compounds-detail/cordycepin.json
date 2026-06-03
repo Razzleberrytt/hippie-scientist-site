@@ -1,0 +1,20 @@
+{
+  "id": "cordycepin",
+  "slug": "cordycepin",
+  "name": "cordycepin",
+  "summary": "cordycepin is tracked for M odulates ATP production and AMPK pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "cordycepin is tracked for M odulates ATP production and AMPK pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

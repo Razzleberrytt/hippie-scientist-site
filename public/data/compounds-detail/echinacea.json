@@ -1,0 +1,20 @@
+{
+  "id": "echinacea",
+  "slug": "echinacea",
+  "name": "Echinacea",
+  "summary": "Echinacea entry from SciSpace evidence pass. Evidence level: mixed.",
+  "description": "Echinacea is cataloged as alkamide/caffeic acid botanical. Reported mechanisms: immune response modulation; cytokine/macrophage effects preclinical.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

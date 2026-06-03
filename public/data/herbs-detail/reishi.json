@@ -1,0 +1,31 @@
+{
+  "name": "Reishi Ganoderma lucidum",
+  "slug": "reishi",
+  "summary": "Immune modulation.",
+  "description": "Immune modulation.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "autoimmune conditions (caution)",
+    "bleeding disorders"
+  ],
+  "interactions": [
+    "anticoagulants",
+    "immunosuppressants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

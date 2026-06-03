@@ -1,0 +1,89 @@
+{
+  "patch_id": "patch_01KN5FTNRK2X42M7MN2T1084N0",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-01T21:40:10.131Z",
+  "operations": [
+    {
+      "op": "set",
+      "task": "link_integrity",
+      "entity_type": "herb",
+      "entity_id": "boldo",
+      "field": "/activeCompounds",
+      "value": [
+        "epicatechin",
+        "quercitrin",
+        "rutin",
+        "chlorogenic acid"
+      ]
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "boldo",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5FTNRKJPWJJ9A3537CHPVG",
+        "claim": "[effects] antioxidant activity",
+        "source_ids": [
+          "src_01KN5FTNRK8J2PH59G5W86EP7E"
+        ]
+      }
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "boldo",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5FTNRK9A6WGF7746QK3ZCJ",
+        "claim": "[contraindications] toxicity concern",
+        "source_ids": [
+          "src_01KN5FTNRKQH5M6W504R383DDP"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "boldo",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KN5FK3NRDP1JQG9BCXJB9WRH",
+        "sources": [
+          {
+            "id": "src_01KN5FTNRK0HBYMQHX105NHNP3",
+            "title": "Cryptocarya alba (Peumo): an endemic Chilean tree with phytochemicals with bioactive potential.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41415580/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5FTNRK8J2PH59G5W86EP7E",
+            "title": "Boldo and boldine: an emerging case of natural drug development.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/8202440/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5FTNRKQH5M6W504R383DDP",
+            "title": "Natural Compounds Derived from Chilean Species and Their Cytotoxic Potential Against Cancer.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41749910/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "boldo",
+      "field": "/_review",
+      "value": {
+        "status": "pending"
+      }
+    }
+  ]
+}

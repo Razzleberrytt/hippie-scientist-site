@@ -1,0 +1,21 @@
+{
+  "runId": "run_01KMWWV13Z9WTGQV1WQPYGY8GW",
+  "deterministicRunKey": "batch_97abcb561a76c2cd",
+  "phase": "batch",
+  "task": "dosage",
+  "createdAt": "2026-03-29T13:34:23.365Z",
+  "dryRun": true,
+  "provider": {
+    "id": "openai-responses",
+    "model": "gpt-5.1",
+    "temperature": 0.2
+  },
+  "selectedEntities": [],
+  "batchSize": 1,
+  "promptVersion": "v3",
+  "schemaVersion": "https://hippiescientist.app/schemas/dosage.schema.json",
+  "operationsFile": "ops/e1-dosage-operations.json",
+  "generatedPatchFiles": [
+    "patches/patch-aa5b70a851907f2f.json"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "slug": "gingerols",
+  "name": "Gingerols",
+  "summary": "Gingerols are ginger phenolic constituents linked to pain/inflammation effects, with human evidence mostly through standardized ginger extracts rather than isolated gingerol dosing.",
+  "description": "Active ginger fraction associated with COX-2/PGE2 modulation and osteoarthritis pain trial evidence through standardized extracts.",
+  "effects": [
+    "digestion",
+    "nausea"
+  ],
+  "primary_effects": [
+    "digestion",
+    "nausea"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Vascular function support"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "May contribute to ginger's bleeding",
+    "glucose",
+    "and blood pressure cautions",
+    "standardized isolated-dose safety remains limited.",
+    "standardized isolated-dose safety rema"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "500-2000",
+  "typical_dosage": "500-2000",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard digestive/nausea support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=gingerols+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Gingerols supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active dose clearly listed",
+    "form matched to gut target",
+    "avoid proprietary blends without strain/fiber amount disclosure"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

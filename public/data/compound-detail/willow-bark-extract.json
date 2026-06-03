@@ -1,0 +1,86 @@
+{
+  "slug": "willow-bark-extract",
+  "name": "Willow Bark Extract",
+  "summary": "Willow Bark Extract is tracked for Contains salicin, metabolized to salicylate compounds that affect prostaglandin-mediated pain pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+  "description": "Willow Bark Extract is tracked for Contains salicin, metabolized to salicylate compounds that affect prostaglandin-mediated pain pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+  "effects": [
+    "inflammation",
+    "pain"
+  ],
+  "primary_effects": [
+    "inflammation",
+    "pain"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Avoid with aspirin allergy",
+    "anticoagulants",
+    "ulcers",
+    "kidney disease",
+    "children/teens with viral illness",
+    "pregnancy",
+    "or pre-surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "120–240 mg/day salicin-equivalent willow bark extract",
+  "typical_dosage": "120–240 mg/day salicin-equivalent willow bark extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for short-term low-back or osteoarthritis pain support when salicylates are appropriate"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=willow-bark-extract+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Salicin-equivalent dose disclosed",
+    "standardized willow bark extract",
+    "avoid pain blends hiding salicylate dose"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

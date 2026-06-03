@@ -1,0 +1,22 @@
+{
+  "id": "ligustilide",
+  "slug": "ligustilide",
+  "name": "ligustilide",
+  "summary": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-κB effects.",
+  "description": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-κB effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "NF-kB Modulation",
+    "Endothelial Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

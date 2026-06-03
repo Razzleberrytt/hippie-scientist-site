@@ -1,0 +1,19 @@
+{
+  "id": "lycopene",
+  "slug": "lycopene",
+  "name": "Lycopene",
+  "summary": "Lycopene is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Cardiovascular Health. Current workbook signals support mechanistic context around Oxidative Stress Modulation; Vascular Function Support, not treatment claims.",
+  "description": "Lycopene is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Cardiovascular Health. Current workbook signals support mechanistic context around Oxidative Stress Modulation; Vascular Function Support, not treatment claims.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

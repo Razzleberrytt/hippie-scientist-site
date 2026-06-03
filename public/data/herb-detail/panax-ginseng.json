@@ -1,0 +1,101 @@
+{
+  "slug": "panax-ginseng",
+  "name": "Asian Ginseng",
+  "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+  "description": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+  "effects": [
+    "cognitive",
+    "metabolic"
+  ],
+  "primary_effects": [
+    "cognitive",
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neuroprotective Activity",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neuroprotective Activity",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Neuroprotective activity",
+    "Glucose regulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "nervous system",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Stimulants",
+    "anticoagulants"
+  ],
+  "interactions": [
+    "Stimulants",
+    "anticoagulants"
+  ],
+  "side_effects": [],
+  "dosage": "200-400 mg extract",
+  "typical_dosage": "200-400 mg extract",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=organic+panax-ginseng&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Asian Ginseng tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "ginsenosides disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "top50_authority_patched",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 95,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:top50_authority_patched",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

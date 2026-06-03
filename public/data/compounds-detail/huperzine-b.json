@@ -1,0 +1,20 @@
+{
+  "id": "huperzine-b",
+  "slug": "huperzine-b",
+  "name": "huperzine b",
+  "summary": "Minor huperzine alkaloid linked to cholinergic support pathways.",
+  "description": "Minor huperzine alkaloid linked to cholinergic support pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

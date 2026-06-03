@@ -1,0 +1,33 @@
+{
+  "name": "Sophora Flavescens",
+  "slug": "sophora-flavescens",
+  "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
+  "description": "Sophora flavescens lean monograph row enriched in bulk mode.",
+  "primaryActions": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "liver disease",
+    "arrhythmia/cardiac disease without clinician review",
+    "complex medication regimens."
+  ],
+  "interactions": [
+    "Potential interactions with hepatotoxic drugs",
+    "antiarrhythmics",
+    "immunomodulators",
+    "and sedative/CNS-active medicines are plausible and extract-specific."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

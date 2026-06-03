@@ -1,0 +1,23 @@
+{
+  "id": "schisandrin",
+  "slug": "schisandrin",
+  "name": "schisandrin",
+  "summary": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
+  "description": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

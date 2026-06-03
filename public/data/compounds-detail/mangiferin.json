@@ -1,0 +1,23 @@
+{
+  "id": "mangiferin",
+  "slug": "mangiferin",
+  "name": "mangiferin",
+  "summary": "Xanthone glucoside linked to metabolic and redox-responsive signaling.",
+  "description": "Xanthone glucoside linked to metabolic and redox-responsive signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

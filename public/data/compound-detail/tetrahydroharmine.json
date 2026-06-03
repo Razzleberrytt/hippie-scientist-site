@@ -1,0 +1,83 @@
+{
+  "slug": "tetrahydroharmine",
+  "name": "Tetrahydroharmine",
+  "summary": "Tetrahydroharmine entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "Tetrahydroharmine is cataloged as beta-carboline alkaloid. Reported mechanisms: weak MAO-A inhibition; serotonin reuptake inhibition.",
+  "effects": [
+    "mood"
+  ],
+  "primary_effects": [
+    "mood"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "similar interaction risks to other beta-carbolines"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=tetrahydroharmine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

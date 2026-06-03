@@ -1,0 +1,99 @@
+{
+  "slug": "senkyunolide-a",
+  "name": "senkyunolide a",
+  "summary": "Phthalide derivative commonly reported from chuanxiong and Angelica with MAPK and ion-channel-linked activity.",
+  "description": "Phthalide derivative commonly reported from chuanxiong and Angelica with MAPK and ion-channel-linked activity.",
+  "effects": [
+    "anxiety",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Vascular function support",
+    "HPA-axis modulation",
+    "Nitric oxide modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "cardiovascular",
+    "stress/neuroendocrine",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Mostly extract-derived evidence. Potential additive bleeding",
+    "blood pressure",
+    "or sedative effects depending source herb.",
+    "or sedative effects depending source her"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=senkyunolide-a+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "senkyunolide a supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active marker listed",
+    "clinically relevant dose",
+    "avoid underdosed anti-inflammatory blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

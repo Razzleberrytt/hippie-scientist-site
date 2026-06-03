@@ -1,0 +1,30 @@
+{
+  "global": [
+    {
+      "slug": "creatine",
+      "name": "Creatine",
+      "domain": "performance",
+      "confidenceScore": 92
+    },
+    {
+      "slug": "magnesium",
+      "name": "Magnesium",
+      "domain": "blood_pressure",
+      "confidenceScore": 88
+    }
+  ],
+  "contextual": [
+    {
+      "slug": "nac",
+      "name": "N-Acetylcysteine",
+      "domain": "acetaminophen_toxicity",
+      "confidenceScore": 95
+    },
+    {
+      "slug": "coq10",
+      "name": "Coenzyme Q10",
+      "domain": "heart_failure",
+      "confidenceScore": 90
+    }
+  ]
+}

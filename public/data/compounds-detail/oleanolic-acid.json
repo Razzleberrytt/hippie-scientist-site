@@ -1,0 +1,23 @@
+{
+  "id": "oleanolic-acid",
+  "slug": "oleanolic-acid",
+  "name": "oleanolic acid",
+  "summary": "Human evidence is insufficient; current data are limited to preclinical or indirect herbal extract studies.",
+  "description": "Human evidence is insufficient; current data are limited to preclinical or indirect herbal extract studies.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

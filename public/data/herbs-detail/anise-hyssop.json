@@ -1,0 +1,29 @@
+{
+  "name": "Anise Hyssop",
+  "slug": "anise-hyssop",
+  "summary": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+  "description": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+  "primaryActions": [
+    "digestive",
+    "respiratory",
+    "antimicrobial"
+  ],
+  "mechanisms": [
+    "endocannabinoid_modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

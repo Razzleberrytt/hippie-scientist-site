@@ -1,0 +1,34 @@
+{
+  "name": "Ligusticum Chuanxiong",
+  "slug": "ligusticum-chuanxiong",
+  "summary": "Ligusticum chuanxiong lean monograph row enriched in bulk mode.",
+  "description": "Ligusticum chuanxiong lean monograph row enriched in bulk mode.",
+  "primaryActions": [
+    "cardiovascular",
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "bleeding disorder or upcoming surgery"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "anticoagulants/antiplatelets",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

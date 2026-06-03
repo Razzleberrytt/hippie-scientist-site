@@ -1,0 +1,95 @@
+{
+  "slug": "rosin",
+  "name": "rosin",
+  "summary": "Rhodiola phenylpropanoid linked to adaptive cellular signaling.",
+  "description": "Rhodiola phenylpropanoid linked to adaptive cellular signaling.",
+  "effects": [
+    "anxiety"
+  ],
+  "primary_effects": [
+    "anxiety"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Metabolic regulation",
+    "HPA-axis modulation",
+    "AMPK activation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "metabolic",
+    "stress/neuroendocrine",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
+    "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressant"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=rosin+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "rosin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active extract or pure amino acid",
+    "avoid stimulant blends",
+    "review sedative stacking"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

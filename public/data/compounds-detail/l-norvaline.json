@@ -1,0 +1,19 @@
+{
+  "id": "l-norvaline",
+  "slug": "l-norvaline",
+  "name": "L Norvaline",
+  "summary": "L Norvaline is best framed as a conservative research profile with mechanistic evidence and a focus on general biological context. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+  "description": "L Norvaline is best framed as a conservative research profile with mechanistic evidence and a focus on general biological context. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Proposed arginase inhibition could theoretically increase arginine availability",
+    "mechanism-only and not human-confirmed."
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

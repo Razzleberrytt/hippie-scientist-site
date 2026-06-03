@@ -1,0 +1,30 @@
+{
+  "name": "Bupleurum",
+  "slug": "bupleurum",
+  "summary": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
+  "description": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "active liver disease"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

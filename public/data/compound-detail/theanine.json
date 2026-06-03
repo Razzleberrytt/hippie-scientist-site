@@ -1,0 +1,92 @@
+{
+  "slug": "theanine",
+  "name": "theanine",
+  "summary": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+  "description": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+  "effects": [
+    "anxiety",
+    "focus"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "focus"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "stress",
+    "core"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation",
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Use caution with low blood pressure",
+    "sedative stacking",
+    "or strong calming blends"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "100–200 mg acute or daily",
+  "typical_dosage": "100–200 mg acute or daily",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People who want calm focus without sedation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=theanine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "theanine supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Pure L-theanine",
+    "100–200 mg per serving",
+    "caffeine-free unless intentionally paired"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

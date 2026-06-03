@@ -1,0 +1,23 @@
+{
+  "id": "oleacein",
+  "slug": "oleacein",
+  "name": "oleacein",
+  "summary": "Oleacein is an olive secoiridoid linked to antioxidant-response and inflammatory pathway control.",
+  "description": "Oleacein is an olive secoiridoid linked to antioxidant-response and inflammatory pathway control.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

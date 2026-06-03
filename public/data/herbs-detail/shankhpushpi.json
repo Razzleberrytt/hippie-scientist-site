@@ -1,0 +1,28 @@
+{
+  "name": "Shankhpushpi",
+  "slug": "shankhpushpi",
+  "summary": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
+  "description": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

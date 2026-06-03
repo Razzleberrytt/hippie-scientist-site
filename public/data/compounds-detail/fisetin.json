@@ -1,0 +1,21 @@
+{
+  "id": "fisetin",
+  "slug": "fisetin",
+  "name": "Fisetin",
+  "summary": "Fisetin is a flavonoid studied for senolytic and neuroprotective effects, mainly in preclinical models. Human clinical evidence remains minimal.",
+  "description": "Flavonoid with preclinical senolytic, antioxidant, and anti-inflammatory activity; clinical evidence is not yet established.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

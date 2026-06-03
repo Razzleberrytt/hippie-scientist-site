@@ -1,0 +1,11 @@
+total herbs: 353
+ready_for_research: 41
+partial: 8
+weak: 304
+
+top missing fields across dataset:
+- region: 333
+- preparation: 332
+- scientificname: 312
+- effects / therapeuticUses: 304
+- name: 1

@@ -1,0 +1,19 @@
+{
+  "id": "lagerstroemin",
+  "slug": "lagerstroemin",
+  "name": "lagerstroemin",
+  "summary": "Ellagitannin linked to glucose transport and metabolic regulation.",
+  "description": "Ellagitannin linked to glucose transport and metabolic regulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

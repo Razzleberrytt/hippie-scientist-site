@@ -1,0 +1,23 @@
+{
+  "id": "curdione",
+  "slug": "curdione",
+  "name": "curdione",
+  "summary": "Curcuma sesquiterpenoid linked to survival and apoptotic pathways.",
+  "description": "Curcuma sesquiterpenoid linked to survival and apoptotic pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

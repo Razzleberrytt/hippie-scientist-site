@@ -1,0 +1,21 @@
+{
+  "id": "saw-palmetto",
+  "slug": "saw-palmetto",
+  "name": "Saw Palmetto",
+  "summary": "Decision-ready summary: Saw Palmetto is best framed for BPH urinary symptom research context; prostate supplement comparison pages; safety screen: anticoagulants; hormone-sensitive conditions; surgery.",
+  "description": "Saw Palmetto supports prostate; urinary symptoms with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

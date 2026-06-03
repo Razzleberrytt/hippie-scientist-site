@@ -1,0 +1,104 @@
+{
+  "slug": "bacopa-extract-bacoside-standardized",
+  "name": "Bacopa extract standardized",
+  "summary": "Decision-ready summary: Bacopa extract standardized is best framed for memory acquisition; cognitive performance over time; attention support; safety screen: pregnancy; thyroid medication monitoring; GI intolerance.",
+  "description": "Bacopa extract standardized supports memory; cognition; attention with moderate-high confidence in this merged decision layer.",
+  "effects": [
+    "cognition",
+    "memory"
+  ],
+  "primary_effects": [
+    "cognition",
+    "memory"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Hormonal signaling context",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "endocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "pregnancy",
+    "thyroid medication monitoring",
+    "GI intolerance"
+  ],
+  "interactions": [
+    "Caution with sedatives."
+  ],
+  "side_effects": [],
+  "dosage": "300-450",
+  "typical_dosage": "300-450",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for memory-support with chronic use"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=bacopa-extract-bacoside-standardized+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Bacopa Bacoside-Standardized Extract supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized bacosides disclosed",
+    "300 mg/day extract-style dose",
+    "avoid raw powder products without bacoside standardization"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

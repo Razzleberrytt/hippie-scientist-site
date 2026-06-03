@@ -1,0 +1,22 @@
+{
+  "id": "rosavin",
+  "slug": "rosavin",
+  "name": "rosavin",
+  "summary": "Phenylpropanoid glycoside from Rhodiola linked to metabolic and cytoprotective signaling.",
+  "description": "Phenylpropanoid glycoside from Rhodiola linked to metabolic and cytoprotective signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Stress Response Modulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

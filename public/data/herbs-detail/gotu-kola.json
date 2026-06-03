@@ -1,0 +1,31 @@
+{
+  "name": "Gotu Kola Centella asiatica",
+  "slug": "gotu-kola",
+  "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+  "description": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+  "primaryActions": [
+    "cognitive_support",
+    "circulation",
+    "calm_focus"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Sedatives"
+  ],
+  "interactions": [
+    "Sedatives"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

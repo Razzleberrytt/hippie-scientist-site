@@ -1,0 +1,88 @@
+{
+  "slug": "protein-whey-isolate",
+  "name": "Whey protein isolate",
+  "summary": "Decision-ready summary: Whey protein isolate is best framed for protein intake support; muscle protein synthesis; lean mass support; safety screen: milk allergy; severe kidney disease requiring protein restriction.",
+  "description": "Whey protein isolate supports muscle; protein; recovery with high confidence in this merged decision layer.",
+  "effects": [
+    "research_only"
+  ],
+  "primary_effects": [
+    "research_only"
+  ],
+  "mechanisms": [
+    "mTOR Signaling"
+  ],
+  "raw_mechanisms": [
+    "mTOR Signaling"
+  ],
+  "canonical_mechanisms": [
+    "mTOR modulation"
+  ],
+  "mechanism_categories": [
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic/cellular-growth"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "milk allergy",
+    "severe kidney disease requiring protein restriction"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "20-40 g/day",
+  "typical_dosage": "20-40 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=protein-whey-isolate+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a general consumer product",
+    "keep as research/reference unless human supplement evidence and safety context are added"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

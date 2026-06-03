@@ -1,0 +1,20 @@
+{
+  "id": "dihydrokavain",
+  "slug": "dihydrokavain",
+  "name": "dihydrokavain",
+  "summary": "Major kavalactone from kava linked to calming CNS activity through GABAergic mechanisms.",
+  "description": "Major kavalactone from kava linked to calming CNS activity through GABAergic mechanisms.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

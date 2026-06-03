@@ -1,0 +1,18 @@
+{
+  "id": "papain",
+  "slug": "papain",
+  "name": "Papain",
+  "summary": "Papain is a papaya-derived proteolytic enzyme with insufficient modern clinical evidence for digestive or therapeutic outcomes.",
+  "description": "Proteolytic enzyme from papaya latex used in enzyme blends; clinical support is sparse.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

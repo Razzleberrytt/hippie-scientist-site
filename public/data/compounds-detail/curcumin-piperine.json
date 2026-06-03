@@ -1,0 +1,18 @@
+{
+  "id": "curcumin-piperine",
+  "slug": "curcumin-piperine",
+  "name": "Curcumin + piperine",
+  "summary": "Decision-ready summary: Curcumin + piperine is best framed for osteoarthritis pain; inflammation markers; bioavailability-enhanced curcumin use; safety screen: drug-interaction sensitive medications; anticoagulants; gallbladder disease.",
+  "description": "Curcumin + piperine supports joint; inflammation; bioavailability with moderate-high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

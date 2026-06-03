@@ -1,0 +1,20 @@
+{
+  "id": "safrole",
+  "slug": "safrole",
+  "name": "safrole",
+  "summary": "Phenylpropene associated with sensory and signaling pathway activity.",
+  "description": "Phenylpropene associated with sensory and signaling pathway activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

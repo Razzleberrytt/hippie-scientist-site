@@ -1,0 +1,19 @@
+{
+  "id": "dmt",
+  "slug": "dmt",
+  "name": "DMT",
+  "summary": "DMT entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "DMT is cataloged as tryptamine psychedelic. Reported mechanisms: 5-HT2A receptor agonism; sigma-1 receptor activity proposed.",
+  "compoundClass": "",
+  "mechanisms": [
+    "5-HT2A receptor agonism",
+    "sigma-1 receptor activity proposed"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

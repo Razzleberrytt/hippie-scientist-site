@@ -1,0 +1,22 @@
+{
+  "id": "glycyrrhizin",
+  "slug": "glycyrrhizin",
+  "name": "Glycyrrhizin",
+  "summary": "Triterpene saponin from licorice with HMGB1 and NF-κB pathway activity.",
+  "description": "Triterpene saponin from licorice with HMGB1 and NF-κB pathway activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

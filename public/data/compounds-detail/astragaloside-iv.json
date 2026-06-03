@@ -1,0 +1,23 @@
+{
+  "id": "astragaloside-iv",
+  "slug": "astragaloside-iv",
+  "name": "astragaloside iv",
+  "summary": "Astragalus saponin linked to metabolic signaling and tissue-protective pathways.",
+  "description": "Astragalus saponin linked to metabolic signaling and tissue-protective pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

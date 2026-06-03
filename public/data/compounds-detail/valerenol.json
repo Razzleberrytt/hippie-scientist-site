@@ -1,0 +1,21 @@
+{
+  "id": "valerenol",
+  "slug": "valerenol",
+  "name": "valerenol",
+  "summary": "Valerenol is a valerian constituent linked to positive modulation of GABA-A signaling.",
+  "description": "Valerenol is a valerian constituent linked to positive modulation of GABA-A signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

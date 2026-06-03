@@ -1,0 +1,23 @@
+{
+  "id": "astragalin",
+  "slug": "astragalin",
+  "name": "astragalin",
+  "summary": "Flavonoid glycoside associated with inflammatory pathway control.",
+  "description": "Flavonoid glycoside associated with inflammatory pathway control.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

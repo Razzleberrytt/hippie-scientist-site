@@ -1,0 +1,19 @@
+{
+  "id": "asiaticoside",
+  "slug": "asiaticoside",
+  "name": "asiaticoside",
+  "summary": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
+  "description": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

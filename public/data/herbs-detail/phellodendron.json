@@ -1,0 +1,32 @@
+{
+  "name": "Phellodendron",
+  "slug": "phellodendron",
+  "summary": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
+  "description": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "CYP/P-gp substrate medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

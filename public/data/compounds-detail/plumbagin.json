@@ -1,0 +1,22 @@
+{
+  "id": "plumbagin",
+  "slug": "plumbagin",
+  "name": "plumbagin",
+  "summary": "Naphthoquinone associated with inflammatory and redox-signaling effects.",
+  "description": "Naphthoquinone associated with inflammatory and redox-signaling effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

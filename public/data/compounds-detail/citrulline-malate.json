@@ -1,0 +1,20 @@
+{
+  "id": "citrulline-malate",
+  "slug": "citrulline-malate",
+  "name": "Citrulline Malate",
+  "summary": "Decision-ready summary: Citrulline Malate is best framed for exercise pump; high-rep performance; blood-flow support; safety screen: hypotension; nitrate/PDE5 medication review.",
+  "description": "Citrulline Malate supports pump; endurance; blood flow with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

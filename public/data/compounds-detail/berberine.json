@@ -1,0 +1,22 @@
+{
+  "id": "berberine",
+  "slug": "berberine",
+  "name": "Berberine",
+  "summary": "Decision-ready summary: Berberine is best framed for fasting glucose support; insulin resistance context; triglyceride/LDL support; safety screen: pregnancy; breastfeeding; diabetes medications; CYP/P-gp medication review.",
+  "description": "Berberine supports blood sugar; lipids; metabolic with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

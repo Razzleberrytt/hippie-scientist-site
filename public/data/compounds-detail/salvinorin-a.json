@@ -1,0 +1,18 @@
+{
+  "id": "salvinorin-a",
+  "slug": "salvinorin-a",
+  "name": "Salvinorin A",
+  "summary": "Salvinorin A entry from SciSpace evidence pass. Evidence level: low.",
+  "description": "Salvinorin A is cataloged as non-serotonergic diterpene hallucinogen. Reported mechanisms: potent kappa-opioid receptor agonism.",
+  "compoundClass": "",
+  "mechanisms": [
+    "potent kappa-opioid receptor agonism"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ornithine",
+  "slug": "ornithine",
+  "name": "ornithine",
+  "summary": "ornithine is tracked for facilitates urea cycle, reduces ammonia accumulation and modulates cortisol response with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "ornithine is tracked for facilitates urea cycle, reduces ammonia accumulation and modulates cortisol response with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,22 @@
+{
+  "id": "taurine",
+  "slug": "taurine",
+  "name": "Taurine",
+  "summary": "Taurine may support calmness, exercise-fatigue, and cardiovascular contexts without being a direct sedative.",
+  "description": "Calm/supportive amino-acid context; sleep claims should stay limited.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

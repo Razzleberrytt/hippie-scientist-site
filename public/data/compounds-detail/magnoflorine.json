@@ -1,0 +1,21 @@
+{
+  "id": "magnoflorine",
+  "slug": "magnoflorine",
+  "name": "magnoflorine",
+  "summary": "Aporphine alkaloid reported from Coptis and lotus with AMPK and inflammatory pathway activity.",
+  "description": "Aporphine alkaloid reported from Coptis and lotus with AMPK and inflammatory pathway activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

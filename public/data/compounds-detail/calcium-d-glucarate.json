@@ -1,0 +1,19 @@
+{
+  "id": "calcium-d-glucarate",
+  "slug": "calcium-d-glucarate",
+  "name": "calcium d-glucarate",
+  "summary": "calcium d-glucarate is tracked for Inhibits beta-glucuronidase affecting detoxification pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "calcium d-glucarate is tracked for Inhibits beta-glucuronidase affecting detoxification pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Hormonal Signaling Context"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

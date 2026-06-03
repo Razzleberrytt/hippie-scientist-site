@@ -1,0 +1,18 @@
+{
+  "id": "iodine",
+  "slug": "iodine",
+  "name": "Iodine",
+  "summary": "Prevents iodine deficiency disorders and supports thyroid hormone production.",
+  "description": "Prevents iodine deficiency disorders and supports thyroid hormone production.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

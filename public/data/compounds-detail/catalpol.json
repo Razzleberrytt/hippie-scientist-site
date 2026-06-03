@@ -1,0 +1,23 @@
+{
+  "id": "catalpol",
+  "slug": "catalpol",
+  "name": "catalpol",
+  "summary": "Catalpol is an iridoid glycoside linked to metabolic and cytoprotective signaling.",
+  "description": "Catalpol is an iridoid glycoside linked to metabolic and cytoprotective signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

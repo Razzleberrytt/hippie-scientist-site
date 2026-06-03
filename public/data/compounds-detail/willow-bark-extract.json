@@ -1,0 +1,18 @@
+{
+  "id": "willow-bark-extract",
+  "slug": "willow-bark-extract",
+  "name": "Willow Bark Extract",
+  "summary": "Willow Bark Extract is tracked for Contains salicin, metabolized to salicylate compounds that affect prostaglandin-mediated pain pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+  "description": "Willow Bark Extract is tracked for Contains salicin, metabolized to salicylate compounds that affect prostaglandin-mediated pain pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

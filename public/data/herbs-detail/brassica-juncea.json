@@ -1,0 +1,28 @@
+{
+  "name": "Brassica Juncea",
+  "slug": "brassica-juncea",
+  "summary": "Minimum source-backed intake for Brassica juncea.",
+  "description": "Minimum source-backed intake for Brassica juncea. Active compound support includes sulforaphane under current workbook standards.",
+  "primaryActions": [
+    "antioxidant"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Nrf2 Activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

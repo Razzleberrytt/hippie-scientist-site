@@ -1,0 +1,32 @@
+{
+  "name": "Green Tea",
+  "slug": "camellia-sinensis",
+  "summary": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+  "description": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+  "primaryActions": [
+    "antioxidant",
+    "metabolic",
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Stimulants",
+    "hepatotoxic drugs"
+  ],
+  "interactions": [
+    "Stimulants",
+    "hepatotoxic drugs"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

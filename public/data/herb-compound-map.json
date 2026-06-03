@@ -1,0 +1,2464 @@
+[
+  {
+    "id": "ajwain-carvacrol",
+    "herb_slug": "ajwain",
+    "compound_slug": "carvacrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "ajwain-thymol",
+    "herb_slug": "ajwain",
+    "compound_slug": "thymol",
+    "relationship": "partial"
+  },
+  {
+    "id": "allium-sativum-allicin",
+    "herb_slug": "allium-sativum",
+    "compound_slug": "allicin",
+    "relationship": "primary",
+    "notes": "Organosulfur compounds (allicin) enhance nitric oxide signaling, reduce ACE activity, and improve endothelial function, lowering blood pressure and lipids."
+  },
+  {
+    "id": "aloe-vera-acemannan",
+    "herb_slug": "aloe-vera",
+    "compound_slug": "acemannan",
+    "relationship": "partial"
+  },
+  {
+    "id": "aloe-vera-emodin",
+    "herb_slug": "aloe-vera",
+    "compound_slug": "emodin",
+    "relationship": "partial"
+  },
+  {
+    "id": "aloe-vera-rhein",
+    "herb_slug": "aloe-vera",
+    "compound_slug": "rhein",
+    "relationship": "partial"
+  },
+  {
+    "id": "andrographis-paniculata-andrographolide",
+    "herb_slug": "andrographis-paniculata",
+    "compound_slug": "andrographolide",
+    "relationship": "partial"
+  },
+  {
+    "id": "andrographis-paniculata-neoandrographolide",
+    "herb_slug": "andrographis-paniculata",
+    "compound_slug": "neoandrographolide",
+    "relationship": "partial"
+  },
+  {
+    "id": "anemarrhena-asphodeloides-mangiferin-aglycone",
+    "herb_slug": "anemarrhena-asphodeloides",
+    "compound_slug": "mangiferin-aglycone",
+    "relationship": "partial"
+  },
+  {
+    "id": "anemarrhena-asphodeloides-timosaponin-aiii",
+    "herb_slug": "anemarrhena-asphodeloides",
+    "compound_slug": "timosaponin-aiii",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-archangelica-angelicin",
+    "herb_slug": "angelica-archangelica",
+    "compound_slug": "angelicin",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-archangelica-umbelliferone",
+    "herb_slug": "angelica-archangelica",
+    "compound_slug": "umbelliferone",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-dahurica-imperatorin",
+    "herb_slug": "angelica-dahurica",
+    "compound_slug": "imperatorin",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-dahurica-isoimperatorin",
+    "herb_slug": "angelica-dahurica",
+    "compound_slug": "isoimperatorin",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-dahurica-xanthotoxin",
+    "herb_slug": "angelica-dahurica",
+    "compound_slug": "xanthotoxin",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-pubescens-osthole",
+    "herb_slug": "angelica-pubescens",
+    "compound_slug": "osthole",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-root-angelicin",
+    "herb_slug": "angelica-root",
+    "compound_slug": "angelicin",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-sinensis-butylidenephthalide",
+    "herb_slug": "angelica-sinensis",
+    "compound_slug": "butylidenephthalide",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-sinensis-ferulic-acid",
+    "herb_slug": "angelica-sinensis",
+    "compound_slug": "ferulic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-sinensis-ligustilide",
+    "herb_slug": "angelica-sinensis",
+    "compound_slug": "ligustilide",
+    "relationship": "partial"
+  },
+  {
+    "id": "angelica-sinensis-senkyunolide-a",
+    "herb_slug": "angelica-sinensis",
+    "compound_slug": "senkyunolide-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "anise-hyssop-anethole",
+    "herb_slug": "anise-hyssop",
+    "compound_slug": "anethole",
+    "relationship": "partial"
+  },
+  {
+    "id": "arjuna-arjunolic-acid",
+    "herb_slug": "arjuna",
+    "compound_slug": "arjunolic-acid",
+    "relationship": "partial",
+    "notes": "PMID:16397921; adjunct cardiovascular evidence context."
+  },
+  {
+    "id": "artemisia-absinthium-thujone",
+    "herb_slug": "artemisia-absinthium",
+    "compound_slug": "thujone",
+    "relationship": "partial"
+  },
+  {
+    "id": "artemisia-annua-artemisinin",
+    "herb_slug": "artemisia-annua",
+    "compound_slug": "artemisinin",
+    "relationship": "partial"
+  },
+  {
+    "id": "artemisia-annua-artemisinin-b",
+    "herb_slug": "artemisia-annua",
+    "compound_slug": "artemisinin-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "artemisia-annua-artesunate",
+    "herb_slug": "artemisia-annua",
+    "compound_slug": "artesunate",
+    "relationship": "partial"
+  },
+  {
+    "id": "artemisia-capillaris-esculetin",
+    "herb_slug": "artemisia-capillaris",
+    "compound_slug": "esculetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "artemisia-capillaris-fraxetin",
+    "herb_slug": "artemisia-capillaris",
+    "compound_slug": "fraxetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "artemisia-capillaris-scopoletin",
+    "herb_slug": "artemisia-capillaris",
+    "compound_slug": "scopoletin",
+    "relationship": "partial"
+  },
+  {
+    "id": "artichoke-chlorogenic-acid",
+    "herb_slug": "artichoke",
+    "compound_slug": "chlorogenic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "artichoke-luteolin",
+    "herb_slug": "artichoke",
+    "compound_slug": "luteolin",
+    "relationship": "partial"
+  },
+  {
+    "id": "ashwagandha-withaferin-a",
+    "herb_slug": "ashwagandha",
+    "compound_slug": "withaferin-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "ashwagandha-withanolide-a",
+    "herb_slug": "ashwagandha",
+    "compound_slug": "withanolide-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "ashwagandha-withanolides",
+    "herb_slug": "ashwagandha",
+    "compound_slug": "withanolides",
+    "relationship": "partial",
+    "notes": "Class of compounds; multiple withanolides contribute"
+  },
+  {
+    "id": "ashwagandha-withanoside-iv",
+    "herb_slug": "ashwagandha",
+    "compound_slug": "withanoside-iv",
+    "relationship": "partial"
+  },
+  {
+    "id": "astragalus-astragaloside-iv",
+    "herb_slug": "astragalus",
+    "compound_slug": "astragaloside-iv",
+    "relationship": "partial"
+  },
+  {
+    "id": "astragalus-calycosin",
+    "herb_slug": "astragalus",
+    "compound_slug": "calycosin",
+    "relationship": "partial"
+  },
+  {
+    "id": "astragalus-formononetin",
+    "herb_slug": "astragalus",
+    "compound_slug": "formononetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "astragalus-membranaceus-astragalin",
+    "herb_slug": "astragalus-membranaceus",
+    "compound_slug": "astragalin",
+    "relationship": "partial"
+  },
+  {
+    "id": "astragalus-membranaceus-astragaloside-iv",
+    "herb_slug": "astragalus-membranaceus",
+    "compound_slug": "astragaloside-iv",
+    "relationship": "partial"
+  },
+  {
+    "id": "astragalus-membranaceus-calycosin",
+    "herb_slug": "astragalus-membranaceus",
+    "compound_slug": "calycosin",
+    "relationship": "partial"
+  },
+  {
+    "id": "astragalus-membranaceus-formononetin",
+    "herb_slug": "astragalus-membranaceus",
+    "compound_slug": "formononetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "atractylodes-atractylenolide-i",
+    "herb_slug": "atractylodes",
+    "compound_slug": "atractylenolide-i",
+    "relationship": "partial"
+  },
+  {
+    "id": "atractylodes-macrocephala-atractylenolide-i",
+    "herb_slug": "atractylodes-macrocephala",
+    "compound_slug": "atractylenolide-i",
+    "relationship": "partial"
+  },
+  {
+    "id": "atractylodes-macrocephala-atractylenolide-ii",
+    "herb_slug": "atractylodes-macrocephala",
+    "compound_slug": "atractylenolide-ii",
+    "relationship": "partial"
+  },
+  {
+    "id": "atractylodes-macrocephala-atractylenolide-iii",
+    "herb_slug": "atractylodes-macrocephala",
+    "compound_slug": "atractylenolide-iii",
+    "relationship": "partial"
+  },
+  {
+    "id": "bacopa-monnieri-bacopaside-ii",
+    "herb_slug": "bacopa-monnieri",
+    "compound_slug": "bacopaside-ii",
+    "relationship": "partial"
+  },
+  {
+    "id": "bacopa-monnieri-bacoside-a",
+    "herb_slug": "bacopa-monnieri",
+    "compound_slug": "bacoside-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "bacopa-monnieri-bacoside-b",
+    "herb_slug": "bacopa-monnieri",
+    "compound_slug": "bacoside-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "bayberry-myricetin",
+    "herb_slug": "bayberry",
+    "compound_slug": "myricetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "berberis-aristata-berberine",
+    "herb_slug": "berberis-aristata",
+    "compound_slug": "berberine",
+    "relationship": "primary",
+    "notes": "Berberine activates AMPK, improving insulin sensitivity, reducing hepatic gluconeogenesis, and modulating gut microbiota."
+  },
+  {
+    "id": "berberis-berbamine",
+    "herb_slug": "berberis",
+    "compound_slug": "berbamine",
+    "relationship": "partial"
+  },
+  {
+    "id": "berberis-berberine",
+    "herb_slug": "berberis",
+    "compound_slug": "berberine",
+    "relationship": "partial"
+  },
+  {
+    "id": "berberis-vulgaris-berberine",
+    "herb_slug": "berberis-vulgaris",
+    "compound_slug": "berberine",
+    "relationship": "partial"
+  },
+  {
+    "id": "berberis-vulgaris-columbamine",
+    "herb_slug": "berberis-vulgaris",
+    "compound_slug": "columbamine",
+    "relationship": "partial"
+  },
+  {
+    "id": "black-cohosh-23-epi-26-deoxyactein",
+    "herb_slug": "black-cohosh",
+    "compound_slug": "23-epi-26-deoxyactein",
+    "relationship": "partial"
+  },
+  {
+    "id": "black-cohosh-actein",
+    "herb_slug": "black-cohosh",
+    "compound_slug": "actein",
+    "relationship": "partial"
+  },
+  {
+    "id": "black-seed-thymoquinone",
+    "herb_slug": "black-seed",
+    "compound_slug": "thymoquinone",
+    "relationship": "partial"
+  },
+  {
+    "id": "black-tea-theaflavin",
+    "herb_slug": "black-tea",
+    "compound_slug": "theaflavin",
+    "relationship": "partial"
+  },
+  {
+    "id": "black-tea-thearubigin",
+    "herb_slug": "black-tea",
+    "compound_slug": "thearubigin",
+    "relationship": "partial"
+  },
+  {
+    "id": "blue-lotus-puerarin",
+    "herb_slug": "blue-lotus",
+    "compound_slug": "puerarin",
+    "relationship": "partial"
+  },
+  {
+    "id": "blueberry-pterostilbene",
+    "herb_slug": "blueberry",
+    "compound_slug": "pterostilbene",
+    "relationship": "partial"
+  },
+  {
+    "id": "boswellia-carterii-acetyl-11-keto-beta-boswellic-acid",
+    "herb_slug": "boswellia-carterii",
+    "compound_slug": "acetyl-11-keto-beta-boswellic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "boswellia-serrata-11-keto-beta-boswellic-acid",
+    "herb_slug": "boswellia-serrata",
+    "compound_slug": "11-keto-beta-boswellic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "boswellia-serrata-acetyl-11-keto-beta-boswellic-acid",
+    "herb_slug": "boswellia-serrata",
+    "compound_slug": "acetyl-11-keto-beta-boswellic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "boswellia-serrata-acetyl-beta-boswellic-acid",
+    "herb_slug": "boswellia-serrata",
+    "compound_slug": "acetyl-beta-boswellic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "boswellia-serrata-boswellic-acid",
+    "herb_slug": "boswellia-serrata",
+    "compound_slug": "boswellic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "brassica-juncea-sulforaphane",
+    "herb_slug": "brassica-juncea",
+    "compound_slug": "sulforaphane",
+    "relationship": "partial"
+  },
+  {
+    "id": "brassica-oleracea-sulforaphane",
+    "herb_slug": "brassica-oleracea",
+    "compound_slug": "sulforaphane",
+    "relationship": "partial"
+  },
+  {
+    "id": "buckwheat-rutin",
+    "herb_slug": "buckwheat",
+    "compound_slug": "rutin",
+    "relationship": "partial"
+  },
+  {
+    "id": "bupleurum-falcatum-saikosaponin-a",
+    "herb_slug": "bupleurum-falcatum",
+    "compound_slug": "saikosaponin-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "bupleurum-saikosaponin-a",
+    "herb_slug": "bupleurum",
+    "compound_slug": "saikosaponin-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "calamus-alpha-asarone",
+    "herb_slug": "calamus",
+    "compound_slug": "alpha-asarone",
+    "relationship": "partial"
+  },
+  {
+    "id": "calamus-eugenol",
+    "herb_slug": "calamus",
+    "compound_slug": "eugenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-caffeine",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "caffeine",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-catechin",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "catechin",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-epicatechin",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "epicatechin",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-epicatechin-gallate",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "epicatechin-gallate",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-epigallocatechin",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "epigallocatechin",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-epigallocatechin-gallate-egcg",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "epigallocatechin-gallate-egcg",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-gallic-acid",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "gallic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-gallocatechin",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "gallocatechin",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-myricetin",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "myricetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-quercetin",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "quercetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "camellia-sinensis-theanine",
+    "herb_slug": "camellia-sinensis",
+    "compound_slug": "theanine",
+    "relationship": "partial"
+  },
+  {
+    "id": "capsicum-annuum-capsaicin",
+    "herb_slug": "capsicum-annuum",
+    "compound_slug": "capsaicin",
+    "relationship": "primary",
+    "notes": "Capsaicin activates TRPV1 receptors, increasing thermogenesis and reducing pain signaling."
+  },
+  {
+    "id": "capsicum-frutescens-capsaicin",
+    "herb_slug": "capsicum-frutescens",
+    "compound_slug": "capsaicin",
+    "relationship": "partial"
+  },
+  {
+    "id": "centella-asiatica-asiatic-acid",
+    "herb_slug": "centella-asiatica",
+    "compound_slug": "asiatic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "centella-asiatica-asiaticoside",
+    "herb_slug": "centella-asiatica",
+    "compound_slug": "asiaticoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "centella-asiatica-madecassic-acid",
+    "herb_slug": "centella-asiatica",
+    "compound_slug": "madecassic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "centella-asiatica-madecassoside",
+    "herb_slug": "centella-asiatica",
+    "compound_slug": "madecassoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "chaga-betulinic-acid",
+    "herb_slug": "chaga",
+    "compound_slug": "betulinic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "chinese-skullcap-baicalein",
+    "herb_slug": "chinese-skullcap",
+    "compound_slug": "baicalein",
+    "relationship": "partial"
+  },
+  {
+    "id": "chinese-skullcap-baicalin",
+    "herb_slug": "chinese-skullcap",
+    "compound_slug": "baicalin",
+    "relationship": "partial"
+  },
+  {
+    "id": "chinese-skullcap-wogonin",
+    "herb_slug": "chinese-skullcap",
+    "compound_slug": "wogonin",
+    "relationship": "partial"
+  },
+  {
+    "id": "cichorium-intybus-esculetin",
+    "herb_slug": "cichorium-intybus",
+    "compound_slug": "esculetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "cinnamomum-verum-cinnamaldehyde",
+    "herb_slug": "cinnamomum-verum",
+    "compound_slug": "cinnamaldehyde",
+    "relationship": "partial"
+  },
+  {
+    "id": "cistanche-deserticola-echinacoside",
+    "herb_slug": "cistanche-deserticola",
+    "compound_slug": "echinacoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "cistanche-echinacoside",
+    "herb_slug": "cistanche",
+    "compound_slug": "echinacoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "citrus-bergamia-bergapten",
+    "herb_slug": "citrus-bergamia",
+    "compound_slug": "bergapten",
+    "relationship": "partial"
+  },
+  {
+    "id": "citrus-sinensis-hesperidin",
+    "herb_slug": "citrus-sinensis",
+    "compound_slug": "hesperidin",
+    "relationship": "partial"
+  },
+  {
+    "id": "citrus-sinensis-naringenin",
+    "herb_slug": "citrus-sinensis",
+    "compound_slug": "naringenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "clove-eugenol",
+    "herb_slug": "clove",
+    "compound_slug": "eugenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "cnidium-monnieri-imperatorin",
+    "herb_slug": "cnidium-monnieri",
+    "compound_slug": "imperatorin",
+    "relationship": "partial"
+  },
+  {
+    "id": "cnidium-monnieri-isoimperatorin",
+    "herb_slug": "cnidium-monnieri",
+    "compound_slug": "isoimperatorin",
+    "relationship": "partial"
+  },
+  {
+    "id": "cnidium-monnieri-osthole",
+    "herb_slug": "cnidium-monnieri",
+    "compound_slug": "osthole",
+    "relationship": "partial"
+  },
+  {
+    "id": "coffea-arabica-caffeic-acid",
+    "herb_slug": "coffea-arabica",
+    "compound_slug": "caffeic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "coffea-arabica-caffeine",
+    "herb_slug": "coffea-arabica",
+    "compound_slug": "caffeine",
+    "relationship": "partial",
+    "notes": "PMID:28697850; primary active driver of performance/cognition effects; not herb-specific."
+  },
+  {
+    "id": "coffea-arabica-chlorogenic-acid",
+    "herb_slug": "coffea-arabica",
+    "compound_slug": "chlorogenic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "coffea-arabica-trigonelline",
+    "herb_slug": "coffea-arabica",
+    "compound_slug": "trigonelline",
+    "relationship": "partial"
+  },
+  {
+    "id": "coffee-cherry-cafestol",
+    "herb_slug": "coffee-cherry",
+    "compound_slug": "cafestol",
+    "relationship": "partial"
+  },
+  {
+    "id": "coffee-cherry-caffeine",
+    "herb_slug": "coffee-cherry",
+    "compound_slug": "caffeine",
+    "relationship": "partial"
+  },
+  {
+    "id": "coffee-cherry-kahweol",
+    "herb_slug": "coffee-cherry",
+    "compound_slug": "kahweol",
+    "relationship": "partial"
+  },
+  {
+    "id": "coleus-forskohlii-forskolin",
+    "herb_slug": "coleus-forskohlii",
+    "compound_slug": "forskolin",
+    "relationship": "partial"
+  },
+  {
+    "id": "commiphora-mukul-commipheric-acid",
+    "herb_slug": "commiphora-mukul",
+    "compound_slug": "commipheric-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "commiphora-mukul-guggulsterone",
+    "herb_slug": "commiphora-mukul",
+    "compound_slug": "guggulsterone",
+    "relationship": "partial"
+  },
+  {
+    "id": "coptis-berberine",
+    "herb_slug": "coptis",
+    "compound_slug": "berberine",
+    "relationship": "partial"
+  },
+  {
+    "id": "coptis-chinensis-columbamine",
+    "herb_slug": "coptis-chinensis",
+    "compound_slug": "columbamine",
+    "relationship": "partial"
+  },
+  {
+    "id": "coptis-chinensis-magnoflorine",
+    "herb_slug": "coptis-chinensis",
+    "compound_slug": "magnoflorine",
+    "relationship": "partial"
+  },
+  {
+    "id": "coptis-chinensis-palmatine",
+    "herb_slug": "coptis-chinensis",
+    "compound_slug": "palmatine",
+    "relationship": "partial"
+  },
+  {
+    "id": "coptis-coptisine",
+    "herb_slug": "coptis",
+    "compound_slug": "coptisine",
+    "relationship": "partial"
+  },
+  {
+    "id": "coptis-palmatine",
+    "herb_slug": "coptis",
+    "compound_slug": "palmatine",
+    "relationship": "partial"
+  },
+  {
+    "id": "cordyceps-sinensis-cordycepin",
+    "herb_slug": "cordyceps-sinensis",
+    "compound_slug": "cordycepin",
+    "relationship": "partial"
+  },
+  {
+    "id": "coriandrum-sativum-umbelliferone",
+    "herb_slug": "coriandrum-sativum",
+    "compound_slug": "umbelliferone",
+    "relationship": "partial"
+  },
+  {
+    "id": "cornus-officinalis-loganin",
+    "herb_slug": "cornus-officinalis",
+    "compound_slug": "loganin",
+    "relationship": "partial"
+  },
+  {
+    "id": "cornus-officinalis-morroniside",
+    "herb_slug": "cornus-officinalis",
+    "compound_slug": "morroniside",
+    "relationship": "partial"
+  },
+  {
+    "id": "crataegus-monogyna-oleanolic-acid",
+    "herb_slug": "crataegus-monogyna",
+    "compound_slug": "oleanolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "crocus-sativus-crocetin",
+    "herb_slug": "crocus-sativus",
+    "compound_slug": "crocetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "crocus-sativus-crocin",
+    "herb_slug": "crocus-sativus",
+    "compound_slug": "crocin",
+    "relationship": "partial"
+  },
+  {
+    "id": "curcuma-longa-bisdemethoxycurcumin",
+    "herb_slug": "curcuma-longa",
+    "compound_slug": "bisdemethoxycurcumin",
+    "relationship": "partial"
+  },
+  {
+    "id": "curcuma-longa-curcumin",
+    "herb_slug": "curcuma-longa",
+    "compound_slug": "curcumin",
+    "relationship": "primary",
+    "notes": "Curcuminoids inhibit NF-κB and COX-2 pathways, reducing systemic inflammation and oxidative stress."
+  },
+  {
+    "id": "curcuma-longa-demethoxycurcumin",
+    "herb_slug": "curcuma-longa",
+    "compound_slug": "demethoxycurcumin",
+    "relationship": "partial"
+  },
+  {
+    "id": "curcuma-wenyujin-beta-elemene",
+    "herb_slug": "curcuma-wenyujin",
+    "compound_slug": "beta-elemene",
+    "relationship": "partial"
+  },
+  {
+    "id": "curcuma-zedoaria-curcumol",
+    "herb_slug": "curcuma-zedoaria",
+    "compound_slug": "curcumol",
+    "relationship": "partial"
+  },
+  {
+    "id": "curcuma-zedoaria-curdione",
+    "herb_slug": "curcuma-zedoaria",
+    "compound_slug": "curdione",
+    "relationship": "partial"
+  },
+  {
+    "id": "curcumin-curcumin",
+    "herb_slug": "curcumin",
+    "compound_slug": "curcumin",
+    "relationship": "primary",
+    "notes": "Potent NF-κB inhibition and cytokine suppression reducing systemic inflammation."
+  },
+  {
+    "id": "cyclea-peltata-tetrandrine",
+    "herb_slug": "cyclea-peltata",
+    "compound_slug": "tetrandrine",
+    "relationship": "partial"
+  },
+  {
+    "id": "cymbopogon-citratus-nerolidol",
+    "herb_slug": "cymbopogon-citratus",
+    "compound_slug": "nerolidol",
+    "relationship": "partial"
+  },
+  {
+    "id": "danshen-salvianolic-acid-b",
+    "herb_slug": "danshen",
+    "compound_slug": "salvianolic-acid-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "danshen-tanshinone-iia",
+    "herb_slug": "danshen",
+    "compound_slug": "tanshinone-iia",
+    "relationship": "partial"
+  },
+  {
+    "id": "daphne-odora-daphnetin",
+    "herb_slug": "daphne-odora",
+    "compound_slug": "daphnetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "dong-quai-curcumin",
+    "herb_slug": "dong-quai",
+    "compound_slug": "curcumin",
+    "relationship": "partial"
+  },
+  {
+    "id": "echinacea-purpurea-alkylamides",
+    "herb_slug": "echinacea-purpurea",
+    "compound_slug": "alkylamides",
+    "relationship": "partial",
+    "notes": "Compound class; varies by species"
+  },
+  {
+    "id": "echinacea-purpurea-caffeic-acid",
+    "herb_slug": "echinacea-purpurea",
+    "compound_slug": "caffeic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "echinacea-purpurea-chicoric-acid",
+    "herb_slug": "echinacea-purpurea",
+    "compound_slug": "chicoric-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "echinacea-purpurea-echinacoside",
+    "herb_slug": "echinacea-purpurea",
+    "compound_slug": "echinacoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "elephantopus-scaber-deoxyelephantopin",
+    "herb_slug": "elephantopus-scaber",
+    "compound_slug": "deoxyelephantopin",
+    "relationship": "partial"
+  },
+  {
+    "id": "elephantopus-scaber-elephantopin",
+    "herb_slug": "elephantopus-scaber",
+    "compound_slug": "elephantopin",
+    "relationship": "partial"
+  },
+  {
+    "id": "eleuthero-eleutheroside-b",
+    "herb_slug": "eleuthero",
+    "compound_slug": "eleutheroside-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "eleuthero-eleutheroside-e",
+    "herb_slug": "eleuthero",
+    "compound_slug": "eleutheroside-e",
+    "relationship": "partial"
+  },
+  {
+    "id": "embelia-ribes-embelin",
+    "herb_slug": "embelia-ribes",
+    "compound_slug": "embelin",
+    "relationship": "partial"
+  },
+  {
+    "id": "epimedium-brevicornum-icariin",
+    "herb_slug": "epimedium-brevicornum",
+    "compound_slug": "icariin",
+    "relationship": "partial"
+  },
+  {
+    "id": "epimedium-icariin",
+    "herb_slug": "epimedium",
+    "compound_slug": "icariin",
+    "relationship": "partial"
+  },
+  {
+    "id": "fennel-anethole",
+    "herb_slug": "fennel",
+    "compound_slug": "anethole",
+    "relationship": "partial"
+  },
+  {
+    "id": "feverfew-actein",
+    "herb_slug": "feverfew",
+    "compound_slug": "actein",
+    "relationship": "partial"
+  },
+  {
+    "id": "ficus-carica-psoralen",
+    "herb_slug": "ficus-carica",
+    "compound_slug": "psoralen",
+    "relationship": "partial"
+  },
+  {
+    "id": "fraxinus-rhynchophylla-fraxetin",
+    "herb_slug": "fraxinus-rhynchophylla",
+    "compound_slug": "fraxetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "galangal-galangin",
+    "herb_slug": "galangal",
+    "compound_slug": "galangin",
+    "relationship": "partial"
+  },
+  {
+    "id": "ganoderma-lucidum-beta-glucans",
+    "herb_slug": "ganoderma-lucidum",
+    "compound_slug": "beta-glucans",
+    "relationship": "primary",
+    "notes": "Immunomodulatory polysaccharides influence cytokine production; unclear direct clinical performance effects."
+  },
+  {
+    "id": "garcinia-indica-garcinol",
+    "herb_slug": "garcinia-indica",
+    "compound_slug": "garcinol",
+    "relationship": "partial"
+  },
+  {
+    "id": "garcinia-mangostana-alpha-mangostin",
+    "herb_slug": "garcinia-mangostana",
+    "compound_slug": "alpha-mangostin",
+    "relationship": "partial"
+  },
+  {
+    "id": "garcinia-mangostana-mangostin",
+    "herb_slug": "garcinia-mangostana",
+    "compound_slug": "mangostin",
+    "relationship": "partial"
+  },
+  {
+    "id": "garlic-ajoene",
+    "herb_slug": "garlic",
+    "compound_slug": "ajoene",
+    "relationship": "partial"
+  },
+  {
+    "id": "garlic-allicin",
+    "herb_slug": "garlic",
+    "compound_slug": "allicin",
+    "relationship": "partial",
+    "notes": "Unstable compound formed on crushing"
+  },
+  {
+    "id": "ginkgo-biloba-bilobetin",
+    "herb_slug": "ginkgo-biloba",
+    "compound_slug": "bilobetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "ginkgo-biloba-ginkgolide-b",
+    "herb_slug": "ginkgo-biloba",
+    "compound_slug": "ginkgolide-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "ginkgo-biloba-ginkgolides",
+    "herb_slug": "ginkgo-biloba",
+    "compound_slug": "ginkgolides",
+    "relationship": "partial",
+    "notes": "Part of terpene lactone fraction; includes ginkgolide A, B, C"
+  },
+  {
+    "id": "ginkgo-biloba-kaempferol",
+    "herb_slug": "ginkgo-biloba",
+    "compound_slug": "kaempferol",
+    "relationship": "partial"
+  },
+  {
+    "id": "ginkgo-biloba-quercetin",
+    "herb_slug": "ginkgo-biloba",
+    "compound_slug": "quercetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "glycyrrhiza-glabra-glycyrrhetinic-acid",
+    "herb_slug": "glycyrrhiza-glabra",
+    "compound_slug": "glycyrrhetinic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "glycyrrhiza-glabra-glycyrrhizin",
+    "herb_slug": "glycyrrhiza-glabra",
+    "compound_slug": "glycyrrhizin",
+    "relationship": "partial"
+  },
+  {
+    "id": "goldenseal-berberine",
+    "herb_slug": "goldenseal",
+    "compound_slug": "berberine",
+    "relationship": "partial"
+  },
+  {
+    "id": "goldenseal-jatrorrhizine",
+    "herb_slug": "goldenseal",
+    "compound_slug": "jatrorrhizine",
+    "relationship": "partial"
+  },
+  {
+    "id": "goldenseal-palmatine",
+    "herb_slug": "goldenseal",
+    "compound_slug": "palmatine",
+    "relationship": "partial"
+  },
+  {
+    "id": "grapefruit-naringenin",
+    "herb_slug": "grapefruit",
+    "compound_slug": "naringenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "grapefruit-naringin",
+    "herb_slug": "grapefruit",
+    "compound_slug": "naringin",
+    "relationship": "partial"
+  },
+  {
+    "id": "guarana-caffeine",
+    "herb_slug": "guarana",
+    "compound_slug": "caffeine",
+    "relationship": "partial"
+  },
+  {
+    "id": "guayusa-caffeine",
+    "herb_slug": "guayusa",
+    "compound_slug": "caffeine",
+    "relationship": "partial"
+  },
+  {
+    "id": "gymnema-sylvestre-gurmarin",
+    "herb_slug": "gymnema-sylvestre",
+    "compound_slug": "gurmarin",
+    "relationship": "partial"
+  },
+  {
+    "id": "gymnema-sylvestre-gymnemagenin",
+    "herb_slug": "gymnema-sylvestre",
+    "compound_slug": "gymnemagenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "gymnema-sylvestre-gymnemic-acid",
+    "herb_slug": "gymnema-sylvestre",
+    "compound_slug": "gymnemic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "harpagophytum-procumbens-harpagoside",
+    "herb_slug": "harpagophytum-procumbens",
+    "compound_slug": "harpagoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "hericium-erinaceus-erinacines",
+    "herb_slug": "hericium-erinaceus",
+    "compound_slug": "erinacines",
+    "relationship": "partial"
+  },
+  {
+    "id": "hericium-erinaceus-hericenones",
+    "herb_slug": "hericium-erinaceus",
+    "compound_slug": "hericenones",
+    "relationship": "partial"
+  },
+  {
+    "id": "holy-basil-eugenol",
+    "herb_slug": "holy-basil",
+    "compound_slug": "eugenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "holy-basil-methyl-eugenol",
+    "herb_slug": "holy-basil",
+    "compound_slug": "methyl-eugenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "holy-basil-purple-eugenol",
+    "herb_slug": "holy-basil-purple",
+    "compound_slug": "eugenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "holy-basil-rosmarinic-acid",
+    "herb_slug": "holy-basil",
+    "compound_slug": "rosmarinic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "holy-basil-ursolic-acid",
+    "herb_slug": "holy-basil",
+    "compound_slug": "ursolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "horse-chestnut-aescin",
+    "herb_slug": "horse-chestnut",
+    "compound_slug": "aescin",
+    "relationship": "partial"
+  },
+  {
+    "id": "huperzia-serrata-huperzine-a",
+    "herb_slug": "huperzia-serrata",
+    "compound_slug": "huperzine-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "huperzia-serrata-huperzine-b",
+    "herb_slug": "huperzia-serrata",
+    "compound_slug": "huperzine-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "hypericum-perforatum-hyperforin",
+    "herb_slug": "hypericum-perforatum",
+    "compound_slug": "hyperforin",
+    "relationship": "partial"
+  },
+  {
+    "id": "hypericum-perforatum-hypericin",
+    "herb_slug": "hypericum-perforatum",
+    "compound_slug": "hypericin",
+    "relationship": "partial"
+  },
+  {
+    "id": "hypericum-perforatum-quercetin",
+    "herb_slug": "hypericum-perforatum",
+    "compound_slug": "quercetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "isatis-indirubin",
+    "herb_slug": "isatis",
+    "compound_slug": "indirubin",
+    "relationship": "partial"
+  },
+  {
+    "id": "japanese-knotweed-emodin",
+    "herb_slug": "japanese-knotweed",
+    "compound_slug": "emodin",
+    "relationship": "partial"
+  },
+  {
+    "id": "japanese-knotweed-resveratrol",
+    "herb_slug": "japanese-knotweed",
+    "compound_slug": "resveratrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "kanna-mesembrenone",
+    "herb_slug": "kanna",
+    "compound_slug": "mesembrenone",
+    "relationship": "partial"
+  },
+  {
+    "id": "kanna-mesembrine",
+    "herb_slug": "kanna",
+    "compound_slug": "mesembrine",
+    "relationship": "partial"
+  },
+  {
+    "id": "kudzu-biochanin-a",
+    "herb_slug": "kudzu",
+    "compound_slug": "biochanin-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "kudzu-daidzin",
+    "herb_slug": "kudzu",
+    "compound_slug": "daidzin",
+    "relationship": "partial"
+  },
+  {
+    "id": "kudzu-ononin",
+    "herb_slug": "kudzu",
+    "compound_slug": "ononin",
+    "relationship": "partial"
+  },
+  {
+    "id": "kudzu-puerarin",
+    "herb_slug": "kudzu",
+    "compound_slug": "puerarin",
+    "relationship": "partial"
+  },
+  {
+    "id": "lagerstroemia-speciosa-corosolic-acid",
+    "herb_slug": "lagerstroemia-speciosa",
+    "compound_slug": "corosolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "lagerstroemia-speciosa-lagerstroemin",
+    "herb_slug": "lagerstroemia-speciosa",
+    "compound_slug": "lagerstroemin",
+    "relationship": "partial"
+  },
+  {
+    "id": "lavandula-angustifolia-linalool",
+    "herb_slug": "lavandula-angustifolia",
+    "compound_slug": "linalool",
+    "relationship": "partial"
+  },
+  {
+    "id": "lawsonia-inermis-lawsone",
+    "herb_slug": "lawsonia-inermis",
+    "compound_slug": "lawsone",
+    "relationship": "partial"
+  },
+  {
+    "id": "lemon-verbena-verbascoside",
+    "herb_slug": "lemon-verbena",
+    "compound_slug": "verbascoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "lemongrass-citronellal",
+    "herb_slug": "lemongrass",
+    "compound_slug": "citronellal",
+    "relationship": "partial"
+  },
+  {
+    "id": "licorice-glycyrrhizin",
+    "herb_slug": "licorice",
+    "compound_slug": "glycyrrhizin",
+    "relationship": "partial"
+  },
+  {
+    "id": "ligusticum-chuanxiong-butylidenephthalide",
+    "herb_slug": "ligusticum-chuanxiong",
+    "compound_slug": "butylidenephthalide",
+    "relationship": "partial"
+  },
+  {
+    "id": "ligusticum-chuanxiong-ligustilide",
+    "herb_slug": "ligusticum-chuanxiong",
+    "compound_slug": "ligustilide",
+    "relationship": "partial"
+  },
+  {
+    "id": "ligusticum-chuanxiong-senkyunolide-a",
+    "herb_slug": "ligusticum-chuanxiong",
+    "compound_slug": "senkyunolide-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "lithospermum-erythrorhizon-acetylshikonin",
+    "herb_slug": "lithospermum-erythrorhizon",
+    "compound_slug": "acetylshikonin",
+    "relationship": "partial"
+  },
+  {
+    "id": "lithospermum-erythrorhizon-shikonin",
+    "herb_slug": "lithospermum-erythrorhizon",
+    "compound_slug": "shikonin",
+    "relationship": "partial"
+  },
+  {
+    "id": "lobelia-inflata-lobeline",
+    "herb_slug": "lobelia-inflata",
+    "compound_slug": "lobeline",
+    "relationship": "partial"
+  },
+  {
+    "id": "longan-gallic-acid",
+    "herb_slug": "longan",
+    "compound_slug": "gallic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "maca-macamides",
+    "herb_slug": "maca",
+    "compound_slug": "macamides",
+    "relationship": "partial"
+  },
+  {
+    "id": "magnolia-officinalis-honokiol",
+    "herb_slug": "magnolia-officinalis",
+    "compound_slug": "honokiol",
+    "relationship": "partial"
+  },
+  {
+    "id": "magnolia-officinalis-magnolol",
+    "herb_slug": "magnolia-officinalis",
+    "compound_slug": "magnolol",
+    "relationship": "partial"
+  },
+  {
+    "id": "maitake-d-fraction-beta-glucans",
+    "herb_slug": "maitake-d-fraction",
+    "compound_slug": "beta-glucans",
+    "relationship": "partial"
+  },
+  {
+    "id": "mangifera-indica-mangiferin",
+    "herb_slug": "mangifera-indica",
+    "compound_slug": "mangiferin",
+    "relationship": "partial"
+  },
+  {
+    "id": "mangosteen-alpha-mangostin",
+    "herb_slug": "mangosteen",
+    "compound_slug": "alpha-mangostin",
+    "relationship": "partial"
+  },
+  {
+    "id": "matricaria-chamomilla-apigenin",
+    "herb_slug": "matricaria-chamomilla",
+    "compound_slug": "apigenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "matricaria-chamomilla-bisabolol",
+    "herb_slug": "matricaria-chamomilla",
+    "compound_slug": "bisabolol",
+    "relationship": "partial"
+  },
+  {
+    "id": "matricaria-chamomilla-chamazulene",
+    "herb_slug": "matricaria-chamomilla",
+    "compound_slug": "chamazulene",
+    "relationship": "partial"
+  },
+  {
+    "id": "matricaria-chamomilla-farnesol",
+    "herb_slug": "matricaria-chamomilla",
+    "compound_slug": "farnesol",
+    "relationship": "partial"
+  },
+  {
+    "id": "melissa-officinalis-rosmarinic-acid",
+    "herb_slug": "melissa-officinalis",
+    "compound_slug": "rosmarinic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "milk-thistle-silibinin",
+    "herb_slug": "milk-thistle",
+    "compound_slug": "silibinin",
+    "relationship": "partial"
+  },
+  {
+    "id": "milk-thistle-silybin",
+    "herb_slug": "milk-thistle",
+    "compound_slug": "silybin",
+    "relationship": "partial"
+  },
+  {
+    "id": "milk-thistle-silychristin",
+    "herb_slug": "milk-thistle",
+    "compound_slug": "silychristin",
+    "relationship": "partial"
+  },
+  {
+    "id": "milk-thistle-silydianin",
+    "herb_slug": "milk-thistle",
+    "compound_slug": "silydianin",
+    "relationship": "partial"
+  },
+  {
+    "id": "milk-thistle-silymarin",
+    "herb_slug": "milk-thistle",
+    "compound_slug": "silymarin",
+    "relationship": "partial",
+    "notes": "Mixture of flavonolignans (not a single compound)"
+  },
+  {
+    "id": "momordica-charantia-charantin",
+    "herb_slug": "momordica-charantia",
+    "compound_slug": "charantin",
+    "relationship": "partial"
+  },
+  {
+    "id": "momordica-charantia-momordicoside-k",
+    "herb_slug": "momordica-charantia",
+    "compound_slug": "momordicoside-k",
+    "relationship": "partial"
+  },
+  {
+    "id": "morinda-citrifolia-scopoletin",
+    "herb_slug": "morinda-citrifolia",
+    "compound_slug": "scopoletin",
+    "relationship": "partial"
+  },
+  {
+    "id": "moringa-glucomoringin",
+    "herb_slug": "moringa",
+    "compound_slug": "glucomoringin",
+    "relationship": "partial"
+  },
+  {
+    "id": "morus-alba-morin",
+    "herb_slug": "morus-alba",
+    "compound_slug": "morin",
+    "relationship": "partial"
+  },
+  {
+    "id": "morus-alba-mulberroside-a",
+    "herb_slug": "morus-alba",
+    "compound_slug": "mulberroside-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "morus-alba-oxyresveratrol",
+    "herb_slug": "morus-alba",
+    "compound_slug": "oxyresveratrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "mugwort-thujone",
+    "herb_slug": "mugwort",
+    "compound_slug": "thujone",
+    "relationship": "partial"
+  },
+  {
+    "id": "muira-puama-beta-sitosterol",
+    "herb_slug": "muira-puama",
+    "compound_slug": "beta-sitosterol",
+    "relationship": "partial"
+  },
+  {
+    "id": "myristica-fragrans-elemicin",
+    "herb_slug": "myristica-fragrans",
+    "compound_slug": "elemicin",
+    "relationship": "partial"
+  },
+  {
+    "id": "myristica-fragrans-myristicin",
+    "herb_slug": "myristica-fragrans",
+    "compound_slug": "myristicin",
+    "relationship": "partial"
+  },
+  {
+    "id": "nelumbo-nucifera-magnoflorine",
+    "herb_slug": "nelumbo-nucifera",
+    "compound_slug": "magnoflorine",
+    "relationship": "partial"
+  },
+  {
+    "id": "nettle-root-beta-sitosterol",
+    "herb_slug": "nettle-root",
+    "compound_slug": "beta-sitosterol",
+    "relationship": "partial"
+  },
+  {
+    "id": "nicotiana-glauca-anabasine",
+    "herb_slug": "nicotiana-glauca",
+    "compound_slug": "anabasine",
+    "relationship": "partial"
+  },
+  {
+    "id": "nicotiana-tabacum-anatabine",
+    "herb_slug": "nicotiana-tabacum",
+    "compound_slug": "anatabine",
+    "relationship": "partial"
+  },
+  {
+    "id": "nicotiana-tabacum-nicotine",
+    "herb_slug": "nicotiana-tabacum",
+    "compound_slug": "nicotine",
+    "relationship": "partial"
+  },
+  {
+    "id": "nigella-sativa-thymoquinone",
+    "herb_slug": "nigella-sativa",
+    "compound_slug": "thymoquinone",
+    "relationship": "partial"
+  },
+  {
+    "id": "ocimum-basilicum-methyleugenol",
+    "herb_slug": "ocimum-basilicum",
+    "compound_slug": "methyleugenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "ocimum-sanctum-ursolic-acid",
+    "herb_slug": "ocimum-sanctum",
+    "compound_slug": "ursolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "ocotea-odorifera-safrole",
+    "herb_slug": "ocotea-odorifera",
+    "compound_slug": "safrole",
+    "relationship": "partial"
+  },
+  {
+    "id": "olea-europaea-hydroxytyrosol",
+    "herb_slug": "olea-europaea",
+    "compound_slug": "hydroxytyrosol",
+    "relationship": "partial"
+  },
+  {
+    "id": "olea-europaea-oleacein",
+    "herb_slug": "olea-europaea",
+    "compound_slug": "oleacein",
+    "relationship": "partial"
+  },
+  {
+    "id": "olea-europaea-oleocanthal",
+    "herb_slug": "olea-europaea",
+    "compound_slug": "oleocanthal",
+    "relationship": "partial"
+  },
+  {
+    "id": "olea-europaea-oleuropein",
+    "herb_slug": "olea-europaea",
+    "compound_slug": "oleuropein",
+    "relationship": "partial"
+  },
+  {
+    "id": "orange-peel-hesperidin",
+    "herb_slug": "orange-peel",
+    "compound_slug": "hesperidin",
+    "relationship": "partial"
+  },
+  {
+    "id": "orange-peel-naringenin",
+    "herb_slug": "orange-peel",
+    "compound_slug": "naringenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "orange-peel-naringin",
+    "herb_slug": "orange-peel",
+    "compound_slug": "naringin",
+    "relationship": "partial"
+  },
+  {
+    "id": "oregano-carvacrol",
+    "herb_slug": "oregano",
+    "compound_slug": "carvacrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "oregano-thymol",
+    "herb_slug": "oregano",
+    "compound_slug": "thymol",
+    "relationship": "partial"
+  },
+  {
+    "id": "paeonia-lactiflora-albiflorin",
+    "herb_slug": "paeonia-lactiflora",
+    "compound_slug": "albiflorin",
+    "relationship": "partial"
+  },
+  {
+    "id": "paeonia-lactiflora-paeoniflorin",
+    "herb_slug": "paeonia-lactiflora",
+    "compound_slug": "paeoniflorin",
+    "relationship": "partial"
+  },
+  {
+    "id": "paeonia-suffruticosa-paeonol",
+    "herb_slug": "paeonia-suffruticosa",
+    "compound_slug": "paeonol",
+    "relationship": "partial"
+  },
+  {
+    "id": "panax-ginseng-ginsenoside-rb1",
+    "herb_slug": "panax-ginseng",
+    "compound_slug": "ginsenoside-rb1",
+    "relationship": "partial"
+  },
+  {
+    "id": "panax-ginseng-ginsenoside-rg1",
+    "herb_slug": "panax-ginseng",
+    "compound_slug": "ginsenoside-rg1",
+    "relationship": "partial"
+  },
+  {
+    "id": "panax-ginseng-ginsenoside-rg3",
+    "herb_slug": "panax-ginseng",
+    "compound_slug": "ginsenoside-rg3",
+    "relationship": "partial"
+  },
+  {
+    "id": "panax-ginseng-ginsenosides",
+    "herb_slug": "panax-ginseng",
+    "compound_slug": "ginsenosides",
+    "relationship": "primary",
+    "notes": "Ginsenosides modulate NO production, improve glucose metabolism, and enhance cognitive performance."
+  },
+  {
+    "id": "panax-quinquefolius-ginsenoside-rb1",
+    "herb_slug": "panax-quinquefolius",
+    "compound_slug": "ginsenoside-rb1",
+    "relationship": "partial"
+  },
+  {
+    "id": "panax-quinquefolius-ginsenoside-rg1",
+    "herb_slug": "panax-quinquefolius",
+    "compound_slug": "ginsenoside-rg1",
+    "relationship": "partial"
+  },
+  {
+    "id": "panax-quinquefolius-ginsenoside-rg3",
+    "herb_slug": "panax-quinquefolius",
+    "compound_slug": "ginsenoside-rg3",
+    "relationship": "partial"
+  },
+  {
+    "id": "panax-quinquefolius-ginsenosides",
+    "herb_slug": "panax-quinquefolius",
+    "compound_slug": "ginsenosides",
+    "relationship": "primary",
+    "notes": "Improves postprandial glucose via insulin modulation and slowed carbohydrate absorption."
+  },
+  {
+    "id": "parsley-apigenin",
+    "herb_slug": "parsley",
+    "compound_slug": "apigenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "pastinaca-sativa-xanthotoxin",
+    "herb_slug": "pastinaca-sativa",
+    "compound_slug": "xanthotoxin",
+    "relationship": "partial"
+  },
+  {
+    "id": "peppermint-menthol",
+    "herb_slug": "peppermint",
+    "compound_slug": "menthol",
+    "relationship": "partial",
+    "notes": "Primary bioactive in essential oil"
+  },
+  {
+    "id": "phellodendron-amurense-berberine",
+    "herb_slug": "phellodendron-amurense",
+    "compound_slug": "berberine",
+    "relationship": "partial"
+  },
+  {
+    "id": "phellodendron-amurense-jatrorrhizine",
+    "herb_slug": "phellodendron-amurense",
+    "compound_slug": "jatrorrhizine",
+    "relationship": "partial"
+  },
+  {
+    "id": "phellodendron-amurense-palmatine",
+    "herb_slug": "phellodendron-amurense",
+    "compound_slug": "palmatine",
+    "relationship": "partial"
+  },
+  {
+    "id": "phellodendron-berberine",
+    "herb_slug": "phellodendron",
+    "compound_slug": "berberine",
+    "relationship": "partial"
+  },
+  {
+    "id": "phellodendron-palmatine",
+    "herb_slug": "phellodendron",
+    "compound_slug": "palmatine",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-longum-piperine",
+    "herb_slug": "piper-longum",
+    "compound_slug": "piperine",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-longum-piperlongumine",
+    "herb_slug": "piper-longum",
+    "compound_slug": "piperlongumine",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-methysticum-desmethoxyyangonin",
+    "herb_slug": "piper-methysticum",
+    "compound_slug": "desmethoxyyangonin",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-methysticum-dihydrokavain",
+    "herb_slug": "piper-methysticum",
+    "compound_slug": "dihydrokavain",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-methysticum-dihydromethysticin",
+    "herb_slug": "piper-methysticum",
+    "compound_slug": "dihydromethysticin",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-methysticum-kavain",
+    "herb_slug": "piper-methysticum",
+    "compound_slug": "kavain",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-methysticum-kavalactones",
+    "herb_slug": "piper-methysticum",
+    "compound_slug": "kavalactones",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-methysticum-methysticin",
+    "herb_slug": "piper-methysticum",
+    "compound_slug": "methysticin",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-methysticum-yangonin",
+    "herb_slug": "piper-methysticum",
+    "compound_slug": "yangonin",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-nigrum-beta-caryophyllene",
+    "herb_slug": "piper-nigrum",
+    "compound_slug": "beta-caryophyllene",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-nigrum-caryophyllene-oxide",
+    "herb_slug": "piper-nigrum",
+    "compound_slug": "caryophyllene-oxide",
+    "relationship": "partial"
+  },
+  {
+    "id": "piper-nigrum-piperine",
+    "herb_slug": "piper-nigrum",
+    "compound_slug": "piperine",
+    "relationship": "partial"
+  },
+  {
+    "id": "plantago-lanceolata-verbascoside",
+    "herb_slug": "plantago-lanceolata",
+    "compound_slug": "verbascoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "plantago-major-aucubin",
+    "herb_slug": "plantago-major",
+    "compound_slug": "aucubin",
+    "relationship": "partial"
+  },
+  {
+    "id": "plumbago-zeylanica-plumbagin",
+    "herb_slug": "plumbago-zeylanica",
+    "compound_slug": "plumbagin",
+    "relationship": "partial"
+  },
+  {
+    "id": "pomegranate-ellagic-acid",
+    "herb_slug": "pomegranate",
+    "compound_slug": "ellagic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "pomegranate-gallic-acid",
+    "herb_slug": "pomegranate",
+    "compound_slug": "gallic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "pomegranate-punicalagin",
+    "herb_slug": "pomegranate",
+    "compound_slug": "punicalagin",
+    "relationship": "partial"
+  },
+  {
+    "id": "psoralea-corylifolia-angelicin",
+    "herb_slug": "psoralea-corylifolia",
+    "compound_slug": "angelicin",
+    "relationship": "partial"
+  },
+  {
+    "id": "psoralea-corylifolia-bergapten",
+    "herb_slug": "psoralea-corylifolia",
+    "compound_slug": "bergapten",
+    "relationship": "partial"
+  },
+  {
+    "id": "psoralea-corylifolia-psoralen",
+    "herb_slug": "psoralea-corylifolia",
+    "compound_slug": "psoralen",
+    "relationship": "partial"
+  },
+  {
+    "id": "pueraria-lobata-daidzin",
+    "herb_slug": "pueraria-lobata",
+    "compound_slug": "daidzin",
+    "relationship": "partial"
+  },
+  {
+    "id": "pueraria-lobata-ononin",
+    "herb_slug": "pueraria-lobata",
+    "compound_slug": "ononin",
+    "relationship": "partial"
+  },
+  {
+    "id": "pueraria-lobata-puerarin",
+    "herb_slug": "pueraria-lobata",
+    "compound_slug": "puerarin",
+    "relationship": "partial"
+  },
+  {
+    "id": "pueraria-mirifica-daidzin",
+    "herb_slug": "pueraria-mirifica",
+    "compound_slug": "daidzin",
+    "relationship": "partial"
+  },
+  {
+    "id": "pueraria-mirifica-deoxymiroestrol",
+    "herb_slug": "pueraria-mirifica",
+    "compound_slug": "deoxymiroestrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "quercetin-quercetin",
+    "herb_slug": "quercetin",
+    "compound_slug": "quercetin",
+    "relationship": "primary",
+    "notes": "Antioxidant flavonoid reducing oxidative stress and modulating inflammatory cytokines."
+  },
+  {
+    "id": "raspberry-leaf-ellagic-acid",
+    "herb_slug": "raspberry-leaf",
+    "compound_slug": "ellagic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "red-clover-biochanin-a",
+    "herb_slug": "red-clover",
+    "compound_slug": "biochanin-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "red-clover-calycosin",
+    "herb_slug": "red-clover",
+    "compound_slug": "calycosin",
+    "relationship": "partial"
+  },
+  {
+    "id": "red-clover-daidzein",
+    "herb_slug": "red-clover",
+    "compound_slug": "daidzein",
+    "relationship": "partial"
+  },
+  {
+    "id": "red-clover-formononetin",
+    "herb_slug": "red-clover",
+    "compound_slug": "formononetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "red-clover-genistein",
+    "herb_slug": "red-clover",
+    "compound_slug": "genistein",
+    "relationship": "partial"
+  },
+  {
+    "id": "red-clover-ononin",
+    "herb_slug": "red-clover",
+    "compound_slug": "ononin",
+    "relationship": "partial"
+  },
+  {
+    "id": "rehmannia-glutinosa-catalpol",
+    "herb_slug": "rehmannia-glutinosa",
+    "compound_slug": "catalpol",
+    "relationship": "partial"
+  },
+  {
+    "id": "rehmannia-prepared-catalpol",
+    "herb_slug": "rehmannia-prepared",
+    "compound_slug": "catalpol",
+    "relationship": "partial"
+  },
+  {
+    "id": "reishi-beta-glucans",
+    "herb_slug": "reishi",
+    "compound_slug": "beta-glucans",
+    "relationship": "partial"
+  },
+  {
+    "id": "resveratrol-resveratrol",
+    "herb_slug": "resveratrol",
+    "compound_slug": "resveratrol",
+    "relationship": "primary",
+    "notes": "Activates SIRT1 and improves mitochondrial function; antioxidant and anti-inflammatory effects."
+  },
+  {
+    "id": "rheum-palmatum-emodin",
+    "herb_slug": "rheum-palmatum",
+    "compound_slug": "emodin",
+    "relationship": "partial"
+  },
+  {
+    "id": "rheum-palmatum-rhein",
+    "herb_slug": "rheum-palmatum",
+    "compound_slug": "rhein",
+    "relationship": "partial"
+  },
+  {
+    "id": "rhodiola-rosea-rosarin",
+    "herb_slug": "rhodiola-rosea",
+    "compound_slug": "rosarin",
+    "relationship": "partial"
+  },
+  {
+    "id": "rhodiola-rosea-rosavin",
+    "herb_slug": "rhodiola-rosea",
+    "compound_slug": "rosavin",
+    "relationship": "partial"
+  },
+  {
+    "id": "rhodiola-rosea-rosin",
+    "herb_slug": "rhodiola-rosea",
+    "compound_slug": "rosin",
+    "relationship": "partial"
+  },
+  {
+    "id": "rhodiola-rosea-salidroside",
+    "herb_slug": "rhodiola-rosea",
+    "compound_slug": "salidroside",
+    "relationship": "partial"
+  },
+  {
+    "id": "rhodiola-rosea-tyrosol",
+    "herb_slug": "rhodiola-rosea",
+    "compound_slug": "tyrosol",
+    "relationship": "partial"
+  },
+  {
+    "id": "rice-bran-ferulic-acid",
+    "herb_slug": "rice-bran",
+    "compound_slug": "ferulic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "rooibos-aspalathin",
+    "herb_slug": "rooibos",
+    "compound_slug": "aspalathin",
+    "relationship": "partial"
+  },
+  {
+    "id": "rosemary-carnosic-acid",
+    "herb_slug": "rosemary",
+    "compound_slug": "carnosic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "rosemary-carnosol",
+    "herb_slug": "rosemary",
+    "compound_slug": "carnosol",
+    "relationship": "partial"
+  },
+  {
+    "id": "rosemary-oleanolic-acid",
+    "herb_slug": "rosemary",
+    "compound_slug": "oleanolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "rosemary-thymol",
+    "herb_slug": "rosemary",
+    "compound_slug": "thymol",
+    "relationship": "partial"
+  },
+  {
+    "id": "rosemary-ursolic-acid",
+    "herb_slug": "rosemary",
+    "compound_slug": "ursolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "saffron-crocetin",
+    "herb_slug": "saffron",
+    "compound_slug": "crocetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "saffron-crocin",
+    "herb_slug": "saffron",
+    "compound_slug": "crocin",
+    "relationship": "partial"
+  },
+  {
+    "id": "saffron-safranal",
+    "herb_slug": "saffron",
+    "compound_slug": "safranal",
+    "relationship": "partial"
+  },
+  {
+    "id": "sage-carnosic-acid",
+    "herb_slug": "sage",
+    "compound_slug": "carnosic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "sage-carvacrol",
+    "herb_slug": "sage",
+    "compound_slug": "carvacrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "sage-oleanolic-acid",
+    "herb_slug": "sage",
+    "compound_slug": "oleanolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "sage-thujone",
+    "herb_slug": "sage",
+    "compound_slug": "thujone",
+    "relationship": "partial"
+  },
+  {
+    "id": "sage-ursolic-acid",
+    "herb_slug": "sage",
+    "compound_slug": "ursolic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "salacia-reticulata-kotalanol",
+    "herb_slug": "salacia-reticulata",
+    "compound_slug": "kotalanol",
+    "relationship": "partial"
+  },
+  {
+    "id": "salvia-miltiorrhiza-cryptotanshinone",
+    "herb_slug": "salvia-miltiorrhiza",
+    "compound_slug": "cryptotanshinone",
+    "relationship": "partial"
+  },
+  {
+    "id": "salvia-miltiorrhiza-salvianolic-acid-b",
+    "herb_slug": "salvia-miltiorrhiza",
+    "compound_slug": "salvianolic-acid-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "salvia-miltiorrhiza-tanshinone-iia",
+    "herb_slug": "salvia-miltiorrhiza",
+    "compound_slug": "tanshinone-iia",
+    "relationship": "partial"
+  },
+  {
+    "id": "saw-palmetto-beta-sitosterol",
+    "herb_slug": "saw-palmetto",
+    "compound_slug": "beta-sitosterol",
+    "relationship": "partial"
+  },
+  {
+    "id": "schisandra-chinensis-schisandrin",
+    "herb_slug": "schisandra-chinensis",
+    "compound_slug": "schisandrin",
+    "relationship": "partial"
+  },
+  {
+    "id": "schisandra-schisandrin",
+    "herb_slug": "schisandra",
+    "compound_slug": "schisandrin",
+    "relationship": "partial"
+  },
+  {
+    "id": "schisandra-schisandrin-b",
+    "herb_slug": "schisandra",
+    "compound_slug": "schisandrin-b",
+    "relationship": "partial"
+  },
+  {
+    "id": "scutellaria-baicalensis-baicalein",
+    "herb_slug": "scutellaria-baicalensis",
+    "compound_slug": "baicalein",
+    "relationship": "partial"
+  },
+  {
+    "id": "scutellaria-baicalensis-baicalin",
+    "herb_slug": "scutellaria-baicalensis",
+    "compound_slug": "baicalin",
+    "relationship": "partial"
+  },
+  {
+    "id": "scutellaria-baicalensis-wogonin",
+    "herb_slug": "scutellaria-baicalensis",
+    "compound_slug": "wogonin",
+    "relationship": "partial"
+  },
+  {
+    "id": "scutellaria-lateriflora-baicalein",
+    "herb_slug": "scutellaria-lateriflora",
+    "compound_slug": "baicalein",
+    "relationship": "partial"
+  },
+  {
+    "id": "scutellaria-lateriflora-baicalin",
+    "herb_slug": "scutellaria-lateriflora",
+    "compound_slug": "baicalin",
+    "relationship": "partial"
+  },
+  {
+    "id": "scutellaria-lateriflora-wogonin",
+    "herb_slug": "scutellaria-lateriflora",
+    "compound_slug": "wogonin",
+    "relationship": "partial"
+  },
+  {
+    "id": "serenoa-repens-beta-sitosterol",
+    "herb_slug": "serenoa-repens",
+    "compound_slug": "beta-sitosterol",
+    "relationship": "partial"
+  },
+  {
+    "id": "serenoa-repens-stigmasterol",
+    "herb_slug": "serenoa-repens",
+    "compound_slug": "stigmasterol",
+    "relationship": "partial"
+  },
+  {
+    "id": "silybum-marianum-silybin",
+    "herb_slug": "silybum-marianum",
+    "compound_slug": "silybin",
+    "relationship": "primary",
+    "notes": "Silymarin stabilizes hepatocyte membranes, enhances glutathione, and reduces oxidative liver damage."
+  },
+  {
+    "id": "sophora-alopecuroides-matrine",
+    "herb_slug": "sophora-alopecuroides",
+    "compound_slug": "matrine",
+    "relationship": "partial"
+  },
+  {
+    "id": "sophora-alopecuroides-oxymatrine",
+    "herb_slug": "sophora-alopecuroides",
+    "compound_slug": "oxymatrine",
+    "relationship": "partial"
+  },
+  {
+    "id": "sophora-flavescens-matrine",
+    "herb_slug": "sophora-flavescens",
+    "compound_slug": "matrine",
+    "relationship": "partial"
+  },
+  {
+    "id": "sophora-flavescens-oxymatrine",
+    "herb_slug": "sophora-flavescens",
+    "compound_slug": "oxymatrine",
+    "relationship": "partial"
+  },
+  {
+    "id": "soybean-biochanin-a",
+    "herb_slug": "soybean",
+    "compound_slug": "biochanin-a",
+    "relationship": "partial"
+  },
+  {
+    "id": "soybean-daidzein",
+    "herb_slug": "soybean",
+    "compound_slug": "daidzein",
+    "relationship": "partial"
+  },
+  {
+    "id": "soybean-genistein",
+    "herb_slug": "soybean",
+    "compound_slug": "genistein",
+    "relationship": "partial"
+  },
+  {
+    "id": "st-johns-wort-hyperforin",
+    "herb_slug": "st-johns-wort",
+    "compound_slug": "hyperforin",
+    "relationship": "partial",
+    "notes": "Key active and interaction driver"
+  },
+  {
+    "id": "st-johns-wort-hypericin",
+    "herb_slug": "st-johns-wort",
+    "compound_slug": "hypericin",
+    "relationship": "partial"
+  },
+  {
+    "id": "st-johns-wort-kaempferol",
+    "herb_slug": "st-johns-wort",
+    "compound_slug": "kaempferol",
+    "relationship": "partial"
+  },
+  {
+    "id": "st-johns-wort-quercetin",
+    "herb_slug": "st-johns-wort",
+    "compound_slug": "quercetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "st-johns-wort-rutin",
+    "herb_slug": "st-johns-wort",
+    "compound_slug": "rutin",
+    "relationship": "partial"
+  },
+  {
+    "id": "stellera-chamaejasme-daphnetin",
+    "herb_slug": "stellera-chamaejasme",
+    "compound_slug": "daphnetin",
+    "relationship": "partial"
+  },
+  {
+    "id": "stephania-cepharantha-cepharanthine",
+    "herb_slug": "stephania-cepharantha",
+    "compound_slug": "cepharanthine",
+    "relationship": "partial"
+  },
+  {
+    "id": "stephania-japonica-cepharanthine",
+    "herb_slug": "stephania-japonica",
+    "compound_slug": "cepharanthine",
+    "relationship": "partial"
+  },
+  {
+    "id": "stephania-tetrandra-tetrandrine",
+    "herb_slug": "stephania-tetrandra",
+    "compound_slug": "tetrandrine",
+    "relationship": "partial"
+  },
+  {
+    "id": "syzygium-aromaticum-eugenol",
+    "herb_slug": "syzygium-aromaticum",
+    "compound_slug": "eugenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "terminalia-arjuna-arjunolic-acid",
+    "herb_slug": "terminalia-arjuna",
+    "compound_slug": "arjunolic-acid",
+    "relationship": "partial",
+    "notes": "PMID:16397921; adjunct cardiovascular evidence context."
+  },
+  {
+    "id": "theobroma-cacao-catechin",
+    "herb_slug": "theobroma-cacao",
+    "compound_slug": "catechin",
+    "relationship": "partial"
+  },
+  {
+    "id": "theobroma-cacao-epicatechin",
+    "herb_slug": "theobroma-cacao",
+    "compound_slug": "epicatechin",
+    "relationship": "partial"
+  },
+  {
+    "id": "thunder-god-vine-celastrol",
+    "herb_slug": "thunder-god-vine",
+    "compound_slug": "celastrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "thyme-carvacrol",
+    "herb_slug": "thyme",
+    "compound_slug": "carvacrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "thyme-luteolin",
+    "herb_slug": "thyme",
+    "compound_slug": "luteolin",
+    "relationship": "partial"
+  },
+  {
+    "id": "thyme-thymol",
+    "herb_slug": "thyme",
+    "compound_slug": "thymol",
+    "relationship": "partial"
+  },
+  {
+    "id": "tribulus-terrestris-protodioscin",
+    "herb_slug": "tribulus-terrestris",
+    "compound_slug": "protodioscin",
+    "relationship": "partial"
+  },
+  {
+    "id": "trigonella-foenum-graecum-diosgenin",
+    "herb_slug": "trigonella-foenum-graecum",
+    "compound_slug": "diosgenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "trigonella-foenum-graecum-protodioscin",
+    "herb_slug": "trigonella-foenum-graecum",
+    "compound_slug": "protodioscin",
+    "relationship": "partial"
+  },
+  {
+    "id": "trigonella-foenum-graecum-trigonelline",
+    "herb_slug": "trigonella-foenum-graecum",
+    "compound_slug": "trigonelline",
+    "relationship": "partial"
+  },
+  {
+    "id": "tripterygium-wilfordii-celastrol",
+    "herb_slug": "tripterygium-wilfordii",
+    "compound_slug": "celastrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "turmeric-bisdemethoxycurcumin",
+    "herb_slug": "turmeric",
+    "compound_slug": "bisdemethoxycurcumin",
+    "relationship": "partial"
+  },
+  {
+    "id": "turmeric-curcumin",
+    "herb_slug": "turmeric",
+    "compound_slug": "curcumin",
+    "relationship": "partial",
+    "notes": "Primary polyphenol; one of several curcuminoids"
+  },
+  {
+    "id": "turmeric-demethoxycurcumin",
+    "herb_slug": "turmeric",
+    "compound_slug": "demethoxycurcumin",
+    "relationship": "partial"
+  },
+  {
+    "id": "valerian-valerenic-acid",
+    "herb_slug": "valerian",
+    "compound_slug": "valerenic-acid",
+    "relationship": "partial",
+    "notes": "Single compound; not sole active component"
+  },
+  {
+    "id": "valeriana-officinalis-valepotriates",
+    "herb_slug": "valeriana-officinalis",
+    "compound_slug": "valepotriates",
+    "relationship": "partial"
+  },
+  {
+    "id": "valeriana-officinalis-valerenic-acid",
+    "herb_slug": "valeriana-officinalis",
+    "compound_slug": "valerenic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "valeriana-officinalis-valerenol",
+    "herb_slug": "valeriana-officinalis",
+    "compound_slug": "valerenol",
+    "relationship": "partial"
+  },
+  {
+    "id": "verbena-officinalis-acteoside",
+    "herb_slug": "verbena-officinalis",
+    "compound_slug": "acteoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "vitis-vinifera-proanthocyanidins",
+    "herb_slug": "vitis-vinifera",
+    "compound_slug": "proanthocyanidins",
+    "relationship": "secondary",
+    "notes": "Polyphenols (resveratrol, OPCs) improve endothelial function and reduce oxidative stress."
+  },
+  {
+    "id": "vitis-vinifera-pterostilbene",
+    "herb_slug": "vitis-vinifera",
+    "compound_slug": "pterostilbene",
+    "relationship": "partial"
+  },
+  {
+    "id": "vitis-vinifera-resveratrol",
+    "herb_slug": "vitis-vinifera",
+    "compound_slug": "resveratrol",
+    "relationship": "partial"
+  },
+  {
+    "id": "white-peony-paeoniflorin",
+    "herb_slug": "white-peony",
+    "compound_slug": "paeoniflorin",
+    "relationship": "partial"
+  },
+  {
+    "id": "wild-yam-diosgenin",
+    "herb_slug": "wild-yam",
+    "compound_slug": "diosgenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "withania-somnifera-withanolides",
+    "herb_slug": "withania-somnifera",
+    "compound_slug": "withanolides",
+    "relationship": "primary",
+    "notes": "Reduces cortisol via HPA axis modulation; enhances GABAergic signaling and reduces systemic inflammation."
+  },
+  {
+    "id": "yerba-mate-apigenin",
+    "herb_slug": "yerba-mate",
+    "compound_slug": "apigenin",
+    "relationship": "partial"
+  },
+  {
+    "id": "yerba-mate-caffeine",
+    "herb_slug": "yerba-mate",
+    "compound_slug": "caffeine",
+    "relationship": "partial"
+  },
+  {
+    "id": "zingiber-officinale-gingerols",
+    "herb_slug": "zingiber-officinale",
+    "compound_slug": "gingerols",
+    "relationship": "partial",
+    "notes": "PMID:11710709; standardized extract context; pain-domain evidence."
+  }
+]

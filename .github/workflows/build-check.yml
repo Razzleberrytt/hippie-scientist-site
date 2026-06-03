@@ -1,0 +1,55 @@
+name: Build Check
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: build-check-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Validate production build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Restore Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**/*', 'src/**/*', 'lib/**/*', 'components/**/*', 'public/data/**/*', 'scripts/**/*', 'next.config.*', 'tailwind.config.*', 'postcss.config.*') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('package-lock.json') }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Node engine
+        run: npm run check:node
+
+      - name: Validate workbook source
+        run: npm run validate:workbook-source
+
+      - name: Validate static export compatibility
+        run: npm run validate:static-export
+
+      - name: Build and verify
+        run: npm run build

@@ -1,0 +1,31 @@
+{
+  "name": "Mugwort",
+  "slug": "mugwort",
+  "summary": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+  "description": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence.",
+  "primaryActions": [
+    "digestive"
+  ],
+  "mechanisms": [
+    "digestive support",
+    "traditional cycle support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy",
+    "seizure disorder",
+    "Asteraceae allergy",
+    "internal essential-oil use"
+  ],
+  "interactions": [
+    "Caution with anticonvulsants",
+    "sedatives",
+    "and drugs affected by seizure threshold."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

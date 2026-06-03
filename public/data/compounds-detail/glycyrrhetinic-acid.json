@@ -1,0 +1,19 @@
+{
+  "id": "glycyrrhetinic-acid",
+  "slug": "glycyrrhetinic-acid",
+  "name": "glycyrrhetinic acid",
+  "summary": "Triterpenoid metabolite of glycyrrhizin associated with inflammatory signaling modulation.",
+  "description": "Triterpenoid metabolite of glycyrrhizin associated with inflammatory signaling modulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

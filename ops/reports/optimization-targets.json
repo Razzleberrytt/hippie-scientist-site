@@ -1,0 +1,153 @@
+{
+  "generatedAt": "2026-03-30T16:58:25.093Z",
+  "dataSources": {
+    "conversionScorecard": "ops/reports/conversion-scorecard.json",
+    "ctaVariants": "public/data/cta-variants.json",
+    "affiliateInventory": "ops/reports/affiliate-inventory.json",
+    "seoPriority": "public/data/seo-priority-report.json"
+  },
+  "notes": [
+    "Local analytics export was not available; conversion-scorecard marks pages as insufficient data.",
+    "Targets prioritized by overlap between scorecard visibility set, curated affiliate presence, and SEO collection priority rank."
+  ],
+  "targets": [
+    {
+      "pageKey": "collection:herbs-for-relaxation",
+      "route": "/collections/herbs-for-relaxation",
+      "pageType": "collection_page",
+      "currentVariant": "C",
+      "optimizedVariant": "A",
+      "opportunity": "high-visibility page with insufficient conversion signals; prioritize tool-first path and related-flow clarity",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "seo-priority-rank=1",
+        "seo-priority-score=35.78"
+      ],
+      "strategy": [
+        "variant_override",
+        "tool_copy_strengthen",
+        "related_compare_label"
+      ]
+    },
+    {
+      "pageKey": "collection:herbs-for-sleep",
+      "route": "/collections/herbs-for-sleep",
+      "pageType": "collection_page",
+      "currentVariant": "C",
+      "optimizedVariant": "A",
+      "opportunity": "high-visibility page with insufficient conversion signals; prioritize tool-first path and related-flow clarity",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "seo-priority-rank=2",
+        "seo-priority-score=32.53"
+      ],
+      "strategy": [
+        "variant_override",
+        "tool_copy_strengthen",
+        "related_compare_label"
+      ]
+    },
+    {
+      "pageKey": "collection:herbs-for-focus",
+      "route": "/collections/herbs-for-focus",
+      "pageType": "collection_page",
+      "currentVariant": "C",
+      "optimizedVariant": "A",
+      "opportunity": "high-visibility page with insufficient conversion signals; prioritize tool-first path and related-flow clarity",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "seo-priority-rank=3",
+        "seo-priority-score=30.82"
+      ],
+      "strategy": [
+        "variant_override",
+        "tool_copy_strengthen",
+        "related_compare_label"
+      ]
+    },
+    {
+      "pageKey": "collection:calming-herb-combinations",
+      "route": "/collections/calming-herb-combinations",
+      "pageType": "collection_page",
+      "currentVariant": "C",
+      "optimizedVariant": "A",
+      "opportunity": "high-visibility page with insufficient conversion signals; prioritize tool-first path and related-flow clarity",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "seo-priority-rank=4",
+        "seo-priority-score=28.07"
+      ],
+      "strategy": [
+        "variant_override",
+        "tool_copy_strengthen",
+        "related_compare_label"
+      ]
+    },
+    {
+      "pageKey": "collection:stimulant-herb-combinations",
+      "route": "/collections/stimulant-herb-combinations",
+      "pageType": "collection_page",
+      "currentVariant": "C",
+      "optimizedVariant": "A",
+      "opportunity": "high-visibility page with insufficient conversion signals; prioritize tool-first path and related-flow clarity",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "seo-priority-rank=6",
+        "seo-priority-score=27.49"
+      ],
+      "strategy": [
+        "variant_override",
+        "tool_copy_strengthen",
+        "related_compare_label"
+      ]
+    },
+    {
+      "pageKey": "herb:ashwagandha",
+      "route": "/herbs/ashwagandha",
+      "pageType": "herb_detail",
+      "currentVariant": "B",
+      "optimizedVariant": "B",
+      "opportunity": "curated-product page with insufficient conversion signals; improve trust-first affiliate clarity and click intent",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "has-curated-affiliate-product=true"
+      ],
+      "strategy": [
+        "trust_first_affiliate_module_reorder",
+        "affiliate_cta_copy_clarify"
+      ]
+    },
+    {
+      "pageKey": "herb:chamomile",
+      "route": "/herbs/chamomile",
+      "pageType": "herb_detail",
+      "currentVariant": "B",
+      "optimizedVariant": "B",
+      "opportunity": "curated-product page with insufficient conversion signals; improve trust-first affiliate clarity and click intent",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "has-curated-affiliate-product=true"
+      ],
+      "strategy": [
+        "trust_first_affiliate_module_reorder",
+        "affiliate_cta_copy_clarify"
+      ]
+    },
+    {
+      "pageKey": "compound:luteolin",
+      "route": "/compounds/luteolin",
+      "pageType": "compound_detail",
+      "currentVariant": "B",
+      "optimizedVariant": "B",
+      "opportunity": "curated-product page with insufficient conversion signals; improve trust-first affiliate clarity and click intent",
+      "reasons": [
+        "conversion-scorecard=insufficient data",
+        "has-curated-affiliate-product=true"
+      ],
+      "strategy": [
+        "trust_first_affiliate_module_reorder",
+        "affiliate_cta_copy_clarify"
+      ]
+    }
+  ]
+}

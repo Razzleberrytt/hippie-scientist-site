@@ -1,0 +1,30 @@
+{
+  "name": "Crocus Sativus",
+  "slug": "crocus-sativus",
+  "summary": "Lean bulk ingestion row for Crocus sativus.",
+  "description": "Lean bulk ingestion row for Crocus sativus. Key active compounds include Crocin; Crocetin.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

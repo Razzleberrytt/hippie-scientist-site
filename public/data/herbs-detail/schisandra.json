@@ -1,0 +1,27 @@
+{
+  "name": "Schisandra Schisandra chinensis",
+  "slug": "schisandra",
+  "summary": "Liver + stress.",
+  "description": "Liver + stress.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Mitochondrial Support",
+    "Stress Response Modulation",
+    "Nrf2 Activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy (insufficient data)"
+  ],
+  "interactions": [
+    "CYP interactions possible (limited evidence)"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

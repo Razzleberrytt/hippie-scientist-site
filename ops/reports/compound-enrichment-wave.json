@@ -1,0 +1,457 @@
+{
+  "generatedAt": "2026-03-31T12:34:33.042Z",
+  "deterministicModelVersion": "compound-enrichment-wave-report-v1",
+  "wave": {
+    "waveId": "compound-wave-1",
+    "submissionPrefix": "sub_compoundwave1-"
+  },
+  "paths": {
+    "targets": "ops/reports/compound-enrichment-wave-targets.json",
+    "sourceReview": "ops/reports/source-compound-wave-1-review.json",
+    "submissionReview": "ops/reports/enrichment-submission-review.json",
+    "submissions": "ops/enrichment-submissions.json",
+    "rollup": "ops/reports/enrichment-compound-wave-1-rollup.json",
+    "outputJson": "ops/reports/compound-enrichment-wave.json",
+    "outputMd": "ops/reports/compound-enrichment-wave.md"
+  },
+  "selectedCompoundTargets": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "carryover",
+      "selectionWhy": "Carryover compound with safety-critical and mechanism-critical unresolved gaps; already referenced on compound and herb surfaces with promotable authority-class source coverage available.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "constituent",
+        "conflict-uncertainty"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "carryover",
+      "selectionWhy": "Carryover compound with unresolved safety/interactions and mechanism gaps; already represented in governed artifact but limited to research-gap notes.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "constituent",
+        "conflict-uncertainty"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "waveStatus": "new-entity",
+      "selectionWhy": "High-value new compound candidate from compound-heavy balancing profile with publish-blocking safety/evidence/mechanism gaps and expected promoter-ready source classes.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "waveStatus": "new-entity",
+      "selectionWhy": "New compound candidate with safety and mechanism deficits affecting comparison/discovery surfaces; suitable for immediate governed safety + mechanism scaffolding.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "waveStatus": "new-entity",
+      "selectionWhy": "Safety-critical compound from intake queue with mechanism and constituent gaps where promoted sources can produce immediate governed deltas while preserving unresolved critical reporting.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "missing_governed_enrichment"
+    }
+  ],
+  "approvedNewSourceCountByCompound": [
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "approvedNewSourceCount": 1,
+      "sourceIds": [
+        "src_doi-10-1007-s43440-021-00273-9"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "approvedNewSourceCount": 1,
+      "sourceIds": [
+        "src_doi-10-1186-cpr-2024-11820"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "approvedNewSourceCount": 1,
+      "sourceIds": [
+        "src_doi-10-1093-nte-ntae014"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "approvedNewSourceCount": 1,
+      "sourceIds": [
+        "src_doi-10-1016-j-mnp-2023-11-204"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "approvedNewSourceCount": 1,
+      "sourceIds": [
+        "src_doi-10-1016-j-rst-2022-07-118"
+      ]
+    }
+  ],
+  "approvedNewEnrichmentEntryCountByCompound": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "approvedNewEnrichmentEntryCount": 1,
+      "byTopic": {
+        "research_gap": 1
+      },
+      "byEvidenceClass": {
+        "human-clinical": 1
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "approvedNewEnrichmentEntryCount": 1,
+      "byTopic": {
+        "research_gap": 1
+      },
+      "byEvidenceClass": {
+        "preclinical-mechanistic": 1
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "approvedNewEnrichmentEntryCount": 0,
+      "byTopic": {},
+      "byEvidenceClass": {}
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "approvedNewEnrichmentEntryCount": 0,
+      "byTopic": {},
+      "byEvidenceClass": {}
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "approvedNewEnrichmentEntryCount": 0,
+      "byTopic": {},
+      "byEvidenceClass": {}
+    }
+  ],
+  "governedCoverageDeltasByCompound": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "governedEntriesIncluded": {
+        "before": 2,
+        "after": 3,
+        "delta": 1
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 2,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 3,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {
+          "preclinical-mechanistic": 2
+        },
+        "after": {
+          "human-clinical": 1,
+          "preclinical-mechanistic": 2
+        }
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "governedEntriesIncluded": {
+        "before": 2,
+        "after": 3,
+        "delta": 1
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 2,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 3,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {
+          "preclinical-mechanistic": 1,
+          "human-clinical": 1
+        },
+        "after": {
+          "preclinical-mechanistic": 2,
+          "human-clinical": 1
+        }
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "governedEntriesIncluded": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {},
+        "after": {}
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "governedEntriesIncluded": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {},
+        "after": {}
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "governedEntriesIncluded": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {},
+        "after": {}
+      }
+    }
+  ],
+  "strengthenedPublicSurfacesByCompound": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "gainedSurfaces": {
+        "herbOrCompoundDetail": false,
+        "browseSearchSummary": false,
+        "relatedRecommendations": false,
+        "collectionComparisonSignals": false
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "gainedSurfaces": {
+        "herbOrCompoundDetail": false,
+        "browseSearchSummary": false,
+        "relatedRecommendations": false,
+        "collectionComparisonSignals": false
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "gainedSurfaces": {
+        "herbOrCompoundDetail": false,
+        "browseSearchSummary": false,
+        "relatedRecommendations": false,
+        "collectionComparisonSignals": false
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "gainedSurfaces": {
+        "herbOrCompoundDetail": false,
+        "browseSearchSummary": false,
+        "relatedRecommendations": false,
+        "collectionComparisonSignals": false
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "gainedSurfaces": {
+        "herbOrCompoundDetail": false,
+        "browseSearchSummary": false,
+        "relatedRecommendations": false,
+        "collectionComparisonSignals": false
+      }
+    }
+  ],
+  "unresolvedCriticalGapsAfterWave": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent",
+        "conflict-uncertainty"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent",
+        "conflict-uncertainty"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "flavonoids",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "quercetin",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "asarone",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ]
+    }
+  ],
+  "summary": {
+    "selectedTargetCount": 5,
+    "approvedSourceTotal": 5,
+    "approvedEnrichmentEntryTotal": 2,
+    "compoundsWithPositiveGovernedDelta": [
+      "cbd",
+      "luteolin"
+    ]
+  }
+}

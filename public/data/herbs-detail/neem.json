@@ -1,0 +1,34 @@
+{
+  "name": "Neem",
+  "slug": "neem",
+  "summary": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
+  "description": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance.",
+  "primaryActions": [
+    "antimicrobial",
+    "skin-support"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/trying to conceive",
+    "children",
+    "liver disease",
+    "hypoglycemia risk",
+    "breastfeeding without guidance"
+  ],
+  "interactions": [
+    "May potentiate antidiabetics",
+    "immunosuppressants",
+    "and hepatotoxic drugs/supplements."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

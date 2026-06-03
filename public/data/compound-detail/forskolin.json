@@ -1,0 +1,86 @@
+{
+  "slug": "forskolin",
+  "name": "forskolin",
+  "summary": "Diterpene from Coleus known for direct adenylyl cyclase activation.",
+  "description": "Diterpene from Coleus known for direct adenylyl cyclase activation.",
+  "effects": [
+    "metabolism",
+    "weight"
+  ],
+  "primary_effects": [
+    "metabolism",
+    "weight"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with anticoagulants",
+    "blood-pressure medications",
+    "heart disease",
+    "pregnancy",
+    "kidney disease",
+    "and surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Human studies used Coleus forskohlii extract protocols such as 250 mg of 10% forskolin twice daily, but evidence is limited",
+  "typical_dosage": "Human studies used Coleus forskohlii extract protocols such as 250 mg of 10% forskolin twice daily, but evidence is limited",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only weight/body-composition profile",
+    "not a reliable fat-loss recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=forskolin+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "forskolin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as top pick",
+    "forskolin percentage and dose must be disclosed",
+    "avoid testosterone/fat-burner blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

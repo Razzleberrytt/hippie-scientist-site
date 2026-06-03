@@ -1,0 +1,18 @@
+{
+  "id": "serrapeptase",
+  "slug": "serrapeptase",
+  "name": "Serrapeptase",
+  "summary": "Serrapeptase is a proteolytic enzyme with low-quality human evidence for inflammation and pain outcomes.",
+  "description": "Proteolytic enzyme also known as serratiopeptidase; evidence quality remains limited.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,78 @@
+{
+  "slug": "iberogast",
+  "name": "Iberogast",
+  "summary": "Iberogast is best framed as a conservative research profile with mechanistic evidence and a focus on Digestive Health. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+  "description": "Iberogast is best framed as a conservative research profile with mechanistic evidence and a focus on Digestive Health. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+  "effects": [
+    "digestive_symptoms",
+    "functional_dyspepsia"
+  ],
+  "primary_effects": [
+    "digestive_symptoms",
+    "functional_dyspepsia"
+  ],
+  "mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "raw_mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "general phytochemical signaling"
+  ],
+  "evidence_grade": "Moderate human evidence",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Liver disease",
+    "pregnancy",
+    "medication interactions",
+    "or sensitivity to multi-herb formulas."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "formulation-specific; follow labeled STW 5/Iberogast dosing where legally available",
+  "typical_dosage": "formulation-specific; follow labeled STW 5/Iberogast dosing where legally available",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=iberogast+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,21 @@
+{
+  "id": "esculetin",
+  "slug": "esculetin",
+  "name": "esculetin",
+  "summary": "Hydroxycoumarin reported from chicory and Artemisia with lipoxygenase and NF-κB pathway effects.",
+  "description": "Hydroxycoumarin reported from chicory and Artemisia with lipoxygenase and NF-κB pathway effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

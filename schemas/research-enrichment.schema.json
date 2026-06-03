@@ -1,0 +1,390 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/research-enrichment.schema.json",
+  "title": "Research enrichment profile",
+  "description": "Structured enrichment model used by both herb and compound detail records.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidenceSummary",
+    "evidenceTier",
+    "evidenceClassesPresent",
+    "supportedUses",
+    "unsupportedOrUnclearUses",
+    "mechanisms",
+    "constituents",
+    "interactions",
+    "contraindications",
+    "adverseEffects",
+    "dosageContextNotes",
+    "populationSpecificNotes",
+    "conflictNotes",
+    "researchGaps",
+    "sourceRegistryIds",
+    "lastReviewedAt",
+    "reviewedBy",
+    "editorialStatus"
+  ],
+  "properties": {
+    "evidenceSummary": { "type": "string", "minLength": 1 },
+    "evidenceTier": {
+      "type": "string",
+      "enum": ["tier-1-strong", "tier-2-moderate", "tier-3-limited", "tier-4-insufficient"]
+    },
+    "evidenceClassesPresent": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "human-clinical",
+          "human-observational",
+          "preclinical-mechanistic",
+          "traditional-use",
+          "regulatory-monograph"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "supportedUses": { "$ref": "#/$defs/claimArray" },
+    "unsupportedOrUnclearUses": { "$ref": "#/$defs/claimArray" },
+    "mechanisms": { "$ref": "#/$defs/claimArray" },
+    "constituents": { "$ref": "#/$defs/claimArray" },
+    "interactions": { "$ref": "#/$defs/claimArray" },
+    "contraindications": { "$ref": "#/$defs/claimArray" },
+    "adverseEffects": { "$ref": "#/$defs/claimArray" },
+    "dosageContextNotes": { "$ref": "#/$defs/claimArray" },
+    "populationSpecificNotes": { "$ref": "#/$defs/claimArray" },
+    "conflictNotes": { "$ref": "#/$defs/claimArray" },
+    "researchGaps": { "$ref": "#/$defs/claimArray" },
+    "topicEvidenceJudgments": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "supported_use",
+          "unsupported_or_unclear_use",
+          "mechanism",
+          "constituent",
+          "interaction",
+          "contraindication",
+          "adverse_effect",
+          "pregnancy_note",
+          "lactation_note",
+          "pediatric_note",
+          "geriatric_note",
+          "condition_caution",
+          "surgery_caution",
+          "medication_class_caution",
+          "dosage_context",
+          "population_specific_note",
+          "conflict_note",
+          "research_gap"
+        ]
+      },
+      "additionalProperties": { "$ref": "#/$defs/evidenceJudgment" }
+    },
+    "safetyProfile": { "$ref": "#/$defs/safetyProfile" },
+    "pageEvidenceJudgment": { "$ref": "#/$defs/evidenceJudgment" },
+    "editorialReadiness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "publishable",
+        "hasConflictOrWeakEvidence",
+        "conflictLabelingPresent",
+        "weakEvidenceClaimsLabeled"
+      ],
+      "properties": {
+        "publishable": { "type": "boolean" },
+        "hasConflictOrWeakEvidence": { "type": "boolean" },
+        "conflictLabelingPresent": { "type": "boolean" },
+        "weakEvidenceClaimsLabeled": { "type": "boolean" }
+      }
+    },
+    "sourceRegistryIds": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/sourceRef" },
+      "uniqueItems": true
+    },
+    "lastReviewedAt": { "type": "string", "format": "date-time" },
+    "reviewedBy": { "type": "string", "minLength": 1 },
+    "editorialStatus": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "needs_review",
+        "reviewed",
+        "in-review",
+        "approved",
+        "published",
+        "blocked",
+        "needs-update",
+        "deprecated"
+      ]
+    },
+    "relatedEntities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["entityType", "slug", "relationshipType"],
+        "properties": {
+          "entityType": { "type": "string", "enum": ["herb", "compound"] },
+          "slug": { "type": "string", "minLength": 1 },
+          "relationshipType": { "type": "string", "minLength": 1 },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "claimArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/enrichmentClaim" }
+    },
+    "enrichmentClaim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim", "evidenceClass", "sourceRefIds"],
+      "properties": {
+        "claim": { "type": "string", "minLength": 1 },
+        "evidenceClass": {
+          "type": "string",
+          "enum": [
+            "human-clinical",
+            "human-observational",
+            "preclinical-mechanistic",
+            "traditional-use",
+            "regulatory-monograph"
+          ]
+        },
+        "strengthNote": { "type": "string" },
+        "mechanismStrengthLabel": {
+          "type": "string",
+          "enum": ["strong", "moderate", "limited", "insufficient"]
+        },
+        "mechanismEntryId": { "type": "string", "pattern": "^menr_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "relationType": {
+          "type": "string",
+          "enum": [
+            "contains",
+            "enriched_for",
+            "linked_to",
+            "may_modulate",
+            "observed_to_affect",
+            "traditional_association",
+            "derived_from",
+            "related_to"
+          ]
+        },
+        "targetType": {
+          "type": "string",
+          "enum": [
+            "drug",
+            "drug_class",
+            "herb",
+            "compound",
+            "constituent",
+            "pathway",
+            "receptor",
+            "enzyme",
+            "transporter",
+            "condition",
+            "population",
+            "biological_process"
+          ]
+        },
+        "targetName": { "type": "string", "minLength": 1 },
+        "targetSlug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "biologicalContext": { "type": "string" },
+        "constituentRoleContext": { "type": "string" },
+        "uncertaintyNote": { "type": "string" },
+        "conflictNote": { "type": "string" },
+        "sourceRefIds": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      }
+    },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "extractConfidence", "reviewer"],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "extractConfidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "reviewer": { "type": "string", "minLength": 1 },
+        "notes": { "type": "string" }
+      }
+    },
+    "evidenceJudgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidenceLabel", "grading", "conflictNotes", "uncertaintyNotes", "toneGuidance"],
+      "properties": {
+        "evidenceLabel": {
+          "type": "string",
+          "enum": [
+            "stronger_human_support",
+            "limited_human_support",
+            "observational_only",
+            "preclinical_only",
+            "traditional_use_only",
+            "mixed_or_uncertain",
+            "conflicting_evidence",
+            "insufficient_evidence"
+          ]
+        },
+        "grading": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "evidenceClass",
+            "studyDesignWeight",
+            "humanRelevance",
+            "directnessToClaim",
+            "replicationDepth",
+            "sourceReliabilityTier",
+            "recencyWeight",
+            "editorialConfidence",
+            "conflictState",
+            "confidenceIndex"
+          ],
+          "properties": {
+            "evidenceClass": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "human-clinical",
+                  "human-observational",
+                  "preclinical-mechanistic",
+                  "traditional-use",
+                  "regulatory-monograph"
+                ]
+              },
+              "uniqueItems": true
+            },
+            "studyDesignWeight": { "type": "integer", "minimum": 0, "maximum": 5 },
+            "humanRelevance": {
+              "type": "string",
+              "enum": ["none", "direct-human", "human-observational", "preclinical-proxy", "traditional-context"]
+            },
+            "directnessToClaim": { "type": "string", "enum": ["direct", "proximal", "indirect", "contextual"] },
+            "replicationDepth": { "type": "integer", "minimum": 0 },
+            "sourceReliabilityTier": { "type": "string", "enum": ["tier-a", "tier-b", "tier-c", "tier-d"] },
+            "recencyWeight": { "type": "integer", "minimum": 0, "maximum": 2 },
+            "editorialConfidence": { "type": "string", "enum": ["high", "medium", "low"] },
+            "conflictState": { "type": "string", "enum": ["none", "mixed_or_uncertain", "conflicting_evidence"] },
+            "confidenceIndex": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "conflictNotes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "uncertaintyNotes": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "toneGuidance": { "type": "string", "minLength": 1 }
+      }
+    },
+    "safetyProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["safetyEntries", "summary"],
+      "properties": {
+        "safetyEntries": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/safetyEntry" }
+        },
+        "summary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["total", "byTopicType", "bySeverity"],
+          "properties": {
+            "total": { "type": "integer", "minimum": 0 },
+            "byTopicType": {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 0 }
+            },
+            "bySeverity": {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "safetyEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "safetyEntryId",
+        "sourceId",
+        "safetyTopicType",
+        "targetType",
+        "targetName",
+        "severityLabel",
+        "urgencyLabel",
+        "evidenceClass",
+        "findingTextShort",
+        "findingTextNormalized",
+        "mechanismKnown",
+        "reviewer",
+        "reviewedAt",
+        "editorialStatus",
+        "active"
+      ],
+      "properties": {
+        "safetyEntryId": { "type": "string", "pattern": "^senr_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "sourceId": { "type": "string", "pattern": "^src_[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "safetyTopicType": {
+          "type": "string",
+          "enum": [
+            "interaction",
+            "contraindication",
+            "adverse_effect",
+            "pregnancy_note",
+            "lactation_note",
+            "pediatric_note",
+            "geriatric_note",
+            "condition_caution",
+            "surgery_caution",
+            "medication_class_caution"
+          ]
+        },
+        "targetType": { "type": "string", "enum": ["drug", "drug_class", "herb", "condition", "population"] },
+        "targetName": { "type": "string", "minLength": 1 },
+        "severityLabel": { "type": "string", "enum": ["none_known", "low", "moderate", "high", "severe", "contraindicated"] },
+        "urgencyLabel": { "type": "string", "enum": ["routine", "caution", "prompt_review", "urgent"] },
+        "evidenceClass": {
+          "type": "string",
+          "enum": [
+            "human-clinical",
+            "human-observational",
+            "preclinical-mechanistic",
+            "traditional-use",
+            "regulatory-monograph"
+          ]
+        },
+        "findingTextShort": { "type": "string", "minLength": 1 },
+        "findingTextNormalized": { "type": "string", "minLength": 1 },
+        "mechanismKnown": { "type": "boolean" },
+        "populationContext": { "type": "string" },
+        "medicationClassContext": { "type": "string" },
+        "uncertaintyNote": { "type": "string" },
+        "conflictNote": { "type": "string" },
+        "reviewer": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "editorialStatus": {
+          "type": "string",
+          "enum": ["draft", "in-review", "approved", "needs-update", "deprecated"]
+        },
+        "active": { "type": "boolean" }
+      }
+    }
+  }
+}

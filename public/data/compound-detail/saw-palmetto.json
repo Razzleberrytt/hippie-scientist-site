@@ -1,0 +1,92 @@
+{
+  "slug": "saw-palmetto",
+  "name": "Saw Palmetto",
+  "summary": "Decision-ready summary: Saw Palmetto is best framed for BPH urinary symptom research context; prostate supplement comparison pages; safety screen: anticoagulants; hormone-sensitive conditions; surgery.",
+  "description": "Saw Palmetto supports prostate; urinary symptoms with moderate confidence in this merged decision layer.",
+  "effects": [
+    "prostate_health"
+  ],
+  "primary_effects": [
+    "prostate_health"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Hormonal signaling context",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "endocrine",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "anticoagulants",
+    "hormone-sensitive conditions",
+    "surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "320 mg/day extract was tested; up to 960 mg/day showed no benefit in a large RCT",
+  "typical_dosage": "320 mg/day extract was tested; up to 960 mg/day showed no benefit in a large RCT",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only for urinary/prostate symptoms because large RCT evidence is negative"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=saw-palmetto+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Saw Palmetto supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a top pick",
+    "if listed",
+    "extract fatty-acid content should be disclosed and negative RCT context shown"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

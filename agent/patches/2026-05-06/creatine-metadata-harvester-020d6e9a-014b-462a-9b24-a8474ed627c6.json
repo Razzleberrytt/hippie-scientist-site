@@ -1,0 +1,57 @@
+{
+  "patch_id": "020d6e9a-014b-462a-9b24-a8474ed627c6",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-05-06T02:05:08.481Z",
+  "slug": "creatine",
+  "patch_type": "evidence",
+  "research_depth": "metadata_only",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [
+    "Evidence confidence downgraded due to weak or conflicting support."
+  ],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is creatine used for?",
+      "Is creatine evidence-based?"
+    ],
+    "seo_topics": [
+      "creatine benefits",
+      "creatine safety",
+      "creatine evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "creatine vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [
+    "low_confidence"
+  ],
+  "evidence": [],
+  "validation": {},
+  "scoring": {
+    "confidence_score": 0.25,
+    "evidence_strength": "low",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language."
+    ]
+  }
+}

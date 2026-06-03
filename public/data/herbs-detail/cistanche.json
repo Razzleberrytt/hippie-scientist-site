@@ -1,0 +1,27 @@
+{
+  "name": "Cistanche",
+  "slug": "cistanche",
+  "summary": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
+  "description": "It should be framed conservatively because traditional-system use is broader than modern clinical depth.",
+  "primaryActions": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "diarrhea-prone conditions"
+  ],
+  "interactions": [
+    "Limited clinical interaction data",
+    "caution with laxatives and glucose-lowering therapies."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

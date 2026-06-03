@@ -1,0 +1,34 @@
+{
+  "name": "Blue Lotus",
+  "slug": "blue-lotus",
+  "summary": "blue lotus is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "sedative-sensitive users",
+    "seizure disorder",
+    "active psychiatric instability without clinician review."
+  ],
+  "interactions": [
+    "Possible additive sedation with alcohol",
+    "benzodiazepines",
+    "sleep aids",
+    "opioids",
+    "antihistamines",
+    "and other calming botanicals."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

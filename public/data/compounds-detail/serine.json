@@ -1,0 +1,19 @@
+{
+  "id": "serine",
+  "slug": "serine",
+  "name": "serine",
+  "summary": "serine is tracked for supports phosphatidylserine synthesis and neuronal membrane function; supports neuronal membrane synthesis and with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "serine is tracked for supports phosphatidylserine synthesis and neuronal membrane function; supports neuronal membrane synthesis and with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Cellular Protection",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

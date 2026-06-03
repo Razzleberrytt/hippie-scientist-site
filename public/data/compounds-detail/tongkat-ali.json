@@ -1,0 +1,19 @@
+{
+  "id": "tongkat-ali",
+  "slug": "tongkat-ali",
+  "name": "Tongkat Ali",
+  "summary": "Tongkat Ali entry from SciSpace evidence pass. Evidence level: limited.",
+  "description": "Tongkat Ali is cataloged as quassinoid botanical. Reported mechanisms: HPA/cortisol modulation; proposed Leydig cell effects preclinical.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

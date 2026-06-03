@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-03-31T12:00:00.000Z",
+  "deterministicModelVersion": "enrichment-wave-2.v1",
+  "selectionPolicy": {
+    "targetBatchSize": 6,
+    "selectionInputs": [
+      "ops/reports/enrichment-wave-1-authoring.json",
+      "ops/reports/source-gaps.json",
+      "public/data/publication-manifest.json",
+      "public/data/enrichment-governed.json"
+    ],
+    "notes": "Balances unresolved wave-1 critical gaps with next public/indexable herbs needing safety/evidence/mechanism coverage."
+  },
+  "targets": [
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "Wave-1 carryover with unresolved safety/evidence/mechanism critical gaps and toxicity-sensitive profile.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "Wave-1 carryover still missing strong safety and mechanism coverage in governed rollup.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "High-value compound from wave 1 with unresolved constituent/mechanism conflict handling needs.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ],
+      "criticality": [
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "waveStatus": "wave-1-carryover",
+      "selectionWhy": "High-value compound still lacking safety/interactions population caution depth.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical"
+      ],
+      "currentGovernedCoverageStatus": "partial-governed-coverage-blocked"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "waveStatus": "new-wave-2-entity",
+      "selectionWhy": "Public/indexable herb not in wave 1 and fully publish-blocked on safety/evidence/mechanism source gaps.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "no-governed-coverage"
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "waveStatus": "new-wave-2-entity",
+      "selectionWhy": "Public/indexable herb not in wave 1 with complete critical-gap profile and no governed enrichment yet.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "criticality": [
+        "safety-critical",
+        "evidence-critical",
+        "mechanism-critical"
+      ],
+      "currentGovernedCoverageStatus": "no-governed-coverage"
+    }
+  ]
+}

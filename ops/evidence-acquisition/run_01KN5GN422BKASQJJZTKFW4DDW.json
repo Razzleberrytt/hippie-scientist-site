@@ -1,0 +1,294 @@
+{
+  "runId": "run_01KN5GN422BKASQJJZTKFW4DDW",
+  "createdAt": "2026-04-01T21:54:38.894Z",
+  "selectedHerbs": [
+    "acacia confusa",
+    "acacia maidenii",
+    "acacia phlebophylla",
+    "aconitum ferox",
+    "acorus americanus"
+  ],
+  "extracted": [
+    {
+      "herb": "aconitum ferox",
+      "field": "active compounds",
+      "schemaField": "activeCompounds",
+      "patchField": "/activeCompounds",
+      "value": [
+        "aconitine"
+      ],
+      "normalization": {
+        "before": "Medicinally important aconitine type of diterpenoid alkaloids are the characteristic compounds in most of the <i>Aconitum</i> species. A few <i>Aconitum</i> species and their common diterpenoid alkaloid compounds are also well characterized for analgesic, inflammatory and cytotoxic properties. However, the different isolated compound needs to be validated for supporting other traditional therapeutical uses of the plant species.",
+        "after": [
+          "aconitine"
+        ]
+      },
+      "source": {
+        "title": "A review on efforts for improvement in medicinally important chemical constituents in<i>Aconitum</i> through biotechnological interventions.",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10183062",
+        "pubmedId": "37193333",
+        "quality": "primary_nih",
+        "provider": "europe_pmc",
+        "tier": "tier1"
+      },
+      "evidence": "Medicinally important aconitine type of diterpenoid alkaloids are the characteristic compounds in most of the <i>Aconitum</i> species. A few <i>Aconitum</i> species and their common diterpenoid alkaloid compounds are also well characterized for analgesic, inflammatory and cytotoxic properties. However, the different isolated compound needs to be validated for supporting other traditional therapeutical uses of the plant species.",
+      "extractionDebug": {
+        "pass": "strict_sentence",
+        "considered": 9,
+        "rejected": [
+          {
+            "phrase": "More than 450 derivatives of aconitine-type C19 and C20-diterpenoid alkaloids along with a few other non-alkaloidal compounds, such as phenylpropanoids, flavonoids, terpenoids, and fatty acids, have been identified in the genus.",
+            "reason": "length_out_of_range"
+          }
+        ]
+      },
+      "confidence": "high",
+      "evidenceClass": "human-clinical",
+      "retrieval": {
+        "aliasesTried": [
+          "aconitum ferox",
+          "Aconitum ferox"
+        ],
+        "queryAttempts": [
+          {
+            "query": "aconitum ferox active compounds phytochemistry",
+            "stage": "fallback",
+            "sourcesFound": 6,
+            "highQualitySources": 1,
+            "accepted": true,
+            "providers": [
+              "pubmed",
+              "europe_pmc"
+            ],
+            "candidateCountByTier": {
+              "tier1": 2,
+              "tier2": 0,
+              "tier3": 4
+            },
+            "attemptedTiers": [
+              "tier1"
+            ]
+          }
+        ],
+        "sourcesFound": 6,
+        "sourcesFoundByTier": {
+          "tier1": 2,
+          "tier2": 0,
+          "tier3": 4
+        },
+        "highQualitySources": 1,
+        "acceptedByTier": {
+          "tier1": 1,
+          "tier2": 0,
+          "tier3": 0
+        },
+        "acceptedSource": {
+          "query": "aconitum ferox active compounds phytochemistry",
+          "provider": "europe_pmc",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10183062"
+        }
+      }
+    }
+  ],
+  "accepted": [
+    {
+      "herb": "aconitum ferox",
+      "field": "active compounds",
+      "schemaField": "activeCompounds",
+      "patchField": "/activeCompounds",
+      "value": [
+        "aconitine"
+      ],
+      "normalization": {
+        "before": "Medicinally important aconitine type of diterpenoid alkaloids are the characteristic compounds in most of the <i>Aconitum</i> species. A few <i>Aconitum</i> species and their common diterpenoid alkaloid compounds are also well characterized for analgesic, inflammatory and cytotoxic properties. However, the different isolated compound needs to be validated for supporting other traditional therapeutical uses of the plant species.",
+        "after": [
+          "aconitine"
+        ]
+      },
+      "source": {
+        "title": "A review on efforts for improvement in medicinally important chemical constituents in<i>Aconitum</i> through biotechnological interventions.",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10183062",
+        "pubmedId": "37193333",
+        "quality": "primary_nih",
+        "provider": "europe_pmc",
+        "tier": "tier1"
+      },
+      "evidence": "Medicinally important aconitine type of diterpenoid alkaloids are the characteristic compounds in most of the <i>Aconitum</i> species. A few <i>Aconitum</i> species and their common diterpenoid alkaloid compounds are also well characterized for analgesic, inflammatory and cytotoxic properties. However, the different isolated compound needs to be validated for supporting other traditional therapeutical uses of the plant species.",
+      "extractionDebug": {
+        "pass": "strict_sentence",
+        "considered": 9,
+        "rejected": [
+          {
+            "phrase": "More than 450 derivatives of aconitine-type C19 and C20-diterpenoid alkaloids along with a few other non-alkaloidal compounds, such as phenylpropanoids, flavonoids, terpenoids, and fatty acids, have been identified in the genus.",
+            "reason": "length_out_of_range"
+          }
+        ]
+      },
+      "confidence": "high",
+      "evidenceClass": "human-clinical",
+      "retrieval": {
+        "aliasesTried": [
+          "aconitum ferox",
+          "Aconitum ferox"
+        ],
+        "queryAttempts": [
+          {
+            "query": "aconitum ferox active compounds phytochemistry",
+            "stage": "fallback",
+            "sourcesFound": 6,
+            "highQualitySources": 1,
+            "accepted": true,
+            "providers": [
+              "pubmed",
+              "europe_pmc"
+            ],
+            "candidateCountByTier": {
+              "tier1": 2,
+              "tier2": 0,
+              "tier3": 4
+            },
+            "attemptedTiers": [
+              "tier1"
+            ]
+          }
+        ],
+        "sourcesFound": 6,
+        "sourcesFoundByTier": {
+          "tier1": 2,
+          "tier2": 0,
+          "tier3": 4
+        },
+        "highQualitySources": 1,
+        "acceptedByTier": {
+          "tier1": 1,
+          "tier2": 0,
+          "tier3": 0
+        },
+        "acceptedSource": {
+          "query": "aconitum ferox active compounds phytochemistry",
+          "provider": "europe_pmc",
+          "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10183062"
+        }
+      }
+    }
+  ],
+  "rejected": [],
+  "patches": [
+    {
+      "patch_id": "patch_01KN5GN65CFC4F78NSATCQ1BKY",
+      "producer": "evidence-acquisition-engine@v1",
+      "lane": "B",
+      "created_at": "2026-04-01T21:54:38.893Z",
+      "operations": [
+        {
+          "op": "set",
+          "task": "link_integrity",
+          "entity_type": "herb",
+          "entity_id": "aconitum ferox",
+          "field": "/activeCompounds",
+          "value": [
+            "aconitine"
+          ]
+        },
+        {
+          "op": "set",
+          "task": "herb_mechanism",
+          "entity_type": "herb",
+          "entity_id": "aconitum ferox",
+          "field": "/_provenance",
+          "value": {
+            "run_id": "run_01KN5GN422BKASQJJZTKFW4DDW",
+            "sources": [
+              {
+                "id": "src_01KN5GN65D310P93PK7PJTFP7X",
+                "title": "A review on efforts for improvement in medicinally important chemical constituents in<i>Aconitum</i> through biotechnological interventions.",
+                "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/10183062",
+                "evidenceClass": "human-clinical"
+              }
+            ]
+          }
+        },
+        {
+          "op": "set",
+          "task": "herb_mechanism",
+          "entity_type": "herb",
+          "entity_id": "aconitum ferox",
+          "field": "/_review",
+          "value": {
+            "status": "pending"
+          }
+        }
+      ]
+    }
+  ],
+  "integration": {
+    "validate": "node scripts/enrichment/validate-schema.mjs && node scripts/enrichment/validate-domain.mjs",
+    "apply": "node scripts/enrichment/apply-patches.mjs",
+    "reviewQueue": "low confidence rows are written under rejected[] for manual review queue intake",
+    "note": "Patches are emitted in ops/evidence-acquisition and can be promoted to patches/ after human review."
+  },
+  "retrievalSummary": {
+    "acceptedTierCounts": {
+      "tier1": 1
+    },
+    "perHerb": {
+      "acacia confusa": {
+        "queryAttempts": 0,
+        "sourcesFound": 0,
+        "highQualitySources": 0,
+        "sourcesFoundByTier": {
+          "tier1": 0,
+          "tier2": 0,
+          "tier3": 0
+        },
+        "successfulQueries": []
+      },
+      "acacia maidenii": {
+        "queryAttempts": 0,
+        "sourcesFound": 0,
+        "highQualitySources": 0,
+        "sourcesFoundByTier": {
+          "tier1": 0,
+          "tier2": 0,
+          "tier3": 0
+        },
+        "successfulQueries": []
+      },
+      "acacia phlebophylla": {
+        "queryAttempts": 0,
+        "sourcesFound": 0,
+        "highQualitySources": 0,
+        "sourcesFoundByTier": {
+          "tier1": 0,
+          "tier2": 0,
+          "tier3": 0
+        },
+        "successfulQueries": []
+      },
+      "aconitum ferox": {
+        "queryAttempts": 1,
+        "sourcesFound": 6,
+        "highQualitySources": 1,
+        "sourcesFoundByTier": {
+          "tier1": 2,
+          "tier2": 0,
+          "tier3": 4
+        },
+        "successfulQueries": [
+          "aconitum ferox active compounds phytochemistry"
+        ]
+      },
+      "acorus americanus": {
+        "queryAttempts": 0,
+        "sourcesFound": 0,
+        "highQualitySources": 0,
+        "sourcesFoundByTier": {
+          "tier1": 0,
+          "tier2": 0,
+          "tier3": 0
+        },
+        "successfulQueries": []
+      }
+    }
+  }
+}

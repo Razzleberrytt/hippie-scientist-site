@@ -1,0 +1,30 @@
+{
+  "name": "Fingerroot",
+  "slug": "fingerroot",
+  "summary": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
+  "description": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antimicrobial"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Cellular Protection",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

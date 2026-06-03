@@ -1,0 +1,88 @@
+{
+  "slug": "lavender-extract",
+  "name": "Lavender Extract",
+  "summary": "Lavender Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+  "description": "Lavender Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "Moderate-to-strong human evidence",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Use caution with sedatives",
+    "alcohol",
+    "pregnancy/breastfeeding",
+    "and hormone-sensitive conditions",
+    "oral oil can cause lavender burps/GI effects"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
+  "typical_dosage": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard anxiety/stress support where standardized oral lavender is used"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=lavender-extract+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Oral Silexan-style lavender oil",
+    "dose clearly 80 mg",
+    "avoid aromatherapy products being marketed as oral anxiety evidence"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

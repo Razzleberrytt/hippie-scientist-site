@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "patch_id",
+    "schema_version",
+    "source_agent",
+    "agent_version",
+    "created_at",
+    "slug",
+    "patch_type",
+    "evidence"
+  ],
+  "properties": {
+    "patch_id": { "type": "string" },
+    "schema_version": { "type": "string" },
+    "source_agent": { "type": "string" },
+    "agent_version": { "type": "string" },
+    "created_at": { "type": "string" },
+    "slug": { "type": "string" },
+    "patch_type": { "type": "string" },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["compound_slug", "study_type", "population"],
+        "properties": {
+          "compound_slug": { "type": "string" },
+          "effect_target": { "type": "string" },
+          "study_type": { "type": "string" },
+          "population": { "type": "string" },
+          "effect_direction": { "type": "string" },
+          "effect_size": { "type": "string" },
+          "sample_size": { "type": "string" },
+          "duration": { "type": "string" },
+          "dose": { "type": "string" },
+          "pmid_or_source": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Peppermint Mentha × piperita",
+  "slug": "peppermint",
+  "summary": "Peppermint centers on the unspecified.",
+  "description": "Peppermint centers on the unspecified. Key reported compounds include l‐menthol; l‐menthone; isomenthone; menthyl acetate; 1,8‐cineole (eucalyptol); menthofuran; limonene.",
+  "primaryActions": [
+    "antimicrobial"
+  ],
+  "mechanisms": [
+    "intestinal smooth-muscle calcium-channel blockade",
+    "TRPM8 receptor activation",
+    "visceral antinociception",
+    "carminative effects",
+    "antimicrobial effects in vitro"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "GERD",
+    "hiatal hernia"
+  ],
+  "interactions": [
+    "antacids (may dissolve enteric coating prematurely)"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

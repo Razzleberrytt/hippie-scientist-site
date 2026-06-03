@@ -1,0 +1,28 @@
+{
+  "name": "Green Tea Extract",
+  "slug": "green-tea-extract",
+  "summary": "Green Tea Extract is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Green Tea Extract is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Liver disease",
+    "stimulants"
+  ],
+  "interactions": [
+    "Liver disease",
+    "stimulants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,21 @@
+{
+  "id": "coptisine",
+  "slug": "coptisine",
+  "name": "coptisine",
+  "summary": "Protoberberine alkaloid from Coptis with metabolic and inflammatory pathway activity.",
+  "description": "Protoberberine alkaloid from Coptis with metabolic and inflammatory pathway activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

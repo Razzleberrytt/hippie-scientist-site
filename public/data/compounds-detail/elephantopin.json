@@ -1,0 +1,19 @@
+{
+  "id": "elephantopin",
+  "slug": "elephantopin",
+  "name": "elephantopin",
+  "summary": "Sesquiterpene lactone associated with inflammatory signaling control.",
+  "description": "Sesquiterpene lactone associated with inflammatory signaling control.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

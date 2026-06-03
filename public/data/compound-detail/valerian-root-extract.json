@@ -1,0 +1,94 @@
+{
+  "slug": "valerian-root-extract",
+  "name": "Valerian Root Extract",
+  "summary": "Valerian Root Extract is tracked for Enhances GABA signaling by inhibiting breakdown and increasing receptor activity with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Valerian Root Extract is tracked for Enhances GABA signaling by inhibiting breakdown and increasing receptor activity with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "sleep"
+  ],
+  "primary_effects": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "Mixed/limited human evidence",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Avoid with alcohol",
+    "sedatives",
+    "driving/operating machinery",
+    "pregnancy",
+    "and before surgery"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Valerian extract doses vary; many sleep trials used 300–600 mg before bed",
+  "typical_dosage": "Valerian extract doses vary; many sleep trials used 300–600 mg before bed",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority herbal sleep support with mixed evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=valerian-root-extract+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Valeriana officinalis root extract",
+    "dose clearly listed",
+    "avoid alcohol/sedative sleep blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

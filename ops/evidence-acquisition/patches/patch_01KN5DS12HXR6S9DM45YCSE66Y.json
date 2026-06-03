@@ -1,0 +1,78 @@
+{
+  "patch_id": "patch_01KN5DS12HXR6S9DM45YCSE66Y",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-01T21:04:19.026Z",
+  "operations": [
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "aquilaria malaccensis",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DS12J97KKD8JTN36ACZ4F",
+        "claim": "[effects] anti-inflammatory activity",
+        "source_ids": [
+          "src_01KN5DS12JXB78WW6DKPVTJ7P8"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "aquilaria malaccensis",
+      "field": "/mechanism",
+      "value": "anti-inflammatory activity"
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "aquilaria malaccensis",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5DS12J1C8QRN5C4E6YZW1F",
+        "claim": "[mechanism] anti-inflammatory activity",
+        "source_ids": [
+          "src_01KN5DS12JJKQTWS5G6EPF01M7"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "aquilaria malaccensis",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KN5DMNXTEVE224WVTXGHGECZ",
+        "sources": [
+          {
+            "id": "src_01KN5DS12JXB78WW6DKPVTJ7P8",
+            "title": "Sesquiterpene derivatives from the agarwood of Aquilaria malaccensis and their anti-inflammatory effects on NO production of macrophage RAW 264.7 cells.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/33378718/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5DS12JJKQTWS5G6EPF01M7",
+            "title": "Sesquiterpenoids and hexanorcucurbitacin from Aquilaria malaccensis agarwood with anti-inflammatory effects by inhibiting the STAT1/AKT/MAPK/NLRP3 pathway.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38566784/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "aquilaria malaccensis",
+      "field": "/_review",
+      "value": {
+        "status": "pending"
+      }
+    }
+  ]
+}

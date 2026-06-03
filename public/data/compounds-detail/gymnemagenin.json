@@ -1,0 +1,23 @@
+{
+  "id": "gymnemagenin",
+  "slug": "gymnemagenin",
+  "name": "gymnemagenin",
+  "summary": "Triterpenoid aglycone linked to glycemic regulation and intestinal glucose handling.",
+  "description": "Triterpenoid aglycone linked to glycemic regulation and intestinal glucose handling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "proanthocyanidins",
+  "name": "Proanthocyanidins",
+  "summary": "Proanthocyanidins is a polyphenols associated with cranberry. Evidence level: moderate.",
+  "description": "Proanthocyanidins is cataloged as a polyphenols. Reported mechanism notes: Primary inhibition of bacterial adhesion (human-supported via extracts); additional mechanisms (preclinical).",
+  "effects": [
+    "research_only"
+  ],
+  "primary_effects": [
+    "research_only"
+  ],
+  "mechanisms": [
+    "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+    "additional mechanisms (preclinical)"
+  ],
+  "raw_mechanisms": [
+    "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+    "additional mechanisms (preclinical)"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+    "additional mechanisms (preclinical)"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Generally safe"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=proanthocyanidins+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Proanthocyanidins supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote as a general consumer product",
+    "keep as research/reference unless human supplement evidence and safety context are added"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

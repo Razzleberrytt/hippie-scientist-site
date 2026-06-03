@@ -1,0 +1,21 @@
+{
+  "id": "reishi",
+  "slug": "reishi",
+  "name": "Reishi",
+  "summary": "Decision-ready summary: Reishi is best framed for immune-modulation context; stress/sleep support as adjunct; mushroom comparison pages; safety screen: anticoagulants; surgery; autoimmune disease; mushroom allergy.",
+  "description": "Reishi supports immune modulation; sleep; stress with low confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

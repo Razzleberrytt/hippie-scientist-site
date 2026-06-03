@@ -1,0 +1,95 @@
+{
+  "slug": "beta-sitosterol",
+  "name": "Beta-sitosterol",
+  "summary": "Decision-ready summary: Beta-sitosterol is best framed for BPH urinary symptoms; cholesterol support; safety screen: sitosterolemia; fat-soluble vitamin absorption concerns.",
+  "description": "Beta-sitosterol supports prostate; cholesterol with moderate-high confidence in this merged decision layer.",
+  "effects": [
+    "heart_health"
+  ],
+  "primary_effects": [
+    "heart_health"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Metabolic regulation",
+    "Vascular function support",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "metabolic",
+    "cardiovascular",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "sitosterolemia",
+    "fat-soluble vitamin absorption concerns"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "130 mg/day free beta-sitosterol in BPH trial; study-specific dosing matters",
+  "typical_dosage": "130 mg/day free beta-sitosterol in BPH trial; study-specific dosing matters",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People focused on cardiovascular health"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=beta-sitosterol+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Beta-sitosterol supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically relevant dose",
+    "contaminant testing",
+    "avoid vague extract labels without active amounts"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,76 @@
+name: Agent Metadata Harvester
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metadata-harvest
+  cancel-in-progress: false
+
+jobs:
+  orchestrator:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Node version contract
+        run: npm run check:node
+
+      - name: Create patch directories
+        run: |
+          set -euo pipefail
+          mkdir -p agent/patches
+          mkdir -p ops/agent-review
+
+      - name: Run metadata-first orchestrator
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: npm run agent:run -- --mode=fast --batch=50
+
+      - name: Review generated patches
+        run: node scripts/review-patches.mjs
+
+      - name: Commit standalone patches
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add agent/patches ops/agent-review
+
+          if git diff --cached --quiet; then
+            echo "No patch changes to commit."
+            exit 0
+          fi
+
+          git commit -m "agent: metadata harvest patches"
+          git push
+
+      - name: Workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Agent Metadata Harvester"
+            echo "- Purpose: run agent metadata harvest and commit resulting patches"
+            echo "- Branch/ref: $GITHUB_REF"
+            echo "- Commands: npm ci; npm run check:node; npm run agent:run -- --mode=fast --batch=50; node scripts/review-patches.mjs"
+            echo "- Outputs: agent/patches, ops/agent-review"
+            echo "- Status: ${{ job.status }}"
+            echo "- Next action: Review committed patches in repository history."
+          } >> "$GITHUB_STEP_SUMMARY"

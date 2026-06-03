@@ -1,0 +1,20 @@
+{
+  "id": "taurine-blend",
+  "slug": "taurine-blend",
+  "name": "Taurine Blend",
+  "summary": "Taurine blend entries should be treated as formulation/context rows, not separate proof beyond taurine evidence.",
+  "description": "Taurine-containing performance or hydration formulation context.",
+  "compoundClass": "",
+  "mechanisms": [
+    "cellular hydration regulation",
+    "calcium signaling",
+    "cardiac/muscle support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

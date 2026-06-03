@@ -1,0 +1,92 @@
+{
+  "slug": "probiotic-multistrain",
+  "name": "Probiotic Multistrain",
+  "summary": "Probiotic Multistrain is tracked for Modulates gut microbiota composition, pathogen colonization resistance, epithelial barrier function, and immune signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed.",
+  "description": "Probiotic Multistrain is tracked for Modulates gut microbiota composition, pathogen colonization resistance, epithelial barrier function, and immune signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed.",
+  "effects": [
+    "gut_health",
+    "microbiome"
+  ],
+  "primary_effects": [
+    "gut_health",
+    "microbiome"
+  ],
+  "mechanisms": [
+    "Immune Signaling Modulation"
+  ],
+  "raw_mechanisms": [
+    "Immune Signaling Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Immune modulation"
+  ],
+  "mechanism_categories": [
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune-system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "strong",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Bloating and gas possible",
+    "infection risk in severely immunocompromised or critically ill patients."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "1e9-1e11 CFU/day",
+  "typical_dosage": "1e9-1e11 CFU/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only broad probiotic profile unless strain-specific evidence exists"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=probiotic-multistrain+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Multi-strain",
+    "≥10B CFU",
+    "strain-labeled",
+    "refrigerated if required",
+    "avoid blends without strains"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,94 @@
+{
+  "slug": "peppermint",
+  "name": "Peppermint (Mentha × piperita)",
+  "summary": "Peppermint centers on the unspecified.",
+  "description": "Peppermint centers on the unspecified. Key reported compounds include l‐menthol; l‐menthone; isomenthone; menthyl acetate; 1,8‐cineole (eucalyptol); menthofuran; limonene.",
+  "effects": [
+    "antimicrobial"
+  ],
+  "primary_effects": [
+    "antimicrobial"
+  ],
+  "mechanisms": [
+    "intestinal smooth-muscle calcium-channel blockade",
+    "TRPM8 receptor activation",
+    "visceral antinociception",
+    "carminative effects",
+    "antimicrobial effects in vitro"
+  ],
+  "raw_mechanisms": [
+    "intestinal smooth-muscle calcium-channel blockade",
+    "TRPM8 receptor activation",
+    "visceral antinociception",
+    "carminative effects",
+    "antimicrobial effects in vitro"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "intestinal smooth-muscle calcium-channel blockade",
+    "TRPM8 receptor activation",
+    "visceral antinociception",
+    "carminative effects",
+    "antimicrobial effects in vitro"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "GERD",
+    "hiatal hernia"
+  ],
+  "interactions": [
+    "antacids (may dissolve enteric coating prematurely)"
+  ],
+  "side_effects": [],
+  "dosage": "Enteric-coated peppermint oil capsules (0.2-0.4 mL per capsule): 0.6-1.2 mL/day; evidence specific to enteric-coated formulations",
+  "typical_dosage": "Enteric-coated peppermint oil capsules (0.2-0.4 mL per capsule): 0.6-1.2 mL/day; evidence specific to enteric-coated formulations",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=organic+peppermint&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Peppermint (Mentha × piperita) tea, capsule, or standardized extract depending on goal supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "active marker or extract ratio disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 68,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-present",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-quality-missing",
+      "summary-too-thin"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

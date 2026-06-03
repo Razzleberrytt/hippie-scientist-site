@@ -1,0 +1,21 @@
+{
+  "id": "stigmasterol",
+  "slug": "stigmasterol",
+  "name": "stigmasterol",
+  "summary": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
+  "description": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

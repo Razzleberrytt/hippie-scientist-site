@@ -1,0 +1,114 @@
+{
+  "slug": "trans-resveratrol",
+  "name": "Trans-Resveratrol",
+  "summary": "Trans-resveratrol is the bioactive trans isomer of resveratrol studied for metabolic and vascular biomarkers. Human results are mixed and dose-dependent.",
+  "description": "Trans isomer of resveratrol with SIRT1/AMPK-related mechanistic interest and mixed human metabolic findings.",
+  "effects": [
+    "cardiovascular",
+    "healthy_aging"
+  ],
+  "primary_effects": [
+    "cardiovascular",
+    "healthy_aging"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "SIRT1 Signaling"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "SIRT1 Signaling"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "Vascular function support",
+    "AMPK activation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic",
+    "cardiovascular",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "SIRT1 Signaling"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "GI upset",
+    "possible antiplatelet activity",
+    "caution with bleeding-risk medications."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority healthy-aging antioxidant profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=trans-resveratrol+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Trans-Resveratrol supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

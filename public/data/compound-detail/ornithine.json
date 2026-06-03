@@ -1,0 +1,91 @@
+{
+  "slug": "ornithine",
+  "name": "ornithine",
+  "summary": "ornithine is tracked for facilitates urea cycle, reduces ammonia accumulation and modulates cortisol response with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "ornithine is tracked for facilitates urea cycle, reduces ammonia accumulation and modulates cortisol response with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "anxiety",
+    "sleep"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "sleep"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Hormonal signaling context",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "endocrine",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "generally safe",
+    "mild GI effects reported"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "400 mg/day",
+  "typical_dosage": "400 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for poor sleep"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=ornithine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "ornithine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clear dose per serving",
+    "form matches intended timing",
+    "avoid sedative proprietary blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

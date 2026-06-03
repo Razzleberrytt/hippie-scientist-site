@@ -1,0 +1,29 @@
+{
+  "name": "Honeysuckle",
+  "slug": "honeysuckle",
+  "summary": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid.",
+  "description": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid.",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

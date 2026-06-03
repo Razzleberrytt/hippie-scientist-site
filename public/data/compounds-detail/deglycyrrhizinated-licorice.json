@@ -1,0 +1,19 @@
+{
+  "id": "deglycyrrhizinated-licorice",
+  "slug": "deglycyrrhizinated-licorice",
+  "name": "Deglycyrrhizinated Licorice",
+  "summary": "Deglycyrrhizinated licorice removes glycyrrhizin to reduce mineralocorticoid risk; evidence for ulcer symptoms is limited and older.",
+  "description": "Licorice preparation with glycyrrhizin removed, intended for mucosal support.",
+  "compoundClass": "",
+  "mechanisms": [
+    "mucosal protection",
+    "glycyrrhizin removed"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

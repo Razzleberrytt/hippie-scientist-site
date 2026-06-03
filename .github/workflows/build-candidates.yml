@@ -1,0 +1,31 @@
+name: Build Candidate Queue
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  queue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run check:node
+      - run: npm run agent:run -- --mode=fast --batch=50
+      - name: Workflow summary
+        if: always()
+        run: |
+          {
+            echo "## Build Candidate Queue"
+            echo "- Purpose: generate build-candidate patches"
+            echo "- Branch/ref: $GITHUB_REF"
+            echo "- Commands: npm ci; npm run check:node; npm run agent:run -- --mode=fast --batch=50"
+            echo "- Status: ${{ job.status }}"
+            echo "- Output path: agent/patches"
+          } >> "$GITHUB_STEP_SUMMARY"

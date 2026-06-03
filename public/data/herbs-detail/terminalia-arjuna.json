@@ -1,0 +1,26 @@
+{
+  "name": "Terminalia arjuna",
+  "slug": "terminalia-arjuna",
+  "summary": "Terminalia arjuna bark extract has limited human cardiac-patient evidence and should remain conservative pending stronger replication.",
+  "description": "Terminalia arjuna bark extract has limited human cardiac-patient evidence and should remain conservative pending stronger replication.",
+  "primaryActions": [
+    "research-pending"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Caution with cardiac medications and anticoagulants."
+  ],
+  "interactions": [
+    "Caution with cardiac medications and anticoagulants."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

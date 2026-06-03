@@ -1,0 +1,85 @@
+{
+  "slug": "resistant-starch",
+  "name": "Resistant Starch",
+  "summary": "Decision-ready summary: Resistant Starch is best framed for gut microbiome support; insulin sensitivity context; satiety support; safety screen: IBS/FODMAP sensitivity; bloating-prone users.",
+  "description": "Resistant Starch supports gut microbiome; insulin sensitivity; satiety with moderate confidence in this merged decision layer.",
+  "effects": [
+    "gut_health"
+  ],
+  "primary_effects": [
+    "gut_health"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Glucose regulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "IBS/FODMAP sensitivity",
+    "bloating-prone users"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "10–30 g/day titrated",
+  "typical_dosage": "10–30 g/day titrated",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for digestive issues"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=resistant-starch+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active dose clearly listed",
+    "form matched to gut target",
+    "avoid proprietary blends without strain/fiber amount disclosure"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

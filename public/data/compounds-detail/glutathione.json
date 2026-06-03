@@ -1,0 +1,18 @@
+{
+  "id": "glutathione",
+  "slug": "glutathione",
+  "name": "Glutathione",
+  "summary": "May increase body glutathione levels; limited clinical outcomes.",
+  "description": "May increase body glutathione levels; limited clinical outcomes.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

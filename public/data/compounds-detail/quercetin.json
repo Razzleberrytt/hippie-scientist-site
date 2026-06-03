@@ -1,0 +1,23 @@
+{
+  "id": "quercetin",
+  "slug": "quercetin",
+  "name": "Quercetin",
+  "summary": "Decision-ready summary: Quercetin is best framed for allergy symptom context; inflammatory support; oxidative-stress support; safety screen: kidney disease high dose; anticoagulants; CYP medication review.",
+  "description": "Quercetin supports allergy; inflammation; antioxidant with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

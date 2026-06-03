@@ -1,0 +1,29 @@
+{
+  "name": "L-Tyrosine",
+  "slug": "tyrosine",
+  "summary": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "MAO inhibitors",
+    "thyroid meds"
+  ],
+  "interactions": [
+    "MAO inhibitors",
+    "thyroid meds"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

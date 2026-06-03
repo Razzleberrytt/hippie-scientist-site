@@ -1,0 +1,111 @@
+{
+  "slug": "ashwagandha-extract-ksm-66",
+  "name": "Ashwagandha KSM-66 extract",
+  "summary": "Decision-ready summary: Ashwagandha KSM-66 extract is best framed for stress reduction; perceived anxiety; sleep quality; safety screen: pregnancy; thyroid disorders; autoimmune disease; liver injury history.",
+  "description": "Ashwagandha KSM-66 extract supports stress; sleep; cortisol with moderate-high confidence in this merged decision layer.",
+  "effects": [
+    "recovery",
+    "stress"
+  ],
+  "primary_effects": [
+    "recovery",
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Immune Signaling Modulation",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Immune modulation",
+    "Hormonal signaling context",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "immune",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "immune-system",
+    "endocrine",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate-high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "pregnancy",
+    "thyroid disorders",
+    "autoimmune disease",
+    "liver injury history"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "300-600",
+  "typical_dosage": "300-600",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard stress/recovery support",
+    "not a testosterone booster"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=ashwagandha-extract-ksm-66+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Ashwagandha Extract KSM-66 supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized root extract",
+    "5% withanolides or branded KSM-66/Sensoril-style extract",
+    "avoid proprietary blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

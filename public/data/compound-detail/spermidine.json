@@ -1,0 +1,90 @@
+{
+  "slug": "spermidine",
+  "name": "spermidine",
+  "summary": "spermidine is tracked for Indu ces autophagy via mTOR inhibition pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "spermidine is tracked for Indu ces autophagy via mTOR inhibition pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "healthy_aging"
+  ],
+  "primary_effects": [
+    "healthy_aging"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "mTOR Signaling",
+    "Autophagy Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "mTOR Signaling",
+    "Autophagy Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "mTOR modulation",
+    "Autophagy modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic",
+    "longevity"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation",
+    "Cellular quality-control modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "metabolic/cellular-growth",
+    "cellular/longevity"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Limited human safety data but generally well tolerated"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority autophagy/healthy-aging support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=spermidine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "spermidine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Chamomile",
+  "slug": "matricaria-chamomilla",
+  "summary": "Chamomile may support mild anxiety or sleep quality, especially as evening tea or standardized extract.",
+  "description": "Gentle sleep/stress support with modest human evidence and traditional use.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulants (coumarin content)"
+  ],
+  "interactions": [
+    "Anticoagulants (coumarin content)"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

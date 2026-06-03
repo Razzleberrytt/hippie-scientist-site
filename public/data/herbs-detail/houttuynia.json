@@ -1,0 +1,29 @@
+{
+  "name": "Houttuynia",
+  "slug": "houttuynia",
+  "summary": "It should be framed cautiously because strong folklore claims exceed the evidence.",
+  "description": "It should be framed cautiously because strong folklore claims exceed the evidence.",
+  "primaryActions": [
+    "immune",
+    "respiratory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

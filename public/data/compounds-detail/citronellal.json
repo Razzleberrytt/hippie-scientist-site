@@ -1,0 +1,20 @@
+{
+  "id": "citronellal",
+  "slug": "citronellal",
+  "name": "citronellal",
+  "summary": "Monoterpene aldehyde common in citronella-type oils, recognized for aromatic and sensory-channel activity.",
+  "description": "Monoterpene aldehyde common in citronella-type oils, recognized for aromatic and sensory-channel activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

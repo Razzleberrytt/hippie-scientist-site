@@ -1,0 +1,95 @@
+{
+  "slug": "lemon-balm",
+  "name": "Lemon balm",
+  "summary": "Lemon balm may support gentle calm, stress-related sleep, and relaxed focus with preparation-dependent effects.",
+  "description": "Gentle calming herb/compound profile for stress-related sleep and focus contexts.",
+  "effects": [
+    "sleep",
+    "stress"
+  ],
+  "primary_effects": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "thyroid medication monitoring",
+    "sedatives"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Lemon balm dose varies by extract; clinical trials commonly use standardized Melissa officinalis preparations rather than loose tea",
+  "typical_dosage": "Lemon balm dose varies by extract; clinical trials commonly use standardized Melissa officinalis preparations rather than loose tea",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority calming/sleep support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_url": "https://www.amazon.com/s?k=lemon-balm+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Lemon Balm supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "https://www.amazon.com/s?k=organic+lemon-balm+melissa-officinalis+supplement",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Melissa officinalis identity clear",
+    "rosmarinic acid/flavonoid standardization preferred",
+    "avoid vague calming blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Sage",
+  "slug": "sage",
+  "summary": "sage is tracked for stress,cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "AMPK Signaling",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy",
+    "seizure disorder",
+    "high-dose essential oil use",
+    "breastfeeding where milk suppression is a concern"
+  ],
+  "interactions": [
+    "May interact with sedatives",
+    "anticonvulsants",
+    "antidiabetics",
+    "or cholinergic/anticholinergic drugs depending preparation."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

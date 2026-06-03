@@ -1,0 +1,23 @@
+{
+  "id": "trigonelline",
+  "slug": "trigonelline",
+  "name": "trigonelline",
+  "summary": "Alkaloid found in coffee and fenugreek linked to metabolic and neuroprotective effects.",
+  "description": "Alkaloid found in coffee and fenugreek linked to metabolic and neuroprotective effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

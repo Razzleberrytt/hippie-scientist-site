@@ -1,0 +1,29 @@
+{
+  "name": "Butterbur",
+  "slug": "butterbur",
+  "summary": "Butterbur is a sesquiterpene-rich herb usually discussed around standardized root extracts.",
+  "description": "Butterbur is a sesquiterpene-rich herb usually discussed around standardized root extracts. Petasin and isopetasin are the anchor constituents most often linked to migraine and allergic-rhinitis relevance.",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "liver disease",
+    "use of non-PA-free products",
+    "Asteraceae allergy"
+  ],
+  "interactions": [
+    "Caution with hepatotoxic drugs/supplements and enzyme-inducing medicines",
+    "clinician supervision advised."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,21 @@
+{
+  "id": "senkyunolide-a",
+  "slug": "senkyunolide-a",
+  "name": "senkyunolide a",
+  "summary": "Phthalide derivative commonly reported from chuanxiong and Angelica with MAPK and ion-channel-linked activity.",
+  "description": "Phthalide derivative commonly reported from chuanxiong and Angelica with MAPK and ion-channel-linked activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Endothelial Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

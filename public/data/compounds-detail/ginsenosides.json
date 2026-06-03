@@ -1,0 +1,19 @@
+{
+  "id": "ginsenosides",
+  "slug": "ginsenosides",
+  "name": "Ginsenosides",
+  "summary": "Ginsenosides is a triterpenoid saponins associated with ginseng. Evidence level: moderate.",
+  "description": "Ginsenosides is cataloged as a triterpenoid saponins. Reported mechanism notes: Primary mechanism (preclinical); limited human validation via extracts.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Vascular Function Support",
+    "Stress Response Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

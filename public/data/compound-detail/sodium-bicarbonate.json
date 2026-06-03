@@ -1,0 +1,86 @@
+{
+  "slug": "sodium-bicarbonate",
+  "name": "sodium bicarbonate",
+  "summary": "Human evidence supports sodium bicarbonate for high-intensity exercise performance, particularly repeated or sustained efforts where acidosis contributes to fatigue.",
+  "description": "Human evidence supports sodium bicarbonate for high-intensity exercise performance, particularly repeated or sustained efforts where acidosis contributes to fatigue.",
+  "effects": [
+    "electrolytes",
+    "hydration"
+  ],
+  "primary_effects": [
+    "electrolytes",
+    "hydration"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "strong",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "GI distress",
+    "bloating",
+    "sodium load",
+    "and alkalosis risk",
+    "caution hypertension",
+    "kidney disease",
+    "and heart failure."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "0.2-0.3 g/kg",
+  "typical_dosage": "0.2-0.3 g/kg",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only electrolyte profile unless paired with sweat-loss context"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=sodium-bicarbonate+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "sodium bicarbonate supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

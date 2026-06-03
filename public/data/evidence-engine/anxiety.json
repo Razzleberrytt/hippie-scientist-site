@@ -1,0 +1,305 @@
+{
+  "goal": "anxiety",
+  "updatedAt": "2026-06-01T00:00:00.000Z",
+  "config": {
+    "problemField": "anxiety_problem",
+    "heroHeadline": "I want calmer anxiety support. What does the evidence actually support?",
+    "heroCta": "Start with the anxiety pattern",
+    "orientationHeading": "Start by naming the anxiety pattern",
+    "orientationSubtext": "The same ingredient can look useful or weak depending on generalized tension, situational triggers, social pressure, physical symptoms, and sleep interference.",
+    "safetyHeading": "Anxiety-support decisions change when risk context changes",
+    "safetyBody": "Do not use supplements to mask persistent panic disorders, severe anxiety, medication interactions, or other complex clinical situations."
+  },
+  "problemLabels": {
+    "anticipatory_worry": {
+      "title": "Anticipatory worry",
+      "description": "Future-focused worry patterns that escalate before anticipated events or decisions."
+    },
+    "physical_tension": {
+      "title": "Physical tension",
+      "description": "Somatic anxiety patterns including muscle tightness, shallow breathing, or restlessness."
+    },
+    "racing_thoughts": {
+      "title": "Racing thoughts",
+      "description": "Mental loops, intrusive thoughts, or cognitive over-activity that worsen anxiety."
+    },
+    "situational_nervousness": {
+      "title": "Situational nervousness",
+      "description": "Nervousness or anxiety tied to specific events, triggers, or performance situations."
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "l-theanine-situational-nervousness",
+      "ingredient_slug": "l-theanine",
+      "ingredient_name": "L-Theanine",
+      "anxiety_problem": "situational_nervousness",
+      "claim_statement": "L-theanine is a plausible first-pass option when anxiety is situational, acute, or tied to performance pressure.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Small human studies report reductions in physiological and psychological stress markers after L-theanine exposure, with an acute onset profile.",
+      "limitations": "The evidence base is small, tasks are artificial, and effects may be subtle in real-world high-pressure settings.",
+      "best_fit": "Presentation nerves, acute performance anxiety, or stimulation smoothing where sedation is not desired.",
+      "not_best_fit": "Panic-level symptoms, medication complexity, or situations needing clinical support.",
+      "decision_group": "Situational anxiety support",
+      "display_order": 1,
+      "published": true
+    },
+    {
+      "claim_id": "l-theanine-racing-thoughts",
+      "ingredient_slug": "l-theanine",
+      "ingredient_name": "L-Theanine",
+      "anxiety_problem": "racing_thoughts",
+      "claim_statement": "L-theanine may reduce cognitive over-activity or worry-loop patterns associated with racing thoughts.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "L-theanine is associated with increased alpha-wave activity in human EEG studies, correlating with a relaxed but alert mental state.",
+      "limitations": "Effects on cognitive rumination are indirect; most evidence focuses on relaxation or stress markers rather than thought patterns directly.",
+      "best_fit": "Evening rumination or mild cognitive tension where sedation is not desired.",
+      "not_best_fit": "Diagnosed anxiety disorders, medication review contexts, or severe panic presentations.",
+      "decision_group": "Cognitive anxiety support",
+      "display_order": 2,
+      "published": true
+    },
+    {
+      "claim_id": "ashwagandha-anticipatory-worry",
+      "ingredient_slug": "ashwagandha",
+      "ingredient_name": "Ashwagandha",
+      "anxiety_problem": "anticipatory_worry",
+      "claim_statement": "Ashwagandha has the clearest anxiety fit when the pattern is anticipatory or ongoing worry rather than acute event-linked nervousness.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "Randomized trials in adults with generalized anxiety or perceived stress report improvements on anxiety scale scores, with some cortisol-related signals.",
+      "limitations": "Trials vary by extract, dose, population, and sponsorship; safety context matters more for anxiety than broad adaptogen framing suggests.",
+      "best_fit": "Persistent anticipatory or trait-level worry where a delayed-onset adaptogen experiment is acceptable.",
+      "not_best_fit": "Pregnancy, breastfeeding, liver concerns, autoimmune or thyroid complexity, or bipolar-spectrum risk without clinician guidance.",
+      "decision_group": "Anticipatory anxiety support",
+      "display_order": 3,
+      "published": true
+    },
+    {
+      "claim_id": "magnesium-physical-tension",
+      "ingredient_slug": "magnesium",
+      "ingredient_name": "Magnesium",
+      "anxiety_problem": "physical_tension",
+      "claim_statement": "Magnesium is most decision-useful for anxiety when somatic tension, muscle tightness, or low-intake signals are part of the presentation.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Reviews suggest possible anxiolytic and somatic tension benefits in low-magnesium or combined-nutrient contexts; physical anxiety symptoms may respond to magnesium status correction.",
+      "limitations": "Benefits are not uniform, many studies use combinations, and form, dose, kidney status, and gastrointestinal tolerance matter.",
+      "best_fit": "A conservative first-step when physical tension or low dietary magnesium is plausible.",
+      "not_best_fit": "Kidney disease, severe or clinical anxiety, or expectations of direct sedation.",
+      "decision_group": "Physical anxiety support",
+      "display_order": 4,
+      "published": true
+    },
+    {
+      "claim_id": "passionflower-racing-thoughts",
+      "ingredient_slug": "passionflower",
+      "ingredient_name": "Passionflower",
+      "anxiety_problem": "racing_thoughts",
+      "claim_statement": "Passionflower is a plausible option when racing thoughts or cognitive restlessness dominate the anxiety pattern.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Small human RCTs in generalized anxiety and pre-procedure contexts report comparable improvement to low-dose benzodiazepines, with sedation as a noted effect.",
+      "limitations": "Evidence base is small and studies are dated; sedation risk and surgical or drug interaction contexts require careful review.",
+      "best_fit": "Cognitive or mental arousal-dominant anxiety where a sedative effect is acceptable.",
+      "not_best_fit": "Pregnancy, breastfeeding, pre-surgical settings, CNS medication complexity, or known sedative sensitivity.",
+      "decision_group": "Cognitive anxiety support",
+      "display_order": 5,
+      "published": true
+    },
+    {
+      "claim_id": "lemon-balm-situational-nervousness",
+      "ingredient_slug": "lemon-balm",
+      "ingredient_name": "Lemon Balm",
+      "anxiety_problem": "situational_nervousness",
+      "claim_statement": "Lemon balm is a mild first-step option for situational nervousness where a strong sedating effect is not desired.",
+      "confidence_tier": "limited_human",
+      "evidence_summary": "Human studies report modest reductions in self-reported anxiety and mood-related stress at typical extract doses, with a tolerability profile supportive of low-stakes use.",
+      "limitations": "Evidence is limited and studies are small; effects may be too subtle for moderate-to-severe presentations.",
+      "best_fit": "Low-stakes situational anxiety where tolerability and mild calming are priorities.",
+      "not_best_fit": "Clinical-level anxiety, medication complexity, or situations where sedation risk is a concern.",
+      "decision_group": "Situational anxiety support",
+      "display_order": 6,
+      "published": true
+    },
+    {
+      "claim_id": "kava-situational-nervousness",
+      "ingredient_slug": "kava",
+      "ingredient_name": "Kava",
+      "anxiety_problem": "situational_nervousness",
+      "claim_statement": "Kava has the strongest acute anxiolytic evidence among the botanical options but carries a liver safety signal that changes the risk calculus.",
+      "confidence_tier": "moderate_human",
+      "evidence_summary": "Meta-analyses and systematic reviews report significant anxiolytic effects in generalized anxiety, with effect sizes comparable to pharmaceutical comparators in some studies.",
+      "limitations": "Liver toxicity reports -- though debated -- require clinical safety screening before use; long-term safety is not established for regular use.",
+      "best_fit": "Short-term situational anxiety in adults who have screened liver status and reviewed medication interactions.",
+      "not_best_fit": "Liver disease, alcohol use, CNS depressant combinations, pregnancy, or chronic use without medical guidance.",
+      "decision_group": "Situational anxiety support",
+      "display_order": 7,
+      "published": true
+    }
+  ],
+  "safetyNotes": [
+    {
+      "safety_id": "ashwagandha-liver-autoimmune-anx",
+      "ingredient_slug": "ashwagandha",
+      "risk_type": "liver",
+      "severity": "moderate",
+      "warning": "Rare liver-injury reports and immunomodulatory activity make liver disease, autoimmune conditions, and thyroid medication contexts relevant safety checks.",
+      "decision_effect": "Pause self-directed use when autoimmune disease, thyroid complexity, or liver risk context is present.",
+      "published": true
+    },
+    {
+      "safety_id": "ashwagandha-pregnancy-breastfeeding-anx",
+      "ingredient_slug": "ashwagandha",
+      "risk_type": "pregnancy_breastfeeding",
+      "severity": "high",
+      "warning": "Pregnancy and breastfeeding are poor contexts for self-directed ashwagandha use.",
+      "decision_effect": "Do not use ashwagandha as a self-directed anxiety experiment in pregnancy or breastfeeding.",
+      "published": true
+    },
+    {
+      "safety_id": "kava-hepatotoxicity",
+      "ingredient_slug": "kava",
+      "risk_type": "liver",
+      "severity": "high",
+      "warning": "Rare but serious liver injury reports have been documented with kava use, including cases of liver failure.",
+      "decision_effect": "Avoid self-directed kava use when liver disease, abnormal liver labs, or history of liver injury is present; screen liver status before use.",
+      "published": true
+    },
+    {
+      "safety_id": "kava-cns-interactions",
+      "ingredient_slug": "kava",
+      "risk_type": "sedative_stacking",
+      "severity": "moderate",
+      "warning": "Kava potentiates CNS depressants, alcohol, and sedating medications in an additive or synergistic way.",
+      "decision_effect": "Avoid combining kava with alcohol, benzodiazepines, opioids, or other sedating agents.",
+      "published": true
+    },
+    {
+      "safety_id": "l-theanine-sedative-stacking-anx",
+      "ingredient_slug": "l-theanine",
+      "risk_type": "sedative_stacking",
+      "severity": "moderate",
+      "warning": "Stacking L-theanine with sedatives, alcohol, or multiple calming agents can make effects less predictable.",
+      "decision_effect": "Avoid stacking until the single-ingredient response and medication context are clear.",
+      "published": true
+    },
+    {
+      "safety_id": "lemon-balm-sedative-stacking",
+      "ingredient_slug": "lemon-balm",
+      "risk_type": "sedative_stacking",
+      "severity": "moderate",
+      "warning": "Lemon balm has mild sedative properties and may interact additively with other calming or sedating agents.",
+      "decision_effect": "Avoid stacking lemon balm with alcohol, benzodiazepines, or other sedating supplements until single-ingredient response is established.",
+      "published": true
+    },
+    {
+      "safety_id": "magnesium-kidney-disease-anx",
+      "ingredient_slug": "magnesium",
+      "risk_type": "kidney_disease",
+      "severity": "high",
+      "warning": "Kidney disease changes magnesium handling and can make supplementation unsafe without clinician guidance.",
+      "decision_effect": "Do not use magnesium as a self-directed anxiety experiment with kidney disease.",
+      "published": true
+    },
+    {
+      "safety_id": "passionflower-pregnancy-cns",
+      "ingredient_slug": "passionflower",
+      "risk_type": "pregnancy_breastfeeding",
+      "severity": "high",
+      "warning": "Passionflower is contraindicated in pregnancy; sedative properties also require review before combining with CNS medications.",
+      "decision_effect": "Do not use passionflower during pregnancy; review CNS medication combinations before use.",
+      "published": true
+    }
+  ],
+  "sourcesByClaim": {
+    "l-theanine-situational-nervousness": [
+      {
+        "source_id": "src-theanine-kimura-2007-anx",
+        "claim_id": "l-theanine-situational-nervousness",
+        "citation_label": "Kimura 2007",
+        "source_type": "randomized_trial",
+        "title": "L-Theanine reduces psychological and physiological stress responses",
+        "year": 2007,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
+        "source_note": "Small human acute stress task study; supporting evidence for acute situational anxiety framing.",
+        "published": true
+      }
+    ],
+    "l-theanine-racing-thoughts": [
+      {
+        "source_id": "src-theanine-hidese-2019-anx",
+        "claim_id": "l-theanine-racing-thoughts",
+        "citation_label": "Hidese 2019",
+        "source_type": "randomized_trial",
+        "title": "Effects of L-theanine administration on stress-related symptoms and cognitive functions in healthy adults",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31623400/",
+        "source_note": "Human trial with mental health and sleep-quality measures; supports cognitive tension and worry-loop framing.",
+        "published": true
+      }
+    ],
+    "ashwagandha-anticipatory-worry": [
+      {
+        "source_id": "src-ashwagandha-chandrasekhar-2012",
+        "claim_id": "ashwagandha-anticipatory-worry",
+        "citation_label": "Chandrasekhar 2012",
+        "source_type": "randomized_trial",
+        "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults",
+        "year": 2012,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
+        "source_note": "Randomized trial in stressed adults using validated anxiety and stress scales; strong methodological basis for anticipatory worry framing.",
+        "published": true
+      }
+    ],
+    "magnesium-physical-tension": [
+      {
+        "source_id": "src-magnesium-boyle-2017-anx",
+        "claim_id": "magnesium-physical-tension",
+        "citation_label": "Boyle 2017",
+        "source_type": "systematic_review",
+        "title": "The effects of magnesium supplementation on subjective anxiety and stress",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28445426/",
+        "source_note": "Systematic review of subjective anxiety and stress evidence; highlights physical tension and low-intake subgroup signals.",
+        "published": true
+      }
+    ],
+    "passionflower-racing-thoughts": [
+      {
+        "source_id": "src-passionflower-akhondzadeh-2001",
+        "claim_id": "passionflower-racing-thoughts",
+        "citation_label": "Akhondzadeh 2001",
+        "source_type": "randomized_trial",
+        "title": "Passionflower in the treatment of generalized anxiety: a pilot double-blind randomized controlled trial with oxazepam",
+        "year": 2001,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11749919/",
+        "source_note": "Small RCT comparing passionflower to oxazepam in generalized anxiety; supports racing-thoughts and cognitive-restlessness framing.",
+        "published": true
+      }
+    ],
+    "lemon-balm-situational-nervousness": [
+      {
+        "source_id": "src-lemon-balm-cases-2011",
+        "claim_id": "lemon-balm-situational-nervousness",
+        "citation_label": "Cases 2011",
+        "source_type": "randomized_trial",
+        "title": "Pilot trial of Melissa officinalis L. leaf extract in the treatment of volunteers suffering from mild-to-moderate anxiety disorders and sleep disturbances",
+        "year": 2011,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21485452/",
+        "source_note": "Pilot human trial of lemon balm for mild-to-moderate anxiety; modest effect size supports low-stakes situational use.",
+        "published": true
+      }
+    ],
+    "kava-situational-nervousness": [
+      {
+        "source_id": "src-kava-pittler-2003",
+        "claim_id": "kava-situational-nervousness",
+        "citation_label": "Pittler 2003",
+        "source_type": "systematic_review",
+        "title": "Kava extract for treating anxiety",
+        "year": 2003,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12917907/",
+        "source_note": "Cochrane-style systematic review of kava for anxiety; provides the clearest aggregate evidence for anxiolytic effect.",
+        "published": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "slug": "chamomile",
+  "name": "Chamomile",
+  "summary": "Decision-ready summary: Chamomile is best framed for sleep relaxation; mild anxiety; digestive discomfort; safety screen: ragweed-family allergy; sedatives; pregnancy caution.",
+  "description": "Chamomile supports sleep; calm; digestion with moderate confidence in this merged decision layer.",
+  "effects": [
+    "anxiety",
+    "sleep"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "sleep"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "ragweed-family allergy",
+    "sedatives",
+    "pregnancy caution"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Chamomile extract 220–1500 mg/day in GAD trials; tea dosing is product-dependent",
+  "typical_dosage": "Chamomile extract 220–1500 mg/day in GAD trials; tea dosing is product-dependent",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress-related sleep support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=chamomile+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Chamomile supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Matricaria recutita/chamomilla extract",
+    "apigenin/flavonoid standardization preferred",
+    "avoid vague calming blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

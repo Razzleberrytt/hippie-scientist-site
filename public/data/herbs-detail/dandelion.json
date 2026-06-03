@@ -1,0 +1,34 @@
+{
+  "name": "Dandelion",
+  "slug": "dandelion",
+  "summary": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+  "description": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+  "primaryActions": [
+    "digestive",
+    "diuretic"
+  ],
+  "mechanisms": [
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Asteraceae allergy",
+    "bile duct obstruction",
+    "serious kidney disease unless supervised",
+    "pregnancy/breastfeeding without clinician review."
+  ],
+  "interactions": [
+    "Diuretics",
+    "lithium",
+    "antihypertensives",
+    "glucose-lowering therapy",
+    "theoretical quinolone absorption concern and additive GI irritation possible."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

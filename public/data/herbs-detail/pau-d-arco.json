@@ -1,0 +1,29 @@
+{
+  "name": "Pau D'arco",
+  "slug": "pau-d-arco",
+  "summary": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter.",
+  "description": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter.",
+  "primaryActions": [
+    "immune",
+    "antimicrobial"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

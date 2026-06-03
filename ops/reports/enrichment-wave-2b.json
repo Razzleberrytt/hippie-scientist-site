@@ -1,0 +1,172 @@
+{
+  "generatedAt": "2026-03-31T02:16:47.108Z",
+  "deterministicModelVersion": "enrichment-wave-2b-summary-v1",
+  "originalWave2BlockersPath": "ops/reports/enrichment-wave-2-blockers.json",
+  "wave2bTargets": [
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "selectionWhy": "Metadata-fixable wave-2 candidate with promotable non-duplicate systematic safety evidence.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "selectionWhy": "Metadata-fixable non-duplicate mechanism candidate with governance-safe research-gap framing.",
+      "highestPriorityMissingTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "selectionWhy": "Metadata-fixable non-duplicate interaction/safety candidate likely to produce immediate governed delta.",
+      "highestPriorityMissingTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ]
+    }
+  ],
+  "approvedNewSourceCount": 3,
+  "approvedNewSourceIds": [
+    "src_doi-10-1002-ptrr-2023-4419",
+    "src_doi-10-1016-j-molnpharm-2025-07-004",
+    "src_doi-10-3389-nprev-2024-220103"
+  ],
+  "approvedPromotedNewEnrichmentEntryCount": 3,
+  "approvedPromotedSubmissionIds": [
+    "sub_wave2b-mandrake-research-gap-safety-toxicology-2023",
+    "sub_wave2b-cbd-research-gap-mechanism-atlas-2025",
+    "sub_wave2b-luteolin-research-gap-ddi-safety-2024"
+  ],
+  "coverageDeltas": [
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "beforeGovernedEntries": 1,
+      "afterGovernedEntries": 2,
+      "deltaGovernedEntries": 1,
+      "beforeTopicCoverage": {
+        "evidence": 1,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 2,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "beforeGovernedEntries": 1,
+      "afterGovernedEntries": 2,
+      "deltaGovernedEntries": 1,
+      "beforeTopicCoverage": {
+        "evidence": 1,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 2,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "beforeGovernedEntries": 1,
+      "afterGovernedEntries": 2,
+      "deltaGovernedEntries": 1,
+      "beforeTopicCoverage": {
+        "evidence": 1,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      },
+      "afterTopicCoverage": {
+        "evidence": 2,
+        "safety": 0,
+        "mechanism": 0,
+        "constituent": 0
+      }
+    }
+  ],
+  "remainingUnresolvedCriticalGapsAfterWave2b": [
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "unresolvedCriticalTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ],
+      "stillBlockedFromStrongCoverage": true
+    }
+  ]
+}

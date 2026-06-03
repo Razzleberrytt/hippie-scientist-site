@@ -1,0 +1,22 @@
+{
+  "id": "beta-sitosterol",
+  "slug": "beta-sitosterol",
+  "name": "Beta-sitosterol",
+  "summary": "Decision-ready summary: Beta-sitosterol is best framed for BPH urinary symptoms; cholesterol support; safety screen: sitosterolemia; fat-soluble vitamin absorption concerns.",
+  "description": "Beta-sitosterol supports prostate; cholesterol with moderate-high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

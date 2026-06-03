@@ -1,0 +1,23 @@
+{
+  "id": "black-seed",
+  "slug": "black-seed",
+  "name": "Black seed / Nigella sativa",
+  "summary": "Decision-ready summary: Black seed / Nigella sativa is best framed for metabolic markers; inflammation support; allergic rhinitis support; safety screen: pregnancy high-dose caution; anticoagulants; low blood pressure.",
+  "description": "Black seed / Nigella sativa supports metabolic; inflammation; allergy with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

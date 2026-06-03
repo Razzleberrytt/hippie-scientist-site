@@ -1,0 +1,81 @@
+{
+  "slug": "methylfolate",
+  "name": "Methylfolate",
+  "summary": "Adjunctive L-methylfolate improves depressive symptoms in some patients.",
+  "description": "Adjunctive L-methylfolate improves depressive symptoms in some patients.",
+  "effects": [
+    "mood"
+  ],
+  "primary_effects": [
+    "mood"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Caution with B12 deficiency masking."
+  ],
+  "interactions": [
+    "Caution with B12 deficiency masking."
+  ],
+  "side_effects": [],
+  "dosage": "7.5-15 mg/day",
+  "typical_dosage": "7.5-15 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only profile",
+    "not enough human evidence for a consumer recommendation"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=methylfolate+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Methylfolate supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

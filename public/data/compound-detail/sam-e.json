@@ -1,0 +1,91 @@
+{
+  "slug": "sam-e",
+  "name": "SAM-e",
+  "summary": "Decision-ready summary: SAM-e is best framed for depressive symptoms support; osteoarthritis discomfort; methylation context; safety screen: bipolar disorder; MAOIs; serotonergic medications.",
+  "description": "SAM-e supports mood; joint; methylation with high confidence in this merged decision layer.",
+  "effects": [
+    "joints",
+    "mood"
+  ],
+  "primary_effects": [
+    "joints",
+    "mood"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Vascular function support"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "cardiovascular"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate-high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "bipolar disorder",
+    "MAOIs",
+    "serotonergic medications"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "400–1600 mg/day",
+  "typical_dosage": "400–1600 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority mood-support profile with medication interaction concerns"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=sam-e+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "SAM-e supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Enteric-coated SAM-e",
+    "clearly labeled mg",
+    "store properly",
+    "avoid methylation/hormone blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

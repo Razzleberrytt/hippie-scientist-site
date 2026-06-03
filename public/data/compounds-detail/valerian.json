@@ -1,0 +1,19 @@
+{
+  "id": "valerian",
+  "slug": "valerian",
+  "name": "Valerian",
+  "summary": "Valerian entry from SciSpace evidence pass. Evidence level: low-moderate.",
+  "description": "Valerian is cataloged as sedative botanical. Reported mechanisms: GABAergic modulation; possible inhibition of GABA breakdown/reuptake.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

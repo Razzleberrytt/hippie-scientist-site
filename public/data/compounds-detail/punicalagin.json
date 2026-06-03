@@ -1,0 +1,20 @@
+{
+  "id": "punicalagin",
+  "slug": "punicalagin",
+  "name": "punicalagin",
+  "summary": "Major ellagitannin from pomegranate with strong polyphenolic bioactivity.",
+  "description": "Major ellagitannin from pomegranate with strong polyphenolic bioactivity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

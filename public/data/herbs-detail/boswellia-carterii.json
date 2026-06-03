@@ -1,0 +1,28 @@
+{
+  "name": "Boswellia Carterii",
+  "slug": "boswellia-carterii",
+  "summary": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
+  "description": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

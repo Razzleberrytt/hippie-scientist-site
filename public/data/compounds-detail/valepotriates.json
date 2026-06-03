@@ -1,0 +1,22 @@
+{
+  "id": "valepotriates",
+  "slug": "valepotriates",
+  "name": "valepotriates",
+  "summary": "Valerian iridoid ester fraction associated with sedative and stress-signaling effects.",
+  "description": "Valerian iridoid ester fraction associated with sedative and stress-signaling effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Ophiopogon",
+  "slug": "ophiopogon",
+  "summary": "It is best framed as a moistening tonic-style root with traditional-system relevance.",
+  "description": "It is best framed as a moistening tonic-style root with traditional-system relevance.",
+  "primaryActions": [
+    "respiratory",
+    "tonic"
+  ],
+  "mechanisms": [
+    "demulcent support",
+    "traditional respiratory support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

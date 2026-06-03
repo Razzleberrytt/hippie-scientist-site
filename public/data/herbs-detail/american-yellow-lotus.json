@@ -1,0 +1,30 @@
+{
+  "name": "American Yellow Lotus",
+  "slug": "american-yellow-lotus",
+  "summary": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+  "description": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+  "primaryActions": [
+    "sleep",
+    "stress"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,21 @@
+{
+  "id": "kava",
+  "slug": "kava",
+  "name": "Kava",
+  "summary": "Decision-ready summary: Kava is best framed for short-term anxiety reduction; relaxation without classic stimulation; safety screen: liver disease; alcohol; hepatotoxic medications; pregnancy.",
+  "description": "Kava supports anxiety; relaxation with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

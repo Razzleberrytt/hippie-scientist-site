@@ -1,0 +1,19 @@
+{
+  "id": "wild-dagga",
+  "slug": "wild-dagga",
+  "name": "Wild Dagga Leonotis leonurus",
+  "summary": "Wild dagga has insufficient clinical evidence; reported cannabinoid-like effects remain poorly established.",
+  "description": "Ethnobotanical Leonotis species with sparse pharmacological literature and no robust human trials.",
+  "compoundClass": "",
+  "mechanisms": [
+    "proposed cannabinoid-like effects",
+    "limited pharmacological data"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

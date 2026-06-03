@@ -1,0 +1,27 @@
+{
+  "name": "Saw Palmetto Serenoa repens",
+  "slug": "saw-palmetto",
+  "summary": "Saw Palmetto centers on the berry.",
+  "description": "Saw Palmetto centers on the berry. Key reported compounds include fatty acids; phytosterols (beta-sitosterol).",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "hormone-sensitive conditions (theoretical)"
+  ],
+  "interactions": [
+    "anticoagulants (limited evidence)"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

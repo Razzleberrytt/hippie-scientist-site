@@ -1,0 +1,33 @@
+{
+  "name": "Blueberry",
+  "slug": "blueberry",
+  "summary": "blueberry is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "cognitive"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "AMPK Signaling"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulant use without review for high-dose extracts",
+    "diabetes medication monitoring if large intake changes"
+  ],
+  "interactions": [
+    "Potential additive effects with antidiabetics or anticoagulants in concentrated extracts."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

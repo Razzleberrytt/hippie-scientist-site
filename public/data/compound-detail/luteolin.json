@@ -1,0 +1,110 @@
+{
+  "slug": "luteolin",
+  "name": "luteolin",
+  "summary": "Flavone associated with thyme and artichoke, commonly linked to NF-κB and MAPK signaling.",
+  "description": "Flavone associated with thyme and artichoke, commonly linked to NF-κB and MAPK signaling.",
+  "effects": [
+    "anxiety",
+    "focus"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "focus"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Vascular function support",
+    "Immune modulation",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "immune",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "redox/mitochondrial",
+    "mitochondrial",
+    "cardiovascular",
+    "immune-system",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "well tolerated with low toxicity reported",
+    "well tolerated with minimal adverse effects",
+    "well tolerated with low toxicity profile",
+    "Mostly preclinical and extract-derived. Use caution with sedatives",
+    "anticoagulants/antiplatelets",
+    "and liver d"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "100-200 mg/day",
+  "typical_dosage": "100-200 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=luteolin+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "luteolin supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "research_archive_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:research_archive_runtime"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

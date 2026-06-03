@@ -1,0 +1,28 @@
+{
+  "name": "Curcumin",
+  "slug": "curcumin",
+  "summary": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "analgesic"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulants"
+  ],
+  "interactions": [
+    "Anticoagulants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

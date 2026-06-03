@@ -1,0 +1,20 @@
+{
+  "id": "sam-e",
+  "slug": "sam-e",
+  "name": "SAM-e",
+  "summary": "Decision-ready summary: SAM-e is best framed for depressive symptoms support; osteoarthritis discomfort; methylation context; safety screen: bipolar disorder; MAOIs; serotonergic medications.",
+  "description": "SAM-e supports mood; joint; methylation with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

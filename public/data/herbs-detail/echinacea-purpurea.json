@@ -1,0 +1,28 @@
+{
+  "name": "Echinacea Echinacea purpurea",
+  "slug": "echinacea-purpurea",
+  "summary": "Echinacea Purpurea centers on the unspecified.",
+  "description": "Echinacea Purpurea centers on the unspecified. Key reported compounds include alkamides; chicoric acid; echinacoside; caffeic acid; cynarin.",
+  "primaryActions": [
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "autoimmune conditions (theoretical)",
+    "ragweed allergy"
+  ],
+  "interactions": [
+    "immunosuppressants (theoretical)"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

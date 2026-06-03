@@ -1,0 +1,30 @@
+{
+  "name": "Elderberry",
+  "slug": "elderberry",
+  "summary": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+  "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+  "primaryActions": [
+    "antiviral",
+    "respiratory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Autoimmune/transplant immunosuppression without clinician review",
+    "pregnancy/breastfeeding without guidance"
+  ],
+  "interactions": [
+    "May counter immunosuppressants",
+    "caution with diuretics or antidiabetics depending product."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

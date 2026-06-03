@@ -1,0 +1,23 @@
+{
+  "id": "cafestol",
+  "slug": "cafestol",
+  "name": "cafestol",
+  "summary": "Coffee diterpene best known from coffee lipids and studied for xenobiotic-response and inflammatory signaling effects.",
+  "description": "Coffee diterpene best known from coffee lipids and studied for xenobiotic-response and inflammatory signaling effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

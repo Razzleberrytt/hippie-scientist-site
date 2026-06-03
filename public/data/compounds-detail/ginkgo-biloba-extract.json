@@ -1,0 +1,19 @@
+{
+  "id": "ginkgo-biloba-extract",
+  "slug": "ginkgo-biloba-extract",
+  "name": "Ginkgo Biloba Extract",
+  "summary": "Modest improvement in cognitive function in dementia.",
+  "description": "Modest improvement in cognitive function in dementia.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

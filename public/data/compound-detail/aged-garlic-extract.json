@@ -1,0 +1,114 @@
+{
+  "slug": "aged-garlic-extract",
+  "name": "Aged Garlic Extract",
+  "summary": "Aged garlic extract reduces systolic and diastolic blood pressure in hypertensive patients.",
+  "description": "Aged garlic extract reduces systolic and diastolic blood pressure in hypertensive patients.",
+  "effects": [
+    "blood_pressure",
+    "cardiovascular"
+  ],
+  "primary_effects": [
+    "blood_pressure",
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Lipid Metabolism Support",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Metabolic regulation",
+    "Vascular function support",
+    "HPA-axis modulation",
+    "Lipid metabolism support",
+    "Nitric oxide modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "metabolic",
+    "cardiovascular",
+    "stress/neuroendocrine",
+    "metabolic/cardiovascular",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Caution with anticoagulants."
+  ],
+  "interactions": [
+    "Caution with anticoagulants."
+  ],
+  "side_effects": [],
+  "dosage": "Aged garlic extract commonly 600–1200 mg/day in BP/lipid studies",
+  "typical_dosage": "Aged garlic extract commonly 600–1200 mg/day in BP/lipid studies",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority blood-pressure/cholesterol support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=aged-garlic-extract+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Aged garlic extract preferred",
+    "S-allyl cysteine or aged-extract identity disclosed",
+    "avoid odorless vague garlic products"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

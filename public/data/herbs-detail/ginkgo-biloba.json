@@ -1,0 +1,30 @@
+{
+  "name": "Ginkgo",
+  "slug": "ginkgo-biloba",
+  "summary": "Ginkgo Biloba centers on the leaf.",
+  "description": "Ginkgo Biloba centers on the leaf. Key reported compounds include ginkgolides A, B, C, J; bilobalide; ginkgetin; bilobetin; sciadopitysin.",
+  "primaryActions": [
+    "cognitive",
+    "cardiovascular",
+    "neuroprotective"
+  ],
+  "mechanisms": [
+    "Vascular Function Support",
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulants",
+    "SSRIs"
+  ],
+  "interactions": [
+    "Anticoagulants",
+    "SSRIs"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

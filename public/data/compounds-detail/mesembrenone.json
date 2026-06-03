@@ -1,0 +1,19 @@
+{
+  "id": "mesembrenone",
+  "slug": "mesembrenone",
+  "name": "mesembrenone",
+  "summary": "Kanna alkaloid closely related to mesembrine and associated with serotonin-reuptake and PDE4 effects.",
+  "description": "Kanna alkaloid closely related to mesembrine and associated with serotonin-reuptake and PDE4 effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

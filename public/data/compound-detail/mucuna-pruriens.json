@@ -1,0 +1,85 @@
+{
+  "slug": "mucuna-pruriens",
+  "name": "Mucuna pruriens",
+  "summary": "Decision-ready summary: Mucuna pruriens is best framed for dopamine precursor support; Parkinsonian context; mood/motivation context; safety screen: psychosis/bipolar risk; levodopa medications; MAOIs.",
+  "description": "Mucuna pruriens supports dopamine; mood; movement with moderate confidence in this merged decision layer.",
+  "effects": [
+    "mens_health",
+    "mood"
+  ],
+  "primary_effects": [
+    "mens_health",
+    "mood"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "psychosis/bipolar risk",
+    "levodopa medications",
+    "MAOIs"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Clinical dosing is context-specific and L-DOPA-dependent; not suitable for generic consumer dosing",
+  "typical_dosage": "Clinical dosing is context-specific and L-DOPA-dependent; not suitable for generic consumer dosing",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only dopamine/libido profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=mucuna-pruriens+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Mucuna pruriens supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote casually",
+    "L-DOPA percentage must be disclosed",
+    "clinician guidance needed"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

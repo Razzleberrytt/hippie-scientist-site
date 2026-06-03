@@ -1,0 +1,20 @@
+{
+  "id": "gymnemic-acid",
+  "slug": "gymnemic-acid",
+  "name": "gymnemic acid",
+  "summary": "Triterpenoid saponin complex from gymnema linked to intestinal glucose handling.",
+  "description": "Triterpenoid saponin complex from gymnema linked to intestinal glucose handling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

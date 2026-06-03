@@ -1,0 +1,21 @@
+{
+  "id": "bergapten",
+  "slug": "bergapten",
+  "name": "bergapten",
+  "summary": "Methoxypsoralen constituent of citrus and Psoralea commonly linked to MAPK and inflammatory pathway modulation.",
+  "description": "Methoxypsoralen constituent of citrus and Psoralea commonly linked to MAPK and inflammatory pathway modulation.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

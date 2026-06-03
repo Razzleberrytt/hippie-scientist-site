@@ -1,0 +1,100 @@
+{
+  "slug": "creatine",
+  "name": "Creatine",
+  "summary": "Decision-ready summary: Creatine is best framed for strength and power output; lean mass support; cognitive fatigue resistance; safety screen: advanced kidney disease; active renal monitoring concerns.",
+  "description": "Creatine supports strength; muscle; cognitive fatigue with high confidence in this merged decision layer.",
+  "effects": [
+    "performance",
+    "strength"
+  ],
+  "primary_effects": [
+    "performance",
+    "strength"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "mitochondrial",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "high",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "advanced kidney disease",
+    "active renal monitoring concerns"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "3-5",
+  "typical_dosage": "3-5",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for strength/power performance support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_url": "https://www.amazon.com/s?k=creatine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "creatine supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "https://www.amazon.com/s?k=creatine+monohydrate+powder+micronized+third+party+tested",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Creatine monohydrate only",
+    "3–5 g/day serving",
+    "micronized optional",
+    "avoid stimulant/proprietary blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

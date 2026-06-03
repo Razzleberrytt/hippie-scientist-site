@@ -1,0 +1,87 @@
+{
+  "patch_id": "patch_01KN5FQN4ZJQQFNFGKW40PX45P",
+  "producer": "evidence-acquisition-engine@v1",
+  "lane": "B",
+  "created_at": "2026-04-01T21:38:31.199Z",
+  "operations": [
+    {
+      "op": "set",
+      "task": "link_integrity",
+      "entity_type": "herb",
+      "entity_id": "belladonna",
+      "field": "/activeCompounds",
+      "value": [
+        "atropine",
+        "scopolamine"
+      ]
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "belladonna",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5FQN4Z8DG62AAY1Q7P5Y9K",
+        "claim": "[effects] analgesic activity",
+        "source_ids": [
+          "src_01KN5FQN4ZXY63YTTQQ2ZQ0HV8"
+        ]
+      }
+    },
+    {
+      "op": "append",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "belladonna",
+      "field": "/claims/-",
+      "value": {
+        "id": "clm_01KN5FQN4Z5VGR9N7QMYY3QHDA",
+        "claim": "[contraindications] toxicity concern",
+        "source_ids": [
+          "src_01KN5FQN4ZJ4NVB5DXT7GBAY36"
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "belladonna",
+      "field": "/_provenance",
+      "value": {
+        "run_id": "run_01KN5FK3NRDP1JQG9BCXJB9WRH",
+        "sources": [
+          {
+            "id": "src_01KN5FQN4ZD14BJK9X2134K81E",
+            "title": "Atropa belladonna neurotoxicity: Implications to neurological disorders.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29653183/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5FQN4ZXY63YTTQQ2ZQ0HV8",
+            "title": "Oral antihistamine-decongestant-analgesic combinations for the common cold.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35060618/",
+            "evidenceClass": "human-clinical"
+          },
+          {
+            "id": "src_01KN5FQN4ZJ4NVB5DXT7GBAY36",
+            "title": "Dark Classics in Chemical Neuroscience: An Evidence-Based Systematic Review of Belladonna.",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/32662978/",
+            "evidenceClass": "human-clinical"
+          }
+        ]
+      }
+    },
+    {
+      "op": "set",
+      "task": "herb_mechanism",
+      "entity_type": "herb",
+      "entity_id": "belladonna",
+      "field": "/_review",
+      "value": {
+        "status": "pending"
+      }
+    }
+  ]
+}

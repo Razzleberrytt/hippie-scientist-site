@@ -1,0 +1,30 @@
+{
+  "name": "Asian Ginseng",
+  "slug": "panax-ginseng",
+  "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+  "description": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+  "primaryActions": [
+    "cognitive",
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neuroprotective Activity",
+    "Glucose Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Stimulants",
+    "anticoagulants"
+  ],
+  "interactions": [
+    "Stimulants",
+    "anticoagulants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

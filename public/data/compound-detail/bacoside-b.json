@@ -1,0 +1,106 @@
+{
+  "slug": "bacoside-b",
+  "name": "bacoside b",
+  "summary": "Bacopa saponin fraction linked to cognition-related signaling.",
+  "description": "Bacopa saponin fraction linked to cognition-related signaling.",
+  "effects": [
+    "cognition",
+    "focus"
+  ],
+  "primary_effects": [
+    "cognition",
+    "focus"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Cellular protection",
+    "Immune modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "metabolic",
+    "cellular resilience",
+    "immune-system",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "c",
+  "evidence_tier": "Limited Human Evidence",
+  "contraindications": [
+    "Use caution with sedatives",
+    "thyroid medication",
+    "bradycardia",
+    "GI sensitivity",
+    "pregnancy/breastfeeding",
+    "and anticholinergic/cholinergic drugs"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "300 mg/day standardized Bacopa monnieri extract in many cognition trials",
+  "typical_dosage": "300 mg/day standardized Bacopa monnieri extract in many cognition trials",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for memory and learning support when used consistently for 8–12+ weeks"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=bacoside-b+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "bacoside b supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized bacosides disclosed",
+    "300 mg/day extract-style dose",
+    "avoid raw powder products without bacoside standardization"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

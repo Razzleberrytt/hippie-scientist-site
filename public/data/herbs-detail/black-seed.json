@@ -1,0 +1,37 @@
+{
+  "name": "Black Seed",
+  "slug": "black-seed",
+  "summary": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+  "description": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+  "primaryActions": [
+    "antioxidant",
+    "cardiovascular",
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy at supplemental/high doses",
+    "known allergy",
+    "hypoglycemia-prone patients without monitoring."
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "possible additive metabolic or sedative effects."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

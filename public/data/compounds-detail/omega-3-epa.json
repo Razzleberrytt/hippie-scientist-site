@@ -1,0 +1,22 @@
+{
+  "id": "omega-3-epa",
+  "slug": "omega-3-epa",
+  "name": "Omega-3 EPA",
+  "summary": "High-dose EPA significantly reduces major cardiovascular events.",
+  "description": "High-dose EPA significantly reduces major cardiovascular events.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Neuroprotective Activity",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

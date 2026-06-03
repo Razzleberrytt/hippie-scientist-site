@@ -1,0 +1,23 @@
+{
+  "id": "turmeric-curcumin-piperine",
+  "slug": "turmeric-curcumin-piperine",
+  "name": "Turmeric Curcumin + Piperine",
+  "summary": "Curcumin plus piperine improves curcumin bioavailability and has moderate evidence for inflammation and osteoarthritis pain outcomes.",
+  "description": "Enhanced-bioavailability curcumin formulation using piperine to increase absorption.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,103 @@
+{
+  "slug": "l-theanine",
+  "name": "L-theanine",
+  "summary": "Decision-ready summary: L-theanine is best framed for acute relaxation; calm focus; caffeine smoothing; safety screen: low blood pressure; sedative stacking caution.",
+  "description": "L-theanine supports calm; focus; stress with high confidence in this merged decision layer.",
+  "effects": [
+    "focus",
+    "stress"
+  ],
+  "primary_effects": [
+    "focus",
+    "stress"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Vascular function support",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "cardiovascular",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "moderate-high",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "low blood pressure",
+    "sedative stacking caution"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "100-400",
+  "typical_dosage": "100-400",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for calm-focus support especially with caffeine"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_url": "https://www.amazon.com/s?k=l-theanine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "L-Theanine supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "https://www.amazon.com/s?k=l-theanine+supplement+third+party+tested+suntheanine",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Pure L-theanine",
+    "100–200 mg per serving",
+    "caffeine-free unless intentionally paired"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

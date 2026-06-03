@@ -1,0 +1,27 @@
+{
+  "name": "Soursop",
+  "slug": "soursop",
+  "summary": "It must be framed carefully because anticancer folklore claims greatly exceed evidence and safety certainty.",
+  "description": "It must be framed carefully because anticancer folklore claims greatly exceed evidence and safety certainty.",
+  "primaryActions": [
+    "antioxidant"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

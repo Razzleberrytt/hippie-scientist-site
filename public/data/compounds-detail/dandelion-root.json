@@ -1,0 +1,18 @@
+{
+  "id": "dandelion-root",
+  "slug": "dandelion-root",
+  "name": "Dandelion Root",
+  "summary": "Dandelion root is traditionally used for digestive and diuretic support, but human clinical evidence is minimal.",
+  "description": "Taraxacum officinale root with mostly traditional/preclinical support.",
+  "compoundClass": "",
+  "mechanisms": [
+    "mild choleretic/diuretic effects (preclinical/traditional)"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

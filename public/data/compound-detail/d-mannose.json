@@ -1,0 +1,78 @@
+{
+  "slug": "d-mannose",
+  "name": "D-Mannose",
+  "summary": "Decision-ready summary: D-Mannose is best framed for recurrent UTI prevention context; urinary tract adhesion support; safety screen: diabetes medication review; active UTI needs medical care.",
+  "description": "D-Mannose supports urinary tract; UTI prevention context with moderate confidence in this merged decision layer.",
+  "effects": [
+    "urinary_health"
+  ],
+  "primary_effects": [
+    "urinary_health"
+  ],
+  "mechanisms": [
+    "mannose-mediated bacterial adhesion interference",
+    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium."
+  ],
+  "raw_mechanisms": [
+    "mannose-mediated bacterial adhesion interference",
+    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium."
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "mannose-mediated bacterial adhesion interference",
+    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium."
+  ],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "diabetes medication review",
+    "active UTI needs medical care"
+  ],
+  "interactions": [
+    "Caution in diabetes."
+  ],
+  "side_effects": [],
+  "dosage": "2 g/day was tested for 6 months in a large UK primary-care RCT and did not significantly reduce medically attended recurrent UTI",
+  "typical_dosage": "2 g/day was tested for 6 months in a large UK primary-care RCT and did not significantly reduce medically attended recurrent UTI",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Blocked recurrent-UTI profile after negative large RCT"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=d-mannose+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "D-Mannose supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Do not promote for recurrent UTI prevention",
+    "if listed",
+    "clearly disclose negative 2024 JAMA Internal Medicine RCT"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

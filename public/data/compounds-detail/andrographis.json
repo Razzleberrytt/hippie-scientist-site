@@ -1,0 +1,20 @@
+{
+  "id": "andrographis",
+  "slug": "andrographis",
+  "name": "Andrographis",
+  "summary": "Andrographis has moderate human evidence for reducing upper respiratory tract infection symptoms.",
+  "description": "Andrographis paniculata extract with immune-modulating and anti-inflammatory evidence.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

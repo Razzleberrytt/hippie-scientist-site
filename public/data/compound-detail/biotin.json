@@ -1,0 +1,89 @@
+{
+  "slug": "biotin",
+  "name": "Biotin",
+  "summary": "Biotin is an essential vitamin that corrects deficiency but lacks strong evidence for hair, skin, or nail benefits in non-deficient people. High doses can interfere with important lab tests.",
+  "description": "Vitamin B7 cofactor for carboxylase enzymes involved in fatty acid and glucose metabolism.",
+  "effects": [
+    "skin_hair_nails"
+  ],
+  "primary_effects": [
+    "skin_hair_nails"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Glucose regulation",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "metabolic/endocrine",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "High doses can interfere with lab tests such as thyroid and troponin assays",
+    "deficiency-specific benefit only."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "30 mcg/day adequate intake for adults; high-dose use can interfere with lab tests",
+  "typical_dosage": "30 mcg/day adequate intake for adults; high-dose use can interfere with lab tests",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority hair/nail support unless deficiency exists"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=biotin+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Biotin supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

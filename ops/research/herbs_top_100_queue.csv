@@ -1,0 +1,42 @@
+slug,name,scientificname,completeness_score,classification,priority,missing_fields
+viscum-album,mistletoe,Viscum album,6,ready_for_research,high,
+virola-spp,virola spp.,Virola spp.,6,ready_for_research,high,
+tylophora-indica,tylophora indica,Tylophora indica,6,ready_for_research,high,
+psilocybin,psilocybin,Psilocybin,6,ready_for_research,high,
+mescaline,mescaline,"3,4,5-trimethoxyphenethylamine",6,ready_for_research,high,
+mapacho,mapacho,Nicotiana rustica,6,ready_for_research,high,
+lsd,lsd,Lysergic acid diethylamide,6,ready_for_research,high,
+kra-thum-na-kok,kra thum na / kok,Mitragyna javanica / Mitragyna hirsuta,6,ready_for_research,high,
+hyoscyamus-niger,hyoscyamus niger,Hyoscyamus niger,6,ready_for_research,high,
+heimia-salicifolia-sinicuichi,heimia salicifolia (sinicuichi),Heimia salicifolia,6,ready_for_research,high,
+duboisia-hopwoodii,duboisia hopwoodii,Duboisia hopwoodii,6,ready_for_research,high,
+derris-elliptica,derris elliptica,Derris elliptica,6,ready_for_research,high,
+yerba-mat,yerba maté,Ilex paraguariensis,5,ready_for_research,high,region
+tulsi,tulsi,Ocimum tenuiflorum,4,ready_for_research,high,preparation; region
+skullcap,skullcap,Scutellaria lateriflora,4,ready_for_research,high,preparation; region
+rhodiola,rhodiola,Rhodiola rosea,4,ready_for_research,high,preparation; region
+maca-root,maca root,Lepidium meyenii,4,ready_for_research,high,preparation; region
+lavender,lavender,Lavandula angustifolia,4,ready_for_research,high,preparation; region
+gotu-kola,gotu kola,Centella asiatica,4,ready_for_research,high,preparation; region
+tonga-root,tonga root,Erythrina variegata,4,ready_for_research,medium,preparation; region
+thc,thc,Δ9-Tetrahydrocannabinol (from Cannabis sativa/indica),4,ready_for_research,medium,preparation; region
+sweet-flag,sweet flag,Acorus calamus,4,ready_for_research,medium,preparation; region
+siberian-motherwort,siberian motherwort,Leonurus sibiricus,4,ready_for_research,medium,preparation; region
+sananga,sananga,Tabernaemontana sananho,4,ready_for_research,medium,preparation; region
+san-pedro,san pedro,Echinopsis pachanoi,4,ready_for_research,medium,preparation; region
+salvia,salvia,Salvia divinorum,4,ready_for_research,medium,preparation; region
+sacred-basil,sacred basil,Ocimum tenuiflorum (Tulsi),4,ready_for_research,medium,preparation; region
+mulungu,mulungu,Erythrina mulungu,4,ready_for_research,medium,preparation; region
+muira-puama,muira puama,Ptychopetalum olacoides,4,ready_for_research,medium,preparation; region
+lophophora-williamsii,peyote,Lophophora williamsii,4,ready_for_research,medium,preparation; region
+lion-s-tail,lion’s tail,Leonotis leonurus,4,ready_for_research,medium,preparation; region
+klip-dagga,klip dagga,Leonotis nepetifolia,4,ready_for_research,medium,preparation; region
+kana,kana,Sceletium tortuosum,4,ready_for_research,medium,preparation; region
+indian-warrior,indian warrior,Pedicularis densiflora,4,ready_for_research,medium,preparation; region
+iboga,iboga,Tabernanthe iboga,4,ready_for_research,medium,preparation; region
+horny-goat-weed,horny goat weed,Epimedium spp.,4,ready_for_research,medium,preparation; region
+hops,hops,Humulus lupulus,4,ready_for_research,medium,preparation; region
+heimia,heimia,Heimia spp.,4,ready_for_research,medium,preparation; region
+eurycoma-longifolia,tongkat ali,Eurycoma longifolia,4,ready_for_research,medium,preparation; region
+ephedra,ephedra,Ephedra sinica,4,ready_for_research,medium,preparation; region
+dream-herb,dream herb,Calea ternifolia,4,ready_for_research,medium,preparation; region

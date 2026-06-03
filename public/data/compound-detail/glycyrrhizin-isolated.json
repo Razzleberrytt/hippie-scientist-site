@@ -1,0 +1,103 @@
+{
+  "slug": "glycyrrhizin-isolated",
+  "name": "Glycyrrhizin (Isolated)",
+  "summary": "Glycyrrhizin is the major triterpenoid saponin from licorice with anti-inflammatory and regional hepatology use. Its safety profile is limited by pseudoaldosteronism risk.",
+  "description": "Isolated licorice constituent that inhibits 11β-HSD2 and can increase cortisol-like mineralocorticoid effects; some regional use for chronic hepatitis markers.",
+  "effects": [
+    "anxiety",
+    "inflammation"
+  ],
+  "primary_effects": [
+    "anxiety",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Vascular function support",
+    "Hormonal signaling context",
+    "HPA-axis modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "cardiovascular",
+    "endocrine",
+    "stress/neuroendocrine"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Pseudoaldosteronism risk: hypertension",
+    "hypokalemia",
+    "edema",
+    "dose-dependent toxicity",
+    "caution with cardiovascular or renal disease and interacting drugs.",
+    "c"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for anxiety or stress"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=glycyrrhizin-isolated+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Glycyrrhizin (Isolated) supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Standardized active marker listed",
+    "clinically relevant dose",
+    "avoid underdosed anti-inflammatory blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

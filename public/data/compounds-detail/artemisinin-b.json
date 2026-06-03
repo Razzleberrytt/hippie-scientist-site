@@ -1,0 +1,19 @@
+{
+  "id": "artemisinin-b",
+  "slug": "artemisinin-b",
+  "name": "artemisinin b",
+  "summary": "Artemisia metabolite associated with redox-related signaling.",
+  "description": "Artemisia metabolite associated with redox-related signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

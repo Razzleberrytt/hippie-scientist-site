@@ -1,0 +1,114 @@
+{
+  "slug": "green-tea-egcg-isolated",
+  "name": "Green Tea EGCG Isolated",
+  "summary": "Isolated/high-dose EGCG has moderate metabolic evidence but important hepatotoxicity concerns at concentrated extract doses.",
+  "description": "Concentrated epigallocatechin gallate preparation separated from whole green tea beverage context.",
+  "effects": [
+    "energy",
+    "weight"
+  ],
+  "primary_effects": [
+    "energy",
+    "weight"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "AMPK Signaling"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "AMPK Signaling"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Metabolic regulation",
+    "HPA-axis modulation",
+    "Neuroprotective activity",
+    "AMPK activation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "metabolic",
+    "stress/neuroendocrine",
+    "nervous system",
+    "metabolic/mitochondrial"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Strong Human Evidence",
+  "contraindications": [
+    "Avoid with liver disease",
+    "hepatotoxic drugs",
+    "pregnancy",
+    "caffeine sensitivity",
+    "anxiety",
+    "insomnia",
+    "and high-dose fasting use"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "EGCG/caffeine trial doses vary; avoid high-dose EGCG and fasting use",
+  "typical_dosage": "EGCG/caffeine trial doses vary; avoid high-dose EGCG and fasting use",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority thermogenic support where caffeine tolerance and liver-safety limits are respected"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=green-tea-egcg-isolated+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Green Tea EGCG Isolated supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "EGCG amount and caffeine dose disclosed",
+    "liver-safety warning",
+    "avoid high-dose extract products taken fasting"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "cluster_member_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 95,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:cluster_member_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

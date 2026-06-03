@@ -1,0 +1,19 @@
+{
+  "id": "glycerol",
+  "slug": "glycerol",
+  "name": "Glycerol",
+  "summary": "Glycerol can increase fluid retention in hyperhydration protocols, but performance benefits are mixed.",
+  "description": "Osmolyte used in pre-hydration protocols.",
+  "compoundClass": "",
+  "mechanisms": [
+    "increases total body water",
+    "osmotic fluid retention"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

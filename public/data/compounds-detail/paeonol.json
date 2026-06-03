@@ -1,0 +1,23 @@
+{
+  "id": "paeonol",
+  "slug": "paeonol",
+  "name": "paeonol",
+  "summary": "Phenolic ketone associated with inflammatory and antioxidant-response signaling.",
+  "description": "Phenolic ketone associated with inflammatory and antioxidant-response signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "dhea",
+  "slug": "dhea",
+  "name": "DHEA",
+  "summary": "DHEA is a steroid hormone precursor with moderate human evidence for select aging-related outcomes and important endocrine safety limits.",
+  "description": "DHEA is a steroid precursor used in some clinical and supplement contexts; benefits are population-specific and safety requires hormonal caution.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

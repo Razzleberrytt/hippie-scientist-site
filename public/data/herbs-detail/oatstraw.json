@@ -1,0 +1,27 @@
+{
+  "name": "Oatstraw",
+  "slug": "oatstraw",
+  "summary": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
+  "description": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Celiac disease/gluten sensitivity unless certified gluten-free",
+    "pregnancy/breastfeeding caution"
+  ],
+  "interactions": [
+    "Low documented interaction burden",
+    "caution if combined with strong sedatives due to intended calming use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

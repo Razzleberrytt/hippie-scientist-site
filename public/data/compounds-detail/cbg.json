@@ -1,0 +1,19 @@
+{
+  "id": "cbg",
+  "slug": "cbg",
+  "name": "CBG",
+  "summary": "CBG entry from SciSpace evidence pass. Evidence level: preclinical.",
+  "description": "CBG is cataloged as phytocannabinoid. Reported mechanisms: weak CB1/CB2 interaction; alpha-2 adrenergic and TRP channel activity preclinical.",
+  "compoundClass": "",
+  "mechanisms": [
+    "weak CB1/CB2 interaction",
+    "alpha-2 adrenergic and TRP channel activity preclinical"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

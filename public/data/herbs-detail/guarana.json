@@ -1,0 +1,37 @@
+{
+  "name": "Guarana",
+  "slug": "guarana",
+  "summary": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "description": "Conservative evidence framing applied.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "antioxidant",
+    "energy"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "arrhythmia",
+    "severe anxiety/insomnia",
+    "stimulant sensitivity",
+    "and unsupervised pediatric use."
+  ],
+  "interactions": [
+    "Additive effects with caffeine",
+    "stimulants",
+    "theophylline",
+    "decongestants",
+    "and some ADHD medications",
+    "CYP1A2 inhibitors may increase caffeine exposure."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

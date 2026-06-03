@@ -1,0 +1,23 @@
+{
+  "id": "astaxanthin",
+  "slug": "astaxanthin",
+  "name": "Astaxanthin",
+  "summary": "Decision-ready summary: Astaxanthin is best framed for skin photoaging support; oxidative stress; exercise recovery context; safety screen: pregnancy; hormone-sensitive medication review.",
+  "description": "Astaxanthin supports skin; oxidative stress; exercise recovery with moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Hormonal Signaling Context"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

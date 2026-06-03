@@ -1,0 +1,32 @@
+{
+  "name": "Schisandra Chinensis",
+  "slug": "schisandra-chinensis",
+  "summary": "Lean bulk ingestion row for Schisandra chinensis.",
+  "description": "Lean bulk ingestion row for Schisandra chinensis. Key active compounds include Schisandrin.",
+  "primaryActions": [
+    "stress"
+  ],
+  "mechanisms": [
+    "Stress Response Modulation",
+    "Nrf2 Activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding without guidance",
+    "active reflux/ulcer sensitivity",
+    "complex medication regimens without review"
+  ],
+  "interactions": [
+    "Potential CYP/P-gp interactions",
+    "caution with immunosuppressants",
+    "sedatives",
+    "anticoagulants",
+    "and hepatically metabolized drugs."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

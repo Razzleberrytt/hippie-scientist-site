@@ -1,0 +1,26 @@
+{
+  "pass": [
+    "angiotensin I converting enzyme inhibition",
+    "tyrosinase inhibition",
+    "acetylcholinesterase inhibition",
+    "HMG-CoA reductase inhibition",
+    "inhibits acetylcholinesterase",
+    "inhibits HMG-CoA reductase",
+    "ability to inhibit tyrosinase activity",
+    "acts as a 5-HT1A receptor agonist",
+    "activates AMP-activated protein kinase"
+  ],
+  "fail": [
+    "NF-κB pathway inhibition",
+    "nitric oxide pathway antagonism",
+    "antioxidant activity",
+    "anti-inflammatory activity",
+    "oxidative stress reduction",
+    "inhibits glutamate-induced excitotoxicity",
+    "activated extracellular signal-regulated kinase and Akt to inhibit glutamate-induced excitotoxicity",
+    "induced the expression of synaptophysin and glutamatergic receptor 1",
+    "SAC activation",
+    "increases receptor expression",
+    "cytokine suppression"
+  ]
+}

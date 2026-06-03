@@ -1,0 +1,35 @@
+{
+  "name": "Nigella Sativa",
+  "slug": "nigella-sativa",
+  "summary": "Lean bulk ingestion row for Nigella sativa.",
+  "description": "Lean bulk ingestion row for Nigella sativa. Key active compounds include Thymoquinone.",
+  "primaryActions": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation",
+    "Nrf2 Activation",
+    "Glucose Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy at supplemental/high doses",
+    "hypoglycemia-prone patients without monitoring",
+    "known allergy."
+  ],
+  "interactions": [
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "additive metabolic effects."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,87 @@
+{
+  "slug": "chromium",
+  "name": "Chromium",
+  "summary": "Chromium entry from SciSpace evidence pass. Evidence level: mixed.",
+  "description": "Chromium is cataloged as essential trace mineral. Reported mechanisms: proposed insulin-signaling support via chromodulin; glucose metabolism effects.",
+  "effects": [
+    "blood_sugar"
+  ],
+  "primary_effects": [
+    "blood_sugar"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Glucose regulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Use caution with kidney disease",
+    "liver disease",
+    "diabetes medications",
+    "pregnancy",
+    "and chromium picolinate megadoses"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Chromium doses in diabetes trials vary widely, often 200–1000 mcg/day; routine use should be individualized",
+  "typical_dosage": "Chromium doses in diabetes trials vary widely, often 200–1000 mcg/day; routine use should be individualized",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only glucose-support profile due to mixed/weak evidence"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=chromium+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Chromium supplement powder",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Chromium form and microgram dose clearly listed",
+    "avoid blood-sugar cure claims and mega-dose stacks"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

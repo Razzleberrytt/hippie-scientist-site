@@ -1,0 +1,23 @@
+{
+  "id": "demethoxycurcumin",
+  "slug": "demethoxycurcumin",
+  "name": "demethoxycurcumin",
+  "summary": "Curcuminoid analog associated with inflammatory and antioxidant-response pathways.",
+  "description": "Curcuminoid analog associated with inflammatory and antioxidant-response pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

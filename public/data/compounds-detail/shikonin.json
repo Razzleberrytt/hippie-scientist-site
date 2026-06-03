@@ -1,0 +1,23 @@
+{
+  "id": "shikonin",
+  "slug": "shikonin",
+  "name": "shikonin",
+  "summary": "Naphthoquinone pigment associated with metabolic and inflammatory pathway effects.",
+  "description": "Naphthoquinone pigment associated with metabolic and inflammatory pathway effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

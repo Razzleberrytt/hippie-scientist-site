@@ -1,0 +1,88 @@
+{
+  "slug": "niacin",
+  "name": "Niacin",
+  "summary": "Improves lipid profile but no added cardiovascular benefit with statins.",
+  "description": "Improves lipid profile but no added cardiovascular benefit with statins.",
+  "effects": [
+    "cholesterol"
+  ],
+  "primary_effects": [
+    "cholesterol"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "Lipid Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Vascular function support",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "cardiovascular",
+    "metabolic/cardiovascular"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Caution with liver disease."
+  ],
+  "interactions": [
+    "Caution with liver disease."
+  ],
+  "side_effects": [],
+  "dosage": "500-2000 mg/day",
+  "typical_dosage": "500-2000 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only lipid profile due to flushing and limited outcome benefit"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=niacin+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically relevant dose",
+    "contaminant testing",
+    "avoid vague extract labels without active amounts"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

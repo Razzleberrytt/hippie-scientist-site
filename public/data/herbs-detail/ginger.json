@@ -1,0 +1,30 @@
+{
+  "name": "Ginger Zingiber officinale",
+  "slug": "ginger",
+  "summary": "Ginger centers on the unspecified.",
+  "description": "Ginger centers on the unspecified. Key reported compounds include [6]-gingerol; shogaols; zingerone; paradols.",
+  "primaryActions": [
+    "digestion",
+    "nausea_support",
+    "inflammation"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Anticoagulants"
+  ],
+  "interactions": [
+    "Anticoagulants"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Kuding Tea",
+  "slug": "kuding-tea",
+  "summary": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+  "description": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence.",
+  "primaryActions": [
+    "antioxidant",
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Vascular Function Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antidiabetic medicines",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

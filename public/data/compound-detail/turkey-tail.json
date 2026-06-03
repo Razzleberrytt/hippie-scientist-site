@@ -1,0 +1,79 @@
+{
+  "slug": "turkey-tail",
+  "name": "Turkey Tail (Trametes versicolor)",
+  "summary": "Turkey tail has moderate evidence in specific adjunct oncology contexts, especially PSK/PSP products used in regulated settings.",
+  "description": "Medicinal mushroom containing PSK/PSP polysaccharides studied as adjunct immune therapy in some cancer contexts.",
+  "effects": [
+    "immunity"
+  ],
+  "primary_effects": [
+    "immunity"
+  ],
+  "mechanisms": [
+    "Immune Signaling Modulation"
+  ],
+  "raw_mechanisms": [
+    "Immune Signaling Modulation"
+  ],
+  "canonical_mechanisms": [
+    "Immune modulation"
+  ],
+  "mechanism_categories": [
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "immune-system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "Generally well tolerated",
+    "clinical context and product standardization matter."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only medicinal mushroom profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=turkey-tail+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Turkey Tail (Trametes versicolor) supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

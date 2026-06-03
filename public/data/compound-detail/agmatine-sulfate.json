@@ -1,0 +1,96 @@
+{
+  "slug": "agmatine-sulfate",
+  "name": "Agmatine sulfate",
+  "summary": "Decision-ready summary: Agmatine sulfate is best framed for neuropathic pain research context; nitric oxide modulation; mood support context; safety screen: blood pressure medications; psychiatric medications; limited safety data.",
+  "description": "Agmatine sulfate supports pain; mood; nitric oxide with low confidence in this merged decision layer.",
+  "effects": [
+    "mood",
+    "pain"
+  ],
+  "primary_effects": [
+    "mood",
+    "pain"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Endothelial Function Support"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Vascular function support",
+    "Nitric oxide modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "cardiovascular"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling molecule modulation"
+  ],
+  "mechanism_target_systems": [
+    "immune/inflammatory",
+    "cardiovascular",
+    "cardiovascular/endothelial"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "low",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "blood pressure medications",
+    "psychiatric medications",
+    "limited safety data"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "",
+  "typical_dosage": "",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Best for inflammation or pain"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=agmatine-sulfate+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "agmatine sulfate supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

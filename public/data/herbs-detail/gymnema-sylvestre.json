@@ -1,0 +1,26 @@
+{
+  "name": "Gymnema",
+  "slug": "gymnema-sylvestre",
+  "summary": "Gymnemic acids reduce intestinal glucose absorption and may support beta-cell function.",
+  "description": "Gymnemic acids reduce intestinal glucose absorption and may support beta-cell function.",
+  "primaryActions": [
+    "metabolic"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Antidiabetic medications"
+  ],
+  "interactions": [
+    "Antidiabetic medications"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

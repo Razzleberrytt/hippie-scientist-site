@@ -1,0 +1,18 @@
+{
+  "id": "pau-darco",
+  "slug": "pau-darco",
+  "name": "Pau d'Arco",
+  "summary": "Pau d'Arco has preclinical antimicrobial/cytotoxic research but no robust human clinical evidence and toxicity concerns at high doses.",
+  "description": "Tabebuia/Handroanthus botanical containing lapachol and beta-lapachone; product identity and dosing are poorly standardized.",
+  "compoundClass": "",
+  "mechanisms": [
+    "antimicrobial/cytotoxic effects (preclinical)"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

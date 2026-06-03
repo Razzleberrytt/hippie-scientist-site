@@ -1,0 +1,19 @@
+{
+  "id": "columbin",
+  "slug": "columbin",
+  "name": "columbin",
+  "summary": "Diterpenoid from Tinospora cordifolia linked to anti-inflammatory activity.",
+  "description": "Diterpenoid from Tinospora cordifolia linked to anti-inflammatory activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

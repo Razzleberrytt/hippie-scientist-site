@@ -1,0 +1,73 @@
+{
+  "slug": "galantamine",
+  "name": "Galantamine",
+  "summary": "Galantamine is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition. Current workbook signals support mechanistic context around Neurotransmitter Modulation, not treatment claims.",
+  "description": "Galantamine is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition. Current workbook signals support mechanistic context around Neurotransmitter Modulation, not treatment claims.",
+  "effects": [
+    "focus"
+  ],
+  "primary_effects": [
+    "focus"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "canonical_mechanisms": [],
+  "mechanism_categories": [],
+  "mechanism_classes": [],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "unmapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "Strong drug evidence",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Do not use without clinician supervision",
+    "cholinergic adverse effects and drug interactions."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "8–32 mg/day in Alzheimer’s RCTs; prescription titration context",
+  "typical_dosage": "8–32 mg/day in Alzheimer’s RCTs; prescription titration context",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People needing better focus and clarity"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=galantamine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

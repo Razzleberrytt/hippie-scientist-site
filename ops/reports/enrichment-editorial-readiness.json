@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-04-26T19:44:44.090Z",
+  "summary": {
+    "totalEntries": 18,
+    "totalEntities": 5,
+    "entitiesReadyForEnrichedPublish": 5,
+    "entitiesPartiallyBlocked": 0,
+    "entitiesBlocked": 0,
+    "blockedEntries": 0,
+    "countsByEditorialState": {
+      "approved": 18
+    }
+  },
+  "entitiesReadyForEnrichedPublish": [
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "entriesTotal": 4,
+      "publishableEntries": 4,
+      "blockedEntries": 0,
+      "readinessState": "ready",
+      "editorialStates": [
+        "approved"
+      ],
+      "blockedReasons": []
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "entriesTotal": 5,
+      "publishableEntries": 5,
+      "blockedEntries": 0,
+      "readinessState": "ready",
+      "editorialStates": [
+        "approved"
+      ],
+      "blockedReasons": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "ashwagandha",
+      "entriesTotal": 3,
+      "publishableEntries": 3,
+      "blockedEntries": 0,
+      "readinessState": "ready",
+      "editorialStates": [
+        "approved"
+      ],
+      "blockedReasons": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "chamomile",
+      "entriesTotal": 3,
+      "publishableEntries": 3,
+      "blockedEntries": 0,
+      "readinessState": "ready",
+      "editorialStates": [
+        "approved"
+      ],
+      "blockedReasons": []
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "kava",
+      "entriesTotal": 3,
+      "publishableEntries": 3,
+      "blockedEntries": 0,
+      "readinessState": "ready",
+      "editorialStates": [
+        "approved"
+      ],
+      "blockedReasons": []
+    }
+  ],
+  "entitiesPartiallyEnrichedButBlocked": [],
+  "entitiesBlocked": [],
+  "blockedEntries": []
+}

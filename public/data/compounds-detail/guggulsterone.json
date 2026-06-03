@@ -1,0 +1,23 @@
+{
+  "id": "guggulsterone",
+  "slug": "guggulsterone",
+  "name": "guggulsterone",
+  "summary": "Steroidal ketone associated with bile-acid receptor and inflammatory pathway effects.",
+  "description": "Steroidal ketone associated with bile-acid receptor and inflammatory pathway effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

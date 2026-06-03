@@ -1,0 +1,20 @@
+{
+  "id": "ginger",
+  "slug": "ginger",
+  "name": "Ginger",
+  "summary": "Decision-ready summary: Ginger is best framed for nausea; pregnancy nausea with clinician guidance; digestive comfort; safety screen: bleeding disorder; anticoagulants; gallstones caution.",
+  "description": "Ginger supports nausea; digestion; inflammation with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

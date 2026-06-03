@@ -1,0 +1,101 @@
+{
+  "slug": "schisandra",
+  "name": "Schisandra",
+  "summary": "Decision-ready summary: Schisandra is best framed for stress adaptation context; liver-enzyme support context; endurance research context; safety screen: pregnancy; CYP medication review; liver medication review.",
+  "description": "Schisandra supports stress; liver enzymes; endurance with low confidence in this merged decision layer.",
+  "effects": [
+    "liver_health",
+    "stress"
+  ],
+  "primary_effects": [
+    "liver_health",
+    "stress"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "low-moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "pregnancy",
+    "CYP medication review",
+    "liver medication review"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "Product-specific extract dosing varies; direct human clinical dose support is limited",
+  "typical_dosage": "Product-specific extract dosing varies; direct human clinical dose support is limited",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Research-only adaptogen/liver profile"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=schisandra+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Schisandra (Schisandra chinensis) supplement softgel",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Schisandra chinensis identity clear",
+    "lignan markers disclosed",
+    "avoid cortisol/testosterone hype claims"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NEEDS_REVIEW",
+    "score": 45,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "non-publishable-profile-status",
+      "profile-status:research_only",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

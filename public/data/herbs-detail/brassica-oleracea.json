@@ -1,0 +1,28 @@
+{
+  "name": "Brassica Oleracea",
+  "slug": "brassica-oleracea",
+  "summary": "Minimum source-backed intake for Brassica oleracea.",
+  "description": "Minimum source-backed intake for Brassica oleracea. Active compound support includes sulforaphane.",
+  "primaryActions": [
+    "antioxidant"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Nrf2 Activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential interaction concern with antihypertensives/diuretics",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

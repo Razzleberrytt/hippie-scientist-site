@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-04-26T19:44:13.998Z",
+  "summary": {
+    "herbs": {
+      "before": 285,
+      "after": 285,
+      "duplicatesConsolidated": 0,
+      "duplicateGroups": 0
+    },
+    "compounds": {
+      "before": 235,
+      "after": 235,
+      "duplicatesConsolidated": 0,
+      "duplicateGroups": 0
+    }
+  },
+  "merges": []
+}

@@ -1,0 +1,18 @@
+{
+  "id": "kratom",
+  "slug": "kratom",
+  "name": "Kratom",
+  "summary": "Kratom entry from SciSpace evidence pass. Evidence level: insufficient clinical.",
+  "description": "Kratom is cataloged as opioid-active botanical. Reported mechanisms: mitragynine/7-hydroxymitragynine partial mu-opioid receptor agonism; adrenergic/serotonergic activity preclinical.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,21 @@
+{
+  "id": "hawthorn",
+  "slug": "hawthorn",
+  "name": "Hawthorn",
+  "summary": "Improves symptoms and exercise tolerance in mild heart failure.",
+  "description": "Improves symptoms and exercise tolerance in mild heart failure.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

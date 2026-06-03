@@ -1,0 +1,111 @@
+{
+  "slug": "caffeine",
+  "name": "Caffeine",
+  "summary": "Decision-ready summary: Caffeine is best framed for alertness; reaction time; fatigue reduction; safety screen: anxiety disorder; uncontrolled hypertension; arrhythmia.",
+  "description": "Caffeine supports energy; focus; performance with high confidence in this merged decision layer.",
+  "effects": [
+    "energy",
+    "focus"
+  ],
+  "primary_effects": [
+    "energy",
+    "focus"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Vascular function support",
+    "Hormonal signaling context",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [
+    "cardiovascular",
+    "endocrine",
+    "stress/neuroendocrine",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_grade": "high",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "anxiety disorder",
+    "uncontrolled hypertension",
+    "arrhythmia"
+  ],
+  "interactions": [
+    "CYP1A2 inhibitors (e.g.",
+    "fluvoxamine) can increase caffeine exposure and side effects."
+  ],
+  "side_effects": [],
+  "dosage": "3-6 mg/kg",
+  "typical_dosage": "3-6 mg/kg",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Standard stimulant/focus support with dose transparency"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_url": "https://www.amazon.com/s?k=caffeine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "caffeine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "https://www.amazon.com/s?k=caffeine+and+l-theanine+capsules",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "primary_runtime_priority",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:primary_runtime_priority",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

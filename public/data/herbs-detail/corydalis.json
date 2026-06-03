@@ -1,0 +1,34 @@
+{
+  "name": "Corydalis",
+  "slug": "corydalis",
+  "summary": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
+  "description": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
+  "primaryActions": [
+    "sleep"
+  ],
+  "mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "liver disease",
+    "seizure disorder",
+    "heavy alcohol use",
+    "and use of sedatives without medical oversight."
+  ],
+  "interactions": [
+    "Potential additive effects with benzodiazepines",
+    "opioids",
+    "sleep aids",
+    "alcohol",
+    "antipsychotics",
+    "and hepatotoxic drugs."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

@@ -1,0 +1,23 @@
+{
+  "id": "apigenin",
+  "slug": "apigenin",
+  "name": "Apigenin",
+  "summary": "Decision-ready summary: Apigenin is best framed for relaxation; sleep support; mild anxiety context; safety screen: sedatives; anticoagulants caution; pregnancy safety uncertainty.",
+  "description": "Apigenin supports sleep; calm; flavonoid with low-moderate confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

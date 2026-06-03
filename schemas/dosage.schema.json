@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hippiescientist.app/schemas/dosage.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["range", "unit", "route"],
+  "properties": {
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["low", "high"],
+      "properties": {
+        "low": { "type": "number", "minimum": 0 },
+        "high": { "type": "number", "minimum": 0 }
+      }
+    },
+    "unit": { "type": "string", "minLength": 1 },
+    "route": { "type": "string", "minLength": 1 },
+    "notes": { "type": "string" }
+  }
+}

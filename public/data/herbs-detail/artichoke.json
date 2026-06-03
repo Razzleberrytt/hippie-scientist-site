@@ -1,0 +1,32 @@
+{
+  "name": "Artichoke",
+  "slug": "artichoke",
+  "summary": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+  "description": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+  "primaryActions": [
+    "antioxidant",
+    "digestive",
+    "liver-protective"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Metabolic Regulation",
+    "Lipid Metabolism Support"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Bile duct obstruction",
+    "gallstones without clinician guidance",
+    "Asteraceae allergy"
+  ],
+  "interactions": [
+    "May add to lipid-lowering or bile-flow effects",
+    "theoretical interaction with anticoagulants if high vitamin K diet changes."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

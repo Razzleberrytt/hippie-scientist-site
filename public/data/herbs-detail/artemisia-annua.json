@@ -1,0 +1,35 @@
+{
+  "name": "Artemisia Annua",
+  "slug": "artemisia-annua",
+  "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+  "description": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+  "primaryActions": [
+    "antiviral",
+    "immune",
+    "anti-inflammatory"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding unless medically indicated",
+    "serious infection without medical care",
+    "liver disease",
+    "and unsupervised antimalarial use."
+  ],
+  "interactions": [
+    "Potential CYP/P-gp interactions and additive effects with antimalarials",
+    "hepatotoxic drugs",
+    "and seizure-threshold-lowering agents."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

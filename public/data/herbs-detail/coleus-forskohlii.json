@@ -1,0 +1,31 @@
+{
+  "name": "Coleus Forskohlii",
+  "slug": "coleus-forskohlii",
+  "summary": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+  "description": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+  "primaryActions": [
+    "cognitive"
+  ],
+  "mechanisms": [
+    "Neuroprotective Activity"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "Pregnancy/breastfeeding",
+    "hypotension",
+    "bleeding disorders",
+    "and cardiovascular disease without clinician oversight."
+  ],
+  "interactions": [
+    "Potential additive effects with antihypertensives",
+    "nitrates",
+    "antiplatelets/anticoagulants",
+    "and bronchodilator-style regimens."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

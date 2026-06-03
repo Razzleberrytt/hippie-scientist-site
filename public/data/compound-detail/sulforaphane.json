@@ -1,0 +1,106 @@
+{
+  "slug": "sulforaphane",
+  "name": "Sulforaphane",
+  "summary": "May support detoxification enzymes and reduce oxidative stress.",
+  "description": "May support detoxification enzymes and reduce oxidative stress.",
+  "effects": [
+    "antioxidant",
+    "detox_pathways"
+  ],
+  "primary_effects": [
+    "antioxidant",
+    "detox_pathways"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Nrf2 Activation"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "Nrf2 Activation"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Mitochondrial biogenesis",
+    "Metabolic regulation",
+    "HPA-axis modulation",
+    "Neuroprotective activity",
+    "Nrf2 activation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "mitochondrial",
+    "stress",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Physiological/cellular effect",
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "mitochondrial",
+    "metabolic",
+    "stress/neuroendocrine",
+    "nervous system",
+    "redox/cellular-defense"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "limited",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Limited data."
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "~20-40 mg/day equivalent",
+  "typical_dosage": "~20-40 mg/day equivalent",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority NRF2/detox-pathway support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": true,
+  "affiliate_url": "https://www.amazon.com/s?k=sulforaphane+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Sulforaphane supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "https://www.amazon.com/s?k=sulforaphane+broccoli+sprout+extract+third+party+tested",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

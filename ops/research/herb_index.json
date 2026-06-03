@@ -1,0 +1,478 @@
+[
+  {
+    "id": "1",
+    "name": "Psilocybe cubensis",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Psilocybin",
+      "Psilocin"
+    ],
+    "coaLink": "https://example.com/coa/psilocybe-cubensis.pdf"
+  },
+  {
+    "id": "2",
+    "name": "Amanita muscaria",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Muscimol",
+      "Ibotenic acid"
+    ],
+    "coaLink": "https://example.com/coa/amanita-muscaria.pdf"
+  },
+  {
+    "id": "3",
+    "name": "Golden Teacher",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Psilocybin",
+      "Psilocin"
+    ],
+    "coaLink": "https://example.com/coa/golden-teacher.pdf"
+  },
+  {
+    "id": "4",
+    "name": "Lion\u2019s Mane",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Hericenones",
+      "Erinacines"
+    ],
+    "coaLink": "https://example.com/coa/lions-mane.pdf"
+  },
+  {
+    "id": "5",
+    "name": "Reishi",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Triterpenes",
+      "Polysaccharides"
+    ],
+    "coaLink": "https://example.com/coa/reishi.pdf"
+  },
+  {
+    "id": "6",
+    "name": "Cordyceps",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Cordycepin",
+      "Adenosine"
+    ],
+    "coaLink": "https://example.com/coa/cordyceps.pdf"
+  },
+  {
+    "id": "7",
+    "name": "Kava (Piper methysticum)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Kavalactones"
+    ],
+    "coaLink": "https://example.com/coa/kava.pdf"
+  },
+  {
+    "id": "8",
+    "name": "Kanna (Sceletium tortuosum)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Mesembrine",
+      "Mesembrenone"
+    ],
+    "coaLink": "https://example.com/coa/kanna.pdf"
+  },
+  {
+    "id": "9",
+    "name": "Kratom (Mitragyna speciosa)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Mitragynine",
+      "7-Hydroxymitragynine"
+    ],
+    "coaLink": "https://example.com/coa/kratom.pdf"
+  },
+  {
+    "id": "10",
+    "name": "Mad Honey (Grayanotoxin)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Grayanotoxins"
+    ],
+    "coaLink": "https://example.com/coa/mad-honey.pdf"
+  },
+  {
+    "id": "11",
+    "name": "Psilocybe semilanceata",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Psilocybin",
+      "Psilocin"
+    ],
+    "coaLink": "https://example.com/coa/psilocybe-semilanceata.pdf"
+  },
+  {
+    "id": "12",
+    "name": "Blue Meanies",
+    "category": "Mushroom",
+    "activeCompounds": [
+      "Psilocybin",
+      "Psilocin"
+    ],
+    "coaLink": "https://example.com/coa/blue-meanies.pdf"
+  },
+  {
+    "id": "13",
+    "name": "Chocolate Mushroom Gummies",
+    "category": "Edible",
+    "activeCompounds": [
+      "Psilocybin",
+      "Psilocin"
+    ],
+    "coaLink": "https://example.com/coa/choc-mushroom-gummies.pdf"
+  },
+  {
+    "id": "14",
+    "name": "Reishi Capsules",
+    "category": "Supplement",
+    "activeCompounds": [
+      "Triterpenes",
+      "Polysaccharides"
+    ],
+    "coaLink": "https://example.com/coa/reishi-capsules.pdf"
+  },
+  {
+    "id": "15",
+    "name": "Lion\u2019s Mane Tincture",
+    "category": "Supplement",
+    "activeCompounds": [
+      "Hericenones",
+      "Erinacines"
+    ],
+    "coaLink": "https://example.com/coa/lions-mane-tincture.pdf"
+  },
+  {
+    "id": "16",
+    "name": "Amanita Muscaria Gummies",
+    "category": "Edible",
+    "activeCompounds": [
+      "Muscimol",
+      "Ibotenic acid"
+    ],
+    "coaLink": "https://example.com/coa/amanita-gummies.pdf"
+  },
+  {
+    "id": "17",
+    "name": "Cordyceps Powder",
+    "category": "Supplement",
+    "activeCompounds": [
+      "Cordycepin",
+      "Adenosine"
+    ],
+    "coaLink": "https://example.com/coa/cordyceps-powder.pdf"
+  },
+  {
+    "id": "18",
+    "name": "Kratom Capsules",
+    "category": "Supplement",
+    "activeCompounds": [
+      "Mitragynine",
+      "7-Hydroxymitragynine"
+    ],
+    "coaLink": "https://example.com/coa/kratom-capsules.pdf"
+  },
+  {
+    "id": "19",
+    "name": "Kava Root Powder",
+    "category": "Supplement",
+    "activeCompounds": [
+      "Kavalactones"
+    ],
+    "coaLink": "https://example.com/coa/kava-powder.pdf"
+  },
+  {
+    "id": "20",
+    "name": "Kanna Tincture",
+    "category": "Supplement",
+    "activeCompounds": [
+      "Mesembrine",
+      "Mesembrenone"
+    ],
+    "coaLink": "https://example.com/coa/kanna-tincture.pdf"
+  },
+  {
+    "id": "21",
+    "name": "Salvia divinorum",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Salvinorin A"
+    ],
+    "therapeuticUses": [
+      "Spiritual exploration",
+      "Visionary states"
+    ],
+    "mechanismOfAction": "Kappa-opioid receptor agonist, causing altered perception and dissociation.",
+    "sideEffects": [
+      "Dizziness",
+      "Disorientation",
+      "Short-term memory loss"
+    ],
+    "contraindications": [
+      "History of psychosis",
+      "Unsupervised environments"
+    ],
+    "drugInteractions": [
+      "Avoid combining with sedatives or dissociatives"
+    ],
+    "toxicity": "Low toxicity; extremely potent in small doses. LD50 in humans unknown.",
+    "coaLink": "https://example.com/coa/salvia-divinorum.pdf"
+  },
+  {
+    "id": "22",
+    "name": "Calea zacatechichi (Dream Herb)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Germacranolides",
+      "Kaurenoic acid"
+    ],
+    "therapeuticUses": [
+      "Lucid dreaming",
+      "Mild anxiety relief"
+    ],
+    "mechanismOfAction": "Poorly understood; likely acts as mild CNS stimulant and dream modulator.",
+    "sideEffects": [
+      "Nausea",
+      "Bitter taste",
+      "Vivid dreams"
+    ],
+    "contraindications": [
+      "Pregnancy",
+      "Liver issues"
+    ],
+    "drugInteractions": [
+      "Unknown; use caution with CNS-active drugs"
+    ],
+    "toxicity": "Low. High doses may cause digestive discomfort.",
+    "coaLink": "https://example.com/coa/calea-zacatechichi.pdf"
+  },
+  {
+    "id": "23",
+    "name": "Nymphaea caerulea (Blue Lotus)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Aporphine",
+      "Nuciferine"
+    ],
+    "therapeuticUses": [
+      "Relaxation",
+      "Mild euphoria",
+      "Aphrodisiac"
+    ],
+    "mechanismOfAction": "Dopamine receptor modulation and mild antipsychotic properties.",
+    "sideEffects": [
+      "Drowsiness",
+      "Dry mouth"
+    ],
+    "contraindications": [
+      "Avoid with sedatives"
+    ],
+    "drugInteractions": [
+      "Sedatives, CNS depressants"
+    ],
+    "toxicity": "Low; caution with extracts due to potency.",
+    "coaLink": "https://example.com/coa/blue-lotus.pdf"
+  },
+  {
+    "id": "24",
+    "name": "Banisteriopsis caapi",
+    "category": "Vine / Ayahuasca Component",
+    "activeCompounds": [
+      "Harmine",
+      "Harmaline",
+      "Tetrahydroharmine"
+    ],
+    "therapeuticUses": [
+      "Spiritual use",
+      "Potential antidepressant effects"
+    ],
+    "mechanismOfAction": "MAO-A inhibitor; prolongs DMT and serotonin activity.",
+    "sideEffects": [
+      "Nausea",
+      "Vomiting",
+      "Dizziness"
+    ],
+    "contraindications": [
+      "SSRIs",
+      "MAOIs",
+      "Pregnancy"
+    ],
+    "drugInteractions": [
+      "Serotonergic drugs \u2014 risk of serotonin syndrome"
+    ],
+    "toxicity": "Moderate in overdose; can cause hypertensive crisis with tyramine-rich foods.",
+    "coaLink": "https://example.com/coa/banisteriopsis-caapi.pdf"
+  },
+  {
+    "id": "25",
+    "name": "Mimosa hostilis (Jurema)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "N,N-DMT"
+    ],
+    "therapeuticUses": [
+      "Visionary experience",
+      "Spiritual work"
+    ],
+    "mechanismOfAction": "Acts on 5-HT2A serotonin receptors when orally active with MAOI.",
+    "sideEffects": [
+      "Nausea",
+      "Intense hallucinations"
+    ],
+    "contraindications": [
+      "Heart conditions",
+      "Psychiatric disorders"
+    ],
+    "drugInteractions": [
+      "MAOIs, serotonergic drugs"
+    ],
+    "toxicity": "Low; must be used with caution due to intensity of effects.",
+    "coaLink": "https://example.com/coa/mimosa-hostilis.pdf"
+  },
+  {
+    "id": "26",
+    "name": "Voacanga africana",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Voacangine",
+      "Ibogaine precursors"
+    ],
+    "therapeuticUses": [
+      "Stimulant",
+      "Nootropic",
+      "Traditional ritual use"
+    ],
+    "mechanismOfAction": "Possible NMDA and serotonin modulation; understudied.",
+    "sideEffects": [
+      "Nausea",
+      "Anxiety",
+      "Cardiovascular strain"
+    ],
+    "contraindications": [
+      "Heart issues",
+      "Psychosis"
+    ],
+    "drugInteractions": [
+      "Psychoactives, stimulants"
+    ],
+    "toxicity": "Moderate; dose-dependent. High doses may be neurotoxic.",
+    "coaLink": "https://example.com/coa/voacanga-africana.pdf"
+  },
+  {
+    "id": "27",
+    "name": "Syrian Rue (Peganum harmala)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Harmine",
+      "Harmaline"
+    ],
+    "therapeuticUses": [
+      "MAOI",
+      "Potentiator for other tryptamines"
+    ],
+    "mechanismOfAction": "Reversible MAO-A inhibitor; serotonergic potentiator.",
+    "sideEffects": [
+      "Vomiting",
+      "Insomnia",
+      "Headache"
+    ],
+    "contraindications": [
+      "SSRIs",
+      "MAOIs",
+      "Pregnancy"
+    ],
+    "drugInteractions": [
+      "Serotonin-based drugs, foods high in tyramine"
+    ],
+    "toxicity": "Moderate; overdose can cause convulsions, liver stress.",
+    "coaLink": "https://example.com/coa/peganum-harmala.pdf"
+  },
+  {
+    "id": "28",
+    "name": "Iboga (Tabernanthe iboga)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Ibogaine"
+    ],
+    "therapeuticUses": [
+      "Addiction treatment",
+      "Spiritual initiation"
+    ],
+    "mechanismOfAction": "NMDA receptor antagonist and serotonin reuptake inhibitor",
+    "sideEffects": [
+      "Heart arrhythmia",
+      "Nausea",
+      "Ataxia"
+    ],
+    "contraindications": [
+      "Heart disease",
+      "Psychosis",
+      "SSRIs"
+    ],
+    "drugInteractions": [
+      "QT-prolonging drugs, SSRIs, MAOIs"
+    ],
+    "toxicity": "High; cardiotoxic in overdose \u2014 professional supervision required.",
+    "coaLink": "https://example.com/coa/iboga.pdf"
+  },
+  {
+    "id": "29",
+    "name": "Yohimbe (Pausinystalia johimbe)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Yohimbine"
+    ],
+    "therapeuticUses": [
+      "Aphrodisiac",
+      "Stimulant",
+      "Fat burner"
+    ],
+    "mechanismOfAction": "Alpha-2 adrenergic receptor antagonist \u2014 increases noradrenaline release.",
+    "sideEffects": [
+      "Anxiety",
+      "Increased heart rate",
+      "Irritability"
+    ],
+    "contraindications": [
+      "Hypertension",
+      "Anxiety disorders"
+    ],
+    "drugInteractions": [
+      "Stimulants, MAOIs"
+    ],
+    "toxicity": "Moderate; overdose may lead to cardiovascular stress or seizures.",
+    "coaLink": "https://example.com/coa/yohimbe.pdf"
+  },
+  {
+    "id": "30",
+    "name": "Heimia salicifolia (Sinicuichi)",
+    "category": "Botanical",
+    "activeCompounds": [
+      "Cryogenine"
+    ],
+    "therapeuticUses": [
+      "Auditory hallucinations",
+      "Relaxation",
+      "Memory recall"
+    ],
+    "mechanismOfAction": "May modulate GABAergic or cholinergic activity \u2014 under-researched.",
+    "sideEffects": [
+      "Dry mouth",
+      "Lethargy",
+      "Sun sensitivity"
+    ],
+    "contraindications": [
+      "Photosensitivity conditions"
+    ],
+    "drugInteractions": [
+      "Unknown \u2014 caution with CNS depressants"
+    ],
+    "toxicity": "Low to moderate. High doses cause uncomfortable lethargy.",
+    "coaLink": "https://example.com/coa/sinicuichi.pdf"
+  }
+]

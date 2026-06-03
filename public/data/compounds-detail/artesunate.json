@@ -1,0 +1,20 @@
+{
+  "id": "artesunate",
+  "slug": "artesunate",
+  "name": "artesunate",
+  "summary": "Semi-synthetic artemisinin derivative retained here in natural-derivative context.",
+  "description": "Semi-synthetic artemisinin derivative retained here in natural-derivative context.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

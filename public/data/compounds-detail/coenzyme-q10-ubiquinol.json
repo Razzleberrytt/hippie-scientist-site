@@ -1,0 +1,22 @@
+{
+  "id": "coenzyme-q10-ubiquinol",
+  "slug": "coenzyme-q10-ubiquinol",
+  "name": "Ubiquinol CoQ10",
+  "summary": "Decision-ready summary: Ubiquinol CoQ10 is best framed for statin-associated muscle symptoms; heart failure support; mitochondrial fatigue; safety screen: warfarin or anticoagulant management; planned surgery.",
+  "description": "Ubiquinol CoQ10 supports heart; mitochondria; fatigue with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Vascular Function Support",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

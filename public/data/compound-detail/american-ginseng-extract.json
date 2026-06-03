@@ -1,0 +1,98 @@
+{
+  "slug": "american-ginseng-extract",
+  "name": "American Ginseng Extract",
+  "summary": "American Ginseng Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Glucose Metabolism Support, not treatment claims.",
+  "description": "American Ginseng Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Glucose Metabolism Support, not treatment claims.",
+  "effects": [
+    "blood_sugar",
+    "energy"
+  ],
+  "primary_effects": [
+    "blood_sugar",
+    "energy"
+  ],
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Glucose regulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [
+    "metabolic",
+    "metabolic/endocrine"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "moderate",
+  "evidence_tier": "Mechanistic Evidence",
+  "contraindications": [
+    "Use caution with warfarin",
+    "diabetes medications",
+    "insomnia",
+    "stimulants",
+    "and hormone-sensitive conditions"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "1-3 g/day",
+  "typical_dosage": "1-3 g/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "Low-priority fatigue/glucose support"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=american-ginseng-extract+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Active amount clearly listed",
+    "third-party tested",
+    "avoid proprietary blends and unsupported disease claims"
+  ],
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 100,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

@@ -1,0 +1,20 @@
+{
+  "id": "l-theanine-sleep",
+  "slug": "l-theanine-sleep",
+  "name": "L-Theanine Sleep Use",
+  "summary": "L-theanine has limited-moderate evidence for sleep quality, especially stress-related sleep disturbance.",
+  "description": "Use-context row for L-theanine in sleep formulations.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

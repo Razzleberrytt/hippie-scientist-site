@@ -1,0 +1,21 @@
+{
+  "id": "umbelliferone",
+  "slug": "umbelliferone",
+  "name": "umbelliferone",
+  "summary": "Simple coumarin distributed across Apiaceae with antioxidant-response and MAPK pathway activity.",
+  "description": "Simple coumarin distributed across Apiaceae with antioxidant-response and MAPK pathway activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Nrf2 Activation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

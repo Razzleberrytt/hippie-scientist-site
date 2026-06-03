@@ -1,0 +1,549 @@
+{
+  "generatedAt": "2026-03-31T01:29:18.747Z",
+  "deterministicModelVersion": "enrichment-wave-2-rollup-v1",
+  "paths": {
+    "canonicalGovernedInputPath": "public/data/enrichment-submissions-governed-input.jsonl",
+    "refreshedGovernedArtifactPath": "public/data/enrichment-governed.json",
+    "refreshedHerbSummaryPath": "public/data/herbs-summary.json",
+    "refreshedCompoundSummaryPath": "public/data/compounds-summary.json",
+    "linkingSummaryPath": "ops/reports/enrichment-linking-summary.json",
+    "discoverySummaryPath": "ops/reports/enrichment-discovery-summary.json",
+    "collectionsSummaryPath": "ops/reports/enrichment-collections-summary.json"
+  },
+  "promotionGuards": {
+    "waveSubmissionCount": 3,
+    "waveApprovedForRollup": 3,
+    "waveNonApprovedExcluded": [],
+    "promotedInputCount": 12
+  },
+  "beforeAfterByWaveTarget": [
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "governedEntriesIncluded": {
+        "before": 3,
+        "after": 3,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 3,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 3,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {
+          "preclinical-mechanistic": 2,
+          "human-clinical": 1
+        },
+        "after": {
+          "preclinical-mechanistic": 2,
+          "human-clinical": 1
+        }
+      },
+      "surfaces": {
+        "before": {
+          "entityType": "herb",
+          "entitySlug": "henbane",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        },
+        "after": {
+          "entityType": "herb",
+          "entitySlug": "henbane",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        }
+      },
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "governedEntriesIncluded": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 1,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 1,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {
+          "human-clinical": 1
+        },
+        "after": {
+          "human-clinical": 1
+        }
+      },
+      "surfaces": {
+        "before": {
+          "entityType": "herb",
+          "entitySlug": "mandrake-root",
+          "herbOrCompoundDetail": true,
+          "browseSearchSummary": true,
+          "relatedRecommendations": true,
+          "collectionComparisonSignals": false
+        },
+        "after": {
+          "entityType": "herb",
+          "entitySlug": "mandrake-root",
+          "herbOrCompoundDetail": true,
+          "browseSearchSummary": true,
+          "relatedRecommendations": true,
+          "collectionComparisonSignals": false
+        }
+      },
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "governedEntriesIncluded": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 1,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 1,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {
+          "preclinical-mechanistic": 1
+        },
+        "after": {
+          "preclinical-mechanistic": 1
+        }
+      },
+      "surfaces": {
+        "before": {
+          "entityType": "compound",
+          "entitySlug": "cbd",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        },
+        "after": {
+          "entityType": "compound",
+          "entitySlug": "cbd",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        }
+      },
+      "unresolvedCriticalTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "governedEntriesIncluded": {
+        "before": 1,
+        "after": 1,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 1,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 1,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {
+          "preclinical-mechanistic": 1
+        },
+        "after": {
+          "preclinical-mechanistic": 1
+        }
+      },
+      "surfaces": {
+        "before": {
+          "entityType": "compound",
+          "entitySlug": "luteolin",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        },
+        "after": {
+          "entityType": "compound",
+          "entitySlug": "luteolin",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        }
+      },
+      "unresolvedCriticalTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "governedEntriesIncluded": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {},
+        "after": {}
+      },
+      "surfaces": {
+        "before": {
+          "entityType": "herb",
+          "entitySlug": "calliandra-anomala",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        },
+        "after": {
+          "entityType": "herb",
+          "entitySlug": "calliandra-anomala",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        }
+      },
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "governedEntriesIncluded": {
+        "before": 0,
+        "after": 0,
+        "delta": 0
+      },
+      "topicCoverage": {
+        "before": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        },
+        "after": {
+          "evidence": 0,
+          "safety": 0,
+          "mechanism": 0,
+          "constituent": 0
+        }
+      },
+      "evidenceClassDistribution": {
+        "before": {},
+        "after": {}
+      },
+      "surfaces": {
+        "before": {
+          "entityType": "herb",
+          "entitySlug": "alectra-sessiliflora",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        },
+        "after": {
+          "entityType": "herb",
+          "entitySlug": "alectra-sessiliflora",
+          "herbOrCompoundDetail": false,
+          "browseSearchSummary": false,
+          "relatedRecommendations": false,
+          "collectionComparisonSignals": false
+        }
+      },
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ]
+    }
+  ],
+  "publicSurfaceRefreshCoverage": {
+    "herbDetailPages": [
+      {
+        "entitySlug": "henbane",
+        "before": false,
+        "after": false
+      },
+      {
+        "entitySlug": "mandrake-root",
+        "before": true,
+        "after": true
+      },
+      {
+        "entitySlug": "calliandra-anomala",
+        "before": false,
+        "after": false
+      },
+      {
+        "entitySlug": "alectra-sessiliflora",
+        "before": false,
+        "after": false
+      }
+    ],
+    "compoundDetailPages": [
+      {
+        "entitySlug": "cbd",
+        "before": false,
+        "after": false
+      },
+      {
+        "entitySlug": "luteolin",
+        "before": false,
+        "after": false
+      }
+    ],
+    "browseSearchDiscovery": [
+      {
+        "entityType": "herb",
+        "entitySlug": "henbane",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "mandrake-root",
+        "before": true,
+        "after": true
+      },
+      {
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "compound",
+        "entitySlug": "luteolin",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "calliandra-anomala",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "alectra-sessiliflora",
+        "before": false,
+        "after": false
+      }
+    ],
+    "relatedRecommendations": [
+      {
+        "entityType": "herb",
+        "entitySlug": "henbane",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "mandrake-root",
+        "before": true,
+        "after": true
+      },
+      {
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "compound",
+        "entitySlug": "luteolin",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "calliandra-anomala",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "alectra-sessiliflora",
+        "before": false,
+        "after": false
+      }
+    ],
+    "collectionComparisonSummaries": [
+      {
+        "entityType": "herb",
+        "entitySlug": "henbane",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "mandrake-root",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "compound",
+        "entitySlug": "cbd",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "compound",
+        "entitySlug": "luteolin",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "calliandra-anomala",
+        "before": false,
+        "after": false
+      },
+      {
+        "entityType": "herb",
+        "entitySlug": "alectra-sessiliflora",
+        "before": false,
+        "after": false
+      }
+    ]
+  },
+  "unresolvedCriticalGaps": [
+    {
+      "entityType": "herb",
+      "entitySlug": "henbane",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "mandrake-root",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "cbd",
+      "unresolvedCriticalTopics": [
+        "constituent",
+        "mechanism",
+        "conflict-uncertainty"
+      ]
+    },
+    {
+      "entityType": "compound",
+      "entitySlug": "luteolin",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "interactions",
+        "population-cautions"
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "calliandra-anomala",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ]
+    },
+    {
+      "entityType": "herb",
+      "entitySlug": "alectra-sessiliflora",
+      "unresolvedCriticalTopics": [
+        "safety",
+        "evidence",
+        "mechanism",
+        "constituent"
+      ]
+    }
+  ]
+}

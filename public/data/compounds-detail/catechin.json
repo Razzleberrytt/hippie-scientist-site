@@ -1,0 +1,23 @@
+{
+  "id": "catechin",
+  "slug": "catechin",
+  "name": "catechin",
+  "summary": "Catechin is a flavanol found in tea, cacao, and many botanicals, but much of the human literature evaluates catechin-rich mixtures rather than isolated catechin alone. That makes the mechanism signal stronger than the isolated clinical signal.",
+  "description": "Flavan-3-ol common in tea and cacao, often linked to AMPK and Nrf2 pathway effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "AMPK Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Milk Thistle",
+  "slug": "silybum-marianum",
+  "summary": "Silymarin stabilizes hepatocyte membranes and acts as an antioxidant.",
+  "description": "Silymarin stabilizes hepatocyte membranes and acts as an antioxidant.",
+  "primaryActions": [
+    "antioxidant",
+    "liver-protective",
+    "stress-relief"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "Stress Response Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "CYP450 substrates (mild interaction)"
+  ],
+  "interactions": [
+    "CYP450 substrates (mild interaction)"
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

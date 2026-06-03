@@ -1,0 +1,21 @@
+{
+  "id": "palmatine",
+  "slug": "palmatine",
+  "name": "palmatine",
+  "summary": "Palmatine is a protoberberine alkaloid that often co-occurs with berberine-containing herbs. Its profile is driven mainly by preclinical metabolic, antimicrobial, and anti-inflammatory studies rather than direct clinical evidence.",
+  "description": "Protoberberine alkaloid found in berberine-containing herbs with metabolic and inflammatory pathway effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

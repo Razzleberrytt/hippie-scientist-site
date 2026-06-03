@@ -1,0 +1,19 @@
+{
+  "id": "policosanol",
+  "slug": "policosanol",
+  "name": "Policosanol",
+  "summary": "Human evidence for policosanol is inconsistent; early positive trials have not been reliably replicated in independent studies.",
+  "description": "Human evidence for policosanol is inconsistent; early positive trials have not been reliably replicated in independent studies.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

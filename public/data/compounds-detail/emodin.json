@@ -1,0 +1,19 @@
+{
+  "id": "emodin",
+  "slug": "emodin",
+  "name": "emodin",
+  "summary": "Anthraquinone reported from rhubarb with NF-κB and MAPK pathway activity.",
+  "description": "Anthraquinone reported from rhubarb with NF-κB and MAPK pathway activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

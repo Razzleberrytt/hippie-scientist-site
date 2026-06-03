@@ -1,0 +1,18 @@
+{
+  "id": "electrolytes-sodium",
+  "slug": "electrolytes-sodium",
+  "name": "Sodium electrolytes",
+  "summary": "Decision-ready summary: Sodium electrolytes is best framed for sweat replacement; endurance hydration; rehydration; safety screen: hypertension; heart failure; kidney disease; sodium restriction.",
+  "description": "Sodium electrolytes supports hydration; endurance; electrolytes with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

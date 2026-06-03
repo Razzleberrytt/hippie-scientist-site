@@ -1,0 +1,19 @@
+{
+  "id": "nicotine",
+  "slug": "nicotine",
+  "name": "nicotine",
+  "summary": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
+  "description": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

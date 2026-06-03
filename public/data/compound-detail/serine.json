@@ -1,0 +1,85 @@
+{
+  "slug": "serine",
+  "name": "serine",
+  "summary": "serine is tracked for supports phosphatidylserine synthesis and neuronal membrane function; supports neuronal membrane synthesis and with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "serine is tracked for supports phosphatidylserine synthesis and neuronal membrane function; supports neuronal membrane synthesis and with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "effects": [
+    "focus"
+  ],
+  "primary_effects": [
+    "focus"
+  ],
+  "mechanisms": [
+    "Cellular Protection",
+    "Neuroprotective Activity"
+  ],
+  "raw_mechanisms": [
+    "Cellular Protection",
+    "Neuroprotective Activity"
+  ],
+  "canonical_mechanisms": [
+    "Cellular protection",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [
+    "cellular resilience",
+    "nervous system"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "well tolerated",
+    "high doses may cause mild GI upset",
+    "generally safe",
+    "high doses may cause mild GI discomfort"
+  ],
+  "interactions": [],
+  "side_effects": [],
+  "dosage": "500-2000 mg/day",
+  "typical_dosage": "500-2000 mg/day",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [
+    "People needing better focus and clarity"
+  ],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=serine+supplement&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "serine supplement standardized extract",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "Clinically dosed active ingredient",
+    "stimulant amount disclosed",
+    "avoid proprietary nootropic blends"
+  ],
+  "profile_status": "research_only",
+  "runtime_export_decision": "hidden_until_grounded",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "NOINDEX",
+    "score": 0,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "reasons": [
+      "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

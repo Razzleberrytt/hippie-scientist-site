@@ -1,0 +1,101 @@
+node_modules
+/src/**/*.js
+.next
+out
+dist
+node_modules/
+
+
+# Ignore intermediate data and old site
+cleanedData/
+newHerbs/
+simple-site/
+hippie-scientist-site-main_consolidated.zip
+
+scripts/audit_missing_key_fields.csv
+scripts/out/
+public/og/
+public/stats.json
+
+# Local/archive artifacts that should not ship
+archive-orphaned-not-for-app/
+src/data/backups/
+*.backup.json
+*.tmp
+*.temp
+*~
+.DS_Store
+
+# Interim data pipeline artifacts
+herbs_final.json
+herbs_final_merged_and_normalized*.csv
+herbs_consolidated.json
+herbs_enriched.csv
+herbs_stage3_merged.json
+compounds_final.json
+compounds_stage3_merged.json
+merge_report.json
+stage3_enrichment_patch.json
+valid_patch.json
+rejected_patch.json
+validation_report.json
+
+# Fix archive zips
+hippie-scientist-fixes*.zip
+hippie-scientist-patch-*.zip
+
+# Logs and reports (keep in local dev, not repo)
+logs/
+reports/
+dist/
+build/
+.netlify/
+*.log
+assets/
+dist-clean/*
+!dist-clean/README.md
+
+# Build reports / temp artifacts
+*_REPORT.md
+*_NOTES.md
+*.md.bak
+*_patch.json
+*_merged.json
+*_final.json
+validation_report.json
+scripts/out/
+
+.eslintcache
+
+# Local environment secrets — never commit
+.env.local
+.env.*.local
+
+# Root-level cleanup artifacts (do not commit)
+DEPLOY_FIX_REPORT.md
+DEPLOY_STRATEGY_REPORT.md
+DEPLOY_SUCCESS_REPORT.md
+FINAL_FIX_DIFF.md
+FINAL_PREDEPLOY_REPORT.md
+NETLIFY_DEPLOY_CHECKLIST.md
+PERF_NOTES.md
+PR.md
+READY_TO_DEPLOY.md
+REFACTOR_SUMMARY.md
+CLEANUP_NOTES.md
+DATA_QUALITY_REPORT.md
+
+# Portable local source inputs (keep directory scaffold tracked)
+data-sources/*
+!data-sources/.gitkeep
+!data-sources/herb_monograph_master.xlsx
+data-sources/*.csv
+data-sources/*.json
+
+# Agent/CI build artifacts that should not be committed
+*.tsbuildinfo
+npm-audit*.json
+*.xlxs.xlsx
+site_map.md
+scratch/
+stylua.toml

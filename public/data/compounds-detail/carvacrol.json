@@ -1,0 +1,22 @@
+{
+  "id": "carvacrol",
+  "slug": "carvacrol",
+  "name": "carvacrol",
+  "summary": "Carvacrol is a monoterpenoid phenol concentrated in oregano and thyme chemotypes. It is best supported by preclinical antimicrobial and anti-inflammatory data, with human evidence for isolated use still sparse.",
+  "description": "Monoterpenoid phenol from oregano and thyme with antimicrobial and sensory effects.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Cellular Protection",
+    "NF-kB Modulation",
+    "Lipid Metabolism Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

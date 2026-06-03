@@ -1,0 +1,22 @@
+{
+  "id": "nerolidol",
+  "slug": "nerolidol",
+  "name": "nerolidol",
+  "summary": "Sesquiterpene alcohol associated with calming and cytoprotective signaling.",
+  "description": "Sesquiterpene alcohol associated with calming and cytoprotective signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection",
+    "Stress Response Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

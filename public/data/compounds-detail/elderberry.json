@@ -1,0 +1,18 @@
+{
+  "id": "elderberry",
+  "slug": "elderberry",
+  "name": "Elderberry",
+  "summary": "Elderberry entry from SciSpace evidence pass. Evidence level: limited.",
+  "description": "Elderberry is cataloged as anthocyanin botanical. Reported mechanisms: antioxidant effects; viral entry/replication inhibition in vitro.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Oxidative Stress Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

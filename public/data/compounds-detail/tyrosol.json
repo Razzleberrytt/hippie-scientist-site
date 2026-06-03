@@ -1,0 +1,23 @@
+{
+  "id": "tyrosol",
+  "slug": "tyrosol",
+  "name": "tyrosol",
+  "summary": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "description": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "Vascular Function Support",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

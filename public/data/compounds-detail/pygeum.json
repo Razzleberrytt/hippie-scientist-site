@@ -1,0 +1,19 @@
+{
+  "id": "pygeum",
+  "slug": "pygeum",
+  "name": "Pygeum",
+  "summary": "Pygeum has moderate evidence for modest improvement in BPH urinary symptoms and urinary flow.",
+  "description": "Prunus africana bark extract containing phytosterols and anti-inflammatory constituents.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

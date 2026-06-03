@@ -1,0 +1,18 @@
+{
+  "id": "slippery-elm",
+  "slug": "slippery-elm",
+  "name": "Slippery Elm",
+  "summary": "Slippery elm is a mucilage-containing bark used traditionally for GI soothing, but clinical evidence remains insufficient.",
+  "description": "Ulmus rubra bark preparation with demulcent mucilage.",
+  "compoundClass": "",
+  "mechanisms": [
+    "mucilage coating of GI mucosa"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

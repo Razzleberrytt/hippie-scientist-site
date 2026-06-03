@@ -1,0 +1,105 @@
+{
+  "slug": "milk-thistle",
+  "name": "Milk Thistle (Silybum marianum)",
+  "summary": "Milk Thistle centers on the seed; fruit.",
+  "description": "Milk Thistle centers on the seed; fruit. Key reported compounds include silybin A/B; isosilybin A/B; silychristin; silydianin; isosilychristin.",
+  "effects": [
+    "antioxidant",
+    "liver-protective"
+  ],
+  "primary_effects": [
+    "antioxidant",
+    "liver-protective"
+  ],
+  "mechanisms": [
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "raw_mechanisms": [
+    "Oxidative Stress Modulation",
+    "Cellular Protection",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "canonical_mechanisms": [
+    "Antioxidant",
+    "Cellular protection",
+    "NF-kB inhibition",
+    "Nrf2 activation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "inflammatory",
+    "redox"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation"
+  ],
+  "mechanism_target_systems": [
+    "redox/mitochondrial",
+    "cellular resilience",
+    "immune/inflammatory",
+    "redox/cellular-defense"
+  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_grade": "b",
+  "evidence_tier": "Moderate Human Evidence",
+  "contraindications": [
+    "ragweed allergy"
+  ],
+  "interactions": [
+    "CYP/transporter effects reported in vitro",
+    "clinically significant interactions not well established"
+  ],
+  "side_effects": [],
+  "dosage": "Standardized extract (70-80% silymarin): 140-420 mg/day in divided doses; variability in silybin content",
+  "typical_dosage": "Standardized extract (70-80% silymarin): 140-420 mg/day in divided doses; variability in silybin content",
+  "forms": [],
+  "available_forms": [],
+  "conditions": [],
+  "tags": [],
+  "keywords": [],
+  "affiliate_ready": false,
+  "affiliate_url": "https://www.amazon.com/s?k=organic+milk-thistle&tag=razzleberry02-20",
+  "affiliate_label": "Check sourcing options",
+  "affiliate_query": "Milk Thistle (Silybum marianum) standardized extract capsule supplement",
+  "default_product_type": "",
+  "amazon_affiliate_url": "",
+  "iherb_affiliate_url": "",
+  "buying_criteria": [
+    "clear labeled dose",
+    "silymarin content disclosed",
+    "third-party testing",
+    "avoid if listed contraindications apply"
+  ],
+  "profile_status": "partial",
+  "runtime_export_decision": "limited",
+  "visibility_tier": "public",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "eligible",
+  "indexability_score": {
+    "status": "PUBLISH",
+    "score": 83,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  "indexability_reasons": [],
+  "meta_title": "",
+  "meta_description": ""
+}

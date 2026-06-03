@@ -1,0 +1,23 @@
+{
+  "id": "echinacoside",
+  "slug": "echinacoside",
+  "name": "echinacoside",
+  "summary": "Echinacoside is a phenylethanoid glycoside found in Echinacea and Cistanche-related materials. It is mainly characterized by antioxidant, neuroprotective, and anti-inflammatory preclinical research rather than strong human intervention data.",
+  "description": "Phenylethanoid glycoside associated with neuroprotective and antioxidant-response pathways.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "Neuroprotective Activity",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

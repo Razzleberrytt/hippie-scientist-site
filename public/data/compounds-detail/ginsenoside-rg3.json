@@ -1,0 +1,21 @@
+{
+  "id": "ginsenoside-rg3",
+  "slug": "ginsenoside-rg3",
+  "name": "ginsenoside rg3",
+  "summary": "Heat-processed ginsenoside linked to inflammatory and angiogenic pathway control.",
+  "description": "Heat-processed ginsenoside linked to inflammatory and angiogenic pathway control.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Immune Signaling Modulation",
+    "NF-kB Modulation"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

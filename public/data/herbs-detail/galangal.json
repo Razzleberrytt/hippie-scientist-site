@@ -1,0 +1,27 @@
+{
+  "name": "Galangal",
+  "slug": "galangal",
+  "summary": "It is best framed as a culinary-medicinal rhizome with traditional GI relevance.",
+  "description": "It is best framed as a culinary-medicinal rhizome with traditional GI relevance.",
+  "primaryActions": [
+    "digestive"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family"
+  ],
+  "interactions": [
+    "Potential additive effects with medications affecting the same body system",
+    "review high-dose extracts with a clinician."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

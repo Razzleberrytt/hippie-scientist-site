@@ -1,0 +1,18 @@
+{
+  "id": "calcium",
+  "slug": "calcium",
+  "name": "Calcium",
+  "summary": "Supports bone mineral density; modest fracture prevention.",
+  "description": "Supports bone mineral density; modest fracture prevention.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Vascular Function Support"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

@@ -1,0 +1,20 @@
+{
+  "id": "vitamin-b6",
+  "slug": "vitamin-b6",
+  "name": "Vitamin B6",
+  "summary": "Decision-ready summary: Vitamin B6 is best framed for B6 deficiency; PMS symptom support; homocysteine metabolism; safety screen: neuropathy risk with high-dose chronic use.",
+  "description": "Vitamin B6 supports B vitamin; PMS; metabolism with high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Metabolic Regulation",
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

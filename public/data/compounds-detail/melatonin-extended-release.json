@@ -1,0 +1,18 @@
+{
+  "id": "melatonin-extended-release",
+  "slug": "melatonin-extended-release",
+  "name": "Extended-release melatonin",
+  "summary": "Decision-ready summary: Extended-release melatonin is best framed for sleep maintenance; circadian rhythm support; safety screen: pregnancy without clinician guidance; sedatives; next-day drowsiness risk.",
+  "description": "Extended-release melatonin supports sleep maintenance; circadian rhythm with moderate-high confidence in this merged decision layer.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Hormonal Signaling Context"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

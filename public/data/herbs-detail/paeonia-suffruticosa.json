@@ -1,0 +1,34 @@
+{
+  "name": "Paeonia Suffruticosa",
+  "slug": "paeonia-suffruticosa",
+  "summary": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+  "description": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+  "primaryActions": [
+    "anti-inflammatory",
+    "cardiovascular"
+  ],
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Vascular Function Support",
+    "Hormonal Signaling Context",
+    "NF-kB Modulation",
+    "Nrf2 Activation"
+  ],
+  "activeCompounds": [],
+  "safetyNotes": "Generally well tolerated for most users.",
+  "contraindications": [
+    "pregnancy/breastfeeding without clinician supervision",
+    "known allergy to the plant/family",
+    "hormone-sensitive conditions without clinician review"
+  ],
+  "interactions": [
+    "Potential interaction concern with hormonal therapies",
+    "immunosuppressants",
+    "use clinician review for high-dose extracts or chronic use."
+  ],
+  "preparation": "",
+  "traditionalUses": [],
+  "evidenceLevel": "",
+  "relatedHerbs": [],
+  "region": ""
+}

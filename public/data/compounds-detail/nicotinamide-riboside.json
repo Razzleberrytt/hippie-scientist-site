@@ -1,0 +1,18 @@
+{
+  "id": "nicotinamide-riboside",
+  "slug": "nicotinamide-riboside",
+  "name": "Nicotinamide riboside",
+  "summary": "Nicotinamide riboside is tracked for Acts as an NAD+ precursor affecting cellular energy metabolism and sirtuin-linked pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "description": "Nicotinamide riboside is tracked for Acts as an NAD+ precursor affecting cellular energy metabolism and sirtuin-linked pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "compoundClass": "",
+  "mechanisms": [
+    "SIRT1 Signaling"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}

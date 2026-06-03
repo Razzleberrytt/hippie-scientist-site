@@ -1,0 +1,20 @@
+{
+  "id": "elemicin",
+  "slug": "elemicin",
+  "name": "elemicin",
+  "summary": "Phenylpropene associated with monoamine-related and sensory signaling.",
+  "description": "Phenylpropene associated with monoamine-related and sensory signaling.",
+  "compoundClass": "",
+  "mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Cellular Protection"
+  ],
+  "targets": [],
+  "pathways": [],
+  "foundIn": [],
+  "bioavailability": "",
+  "safetyNotes": "Generally well tolerated for most users.",
+  "evidenceLevel": "",
+  "relatedCompounds": []
+}
