@@ -32,14 +32,39 @@ const normalizeExcerpt = (excerpt, fallback) => {
 };
 
 const getSlugFromFilename = fileName =>
-  fileName.replace(/\.(mdx)$/i, '').toLowerCase();
+  fileName.replace(/\.(md|mdx)$/i, '').toLowerCase();
 
 const validateSlug = slug => SLUG_PATTERN.test(slug);
+
+const asStringArray = (value, fieldName, fileName) => {
+  if (value == null) return [];
+  if (Array.isArray(value)) return value.map(item => String(item).trim()).filter(Boolean);
+  if (typeof value === 'string') {
+    return value
+      .split(',')
+      .map(item => item.trim())
+      .filter(Boolean);
+  }
+
+  throw new Error(`${fieldName} must be a YAML list or comma-separated string in ${fileName}.`);
+};
+
+function parseMatter(source, fileName) {
+  try {
+    const parsed = matter(source);
+    return {
+      data: parsed.data && typeof parsed.data === 'object' ? parsed.data : {},
+      content: String(parsed.content || ''),
+    };
+  } catch (error) {
+    throw new Error(`Failed to parse frontmatter in ${fileName}: ${error.message}`);
+  }
+}
 
 function buildPostFromFile(fileName) {
   const filePath = path.join(BLOG_DIR, fileName);
   const source = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(source);
+  const { data, content } = parseMatter(source, fileName);
 
   const rawSlug = String(data.slug || getSlugFromFilename(fileName)).trim().toLowerCase();
   const title = String(data.title || '').trim();
@@ -76,6 +101,16 @@ function buildPostFromFile(fileName) {
     readingTime: estimateReadingTime(content),
     content: content.trim(),
   };
+
+  const tags = asStringArray(data.tags, 'tags', fileName);
+  if (tags.length > 0) {
+    post.tags = tags;
+  }
+
+  const categories = asStringArray(data.categories, 'categories', fileName);
+  if (categories.length > 0) {
+    post.categories = categories;
+  }
 
   if (hasProfileStatus) {
     post.profile_status = profileStatus;
