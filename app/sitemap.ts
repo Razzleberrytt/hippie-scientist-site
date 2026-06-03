@@ -1,172 +1,131 @@
+import { existsSync, readFileSync } from 'node:fs';
+import path from 'node:path';
 import { MetadataRoute } from 'next';
 
-// Define your site URL (use env var in production)
-const SITE_URL = process.env.SITE_URL || 'https://thehippiescientist.com';
+const SITE_URL = process.env.SITE_URL || 'https://thehippiescientist.net';
 
-// Import your data manifests (adjust paths based on your build output)
-import herbsData from '@/public/data/herbs.json' assert { type: 'json' };
-import compoundsData from '@/public/data/compounds.json' assert { type: 'json' };
-import blogManifest from '@/public/data/blog-manifest.json' assert { type: 'json' };
-import goalsData from '@/public/data/goals.json' assert { type: 'json' };
-import stacksData from '@/public/data/stacks.json' assert { type: 'json' };
-import guidesData from '@/public/data/guides.json' assert { type: 'json' };
+type SitemapSourceItem = {
+  slug?: string;
+  lastUpdated?: string;
+  updatedAt?: string;
+  date?: string;
+};
 
-// Optional: Import education/learn pages if you have a manifest
-// import educationPages from '@/public/data/education-pages.json' assert { type: 'json' };
+export const dynamic = 'force-static';
 
-export const dynamic = 'force-static'; // Critical for static export
+function readJsonArray<T>(relativePath: string): T[] {
+  const filePath = path.join(process.cwd(), relativePath);
 
-/**
- * Generate full sitemap for static export
- * Compatible with Next.js 15 + Cloudflare Pages
- */
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+  if (!existsSync(filePath)) {
+    return [];
+  }
+
+  try {
+    const parsed = JSON.parse(readFileSync(filePath, 'utf8'));
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function route(
+  url: string,
+  currentDate: string,
+  changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
+  priority: number,
+  lastModified?: string,
+): MetadataRoute.Sitemap[number] {
+  return {
+    url,
+    lastModified: lastModified || currentDate,
+    changeFrequency,
+    priority,
+  };
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const currentDate = new Date().toISOString().split('T')[0];
+
+  const herbsData = readJsonArray<SitemapSourceItem>('public/data/herbs.json');
+  const compoundsData = readJsonArray<SitemapSourceItem>('public/data/compounds.json');
+  const blogManifest = readJsonArray<SitemapSourceItem>('public/data/blog-manifest.json');
+  const goalsData = readJsonArray<SitemapSourceItem>('public/data/goals.json');
+  const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
+  const guidesData = readJsonArray<SitemapSourceItem>('public/data/guides.json');
 
   const sitemapEntries: MetadataRoute.Sitemap = [
-    // === Core Pages ===
-    {
-      url: SITE_URL,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${SITE_URL}/herbs`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/compounds`,
-      lastModified: currentDate,
-      changeFreq: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: currentDate,
-      changeFreq: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/goals`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/stacks`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/guides`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/dosing`,
-      lastModified: currentDate,
-      changeFreq: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/affiliate-disclosure`,
-      lastModified: currentDate,
-      changeFreq: 'yearly',
-      priority: 0.5,
-    },
-    {
-      url: `${SITE_URL}/privacy`,
-      lastModified: currentDate,
-      changeFreq: 'yearly',
-      priority: 0.4,
-    },
-    {
-      url: `${SITE_URL}/disclaimer`,
-      lastModified: currentDate,
-      changeFreq: 'yearly',
-      priority: 0.4,
-    },
+    route(SITE_URL, currentDate, 'weekly', 1.0),
+    route(`${SITE_URL}/herbs`, currentDate, 'weekly', 0.9),
+    route(`${SITE_URL}/compounds`, currentDate, 'weekly', 0.9),
+    route(`${SITE_URL}/blog`, currentDate, 'daily', 0.8),
+    route(`${SITE_URL}/goals`, currentDate, 'monthly', 0.8),
+    route(`${SITE_URL}/stacks`, currentDate, 'monthly', 0.7),
+    route(`${SITE_URL}/guides`, currentDate, 'monthly', 0.7),
+    route(`${SITE_URL}/dosing`, currentDate, 'monthly', 0.6),
+    route(`${SITE_URL}/affiliate-disclosure`, currentDate, 'yearly', 0.5),
+    route(`${SITE_URL}/privacy`, currentDate, 'yearly', 0.4),
+    route(`${SITE_URL}/disclaimer`, currentDate, 'yearly', 0.4),
   ];
 
-  // === Herb Profiles ===
-  herbsData.forEach((herb: any) => {
-    if (herb.slug) {
-      sitemapEntries.push({
-        url: `${SITE_URL}/herbs/${herb.slug}`,
-        lastModified: herb.lastUpdated || currentDate,
-        changeFreq: 'weekly',
-        priority: 0.85,
-      });
-    }
+  herbsData.forEach((herb) => {
+    if (!herb.slug) return;
+
+    sitemapEntries.push(
+      route(
+        `${SITE_URL}/herbs/${herb.slug}`,
+        currentDate,
+        'weekly',
+        0.85,
+        herb.lastUpdated || herb.updatedAt,
+      ),
+    );
   });
 
-  // === Compound Profiles ===
-  compoundsData.forEach((compound: any) => {
-    if (compound.slug) {
-      sitemapEntries.push({
-        url: `${SITE_URL}/compounds/${compound.slug}`,
-        lastModified: compound.lastUpdated || currentDate,
-        changeFreq: 'weekly',
-        priority: 0.85,
-      });
-    }
+  compoundsData.forEach((compound) => {
+    if (!compound.slug) return;
+
+    sitemapEntries.push(
+      route(
+        `${SITE_URL}/compounds/${compound.slug}`,
+        currentDate,
+        'weekly',
+        0.85,
+        compound.lastUpdated || compound.updatedAt,
+      ),
+    );
   });
 
-  // === Blog Posts ===
-  blogManifest.forEach((post: any) => {
-    if (post.slug) {
-      sitemapEntries.push({
-        url: `${SITE_URL}/blog/${post.slug}`,
-        lastModified: post.date || currentDate,
-        changeFreq: 'monthly',
-        priority: 0.75,
-      });
-    }
+  blogManifest.forEach((post) => {
+    if (!post.slug) return;
+
+    sitemapEntries.push(
+      route(
+        `${SITE_URL}/blog/${post.slug}`,
+        currentDate,
+        'monthly',
+        0.75,
+        post.date || post.lastUpdated || post.updatedAt,
+      ),
+    );
   });
 
-  // === Goals ===
-  goalsData.forEach((goal: any) => {
-    if (goal.slug) {
-      sitemapEntries.push({
-        url: `${SITE_URL}/goals/${goal.slug}`,
-        lastModified: currentDate,
-        changeFreq: 'monthly',
-        priority: 0.7,
-      });
-    }
+  goalsData.forEach((goal) => {
+    if (!goal.slug) return;
+
+    sitemapEntries.push(route(`${SITE_URL}/goals/${goal.slug}`, currentDate, 'monthly', 0.7));
   });
 
-  // === Stacks ===
-  stacksData.forEach((stack: any) => {
-    if (stack.slug) {
-      sitemapEntries.push({
-        url: `${SITE_URL}/stacks/${stack.slug}`,
-        lastModified: currentDate,
-        changeFreq: 'monthly',
-        priority: 0.65,
-      });
-    }
+  stacksData.forEach((stack) => {
+    if (!stack.slug) return;
+
+    sitemapEntries.push(route(`${SITE_URL}/stacks/${stack.slug}`, currentDate, 'monthly', 0.65));
   });
 
-  // === Guides ===
-  guidesData.forEach((guide: any) => {
-    if (guide.slug) {
-      sitemapEntries.push({
-        url: `${SITE_URL}/guides/${guide.slug}`,
-        lastModified: currentDate,
-        changeFreq: 'monthly',
-        priority: 0.65,
-      });
-    }
-  });
+  guidesData.forEach((guide) => {
+    if (!guide.slug) return;
 
-  // Optional: Add education/learn pages
-  // educationPages?.forEach(...)
+    sitemapEntries.push(route(`${SITE_URL}/guides/${guide.slug}`, currentDate, 'monthly', 0.65));
+  });
 
   return sitemapEntries;
 }
