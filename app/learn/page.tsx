@@ -5,12 +5,12 @@ export const metadata: Metadata = {
   title: 'Supplement Education Hub',
   description:
     'No hype, no marketing. Learn how to read supplement claims, evaluate evidence, compare adaptogens, nootropics, and herbs, and build safer stacks.',
-  alternates: { canonical: '/education' },
+  alternates: { canonical: '/learn' },
   openGraph: {
     title: 'Learn Supplement Science and Safety Basics',
     description:
       'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
-    url: '/education',
+    url: '/learn',
   },
   twitter: {
     card: 'summary_large_image',
