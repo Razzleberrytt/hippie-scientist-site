@@ -385,7 +385,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
               onFocus={() => setIsOpen(true)}
               onKeyDown={handleKeyDown}
               placeholder='Type herb or compound...'
-              className='w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-sm focus:border-emerald-500 focus:outline-none'
+              className='min-h-11 w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-base sm:text-sm focus:border-emerald-500 focus:outline-none'
             />
             {isOpen && filteredItems.length > 0 && (
               <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
@@ -394,7 +394,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                     key={item.slug}
                     onClick={() => handleAddItem(item)}
                     type='button'
-                    className={`flex w-full items-center justify-between px-4 py-2.5 text-left text-sm transition ${
+                    className={`flex min-h-11 w-full items-center justify-between px-4 py-2.5 text-left text-sm transition ${
                       idx === focusedIndex ? 'bg-emerald-50 text-emerald-800' : 'hover:bg-slate-50 text-slate-700'
                     }`}
                   >
@@ -430,7 +430,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                       setSelectedMeds([...selectedMeds, med])
                     }
                   }}
-                  className={`w-full text-left p-3 rounded-xl border text-xs transition flex flex-col gap-1 ${
+                  className={`min-h-11 w-full text-left p-3 rounded-xl border text-xs transition flex flex-col gap-1 ${
                     isSelected
                       ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 font-medium font-bold'
                       : 'border-slate-100 bg-slate-50/50 text-slate-700 hover:bg-slate-100/60'

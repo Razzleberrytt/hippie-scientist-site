@@ -4,10 +4,14 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import SafetyCheckerClient from '@/components/safety/SafetyCheckerClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
-export const metadata: Metadata = {
-  title: 'Multi-Item Safety Interaction Checker',
-  description: 'Evaluate drug interactions, contraindications, and receptor loading overlaps for multiple supplement ingredients stacked together.',
-}
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Supplement Safety Interaction Checker – Stack Risk Tool',
+  description:
+    'Check supplement and herb combinations for interaction patterns, contraindications, and stacking risks before you buy. Educational tool only.',
+  path: '/safety-checker',
+})
 
 export default async function SafetyCheckerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])

@@ -5,11 +5,14 @@ import { CompareTableClient } from '@/components/compare-table-client'
 import { getCompounds } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-utils'
 
-export const metadata: Metadata = {
-  title: 'Compare Herbs & Supplements Side by Side',
+import { buildPageMetadata, SEO_YEAR } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: `Compare Supplements Side by Side ${SEO_YEAR} – Evidence & Safety`,
   description:
-    'Compare herbs and supplements side by side by evidence strength, mechanism, stimulation profile, safety, and dosing. Free research tool.',
-}
+    'Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Free research tool.',
+  path: '/compare',
+})
 
 
 const popularComparisonPairs = [

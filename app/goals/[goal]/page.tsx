@@ -4,13 +4,28 @@ import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
 import { getHerbBySlug, getCompoundBySlug, getGoalEvidenceEngine } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
-import { faqPageJsonLd, breadcrumbJsonLd, collectionPageJsonLd, itemListJsonLd } from '@/lib/seo'
+import {
+  faqPageJsonLd,
+  breadcrumbJsonLd,
+  collectionPageJsonLd,
+  itemListJsonLd,
+  SITE_URL,
+  SEO_YEAR,
+} from '@/lib/seo'
+import { buildGoalPageMetadata } from '@/lib/goal-seo'
+import { getGoalHubLinks } from '@/lib/goal-hub-links'
+import { getGoalContentExtension, getGoalFaqItems } from '@/data/goal-content'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
-import EmailCapture from '../../../components/EmailCapture'
+import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
 import GoalDecisionExperience from './GoalDecisionExperience'
+import GoalHubSections from '@/components/goals/GoalHubSections'
+import GoalContentDepth from '@/components/goals/GoalContentDepth'
+import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import type { EmailCaptureGoal } from '@/content/emailCapture'
 
 type GoalRouteParams = { goal: string }
 type RuntimeCompound = Record<string, any>
@@ -152,26 +167,34 @@ export async function generateMetadata({
     }
   }
 
+  const matches = rankEntitiesForGoal(goalSlug)
+  const topNames = matches.slice(0, 3).map((m) => m.name)
+
   const goalEvidence = await getGoalEvidenceEngine(goalSlug)
   if (goalEvidence) {
-    return {
-      title: `${goal.title} Evidence Engine | The Hippie Scientist`,
-      description: `Review ${goalSlug} supplement claims by problem fit, evidence confidence, limitations, source links, and safety warnings.`,
-      alternates: { canonical: `/goals/${goal.slug}` },
-    }
+    return buildGoalPageMetadata(
+      { ...goal, title: `${goal.title} Evidence Engine` },
+      topNames,
+    )
   }
 
-  const matches = rankEntitiesForGoal(goalSlug)
-  const topMatches = matches.slice(0, 3).map(m => m.name).join(', ')
-  const description = topMatches
-    ? `Compare ${topMatches}, and more for ${goalSlug} support. Compare by evidence confidence, safety caveats, timing, and practical tradeoffs.`
-    : `${goal.description} Educational comparison only; not medical advice.`
+  return buildGoalPageMetadata(goal, topNames)
+}
 
-  return {
-    title: `${goal.title} Guide | The Hippie Scientist`,
-    description: description.slice(0, 155),
-    alternates: { canonical: `/goals/${goal.slug}` },
-  }
+function goalCaptureGoal(slug: string): EmailCaptureGoal {
+  const allowed: EmailCaptureGoal[] = [
+    'sleep',
+    'stress',
+    'focus',
+    'anxiety',
+    'brain-fog',
+    'fatigue',
+    'overthinking',
+    'pain',
+    'inflammation',
+    'default',
+  ]
+  return allowed.includes(slug as EmailCaptureGoal) ? (slug as EmailCaptureGoal) : 'default'
 }
 
 export default async function GoalDecisionPage({
@@ -198,31 +221,36 @@ export default async function GoalDecisionPage({
     })
   )
 
+  const goalPath = `/goals/${goal.slug}`
+  const goalContent = getGoalContentExtension(goal.slug)
+  const fallbackFaq = goal.quickPicks.map((pick) => ({
+    question: `What is the best option for ${pick.need.toLowerCase()}?`,
+    answer: `A common starting point to review is ${pick.option}. Compare evidence, safety, and timing on the full profile before deciding.`,
+  }))
+  const faqQuestions = getGoalFaqItems(goal.slug, fallbackFaq)
+
   const goalFaqJsonLd = faqPageJsonLd({
-    pagePath: `/goals/${goal.slug}`,
-    questions: goal.quickPicks.map(pick => ({
-      question: `What is the best option for ${pick.need.toLowerCase()}?`,
-      answer: `The recommended option to review is ${pick.option}.`,
-    })),
+    pagePath: goalPath,
+    questions: faqQuestions,
   })
 
   const goalBreadcrumbJsonLd = breadcrumbJsonLd([
-    { name: 'Goals', url: 'https://thehippiescientist.net/goals' },
-    { name: goal.title, url: `https://thehippiescientist.net/goals/${goal.slug}` },
-  ], { id: `https://thehippiescientist.net/goals/${goal.slug}#breadcrumb` })
+    { name: 'Goals', url: `${SITE_URL}/goals/` },
+    { name: goal.title, url: `${SITE_URL}${goalPath}/` },
+  ], { id: `${SITE_URL}${goalPath}/#breadcrumb` })
 
   const goalCollectionJsonLd = collectionPageJsonLd({
     title: `${goal.title} | The Hippie Scientist`,
     description: goal.description,
-    path: `/goals/${goal.slug}`,
-    itemListId: `https://thehippiescientist.net/goals/${goal.slug}#item-list`,
-    breadcrumbId: `https://thehippiescientist.net/goals/${goal.slug}#breadcrumb`,
+    path: goalPath,
+    itemListId: `${SITE_URL}${goalPath}/#item-list`,
+    breadcrumbId: `${SITE_URL}${goalPath}/#breadcrumb`,
   })
 
   const goalItemListJsonLd = itemListJsonLd({
-    id: `https://thehippiescientist.net/goals/${goal.slug}#item-list`,
+    id: `${SITE_URL}${goalPath}/#item-list`,
     name: `${goal.title} Options`,
-    path: `/goals/${goal.slug}`,
+    path: goalPath,
     items: enrichedOptions.map(opt => ({
       name: opt.option.name,
       url: opt.profileHref || `/goals/${goal.slug}`,
@@ -252,6 +280,7 @@ export default async function GoalDecisionPage({
     </>
   )
 
+  const hubLinks = getGoalHubLinks(goal.slug)
   const goalEvidence = await getGoalEvidenceEngine(goal.slug)
   if (goalEvidence) {
     return (
@@ -260,6 +289,9 @@ export default async function GoalDecisionPage({
         enrichedOptions={enrichedOptions}
         evidence={goalEvidence}
         structuredData={structuredData}
+        hubLinks={hubLinks}
+        goalContent={goalContent}
+        captureGoal={goalCaptureGoal(goal.slug)}
       />
     )
   }
@@ -267,6 +299,7 @@ export default async function GoalDecisionPage({
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
       {structuredData}
+      <ScrollEngagementPrompt storageKey={`goal-prompt-${goal.slug}`} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -280,6 +313,9 @@ export default async function GoalDecisionPage({
           {goal.title}
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">{goal.description}</p>
+        <div className="mt-4">
+          <LastUpdatedBadge date={`${SEO_YEAR}-06-01`} />
+        </div>
       </section>
 
       <section className="rounded-2xl border border-amber-600/10 bg-amber-50/50 p-6 text-sm leading-7 text-amber-950 shadow-sm">
@@ -475,6 +511,15 @@ export default async function GoalDecisionPage({
         </div>
       </section>
 
+      {goalContent ? <GoalContentDepth content={goalContent} /> : null}
+
+      <GoalHubSections
+        goalSlug={goal.slug}
+        stack={hubLinks.stack}
+        compares={hubLinks.compares}
+        seoEntry={hubLinks.seoEntry}
+      />
+
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {enrichedOptions.map(({ option }) => (
           <article key={`${option.slug}-avoid`} className="rounded-2xl border border-rose-600/10 bg-rose-50/50 p-5 shadow-sm">
@@ -530,10 +575,11 @@ export default async function GoalDecisionPage({
         </div>
       </section>
 
-      <EmailCapture
-        headline={`Get ${goal.title.toLowerCase()} updates`}
-        description="Join for new evidence notes, product-quality checklists, and conservative supplement decision guides."
-        location={`goal-${goal.slug}`}
+      <EmailCaptureBox
+        goal={goalCaptureGoal(goal.slug)}
+        variant="wide"
+        title="Free evidence-based supplement safety checklist"
+        description="Get the safety checklist plus goal-specific research notes. Educational only — not medical advice."
       />
 
       <AuthorCredentials />

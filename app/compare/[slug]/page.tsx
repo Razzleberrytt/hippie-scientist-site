@@ -10,6 +10,8 @@ import PathwayVisualChip from '@/components/pathway-visual-chip'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
+import { buildPageMetadata } from '@/lib/seo'
+import { isFlagshipCompareSlug } from '@/lib/goal-hub-links'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -106,17 +108,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const title = config?.title ? `${config.title}: Which Is Better? | The Hippie Scientist` : `${formatSlug(slug)}: Which Is Better? | The Hippie Scientist`
   const description = config?.summary || `Compare ${formatSlug(slug)} for benefits, safety, evidence, best use cases, and supplement buying options.`
 
-  return {
+  const indexable = isFlagshipCompareSlug(slug)
+  return buildPageMetadata({
     title,
     description,
-    alternates: { canonical: `/compare/${slug}` },
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      url: `/compare/${slug}`,
-    },
-  }
+    path: `/compare/${slug}`,
+    openGraphType: 'article',
+    robots: indexable
+      ? undefined
+      : { index: false, follow: true },
+  })
 }
 
 function isFieldEmpty(val: any): boolean {

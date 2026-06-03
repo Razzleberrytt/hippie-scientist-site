@@ -9,7 +9,16 @@ import { normalizeSlug } from '@/lib/slug-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
-import { herbJsonLd as generateHerbJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
+import {
+  herbJsonLd as generateHerbJsonLd,
+  breadcrumbJsonLd as generateBreadcrumbJsonLd,
+  generateDetailMetadata,
+  productJsonLd,
+  SITE_URL,
+} from '@/lib/seo'
+import { getGoalsForEntity } from '@/lib/goal-hub-links'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getSafetySensitivity, getSafetyLabels, getSafetyClassifications } from '@/lib/safety-classification'
 import { getEvidenceLabel } from '@/lib/evidence'
@@ -77,7 +86,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (canonicalSlug !== normalizedSlug) {
     return {
       ...metadata,
-      alternates: { canonical: `https://thehippiescientist.net/herbs/${canonicalSlug}` },
+      alternates: { canonical: `${SITE_URL}/herbs/${canonicalSlug}/` },
       robots: { index: false, follow: true },
     }
   }
@@ -313,19 +322,20 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
 
-  const productSchemaJsonLd = (revenueProducts?.products[0] && !suppressAffiliate) ? {
-    '@context': 'https://schema.org/',
-    '@type': 'Product',
-    name: `${displayName} Supplement`,
-    description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      lowPrice: '15',
-      highPrice: '50',
-      url: revenueProducts.products.find(p => p.slot === 'overall')?.affiliateUrl ?? revenueProducts.products[0].affiliateUrl,
-    },
-  } : null
+  const affiliateUrl =
+    revenueProducts?.products.find((p) => p.slot === 'overall')?.affiliateUrl ??
+    revenueProducts?.products[0]?.affiliateUrl
+  const productSchemaJsonLd =
+    affiliateUrl && !suppressAffiliate
+      ? productJsonLd({
+          name: `${displayName} Supplement`,
+          description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
+          url: affiliateUrl,
+        })
+      : null
+  const goalLinks = getGoalsForEntity(normalizedSlug)
+  const lastReviewed =
+    herb.reviewed_date || herb.reviewed_at || herb.updated_at || herb.updatedAt || herb.last_updated
 
   const comparisonLinks = comparisonRecords
     .filter((record: any) => record?.slug)
@@ -351,13 +361,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Herbs', url: 'https://thehippiescientist.net/herbs' },
-    { name: displayName, url: `https://thehippiescientist.net/herbs/${normalizedSlug}` },
+    { name: 'Herbs', url: `${SITE_URL}/herbs/` },
+    { name: displayName, url: `${SITE_URL}/herbs/${normalizedSlug}/` },
   ])
 
 
   return (
     <main className="mx-auto max-w-4xl space-y-8 px-4 py-6">
+      <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(herbJsonLd) }}
@@ -390,7 +401,27 @@ export default async function HerbDetailPage({ params }: PageProps) {
           {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
         </div>
         <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
+        <div className="mt-3">
+          <LastUpdatedBadge date={lastReviewed} />
+        </div>
       </header>
+
+      {goalLinks.length > 0 ? (
+        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {goalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       {/* Section 1: Quick Stats */}
       <section className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">

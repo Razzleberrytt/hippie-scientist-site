@@ -3,21 +3,14 @@ import Link from 'next/link'
 import { goals } from '@/data/goals'
 import DecisionCtaGroup from '@/components/decision/DecisionCtaGroup'
 
-export const metadata: Metadata = {
-  title: 'Supplement Goal Decision Guides',
-  description: 'Start with your goal — sleep, focus, stress, inflammation, or pain — then compare herbs and compounds by evidence, safety, and tradeoffs.',
-  alternates: { canonical: '/goals' },
-  openGraph: {
-    title: 'Supplement Goal Decision Guides',
-    description: 'Start with your goal — sleep, focus, stress, inflammation, or pain — then compare herbs and compounds by evidence, safety, and tradeoffs.',
-    url: '/goals',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Supplement Goal Decision Guides',
-    description: 'Start with your goal to compare herbs and compounds by evidence, safety, and tradeoffs.',
-  },
-}
+import { buildPageMetadata, SEO_YEAR } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: `Supplement Goal Guides ${SEO_YEAR} – Evidence, Safety & Comparisons`,
+  description:
+    'Choose your goal — sleep, stress, focus, anxiety, pain, and more — then compare herbs and compounds by evidence strength, safety, and practical tradeoffs.',
+  path: '/goals',
+})
 
 export default function GoalsPage() {
   return (

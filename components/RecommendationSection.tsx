@@ -1,5 +1,6 @@
 import AffiliateDisclosure from './AffiliateDisclosure'
 import AffiliateProductCard, { type AffiliateProduct } from './AffiliateProductCard'
+import WhyWeRecommend from '@/components/monetization/WhyWeRecommend'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 
@@ -48,6 +49,7 @@ export default function RecommendationSection({
         ))}
       </div>
 
+      <WhyWeRecommend className='mt-6' />
     </section>
   )
 }

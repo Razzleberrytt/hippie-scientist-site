@@ -258,12 +258,15 @@ const canonicalStaticRoutes = [
   '/compare',
   '/disclaimer',
   '/faq',
+  '/free-guide',
   '/guides',
   '/learn',
   '/learn/product-quality',
   '/methodology',
   '/privacy',
   '/safety-checker',
+  '/start-here',
+  '/supplement-safety-checklist',
 ]
 
 const staticGuideRoutes = [

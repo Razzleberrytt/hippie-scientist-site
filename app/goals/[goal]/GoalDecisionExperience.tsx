@@ -1,8 +1,15 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
-import EmailCapture from '../../../components/EmailCapture'
+import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
 import type { Goal } from '@/data/goals'
+import type { GoalContentExtension } from '@/data/goal-content'
+import type { EmailCaptureGoal } from '@/content/emailCapture'
+import GoalHubSections from '@/components/goals/GoalHubSections'
+import GoalContentDepth from '@/components/goals/GoalContentDepth'
+import type { getGoalHubLinks } from '@/lib/goal-hub-links'
+
+type GoalHubBundle = ReturnType<typeof getGoalHubLinks>
 import {
   type EvidenceEngineClaim,
   type EvidenceEnginePayload,
@@ -37,6 +44,9 @@ type GoalDecisionExperienceProps = {
   enrichedOptions: GoalOption[]
   evidence: EvidenceEnginePayload
   structuredData?: ReactNode
+  hubLinks?: GoalHubBundle
+  goalContent?: GoalContentExtension | null
+  captureGoal?: EmailCaptureGoal
 }
 
 function profileHrefFor(claim: EvidenceEngineClaim, enrichedOptions: GoalOption[]) {
@@ -49,6 +59,9 @@ export default function GoalDecisionExperience({
   enrichedOptions,
   evidence,
   structuredData,
+  hubLinks,
+  goalContent = null,
+  captureGoal = 'default',
 }: GoalDecisionExperienceProps) {
   const claims = evidence.claims
   const problemLabels = evidence.problemLabels
@@ -218,10 +231,22 @@ export default function GoalDecisionExperience({
         </div>
       </section>
 
-      <EmailCapture
-        headline={`Get ${goal.title.toLowerCase()} research updates`}
-        description="Join for practical safety notes, new guide announcements, and evidence-first supplement context."
-        location={`goal-${goal.slug}`}
+      {goalContent ? <GoalContentDepth content={goalContent} /> : null}
+
+      {hubLinks ? (
+        <GoalHubSections
+          goalSlug={goal.slug}
+          stack={hubLinks.stack}
+          compares={hubLinks.compares}
+          seoEntry={hubLinks.seoEntry}
+        />
+      ) : null}
+
+      <EmailCaptureBox
+        goal={captureGoal}
+        variant="wide"
+        title="Free evidence-based supplement safety checklist"
+        description="Get the safety checklist plus evidence-engine updates for this goal. Educational only."
       />
 
       <AuthorCredentials />

@@ -5,6 +5,7 @@ export const dynamic = 'force-static'
 const siteUrl = 'https://thehippiescientist.net'
 
 const disallowedRoutes = [
+  '/compare/dynamic',
   '/analytics',
   '/dashboard',
   '/dashboard/revenue',

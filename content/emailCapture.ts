@@ -5,6 +5,10 @@ export type EmailCaptureGoal =
   | 'brain-fog'
   | 'fatigue'
   | 'overthinking'
+  | 'anxiety'
+  | 'pain'
+  | 'inflammation'
+  | 'safety-checklist'
   | 'default'
 
 export type LeadMagnet = {
@@ -75,12 +79,40 @@ export const leadMagnets: Record<EmailCaptureGoal, LeadMagnet> = {
       'A calming-support shortlist focused on practical fit, safety context, and avoiding overconfident claims.',
     ctaLabel: 'Get the calming guide',
   },
+  anxiety: {
+    goal: 'anxiety',
+    title: 'Get the anxiety support decision guide',
+    description:
+      'A cautious shortlist for comparing calming options with safety, medication context, and evidence limits kept visible.',
+    ctaLabel: 'Get the anxiety guide',
+  },
+  pain: {
+    goal: 'pain',
+    title: 'Get the pain support decision guide',
+    description:
+      'Compare joint and discomfort options with evidence tiers, NSAID-adjacent cautions, and slow-onset expectations kept visible.',
+    ctaLabel: 'Get the pain guide',
+  },
+  inflammation: {
+    goal: 'inflammation',
+    title: 'Get the inflammation support decision guide',
+    description:
+      'A practical framework for comparing anti-inflammatory supplements without overreading limited human trials.',
+    ctaLabel: 'Get the inflammation guide',
+  },
+  'safety-checklist': {
+    goal: 'safety-checklist',
+    title: 'Free evidence-based supplement safety checklist',
+    description:
+      'PDF-style checklist covering medications, dose and form checks, stacking risks, and product-quality markers before you buy.',
+    ctaLabel: 'Send me the checklist',
+  },
   default: {
     goal: 'default',
-    title: 'Get the supplement decision guide',
+    title: 'Free evidence-based supplement safety checklist',
     description:
-      'Evidence-aware notes for comparing supplements, safety context, and product-quality questions before buying.',
-    ctaLabel: 'Get the guide',
+      'Practical steps to review medications, dose, form, and stacking risk — plus occasional research updates. Not medical advice.',
+    ctaLabel: 'Get the safety checklist',
   },
 }
 

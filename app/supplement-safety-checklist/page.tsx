@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
-import EmailCapture from '../../components/EmailCapture'
+import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
 import NewsletterCtaBlock from '../../components/NewsletterCtaBlock'
 
-export const metadata: Metadata = {
-  title: 'Supplement Safety Checklist | The Hippie Scientist',
-  description: 'Join the email list and preview a safety-first supplement checklist before buying or stacking products.',
-  alternates: { canonical: '/supplement-safety-checklist' },
-}
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Free Evidence-Based Supplement Safety Checklist (PDF)',
+  description:
+    'Download-style safety checklist: medications, dose and form checks, stacking risks, and quality markers before buying supplements.',
+  path: '/supplement-safety-checklist',
+})
 
 export default function SupplementSafetyChecklistPage() {
   return (
@@ -21,12 +24,7 @@ export default function SupplementSafetyChecklistPage() {
         </p>
       </section>
 
-      <EmailCapture
-        headline='Get the supplement safety checklist'
-        description='Enter your email to join the list. PDF delivery can be connected later; this page establishes the lead magnet flow now.'
-        ctaLabel='Send me the checklist'
-        location='supplement-safety-checklist'
-      />
+      <EmailCaptureBox goal='safety-checklist' variant='wide' />
 
       <section className='grid gap-4 md:grid-cols-3'>
         {[

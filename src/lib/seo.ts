@@ -3,7 +3,9 @@ import { getRuntimeVisibility } from './runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 
-export const SITE_URL = 'https://www.thehippiescientist.net'
+export const SITE_URL = 'https://thehippiescientist.net'
+export const SEO_YEAR = '2026'
+export const DEFAULT_OG_IMAGE = '/og-default.png'
 export const SITE_NAME = 'The Hippie Scientist'
 export const TWITTER_HANDLE = '@thehippiescientist'
 
@@ -56,6 +58,13 @@ const NON_CANONICAL_PARAM_PATTERNS: RegExp[] = [
   /^source$/i,
 ]
 
+function withTrailingSlash(pathname: string): string {
+  if (!pathname || pathname === '/') return '/'
+  if (pathname.endsWith('/')) return pathname
+  if (/\.[a-z0-9]+$/i.test(pathname)) return pathname
+  return `${pathname}/`
+}
+
 export function normalizeCanonicalPath(path: string, keepQueryParams: string[] = []): string {
   const url = new URL(withLeadingSlash(path), SITE_URL)
   const allowed = new Set(keepQueryParams.map(value => value.toLowerCase()))
@@ -73,20 +82,77 @@ export function normalizeCanonicalPath(path: string, keepQueryParams: string[] =
   const sorted = [...nextSearch.entries()].sort(([a], [b]) => a.localeCompare(b))
   const finalSearch = new URLSearchParams(sorted)
   const search = finalSearch.toString()
-  return `${url.pathname}${search ? `?${search}` : ''}`
+  const pathname = withTrailingSlash(url.pathname)
+  return `${pathname}${search ? `?${search}` : ''}`
+}
+
+export type BuildPageMetadataArgs = BuildMetaArgs & {
+  openGraphType?: 'website' | 'article'
+  robots?: Metadata['robots']
+}
+
+export function buildPageMetadata({
+  title,
+  description,
+  path = '/',
+  image = DEFAULT_OG_IMAGE,
+  keepQueryParams = [],
+  openGraphType = 'website',
+  robots,
+}: BuildPageMetadataArgs): Metadata {
+  const meta = buildMeta({ title, description, path, image, keepQueryParams })
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: { canonical: meta.url },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      type: openGraphType,
+      url: meta.url,
+      siteName: SITE_NAME,
+      images: [{ url: meta.image, width: 1200, height: 630, alt: meta.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: meta.title,
+      description: meta.description,
+      images: [meta.image],
+    },
+    ...(robots ? { robots } : {}),
+  }
+}
+
+export function productJsonLd(args: {
+  name: string
+  description: string
+  url: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: args.name,
+    description: args.description,
+    url: args.url,
+    offers: {
+      '@type': 'Offer',
+      url: args.url,
+      availability: 'https://schema.org/OnlineOnly',
+    },
+  }
 }
 
 export function buildMeta({
   title,
   description,
   path = '/',
-  image = '/icon-512x512.png',
+  image = DEFAULT_OG_IMAGE,
   keepQueryParams = [],
 }: BuildMetaArgs): NormalizedMeta {
   const canonicalPath = normalizeCanonicalPath(path, keepQueryParams)
   const url = toAbsoluteUrl(canonicalPath)
 
-  const fallbackImage = image || '/icon-512x512.png'
+  const fallbackImage = image || DEFAULT_OG_IMAGE
   const imageUrl = toAbsoluteUrl(fallbackImage)
 
   return {
@@ -521,23 +587,17 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
 
   const visibility = getRuntimeVisibility(record)
 
-  return {
+  return buildPageMetadata({
     title: meta.title,
     description: meta.description,
-    alternates: { canonical: meta.url },
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      type: 'article',
-      url: meta.url,
-      images: [meta.image],
-    },
+    path,
+    openGraphType: 'article',
     robots: visibility.canIndex
       ? undefined
       : {
           index: false,
           follow: true,
         },
-  }
+  })
 }
 

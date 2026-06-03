@@ -9,7 +9,16 @@ import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { compoundJsonLd as generateCompoundJsonLd, breadcrumbJsonLd as generateBreadcrumbJsonLd, generateDetailMetadata } from '@/lib/seo'
+import {
+  compoundJsonLd as generateCompoundJsonLd,
+  breadcrumbJsonLd as generateBreadcrumbJsonLd,
+  generateDetailMetadata,
+  productJsonLd,
+  SITE_URL,
+} from '@/lib/seo'
+import { getGoalsForEntity } from '@/lib/goal-hub-links'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
@@ -360,8 +369,8 @@ export default async function CompoundPage({ params }: PageProps) {
   })
 
   const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Compounds', url: 'https://thehippiescientist.net/compounds' },
-    { name: displayName, url: `https://thehippiescientist.net/compounds/${compound.slug}` },
+    { name: 'Compounds', url: `${SITE_URL}/compounds/` },
+    { name: displayName, url: `${SITE_URL}/compounds/${compound.slug}/` },
   ])
 
   const activeShopLinks = getAffiliateShopLinks(compound, displayName, 'compound')
@@ -370,19 +379,23 @@ export default async function CompoundPage({ params }: PageProps) {
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
 
-  const productSchemaJsonLd = revenueProducts?.products[0] ? {
-    '@context': 'https://schema.org/',
-    '@type': 'Product',
-    name: `${displayName} Supplement`,
-    description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      lowPrice: '15',
-      highPrice: '50',
-      url: revenueProducts.products.find(p => p.slot === 'overall')?.affiliateUrl ?? revenueProducts.products[0].affiliateUrl,
-    },
-  } : null
+  const affiliateUrl =
+    revenueProducts?.products.find((p) => p.slot === 'overall')?.affiliateUrl ??
+    revenueProducts?.products[0]?.affiliateUrl
+  const productSchemaJsonLd = affiliateUrl
+    ? productJsonLd({
+        name: `${displayName} Supplement`,
+        description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
+        url: affiliateUrl,
+      })
+    : null
+  const goalLinks = getGoalsForEntity(normalizedSlug)
+  const lastReviewed =
+    compound.reviewed_date ||
+    compound.reviewed_at ||
+    compound.updated_at ||
+    compound.updatedAt ||
+    compound.last_updated
 
   return (
     <>
@@ -404,6 +417,7 @@ export default async function CompoundPage({ params }: PageProps) {
       <ReadingProgress />
 
       <main className="mx-auto max-w-4xl space-y-8 px-4 py-6 pb-20">
+        <ScrollEngagementPrompt storageKey={`compound-prompt-${normalizedSlug}`} />
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
@@ -424,7 +438,27 @@ export default async function CompoundPage({ params }: PageProps) {
             ) : null}
           </div>
           <p className="text-base leading-7 text-[#46574d]">{quickSummary}</p>
+          <div className="mt-3">
+            <LastUpdatedBadge date={lastReviewed} />
+          </div>
         </header>
+
+        {goalLinks.length > 0 ? (
+          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {goalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         {legalStatusWarning ? (
           <section className="rounded-2xl border border-red-200 bg-red-50 p-4 sm:p-5 space-y-3">
