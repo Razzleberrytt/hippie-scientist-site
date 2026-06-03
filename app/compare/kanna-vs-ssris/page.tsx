@@ -110,7 +110,7 @@ export default function KannaVsSSRIsPage() {
             Serotonin Pathway
           </Link>
 
-          <Link href="/about/psychoactives/serotonergic-stacking-risks" className="chip-readable">
+          <Link href="/psychoactive/serotonergic-stacking-risks" className="chip-readable">
             Serotonergic Risks
           </Link>
         </div>

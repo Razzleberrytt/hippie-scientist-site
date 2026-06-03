@@ -369,7 +369,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
 
   return (
-    <main className="mx-auto max-w-4xl space-y-8 px-4 py-6">
+    <div className="mx-auto max-w-4xl space-y-8 px-4 py-6">
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
 
@@ -582,6 +582,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
           ← Back to herbs library
         </Link>
       </div>
-    </main>
+    </div>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { SEO_GUIDE_ROUTES } from '@/lib/canonical-routes'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function FreeGuidePage() {
   return (
-    <main className='container-page py-10 space-y-8'>
+    <div className='container-page py-10 space-y-8'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Free guide</p>
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Supplement Decision Guide</h1>
@@ -29,17 +30,17 @@ export default function FreeGuidePage() {
           {
             title: 'Sleep',
             body: 'Compare wind-down support, next-day grogginess risk, sedative combinations, timing, and product form.',
-            href: '/top/sleep',
+            href: SEO_GUIDE_ROUTES.sleep,
           },
           {
             title: 'Stress',
             body: 'Separate calming options from adaptogen-style options while keeping mental health care and medication context visible.',
-            href: '/top/stress',
+            href: SEO_GUIDE_ROUTES.stress,
           },
           {
             title: 'Focus and brain fog',
             body: 'Sort stimulant-forward, non-stimulant, and deficiency-context options without ignoring possible root causes.',
-            href: '/top/focus',
+            href: SEO_GUIDE_ROUTES.focus,
           },
         ].map((section) => (
           <article key={section.title} className='card-premium p-6'>
@@ -65,6 +66,6 @@ export default function FreeGuidePage() {
           <Link href='/affiliate-disclosure' className='text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -38,7 +38,7 @@ export default function GabaVsSerotoninPage() {
           </p>
           <div className="flex flex-wrap gap-2">
             <Link href="/education/gaba" className="chip-readable">GABA Pathway</Link>
-            <Link href="/about/psychoactives/calming" className="chip-readable">Calming Psychoactives</Link>
+            <Link href="/psychoactive/calming" className="chip-readable">Calming Psychoactives</Link>
           </div>
         </div>
 
@@ -49,7 +49,7 @@ export default function GabaVsSerotoninPage() {
           </p>
           <div className="flex flex-wrap gap-2">
             <Link href="/education/serotonin" className="chip-readable">Serotonin Pathway</Link>
-            <Link href="/about/psychoactives/calming" className="chip-readable">Mood Elevation</Link>
+            <Link href="/psychoactive/calming" className="chip-readable">Mood Elevation</Link>
           </div>
         </div>
       </section>

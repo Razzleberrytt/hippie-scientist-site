@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { isOptimizableRemoteImage } from '@/lib/image-hosts'
 import { trackRevenueEvent } from '@/lib/revenue-tracking'
 
 export type AffiliateProduct = {
@@ -34,7 +35,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
 
   return (
     <article className={`flex h-full flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white/85 shadow-sm ${compact ? 'p-4' : 'p-5'}`}>
-      {imageUrl ? (
+      {imageUrl && isOptimizableRemoteImage(imageUrl) ? (
         <div className='mb-4 aspect-[4/3] overflow-hidden rounded-xl border border-brand-900/10 bg-brand-50'>
           <Image
             src={imageUrl}
@@ -43,6 +44,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
             height={300}
             sizes="(max-width: 768px) 100vw, 33vw"
             quality={85}
+            unoptimized
             className="h-full w-full object-cover"
           />
         </div>

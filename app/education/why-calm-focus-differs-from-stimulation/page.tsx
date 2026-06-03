@@ -37,7 +37,7 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/comparisons/calm-focus-vs-stimulation', title: 'Calm Focus vs Stimulation' },
+  { href: '/compare/rhodiola-vs-ashwagandha', title: 'Rhodiola vs Ashwagandha' },
   { href: '/protocols/non-stimulant-focus', title: 'Non-Stimulant Focus' },
   { href: '/education/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
   { href: '/education/how-focus-and-motivation-work', title: 'Focus and Motivation' },

@@ -262,7 +262,7 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
                 <p className="eyebrow-label">Extended Ecosystem</p>
                 <h2 className="compact-heading mt-2">Continue traversing the authority network.</h2>
               </div>
-              <Link href="/explore" className="button-secondary rounded-full px-4 py-2 text-sm">Back to Explore</Link>
+              <Link href="/herbs" className="button-secondary rounded-full px-4 py-2 text-sm">Back to Herbs</Link>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

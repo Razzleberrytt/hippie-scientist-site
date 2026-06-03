@@ -84,7 +84,7 @@ export default function ResearchMethodologyPage() {
             Neuropharmacology
           </Link>
 
-          <Link href="/about/psychoactives/harm-reduction" className="chip-readable">
+          <Link href="/psychoactive/harm-reduction" className="chip-readable">
             Harm Reduction
           </Link>
 

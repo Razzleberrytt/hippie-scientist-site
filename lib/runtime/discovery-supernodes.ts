@@ -35,14 +35,14 @@ export const DISCOVERY_SUPERNODES: DiscoverySupernode[] = [
     category: 'Stress Physiology',
   },
   {
-    href: '/comparisons/calm-focus-vs-stimulation',
+    href: '/compare/rhodiola-vs-ashwagandha',
     title: 'Calm Focus vs Stimulation',
     description:
       'Systems-oriented comparison of attentional continuity, overstimulation risk, and cognition sustainability.',
     category: 'Comparison Systems',
   },
   {
-    href: '/comparisons/rhodiola-vs-ashwagandha',
+    href: '/compare/rhodiola-vs-ashwagandha',
     title: 'Rhodiola vs Ashwagandha',
     description:
       'Adaptogen comparison exploring fatigue systems, emotional regulation, and resilience-oriented neurobiology.',

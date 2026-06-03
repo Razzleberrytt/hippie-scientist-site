@@ -64,7 +64,7 @@ export default function DeepSleepSupportPage() {
           GABA Pathway
         </Link>
 
-        <Link href="/about/psychoactives/calming" className="chip-readable">
+        <Link href="/psychoactive/calming" className="chip-readable">
           Calming Psychoactives
         </Link>
 

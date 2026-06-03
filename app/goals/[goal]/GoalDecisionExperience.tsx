@@ -85,7 +85,7 @@ export default function GoalDecisionExperience({
   const safetyBody = config.safetyBody ?? `Do not use supplements to manage complex clinical situations without professional guidance.`
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
       {structuredData}
       <StickyChecklistBar storageKey={`goal-engine-sticky-${goal.slug}`} />
       <Breadcrumbs
@@ -262,6 +262,6 @@ export default function GoalDecisionExperience({
         Educational only. Not medical advice. Evidence varies by population, preparation, dose, timing, and study design.
         Review medications, health conditions, pregnancy status, and clinician guidance before using supplements.
       </footer>
-    </main>
+    </div>
   )
 }

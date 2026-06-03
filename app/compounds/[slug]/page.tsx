@@ -406,7 +406,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
       <ReadingProgress />
 
-      <main className="mx-auto max-w-4xl space-y-8 px-4 py-6 pb-20">
+      <div className="mx-auto max-w-4xl space-y-8 px-4 py-6 pb-20">
         <ScrollEngagementPrompt storageKey={`compound-prompt-${normalizedSlug}`} />
         <Breadcrumbs
           items={[
@@ -655,7 +655,7 @@ export default async function CompoundPage({ params }: PageProps) {
             ← Back to compounds library
           </Link>
         </div>
-      </main>
+      </div>
     </>
   )
 }

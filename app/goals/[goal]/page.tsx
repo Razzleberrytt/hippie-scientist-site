@@ -266,7 +266,7 @@ export default async function GoalDecisionPage({
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
       {structuredData}
       <StickyChecklistBar storageKey={`goal-sticky-${goal.slug}`} />
       <Breadcrumbs
@@ -566,6 +566,6 @@ export default async function GoalDecisionPage({
         Educational only. Not medical advice. Evidence varies by population, preparation, and study design.
         Review medications, health conditions, pregnancy status, and clinician guidance before using supplements.
       </footer>
-    </main>
+    </div>
   )
 }

@@ -37,7 +37,7 @@ export const mobileNavigationItems = [
   {
     label: 'Explore',
     icon: 'Compass',
-    href: '/explore',
+    href: '/search',
   },
   {
     label: 'Search',

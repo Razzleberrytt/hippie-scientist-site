@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
       <div className="mb-6 space-y-2">
         <p className="eyebrow-label">Evidence discovery</p>
         <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-5xl">
@@ -36,6 +36,6 @@ export default function SearchPage() {
       <Suspense fallback={<SearchSkeleton />}>
         <SearchClient />
       </Suspense>
-    </main>
+    </div>
   )
 }

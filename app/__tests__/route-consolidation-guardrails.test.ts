@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { authorityHomeLinks, bestForSlugs } from '@/app/authority-links'
+import { SEO_GUIDE_ROUTES } from '@/lib/canonical-routes'
 
 const rootDir = process.cwd()
 const redirectsPath = path.join(rootDir, 'public', '_redirects')
@@ -35,8 +36,8 @@ describe('route consolidation guardrails', () => {
     expect(authorityHomeLinks).toEqual([
       { href: '/goals/stress', label: 'Stress Goal Hub' },
       { href: '/goals/sleep', label: 'Sleep Goal Hub' },
-      { href: '/top/sleep', label: 'Best Supplements for Sleep' },
-      { href: '/top/focus', label: 'Best Supplements for Focus' },
+      { href: SEO_GUIDE_ROUTES.sleep, label: 'Best Supplements for Sleep' },
+      { href: SEO_GUIDE_ROUTES.focus, label: 'Best Supplements for Focus' },
       { href: '/compare/rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
       { href: '/stacks/sleep-recovery-stack', label: 'Sleep Recovery Stack' },
       { href: '/methodology', label: 'Safety Basics' },

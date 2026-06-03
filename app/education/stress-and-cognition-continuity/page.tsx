@@ -50,7 +50,7 @@ const relatedSystems = [
     title: 'Fatigue Complexity',
   },
   {
-    href: '/comparisons/recovery-oriented-cognition-systems',
+    href: '/goals/focus',
     title: 'Recovery-Oriented Cognition Systems',
   },
 ]

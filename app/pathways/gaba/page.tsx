@@ -167,7 +167,7 @@ export default function GabaPathwayPage() {
           </Link>
 
           <Link
-            href="/about/psychoactives/calming"
+            href="/psychoactive/calming"
             className="chip-readable hover:bg-white transition"
           >
             Calming Psychoactives
@@ -181,7 +181,7 @@ export default function GabaPathwayPage() {
           </Link>
 
           <Link
-            href="/about/psychoactives/harm-reduction"
+            href="/psychoactive/harm-reduction"
             className="chip-readable hover:bg-white transition"
           >
             GABAergic Safety

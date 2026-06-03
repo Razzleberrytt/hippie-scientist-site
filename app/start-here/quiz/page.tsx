@@ -35,7 +35,7 @@ export default async function QuizPage() {
   })
 
   return (
-    <main className='mx-auto max-w-4xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-4xl space-y-8 px-4 py-8 sm:py-10'>
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 text-center max-w-2xl mx-auto'>
         <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-4xl'>
           Supplement Recommendation Quiz
@@ -48,6 +48,6 @@ export default async function QuizPage() {
       <Suspense fallback={<WizardSkeleton />}>
         <RecommendationQuiz herbs={herbs} compounds={compounds} />
       </Suspense>
-    </main>
+    </div>
   )
 }

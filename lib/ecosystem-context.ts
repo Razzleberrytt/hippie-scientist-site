@@ -13,7 +13,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'inflammation',
     label: 'Inflammation',
-    href: '/pathways/inflammation',
+    href: '/education/inflammation',
     description: 'Immune signaling, cytokine language, recovery, mobility, and oxidative-stress relationships.',
     systems: ['Immune tone', 'Cytokines', 'Recovery'],
     keywords: ['inflammation', 'inflammatory', 'cytokine', 'immune', 'joint', 'recovery'],
@@ -21,7 +21,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'cognition',
     label: 'Cognition',
-    href: '/explore/focus',
+    href: '/goals/focus',
     description: 'Attention, memory, mental clarity, fatigue resistance, and neurotransmitter-adjacent research.',
     systems: ['Attention', 'Memory', 'Neurotransmitters'],
     keywords: ['cognition', 'focus', 'memory', 'attention', 'nootropic', 'clarity'],
@@ -45,7 +45,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'longevity',
     label: 'Longevity',
-    href: '/explore/recovery',
+    href: '/goals/recovery',
     description: 'Aging-adjacent research themes including repair, oxidative stress, metabolism, and resilience.',
     systems: ['Repair', 'Resilience', 'Healthy aging'],
     keywords: ['longevity', 'aging', 'cellular', 'repair', 'resilience'],
@@ -61,7 +61,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'oxidative-stress',
     label: 'Oxidative stress',
-    href: '/pathways/inflammation',
+    href: '/education/inflammation',
     description: 'Antioxidant response, redox balance, inflammation overlap, and tissue-stress research language.',
     systems: ['Redox balance', 'Antioxidant response', 'Tissue stress'],
     keywords: ['oxidative', 'antioxidant', 'redox', 'ros', 'free radical'],
@@ -69,7 +69,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'sleep',
     label: 'Sleep',
-    href: '/explore/sleep',
+    href: '/goals/sleep',
     description: 'Latency, sleep quality, relaxation, circadian context, and nighttime recovery overlap.',
     systems: ['Sleep quality', 'Circadian context', 'Relaxation'],
     keywords: ['sleep', 'circadian', 'melatonin', 'night', 'insomnia'],

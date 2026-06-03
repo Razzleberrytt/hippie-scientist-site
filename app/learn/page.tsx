@@ -30,11 +30,11 @@ const educationHubs = [
   },
   {
     title: 'Adaptogens without hype',
-    href: '/education/adaptogens-explained-without-hype',
+    href: '/education/what-are-adaptogens',
   },
   {
     title: 'Cognitive stack basics',
-    href: '/education/cognitive-stack-that-actually-makes-sense',
+    href: '/education/what-is-a-nootropic',
   },
 ]
 
@@ -48,19 +48,19 @@ const startHereCards = [
   {
     title: 'Learn how to read evidence',
     body: 'Use the glossary and evidence guides to check study quality, dosing context, and what is still uncertain.',
-    href: '/education/adaptogens-explained-without-hype',
+    href: '/education/what-are-adaptogens',
     cta: 'Learn how to read evidence',
   },
   {
     title: 'Understand safety and tradeoffs',
     body: 'Supplement effects vary between individuals. Review medications, sensitivity, sleep impact, and product quality before trying anything.',
-    href: '/education/adaptogens-explained-without-hype',
+    href: '/education/what-are-adaptogens',
     cta: 'Understand safety and tradeoffs',
   },
   {
     title: 'Compare before stacking',
     body: 'Compare single herbs and compounds first, then build a stack only when each piece has a clear purpose.',
-    href: '/education/cognitive-stack-that-actually-makes-sense',
+    href: '/education/what-is-a-nootropic',
     cta: 'Compare before stacking',
   },
 ]
@@ -77,14 +77,14 @@ const supernodes = [
     title: 'Neuroplasticity and Learning',
     description:
       'How memory, attention, repetition, sleep, and adaptation shape learning over time without reducing everything to hype.',
-    href: '/education/cognitive-stack-that-actually-makes-sense',
+    href: '/education/what-is-a-nootropic',
     category: 'Cognition Systems',
   },
   {
     title: 'Adaptogens and Recovery',
     description:
       'A careful look at adaptogens, stress signaling, fatigue, resilience claims, and where the evidence still has limits.',
-    href: '/education/adaptogens-explained-without-hype',
+    href: '/education/what-are-adaptogens',
     category: 'Stress Physiology',
   },
   {

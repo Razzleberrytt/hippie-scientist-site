@@ -50,36 +50,39 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
   const breadcrumbId = `${canonical}#breadcrumb`
   const productId = `${canonical}#product`
 
-  const webpage =
+  const webpageRaw =
     args.kind === 'herb' && args.herb
-      ? {
-          ...herbJsonLd({ ...args.herb, breadcrumbId }),
-          '@id': webpageId,
-          url: canonical,
-          ...(args.product ? { mainEntity: { '@id': productId } } : {}),
-        }
+      ? herbJsonLd({ ...args.herb, breadcrumbId })
       : args.compound
-        ? {
-            ...compoundJsonLd({ ...args.compound, breadcrumbId }),
-            '@id': webpageId,
-            url: canonical,
-            ...(args.product ? { mainEntity: { '@id': productId } } : {}),
-          }
+        ? compoundJsonLd({ ...args.compound, breadcrumbId })
         : null
 
+  const webpage = webpageRaw
+    ? {
+        ...stripSchemaContext(webpageRaw),
+        '@id': webpageId,
+        url: canonical,
+        mainEntityOfPage: canonical,
+        ...(args.product ? { mainEntity: { '@id': productId } } : {}),
+      }
+    : null
+
   const breadcrumb = {
-    ...breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId }),
+    ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
     '@id': breadcrumbId,
   }
 
   const product = args.product
     ? {
-        ...productJsonLd({
-          name: args.product.name,
-          description: args.product.description,
-          url: args.product.url,
-        }),
+        ...stripSchemaContext(
+          productJsonLd({
+            name: args.product.name,
+            description: args.product.description,
+            url: args.product.url,
+          }),
+        ),
         '@id': productId,
+        mainEntityOfPage: { '@id': webpageId },
         ...(typeof args.product.rating === 'number' && args.product.rating > 0
           ? {
               aggregateRating: {
@@ -114,34 +117,39 @@ export function buildGoalSchemaGraph(args: {
 
   const faq = faqPageJsonLd({ pagePath: args.goalPath, questions: args.faqQuestions })
   const faqNode = faq
-    ? { ...faq, '@id': faqId, isPartOf: { '@id': webpageId } }
+    ? { ...stripSchemaContext(faq), '@id': faqId, isPartOf: { '@id': webpageId } }
     : null
 
   const collection = {
-    ...collectionPageJsonLd({
-      title: args.title,
-      description: args.description,
-      path: args.goalPath,
-      itemListId,
-      breadcrumbId,
-    }),
+    ...stripSchemaContext(
+      collectionPageJsonLd({
+        title: args.title,
+        description: args.description,
+        path: args.goalPath,
+        itemListId,
+        breadcrumbId,
+      }),
+    ),
     '@id': webpageId,
     url: canonical,
+    mainEntityOfPage: canonical,
     ...(faqNode ? { hasPart: { '@id': faqId } } : {}),
   }
 
   const breadcrumb = {
-    ...breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId }),
+    ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
     '@id': breadcrumbId,
   }
 
   const itemList = {
-    ...itemListJsonLd({
-      id: itemListId,
-      name: args.itemList.name,
-      path: args.goalPath,
-      items: args.itemList.items,
-    }),
+    ...stripSchemaContext(
+      itemListJsonLd({
+        id: itemListId,
+        name: args.itemList.name,
+        path: args.goalPath,
+        items: args.itemList.items,
+      }),
+    ),
     isPartOf: { '@id': webpageId },
   }
 
@@ -171,7 +179,7 @@ export function buildToolPageSchemaGraph(args: {
   }
 
   const breadcrumb = {
-    ...breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId }),
+    ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
     '@id': breadcrumbId,
   }
 
