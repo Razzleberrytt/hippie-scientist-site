@@ -37,7 +37,7 @@ export default function StressRegulationPage() {
       <AuthorityJsonLd
         title="Stress Regulation"
         description="Educational stress regulation protocol exploring calming systems, adaptogenic support, nervous-system balance, and neurochemical recovery."
-        url="https://thehippiescientist.net/protocols/stress-regulation"
+        url="https://www.thehippiescientist.net/protocols/stress-regulation"
         type="Article"
       />
 

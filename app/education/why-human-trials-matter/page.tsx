@@ -10,7 +10,7 @@ export default function HumanTrialsMatterPage() {
       <AuthorityJsonLd
         title="Why Human Trials Matter"
         description="Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-informed scientific interpretation."
-        url="https://thehippiescientist.net/education/why-human-trials-matter"
+        url="https://www.thehippiescientist.net/education/why-human-trials-matter"
         type="Article"
       />
 

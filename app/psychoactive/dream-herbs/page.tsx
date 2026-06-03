@@ -23,7 +23,7 @@ export default function DreamHerbsPage() {
       <AuthorityJsonLd
         title="Dream Herbs"
         description="Educational exploration of oneirogenic herbs, REM-related neuropharmacology, dreaming systems, and psychoactive ethnobotany."
-        url="https://thehippiescientist.net/psychoactive/dream-herbs"
+        url="https://www.thehippiescientist.net/psychoactive/dream-herbs"
         type="CollectionPage"
       />
 

@@ -34,7 +34,7 @@ export default async function DosingPage() {
       <AuthorityJsonLd
         title="Dynamic Dosage & Active Molecular Yield Calculator"
         description="Calculate personalized dosing ranges and active marker compounds for cognitive and physical supplements."
-        url="https://thehippiescientist.net/dosing"
+        url="https://www.thehippiescientist.net/dosing"
         type="MedicalWebPage"
       />
 

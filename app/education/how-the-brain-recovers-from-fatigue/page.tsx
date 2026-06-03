@@ -47,7 +47,7 @@ export default function FatigueRecoveryPage() {
       <AuthorityJsonLd
         title="How the Brain Recovers From Fatigue"
         description="Educational exploration of fatigue recovery, nervous-system restoration, stress signaling, sleep continuity, and recovery-oriented neuropharmacology."
-        url="https://thehippiescientist.net/education/how-the-brain-recovers-from-fatigue"
+        url="https://www.thehippiescientist.net/education/how-the-brain-recovers-from-fatigue"
         type="Article"
       />
 

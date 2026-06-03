@@ -61,7 +61,7 @@ export default function StressAndCognitionContinuityPage() {
       <AuthorityJsonLd
         title='Stress and Cognition Continuity'
         description='Educational exploration of stress physiology, recovery continuity, attentional resilience, and sustainable cognition systems.'
-        url='https://thehippiescientist.net/education/stress-and-cognition-continuity'
+        url='https://www.thehippiescientist.net/education/stress-and-cognition-continuity'
         type='Article'
       />
 

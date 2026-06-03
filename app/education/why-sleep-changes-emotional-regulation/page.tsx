@@ -49,7 +49,7 @@ export default function WhySleepChangesEmotionalRegulationPage() {
       <AuthorityJsonLd
         title="Why Sleep Changes Emotional Regulation"
         description="Educational exploration of sleep continuity, emotional regulation, stress resilience, recovery biology, and nervous-system restoration."
-        url="https://thehippiescientist.net/education/why-sleep-changes-emotional-regulation"
+        url="https://www.thehippiescientist.net/education/why-sleep-changes-emotional-regulation"
         type="Article"
       />
       <AuthorityBreadcrumbs

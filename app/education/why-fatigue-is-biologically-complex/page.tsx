@@ -49,7 +49,7 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
       <AuthorityJsonLd
         title="Why Fatigue Is Biologically Complex"
         description="Educational exploration of fatigue systems, recovery biology, stress physiology, burnout-oriented neurobiology, and cognition sustainability."
-        url="https://thehippiescientist.net/education/why-fatigue-is-biologically-complex"
+        url="https://www.thehippiescientist.net/education/why-fatigue-is-biologically-complex"
         type="Article"
       />
       <AuthorityBreadcrumbs

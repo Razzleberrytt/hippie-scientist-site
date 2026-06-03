@@ -49,7 +49,7 @@ export default function PlaceboAndContextEffectsPage() {
       <AuthorityJsonLd
         title="Placebo and Context Effects"
         description="Educational exploration of placebo effects, contextual neurobiology, expectation systems, and scientific complexity in neuroscience and health research."
-        url="https://thehippiescientist.net/education/placebo-and-context-effects"
+        url="https://www.thehippiescientist.net/education/placebo-and-context-effects"
         type="Article"
       />
       <AuthorityBreadcrumbs

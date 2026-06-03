@@ -34,7 +34,7 @@ export default function WhyBurnoutAffectsCognitionPage() {
       <AuthorityJsonLd
         title="Why Burnout Affects Cognition"
         description="Educational exploration of burnout, stress exhaustion, recovery biology, attentional fatigue, and sustainable cognition systems."
-        url="https://thehippiescientist.net/education/why-burnout-affects-cognition"
+        url="https://www.thehippiescientist.net/education/why-burnout-affects-cognition"
         type="Article"
       />
       <AuthorityBreadcrumbs

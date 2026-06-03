@@ -38,24 +38,72 @@ for (const route of coreRoutes) {
 
 assertExists(path.join(staticOutputRoot, '_redirects'), 'Cloudflare redirects file')
 
-// Detect loading spinner in core pages — indicates data pipeline failure
 const LOADING_SENTINEL = 'Loading evidence-driven research'
 const spinnerCheckRoutes = ['/', '/herbs', '/compounds']
 let spinnerFailures = 0
 
 for (const route of spinnerCheckRoutes) {
   const filePath = routeToStaticPath(route)
-  if (fs.existsSync(filePath)) {
-    const content = fs.readFileSync(filePath, 'utf8')
-    if (content.includes(LOADING_SENTINEL)) {
-      console.error(`[verify:core-routes] LOADING SPINNER DETECTED on ${route} — data pipeline may have produced stale or missing JSON`)
-      spinnerFailures++
-    }
+  if (!fs.existsSync(filePath)) continue
+
+  const content = fs.readFileSync(filePath, 'utf8')
+  if (content.includes(LOADING_SENTINEL)) {
+    console.error(`[verify:core-routes] Loading spinner detected on ${route}; data pipeline may have produced stale or missing JSON.`)
+    spinnerFailures++
   }
 }
 
 if (spinnerFailures > 0) {
-  throw new Error(`[verify:core-routes] ${spinnerFailures} page(s) contain the loading spinner — build is not production-ready`)
+  throw new Error(`[verify:core-routes] ${spinnerFailures} page(s) contain the loading spinner; build is not production-ready.`)
 }
 
-console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes, ${staticDir}/_redirects, and loading-spinner check passed.`)
+const routeContentExpectations = [
+  {
+    route: '/',
+    required: ['The Hippie Scientist'],
+  },
+  {
+    route: '/herbs',
+    required: ['Herb Profiles &amp; Research Library', 'Herb profiles index'],
+    forbidden: ['Compound Profiles and Mechanism Guides'],
+  },
+  {
+    route: '/compounds',
+    required: ['Compound &amp; Nootropic Profiles', 'Compound profiles index'],
+    forbidden: ['Herb Profiles &amp; Research Library'],
+  },
+  {
+    route: '/blog',
+    required: ['Research Notes', 'All research notes'],
+    forbidden: [LOADING_SENTINEL],
+  },
+]
+
+let contentFailures = 0
+
+for (const expectation of routeContentExpectations) {
+  const filePath = routeToStaticPath(expectation.route)
+  if (!fs.existsSync(filePath)) continue
+
+  const content = fs.readFileSync(filePath, 'utf8')
+
+  for (const required of expectation.required || []) {
+    if (!content.includes(required)) {
+      console.error(`[verify:core-routes] Missing expected content on ${expectation.route}: ${required}`)
+      contentFailures++
+    }
+  }
+
+  for (const forbidden of expectation.forbidden || []) {
+    if (content.includes(forbidden)) {
+      console.error(`[verify:core-routes] Unexpected cross-route content on ${expectation.route}: ${forbidden}`)
+      contentFailures++
+    }
+  }
+}
+
+if (contentFailures > 0) {
+  throw new Error(`[verify:core-routes] ${contentFailures} core-route content expectation(s) failed.`)
+}
+
+console.log(`[verify:core-routes] Verified ${coreRoutes.length} core routes, ${staticDir}/_redirects, loading-spinner check, and route content expectations passed.`)

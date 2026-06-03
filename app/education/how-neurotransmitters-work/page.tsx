@@ -35,7 +35,7 @@ export default function NeurotransmittersPage() {
       <AuthorityJsonLd
         title="How Neurotransmitters Work"
         description="Educational overview of neurotransmitters, signaling systems, neuropharmacology, pathway interactions, and nervous-system communication."
-        url="https://thehippiescientist.net/education/how-neurotransmitters-work"
+        url="https://www.thehippiescientist.net/education/how-neurotransmitters-work"
         type="Article"
       />
 

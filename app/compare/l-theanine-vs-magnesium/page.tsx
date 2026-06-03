@@ -8,7 +8,7 @@ export default function LTheanineVsMagnesiumPage() {
       <AuthorityJsonLd
         title="L-Theanine vs Magnesium"
         description="Educational comparison of L-theanine and magnesium, calming systems, stress-response support, and sleep-oriented neuropharmacology."
-        url="https://thehippiescientist.net/compare/l-theanine-vs-magnesium"
+        url="https://www.thehippiescientist.net/compare/l-theanine-vs-magnesium"
         type="Article"
       />
 

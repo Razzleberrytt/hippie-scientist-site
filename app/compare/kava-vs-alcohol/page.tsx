@@ -8,7 +8,7 @@ export default function KavaVsAlcoholPage() {
       <AuthorityJsonLd
         title="Kava vs Alcohol"
         description="Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations."
-        url="https://thehippiescientist.net/compare/kava-vs-alcohol"
+        url="https://www.thehippiescientist.net/compare/kava-vs-alcohol"
         type="Article"
       />
 

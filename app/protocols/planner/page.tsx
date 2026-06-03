@@ -34,7 +34,7 @@ export default async function RegimenPlannerPage() {
       <AuthorityJsonLd
         title="Personalized Daily Protocol Planner & Schedule Builder"
         description="Plan and audit your custom daily herb and compound schedule with safety constituent thresholds."
-        url="https://thehippiescientist.net/protocols/planner"
+        url="https://www.thehippiescientist.net/protocols/planner"
         type="MedicalWebPage"
       />
 

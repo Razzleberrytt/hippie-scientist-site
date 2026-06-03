@@ -38,7 +38,7 @@ export default function SerotoninPathwayPage() {
       <AuthorityJsonLd
         title="Serotonin Pathway"
         description="Educational overview of serotonergic signaling, mood regulation, psychoactive neuropharmacology, and related herbs and compounds."
-        url="https://thehippiescientist.net/pathways/serotonin"
+        url="https://www.thehippiescientist.net/pathways/serotonin"
         type="Article"
       />
 

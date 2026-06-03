@@ -29,7 +29,7 @@ const siteDescription =
   'Evidence-informed research on herbs, compounds, mechanisms, safety context, and practical supplement decisions.'
 
 // Canonical production domain. Cloudflare redirects should resolve to this host.
-const siteUrl = 'https://thehippiescientist.net'
+const siteUrl = 'https://www.thehippiescientist.net'
 
 // Enhanced JSON-LD: logo + SearchAction for Google Knowledge Panel and Sitelinks Searchbox
 const websiteJsonLd = {
@@ -187,7 +187,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <p className='font-semibold text-ink'>Tools</p>
                   <div className='flex flex-col gap-2 text-sm'>
                     <Link href='/safety-checker' className='text-muted hover:text-ink transition'>Safety Interaction Checker</Link>
-                    <Link href='/education/product-quality' className='text-muted hover:text-ink transition'>Product Quality Guide</Link>
+                    <Link href='/learn/product-quality' className='text-muted hover:text-ink transition'>Product Quality Guide</Link>
                     <Link href='/dosing' className='text-muted hover:text-ink transition'>Dosing Guide</Link>
                   </div>
                   <p className='mt-4 font-semibold text-ink'>Legal &amp; Transparency</p>

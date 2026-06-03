@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
   return {
     title: post.title,
     description: post.excerpt,
-    authors: [{ name: 'Will', url: 'https://thehippiescientist.net/about' }],
+    authors: [{ name: 'Will', url: 'https://www.thehippiescientist.net/about' }],
     alternates: { canonical: `/blog/${resolvedParams.slug}` },
     robots: shouldNoindexBlogPost(post) ? { index: false, follow: true } : undefined,
     openGraph: {
@@ -94,17 +94,17 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
     author: {
       '@type': 'Person',
       name: 'Will',
-      url: 'https://thehippiescientist.net/about',
+      url: 'https://www.thehippiescientist.net/about',
     },
     publisher: {
       '@type': 'Organization',
       name: 'The Hippie Scientist',
-      url: 'https://thehippiescientist.net',
+      url: 'https://www.thehippiescientist.net',
     },
     articleSection: inferResearchStyle(post),
     datePublished: post.date || '2026-01-01',
     dateModified: post.updatedAt || post.date || '2026-01-01',
-    mainEntityOfPage: `https://thehippiescientist.net/blog/${post.slug}`,
+    mainEntityOfPage: `https://www.thehippiescientist.net/blog/${post.slug}`,
   }
 
   const breadcrumbJsonLd = {
@@ -115,13 +115,13 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         '@type': 'ListItem',
         position: 1,
         name: 'Blog',
-        item: 'https://thehippiescientist.net/blog',
+        item: 'https://www.thehippiescientist.net/blog',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: post.title,
-        item: `https://thehippiescientist.net/blog/${post.slug}`,
+        item: `https://www.thehippiescientist.net/blog/${post.slug}`,
       },
     ],
   }

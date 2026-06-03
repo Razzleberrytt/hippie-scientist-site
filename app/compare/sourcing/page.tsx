@@ -34,7 +34,7 @@ export default async function SourcingComparerPage() {
       <AuthorityJsonLd
         title="Contextual Sourcing Comparer & Active Yield Auditor"
         description="Compare the financial and active constituent efficiency of botanical and nutritional sources with a built-in quality cart."
-        url="https://thehippiescientist.net/compare/sourcing"
+        url="https://www.thehippiescientist.net/compare/sourcing"
         type="MedicalWebPage"
       />
 

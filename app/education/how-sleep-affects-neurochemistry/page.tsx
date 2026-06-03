@@ -47,7 +47,7 @@ export default function SleepNeurochemistryPage() {
       <AuthorityJsonLd
         title="How Sleep Affects Neurochemistry"
         description="Educational exploration of sleep neurochemistry, REM systems, recovery continuity, nervous-system restoration, and dream-related signaling."
-        url="https://thehippiescientist.net/education/how-sleep-affects-neurochemistry"
+        url="https://www.thehippiescientist.net/education/how-sleep-affects-neurochemistry"
         type="Article"
       />
 

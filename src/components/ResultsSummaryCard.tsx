@@ -53,7 +53,7 @@ export default function ResultsSummaryCard({
       herbParam ? `&herbs=${encodeURIComponent(herbParam)}` : ''
     }`
     if (typeof window === 'undefined') {
-      return `https://thehippiescientist.net/#${pathWithParams}`
+      return `https://www.thehippiescientist.net/#${pathWithParams}`
     }
     return `${window.location.origin}/#${pathWithParams}`
   }, [herbs, shareGoal, sharePath])

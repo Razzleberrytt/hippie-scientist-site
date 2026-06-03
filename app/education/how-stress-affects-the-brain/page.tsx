@@ -47,7 +47,7 @@ export default function StressBrainEducationPage() {
       <AuthorityJsonLd
         title="How Stress Affects the Brain"
         description="Educational exploration of stress neurochemistry, emotional regulation, nervous-system signaling, sleep continuity, and recovery-oriented neuropharmacology."
-        url="https://thehippiescientist.net/education/how-stress-affects-the-brain"
+        url="https://www.thehippiescientist.net/education/how-stress-affects-the-brain"
         type="Article"
       />
 

@@ -17,7 +17,7 @@ export default function EcosystemsIndexPage() {
       <AuthorityJsonLd
         title="Ecosystems"
         description="Ecosystem hubs for mechanism continuity, pathway context, and practical exploration order."
-        url="https://thehippiescientist.net/ecosystems"
+        url="https://www.thehippiescientist.net/ecosystems"
         type="CollectionPage"
       />
       <section className="space-y-4 max-w-4xl">

@@ -69,7 +69,7 @@ export default function AdaptogensEducationPage() {
       <AuthorityJsonLd
         title='What Are Adaptogens?'
         description='Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-informed adaptogenic neuropharmacology.'
-        url='https://thehippiescientist.net/education/what-are-adaptogens'
+        url='https://www.thehippiescientist.net/education/what-are-adaptogens'
         type='Article'
       />
 

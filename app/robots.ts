@@ -1,8 +1,9 @@
 import type { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
-const siteUrl = 'https://thehippiescientist.net'
+const siteUrl = SITE_URL
 
 const disallowedRoutes = [
   '/compare/dynamic',

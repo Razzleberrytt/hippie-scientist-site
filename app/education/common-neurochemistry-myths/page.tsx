@@ -28,7 +28,7 @@ export default function NeurochemistryMythsPage() {
       <AuthorityJsonLd
         title="Common Neurochemistry Myths"
         description="Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-informed scientific interpretation."
-        url="https://thehippiescientist.net/education/common-neurochemistry-myths"
+        url="https://www.thehippiescientist.net/education/common-neurochemistry-myths"
         type="Article"
       />
 

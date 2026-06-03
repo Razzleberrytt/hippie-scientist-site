@@ -61,20 +61,20 @@ export default function GabaPathwayPage() {
       <AuthorityJsonLd
         title="GABA Pathway"
         description="Educational overview of GABAergic signaling, calming neuropharmacology, inhibitory neurotransmission, and related herbs and compounds."
-        url="https://thehippiescientist.net/education/gaba"
+        url="https://www.thehippiescientist.net/education/gaba"
         type="Article"
         breadcrumbs={[
           {
             name: 'Home',
-            url: 'https://thehippiescientist.net',
+            url: 'https://www.thehippiescientist.net',
           },
           {
             name: 'Education',
-            url: 'https://thehippiescientist.net/education',
+            url: 'https://www.thehippiescientist.net/education',
           },
           {
             name: 'GABA',
-            url: 'https://thehippiescientist.net/education/gaba',
+            url: 'https://www.thehippiescientist.net/education/gaba',
           },
         ]}
       />

@@ -8,7 +8,7 @@ export default function MagnesiumGlycinateVsLThreonateForSleepPage() {
       <AuthorityJsonLd
         title="Magnesium Glycinate vs L-Threonate for Sleep"
         description="Evidence-informed comparison of magnesium glycinate and magnesium L-threonate for sleep routines, calm support, cognition positioning, safety, and supplement selection."
-        url="https://thehippiescientist.net/compare/magnesium-glycinate-vs-l-threonate-for-sleep"
+        url="https://www.thehippiescientist.net/compare/magnesium-glycinate-vs-l-threonate-for-sleep"
         type="Article"
       />
 

@@ -27,7 +27,7 @@ export default function EntheogenEducationPage() {
       <AuthorityJsonLd
         title="What Is an Entheogen?"
         description="Educational exploration of entheogens, ethnobotanical traditions, psychoactive neuropharmacology, and consciousness-oriented plant systems."
-        url="https://thehippiescientist.net/education/what-is-an-entheogen"
+        url="https://www.thehippiescientist.net/education/what-is-an-entheogen"
         type="Article"
       />
 

@@ -10,10 +10,11 @@ import { goalConfigs } from '@/data/goals'
 import { indexableGuidePages } from './seo-entry-pages'
 import { scientificCollections } from '@/lib/collections'
 import { comparisonSlugs, stackSlugs } from './authority-links'
+import { SITE_URL } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
-const siteUrl = 'https://thehippiescientist.net'
+const siteUrl = SITE_URL
 
 const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH
   ? Number.parseInt(process.env.SOURCE_DATE_EPOCH, 10)
@@ -257,6 +258,7 @@ const canonicalStaticRoutes = [
   '/contact',
   '/compare',
   '/disclaimer',
+  '/dosing',
   '/faq',
   '/free-guide',
   '/guides',

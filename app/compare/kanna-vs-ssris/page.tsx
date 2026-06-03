@@ -40,7 +40,7 @@ export default function KannaVsSSRIsPage() {
       <AuthorityJsonLd
         title="Kanna vs SSRIs"
         description="Educational comparison of kanna and SSRI-related serotonergic systems, mood regulation, emotional processing, and safety considerations."
-        url="https://thehippiescientist.net/compare/kanna-vs-ssris"
+        url="https://www.thehippiescientist.net/compare/kanna-vs-ssris"
         type="Article"
       />
 

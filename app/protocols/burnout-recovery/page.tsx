@@ -27,7 +27,7 @@ export default function BurnoutRecoveryPage() {
       <AuthorityJsonLd
         title="Burnout Recovery"
         description="Educational protocol exploring nervous-system recovery, fatigue regulation, adaptogenic support, and stress-aware neuropharmacology."
-        url="https://thehippiescientist.net/protocols/burnout-recovery"
+        url="https://www.thehippiescientist.net/protocols/burnout-recovery"
         type="Article"
       />
 

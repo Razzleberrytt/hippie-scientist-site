@@ -15,7 +15,7 @@ export default function DeepSleepSupportPage() {
       <AuthorityJsonLd
         title="Deep Sleep Support Protocol"
         description="Educational deep sleep support protocol focused on calming systems, stress regulation, and sleep-supportive neuropharmacology."
-        url="https://thehippiescientist.net/guides/deep-sleep-support"
+        url="https://www.thehippiescientist.net/guides/deep-sleep-support"
         type="Article"
       />
 

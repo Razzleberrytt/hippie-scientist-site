@@ -12,7 +12,7 @@ export default function NeurochemistryComplexityPage() {
       <AuthorityJsonLd
         title="Why Neurochemistry Is Complex"
         description="Educational overview of systems biology, pathway interaction, receptor complexity, neuropharmacology, and scientific uncertainty."
-        url="https://thehippiescientist.net/education/why-neurochemistry-is-complex"
+        url="https://www.thehippiescientist.net/education/why-neurochemistry-is-complex"
         type="Article"
       />
 

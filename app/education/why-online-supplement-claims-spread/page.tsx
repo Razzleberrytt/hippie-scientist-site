@@ -49,7 +49,7 @@ export default function WhyOnlineSupplementClaimsSpreadPage() {
       <AuthorityJsonLd
         title="Why Online Supplement Claims Spread"
         description="Educational exploration of mechanistic hype, simplified neuroscience, contextual variability, and scientific uncertainty in supplement discourse."
-        url="https://thehippiescientist.net/education/why-online-supplement-claims-spread"
+        url="https://www.thehippiescientist.net/education/why-online-supplement-claims-spread"
         type="Article"
       />
       <AuthorityBreadcrumbs

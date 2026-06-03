@@ -171,7 +171,7 @@ export async function generateMetadata({ params }: PageProps) {
   const redirectedCanonical = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
   if (redirectedCanonical?.startsWith('/')) {
     return {
-      alternates: { canonical: `https://thehippiescientist.net${redirectedCanonical}` },
+      alternates: { canonical: `${SITE_URL}${redirectedCanonical}` },
       robots: { index: false, follow: true },
     }
   }
@@ -185,7 +185,7 @@ export async function generateMetadata({ params }: PageProps) {
   if (canonicalSlug !== normalizedSlug) {
     return {
       ...metadata,
-      alternates: { canonical: `https://thehippiescientist.net/compounds/${canonicalSlug}` },
+      alternates: { canonical: `${SITE_URL}/compounds/${canonicalSlug}` },
       robots: { index: false, follow: true },
     }
   }

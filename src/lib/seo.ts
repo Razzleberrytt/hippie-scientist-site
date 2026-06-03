@@ -3,7 +3,7 @@ import { getRuntimeVisibility } from './runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 
-export const SITE_URL = 'https://thehippiescientist.net'
+export const SITE_URL = 'https://www.thehippiescientist.net'
 export const SEO_YEAR = '2026'
 export const DEFAULT_OG_IMAGE = '/og-default.png'
 export const SITE_NAME = 'The Hippie Scientist'

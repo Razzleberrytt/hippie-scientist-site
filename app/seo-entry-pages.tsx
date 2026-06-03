@@ -10,6 +10,7 @@ import EmailCapture from '@/components/EmailCapture'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { EvidenceBadge } from '@/components/ui'
+import { SITE_URL } from '@/lib/seo'
 
 type SeoEntryConfig = {
   route: string
@@ -212,7 +213,7 @@ export const canonicalGuidePages: SeoEntryConfig[] = seoEntryPages.filter((page)
 
 export const indexableGuidePages: SeoEntryConfig[] = manualGuideSeoEntryPages
 
-const siteUrl = 'https://thehippiescientist.net'
+const siteUrl = SITE_URL
 
 const revenueProductSlugs: Record<string, string[]> = {
   'best-supplements-for-sleep': ['magnesium', 'l-theanine'],

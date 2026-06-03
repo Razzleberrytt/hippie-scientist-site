@@ -9,7 +9,7 @@ export default function SafetyAndDisclaimersPage() {
       <AuthorityJsonLd
         title="Safety and Educational Disclaimers"
         description="Educational overview of safety considerations, psychoactive risks, evidence limitations, and responsible interpretation principles."
-        url="https://thehippiescientist.net/education/safety-and-disclaimers"
+        url="https://www.thehippiescientist.net/education/safety-and-disclaimers"
         type="Article"
       />
 

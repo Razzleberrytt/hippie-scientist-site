@@ -23,7 +23,7 @@ export default function GlutamatePathwayPage() {
       <AuthorityJsonLd
         title="Glutamate Pathway"
         description="Educational exploration of glutamatergic signaling, excitatory neurochemistry, dissociative mechanisms, and psychoactive neuropharmacology."
-        url="https://thehippiescientist.net/pathways/glutamate"
+        url="https://www.thehippiescientist.net/pathways/glutamate"
         type="Article"
       />
 

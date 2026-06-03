@@ -31,7 +31,7 @@ export default function AnxietyNeurochemistryPage() {
       <AuthorityJsonLd
         title="What Is Anxiety Neurochemistry?"
         description="Educational overview of anxiety-related neurochemistry, stress signaling, calming systems, emotional processing, and nervous-system regulation."
-        url="https://thehippiescientist.net/education/what-is-anxiety-neurochemistry"
+        url="https://www.thehippiescientist.net/education/what-is-anxiety-neurochemistry"
         type="Article"
       />
 

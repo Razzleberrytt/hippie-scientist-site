@@ -27,7 +27,7 @@ export default function CalmingPsychoactivesPage() {
       <AuthorityJsonLd
         title="Calming Psychoactives"
         description="Educational exploration of calming psychoactive herbs, inhibitory neuropharmacology, stress regulation, and GABAergic systems."
-        url="https://thehippiescientist.net/psychoactive/calming"
+        url="https://www.thehippiescientist.net/psychoactive/calming"
         type="CollectionPage"
       />
 

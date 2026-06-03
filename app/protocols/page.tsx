@@ -34,7 +34,7 @@ export default function ProtocolsIndexPage() {
       <AuthorityJsonLd
         title="Protocols"
         description="Evidence-informed protocol pages for stress, sleep, focus, and recovery systems."
-        url="https://thehippiescientist.net/protocols"
+        url="https://www.thehippiescientist.net/protocols"
         type="CollectionPage"
       />
       <section className="space-y-4 max-w-4xl">

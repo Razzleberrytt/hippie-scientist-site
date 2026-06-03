@@ -8,7 +8,7 @@ export default function RhodiolaVsAshwagandhaPage() {
       <AuthorityJsonLd
         title="Rhodiola vs Ashwagandha"
         description="Educational comparison of rhodiola and ashwagandha, adaptogenic systems, stress-response biology, and recovery-oriented neuropharmacology."
-        url="https://thehippiescientist.net/compare/rhodiola-vs-ashwagandha"
+        url="https://www.thehippiescientist.net/compare/rhodiola-vs-ashwagandha"
         type="Article"
       />
 

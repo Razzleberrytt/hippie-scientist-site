@@ -65,7 +65,7 @@ export default function CognitiveResilienceSystemsPage() {
       <AuthorityJsonLd
         title='Cognitive Resilience Systems'
         description='Authority hub exploring attentional resilience, recovery continuity, stress regulation, contextual neurobiology, and sustainable cognition systems.'
-        url='https://thehippiescientist.net/education/cognitive-resilience-systems'
+        url='https://www.thehippiescientist.net/education/cognitive-resilience-systems'
         type='Article'
       />
 

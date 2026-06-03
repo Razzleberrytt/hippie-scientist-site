@@ -55,20 +55,20 @@ export default async function TopicHubPage({ params }: TopicRouteProps) {
       <AuthorityJsonLd
         title={title}
         description={description}
-        url={`https://thehippiescientist.net/topics/${slug}`}
+        url={`https://www.thehippiescientist.net/topics/${slug}`}
         type="CollectionPage"
         breadcrumbs={[
           {
             name: 'Home',
-            url: 'https://thehippiescientist.net',
+            url: 'https://www.thehippiescientist.net',
           },
           {
             name: 'Topics',
-            url: 'https://thehippiescientist.net/topics',
+            url: 'https://www.thehippiescientist.net/topics',
           },
           {
             name: title,
-            url: `https://thehippiescientist.net/topics/${slug}`,
+            url: `https://www.thehippiescientist.net/topics/${slug}`,
           },
         ]}
       />

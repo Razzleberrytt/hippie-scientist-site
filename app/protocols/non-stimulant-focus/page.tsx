@@ -37,7 +37,7 @@ export default function NonStimulantFocusPage() {
       <AuthorityJsonLd
         title="Non-Stimulant Focus"
         description="Educational protocol exploring calm focus systems, cognition support, dopaminergic balance, and non-stimulant neuropharmacology."
-        url="https://thehippiescientist.net/protocols/non-stimulant-focus"
+        url="https://www.thehippiescientist.net/protocols/non-stimulant-focus"
         type="Article"
       />
 

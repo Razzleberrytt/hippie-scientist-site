@@ -69,7 +69,7 @@ export default function ScientificButHumanNeurosciencePage() {
       <AuthorityJsonLd
         title='Scientific But Human Neuroscience'
         description='Authority hub exploring scientific literacy, contextual neurobiology, sustainable cognition, recovery-oriented neuroscience, and emotionally mature evidence interpretation.'
-        url='https://thehippiescientist.net/education/scientific-but-human-neuroscience'
+        url='https://www.thehippiescientist.net/education/scientific-but-human-neuroscience'
         type='Article'
       />
 

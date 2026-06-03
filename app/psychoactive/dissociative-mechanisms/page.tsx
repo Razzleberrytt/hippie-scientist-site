@@ -23,7 +23,7 @@ export default function DissociativeMechanismsPage() {
       <AuthorityJsonLd
         title="Dissociative Mechanisms"
         description="Educational exploration of dissociative neuropharmacology, glutamatergic signaling, altered-state mechanisms, and psychoactive ethnobotany."
-        url="https://thehippiescientist.net/psychoactive/dissociative-mechanisms"
+        url="https://www.thehippiescientist.net/psychoactive/dissociative-mechanisms"
         type="CollectionPage"
       />
 

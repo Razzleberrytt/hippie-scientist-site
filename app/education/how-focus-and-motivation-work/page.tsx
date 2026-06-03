@@ -47,7 +47,7 @@ export default function FocusMotivationPage() {
       <AuthorityJsonLd
         title="How Focus and Motivation Work"
         description="Educational exploration of focus neurochemistry, motivation signaling, cognition systems, calm productivity, and stress-aware neuropharmacology."
-        url="https://thehippiescientist.net/education/how-focus-and-motivation-work"
+        url="https://www.thehippiescientist.net/education/how-focus-and-motivation-work"
         type="Article"
       />
 

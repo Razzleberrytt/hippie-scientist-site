@@ -27,7 +27,7 @@ export default function PsychoactiveBrainPage() {
       <AuthorityJsonLd
         title="How Psychoactive Plants Affect the Brain"
         description="Educational exploration of psychoactive neuropharmacology, signaling systems, pathways, and ethnobotanical mechanisms."
-        url="https://thehippiescientist.net/education/how-psychoactive-plants-affect-the-brain"
+        url="https://www.thehippiescientist.net/education/how-psychoactive-plants-affect-the-brain"
         type="Article"
       />
 

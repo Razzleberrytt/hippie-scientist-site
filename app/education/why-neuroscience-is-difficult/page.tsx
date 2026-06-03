@@ -49,7 +49,7 @@ export default function WhyNeuroscienceIsDifficultPage() {
       <AuthorityJsonLd
         title="Why Neuroscience Is Difficult"
         description="Educational exploration of biological complexity, contextual neurobiology, human variability, and scientific limitations in neuroscience research."
-        url="https://thehippiescientist.net/education/why-neuroscience-is-difficult"
+        url="https://www.thehippiescientist.net/education/why-neuroscience-is-difficult"
         type="Article"
       />
       <AuthorityBreadcrumbs

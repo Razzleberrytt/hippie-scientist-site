@@ -61,7 +61,7 @@ export default function NeuroscienceGlossaryPage() {
       <AuthorityJsonLd
         title="Neuroscience Glossary"
         description="Educational glossary exploring contextual neurobiology, recovery continuity, emotional salience, attentional resilience, and sustainable cognition systems."
-        url="https://thehippiescientist.net/education/neuroscience-glossary"
+        url="https://www.thehippiescientist.net/education/neuroscience-glossary"
         type="Article"
       />
 

@@ -57,7 +57,7 @@ async function run() {
   <title>Blog — The Hippie Scientist</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://thehippiescientist.net/blog/" />
+  <link rel="canonical" href="https://www.thehippiescientist.net/blog/" />
   <style>
     body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
     h1 { font-size: 1.75rem; margin-bottom: 1rem; }

@@ -30,7 +30,7 @@ export default function ReceptorsPage() {
       <AuthorityJsonLd
         title="How Receptors Work"
         description="Educational overview of receptor systems, signaling pathways, neuropharmacology, neurotransmitter interactions, and psychoactive mechanisms."
-        url="https://thehippiescientist.net/education/how-receptors-work"
+        url="https://www.thehippiescientist.net/education/how-receptors-work"
         type="Article"
       />
 

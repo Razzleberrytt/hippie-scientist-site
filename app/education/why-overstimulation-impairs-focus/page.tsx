@@ -49,7 +49,7 @@ export default function WhyOverstimulationImpairsFocusPage() {
       <AuthorityJsonLd
         title="Why Overstimulation Impairs Focus"
         description="Educational exploration of overstimulation, hyperarousal, attentional fragmentation, stress physiology, and sustainable cognition systems."
-        url="https://thehippiescientist.net/education/why-overstimulation-impairs-focus"
+        url="https://www.thehippiescientist.net/education/why-overstimulation-impairs-focus"
         type="Article"
       />
       <AuthorityBreadcrumbs

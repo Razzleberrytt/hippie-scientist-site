@@ -34,7 +34,7 @@ export default async function PathwayExplorerPage() {
       <AuthorityJsonLd
         title="Biological Pathway Connectivity Explorer"
         description="Interact with neurochemical targets and find modulating herbs and compounds sorted by scientific evidence certainty."
-        url="https://thehippiescientist.net/pathways/explorer"
+        url="https://www.thehippiescientist.net/pathways/explorer"
         type="MedicalWebPage"
       />
 
