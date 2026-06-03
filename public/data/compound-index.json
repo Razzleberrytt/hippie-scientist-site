@@ -92,66 +92,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "5-meo-dmt",
-    "name": "5-MeO-DMT",
-    "summary": "5-MeO-DMT entry from SciSpace evidence pass. Evidence level: preliminary.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "7-hydroxymitragynine",
-    "name": "7-Hydroxymitragynine",
-    "summary": "7-Hydroxymitragynine entry from SciSpace evidence pass. Evidence level: preclinical.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "acarbose",
     "name": "Acarbose",
     "summary": "Acarbose is tracked for Inhibits intestinal alpha-glucosidases, delaying carbohydrate digestion and postprandial glucose absorption with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
@@ -881,38 +821,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "amanita-muscaria",
-    "name": "Amanita muscaria",
-    "summary": "Decision-ready summary: Amanita muscaria is best framed for sedation research context; altered-state education; harm-reduction content; safety screen: CNS depressants; pregnancy; psychosis risk; toxicity/misidentification risk.",
-    "primary_effects": [
-      "anxiety",
-      "liver_health"
-    ],
-    "effects": [
-      "anxiety",
-      "liver_health"
-    ],
-    "evidence_grade": "low",
-    "evidence_tier": "Mechanistic Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "american-ginseng-extract",
     "name": "American Ginseng Extract",
     "summary": "American Ginseng Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Glucose Metabolism Support, not treatment claims.",
@@ -953,36 +861,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "anabasine",
-    "name": "anabasine",
-    "summary": "Pyridine alkaloid associated with nicotinic receptor activity.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "anandamide",
     "name": "Anandamide",
     "summary": "Anandamide entry from SciSpace evidence pass. Evidence level: physiological role established.",
@@ -991,36 +869,6 @@
     ],
     "effects": [
       "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "anatabine",
-    "name": "anatabine",
-    "summary": "Minor tobacco alkaloid associated with nicotinic signaling and inflammatory pathway effects.",
-    "primary_effects": [
-      "inflammation"
-    ],
-    "effects": [
-      "inflammation"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -6463,36 +6311,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "dmt",
-    "name": "DMT",
-    "summary": "DMT entry from SciSpace evidence pass. Evidence level: low.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "eaa-blend",
     "name": "EAA Blend",
     "summary": "Evidence depends on blend composition, leucine dose, protein intake, age, and training status; no formulation-independent authority citation selected.",
@@ -9531,66 +9349,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "harmaline",
-    "name": "Harmaline",
-    "summary": "Harmaline entry from SciSpace evidence pass. Evidence level: low.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "harmine",
-    "name": "Harmine",
-    "summary": "Harmine entry from SciSpace evidence pass. Evidence level: low.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "harpagoside",
     "name": "harpagoside",
     "summary": "Harpagoside is a devil's claw iridoid associated with pain and inflammatory pathway modulation.",
@@ -9601,36 +9359,6 @@
     "effects": [
       "gut_health",
       "inflammation"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "hawaiian-baby-woodrose",
-    "name": "Hawaiian Baby Woodrose (Argyreia nervosa)",
-    "summary": "Hawaiian baby woodrose contains ergoline alkaloids including LSA, but lacks controlled therapeutic human evidence.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -10142,36 +9870,6 @@
     "evidence_grade": "Moderate human evidence",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "ibogaine",
-    "name": "Ibogaine",
-    "summary": "Ibogaine entry from SciSpace evidence pass. Evidence level: limited observational.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
     "runtime_export_decision": "hidden_until_grounded",
     "affiliate_ready": false,
     "visibility_tier": "public",
@@ -10810,69 +10508,9 @@
     "indexability_reasons": []
   },
   {
-    "slug": "ketamine",
-    "name": "Ketamine",
-    "summary": "Ketamine entry from SciSpace evidence pass. Evidence level: high clinical-specific.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "kotalanol",
     "name": "kotalanol",
     "summary": "Thiosugar sulfonium constituent from Salacia known for intestinal alpha-glucosidase inhibition.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "kratom",
-    "name": "Kratom",
-    "summary": "Kratom entry from SciSpace evidence pass. Evidence level: insufficient clinical.",
     "primary_effects": [
       "research_only"
     ],
@@ -11604,36 +11242,6 @@
     "effects": [
       "liver_health",
       "mood"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "lobeline",
-    "name": "lobeline",
-    "summary": "Piperidine alkaloid from Lobelia linked to nicotinic receptor and catecholamine signaling.",
-    "primary_effects": [
-      "inflammation"
-    ],
-    "effects": [
-      "inflammation"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -12575,36 +12183,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "mescaline",
-    "name": "Mescaline",
-    "summary": "Mescaline entry from SciSpace evidence pass. Evidence level: low.",
-    "primary_effects": [
-      "liver_health"
-    ],
-    "effects": [
-      "liver_health"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "mesembrenone",
     "name": "mesembrenone",
     "summary": "Kanna alkaloid closely related to mesembrine and associated with serotonin-reuptake and PDE4 effects.",
@@ -12917,36 +12495,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "mitragynine",
-    "name": "Mitragynine",
-    "summary": "Mitragynine entry from SciSpace evidence pass. Evidence level: preclinical.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "momordicoside-k",
     "name": "momordicoside k",
     "summary": "Bitter melon cucurbitane glycoside linked to metabolic signaling.",
@@ -12987,36 +12535,6 @@
     "effects": [
       "energy",
       "inflammation"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "morning-glory-seed",
-    "name": "Morning Glory Seeds (Ipomoea spp.)",
-    "summary": "Morning glory seeds may contain LSA-related ergoline alkaloids, but clinical evidence is absent and toxicity concerns dominate.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -13758,36 +13276,6 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "noopept",
-    "name": "Noopept",
-    "summary": "Synthetic peptide-like nootropic with insufficient reliable human evidence.",
-    "primary_effects": [
-      "cognition"
-    ],
-    "effects": [
-      "cognition"
-    ],
-    "evidence_grade": "insufficient",
-    "evidence_tier": "Mechanistic Evidence",
     "profile_status": "research_only",
     "runtime_export_decision": "hidden_until_grounded",
     "affiliate_ready": false,
@@ -15741,36 +15229,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "psilocybin",
-    "name": "Psilocybin",
-    "summary": "Psilocybin is a tryptamine prodrug converted to psilocin, with promising psychiatric evidence only in controlled clinical settings.",
-    "primary_effects": [
-      "liver_health"
-    ],
-    "effects": [
-      "liver_health"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "psoralen",
     "name": "psoralen",
     "summary": "Furocoumarin associated with phytoestrogen-like and MAPK-linked signaling effects.",
@@ -16786,36 +16244,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "salvinorin-a",
-    "name": "Salvinorin A",
-    "summary": "Salvinorin A entry from SciSpace evidence pass. Evidence level: low.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "sam-e",
     "name": "SAM-e",
     "summary": "Decision-ready summary: SAM-e is best framed for depressive symptoms support; osteoarthritis discomfort; methylation context; safety screen: bipolar disorder; MAOIs; serotonergic medications.",
@@ -17558,36 +16986,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "sinicuichi",
-    "name": "Sinicuichi (Heimia salicifolia)",
-    "summary": "Sinicuichi lacks clinical evidence and is best handled as an ethnobotanical/toxicology entry with uncertain CNS mechanisms.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "skullcap",
     "name": "Skullcap",
     "summary": "Skullcap entry from SciSpace evidence pass. Evidence level: low.",
@@ -18128,36 +17526,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "tetrahydroharmine",
-    "name": "Tetrahydroharmine",
-    "summary": "Tetrahydroharmine entry from SciSpace evidence pass. Evidence level: low.",
-    "primary_effects": [
-      "mood"
-    ],
-    "effects": [
-      "mood"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "tetrandrine",
     "name": "tetrandrine",
     "summary": "Bisbenzylisoquinoline alkaloid known for calcium-channel-related and NF-κB pathway activity.",
@@ -18166,66 +17534,6 @@
     ],
     "effects": [
       "inflammation"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "thc",
-    "name": "THC",
-    "summary": "THC entry from SciSpace evidence pass. Evidence level: moderate/high indication-specific.",
-    "primary_effects": [
-      "research_only"
-    ],
-    "effects": [
-      "research_only"
-    ],
-    "evidence_grade": "b",
-    "evidence_tier": "Moderate Human Evidence",
-    "profile_status": "research_only",
-    "runtime_export_decision": "hidden_until_grounded",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NOINDEX",
-      "score": 0,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "noindex-decision:hidden_until_grounded"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "thcv",
-    "name": "THCV",
-    "summary": "THCV entry from SciSpace evidence pass. Evidence level: preliminary.",
-    "primary_effects": [
-      "metabolism"
-    ],
-    "effects": [
-      "metabolism"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",

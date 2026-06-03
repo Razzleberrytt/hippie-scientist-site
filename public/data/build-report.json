@@ -2,10 +2,10 @@
   "buildReportVersion": 1,
   "workbook": "herb_monograph_master.xlsx",
   "counts": {
-    "herbs": 290,
-    "compounds": 617,
+    "herbs": 287,
+    "compounds": 594,
     "claims": 0,
-    "herbCompoundMap": 406,
+    "herbCompoundMap": 402,
     "canonicalMechanisms": 53,
     "topics": 0,
     "pathways": 0,

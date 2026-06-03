@@ -1695,6 +1695,7 @@ const revenueProductAliases: Record<string, string> = {
 
 export function getRevenueProductSet(slug: string): RevenueProductSet | null {
   const normalized = slug.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-')
+  if (isRestrictedIngredient(normalized)) return null
   const key = revenueProductAliases[normalized] || normalized
   return revenueProductSets[key] ?? null
 }

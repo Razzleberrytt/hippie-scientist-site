@@ -6729,46 +6729,6 @@
     "indexability_reasons": []
   },
   {
-    "slug": "lobelia-inflata",
-    "name": "Lobelia Inflata",
-    "summary": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
-    "primary_effects": [
-      "respiratory",
-      "stimulant"
-    ],
-    "effects": [
-      "respiratory",
-      "stimulant"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "partial",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "PUBLISH",
-      "score": 93,
-      "robots": "index,follow",
-      "sitemap_included": true,
-      "reasons": [
-        "effect-coverage",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:partial",
-        "safety-context",
-        "summary-depth",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
     "slug": "longan",
     "name": "Longan",
     "summary": "It should be framed as a food-like fruit botanical with modest modern evidence.",
@@ -7709,82 +7669,6 @@
         "profile-status:partial",
         "safety-context",
         "summary-present",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "nicotiana-glauca",
-    "name": "Nicotiana Glauca",
-    "summary": "Nicotiana glauca contains Anabasine and is linked here to nicotinic acetylcholine receptor modulation.",
-    "primary_effects": [
-      "stimulant"
-    ],
-    "effects": [
-      "stimulant"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "partial",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "PUBLISH",
-      "score": 88,
-      "robots": "index,follow",
-      "sitemap_included": true,
-      "reasons": [
-        "effect-present",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:partial",
-        "safety-context",
-        "summary-depth",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": []
-  },
-  {
-    "slug": "nicotiana-tabacum",
-    "name": "Nicotiana Tabacum",
-    "summary": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation.",
-    "primary_effects": [
-      "stimulant"
-    ],
-    "effects": [
-      "stimulant"
-    ],
-    "evidence_grade": "c",
-    "evidence_tier": "Limited Human Evidence",
-    "profile_status": "partial",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": false,
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "PUBLISH",
-      "score": 88,
-      "robots": "index,follow",
-      "sitemap_included": true,
-      "reasons": [
-        "effect-present",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "profile-status:partial",
-        "safety-context",
-        "summary-depth",
         "summary-quality-missing"
       ]
     },

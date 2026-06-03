@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 
@@ -68,7 +68,6 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
   const [selectedSlug, setSelectedSlug] = useState<string>(allItems[0]?.slug || '')
   const [weight, setWeight] = useState<number>(150)
   const [weightUnit, setWeightUnit] = useState<'lbs' | 'kg'>('lbs')
-  const [experience, setExperience] = useState<'beginner' | 'intermediate' | 'advanced'>('intermediate')
   const [extractPct, setExtractPct] = useState<number>(0)
 
   // Find selected item details
@@ -77,11 +76,11 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
   }, [selectedSlug, allItems])
 
   // Sync extract percentage when item changes
-  useState(() => {
+  useEffect(() => {
     if (selectedItem) {
       setExtractPct(selectedItem.defaultPct || 10)
     }
-  })
+  }, [selectedItem])
 
   // Set default extract percent when item changes
   const handleItemChange = (slug: string) => {
@@ -132,16 +131,8 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
       weightFactor = 1.2
     }
 
-    // Experience factor
-    let expFactor = 1.0
-    if (experience === 'beginner') {
-      expFactor = 0.5 // Start with a microdose/allergy test
-    } else if (experience === 'advanced') {
-      expFactor = 1.3
-    }
-
-    const minDose = Math.round(baseRange.min * weightFactor * expFactor)
-    const maxDose = Math.round(baseRange.max * weightFactor * expFactor)
+    const minDose = Math.round(baseRange.min * weightFactor)
+    const maxDose = Math.round(baseRange.max * weightFactor)
 
     // active yield based on extract percentage
     const minYield = Math.round(minDose * (extractPct / 100))
@@ -153,7 +144,7 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
       minYield,
       maxYield
     }
-  }, [baseRange, weight, weightUnit, experience, extractPct])
+  }, [baseRange, weight, weightUnit, extractPct])
 
   return (
     <div className='grid gap-8 lg:grid-cols-3'>
@@ -213,29 +204,6 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
             />
           </div>
 
-          {/* Experience level */}
-          <div className='space-y-1.5'>
-            <label className='text-xs font-bold uppercase tracking-wider text-slate-400'>
-              Experience & Tolerance
-            </label>
-            <div className='grid grid-cols-3 gap-1.5'>
-              {(['beginner', 'intermediate', 'advanced'] as const).map(lvl => (
-                <button
-                  key={lvl}
-                  onClick={() => setExperience(lvl)}
-                  type='button'
-                  className={`rounded-xl py-2 text-center text-xs font-bold border transition ${
-                    experience === lvl
-                      ? 'border-emerald-500 bg-emerald-50/50 text-emerald-800'
-                      : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                  }`}
-                >
-                  {lvl.charAt(0).toUpperCase() + lvl.slice(1)}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Extract Percentage */}
           <div className='space-y-1.5'>
             <div className='flex items-center justify-between'>
@@ -280,7 +248,7 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
               {calculatedDosage.minDose} – {calculatedDosage.maxDose} mg
             </p>
             <p className='text-xs text-slate-500'>
-              Scale factors applied: Weight ({weight} {weightUnit}), Experience ({experience})
+              Scale factor applied: Weight ({weight} {weightUnit})
             </p>
           </div>
 

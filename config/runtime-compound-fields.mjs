@@ -120,6 +120,15 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'buying_criteria',
 
   // Runtime gating / SEO
+  'doNotMonetize',
+  'doNotPromote',
+  'governance_status',
+  'legal_status',
+  'controlled_status',
+  'controlled_schedule',
+  'dea_status',
+  'dea_watchlist_status',
+  'regulatory_status',
   'profile_status',
   'summary_quality',
   'runtime_export_decision',

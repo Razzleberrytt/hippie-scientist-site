@@ -1,15 +1,15 @@
 {
   "reportVersion": 1,
   "canonicalMechanisms": 53,
-  "records": 907,
-  "fullyMappedRecords": 669,
-  "partiallyMappedRecords": 163,
-  "unmappedRecords": 74,
+  "records": 881,
+  "fullyMappedRecords": 659,
+  "partiallyMappedRecords": 155,
+  "unmappedRecords": 66,
   "noRawMechanismRecords": 1,
   "unmappedMechanisms": [
     {
       "term": "Neurotransmitter Modulation",
-      "count": 172
+      "count": 162
     },
     {
       "term": "general phytochemical signaling",
@@ -37,10 +37,6 @@
     },
     {
       "term": "5-HT1A activity",
-      "count": 1
-    },
-    {
-      "term": "5-HT2A receptor agonism",
       "count": 1
     },
     {
@@ -116,10 +112,6 @@
       "count": 1
     },
     {
-      "term": "cryogenine/vertine-related pharmacology (limited)",
-      "count": 1
-    },
-    {
       "term": "demulcent support",
       "count": 1
     },
@@ -145,10 +137,6 @@
     },
     {
       "term": "hepatobiliary support",
-      "count": 1
-    },
-    {
-      "term": "higher potency than mitragynine preclinical",
       "count": 1
     },
     {
@@ -185,10 +173,6 @@
     },
     {
       "term": "lowers gastric pH transiently",
-      "count": 1
-    },
-    {
-      "term": "LSA-related serotonergic receptor agonism (preclinical/pharmacological inference)",
       "count": 1
     },
     {
@@ -256,23 +240,11 @@
       "count": 1
     },
     {
-      "term": "partial mu-opioid receptor agonism with G-protein biased signaling preclinical",
-      "count": 1
-    },
-    {
       "term": "PI3K/Akt modulation",
       "count": 1
     },
     {
       "term": "PKC modulation",
-      "count": 1
-    },
-    {
-      "term": "potent kappa-opioid receptor agonism",
-      "count": 1
-    },
-    {
-      "term": "potent mu-opioid receptor agonism",
       "count": 1
     },
     {
@@ -324,10 +296,6 @@
       "count": 1
     },
     {
-      "term": "sigma-1 receptor activity proposed",
-      "count": 1
-    },
-    {
       "term": "silica provision",
       "count": 1
     },
@@ -341,10 +309,6 @@
     },
     {
       "term": "TRPM8 receptor activation",
-      "count": 1
-    },
-    {
-      "term": "unclear CNS effects",
       "count": 1
     },
     {

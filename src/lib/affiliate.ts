@@ -42,6 +42,7 @@ export function getAffiliateShopLinks(item: any, fallbackName: string, kind: 'he
   if (!isClean(query)) return []
 
   const curatedUrl = text(item.amazon_affiliate_url) || text(item.affiliate_url) || text(item.product_url)
+  if (isRestrictedIngredient(curatedUrl)) return []
 
   if (curatedUrl) {
     return [

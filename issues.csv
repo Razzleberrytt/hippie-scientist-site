@@ -1,0 +1,121 @@
+type,id,name,slug,reason,action
+compound,compound:aloe-vera,Aloe Vera,aloe-vera,duplicate-group:aloe vera,KEEP-CANONICAL-REVIEW
+compound,compound:ashitaba,Ashitaba (Angelica keiskei),ashitaba,duplicate-group:ashitaba,KEEP-CANONICAL-REVIEW
+compound,compound:berberine,Berberine,berberine,duplicate-group:berberine,KEEP-CANONICAL-REVIEW
+compound,compound:berberine-hcl,Berberine,berberine-hcl,DUPLICATE-OF-compound:berberine,MERGE-KEEP-compound:berberine
+compound,compound:blue-lotus,Blue Lotus,blue-lotus,DUPLICATE-OF-herb:blue-lotus,MERGE-KEEP-herb:blue-lotus
+compound,compound:boswellia,Boswellia,boswellia,DUPLICATE-OF-herb:boswellia-serrata,MERGE-KEEP-herb:boswellia-serrata
+compound,compound:cacao,Cacao,cacao,DUPLICATE-OF-herb:theobroma-cacao,MERGE-KEEP-herb:theobroma-cacao
+compound,compound:cat-s-claw,Cat's Claw,cat-s-claw,duplicate-group:cat s claw,KEEP-CANONICAL-REVIEW
+compound,compound:chaga,Chaga (Inonotus obliquus),chaga,DUPLICATE-OF-herb:chaga,MERGE-KEEP-herb:chaga
+compound,compound:chamomile,Chamomile,chamomile,duplicate-group:chamomile,KEEP-CANONICAL-REVIEW
+compound,compound:coenzyme-q10,Coenzyme Q10,coenzyme-q10,duplicate-group:coenzyme q10,KEEP-CANONICAL-REVIEW
+compound,compound:coq10,Coenzyme Q10,coq10,DUPLICATE-OF-compound:coenzyme-q10,MERGE-KEEP-compound:coenzyme-q10
+compound,compound:cordyceps,Cordyceps,cordyceps,duplicate-group:cordyceps,KEEP-CANONICAL-REVIEW
+compound,compound:cranberry,Cranberry,cranberry,duplicate-group:cranberry,KEEP-CANONICAL-REVIEW
+compound,compound:curcumin,Curcumin,curcumin,duplicate-group:curcumin,KEEP-CANONICAL-REVIEW
+compound,compound:damiana,Damiana,damiana,DUPLICATE-OF-herb:damiana,MERGE-KEEP-herb:damiana
+compound,compound:echinacea,Echinacea,echinacea,duplicate-group:echinacea,KEEP-CANONICAL-REVIEW
+compound,compound:elderberry,Elderberry,elderberry,duplicate-group:elderberry,KEEP-CANONICAL-REVIEW
+compound,compound:fenugreek,Fenugreek,fenugreek,DUPLICATE-OF-herb:trigonella-foenum-graecum,MERGE-KEEP-herb:trigonella-foenum-graecum
+compound,compound:garlic,Garlic,garlic,DUPLICATE-OF-herb:allium-sativum,MERGE-KEEP-herb:allium-sativum
+compound,compound:ginger,Ginger,ginger,duplicate-group:ginger,KEEP-CANONICAL-REVIEW
+compound,compound:glycine,Glycine,glycine,duplicate-group:glycine,KEEP-CANONICAL-REVIEW
+compound,compound:glycine-sleep,Glycine (Sleep Use),glycine-sleep,DUPLICATE-OF-compound:glycine,MERGE-KEEP-compound:glycine
+compound,compound:glycyrrhizin,Glycyrrhizin,glycyrrhizin,DUPLICATE-OF-compound:glycyrrhizin-isolated,MERGE-KEEP-compound:glycyrrhizin-isolated
+compound,compound:glycyrrhizin-isolated,Glycyrrhizin (Isolated),glycyrrhizin-isolated,duplicate-group:glycyrrhizin,KEEP-CANONICAL-REVIEW
+compound,compound:goldenseal,Goldenseal,goldenseal,duplicate-group:goldenseal,KEEP-CANONICAL-REVIEW
+compound,compound:gotu-kola,Gotu Kola (Centella asiatica),gotu-kola,duplicate-group:gotu kola,KEEP-CANONICAL-REVIEW
+compound,compound:gotu-kola,Gotu Kola Centella asiatica,gotu-kola,duplicate-group:gotu kola centella asiatica,KEEP-CANONICAL-REVIEW
+compound,compound:green-tea-extract,Green Tea Extract,green-tea-extract,duplicate-group:green tea extract,KEEP-CANONICAL-REVIEW
+compound,compound:guarana,Guarana,guarana,DUPLICATE-OF-herb:guarana,MERGE-KEEP-herb:guarana
+compound,compound:hawthorn,Hawthorn,hawthorn,duplicate-group:hawthorn,KEEP-CANONICAL-REVIEW
+compound,compound:inositol,Inositol,inositol,DUPLICATE-OF-compound:inositol-sleep,MERGE-KEEP-compound:inositol-sleep
+compound,compound:inositol-sleep,Inositol (Sleep/Anxiety Context),inositol-sleep,duplicate-group:inositol,KEEP-CANONICAL-REVIEW
+compound,compound:kanna,Kanna (Sceletium tortuosum),kanna,duplicate-group:kanna,KEEP-CANONICAL-REVIEW
+compound,compound:kava,Kava,kava,duplicate-group:kava,KEEP-CANONICAL-REVIEW
+compound,compound:l-theanine,L-theanine,l-theanine,duplicate-group:l theanine,KEEP-CANONICAL-REVIEW
+compound,compound:l-theanine-sleep,L-Theanine (Sleep Use),l-theanine-sleep,DUPLICATE-OF-compound:l-theanine,MERGE-KEEP-compound:l-theanine
+compound,compound:l-tyrosine,L-Tyrosine,l-tyrosine,duplicate-group:l tyrosine,KEEP-CANONICAL-REVIEW
+compound,compound:lavender,Lavender,lavender,duplicate-group:lavender,KEEP-CANONICAL-REVIEW
+compound,compound:lemon-balm,Lemon balm,lemon-balm,duplicate-group:lemon balm,KEEP-CANONICAL-REVIEW
+compound,compound:lions-mane,Lion's Mane,lions-mane,DUPLICATE-OF-herb:hericium-erinaceus,MERGE-KEEP-herb:hericium-erinaceus
+compound,compound:maca,Maca,maca,duplicate-group:maca,KEEP-CANONICAL-REVIEW
+compound,compound:milk-thistle,Milk Thistle,milk-thistle,duplicate-group:milk thistle,KEEP-CANONICAL-REVIEW
+compound,compound:muira-puama,Muira Puama,muira-puama,DUPLICATE-OF-herb:muira-puama,MERGE-KEEP-herb:muira-puama
+compound,compound:nettle-root,Nettle Root,nettle-root,duplicate-group:nettle root,KEEP-CANONICAL-REVIEW
+compound,compound:nicotinamide-riboside,Nicotinamide riboside,nicotinamide-riboside,DUPLICATE-OF-compound:nr,MERGE-KEEP-compound:nr
+compound,compound:nr,Nicotinamide riboside,nr,duplicate-group:nicotinamide riboside,KEEP-CANONICAL-REVIEW
+compound,compound:passionflower,Passionflower,passionflower,duplicate-group:passionflower,KEEP-CANONICAL-REVIEW
+compound,compound:passionflower-extract,Passionflower Extract,passionflower-extract,duplicate-group:passionflower extract,KEEP-CANONICAL-REVIEW
+compound,compound:passionflower-extract-standardized,Passionflower Extract (Standardized),passionflower-extract-standardized,DUPLICATE-OF-compound:passionflower-extract,MERGE-KEEP-compound:passionflower-extract
+compound,compound:pau-darco,Pau d'Arco,pau-darco,DUPLICATE-OF-herb:pau-d-arco,MERGE-KEEP-herb:pau-d-arco
+compound,compound:phosphatidylserine,Phosphatidylserine,phosphatidylserine,duplicate-group:phosphatidylserine,KEEP-CANONICAL-REVIEW
+compound,compound:quercetin,Quercetin,quercetin,duplicate-group:quercetin,KEEP-CANONICAL-REVIEW
+compound,compound:reishi,Reishi,reishi,DUPLICATE-OF-herb:reishi,MERGE-KEEP-herb:reishi
+compound,compound:resveratrol,Resveratrol,resveratrol,duplicate-group:resveratrol,KEEP-CANONICAL-REVIEW
+compound,compound:saw-palmetto,Saw Palmetto,saw-palmetto,duplicate-group:saw palmetto,KEEP-CANONICAL-REVIEW
+compound,compound:schisandra,Schisandra,schisandra,DUPLICATE-OF-herb:schisandra,MERGE-KEEP-herb:schisandra
+compound,compound:skullcap,Skullcap,skullcap,DUPLICATE-OF-herb:scutellaria-lateriflora,MERGE-KEEP-herb:scutellaria-lateriflora
+compound,compound:st-johns-wort,St. John's Wort,st-johns-wort,DUPLICATE-OF-herb:st-johns-wort,MERGE-KEEP-herb:st-johns-wort
+compound,compound:taurine,Taurine,taurine,duplicate-group:taurine,KEEP-CANONICAL-REVIEW
+compound,compound:taurine-sleep,Taurine (Sleep Context),taurine-sleep,DUPLICATE-OF-compound:taurine,MERGE-KEEP-compound:taurine
+compound,compound:tongkat-ali,Tongkat Ali,tongkat-ali,duplicate-group:tongkat ali,KEEP-CANONICAL-REVIEW
+compound,compound:turkey-tail,Turkey Tail (Trametes versicolor),turkey-tail,DUPLICATE-OF-herb:turkey-tail,MERGE-KEEP-herb:turkey-tail
+compound,compound:turmeric,Turmeric,turmeric,duplicate-group:turmeric,KEEP-CANONICAL-REVIEW
+compound,compound:valerian,Valerian,valerian,duplicate-group:valerian,KEEP-CANONICAL-REVIEW
+compound,compound:yerba-mate,Yerba Mate,yerba-mate,DUPLICATE-OF-herb:yerba-mate,MERGE-KEEP-herb:yerba-mate
+compound,compound:yohimbe,Yohimbe (Pausinystalia johimbe),yohimbe,DUPLICATE-OF-herb:yohimbe,MERGE-KEEP-herb:yohimbe
+herb,herb:aloe-vera,Aloe Vera,aloe-vera,DUPLICATE-OF-compound:aloe-vera,MERGE-KEEP-compound:aloe-vera
+herb,herb:ashitaba,Ashitaba,ashitaba,DUPLICATE-OF-compound:ashitaba,MERGE-KEEP-compound:ashitaba
+herb,herb:blue-lotus,Blue Lotus,blue-lotus,duplicate-group:blue lotus,KEEP-CANONICAL-REVIEW
+herb,herb:boswellia-serrata,Boswellia,boswellia-serrata,duplicate-group:boswellia,KEEP-CANONICAL-REVIEW
+herb,herb:theobroma-cacao,Cacao,theobroma-cacao,duplicate-group:cacao,KEEP-CANONICAL-REVIEW
+herb,herb:cat-s-claw,Cat's Claw,cat-s-claw,DUPLICATE-OF-compound:cat-s-claw,MERGE-KEEP-compound:cat-s-claw
+herb,herb:chaga,Chaga,chaga,duplicate-group:chaga,KEEP-CANONICAL-REVIEW
+herb,herb:matricaria-chamomilla,Chamomile,matricaria-chamomilla,DUPLICATE-OF-compound:chamomile,MERGE-KEEP-compound:chamomile
+herb,herb:cordyceps-sinensis,Cordyceps,cordyceps-sinensis,DUPLICATE-OF-compound:cordyceps,MERGE-KEEP-compound:cordyceps
+herb,herb:cranberry,Cranberry (Vaccinium macrocarpon),cranberry,DUPLICATE-OF-compound:cranberry,MERGE-KEEP-compound:cranberry
+herb,herb:curcumin,Curcumin,curcumin,DUPLICATE-OF-compound:curcumin,MERGE-KEEP-compound:curcumin
+herb,herb:damiana,Damiana,damiana,duplicate-group:damiana,KEEP-CANONICAL-REVIEW
+herb,herb:echinacea-purpurea,Echinacea (Echinacea purpurea),echinacea-purpurea,DUPLICATE-OF-compound:echinacea,MERGE-KEEP-compound:echinacea
+herb,herb:elderberry,Elderberry,elderberry,DUPLICATE-OF-compound:elderberry,MERGE-KEEP-compound:elderberry
+herb,herb:trigonella-foenum-graecum,Fenugreek,trigonella-foenum-graecum,duplicate-group:fenugreek,KEEP-CANONICAL-REVIEW
+herb,herb:allium-sativum,Garlic,allium-sativum,duplicate-group:garlic,KEEP-CANONICAL-REVIEW
+herb,herb:garlic,Garlic (Allium sativum),garlic,DUPLICATE-OF-herb:allium-sativum,MERGE-KEEP-herb:allium-sativum
+herb,herb:ginger,Ginger (Zingiber officinale),ginger,DUPLICATE-OF-compound:ginger,MERGE-KEEP-compound:ginger
+herb,herb:goldenseal,Goldenseal,goldenseal,DUPLICATE-OF-compound:goldenseal,MERGE-KEEP-compound:goldenseal
+herb,herb:gotu-kola,Gotu Kola (Centella asiatica),gotu-kola,DUPLICATE-OF-compound:gotu-kola,MERGE-KEEP-compound:gotu-kola
+herb,herb:gotu-kola,Gotu Kola Centella asiatica,gotu-kola,DUPLICATE-OF-compound:gotu-kola,MERGE-KEEP-compound:gotu-kola
+herb,herb:green-tea-extract,Green Tea Extract,green-tea-extract,DUPLICATE-OF-compound:green-tea-extract,MERGE-KEEP-compound:green-tea-extract
+herb,herb:guarana,Guarana,guarana,duplicate-group:guarana,KEEP-CANONICAL-REVIEW
+herb,herb:crataegus-monogyna,Hawthorn,crataegus-monogyna,DUPLICATE-OF-compound:hawthorn,MERGE-KEEP-compound:hawthorn
+herb,herb:kanna,Kanna,kanna,DUPLICATE-OF-compound:kanna,MERGE-KEEP-compound:kanna
+herb,herb:piper-methysticum,Kava,piper-methysticum,DUPLICATE-OF-compound:kava,MERGE-KEEP-compound:kava
+herb,herb:tyrosine,L-Tyrosine,tyrosine,DUPLICATE-OF-compound:l-tyrosine,MERGE-KEEP-compound:l-tyrosine
+herb,herb:lavandula-angustifolia,Lavender,lavandula-angustifolia,DUPLICATE-OF-compound:lavender,MERGE-KEEP-compound:lavender
+herb,herb:melissa-officinalis,Lemon Balm,melissa-officinalis,DUPLICATE-OF-compound:lemon-balm,MERGE-KEEP-compound:lemon-balm
+herb,herb:hericium-erinaceus,Lion's Mane,hericium-erinaceus,duplicate-group:lions mane,KEEP-CANONICAL-REVIEW
+herb,herb:lions-mane,Lion’s Mane,lions-mane,DUPLICATE-OF-herb:hericium-erinaceus,MERGE-KEEP-herb:hericium-erinaceus
+herb,herb:maca,Maca (Lepidium meyenii),maca,DUPLICATE-OF-compound:maca,MERGE-KEEP-compound:maca
+herb,herb:silybum-marianum,Milk Thistle,silybum-marianum,DUPLICATE-OF-compound:milk-thistle,MERGE-KEEP-compound:milk-thistle
+herb,herb:milk-thistle,Milk Thistle (Silybum marianum),milk-thistle,DUPLICATE-OF-compound:milk-thistle,MERGE-KEEP-compound:milk-thistle
+herb,herb:muira-puama,Muira Puama,muira-puama,duplicate-group:muira puama,KEEP-CANONICAL-REVIEW
+herb,herb:nettle-root,Nettle Root,nettle-root,DUPLICATE-OF-compound:nettle-root,MERGE-KEEP-compound:nettle-root
+herb,herb:passiflora-incarnata,Passionflower,passiflora-incarnata,DUPLICATE-OF-compound:passionflower,MERGE-KEEP-compound:passionflower
+herb,herb:pau-d-arco,Pau D'arco,pau-d-arco,duplicate-group:pau d arco,KEEP-CANONICAL-REVIEW
+herb,herb:phosphatidylserine,Phosphatidylserine,phosphatidylserine,DUPLICATE-OF-compound:phosphatidylserine,MERGE-KEEP-compound:phosphatidylserine
+herb,herb:quercetin,Quercetin,quercetin,DUPLICATE-OF-compound:quercetin,MERGE-KEEP-compound:quercetin
+herb,herb:ganoderma-lucidum,Reishi,ganoderma-lucidum,DUPLICATE-OF-herb:reishi,MERGE-KEEP-herb:reishi
+herb,herb:reishi,Reishi (Ganoderma lucidum),reishi,duplicate-group:reishi,KEEP-CANONICAL-REVIEW
+herb,herb:resveratrol,Resveratrol,resveratrol,DUPLICATE-OF-compound:resveratrol,MERGE-KEEP-compound:resveratrol
+herb,herb:saw-palmetto,Saw Palmetto (Serenoa repens),saw-palmetto,DUPLICATE-OF-compound:saw-palmetto,MERGE-KEEP-compound:saw-palmetto
+herb,herb:schisandra,Schisandra (Schisandra chinensis),schisandra,duplicate-group:schisandra,KEEP-CANONICAL-REVIEW
+herb,herb:scutellaria-lateriflora,Skullcap,scutellaria-lateriflora,duplicate-group:skullcap,KEEP-CANONICAL-REVIEW
+herb,herb:st-johns-wort,St. John's Wort (Hypericum perforatum),st-johns-wort,duplicate-group:st john s wort,KEEP-CANONICAL-REVIEW
+herb,herb:tongkat-ali,Tongkat Ali,tongkat-ali,DUPLICATE-OF-compound:tongkat-ali,MERGE-KEEP-compound:tongkat-ali
+herb,herb:turkey-tail,Turkey Tail,turkey-tail,duplicate-group:turkey tail,KEEP-CANONICAL-REVIEW
+herb,herb:turmeric,Turmeric (Curcuma longa),turmeric,DUPLICATE-OF-compound:turmeric,MERGE-KEEP-compound:turmeric
+herb,herb:valeriana-officinalis,Valerian,valeriana-officinalis,DUPLICATE-OF-compound:valerian,MERGE-KEEP-compound:valerian
+herb,herb:yerba-mate,Yerba Mate,yerba-mate,duplicate-group:yerba mate,KEEP-CANONICAL-REVIEW
+herb,herb:yohimbe,Yohimbe,yohimbe,duplicate-group:yohimbe,KEEP-CANONICAL-REVIEW

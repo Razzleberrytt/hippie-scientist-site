@@ -8,6 +8,9 @@ const RESTRICTED_TERMS = [
   '7-oh-mitragynine',
   '7 oh mitragynine',
   '7-oh',
+  'amanita muscaria',
+  'anabasine',
+  'anatabine',
   'dmt',
   'hawaiian baby woodrose',
   'harmaline',
@@ -15,15 +18,28 @@ const RESTRICTED_TERMS = [
   'ibogaine',
   'ketamine',
   'kratom',
+  'lobeline',
   'lsa',
   'mescaline',
+  'mitragynine',
   'morning glory',
   'nicotiana glauca',
   'nicotiana tabacum',
+  'noopept',
   'psilocybin',
   'salvinorin',
   'sinicuichi',
   'tetrahydroharmine',
+  'thc',
+  'thcv',
+]
+
+const RESTRICTED_STATUS_PATTERNS = [
+  /schedule\s*i\b/i,
+  /schedule\s*1\b/i,
+  /dea\s*watch\s*list/i,
+  /dea\s*watchlist/i,
+  /controlled\s*substance/i,
 ]
 
 function normalize(value: unknown) {
@@ -47,6 +63,29 @@ export function isRestrictedIngredient(value: unknown) {
 
 export function isRestrictedRecord(record: any) {
   if (!record) return false
+  if (record.doNotMonetize === true || record.do_not_monetize === true) return true
+  if (record.doNotPromote === true || record.do_not_promote === true) return true
+
+  const governanceStatus = [
+    record.governance_status,
+    record.governanceStatus,
+    record.legal_status,
+    record.legalStatus,
+    record.controlled_status,
+    record.controlledStatus,
+    record.controlled_schedule,
+    record.controlledSchedule,
+    record.schedule,
+    record.dea_status,
+    record.deaStatus,
+    record.dea_watchlist_status,
+    record.deaWatchlistStatus,
+    record.regulatory_status,
+    record.regulatoryStatus,
+    record.safety_level,
+  ].map(text).join(' ')
+
+  if (RESTRICTED_STATUS_PATTERNS.some((pattern) => pattern.test(governanceStatus))) return true
 
   return [
     record.slug,
@@ -63,5 +102,10 @@ export function isRestrictedRecord(record: any) {
     record.affiliate_url,
     record.affiliateUrl,
     record.product_url,
+    record.summary,
+    record.description,
+    record.safety,
+    record.active_constituents,
+    record.compound_profile,
   ].some(isRestrictedIngredient)
 }

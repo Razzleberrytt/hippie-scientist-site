@@ -7,7 +7,7 @@ import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 
 export const metadata: Metadata = {
   title: 'Dynamic Dosage & Active Molecular Yield Calculator',
-  description: 'Compute customized supplement dosing ranges based on body weight and experience levels. Calculate active chemical yields and cycle notes.',
+  description: 'Compute conservative educational supplement dosing ranges based on body weight and extract concentration. Calculate active chemical yields and cycle notes.',
   robots: { index: false, follow: true },
 }
 
@@ -46,8 +46,11 @@ export default async function DosingPage() {
         <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl mt-2'>
           Supplement Dosage Calculator
         </h1>
+        <div className='rounded-2xl border border-rose-900/15 bg-rose-50 p-4 text-sm font-semibold leading-relaxed text-rose-950'>
+          This tool is for educational purposes only. Consult a qualified healthcare provider before using any supplement, especially if you have medical conditions or take medications.
+        </div>
         <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
-          Dosage requirements depend heavily on extract concentration, body weight, and individual tolerance. Use this educational tool to map clinical ranges to your specific parameters.
+          Dosage requirements depend heavily on extract concentration, body weight, medical history, and concurrent medications. Use this educational tool to map published supplement ranges to conservative reference parameters.
         </p>
       </section>
 

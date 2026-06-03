@@ -1314,12 +1314,6 @@
     "relationship": "partial"
   },
   {
-    "id": "lobelia-inflata-lobeline",
-    "herb_slug": "lobelia-inflata",
-    "compound_slug": "lobeline",
-    "relationship": "partial"
-  },
-  {
     "id": "longan-gallic-acid",
     "herb_slug": "longan",
     "compound_slug": "gallic-acid",
@@ -1498,24 +1492,6 @@
     "id": "nettle-root-beta-sitosterol",
     "herb_slug": "nettle-root",
     "compound_slug": "beta-sitosterol",
-    "relationship": "partial"
-  },
-  {
-    "id": "nicotiana-glauca-anabasine",
-    "herb_slug": "nicotiana-glauca",
-    "compound_slug": "anabasine",
-    "relationship": "partial"
-  },
-  {
-    "id": "nicotiana-tabacum-anatabine",
-    "herb_slug": "nicotiana-tabacum",
-    "compound_slug": "anatabine",
-    "relationship": "partial"
-  },
-  {
-    "id": "nicotiana-tabacum-nicotine",
-    "herb_slug": "nicotiana-tabacum",
-    "compound_slug": "nicotine",
     "relationship": "partial"
   },
   {

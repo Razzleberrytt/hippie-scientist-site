@@ -59,6 +59,48 @@ function clean(v) {
 
 function lower(v) { return clean(v).toLowerCase() }
 
+const RESTRICTED_RUNTIME_TERMS = [
+  '5-meo-dmt',
+  '5 meo dmt',
+  '7-hydroxymitragynine',
+  '7 hydroxymitragynine',
+  '7-oh-mitragynine',
+  '7 oh mitragynine',
+  '7-oh',
+  'amanita muscaria',
+  'anabasine',
+  'anatabine',
+  'dmt',
+  'hawaiian baby woodrose',
+  'harmaline',
+  'harmine',
+  'ibogaine',
+  'ketamine',
+  'kratom',
+  'lobeline',
+  'lsa',
+  'mescaline',
+  'mitragynine',
+  'morning glory',
+  'nicotiana glauca',
+  'nicotiana tabacum',
+  'noopept',
+  'psilocybin',
+  'salvinorin',
+  'sinicuichi',
+  'tetrahydroharmine',
+  'thc',
+  'thcv',
+]
+
+const RESTRICTED_STATUS_PATTERNS = [
+  /schedule\s*i\b/i,
+  /schedule\s*1\b/i,
+  /dea\s*watch\s*list/i,
+  /dea\s*watchlist/i,
+  /controlled\s*substance/i,
+]
+
 function slug(v) {
   return clean(v)
     .toLowerCase()
@@ -89,6 +131,84 @@ function bool(v) {
   if (typeof v === 'boolean') return v
   const t = lower(v)
   return ['1', 'true', 'yes', 'y'].includes(t)
+}
+
+function normalizedSafetyText(value) {
+  return clean(value)
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function hasRestrictedRuntimeTerm(value) {
+  const normalized = normalizedSafetyText(value)
+  if (!normalized) return false
+  return RESTRICTED_RUNTIME_TERMS.some((term) => {
+    const normalizedTerm = normalizedSafetyText(term)
+    return normalized === normalizedTerm || normalized.includes(normalizedTerm)
+  })
+}
+
+function governanceFlags(row) {
+  return {
+    doNotMonetize: bool(first(row, ['doNotMonetize', 'do_not_monetize', 'do not monetize'])),
+    doNotPromote: bool(first(row, ['doNotPromote', 'do_not_promote', 'do not promote'])),
+    governance_status: clean(first(row, ['governance_status', 'governance status'])),
+    legal_status: clean(first(row, ['legal_status', 'legal status'])),
+    controlled_status: clean(first(row, ['controlled_status', 'controlled status'])),
+    controlled_schedule: clean(first(row, ['controlled_schedule', 'controlled schedule', 'schedule'])),
+    dea_status: clean(first(row, ['dea_status', 'dea status'])),
+    dea_watchlist_status: clean(first(row, ['dea_watchlist_status', 'dea watchlist status', 'dea_watchlist', 'dea watchlist'])),
+    regulatory_status: clean(first(row, ['regulatory_status', 'regulatory status'])),
+  }
+}
+
+function isRestrictedRuntimeRecord(record) {
+  if (!record) return false
+  if (record.doNotMonetize || record.doNotPromote) return true
+  const statuses = [
+    record.governance_status,
+    record.legal_status,
+    record.controlled_status,
+    record.controlled_schedule,
+    record.dea_status,
+    record.dea_watchlist_status,
+    record.regulatory_status,
+    record.safety_level,
+  ].map(clean).join(' ')
+  if (RESTRICTED_STATUS_PATTERNS.some((pattern) => pattern.test(statuses))) return true
+  return [
+    record.slug,
+    record.name,
+    record.scientific_name,
+    record.summary,
+    record.description,
+    record.dosage,
+    record.typical_dosage,
+    record.safety,
+    record.safety_level,
+    record.affiliate_url,
+    record.affiliate_query,
+    record.amazon_affiliate_url,
+    record.active_constituents,
+    record.compound_profile,
+  ].some(hasRestrictedRuntimeTerm)
+}
+
+function stripAffiliateForRestricted(record) {
+  if (!isRestrictedRuntimeRecord(record)) return record
+  return {
+    ...record,
+    affiliate_ready: false,
+    affiliate_url: '',
+    affiliate_query: '',
+    amazon_affiliate_url: '',
+    iherb_affiliate_url: '',
+  }
 }
 
 function num(v) {
@@ -314,9 +434,10 @@ function profile(row, type, taxonomy) {
     iherb_affiliate_url: clean(first(row, ['iherb_affiliate_url', 'iherb affiliate url'])),
     meta_title: clean(first(row, ['meta_title', 'meta title'])),
     meta_description: clean(first(row, ['meta_description', 'meta description'])),
+    ...governanceFlags(row),
     ...semantic(row, type),
   }
-  return pick(affiliate({ ...base, ...visibility(base, type) }), allowed)
+  return pick(stripAffiliateForRestricted(affiliate({ ...base, ...visibility(base, type) })), allowed)
 }
 
 function dedupe(rows) {
@@ -337,6 +458,21 @@ function mapRow(row) {
   const cs = slug(first(row, ['compound_slug', 'compound slug']) || compound)
   if (!hs || !cs) return null
   return stripRecord({ id: `${hs}-${cs}`, herb_slug: hs, compound_slug: cs, herb: clean(herb), compound: clean(compound), relationship: clean(first(row, ['relationship', 'relationship_type', 'role'])), notes: compact(first(row, ['notes', 'summary', 'rationale'])) })
+}
+
+function filterRestrictedMapRows(rows, herbs, compounds) {
+  const restrictedHerbSlugs = new Set(herbs.filter(isRestrictedRuntimeRecord).map((record) => record.slug))
+  const restrictedCompoundSlugs = new Set(compounds.filter(isRestrictedRuntimeRecord).map((record) => record.slug))
+  return rows.filter((row) => {
+    if (restrictedHerbSlugs.has(row.herb_slug) || restrictedCompoundSlugs.has(row.compound_slug)) return false
+    return ![
+      row.herb_slug,
+      row.compound_slug,
+      row.herb,
+      row.compound,
+      row.notes,
+    ].some(hasRestrictedRuntimeTerm)
+  })
 }
 
 function claimRow(row) {
@@ -582,10 +718,12 @@ async function main() {
   ensureDir(outDir)
 
   const taxonomy = buildMechanismTaxonomy(read(wb, SHEETS.canonicalMechanisms, true))
-  const herbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb', taxonomy)))
-  const compounds = dedupe(read(wb, SHEETS.compounds).map((r) => profile(r, 'compound', taxonomy)))
+  const allHerbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb', taxonomy)))
+  const allCompounds = dedupe(read(wb, SHEETS.compounds).map((r) => profile(r, 'compound', taxonomy)))
+  const herbs = allHerbs.filter((record) => !isRestrictedRuntimeRecord(record))
+  const compounds = allCompounds.filter((record) => !isRestrictedRuntimeRecord(record))
   const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
-  const herbCompoundMap = normalizeRows(read(wb, SHEETS.map), mapRow)
+  const herbCompoundMap = filterRestrictedMapRows(normalizeRows(read(wb, SHEETS.map), mapRow), allHerbs, allCompounds)
   const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))
   const evidenceEngines = Object.fromEntries(
     getEvidenceEngineGoalConfigs().map((config) => [
