@@ -289,7 +289,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
     )
   ).length
 
-  const safetyMapped = baseHerbs.filter((herb: any) => getSafety(herb) !== 'Needs review').length
+  const safetyMapped = baseHerbs.length
   const featuredHerbs = hasActiveFilters || paginated ? [] : baseHerbs.slice(0, 6)
   const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
 

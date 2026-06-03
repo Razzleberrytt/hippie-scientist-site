@@ -49,11 +49,11 @@ export default function MobileBottomNav() {
               aria-current={active ? 'page' : undefined}
               className={`flex min-h-[3.25rem] min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-2xl px-1.5 py-2 text-center transition-all duration-200 ${
                 active
-                  ? 'bg-brand-900/8 text-brand-800 shadow-sm'
+                  ? 'bg-brand-100 border-b-2 border-brand-700 text-brand-700 shadow-md font-bold'
                   : 'text-[#5c6d63] hover:bg-black/[0.03] hover:text-ink'
               }`}
             >
-              <Icon aria-hidden="true" className="h-[1.05rem] w-[1.05rem]" strokeWidth={2.2} />
+              <Icon aria-hidden="true" className={`h-[1.05rem] w-[1.05rem] transition-all ${active ? 'fill-current' : ''}`} strokeWidth={active ? 2.5 : 2.2} />
               <span className="max-w-full truncate text-xs font-semibold leading-none tracking-tight">
                 {item.label}
               </span>

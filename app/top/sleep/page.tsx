@@ -4,7 +4,8 @@ import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import { MoneyPageCTAStack } from '@/components/monetization/MoneyPageCTAStack'
 import { RecommendationGrid } from '@/components/monetization/RecommendationGrid'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
@@ -82,7 +83,7 @@ export default async function TopSleepPage() {
           These herbs are often discussed as natural sleep aids for insomnia, relaxation, and sleep-quality support.
         </p>
         <p className='mt-3 text-sm text-muted'>
-          Quick framing: most options are better understood as “sleep context” tools (wind-down, calm, stress load) rather than direct insomnia treatments.
+          Quick framing: most options are better understood as "sleep context" tools (wind-down, calm, stress load) rather than direct insomnia treatments.
         </p>
       </section>
 
@@ -122,7 +123,7 @@ export default async function TopSleepPage() {
         <h2 className='text-xl font-semibold text-ink'>Beginner decision notes</h2>
         <ul className='mt-3 space-y-2 text-sm leading-6 text-muted'>
           <li>If your issue is a racing mind, start with calmer, gentler profiles first.</li>
-          <li>If the issue is stress spillover, prioritize stress-support context over “strongest sleep herb.”</li>
+          <li>If the issue is stress spillover, prioritize stress-support context over "strongest sleep herb."</li>
           <li>Keep timing and next-day grogginess in mind when comparing options.</li>
         </ul>
       </section>
@@ -174,7 +175,64 @@ export default async function TopSleepPage() {
         </ul>
       </section>
 
-      <EmailCaptureBox goal='sleep' variant='wide' />
+      <EnhancedEmailCapture
+        headline='Sleep guide + product recommendations'
+        description='Get curated natural sleep aids, protocols, and comparison guides delivered to your inbox.'
+        benefit1='Evidence-graded sleep herbs ranked by mechanism and safety context'
+        benefit2='Stress-spillover vs. onset-difficulty decision frameworks'
+        benefit3='Protocol guides for wind-down routines and circadian support'
+        ctaLabel='Join the list'
+        location='top-sleep-email-capture'
+      />
+
+      <RelatedDiscoveryWidget
+        heading='Deepen your sleep research'
+        subheading='Explore related comparisons, protocols, and guides to build a comprehensive sleep strategy.'
+        items={[
+          {
+            type: 'comparison',
+            label: 'Comparison',
+            title: 'Ashwagandha vs Rhodiola',
+            description: 'Both calm and energize, but on different timelines. Compare which fits sleep vs stress-energy needs.',
+            href: '/compare/ashwagandha-vs-rhodiola-for-stress',
+          },
+          {
+            type: 'guide',
+            label: 'Guide',
+            title: 'Stress & Sleep Connection',
+            description: 'How stress spillover sabotages sleep and which calming herbs address the root cause vs. symptoms.',
+            href: '/top/stress',
+          },
+          {
+            type: 'protocol',
+            label: 'Protocol',
+            title: 'Wind-Down Protocol',
+            description: 'A 4-week framework combining herbs, timing, and routine shifts to reset sleep patterns.',
+            href: '/protocols/wind-down',
+          },
+          {
+            type: 'herb',
+            label: 'Herb',
+            title: 'Valerian Root',
+            description: 'Classical sleep herb with centuries of use. Strong evidence for sleep onset, notable taste.',
+            href: '/herbs/valerian-root',
+          },
+          {
+            type: 'compound',
+            label: 'Compound',
+            title: 'Magnesium Glycinate',
+            description: 'Mineral co-factor for relaxation and nervous system calm. Better absorbed than other forms.',
+            href: '/compounds/magnesium-glycinate',
+          },
+          {
+            type: 'guide',
+            label: 'Guide',
+            title: 'Supplement Timing',
+            description: 'When to take sleep aids relative to bedtime, food, and other medications for best effect.',
+            href: '/guides/supplement-timing-for-sleep',
+          },
+        ]}
+      />
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related guides</h2>
@@ -186,4 +244,3 @@ export default async function TopSleepPage() {
     </main>
   )
 }
-

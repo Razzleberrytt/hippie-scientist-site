@@ -110,7 +110,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
   const rows: [string, (c: Compound) => any][] = [
     ['Best for', c => summary(c.effects || c.primary_effects)],
     ['Evidence', c => <EvidenceBadge value={text(c.evidence_tier || c.evidenceTier || c.evidence_grade) || 'Limited'} />],
-    ['Time to effect', c => text(c.time_to_effect) || '—'],
+    ['Time to effect', c => text(c.time_to_effect) || 'Not specified'],
     ['Use case', c => getUseCaseLabel(c) || '—'],
     ['Safety notes', c => summary(c.safety_flags || c.safetyNotes || c.contraindications)],
     ['Complexity', c => text(c.complexity) || 'Low'],
@@ -194,7 +194,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
               {selectedCompounds.map((c) => (
                 <span
                   key={c.slug}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-brand-850 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-sm"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-brand-700 border-2 border-brand-900 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-md"
                 >
                   <span>{c.name || c.slug}</span>
                   <button

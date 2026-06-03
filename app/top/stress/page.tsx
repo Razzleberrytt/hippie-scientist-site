@@ -4,7 +4,8 @@ import { getHerbs } from '@/lib/runtime-data'
 import { getHerbSearchLinks } from '@/lib/affiliate'
 import { cleanSummary } from '@/lib/display-utils'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import { MoneyPageCTAStack } from '@/components/monetization/MoneyPageCTAStack'
 import { RecommendationGrid } from '@/components/monetization/RecommendationGrid'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
@@ -168,7 +169,64 @@ export default async function StressPage() {
         </ul>
       </section>
 
-      <EmailCaptureBox goal='stress' variant='wide' />
+      <EnhancedEmailCapture
+        headline='Stress guide + adaptogen finder'
+        description='Get curated stress-support herbs, adaptogen comparisons, and tension-vs-fatigue decision guides delivered to your inbox.'
+        benefit1='Adaptogen vs. calming botanicals comparison for your stress pattern'
+        benefit2='Evidence-graded herbs ranked by cortisol, tension, and resilience'
+        benefit3='Protocols for acute stress, evening calm, and long-term load management'
+        ctaLabel='Join the list'
+        location='top-stress-email-capture'
+      />
+
+      <RelatedDiscoveryWidget
+        heading='Deepen your stress-support research'
+        subheading='Explore comparisons, protocols, and guides to match stress-support herbs to your specific pattern.'
+        items={[
+          {
+            type: 'comparison',
+            label: 'Comparison',
+            title: 'Ashwagandha vs Rhodiola',
+            description: 'Adaptogen showdown: ashwagandha excels at evening calm while rhodiola boosts daytime resilience.',
+            href: '/compare/ashwagandha-vs-rhodiola-for-stress',
+          },
+          {
+            type: 'guide',
+            label: 'Guide',
+            title: 'Cortisol & Recovery',
+            description: 'How chronic stress raises cortisol and which herbs target recovery at different circadian times.',
+            href: '/guides/cortisol-recovery',
+          },
+          {
+            type: 'protocol',
+            label: 'Protocol',
+            title: 'Acute Stress Protocol',
+            description: 'Fast-acting herbs and compounds for situational tension and nervous system reset.',
+            href: '/protocols/acute-stress',
+          },
+          {
+            type: 'herb',
+            label: 'Herb',
+            title: 'Ashwagandha',
+            description: 'Foundational adaptogen with decades of research on cortisol, resilience, and calm.',
+            href: '/herbs/ashwagandha',
+          },
+          {
+            type: 'herb',
+            label: 'Herb',
+            title: 'Rhodiola',
+            description: 'Energizing adaptogen favored for fatigue-linked stress and daytime resilience.',
+            href: '/herbs/rhodiola',
+          },
+          {
+            type: 'guide',
+            label: 'Guide',
+            title: 'Sleep vs Stress',
+            description: 'When stress breaks sleep: identify patterns and choose herbs that address root cause.',
+            href: '/top/sleep',
+          },
+        ]}
+      />
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related natural wellness guides</h2>
@@ -184,4 +242,3 @@ export default async function StressPage() {
     </main>
   )
 }
-

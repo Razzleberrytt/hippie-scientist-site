@@ -2,7 +2,8 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import EmailCapture from '@/components/EmailCapture'
+import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
@@ -97,10 +98,63 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
         </div>
       </section>
 
-      <EmailCapture
-        headline="Get the stress adaptogen shortlist"
-        description="Occasional notes on ashwagandha, rhodiola, stress-support evidence, safety context, and product-quality checks."
-        location="compare-ashwagandha-vs-rhodiola-for-stress"
+      <EnhancedEmailCapture
+        headline='Adaptogen comparison + stress-pattern matching'
+        description='Get curated ashwagandha vs rhodiola insights, personalized stress-pattern frameworks, and safety context delivered to your inbox.'
+        benefit1='Wired vs tired: identify your stress pattern and pick the right adaptogen'
+        benefit2='Safety deep-dive: pregnancy, thyroid, medication, and autoimmune considerations'
+        benefit3='Product quality checks: standardization, plant part, and third-party testing guidance'
+        ctaLabel='Join the list'
+        location='compare-ashwagandha-vs-rhodiola-for-stress'
+      />
+
+      <RelatedDiscoveryWidget
+        heading='Explore stress-support depth'
+        subheading='Dig deeper into adaptogen stacking, stress patterns, and evidence for both herbs.'
+        items={[
+          {
+            type: 'herb',
+            label: 'Herb',
+            title: 'Ashwagandha',
+            description: 'Calming adaptogen for tense, wired stress. Strong evidence for cortisol and anxiety, with meaningful safety caveats.',
+            href: '/herbs/ashwagandha',
+          },
+          {
+            type: 'herb',
+            label: 'Herb',
+            title: 'Rhodiola',
+            description: 'Energizing adaptogen for fatigue-linked stress. Evidence for resilience, cognition, and burnout recovery.',
+            href: '/herbs/rhodiola',
+          },
+          {
+            type: 'guide',
+            label: 'Guide',
+            title: 'Stress Patterns',
+            description: 'Map your stress as tension, fatigue, rumination, or shutdown to match the right herb and support.',
+            href: '/guides/stress-patterns',
+          },
+          {
+            type: 'protocol',
+            label: 'Protocol',
+            title: 'Adaptogen Stack',
+            description: 'When and how to safely combine ashwagandha, rhodiola, and other adaptogens for synergy.',
+            href: '/protocols/adaptogen-stacking',
+          },
+          {
+            type: 'guide',
+            label: 'Guide',
+            title: 'Sleep Spillover',
+            description: 'How stress disrupts sleep and which adaptogen supports sleep recovery without overstimulation.',
+            href: '/top/sleep',
+          },
+          {
+            type: 'guide',
+            label: 'Guide',
+            title: 'Burnout Recovery',
+            description: 'When fatigue dominates stress: recognizing burnout and choosing herbs that rebuild resilience.',
+            href: '/guides/burnout-recovery',
+          },
+        ]}
       />
 
       <div className="space-y-3">

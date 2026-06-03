@@ -118,6 +118,14 @@ function firstSentences(value: string, limit = 2) {
   return sentences.slice(0, limit).join(' ')
 }
 
+function getCommonName(herbName: string): string {
+  if (!herbName) return ''
+  // Extract only the common name (first capitalized word/phrase before scientific names)
+  // Remove anything after scientific name indicators like "Withania", "var.", etc.
+  const commonNameMatch = herbName.match(/^([A-Za-z\s'-]+?)(?:\s+[A-Z][a-z]+\s+[a-z]+|$)/)
+  return commonNameMatch ? commonNameMatch[1].trim() : herbName.split(/\s+/)[0]
+}
+
 function getPlainEnglishSummary(herb: any) {
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
   return firstSentences(summary, 1) || `${formatDisplayLabel(herb.name || herb.slug)} profile with safety, use, and evidence context.`
@@ -276,7 +284,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   const effects = getEffects(herb)
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
-  const displayName = formatDisplayLabel(herb.name || herb.slug)
+  const displayName = formatDisplayLabel(getCommonName(herb.name || herb.slug))
   const botanicalName = cleanText(herb.latin_name || herb.botanical_name || herb.scientific_name)
   const briefSummary = getPlainEnglishSummary(herb)
   const evidenceStrength = getEvidenceStrength(herb)
@@ -356,11 +364,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
         />
       ) : null}
 
-      {/* Header Breadcrumb */}
+      {/* Header Breadcrumb - use only common name, not scientific name */}
       <nav className="flex items-center gap-2 text-xs text-muted">
         <Link href="/herbs" className="transition hover:text-ink">Herbs</Link>
         <span>/</span>
-        <span className="text-ink">{displayName}</span>
+        <span className="text-ink font-medium">{displayName}</span>
       </nav>
 
       {/* Title Header */}
