@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* global console, process */
 import { cp, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
