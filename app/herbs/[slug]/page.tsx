@@ -9,13 +9,9 @@ import { normalizeSlug } from '@/lib/slug-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
-import {
-  herbJsonLd as generateHerbJsonLd,
-  breadcrumbJsonLd as generateBreadcrumbJsonLd,
-  generateDetailMetadata,
-  productJsonLd,
-  SITE_URL,
-} from '@/lib/seo'
+import { generateDetailMetadata, SITE_URL } from '@/lib/seo'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildProfileSchemaGraph } from '@/lib/schema-graph'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
@@ -325,13 +321,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const affiliateUrl =
     revenueProducts?.products.find((p) => p.slot === 'overall')?.affiliateUrl ??
     revenueProducts?.products[0]?.affiliateUrl
-  const productSchemaJsonLd =
+  const productSchema =
     affiliateUrl && !suppressAffiliate
-      ? productJsonLd({
+      ? {
           name: `${displayName} Supplement`,
           description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
           url: affiliateUrl,
-        })
+        }
       : null
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed =
@@ -350,39 +346,32 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .filter((item): item is { label: string; href: string } => item !== null)
     .slice(0, 4)
 
-  const herbJsonLd = generateHerbJsonLd({
-    name: displayName,
+  const breadcrumbId = `${SITE_URL}/herbs/${normalizedSlug}/#breadcrumb`
+  const schemaGraph = buildProfileSchemaGraph({
+    kind: 'herb',
     slug: normalizedSlug,
-    description: summary,
-    latinName: botanicalName || undefined,
-    evidenceGrade: getEvidenceStrength(herb),
-    safetyNotes: herb.safetyNotes || herb.safety_notes || herb.safety || undefined,
-    primaryEffects: getEffects(herb),
+    herb: {
+      name: displayName,
+      slug: normalizedSlug,
+      description: summary,
+      latinName: botanicalName || undefined,
+      evidenceGrade: getEvidenceStrength(herb),
+      safetyNotes: herb.safetyNotes || herb.safety_notes || herb.safety || undefined,
+      primaryEffects: getEffects(herb),
+      breadcrumbId,
+    },
+    breadcrumbs: [
+      { name: 'Herbs', url: `${SITE_URL}/herbs/` },
+      { name: displayName, url: `${SITE_URL}/herbs/${normalizedSlug}/` },
+    ],
+    product: productSchema,
   })
-
-  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Herbs', url: `${SITE_URL}/herbs/` },
-    { name: displayName, url: `${SITE_URL}/herbs/${normalizedSlug}/` },
-  ])
 
 
   return (
     <main className="mx-auto max-w-4xl space-y-8 px-4 py-6">
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(herbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      {productSchemaJsonLd ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemaJsonLd) }}
-        />
-      ) : null}
+      <SchemaGraphScript graph={schemaGraph} />
 
       {/* Header Breadcrumb - use only common name, not scientific name */}
       <nav className="flex items-center gap-2 text-xs text-muted">

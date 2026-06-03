@@ -1,393 +1,399 @@
-# SEO, Content Depth & Conversion Plan — thehippiescientist.net
+# Performance, Schema & UX Plan — thehippiescientist.net
 
-**Status:** Implemented (June 2, 2026) per recommended defaults below.  
+**Status:** Implemented (June 2, 2026).  
 **Date:** June 2, 2026  
-**Scope:** Static-export Next.js App Router site; workbook-driven data (`data-sources/herb_monograph_master.xlsx`).
+**Scope:** Core Web Vitals, advanced JSON-LD (`@graph`), Suspense/skeleton UX — **100% compatible with `output: 'export'`**
+
+**Related audits:** `AUDIT_REPORT_20260602.md`, `PRIORITY_ACTION_PLAN.md` (external audit overstated some gaps; see corrections below)
 
 ---
 
 ## Executive summary
 
-The site already has a solid SEO foundation: centralized metadata helpers (`src/lib/seo.ts`), JSON-LD on goal/herb/compound/stack/blog routes, a large programmatic sitemap, robots.txt, affiliate components, and goal decision pages with comparison tables. The highest-impact gaps are **canonical/host inconsistency (www vs apex)**, **under-optimized goal-page metadata** (titles/descriptions/OG vs. your target keyword patterns), **weak internal linking across goals → stacks**, **uneven conversion UX** (two email capture systems; lead magnet not unified), and **missing on-page freshness signals**. Content depth for money pages should extend the existing workbook + `data/goals.ts` pipelines—not hand-edit `public/data/*.json`.
+The production App Router site is already built for static export (`next.config.mjs`: `output: 'export'`, `images.unoptimized: true`). Most content is server-rendered at build time from workbook JSON; heavy interactivity lives in a **small set of client islands** (compare table, safety checker, search, index browsers, quiz, nav).
 
-Estimated implementation: **4 phases**, ~**12–18 focused PRs** (or one stacked branch), with build validation after data-pipeline touches.
+This plan prioritizes **measurable CWV wins** (fonts, image CLS, JS splitting) and **consolidated schema graphs** without touching the workbook pipeline or removing static export. Conversion work recently shipped (safety checklist promo, affiliate trust blocks) must remain intact.
 
----
-
-## Current state (audit)
-
-### Architecture (relevant)
-
-| Layer | Routes | Data source |
-|--------|--------|-------------|
-| Discovery | `/goals`, `/best-supplements-for-*`, cluster guides | `data/goals.ts`, `app/seo-entry-pages.tsx` |
-| Depth | `/herbs/:slug`, `/compounds/:slug`, `/stacks/:slug` | Workbook → `npm run data:build` → `public/data/` |
-| Tools | `/compare`, `/safety-checker`, `/search` | Runtime JSON + static compare configs |
-
-- **Static export:** `output: 'export'` in `next.config.mjs` — no API routes or server runtime.
-- **Path alias:** `@/*` resolves `src/*` first, then repo root — `@/lib/seo` → `src/lib/seo.ts` (not root `lib/seo.ts`).
-
-### What is already working well
-
-1. **Metadata helpers** — `generateDetailMetadata()`, `buildMeta()`, governed descriptions for enriched profiles.
-2. **JSON-LD** — MedicalWebPage + Breadcrumb on herbs/compounds; FAQ + Collection + ItemList on goals; Product schema when revenue products exist; site Organization/WebSite in `app/layout.tsx`.
-3. **Sitemap** (`app/sitemap.ts`) — Home, herbs, compounds, goals, stacks, compares, blog, guides, SEO entry pages; git-based `lastModified`; deprecated slug filtering.
-4. **Robots** (`app/robots.ts`) — Allows `/`, disallows dev/dashboard paths, points to sitemap.
-5. **Trust + affiliate** — `RecommendationSection`, `SourcingCta`, `AffiliateDisclosure`, safety classifications, suppressed affiliate on high-risk herbs.
-6. **SEO entry pages** — `app/seo-entry-pages.tsx` already uses stronger titles (e.g. “Best Supplements for Sleep”) and `EmailCaptureBox` with lead magnets.
-
-### Critical issues found
-
-| Issue | Severity | Evidence |
-|--------|----------|----------|
-| **www vs apex domain split** | High | `app/layout.tsx` + sitemap use `https://thehippiescientist.net`; `src/lib/seo.ts` uses `SITE_URL = https://www.thehippiescientist.net` for JSON-LD and `buildMeta()` canonicals |
-| **Goal metadata not SERP-competitive** | High | `app/goals/[goal]/page.tsx` titles like `{goal.title} Guide` — no year, no “Best Evidence-Based…” pattern; no `openGraph` / `twitter` |
-| **Goal canonicals relative only** | Medium | `alternates.canonical: `/goals/${slug}`` — works with `metadataBase` but inconsistent with herb pages using absolute URLs from `buildMeta()` |
-| **Thin FAQ schema on goals** | Medium | FAQ answers are one-line templates from `quickPicks`, not full on-page FAQ copy |
-| **Goals → stacks linking gap** | Medium | Goal pages link to herb/compound profiles; no prominent stack links (`/stacks/sleep`, etc.) |
-| **Herbs → goals linking gap** | Medium | Only special-case (`AshwagandhaStressClaim`) links to `/goals/stress` |
-| **Duplicate email capture paths** | Medium | `EmailCapture` (GET → `/newsletter/confirmed`) on goals vs `EmailCaptureBox` + `content/emailCapture.ts` on SEO entry / free-guide |
-| **Product schema placeholder pricing** | Medium | Herb/compound Product JSON-LD uses hardcoded `lowPrice: '15'`, `highPrice: '50'` — risk of rich-result quality issues |
-| **Images unoptimized** | Low (export constraint) | `images.unoptimized: true` — expected for static export; mitigate with sizing, lazy load, fewer hero assets |
-| **No visible last-updated UI** | Low | Workbook fields (`reviewed_date`, etc.) used in sitemap but not surfaced on goal/herb/compare pages |
-| **Trailing slash** | Low | `trailingSlash: true` — ensure canonicals and internal links consistently include trailing slashes where Next emits them |
-
-### Sitemap / robots recommendations
-
-- **Keep** current sitemap structure; it is comprehensive.
-- **Add** after audit: explicit inclusion check for `/safety-checker`, `/supplement-safety-checklist`, `/free-guide`, `/start-here` if not already present (some may be missing from `canonicalStaticRoutes`).
-- **Robots:** Consider `Disallow: /compare/dynamic` if that page is thin or duplicate intent (verify in implementation).
-- **Compare pages:** Large auto-generated `[slug]` set — prioritize indexing for curated compares in `data/comparisons.ts` + flagship static pages; consider `noindex` for ultra-thin auto pairs (governance via `getRuntimeVisibility` pattern).
+**Estimated effort:** 3 phases, ~12–18 files, 1–2 days implementation + validation.
 
 ---
 
-## Target outcomes
+## Static export safety contract (read first)
 
-1. **Organic:** Improved CTR from benefit-focused titles; fewer canonical splits; richer FAQ rich results where content supports it.
-2. **Revenue:** Higher affiliate click-through via trust-first “Why we recommend” blocks without aggressive popups.
-3. **List growth:** Unified lead magnet (“Evidence-Based Supplement Safety Checklist”) with goal-specific variants.
-4. **Trust:** Visible review dates, methodology links, consistent YMYL disclaimers.
+Every item below is checked against `scripts/ci/validate-static-export-compatibility.mjs` and project `Agents.md`.
 
----
+| Rule | Plan compliance |
+|------|-----------------|
+| Keep `output: 'export'` in `next.config.mjs` | ✅ No change to export mode |
+| No `force-dynamic`, `revalidate`, `noStore`, route handlers | ✅ No new server runtime |
+| No `next/headers`, `next/server`, `use server` | ✅ Not introduced |
+| Data from workbook → `npm run data:build` at build | ✅ Schema/read paths use existing JSON only |
+| `fetch({ cache: 'no-store' })` | ✅ Not used |
+| `next/image` on static export | ✅ **Allowed** with `images.unoptimized: true` (already configured). Delivers width/height/sizes/priority for CLS/LCP; does not require Image Optimization API |
+| `next/font` | ✅ Fully static-export compatible (self-hosted at build) |
+| `loading.tsx` | ✅ Supported for statically generated App Router routes (emits static loading UI in `out/`) — use only on routes we statically generate |
+| React `Suspense` + `dynamic()` imports | ✅ Compatible; reduces client JS and improves hydration UX. Does not enable SSR streaming at request time |
+| JSON-LD `AggregateRating` | ⚠️ **Only when rating is visible on the page** (see Phase 3). Never invent ratings |
 
-## Phase 1 — SEO audit & fixes (priority 1)
+**Explicitly out of scope (unsafe or low ROI for static export):**
 
-### 1.1 Unify canonical domain (blocking)
-
-**Files:** `src/lib/seo.ts`, `app/layout.tsx`, `app/sitemap.ts`, `app/robots.ts`, any hardcoded URLs in JSON-LD scripts.
-
-**Actions:**
-
-- Single constant: `https://thehippiescientist.net` (match production + `metadataBase`).
-- Replace all `www.` references in schema URLs and `buildMeta()` output.
-- Add redirect note in plan comments only if Cloudflare already handles www → apex (verify in Cloudflare dashboard; do not change hosting in code).
-
-### 1.2 Centralize page metadata builder
-
-**New or extend:** `src/lib/seo.ts` — add `buildPageMetadata()` used by goals, index pages, tools.
-
-**Standard fields for every indexable template:**
-
-- `title` (keyword-rich, ≤60 chars where possible)
-- `description` (benefit + evidence + safety hook, ≤155 chars via `formatMetaDescription`)
-- `alternates.canonical` (absolute URL, trailing-slash consistent)
-- `openGraph` + `twitter` (title, description, `url`, default OG image from layout)
-- `robots` when `noindex` needed
-
-### 1.3 Goal page metadata overhaul
-
-**Files:** `app/goals/[goal]/page.tsx`, `data/goals.ts` (optional `seoTitle` / `seoDescription` fields per goal).
-
-**Title pattern (examples):**
-
-| Slug | Proposed title |
-|------|----------------|
-| sleep | Best Evidence-Based Supplements for Sleep 2026 – Safety & Comparisons |
-| stress | Best Supplements for Stress 2026 – Evidence, Safety & What to Avoid |
-| anxiety | Best Natural Options for Anxiety Support 2026 – Compared by Evidence |
-| focus | Best Focus Supplements 2026 – Stimulant vs Non-Stimulant Compared |
-
-Implementation: map high-intent slugs to templates; fallback to `{goal.title} Guide 2026` for long-tail goals (gut-health, blood-pressure, etc.).
-
-**Descriptions:** Include top 3 ranked entities from `rankEntitiesForGoal()`, evidence framing, and “not medical advice” without wasting characters.
-
-### 1.4 Herb & compound metadata pass
-
-**Files:** `src/lib/seo.ts` (`generateDetailMetadata`), `app/herbs/[slug]/page.tsx`, `app/compounds/[slug]/page.tsx`.
-
-**Actions:**
-
-- Align OG `type`, images (entity-specific when `og_image` exists in runtime record).
-- Use `buildGovernedMetaTitle` / `buildGovernedMetaDescription` where `enrichedAndReviewed` (already partially implemented).
-- Ensure deprecated alias URLs keep `noindex` + canonical to primary slug (already on herbs).
-
-### 1.5 Main & hub pages
-
-**Files:** `app/goals/page.tsx`, `app/herbs/page.tsx`, `app/compounds/page.tsx`, `app/compare/page.tsx`, `app/safety-checker/page.tsx`, `app/page.tsx`.
-
-- Fill missing OG/twitter on tools.
-- Add canonicals where absent.
-
-### 1.6 JSON-LD improvements
-
-| Page type | Schema | Changes |
-|-----------|--------|---------|
-| Goals | FAQPage, CollectionPage, ItemList, Breadcrumb | Expand FAQ to 4–6 Q&As mirroring visible page sections; add `dateModified` from workbook/git |
-| Herbs/compounds | MedicalWebPage, Breadcrumb, Product (conditional) | Remove or replace placeholder AggregateOffer prices with `offers` only when real product data exists; add FAQ block for top 3 safety/dose questions |
-| Compare | Article or WebPage + FAQ | Add compare-specific FAQ where pages have Q&A sections |
-| Blog | BlogPosting | Already present — ensure `dateModified` matches post updates |
-
-**New component (optional):** `components/seo/StructuredData.tsx` — dedupe repeated `<script type="application/ld+json">` patterns.
-
-### 1.7 Internal linking mesh
-
-**New:** `lib/goal-hub-links.ts` (or extend `lib/semantic-internal-linking.ts`)
-
-**Goal pages (`app/goals/[goal]/page.tsx`):**
-
-- Section: “Related stacks” → `/stacks/{sleep|stress|cognition}` when slug maps.
-- Section: “Compare head-to-head” → 2–4 curated compares from `data/comparisons.ts` / `getValidComparisonSlug`.
-- Footer: “Explore herbs for {goal}” → top N herb links from `rankEntitiesForGoal`.
-
-**Herb/compound pages:**
-
-- “Best for your goal” chips → `/goals/{slug}` via effects/mechanism tags (reuse `rankEntitiesForGoal` inverse or static map for top 20 entities).
-- Keep existing compare + stack sections.
-
-**Stacks pages:**
-
-- Link up to parent goal + constitutent herb/compound profiles.
-
-### 1.8 Sitemap & robots polish
-
-**Files:** `app/sitemap.ts`, `app/robots.ts`
-
-- Add missing high-value static routes to sitemap.
-- Deduplicate stack/compare URLs (stabilize already exists).
-- Document `SITEMAP_MAX_ROUTES` env for CI.
+- ISR, PPR, middleware, edge functions, server actions
+- Removing `images.unoptimized` without a custom static image pipeline (would break export or require pre-generated assets)
+- `AggregateRating` on pages without displayed star ratings (manual action risk)
 
 ---
 
-## Phase 2 — Content depth boost (priority 2)
+## Current state (codebase audit)
 
-### Selection criteria
+### Config & build
 
-High commercial + informational intent, existing partial content, feasible without inventing clinical claims:
+- **Config file:** `next.config.mjs` (not `.js`) — `output: 'export'`, `trailingSlash: true`, `images.unoptimized: true`
+- **Build:** `npm run build` → `scripts/build-production.mjs` → `next build` (static HTML to `out/`)
+- **CI guard:** `validate-static-export-compatibility.mjs` blocks forbidden patterns
 
-| Priority | URL | Rationale |
-|----------|-----|-----------|
-| 1 | `/goals/sleep` | Core money keyword; SEO entry page exists |
-| 2 | `/goals/stress` | High volume; overlaps adaptogen affiliate catalog |
-| 3 | `/goals/anxiety` | Safety-sensitive; trust differentiator |
-| 4 | `/goals/focus` | Compare + stimulant nuance |
-| 5 | `/best-supplements-for-sleep` | Discovery → depth funnel (seo-entry) |
-| 6 | `/herbs/ashwagandha` | Flagship herb + `AshwagandhaStressClaim` |
-| 7 | `/herbs/valerian` or `/compounds/melatonin` | Sleep cluster depth |
-| 8 | `/compare/ashwagandha-vs-rhodiola-for-stress` | Existing flagship compare |
+### Images (`<img>` inventory — active App Router paths)
 
-### Content additions (per page type)
+Only **one** `<img>` in the main `app/` + `components/` tree used in production UI:
 
-**Goal pages (`data/goals.ts` + page template):**
+| File | Usage | LCP relevance |
+|------|--------|---------------|
+| `components/AffiliateProductCard.tsx` | Product `imageUrl` when present | Medium (below fold on profile pages) |
 
-- `faqItems[]` — 5–6 evidence-aware Q&As (visible + JSON-LD).
-- `dosingNotes[]` — conservative ranges with “verify label / clinician” framing.
-- `evidenceTable[]` — compound, evidence grade, human vs preclinical, key limitation (from runtime when available).
-- `safetySection` — expanded bullet list (pregnancy, meds, stacking).
-- `citations[]` — links to PubMed IDs or on-site methodology (from workbook study fields where populated).
+**Legacy / unused in App Router (do not prioritize unless imported):**
 
-**Herb/compound pages (workbook-first):**
+- `src/components/HeroFeaturedHerb.tsx`, `src/components/RotatingHerbHero.tsx` — old SPA-era heroes, **not referenced from `app/`**
 
-- Extend workbook columns for: `typical_dose_range`, `evidence_summary_table`, `key_studies` (if not present).
-- Run `npm run data:build` → surfaces in template sections (Evidence table, Dosing, Studies).
-- Do **not** hand-edit `public/data/workbook-herbs.json`.
+**OG/marketing assets:** `/og-default.png`, `/logo.png` via metadata — not `<img>` tags.
 
-**Compare pages:**
+**Homepage LCP:** Text-heavy hero (`components/homepage-v2.tsx`) — no hero image. LCP = heading + fonts.
 
-- “Winner depends on…” decision matrix row.
-- Safety comparison column.
-- Link block back to `/goals/{slug}`.
+### Fonts
 
-### Tone guardrails
+- `app/layout.tsx` imports full CSS packs:
+  - `@fontsource/inter/index.css`
+  - `@fontsource-variable/fraunces/index.css`
+- `app/globals.css` already defines `--font-inter` / `--font-fraunces` theme tokens but they are **not wired** via `next/font` today → render-blocking CSS, no subsetting.
 
-- Educational only; no treatment promises.
-- Label evidence as strong / moderate / limited / preclinical.
-- Surface uncertainty and population limits.
+### Client JavaScript (high-impact bundles)
 
----
+| Component | Route(s) | Notes |
+|-----------|----------|--------|
+| `components/compare-table-client.tsx` | `/compare/` | Large table + `lucide-react` icons; already in `<Suspense>` with text fallback |
+| `src/components/safety/SafetyCheckerClient.tsx` | `/safety-checker/` | ~600 lines, loaded synchronously |
+| `app/search/SearchClient.tsx` | `/search/` | Search index client |
+| `app/herbs/HerbsIndexClient.tsx` | `/herbs/`, paginated | Suspense with `fallback={null}` |
+| `app/compounds/CompoundsIndexClient.tsx` | `/compounds/` | Same pattern |
+| `src/components/quiz/RecommendationQuiz.tsx` | `/start-here/quiz/` | Wizard |
+| `src/components/Header.tsx` + nav | Global layout | Always loaded |
+| `components/ClickTracker.tsx`, `CitationDrawer` | Global layout | Always loaded |
 
-## Phase 3 — Conversion & monetization (priority 3)
+**No existing `dynamic()` imports** in app code — opportunity to code-split tool routes.
 
-### 3.1 Unified newsletter + lead magnet
+### JSON-LD (today)
 
-**Files:** `content/emailCapture.ts`, new `components/monetization/SafetyChecklistLeadMagnet.tsx`, replace goal-page `EmailCapture` with `EmailCaptureBox`.
+- **Root:** `WebSite` + `Organization` inline in `app/layout.tsx`
+- **Central helpers:** `src/lib/seo.ts` — `herbJsonLd`, `compoundJsonLd`, `faqPageJsonLd`, `breadcrumbJsonLd`, `collectionPageJsonLd`, `itemListJsonLd`, `productJsonLd`
+- **Goals:** Multiple separate `<script>` blocks per page (`app/goals/[goal]/page.tsx`)
+- **Profiles:** Separate MedicalWebPage + Breadcrumb + optional Product scripts
+- **Gap:** No `@graph` with `@id` cross-linking; duplicate `@context` blocks; **no `AggregateRating`** (correct — ratings rarely shown)
+- **AuthorityJsonLd:** `components/seo/AuthorityJsonLd.tsx` — separate scripts, not graph-linked
 
-**Lead magnet copy:**
+### SEO / conversion (recent work — preserve)
 
-- Title: **Free Evidence-Based Supplement Safety Checklist (PDF)**
-- Bullets: medication review, dose/form check, stacking risks, quality markers.
-- Goal-specific variants reuse existing `leadMagnets` map; add `safety-checklist` goal key.
+- Goal SEO titles/descriptions: `src/lib/goal-seo.ts`
+- Lead magnet: `SafetyChecklistPromo`, `StickyChecklistBar`
+- Affiliate trust: `ProductTrustAffiliate`, `GoalTopAffiliatePicks`
+- Do not regress metadata, affiliate tags (`config/affiliate.ts`), or route contracts
 
-**Placement:**
+### Audit report corrections
 
-- Goals (after comparison table).
-- Herb/compound (after safety section, before affiliate).
-- `/supplement-safety-checklist` as primary landing page.
-- Footer site-wide slim bar (optional, Phase 3b).
-
-**Provider:** Wire `NEXT_PUBLIC_EMAIL_CAPTURE_ACTION` (Mailchimp/ConvertKit) — keep honest “coming soon” when unset.
-
-### 3.2 Affiliate trust upgrades
-
-**Files:** `components/RecommendationSection.tsx`, `src/components/sourcing/SourcingCta.tsx`, new `components/monetization/WhyWeRecommend.tsx`.
-
-**“Why we recommend” block (per product slot):**
-
-- Selection criteria: third-party testing, standardization, dose transparency.
-- Link to `/learn/product-quality` and `/affiliate-disclosure`.
-- No star ratings unless sourced from verifiable data.
-
-### 3.3 Non-intrusive prompts
-
-**New client component:** `components/monetization/ScrollEngagementPrompt.tsx`
-
-| Trigger | Behavior | Guardrails |
-|---------|----------|------------|
-| Scroll 65% on goal/herb | Slide-in card, dismissible | `sessionStorage` — once per session |
-| Exit intent (desktop only) | Safety checklist CTA | Disabled on mobile; respect `prefers-reduced-motion` |
-
-**Do not use:** full-screen modals, timer spam, second popup on same page.
-
-### 3.4 Analytics hooks
-
-Extend `lib/revenue-tracking.ts` events: `lead_magnet_view`, `lead_magnet_submit`, `affiliate_why_expand`.
+| External audit claim | Actual codebase state |
+|---------------------|------------------------|
+| "No JSON-LD" | ❌ Incorrect — extensive JSON-LD exists |
+| "Sitemap binary" | Likely crawler/tool issue; `app/sitemap.ts` is standard Next metadata route — verify in `out/sitemap.xml` after build |
+| "Loading states hurt SEO" | Partially valid for **client** tools; fix via skeletons + static shell content (already good on compare hero) |
 
 ---
 
-## Phase 4 — Technical polish (priority 4)
+## Phase 1 — Core Web Vitals optimization
 
-### 4.1 Performance (Core Web Vitals)
+### 1.1 Fonts → `next/font` (high impact, static-safe)
 
-**Files:** `next.config.mjs`, herb/compare client components, `app/globals.css`
+**Files:** `app/layout.tsx`, remove `@fontsource/*` imports from layout.
 
-- Audit LCP: reduce font blocking (`@fontsource` — subset or `display: swap` if not set).
-- Lazy-load below-fold tables and recommendation grids.
-- Explicit `width`/`height` on any remaining `<img>` tags.
-- Preconnect to Amazon only on pages with affiliate CTAs ( sparingly ).
-- Document that `images.unoptimized` is required for static export unless migrating to Cloudflare Images + custom loader (out of scope unless approved).
+**Implementation:**
 
-### 4.2 Mobile UX — compare & safety tools
+```ts
+import { Inter, Fraunces } from 'next/font/google'
 
-**Files:** `src/components/safety/SafetyCheckerClient.tsx`, compare table in `app/compare/[slug]/page.tsx`
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
+const fraunces = Fraunces({ subsets: ['latin'], display: 'swap', variable: '--font-fraunces' })
+```
 
-- Sticky first column or card layout `< md` for wide tables.
-- Touch targets ≥44px on checkboxes and “add to stack” controls.
-- Test iOS Safari horizontal scroll for comparison tables.
+- Apply `className={`${inter.variable} ${fraunces.variable}`}` on `<html>` or `<body>`
+- Keep existing Tailwind `font-sans` / `font-display` tokens in `globals.css`
+- **Optional:** `preload: true` only for Inter (body); Fraunces is display — load normally
 
-### 4.3 Freshness signals
+**Static export:** ✅ Fonts inlined/self-hosted at build.
 
-**New:** `components/editorial/LastUpdatedBadge.tsx`
+**Expected CWV:** Better LCP (less render-blocking CSS), improved FCP.
 
-- Source: `reviewed_date` / `updated_at` from runtime record, else git date from build script.
-- Display on: herb, compound, goal, compare flagship pages.
-- Optional: `dateModified` in JSON-LD aligned with badge.
+### 1.2 Replace `<img>` with `next/image` (scoped)
 
-### 4.4 Accessibility
+**Files:**
 
-- Ensure scroll/exit prompts trap focus and are keyboard-dismissible.
-- Table headers associated with `scope="col"`.
-- Affiliate links: visible “sponsored” context (already partially via disclosure).
+- `components/AffiliateProductCard.tsx` — primary change
+- Add `components/ui/OptimizedImage.tsx` thin wrapper (optional) enforcing `quality={85}`, default `sizes`, alt text rules
+
+**Pattern (with `unoptimized: true`):**
+
+```tsx
+import Image from 'next/image'
+<Image src={imageUrl} alt={title} width={400} height={300} sizes="(max-width: 768px) 100vw, 33vw" quality={85} className="..." />
+```
+
+- Fix empty `alt=''` → use product title
+- `loading="lazy"` default; `priority` only if ever above fold
+
+**Legacy `src/components/*` img tags:** Leave untouched unless referenced; document as dead code.
+
+**Static export:** ✅ Requires `images.unoptimized: true` (keep in config).
+
+### 1.3 Minimize client JavaScript (medium impact)
+
+**Strategy:** `next/dynamic` + `ssr: true` for heavy tools (still pre-rendered at build with props).
+
+| Target | Change |
+|--------|--------|
+| `SafetyCheckerClient` | Dynamic import in `app/safety-checker/page.tsx` |
+| `CompareTableClient` | Dynamic import in `app/compare/page.tsx` (keep Suspense) |
+| `SearchClient` | Dynamic import in `app/search/page.tsx` |
+| `RecommendationQuiz` | Dynamic import in `app/start-here/quiz/page.tsx` |
+| `HerbsIndexClient` / `CompoundsIndexClient` | Dynamic import (optional phase 1b) |
+
+**Global layout:** Defer non-critical UI:
+
+- `CitationDrawer` → dynamic with `ssr: false` **only if** drawer is not needed for SEO (interactive only) — reduces HTML size
+- `ClickTracker` → keep small or load after idle (`requestIdleCallback` pattern inside component)
+
+**Icons:** Audit `lucide-react` imports in `compare-table-client.tsx` — import named icons only (already should be tree-shaken); verify bundle in build analyzer.
+
+**Static export:** ✅ Code splitting only; no server runtime.
+
+### 1.4 Minor CWV polish
+
+- Add `fetchPriority="high"` on LCP text container? N/A — no LCP image on homepage
+- Ensure GA4 scripts remain `afterInteractive` (already in layout)
+- Preconnect to Amazon only on pages with affiliate CTAs (optional `<link rel="preconnect">` via metadata on herb/compound/goal templates)
 
 ---
 
-## Implementation order & file touch list
+## Phase 2 — React Suspense + skeleton loaders
+
+### 2.1 Base component
+
+**New:** `components/ui/Skeleton.tsx`
+
+- Shimmer via CSS animation (no extra deps)
+- Variants: `line`, `block`, `circle` via props or className
+- Accessible: `aria-busy="true"`, `aria-label="Loading content"`
+
+### 2.2 Skeleton compositions
+
+**New folder:** `components/skeletons/`
+
+| File | Mimics |
+|------|--------|
+| `EvidenceCardSkeleton.tsx` | `EvidenceClaimCard` layout (for evidence-engine goal pages if we add client wrapper) |
+| `CompareTableSkeleton.tsx` | Filter bar + 5–6 table rows |
+| `GoalHeroSkeleton.tsx` | Goal hero shell (eyebrow, h1, 2 lines) — for optional loading.tsx |
+| `WizardSkeleton.tsx` | Quiz steps / safety wizard columns |
+| `index.ts` | Barrel exports |
+
+### 2.3 Suspense integration points
+
+| Route | Current fallback | New fallback |
+|-------|------------------|--------------|
+| `app/compare/page.tsx` | Text: "Preparing comparison filters..." | `<CompareTableSkeleton />` |
+| `app/safety-checker/page.tsx` | None (sync client) | Wrap dynamic `SafetyCheckerClient` in `<Suspense fallback={<WizardSkeleton />}>` |
+| `app/search/page.tsx` | TBD | `<CompareTableSkeleton />` or dedicated `SearchSkeleton` (minimal) |
+| `app/start-here/quiz/page.tsx` | None | `<WizardSkeleton />` |
+| `app/herbs/page.tsx` | `fallback={null}` | Lightweight grid skeleton (3×2 cards) — optional |
+| `app/goals/[goal]/page.tsx` | N/A (server) | No Suspense unless dynamic subsection added |
+
+**Evidence cards:** `EvidenceClaimCard` is a **server component** — skeleton applies only if we lazy-load a client bundle for the claim grid (optional, lower priority). Prefer static HTML at build for SEO.
+
+### 2.4 `loading.tsx` (static-export safe routes only)
+
+Add only where routes are **fully static** at build:
+
+| File | Purpose |
+|------|---------|
+| `app/compare/loading.tsx` | Instant shell while navigating (static export generates loading HTML) |
+| `app/safety-checker/loading.tsx` | Wizard skeleton |
+| `app/search/loading.tsx` | Search skeleton |
+| `app/start-here/quiz/loading.tsx` | Quiz skeleton |
+
+**Do NOT add** `loading.tsx` under dynamic slug routes with huge `generateStaticParams` unless we confirm Next 15 export behavior for those segments (risk: multiplies build artifacts). Prefer Suspense on page for `[slug]` routes.
+
+**Static export:** ✅ Per Next.js static export docs, `loading.js` is emitted as static fallback UI.
+
+---
+
+## Phase 3 — Advanced schema markup (`@graph`)
+
+### 3.1 New helper module
+
+**New:** `src/lib/schema-graph.ts` (or extend `src/lib/seo.ts`)
+
+```ts
+buildSchemaGraph({ pageId, nodes: SchemaNode[] })
+```
+
+- Single `<script type="application/ld+json">` per page
+- `@context: https://schema.org`
+- `@graph: [...]` with stable `@id` URLs:
+  - `{canonical}#webpage`
+  - `{canonical}#breadcrumb`
+  - `{canonical}#faq` (if visible FAQ)
+  - `{canonical}#product` (if affiliate product visible)
+  - `{canonical}#offers` (nested under Product)
+
+**Linking pattern:**
+
+```json
+{
+  "@type": "MedicalWebPage",
+  "@id": "https://thehippiescientist.net/herbs/ashwagandha/#webpage",
+  "breadcrumb": { "@id": "https://thehippiescientist.net/herbs/ashwagandha/#breadcrumb" },
+  "mainEntity": { "@id": "https://thehippiescientist.net/herbs/ashwagandha/#product" }
+}
+```
+
+### 3.2 Page rollout (priority templates)
+
+| Template | Graph nodes |
+|----------|-------------|
+| `app/herbs/[slug]/page.tsx` | MedicalWebPage, BreadcrumbList, Product+Offer (if affiliate visible), FAQPage (if on-page FAQ added later) |
+| `app/compounds/[slug]/page.tsx` | Same |
+| `app/goals/[goal]/page.tsx` | CollectionPage or MedicalWebPage, BreadcrumbList, FAQPage (visible FAQ from `data/goal-content.ts`), ItemList |
+| `app/safety-checker/page.tsx` | MedicalWebPage + Breadcrumb (migrate off duplicate AuthorityJsonLd scripts) |
+| `app/compare/page.tsx` | CollectionPage + Breadcrumb (lightweight) |
+
+**Merge** multiple inline scripts into one graph component:
+
+**New:** `components/seo/SchemaGraphScript.tsx` — accepts graph object, renders one script tag.
+
+### 3.3 Product + Offer + AggregateRating policy
+
+| Field | Rule |
+|-------|------|
+| `Product` | Only when affiliate CTA block is rendered (same condition as today `productJsonLd`) |
+| `Offer` | `url` = affiliate URL; `availability` = OnlineOnly; no fake price |
+| `AggregateRating` | **Emit only if** `product.rating` is rendered in visible UI (`AffiliateProductCard` shows rating). Include `ratingValue`, `bestRating: 5`, `ratingCount` **only if** we have real count from data (otherwise omit AggregateRating entirely) |
+
+**Never** add ratings to goal/herb pages without visible stars.
+
+### 3.4 Root layout
+
+- Keep global `WebSite` + `Organization` as separate minimal scripts OR fold into a site-wide graph on homepage only — avoid duplicating Organization on every page (optional cleanup: Organization once in layout, page-specific graph excludes duplicate WebSite).
+
+---
+
+## Phase 4 — Preserve conversion & affiliate (regression guard)
+
+No changes to:
+
+- `config/affiliate.ts`, `config/revenue-products.ts`
+- `SafetyChecklistPromo`, `StickyChecklistBar`, `GoalTopAffiliatePicks`, `ProductTrustAffiliate`
+- `content/emailCapture.ts` provider wiring
+
+**Verify after implementation:**
+
+- Affiliate links retain `rel="nofollow sponsored noopener noreferrer"`
+- `trackRevenueEvent` still fires on product clicks
+- Goal pages still show 2–4 affiliate picks
+
+---
+
+## File touch list (implementation preview)
 
 ```
-Phase 1 (SEO foundation)
-├── src/lib/seo.ts                    # domain unify, buildPageMetadata, FAQ helpers
-├── app/goals/[goal]/page.tsx         # metadata + linking + FAQ content hooks
-├── data/goals.ts                     # seo fields, faqItems, evidence tables
-├── app/herbs/[slug]/page.tsx         # goal links, freshness badge, schema fix
-├── app/compounds/[slug]/page.tsx     # same
-├── app/sitemap.ts                    # route additions
-├── lib/goal-hub-links.ts             # NEW internal link resolver
-└── components/seo/StructuredData.tsx # optional DRY
+Phase 1
+├── next.config.mjs                    # confirm images.unoptimized unchanged
+├── app/layout.tsx                     # next/font, remove fontsource CSS imports
+├── components/AffiliateProductCard.tsx
+├── app/safety-checker/page.tsx        # dynamic import
+├── app/compare/page.tsx
+├── app/search/page.tsx
+├── app/start-here/quiz/page.tsx
 
-Phase 2 (content)
-├── data/goals.ts                     # expanded sections
-├── data-sources/herb_monograph_master.xlsx  # new columns (if needed)
-├── scripts/* (existing pipeline)       # map new workbook fields
-└── app/goals/[goal]/page.tsx         # render new sections
+Phase 2
+├── components/ui/Skeleton.tsx
+├── components/skeletons/*.tsx
+├── components/skeletons/index.ts
+├── app/compare/loading.tsx
+├── app/safety-checker/loading.tsx
+├── app/search/loading.tsx
+├── app/start-here/quiz/loading.tsx
 
-Phase 3 (conversion)
-├── content/emailCapture.ts
-├── components/monetization/*
+Phase 3
+├── src/lib/schema-graph.ts
+├── components/seo/SchemaGraphScript.tsx
+├── app/herbs/[slug]/page.tsx
+├── app/compounds/[slug]/page.tsx
 ├── app/goals/[goal]/page.tsx
-└── components/RecommendationSection.tsx
-
-Phase 4 (polish)
-├── components/editorial/LastUpdatedBadge.tsx
-├── src/components/safety/SafetyCheckerClient.tsx
-└── app/globals.css / font loading
+├── app/safety-checker/page.tsx
 ```
 
----
-
-## Validation checklist (post-implementation)
-
-- [ ] `npm run validate:workbook-source` (if workbook touched)
-- [ ] `npm run data:build` (if workbook touched)
-- [ ] `npm run build` — static export succeeds
-- [ ] Spot-check rendered HTML: one goal, one herb, one compound, one compare
-- [ ] Google Rich Results Test on goal FAQ + herb MedicalWebPage
-- [ ] Confirm all canonicals use apex domain, trailing slashes consistent
-- [ ] Lighthouse mobile on `/goals/sleep`, `/safety-checker`, `/compare/ashwagandha-vs-rhodiola-for-stress`
-- [ ] No edits to `public/data/workbook-*.json` by hand
+**Not modified:** `data-sources/*`, `public/data/workbook-*.json` (hand-edit forbidden), route slug contracts.
 
 ---
 
-## Risks & constraints
+## Testing & validation (post-implementation)
+
+1. `npm run validate:static-export` (or full `npm run check:ui`)
+2. `npm run build` — must complete; inspect `out/` for `loading.html` siblings where added
+3. `npx serve out` — manual check: compare, safety-checker, goals/sleep, herbs/ashwagandha
+4. [PageSpeed Insights](https://pagespeed.web.dev/) — mobile homepage, `/goals/sleep/`, `/safety-checker/`, herb profile
+5. [Google Rich Results Test](https://search.google.com/test/rich-results) — goal FAQ, herb profile graph
+6. [Schema Markup Validator](https://validator.schema.org/) — confirm single graph, no orphan nodes
+7. `npm run audit:structured-data` (existing CI script) if present in workflow
+8. Affiliate smoke test — one Amazon link click tracking in network tab
+
+---
+
+## Risks & mitigations
 
 | Risk | Mitigation |
 |------|------------|
-| YMYL / medical claims | Keep “educational only”; no cure language |
-| Thin auto-compare pages | Index governance; strengthen flagship compares first |
-| Schema spam | FAQ JSON-LD only where visible content exists |
-| Affiliate trust | Disclosure above fold on monetized sections |
-| Workbook drift | CI validate + data:build before merge |
+| Larger graph JSON on every page | One script tag vs many; keep graph lean |
+| Dynamic import flash on slow devices | Static shell + skeleton + server-rendered hero text |
+| `loading.tsx` build size | Only on 4 tool routes |
+| Font shift after next/font | Match current weights (400/600/700) and variable axes |
+| Breaking Suspense on static export | Test `out/` navigation locally |
 
 ---
 
-## Success metrics (90-day)
+## Implementation order (after approval)
 
-| Metric | Target direction |
-|--------|------------------|
-| GSC impressions on `/goals/*`, `/best-supplements-*` | +30–50% |
-| Average position for “best supplements for sleep” cluster | Top 20 → top 10 |
-| Affiliate CTR (tracked) | +15% on herb pages with recommendations |
-| Email signups | Baseline + lead magnet landing; track by `location` param |
-| Core Web Vitals | LCP < 2.5s mobile on key templates |
-
----
-
-## Out of scope (unless you approve later)
-
-- Migrating off static export for dynamic OG images or API routes
-- Paid search / ad landing pages
-- Full Mailchimp automation setup (code hooks only)
-- Rewriting entire herb library in one pass
-- Dark mode (per AGENTS.md)
+1. Phase 1.1 Fonts (`next/font`)
+2. Phase 1.2 Image component
+3. Phase 2 Skeletons + Suspense/dynamic on tools
+4. Phase 3 Schema graph (herb → compound → goal → tools)
+5. Phase 1.3b Optional layout deferrals (CitationDrawer)
+6. Full build + audits
 
 ---
 
-## Approval requested
+## Approval checklist
 
-Please confirm or adjust:
+Please confirm:
 
-1. **Canonical host:** `https://thehippiescientist.net` (no www) — OK?
-2. **Title pattern:** Year suffix “2026” on money pages — OK?
-3. **Phase order:** 1 → 2 → 3 → 4 as listed — OK?
-4. **Content depth:** Workbook column additions for top herbs vs. goals-only expansion in `data/goals.ts` first?
-5. **Exit-intent popup:** Approve desktop-only, session-once behavior — or skip entirely?
-6. **Auto-compare noindex:** Aggressive (many URLs) vs. conservative (flagship only) — preference?
+1. ✅ Proceed with **`next/font`** replacing `@fontsource` CSS imports?
+2. ✅ **`images.unoptimized: true`** stays (Next/Image for layout only)?
+3. ✅ **`AggregateRating` omitted** unless product rating is visible (recommended)?
+4. ✅ Add **`loading.tsx`** on compare / safety-checker / search / quiz only?
+5. ✅ Consolidate JSON-LD to **`@graph`** on herb, compound, goal, safety-checker first?
 
-Reply with approval or edits; implementation will begin only after your go-ahead.
+Reply **approved** (with any edits) to begin implementation with per-file diffs.

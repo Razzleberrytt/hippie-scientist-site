@@ -1,5 +1,11 @@
 import type { Metadata } from 'next'
-import SearchClient from './SearchClient'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+import { SearchSkeleton } from '@/components/skeletons'
+
+const SearchClient = dynamic(() => import('./SearchClient'), {
+  loading: () => <SearchSkeleton />,
+})
 
 export const metadata: Metadata = {
   title: 'Search Herbs & Supplements',
@@ -27,7 +33,9 @@ export default function SearchPage() {
         </p>
       </div>
 
-      <SearchClient />
+      <Suspense fallback={<SearchSkeleton />}>
+        <SearchClient />
+      </Suspense>
     </main>
   )
 }

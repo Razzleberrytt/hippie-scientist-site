@@ -1,10 +1,17 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 import { getHerbs, getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import SafetyCheckerClient from '@/components/safety/SafetyCheckerClient'
-import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { WizardSkeleton } from '@/components/skeletons'
+import { buildToolPageSchemaGraph } from '@/lib/schema-graph'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 
-import { buildPageMetadata } from '@/lib/seo'
+const SafetyCheckerClient = dynamic(
+  () => import('@/components/safety/SafetyCheckerClient'),
+  { loading: () => <WizardSkeleton /> },
+)
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Safety Interaction Checker – Stack Risk Tool',
@@ -32,14 +39,20 @@ export default async function SafetyCheckerPage() {
     }
   })
 
+  const schemaGraph = buildToolPageSchemaGraph({
+    path: '/safety-checker',
+    title: 'Multi-Item Safety Interaction Checker',
+    description:
+      'Interact with the safety matrix to evaluate potential contraindications when stacking multiple dietary supplements or active compounds.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Safety Interaction Checker', url: `${SITE_URL}/safety-checker/` },
+    ],
+  })
+
   return (
     <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
-      <AuthorityJsonLd
-        title="Multi-Item Safety Interaction Checker"
-        description="Interact with the safety matrix to evaluate potential contraindications when stacking multiple dietary supplements or active compounds."
-        url="https://thehippiescientist.net/safety-checker"
-        type="MedicalWebPage"
-      />
+      <SchemaGraphScript graph={schemaGraph} />
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-4'>
         <p className='eyebrow-label'>Harm Reduction Portal</p>
@@ -51,7 +64,9 @@ export default async function SafetyCheckerPage() {
         </p>
       </section>
 
-      <SafetyCheckerClient herbs={herbs} compounds={compounds} />
+      <Suspense fallback={<WizardSkeleton />}>
+        <SafetyCheckerClient herbs={herbs} compounds={compounds} />
+      </Suspense>
 
       <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950'>
         <p className='font-bold flex items-center gap-1.5'>

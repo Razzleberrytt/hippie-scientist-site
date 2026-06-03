@@ -4,14 +4,9 @@ import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
 import { getHerbBySlug, getCompoundBySlug, getGoalEvidenceEngine } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
-import {
-  faqPageJsonLd,
-  breadcrumbJsonLd,
-  collectionPageJsonLd,
-  itemListJsonLd,
-  SITE_URL,
-  SEO_YEAR,
-} from '@/lib/seo'
+import { SITE_URL, SEO_YEAR } from '@/lib/seo'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGoalSchemaGraph } from '@/lib/schema-graph'
 import { buildGoalPageMetadata } from '@/lib/goal-seo'
 import { getGoalHubLinks } from '@/lib/goal-hub-links'
 import { getGoalContentExtension, getGoalFaqItems } from '@/data/goal-content'
@@ -234,56 +229,25 @@ export default async function GoalDecisionPage({
   }))
   const faqQuestions = getGoalFaqItems(goal.slug, fallbackFaq)
 
-  const goalFaqJsonLd = faqPageJsonLd({
-    pagePath: goalPath,
-    questions: faqQuestions,
-  })
-
-  const goalBreadcrumbJsonLd = breadcrumbJsonLd([
-    { name: 'Goals', url: `${SITE_URL}/goals/` },
-    { name: goal.title, url: `${SITE_URL}${goalPath}/` },
-  ], { id: `${SITE_URL}${goalPath}/#breadcrumb` })
-
-  const goalCollectionJsonLd = collectionPageJsonLd({
+  const schemaGraph = buildGoalSchemaGraph({
+    goalPath,
     title: `${goal.title} | The Hippie Scientist`,
     description: goal.description,
-    path: goalPath,
-    itemListId: `${SITE_URL}${goalPath}/#item-list`,
-    breadcrumbId: `${SITE_URL}${goalPath}/#breadcrumb`,
+    breadcrumbs: [
+      { name: 'Goals', url: `${SITE_URL}/goals/` },
+      { name: goal.title, url: `${SITE_URL}${goalPath}/` },
+    ],
+    faqQuestions,
+    itemList: {
+      name: `${goal.title} Options`,
+      items: enrichedOptions.map(opt => ({
+        name: opt.option.name,
+        url: opt.profileHref || `/goals/${goal.slug}`,
+      })),
+    },
   })
 
-  const goalItemListJsonLd = itemListJsonLd({
-    id: `${SITE_URL}${goalPath}/#item-list`,
-    name: `${goal.title} Options`,
-    path: goalPath,
-    items: enrichedOptions.map(opt => ({
-      name: opt.option.name,
-      url: opt.profileHref || `/goals/${goal.slug}`,
-    })),
-  })
-
-  const structuredData = (
-    <>
-      {goalFaqJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(goalFaqJsonLd) }}
-        />
-      )}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(goalBreadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(goalCollectionJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(goalItemListJsonLd) }}
-      />
-    </>
-  )
+  const structuredData = <SchemaGraphScript graph={schemaGraph} />
 
   const hubLinks = getGoalHubLinks(goal.slug)
   const goalEvidence = await getGoalEvidenceEngine(goal.slug)

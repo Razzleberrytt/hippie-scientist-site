@@ -1,11 +1,17 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import Link from 'next/link'
-import { CompareTableClient } from '@/components/compare-table-client'
+import { CompareTableSkeleton } from '@/components/skeletons'
 import { getCompounds } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-utils'
 
 import { buildPageMetadata, SEO_YEAR } from '@/lib/seo'
+
+const CompareTableClient = dynamic(
+  () => import('@/components/compare-table-client').then(mod => ({ default: mod.CompareTableClient })),
+  { loading: () => <CompareTableSkeleton /> },
+)
 
 export const metadata: Metadata = buildPageMetadata({
   title: `Compare Supplements Side by Side ${SEO_YEAR} – Evidence & Safety`,
@@ -130,13 +136,7 @@ export default async function ComparePage() {
             The table is meant to narrow options, not finalize a decision. Follow up by reading the individual compound pages, safety notes, and cited research context where available.
           </p>
         </div>
-        <Suspense
-          fallback={
-            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 text-sm leading-6 text-muted shadow-sm">
-              Preparing comparison filters...
-            </div>
-          }
-        >
+        <Suspense fallback={<CompareTableSkeleton />}>
           <CompareTableClient compounds={safeCompounds} />
         </Suspense>
       </section>

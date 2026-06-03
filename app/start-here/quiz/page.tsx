@@ -1,7 +1,14 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
 import { getHerbs, getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import RecommendationQuiz from '@/components/quiz/RecommendationQuiz'
+import { WizardSkeleton } from '@/components/skeletons'
+
+const RecommendationQuiz = dynamic(
+  () => import('@/components/quiz/RecommendationQuiz'),
+  { loading: () => <WizardSkeleton /> },
+)
 
 export const metadata: Metadata = {
   title: 'Personalized Botanical Supplement Quiz',
@@ -38,7 +45,9 @@ export default async function QuizPage() {
         </p>
       </section>
 
-      <RecommendationQuiz herbs={herbs} compounds={compounds} />
+      <Suspense fallback={<WizardSkeleton />}>
+        <RecommendationQuiz herbs={herbs} compounds={compounds} />
+      </Suspense>
     </main>
   )
 }

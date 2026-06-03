@@ -2,14 +2,25 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Script from 'next/script'
 import Link from 'next/link'
+import { Inter, Fraunces } from 'next/font/google'
 import Header from '@/components/Header'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
-import CitationDrawer from '@/components/education/CitationDrawer'
 import ClickTracker from '@/components/ClickTracker'
-import '@fontsource/inter/index.css'
-import '@fontsource-variable/fraunces/index.css'
+import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import './globals.css'
 import '@/styles/foundation-readability.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-fraunces',
+})
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
 
@@ -86,7 +97,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${inter.variable} ${fraunces.variable}`}>
       <body className='font-sans antialiased'>
         {ga4Id && (
           <>
@@ -199,7 +210,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </div>
           </footer>
           <MobileBottomNav />
-          <CitationDrawer />
+          <CitationDrawerLazy />
           <ClickTracker />
         </div>
       </body>

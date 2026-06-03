@@ -9,13 +9,9 @@ import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import {
-  compoundJsonLd as generateCompoundJsonLd,
-  breadcrumbJsonLd as generateBreadcrumbJsonLd,
-  generateDetailMetadata,
-  productJsonLd,
-  SITE_URL,
-} from '@/lib/seo'
+import { generateDetailMetadata, SITE_URL } from '@/lib/seo'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildProfileSchemaGraph } from '@/lib/schema-graph'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
@@ -359,19 +355,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const mechanismHints = getMechanismHints(compound, mechanisms)
   const safetyTone = getSafetyTone(safetySummary, avoidIf)
 
-  const compoundJsonLd = generateCompoundJsonLd({
-    name: displayName,
-    slug: compound.slug,
-    description: summary,
-    category: compound.compoundClass || compound.class || undefined,
-    evidenceGrade: evidenceLevel || undefined,
-    safetyNotes: compound.safetyNotes || compound.safety_notes || compound.safety || undefined,
-  })
-
-  const breadcrumbJsonLd = generateBreadcrumbJsonLd([
-    { name: 'Compounds', url: `${SITE_URL}/compounds/` },
-    { name: displayName, url: `${SITE_URL}/compounds/${compound.slug}/` },
-  ])
+  const breadcrumbId = `${SITE_URL}/compounds/${compound.slug}/#breadcrumb`
 
   const activeShopLinks = getAffiliateShopLinks(compound, displayName, 'compound')
   const affiliateCtaLink = activeShopLinks.find(link => link.url)
@@ -382,13 +366,32 @@ export default async function CompoundPage({ params }: PageProps) {
   const affiliateUrl =
     revenueProducts?.products.find((p) => p.slot === 'overall')?.affiliateUrl ??
     revenueProducts?.products[0]?.affiliateUrl
-  const productSchemaJsonLd = affiliateUrl
-    ? productJsonLd({
+  const productSchema = affiliateUrl
+    ? {
         name: `${displayName} Supplement`,
         description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
         url: affiliateUrl,
-      })
+      }
     : null
+
+  const schemaGraph = buildProfileSchemaGraph({
+    kind: 'compound',
+    slug: compound.slug,
+    compound: {
+      name: displayName,
+      slug: compound.slug,
+      description: summary,
+      category: compound.compoundClass || compound.class || undefined,
+      evidenceGrade: evidenceLevel || undefined,
+      safetyNotes: compound.safetyNotes || compound.safety_notes || compound.safety || undefined,
+      breadcrumbId,
+    },
+    breadcrumbs: [
+      { name: 'Compounds', url: `${SITE_URL}/compounds/` },
+      { name: displayName, url: `${SITE_URL}/compounds/${compound.slug}/` },
+    ],
+    product: productSchema,
+  })
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed =
     compound.reviewed_date ||
@@ -399,20 +402,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(compoundJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      {productSchemaJsonLd ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchemaJsonLd) }}
-        />
-      ) : null}
+      <SchemaGraphScript graph={schemaGraph} />
 
       <ReadingProgress />
 
