@@ -88,9 +88,17 @@ function buildPostFromFile(fileName) {
   return post;
 }
 
+function writePosts(posts) {
+  fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
+  fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(posts, null, 2)}\n`, 'utf8');
+  console.log(`[build-blog] Wrote ${posts.length} posts to ${OUTPUT_PATH}`);
+}
+
 function run() {
   if (!fs.existsSync(BLOG_DIR)) {
-    throw new Error(`Blog content directory not found: ${BLOG_DIR}`);
+    console.warn(`[build-blog] Blog content directory not found: ${BLOG_DIR}`);
+    writePosts([]);
+    return;
   }
 
   const files = fs
@@ -109,11 +117,7 @@ function run() {
   }
 
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-  fs.mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
-  fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(posts, null, 2)}\n`, 'utf8');
-
-  console.log(`[build-blog] Wrote ${posts.length} posts to ${OUTPUT_PATH}`);
+  writePosts(posts);
 }
 
 run();

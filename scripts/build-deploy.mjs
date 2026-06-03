@@ -112,7 +112,6 @@ for (const step of steps) {
   const stepStart = performance.now()
 
   try {
-    // Check cache first
     const shouldSkip = !process.env.CLEAR_CACHE && process.env.USE_CACHE !== 'false'
 
     if (shouldSkip) {
@@ -124,7 +123,6 @@ for (const step of steps) {
       }
     }
 
-    // Execute step
     execSync(step.cmd, {
       cwd: process.cwd(),
       stdio: 'inherit',
@@ -132,7 +130,6 @@ for (const step of steps) {
 
     const stepDuration = performance.now() - stepStart
 
-    // Cache the result
     if (step.outputs) {
       await cache.markStepComplete(step.name, step.outputs, step.inputs || [])
     }
@@ -141,7 +138,12 @@ for (const step of steps) {
     console.log(`✓ ${(stepDuration / 1000).toFixed(2)}s`)
   } catch (error) {
     executed.push({ ...step, failed: true })
-    console.log(`✗ FAILED`)
+    console.log('✗ FAILED')
+    console.error(`\n[build-deploy] Step failed: ${step.name}`)
+    console.error(`[build-deploy] Command: ${step.cmd}`)
+    if (error?.status !== undefined) console.error(`[build-deploy] Exit code: ${error.status}`)
+    if (error?.signal) console.error(`[build-deploy] Signal: ${error.signal}`)
+    if (error?.message) console.error(`[build-deploy] Error: ${error.message}`)
     failed = true
     break
   }
