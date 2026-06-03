@@ -6,6 +6,7 @@ import {
   decisionMetricShellClass,
   decisionMicroLabelClass,
   decisionStatusBadgeClass,
+  publicSafetyLabel,
 } from '@/lib/decision-primitives'
 
 type DecisionMetricProps = {
@@ -135,6 +136,7 @@ export function DecisionProfileCard({
   fallbackSummary: string
 }) {
   const visibleMechanisms = mechanisms.map(formatDisplayLabel).filter(Boolean).slice(0, 2)
+  const visibleSafety = publicSafetyLabel(safety)
 
   return (
     <Link
@@ -164,7 +166,7 @@ export function DecisionProfileCard({
 
         <div className="mt-2 grid gap-2 sm:grid-cols-3">
           <DecisionMetric label="Evidence" value={evidence} />
-          <DecisionMetric label="Safety" value={safety} />
+          <DecisionMetric label="Safety" value={visibleSafety} />
           <DecisionMetric label="Time" value={timeToEffect} />
         </div>
 

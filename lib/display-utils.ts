@@ -18,6 +18,7 @@ const INTERNAL_PATTERNS = [
   /enriched\s+in\s+bulk\s+mode/i,
   /schema\s+artifact/i,
   /placeholder/i,
+  /research[_\s-]*pending/i,
   /internal\s+cross[-\s]*linking(?:\s+supports)?/i,
   /treat\s+dosing\s+and\s+outcomes\s+as\s+review[-\s]*gated/i,
   /added\s+as\s+site[-\s]*safe\s+referenced\s+entity\s+during\s+workbook\s+readiness\s+pass/i,

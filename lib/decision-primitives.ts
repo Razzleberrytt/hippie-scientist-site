@@ -114,6 +114,11 @@ export function getDecisionSafetyTone(labelOrValue?: unknown, options: { hasSafe
   return 'caution'
 }
 
+export function publicSafetyLabel(labelOrValue?: unknown): StandardSafetyLabel | '' {
+  const label = normalizeDecisionSafety(labelOrValue)
+  return label === 'Needs review' ? '' : label
+}
+
 export function evidenceToneClasses(tone: DecisionEvidenceTone) {
   if (tone === 'strong') return 'border-emerald-700/15 bg-emerald-50 text-emerald-800'
   if (tone === 'moderate') return 'border-blue-700/15 bg-blue-50 text-blue-800'

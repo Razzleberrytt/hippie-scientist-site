@@ -20,8 +20,6 @@ import {
   deriveResearchStyle,
 } from '@/lib/research-intelligence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
-import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
-import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'

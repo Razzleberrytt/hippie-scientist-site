@@ -17,6 +17,7 @@ import {
   decisionStatusBadgeClass,
   normalizeDecisionEvidence,
   normalizeDecisionSafety,
+  publicSafetyLabel,
 } from '@/lib/decision-primitives'
 import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
 
@@ -287,12 +288,13 @@ function normalizeItem(item: any, type: SearchType): SearchItem | null {
 }
 
 function SearchMetric({ label, value }: { label: string; value?: string }) {
-  if (!value) return null
+  const visibleValue = label === 'Safety' ? publicSafetyLabel(value) : value
+  if (!visibleValue) return null
 
   return (
     <div className={decisionMetricShellClass}>
       <p className={`${decisionMicroLabelClass} text-[#68786f]`}>{label}</p>
-      <p className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-[#26382f]">{value}</p>
+      <p className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-[#26382f]">{visibleValue}</p>
     </div>
   )
 }
