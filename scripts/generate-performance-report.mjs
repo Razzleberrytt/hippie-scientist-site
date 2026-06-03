@@ -199,18 +199,18 @@ Implemented a comprehensive build pipeline optimization reducing deployment time
 
 ### Before Optimization
 
-```
+\`\`\`
 npm run build (150-180s) ❌ Blocking
   ├─ build-blog
   ├─ All data generation (7 steps)
   ├─ All validation (5 steps)  ← Blocks deployment
   ├─ next build
   └─ All QA/audit (9+ steps)   ← Blocks deployment
-```
+\`\`\`
 
 ### After Optimization
 
-```
+\`\`\`
 npm run build:deploy (45-60s) ✓ Fast
   ├─ build-blog
   ├─ Data generation (7 steps, many cached)
@@ -222,7 +222,7 @@ npm run build:qa (15-20s parallel) ✓ Non-blocking
   ├─ All QA/audit checks (31 total)
   ├─ All validation checks
   └─ All SEO verification
-```
+\`\`\`
 
 ---
 
