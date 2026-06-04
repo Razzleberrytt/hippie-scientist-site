@@ -171,13 +171,14 @@ async function run() {
       }
     }
     
-    // Guide page checks (excluding manual placeholder guides)
+    // Guide page checks (excluding manual placeholder or non-FAQ harm-reduction guides)
     const manualGuides = new Set([
       '/guides/best-herbs-for-stress-and-anxiety-at-night',
       '/guides/best-natural-sleep-aids-that-work',
       '/guides/best-supplements-for-overthinking',
       '/guides/focus-without-caffeine-crash',
       '/guides/how-to-lower-cortisol-naturally',
+      '/guides/kratom-7oh-withdrawal-management',
       '/guides/magnesium-vs-melatonin',
       '/guides/natural-alternatives-to-anxiety-medication',
       '/guides/natural-anxiolytics-beyond-ashwagandha',
