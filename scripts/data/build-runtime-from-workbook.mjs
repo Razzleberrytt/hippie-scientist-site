@@ -451,7 +451,10 @@ function dedupe(rows) {
   }).sort((a, b) => clean(a.name).localeCompare(clean(b.name)) || clean(a.slug).localeCompare(clean(b.slug)))
 }
 
-function rowId(row, fallbackFields) { return slug(first(row, ['id', ...fallbackFields])) }
+function rowId(row, fallbackFields = []) {
+  const fields = Array.isArray(fallbackFields) ? fallbackFields : [fallbackFields]
+  return slug(first(row, ['id', ...fields.filter(Boolean)]))
+}
 
 function mapRow(row) {
   const herb = first(row, ['herb', 'herb name', 'herb_name'])
@@ -534,89 +537,68 @@ function evidenceClaimRow(row, config) {
 }
 
 function evidenceSourceRow(row) {
-  const sourceId = slug(first(row, ['source_id', 'source id', 'id']))
-  const claimId = slug(first(row, ['claim_id', 'claim id']))
-  if (!sourceId && !claimId) return null
-
+  const sourceId = slug(first(row, ['source_id', 'source id', 'id']) || first(row, ['pmid', 'doi', 'url', 'title']))
+  if (!sourceId) return null
   return stripRecord({
     source_id: sourceId,
-    claim_id: claimId,
-    citation_label: clean(first(row, ['citation_label', 'citation label', 'citation'])),
-    source_type: lower(first(row, ['source_type', 'source type', 'type'])),
-    title: compact(first(row, ['title', 'source_title', 'source title'])),
-    year: num(first(row, ['year'])) ?? clean(first(row, ['year'])),
+    title: clean(first(row, ['title', 'study_title', 'study title'])),
+    pmid: clean(first(row, ['pmid', 'PMID'])),
+    doi: clean(first(row, ['doi', 'DOI'])),
     url: clean(first(row, ['url', 'source_url', 'source url', 'link'])),
-    source_note: compact(first(row, ['source_note', 'source note', 'note'])),
+    evidence_type: lower(first(row, ['evidence_type', 'evidence type', 'study_type', 'study type'])),
+    year: num(first(row, ['year', 'publication_year', 'publication year'])),
+    human_relevance: lower(first(row, ['human_relevance', 'human relevance'])),
+    quality_notes: compact(first(row, ['quality_notes', 'quality notes', 'notes'])),
     published: published(first(row, ['published', 'publish'])),
   })
 }
 
-function evidenceSafetyNoteRow(row) {
-  const safetyId = slug(first(row, ['safety_id', 'safety id', 'id']))
-  const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']))
-  if (!safetyId && !ingredientSlug) return null
-
+function evidenceSafetyRow(row) {
+  const safetyId = slug(first(row, ['safety_id', 'safety id', 'id']) || first(row, ['ingredient_slug', 'ingredient slug', 'name']))
+  const ingredientName = clean(first(row, ['ingredient_name', 'ingredient name', 'name']))
+  const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']) || ingredientName)
+  if (!safetyId && !ingredientSlug && !ingredientName) return null
   return stripRecord({
-    safety_id: safetyId,
+    safety_id: safetyId || ingredientSlug,
     ingredient_slug: ingredientSlug,
-    risk_type: lower(first(row, ['risk_type', 'risk type'])),
-    severity: lower(first(row, ['severity'])),
-    warning: compact(first(row, ['warning', 'safety_warning', 'safety warning'])),
-    decision_effect: compact(first(row, ['decision_effect', 'decision effect'])),
+    ingredient_name: ingredientName,
+    safety_level: lower(first(row, ['safety_level', 'safety level', 'level'])),
+    safety_summary: compact(first(row, ['safety_summary', 'safety summary', 'summary'])),
+    contraindications: uniqueList(first(row, ['contraindications', 'avoid_if', 'avoid if'])),
+    interactions: uniqueList(first(row, ['interactions'])),
+    monitoring: compact(first(row, ['monitoring', 'monitoring_notes', 'monitoring notes'])),
     published: published(first(row, ['published', 'publish'])),
   })
 }
 
 function buildEvidenceEngine(config, problemRows, claimRows, sourceRows, safetyRows) {
+  const fallbackProblemLabels = config.problemLabels || {}
+  const problemLabels = toProblemLabels(problemRows || [], fallbackProblemLabels)
   const claims = normalizeRows(claimRows, (row) => evidenceClaimRow(row, config))
-  const sources = normalizeRows(sourceRows, evidenceSourceRow)
-  const safetyNotes = normalizeRows(safetyRows, evidenceSafetyNoteRow)
-  const problemLabels = problemRows
-    ? toProblemLabels(problemRows, config.fallbackProblemLabels)
-    : config.fallbackProblemLabels
+    .filter((row) => row.published)
+    .sort((a, b) => (a.display_order || 999) - (b.display_order || 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
+  const sources = normalizeRows(sourceRows, evidenceSourceRow).filter((row) => row.published)
+  const safetyNotes = normalizeRows(safetyRows, evidenceSafetyRow).filter((row) => row.published)
 
-  const publishedSources = sources.filter((source) => source.published)
-  const publishedSourcesByClaim = new Map()
-  for (const source of publishedSources) {
-    if (!publishedSourcesByClaim.has(source.claim_id)) publishedSourcesByClaim.set(source.claim_id, [])
-    publishedSourcesByClaim.get(source.claim_id).push(source)
-  }
-
-  const publishedClaims = claims
-    .filter((claim) => claim.published)
-    .sort((a, b) => (a.display_order ?? 999) - (b.display_order ?? 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
-
-  const publishedSafetyNotes = safetyNotes
-    .filter((note) => note.published)
-    .sort((a, b) => clean(a.ingredient_slug).localeCompare(clean(b.ingredient_slug)) || clean(a.risk_type).localeCompare(clean(b.risk_type)))
+  const sourceById = new Map(sources.map((source) => [source.source_id, source]))
+  const safetyByIngredient = new Map(safetyNotes.map((note) => [note.ingredient_slug, note]))
+  const enrichedClaims = claims.map((claim) => ({
+    ...claim,
+    source: sourceById.get(claim.source_id) || null,
+    safety: safetyByIngredient.get(claim.ingredient_slug) || null,
+  }))
 
   const payload = {
-    goal: config.goal,
-    updatedAt: deterministicUpdatedAt,
-    config: {
-      problemField: config.problemField,
-      ...(config.config || {}),
-    },
-    problemLabels,
-    claims: publishedClaims,
-    safetyNotes: publishedSafetyNotes,
-    sourcesByClaim: Object.fromEntries(
-      publishedClaims.map((claim) => [
-        claim.claim_id,
-        (publishedSourcesByClaim.get(claim.claim_id) || []).sort((a, b) => clean(a.citation_label).localeCompare(clean(b.citation_label))),
-      ])
-    ),
-  }
-  const errors = validateEvidenceEnginePayload(payload, {
+    generatedAt: deterministicUpdatedAt,
     goal: config.goal,
     problemField: config.problemField,
-    validProblems: new Set(Object.keys(problemLabels).length > 0 ? Object.keys(problemLabels) : config.validProblems),
-  })
-
-  if (errors.length > 0) {
-    throw new Error(`[${config.goal}-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
+    problemLabels,
+    claims: enrichedClaims,
+    sources,
+    safetyNotes,
   }
 
+  validateEvidenceEnginePayload(payload, config)
   return payload
 }
 
