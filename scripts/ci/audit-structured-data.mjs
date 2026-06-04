@@ -2,7 +2,7 @@
 import fs from 'node:fs';import path from 'node:path'
 import fsPromises from 'node:fs/promises'
 const root=process.cwd(), outDir=path.join(root,'out'); if(!fs.existsSync(outDir)){console.error('out/ not found');process.exit(1)}
-const families=[['herbs','/herbs/'],['compounds','/compounds/'],['blog','/blog/'],['taxonomy','/blog/tags/'],['archives','/blog/categories/'],['homepage','/'],['ecosystem','/ecosystems/']]
+const families=[['herbs','/herbs/'],['compounds','/compounds/'],['blog','/blog/'],['taxonomy','/blog/tags/'],['archives','/blog/categories/'],['homepage','/'],['ecosystem','/ecosystems/'],['protocols','/protocols/']]
 const required=['MedicalWebPage','Article','BlogPosting','BreadcrumbList','FAQPage','Organization','WebSite']
 const files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name.endsWith('.html'))files.push(f)}};walk(outDir)
 const rows=[]
@@ -29,6 +29,19 @@ async function readRouteHtml(route) {
   return fsPromises.readFile(path.join(outDir, relative), 'utf8').catch(() => '')
 }
 
+function isDetailRoute(route, prefix) {
+  return route.startsWith(prefix + '/') && !route.startsWith(prefix + '/page/')
+}
+
+function isProtocolDetailRoute(route) {
+  return (
+    route.startsWith('/protocols/') &&
+    route !== '/protocols' &&
+    route !== '/protocols/' &&
+    !route.startsWith('/protocols/page/')
+  )
+}
+
 async function run() {
   const batchSize = 100
   for (let i = 0; i < files.length; i += batchSize) {
@@ -52,23 +65,28 @@ async function run() {
 
   // Representative checks + parse validation. These are the blocking checks.
   let repFails = 0
+  const repErrors = []
   for (const rep of repChecks) {
     const r = rows.find(x => x.route === rep.route || x.route === rep.route + '/')
     if (!r) {
-      console.error(`[structured-data] missing rep route html: ${rep.route}`)
+      const message = `[structured-data] missing rep route html: ${rep.route}`
+      console.error(message)
+      repErrors.push(message)
       repFails++
       continue
     }
     for (const t of rep.types) {
       if (!r.types[t]) {
-        console.error(`[structured-data] rep ${rep.route} missing ${t}`)
+        const message = `[structured-data] rep ${rep.route} missing ${t}`
+        console.error(message)
+        repErrors.push(message)
         repFails++
       }
     }
     const html=await readRouteHtml(rep.route)
     const blocks=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>m[1]);
     for (const b of blocks) {
-      try { JSON.parse(b) } catch { console.error(`[structured-data] invalid JSON-LD on ${rep.route}`); repFails++ }
+      try { JSON.parse(b) } catch { const message = `[structured-data] invalid JSON-LD on ${rep.route}`; console.error(message); repErrors.push(message); repFails++ }
     }
   }
 
@@ -105,10 +123,8 @@ async function run() {
       continue;
     }
     
-    const isDetail = (prefix) => route.startsWith(prefix + '/') && !route.startsWith(prefix + '/page/');
-    
     // Herb detail page checks
-    if (isDetail('/herbs')) {
+    if (isDetailRoute(route, '/herbs')) {
       if (!r.types.MedicalWebPage) {
         errors.push(`Herb profile page "${route}" is missing "MedicalWebPage" schema`);
         failed = true;
@@ -120,13 +136,25 @@ async function run() {
     }
     
     // Compound detail page checks
-    if (isDetail('/compounds')) {
+    if (isDetailRoute(route, '/compounds')) {
       if (!r.types.MedicalWebPage) {
         errors.push(`Compound profile page "${route}" is missing "MedicalWebPage" schema`);
         failed = true;
       }
       if (!r.types.BreadcrumbList) {
         errors.push(`Compound profile page "${route}" is missing "BreadcrumbList" schema`);
+        failed = true;
+      }
+    }
+
+    // Protocol detail page checks
+    if (isProtocolDetailRoute(route)) {
+      if (!r.types.MedicalWebPage && !r.types.Article) {
+        errors.push(`Protocol page "${route}" is missing "MedicalWebPage" / "Article" schema`);
+        failed = true;
+      }
+      if (!r.types.BreadcrumbList) {
+        errors.push(`Protocol page "${route}" is missing "BreadcrumbList" schema`);
         failed = true;
       }
     }
@@ -168,13 +196,17 @@ async function run() {
   }
 
   if (failed) {
-    if (repFails > 0) {
-      console.error(`[audit-structured-data] FAIL: ${repFails} representative checks or duplicate description checks failed.`);
+    console.error('[audit-structured-data] FAIL SUMMARY')
+    if (repErrors.length > 0) {
+      console.error(`[audit-structured-data] Representative failures: ${repErrors.length}`)
+      repErrors.slice(0, 50).forEach(e => console.error(`  - ${e}`))
     }
     if (errors.length > 0) {
-      console.error('[audit-structured-data] FAIL: Schema errors detected:');
-      errors.forEach(e => console.error(`  - ${e}`));
+      console.error(`[audit-structured-data] Schema errors detected: ${errors.length}`)
+      errors.slice(0, 100).forEach(e => console.error(`  - ${e}`))
+      if (errors.length > 100) console.error(`  ... ${errors.length - 100} more schema errors omitted`)
     }
+    console.error('[audit-structured-data] Full report written to ops/reports/structured-data-completeness.json')
     process.exit(1);
   }
   
