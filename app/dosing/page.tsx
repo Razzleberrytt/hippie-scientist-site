@@ -33,7 +33,7 @@ export default async function DosingPage() {
   })
 
   return (
-    <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Dynamic Dosage & Active Molecular Yield Calculator"
         description="Calculate personalized dosing ranges and active marker compounds for cognitive and physical supplements."
@@ -64,6 +64,6 @@ export default async function DosingPage() {
           Calculations are purely educational models based on published monograph ranges. Individual biochemistry can cause varying sensitivities. Always start at the lower bound (or below) to test for idiosyncratic hypersensitivity or allergen triggers before scaling up. Never exceed recommendations without consulting a physician.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

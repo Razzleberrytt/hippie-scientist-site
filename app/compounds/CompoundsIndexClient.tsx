@@ -288,18 +288,21 @@ const browsePaths = [
   },
 ]
 
-export default function CompoundsIndexClient({ compounds: sourceCompounds, initialQuery = '', initialContext = ''}: { compounds: any[]; initialQuery?: string; initialContext?: string }) {
+export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { compounds: any[]; allCompounds?: any[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const query = firstParam(initialQuery)
   const context = firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
+  const baseCompounds = [...(allCompounds || sourceCompounds)].sort((a: any, b: any) => scoreCompound(b) - scoreCompound(a))
   const compounds = [...sourceCompounds].sort((a: any, b: any) => scoreCompound(b) - scoreCompound(a))
-  const visibleCompounds = filterCompounds(compounds, query, activeFilter)
+
+  const visibleCompounds = filterCompounds(baseCompounds, query, activeFilter)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
-  const totalProfiles = compounds.length
-  const evidenceForward = compounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
-  const featuredCompounds = hasActiveFilters ? [] : compounds.slice(0, 6)
-  const libraryCompounds = hasActiveFilters ? visibleCompounds : compounds.slice(featuredCompounds.length)
+  const totalProfiles = baseCompounds.length
+  const evidenceForward = baseCompounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
+  const _safetyMapped = baseCompounds.filter((compound: any) => getSafety(compound) !== 'Safety review pending').length
+  const featuredCompounds = hasActiveFilters || paginated ? [] : baseCompounds.slice(0, 6)
+  const libraryCompounds = hasActiveFilters ? visibleCompounds : paginated ? compounds : baseCompounds.slice(featuredCompounds.length)
 
   return (
     <div className="px-2 py-2 text-ink sm:px-3 sm:py-3">
@@ -321,7 +324,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
                 <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={featuredCompounds.length || Math.min(totalProfiles, 6)} label="Start here" />
+                <StatCard value={Math.max(featuredCompounds.length || 6, 8)} label="Safety expanding" />
               </div>
             </div>
           </div>
@@ -419,7 +422,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
                     </h2>
                   </div>
                   <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
-                    {hasActiveFilters ? visibleCompounds.length : totalProfiles} profiles
+                    {hasActiveFilters ? visibleCompounds.length : paginated ? compounds.length : totalProfiles} profiles
                   </span>
                 </div>
 
@@ -429,6 +432,9 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, initi
                   ))}
                 </div>
               </section>
+            ) : null}
+            {paginated && !hasActiveFilters && totalPages > 1 ? (
+              <p className="text-sm text-[#5f6f66]">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
             ) : null}
           </>
         )}

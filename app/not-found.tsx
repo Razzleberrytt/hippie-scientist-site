@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <main className='mx-auto max-w-4xl px-6 py-16'>
+    <div className='mx-auto max-w-4xl px-6 py-16'>
       <div className='rounded-3xl border border-stone-200 bg-stone-50/50 p-8 sm:p-10 shadow-sm'>
         <div className='inline-flex rounded-full border border-stone-200 bg-stone-100/50 px-4 py-1 text-xs uppercase tracking-[0.2em] text-stone-600 font-medium'>
           The Hippie Scientist
@@ -51,6 +51,6 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   )
 }

@@ -212,7 +212,7 @@ export default async function StackPage({ params }: Params) {
   }
 
   const { herbRecords, allRecords } = await getUnifiedRuntimeRecords()
-  const herbSlugs = new Set(herbRecords.map((h: any) => h.slug))
+  const herbSlugs = new Set<string>(herbRecords.map((h: any) => String(h.slug || '')))
 
   const groups = groupByRole(items)
   const relatedRecords = items.map(item => stackItemToRecord(item, herbSlugs)).filter((record) => record.slug)

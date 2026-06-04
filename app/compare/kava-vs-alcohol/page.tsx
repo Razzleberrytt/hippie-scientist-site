@@ -4,7 +4,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 export default function KavaVsAlcoholPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Kava vs Alcohol"
         description="Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations."
@@ -70,6 +70,6 @@ export default function KavaVsAlcoholPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -29,7 +29,7 @@ export default async function StackBuilderPage() {
   })
 
   return (
-    <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl'>
           Interactive Supplement Stack Builder
@@ -40,6 +40,6 @@ export default async function StackBuilderPage() {
       </section>
 
       <StackBuilderClient herbs={herbs} compounds={compounds} />
-    </main>
+    </div>
   )
 }

@@ -3,11 +3,13 @@ import { getRuntimeVisibility } from './runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 
-export const SITE_URL = 'https://www.thehippiescientist.net'
+export const SITE_URL = 'https://thehippiescientist.net'
 export const SEO_YEAR = '2026'
-export const DEFAULT_OG_IMAGE = '/og-default.png'
+export const DEFAULT_OG_IMAGE = '/og-default.jpg'
 export const SITE_NAME = 'The Hippie Scientist'
-export const TWITTER_HANDLE = '@thehippiescientist'
+export const TWITTER_HANDLE = '@HippieScientist'
+export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
+export const DEFAULT_DESCRIPTION = 'Evidence-first herb and compound reference grounded in mechanisms, safety context, and scientific review.'
 
 export type PageType = 'website' | 'article'
 
@@ -101,23 +103,26 @@ export function buildPageMetadata({
   robots,
 }: BuildPageMetadataArgs): Metadata {
   const meta = buildMeta({ title, description, path, image, keepQueryParams })
+  const fullTitle = title || DEFAULT_TITLE
+  const fullDesc = description || DEFAULT_DESCRIPTION
   return {
-    title: meta.title,
-    description: meta.description,
+    title: fullTitle,
+    description: fullDesc,
     alternates: { canonical: meta.url },
     openGraph: {
-      title: meta.title,
-      description: meta.description,
-      type: openGraphType,
+      title: fullTitle,
+      description: fullDesc,
       url: meta.url,
       siteName: SITE_NAME,
-      images: [{ url: meta.image, width: 1200, height: 630, alt: meta.title }],
+      type: openGraphType,
+      images: [{ url: meta.image, width: 1200, height: 630, alt: fullTitle }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: meta.title,
-      description: meta.description,
+      title: fullTitle,
+      description: fullDesc,
       images: [meta.image],
+      site: TWITTER_HANDLE,
     },
     ...(robots ? { robots } : {}),
   }
@@ -143,8 +148,8 @@ export function productJsonLd(args: {
 }
 
 export function buildMeta({
-  title,
-  description,
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
   path = '/',
   image = DEFAULT_OG_IMAGE,
   keepQueryParams = [],
@@ -242,9 +247,14 @@ export function websiteJsonLd() {
     '@type': 'WebSite',
     name: SITE_NAME,
     url: SITE_URL,
+    description: DEFAULT_DESCRIPTION,
+    image: `${SITE_URL}/og-default.jpg`,
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${SITE_URL}/herbs?query={search_term_string}`,
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/search/?q={search_term_string}`,
+      },
       'query-input': 'required name=search_term_string',
     },
   }
@@ -256,7 +266,18 @@ export function organizationJsonLd() {
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
+    description: DEFAULT_DESCRIPTION,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/logo.png`,
+      width: 512,
+      height: 512,
+    },
+    sameAs: [
+      'https://twitter.com/HippieScientist',
+      'https://www.instagram.com/thehippiescientist',
+      'https://www.youtube.com/@HippieScientist',
+    ],
   }
 }
 
@@ -286,7 +307,7 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    '@type': ['BlogPosting', 'Article'],
     headline: post.title,
     description,
     datePublished: published,
@@ -561,21 +582,36 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   } else if (evidence.toLowerCase().includes('traditional')) {
     titleSuffix += ' | Traditional Use Guide'
   } else {
-    titleSuffix += ' | The Hippie Scientist'
+    titleSuffix += ' Guide'
   }
   const title = `${displayName} ${titleSuffix}`
 
-  // Construct dynamic description
+  // Construct dynamic description -- make unique per profile using available fields (fixes mass duplicate generics)
   const cleanDesc = cleanSummary(record.summary || record.description || '', type)
-  const firstSentence = cleanDesc.match(/[^.!?]+[.!?]+/)?.[0] || cleanDesc
+  let firstSentence = cleanDesc.match(/[^.!?]+[.!?]+/)?.[0] || cleanDesc
+  if (!firstSentence || firstSentence.length < 20) {
+    firstSentence = `${displayName} ${type} profile with evidence framing.`
+  }
 
-  const safetyNotes = text(record.safetyNotes || record.safety_notes || record.safety).toLowerCase()
+  // extract unique signals
+  const latin = record.scientific_name || record.latin_name || (record.name && record.name.match(/\(([^)]+)\)/)?.[1] ? record.name.match(/\(([^)]+)\)/)[1] : '')
+  const effects = list(record.primary_effects || record.primaryEffects || record.effects || record.useContexts || record.primaryDomain || [])
+  const primaryUse = effects[0] ? formatDisplayLabel(effects[0]).toLowerCase() : ''
+  const mechs = list(record.mechanisms || record.primary_mechanisms || record.pathways || [])
+  const primaryMech = mechs[0] ? formatDisplayLabel(mechs[0]).toLowerCase().replace(/\s+(modulation|signaling|context|response)/g, '') : ''
+  const safetyNotes = text(record.safetyNotes || record.safety_notes || record.safety || record.safety_level || '').toLowerCase()
   let safetySnippet = ''
-  if (safetyNotes.includes('avoid') || safetyNotes.includes('caution') || safetyNotes.includes('interaction')) {
+  if (safetyNotes.includes('avoid') || safetyNotes.includes('caution') || safetyNotes.includes('interaction') || safetyNotes.includes('contraindicat')) {
     safetySnippet = ' Review safety and drug interactions before use.'
   }
 
-  const rawDescription = `${firstSentence} Rated with ${evidence.toLowerCase()}.` + safetySnippet + ' Educational reference only.'
+  let uniqueTail = ''
+  if (latin) uniqueTail += ` (${formatDisplayLabel(latin)})`
+  if (primaryUse) uniqueTail += ` for ${primaryUse}`
+  if (primaryMech) uniqueTail += ` (${primaryMech})`
+  if (evidence) uniqueTail += ` — evidence level ${evidence.toLowerCase()}`
+
+  const rawDescription = `${firstSentence}${uniqueTail} Rated with ${evidence.toLowerCase()}.${safetySnippet} Educational reference only.`
   const description = formatMetaDescription(rawDescription, `${displayName} effects, mechanisms, dosage, and safety.`, 155)
 
   const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`
@@ -591,6 +627,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     title: meta.title,
     description: meta.description,
     path,
+    image: `/og/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}.png`,
     openGraphType: 'article',
     robots: visibility.canIndex
       ? undefined

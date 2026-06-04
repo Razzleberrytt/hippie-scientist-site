@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Natural Anxiolytics Beyond Ashwagandha | The Hippie Scientist',
+  title: 'Natural Anxiolytics Beyond Ashwagandha',
   description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
   alternates: { canonical: '/guides/best-herbs-for-anxiety' },
   openGraph: {
@@ -58,7 +58,7 @@ export default function NaturalAnxiolyticsPage() {
   ]
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">Discovery Guide</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -163,6 +163,6 @@ export default function NaturalAnxiolyticsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

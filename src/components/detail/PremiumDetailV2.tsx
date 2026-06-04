@@ -39,7 +39,7 @@ export function PremiumDetailV2({
   const showFloatingCta = Boolean(sidebarCta) && !isDetailedProfile
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-[calc(6rem+env(safe-area-inset-bottom))] pt-6 text-stone-950">
+    <div className="mx-auto max-w-6xl px-4 pb-[calc(6rem+env(safe-area-inset-bottom))] pt-6 text-stone-950">
 
       {/* HERO */}
       <section className="space-y-4">
@@ -149,6 +149,6 @@ export function PremiumDetailV2({
         </motion.div>
       ) : null}
 
-    </main>
+    </div>
   )
 }

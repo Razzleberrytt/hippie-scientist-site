@@ -33,7 +33,7 @@ const systems = [
 
 export default function StressRegulationPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Stress Regulation"
         description="Educational stress regulation protocol exploring calming systems, adaptogenic support, nervous-system balance, and neurochemical recovery."
@@ -83,6 +83,6 @@ export default function StressRegulationPage() {
         record={protocolRecord}
         title="Explore calming and recovery systems"
       />
-    </main>
+    </div>
   )
 }

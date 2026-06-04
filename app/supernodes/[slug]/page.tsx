@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: SupernodeRouteProps): Promise
   const node = getSemanticSupernode(resolvedParams.slug)
 
   return {
-    title: node ? `${node.title} | The Hippie Scientist` : 'Semantic Supernode',
+    title: node ? node.title : 'Semantic Supernode',
     description: node?.description || 'Semantic relationship hub for advanced supplement research.',
     robots: { index: false, follow: true },
   }
@@ -153,10 +153,10 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
     .filter((record: any) => getRuntimeVisibility(record).canRender)
     .map((record: any) => ({ ...record, entityType: inferEntityType(record) }))
     .map((record: any) => ({ record, score: score(record, node.keywords) }))
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
+    .filter((item: { record: any; score: number }) => item.score > 0)
+    .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
     .slice(0, 60)
-    .map((item) => item.record)
+    .map((item: { record: any }) => item.record)
 
   const top = ranked.slice(0, 10)
   const evidenceForward = ranked.filter((record: any) => /strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))).slice(0, 8)
@@ -176,7 +176,7 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
   const assistantSuggestions = buildSemanticNavigationSuggestions(nodeRecord, ranked, 5)
 
   return (
-    <main className="min-h-screen bg-background text-ink">
+    <div className="min-h-screen bg-background text-ink">
       <section className="container-page py-10 sm:py-14 lg:py-18">
         <div className="section-spacing">
           <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
@@ -273,6 +273,6 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
           </section>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

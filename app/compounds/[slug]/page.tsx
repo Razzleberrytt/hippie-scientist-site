@@ -44,6 +44,8 @@ const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
   bcaas: 'bcaa',
   'green-tea-egcg-isolated': 'green-tea-extract',
   'green-tea-extract-egcg': 'green-tea-extract',
+  nr: 'nicotinamide-riboside',
+  'berberine-hcl': 'berberine',
   'probiotic-multistrain': 'probiotics',
   'probiotic-strain-bifidobacterium': 'probiotics',
   'probiotic-strain-lactobacillus': 'probiotics',

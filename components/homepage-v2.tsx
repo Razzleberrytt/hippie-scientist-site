@@ -59,7 +59,7 @@ const credibilityPillars = [
   'Affiliate context is disclosed without changing the evidence standard.',
 ]
 
-// Fallbacks expanded to 6 curated picks instead of alphabetical accidents
+// Fallbacks / curated popular starting points (high-recognition, high-intent per task)
 const featuredFallbacks: LandingCard[] = [
   {
     href: '/herbs/ashwagandha',
@@ -68,21 +68,9 @@ const featuredFallbacks: LandingCard[] = [
     meta: 'Herb profile',
   },
   {
-    href: '/compounds/l-theanine',
-    title: 'L-Theanine',
-    description: 'Calm focus, relaxation pathways, and non-sedating support context.',
-    meta: 'Compound profile',
-  },
-  {
-    href: '/compounds/creatine',
-    title: 'Creatine',
-    description: 'Performance, recovery, energy buffering, and cognitive support research.',
-    meta: 'Compound profile',
-  },
-  {
-    href: '/herbs/rhodiola-rosea',
-    title: 'Rhodiola Rosea',
-    description: 'Adaptogenic fatigue resistance and mental performance under stress.',
+    href: '/herbs/turmeric',
+    title: 'Turmeric',
+    description: 'Inflammation context and evidence-aware botanical research notes.',
     meta: 'Herb profile',
   },
   {
@@ -96,6 +84,18 @@ const featuredFallbacks: LandingCard[] = [
     title: 'Magnesium Glycinate',
     description: 'Sleep quality, muscle relaxation, and nervous system regulation.',
     meta: 'Compound profile',
+  },
+  {
+    href: '/compounds/melatonin',
+    title: 'Melatonin',
+    description: 'Sleep-onset support with evidence and safety context.',
+    meta: 'Compound profile',
+  },
+  {
+    href: '/herbs/rhodiola',
+    title: 'Rhodiola',
+    description: 'Adaptogenic fatigue resistance and mental performance under stress.',
+    meta: 'Herb profile',
   },
 ]
 

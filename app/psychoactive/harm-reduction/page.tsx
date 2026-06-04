@@ -23,7 +23,7 @@ const topics = [
 
 export default function HarmReductionPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Psychoactive Harm Reduction"
         description="Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and educational guidance."
@@ -72,6 +72,6 @@ export default function HarmReductionPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

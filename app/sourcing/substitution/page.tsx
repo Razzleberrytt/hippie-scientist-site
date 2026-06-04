@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function SubstitutionPage() {
   return (
-    <main className='container-page py-10 space-y-12'>
+    <div className='container-page py-10 space-y-12'>
       {/* Authority Structured Data */}
       <AuthorityJsonLd
         title='Interactive Botanical Substitution Engine & Alternative Stacking'
@@ -34,6 +34,6 @@ export default function SubstitutionPage() {
       <section className='card-premium p-6 sm:p-8'>
         <SubstitutionEnginePanel />
       </section>
-    </main>
+    </div>
   )
 }

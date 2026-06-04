@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Supplements for Brain Fog and Fatigue | The Hippie Scientist',
+  title: 'Supplements for Brain Fog and Fatigue',
   description: 'A practical guide to supplements commonly discussed for brain fog, low energy, fatigue, and focus support.',
   alternates: { canonical: '/guides/supplements-for-brain-fog-and-fatigue' },
 }

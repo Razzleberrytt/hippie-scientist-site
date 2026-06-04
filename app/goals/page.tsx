@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function GoalsPage() {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">Goal decision system</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -84,6 +84,6 @@ export default function GoalsPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

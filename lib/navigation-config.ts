@@ -439,7 +439,7 @@ export function flattenNavigation(
   function traverse(
     items: NavigationItem[],
     level: number,
-    parentPath: string
+    _parentPath: string
   ) {
     for (const item of items) {
       result.push({

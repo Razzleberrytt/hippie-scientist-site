@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { SearchModal } from './SearchModal'
-import { mainNavigation, NavigationItem } from '@/lib/navigation-config'
+import { mainNavigation, type NavigationItem as _NavigationItem } from '@/lib/navigation-config'
 
 /**
  * Main Navigation Component
@@ -35,6 +35,18 @@ export function Navigation() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const pathname = usePathname()
 
+  // Keyboard support: Escape closes menus/dropdowns (meets ARIA practices for disclosures/menus)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpenDropdown(null)
+        if (mobileMenuOpen) setMobileMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [mobileMenuOpen])
+
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   const toggleDropdown = (href: string) => {
@@ -55,37 +67,54 @@ export function Navigation() {
           <div className="hidden lg:flex items-center gap-8">
             {mainNavigation.map((item) => (
               <div key={item.href} className="relative group">
-                <button
-                  onClick={() => toggleDropdown(item.href)}
-                  className={`flex items-center gap-1 py-2 text-sm font-medium transition-colors ${
-                    isActive(item.href)
-                      ? 'text-emerald-600 dark:text-emerald-500'
-                      : 'text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500'
-                  }`}
-                  aria-expanded={openDropdown === item.href}
-                  aria-haspopup={item.children ? 'true' : 'false'}
-                >
-                  <Link href={item.href}>{item.label}</Link>
+                <div className="flex items-center gap-1 py-2 text-sm font-medium transition-colors">
+                  <Link
+                    href={item.href}
+                    className={
+                      isActive(item.href)
+                        ? 'text-emerald-600 dark:text-emerald-500'
+                        : 'text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500'
+                    }
+                  >
+                    {item.label}
+                  </Link>
                   {item.children && (
-                    <svg
-                      className="w-4 h-4 transition-transform group-hover:rotate-180"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                    <button
+                      type="button"
+                      onClick={() => toggleDropdown(item.href)}
+                      className="p-1 -mr-1 rounded hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
+                      aria-expanded={openDropdown === item.href}
+                      aria-haspopup="true"
+                      aria-controls={`desktop-dropdown-${item.href.replace(/\//g, '')}`}
+                      aria-label={`Toggle ${item.label} menu`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                      />
-                    </svg>
+                      <svg
+                        className={`w-4 h-4 transition-transform ${openDropdown === item.href ? 'rotate-180' : 'group-hover:rotate-180'}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                        />
+                      </svg>
+                    </button>
                   )}
-                </button>
+                </div>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown Menu - visible on hover (mouse) or state (keyboard) */}
                 {item.children && (
-                  <div className="absolute left-0 mt-0 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 border border-slate-200 dark:border-slate-700">
+                  <div
+                    id={`desktop-dropdown-${item.href.replace(/\//g, '')}`}
+                    className={`absolute left-0 mt-0 w-48 bg-white dark:bg-slate-900 rounded-lg shadow-lg py-2 border border-slate-200 dark:border-slate-700 transition-all duration-150 ${
+                      openDropdown === item.href ? 'opacity-100 visible' : 'opacity-0 invisible group-hover:opacity-100 group-hover:visible'
+                    }`}
+                    role="menu"
+                  >
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
@@ -96,6 +125,7 @@ export function Navigation() {
                             : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
                         }`}
                         title={child.description}
+                        role="menuitem"
                       >
                         {child.label}
                       </Link>
@@ -136,40 +166,51 @@ export function Navigation() {
           >
             {mainNavigation.map((item) => (
               <div key={item.href}>
-                <button
-                  onClick={() => toggleDropdown(item.href)}
-                  className={`w-full text-left px-4 py-2 text-sm font-medium flex items-center justify-between transition-colors ${
-                    isActive(item.href)
-                      ? 'text-emerald-600 dark:text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
-                  }`}
-                  aria-expanded={openDropdown === item.href}
-                >
-                  <Link href={item.href} className="flex-1">
+                <div className="flex w-full items-center justify-between">
+                  <Link
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex-1 text-left px-4 py-2 text-sm font-medium transition-colors ${
+                      isActive(item.href)
+                        ? 'text-emerald-600 dark:text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
                     {item.label}
                   </Link>
                   {item.children && (
-                    <svg
-                      className={`w-4 h-4 transition-transform ${
-                        openDropdown === item.href ? 'rotate-180' : ''
-                      }`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                    <button
+                      type="button"
+                      onClick={() => toggleDropdown(item.href)}
+                      className="px-3 py-2 text-sm text-slate-500"
+                      aria-expanded={openDropdown === item.href}
+                      aria-haspopup="true"
+                      aria-controls={`mobile-dropdown-${item.href.replace(/\//g, '')}`}
+                      aria-label={`Toggle ${item.label} submenu`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                      />
-                    </svg>
+                      <svg
+                        className={`w-4 h-4 transition-transform ${
+                          openDropdown === item.href ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                        />
+                      </svg>
+                    </button>
                   )}
-                </button>
+                </div>
 
                 {/* Mobile Dropdown */}
                 {item.children && openDropdown === item.href && (
-                  <div className="bg-slate-50 dark:bg-slate-800 py-2">
+                  <div id={`mobile-dropdown-${item.href.replace(/\//g, '')}`} className="bg-slate-50 dark:bg-slate-800 py-2" role="menu">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
@@ -180,6 +221,7 @@ export function Navigation() {
                             ? 'text-emerald-600 dark:text-emerald-500 font-medium'
                             : 'text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-500'
                         }`}
+                        role="menuitem"
                       >
                         {child.label}
                       </Link>

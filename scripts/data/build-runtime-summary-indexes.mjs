@@ -39,6 +39,9 @@ const SUMMARY_FIELDS = [
   'indexability_score',
   'indexability_reasons',
   'entityType',
+  'meta_title',
+  'meta_description',
+  'generated_description',
 ]
 
 async function readJson(filePath) {
@@ -68,12 +71,26 @@ function asArray(value) {
     .slice(0, MAX_ARRAY_VALUES)
 }
 
+function generateHerbDescription(record) {
+  const name = record.name || record.slug || 'This botanical'
+  const primaryEffects = record.primary_effects || record.effects || []
+  const effectsStr = primaryEffects.length > 0 ? `supporting ${primaryEffects.slice(0, 3).join(', ')}` : 'with traditional health applications'
+  const mechanisms = record.canonical_mechanisms || record.mechanisms || []
+  const mechStr = mechanisms.length > 0 ? ` via ${mechanisms.slice(0, 2).join(' and ')} pathways` : ''
+  const safety = record.safety_level || record.safety_rating || 'cautious use'
+  return `${name} profile: An evidence-informed overview ${effectsStr}${mechStr}. Review safety levels, typical dosage, and clinical evidence.`
+}
+
 function summarizeRecord(record, entityType) {
   const summary = {}
 
   for (const field of SUMMARY_FIELDS) {
     if (field === 'entityType') {
       summary.entityType = entityType
+      continue
+    }
+
+    if (field === 'generated_description') {
       continue
     }
 
@@ -89,6 +106,15 @@ function summarizeRecord(record, entityType) {
       const normalized = text(value).slice(0, MAX_TEXT_LENGTH)
       if (normalized) summary[field] = normalized
       continue
+    }
+  }
+
+  if (entityType === 'herb') {
+    const hasDesc = text(record.summary || record.description).length > 0
+    if (!hasDesc) {
+      summary.generated_description = generateHerbDescription(record)
+    } else {
+      summary.generated_description = text(record.summary || record.description)
     }
   }
 

@@ -1,25 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import LibraryEmptyState from '@/components/decision/LibraryEmptyState'
+import { buildPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Evidence-Based Supplement Stacks',
   description:
     'Browse goal-based supplement stacks for sleep, stress, cognition, performance, and fat loss — with dosing, timing, and safety context.',
-  alternates: { canonical: '/stacks' },
-  openGraph: {
-    title: 'Supplement Stack Guides by Goal',
-    description:
-      'Explore supplement stack examples by goal with compound roles, dosing patterns, timing, and safety-first tradeoff notes.',
-    url: '/stacks',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Supplement Stack Guides by Goal',
-    description:
-      'Explore supplement stack examples by goal with compound roles, dosing patterns, timing, and safety-first tradeoff notes.',
-  },
-}
+  path: '/stacks',
+})
 
 import stacks from '@/public/data/stacks.json'
 

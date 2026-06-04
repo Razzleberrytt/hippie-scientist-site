@@ -105,7 +105,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const config = getComparisonConfig(slug)
-  const title = config?.title ? `${config.title}: Which Is Better? | The Hippie Scientist` : `${formatSlug(slug)}: Which Is Better? | The Hippie Scientist`
+  const title = config?.title ? `${config.title}: Which Is Better?` : `${formatSlug(slug)}: Which Is Better?`
   const description = config?.summary || `Compare ${formatSlug(slug)} for benefits, safety, evidence, best use cases, and supplement buying options.`
 
   const indexable = isFlagshipCompareSlug(slug)
@@ -219,7 +219,7 @@ export default async function Page({ params }: Params) {
   }
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 space-y-10">
+    <div className="mx-auto max-w-5xl px-4 py-8 space-y-10">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <p className="eyebrow-label">Semantic Comparison</p>
         <h1 className="heading-premium mt-3 text-ink">{title}</h1>
@@ -414,6 +414,6 @@ export default async function Page({ params }: Params) {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

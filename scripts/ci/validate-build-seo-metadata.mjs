@@ -79,6 +79,40 @@ for (const filePath of filesToCheck) {
     pageErrors.push('Missing <meta name="viewport"> tag')
   }
 
+  // 4. Verify Open Graph tags (P0 requirement)
+  const ogTitle = content.match(/<meta\s+[^>]*property=["']og:title["']\s+[^>]*content=["']([^"']*)['"]/i) ||
+                  content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*property=["']og:title["']/i)
+  if (!ogTitle || !ogTitle[1].trim()) pageErrors.push('Missing or empty og:title')
+
+  const ogDesc = content.match(/<meta\s+[^>]*property=["']og:description["']\s+[^>]*content=["']([^"']*)['"]/i) ||
+                 content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*property=["']og:description["']/i)
+  if (!ogDesc || !ogDesc[1].trim()) pageErrors.push('Missing or empty og:description')
+
+  const ogImage = content.match(/<meta\s+[^>]*property=["']og:image["']\s+[^>]*content=["']([^"']*)['"]/i) ||
+                  content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*property=["']og:image["']/i)
+  if (!ogImage || !ogImage[1].trim()) pageErrors.push('Missing or empty og:image')
+
+  const ogType = content.match(/<meta\s+[^>]*property=["']og:type["']\s+[^>]*content=["']([^"']*)['"]/i)
+  if (!ogType || !ogType[1].trim()) pageErrors.push('Missing or empty og:type')
+
+  // 5. Verify Twitter Card tags (P0 requirement)
+  const twCard = content.match(/<meta\s+[^>]*name=["']twitter:card["']\s+[^>]*content=["']([^"']*)['"]/i) ||
+                 content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*name=["']twitter:card["']/i)
+  if (!twCard || !twCard[1].trim()) pageErrors.push('Missing or empty twitter:card')
+
+  const twSite = content.match(/<meta\s+[^>]*name=["']twitter:site["']\s+[^>]*content=["']([^"']*)['"]/i) ||
+                 content.match(/<meta\s+[^>]*content=["']([^"']*)['"]\s+[^>]*name=["']twitter:site["']/i)
+  if (!twSite || !twSite[1].trim()) pageErrors.push('Missing or empty twitter:site')
+
+  const twTitle = content.match(/<meta\s+[^>]*name=["']twitter:title["']\s+[^>]*content=["']([^"']*)['"]/i)
+  if (!twTitle || !twTitle[1].trim()) pageErrors.push('Missing or empty twitter:title')
+
+  const twDesc = content.match(/<meta\s+[^>]*name=["']twitter:description["']\s+[^>]*content=["']([^"']*)['"]/i)
+  if (!twDesc || !twDesc[1].trim()) pageErrors.push('Missing or empty twitter:description')
+
+  const twImage = content.match(/<meta\s+[^>]*name=["']twitter:image["']\s+[^>]*content=["']([^"']*)['"]/i)
+  if (!twImage || !twImage[1].trim()) pageErrors.push('Missing or empty twitter:image')
+
   if (pageErrors.length > 0) {
     failedPages++
     errors.push(`Page: /${relPath}\n${pageErrors.map(e => `  - ${e}`).join('\n')}`)
@@ -87,10 +121,46 @@ for (const filePath of filesToCheck) {
 
 console.log(`[seo-metadata-validation] sampled ${totalPages} of ${allFiles.length} static pages.`)
 
+// P0: Explicit checks on representative routes for full OG + Twitter metadata (must be present in built static HTML)
+const requiredRepresentativeRoutes = [
+  { route: '/', file: 'index.html', label: 'homepage' },
+  { route: '/blog/', file: 'blog/index.html', label: 'blog index' },
+  { route: '/herbs/', file: 'herbs/index.html', label: 'herbs index' },
+  { route: '/herbs/ashwagandha/', file: 'herbs/ashwagandha/index.html', label: 'herb profile (ashwagandha)' },
+  { route: '/compounds/', file: 'compounds/index.html', label: 'compounds index' },
+  { route: '/compounds/caffeine/', file: 'compounds/caffeine/index.html', label: 'compound profile (caffeine)' },
+  { route: '/faq/', file: 'faq/index.html', label: 'faq' },
+]
+
+for (const rep of requiredRepresentativeRoutes) {
+  const repPath = path.join(buildDir, rep.file)
+  if (!fs.existsSync(repPath)) {
+    console.error(`[seo-metadata-validation] Missing representative route HTML for ${rep.label}: ${rep.route} (expected ${rep.file})`)
+    process.exit(1)
+  }
+  const repContent = fs.readFileSync(repPath, 'utf8')
+  const tagChecks = [
+    { re: /property=["']og:title["']/i, name: 'og:title' },
+    { re: /property=["']og:description["']/i, name: 'og:description' },
+    { re: /property=["']og:image["']/i, name: 'og:image' },
+    { re: /property=["']og:type["']/i, name: 'og:type' },
+    { re: /name=["']twitter:card["']/i, name: 'twitter:card' },
+    { re: /name=["']twitter:site["']/i, name: 'twitter:site' },
+    { re: /name=["']twitter:title["']/i, name: 'twitter:title' },
+    { re: /name=["']twitter:description["']/i, name: 'twitter:description' },
+    { re: /name=["']twitter:image["']/i, name: 'twitter:image' },
+  ]
+  const missingTags = tagChecks.filter(c => !c.re.test(repContent)).map(c => c.name)
+  if (missingTags.length > 0) {
+    console.error(`[seo-metadata-validation] Representative ${rep.label} (${rep.route}) missing required social tags: ${missingTags.join(', ')}`)
+    process.exit(1)
+  }
+}
+
 if (failedPages > 0) {
   console.error(`[seo-metadata-validation] FAIL: ${failedPages} pages failed validation:`)
   errors.forEach(err => console.error(err))
   process.exit(1)
 }
 
-console.log('[seo-metadata-validation] PASS: all sampled static pages verified successfully.')
+console.log('[seo-metadata-validation] PASS: all sampled static pages and representative OG/Twitter routes verified successfully.')

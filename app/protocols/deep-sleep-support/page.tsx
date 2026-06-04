@@ -11,7 +11,7 @@ const protocolItems = [
 
 export default function DeepSleepSupportPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Deep Sleep Support Protocol"
         description="Educational deep sleep support protocol focused on calming systems, stress regulation, and sleep-supportive neuropharmacology."
@@ -72,6 +72,6 @@ export default function DeepSleepSupportPage() {
           GABA vs Serotonin
         </Link>
       </div>
-    </main>
+    </div>
   )
 }

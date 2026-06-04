@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import matter from 'gray-matter';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'blog', 'posts.json');
@@ -32,60 +31,194 @@ const normalizeExcerpt = (excerpt, fallback) => {
 };
 
 const getSlugFromFilename = fileName =>
-  fileName.replace(/\.(mdx)$/i, '').toLowerCase();
+  fileName.replace(/\.(md|mdx)$/i, '').toLowerCase();
 
 const validateSlug = slug => SLUG_PATTERN.test(slug);
 
+const stripQuotes = value => {
+  const trimmed = String(value || '').trim();
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1);
+  }
+  return trimmed;
+};
+
+const parseScalar = rawValue => {
+  const value = String(rawValue || '').trim();
+  if (value === 'true') return true;
+  if (value === 'false') return false;
+  if (value.startsWith('[') && value.endsWith(']')) {
+    const inner = value.slice(1, -1).trim();
+    if (!inner) return [];
+    return inner
+      .split(',')
+      .map(item => stripQuotes(item).trim())
+      .filter(Boolean);
+  }
+  return stripQuotes(value);
+};
+
+const appendContinuation = (data, key, line) => {
+  const continuation = stripQuotes(line.trim());
+  if (!continuation) return;
+
+  if (Array.isArray(data[key])) {
+    if (data[key].length === 0) {
+      data[key].push(continuation);
+    } else {
+      data[key][data[key].length - 1] = `${data[key][data[key].length - 1]} ${continuation}`.trim();
+    }
+    return;
+  }
+
+  data[key] = `${String(data[key] ?? '').trim()} ${continuation}`.trim();
+};
+
+const parseFrontmatterBlock = (block, fileName) => {
+  const data = {};
+  const lines = block.split(/\r?\n/);
+  let activeKey = null;
+
+  for (const line of lines) {
+    if (!line.trim()) continue;
+
+    const listMatch = line.match(/^\s*-\s+(.+)$/);
+    if (listMatch && activeKey) {
+      if (!Array.isArray(data[activeKey])) data[activeKey] = [];
+      data[activeKey].push(parseScalar(listMatch[1]));
+      continue;
+    }
+
+    const keyValueMatch = line.match(/^([A-Za-z0-9_-]+):(?:\s*(.*))?$/);
+    if (!keyValueMatch) {
+      if (/^\s+\S/.test(line) && activeKey) {
+        appendContinuation(data, activeKey, line);
+        continue;
+      }
+
+      throw new Error(`Unsupported frontmatter line in ${fileName}: ${line}`);
+    }
+
+    const [, key, rawValue = ''] = keyValueMatch;
+    activeKey = key;
+
+    if (rawValue.trim() === '') {
+      data[key] = [];
+    } else {
+      data[key] = parseScalar(rawValue);
+    }
+  }
+
+  return data;
+};
+
+const asStringArray = (value, fieldName, fileName) => {
+  if (value == null) return [];
+  if (Array.isArray(value)) return value.map(item => String(item).trim()).filter(Boolean);
+  if (typeof value === 'string') {
+    return value
+      .split(',')
+      .map(item => item.trim())
+      .filter(Boolean);
+  }
+
+  if (typeof value === 'object') {
+    return Object.values(value).map(item => String(item).trim()).filter(Boolean);
+  }
+
+  throw new Error(`${fieldName} must be a YAML list, object list, or comma-separated string in ${fileName}.`);
+};
+
+function parseMatter(source, fileName) {
+  try {
+    const normalized = String(source || '').replace(/^\uFEFF/, '');
+    const match = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+
+    if (!match) {
+      return {
+        data: {},
+        content: normalized,
+      };
+    }
+
+    return {
+      data: parseFrontmatterBlock(match[1], fileName),
+      content: normalized.slice(match[0].length),
+    };
+  } catch (error) {
+    throw new Error(`Failed to parse frontmatter in ${fileName}: ${error.message}`);
+  }
+}
+
 function buildPostFromFile(fileName) {
-  const filePath = path.join(BLOG_DIR, fileName);
-  const source = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(source);
+  try {
+    const filePath = path.join(BLOG_DIR, fileName);
+    const source = fs.readFileSync(filePath, 'utf8');
+    const { data, content } = parseMatter(source, fileName);
 
-  const rawSlug = String(data.slug || getSlugFromFilename(fileName)).trim().toLowerCase();
-  const title = String(data.title || '').trim();
-  const date = toIsoDate(data.date);
+    const rawSlug = String(data.slug || getSlugFromFilename(fileName)).trim().toLowerCase();
+    const title = String(data.title || '').trim();
+    const date = toIsoDate(data.date);
 
-  if (!validateSlug(rawSlug)) {
-    throw new Error(`Invalid slug "${rawSlug}" in ${fileName}.`);
+    if (!validateSlug(rawSlug)) {
+      throw new Error(`Invalid slug "${rawSlug}" in ${fileName}.`);
+    }
+    if (!title) {
+      throw new Error(`Missing required frontmatter field "title" in ${fileName}.`);
+    }
+    if (!date) {
+      throw new Error(`Missing or invalid required frontmatter field "date" in ${fileName}.`);
+    }
+
+    const excerpt = normalizeExcerpt(data.excerpt, data.summary || content);
+    const profileStatus = String(data.profile_status || '').trim().toLowerCase();
+    const hasProfileStatus = profileStatus.length > 0;
+    const hasSitemapIncluded = Object.prototype.hasOwnProperty.call(data, 'sitemap_included');
+
+    if (hasProfileStatus && !PROFILE_STATUS_PATTERN.test(profileStatus)) {
+      throw new Error(`Invalid profile_status "${profileStatus}" in ${fileName}.`);
+    }
+
+    if (hasSitemapIncluded && typeof data.sitemap_included !== 'boolean') {
+      throw new Error(`sitemap_included must be a boolean in ${fileName}.`);
+    }
+
+    const post = {
+      slug: rawSlug,
+      title,
+      excerpt,
+      date,
+      readingTime: estimateReadingTime(content),
+      content: content.trim(),
+      ai_assisted: Boolean(data.ai_assisted),
+      controlled_substance: Boolean(data.controlled_substance),
+    };
+
+    const tags = asStringArray(data.tags, 'tags', fileName);
+    if (tags.length > 0) {
+      post.tags = tags;
+    }
+
+    const categories = asStringArray(data.categories, 'categories', fileName);
+    if (categories.length > 0) {
+      post.categories = categories;
+    }
+
+    if (hasProfileStatus) {
+      post.profile_status = profileStatus;
+    }
+
+    if (hasSitemapIncluded) {
+      post.sitemap_included = data.sitemap_included;
+    }
+
+    return post;
+  } catch (error) {
+    throw new Error(`Failed to build blog post ${fileName}: ${error.message}`);
   }
-  if (!title) {
-    throw new Error(`Missing required frontmatter field "title" in ${fileName}.`);
-  }
-  if (!date) {
-    throw new Error(`Missing or invalid required frontmatter field "date" in ${fileName}.`);
-  }
-
-  const excerpt = normalizeExcerpt(data.excerpt, data.summary || content);
-  const profileStatus = String(data.profile_status || '').trim().toLowerCase();
-  const hasProfileStatus = profileStatus.length > 0;
-  const hasSitemapIncluded = Object.prototype.hasOwnProperty.call(data, 'sitemap_included');
-
-  if (hasProfileStatus && !PROFILE_STATUS_PATTERN.test(profileStatus)) {
-    throw new Error(`Invalid profile_status "${profileStatus}" in ${fileName}.`);
-  }
-
-  if (hasSitemapIncluded && typeof data.sitemap_included !== 'boolean') {
-    throw new Error(`sitemap_included must be a boolean in ${fileName}.`);
-  }
-
-  const post = {
-    slug: rawSlug,
-    title,
-    excerpt,
-    date,
-    readingTime: estimateReadingTime(content),
-    content: content.trim(),
-  };
-
-  if (hasProfileStatus) {
-    post.profile_status = profileStatus;
-  }
-
-  if (hasSitemapIncluded) {
-    post.sitemap_included = data.sitemap_included;
-  }
-
-  return post;
 }
 
 function writePosts(posts) {

@@ -162,7 +162,7 @@ export async function generateMetadata({
 
   if (!goal) {
     return {
-      title: 'Goal Guide | The Hippie Scientist',
+      title: 'Goal Guide',
       description: 'Decision-focused educational goal guide.',
     }
   }

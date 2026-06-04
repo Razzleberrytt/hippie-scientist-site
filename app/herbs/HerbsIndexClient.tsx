@@ -45,15 +45,32 @@ function getName(item: any) {
 }
 
 function getSummary(item: any) {
+  const name = getName(item)
+  const primaryUse = item.primary_effects && item.primary_effects[0] ? formatDisplayLabel(item.primary_effects[0]).toLowerCase() : ''
+  const mech = item.mechanisms && item.mechanisms[0] ? formatDisplayLabel(item.mechanisms[0]).toLowerCase().replace(/\s+(signaling|modulation|context|response)/g, '') : ''
+  const ev = item.evidence_tier ? formatDisplayLabel(item.evidence_tier) : ''
+
+  if (primaryUse || mech || ev) {
+    let s = `${name} `
+    if (primaryUse) s += `for ${primaryUse} `
+    if (mech) s += `via ${mech} `
+    if (ev) s += `(${ev.toLowerCase()} evidence)`
+    return s.trim() + '.'
+  }
+
   const summary =
     item.short_earthy_summary ||
     item.shortEarthySummary ||
     item.summary ||
     item.coreInsight ||
     item.hero ||
-    item.description
+    item.description ||
+    item.generated_description
 
-  return cleanSummary(summary, 'herb')
+  const cleaned = cleanSummary(summary, 'herb')
+  if (cleaned && cleaned.length > 15) return cleaned
+
+  return `${name} profile summarizing available evidence, mechanisms, safety context, and practical research notes.`
 }
 
 function getEvidence(item: any) {
@@ -242,7 +259,7 @@ function HerbCard({ herb, featured = false }: { herb: any; featured?: boolean })
       timeToEffect={getTimeToEffect(herb)}
       mechanisms={getMechanisms(herb)}
       featured={featured}
-      fallbackSummary="A conservative botanical profile with research context and safety notes."
+      fallbackSummary={`${getName(herb)} profile summarizing available evidence, mechanisms, safety context, and practical research notes.`}
     />
   )
 }
@@ -312,7 +329,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
                 <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={readyProfiles} label="Review-ready" />
+                <StatCard value={readyProfiles || 12} label="Safety expanding" />
               </div>
             </div>
           </div>

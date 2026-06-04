@@ -1,9 +1,15 @@
 ---
-title: "Kava Safety: Kavalactones, Extraction, and Liver Risk"
-date: "2024-05-18"
-slug: "kava-safety-kavalactones"
-excerpt: "Understanding how preparation methods influence the safety profile of kava and what current evidence says about hepatotoxicity."
-tags: ["kava", "safety", "liver"]
+title: 'Kava Safety: Kavalactones, Extraction, and Liver Risk'
+date: '2024-05-18'
+slug: kava-safety-kavalactones
+excerpt: >-
+  Understanding how preparation methods influence the safety profile of kava and
+  what current evidence says about hepatotoxicity.
+tags:
+  - kava
+  - safety
+  - liver
+ai_assisted: true
 ---
 
 Kava (*Piper methysticum*) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone chemistry, extraction methods, and individual risk factors intersect to create either a soothing cup or a potential liver burden.

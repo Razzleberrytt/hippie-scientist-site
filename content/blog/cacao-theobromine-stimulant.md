@@ -1,9 +1,15 @@
 ---
-title: "Cacao and Theobromine: A Gentle Stimulant Profile"
-date: "2024-05-15"
-slug: "cacao-theobromine-stimulant"
-excerpt: "Exploring how ceremonial cacao delivers uplift through theobromine, polyphenols, and mindful preparation."
-tags: ["cacao", "theobromine", "stimulants"]
+title: 'Cacao and Theobromine: A Gentle Stimulant Profile'
+date: '2024-05-15'
+slug: cacao-theobromine-stimulant
+excerpt: >-
+  Exploring how ceremonial cacao delivers uplift through theobromine,
+  polyphenols, and mindful preparation.
+tags:
+  - cacao
+  - theobromine
+  - stimulants
+ai_assisted: true
 ---
 
 Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart opening, and creative flow. Understanding cacao’s chemistry and preparation empowers you to harness its benefits without overdoing caffeine.

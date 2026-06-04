@@ -21,7 +21,7 @@ export function HerbDetailSkeleton() {
   return (
     <>
       <ShimmerStyles />
-      <main className='container mx-auto max-w-4xl px-4 py-8 text-white' aria-busy='true'>
+      <div className='container mx-auto max-w-4xl px-4 py-8 text-white' aria-busy='true' role="status">
         <article className='ds-card-lg space-y-8'>
           <header className='space-y-3'>
             <SkeletonBlock className='h-10 w-2/3' />
@@ -34,7 +34,7 @@ export function HerbDetailSkeleton() {
             <SkeletonBlock className='h-28 w-full rounded-xl' />
           </section>
         </article>
-      </main>
+      </div>
     </>
   )
 }
@@ -47,7 +47,7 @@ export function CompoundDetailSkeleton() {
   return (
     <>
       <ShimmerStyles />
-      <main className='container mx-auto max-w-4xl px-4 py-8 text-white' aria-busy='true'>
+      <div className='container mx-auto max-w-4xl px-4 py-8 text-white' aria-busy='true' role="status">
         <article className='ds-card-lg space-y-6'>
           <header className='space-y-4'>
             <div className='flex items-start justify-between gap-3'>
@@ -75,7 +75,7 @@ export function CompoundDetailSkeleton() {
             <SkeletonBlock className='h-10 w-5/6 rounded-xl' />
           </div>
         </article>
-      </main>
+      </div>
     </>
   )
 }

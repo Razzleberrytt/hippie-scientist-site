@@ -6,7 +6,7 @@ export default function ProtocolTemplate({
   records = [],
 }: any) {
   return (
-    <main className="container-page py-12 space-y-10">
+    <div className="container-page py-12 space-y-10">
       <section className="hero-shell rounded-[2rem] p-8 shadow-card">
         <div className="max-w-4xl space-y-5">
           <p className="eyebrow-label">Protocol System</p>
@@ -51,6 +51,6 @@ export default function ProtocolTemplate({
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

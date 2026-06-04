@@ -14,7 +14,7 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
     .flatMap(set => set.products)
 
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Ashwagandha vs Rhodiola for Stress"
         description="Evidence-informed comparison of ashwagandha and rhodiola for stress patterns, fatigue, calm support, safety, and supplement selection."
@@ -171,6 +171,6 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
         <Link href="/guides/stress-regulation" className="chip-readable">Stress Regulation</Link>
         <Link href="/education/what-are-adaptogens" className="chip-readable">Adaptogens</Link>
       </div>
-    </main>
+    </div>
   )
 }

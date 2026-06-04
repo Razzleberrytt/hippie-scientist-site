@@ -6,7 +6,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Cognition | The Hippie Scientist',
+  title: 'Best Supplements for Cognition',
   description: 'Science-backed supplements for cognition. Dosage, effects, and safety.',
   alternates: { canonical: '/guides/best-nootropics-for-focus' },
   robots: {

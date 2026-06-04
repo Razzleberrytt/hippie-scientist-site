@@ -13,7 +13,7 @@ export default async function BestPage({ params }: any) {
   const ranked = await getBestForRankings(slug)
 
   return (
-    <main className="container-page py-12 space-y-8">
+    <div className="container-page py-12 space-y-8">
       <section className="hero-shell rounded-[2rem] p-8 shadow-card">
         <div className="max-w-4xl space-y-5">
           <p className="eyebrow-label">Best-For Rankings</p>
@@ -49,6 +49,6 @@ export default async function BestPage({ params }: any) {
           </article>
         ))}
       </div>
-    </main>
+    </div>
   )
 }

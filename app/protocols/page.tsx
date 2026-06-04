@@ -30,7 +30,7 @@ const protocols = [
 
 export default function ProtocolsIndexPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Protocols"
         description="Evidence-informed protocol pages for stress, sleep, focus, and recovery systems."
@@ -49,6 +49,6 @@ export default function ProtocolsIndexPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

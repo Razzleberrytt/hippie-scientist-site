@@ -4,7 +4,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 export default function RhodiolaVsAshwagandhaPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Rhodiola vs Ashwagandha"
         description="Educational comparison of rhodiola and ashwagandha, adaptogenic systems, stress-response biology, and recovery-oriented neuropharmacology."
@@ -79,6 +79,6 @@ export default function RhodiolaVsAshwagandhaPage() {
           Burnout Recovery
         </Link>
       </div>
-    </main>
+    </div>
   )
 }

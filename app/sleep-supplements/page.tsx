@@ -6,7 +6,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Sleep | The Hippie Scientist',
+  title: 'Best Supplements for Sleep',
   description: 'Science-backed supplements for sleep. Dosage, effects, and safety.',
   alternates: { canonical: '/guides/best-supplements-for-sleep' },
   robots: {

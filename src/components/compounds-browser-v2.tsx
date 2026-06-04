@@ -66,7 +66,7 @@ export default function CompoundsBrowserV2({ items }: Props) {
   }, [safeItems, query, activeFilter])
 
   return (
-    <main className='mx-auto w-full max-w-7xl px-4 py-4 sm:px-5 sm:py-6'>
+    <div className='mx-auto w-full max-w-7xl px-4 py-4 sm:px-5 sm:py-6'>
       <section className='relative overflow-hidden rounded-3xl border border-white/45 bg-white/60 p-5 shadow-[0_10px_40px_rgba(16,185,129,0.10)] backdrop-blur-xl sm:p-8'>
         <div className='pointer-events-none absolute -right-12 -top-10 h-40 w-40 rounded-full bg-emerald-300/35 blur-3xl' />
         <p className='text-[11px] font-black uppercase tracking-[0.24em] text-emerald-700'>Compounds v2.0</p>
@@ -134,6 +134,6 @@ export default function CompoundsBrowserV2({ items }: Props) {
         <p className='mt-1 text-sm text-slate-700'>Jump to goals to see compound options ranked by intent and evidence quality.</p>
         <Link href='/goals' className='mt-3 inline-flex rounded-xl bg-emerald-500 px-4 py-2.5 text-sm font-bold text-white shadow-[0_8px_24px_rgba(16,185,129,0.35)]'>Explore goal guides</Link>
       </section>
-    </main>
+    </div>
   )
 }

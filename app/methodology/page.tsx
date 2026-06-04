@@ -4,7 +4,7 @@ import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerB
 import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 export const metadata: Metadata = {
-  title: 'Methodology | The Hippie Scientist',
+  title: 'Methodology',
   description:
     'How The Hippie Scientist weighs human evidence, safety, practical usefulness, and uncertainty for supplement decision support.',
   alternates: { canonical: '/methodology' },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function MethodologyPage() {
   return (
-    <main className='container-page py-10 space-y-8'>
+    <div className='container-page py-10 space-y-8'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Methodology</p>
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>How The Hippie Scientist Ranks Supplements</h1>
@@ -61,6 +61,6 @@ export default function MethodologyPage() {
           <Link href='/free-guide' className='text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

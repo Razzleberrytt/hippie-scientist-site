@@ -1,4 +1,4 @@
-import { cache } from 'react'
+import { cache } from './react-cache'
 import { getSearchSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeMapEntries } from '@/lib/runtime-related-maps'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'

@@ -1,6 +1,6 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { cache } from 'react'
+import { cache } from './react-cache'
 
 const summaryDir = path.join(process.cwd(), 'public', 'data', 'summary-indexes')
 

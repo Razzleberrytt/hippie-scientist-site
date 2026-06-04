@@ -12,6 +12,7 @@ import {
   truncateText,
   type BlogPost,
 } from '@/lib/blog-index'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
@@ -31,21 +32,12 @@ export async function generateMetadata({ params }: BlogStyleRouteProps): Promise
 
   if (!group) return {}
 
-  return {
+  return buildPageMetadata({
     title: `${group.title} | Research Notes`,
     description: group.description,
-    alternates: { canonical: group.href },
-    openGraph: {
-      title: `${group.title} | Research Notes`,
-      description: group.description,
-      url: group.href,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${group.title} | Research Notes`,
-      description: group.description,
-    },
-  }
+    path: group.href || `/blog/style/${style}`,
+    openGraphType: 'website',
+  })
 }
 
 export default async function BlogStylePage({ params }: BlogStyleRouteProps) {

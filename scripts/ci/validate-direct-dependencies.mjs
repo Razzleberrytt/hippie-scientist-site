@@ -4,7 +4,7 @@ import path from 'node:path'
 import { builtinModules } from 'node:module'
 
 const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`)])
-const optionalProbes = new Set(['exceljs'])
+const optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js'])
 const sourceRoots = ['app', 'components', 'src', 'lib', 'scripts', 'data', 'config']
 const sourceFiles = ['next.config.mjs', 'tailwind.config.ts', 'postcss.config.js']
 const ignored = new Set(['node_modules', '.next', 'out', 'dist', 'coverage', '.git'])
@@ -125,6 +125,37 @@ const unresolved = parseUndeclaredDependencies({ root, declared })
 
 if (unresolved.length) {
   console.error('Undeclared direct dependencies:\n' + unresolved.join('\n'))
+  process.exit(1)
+}
+
+// openai guard/check: must not be imported from client-facing code (app/, components/) to prevent prod bundle bloat. Only scripts/agent.
+const openaiClientUsages = []
+const clientPaths = ['app', 'components']
+const openaiImportRe = /from ['"]openai['"]|require\(['"]openai['"]/
+for (const base of clientPaths) {
+  const basePath = path.join(root, base)
+  if (!fs.existsSync(basePath)) continue
+  const walk = (p) => {
+    let ents
+    try { ents = fs.readdirSync(p, { withFileTypes: true }) } catch { return }
+    for (const e of ents) {
+      const fp = path.join(p, e.name)
+      const rel = toPosix(path.relative(root, fp))
+      if (shouldIgnorePath(rel)) continue
+      if (e.isDirectory()) {
+        walk(fp)
+      } else if (sourceExts.has(path.extname(e.name))) {
+        try {
+          const c = fs.readFileSync(fp, 'utf8')
+          if (openaiImportRe.test(c)) openaiClientUsages.push(rel)
+        } catch { /* ignore */ }
+      }
+    }
+  }
+  walk(basePath)
+}
+if (openaiClientUsages.length) {
+  console.error('openai imported from client code (forbidden; move usage to scripts/ or agent/ only):\n' + openaiClientUsages.join('\n'))
   process.exit(1)
 }
 

@@ -15,7 +15,7 @@ const profiles = [
 
 export default function EntheogensPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Entheogens"
         description="Educational exploration of entheogenic ethnobotany, psychoactive mechanisms, ceremonial traditions, and consciousness-oriented neuropharmacology."
@@ -60,6 +60,6 @@ export default function EntheogensPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

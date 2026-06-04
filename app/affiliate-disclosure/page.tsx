@@ -4,7 +4,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 export const metadata: Metadata = {
-  title: 'Affiliate Disclosure | The Hippie Scientist',
+  title: 'Affiliate Disclosure',
   description:
     'How The Hippie Scientist uses affiliate links while keeping editorial independence, safety context, and evidence uncertainty visible.',
   alternates: { canonical: '/affiliate-disclosure' },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AffiliateDisclosurePage() {
   return (
-    <main className='container-page py-10 space-y-8'>
+    <div className='container-page py-10 space-y-8'>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Transparency</p>
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Affiliate Disclosure</h1>
@@ -43,6 +43,6 @@ export default function AffiliateDisclosurePage() {
           <Link href='/about' className='text-sm font-medium text-emerald-700 hover:underline'>About</Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

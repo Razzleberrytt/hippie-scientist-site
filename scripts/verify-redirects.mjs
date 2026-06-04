@@ -66,6 +66,8 @@ const requiredRedirects = [
   '/compounds/elderberry /herbs/elderberry 301',
   '/compounds/resveratrol /herbs/resveratrol 301',
   '/compounds/trans-resveratrol /herbs/resveratrol 301',
+  '/safety /safety-checker 301',
+  '/safety/ /safety-checker 301',
 ]
 
 console.log(`[verify-redirects] ${staticDir}/_redirects present with ${lines.length} active rules`)

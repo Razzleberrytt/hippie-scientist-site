@@ -1,0 +1,337 @@
+[
+  {
+    "slug": "ashwagandha",
+    "name": "Ashwagandha (Withania somnifera)",
+    "summary": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "effects": [
+      "sleep",
+      "stress"
+    ],
+    "primary_effects": [
+      "sleep"
+    ],
+    "mechanisms": [
+      "Inflammatory Signaling Modulation",
+      "Neurotransmitter Modulation",
+      "Hormonal Signaling Context",
+      "Stress Response Modulation"
+    ],
+    "raw_mechanisms": [
+      "Inflammatory Signaling Modulation",
+      "Neurotransmitter Modulation",
+      "Hormonal Signaling Context",
+      "Stress Response Modulation"
+    ],
+    "canonical_mechanisms": [
+      "Anti-inflammatory",
+      "Hormonal signaling context",
+      "HPA-axis modulation"
+    ],
+    "mechanism_categories": [
+      "core",
+      "stress"
+    ],
+    "mechanism_classes": [
+      "Physiological effect",
+      "Neuroendocrine modulation"
+    ],
+    "mechanism_target_systems": [
+      "immune/inflammatory",
+      "endocrine",
+      "stress/neuroendocrine"
+    ],
+    "mechanism_normalization_status": "partially_mapped",
+    "unmapped_mechanisms": [
+      "Neurotransmitter Modulation"
+    ],
+    "evidence_grade": "a",
+    "evidence_tier": "Strong Human Evidence",
+    "contraindications": [
+      "Hyperthyroidism",
+      "sedatives"
+    ],
+    "interactions": [
+      "Hyperthyroidism",
+      "sedatives"
+    ],
+    "side_effects": [],
+    "dosage": "300-600 mg extract (KSM-66 or equivalent)",
+    "typical_dosage": "300-600 mg extract (KSM-66 or equivalent)",
+    "forms": [],
+    "available_forms": [],
+    "conditions": [],
+    "tags": [],
+    "keywords": [],
+    "affiliate_ready": true,
+    "affiliate_url": "https://www.amazon.com/s?k=organic+withania-somnifera&tag=razzleberry02-20",
+    "affiliate_label": "Check sourcing options",
+    "affiliate_query": "Ashwagandha standardized extract capsule supplement",
+    "default_product_type": "",
+    "amazon_affiliate_url": "https://www.amazon.com/s?k=organic+ashwagandha+supplement+third+party+tested",
+    "iherb_affiliate_url": "",
+    "buying_criteria": [
+      "clear labeled dose",
+      "withanolides disclosed",
+      "third-party testing",
+      "avoid if listed contraindications apply"
+    ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
+    "profile_status": "top50_authority_patched",
+    "runtime_export_decision": "limited",
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "eligible",
+    "indexability_score": {
+      "status": "PUBLISH",
+      "score": 100,
+      "robots": "index,follow",
+      "sitemap_included": true,
+      "reasons": [
+        "effect-present",
+        "evidence-signal",
+        "export-decision:limited",
+        "identity-present",
+        "mechanism-context",
+        "profile-status:top50_authority_patched",
+        "safety-context",
+        "summary-depth",
+        "summary-quality-missing"
+      ]
+    },
+    "indexability_reasons": [],
+    "meta_title": "",
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
+  },
+  {
+    "slug": "lions-mane",
+    "name": "Lion’s Mane",
+    "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+    "description": "Lion’s Mane is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Neurobiology. Current workbook signals support mechanistic context around Neuroprotective Activity, not treatment claims.",
+    "effects": [
+      "cognitive",
+      "neuroprotective",
+      "mood"
+    ],
+    "primary_effects": [
+      "cognitive",
+      "neuroprotective",
+      "mood"
+    ],
+    "mechanisms": [
+      "Neuroprotective Activity"
+    ],
+    "raw_mechanisms": [
+      "Neuroprotective Activity"
+    ],
+    "canonical_mechanisms": [
+      "Neuroprotective activity"
+    ],
+    "mechanism_categories": [
+      "core"
+    ],
+    "mechanism_classes": [
+      "Physiological effect"
+    ],
+    "mechanism_target_systems": [
+      "nervous system"
+    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
+    "evidence_grade": "insufficient",
+    "evidence_tier": "Mechanistic Evidence",
+    "contraindications": [],
+    "interactions": [],
+    "side_effects": [],
+    "dosage": "",
+    "typical_dosage": "",
+    "forms": [],
+    "available_forms": [],
+    "conditions": [],
+    "tags": [],
+    "keywords": [],
+    "affiliate_ready": true,
+    "affiliate_url": "https://www.amazon.com/s?k=organic+lions-mane&tag=razzleberry02-20",
+    "affiliate_label": "Check sourcing options",
+    "affiliate_query": "",
+    "default_product_type": "",
+    "amazon_affiliate_url": "https://www.amazon.com/s?k=organic+lions-mane+mushroom+extract+powder",
+    "iherb_affiliate_url": "",
+    "buying_criteria": [],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
+    "profile_status": "minimal",
+    "runtime_export_decision": "limited",
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "eligible",
+    "indexability_score": {
+      "status": "NEEDS_REVIEW",
+      "score": 45,
+      "robots": "noindex,follow",
+      "sitemap_included": false,
+      "reasons": [
+        "effect-coverage",
+        "evidence-signal",
+        "export-decision:limited",
+        "identity-present",
+        "mechanism-context",
+        "non-publishable-profile-status",
+        "profile-status:minimal",
+        "safety-context-missing",
+        "summary-depth",
+        "summary-quality-missing"
+      ]
+    },
+    "indexability_reasons": [],
+    "meta_title": "",
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
+  },
+  {
+    "slug": "turmeric",
+    "name": "Turmeric (Curcuma longa)",
+    "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+    "description": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+    "effects": [
+      "inflammation",
+      "joint_support",
+      "antioxidant_support"
+    ],
+    "primary_effects": [
+      "research-pending"
+    ],
+    "mechanisms": [
+      "Inflammatory Signaling Modulation",
+      "Oxidative Stress Modulation",
+      "Metabolic Regulation",
+      "Stress Response Modulation",
+      "NF-kB Modulation",
+      "Nrf2 Activation"
+    ],
+    "raw_mechanisms": [
+      "Inflammatory Signaling Modulation",
+      "Oxidative Stress Modulation",
+      "Metabolic Regulation",
+      "Stress Response Modulation",
+      "NF-kB Modulation",
+      "Nrf2 Activation"
+    ],
+    "canonical_mechanisms": [
+      "Anti-inflammatory",
+      "Antioxidant",
+      "Metabolic regulation",
+      "HPA-axis modulation",
+      "NF-kB inhibition",
+      "Nrf2 activation"
+    ],
+    "mechanism_categories": [
+      "core",
+      "stress",
+      "inflammatory",
+      "redox"
+    ],
+    "mechanism_classes": [
+      "Physiological effect",
+      "Neuroendocrine modulation",
+      "Signaling pathway modulation"
+    ],
+    "mechanism_target_systems": [
+      "immune/inflammatory",
+      "redox/mitochondrial",
+      "metabolic",
+      "stress/neuroendocrine",
+      "redox/cellular-defense"
+    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
+    "evidence_grade": "b+",
+    "evidence_tier": "Strong Human Evidence",
+    "contraindications": [
+      "Anticoagulants",
+      "gallstones"
+    ],
+    "interactions": [
+      "Anticoagulants",
+      "gallstones"
+    ],
+    "side_effects": [],
+    "dosage": "500-2000 mg curcuminoids daily",
+    "typical_dosage": "500-2000 mg curcuminoids daily",
+    "forms": [],
+    "available_forms": [],
+    "conditions": [],
+    "tags": [],
+    "keywords": [],
+    "affiliate_ready": false,
+    "affiliate_url": "https://www.amazon.com/s?k=organic+turmeric&tag=razzleberry02-20",
+    "affiliate_label": "Check sourcing options",
+    "affiliate_query": "curcumin 95 curcuminoids piperine supplement",
+    "default_product_type": "",
+    "amazon_affiliate_url": "",
+    "iherb_affiliate_url": "",
+    "buying_criteria": [
+      "Look for 95% curcuminoids plus piperine/phytosome",
+      "avoid plain turmeric powder marketed as high-potency curcumin",
+      "check anticoagulant cautions."
+    ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
+    "profile_status": "near_complete",
+    "runtime_export_decision": "limited",
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "eligible",
+    "indexability_score": {
+      "status": "NEEDS_REVIEW",
+      "score": 45,
+      "robots": "noindex,follow",
+      "sitemap_included": false,
+      "reasons": [
+        "effect-present",
+        "evidence-signal",
+        "export-decision:limited",
+        "identity-present",
+        "mechanism-context",
+        "profile-status:near_complete",
+        "research-pending-effect",
+        "safety-context",
+        "summary-depth",
+        "summary-quality-missing"
+      ]
+    },
+    "indexability_reasons": [],
+    "meta_title": "",
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
+  }
+]

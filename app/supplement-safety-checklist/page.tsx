@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function SupplementSafetyChecklistPage() {
   return (
-    <main className='mx-auto max-w-5xl space-y-8 px-4 py-10 sm:px-6 lg:px-8'>
+    <div className='mx-auto max-w-5xl space-y-8 px-4 py-10 sm:px-6 lg:px-8'>
       <section className='rounded-[2rem] border-2 border-emerald-700/25 bg-gradient-to-br from-emerald-50/80 to-white p-6 shadow-sm sm:p-10'>
         <p className='text-xs font-bold uppercase tracking-[0.18em] text-emerald-800'>Free · No spam funnel</p>
         <h1 className='mt-3 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
@@ -71,6 +71,6 @@ export default function SupplementSafetyChecklistPage() {
         description='The newsletter archive collects short safety and sourcing updates.'
         location='supplement-safety-checklist'
       />
-    </main>
+    </div>
   )
 }

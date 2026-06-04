@@ -1,9 +1,15 @@
 ---
-title: "Start Here: Building a Simple Nightly Herb Blend"
-date: "2024-05-13"
-slug: "nightly-blend-guide"
-excerpt: "A step-by-step framework for crafting a calming bedtime herbal blend with adaptogens, nervines, and aromatics."
-tags: ["sleep", "herbal blends", "rituals"]
+title: 'Start Here: Building a Simple Nightly Herb Blend'
+date: '2024-05-13'
+slug: nightly-blend-guide
+excerpt: >-
+  A step-by-step framework for crafting a calming bedtime herbal blend with
+  adaptogens, nervines, and aromatics.
+tags:
+  - sleep
+  - herbal blends
+  - rituals
+ai_assisted: true
 ---
 
 Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitution, schedule, and sleep goals. This guide walks you through building a calming infusion in five steps, with tips for adjusting ingredients over time.

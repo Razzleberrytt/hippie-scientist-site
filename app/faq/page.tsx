@@ -1,14 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'FAQ',
   description:
-    'Frequently asked questions about The Hippie Scientist and how to use the site.',
-  alternates: {
-    canonical: '/faq',
-  },
-}
+    'Frequently asked questions about The Hippie Scientist and how to use the site. Evidence-based answers on herbs, compounds, and research methodology.',
+  path: '/faq',
+})
 
 const faqs = [
   {
@@ -53,6 +52,15 @@ const faqs = [
   },
 ]
 
+const faqLd = faqPageJsonLd({
+  pagePath: '/faq',
+  questions: faqs.map(f => ({ question: f.question, answer: f.answer })),
+})
+const breadcrumbLd = breadcrumbJsonLd([
+  { name: 'Home', url: SITE_URL },
+  { name: 'FAQ', url: `${SITE_URL}/faq/` },
+])
+
 export default function FaqPage() {
   return (
     <div className='space-y-8 max-w-5xl mx-auto px-4 py-8'>
@@ -62,6 +70,10 @@ export default function FaqPage() {
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>
           Frequently asked questions
         </h1>
+
+        {/* Reusable Schema.org JSON-LD for FAQPage + BreadcrumbList (static export safe) */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
         <p className='mt-4 max-w-3xl text-base leading-7 text-ink/80 sm:text-lg'>
           Quick answers about what The Hippie Scientist is, how to use it, and

@@ -13,7 +13,7 @@ const hubs = getEcosystemHubs()
 
 export default function EcosystemsIndexPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Ecosystems"
         description="Ecosystem hubs for mechanism continuity, pathway context, and practical exploration order."
@@ -34,6 +34,6 @@ export default function EcosystemsIndexPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

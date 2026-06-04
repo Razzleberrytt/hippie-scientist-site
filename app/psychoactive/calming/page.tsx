@@ -23,7 +23,7 @@ const profiles = [
 
 export default function CalmingPsychoactivesPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Calming Psychoactives"
         description="Educational exploration of calming psychoactive herbs, inhibitory neuropharmacology, stress regulation, and GABAergic systems."
@@ -67,6 +67,6 @@ export default function CalmingPsychoactivesPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

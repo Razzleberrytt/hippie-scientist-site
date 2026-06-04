@@ -586,7 +586,7 @@ export default function SearchClient() {
   }
 
   return (
-    <main className="min-h-screen bg-background text-ink">
+    <div className="min-h-screen bg-background text-ink">
       <section className="container-page py-6 sm:py-10 lg:py-14">
         <div className="space-y-5 sm:space-y-7 lg:space-y-9">
           <section className="hero-shell rounded-[1.7rem] border border-brand-900/10 p-4 shadow-card sm:rounded-[2rem] sm:p-7 lg:p-9" aria-labelledby="search-heading">
@@ -821,6 +821,6 @@ export default function SearchClient() {
           </section>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

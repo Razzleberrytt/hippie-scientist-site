@@ -5,12 +5,13 @@ import { getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { HERBS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import HerbsIndexClient from './HerbsIndexClient'
+import { buildPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Herb Profiles & Research Library',
   description: 'Browse profiles for 100+ herbs — mechanisms, safety notes, active compounds, and research context in plain language.',
-  alternates: { canonical: '/herbs' },
-}
+  path: '/herbs',
+})
 
 export default async function HerbsPage() {
   const herbs = (await getHerbSummaryIndex()).filter((h: any) => getRuntimeVisibility(h).canRender)

@@ -16,7 +16,7 @@ export default function Page() {
   ]
 
   return (
-    <main className="container-page py-10 space-y-8">
+    <div className="container-page py-10 space-y-8">
       <AuthorityBreadcrumbs items={breadcrumbs} />
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
@@ -290,6 +290,6 @@ export default function Page() {
         <Link href="/guides" className="text-sm font-medium text-emerald-700 hover:underline">Back to guides →</Link>
         <Link href="/compounds" className="text-sm font-medium text-emerald-700 hover:underline">View kratom compound profile →</Link>
       </div>
-    </main>
+    </div>
   )
 }

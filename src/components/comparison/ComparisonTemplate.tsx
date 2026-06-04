@@ -7,7 +7,7 @@ export default function ComparisonTemplate({
   summary,
 }: any) {
   return (
-    <main className="container-page py-12 space-y-10">
+    <div className="container-page py-12 space-y-10">
       <section className="hero-shell rounded-[2rem] p-8 shadow-card">
         <div className="max-w-4xl space-y-5">
           <p className="eyebrow-label">Comparison Guide</p>
@@ -49,6 +49,6 @@ export default function ComparisonTemplate({
           </article>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

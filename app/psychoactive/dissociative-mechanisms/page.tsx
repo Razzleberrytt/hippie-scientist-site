@@ -19,7 +19,7 @@ const systems = [
 
 export default function DissociativeMechanismsPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Dissociative Mechanisms"
         description="Educational exploration of dissociative neuropharmacology, glutamatergic signaling, altered-state mechanisms, and psychoactive ethnobotany."
@@ -64,6 +64,6 @@ export default function DissociativeMechanismsPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }
