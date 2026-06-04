@@ -55,17 +55,7 @@ const asStringArray = (value, fieldName, fileName) => {
 
 function parseMatter(source, fileName) {
   try {
-    const parsed = matter(source, {
-      engines: {
-        yaml: sourceText => {
-          try {
-            return matter.engines.yaml(sourceText);
-          } catch (error) {
-            throw new Error(`YAML frontmatter error in ${fileName}: ${error.message}`);
-          }
-        },
-      },
-    });
+    const parsed = matter(source);
     return {
       data: parsed.data && typeof parsed.data === 'object' ? parsed.data : {},
       content: String(parsed.content || ''),
