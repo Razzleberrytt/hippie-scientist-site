@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import matter from 'gray-matter';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'blog', 'posts.json');
@@ -36,6 +35,65 @@ const getSlugFromFilename = fileName =>
 
 const validateSlug = slug => SLUG_PATTERN.test(slug);
 
+const stripQuotes = value => {
+  const trimmed = String(value || '').trim();
+  if (
+    (trimmed.startsWith('"') && trimmed.endsWith('"')) ||
+    (trimmed.startsWith("'") && trimmed.endsWith("'"))
+  ) {
+    return trimmed.slice(1, -1);
+  }
+  return trimmed;
+};
+
+const parseScalar = rawValue => {
+  const value = String(rawValue || '').trim();
+  if (value === 'true') return true;
+  if (value === 'false') return false;
+  if (value.startsWith('[') && value.endsWith(']')) {
+    const inner = value.slice(1, -1).trim();
+    if (!inner) return [];
+    return inner
+      .split(',')
+      .map(item => stripQuotes(item).trim())
+      .filter(Boolean);
+  }
+  return stripQuotes(value);
+};
+
+const parseFrontmatterBlock = (block, fileName) => {
+  const data = {};
+  const lines = block.split(/\r?\n/);
+  let activeKey = null;
+
+  for (const line of lines) {
+    if (!line.trim()) continue;
+
+    const listMatch = line.match(/^\s*-\s+(.+)$/);
+    if (listMatch && activeKey) {
+      if (!Array.isArray(data[activeKey])) data[activeKey] = [];
+      data[activeKey].push(parseScalar(listMatch[1]));
+      continue;
+    }
+
+    const keyValueMatch = line.match(/^([A-Za-z0-9_-]+):(?:\s*(.*))?$/);
+    if (!keyValueMatch) {
+      throw new Error(`Unsupported frontmatter line in ${fileName}: ${line}`);
+    }
+
+    const [, key, rawValue = ''] = keyValueMatch;
+    activeKey = key;
+
+    if (rawValue.trim() === '') {
+      data[key] = [];
+    } else {
+      data[key] = parseScalar(rawValue);
+    }
+  }
+
+  return data;
+};
+
 const asStringArray = (value, fieldName, fileName) => {
   if (value == null) return [];
   if (Array.isArray(value)) return value.map(item => String(item).trim()).filter(Boolean);
@@ -55,10 +113,19 @@ const asStringArray = (value, fieldName, fileName) => {
 
 function parseMatter(source, fileName) {
   try {
-    const parsed = matter(source);
+    const normalized = String(source || '').replace(/^\uFEFF/, '');
+    const match = normalized.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+
+    if (!match) {
+      return {
+        data: {},
+        content: normalized,
+      };
+    }
+
     return {
-      data: parsed.data && typeof parsed.data === 'object' ? parsed.data : {},
-      content: String(parsed.content || ''),
+      data: parseFrontmatterBlock(match[1], fileName),
+      content: normalized.slice(match[0].length),
     };
   } catch (error) {
     throw new Error(`Failed to parse frontmatter in ${fileName}: ${error.message}`);
