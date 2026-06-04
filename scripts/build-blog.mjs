@@ -46,12 +46,26 @@ const asStringArray = (value, fieldName, fileName) => {
       .filter(Boolean);
   }
 
-  throw new Error(`${fieldName} must be a YAML list or comma-separated string in ${fileName}.`);
+  if (typeof value === 'object') {
+    return Object.values(value).map(item => String(item).trim()).filter(Boolean);
+  }
+
+  throw new Error(`${fieldName} must be a YAML list, object list, or comma-separated string in ${fileName}.`);
 };
 
 function parseMatter(source, fileName) {
   try {
-    const parsed = matter(source);
+    const parsed = matter(source, {
+      engines: {
+        yaml: sourceText => {
+          try {
+            return matter.engines.yaml(sourceText);
+          } catch (error) {
+            throw new Error(`YAML frontmatter error in ${fileName}: ${error.message}`);
+          }
+        },
+      },
+    });
     return {
       data: parsed.data && typeof parsed.data === 'object' ? parsed.data : {},
       content: String(parsed.content || ''),
@@ -62,67 +76,71 @@ function parseMatter(source, fileName) {
 }
 
 function buildPostFromFile(fileName) {
-  const filePath = path.join(BLOG_DIR, fileName);
-  const source = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = parseMatter(source, fileName);
+  try {
+    const filePath = path.join(BLOG_DIR, fileName);
+    const source = fs.readFileSync(filePath, 'utf8');
+    const { data, content } = parseMatter(source, fileName);
 
-  const rawSlug = String(data.slug || getSlugFromFilename(fileName)).trim().toLowerCase();
-  const title = String(data.title || '').trim();
-  const date = toIsoDate(data.date);
+    const rawSlug = String(data.slug || getSlugFromFilename(fileName)).trim().toLowerCase();
+    const title = String(data.title || '').trim();
+    const date = toIsoDate(data.date);
 
-  if (!validateSlug(rawSlug)) {
-    throw new Error(`Invalid slug "${rawSlug}" in ${fileName}.`);
+    if (!validateSlug(rawSlug)) {
+      throw new Error(`Invalid slug "${rawSlug}" in ${fileName}.`);
+    }
+    if (!title) {
+      throw new Error(`Missing required frontmatter field "title" in ${fileName}.`);
+    }
+    if (!date) {
+      throw new Error(`Missing or invalid required frontmatter field "date" in ${fileName}.`);
+    }
+
+    const excerpt = normalizeExcerpt(data.excerpt, data.summary || content);
+    const profileStatus = String(data.profile_status || '').trim().toLowerCase();
+    const hasProfileStatus = profileStatus.length > 0;
+    const hasSitemapIncluded = Object.prototype.hasOwnProperty.call(data, 'sitemap_included');
+
+    if (hasProfileStatus && !PROFILE_STATUS_PATTERN.test(profileStatus)) {
+      throw new Error(`Invalid profile_status "${profileStatus}" in ${fileName}.`);
+    }
+
+    if (hasSitemapIncluded && typeof data.sitemap_included !== 'boolean') {
+      throw new Error(`sitemap_included must be a boolean in ${fileName}.`);
+    }
+
+    const post = {
+      slug: rawSlug,
+      title,
+      excerpt,
+      date,
+      readingTime: estimateReadingTime(content),
+      content: content.trim(),
+      ai_assisted: Boolean(data.ai_assisted),
+      controlled_substance: Boolean(data.controlled_substance),
+    };
+
+    const tags = asStringArray(data.tags, 'tags', fileName);
+    if (tags.length > 0) {
+      post.tags = tags;
+    }
+
+    const categories = asStringArray(data.categories, 'categories', fileName);
+    if (categories.length > 0) {
+      post.categories = categories;
+    }
+
+    if (hasProfileStatus) {
+      post.profile_status = profileStatus;
+    }
+
+    if (hasSitemapIncluded) {
+      post.sitemap_included = data.sitemap_included;
+    }
+
+    return post;
+  } catch (error) {
+    throw new Error(`Failed to build blog post ${fileName}: ${error.message}`);
   }
-  if (!title) {
-    throw new Error(`Missing required frontmatter field "title" in ${fileName}.`);
-  }
-  if (!date) {
-    throw new Error(`Missing or invalid required frontmatter field "date" in ${fileName}.`);
-  }
-
-  const excerpt = normalizeExcerpt(data.excerpt, data.summary || content);
-  const profileStatus = String(data.profile_status || '').trim().toLowerCase();
-  const hasProfileStatus = profileStatus.length > 0;
-  const hasSitemapIncluded = Object.prototype.hasOwnProperty.call(data, 'sitemap_included');
-
-  if (hasProfileStatus && !PROFILE_STATUS_PATTERN.test(profileStatus)) {
-    throw new Error(`Invalid profile_status "${profileStatus}" in ${fileName}.`);
-  }
-
-  if (hasSitemapIncluded && typeof data.sitemap_included !== 'boolean') {
-    throw new Error(`sitemap_included must be a boolean in ${fileName}.`);
-  }
-
-  const post = {
-    slug: rawSlug,
-    title,
-    excerpt,
-    date,
-    readingTime: estimateReadingTime(content),
-    content: content.trim(),
-    ai_assisted: Boolean(data.ai_assisted),
-    controlled_substance: Boolean(data.controlled_substance),
-  };
-
-  const tags = asStringArray(data.tags, 'tags', fileName);
-  if (tags.length > 0) {
-    post.tags = tags;
-  }
-
-  const categories = asStringArray(data.categories, 'categories', fileName);
-  if (categories.length > 0) {
-    post.categories = categories;
-  }
-
-  if (hasProfileStatus) {
-    post.profile_status = profileStatus;
-  }
-
-  if (hasSitemapIncluded) {
-    post.sitemap_included = data.sitemap_included;
-  }
-
-  return post;
 }
 
 function writePosts(posts) {
