@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: EcosystemRouteProps) {
   }
 
   return {
-    title: `${hub.title} | The Hippie Scientist`,
+    title: hub.title,
     description: hub.description,
     robots: { index: false, follow: true },
   }

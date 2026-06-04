@@ -46,7 +46,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-sleep',
     goalSlug: 'sleep',
-    title: 'Best Supplements for Sleep (Actually Worth Comparing) | The Hippie Scientist',
+    title: 'Best Supplements for Sleep (Actually Worth Comparing)',
     h1: 'Best Supplements for Sleep',
     intro: 'Compare sleep supplements by evidence, timing, next-day grogginess risk, and safety context before buying anything.',
     searchIntent: 'sleep supplements, nighttime stack, sleep onset support',
@@ -55,7 +55,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-stress',
     goalSlug: 'stress',
-    title: 'Best Supplements for Stress (Calm Without Hype) | The Hippie Scientist',
+    title: 'Best Supplements for Stress (Calm Without Hype)',
     h1: 'Best Supplements for Stress',
     intro: 'Compare calming compounds and adaptogen-style options with evidence limits, safety context, and practical fit kept visible.',
     searchIntent: 'stress supplements, calming supplements, adaptogen comparison',
@@ -64,7 +64,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-focus',
     goalSlug: 'focus',
-    title: 'Best Supplements for Focus (Clean Energy Guide) | The Hippie Scientist',
+    title: 'Best Supplements for Focus (Clean Energy Guide)',
     h1: 'Best Supplements for Focus',
     intro: 'Compare focus supplements by stimulation, mental clarity, evidence strength, and safety instead of chasing nootropic hype.',
     searchIntent: 'focus supplements, nootropic stack, clean energy supplements',
@@ -73,7 +73,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-fat-loss',
     goalSlug: 'fat-loss',
-    title: 'Best Supplements for Fat Loss (Evidence-Strength Support) | The Hippie Scientist',
+    title: 'Best Supplements for Fat Loss (Evidence-Strength Support)',
     h1: 'Best Supplements for Fat Loss',
     intro: 'A grounded fat-loss supplement guide that avoids proprietary-blend hype and keeps stimulant safety in view.',
     searchIntent: 'fat loss supplements, thermogenic supplement stack, appetite support',
@@ -82,7 +82,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-blood-pressure',
     goalSlug: 'blood-pressure',
-    title: 'Best Supplements for Blood Pressure Support (Safety-First) | The Hippie Scientist',
+    title: 'Best Supplements for Blood Pressure Support (Safety-First)',
     h1: 'Best Supplements for Blood Pressure Support',
     intro: 'A safety-first guide to cardiovascular-support supplements where medication context and monitoring matter.',
     searchIntent: 'blood pressure supplements, cardiovascular support supplements',
@@ -91,7 +91,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-gut-health',
     goalSlug: 'gut-health',
-    title: 'Best Supplements for Gut Health (Fiber + Digestion Guide) | The Hippie Scientist',
+    title: 'Best Supplements for Gut Health (Fiber + Digestion Guide)',
     h1: 'Best Supplements for Gut Health',
     intro: 'Compare gut-health support options with attention to fiber type, digestion, tolerance, and medication timing.',
     searchIntent: 'gut health supplements, fiber supplements, digestion support',
@@ -100,7 +100,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-joint-support',
     goalSlug: 'joint-support',
-    title: 'Best Supplements for Joint Support (Mobility Guide) | The Hippie Scientist',
+    title: 'Best Supplements for Joint Support (Mobility Guide)',
     h1: 'Best Supplements for Joint Support',
     intro: 'Compare joint-support supplements without treating every mobility or inflammation claim equally.',
     searchIntent: 'joint support supplements, glucosamine chondroitin comparison',
@@ -109,7 +109,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'natural-testosterone-boosters',
     goalSlug: 'testosterone-support',
-    title: 'Natural Testosterone Boosters (Evidence-Strength Guide) | The Hippie Scientist',
+    title: 'Natural Testosterone Boosters (Evidence-Strength Guide)',
     h1: 'Natural Testosterone Boosters',
     intro: 'A skeptical guide to testosterone-support supplements that separates cautious evidence from aggressive booster marketing.',
     searchIntent: 'natural testosterone boosters, testosterone support supplements',
@@ -118,7 +118,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-herbs-for-anxiety',
     goalSlug: 'stress',
-    title: 'Best Herbs for Anxiety (Safety-First Herbal Guide) | The Hippie Scientist',
+    title: 'Best Herbs for Anxiety (Safety-First Herbal Guide)',
     h1: 'Best Herbs for Anxiety',
     intro: 'A cautious guide to anxiety-related herbs and calming compounds that keeps evidence limits and interaction risks visible.',
     searchIntent: 'best herbs for anxiety, natural anxiolytics, calming herbs',
@@ -127,7 +127,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'herbs-for-sleep',
     goalSlug: 'sleep',
-    title: 'Herbs for Sleep (Natural Sleep Aid Guide) | The Hippie Scientist',
+    title: 'Herbs for Sleep (Natural Sleep Aid Guide)',
     h1: 'Herbs for Sleep',
     intro: 'A practical guide to sleep herbs and nighttime support options, organized by timing, safety, and real-world fit.',
     searchIntent: 'herbs for sleep, natural sleep aids, calming herbs for sleep',
@@ -136,7 +136,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-nootropics-for-focus',
     goalSlug: 'focus',
-    title: 'Best Nootropics for Focus (Evidence-Strength Guide) | The Hippie Scientist',
+    title: 'Best Nootropics for Focus (Evidence-Strength Guide)',
     h1: 'Best Nootropics for Focus',
     intro: 'A cleaner entry point for focus nootropics that separates stimulation, attention support, and overhyped claims.',
     searchIntent: 'best nootropics for focus, focus supplements, nootropic stack',
@@ -145,7 +145,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-adaptogens-for-stress',
     goalSlug: 'stress',
-    title: 'Best Adaptogens for Stress (No-Hype Guide) | The Hippie Scientist',
+    title: 'Best Adaptogens for Stress (No-Hype Guide)',
     h1: 'Best Adaptogens for Stress',
     intro: 'A grounded adaptogen guide that separates long-term stress support from vague wellness marketing.',
     searchIntent: 'best adaptogens for stress, adaptogen supplements, stress herbs',
@@ -191,7 +191,7 @@ const slugify = (value: string) =>
 const generatedSeoEntryPages: SeoEntryConfig[] = guideTopics.map(([goalSlug, topic]) => ({
   route: `guides/${slugify(topic)}`,
   goalSlug,
-  title: `${titleCase(topic)} (Evidence-Strength Guide) | The Hippie Scientist`,
+  title: `${titleCase(topic)} (Evidence-Strength Guide)`,
   h1: titleCase(topic),
   intro: `A practical guide to ${topic} with evidence-strength context, related compounds, and a clear path into ranked decision pages.`,
   searchIntent: topic,
@@ -318,8 +318,18 @@ export const firstSentences = (value: string, limit = 2) => {
   return sentences.slice(0, limit).join(' ')
 }
 
+function cleanGoalForFaq(goalTitle: string): string {
+  let g = goalTitle.toLowerCase()
+  g = g.replace(/\s+support\s+decisions$/, '')
+  g = g.replace(/\s+resilience\s+decisions$/, ' resilience')
+  g = g.replace(/\s+enhancement\s+decisions$/, ' enhancement')
+  g = g.replace(/\s+decisions$/, '')
+  g = g.replace(/\s+and\s+cellular\s+health$/, '')
+  return g.trim()
+}
+
 function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
-  const plainGoal = goalTitle.toLowerCase()
+  const plainGoal = cleanGoalForFaq(goalTitle)
   return [
     {
       question: `Do ${plainGoal} supplements actually work?`,
@@ -390,10 +400,13 @@ export function generateSeoEntryMetadata(route: string): Metadata {
   const isGeneratedGuideRoute = route.startsWith('guides/')
     && !indexableGuidePages.some((item) => item.route === route)
 
+  const slug = route.startsWith('guides/') ? route.replace('guides/', '') : route
+
   let meta = buildPageMetadata({
     title: page.title,
     description: page.intro,
     path: `/${canonicalRoute}`,
+    image: `/og/guides/${slug}.png`,
     openGraphType: 'article',
   })
   if (isDeprecatedRoute || isGeneratedGuideRoute) {
@@ -417,8 +430,20 @@ export async function SeoEntryPage({ route }: { route: string }) {
 
   const pageSections = sectionFor(goal.slug)
   const faqs = buildFaqs(page, goal.title)
+
+  const seenRoutes = new Set<string>()
+  const cleanRoute = (r: string) => r.replace(/^guides\//, '')
+  const currentCleanRoute = cleanRoute(page.route)
+
   const relatedGuides = seoEntryPages
-    .filter((item) => item.route !== page.route && item.goalSlug === page.goalSlug)
+    .filter((item) => {
+      const itemCleanRoute = cleanRoute(item.route)
+      if (itemCleanRoute === currentCleanRoute) return false
+      if (item.goalSlug !== page.goalSlug) return false
+      if (seenRoutes.has(itemCleanRoute)) return false
+      seenRoutes.add(itemCleanRoute)
+      return true
+    })
     .slice(0, 6)
   const revenueProducts = (revenueProductSlugs[page.route] || [])
     .map(slug => getRevenueProductSet(slug))

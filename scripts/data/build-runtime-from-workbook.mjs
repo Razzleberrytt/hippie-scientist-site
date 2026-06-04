@@ -435,6 +435,8 @@ function profile(row, type, taxonomy) {
     meta_title: clean(first(row, ['meta_title', 'meta title'])),
     meta_description: clean(first(row, ['meta_description', 'meta description'])),
     ...governanceFlags(row),
+    featured: bool(first(row, ['featured'])),
+    controlled_substance: bool(first(row, ['controlled_substance', 'controlled substance'])),
     ...semantic(row, type),
   }
   return pick(stripAffiliateForRestricted(affiliate({ ...base, ...visibility(base, type) })), allowed)
@@ -741,6 +743,8 @@ async function main() {
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
+  writeJson(path.join(outDir, 'featured-herbs.json'), herbs.filter(h => h.featured))
+  writeJson(path.join(outDir, 'featured-compounds.json'), compounds.filter(c => c.featured))
   writeJson(path.join(outDir, 'claims.json'), claims)
   writeJson(path.join(outDir, 'herb-compound-map.json'), herbCompoundMap)
   writeJson(path.join(outDir, 'herb-index.json'), herbs.map((r) => pick(r, INDEX_FIELDS)))

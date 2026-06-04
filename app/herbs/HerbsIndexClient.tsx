@@ -64,7 +64,8 @@ function getSummary(item: any) {
     item.summary ||
     item.coreInsight ||
     item.hero ||
-    item.description
+    item.description ||
+    item.generated_description
 
   const cleaned = cleanSummary(summary, 'herb')
   if (cleaned && cleaned.length > 15) return cleaned

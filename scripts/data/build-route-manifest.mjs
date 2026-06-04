@@ -119,8 +119,8 @@ async function writeJson(fileName, value) {
 }
 
 async function main() {
-  const herbs = await readJson('herbs.json')
-  const compounds = await readJson('compounds.json')
+  const herbs = await readJson('summary-indexes/herbs-summary.json')
+  const compounds = await readJson('summary-indexes/compounds-summary.json')
 
   const staticRoutes = [
     routeEntry('/', 'static'),
@@ -132,17 +132,42 @@ async function main() {
     routeEntry('/topics', 'static'),
     routeEntry('/protocols', 'static'),
     routeEntry('/stacks', 'static'),
-  ]
+  ].map(entry => ({
+    ...entry,
+    meta_title: entry.route === '/' ? 'The Hippie Scientist' : '',
+    meta_description: '',
+    canonical_url: `https://thehippiescientist.net${entry.route === '/' ? '' : entry.route}/`,
+  }))
 
   const herbRoutes = herbs
-    .map((record) => normalizeSlug(record?.slug))
-    .filter(Boolean)
-    .map((slug) => routeEntry(`/herbs/${slug}`, 'herb'))
+    .filter((record) => record?.slug)
+    .map((record) => {
+      const slug = normalizeSlug(record.slug)
+      const name = record.name || slug
+      const title = record.meta_title || `${name} Herb Profile: Benefits, Effects & Safety`
+      const desc = record.meta_description || record.generated_description || record.summary || ''
+      return {
+        ...routeEntry(`/herbs/${slug}`, 'herb'),
+        meta_title: title,
+        meta_description: desc,
+        canonical_url: `https://thehippiescientist.net/herbs/${slug}/`,
+      }
+    })
 
   const compoundRoutes = compounds
-    .map((record) => normalizeSlug(record?.slug))
-    .filter(Boolean)
-    .map((slug) => routeEntry(`/compounds/${slug}`, 'compound'))
+    .filter((record) => record?.slug)
+    .map((record) => {
+      const slug = normalizeSlug(record.slug)
+      const name = record.name || slug
+      const title = record.meta_title || `${name} Benefits, Effects & Safety Guide`
+      const desc = record.meta_description || record.summary || ''
+      return {
+        ...routeEntry(`/compounds/${slug}`, 'compound'),
+        meta_title: title,
+        meta_description: desc,
+        canonical_url: `https://thehippiescientist.net/compounds/${slug}/`,
+      }
+    })
 
   const allRoutes = dedupeRoutes([
     ...staticRoutes,

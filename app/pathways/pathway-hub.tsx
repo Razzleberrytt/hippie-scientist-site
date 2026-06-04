@@ -152,7 +152,6 @@ function getPathwayConfig(pathway: PathwaySlug): PathwayConfig {
 }
 
 export function generatePathwayMetadata(pathway: PathwaySlug): Metadata {
-  const config = getPathwayConfig(pathway)
   return buildPageMetadata({
     title: `${config.title} | The Hippie Scientist`,
     description: config.summary,

@@ -105,7 +105,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const config = getComparisonConfig(slug)
-  const title = config?.title ? `${config.title}: Which Is Better? | The Hippie Scientist` : `${formatSlug(slug)}: Which Is Better? | The Hippie Scientist`
+  const title = config?.title ? `${config.title}: Which Is Better?` : `${formatSlug(slug)}: Which Is Better?`
   const description = config?.summary || `Compare ${formatSlug(slug)} for benefits, safety, evidence, best use cases, and supplement buying options.`
 
   const indexable = isFlagshipCompareSlug(slug)

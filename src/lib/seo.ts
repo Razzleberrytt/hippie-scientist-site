@@ -582,7 +582,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   } else if (evidence.toLowerCase().includes('traditional')) {
     titleSuffix += ' | Traditional Use Guide'
   } else {
-    titleSuffix += ' | The Hippie Scientist'
+    titleSuffix += ' Guide'
   }
   const title = `${displayName} ${titleSuffix}`
 
@@ -627,6 +627,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     title: meta.title,
     description: meta.description,
     path,
+    image: `/og/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}.png`,
     openGraphType: 'article',
     robots: visibility.canIndex
       ? undefined

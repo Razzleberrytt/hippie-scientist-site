@@ -100,6 +100,8 @@ function buildPostFromFile(fileName) {
     date,
     readingTime: estimateReadingTime(content),
     content: content.trim(),
+    ai_assisted: Boolean(data.ai_assisted),
+    controlled_substance: Boolean(data.controlled_substance),
   };
 
   const tags = asStringArray(data.tags, 'tags', fileName);

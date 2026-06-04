@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: SupernodeRouteProps): Promise
   const node = getSemanticSupernode(resolvedParams.slug)
 
   return {
-    title: node ? `${node.title} | The Hippie Scientist` : 'Semantic Supernode',
+    title: node ? node.title : 'Semantic Supernode',
     description: node?.description || 'Semantic relationship hub for advanced supplement research.',
     robots: { index: false, follow: true },
   }
@@ -153,10 +153,10 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
     .filter((record: any) => getRuntimeVisibility(record).canRender)
     .map((record: any) => ({ ...record, entityType: inferEntityType(record) }))
     .map((record: any) => ({ record, score: score(record, node.keywords) }))
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
+    .filter((item: { record: any; score: number }) => item.score > 0)
+    .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
     .slice(0, 60)
-    .map((item) => item.record)
+    .map((item: { record: any }) => item.record)
 
   const top = ranked.slice(0, 10)
   const evidenceForward = ranked.filter((record: any) => /strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))).slice(0, 8)

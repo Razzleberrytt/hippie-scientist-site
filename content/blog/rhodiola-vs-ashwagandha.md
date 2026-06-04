@@ -1,9 +1,15 @@
 ---
-title: "Rhodiola vs. Ashwagandha: Matching Adaptogens to Your Needs"
-date: "2024-05-20"
-slug: "rhodiola-vs-ashwagandha"
-excerpt: "A comparative guide to choosing between rhodiola and ashwagandha based on stress patterns, energy, and constitution."
-tags: ["rhodiola", "ashwagandha", "adaptogens"]
+title: 'Rhodiola vs. Ashwagandha: Matching Adaptogens to Your Needs'
+date: '2024-05-20'
+slug: rhodiola-vs-ashwagandha
+excerpt: >-
+  A comparative guide to choosing between rhodiola and ashwagandha based on
+  stress patterns, energy, and constitution.
+tags:
+  - rhodiola
+  - ashwagandha
+  - adaptogens
+ai_assisted: true
 ---
 
 Rhodiola (*Rhodiola rosea*) and ashwagandha (*Withania somnifera*) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, their personalities differ. Understanding these nuances helps you select the right ally for your physiology and goals.

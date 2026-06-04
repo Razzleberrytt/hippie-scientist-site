@@ -1,4 +1,4 @@
-import { cache } from 'react'
+import { cache } from './react-cache'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
 
 export type RuntimeRecord = Record<string, any>

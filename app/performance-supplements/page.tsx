@@ -6,7 +6,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Performance | The Hippie Scientist',
+  title: 'Best Supplements for Performance',
   description: 'Science-backed supplements for performance. Dosage, effects, and safety.',
   alternates: { canonical: '/goals/energy' },
   robots: {
@@ -66,4 +66,3 @@ export default function Page() {
     </div>
   )
 }
-

@@ -126,6 +126,21 @@ const steps = [
     description: 'Run Next.js static export build (with temp pages handling)',
   },
   {
+    name: 'validate-guide-faqs',
+    cmd: 'node scripts/ci/validate-guide-faqs.mjs',
+    description: 'Validate SEO guide FAQs for leaks, invalid markup, or formatting issues',
+  },
+  {
+    name: 'validate-sitemap',
+    cmd: 'node scripts/ci/validate-sitemap.mjs',
+    description: 'Verify sitemap.xml counts, routes, and layout constraints',
+  },
+  {
+    name: 'validate-guide-related',
+    cmd: 'npx tsx scripts/ci/validate-guide-related.mjs',
+    description: 'Validate related guide relationships and prevent self-reference/duplicates',
+  },
+  {
     name: 'verify:build:parallel',
     cmd: 'npm run verify:build:parallel',
     description: 'Run parallel post-build verifications, audits, SEO, security, etc.',
@@ -161,7 +176,7 @@ for (const step of steps) {
 
   // Use spawnSync for cross-platform control (no reliance on shell &&)
   // For "npm run ..." we still invoke npm (works cross-plat when npm in PATH)
-  const [command, ...args] = step.cmd.startsWith('npm ')
+  const [command, ...args] = step.cmd.startsWith('npm ') || step.cmd.startsWith('npx ')
     ? step.cmd.split(/\s+/)
     : step.cmd.match(/(?:[^\s"]+|"[^"]*")+/g) || [step.cmd]
 
@@ -169,7 +184,7 @@ for (const step of steps) {
   const result = spawnSync(command, args, {
     cwd: process.cwd(),
     stdio: 'inherit',
-    shell: process.platform === 'win32' && command === 'npm', // help .cmd resolution for npm on win if needed
+    shell: process.platform === 'win32' && (command === 'npm' || command === 'npx'), // help .cmd resolution for npm/npx on win if needed
     env: process.env,
   })
 

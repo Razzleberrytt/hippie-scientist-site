@@ -1,9 +1,15 @@
 ---
-title: "Lion's Mane and BDNF: What the Evidence Shows"
-date: "2024-05-12"
-slug: "lions-mane-bdnf"
-excerpt: "Reviewing how Hericium erinaceus extracts may influence brain-derived neurotrophic factor and cognitive resilience."
-tags: ["lion's mane", "bdnf", "neurotrophins"]
+title: 'Lion''s Mane and BDNF: What the Evidence Shows'
+date: '2024-05-12'
+slug: lions-mane-bdnf
+excerpt: >-
+  Reviewing how Hericium erinaceus extracts may influence brain-derived
+  neurotrophic factor and cognitive resilience.
+tags:
+  - lion's mane
+  - bdnf
+  - neurotrophins
+ai_assisted: true
 ---
 
 Lion’s mane mushroom (*Hericium erinaceus*) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein that supports synaptic plasticity, neuronal repair, and mood regulation. This article surveys current evidence connecting lion’s mane with BDNF and situates that data within broader neuroprotective strategies.

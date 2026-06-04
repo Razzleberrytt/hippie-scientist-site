@@ -118,6 +118,14 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         <span className="text-ink">{post.title}</span>
       </nav>
 
+      {post.controlled_substance && (
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-5 text-sm text-red-900 shadow-sm leading-6">
+          <p>
+            <strong>Legal Notice & Disclaimer:</strong> The substance discussed in this article is a Schedule I controlled substance in the United States and is controlled or restricted in many other jurisdictions. The information on this page is for educational and harm-reduction purposes only. This site does not facilitate or encourage the purchase, possession, or use of controlled substances. Consult your local laws before proceeding.
+          </p>
+        </div>
+      )}
+
       <Link href="/blog" className="text-sm font-bold text-brand-800">&lt;- Back to research notes</Link>
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
@@ -138,6 +146,13 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
 
       <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
         <article className="surface-depth card-spacing space-y-4">
+          {post.ai_assisted && (
+            <div className="rounded-xl border border-emerald-100 bg-emerald-50/50 px-4 py-3 text-xs text-emerald-800 leading-5 mb-4">
+              <p>
+                This article was drafted with AI assistance and reviewed against workbook source data. Report errors via our <Link href="/contact/" className="font-semibold underline hover:text-emerald-900">contact page</Link>.
+              </p>
+            </div>
+          )}
           <div className="pull-quote-science mb-6">
             This note is part of the scientific graph: use it as context, then follow the related profiles for structured evidence, safety, and mechanism details.
           </div>

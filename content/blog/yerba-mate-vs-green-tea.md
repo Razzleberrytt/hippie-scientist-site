@@ -1,9 +1,15 @@
 ---
-title: "Yerba Mate vs. Green Tea: Balancing Caffeine and L-Theanine"
-date: "2024-05-11"
-slug: "yerba-mate-vs-green-tea"
-excerpt: "How two classic infusions deliver different energy arcs and how to choose for mood, focus, and ritual."
-tags: ["yerba mate", "green tea", "caffeine"]
+title: 'Yerba Mate vs. Green Tea: Balancing Caffeine and L-Theanine'
+date: '2024-05-11'
+slug: yerba-mate-vs-green-tea
+excerpt: >-
+  How two classic infusions deliver different energy arcs and how to choose for
+  mood, focus, and ritual.
+tags:
+  - yerba mate
+  - green tea
+  - caffeine
+ai_assisted: true
 ---
 
 Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with precise choreography. Understanding the differences in caffeine, polyphenols, and amino acids helps you select the infusion that aligns with your nervous system.

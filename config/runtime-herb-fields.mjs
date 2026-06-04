@@ -134,4 +134,7 @@ export const HERB_RUNTIME_FIELDS = [
   'indexability_reasons',
   'meta_title',
   'meta_description',
+  'featured',
+  'controlled_substance',
+  'legal_status',
 ]

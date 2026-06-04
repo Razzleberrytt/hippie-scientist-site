@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getBlogTags } from '@/lib/blog-taxonomy'
 
 export const metadata: Metadata = {
-  title: 'Blog Tags | The Hippie Scientist',
+  title: 'Blog Tags',
   description: 'Browse static blog tags to explore herb research notes by theme, mechanism, and safety context.',
   alternates: { canonical: 'https://www.thehippiescientist.net/blog/tags' },
   robots: { index: false, follow: true },

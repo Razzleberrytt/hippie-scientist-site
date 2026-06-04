@@ -1,9 +1,15 @@
 ---
-title: "Reishi for Sleep and Immunity: What the Studies Say"
-date: "2024-05-09"
-slug: "reishi-sleep-immunity"
-excerpt: "Reviewing Ganoderma lucidum research on nervous system balance, immune modulation, and nighttime rest."
-tags: ["reishi", "sleep", "immunity"]
+title: 'Reishi for Sleep and Immunity: What the Studies Say'
+date: '2024-05-09'
+slug: reishi-sleep-immunity
+excerpt: >-
+  Reviewing Ganoderma lucidum research on nervous system balance, immune
+  modulation, and nighttime rest.
+tags:
+  - reishi
+  - sleep
+  - immunity
+ai_assisted: true
 ---
 
 Reishi (*Ganoderma lucidum*) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and stress resilience. This article distills current evidence on how reishi supports sleep quality and immune function, offering practical tips for incorporating it into daily routines.

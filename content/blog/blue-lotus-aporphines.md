@@ -1,9 +1,15 @@
 ---
-title: "Blue Lotus (Nymphaea) and Aporphines for Gentle Sedation"
-date: "2024-05-14"
-slug: "blue-lotus-aporphines"
-excerpt: "How Nymphaea caerulea’s alkaloids shape its calming, dreamy reputation and what to know before steeping petals."
-tags: ["blue lotus", "sedation", "sleep"]
+title: Blue Lotus (Nymphaea) and Aporphines for Gentle Sedation
+date: '2024-05-14'
+slug: blue-lotus-aporphines
+excerpt: >-
+  How Nymphaea caerulea’s alkaloids shape its calming, dreamy reputation and
+  what to know before steeping petals.
+tags:
+  - blue lotus
+  - sedation
+  - sleep
+ai_assisted: true
 ---
 
 Blue lotus (*Nymphaea caerulea*) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to understanding blue lotus lies in its aporphine alkaloids—especially nuciferine and apomorphine analogs—which interact with dopamine and serotonin systems. This guide explores the plant’s chemistry, effects, and responsible use.

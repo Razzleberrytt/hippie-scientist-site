@@ -4,7 +4,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 export const metadata: Metadata = {
-  title: 'Affiliate Disclosure | The Hippie Scientist',
+  title: 'Affiliate Disclosure',
   description:
     'How The Hippie Scientist uses affiliate links while keeping editorial independence, safety context, and evidence uncertainty visible.',
   alternates: { canonical: '/affiliate-disclosure' },

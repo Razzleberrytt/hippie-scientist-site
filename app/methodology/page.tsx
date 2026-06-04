@@ -4,7 +4,7 @@ import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerB
 import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 export const metadata: Metadata = {
-  title: 'Methodology | The Hippie Scientist',
+  title: 'Methodology',
   description:
     'How The Hippie Scientist weighs human evidence, safety, practical usefulness, and uncertainty for supplement decision support.',
   alternates: { canonical: '/methodology' },

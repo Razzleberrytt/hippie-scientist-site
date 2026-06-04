@@ -1,4 +1,4 @@
-import { cache } from 'react'
+import { cache } from './react-cache'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 
 function buildSlugMap(records: any[]) {

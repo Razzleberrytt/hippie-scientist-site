@@ -93,7 +93,92 @@ async function run() {
   const report={generatedAt:new Date().toISOString(),routeCount:rows.length,familyCoverage,missing,malformed,repFails, dupDescHerbs: dupDescs.length}
   fs.mkdirSync(path.join(root,'ops/reports'),{recursive:true});fs.writeFileSync(path.join(root,'ops/reports/structured-data-completeness.json'),JSON.stringify(report,null,2));
   console.log(`structured-data: routes=${rows.length}, missing=${missing.length}, malformed=${malformed.length}, repFails=${repFails}, herbDupDescs=${dupDescs.length}`)
-  if (repFails > 0) process.exit(1)
+
+  let failed = repFails > 0;
+  const errors = [];
+
+  for (const r of rows) {
+    const route = r.route;
+    
+    // Ignore blogdata routes completely
+    if (route.startsWith('/blogdata')) {
+      continue;
+    }
+    
+    const isDetail = (prefix) => route.startsWith(prefix + '/') && !route.startsWith(prefix + '/page/');
+    
+    // Herb detail page checks
+    if (isDetail('/herbs')) {
+      if (!r.types.MedicalWebPage) {
+        errors.push(`Herb profile page "${route}" is missing "MedicalWebPage" schema`);
+        failed = true;
+      }
+      if (!r.types.BreadcrumbList) {
+        errors.push(`Herb profile page "${route}" is missing "BreadcrumbList" schema`);
+        failed = true;
+      }
+    }
+    
+    // Compound detail page checks
+    if (isDetail('/compounds')) {
+      if (!r.types.MedicalWebPage) {
+        errors.push(`Compound profile page "${route}" is missing "MedicalWebPage" schema`);
+        failed = true;
+      }
+      if (!r.types.BreadcrumbList) {
+        errors.push(`Compound profile page "${route}" is missing "BreadcrumbList" schema`);
+        failed = true;
+      }
+    }
+    
+    // Blog detail page checks
+    if (route.startsWith('/blog/') && !route.startsWith('/blog/tags') && !route.startsWith('/blog/categories') && !route.startsWith('/blog/style') && !route.startsWith('/blog/page/')) {
+      if (!r.types.Article && !r.types.BlogPosting) {
+        errors.push(`Blog page "${route}" is missing "Article" / "BlogPosting" schema`);
+        failed = true;
+      }
+      if (!r.types.BreadcrumbList) {
+        errors.push(`Blog page "${route}" is missing "BreadcrumbList" schema`);
+        failed = true;
+      }
+    }
+    
+    // Guide page checks (excluding manual placeholder guides)
+    const manualGuides = new Set([
+      '/guides/best-herbs-for-stress-and-anxiety-at-night',
+      '/guides/best-natural-sleep-aids-that-work',
+      '/guides/best-supplements-for-overthinking',
+      '/guides/focus-without-caffeine-crash',
+      '/guides/how-to-lower-cortisol-naturally',
+      '/guides/magnesium-vs-melatonin',
+      '/guides/natural-alternatives-to-anxiety-medication',
+      '/guides/natural-anxiolytics-beyond-ashwagandha',
+      '/guides/psychedelic-adjacent-herbs',
+      '/guides/sleep-herbs-vs-melatonin',
+      '/guides/supplements-for-brain-fog-and-fatigue'
+    ]);
+    const isGuide = route.startsWith('/guides/') && route !== '/guides' && route !== '/guides/' && !manualGuides.has(route);
+    const isBestFor = route.startsWith('/best-') && !route.startsWith('/best-for') && route !== '/best' && route !== '/best/';
+    if (isGuide || isBestFor) {
+      if (!r.types.FAQPage) {
+        errors.push(`Guide page "${route}" is missing "FAQPage" schema`);
+        failed = true;
+      }
+    }
+  }
+
+  if (failed) {
+    if (repFails > 0) {
+      console.error(`[audit-structured-data] FAIL: ${repFails} representative checks or duplicate description checks failed.`);
+    }
+    if (errors.length > 0) {
+      console.error('[audit-structured-data] FAIL: Schema errors detected:');
+      errors.forEach(e => console.error(`  - ${e}`));
+    }
+    process.exit(1);
+  }
+  
+  console.log('[audit-structured-data] PASS: All pages have expected structural schemas.');
 }
 
 run().catch(err => {

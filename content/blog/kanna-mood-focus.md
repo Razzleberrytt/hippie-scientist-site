@@ -1,9 +1,15 @@
 ---
-title: "Kanna (Sceletium) for Mood and Focus"
-date: "2024-05-10"
-slug: "kanna-mood-focus"
-excerpt: "How traditional Sceletium extracts may lift mood and sharpen attention without overstimulation."
-tags: ["kanna", "mood", "focus"]
+title: Kanna (Sceletium) for Mood and Focus
+date: '2024-05-10'
+slug: kanna-mood-focus
+excerpt: >-
+  How traditional Sceletium extracts may lift mood and sharpen attention without
+  overstimulation.
+tags:
+  - kanna
+  - mood
+  - focus
+ai_assisted: true
 ---
 
 Kanna, or *Sceletium tortuosum*, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotional buoyancy without losing clarity. This guide explores how kanna works, what the research says, and how to approach dosage and sourcing responsibly.

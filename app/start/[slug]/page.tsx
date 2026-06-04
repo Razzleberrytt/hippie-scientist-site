@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: StartRouteProps) {
   }
 
   return {
-    title: `${pathway.title} | The Hippie Scientist`,
+    title: pathway.title,
     description: pathway.description,
   }
 }
