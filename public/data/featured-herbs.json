@@ -76,6 +76,15 @@
       "third-party testing",
       "avoid if listed contraindications apply"
     ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "top50_authority_patched",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
@@ -103,8 +112,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   },
   {
     "slug": "lions-mane",
@@ -161,6 +169,15 @@
     "amazon_affiliate_url": "https://www.amazon.com/s?k=organic+lions-mane+mushroom+extract+powder",
     "iherb_affiliate_url": "",
     "buying_criteria": [],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "minimal",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
@@ -189,8 +206,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   },
   {
     "slug": "turmeric",
@@ -279,6 +295,15 @@
       "avoid plain turmeric powder marketed as high-potency curcumin",
       "check anticoagulant cautions."
     ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "near_complete",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
@@ -307,7 +332,6 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   }
 ]

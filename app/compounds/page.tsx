@@ -1,11 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import {
-  DecisionEmptyState,
-  DecisionProfileCard,
-} from '@/components/ui/DecisionPrimitives'
-import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
@@ -167,18 +164,7 @@ function getBestFor(item: any) {
   return 'Research context'
 }
 
-function getTimeToEffect(item: any) {
-  const value = labelize(
-    item?.time_to_effect ||
-      item?.timeToEffect ||
-      item?.onset ||
-      item?.practical?.timeToEffect ||
-      item?.timeline,
-    ''
-  )
 
-  return value && isClean(value) ? value : ''
-}
 
 function scoreCompound(item: any) {
   let score = 0
@@ -224,22 +210,7 @@ function matchesOption(item: any, option: FilterOption) {
   return option.terms.some(term => corpus.includes(term))
 }
 
-function CompoundCard({ compound, featured = false }: { compound: any; featured?: boolean }) {
-  return (
-    <DecisionProfileCard
-      href={`/compounds/${compound?.slug || ''}`}
-      name={getName(compound)}
-      summary={getSummary(compound)}
-      bestFor={getBestFor(compound)}
-      evidence={getEvidence(compound)}
-      safety={getSafety(compound)}
-      timeToEffect={getTimeToEffect(compound)}
-      mechanisms={getMechanismSignals(compound)}
-      featured={featured}
-      fallbackSummary="A conservative compound profile with mechanism, evidence, and safety context."
-    />
-  )
-}
+
 
 function StatCard({ value, label }: { value: number; label: string }) {
   return (
@@ -275,19 +246,7 @@ function CompoundsItemListJsonLd({ compounds }: { compounds: any[] }) {
   )
 }
 
-function EmptyLibraryState() {
-  return (
-    <DecisionEmptyState
-      eyebrow="Library unavailable"
-      title="Compound profiles are being refreshed."
-      description="The compound index did not load any publishable records. Check the runtime compound data build before publishing."
-      actions={[
-        { href: '/herbs', label: 'Browse herbs', variant: 'primary' },
-        { href: '/goals', label: 'Browse goals' },
-      ]}
-    />
-  )
-}
+
 
 export default async function CompoundsPage() {
   const runtimeCompounds = await getCompounds()
@@ -304,11 +263,10 @@ export default async function CompoundsPage() {
   const totalProfiles = compounds.length
   const evidenceForward = compounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
   const featuredCompounds = compounds.slice(0, 6)
-  const libraryCompounds = compounds.slice(featuredCompounds.length)
   const contextSections = filterOptions
     .map(option => ({
       ...option,
-      compounds: compounds.filter(compound => matchesOption(compound, option)).slice(0, 6),
+      compounds: compounds.filter((compound: any) => matchesOption(compound, option)).slice(0, 6),
     }))
     .filter(option => option.compounds.length > 0)
 

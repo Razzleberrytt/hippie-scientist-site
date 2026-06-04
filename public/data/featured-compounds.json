@@ -72,6 +72,15 @@
       "micronized optional",
       "avoid stimulant/proprietary blends"
     ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
@@ -99,8 +108,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   },
   {
     "slug": "creatine-monohydrate",
@@ -175,6 +183,15 @@
       "micronized optional",
       "avoid stimulant/proprietary blends"
     ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
@@ -202,8 +219,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   },
   {
     "slug": "magnesium",
@@ -283,6 +299,15 @@
       "elemental magnesium dose clearly listed",
       "avoid oxide-first products for sleep/anxiety"
     ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
@@ -310,8 +335,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   },
   {
     "slug": "magnesium-glycinate",
@@ -387,6 +411,15 @@
       "elemental magnesium dose clearly listed",
       "avoid oxide-first products for sleep/anxiety"
     ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
@@ -414,8 +447,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   },
   {
     "slug": "melatonin",
@@ -487,6 +519,15 @@
       "USP/third-party tested",
       "avoid high-dose gummies as default"
     ],
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
@@ -514,7 +555,6 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "legal_status": ""
+    "controlled_substance": false
   }
 ]

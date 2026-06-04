@@ -300,7 +300,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
   const totalProfiles = baseCompounds.length
   const evidenceForward = baseCompounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
-  const safetyMapped = baseCompounds.filter((compound: any) => getSafety(compound) !== 'Needs review').length
+  const _safetyMapped = baseCompounds.filter((compound: any) => getSafety(compound) !== 'Safety review pending').length
   const featuredCompounds = hasActiveFilters || paginated ? [] : baseCompounds.slice(0, 6)
   const libraryCompounds = hasActiveFilters ? visibleCompounds : paginated ? compounds : baseCompounds.slice(featuredCompounds.length)
 

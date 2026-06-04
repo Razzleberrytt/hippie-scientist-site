@@ -80,6 +80,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(`${SITE_URL}/`, currentDate, 'weekly', 1.0),
     route(`${SITE_URL}/about/`, currentDate, 'yearly', 0.6),
+    route(`${SITE_URL}/contact/`, currentDate, 'yearly', 0.5),
+    route(`${SITE_URL}/faq/`, currentDate, 'monthly', 0.7),
+    route(`${SITE_URL}/learn/`, currentDate, 'monthly', 0.7),
+    route(`${SITE_URL}/methodology/`, currentDate, 'yearly', 0.6),
+    route(`${SITE_URL}/safety-checker/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/herbs/`, currentDate, 'weekly', 0.9),
     route(`${SITE_URL}/compounds/`, currentDate, 'weekly', 0.9),
     route(`${SITE_URL}/blog/`, currentDate, 'daily', 0.8),

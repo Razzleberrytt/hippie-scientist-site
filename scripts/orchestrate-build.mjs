@@ -174,19 +174,26 @@ for (const step of steps) {
 
   const stepStart = performance.now()
 
-  // Use spawnSync for cross-platform control (no reliance on shell &&)
-  // For "npm run ..." we still invoke npm (works cross-plat when npm in PATH)
-  const [command, ...args] = step.cmd.startsWith('npm ') || step.cmd.startsWith('npx ')
-    ? step.cmd.split(/\s+/)
-    : step.cmd.match(/(?:[^\s"]+|"[^"]*")+/g) || [step.cmd]
-
-  // On windows, node scripts are fine; npm too.
-  const result = spawnSync(command, args, {
-    cwd: process.cwd(),
-    stdio: 'inherit',
-    shell: process.platform === 'win32' && (command === 'npm' || command === 'npx'), // help .cmd resolution for npm/npx on win if needed
-    env: process.env,
-  })
+  // Use spawnSync for cross-platform control
+  const hasShellOperator = step.cmd.includes('||') || step.cmd.includes('&&')
+  const result = hasShellOperator
+    ? spawnSync(step.cmd, {
+        cwd: process.cwd(),
+        stdio: 'inherit',
+        shell: true,
+        env: process.env,
+      })
+    : (() => {
+        const [command, ...args] = step.cmd.startsWith('npm ') || step.cmd.startsWith('npx ')
+          ? step.cmd.split(/\s+/)
+          : step.cmd.match(/(?:[^\s"]+|"[^"]*")+/g) || [step.cmd]
+        return spawnSync(command, args, {
+          cwd: process.cwd(),
+          stdio: 'inherit',
+          shell: process.platform === 'win32' && (command === 'npm' || command === 'npx'), // help .cmd resolution for npm/npx on win if needed
+          env: process.env,
+        })
+      })()
 
   const stepDuration = performance.now() - stepStart
   const secs = (stepDuration / 1000).toFixed(2)

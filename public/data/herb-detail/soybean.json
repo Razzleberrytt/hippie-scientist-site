@@ -121,6 +121,5 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false,
-  "legal_status": ""
+  "controlled_substance": false
 }
