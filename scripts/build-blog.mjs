@@ -61,6 +61,22 @@ const parseScalar = rawValue => {
   return stripQuotes(value);
 };
 
+const appendContinuation = (data, key, line) => {
+  const continuation = stripQuotes(line.trim());
+  if (!continuation) return;
+
+  if (Array.isArray(data[key])) {
+    if (data[key].length === 0) {
+      data[key].push(continuation);
+    } else {
+      data[key][data[key].length - 1] = `${data[key][data[key].length - 1]} ${continuation}`.trim();
+    }
+    return;
+  }
+
+  data[key] = `${String(data[key] ?? '').trim()} ${continuation}`.trim();
+};
+
 const parseFrontmatterBlock = (block, fileName) => {
   const data = {};
   const lines = block.split(/\r?\n/);
@@ -78,6 +94,11 @@ const parseFrontmatterBlock = (block, fileName) => {
 
     const keyValueMatch = line.match(/^([A-Za-z0-9_-]+):(?:\s*(.*))?$/);
     if (!keyValueMatch) {
+      if (/^\s+\S/.test(line) && activeKey) {
+        appendContinuation(data, activeKey, line);
+        continue;
+      }
+
       throw new Error(`Unsupported frontmatter line in ${fileName}: ${line}`);
     }
 
