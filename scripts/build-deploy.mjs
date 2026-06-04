@@ -39,9 +39,9 @@ const startTime = performance.now()
 const steps = [
   {
     name: 'build-blog',
-    cmd: 'node scripts/build-blog.mjs',
-    inputs: ['data/blog/**/*.md'],
-    outputs: ['src/content/**/*', '.blog-cache'],
+    cmd: 'node --trace-uncaught scripts/build-blog.mjs',
+    inputs: ['content/blog/**/*.{md,mdx}', 'scripts/build-blog.mjs'],
+    outputs: ['data/blog/posts.json'],
   },
   {
     name: 'build-runtime-from-workbook',
@@ -126,6 +126,10 @@ for (const step of steps) {
     execSync(step.cmd, {
       cwd: process.cwd(),
       stdio: 'inherit',
+      env: {
+        ...process.env,
+        NODE_OPTIONS: `${process.env.NODE_OPTIONS || ''} --trace-uncaught`.trim(),
+      },
     })
 
     const stepDuration = performance.now() - stepStart
