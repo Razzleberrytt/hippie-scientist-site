@@ -449,7 +449,10 @@ function dedupe(rows) {
   }).sort((a, b) => clean(a.name).localeCompare(clean(b.name)) || clean(a.slug).localeCompare(clean(b.slug)))
 }
 
-function rowId(row, fallbackFields) { return slug(first(row, ['id', ...fallbackFields])) }
+function rowId(row, fallbackFields = []) {
+  const fields = Array.isArray(fallbackFields) ? fallbackFields : [fallbackFields]
+  return slug(first(row, ['id', ...fields.filter(Boolean)]))
+}
 
 function mapRow(row) {
   const herb = first(row, ['herb', 'herb name', 'herb_name'])
@@ -541,8 +544,8 @@ function evidenceSourceRow(row) {
     claim_id: claimId,
     citation_label: clean(first(row, ['citation_label', 'citation label', 'citation'])),
     source_type: lower(first(row, ['source_type', 'source type', 'type'])),
-    title: compact(first(row, ['title', 'source_title', 'source title'])),
-    year: num(first(row, ['year'])) ?? clean(first(row, ['year'])),
+    title: compact(first(row, ['title', 'source_title', 'source title', 'study_title', 'study title'])),
+    year: num(first(row, ['year', 'publication_year', 'publication year'])) ?? clean(first(row, ['year', 'publication_year', 'publication year'])),
     url: clean(first(row, ['url', 'source_url', 'source url', 'link'])),
     source_note: compact(first(row, ['source_note', 'source note', 'note'])),
     published: published(first(row, ['published', 'publish'])),
@@ -557,10 +560,10 @@ function evidenceSafetyNoteRow(row) {
   return stripRecord({
     safety_id: safetyId,
     ingredient_slug: ingredientSlug,
-    risk_type: lower(first(row, ['risk_type', 'risk type'])),
-    severity: lower(first(row, ['severity'])),
-    warning: compact(first(row, ['warning', 'safety_warning', 'safety warning'])),
-    decision_effect: compact(first(row, ['decision_effect', 'decision effect'])),
+    risk_type: lower(first(row, ['risk_type', 'risk type', 'type', 'risk'])),
+    severity: lower(first(row, ['severity', 'safety_level', 'safety level', 'level'])),
+    warning: compact(first(row, ['warning', 'safety_warning', 'safety warning', 'safety_summary', 'safety summary', 'summary'])),
+    decision_effect: compact(first(row, ['decision_effect', 'decision effect', 'decision', 'recommendation', 'monitoring', 'monitoring_notes', 'monitoring notes'])),
     published: published(first(row, ['published', 'publish'])),
   })
 }
