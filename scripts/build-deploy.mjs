@@ -20,9 +20,6 @@
  * 7. build-export-batches (batch optimization)
  * 8. build-semantic-snapshots (snapshot generation)
  * 9. build-production (next build)
- *
- * Time estimate: ~40-55s (instead of ~180s with full validation)
- * Savings: ~125s by deferring non-critical checks to npm run build:qa
  */
 
 import { execSync } from 'child_process'
@@ -42,6 +39,7 @@ const steps = [
     cmd: 'node --trace-uncaught scripts/build-blog.mjs',
     inputs: ['content/blog/**/*.{md,mdx}', 'scripts/build-blog.mjs'],
     outputs: ['data/blog/posts.json'],
+    cacheable: false,
   },
   {
     name: 'build-runtime-from-workbook',
@@ -112,7 +110,7 @@ for (const step of steps) {
   const stepStart = performance.now()
 
   try {
-    const shouldSkip = !process.env.CLEAR_CACHE && process.env.USE_CACHE !== 'false'
+    const shouldSkip = step.cacheable !== false && !process.env.CLEAR_CACHE && process.env.USE_CACHE !== 'false'
 
     if (shouldSkip) {
       const cachedResult = await cache.shouldRunStep(step.name, step.inputs || [])
@@ -134,7 +132,7 @@ for (const step of steps) {
 
     const stepDuration = performance.now() - stepStart
 
-    if (step.outputs) {
+    if (step.outputs && step.cacheable !== false) {
       await cache.markStepComplete(step.name, step.outputs, step.inputs || [])
     }
 
@@ -178,12 +176,13 @@ Pro Tip: To clear build cache, run:
 `)
 
   process.exit(0)
-} else {
-  console.log(`
+}
+
+console.log(`
 ╔════════════════════════════════════════════════╗
 ║     ✗ Deploy Build Failed                      ║
 ║     Check error above for details              ║
 ╚════════════════════════════════════════════════╝
 `)
-  process.exit(1)
-}
+
+process.exit(1)
