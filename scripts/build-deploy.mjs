@@ -43,8 +43,8 @@ const steps = [
   },
   {
     name: 'build-runtime-from-workbook',
-    cmd: 'node scripts/data/build-runtime-from-workbook.mjs --out public/data',
-    inputs: ['data/**/*.xlsx', 'data/**/*.json'],
+    cmd: 'node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out public/data',
+    inputs: ['data/**/*.xlsx', 'data/**/*.json', 'data-sources/**/*.xlsx', 'scripts/data/**/*.mjs'],
     outputs: ['public/data/**/*'],
   },
   {
@@ -146,6 +146,7 @@ for (const step of steps) {
     if (error?.status !== undefined) console.error(`[build-deploy] Exit code: ${error.status}`)
     if (error?.signal) console.error(`[build-deploy] Signal: ${error.signal}`)
     if (error?.message) console.error(`[build-deploy] Error: ${error.message}`)
+    if (error?.stack) console.error(`[build-deploy] Wrapper stack:\n${error.stack}`)
     failed = true
     break
   }
