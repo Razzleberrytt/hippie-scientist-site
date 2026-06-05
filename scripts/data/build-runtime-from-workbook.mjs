@@ -253,6 +253,12 @@ function stripRecord(record) {
   }))
 }
 
+function arrayish(value) {
+  if (Array.isArray(value)) return value
+  if (value === null || value === undefined || value === '') return []
+  return [value]
+}
+
 function normalizeAlias(value) {
   return lower(value)
     .normalize('NFKD')
@@ -523,7 +529,7 @@ function evidenceClaimRow(row, config) {
     claim_id: claimId,
     ingredient_slug: ingredientSlug,
     ingredient_name: ingredientName,
-    [config.problemField]: normalizeEvidenceProblemKey(first(row, config.problemAliases)),
+    [config.problemField]: normalizeEvidenceProblemKey(first(row, [...arrayish(config.problemAliases)])),
     claim_statement: compact(first(row, ['claim_statement', 'claim statement', 'claim'])),
     confidence_tier: lower(first(row, ['confidence_tier', 'confidence tier'])),
     evidence_summary: compact(first(row, ['evidence_summary', 'evidence summary'])),
