@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Newsletter Signup Confirmed | The Hippie Scientist',
+  title: 'Newsletter Signup Confirmed',
   description: 'Newsletter signup confirmation page for The Hippie Scientist.',
   alternates: { canonical: '/newsletter/confirmed' },
 }

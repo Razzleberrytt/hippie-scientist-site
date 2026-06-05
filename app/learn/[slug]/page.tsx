@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: LearnRouteProps): Promise<Met
 
   if (!post) {
     return {
-      title: 'Learn | The Hippie Scientist',
+      title: 'Learn',
       description: 'Evidence-informed educational content and practical learning guides.',
     }
   }

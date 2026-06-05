@@ -142,4 +142,7 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'meta_description',
   'site_export_status_v2',
   'readiness_tier',
+  'featured',
+  'controlled_substance',
+  'legal_status',
 ]

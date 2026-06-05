@@ -3,7 +3,7 @@ import Link from 'next/link'
 import EmailCapture from '../../components/EmailCapture'
 
 export const metadata: Metadata = {
-  title: 'Newsletter Archive | The Hippie Scientist',
+  title: 'Newsletter Archive',
   description: 'Static archive for The Hippie Scientist newsletter notes on supplement safety, evidence, and sourcing.',
   alternates: { canonical: '/newsletter' },
 }

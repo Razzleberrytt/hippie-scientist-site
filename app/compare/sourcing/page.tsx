@@ -5,7 +5,7 @@ import SourcingComparerClient from '@/components/sourcing/SourcingComparerClient
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
 export const metadata: Metadata = {
-  title: 'Contextual Sourcing Comparer & Active Yield Auditor | The Hippie Scientist',
+  title: 'Contextual Sourcing Comparer & Active Yield Auditor',
   description: 'Compare typical servings cost, dosage standardization efficiency, active yield metrics, and purchase safety quality checklists.',
   robots: { index: false, follow: true },
 }

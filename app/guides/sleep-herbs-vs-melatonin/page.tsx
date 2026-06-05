@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Sleep Herbs vs Melatonin | The Hippie Scientist',
+  title: 'Sleep Herbs vs Melatonin',
   description: 'Understand the difference between melatonin (circadian timing) and calming sleep herbs (Magnesium, L-Theanine, Valerian) for sleep routines.',
   alternates: { canonical: '/guides/sleep-herbs-vs-melatonin' },
   openGraph: {

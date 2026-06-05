@@ -1,6 +1,6 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { cache } from 'react'
+import { cache } from './react-cache'
 
 const MAP_DIR = path.join(process.cwd(), 'public', 'data', 'runtime-maps')
 const MAX_RUNTIME_MAP_ENTRIES = 12

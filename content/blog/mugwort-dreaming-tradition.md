@@ -1,9 +1,15 @@
 ---
-title: "Mugwort and Dreaming: Tradition Meets Evidence"
-date: "2024-05-08"
-slug: "mugwort-dreaming-tradition"
-excerpt: "Evaluating Artemisia vulgaris for dream work, lucid practices, and the modern sleep cycle."
-tags: ["mugwort", "dreams", "sleep"]
+title: 'Mugwort and Dreaming: Tradition Meets Evidence'
+date: '2024-05-08'
+slug: mugwort-dreaming-tradition
+excerpt: >-
+  Evaluating Artemisia vulgaris for dream work, lucid practices, and the modern
+  sleep cycle.
+tags:
+  - mugwort
+  - dreams
+  - sleep
+ai_assisted: true
 ---
 
 Mugwort (*Artemisia vulgaris*) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vivid dreams. But how much of this tradition is supported by evidence, and how can modern dreamers use mugwort safely?

@@ -1,4 +1,5 @@
 export const HERBS_PAGE_SIZE = 36
+export const COMPOUNDS_PAGE_SIZE = 36
 
 export function clampPositiveInt(value: string | number | null | undefined, fallback = 1): number {
   const raw = typeof value === 'number' ? value : Number.parseInt(String(value ?? ''), 10)

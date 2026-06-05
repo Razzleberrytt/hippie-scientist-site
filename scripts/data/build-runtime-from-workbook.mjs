@@ -253,6 +253,12 @@ function stripRecord(record) {
   }))
 }
 
+function arrayish(value) {
+  if (Array.isArray(value)) return value
+  if (value === null || value === undefined || value === '') return []
+  return [value]
+}
+
 function normalizeAlias(value) {
   return lower(value)
     .normalize('NFKD')
@@ -435,6 +441,8 @@ function profile(row, type, taxonomy) {
     meta_title: clean(first(row, ['meta_title', 'meta title'])),
     meta_description: clean(first(row, ['meta_description', 'meta description'])),
     ...governanceFlags(row),
+    featured: bool(first(row, ['featured'])),
+    controlled_substance: bool(first(row, ['controlled_substance', 'controlled substance'])),
     ...semantic(row, type),
   }
   return pick(stripAffiliateForRestricted(affiliate({ ...base, ...visibility(base, type) })), allowed)
@@ -449,7 +457,10 @@ function dedupe(rows) {
   }).sort((a, b) => clean(a.name).localeCompare(clean(b.name)) || clean(a.slug).localeCompare(clean(b.slug)))
 }
 
-function rowId(row, fallbackFields) { return slug(first(row, ['id', ...fallbackFields])) }
+function rowId(row, fallbackFields = []) {
+  const fields = Array.isArray(fallbackFields) ? fallbackFields : [fallbackFields]
+  return slug(first(row, ['id', ...fields.filter(Boolean)]))
+}
 
 function mapRow(row) {
   const herb = first(row, ['herb', 'herb name', 'herb_name'])
@@ -518,7 +529,7 @@ function evidenceClaimRow(row, config) {
     claim_id: claimId,
     ingredient_slug: ingredientSlug,
     ingredient_name: ingredientName,
-    [config.problemField]: normalizeEvidenceProblemKey(first(row, config.problemAliases)),
+    [config.problemField]: normalizeEvidenceProblemKey(first(row, [...arrayish(config.problemAliases)])),
     claim_statement: compact(first(row, ['claim_statement', 'claim statement', 'claim'])),
     confidence_tier: lower(first(row, ['confidence_tier', 'confidence tier'])),
     evidence_summary: compact(first(row, ['evidence_summary', 'evidence summary'])),
@@ -532,89 +543,72 @@ function evidenceClaimRow(row, config) {
 }
 
 function evidenceSourceRow(row) {
-  const sourceId = slug(first(row, ['source_id', 'source id', 'id']))
+  const sourceId = slug(first(row, ['source_id', 'source id', 'id']) || first(row, ['pmid', 'doi', 'url', 'title']))
   const claimId = slug(first(row, ['claim_id', 'claim id']))
-  if (!sourceId && !claimId) return null
-
+  if (!sourceId) return null
   return stripRecord({
     source_id: sourceId,
     claim_id: claimId,
     citation_label: clean(first(row, ['citation_label', 'citation label', 'citation'])),
     source_type: lower(first(row, ['source_type', 'source type', 'type'])),
-    title: compact(first(row, ['title', 'source_title', 'source title'])),
-    year: num(first(row, ['year'])) ?? clean(first(row, ['year'])),
+    title: compact(first(row, ['title', 'study_title', 'study title'])),
+    year: num(first(row, ['year', 'publication_year', 'publication year'])),
     url: clean(first(row, ['url', 'source_url', 'source url', 'link'])),
-    source_note: compact(first(row, ['source_note', 'source note', 'note'])),
+    pmid: clean(first(row, ['pmid', 'PMID'])),
+    doi: clean(first(row, ['doi', 'DOI'])),
+    evidence_type: lower(first(row, ['evidence_type', 'evidence type', 'study_type', 'study type'])),
+    human_relevance: lower(first(row, ['human_relevance', 'human relevance'])),
+    quality_notes: compact(first(row, ['quality_notes', 'quality notes', 'notes'])),
     published: published(first(row, ['published', 'publish'])),
   })
 }
 
-function evidenceSafetyNoteRow(row) {
-  const safetyId = slug(first(row, ['safety_id', 'safety id', 'id']))
+function evidenceSafetyRow(row) {
+  const safetyId = slug(first(row, ['safety_id', 'safety id', 'id']) || first(row, ['ingredient_slug', 'ingredient slug', 'name']))
   const ingredientSlug = slug(first(row, ['ingredient_slug', 'ingredient slug', 'slug']))
   if (!safetyId && !ingredientSlug) return null
-
   return stripRecord({
     safety_id: safetyId,
     ingredient_slug: ingredientSlug,
-    risk_type: lower(first(row, ['risk_type', 'risk type'])),
-    severity: lower(first(row, ['severity'])),
-    warning: compact(first(row, ['warning', 'safety_warning', 'safety warning'])),
-    decision_effect: compact(first(row, ['decision_effect', 'decision effect'])),
+    risk_type: lower(first(row, ['risk_type', 'risk type', 'type', 'risk'])),
+    severity: lower(first(row, ['severity', 'safety_level', 'safety level', 'level'])),
+    warning: compact(first(row, ['warning', 'safety_warning', 'safety warning', 'safety_summary', 'safety summary', 'summary'])),
+    decision_effect: compact(first(row, ['decision_effect', 'decision effect', 'decision', 'recommendation', 'monitoring', 'monitoring_notes', 'monitoring notes'])),
     published: published(first(row, ['published', 'publish'])),
   })
 }
 
 function buildEvidenceEngine(config, problemRows, claimRows, sourceRows, safetyRows) {
+  const fallbackProblemLabels = config.problemLabels || {}
+  const problemLabels = toProblemLabels(problemRows || [], fallbackProblemLabels)
   const claims = normalizeRows(claimRows, (row) => evidenceClaimRow(row, config))
-  const sources = normalizeRows(sourceRows, evidenceSourceRow)
-  const safetyNotes = normalizeRows(safetyRows, evidenceSafetyNoteRow)
-  const problemLabels = problemRows
-    ? toProblemLabels(problemRows, config.fallbackProblemLabels)
-    : config.fallbackProblemLabels
+    .filter((row) => row.published)
+    .sort((a, b) => (a.display_order || 999) - (b.display_order || 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
+  const sources = normalizeRows(sourceRows, evidenceSourceRow).filter((row) => row.published)
+  const safetyNotes = normalizeRows(safetyRows, evidenceSafetyRow).filter((row) => row.published)
 
-  const publishedSources = sources.filter((source) => source.published)
-  const publishedSourcesByClaim = new Map()
-  for (const source of publishedSources) {
-    if (!publishedSourcesByClaim.has(source.claim_id)) publishedSourcesByClaim.set(source.claim_id, [])
-    publishedSourcesByClaim.get(source.claim_id).push(source)
+  // Build sourcesByClaim mapping: claim_id -> array of sources for that claim
+  const sourcesByClaim = {}
+  for (const source of sources) {
+    if (source.claim_id) {
+      if (!sourcesByClaim[source.claim_id]) {
+        sourcesByClaim[source.claim_id] = []
+      }
+      sourcesByClaim[source.claim_id].push(source)
+    }
   }
-
-  const publishedClaims = claims
-    .filter((claim) => claim.published)
-    .sort((a, b) => (a.display_order ?? 999) - (b.display_order ?? 999) || clean(a.ingredient_name).localeCompare(clean(b.ingredient_name)))
-
-  const publishedSafetyNotes = safetyNotes
-    .filter((note) => note.published)
-    .sort((a, b) => clean(a.ingredient_slug).localeCompare(clean(b.ingredient_slug)) || clean(a.risk_type).localeCompare(clean(b.risk_type)))
 
   const payload = {
-    goal: config.goal,
-    updatedAt: deterministicUpdatedAt,
-    config: {
-      problemField: config.problemField,
-      ...(config.config || {}),
-    },
-    problemLabels,
-    claims: publishedClaims,
-    safetyNotes: publishedSafetyNotes,
-    sourcesByClaim: Object.fromEntries(
-      publishedClaims.map((claim) => [
-        claim.claim_id,
-        (publishedSourcesByClaim.get(claim.claim_id) || []).sort((a, b) => clean(a.citation_label).localeCompare(clean(b.citation_label))),
-      ])
-    ),
-  }
-  const errors = validateEvidenceEnginePayload(payload, {
+    generatedAt: deterministicUpdatedAt,
     goal: config.goal,
     problemField: config.problemField,
-    validProblems: new Set(Object.keys(problemLabels).length > 0 ? Object.keys(problemLabels) : config.validProblems),
-  })
-
-  if (errors.length > 0) {
-    throw new Error(`[${config.goal}-evidence-engine] validation failed:\n- ${errors.join('\n- ')}`)
+    problemLabels,
+    claims,
+    safetyNotes,
+    sourcesByClaim,
   }
 
+  validateEvidenceEnginePayload(payload, config)
   return payload
 }
 
@@ -741,6 +735,8 @@ async function main() {
 
   writeJson(path.join(outDir, 'herbs.json'), herbs)
   writeJson(path.join(outDir, 'compounds.json'), compounds)
+  writeJson(path.join(outDir, 'featured-herbs.json'), herbs.filter(h => h.featured))
+  writeJson(path.join(outDir, 'featured-compounds.json'), compounds.filter(c => c.featured))
   writeJson(path.join(outDir, 'claims.json'), claims)
   writeJson(path.join(outDir, 'herb-compound-map.json'), herbCompoundMap)
   writeJson(path.join(outDir, 'herb-index.json'), herbs.map((r) => pick(r, INDEX_FIELDS)))

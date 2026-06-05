@@ -68,6 +68,8 @@ const requiredRedirects = [
   '/compounds/trans-resveratrol /herbs/resveratrol 301',
   '/safety-checker /safety-checker/ 301',
   '/safety-checker/ /safety-checker/ 200',
+  '/safety /safety-checker 301',
+  '/safety/ /safety-checker 301',
 ]
 
 console.log(`[verify-redirects] ${staticDir}/_redirects present with ${lines.length} active rules`)

@@ -6,7 +6,7 @@ import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 export const metadata: Metadata = {
-  title: 'Free Supplement Decision Guide | The Hippie Scientist',
+  title: 'Free Supplement Decision Guide',
   description:
     'Get a free evidence-aware supplement decision guide for sleep, stress, focus, brain fog, fatigue, and calming support.',
   alternates: { canonical: '/free-guide' },

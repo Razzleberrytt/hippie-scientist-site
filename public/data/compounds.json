@@ -96,7 +96,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "23-epi-26-deoxyactein",
@@ -179,7 +181,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "5-htp",
@@ -276,7 +280,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acarbose",
@@ -371,7 +377,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acemannan",
@@ -470,7 +478,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acetate",
@@ -569,7 +579,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acetyl-11-keto-beta-boswellic-acid",
@@ -668,7 +680,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acetyl-beta-boswellic-acid",
@@ -767,7 +781,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acetyl-l-carnitine",
@@ -891,7 +907,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acetylshikonin",
@@ -1000,7 +1018,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "actein",
@@ -1086,7 +1106,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "acteoside",
@@ -1199,7 +1221,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "adenosine",
@@ -1288,7 +1312,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "aescin",
@@ -1400,7 +1426,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "agaricus-blazei",
@@ -1489,7 +1517,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "aged-garlic-extract",
@@ -1612,7 +1642,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "agmatine-sulfate",
@@ -1717,7 +1749,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ajoene",
@@ -1817,7 +1851,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "albiflorin",
@@ -1924,7 +1960,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "alkylamides",
@@ -2022,7 +2060,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "allicin",
@@ -2115,7 +2155,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "aloe-vera",
@@ -2210,7 +2252,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "alpha-asarone",
@@ -2309,7 +2353,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "alpha-gpc",
@@ -2428,7 +2474,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "alpha-lipoic-acid",
@@ -2545,7 +2593,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "alpha-mangostin",
@@ -2648,7 +2698,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "american-ginseng-extract",
@@ -2755,7 +2807,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "anandamide",
@@ -2841,7 +2895,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "andrographis",
@@ -2944,7 +3000,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "andrographolide",
@@ -3060,7 +3118,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "anethole",
@@ -3164,7 +3224,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "angelicin",
@@ -3269,7 +3331,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "apigenin",
@@ -3382,7 +3446,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "arabinoxylan",
@@ -3482,7 +3548,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "l-arginine",
@@ -3585,7 +3653,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "arjunolic-acid",
@@ -3697,7 +3767,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "artemisinin",
@@ -3786,7 +3858,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "artemisinin-b",
@@ -3879,7 +3953,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "artesunate",
@@ -3977,7 +4053,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "artichoke-extract",
@@ -4098,7 +4176,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ashitaba",
@@ -4220,7 +4300,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ashitaba-extract",
@@ -4324,7 +4406,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ashwagandha-extract-ksm-66",
@@ -4444,7 +4528,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ashwagandha-root-extract",
@@ -4556,7 +4642,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "asiatic-acid",
@@ -4650,7 +4738,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "asiaticoside",
@@ -4746,7 +4836,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "aspalathin",
@@ -4858,7 +4950,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "astaxanthin",
@@ -4978,7 +5072,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "astragalin",
@@ -5091,7 +5187,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "astragaloside-iv",
@@ -5210,7 +5308,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "atractylenolide-i",
@@ -5311,7 +5411,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "atractylenolide-ii",
@@ -5407,7 +5509,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "atractylenolide-iii",
@@ -5512,7 +5616,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "aucubin",
@@ -5618,7 +5724,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bacopa-extract-bacoside-standardized",
@@ -5731,7 +5839,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bacopaside-ii",
@@ -5854,7 +5964,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bacoside-a",
@@ -5960,7 +6072,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bacoside-b",
@@ -6075,7 +6189,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "baicalein",
@@ -6196,7 +6312,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "baicalin",
@@ -6316,7 +6434,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "banaba-leaf-extract",
@@ -6409,7 +6529,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bcaa",
@@ -6496,7 +6618,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bcaas",
@@ -6579,7 +6703,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beetroot-extract",
@@ -6690,7 +6816,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beetroot-nitrate",
@@ -6801,7 +6929,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "berbamine",
@@ -6901,7 +7031,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "berberine",
@@ -7023,7 +7155,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "berberine-hcl",
@@ -7148,7 +7282,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bergapten",
@@ -7252,7 +7388,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bhb",
@@ -7353,7 +7491,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beta-alanine",
@@ -7456,7 +7596,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beta-caryophyllene",
@@ -7558,7 +7700,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beta-ecdysterone",
@@ -7638,7 +7782,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beta-elemene",
@@ -7735,7 +7881,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beta-glucans",
@@ -7848,7 +7996,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "beta-sitosterol",
@@ -7952,7 +8102,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "betaine",
@@ -8043,7 +8195,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "betaine-anhydrous",
@@ -8140,7 +8294,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "betaine-hcl",
@@ -8241,7 +8397,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "betaine-nitrate",
@@ -8345,7 +8503,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "betulinic-acid",
@@ -8460,7 +8620,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bicarbonate",
@@ -8541,7 +8703,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "probiotic-strain-bifidobacterium",
@@ -8653,7 +8817,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bilberry-extract",
@@ -8746,7 +8912,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bilobetin",
@@ -8848,7 +9016,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "biochanin-a",
@@ -8961,7 +9131,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "biotin",
@@ -9059,7 +9231,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bisabolol",
@@ -9161,7 +9335,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bisdemethoxycurcumin",
@@ -9290,7 +9466,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "black-seed",
@@ -9411,7 +9589,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "black-seed-oil",
@@ -9520,7 +9700,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "blue-lotus",
@@ -9602,7 +9784,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "boron",
@@ -9696,7 +9880,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "boswellia",
@@ -9797,7 +9983,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "boswellia-akba-standardized",
@@ -9896,7 +10084,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "boswellic-acid",
@@ -9995,7 +10185,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "boswellic-acids",
@@ -10082,7 +10274,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "bromelain",
@@ -10173,7 +10367,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "burdock-root",
@@ -10277,7 +10473,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "butylidenephthalide",
@@ -10390,7 +10588,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "butyrate",
@@ -10487,7 +10687,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cacao",
@@ -10581,7 +10783,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cafestol",
@@ -10695,7 +10899,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "caffeic-acid",
@@ -10810,7 +11016,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "caffeine",
@@ -10930,7 +11138,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "caffeine-l-theanine",
@@ -11043,7 +11253,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "calcium",
@@ -11132,7 +11344,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "calcium-d-glucarate",
@@ -11230,7 +11444,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "calycosin",
@@ -11345,7 +11561,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cannabidiol",
@@ -11445,7 +11663,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "capsaicin",
@@ -11545,7 +11765,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "carnitine-l-tartrate",
@@ -11645,7 +11867,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "carnosic-acid",
@@ -11762,7 +11986,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "carnosol",
@@ -11873,7 +12099,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "carvacrol",
@@ -11981,7 +12209,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "caryophyllene-oxide",
@@ -12083,7 +12313,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cat-s-claw",
@@ -12176,7 +12408,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "catalpol",
@@ -12289,7 +12523,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "catechin",
@@ -12403,7 +12639,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "catuaba",
@@ -12493,7 +12731,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cbg",
@@ -12577,7 +12817,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "celastrol",
@@ -12681,7 +12923,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cepharanthine",
@@ -12774,7 +13018,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chaga",
@@ -12872,7 +13118,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chamazulene",
@@ -12969,7 +13217,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chamomile",
@@ -13074,7 +13324,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "charantin",
@@ -13174,7 +13426,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chicoric-acid",
@@ -13289,7 +13543,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chlorella",
@@ -13394,7 +13650,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chlorogenic-acid",
@@ -13507,7 +13765,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "choline",
@@ -13612,7 +13872,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chondroitin",
@@ -13703,7 +13965,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chromium",
@@ -13799,7 +14063,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "chromium-picolinate",
@@ -13895,7 +14161,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cimifugoside",
@@ -13979,7 +14247,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cinnamaldehyde",
@@ -14082,7 +14352,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cinnamon-extract",
@@ -14185,7 +14457,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cdp-choline",
@@ -14287,7 +14561,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "citronellal",
@@ -14384,7 +14660,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "citrulline-malate",
@@ -14488,7 +14766,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "coconut-oil",
@@ -14579,7 +14859,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "coconut-water-powder",
@@ -14668,7 +14950,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "coenzyme-a",
@@ -14765,7 +15049,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "coenzyme-q10",
@@ -14881,7 +15167,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "coq10",
@@ -14989,7 +15277,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "collagen-peptides",
@@ -15087,7 +15377,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "columbamine",
@@ -15192,7 +15484,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "columbin",
@@ -15288,7 +15582,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "commipheric-acid",
@@ -15405,7 +15701,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "copper",
@@ -15497,7 +15795,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "coptisine",
@@ -15599,7 +15899,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cordycepin",
@@ -15698,7 +16000,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cordyceps",
@@ -15806,7 +16110,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cordyceps-militaris",
@@ -15904,7 +16210,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "corosolic-acid",
@@ -16020,7 +16328,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cranberry",
@@ -16117,7 +16427,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "creatine",
@@ -16226,7 +16538,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
   },
   {
     "slug": "creatine-beta-alanine",
@@ -16328,7 +16642,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "creatine-hcl",
@@ -16434,7 +16750,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "creatine-monohydrate",
@@ -16543,7 +16861,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
   },
   {
     "slug": "crocetin",
@@ -16660,7 +16980,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "crocin",
@@ -16778,7 +17100,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cryptotanshinone",
@@ -16878,7 +17202,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "curcumin",
@@ -17001,7 +17327,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "curcumin-piperine",
@@ -17102,7 +17430,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "curcumin-phytosome",
@@ -17221,7 +17551,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "curcumol",
@@ -17336,7 +17668,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "curdione",
@@ -17451,7 +17785,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "d-aspartic-acid",
@@ -17541,7 +17877,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "d-chiro-inositol",
@@ -17645,7 +17983,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "d-mannose",
@@ -17732,7 +18072,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "d-ribose",
@@ -17833,7 +18175,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "daidzein",
@@ -17948,7 +18292,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "daidzin",
@@ -18059,7 +18405,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "damiana",
@@ -18151,7 +18499,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "dandelion-root",
@@ -18235,7 +18585,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "daphnetin",
@@ -18341,7 +18693,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "deglycyrrhizinated-licorice",
@@ -18426,7 +18780,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "demethoxycurcumin",
@@ -18555,7 +18911,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "deoxyelephantopin",
@@ -18651,7 +19009,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "deoxymiroestrol",
@@ -18762,7 +19122,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "desmethoxyyangonin",
@@ -18864,7 +19226,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "devils-claw",
@@ -18957,7 +19321,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "dhea",
@@ -19048,7 +19414,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "dietary-nitrates",
@@ -19153,7 +19521,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "digestive-enzymes",
@@ -19240,7 +19610,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "dihydrokavain",
@@ -19344,7 +19716,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "dihydromethysticin",
@@ -19446,7 +19820,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "dim",
@@ -19537,7 +19913,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "diosgenin",
@@ -19642,7 +20020,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "diosmin",
@@ -19738,7 +20118,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "eaa-blend",
@@ -19835,7 +20217,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "eaa-essential-amino-acids",
@@ -19933,7 +20317,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "echinacea",
@@ -20043,7 +20429,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "echinacoside",
@@ -20168,7 +20556,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "epigallocatechin-gallate-egcg",
@@ -20286,7 +20676,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "egcg-caffeine",
@@ -20404,7 +20796,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "elderberry",
@@ -20498,7 +20892,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "electrolyte-blend",
@@ -20608,7 +21004,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "electrolyte-mix",
@@ -20701,7 +21099,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "electrolytes-magnesium-blend",
@@ -20807,7 +21207,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "elemicin",
@@ -20904,7 +21306,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "elephantopin",
@@ -21000,7 +21404,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "eleuthero-extract",
@@ -21098,7 +21504,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "eleutheroside-b",
@@ -21215,7 +21623,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "eleutheroside-e",
@@ -21332,7 +21742,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ellagic-acid",
@@ -21450,7 +21862,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "embelin",
@@ -21561,7 +21975,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "emodin",
@@ -21659,7 +22075,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "epicatechin",
@@ -21773,7 +22191,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "epicatechin-gallate",
@@ -21870,7 +22290,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "epigallocatechin",
@@ -21984,7 +22406,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "erinacines",
@@ -22089,7 +22513,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "esculetin",
@@ -22195,7 +22621,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "estrogen-balance-stack",
@@ -22285,7 +22713,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "eugenol",
@@ -22387,7 +22817,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "exogenous-ketones",
@@ -22480,7 +22912,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "melatonin-extended-release",
@@ -22579,7 +23013,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fadogia-agrestis",
@@ -22672,7 +23108,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "farnesol",
@@ -22779,7 +23217,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fat-burner-proprietary-blend",
@@ -22872,7 +23312,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fenugreek",
@@ -22983,7 +23425,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fenugreek-extract",
@@ -23094,7 +23538,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ferulic-acid",
@@ -23209,7 +23655,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fisetin",
@@ -23320,7 +23768,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "folate",
@@ -23407,7 +23857,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "folic-acid",
@@ -23488,7 +23940,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "formononetin",
@@ -23599,7 +24053,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "forskolin",
@@ -23694,7 +24150,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fraxetin",
@@ -23805,7 +24263,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fos",
@@ -23886,7 +24346,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fucoxanthin",
@@ -23985,7 +24447,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "fukinolic-acid",
@@ -24069,7 +24533,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gaba",
@@ -24170,7 +24636,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "galangin",
@@ -24283,7 +24751,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "galantamine",
@@ -24365,7 +24835,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gallic-acid",
@@ -24480,7 +24952,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gallocatechin",
@@ -24594,7 +25068,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "garcinia-cambogia-extract",
@@ -24691,7 +25167,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "garcinol",
@@ -24794,7 +25272,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "garlic",
@@ -24901,7 +25381,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "garlic-aged-extract",
@@ -25021,7 +25503,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "garlic-extract",
@@ -25134,7 +25618,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gelatin",
@@ -25217,7 +25703,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "genistein",
@@ -25328,7 +25816,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginger",
@@ -25436,7 +25926,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gingerol",
@@ -25537,7 +26029,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gingerols",
@@ -25642,7 +26136,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginkgo-biloba-extract",
@@ -25745,7 +26241,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginkgo-egb-761",
@@ -25851,7 +26349,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginkgolide-b",
@@ -25961,7 +26461,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginkgolides",
@@ -26062,7 +26564,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginsenoside-rb1",
@@ -26179,7 +26683,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginsenoside-rg1",
@@ -26295,7 +26801,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginsenoside-rg3",
@@ -26400,7 +26908,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginsenosides",
@@ -26494,7 +27004,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glucomannan",
@@ -26600,7 +27112,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glucomoringin",
@@ -26711,7 +27225,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glucosamine",
@@ -26810,7 +27326,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glutamine",
@@ -26912,7 +27430,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glutathione",
@@ -27001,7 +27521,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glycerol",
@@ -27088,7 +27610,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glycinate-magnesium-complex",
@@ -27194,7 +27718,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glycine",
@@ -27300,7 +27826,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glycine-sleep",
@@ -27398,7 +27926,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glycyrrhetinic-acid",
@@ -27494,7 +28024,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glycyrrhizin",
@@ -27603,7 +28135,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "glycyrrhizin-isolated",
@@ -27715,7 +28249,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "goldenseal",
@@ -27809,7 +28345,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gotu-kola",
@@ -27912,7 +28450,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "grape-seed-extract",
@@ -28023,7 +28563,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "graviola",
@@ -28118,7 +28660,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "green-tea-egcg-isolated",
@@ -28241,7 +28785,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "green-tea-extract",
@@ -28356,7 +28902,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "green-tea-extract-egcg",
@@ -28459,7 +29007,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "guarana",
@@ -28555,7 +29105,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "guggulsterone",
@@ -28669,7 +29221,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gurmarin",
@@ -28768,7 +29322,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gymnemagenin",
@@ -28882,7 +29438,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "gymnemic-acid",
@@ -28981,7 +29539,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "harpagoside",
@@ -29089,7 +29649,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hawthorn",
@@ -29192,7 +29754,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hawthorn-extract",
@@ -29281,7 +29845,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hcg-diet",
@@ -29380,7 +29946,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hericenones",
@@ -29471,7 +30039,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hesperidin",
@@ -29588,7 +30158,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hmb",
@@ -29694,7 +30266,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "holy-basil-extract",
@@ -29813,7 +30387,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "honokiol",
@@ -29926,7 +30502,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "horsetail",
@@ -30011,7 +30589,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "huperzine-a",
@@ -30108,7 +30688,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "huperzine-b",
@@ -30204,7 +30786,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hyaluronic-acid",
@@ -30292,7 +30876,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hydroxytyrosol",
@@ -30408,7 +30994,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hyperforin",
@@ -30490,7 +31078,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "hypericin",
@@ -30578,7 +31168,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "iberogast",
@@ -30665,7 +31257,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "icariin",
@@ -30766,7 +31360,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "imperatorin",
@@ -30871,7 +31467,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "indirubin",
@@ -30962,7 +31560,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "indole-3-carbinol",
@@ -31055,7 +31655,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "inositol",
@@ -31164,7 +31766,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "inositol-sleep",
@@ -31282,7 +31886,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "inositol-hexanicotinate",
@@ -31399,7 +32005,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "inulin",
@@ -31493,7 +32101,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "iodine",
@@ -31580,7 +32190,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "iron",
@@ -31678,7 +32290,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "isoimperatorin",
@@ -31783,7 +32397,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "isoleucine",
@@ -31878,7 +32494,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "jatrorrhizine",
@@ -31994,7 +32612,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "kaempferol",
@@ -32112,7 +32732,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "kahweol",
@@ -32226,7 +32848,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "kanna",
@@ -32318,7 +32942,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "kava",
@@ -32423,7 +33049,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "kavain",
@@ -32531,7 +33159,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "kavalactones",
@@ -32639,7 +33269,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "kotalanol",
@@ -32724,7 +33356,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "krill-oil",
@@ -32822,7 +33456,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "l-norvaline",
@@ -32907,7 +33543,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "l-carnitine",
@@ -33017,7 +33655,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "l-citrulline",
@@ -33114,7 +33754,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "l-theanine",
@@ -33226,7 +33868,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "l-theanine-sleep",
@@ -33335,7 +33979,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "l-tyrosine",
@@ -33444,7 +34090,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "probiotic-strain-lactobacillus",
@@ -33547,7 +34195,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lagerstroemin",
@@ -33644,7 +34294,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lavender",
@@ -33747,7 +34399,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lavender-extract",
@@ -33844,7 +34498,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lawsone",
@@ -33955,7 +34611,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lecithin",
@@ -34063,7 +34721,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lemon-balm",
@@ -34167,7 +34827,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lemon-balm-extract",
@@ -34263,7 +34925,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "leucine",
@@ -34352,7 +35016,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "levodopa",
@@ -34435,7 +35101,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "licorice-root",
@@ -34541,7 +35209,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ligustilide",
@@ -34654,7 +35324,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "linalool",
@@ -34756,7 +35428,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lions-mane",
@@ -34853,7 +35527,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lithium-orotate",
@@ -34950,7 +35626,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "loganin",
@@ -35064,7 +35742,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lumbrokinase",
@@ -35149,7 +35829,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lutein",
@@ -35256,7 +35938,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "luteolin",
@@ -35375,7 +36059,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "lycopene",
@@ -35467,7 +36153,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "maca",
@@ -35564,7 +36252,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "maca-root-extract",
@@ -35664,7 +36354,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "macamides",
@@ -35768,7 +36460,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "madecassic-acid",
@@ -35879,7 +36573,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "madecassoside",
@@ -35975,7 +36671,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "magnesium",
@@ -36089,7 +36787,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
   },
   {
     "slug": "magnesium-citrate",
@@ -36193,7 +36893,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "magnesium-glycinate",
@@ -36303,7 +37005,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
   },
   {
     "slug": "magnesium-oxide",
@@ -36410,7 +37114,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "magnesium-threonate",
@@ -36518,7 +37224,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "magnoflorine",
@@ -36620,7 +37328,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "magnolol",
@@ -36727,7 +37437,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "manganese",
@@ -36827,7 +37539,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mangiferin",
@@ -36943,7 +37657,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mangiferin-aglycone",
@@ -37059,7 +37775,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mangostin",
@@ -37162,7 +37880,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "marshmallow-root",
@@ -37249,7 +37969,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "matcha",
@@ -37330,7 +38052,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "matrine",
@@ -37423,7 +38147,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mct-oil",
@@ -37522,7 +38248,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "melatonin",
@@ -37628,7 +38356,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": true,
+    "controlled_substance": false
   },
   {
     "slug": "menthol",
@@ -37716,7 +38446,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mesembrenone",
@@ -37808,7 +38540,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mesembrine",
@@ -37900,7 +38634,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "metformin-natural-comparison",
@@ -38001,7 +38737,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "methyl-eugenol",
@@ -38098,7 +38836,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "methylcobalamin",
@@ -38185,7 +38925,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "methyleugenol",
@@ -38286,7 +39028,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "methylfolate",
@@ -38376,7 +39120,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "methylliberine",
@@ -38470,7 +39216,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "methysticin",
@@ -38572,7 +39320,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "milk-thistle",
@@ -38685,7 +39435,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "momordicoside-k",
@@ -38797,7 +39549,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "morin",
@@ -38910,7 +39664,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "morroniside",
@@ -39023,7 +39779,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "msm",
@@ -39126,7 +39884,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mucuna-pruriens",
@@ -39220,7 +39980,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "muira-puama",
@@ -39305,7 +40067,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "mulberroside-a",
@@ -39402,7 +40166,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "myricetin",
@@ -39516,7 +40282,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "myristicin",
@@ -39613,7 +40381,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "n-acetylcysteine",
@@ -39722,7 +40492,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nad-plus",
@@ -39827,7 +40599,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nadh",
@@ -39926,7 +40700,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "naringenin",
@@ -40043,7 +40819,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "naringin",
@@ -40161,7 +40939,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nattokinase",
@@ -40253,7 +41033,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "neoandrographolide",
@@ -40371,7 +41153,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nerolidol",
@@ -40480,7 +41264,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nettle-root",
@@ -40579,7 +41365,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "niacin",
@@ -40676,7 +41464,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "niacinamide",
@@ -40778,7 +41568,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nmn",
@@ -40891,7 +41683,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nicotinamide-riboside",
@@ -40977,7 +41771,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nr",
@@ -41083,7 +41879,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nicotine",
@@ -41175,7 +41973,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nicotinic-acid",
@@ -41286,7 +42086,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "nutmeg",
@@ -41376,7 +42178,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oleacein",
@@ -41492,7 +42296,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oleamide",
@@ -41588,7 +42394,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oleanolic-acid",
@@ -41708,7 +42516,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oleocanthal",
@@ -41824,7 +42634,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oleuropein",
@@ -41940,7 +42752,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "olive-leaf-extract",
@@ -42058,7 +42872,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "omega-3-dha-dominant",
@@ -42173,7 +42989,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "omega-3-epa",
@@ -42288,7 +43106,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "omega-3-epa-dominant",
@@ -42405,7 +43225,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "omega-3",
@@ -42526,7 +43348,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ononin",
@@ -42637,7 +43461,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oral-rehydration-salts",
@@ -42736,7 +43562,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oregon-grape-root",
@@ -42824,7 +43652,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ornithine",
@@ -42924,7 +43754,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "orotic-acid",
@@ -43005,7 +43837,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "osthole",
@@ -43106,7 +43940,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oxymatrine",
@@ -43203,7 +44039,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "oxyresveratrol",
@@ -43325,7 +44163,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "paeoniflorin",
@@ -43428,7 +44268,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "paeonol",
@@ -43544,7 +44386,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "palmatine",
@@ -43648,7 +44492,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "palmitoylethanolamide",
@@ -43752,7 +44598,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "panax-ginseng",
@@ -43875,7 +44723,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "panax-ginseng-extract",
@@ -43995,7 +44845,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginseng-panax-red",
@@ -44113,7 +44965,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ginseng-panax-white",
@@ -44226,7 +45080,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pantethine",
@@ -44322,7 +45178,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "papain",
@@ -44414,7 +45272,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "passionflower",
@@ -44515,7 +45375,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "passionflower-extract",
@@ -44613,7 +45475,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "passionflower-extract-standardized",
@@ -44717,7 +45581,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pau-darco",
@@ -44799,7 +45665,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "peppermint-oil",
@@ -44898,7 +45766,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "phenylalanine",
@@ -44981,7 +45851,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "phloretin",
@@ -45079,7 +45951,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "phosphatidic-acid",
@@ -45172,7 +46046,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "phosphatidylcholine",
@@ -45280,7 +46156,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "phosphatidylserine",
@@ -45402,7 +46280,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "piperine",
@@ -45495,7 +46375,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "piperlongumine",
@@ -45604,7 +46486,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "plant-sterols",
@@ -45700,7 +46584,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "plumbagin",
@@ -45811,7 +46697,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "policosanol",
@@ -45905,7 +46793,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pomegranate-extract",
@@ -46020,7 +46910,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "potassium",
@@ -46116,7 +47008,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "electrolytes-potassium",
@@ -46218,7 +47112,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pqq",
@@ -46325,7 +47221,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pregnenolone",
@@ -46423,7 +47321,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "proanthocyanidins",
@@ -46507,7 +47407,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "probiotic-multistrain",
@@ -46608,7 +47510,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "probiotics",
@@ -46707,7 +47611,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "probiotics-bifidobacterium",
@@ -46817,7 +47723,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "probiotics-lactobacillus",
@@ -46918,7 +47826,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "proline",
@@ -47008,7 +47918,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "propionate",
@@ -47108,7 +48020,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "protodioscin",
@@ -47195,7 +48109,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "psoralen",
@@ -47300,7 +48216,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "psyllium-husk",
@@ -47416,7 +48334,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pterostilbene",
@@ -47528,7 +48448,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "puerarin",
@@ -47641,7 +48563,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pumpkin-seed-oil",
@@ -47747,7 +48671,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "punicalagin",
@@ -47847,7 +48773,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "putrescine",
@@ -47949,7 +48877,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pycnogenol",
@@ -48049,7 +48979,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pygeum",
@@ -48143,7 +49075,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "pyridoxal-5-phosphate",
@@ -48240,7 +49174,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "quercetin",
@@ -48362,7 +49298,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "quercetin-phytosome",
@@ -48486,7 +49424,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "raspberry-ketones",
@@ -48576,7 +49516,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "red-yeast-rice",
@@ -48676,7 +49618,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "reishi",
@@ -48792,7 +49736,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "resistant-starch",
@@ -48886,7 +49832,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "resveratrol",
@@ -49007,7 +49955,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "rhein",
@@ -49109,7 +50059,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "rhodiola-extract-shr5",
@@ -49214,7 +50166,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "rosarin",
@@ -49322,7 +50276,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "rosavin",
@@ -49430,7 +50386,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "rosin",
@@ -49534,7 +50492,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "rosmarinic-acid",
@@ -49651,7 +50611,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "rutin",
@@ -49767,7 +50729,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "saccharomyces-boulardii",
@@ -49856,7 +50820,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "saffron-extract",
@@ -49964,7 +50930,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "safranal",
@@ -50065,7 +51033,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "safrole",
@@ -50162,7 +51132,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "saikosaponin-a",
@@ -50269,7 +51241,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "salidroside",
@@ -50380,7 +51354,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "salvianolic-acid-b",
@@ -50487,7 +51463,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "sam-e",
@@ -50587,7 +51565,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "saw-palmetto",
@@ -50688,7 +51668,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "saw-palmetto-extract",
@@ -50790,7 +51772,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "schisandra",
@@ -50900,7 +51884,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "schisandra-extract",
@@ -51007,7 +51993,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "schisandrin",
@@ -51127,7 +52115,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "schisandrin-b",
@@ -51227,7 +52217,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "schisandrins",
@@ -51320,7 +52312,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "scopoletin",
@@ -51426,7 +52420,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "selenium",
@@ -51532,7 +52528,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "senkyunolide-a",
@@ -51640,7 +52638,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "serine",
@@ -51734,7 +52734,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "serrapeptase",
@@ -51825,7 +52827,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "shikonin",
@@ -51940,7 +52944,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "shilajit",
@@ -52035,7 +53041,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "shilajit-extract",
@@ -52136,7 +53144,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "shogaol",
@@ -52228,7 +53238,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "silibinin",
@@ -52348,7 +53360,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "silica",
@@ -52434,7 +53448,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "silybin",
@@ -52537,7 +53553,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "silychristin",
@@ -52640,7 +53658,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "silydianin",
@@ -52751,7 +53771,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "silymarin",
@@ -52864,7 +53886,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "skullcap",
@@ -52970,7 +53994,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "slippery-elm",
@@ -53054,7 +54080,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "sodium",
@@ -53145,7 +54173,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "sodium-bicarbonate",
@@ -53240,7 +54270,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "electrolytes-sodium",
@@ -53340,7 +54372,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "spermidine",
@@ -53439,7 +54473,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "spirulina",
@@ -53548,7 +54584,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "st-johns-wort",
@@ -53631,7 +54669,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "stigmasterol",
@@ -53733,7 +54773,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "sulforaphane",
@@ -53848,7 +54890,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "tanshinone-iia",
@@ -53943,7 +54987,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "taurine",
@@ -54061,7 +55107,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "taurine-sleep",
@@ -54162,7 +55210,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "taurine-blend",
@@ -54260,7 +55310,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "testosterone-boosters-generic",
@@ -54355,7 +55407,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "testosterone-support-stack",
@@ -54445,7 +55499,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "tetrandrine",
@@ -54538,7 +55594,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "theacrine",
@@ -54632,7 +55690,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "theaflavin",
@@ -54746,7 +55806,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "theanine",
@@ -54847,7 +55909,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "thearubigin",
@@ -54961,7 +56025,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "thujone",
@@ -55062,7 +56128,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "thymol",
@@ -55165,7 +56233,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "thymoquinone",
@@ -55284,7 +56354,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "timosaponin-aiii",
@@ -55396,7 +56468,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "tongkat-ali",
@@ -55504,7 +56578,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "trans-resveratrol",
@@ -55627,7 +56703,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "tribulus-terrestris",
@@ -55726,7 +56804,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "trigonelline",
@@ -55841,7 +56921,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "trimethylglycine",
@@ -55943,7 +57025,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "tryptophan",
@@ -56030,7 +57114,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "tudca",
@@ -56134,7 +57220,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "turkesterone",
@@ -56221,7 +57309,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "turkey-tail",
@@ -56309,7 +57399,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "turmeric",
@@ -56430,7 +57522,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "turmeric-curcumin-piperine",
@@ -56558,7 +57652,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "tyrosol",
@@ -56674,7 +57770,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "coenzyme-q10-ubiquinol",
@@ -56786,7 +57884,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "uc-ii-collagen",
@@ -56892,7 +57992,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "umbelliferone",
@@ -56999,7 +58101,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "uracil",
@@ -57086,7 +58190,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "uridine-monophosphate",
@@ -57190,7 +58296,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ursodeoxycholic-acid",
@@ -57285,7 +58393,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "ursolic-acid",
@@ -57384,7 +58494,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "uva-ursi",
@@ -57472,7 +58584,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "valepotriates",
@@ -57579,7 +58693,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "valerenic-acid",
@@ -57677,7 +58793,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "valerenol",
@@ -57778,7 +58896,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "valerian",
@@ -57881,7 +59001,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "valerian-extract-standardized",
@@ -57984,7 +59106,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "valerian-root-extract",
@@ -58087,7 +59211,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "valine",
@@ -58170,7 +59296,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "verbascoside",
@@ -58284,7 +59412,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vinpocetine",
@@ -58392,7 +59522,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-a",
@@ -58483,7 +59615,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "cobalamin",
@@ -58579,7 +59713,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-b3",
@@ -58691,7 +59827,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-b6",
@@ -58787,7 +59925,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-c",
@@ -58899,7 +60039,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-d",
@@ -59004,7 +60146,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-d3",
@@ -59113,7 +60257,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-d3-k2",
@@ -59223,7 +60369,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-e",
@@ -59334,7 +60482,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "vitamin-k2",
@@ -59433,7 +60583,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "protein-whey-isolate",
@@ -59530,7 +60682,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "wild-dagga",
@@ -59614,7 +60768,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "willow-bark-extract",
@@ -59709,7 +60865,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "withaferin-a",
@@ -59829,7 +60987,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "withanolide-a",
@@ -59935,7 +61095,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "withanolides",
@@ -60032,7 +61194,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "withanoside-iv",
@@ -60133,7 +61297,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "wogonin",
@@ -60250,7 +61416,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "xanthotoxin",
@@ -60351,7 +61519,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "yangonin",
@@ -60453,7 +61623,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "yellow-dock",
@@ -60535,7 +61707,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "yerba-mate",
@@ -60646,7 +61820,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "yohimbe",
@@ -60743,7 +61919,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "yohimbine",
@@ -60840,7 +62018,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "zeaxanthin",
@@ -60938,7 +62118,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "zinc",
@@ -61037,7 +62219,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "zinc-carnosine",
@@ -61130,7 +62314,9 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   },
   {
     "slug": "zinc-picolinate",
@@ -61222,6 +62408,8 @@
     },
     "indexability_reasons": [],
     "meta_title": "",
-    "meta_description": ""
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
   }
 ]

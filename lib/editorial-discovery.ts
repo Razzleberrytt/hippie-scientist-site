@@ -19,6 +19,8 @@ export type BlogPostRecord = {
   readingTime?: string
   profile_status?: string
   sitemap_included?: boolean
+  controlled_substance?: boolean
+  ai_assisted?: boolean
 }
 
 const normalize = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()

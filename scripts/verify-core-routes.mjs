@@ -13,6 +13,8 @@ const coreRoutes = [
   '/contact',
   '/privacy',
   '/disclaimer',
+  '/herbs/ashwagandha-withania-somnifera/',
+  '/safety/',
 ]
 
 const repoRoot = process.cwd()

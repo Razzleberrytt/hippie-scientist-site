@@ -131,6 +131,21 @@ const steps = [
     description: 'Build Pagefind static search index (post-production; enables /search without server). Cross-plat script.',
   },
   {
+    name: 'validate-guide-faqs',
+    cmd: 'node scripts/ci/validate-guide-faqs.mjs',
+    description: 'Validate SEO guide FAQs for leaks, invalid markup, or formatting issues',
+  },
+  {
+    name: 'validate-sitemap',
+    cmd: 'node scripts/ci/validate-sitemap.mjs',
+    description: 'Verify sitemap.xml counts, routes, and layout constraints',
+  },
+  {
+    name: 'validate-guide-related',
+    cmd: 'npx tsx scripts/ci/validate-guide-related.mjs',
+    description: 'Validate related guide relationships and prevent self-reference/duplicates',
+  },
+  {
     name: 'verify:build:parallel',
     cmd: 'npm run verify:build:parallel',
     description: 'Run parallel post-build verifications, audits, SEO, security, etc.',
@@ -164,19 +179,26 @@ for (const step of steps) {
 
   const stepStart = performance.now()
 
-  // Use spawnSync for cross-platform control (no reliance on shell &&)
-  // For "npm run ..." we still invoke npm (works cross-plat when npm in PATH)
-  const [command, ...args] = step.cmd.startsWith('npm ')
-    ? step.cmd.split(/\s+/)
-    : step.cmd.match(/(?:[^\s"]+|"[^"]*")+/g) || [step.cmd]
-
-  // On windows, node scripts are fine; npm too.
-  const result = spawnSync(command, args, {
-    cwd: process.cwd(),
-    stdio: 'inherit',
-    shell: process.platform === 'win32' && command === 'npm', // help .cmd resolution for npm on win if needed
-    env: process.env,
-  })
+  // Use spawnSync for cross-platform control
+  const hasShellOperator = step.cmd.includes('||') || step.cmd.includes('&&')
+  const result = hasShellOperator
+    ? spawnSync(step.cmd, {
+        cwd: process.cwd(),
+        stdio: 'inherit',
+        shell: true,
+        env: process.env,
+      })
+    : (() => {
+        const [command, ...args] = step.cmd.startsWith('npm ') || step.cmd.startsWith('npx ')
+          ? step.cmd.split(/\s+/)
+          : step.cmd.match(/(?:[^\s"]+|"[^"]*")+/g) || [step.cmd]
+        return spawnSync(command, args, {
+          cwd: process.cwd(),
+          stdio: 'inherit',
+          shell: process.platform === 'win32' && (command === 'npm' || command === 'npx'), // help .cmd resolution for npm/npx on win if needed
+          env: process.env,
+        })
+      })()
 
   const stepDuration = performance.now() - stepStart
   const secs = (stepDuration / 1000).toFixed(2)

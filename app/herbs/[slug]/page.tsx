@@ -38,10 +38,13 @@ type PageProps = {
   params: Promise<{ slug: string }>
 }
 
+import { getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
+
 const HERB_CANONICAL_SOURCE_ALIASES: Record<string, string> = {
   'lions-mane': 'hericium-erinaceus',
   passionflower: 'passiflora-incarnata',
   kava: 'piper-methysticum',
+  'ashwagandha-withania-somnifera': 'ashwagandha',
 }
 
 const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
@@ -54,22 +57,21 @@ const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
 }
 
 export async function generateStaticParams() {
-  const { herbs } = await getUnifiedRuntimeRecords()
+  const herbs = await getHerbSummaryIndex()
+  console.log(`[generateStaticParams] read ${herbs.length} herbs from summary index`)
 
   const dynamicParams = herbs
     .filter((herb: any) => getRuntimeVisibility(herb).canRender)
     .filter((herb: any) => !DEPRECATED_HERB_CANONICALS[normalizeSlug(herb.slug)])
     .map((herb: any) => ({ slug: herb.slug }))
 
-  // Include deprecated source slugs (e.g. latin names) so that legacy /herbs/old-slug URLs
-  // can be served a static redirect page instead of 404ing in static export.
-  const legacyRedirectParams = Object.keys(DEPRECATED_HERB_CANONICALS).map((slug) => ({ slug }))
-
-  return [
+  const totalParams = [
     ...dynamicParams,
-    ...legacyRedirectParams,
     ...Object.keys(HERB_CANONICAL_SOURCE_ALIASES).map((slug) => ({ slug })),
   ]
+
+  console.log(`[generateStaticParams] returning ${totalParams.length} static params`)
+  return totalParams
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

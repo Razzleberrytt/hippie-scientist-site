@@ -40,14 +40,15 @@ const startTime = performance.now()
 const steps = [
   {
     name: 'build-blog',
-    cmd: 'node scripts/build-blog.mjs',
-    inputs: ['data/blog/**/*.md'],
-    outputs: ['src/content/**/*', '.blog-cache'],
+    cmd: 'node --trace-uncaught scripts/build-blog.mjs',
+    inputs: ['content/blog/**/*.{md,mdx}', 'scripts/build-blog.mjs'],
+    outputs: ['data/blog/posts.json'],
+    cacheable: false,
   },
   {
     name: 'build-runtime-from-workbook',
-    cmd: 'node scripts/data/build-runtime-from-workbook.mjs --out public/data',
-    inputs: ['data/**/*.xlsx', 'data/**/*.json'],
+    cmd: 'node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out public/data',
+    inputs: ['data/**/*.xlsx', 'data/**/*.json', 'data-sources/**/*.xlsx', 'scripts/data/**/*.mjs'],
     outputs: ['public/data/**/*'],
   },
   {
@@ -119,7 +120,7 @@ for (const step of steps) {
   const stepStart = performance.now()
 
   try {
-    const shouldSkip = !process.env.CLEAR_CACHE && process.env.USE_CACHE !== 'false'
+    const shouldSkip = step.cacheable !== false && !process.env.CLEAR_CACHE && process.env.USE_CACHE !== 'false'
 
     if (shouldSkip) {
       const cachedResult = await cache.shouldRunStep(step.name, step.inputs || [])
@@ -133,11 +134,15 @@ for (const step of steps) {
     execSync(step.cmd, {
       cwd: process.cwd(),
       stdio: 'inherit',
+      env: {
+        ...process.env,
+        NODE_OPTIONS: `${process.env.NODE_OPTIONS || ''} --trace-uncaught`.trim(),
+      },
     })
 
     const stepDuration = performance.now() - stepStart
 
-    if (step.outputs) {
+    if (step.outputs && step.cacheable !== false) {
       await cache.markStepComplete(step.name, step.outputs, step.inputs || [])
     }
 
@@ -151,6 +156,7 @@ for (const step of steps) {
     if (error?.status !== undefined) console.error(`[build-deploy] Exit code: ${error.status}`)
     if (error?.signal) console.error(`[build-deploy] Signal: ${error.signal}`)
     if (error?.message) console.error(`[build-deploy] Error: ${error.message}`)
+    if (error?.stack) console.error(`[build-deploy] Wrapper stack:\n${error.stack}`)
     failed = true
     break
   }
@@ -181,12 +187,13 @@ Pro Tip: To clear build cache, run:
 `)
 
   process.exit(0)
-} else {
-  console.log(`
+}
+
+console.log(`
 ╔════════════════════════════════════════════════╗
 ║     ✗ Deploy Build Failed                      ║
 ║     Check error above for details              ║
 ╚════════════════════════════════════════════════╝
 `)
-  process.exit(1)
-}
+
+process.exit(1)

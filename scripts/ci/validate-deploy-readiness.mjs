@@ -55,6 +55,28 @@ function main() {
 
   validateGeneratedSitemap()
 
+  const outDir = path.join(ROOT, 'out')
+  if (fs.existsSync(outDir)) {
+    const herbsDir = path.join(outDir, 'herbs')
+    if (!fs.existsSync(herbsDir)) {
+      console.error('DEPLOY BLOCKED: out/herbs/ directory does not exist.')
+      process.exit(1)
+    }
+    const files = fs.readdirSync(herbsDir)
+    const directories = files.filter(f => {
+      try {
+        const stats = fs.statSync(path.join(herbsDir, f))
+        return stats.isDirectory() && f !== 'page'
+      } catch {
+        return false
+      }
+    })
+    if (directories.length < 280) {
+      console.error(`DEPLOY BLOCKED: out/herbs/ contains fewer than 280 herb profile directories. Static generation of herb profiles has failed. Check generateStaticParams() in app/herbs/[slug]/page.tsx. Found: ${directories.length}`)
+      process.exit(1)
+    }
+  }
+
   if (!fs.existsSync(path.join(ROOT, 'public/data/herbs-detail'))) {
     warn('herbs-detail missing (allowed in MVP)')
   }

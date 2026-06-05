@@ -112,5 +112,7 @@
   },
   "indexability_reasons": [],
   "meta_title": "",
-  "meta_description": ""
+  "meta_description": "",
+  "featured": false,
+  "controlled_substance": false
 }

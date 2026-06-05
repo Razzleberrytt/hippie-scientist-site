@@ -1,15 +1,7 @@
 {
+  "generatedAt": "2026-06-01T00:00:00.000Z",
   "goal": "anxiety",
-  "updatedAt": "2026-06-01T00:00:00.000Z",
-  "config": {
-    "problemField": "anxiety_problem",
-    "heroHeadline": "I want calmer anxiety support. What does the evidence actually support?",
-    "heroCta": "Start with the anxiety pattern",
-    "orientationHeading": "Start by naming the anxiety pattern",
-    "orientationSubtext": "The same ingredient can look useful or weak depending on generalized tension, situational triggers, social pressure, physical symptoms, and sleep interference.",
-    "safetyHeading": "Anxiety-support decisions change when risk context changes",
-    "safetyBody": "Do not use supplements to mask persistent panic disorders, severe anxiety, medication interactions, or other complex clinical situations."
-  },
+  "problemField": "anxiety_problem",
   "problemLabels": {
     "anticipatory_worry": {
       "title": "Anticipatory worry",
@@ -155,21 +147,21 @@
       "published": true
     },
     {
-      "safety_id": "kava-hepatotoxicity",
-      "ingredient_slug": "kava",
-      "risk_type": "liver",
-      "severity": "high",
-      "warning": "Rare but serious liver injury reports have been documented with kava use, including cases of liver failure.",
-      "decision_effect": "Avoid self-directed kava use when liver disease, abnormal liver labs, or history of liver injury is present; screen liver status before use.",
-      "published": true
-    },
-    {
       "safety_id": "kava-cns-interactions",
       "ingredient_slug": "kava",
       "risk_type": "sedative_stacking",
       "severity": "moderate",
       "warning": "Kava potentiates CNS depressants, alcohol, and sedating medications in an additive or synergistic way.",
       "decision_effect": "Avoid combining kava with alcohol, benzodiazepines, opioids, or other sedating agents.",
+      "published": true
+    },
+    {
+      "safety_id": "kava-hepatotoxicity",
+      "ingredient_slug": "kava",
+      "risk_type": "liver",
+      "severity": "high",
+      "warning": "Rare but serious liver injury reports have been documented with kava use, including cases of liver failure.",
+      "decision_effect": "Avoid self-directed kava use when liver disease, abnormal liver labs, or history of liver injury is present; screen liver status before use.",
       "published": true
     },
     {
@@ -210,32 +202,6 @@
     }
   ],
   "sourcesByClaim": {
-    "l-theanine-situational-nervousness": [
-      {
-        "source_id": "src-theanine-kimura-2007-anx",
-        "claim_id": "l-theanine-situational-nervousness",
-        "citation_label": "Kimura 2007",
-        "source_type": "randomized_trial",
-        "title": "L-Theanine reduces psychological and physiological stress responses",
-        "year": 2007,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
-        "source_note": "Small human acute stress task study; supporting evidence for acute situational anxiety framing.",
-        "published": true
-      }
-    ],
-    "l-theanine-racing-thoughts": [
-      {
-        "source_id": "src-theanine-hidese-2019-anx",
-        "claim_id": "l-theanine-racing-thoughts",
-        "citation_label": "Hidese 2019",
-        "source_type": "randomized_trial",
-        "title": "Effects of L-theanine administration on stress-related symptoms and cognitive functions in healthy adults",
-        "year": 2019,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/31623400/",
-        "source_note": "Human trial with mental health and sleep-quality measures; supports cognitive tension and worry-loop framing.",
-        "published": true
-      }
-    ],
     "ashwagandha-anticipatory-worry": [
       {
         "source_id": "src-ashwagandha-chandrasekhar-2012",
@@ -245,46 +211,6 @@
         "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults",
         "year": 2012,
         "url": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
-        "source_note": "Randomized trial in stressed adults using validated anxiety and stress scales; strong methodological basis for anticipatory worry framing.",
-        "published": true
-      }
-    ],
-    "magnesium-physical-tension": [
-      {
-        "source_id": "src-magnesium-boyle-2017-anx",
-        "claim_id": "magnesium-physical-tension",
-        "citation_label": "Boyle 2017",
-        "source_type": "systematic_review",
-        "title": "The effects of magnesium supplementation on subjective anxiety and stress",
-        "year": 2017,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/28445426/",
-        "source_note": "Systematic review of subjective anxiety and stress evidence; highlights physical tension and low-intake subgroup signals.",
-        "published": true
-      }
-    ],
-    "passionflower-racing-thoughts": [
-      {
-        "source_id": "src-passionflower-akhondzadeh-2001",
-        "claim_id": "passionflower-racing-thoughts",
-        "citation_label": "Akhondzadeh 2001",
-        "source_type": "randomized_trial",
-        "title": "Passionflower in the treatment of generalized anxiety: a pilot double-blind randomized controlled trial with oxazepam",
-        "year": 2001,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/11749919/",
-        "source_note": "Small RCT comparing passionflower to oxazepam in generalized anxiety; supports racing-thoughts and cognitive-restlessness framing.",
-        "published": true
-      }
-    ],
-    "lemon-balm-situational-nervousness": [
-      {
-        "source_id": "src-lemon-balm-cases-2011",
-        "claim_id": "lemon-balm-situational-nervousness",
-        "citation_label": "Cases 2011",
-        "source_type": "randomized_trial",
-        "title": "Pilot trial of Melissa officinalis L. leaf extract in the treatment of volunteers suffering from mild-to-moderate anxiety disorders and sleep disturbances",
-        "year": 2011,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/21485452/",
-        "source_note": "Pilot human trial of lemon balm for mild-to-moderate anxiety; modest effect size supports low-stakes situational use.",
         "published": true
       }
     ],
@@ -297,7 +223,66 @@
         "title": "Kava extract for treating anxiety",
         "year": 2003,
         "url": "https://pubmed.ncbi.nlm.nih.gov/12917907/",
-        "source_note": "Cochrane-style systematic review of kava for anxiety; provides the clearest aggregate evidence for anxiolytic effect.",
+        "published": true
+      }
+    ],
+    "l-theanine-racing-thoughts": [
+      {
+        "source_id": "src-theanine-hidese-2019-anx",
+        "claim_id": "l-theanine-racing-thoughts",
+        "citation_label": "Hidese 2019",
+        "source_type": "randomized_trial",
+        "title": "Effects of L-theanine administration on stress-related symptoms and cognitive functions in healthy adults",
+        "year": 2019,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31623400/",
+        "published": true
+      }
+    ],
+    "l-theanine-situational-nervousness": [
+      {
+        "source_id": "src-theanine-kimura-2007-anx",
+        "claim_id": "l-theanine-situational-nervousness",
+        "citation_label": "Kimura 2007",
+        "source_type": "randomized_trial",
+        "title": "L-Theanine reduces psychological and physiological stress responses",
+        "year": 2007,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
+        "published": true
+      }
+    ],
+    "lemon-balm-situational-nervousness": [
+      {
+        "source_id": "src-lemon-balm-cases-2011",
+        "claim_id": "lemon-balm-situational-nervousness",
+        "citation_label": "Cases 2011",
+        "source_type": "randomized_trial",
+        "title": "Pilot trial of Melissa officinalis L. leaf extract in the treatment of volunteers suffering from mild-to-moderate anxiety disorders and sleep disturbances",
+        "year": 2011,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21485452/",
+        "published": true
+      }
+    ],
+    "magnesium-physical-tension": [
+      {
+        "source_id": "src-magnesium-boyle-2017-anx",
+        "claim_id": "magnesium-physical-tension",
+        "citation_label": "Boyle 2017",
+        "source_type": "systematic_review",
+        "title": "The effects of magnesium supplementation on subjective anxiety and stress",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28445426/",
+        "published": true
+      }
+    ],
+    "passionflower-racing-thoughts": [
+      {
+        "source_id": "src-passionflower-akhondzadeh-2001",
+        "claim_id": "passionflower-racing-thoughts",
+        "citation_label": "Akhondzadeh 2001",
+        "source_type": "randomized_trial",
+        "title": "Passionflower in the treatment of generalized anxiety: a pilot double-blind randomized controlled trial with oxazepam",
+        "year": 2001,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11749919/",
         "published": true
       }
     ]

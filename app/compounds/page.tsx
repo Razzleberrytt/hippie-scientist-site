@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import {
-  DecisionEmptyState,
-  DecisionProfileCard,
-} from '@/components/ui/DecisionPrimitives'
-import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { Suspense } from 'react'
+
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { buildPageMetadata, SITE_URL } from '@/lib/seo'
+import { COMPOUNDS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
+import CompoundsIndexClient from './CompoundsIndexClient'
 
 export const dynamic = 'force-static'
 
@@ -164,18 +164,7 @@ function getBestFor(item: any) {
   return 'Research context'
 }
 
-function getTimeToEffect(item: any) {
-  const value = labelize(
-    item?.time_to_effect ||
-      item?.timeToEffect ||
-      item?.onset ||
-      item?.practical?.timeToEffect ||
-      item?.timeline,
-    ''
-  )
 
-  return value && isClean(value) ? value : ''
-}
 
 function scoreCompound(item: any) {
   let score = 0
@@ -221,22 +210,7 @@ function matchesOption(item: any, option: FilterOption) {
   return option.terms.some(term => corpus.includes(term))
 }
 
-function CompoundCard({ compound, featured = false }: { compound: any; featured?: boolean }) {
-  return (
-    <DecisionProfileCard
-      href={`/compounds/${compound?.slug || ''}`}
-      name={getName(compound)}
-      summary={getSummary(compound)}
-      bestFor={getBestFor(compound)}
-      evidence={getEvidence(compound)}
-      safety={getSafety(compound)}
-      timeToEffect={getTimeToEffect(compound)}
-      mechanisms={getMechanismSignals(compound)}
-      featured={featured}
-      fallbackSummary="A conservative compound profile with mechanism, evidence, and safety context."
-    />
-  )
-}
+
 
 function StatCard({ value, label }: { value: number; label: string }) {
   return (
@@ -272,19 +246,7 @@ function CompoundsItemListJsonLd({ compounds }: { compounds: any[] }) {
   )
 }
 
-function EmptyLibraryState() {
-  return (
-    <DecisionEmptyState
-      eyebrow="Library unavailable"
-      title="Compound profiles are being refreshed."
-      description="The compound index did not load any publishable records. Check the runtime compound data build before publishing."
-      actions={[
-        { href: '/herbs', label: 'Browse herbs', variant: 'primary' },
-        { href: '/goals', label: 'Browse goals' },
-      ]}
-    />
-  )
-}
+
 
 export default async function CompoundsPage() {
   const runtimeCompounds = await getCompounds()
@@ -301,13 +263,14 @@ export default async function CompoundsPage() {
   const totalProfiles = compounds.length
   const evidenceForward = compounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
   const featuredCompounds = compounds.slice(0, 6)
-  const libraryCompounds = compounds.slice(featuredCompounds.length)
   const contextSections = filterOptions
     .map(option => ({
       ...option,
-      compounds: compounds.filter(compound => matchesOption(compound, option)).slice(0, 6),
+      compounds: compounds.filter((compound: any) => matchesOption(compound, option)).slice(0, 6),
     }))
     .filter(option => option.compounds.length > 0)
+
+  const pageData = paginateItems(compounds, 1, COMPOUNDS_PAGE_SIZE)
 
   return (
     <div className="mx-auto max-w-6xl space-y-5 px-4 py-4 sm:py-6">
@@ -324,7 +287,11 @@ export default async function CompoundsPage() {
         <p className="mt-2 text-sm font-semibold text-[#46574d]">{totalProfiles} compound profiles available</p>
       </section>
 
-      {/* Server-rendered plain compound index list for static HTML / crawlers (distinct library, not homepage content) */}
+      <nav className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-3 text-sm">
+        <p className="font-semibold">Page 1 of {pageData.totalPages}</p>
+        {pageData.hasNext ? <Link rel="next" href="/compounds/page/2">Next page →</Link> : null}
+      </nav>
+
       <nav aria-label="Compound profiles index" className="sr-only">
         <ul>
           {compounds.slice(0, 300).map((c: any) => (
@@ -404,69 +371,15 @@ export default async function CompoundsPage() {
         </div>
       </section>
 
-      {totalProfiles === 0 ? (
-        <EmptyLibraryState />
-      ) : (
-        <>
-          {featuredCompounds.length > 0 ? (
-            <section className="space-y-4" aria-labelledby="featured-compounds-heading">
-              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <div className="max-w-2xl space-y-1.5">
-                  <p className="eyebrow-label">Start here</p>
-                  <h2 id="featured-compounds-heading" className="compact-heading">High-signal starting points.</h2>
-                </div>
-                <p className="max-w-md text-sm leading-6 text-[#5f6f66]">
-                  Sorted by evidence, safety, and profile readiness.
-                </p>
-              </div>
-
-              <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                {featuredCompounds.map((compound: any) => (
-                  <CompoundCard key={compound.slug} compound={compound} featured />
-                ))}
-              </div>
-            </section>
-          ) : null}
-
-          {contextSections.map(option => (
-            <section key={option.value} id={option.value} className="space-y-4 scroll-mt-24" aria-labelledby={`${option.value}-heading`}>
-              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <div className="max-w-2xl space-y-1.5">
-                  <p className="eyebrow-label">{option.label}</p>
-                  <h2 id={`${option.value}-heading`} className="compact-heading">{option.hint}</h2>
-                </div>
-                <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
-                  {option.compounds.length} examples
-                </span>
-              </div>
-
-              <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                {option.compounds.map((compound: any) => (
-                  <CompoundCard key={`${option.value}-${compound.slug}`} compound={compound} />
-                ))}
-              </div>
-            </section>
+      <Suspense fallback={
+        <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+          {compounds.slice(0, 12).map((c: any) => (
+            <div key={c.slug} className="h-48 animate-pulse rounded-[0.85rem] bg-white/50 border border-brand-900/5" />
           ))}
-
-          <section id="all-compounds" className="space-y-4 scroll-mt-24" aria-labelledby="all-compounds-heading">
-            <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-2xl space-y-1.5">
-                <p className="eyebrow-label">All compounds</p>
-                <h2 id="all-compounds-heading" className="compact-heading">Browse every published compound profile.</h2>
-              </div>
-              <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
-                {totalProfiles} profiles
-              </span>
-            </div>
-
-            <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-              {libraryCompounds.map((compound: any) => (
-                <CompoundCard key={compound.slug} compound={compound} />
-              ))}
-            </div>
-          </section>
-        </>
-      )}
+        </div>
+      }>
+        <CompoundsIndexClient compounds={pageData.pageItems} allCompounds={compounds} paginated page={1} totalPages={pageData.totalPages} />
+      </Suspense>
     </div>
   )
 }

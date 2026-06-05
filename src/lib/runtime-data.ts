@@ -1,6 +1,6 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { cache } from 'react'
+import { cache } from './react-cache'
 import type {
   EvidenceEngineClaim,
   EvidenceEngineConfig,
@@ -214,7 +214,7 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
 
 export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | undefined> {
   const herbs = await getHerbs()
-  const herb = herbs.find(herb => herb.slug === slug)
+  const herb = herbs.find((herb: any) => herb.slug === slug)
   const detail = await readDetailRecord('herbs', slug)
   const mergedHerb = detail ? { ...herb, ...detail } : herb
 
@@ -225,7 +225,7 @@ export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | undef
 
 export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | undefined> {
   const compounds = await getCompounds()
-  const compound = compounds.find(compound => compound.slug === slug)
+  const compound = compounds.find((compound: any) => compound.slug === slug)
   const detail = await readDetailRecord('compounds', slug)
   const mergedCompound = detail ? { ...compound, ...detail } : compound
 
@@ -233,3 +233,23 @@ export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | u
 
   return mergedCompound
 }
+
+export const getFeaturedHerbs = cache(async (): Promise<RuntimeRecord[]> => {
+  try {
+    const raw = await fs.readFile(path.join(dataDir, 'featured-herbs.json'), 'utf8')
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+})
+
+export const getFeaturedCompounds = cache(async (): Promise<RuntimeRecord[]> => {
+  try {
+    const raw = await fs.readFile(path.join(dataDir, 'featured-compounds.json'), 'utf8')
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed : []
+  } catch {
+    return []
+  }
+})
