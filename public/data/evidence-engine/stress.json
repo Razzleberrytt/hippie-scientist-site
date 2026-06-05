@@ -1,15 +1,7 @@
 {
+  "generatedAt": "2026-06-01T00:00:00.000Z",
   "goal": "stress",
-  "updatedAt": "2026-06-01T00:00:00.000Z",
-  "config": {
-    "problemField": "stress_problem",
-    "heroHeadline": "I want calmer stress response. What does the evidence actually support?",
-    "heroCta": "Start with the stress pattern",
-    "orientationHeading": "Start by naming the stress pattern",
-    "orientationSubtext": "The same ingredient can look useful or weak depending on acute pressure, baseline tension, reactivity, and sleep spillover.",
-    "safetyHeading": "Stress-support decisions change when risk context changes",
-    "safetyBody": "Do not use supplements to mask persistent panic symptoms, severe mood instability, unsafe medication interactions, or other complex clinical situations."
-  },
+  "problemField": "stress_problem",
   "problemLabels": {
     "acute_stress": {
       "title": "Acute stress",
@@ -199,19 +191,6 @@
     }
   ],
   "sourcesByClaim": {
-    "l-theanine-acute-stress": [
-      {
-        "source_id": "src-theanine-kimura-2007",
-        "claim_id": "l-theanine-acute-stress",
-        "citation_label": "Kimura 2007",
-        "source_type": "randomized_trial",
-        "title": "L-Theanine reduces psychological and physiological stress responses",
-        "year": 2007,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
-        "source_note": "Small human acute stress task study; useful for acute stress physiology context.",
-        "published": true
-      }
-    ],
     "ashwagandha-baseline-tension": [
       {
         "source_id": "src-ashwagandha-lopresti-2019",
@@ -221,46 +200,18 @@
         "title": "An investigation into the stress-relieving and pharmacological actions of an ashwagandha extract",
         "year": 2019,
         "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/",
-        "source_note": "Randomized trial in stressed healthy adults with stress scale and hormone endpoints.",
         "published": true
       }
     ],
-    "rhodiola-cognitive-stress-load": [
+    "l-theanine-acute-stress": [
       {
-        "source_id": "src-rhodiola-olsson-2009",
-        "claim_id": "rhodiola-cognitive-stress-load",
-        "citation_label": "Olsson 2009",
+        "source_id": "src-theanine-kimura-2007",
+        "claim_id": "l-theanine-acute-stress",
+        "citation_label": "Kimura 2007",
         "source_type": "randomized_trial",
-        "title": "Standardised Rhodiola rosea SHR-5 in subjects with stress-related fatigue",
-        "year": 2009,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
-        "source_note": "Human trial in stress-related fatigue; supports fatigue and cognitive-load framing.",
-        "published": true
-      }
-    ],
-    "phosphatidylserine-stress-reactivity": [
-      {
-        "source_id": "src-phosphatidylserine-hellhammer-2004",
-        "claim_id": "phosphatidylserine-stress-reactivity",
-        "citation_label": "Hellhammer 2004",
-        "source_type": "clinical_trial",
-        "title": "Soy lecithin phosphatidic acid and phosphatidylserine complex responses to mental stress",
-        "year": 2004,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/15512856/",
-        "source_note": "Human mental stressor study focused on endocrine and psychological stress responses.",
-        "published": true
-      }
-    ],
-    "magnesium-baseline-tension": [
-      {
-        "source_id": "src-magnesium-boyle-2017",
-        "claim_id": "magnesium-baseline-tension",
-        "citation_label": "Boyle 2017",
-        "source_type": "systematic_review",
-        "title": "The effects of magnesium supplementation on subjective anxiety and stress",
-        "year": 2017,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/28445426/",
-        "source_note": "Systematic review of subjective anxiety and stress evidence; highlights limitations and heterogeneity.",
+        "title": "L-Theanine reduces psychological and physiological stress responses",
+        "year": 2007,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
         "published": true
       }
     ],
@@ -273,7 +224,42 @@
         "title": "L-theanine, stress-related symptoms, cognitive functions, and sleep-quality signals",
         "year": 2019,
         "url": "https://pubmed.ncbi.nlm.nih.gov/31623400/",
-        "source_note": "Human trial with stress-related symptom and sleep-quality measures; not a dedicated insomnia trial.",
+        "published": true
+      }
+    ],
+    "magnesium-baseline-tension": [
+      {
+        "source_id": "src-magnesium-boyle-2017",
+        "claim_id": "magnesium-baseline-tension",
+        "citation_label": "Boyle 2017",
+        "source_type": "systematic_review",
+        "title": "The effects of magnesium supplementation on subjective anxiety and stress",
+        "year": 2017,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28445426/",
+        "published": true
+      }
+    ],
+    "phosphatidylserine-stress-reactivity": [
+      {
+        "source_id": "src-phosphatidylserine-hellhammer-2004",
+        "claim_id": "phosphatidylserine-stress-reactivity",
+        "citation_label": "Hellhammer 2004",
+        "source_type": "clinical_trial",
+        "title": "Soy lecithin phosphatidic acid and phosphatidylserine complex responses to mental stress",
+        "year": 2004,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15512856/",
+        "published": true
+      }
+    ],
+    "rhodiola-cognitive-stress-load": [
+      {
+        "source_id": "src-rhodiola-olsson-2009",
+        "claim_id": "rhodiola-cognitive-stress-load",
+        "citation_label": "Olsson 2009",
+        "source_type": "randomized_trial",
+        "title": "Standardised Rhodiola rosea SHR-5 in subjects with stress-related fatigue",
+        "year": 2009,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
         "published": true
       }
     ]

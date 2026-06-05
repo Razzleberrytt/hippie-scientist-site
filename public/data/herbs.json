@@ -106,9 +106,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "agarikon",
@@ -215,9 +213,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ajwain",
@@ -314,9 +310,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "aloe-vera",
@@ -445,9 +439,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "panax-quinquefolius",
@@ -551,9 +543,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "american-yellow-lotus",
@@ -664,9 +654,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "andrographis-paniculata",
@@ -776,9 +764,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "anemarrhena-asphodeloides",
@@ -901,9 +887,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "angelica-archangelica",
@@ -1014,9 +998,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "angelica-dahurica",
@@ -1126,9 +1108,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "angelica-pubescens",
@@ -1237,9 +1217,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "angelica-root",
@@ -1337,9 +1315,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "angelica-sinensis",
@@ -1461,9 +1437,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "anise-hyssop",
@@ -1567,9 +1541,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "arjuna",
@@ -1696,9 +1668,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "artemisia-absinthium",
@@ -1803,9 +1773,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "artemisia-annua",
@@ -1926,9 +1894,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "artemisia-capillaris",
@@ -2038,9 +2004,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "artichoke",
@@ -2153,9 +2117,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ashitaba",
@@ -2261,9 +2223,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ashoka",
@@ -2371,9 +2331,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ashwagandha",
@@ -2488,9 +2446,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "panax-ginseng",
@@ -2602,9 +2558,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "astragalus",
@@ -2724,9 +2678,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "astragalus-membranaceus",
@@ -2856,9 +2808,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "atractylodes",
@@ -2963,9 +2913,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "atractylodes-macrocephala",
@@ -3079,9 +3027,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "bacopa",
@@ -3193,9 +3139,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "bael",
@@ -3297,9 +3241,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "lagerstroemia-speciosa",
@@ -3408,9 +3350,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "bayberry",
@@ -3515,9 +3455,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "berberis",
@@ -3652,9 +3590,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "berberis-vulgaris",
@@ -3769,9 +3705,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "momordica-charantia",
@@ -3882,9 +3816,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "black-cohosh",
@@ -3994,9 +3926,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "piper-nigrum",
@@ -4095,9 +4025,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "black-seed",
@@ -4226,9 +4154,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "black-tea",
@@ -4355,9 +4281,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "blue-lotus",
@@ -4464,9 +4388,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "blueberry",
@@ -4591,9 +4513,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "boldo",
@@ -4691,9 +4611,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "boswellia-serrata",
@@ -4791,9 +4709,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "boswellia-carterii",
@@ -4898,9 +4814,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "brassica-juncea",
@@ -5006,9 +4920,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "brassica-oleracea",
@@ -5114,9 +5026,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "buckwheat",
@@ -5244,9 +5154,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "bupleurum",
@@ -5359,9 +5267,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "bupleurum-falcatum",
@@ -5469,9 +5375,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "burdock",
@@ -5574,9 +5478,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "butterbur",
@@ -5678,9 +5580,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "theobroma-cacao",
@@ -5784,9 +5684,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "calamus",
@@ -5885,9 +5783,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "calendula",
@@ -5997,9 +5893,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "eschscholzia-californica",
@@ -6102,9 +5996,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "capsicum-annuum",
@@ -6210,9 +6102,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "caraway",
@@ -6309,9 +6199,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "elettaria-cardamomum",
@@ -6417,9 +6305,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "carob",
@@ -6520,9 +6406,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cassia-alata",
@@ -6627,9 +6511,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cat-s-claw",
@@ -6741,9 +6623,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "catuba",
@@ -6844,9 +6724,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cayenne",
@@ -6950,9 +6828,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "celastrus-paniculatus",
@@ -7076,9 +6952,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "chaga",
@@ -7204,9 +7078,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "matricaria-chamomilla",
@@ -7305,9 +7177,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "chinese-skullcap",
@@ -7429,9 +7299,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "chuanxiong",
@@ -7546,9 +7414,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cichorium-intybus",
@@ -7664,9 +7530,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cinnamomum-verum",
@@ -7771,9 +7635,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cissus",
@@ -7879,9 +7741,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cistanche",
@@ -7981,9 +7841,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cistanche-deserticola",
@@ -8093,9 +7951,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "citrus-bergamia",
@@ -8224,9 +8080,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "citrus-sinensis",
@@ -8343,9 +8197,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "clove",
@@ -8449,9 +8301,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cnidium-monnieri",
@@ -8549,9 +8399,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "codonopsis",
@@ -8658,9 +8506,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "coffea-arabica",
@@ -8764,9 +8610,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "coffee-cherry",
@@ -8887,9 +8731,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "coleus-forskohlii",
@@ -8993,9 +8835,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "commiphora-mukul",
@@ -9120,9 +8960,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "coptis",
@@ -9244,9 +9082,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "coptis-chinensis",
@@ -9361,9 +9197,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cordyceps-sinensis",
@@ -9477,9 +9311,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "coriandrum-sativum",
@@ -9601,9 +9433,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cornus-officinalis",
@@ -9720,9 +9550,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "corydalis",
@@ -9823,9 +9651,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cranberry",
@@ -9923,9 +9749,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "crocus-sativus",
@@ -10040,9 +9864,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "curcuma-wenyujin",
@@ -10144,9 +9966,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "curcuma-zedoaria",
@@ -10253,9 +10073,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "curcumin",
@@ -10364,9 +10182,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "curry-leaf",
@@ -10472,9 +10288,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cyclea-peltata",
@@ -10581,9 +10395,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "cymbopogon-citratus",
@@ -10697,9 +10509,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "damiana",
@@ -10804,9 +10614,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "dandelion",
@@ -10918,9 +10726,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "danshen",
@@ -11024,9 +10830,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "daphne-odora",
@@ -11131,9 +10935,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "dendrobium",
@@ -11233,9 +11035,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "dong-quai",
@@ -11353,9 +11153,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "echinacea-purpurea",
@@ -11464,9 +11262,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "elderberry",
@@ -11577,9 +11373,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "elecampane",
@@ -11678,9 +11472,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "elephantopus-scaber",
@@ -11787,9 +11579,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "eleuthero",
@@ -11908,8 +11698,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "embelia-ribes",
@@ -12011,9 +11800,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "epimedium",
@@ -12124,9 +11911,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "epimedium-brevicornum",
@@ -12241,9 +12026,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "eucalyptus",
@@ -12348,9 +12131,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "eucommia",
@@ -12455,9 +12236,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "evening-primrose",
@@ -12544,9 +12323,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "fennel",
@@ -12657,9 +12434,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "trigonella-foenum-graecum",
@@ -12769,9 +12544,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "feverfew",
@@ -12884,9 +12657,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ficus-carica",
@@ -13000,9 +12771,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "fingerroot",
@@ -13113,9 +12882,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "fraxinus-rhynchophylla",
@@ -13233,9 +13000,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "galangal",
@@ -13335,9 +13100,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "garcinia-indica",
@@ -13450,9 +13213,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "garcinia-mangostana",
@@ -13563,9 +13324,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "allium-sativum",
@@ -13681,9 +13440,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "garlic",
@@ -13806,9 +13563,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "gastrodia",
@@ -13915,9 +13670,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ginger",
@@ -14030,9 +13783,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ginkgo-biloba",
@@ -14140,9 +13891,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "glycyrrhiza-glabra",
@@ -14250,9 +13999,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "goldenseal",
@@ -14373,9 +14120,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "gotu-kola",
@@ -14493,9 +14238,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "vitis-vinifera",
@@ -14614,9 +14357,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "grapefruit",
@@ -14719,9 +14460,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "camellia-sinensis",
@@ -14839,9 +14578,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "green-tea-extract",
@@ -14945,9 +14682,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "guarana",
@@ -15062,9 +14797,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "guayusa",
@@ -15170,9 +14903,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "gudmar",
@@ -15283,9 +15014,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "gymnema-sylvestre",
@@ -15389,9 +15118,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "harpagophytum-procumbens",
@@ -15498,9 +15225,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "crataegus-monogyna",
@@ -15598,9 +15323,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "hibiscus-sabdariffa",
@@ -15708,9 +15431,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "holy-basil",
@@ -15834,9 +15555,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "holy-basil-purple",
@@ -15951,9 +15670,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "holy-basil-seed",
@@ -16053,9 +15770,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "honeysuckle",
@@ -16165,9 +15880,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "hops",
@@ -16271,9 +15984,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "horse-chestnut",
@@ -16382,9 +16093,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "houttuynia",
@@ -16491,9 +16200,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "huperzia-serrata",
@@ -16597,9 +16304,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "hypericum-perforatum",
@@ -16705,9 +16410,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "berberis-aristata",
@@ -16824,9 +16527,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "isatis",
@@ -16931,9 +16632,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "japanese-knotweed",
@@ -17058,9 +16757,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "jatamansi",
@@ -17167,9 +16864,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "jujube",
@@ -17276,9 +16971,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "juniper",
@@ -17380,9 +17073,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "kanna",
@@ -17496,9 +17187,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "piper-methysticum",
@@ -17604,9 +17293,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "kuding-tea",
@@ -17716,9 +17403,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "kudzu",
@@ -17839,9 +17524,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "tyrosine",
@@ -17952,9 +17635,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "lavandula-angustifolia",
@@ -18055,9 +17736,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "lawsonia-inermis",
@@ -18159,9 +17838,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "melissa-officinalis",
@@ -18282,9 +17959,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "lemon-verbena",
@@ -18391,9 +18066,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "lemongrass",
@@ -18504,9 +18177,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "licorice",
@@ -18619,9 +18290,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ligusticum-chuanxiong",
@@ -18741,9 +18410,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "hericium-erinaceus",
@@ -18842,8 +18509,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "lions-mane",
@@ -18937,9 +18603,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "lithospermum-erythrorhizon",
@@ -19046,9 +18710,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "longan",
@@ -19155,9 +18817,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "luo-han-guo",
@@ -19264,9 +18924,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "maca",
@@ -19374,9 +19032,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "magnolia-officinalis",
@@ -19487,9 +19143,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "maitake-d-fraction",
@@ -19599,9 +19253,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "mangifera-indica",
@@ -19724,9 +19376,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "mangosteen",
@@ -19832,9 +19482,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "maral-root",
@@ -19935,9 +19583,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "marshmallow",
@@ -20038,9 +19684,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "milk-oats",
@@ -20141,9 +19785,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "silybum-marianum",
@@ -20259,9 +19901,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "milk-thistle",
@@ -20377,9 +20017,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "morinda-citrifolia",
@@ -20508,9 +20146,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "moringa",
@@ -20638,9 +20274,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "morus-alba",
@@ -20755,9 +20389,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "mucuna",
@@ -20879,9 +20511,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "mugwort",
@@ -20981,9 +20611,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "muira-puama",
@@ -21084,9 +20712,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "mulberry-leaf",
@@ -21201,9 +20827,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "myristica-fragrans",
@@ -21300,9 +20924,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "myrtle",
@@ -21409,9 +21031,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "neem",
@@ -21526,9 +21146,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "nelumbo-nucifera",
@@ -21647,9 +21265,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "nettle-root",
@@ -21753,9 +21369,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "nigella-sativa",
@@ -21882,9 +21496,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "noni",
@@ -21996,9 +21608,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "notoginseng",
@@ -22113,9 +21723,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "oatstraw",
@@ -22216,9 +21824,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ocimum-basilicum",
@@ -22347,9 +21953,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ocotea-odorifera",
@@ -22449,9 +22053,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "olea-europaea",
@@ -22577,9 +22179,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ophiopogon",
@@ -22678,9 +22278,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "orange-peel",
@@ -22795,9 +22393,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "oregano",
@@ -22902,9 +22498,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "paeonia-lactiflora",
@@ -23022,9 +22616,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "paeonia-suffruticosa",
@@ -23146,9 +22738,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "papaya-leaf",
@@ -23258,9 +22848,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "parsley",
@@ -23377,9 +22965,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "passiflora-incarnata",
@@ -23484,9 +23070,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "pastinaca-sativa",
@@ -23589,9 +23173,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "pau-d-arco",
@@ -23698,9 +23280,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "peppermint",
@@ -23805,9 +23385,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "perilla",
@@ -23907,9 +23485,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "phellodendron",
@@ -24030,9 +23606,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "phellodendron-amurense",
@@ -24152,9 +23726,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "phosphatidylserine",
@@ -24267,9 +23839,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "piper-longum",
@@ -24386,9 +23956,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "plantago-lanceolata",
@@ -24494,9 +24062,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "plantago-major",
@@ -24602,9 +24168,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "plumbago-zeylanica",
@@ -24711,9 +24275,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "polygala",
@@ -24820,9 +24382,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "pomegranate",
@@ -24939,9 +24499,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "poria",
@@ -25056,9 +24614,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "psoralea-corylifolia",
@@ -25182,9 +24738,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "psyllium",
@@ -25300,9 +24854,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "pueraria-lobata",
@@ -25421,9 +24973,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "pueraria-mirifica",
@@ -25524,9 +25074,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "punarnava",
@@ -25629,9 +25177,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "quercetin",
@@ -25750,9 +25296,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "raspberry-leaf",
@@ -25863,9 +25407,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "red-clover",
@@ -25979,9 +25521,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rehmannia-glutinosa",
@@ -26094,9 +25634,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rehmannia-prepared",
@@ -26202,9 +25740,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "ganoderma-lucidum",
@@ -26311,9 +25847,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "reishi",
@@ -26430,8 +25964,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "resveratrol",
@@ -26553,9 +26086,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rheum-palmatum",
@@ -26656,9 +26187,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rhodiola",
@@ -26767,9 +26296,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rice-bran",
@@ -26896,9 +26423,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rooibos",
@@ -27009,9 +26534,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rose-hips",
@@ -27124,9 +26647,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "roselle-seed",
@@ -27234,9 +26755,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "rosemary",
@@ -27362,9 +26881,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "saffron",
@@ -27478,9 +26995,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "sage",
@@ -27609,9 +27124,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "salacia-reticulata",
@@ -27715,9 +27228,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "salvia-miltiorrhiza",
@@ -27830,9 +27341,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "saw-palmetto",
@@ -27938,9 +27447,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "schisandra",
@@ -28052,8 +27559,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "schisandra-berry",
@@ -28158,9 +27664,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "schisandra-chinensis",
@@ -28271,9 +27775,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "scutellaria-baicalensis",
@@ -28403,9 +27905,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "selaginella-tamariscina",
@@ -28510,9 +28010,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "serenoa-repens",
@@ -28631,9 +28129,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "shankhpushpi",
@@ -28740,9 +28236,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "shatavari",
@@ -28851,9 +28345,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "scutellaria-lateriflora",
@@ -28959,8 +28451,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "sophora-alopecuroides",
@@ -29061,9 +28552,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "sophora-flavescens",
@@ -29178,9 +28667,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "soursop",
@@ -29280,9 +28767,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "soybean",
@@ -29407,9 +28892,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "st-johns-wort",
@@ -29515,8 +28998,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "stellera-chamaejasme",
@@ -29617,9 +29099,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "stephania-cepharantha",
@@ -29720,9 +29200,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "stephania-japonica",
@@ -29828,9 +29306,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "stephania-tetrandra",
@@ -29936,9 +29412,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "suma",
@@ -30045,9 +29519,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "syzygium-aromaticum",
@@ -30160,9 +29632,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "tamarind",
@@ -30268,9 +29738,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "artemisia-dracunculus",
@@ -30374,9 +29842,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "terminalia-arjuna",
@@ -30482,9 +29948,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "thunder-god-vine",
@@ -30604,9 +30068,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "thyme",
@@ -30720,9 +30182,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "tongkat-ali",
@@ -30829,9 +30289,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "tribulus-terrestris",
@@ -30929,9 +30387,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "tripterygium-wilfordii",
@@ -31051,9 +30507,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "turkey-tail",
@@ -31164,8 +30618,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "turmeric",
@@ -31291,9 +30744,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": true,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "valeriana-officinalis",
@@ -31400,9 +30851,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "valerian",
@@ -31507,9 +30956,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "verbena-officinalis",
@@ -31617,9 +31064,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "white-peony",
@@ -31731,9 +31176,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "wild-yam",
@@ -31838,9 +31281,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "wormwood",
@@ -31949,9 +31390,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "yarrow",
@@ -32054,9 +31493,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "yerba-mate",
@@ -32189,9 +31626,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   },
   {
     "slug": "yohimbe",
@@ -32306,8 +31741,6 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
+    "controlled_substance": false
   }
 ]

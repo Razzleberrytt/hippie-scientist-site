@@ -1,15 +1,7 @@
 {
+  "generatedAt": "2026-06-01T00:00:00.000Z",
   "goal": "focus",
-  "updatedAt": "2026-06-01T00:00:00.000Z",
-  "config": {
-    "problemField": "focus_problem",
-    "heroHeadline": "I want better focus. What does the evidence actually support?",
-    "heroCta": "Start with the focus problem",
-    "orientationHeading": "Start by naming the focus problem",
-    "orientationSubtext": "The same ingredient can look useful or weak depending on whether the issue is sustained attention, task-switching, cognitive load, or decision fatigue.",
-    "safetyHeading": "Focus supplement decisions change when risk context changes",
-    "safetyBody": "Do not use supplements to mask ADHD, cognitive impairment, severe fatigue, medication interactions, or other clinical situations requiring professional evaluation."
-  },
+  "problemField": "focus_problem",
   "problemLabels": {
     "attention_maintenance": {
       "title": "Attention maintenance",
@@ -201,32 +193,6 @@
     }
   ],
   "sourcesByClaim": {
-    "l-theanine-attention-maintenance": [
-      {
-        "source_id": "src-theanine-egawa-2016-foc",
-        "claim_id": "l-theanine-attention-maintenance",
-        "citation_label": "Egawa 2016",
-        "source_type": "randomized_trial",
-        "title": "L-Theanine improves working memory and attention-switching in healthy adults",
-        "year": 2016,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/27396874/",
-        "source_note": "Double-blind crossover trial showing improved attention and working memory in healthy adults; supports sustained attention framing for L-theanine.",
-        "published": true
-      }
-    ],
-    "l-theanine-task-switching": [
-      {
-        "source_id": "src-theanine-giesbrecht-2010-foc",
-        "claim_id": "l-theanine-task-switching",
-        "citation_label": "Giesbrecht 2010",
-        "source_type": "randomized_trial",
-        "title": "The combination of L-theanine and caffeine improves cognitive performance and increases subjective alertness",
-        "year": 2010,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/19840080/",
-        "source_note": "Crossover RCT confirming combined L-theanine and caffeine benefits on task-switching and attention; supports focus task-switching framing.",
-        "published": true
-      }
-    ],
     "bacopa-attention-maintenance": [
       {
         "source_id": "src-bacopa-stough-2001-foc",
@@ -236,7 +202,6 @@
         "title": "The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects",
         "year": 2001,
         "url": "https://pubmed.ncbi.nlm.nih.gov/11498727/",
-        "source_note": "One of the first well-controlled RCTs showing Bacopa improvements in visual information processing speed after 12 weeks.",
         "published": true
       }
     ],
@@ -249,20 +214,6 @@
         "title": "Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract",
         "year": 2014,
         "url": "https://pubmed.ncbi.nlm.nih.gov/24252493/",
-        "source_note": "Meta-analysis of 9 RCTs confirming cognitive performance improvements; supports working memory and cognitive load framing.",
-        "published": true
-      }
-    ],
-    "lions-mane-cognitive-load": [
-      {
-        "source_id": "src-lions-mane-mori-2009-foc",
-        "claim_id": "lions-mane-cognitive-load",
-        "citation_label": "Mori 2009",
-        "source_type": "randomized_trial",
-        "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment",
-        "year": 2009,
-        "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
-        "source_note": "16-week RCT in adults with mild cognitive impairment showing cognitive score improvements; primary human evidence for lion's mane cognitive benefits.",
         "published": true
       }
     ],
@@ -275,7 +226,42 @@
         "title": "A systematic review and meta-analysis of Ginkgo biloba in neuropsychiatric disorders",
         "year": 2013,
         "url": "https://pubmed.ncbi.nlm.nih.gov/23781171/",
-        "source_note": "Systematic review covering attention, cognition, and neuropsychiatric outcomes; supports the attention-maintenance framing.",
+        "published": true
+      }
+    ],
+    "l-theanine-attention-maintenance": [
+      {
+        "source_id": "src-theanine-egawa-2016-foc",
+        "claim_id": "l-theanine-attention-maintenance",
+        "citation_label": "Egawa 2016",
+        "source_type": "randomized_trial",
+        "title": "L-Theanine improves working memory and attention-switching in healthy adults",
+        "year": 2016,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27396874/",
+        "published": true
+      }
+    ],
+    "l-theanine-task-switching": [
+      {
+        "source_id": "src-theanine-giesbrecht-2010-foc",
+        "claim_id": "l-theanine-task-switching",
+        "citation_label": "Giesbrecht 2010",
+        "source_type": "randomized_trial",
+        "title": "The combination of L-theanine and caffeine improves cognitive performance and increases subjective alertness",
+        "year": 2010,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19840080/",
+        "published": true
+      }
+    ],
+    "lions-mane-cognitive-load": [
+      {
+        "source_id": "src-lions-mane-mori-2009-foc",
+        "claim_id": "lions-mane-cognitive-load",
+        "citation_label": "Mori 2009",
+        "source_type": "randomized_trial",
+        "title": "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment",
+        "year": 2009,
+        "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
         "published": true
       }
     ],
@@ -288,7 +274,6 @@
         "title": "Rhodiola rosea in stress induced fatigue -- a double blind cross-over study of a standardized extract SHR-5",
         "year": 2000,
         "url": "https://pubmed.ncbi.nlm.nih.gov/11081987/",
-        "source_note": "Classic crossover trial in physicians under night-shift stress showing reduced fatigue and improved cognitive performance; core evidence for cognitive fatigue framing.",
         "published": true
       }
     ]
