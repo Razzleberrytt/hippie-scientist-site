@@ -28,6 +28,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(__dirname, '../..')
 const cacheDir = path.join(projectRoot, '.build-cache')
 
+function arrayish(value) {
+  if (Array.isArray(value)) return value
+  if (value === null || value === undefined || value === '') return []
+  return [value]
+}
+
 /**
  * Deterministic hash of file contents
  */
@@ -42,13 +48,12 @@ function hashFile(filePath) {
 async function hashFiles(patterns, baseDir = projectRoot) {
   const files = []
 
-  for (const pattern of patterns) {
-    const fullPattern = path.join(baseDir, pattern)
-    const matches = await glob(fullPattern, { absolute: true, nodir: true })
-    // Ensure matches is an array before spreading
-    if (Array.isArray(matches)) {
-      files.push(...matches)
-    }
+  for (const pattern of arrayish(patterns)) {
+    const cleanPattern = String(pattern || '').trim()
+    if (!cleanPattern) continue
+    const fullPattern = path.join(baseDir, cleanPattern)
+    const matches = arrayish(await glob(fullPattern, { absolute: true, nodir: true }))
+    files.push(...matches)
   }
 
   // Sort for deterministic order
@@ -146,7 +151,7 @@ export class CacheManager {
       inputHash,
       configHash,
       outputHash,
-      outputs: outputPatterns,
+      outputs: arrayish(outputPatterns),
     }
 
     this._saveManifest()
@@ -181,53 +186,9 @@ export class CacheManager {
    */
   printStatus() {
     const count = Object.keys(this.manifest).length
-    console.log(`\n📦 Build Cache Status (${count} steps cached):\n`)
-
-    Object.entries(this.manifest).forEach(([step, info]) => {
-      const ts = new Date(info.timestamp)
-      const ago = this._timeAgo(ts)
-      console.log(`  ${step}`)
-      console.log(`    Input Hash: ${info.inputHash}`)
-      console.log(`    Cached: ${ago}`)
-    })
-  }
-
-  _timeAgo(date) {
-    const seconds = Math.floor((Date.now() - date) / 1000)
-    if (seconds < 60) return `${seconds}s ago`
-    if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`
-    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`
-    return `${Math.floor(seconds / 86400)}d ago`
-  }
-}
-
-// CLI interface
-if (import.meta.url === `file://${process.argv[1]}`) {
-  const cmd = process.argv[2]
-  const cache = new CacheManager()
-
-  switch (cmd) {
-    case 'clear':
-      cache.clearAll()
-      break
-    case 'status':
-      cache.printStatus()
-      break
-    case 'clear-step':
-      cache.clearStep(process.argv[3])
-      console.log(`✓ Cleared cache for: ${process.argv[3]}`)
-      break
-    default:
-      console.log(`
-Build Cache Manager
-
-Usage:
-  node build-cache-manager.mjs <command>
-
-Commands:
-  status          Show cache status
-  clear           Clear all cached data
-  clear-step      Clear cache for a specific step
-      `)
+    console.log(`Build cache: ${count} cached steps`)
+    for (const [step, info] of Object.entries(this.manifest)) {
+      console.log(`  ${step}: ${info.timestamp}`)
+    }
   }
 }
