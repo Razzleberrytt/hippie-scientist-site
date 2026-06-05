@@ -90,7 +90,9 @@
 /compounds/glycine-sleep /compounds/glycine 301
 /compounds/inositol-sleep /compounds/inositol 301
 /compounds/ashwagandha-extract-ksm-66 /herbs/ashwagandha 301
+/compounds/ashwagandha-extract-ksm-66/ /herbs/ashwagandha/ 301
 /compounds/ashwagandha-root-extract /herbs/ashwagandha 301
+/compounds/ashwagandha-root-extract/ /herbs/ashwagandha/ 301
 /compounds/garlic /herbs/garlic 301
 /compounds/garlic-extract /herbs/garlic 301
 /compounds/garlic-aged-extract /herbs/garlic 301
