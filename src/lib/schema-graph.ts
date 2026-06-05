@@ -185,3 +185,137 @@ export function buildToolPageSchemaGraph(args: {
 
   return buildSchemaGraph([webpage, breadcrumb])
 }
+
+export function buildSeoEntrySchemaGraph(args: {
+  route: string
+  title: string
+  description: string
+  h1: string
+  faqs: Array<{ question: string; answer: string }>
+}) {
+  const canonical = normalizeCanonical(toAbsoluteUrl(args.route))
+  const webpageId = `${canonical}#webpage`
+  const breadcrumbId = `${canonical}#breadcrumb`
+  const faqId = `${canonical}#faq`
+
+  const article = {
+    '@type': 'Article',
+    '@id': webpageId,
+    headline: args.title,
+    description: args.description,
+    url: canonical,
+    mainEntityOfPage: canonical,
+    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+    datePublished: '2026-01-01',
+    breadcrumb: { '@id': breadcrumbId },
+    ...(args.faqs.length ? { hasPart: { '@id': faqId } } : {}),
+  }
+
+  const breadcrumbsList = [
+    { name: 'Home', url: `${SITE_URL}/` },
+    { name: 'Supplement Guides', url: `${SITE_URL}/guides/` },
+    { name: args.h1, url: canonical },
+  ]
+  const breadcrumb = {
+    ...stripSchemaContext(breadcrumbJsonLd(breadcrumbsList, { id: breadcrumbId })),
+    '@id': breadcrumbId,
+  }
+
+  const faq = args.faqs.length
+    ? {
+        '@type': 'FAQPage',
+        '@id': faqId,
+        isPartOf: { '@id': webpageId },
+        mainEntity: args.faqs.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+        url: canonical,
+      }
+    : null
+
+  return buildSchemaGraph([article, breadcrumb, faq])
+}
+
+export function buildCompareHubSchemaGraph(args: {
+  path: string
+  title: string
+  description: string
+  breadcrumbs: Array<{ name: string; url: string }>
+  comparisonPairs: Array<{ name: string; url: string }>
+}) {
+  const canonical = normalizeCanonical(toAbsoluteUrl(args.path))
+  const webpageId = `${canonical}#webpage`
+  const breadcrumbId = `${canonical}#breadcrumb`
+  const itemListId = `${canonical}#item-list`
+
+  const webpage = {
+    '@type': 'CollectionPage',
+    '@id': webpageId,
+    name: args.title,
+    description: args.description,
+    url: canonical,
+    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    breadcrumb: { '@id': breadcrumbId },
+    mainEntity: { '@id': itemListId },
+  }
+
+  const breadcrumb = {
+    ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
+    '@id': breadcrumbId,
+  }
+
+  const itemList = {
+    ...stripSchemaContext(
+      itemListJsonLd({
+        id: itemListId,
+        name: 'Popular Comparisons',
+        path: args.path,
+        items: args.comparisonPairs,
+      }),
+    ),
+    isPartOf: { '@id': webpageId },
+  }
+
+  return buildSchemaGraph([webpage, breadcrumb, itemList])
+}
+
+export function buildCompareDetailSchemaGraph(args: {
+  path: string
+  title: string
+  description: string
+  breadcrumbs: Array<{ name: string; url: string }>
+  entities: Array<{ name: string; url: string; type: 'herb' | 'compound' }>
+}) {
+  const canonical = normalizeCanonical(toAbsoluteUrl(args.path))
+  const webpageId = `${canonical}#webpage`
+  const breadcrumbId = `${canonical}#breadcrumb`
+
+  const webpage = {
+    '@type': ['MedicalWebPage', 'WebPage'],
+    '@id': webpageId,
+    name: args.title,
+    description: args.description,
+    url: canonical,
+    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    breadcrumb: { '@id': breadcrumbId },
+    about: args.entities.map(entity => ({
+      '@type': entity.type === 'herb' ? 'MedicalTherapy' : 'ChemicalSubstance',
+      name: entity.name,
+      url: normalizeCanonical(toAbsoluteUrl(entity.url)),
+    })),
+  }
+
+  const breadcrumb = {
+    ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
+    '@id': breadcrumbId,
+  }
+
+  return buildSchemaGraph([webpage, breadcrumb])
+}

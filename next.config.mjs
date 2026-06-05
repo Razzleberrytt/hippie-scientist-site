@@ -6,6 +6,10 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
+  // outputFileTracingRoot: helps Next.js file tracing in git worktrees and certain monorepo setups.
+  // Silences "Lockfile ... " or workspace-related tracing warnings without changing behavior.
+  // See plan for 2026-06-05 Phase 2 note.
+  outputFileTracingRoot: process.cwd(),
   images: {
     unoptimized: true,
     remotePatterns: [

@@ -4,14 +4,17 @@ import { notFound } from 'next/navigation'
 import { goalConfigs } from '@/data/goals'
 import { getCompounds } from '@/lib/runtime-data'
 import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
+import { AFFILIATE_TAGS } from '@/config/affiliate'
 import { isClean } from '@/lib/display-utils'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { EvidenceBadge } from '@/components/ui'
-import { SITE_URL, buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '@/lib/seo'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { buildSeoEntrySchemaGraph } from '@/lib/schema-graph'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 
 type SeoEntryConfig = {
   route: string
@@ -214,7 +217,6 @@ export const canonicalGuidePages: SeoEntryConfig[] = seoEntryPages.filter((page)
 
 export const indexableGuidePages: SeoEntryConfig[] = manualGuideSeoEntryPages
 
-const siteUrl = SITE_URL
 
 const revenueProductSlugs: Record<string, string[]> = {
   'best-supplements-for-sleep': ['magnesium', 'l-theanine'],
@@ -350,45 +352,6 @@ function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
   ]
 }
 
-function faqSchema(faqs: FaqItem[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  }
-}
-
-function breadcrumbSchema(page: SeoEntryConfig) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Supplement Guides', item: `${siteUrl}/guides` },
-      { '@type': 'ListItem', position: 3, name: page.h1, item: `${siteUrl}/${page.route}` },
-    ],
-  }
-}
-
-function articleSchema(page: SeoEntryConfig) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: page.title,
-    description: page.intro,
-    url: `${siteUrl}/${page.route}`,
-    author: { '@type': 'Organization', name: 'The Hippie Scientist' },
-    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: siteUrl },
-    datePublished: '2026-01-01',
-  }
-}
 
 export function generateSeoEntryMetadata(route: string): Metadata {
   const page = seoEntryPages.find((item) => item.route === route)
@@ -450,11 +413,17 @@ export async function SeoEntryPage({ route }: { route: string }) {
     .filter((set): set is NonNullable<typeof set> => Boolean(set))
     .flatMap(set => set.products)
 
+  const schemaGraph = buildSeoEntrySchemaGraph({
+    route: page.route,
+    title: page.title,
+    description: page.intro,
+    h1: page.h1,
+    faqs,
+  })
+
   return (
     <div className="space-y-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema(page)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema(page)) }} />
+      <SchemaGraphScript graph={schemaGraph} />
 
       <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Supplement guide</p>
@@ -536,7 +505,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
                   const topProduct = productSet?.products.find(p => p.slot === 'overall')
                   const affUrl = isRestrictedRecord(compound)
                     ? ''
-                    : topProduct?.affiliateUrl || `https://www.amazon.com/s?k=${encodeURIComponent(compoundLabel(compound) + ' Supplement')}&tag=razzleberry02-20`
+                    : topProduct?.affiliateUrl || `https://www.amazon.com/s?k=${encodeURIComponent(compoundLabel(compound) + ' Supplement')}&tag=${AFFILIATE_TAGS.amazon}`
                   const evidence = compound.evidenceLevel || compound.evidence_tier || 'Limited'
                   const primaryFit = compound.bestFor || (compound.summary ? firstSentences(compound.summary, 1) : 'Targeted support')
                   const caution = compound.safety || 'Standard'

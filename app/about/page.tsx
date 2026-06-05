@@ -102,6 +102,7 @@ export default function AboutPage() {
           <p className="text-sm text-muted mt-2 max-w-2xl">
             We use a documented editorial process to audit monograph data, evidence language, safety cautions, and affiliate separation before publication.
           </p>
+          <p className="text-xs text-muted mt-1">Last reviewed: June 2026 (post-audit pipeline + hygiene updates per plan)</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">

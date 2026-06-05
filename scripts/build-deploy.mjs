@@ -20,6 +20,10 @@
  * 7. build-export-batches (batch optimization)
  * 8. build-semantic-snapshots (snapshot generation)
  * 9. build-production (next build)
+ * 10. build-pagefind (static search index)
+ *
+ * Time estimate: ~40-55s (instead of ~180s with full validation)
+ * Savings: ~125s by deferring non-critical checks to npm run build:qa
  */
 
 import { execSync } from 'child_process'
@@ -88,6 +92,12 @@ const steps = [
     cmd: 'node scripts/build-production.mjs',
     inputs: ['src/**/*', 'public/data/**/*', 'pages/**/*', 'app/**/*'],
     outputs: ['out/**/*', '.next/**/*'],
+  },
+  {
+    name: 'build-pagefind',
+    cmd: 'npm run build:pagefind',
+    inputs: ['out/**/*'],
+    outputs: ['out/pagefind/**/*'],
   },
 ]
 

@@ -10,8 +10,10 @@ import PathwayVisualChip from '@/components/pathway-visual-chip'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 import { isFlagshipCompareSlug } from '@/lib/goal-hub-links'
+import { buildCompareDetailSchemaGraph } from '@/lib/schema-graph'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -218,8 +220,32 @@ export default async function Page({ params }: Params) {
     )
   }
 
+  const schemaGraph = buildCompareDetailSchemaGraph({
+    path: `/compare/${slug}`,
+    title,
+    description: pageSummary,
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Compare', url: `${SITE_URL}/compare/` },
+      { name: title, url: `${SITE_URL}/compare/${slug}/` },
+    ],
+    entities: [
+      {
+        name: displayName(a),
+        url: a.entityType === 'herb' ? `/herbs/${a.slug}` : `/compounds/${a.slug}`,
+        type: (a.entityType || 'compound') as 'herb' | 'compound',
+      },
+      {
+        name: displayName(b),
+        url: b.entityType === 'herb' ? `/herbs/${b.slug}` : `/compounds/${b.slug}`,
+        type: (b.entityType || 'compound') as 'herb' | 'compound',
+      },
+    ],
+  })
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 space-y-10">
+      <SchemaGraphScript graph={schemaGraph} />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <p className="eyebrow-label">Semantic Comparison</p>
         <h1 className="heading-premium mt-3 text-ink">{title}</h1>

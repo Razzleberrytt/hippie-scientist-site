@@ -66,6 +66,10 @@ const requiredRedirects = [
   '/compounds/elderberry /herbs/elderberry 301',
   '/compounds/resveratrol /herbs/resveratrol 301',
   '/compounds/trans-resveratrol /herbs/resveratrol 301',
+  '/herbs/ashwagandha-withania-somnifera /herbs/ashwagandha 301',
+  '/herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301',
+  '/safety-checker /safety-checker/ 301',
+  '/safety-checker/ /safety-checker/ 200',
   '/safety /safety-checker 301',
   '/safety/ /safety-checker 301',
 ]

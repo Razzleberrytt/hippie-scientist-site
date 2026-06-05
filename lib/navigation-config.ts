@@ -21,7 +21,7 @@
 export interface NavigationItem {
   /** Display label (visible in UI) */
   label: string
-  /** Href path (e.g., '/herb', '/blog') */
+  /** Href path (e.g., '/herbs', '/blog') */
   href: string
   /** Optional: children for dropdown menus */
   children?: NavigationItem[]
@@ -74,7 +74,7 @@ export const mainNavigation: NavigationItem[] = [
     children: [
       {
         label: 'Herbs',
-        href: '/herb',
+        href: '/herbs',
         description: 'Browse all medicinal herbs',
       },
       {
@@ -136,15 +136,15 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Explore herbs, compounds, and remedies',
     parent: '/',
   },
-  '/herb': {
+  '/herbs': {
     label: 'Herbs',
     description: 'Browse medicinal herbs',
     parent: '/discover',
   },
-  '/herb/[slug]': {
+  '/herbs/[slug]': {
     label: 'Herb Profile',
     description: 'Detailed herb information',
-    parent: '/herb',
+    parent: '/herbs',
     isDynamic: true,
   },
   '/compounds': {
@@ -245,8 +245,8 @@ export const footerLinks = {
  * // [
  * //   { label: 'Home', href: '/', current: false },
  * //   { label: 'Discover', href: '/discover', current: false },
- * //   { label: 'Herbs', href: '/herb', current: false },
- * //   { label: 'Cannabis', href: '/herb/cannabis', current: true }
+ * //   { label: 'Herbs', href: '/herbs', current: false },
+ * //   { label: 'Cannabis', href: '/herbs/cannabis', current: true }
  * // ]
  */
 export function generateDynamicBreadcrumbs(
@@ -380,8 +380,8 @@ function findDynamicRoutePattern(pathname: string): string | null {
  * @returns true if route exists or matches a pattern
  *
  * @example
- * validateRoute('/herb') // true
- * validateRoute('/herb/cannabis') // true (matches /herb/[slug])
+ * validateRoute('/herbs') // true
+ * validateRoute('/herbs/cannabis') // true (matches /herbs/[slug])
  * validateRoute('/nonexistent') // false
  */
 export function validateRoute(pathname: string): boolean {

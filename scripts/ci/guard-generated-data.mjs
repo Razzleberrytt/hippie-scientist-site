@@ -20,6 +20,8 @@
  * - If a build script change affects output in a way that doesn't touch the
  *   "recognized source" list, it may false-positive (add the script path below).
  * - Not a substitute for `validate-workbook-source` or `verify-workbook-only-path`.
+ * - Extended to support docs/internal/issues.csv + scripts/cleanup.js for controlled
+ *   dupe hygiene (dry-run review + --reviewed --apply only; see validation-report.md).
  *
  * Usage (in CI or locally before commit/PR):
  *   node scripts/ci/guard-generated-data.mjs
@@ -34,7 +36,7 @@
  * Exit 1 = Suspicious manual edit detected
  */
 
-import { execSync } from 'node:child_process'
+import { execSync, spawnSync } from 'node:child_process'
 import process from 'node:process'
 
 const REPO_ROOT = process.cwd()
@@ -48,11 +50,17 @@ const SOURCE_PATHS = [
   'scripts/build-production.mjs',
   'scripts/validate-data-files.mjs',
   'scripts/ci/validate-workbook-source.mjs',
-  'scripts/ci/guard-generated-data.mjs', // self
+  'scripts/ci/guard-generated-data.mjs', // self: touched for Phase 3 schema graph consolidation
   'scripts/ci/semantic-governance-check.mjs',
   'scripts/ci/report-semantic-scale-summary.mjs',
   // Add more build entrypoints here as the pipeline evolves
   'package.json', // if build scripts or deps change
+  'lib/navigation-config.ts', // affects nav/routes/breadcrumbs (can impact manifests indirectly)
+  'lib/decision-primitives.ts', // affects safety/evidence labels used in data postprocess
+  'lib/safety-enum.ts',
+  // Data hygiene / dupe cleanup (per validation-report + plan; allows reviewed applies of issues.csv via scripts/cleanup.js without false "suspicious" )
+  'docs/internal/issues.csv',
+  'scripts/cleanup.js',
 ]
 
 function getBaseRef() {
@@ -72,7 +80,9 @@ function getBaseRef() {
 function getChangedFiles(base) {
   const files = new Set()
   try {
-    // Committed/PR diff
+    // Committed diff only (tree vs tree, ignore any working tree dirt / line endings in data).
+    // Use two-commit form so that large working-tree modifications to public/data/*.json
+    // (from running data build steps) do not pollute the "recently changed source files" list.
     const out = execSync(`git diff --name-only --diff-filter=ACMR ${base}...HEAD`, {
       cwd: REPO_ROOT,
       encoding: 'utf8',
@@ -81,7 +91,7 @@ function getChangedFiles(base) {
     out.split('\n').map((s) => s.trim()).filter(Boolean).forEach(f => files.add(f))
   } catch (e) {
     try {
-      const out = execSync('git diff --name-only --diff-filter=ACMR HEAD~1', {
+      const out = execSync('git diff --name-only --diff-filter=ACMR HEAD~1 HEAD', {
         cwd: REPO_ROOT,
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
@@ -100,8 +110,20 @@ function getChangedFiles(base) {
     })
     statusOut.split('\n').map((s) => s.trim()).filter(Boolean).forEach(line => {
       // lines like "?? public/data/foo.json" or " M public/data/bar.json"
-      const m = line.match(/^\s*[AMDR?]+\s+(.+)$/)
-      if (m) files.add(m[1])
+      const m = line.match(/^\s*([AMDR?]+)\s+(.+)$/)
+      if (m) {
+        const status = m[1].trim()
+        const file = m[2]
+        // If the file is modified (M), verify there's a real content diff
+        if (status.includes('M')) {
+          const res = spawnSync('git', ['diff', '--quiet', '--', file], { cwd: REPO_ROOT })
+          if (res.status === 0) {
+            // Content is identical (autocrlf / line endings only)
+            return
+          }
+        }
+        files.add(file)
+      }
     })
   } catch {
     // ignore

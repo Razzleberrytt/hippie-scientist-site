@@ -44,6 +44,7 @@ Orchestration for the main serial pipeline is now in `scripts/orchestrate-build.
 - Individual steps remain directly runnable (e.g. `node scripts/data/build-runtime-from-workbook.mjs ...`).
 - `npm run verify:build:parallel` (and `verify:pipeline`) remains for the parallel audit/verify layer.
 - `build:deploy` and `build:qa` are specialized entrypoints (deploy is lean for CF; qa is comprehensive parallel checks). They have their own internal orchestration/timing.
+- `build-pagefind` (via `npm run build:pagefind` = `npx pagefind --site out`) is wired as a post-`build-production` step in both `orchestrate-build.mjs` and `build-deploy.mjs` (2026-06-05 plan activation). Produces `out/pagefind/` for static client search. Script kept cross-platform (no unix-only env prefix).
 
 The logical order of data production + validation steps is preserved exactly unless a bug was present.
 
@@ -123,6 +124,7 @@ Process (manual review required):
 
 CI / pipeline enforcement:
 - `guard:generated-data` + `verify-workbook-only-path` + `validate-workbook-source` make direct json tampering fail.
+- Extended (2026-06-05) to recognize `docs/internal/issues.csv` + `scripts/cleanup.js` as legitimate sources. This supports controlled dupe hygiene flows (dry-run review first, then `node scripts/cleanup.js --issues docs/internal/issues.csv --apply --reviewed` only after manual confirmation; see validation-report.md and issues.csv). Reference checks in cleanup prevent accidental breakage.
 - The `apply-patches` script itself refuses to apply unapproved Lane C (and other rules).
 - `release-gate` is the documented gate for promotion.
 - We recommend (and can add to `check:full` / `build:qa` / `data:build` if desired) running the release-gate as part of enrichment-related CI.

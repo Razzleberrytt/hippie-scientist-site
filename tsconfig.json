@@ -70,6 +70,19 @@
     "src/components/StatsCounters.tsx",
     "src/components/TagBadge.tsx",
     "src/components/TagFilterBar.tsx",
+    // Phase 2 (2026-06 plan activation, post-audit): additional quarantined legacy surfaces.
+    // Header.tsx, some src/app/* dups (compare/ecosystems/stacks/protocols/best) vs active root app/*.
+    // Topics/[slug] is actively re-exported (see app/topics/[slug]/page.tsx); do not exclude whole src/app.
+    // Reachability audited via grep; confirmed deads excluded here + docs/legacy-*.md.
+    // Full src/ consolidation deferred (hybrid @/* src-first in tsconfig; active runtime bits in src/lib/* used by lib/runtime).
+    "src/components/Header.tsx",
+    // src/app/* dups vs active root app/* (no reexports for compare/stacks/etc; topics is reexported so kept).
+    // Excluding reduces tsc noise + signals legacy per plan Phase2. Full rm possible after reachability + sitemap confirm.
+    "src/app/compare/**/*",
+    "src/app/stacks/**/*",
+    "src/app/protocols/**/*",
+    "src/app/ecosystems/**/*",
+    "src/app/best/**/*",
     "src/components/cta/**/*",
     "src/components/detail/**/*",
     "src/components/filters/**/*",
