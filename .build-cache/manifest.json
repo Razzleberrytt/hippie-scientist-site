@@ -1,0 +1,76 @@
+{
+  "build-runtime-from-workbook": {
+    "timestamp": "2026-06-05T12:32:57.196Z",
+    "inputHash": "9145b7f35d0f5952",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/**/*"
+    ]
+  },
+  "build-related-runtime-maps": {
+    "timestamp": "2026-06-05T12:33:00.162Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/related-maps.json"
+    ]
+  },
+  "build-runtime-summary-indexes": {
+    "timestamp": "2026-06-05T12:33:00.645Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/summary-indexes.json"
+    ]
+  },
+  "build-route-manifest": {
+    "timestamp": "2026-06-05T12:33:00.823Z",
+    "inputHash": "e40703a6be19fbc3",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/route-manifest.json"
+    ]
+  },
+  "build-sitemap-manifest": {
+    "timestamp": "2026-06-05T12:33:00.894Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "e40703a6be19fbc3",
+    "outputs": [
+      "public/data/sitemap-manifest.json",
+      "public/sitemap.xml"
+    ]
+  },
+  "build-export-batches": {
+    "timestamp": "2026-06-05T12:33:00.955Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/export-batches/**/*"
+    ]
+  },
+  "build-semantic-snapshots": {
+    "timestamp": "2026-06-05T12:33:01.487Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/semantic-snapshots/**/*"
+    ]
+  },
+  "build-production": {
+    "timestamp": "2026-06-05T02:25:31.944Z",
+    "inputHash": "e3b0c44298fc1c14",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "e3b0c44298fc1c14",
+    "outputs": [
+      "out/**/*",
+      ".next/**/*"
+    ]
+  }
+}

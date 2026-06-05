@@ -26,6 +26,8 @@ import {
 } from '@/lib/research-intelligence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
+import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
+import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -397,8 +399,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
           {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
         </div>
         <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
-        <div className="mt-3">
+        <div className="mt-3 flex flex-wrap items-center gap-3">
           <LastUpdatedBadge date={lastReviewed} />
+          <EvidenceScoreBadge record={herb} />
         </div>
       </header>
 
@@ -474,7 +477,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       {/* Section 3: Evidence Summary */}
       <section className="card-premium p-4 sm:p-5 space-y-4">
-        <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
+        <div className="flex items-center gap-2 flex-wrap">
+          <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
+          <EvidenceScoreBadge record={herb} size="sm" />
+        </div>
         <div className="space-y-3 text-sm leading-6 text-[#46574d]">
           <p>
             {displayName} has a <strong>{evidenceStrength.toLowerCase()}</strong> evidence level. It is categorized as {researchMaturity.toLowerCase()} with a {researchStyle.toLowerCase()} evidence style.
@@ -488,6 +494,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </div>
           )}
         </div>
+        <EvidenceGradeExplainer />
       </section>
 
       {/* Section 4: Mechanisms (Collapsible) */}

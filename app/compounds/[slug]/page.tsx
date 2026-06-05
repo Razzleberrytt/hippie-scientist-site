@@ -23,6 +23,8 @@ import { getAffiliateShopLinks } from '@/lib/affiliate'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-utils'
 import AuthorCredentials from '@/components/AuthorCredentials'
+import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
+import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
@@ -443,8 +445,9 @@ export default async function CompoundPage({ params }: PageProps) {
             ) : null}
           </div>
           <p className="text-base leading-7 text-[#46574d]">{quickSummary}</p>
-          <div className="mt-3">
+          <div className="mt-3 flex flex-wrap items-center gap-3">
             <LastUpdatedBadge date={lastReviewed} />
+            <EvidenceScoreBadge record={compound} />
           </div>
         </header>
 
@@ -549,13 +552,17 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {/* Section 3: Evidence Summary */}
         <section className="card-premium p-4 sm:p-5 space-y-4">
-          <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
+          <div className="flex items-center gap-2 flex-wrap">
+            <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
+            <EvidenceScoreBadge record={compound} size="sm" />
+          </div>
           <div className="space-y-3 text-sm leading-6 text-[#46574d]">
             <p>
               {displayName} has a <strong>{evidenceLevel?.toLowerCase() || 'mixed or uncertain'}</strong> evidence rating.
             </p>
             <EvidenceSnapshotCard snapshot={snapshot} />
           </div>
+          <EvidenceGradeExplainer />
         </section>
 
         <EmailCapture

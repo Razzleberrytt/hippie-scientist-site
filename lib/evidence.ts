@@ -132,6 +132,66 @@ export function getEvidenceColor(record: any): EvidenceColor {
   return colors[getEvidenceTier(record)]
 }
 
+export type EvidenceLetterGrade = 'A' | 'B' | 'C' | 'D'
+
+function rawGradeToLetter(raw: string): EvidenceLetterGrade | null {
+  const n = raw.toLowerCase().trim()
+  if (/^a[+-]?$/.test(n)) return 'A'
+  if (/^b[+-]?$/.test(n)) return 'B'
+  if (/^c[+-]?$/.test(n)) return 'C'
+  if (/^d[+-]?$|insufficient/.test(n)) return 'D'
+  // Handle text labels like "high", "moderate-high", "moderate", "low-moderate", "low"
+  if (/^(high|strong|robust)$/.test(n)) return 'A'
+  if (/^(moderate-high|moderate high)$/.test(n)) return 'B'
+  if (/^(moderate)$/.test(n)) return 'B'
+  if (/^(low-moderate|low moderate|limited)$/.test(n)) return 'C'
+  if (/^(low|minimal|none|preliminary)$/.test(n)) return 'C'
+  return null
+}
+
+function tierTextToLetter(tier: string): EvidenceLetterGrade | null {
+  const n = tier.toLowerCase()
+  if (/strong/.test(n)) return 'A'
+  if (/moderate/.test(n)) return 'B'
+  if (/limited|mechanistic|preliminary|mixed/.test(n)) return 'C'
+  if (/traditional|insufficient|theoretical/.test(n)) return 'D'
+  return null
+}
+
+export function getEvidenceLetterGrade(record: any): EvidenceLetterGrade {
+  // Letter grades are unambiguous — prefer them first
+  const rawGrade = record?.evidence_grade
+  if (rawGrade && typeof rawGrade === 'string') {
+    const n = rawGrade.toLowerCase().trim()
+    if (/^[abcd][+-]?$/.test(n)) return rawGradeToLetter(rawGrade) ?? 'C'
+  }
+
+  // evidence_tier uses a consistent vocabulary across all records
+  const evidenceTierField = record?.evidence_tier || record?.evidenceTier
+  if (evidenceTierField && typeof evidenceTierField === 'string') {
+    const letter = tierTextToLetter(evidenceTierField)
+    if (letter) return letter
+  }
+
+  // Fall back to text-label grade (e.g. "high", "moderate-high")
+  if (rawGrade && typeof rawGrade === 'string') {
+    const letter = rawGradeToLetter(rawGrade)
+    if (letter) return letter
+  }
+
+  const tierMap: Record<EvidenceTier, EvidenceLetterGrade> = {
+    strong: 'A',
+    moderate: 'B',
+    limited: 'C',
+    preliminary: 'C',
+    mixed: 'C',
+    traditional: 'D',
+    insufficient: 'D',
+    review: 'D',
+  }
+  return tierMap[getEvidenceTier(record)] ?? 'C'
+}
+
 export function hasStrongSafetyProfile(record: any): boolean {
   const safety = [
     record?.safety,
