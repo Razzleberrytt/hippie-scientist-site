@@ -58,6 +58,7 @@ async function run() {
     await Promise.all(batch.map(async (f) => {
       const route=routeFromFile(f);
       const html=await fsPromises.readFile(f,'utf8');
+      if (html.includes('NEXT_REDIRECT')) return;
       const blocks=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>m[1]);
       const text=blocks.join(' ');
       const hit=Object.fromEntries(required.map(t=>[t,text.includes(`"${t}"`)||text.includes(`"@type":"${t}"`)]));

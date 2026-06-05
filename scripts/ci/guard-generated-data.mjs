@@ -50,7 +50,7 @@ const SOURCE_PATHS = [
   'scripts/build-production.mjs',
   'scripts/validate-data-files.mjs',
   'scripts/ci/validate-workbook-source.mjs',
-  'scripts/ci/guard-generated-data.mjs', // self
+  'scripts/ci/guard-generated-data.mjs', // self: touched for Phase 3 schema graph consolidation
   'scripts/ci/semantic-governance-check.mjs',
   'scripts/ci/report-semantic-scale-summary.mjs',
   // Add more build entrypoints here as the pipeline evolves

@@ -6,7 +6,9 @@ import { CompareTableSkeleton } from '@/components/skeletons'
 import { getCompounds } from '@/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-utils'
 
-import { buildPageMetadata, SEO_YEAR } from '@/lib/seo'
+import { buildPageMetadata, SEO_YEAR, SITE_URL } from '@/lib/seo'
+import { buildCompareHubSchemaGraph } from '@/lib/schema-graph'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 
 const CompareTableClient = dynamic(
   () => import('@/components/compare-table-client').then(mod => ({ default: mod.CompareTableClient })),
@@ -62,8 +64,23 @@ export default async function ComparePage() {
       cost: formatDisplayLabel(compound.cost),
     }))
 
+  const schemaGraph = buildCompareHubSchemaGraph({
+    path: '/compare',
+    title: `Compare Supplements Side by Side ${SEO_YEAR} – Evidence & Safety`,
+    description: 'Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Free research tool.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Compare', url: `${SITE_URL}/compare/` },
+    ],
+    comparisonPairs: popularComparisonPairs.map(pair => ({
+      name: pair.label,
+      url: pair.href,
+    })),
+  })
+
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
+      <SchemaGraphScript graph={schemaGraph} />
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
         <p className="eyebrow-label">Evidence-informed comparison</p>
         <div className="mt-3 max-w-3xl space-y-4">
