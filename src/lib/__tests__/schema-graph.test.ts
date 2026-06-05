@@ -10,11 +10,11 @@ describe('schema-graph', () => {
         name: 'Ashwagandha',
         slug: 'ashwagandha',
         description: 'Test herb profile.',
-        breadcrumbId: 'https://www.thehippiescientist.net/herbs/ashwagandha/#breadcrumb',
+        breadcrumbId: 'https://thehippiescientist.net/herbs/ashwagandha/#breadcrumb',
       },
       breadcrumbs: [
-        { name: 'Herbs', url: 'https://www.thehippiescientist.net/herbs/' },
-        { name: 'Ashwagandha', url: 'https://www.thehippiescientist.net/herbs/ashwagandha/' },
+        { name: 'Herbs', url: 'https://thehippiescientist.net/herbs/' },
+        { name: 'Ashwagandha', url: 'https://thehippiescientist.net/herbs/ashwagandha/' },
       ],
       product: null,
     })
@@ -26,9 +26,9 @@ describe('schema-graph', () => {
     for (const node of nodes) {
       expect(node['@context']).toBeUndefined()
     }
-    const webpage = nodes.find(node => node['@id'] === 'https://www.thehippiescientist.net/herbs/ashwagandha/#webpage')
-    expect(webpage?.url).toBe('https://www.thehippiescientist.net/herbs/ashwagandha/')
-    expect(webpage?.mainEntityOfPage).toBe('https://www.thehippiescientist.net/herbs/ashwagandha/')
+    const webpage = nodes.find(node => node['@id'] === 'https://thehippiescientist.net/herbs/ashwagandha/#webpage')
+    expect(webpage?.url).toBe('https://thehippiescientist.net/herbs/ashwagandha/')
+    expect(webpage?.mainEntityOfPage).toBe('https://thehippiescientist.net/herbs/ashwagandha/')
   })
 
   it('includes FAQ node when questions exist', () => {
@@ -37,15 +37,15 @@ describe('schema-graph', () => {
       title: 'Sleep | The Hippie Scientist',
       description: 'Sleep goal guide.',
       breadcrumbs: [
-        { name: 'Goals', url: 'https://www.thehippiescientist.net/goals/' },
-        { name: 'Sleep', url: 'https://www.thehippiescientist.net/goals/sleep/' },
+        { name: 'Goals', url: 'https://thehippiescientist.net/goals/' },
+        { name: 'Sleep', url: 'https://thehippiescientist.net/goals/sleep/' },
       ],
       faqQuestions: [{ question: 'Does it work?', answer: 'It varies.' }],
       itemList: { name: 'Sleep Options', items: [{ name: 'Magnesium', url: '/compounds/magnesium' }] },
     })
 
     const nodes = graph['@graph'] as Record<string, unknown>[]
-    expect(nodes.some(node => node['@id'] === 'https://www.thehippiescientist.net/goals/sleep/#faq')).toBe(true)
+    expect(nodes.some(node => node['@id'] === 'https://thehippiescientist.net/goals/sleep/#faq')).toBe(true)
   })
 
   it('returns empty-safe graph wrapper', () => {

@@ -36,7 +36,7 @@
  * Exit 1 = Suspicious manual edit detected
  */
 
-import { execSync } from 'node:child_process'
+import { execSync, spawnSync } from 'node:child_process'
 import process from 'node:process'
 
 const REPO_ROOT = process.cwd()
@@ -108,8 +108,20 @@ function getChangedFiles(base) {
     })
     statusOut.split('\n').map((s) => s.trim()).filter(Boolean).forEach(line => {
       // lines like "?? public/data/foo.json" or " M public/data/bar.json"
-      const m = line.match(/^\s*[AMDR?]+\s+(.+)$/)
-      if (m) files.add(m[1])
+      const m = line.match(/^\s*([AMDR?]+)\s+(.+)$/)
+      if (m) {
+        const status = m[1].trim()
+        const file = m[2]
+        // If the file is modified (M), verify there's a real content diff
+        if (status.includes('M')) {
+          const res = spawnSync('git', ['diff', '--quiet', '--', file], { cwd: REPO_ROOT })
+          if (res.status === 0) {
+            // Content is identical (autocrlf / line endings only)
+            return
+          }
+        }
+        files.add(file)
+      }
     })
   } catch {
     // ignore
