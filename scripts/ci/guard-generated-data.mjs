@@ -49,6 +49,8 @@ const SOURCE_PATHS = [
   'scripts/validate-data-files.mjs',
   'scripts/ci/validate-workbook-source.mjs',
   'scripts/ci/guard-generated-data.mjs', // self
+  'scripts/ci/semantic-governance-check.mjs',
+  'scripts/ci/report-semantic-scale-summary.mjs',
   // Add more build entrypoints here as the pipeline evolves
   'package.json', // if build scripts or deps change
 ]
