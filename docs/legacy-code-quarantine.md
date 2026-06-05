@@ -156,6 +156,8 @@ The following remain type-checked and must stay active:
 
 Do not broaden the quarantine without confirming a file is unreachable from the active App Router runtime.
 
+**2026-06-05 post-pull (cadd761c + merge b6d95e1d) update:** Src/ still has active usage (e.g. app/topics/[slug] reexports from src/app/topics, lib/runtime/* imports from src/lib/ via @/ alias in tsconfig). Merge touched src/lib/schema-graph.ts (now required). Our prior surgical excludes (Header, EffectExplorer, many app/ dups like compare/stacks, component lists) + tsconfig notes remain. No mass delete; hybrid maintained for runtime bits. Full consolidation deferred per plan. Guard/verify still clean post all. See current tsconfig excludes + src-active-vs-legacy.md.
+
 **2026-06-05 Phase 2 update (plan activation):** 
 - Deleted confirmed dead: src/components/Header.tsx, src/components/EffectExplorer.tsx (excluded in tsconfig, no active imports from app/components/lib per audits, not reexported).
 - Added tsconfig excludes for more src/app dup trees (compare/stacks/etc — no reexports unlike topics) + Header.
