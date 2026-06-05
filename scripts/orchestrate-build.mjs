@@ -180,7 +180,7 @@ for (const step of steps) {
   const stepStart = performance.now()
 
   // Use spawnSync for cross-platform control
-  const hasShellOperator = step.cmd.includes('||') || step.cmd.includes('&&')
+  const hasShellOperator = step.cmd.includes('||') || step.cmd.includes('&&') || step.cmd.startsWith('echo')
   const result = hasShellOperator
     ? spawnSync(step.cmd, {
         cwd: process.cwd(),
