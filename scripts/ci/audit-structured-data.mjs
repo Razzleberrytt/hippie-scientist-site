@@ -122,7 +122,7 @@ async function run() {
   fs.mkdirSync(path.join(root,'ops/reports'),{recursive:true});fs.writeFileSync(path.join(root,'ops/reports/structured-data-completeness.json'),JSON.stringify(report,null,2));
   console.log(`structured-data: routes=${rows.length}, missing=${missing.length}, malformed=${malformed.length}, repFails=${repFails}, herbDupDescs=${dupDescs.length}`)
 
-  let failed = repFails > 0;
+  const failed = repFails > 0;
   const errors = []; // non-rep gaps (diagnostic)
 
   for (const r of rows) {
