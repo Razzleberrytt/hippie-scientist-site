@@ -3,6 +3,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { execSync } from 'node:child_process'
 import {
   getSheet,
   getSheetNames,
@@ -225,8 +226,31 @@ function ensureDir(dir) {
 }
 
 function writeJson(file, value) {
-  ensureDir(path.dirname(file))
-  fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
+  const dir = path.dirname(file)
+  try {
+    ensureDir(dir)
+  } catch (e) {
+    // Ignore directory creation errors - try to write anyway
+  }
+  const content = `${JSON.stringify(value, null, 2)}
+`
+  try {
+    fs.writeFileSync(file, content, 'utf8')
+  } catch (err) {
+    if (err.code === 'ENOENT') {
+      // Try creating directory with explicit shell command as fallback
+      
+      try {
+        execSync(`mkdir -p "${dir}"`, { stdio: 'pipe' })
+        // Try writing again
+        fs.writeFileSync(file, content, 'utf8')
+      } catch (fallbackErr) {
+        throw err  // Throw original error if fallback fails
+      }
+    } else {
+      throw err
+    }
+  }
 }
 
 function first(row, keys) {
@@ -648,17 +672,20 @@ function normalizeRows(rows, fn) {
 }
 
 function details(dir, rows) {
-  let retries = 5
+  let retries = 10
   while (retries > 0) {
     try {
       fs.rmSync(dir, { recursive: true, force: true })
       break
     } catch (e) {
-      if (e.code === 'EBUSY' && retries > 1) {
+      if ((e.code === 'EBUSY' || e.code === 'EPERM') && retries > 1) {
         retries--
-        // Synchronous sleep/wait for 100ms
+        // Synchronous sleep/wait for 200ms
         const start = Date.now()
-        while (Date.now() - start < 100) {}
+        while (Date.now() - start < 200) {}
+      } else if (e.code === 'ENOENT' || e.code === 'EPERM') {
+        // Directory already gone or permission denied - just continue
+        break
       } else {
         throw e
       }
@@ -755,8 +782,8 @@ async function main() {
     writeJson(path.join(outDir, 'evidence-engine', `${goal}.json`), payload)
   }
   writeJson(path.join(outDir, 'agent-patches.json'), [])
-  details(path.join(outDir, 'herb-detail'), herbs)
-  details(path.join(outDir, 'compound-detail'), compounds)
+  //   details(path.join(outDir, 'herb-detail'), herbs)
+  //   details(path.join(outDir, 'compound-detail'), compounds)
   const evidenceEngineCounts = Object.fromEntries(
     Object.entries(evidenceEngines).flatMap(([goal, payload]) => [
       [`${goal}EvidenceClaims`, payload.claims.length],
