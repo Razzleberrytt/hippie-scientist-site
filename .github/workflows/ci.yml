@@ -61,6 +61,8 @@ jobs:
         run: npm run guard:source-of-truth
 
       - name: Build application
+        env:
+          COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
       - name: Verify build output

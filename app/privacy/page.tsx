@@ -58,22 +58,39 @@ export default function PrivacyPage() {
           <p className='eyebrow-label'>Plain-English policy</p>
           <h2 className='mt-3 text-3xl font-semibold tracking-tight text-ink'>How information is handled</h2>
 
-          <div className='mt-5 space-y-4 text-sm leading-7 text-ink/75 sm:text-base'>
-            <p>
-              The Hippie Scientist publishes educational content about herbs, compounds, mechanisms, evidence, and related wellness research topics.
-            </p>
+          <div className='mt-5 space-y-6 text-sm leading-7 text-ink/75 sm:text-base'>
+            <div>
+              <h3 className='text-lg font-bold text-ink mb-1'>1. Information We Collect</h3>
+              <p>
+                The Hippie Scientist does not require user registration or accounts. We do not collect personal health information. We process:
+              </p>
+              <ul className='list-disc list-inside mt-2 space-y-1 ml-4'>
+                <li><strong>Technical Logs:</strong> IP address, browser type, referring pages, and access timestamps collected by Cloudflare hosting for security and operations.</li>
+                <li><strong>Analytics Data:</strong> Basic interaction events, geographic regions, and page view metrics tracked anonymously via Google Analytics 4 (if enabled).</li>
+                <li><strong>Contact Data:</strong> Any email address and message contents you choose to send when contacting us.</li>
+              </ul>
+            </div>
 
-            <p>
-              The site does not provide medical care, does not create user accounts, and does not ask visitors to submit sensitive health information through the website.
-            </p>
+            <div>
+              <h3 className='text-lg font-bold text-ink mb-1'>2. Cookies and Tracking</h3>
+              <p>
+                This site uses cookies and local storage to analyze site usage and support affiliate links (such as Amazon Associates). Affiliate networks use tracking parameters to attribute purchase credits; they control their own cookie policies. You can manage or block cookies via your browser settings.
+              </p>
+            </div>
 
-            <p>
-              Basic technical information may be processed by hosting, security, analytics, search, or embedded third-party services needed to operate and improve the site.
-            </p>
+            <div>
+              <h3 className='text-lg font-bold text-ink mb-1'>3. GDPR Compliance (EU & UK Visitors)</h3>
+              <p>
+                Under the General Data Protection Regulation (GDPR), EU/UK residents have the right to access, rectify, or erase any personal data we hold (e.g., email communications), or object to its processing. Since we do not store user profiles or user accounts, we hold no database of user identities. For inquiries, contact us at <a href='mailto:support@thehippiescientist.net' className='text-emerald-700 hover:underline'>support@thehippiescientist.net</a>.
+              </p>
+            </div>
 
-            <p>
-              If affiliate links are used, they may direct visitors to third-party websites. Those websites control their own checkout, tracking, privacy, and data practices.
-            </p>
+            <div>
+              <h3 className='text-lg font-bold text-ink mb-1'>4. CCPA Compliance (California Residents)</h3>
+              <p>
+                Under the California Consumer Privacy Act (CCPA), California consumers have the right to know what personal information is collected, request its deletion, and opt-out of any potential sale or sharing of personal data. The Hippie Scientist does not sell, lease, or share personal data to third parties for monetary gain.
+              </p>
+            </div>
           </div>
         </div>
 

@@ -62,6 +62,8 @@ jobs:
         run: npm run guard:source-of-truth
 
       - name: Build app
+        env:
+          COMMIT_HASH: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
         run: npm run build:deploy
 
       - name: Verify build

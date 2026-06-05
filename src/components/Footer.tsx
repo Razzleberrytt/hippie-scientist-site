@@ -57,7 +57,7 @@ export default function Footer() {
           <div>
             <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
             <p className='mt-2 text-xs text-white/65'>
-              Science-first harm reduction for psychoactive botany.
+              Evidence-first botanical reference and harm reduction context.
             </p>
           </div>
 
@@ -124,7 +124,7 @@ export default function Footer() {
 
         <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/8 pt-4 text-xs text-white/65 sm:flex-row'>
           <div>Build {versionStampParts.join(' · ')}</div>
-          <div>© 2024-{copyrightYear} The Hippie Scientist - Educational use only. Not medical advice.</div>
+          <div>© 2024–{copyrightYear} The Hippie Scientist – Educational use only. Not medical advice.</div>
         </div>
       </div>
       <ConsentManager open={open} onClose={() => setOpen(false)} />
