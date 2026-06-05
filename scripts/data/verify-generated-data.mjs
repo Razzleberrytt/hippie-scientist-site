@@ -82,9 +82,9 @@ function normalizeForComparison(value) {
   if (Array.isArray(value)) return value.map(normalizeForComparison)
   if (value && typeof value === 'object') {
     const out = {}
-    for (const [key, v] of Object.entries(value)) {
+    for (const key of Object.keys(value).sort()) {
       if (key === 'generatedAt' || key === 'generated_at') continue
-      out[key] = normalizeForComparison(v)
+      out[key] = normalizeForComparison(value[key])
     }
     return out
   }
