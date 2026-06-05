@@ -45,7 +45,10 @@ async function hashFiles(patterns, baseDir = projectRoot) {
   for (const pattern of patterns) {
     const fullPattern = path.join(baseDir, pattern)
     const matches = await glob(fullPattern, { absolute: true, nodir: true })
-    files.push(...matches)
+    // Ensure matches is an array before spreading
+    if (Array.isArray(matches)) {
+      files.push(...matches)
+    }
   }
 
   // Sort for deterministic order
