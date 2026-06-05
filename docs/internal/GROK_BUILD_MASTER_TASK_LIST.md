@@ -1,6 +1,8 @@
 # Expanded Master Task List for Grok Build
 **Phased Implementation Roadmap**
 
+**Status: Historical (early June 2026; post 2026-06-05 pull/fixes).** This is old granular spec. Vast majority of items (hero, goals, design, trust features, tech/perf, UX/conversion, sitemap, schema, a11y, pipeline, 404 legacies, build hygiene, data issues) completed or superseded by conversation phases + recent audit fixes (guard, orchestrate, structured-data, redirects, merges). Current focus: maintain build pass (verifies green, data determinism), doc hygiene, issues. See updated validation-report.md, PLAN.md (post-audit activation), NAVIGATION_UPGRADE_SUMMARY.md (0-6 complete), recent commits (cadd761c determinism, 7fcdafc8 merge). Do not use unchecked [ ] below for active planning without re-validation against AGENTS.md + current code.
+
 This document serves as the comprehensive, granular specification of every section of the roadmap to guide phased implementation in subsequent build sessions.
 
 ---

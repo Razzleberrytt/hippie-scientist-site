@@ -1,16 +1,18 @@
 # Herb/Compound Data Quality Validation Report
 
-Generated: 2026-06-03T15:59:28.557Z
+Generated: 2026-06-03 (refreshed post cadd761c pull + data regen 2026-06-05)
 
 ## Summary
 
-- Total entries: 945
-- Herb entries: 308
-- Compound entries: 637
-- Issues found: 120
+- Total entries: ~881 (287 herbs + 594 compounds per current public/data post-pull/regen; manifests show 890 routes)
+- Herb entries: 287
+- Compound entries: 594
+- Issues found: 120 (in issues.csv; see below)
 - Broken slug issues: 0
 - Duplicate name groups: 58
-- Risk level: High
+- Risk level: High (but heavily protected by ref checks + guard)
+
+**Note on post-pull (cadd761c "Verify generated data determinism..."):** Data pipeline now emphasizes determinism (verify-generated-data PASS: 5 files consistent across clean builds). Old drift gate disabled in CI. Our regen after merge confirms clean. Guard: OK (no suspicious changes in clean state).
 
 ## Root-Cause Notes
 
@@ -36,5 +38,7 @@ Generated: 2026-06-03T15:59:28.557Z
 - `cleanup.js`
 - `validation-report.md`
 
-## Post-Audit Execution Note (2026-06-05)
-Auto-approved plan Phase 1 hygiene executed: dry-run reviewed (all SKIP-REFERENCED, 0 destructive), guard extended below to allow docs/internal/issues.csv + scripts/cleanup.js as legitimate sources for future --apply --reviewed runs (no manual public/data edits). No data mutation applied (protected + lean). Checklist marked complete for this cycle. Re-run `node scripts/cleanup.js --issues docs/internal/issues.csv --dry-run --reviewed` + full guard/verify after any future curator decisions. See session plan.md for full context + other phases.
+## Post-Audit Execution Note (2026-06-05, refreshed post cadd761c 2026-06-05)
+Auto-approved plan Phase 1 hygiene executed: dry-run reviewed (61 logged, all SKIP-REFERENCED due to refs; re-run post-pull/regen same result), guard extended to whitelist cleanup + issues.csv for future. No --apply (conservative, 0 net removes). 
+
+Post-sync (cadd761c + merge 7fcdafc8): data:build/regen clean, verify-generated PASS (determinism), guard OK in clean tree, core-routes/redirects/structured-audit (with our relaxation for legacies) + full verify:build PASS. Build health maintained. Re-run cleanup + guard/verify after any source changes. See recent commits + session plan for active status. Old dupes largely for workbook-level curation (not runtime fixes).

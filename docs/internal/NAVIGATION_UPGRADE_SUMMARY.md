@@ -2,8 +2,10 @@
 
 **Project:** The Hippie Scientist Website  
 **Timeline:** June 2026  
-**Status:** ✅ PHASES 0-6 COMPLETE  
-**Last Updated:** 2026-06-03
+**Status:** ✅ PHASES 0-6 COMPLETE (plus post-Phase6 maintenance: guard/orchestrate/audit fixes for build health, data determinism per cadd761c, legacy redirect hygiene)  
+**Last Updated:** 2026-06-05 (post cadd761c pull + merge 7fcdafc8 + fixes)
+
+**Post-Phase6 Note:** Recent remote updates (CI, data scripts, determinism verify instead of drift, next.config, _redirects) + our audit fixes integrated via merge. Build now robust (guard no false positives on win/data regen, full verifies PASS including core/redirects/structured with legacy handling). See validation-report for current data state.
 
 ---
 

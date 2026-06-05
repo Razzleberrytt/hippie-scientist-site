@@ -1,6 +1,8 @@
 # The Hippie Scientist - Priority Action Plan
 **90-Day Roadmap for Growth & Optimization**
 
+**Status: Historical (early June 2026; post cadd761c 2026-06-05 pull + fixes).** Many quick wins (about enhancements, sitemap, schema dups, UX/safety, a11y, pipeline, 290+ 404s via legacy, guard/audit/build fixes) completed. See updated validation-report, recent merges/commits (7fcdafc8 etc.), NAVIGATION_UPGRADE_SUMMARY (0-6 done). Old roadmap largely superseded by current build health focus + data determinism (new verify-generated). Do not treat unchecked items as active without re-audit.
+
 > [!NOTE]
 > A detailed, granular roadmap has been generated and saved for phased implementation in [GROK_BUILD_MASTER_TASK_LIST.md](file:///c:/hippies/GROK_BUILD_MASTER_TASK_LIST.md).
 

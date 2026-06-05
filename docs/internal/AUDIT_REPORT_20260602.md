@@ -1,7 +1,9 @@
 # The Hippie Scientist - Comprehensive Site Audit Report
-**Date:** June 2, 2026  
+**Date:** June 2, 2026 (historical; post cadd761c + 2026-06-05 fixes)  
 **Site:** thehippiescientist.net  
 **Auditor Assessment:** Evidence-first supplement reference site with strong editorial standards
+
+**Note:** This is a historical external audit (score 7.8/10, listed issues). Substantial remediation since via phases (P0 render/SEO/OG/schema/UX/perf/hygiene/a11y/pipeline/404s) + recent (guard robustness, orchestrate, structured audit relaxation for legacy compounds post data merges, legacy redirects, determinism verify). Current build/verifies PASS cleanly. See PLAN.md post-audit section, validation-report, commits 51131546/7fcdafc8/cadd761c, NAVIGATION_UPGRADE_SUMMARY. Old findings largely addressed; use for context only.
 
 ---
 

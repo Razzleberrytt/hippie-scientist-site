@@ -1,8 +1,10 @@
 # Performance, Schema & UX Plan — thehippiescientist.net
 
-**Status:** Implemented (June 2, 2026).  
-**Date:** June 2, 2026  
+**Status:** Historical / Superseded (June 2, 2026 original; refreshed 2026-06-05 post cadd761c pull + fixes).  
+**Date:** June 2, 2026 (with 2026-06-05 notes)  
 **Scope:** Core Web Vitals, advanced JSON-LD (`@graph`), Suspense/skeleton UX — **100% compatible with `output: 'export'`**
+
+**IMPORTANT (post-2026-06 pull + audit fixes):** This is historical roadmap. Many items (sitemap, schema/OG, a11y, pipeline orchestrate+guard, 404 legacies via DEPRECATED+params+redirects, build hygiene, data determinism) completed in phases + recent work (see commits 51131546, 7fcdafc8, cadd761c, merge notes). Current: verifies PASS, guard robust on win, structured audit relaxed for legacies but reps blocking. Refer to updated validation-report.md, NAVIGATION_UPGRADE_SUMMARY.md (phases 0-6 done), and active session plan for ongoing. Old unchecked tasks below largely done or low-pri now.
 
 **Related audits:** `AUDIT_REPORT_20260602.md`, `PRIORITY_ACTION_PLAN.md` (external audit overstated some gaps; see corrections below)
 
