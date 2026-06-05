@@ -80,7 +80,9 @@ function getBaseRef() {
 function getChangedFiles(base) {
   const files = new Set()
   try {
-    // Committed/PR diff
+    // Committed diff only (tree vs tree, ignore any working tree dirt / line endings in data).
+    // Use two-commit form so that large working-tree modifications to public/data/*.json
+    // (from running data build steps) do not pollute the "recently changed source files" list.
     const out = execSync(`git diff --name-only --diff-filter=ACMR ${base}...HEAD`, {
       cwd: REPO_ROOT,
       encoding: 'utf8',
@@ -89,7 +91,7 @@ function getChangedFiles(base) {
     out.split('\n').map((s) => s.trim()).filter(Boolean).forEach(f => files.add(f))
   } catch (e) {
     try {
-      const out = execSync('git diff --name-only --diff-filter=ACMR HEAD~1', {
+      const out = execSync('git diff --name-only --diff-filter=ACMR HEAD~1 HEAD', {
         cwd: REPO_ROOT,
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'ignore'],
