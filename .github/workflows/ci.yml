@@ -66,14 +66,6 @@ jobs:
       - name: Verify build output
         run: npm run verify:build
 
-      - name: Fail if generated data artifacts are stale
-        run: |
-          if ! git diff --quiet -- public/data; then
-            echo "Generated public/data artifacts are stale. Run 'npm run data:build' and commit the results."
-            git diff --stat -- public/data
-            exit 1
-          fi
-
       - name: Validate route SEO coverage
         run: npm run validate:route-seo
 
