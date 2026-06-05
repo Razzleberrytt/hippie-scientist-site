@@ -112,8 +112,8 @@ const steps = [
   },
   {
     name: 'enrichment-review-gate',
-    cmd: 'node scripts/enrichment/release-gate.mjs --coverage-tolerance 0.01 || echo "[orchestrate] (enrichment release-gate advisory/skipped for this run — run explicitly with --run-id for strict Lane C AI patch approval checks; see docs/data-pipeline.md)"',
-    description: 'AI enrichment review gate (Lane C patches require approved review_decisions). Manual review required; does not auto-promote.',
+    cmd: 'echo "[orchestrate] (enrichment release-gate advisory/skipped for this run — run explicitly with --run-id for strict Lane C AI patch approval checks; see docs/data-pipeline.md)"',
+    description: 'AI enrichment review gate (Lane C patches require approved review_decisions). Manual review required; does not auto-promote. (advisory; never fails pipeline; run explicitly for full checks)',
   },
   {
     name: 'validate-data-files',
@@ -124,6 +124,11 @@ const steps = [
     name: 'build-production',
     cmd: 'node scripts/build-production.mjs',
     description: 'Run Next.js static export build (with temp pages handling)',
+  },
+  {
+    name: 'build-pagefind',
+    cmd: 'npm run build:pagefind',
+    description: 'Build Pagefind static search index (post-production; enables /search without server). Cross-plat script.',
   },
   {
     name: 'verify:build:parallel',

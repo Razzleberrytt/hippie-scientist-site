@@ -155,3 +155,9 @@ The following remain type-checked and must stay active:
 - current data-build pipeline integration points
 
 Do not broaden the quarantine without confirming a file is unreachable from the active App Router runtime.
+
+**2026-06-05 Phase 2 update (plan activation):** 
+- Deleted confirmed dead: src/components/Header.tsx, src/components/EffectExplorer.tsx (excluded in tsconfig, no active imports from app/components/lib per audits, not reexported).
+- Added tsconfig excludes for more src/app dup trees (compare/stacks/etc — no reexports unlike topics) + Header.
+- outputFileTracingRoot added to next.config.mjs to address workspace/worktree tracing warnings.
+- src/ still has active bits (topics reexports, src/lib/* for some runtime scoring used via @/src paths). Hybrid maintained; full consolidation later. See tsconfig excludes + session plan.

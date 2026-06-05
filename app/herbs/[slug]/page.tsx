@@ -61,8 +61,13 @@ export async function generateStaticParams() {
     .filter((herb: any) => !DEPRECATED_HERB_CANONICALS[normalizeSlug(herb.slug)])
     .map((herb: any) => ({ slug: herb.slug }))
 
+  // Include deprecated source slugs (e.g. latin names) so that legacy /herbs/old-slug URLs
+  // can be served a static redirect page instead of 404ing in static export.
+  const legacyRedirectParams = Object.keys(DEPRECATED_HERB_CANONICALS).map((slug) => ({ slug }))
+
   return [
     ...dynamicParams,
+    ...legacyRedirectParams,
     ...Object.keys(HERB_CANONICAL_SOURCE_ALIASES).map((slug) => ({ slug })),
   ]
 }

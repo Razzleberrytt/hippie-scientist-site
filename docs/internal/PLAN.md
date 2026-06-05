@@ -397,3 +397,20 @@ Please confirm:
 5. ✅ Consolidate JSON-LD to **`@graph`** on herb, compound, goal, safety-checker first?
 
 Reply **approved** (with any edits) to begin implementation with per-file diffs.
+
+---
+
+## 2026-06-05 Post-Audit Upgrades & Fixes Activation (auto-approved)
+Per user: "once audit finishes, auto approve and commence fixes and updates. commit merge and pull when done."
+
+Full plan + audit findings + APPROVED marker in session plan file (outside tree for this worktree session). 
+
+**Activated (surgical, AGENTS.md compliant):**
+- Phase 1 Data/Pipeline: issues.csv dry-run reviewed (61 SKIP-REFERENCED by ref checks; 0 net change applied conservatively), guard extended to whitelist cleanup process, Pagefind wired to orchestrate-build + build-deploy (cross-plat script fix), validation-report checklist completed, docs/data-pipeline.md updated.
+- fontsource prune: already absent.
+- Later phases per plan (legacy src audit/deletes, /about E-E-A-T polish, linking, content lean updates) with full re-validation after each.
+- All changes: minimal, run `npm run data:build` (no xlsx touch) + guard + verify-redirects/core + check + build + a11y + audits after edits. No manual public/data, preserve routes, static export.
+
+See: docs/internal/validation-report.md (updated), audit-execution.log, session plan.md. Commit will reference this + plan.
+
+Status: In progress (this activation); final commit/merge/pull at end.

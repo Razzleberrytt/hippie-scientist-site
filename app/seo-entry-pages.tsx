@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { goalConfigs } from '@/data/goals'
 import { getCompounds } from '@/lib/runtime-data'
 import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
+import { AFFILIATE_TAGS } from '@/config/affiliate'
 import { isClean } from '@/lib/display-utils'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
@@ -511,7 +512,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
                   const topProduct = productSet?.products.find(p => p.slot === 'overall')
                   const affUrl = isRestrictedRecord(compound)
                     ? ''
-                    : topProduct?.affiliateUrl || `https://www.amazon.com/s?k=${encodeURIComponent(compoundLabel(compound) + ' Supplement')}&tag=razzleberry02-20`
+                    : topProduct?.affiliateUrl || `https://www.amazon.com/s?k=${encodeURIComponent(compoundLabel(compound) + ' Supplement')}&tag=${AFFILIATE_TAGS.amazon}`
                   const evidence = compound.evidenceLevel || compound.evidence_tier || 'Limited'
                   const primaryFit = compound.bestFor || (compound.summary ? firstSentences(compound.summary, 1) : 'Targeted support')
                   const caution = compound.safety || 'Standard'

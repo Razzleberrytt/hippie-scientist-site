@@ -160,10 +160,18 @@ const LEGAL_STATUS_WARNINGS: Record<string, { title: string; body: string; items
 export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
 
-  return compounds
+  const dynamicParams = compounds
     .filter((compound:any) => getRuntimeVisibility(compound).canRender)
     .filter((compound:any) => !DEPRECATED_COMPOUND_CANONICALS[compound.slug])
     .map((compound:any) => ({ slug: compound.slug }))
+
+  // Include deprecated slugs so legacy /compounds/old-slug can redirect instead of 404 in static export
+  const legacyRedirectParams = Object.keys(DEPRECATED_COMPOUND_CANONICALS).map((slug) => ({ slug }))
+
+  return [
+    ...dynamicParams,
+    ...legacyRedirectParams,
+  ]
 }
 
 export async function generateMetadata({ params }: PageProps) {

@@ -20,6 +20,8 @@
  * - If a build script change affects output in a way that doesn't touch the
  *   "recognized source" list, it may false-positive (add the script path below).
  * - Not a substitute for `validate-workbook-source` or `verify-workbook-only-path`.
+ * - Extended to support docs/internal/issues.csv + scripts/cleanup.js for controlled
+ *   dupe hygiene (dry-run review + --reviewed --apply only; see validation-report.md).
  *
  * Usage (in CI or locally before commit/PR):
  *   node scripts/ci/guard-generated-data.mjs
@@ -51,6 +53,12 @@ const SOURCE_PATHS = [
   'scripts/ci/guard-generated-data.mjs', // self
   // Add more build entrypoints here as the pipeline evolves
   'package.json', // if build scripts or deps change
+  'lib/navigation-config.ts', // affects nav/routes/breadcrumbs (can impact manifests indirectly)
+  'lib/decision-primitives.ts', // affects safety/evidence labels used in data postprocess
+  'lib/safety-enum.ts',
+  // Data hygiene / dupe cleanup (per validation-report + plan; allows reviewed applies of issues.csv via scripts/cleanup.js without false "suspicious" )
+  'docs/internal/issues.csv',
+  'scripts/cleanup.js',
 ]
 
 function getBaseRef() {

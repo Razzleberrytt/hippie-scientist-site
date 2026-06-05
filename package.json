@@ -71,7 +71,7 @@
     "validate:route-seo": "node scripts/ci/validate-route-seo.mjs",
     "validate:editorial-workbook": "node scripts/data/validate-editorial-workbook.mjs",
     "build:app": "node scripts/build-blog.mjs && next build",
-    "build:pagefind": "PAGEFIND_SOURCE='out' npx pagefind --site out",
+    "build:pagefind": "npx pagefind --site out --output-path out/pagefind",
     "analyze": "ANALYZE=true npm run build",
     "build:analyze": "ANALYZE=true npm run build",
     "validate:direct-dependencies": "node scripts/ci/validate-direct-dependencies.mjs",

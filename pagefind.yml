@@ -4,13 +4,13 @@
 # This configuration file customizes how Pagefind indexes The Hippie Scientist site.
 # Run: npm run build:pagefind (after npm run build)
 
-# Source directory containing static HTML files
+# Site directory containing static HTML files (renamed from deprecated 'source')
 # For Next.js static export, this is the "out" directory
-source: out
+site: out
 
 # Output directory for search index
-# Served from /pagefind/ in production
-output_path: pagefind
+# Served from /pagefind/ in production (relative to --site / cwd for static export)
+output_path: out/pagefind
 
 # Site root URL for absolute links in search results
 root_selector: html
