@@ -68,54 +68,50 @@ export const SITE_URL = 'https://www.thehippiescientist.net'
  */
 export const mainNavigation: NavigationItem[] = [
   {
-    label: 'Discover',
-    href: '/discover',
-    description: 'Explore herbs, compounds, and natural remedies',
-    children: [
-      {
-        label: 'Herbs',
-        href: '/herbs',
-        description: 'Browse all medicinal herbs',
-      },
-      {
-        label: 'Compounds',
-        href: '/compounds',
-        description: 'Active compounds and their effects',
-      },
-      {
-        label: 'Search',
-        href: '/search',
-        description: 'Search all content',
-        desktopOnly: true,
-      },
-    ],
+    label: 'Herbs',
+    href: '/herbs',
+    description: 'Browse all medicinal herbs',
   },
   {
-    label: 'By Goal',
+    label: 'Compounds',
+    href: '/compounds',
+    description: 'Active compounds and their effects',
+  },
+  {
+    label: 'Goals',
     href: '/goals',
     description: 'Find remedies by health goals and outcomes',
+  },
+  {
+    label: 'Stacks',
+    href: '/stacks',
+    description: 'Curated supplement stacks',
+  },
+  {
+    label: 'Compare',
+    href: '/compare',
+    description: 'Side-by-side herb and compound comparisons',
+  },
+  {
+    label: 'Blog',
+    href: '/blog',
+    description: 'Articles and updates',
   },
   {
     label: 'Learn',
     href: '/learn',
     description: 'Educational guides and deep dives',
-    children: [
-      {
-        label: 'Hub',
-        href: '/learn',
-        description: 'Learning hub and guides',
-      },
-      {
-        label: 'Blog',
-        href: '/blog',
-        description: 'Articles and updates',
-      },
-    ],
+  },
+  {
+    label: 'Search',
+    href: '/search',
+    description: 'Search all content',
+    desktopOnly: true,
   },
   {
     label: 'Tools',
     href: '/tools',
-    description: 'Dosing calculators and reference tools',
+    description: 'Research tools for herb and compound data',
     desktopOnly: true,
   },
 ]
@@ -131,15 +127,10 @@ export const routeLabels: Record<string, RouteMetadata> = {
     label: 'Home',
     description: 'The Hippie Scientist – Natural remedies & evidence-based herbalism',
   },
-  '/discover': {
-    label: 'Discover',
-    description: 'Explore herbs, compounds, and remedies',
-    parent: '/',
-  },
   '/herbs': {
     label: 'Herbs',
     description: 'Browse medicinal herbs',
-    parent: '/discover',
+    parent: '/',
   },
   '/herbs/[slug]': {
     label: 'Herb Profile',
@@ -150,9 +141,9 @@ export const routeLabels: Record<string, RouteMetadata> = {
   '/compounds': {
     label: 'Compounds',
     description: 'Active compounds and effects',
-    parent: '/discover',
+    parent: '/',
   },
-  '/compound/[slug]': {
+  '/compounds/[slug]': {
     label: 'Compound Profile',
     description: 'Detailed compound information',
     parent: '/compounds',
@@ -161,28 +152,45 @@ export const routeLabels: Record<string, RouteMetadata> = {
   '/search': {
     label: 'Search',
     description: 'Search all herbs and compounds',
-    parent: '/discover',
+    parent: '/',
   },
   '/goals': {
-    label: 'By Goal',
+    label: 'Goals',
     description: 'Find remedies by health goals',
     parent: '/',
   },
-  '/goal/[slug]': {
-    label: 'Goal Profile',
+  '/goals/[slug]': {
+    label: 'Goal',
     description: 'Remedies for a specific health goal',
     parent: '/goals',
     isDynamic: true,
   },
-  '/learn': {
-    label: 'Learn',
-    description: 'Educational guides and deep dives',
+  '/stacks': {
+    label: 'Stacks',
+    description: 'Curated supplement stacks',
     parent: '/',
+  },
+  '/stacks/[slug]': {
+    label: 'Stack',
+    description: 'Curated supplement stack',
+    parent: '/stacks',
+    isDynamic: true,
+  },
+  '/compare': {
+    label: 'Compare',
+    description: 'Side-by-side comparisons',
+    parent: '/',
+  },
+  '/compare/[slug]': {
+    label: 'Comparison',
+    description: 'Side-by-side comparison',
+    parent: '/compare',
+    isDynamic: true,
   },
   '/blog': {
     label: 'Blog',
     description: 'Articles and updates',
-    parent: '/learn',
+    parent: '/',
   },
   '/blog/[slug]': {
     label: 'Article',
@@ -190,15 +198,21 @@ export const routeLabels: Record<string, RouteMetadata> = {
     parent: '/blog',
     isDynamic: true,
   },
-  '/tools': {
-    label: 'Tools',
-    description: 'Dosing calculators and reference tools',
+  '/learn': {
+    label: 'Learn',
+    description: 'Educational guides and deep dives',
     parent: '/',
   },
-  '/tools/dosing': {
-    label: 'Dosing Calculator',
-    description: 'Herb and compound dosing calculator',
-    parent: '/tools',
+  '/learn/[slug]': {
+    label: 'Guide',
+    description: 'Educational guide',
+    parent: '/learn',
+    isDynamic: true,
+  },
+  '/tools': {
+    label: 'Tools',
+    description: 'Research tools',
+    parent: '/',
   },
   '/education': {
     label: 'Education',

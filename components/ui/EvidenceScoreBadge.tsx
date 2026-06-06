@@ -74,6 +74,7 @@ export default function EvidenceScoreBadge({
       <span className={size === 'sm' ? 'text-[0.8rem]' : 'text-sm'}>{letterGrade}</span>
       {showLabel && (
         <span className="font-semibold">
+          {' '}
           {letterGrade === 'A' && 'Strong'}
           {letterGrade === 'B' && 'Moderate'}
           {letterGrade === 'C' && 'Preliminary'}

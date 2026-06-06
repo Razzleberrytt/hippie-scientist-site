@@ -89,11 +89,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  const metadata = generateDetailMetadata({ ...herb, slug: canonicalSlug }, 'herb')
+  // If the slug is a HERB_CANONICAL_SOURCE_ALIASES key, the canonical URL is the
+  // data source slug (e.g. ashwagandha-withania-somnifera → ashwagandha).
+  const aliasCanonicalSlug = HERB_CANONICAL_SOURCE_ALIASES[canonicalSlug] ? sourceSlug : null
+
+  const metadata = generateDetailMetadata({ ...herb, slug: aliasCanonicalSlug ?? canonicalSlug }, 'herb')
+
   if (canonicalSlug !== normalizedSlug) {
     return {
       ...metadata,
       alternates: { canonical: `${SITE_URL}/herbs/${canonicalSlug}/` },
+      robots: { index: false, follow: true },
+    }
+  }
+
+  if (aliasCanonicalSlug) {
+    return {
+      ...metadata,
+      alternates: { canonical: `${SITE_URL}/herbs/${aliasCanonicalSlug}/` },
       robots: { index: false, follow: true },
     }
   }

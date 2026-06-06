@@ -153,14 +153,12 @@
 /herbs/coptis-chinensis/ /herbs/coptis/ 301
 /herbs/epimedium-brevicornum /herbs/epimedium 301
 /herbs/epimedium-brevicornum/ /herbs/epimedium/ 301
-/herbs/garlic /herbs/allium-sativum 301
-/herbs/garlic/ /herbs/allium-sativum/ 301
 /herbs/green-tea-extract /herbs/camellia-sinensis 301
 /herbs/green-tea-extract/ /herbs/camellia-sinensis/ 301
-/herbs/st-johns-wort /herbs/hypericum-perforatum 301
-/herbs/st-johns-wort/ /herbs/hypericum-perforatum/ 301
-/herbs/milk-thistle /herbs/silybum-marianum 301
-/herbs/milk-thistle/ /herbs/silybum-marianum/ 301
+/herbs/hypericum-perforatum /herbs/st-johns-wort 301
+/herbs/hypericum-perforatum/ /herbs/st-johns-wort/ 301
+/herbs/silybum-marianum /herbs/milk-thistle 301
+/herbs/silybum-marianum/ /herbs/milk-thistle/ 301
 /herbs/phellodendron-amurense /herbs/phellodendron 301
 /herbs/phellodendron-amurense/ /herbs/phellodendron/ 301
 /herbs/schisandra-chinensis /herbs/schisandra-berry 301
@@ -317,3 +315,11 @@
 /compounds/zinc-carnosine/ /compounds/zinc/ 301
 /compounds/zinc-picolinate /compounds/zinc 301
 /compounds/zinc-picolinate/ /compounds/zinc/ 301
+
+# HERB CANONICAL REDIRECTS (generate-herb-redirects.mjs)
+/herbs/allium-sativum/ /herbs/garlic/ 301
+/herbs/valeriana-officinalis/ /herbs/valerian/ 301
+/herbs/hericium-erinaceus/ /herbs/lions-mane/ 301
+/herbs/passiflora-incarnata/ /herbs/passionflower/ 301
+/herbs/piper-methysticum/ /herbs/kava/ 301
+/herbs/ganoderma-lucidum/ /herbs/reishi/ 301
