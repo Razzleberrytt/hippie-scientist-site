@@ -10,7 +10,7 @@ export default function ReadScientificStudiesPage() {
       <AuthorityJsonLd
         title="How to Read Scientific Studies"
         description="Educational overview of scientific interpretation, evidence quality, human trials, mechanistic evidence, and research limitations."
-        url="https://www.thehippiescientist.net/education/how-to-read-scientific-studies"
+        url="https://thehippiescientist.net/education/how-to-read-scientific-studies"
         type="Article"
       />
 

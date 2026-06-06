@@ -27,7 +27,7 @@ export default function HarmReductionPage() {
       <AuthorityJsonLd
         title="Psychoactive Harm Reduction"
         description="Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and educational guidance."
-        url="https://www.thehippiescientist.net/psychoactive/harm-reduction"
+        url="https://thehippiescientist.net/psychoactive/harm-reduction"
         type="Article"
       />
 

@@ -54,20 +54,20 @@ export default function WhatArePsychoactiveHerbsPage() {
       <AuthorityJsonLd
         title="What Are Psychoactive Herbs?"
         description="Educational overview of psychoactive herbs, neuropharmacology, mechanisms, pathways, and harm reduction."
-        url="https://www.thehippiescientist.net/education/what-are-psychoactive-herbs"
+        url="https://thehippiescientist.net/education/what-are-psychoactive-herbs"
         type="Article"
         breadcrumbs={[
           {
             name: 'Home',
-            url: 'https://www.thehippiescientist.net',
+            url: 'https://thehippiescientist.net',
           },
           {
             name: 'Education',
-            url: 'https://www.thehippiescientist.net/education',
+            url: 'https://thehippiescientist.net/education',
           },
           {
             name: 'What Are Psychoactive Herbs?',
-            url: 'https://www.thehippiescientist.net/education/what-are-psychoactive-herbs',
+            url: 'https://thehippiescientist.net/education/what-are-psychoactive-herbs',
           },
         ]}
       />

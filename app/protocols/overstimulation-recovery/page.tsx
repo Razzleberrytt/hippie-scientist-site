@@ -54,7 +54,7 @@ export default function OverstimulationRecoveryPage() {
       <AuthorityJsonLd
         title="Overstimulation Recovery Systems"
         description="Educational exploration of overstimulation recovery, hyperarousal, nervous-system downregulation, recovery continuity, and sustainable cognition stabilization."
-        url="https://www.thehippiescientist.net/protocols/overstimulation-recovery"
+        url="https://thehippiescientist.net/protocols/overstimulation-recovery"
         type="Article"
       />
       <AuthorityBreadcrumbs

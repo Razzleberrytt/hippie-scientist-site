@@ -47,7 +47,7 @@ export default function EmotionalRegulationPage() {
       <AuthorityJsonLd
         title="How Emotional Regulation Works"
         description="Educational exploration of emotional regulation neurochemistry, stress signaling, mood systems, recovery continuity, and nervous-system balance."
-        url="https://www.thehippiescientist.net/education/how-emotional-regulation-works"
+        url="https://thehippiescientist.net/education/how-emotional-regulation-works"
         type="Article"
       />
 

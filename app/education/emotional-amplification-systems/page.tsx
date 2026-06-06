@@ -49,7 +49,7 @@ export default function EmotionalAmplificationSystemsPage() {
       <AuthorityJsonLd
         title="Emotional Amplification Systems"
         description="Educational exploration of emotional salience, contextual neurobiology, stress physiology, perception systems, and subjective emotional experiences."
-        url="https://www.thehippiescientist.net/education/emotional-amplification-systems"
+        url="https://thehippiescientist.net/education/emotional-amplification-systems"
         type="Article"
       />
       <AuthorityBreadcrumbs

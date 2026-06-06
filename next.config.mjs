@@ -12,6 +12,10 @@ const nextConfig = {
   // Silences "Lockfile ... " or workspace-related tracing warnings without changing behavior.
   // See plan for 2026-06-05 Phase 2 note.
   outputFileTracingRoot: process.cwd(),
+  experimental: {
+    // Limit static-generation workers to 2 to avoid OOM on memory-constrained build hosts.
+    cpus: 2,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [

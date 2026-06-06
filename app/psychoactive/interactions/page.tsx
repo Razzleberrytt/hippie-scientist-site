@@ -27,7 +27,7 @@ export default function PsychoactiveInteractionsPage() {
       <AuthorityJsonLd
         title="Psychoactive Interactions"
         description="Educational exploration of psychoactive interaction awareness, pathway overlap, neurochemical safety, and evidence-informed harm reduction."
-        url="https://www.thehippiescientist.net/psychoactive/interactions"
+        url="https://thehippiescientist.net/psychoactive/interactions"
         type="Article"
       />
 

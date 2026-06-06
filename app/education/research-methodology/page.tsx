@@ -9,7 +9,7 @@ export default function ResearchMethodologyPage() {
       <AuthorityJsonLd
         title="Research Methodology"
         description="Educational overview of evidence standards, human trials, mechanistic evidence, neuropharmacology interpretation, and scientific methodology."
-        url="https://www.thehippiescientist.net/education/research-methodology"
+        url="https://thehippiescientist.net/education/research-methodology"
         type="Article"
       />
 

@@ -13,7 +13,7 @@ export default function CitationExplorerPage() {
       <AuthorityJsonLd
         title="Scientific Evidence Citation Explorer"
         description="Verify scientific citations, clinical trials, and GRADE evidence levels behind botanical monograph claims."
-        url="https://www.thehippiescientist.net/education/citation-explorer"
+        url="https://thehippiescientist.net/education/citation-explorer"
         type="MedicalWebPage"
       />
 

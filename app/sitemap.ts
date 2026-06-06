@@ -92,7 +92,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/stacks/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/compare/`, currentDate, 'monthly', 0.7),
-    route(`${SITE_URL}/collections/`, currentDate, 'monthly', 0.6),
     route(`${SITE_URL}/dosing/`, currentDate, 'monthly', 0.6),
     route(`${SITE_URL}/affiliate-disclosure/`, currentDate, 'yearly', 0.5),
     route(`${SITE_URL}/privacy/`, currentDate, 'yearly', 0.4),
@@ -169,12 +168,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(Boolean);
   Array.from(new Set([...compareFromGen, ...compareFromData])).forEach((slug) => {
     if (slug) sitemapEntries.push(route(`${SITE_URL}/compare/${slug}/`, currentDate, 'monthly', 0.65));
-  });
-
-  // Add collections/:slug (redirect targets or defined in lib; include per task)
-  const knownCollections = ['best-studied-sleep-compounds', 'adaptogens-for-stress', 'cholinergic-compounds', 'high-evidence-anti-inflammatory-herbs'];
-  knownCollections.forEach((slug) => {
-    sitemapEntries.push(route(`${SITE_URL}/collections/${slug}/`, currentDate, 'monthly', 0.55));
   });
 
   // Add /top/* and best-supplements-for-* entry pages (from seo-entry-pages definitions)

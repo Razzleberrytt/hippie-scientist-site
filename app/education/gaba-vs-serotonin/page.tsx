@@ -8,7 +8,7 @@ export default function GabaVsSerotoninPage() {
       <AuthorityJsonLd
         title="GABA vs Serotonin"
         description="Educational comparison of GABAergic and serotonergic systems, calming pathways, mood regulation, and psychoactive neuropharmacology."
-        url="https://www.thehippiescientist.net/education/gaba-vs-serotonin"
+        url="https://thehippiescientist.net/education/gaba-vs-serotonin"
         type="Article"
       />
 

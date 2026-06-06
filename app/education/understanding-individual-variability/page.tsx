@@ -10,7 +10,7 @@ export default function IndividualVariabilityPage() {
       <AuthorityJsonLd
         title="Understanding Individual Variability"
         description="Educational overview of individual variability, neurochemical diversity, stress systems, psychoactive responses, and systems biology."
-        url="https://www.thehippiescientist.net/education/understanding-individual-variability"
+        url="https://thehippiescientist.net/education/understanding-individual-variability"
         type="Article"
       />
 

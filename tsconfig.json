@@ -39,6 +39,9 @@
     // Tooling scripts; validated by their own commands, not the app typecheck.
     "scripts/**/*",
 
+    // Cloudflare Pages Functions — compiled by Wrangler, not tsc.
+    "functions/**/*",
+
     // Deferred governed-enrichment agents; inactive for the MVP runtime.
     "agent/**/*",
 

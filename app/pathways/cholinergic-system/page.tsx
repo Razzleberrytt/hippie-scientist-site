@@ -23,7 +23,7 @@ export default function CholinergicSystemPage() {
       <AuthorityJsonLd
         title="Cholinergic System"
         description="Educational exploration of cholinergic signaling, dreaming systems, cognition pathways, memory mechanisms, and oneirogenic neuropharmacology."
-        url="https://www.thehippiescientist.net/pathways/cholinergic-system"
+        url="https://thehippiescientist.net/pathways/cholinergic-system"
         type="Article"
       />
 

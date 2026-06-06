@@ -17,7 +17,7 @@ export default function LTheanineVsMagnesiumPage() {
       <AuthorityJsonLd
         title="L-Theanine vs Magnesium for Calm and Focus"
         description="Evidence-graded comparison of L-theanine and magnesium for calm focus, anxiety, and sleep. Mechanisms, overlapping NMDA and GABA pathways, stacking guidance, and when to use each."
-        url="https://www.thehippiescientist.net/compare/l-theanine-vs-magnesium"
+        url="https://thehippiescientist.net/compare/l-theanine-vs-magnesium"
         type="Article"
       />
 

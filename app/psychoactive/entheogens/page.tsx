@@ -19,7 +19,7 @@ export default function EntheogensPage() {
       <AuthorityJsonLd
         title="Entheogens"
         description="Educational exploration of entheogenic ethnobotany, psychoactive mechanisms, ceremonial traditions, and consciousness-oriented neuropharmacology."
-        url="https://www.thehippiescientist.net/psychoactive/entheogens"
+        url="https://thehippiescientist.net/psychoactive/entheogens"
         type="CollectionPage"
       />
 

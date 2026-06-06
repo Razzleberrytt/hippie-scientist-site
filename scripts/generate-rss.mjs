@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const SITE = 'https://www.thehippiescientist.net'
+const SITE = 'https://thehippiescientist.net'
 const OUT = path.resolve('public/feed.xml')
 const OUT2 = path.resolve('public/rss.xml')
 const POSTS_PATH = path.resolve('data/blog/posts.json')

@@ -15,7 +15,7 @@ export default function EfficacyModelPage() {
       <AuthorityJsonLd
         title='Interactive Supplement Efficacy Modeler & Pharmacokinetics Visualizer'
         description='Simulate pharmacokinetic timeline curves, including absorption onset, peak action, clearance half-lives, and cumulative build-up patterns for key herbs and compounds.'
-        url='https://www.thehippiescientist.net/education/efficacy-model'
+        url='https://thehippiescientist.net/education/efficacy-model'
         type='MedicalWebPage'
       />
 

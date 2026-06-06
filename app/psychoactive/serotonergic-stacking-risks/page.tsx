@@ -27,7 +27,7 @@ export default function SerotonergicRisksPage() {
       <AuthorityJsonLd
         title="Serotonergic Stacking Risks"
         description="Educational exploration of serotonergic overlap, psychoactive interaction awareness, mood-system safety, and evidence-informed harm reduction."
-        url="https://www.thehippiescientist.net/psychoactive/serotonergic-stacking-risks"
+        url="https://thehippiescientist.net/psychoactive/serotonergic-stacking-risks"
         type="Article"
       />
 

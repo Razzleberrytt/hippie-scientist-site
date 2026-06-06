@@ -20,7 +20,7 @@ export default function TopicsIndexPage() {
       <AuthorityJsonLd
         title="Topic Hubs"
         description="Topic-level hubs connecting herbs, compounds, protocols, and comparisons."
-        url="https://www.thehippiescientist.net/topics"
+        url="https://thehippiescientist.net/topics"
         type="CollectionPage"
       />
       <section className="space-y-4 max-w-4xl">

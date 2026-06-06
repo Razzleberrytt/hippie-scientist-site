@@ -19,7 +19,7 @@ export default function AuthorityJsonLd({
   type = 'CollectionPage',
   breadcrumbs = [],
 }: AuthorityJsonLdProps) {
-  const normalizedUrl = url.replace('https://www.thehippiescientist.net', SITE_URL)
+  const normalizedUrl = url.replace('https://thehippiescientist.net', SITE_URL)
   const canonical = normalizedUrl.endsWith('/') ? normalizedUrl : `${normalizedUrl}/`
   const webpageId = `${canonical}#webpage`
   const breadcrumbId = `${canonical}#breadcrumb`

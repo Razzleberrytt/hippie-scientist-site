@@ -27,7 +27,7 @@ export default function HerbalVsPharmaPage() {
       <AuthorityJsonLd
         title="How Herbal Psychoactives Differ From Pharmaceuticals"
         description="Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and careful comparison."
-        url="https://www.thehippiescientist.net/education/how-herbal-psychoactives-differ-from-pharmaceuticals"
+        url="https://thehippiescientist.net/education/how-herbal-psychoactives-differ-from-pharmaceuticals"
         type="Article"
       />
 

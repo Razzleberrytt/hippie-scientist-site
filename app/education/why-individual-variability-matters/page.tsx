@@ -49,7 +49,7 @@ export default function WhyIndividualVariabilityMattersPage() {
       <AuthorityJsonLd
         title="Why Individual Variability Matters"
         description="Educational exploration of contextual neurobiology, human variability, stress physiology, recovery biology, and scientific uncertainty."
-        url="https://www.thehippiescientist.net/education/why-individual-variability-matters"
+        url="https://thehippiescientist.net/education/why-individual-variability-matters"
         type="Article"
       />
       <AuthorityBreadcrumbs

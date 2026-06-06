@@ -49,7 +49,7 @@ export default function RecoveryOrientedProductivityPage() {
       <AuthorityJsonLd
         title="Recovery-Oriented Productivity"
         description="Educational exploration of sustainable cognition, recovery continuity, burnout prevention, stress resilience, and nervous-system stabilization."
-        url="https://www.thehippiescientist.net/protocols/recovery-oriented-productivity"
+        url="https://thehippiescientist.net/protocols/recovery-oriented-productivity"
         type="Article"
       />
       <AuthorityBreadcrumbs

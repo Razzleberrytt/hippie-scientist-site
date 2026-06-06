@@ -65,7 +65,7 @@ export default function NeuroinflammationEducationPage() {
       <AuthorityJsonLd
         title="What Is Neuroinflammation?"
         description="Educational exploration of neuroinflammation, stress-response biology, nervous-system signaling, cognition systems, and recovery-oriented neuropharmacology."
-        url="https://www.thehippiescientist.net/education/what-is-neuroinflammation"
+        url="https://thehippiescientist.net/education/what-is-neuroinflammation"
         type="Article"
       />
 

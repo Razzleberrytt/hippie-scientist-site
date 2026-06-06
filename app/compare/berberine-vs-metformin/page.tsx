@@ -15,7 +15,7 @@ export default function BerberineVsMetforminPage() {
       <AuthorityJsonLd
         title="Berberine vs Metformin"
         description="Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each."
-        url="https://www.thehippiescientist.net/compare/berberine-vs-metformin"
+        url="https://thehippiescientist.net/compare/berberine-vs-metformin"
         type="Article"
       />
 

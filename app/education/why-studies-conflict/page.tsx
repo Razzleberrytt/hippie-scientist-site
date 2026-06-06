@@ -49,7 +49,7 @@ export default function WhyStudiesConflictPage() {
       <AuthorityJsonLd
         title="Why Studies Conflict"
         description="Educational exploration of scientific uncertainty, human variability, study design differences, and biological complexity in neuroscience and health research."
-        url="https://www.thehippiescientist.net/education/why-studies-conflict"
+        url="https://thehippiescientist.net/education/why-studies-conflict"
         type="Article"
       />
       <AuthorityBreadcrumbs

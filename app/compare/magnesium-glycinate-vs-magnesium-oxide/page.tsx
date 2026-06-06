@@ -15,7 +15,7 @@ export default function MagnesiumGlycinateVsMagnesiumOxidePage() {
       <AuthorityJsonLd
         title="Magnesium Glycinate vs Magnesium Oxide"
         description="Evidence-graded comparison of magnesium glycinate and magnesium oxide: bioavailability, sleep, anxiety, cost per absorbed milligram, and when each form makes sense."
-        url="https://www.thehippiescientist.net/compare/magnesium-glycinate-vs-magnesium-oxide"
+        url="https://thehippiescientist.net/compare/magnesium-glycinate-vs-magnesium-oxide"
         type="Article"
       />
 

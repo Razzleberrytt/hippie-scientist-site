@@ -65,7 +65,7 @@ export default function AlteredStatesEducationPage() {
       <AuthorityJsonLd
         title="Understanding Altered States"
         description="Educational exploration of altered states, perception-oriented neurobiology, emotional processing, psychoactive context, and systems-oriented neuroscience."
-        url="https://www.thehippiescientist.net/education/understanding-altered-states"
+        url="https://thehippiescientist.net/education/understanding-altered-states"
         type="Article"
       />
 

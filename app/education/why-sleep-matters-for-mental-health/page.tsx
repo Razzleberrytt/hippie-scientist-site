@@ -30,7 +30,7 @@ export default function SleepMentalHealthPage() {
       <AuthorityJsonLd
         title="Why Sleep Matters for Mental Health"
         description="Educational exploration of sleep continuity, emotional regulation, cognition recovery, stress systems, and mental-health-related neurochemistry."
-        url="https://www.thehippiescientist.net/education/why-sleep-matters-for-mental-health"
+        url="https://thehippiescientist.net/education/why-sleep-matters-for-mental-health"
         type="Article"
       />
 

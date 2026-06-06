@@ -9,7 +9,7 @@ export default function PlaceboExpectancyPage() {
       <AuthorityJsonLd
         title="Understanding Placebo and Expectancy"
         description="Educational exploration of placebo effects, expectancy systems, perception, neurochemistry, and scientific interpretation."
-        url="https://www.thehippiescientist.net/education/understanding-placebo-and-expectancy"
+        url="https://thehippiescientist.net/education/understanding-placebo-and-expectancy"
         type="Article"
       />
 

@@ -27,7 +27,7 @@ export default function NeuropharmacologyPage() {
       <AuthorityJsonLd
         title="What Is Neuropharmacology?"
         description="Educational introduction to neuropharmacology, psychoactive mechanisms, signaling pathways, and ethnobotanical neurochemistry."
-        url="https://www.thehippiescientist.net/education/what-is-neuropharmacology"
+        url="https://thehippiescientist.net/education/what-is-neuropharmacology"
         type="Article"
       />
 

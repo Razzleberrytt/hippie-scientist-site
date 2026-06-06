@@ -37,7 +37,7 @@ export default function EvidenceLevelsPage() {
       <AuthorityJsonLd
         title="Understanding Evidence Levels"
         description="Educational overview of evidence strength systems, human evidence prioritization, mechanistic evidence, and scientific interpretation methodology."
-        url="https://www.thehippiescientist.net/education/evidence-levels"
+        url="https://thehippiescientist.net/education/evidence-levels"
         type="Article"
       />
 

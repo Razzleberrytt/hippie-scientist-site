@@ -65,7 +65,7 @@ export default function MemoryFormationEducationPage() {
       <AuthorityJsonLd
         title="How Memory Formation Works"
         description="Educational exploration of memory formation, cognition continuity, sleep-dependent consolidation, emotional salience, and neuropharmacology."
-        url="https://www.thehippiescientist.net/education/how-memory-formation-works"
+        url="https://thehippiescientist.net/education/how-memory-formation-works"
         type="Article"
       />
 

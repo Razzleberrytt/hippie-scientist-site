@@ -38,7 +38,7 @@ export default async function BuyGuidePage() {
       <AuthorityJsonLd
         title="Supplement Sourcing Checklist & Buying Guide"
         description="Verify standardized extracts and quality checklists for herbs and compounds before purchasing."
-        url="https://www.thehippiescientist.net/buy-guide"
+        url="https://thehippiescientist.net/buy-guide"
         type="MedicalWebPage"
       />
 

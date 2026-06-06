@@ -65,7 +65,7 @@ export default function NeuroplasticityEducationPage() {
       <AuthorityJsonLd
         title="How Learning Affects Neuroplasticity"
         description="Educational exploration of neuroplasticity, learning systems, cognition continuity, recovery biology, and adaptive nervous-system signaling."
-        url="https://www.thehippiescientist.net/education/how-learning-affects-neuroplasticity"
+        url="https://thehippiescientist.net/education/how-learning-affects-neuroplasticity"
         type="Article"
       />
 

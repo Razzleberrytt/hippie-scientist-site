@@ -37,7 +37,7 @@ export default async function DataMoatPage() {
       <AuthorityJsonLd
         title="Platform Evidence Trust Score & Data Moat Dashboard"
         description="Audits the evidence quality and structural integrity metrics across all active database monographs."
-        url="https://www.thehippiescientist.net/data-moat"
+        url="https://thehippiescientist.net/data-moat"
         type="MedicalWebPage"
       />
 

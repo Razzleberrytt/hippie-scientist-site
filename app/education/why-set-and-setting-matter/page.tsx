@@ -49,7 +49,7 @@ export default function WhySetAndSettingMatterPage() {
       <AuthorityJsonLd
         title="Why Set and Setting Matter"
         description="Educational exploration of set and setting, contextual neurobiology, emotional regulation, environmental influence, and subjective experiences."
-        url="https://www.thehippiescientist.net/education/why-set-and-setting-matter"
+        url="https://thehippiescientist.net/education/why-set-and-setting-matter"
         type="Article"
       />
       <AuthorityBreadcrumbs

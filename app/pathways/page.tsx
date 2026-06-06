@@ -44,7 +44,7 @@ export default function PathwaysIndexPage() {
       <AuthorityJsonLd
         title="Neurochemical Pathways"
         description="Educational neurochemical pathway hub exploring serotonergic, dopaminergic, GABAergic, and psychoactive signaling systems."
-        url="https://www.thehippiescientist.net/pathways"
+        url="https://thehippiescientist.net/pathways"
         type="CollectionPage"
       />
 

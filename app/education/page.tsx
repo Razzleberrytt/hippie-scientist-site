@@ -179,7 +179,7 @@ export default function EducationHubPage() {
       <AuthorityJsonLd
         title='Neuroscience and Neuropharmacology Education'
         description='Evidence-informed educational ecosystem covering neurochemistry, cognition systems, stress biology, recovery neuropharmacology, psychoactive education, and systems-oriented neuroscience.'
-        url='https://www.thehippiescientist.net/education'
+        url='https://thehippiescientist.net/education'
         type='CollectionPage'
       />
 

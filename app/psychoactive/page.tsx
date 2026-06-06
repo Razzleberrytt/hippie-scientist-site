@@ -54,16 +54,16 @@ export default function PsychoactiveHubPage() {
       <AuthorityJsonLd
         title="Psychoactive Research Hub"
         description="Evidence-informed psychoactive ethnobotany, neuropharmacology, harm reduction, and semantic educational discovery."
-        url="https://www.thehippiescientist.net/psychoactive"
+        url="https://thehippiescientist.net/psychoactive"
         type="CollectionPage"
         breadcrumbs={[
           {
             name: 'Home',
-            url: 'https://www.thehippiescientist.net',
+            url: 'https://thehippiescientist.net',
           },
           {
             name: 'Psychoactive Research',
-            url: 'https://www.thehippiescientist.net/psychoactive',
+            url: 'https://thehippiescientist.net/psychoactive',
           },
         ]}
       />

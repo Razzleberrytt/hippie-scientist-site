@@ -49,7 +49,7 @@ export default function WhyCalmFocusDiffersFromStimulationPage() {
       <AuthorityJsonLd
         title="Why Calm Focus Differs From Stimulation"
         description="Educational exploration of calm focus, stimulation tradeoffs, attentional continuity, emotional regulation, and sustainable cognition systems."
-        url="https://www.thehippiescientist.net/education/why-calm-focus-differs-from-stimulation"
+        url="https://thehippiescientist.net/education/why-calm-focus-differs-from-stimulation"
         type="Article"
       />
       <AuthorityBreadcrumbs

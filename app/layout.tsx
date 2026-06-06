@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Script from 'next/script'
-import { Inter, Fraunces } from 'next/font/google'
+import '@fontsource/inter/400.css'
+import '@fontsource/inter/500.css'
+import '@fontsource/inter/600.css'
+import '@fontsource/inter/700.css'
+import '@fontsource-variable/fraunces/wght.css'
 import { Navigation } from '@/components/Navigation'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { NavigationSchema } from '@/components/NavigationSchema'
@@ -13,18 +17,6 @@ import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, SITE_NAME, websiteJsonLd, organizationJsonLd } from '@/lib/seo'
 import './globals.css'
 import '@/styles/foundation-readability.css'
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-fraunces',
-})
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
 
@@ -52,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en' className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang='en'>
       <body className='font-sans antialiased'>
         {ga4Id && (
           <>

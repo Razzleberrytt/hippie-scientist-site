@@ -60,7 +60,7 @@ export interface RouteMetadata {
 /**
  * Site URL (root domain)
  */
-export const SITE_URL = 'https://www.thehippiescientist.net'
+export const SITE_URL = 'https://thehippiescientist.net'
 
 /**
  * Main navigation hierarchy

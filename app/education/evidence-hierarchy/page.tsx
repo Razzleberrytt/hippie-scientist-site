@@ -9,7 +9,7 @@ export default function EvidenceHierarchyPage() {
       <AuthorityJsonLd
         title="Evidence Hierarchy"
         description="Educational overview of evidence hierarchy, clinical trials, mechanistic evidence, ethnobotanical context, and scientific interpretation systems."
-        url="https://www.thehippiescientist.net/education/evidence-hierarchy"
+        url="https://thehippiescientist.net/education/evidence-hierarchy"
         type="Article"
       />
 

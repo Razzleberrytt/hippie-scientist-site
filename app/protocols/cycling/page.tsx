@@ -16,7 +16,7 @@ export default function CyclingProtocolPage() {
       <AuthorityJsonLd
         title='Supplement Tolerance Cycling Protocols & Washout Planner'
         description='Plan off-cycle washout schedules, receptor resensitization calendars, and substitution guidelines for coffee, adaptogens, and nootropic compounds.'
-        url='https://www.thehippiescientist.net/protocols/cycling'
+        url='https://thehippiescientist.net/protocols/cycling'
         type='MedicalWebPage'
       />
 

@@ -13,7 +13,7 @@ export default function PsychoactivePerceptionPage() {
       <AuthorityJsonLd
         title="How Psychoactive Substances Affect Perception"
         description="Educational exploration of psychoactive perception, neurochemical signaling, altered states, sensory processing, and neuropharmacology."
-        url="https://www.thehippiescientist.net/education/how-psychoactive-substances-affect-perception"
+        url="https://thehippiescientist.net/education/how-psychoactive-substances-affect-perception"
         type="Article"
       />
 

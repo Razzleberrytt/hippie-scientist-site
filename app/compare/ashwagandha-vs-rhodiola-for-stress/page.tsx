@@ -18,7 +18,7 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
       <AuthorityJsonLd
         title="Ashwagandha vs Rhodiola for Stress"
         description="Evidence-informed comparison of ashwagandha and rhodiola for stress patterns, fatigue, calm support, safety, and supplement selection."
-        url="https://www.thehippiescientist.net/compare/ashwagandha-vs-rhodiola-for-stress"
+        url="https://thehippiescientist.net/compare/ashwagandha-vs-rhodiola-for-stress"
         type="Article"
       />
 

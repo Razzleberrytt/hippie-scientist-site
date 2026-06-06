@@ -34,7 +34,7 @@ export default function DopaminePathwayPage() {
       <AuthorityJsonLd
         title="Dopamine Pathway"
         description="Educational overview of dopaminergic signaling, motivation systems, cognition, reward processing, and focus-related neuropharmacology."
-        url="https://www.thehippiescientist.net/pathways/dopamine"
+        url="https://thehippiescientist.net/pathways/dopamine"
         type="Article"
       />
 

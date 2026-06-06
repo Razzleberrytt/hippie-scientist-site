@@ -69,7 +69,7 @@ export default function NootropicEducationPage() {
       <AuthorityJsonLd
         title='What Is a Nootropic?'
         description='Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.'
-        url='https://www.thehippiescientist.net/education/what-is-a-nootropic'
+        url='https://thehippiescientist.net/education/what-is-a-nootropic'
         type='Article'
       />
 

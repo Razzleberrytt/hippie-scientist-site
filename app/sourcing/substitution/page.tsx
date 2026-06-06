@@ -15,7 +15,7 @@ export default function SubstitutionPage() {
       <AuthorityJsonLd
         title='Interactive Botanical Substitution Engine & Alternative Stacking'
         description='Find safe supplement alternatives based on medical contraindications, stimulant sensitivity, thyroid conditions, or autoimmune concerns.'
-        url='https://www.thehippiescientist.net/sourcing/substitution'
+        url='https://thehippiescientist.net/sourcing/substitution'
         type='MedicalWebPage'
       />
 

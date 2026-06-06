@@ -49,7 +49,7 @@ function checkUrlStatus(url) {
 }
 
 async function runSitemapAudit() {
-  const liveSitemapUrl = 'https://www.thehippiescientist.net/sitemap.xml';
+  const liveSitemapUrl = 'https://thehippiescientist.net/sitemap.xml';
   const localSitemapPath = 'out/sitemap.xml';
   const herbsPath = 'public/data/herbs.json';
   const compoundsPath = 'public/data/compounds.json';
@@ -94,7 +94,7 @@ async function runSitemapAudit() {
   let otherDomainsCount = 0;
 
   urls.forEach(u => {
-    if (u.startsWith('https://www.thehippiescientist.net')) {
+    if (u.startsWith('https://thehippiescientist.net')) {
       wwwCount++;
     } else if (u.startsWith('https://thehippiescientist.net')) {
       nonWwwCount++;
@@ -178,7 +178,7 @@ Sitemap Source: ${source === 'live' ? `Live URL (${liveSitemapUrl})` : `Local Fa
 ## Canonical Domain Analysis
 
 - **Total URLs Analyzed**: ${urls.length}
-- **WWW Canonical (\`https://www.thehippiescientist.net\`)**: ${wwwCount} URLs (${wwwPct}%)
+- **WWW Canonical (\`https://thehippiescientist.net\`)**: ${wwwCount} URLs (${wwwPct}%)
 - **Non-WWW Canonical (\`https://thehippiescientist.net\`)**: ${nonWwwCount} URLs (${nonWwwPct}%)
 - **Other/Mixed Domains**: ${otherDomainsCount} URLs (${otherPct}%)
 

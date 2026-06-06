@@ -34,7 +34,7 @@ export default async function DynamicComparePage() {
       <AuthorityJsonLd
         title="Dynamic Ingredient Comparison Matrix"
         description="Side-by-side scientific comparison of herbs, compounds, and active extracts."
-        url="https://www.thehippiescientist.net/compare/dynamic"
+        url="https://thehippiescientist.net/compare/dynamic"
         type="MedicalWebPage"
       />
 
