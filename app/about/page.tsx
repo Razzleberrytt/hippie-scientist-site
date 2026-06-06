@@ -33,7 +33,7 @@ export default function AboutPage() {
         </h1>
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg">
-          The Hippie Scientist was founded to bridge the gap between complex neuropharmacology and mainstream supplement consumer education. We provide plain-English, evidence-aware breakdowns of herbs and compounds, prioritizing safety and transparency over commercial hype.
+          The Hippie Scientist is an evidence-first reference for herbs, supplements, and compounds. We publish mechanism, safety, and practical context for 900+ profiles — plain-English, conservative on claims, and grounded in the strength of available research.
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">

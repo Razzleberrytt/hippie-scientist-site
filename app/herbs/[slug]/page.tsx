@@ -34,6 +34,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import { getStackRecommendations } from '@/lib/recommendation-engine'
 import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import LegacyProfileBanner from '@/components/LegacyProfileBanner'
 
 
 type PageProps = {
@@ -273,6 +274,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
     redirect(`/herbs/${normalizedSlug}/`)
   }
 
+  // Legacy / old-system slug detection for migration banner (new scientific-name slugs are canonical)
+  const legacyToNewMap = Object.fromEntries(
+    Object.entries(HERB_CANONICAL_SOURCE_ALIASES).map(([newS, oldS]) => [oldS, newS])
+  )
+  const isLegacySlug = !!legacyToNewMap[normalizedSlug]
+  const newSlugForBanner = isLegacySlug ? `/herbs/${legacyToNewMap[normalizedSlug]}/` : null
+
   const suppressAffiliate = shouldSuppressAffiliate(herb)
 
   const {
@@ -392,6 +400,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-4 py-6">
+      {isLegacySlug && newSlugForBanner && (
+        <LegacyProfileBanner newSlug={newSlugForBanner} herbName={displayName} />
+      )}
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
 

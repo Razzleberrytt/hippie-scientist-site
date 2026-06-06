@@ -152,10 +152,10 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               Evidence-first supplement decisions
             </p>
             <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
-              Find the right supplement path for your goals.
+              Evidence-First Herb &amp; Compound Research
             </h1>
             <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
-              Skip the commercial hype. Select your health pathway below to compare evidence tiers, safety contraindications, and third-party tested sourcing picks.
+              Science-backed profiles for 295 herbs and 600+ compounds. No fluff, no hype — just mechanism, evidence, and context.
             </p>
             <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
               <Link
