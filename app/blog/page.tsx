@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import posts from '../../data/blog/posts.json'
-import { SemanticBrowseModule } from '@/components/scientific-discovery'
+
+import rawPosts from '@/data/blog/posts.json'
 import {
   BLOG_STYLE_GROUPS,
   formatDate,
@@ -11,10 +11,7 @@ import {
   type BlogPost,
 } from '@/lib/blog-index'
 import { buildPageMetadata, SITE_URL } from '@/lib/seo'
-
-export const dynamic = 'force-static'
-
-const allPosts: BlogPost[] = posts
+import { clampPositiveInt } from '@/lib/pagination'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Research Notes',
@@ -23,42 +20,93 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphType: 'website',
 })
 
-function ArticleCard({ post }: { post: BlogPost }) {
+const BLOG_PAGE_SIZE = 12
+
+const allPosts: BlogPost[] = (rawPosts as BlogPost[]).filter((p) => p && p.slug && p.title)
+
+function getPostCategory(post: BlogPost): { label: string; href: string } {
   const style = inferArticleStyle(post)
-  const styleGroup = getStyleGroupForPost(post)
+  const group = BLOG_STYLE_GROUPS.find((g) =>
+    style.toLowerCase().includes(g.slug.split('-')[0]) ||
+    (g.slug === 'research-digests' && style.toLowerCase().includes('digest')) ||
+    (g.slug === 'extraction-preparation' && (style.toLowerCase().includes('preparation') || style.toLowerCase().includes('extraction'))) ||
+    (g.slug === 'safety-set-setting' && style.toLowerCase().includes('safety'))
+  )
+  return group ? { label: group.title, href: group.href } : { label: 'Editorial note', href: '/blog' }
+}
+
+function BlogCard({ post }: { post: BlogPost }) {
+  const cat = getPostCategory(post)
+  const excerpt = truncateText(post.excerpt, 160)
   const href = `/blog/${post.slug}`
 
   return (
-    <article className="identity-article scientific-card group">
-      <div className="flex flex-wrap items-center gap-2">
-        <Link href={styleGroup.href} className="identity-kicker">
-          {style}
+    <article className="flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm transition hover:border-brand-700/20">
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+        <Link href={cat.href} className="rounded-full border border-brand-900/10 bg-white px-2 py-0.5 font-semibold text-brand-800">
+          {cat.label}
         </Link>
-        <time dateTime={post.date || ''} className="identity-meta">
-          {formatDate(post.date)}
-        </time>
-        {post.readingTime ? <span className="identity-meta">{post.readingTime}</span> : null}
+        <time dateTime={post.date || ''} className="text-[#5f6f66]">{formatDate(post.date)}</time>
+        {post.readingTime ? <span className="text-[#5f6f66]">{post.readingTime}</span> : null}
+        <span className="text-[#5f6f66]">· The Hippie Scientist</span>
       </div>
 
-      <h3 className="mt-4 text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800">
+      <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink hover:text-brand-800">
         <Link href={href}>{post.title}</Link>
       </h3>
-      <p className="mt-3 text-sm leading-7 text-[#46574d]">{truncateText(post.excerpt, 130)}</p>
-      <Link href={href} className="mt-3 inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-0.5">
-        Read note -&gt;
+
+      <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#46574d]">{excerpt}</p>
+
+      <Link href={href} className="mt-auto pt-3 text-sm font-semibold text-brand-800 hover:underline">
+        Read note →
       </Link>
     </article>
   )
 }
 
-function getStyleGroupForPost(post: BlogPost) {
-  const corpus = `${post.title} ${post.excerpt ?? ''} ${post.content ?? ''}`.toLowerCase()
-  if (corpus.includes('research digest')) return BLOG_STYLE_GROUPS[0]
-  if (corpus.includes('pharmacology')) return BLOG_STYLE_GROUPS[1]
-  if (corpus.includes('traditional')) return BLOG_STYLE_GROUPS[2]
-  if (corpus.includes('extraction') || corpus.includes('preparation') || corpus.includes('formulation')) return BLOG_STYLE_GROUPS[3]
-  if (corpus.includes('safety') || corpus.includes('set setting') || corpus.includes('set / setting')) return BLOG_STYLE_GROUPS[4]
-  return BLOG_STYLE_GROUPS[5]
+function LatestStrip({ posts }: { posts: BlogPost[] }) {
+  if (!posts.length) return null
+  return (
+    <section className="space-y-3">
+      <div className="flex items-end justify-between">
+        <div>
+          <p className="eyebrow-label">Latest</p>
+          <h2 className="compact-heading">The three most recent notes.</h2>
+        </div>
+      </div>
+      <div className="grid gap-3 md:grid-cols-3">
+        {posts.map((post) => (
+          <BlogCard key={post.slug} post={post} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function CategoryFilterBar({ active }: { active: string }) {
+  return (
+    <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
+      <Link
+        href="/blog"
+        className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${!active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+      >
+        All notes
+      </Link>
+      {BLOG_STYLE_GROUPS.map((g) => {
+        const href = `/blog?category=${g.slug}`
+        const isActive = active === g.slug
+        return (
+          <Link
+            key={g.slug}
+            href={href}
+            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${isActive ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+          >
+            {g.title}
+          </Link>
+        )
+      })}
+    </div>
+  )
 }
 
 function BlogItemListJsonLd({ posts }: { posts: BlogPost[] }) {
@@ -66,14 +114,13 @@ function BlogItemListJsonLd({ posts }: { posts: BlogPost[] }) {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'The Hippie Scientist research notes',
-    itemListElement: posts.map((post, index) => ({
+    itemListElement: posts.slice(0, 200).map((post, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       url: `${SITE_URL}/blog/${post.slug}`,
       name: post.title,
     })),
   }
-
   return (
     <script
       type="application/ld+json"
@@ -82,64 +129,125 @@ function BlogItemListJsonLd({ posts }: { posts: BlogPost[] }) {
   )
 }
 
-export default function BlogPage() {
-  const sortedPosts = sortPostsNewestFirst(allPosts)
-  const featuredPost = sortedPosts[0]
-  const remainingPosts = sortedPosts.slice(1)
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}) {
+  const sp = await searchParams
+  const category = (Array.isArray(sp.category) ? sp.category[0] : sp.category) || ''
+  const page = clampPositiveInt(Array.isArray(sp.page) ? sp.page[0] : sp.page, 1)
+
+  const sorted = sortPostsNewestFirst(allPosts)
+
+  let filtered = sorted
+  if (category) {
+    filtered = sorted.filter((p) => {
+      const corpus = `${p.title} ${p.excerpt ?? ''} ${p.content ?? ''}`.toLowerCase()
+      const g = BLOG_STYLE_GROUPS.find((gg) => gg.slug === category)
+      if (!g) return true
+      if (category === 'research-digests') return corpus.includes('research digest')
+      if (category === 'pharmacology-basics') return corpus.includes('pharmacology')
+      if (category === 'traditional-use') return corpus.includes('traditional')
+      if (category === 'extraction-preparation') return corpus.includes('extraction') || corpus.includes('preparation') || corpus.includes('formulation')
+      if (category === 'safety-set-setting') return corpus.includes('safety') || corpus.includes('set setting')
+      if (category === 'field-notes') return corpus.includes('field note') || corpus.includes('bioassay')
+      return true
+    })
+  }
+
+  const latestThree = filtered.slice(0, 3)
+  const rest = filtered.slice(3)
+
+  const totalForGrid = rest.length
+  const totalPages = Math.max(1, Math.ceil(totalForGrid / BLOG_PAGE_SIZE))
+  const currentPage = Math.min(Math.max(1, page), totalPages)
+  const start = (currentPage - 1) * BLOG_PAGE_SIZE
+  const pageItems = rest.slice(start, start + BLOG_PAGE_SIZE)
+
+  const count = filtered.length
+
+  function buildBlogHref(p: number, cat: string) {
+    const params = new URLSearchParams()
+    if (cat) params.set('category', cat)
+    if (p > 1) params.set('page', String(p))
+    const qs = params.toString()
+    return qs ? `/blog?${qs}` : '/blog'
+  }
 
   return (
-    <div className="section-spacing pb-10">
-      <BlogItemListJsonLd posts={sortedPosts} />
+    <div className="mx-auto max-w-6xl space-y-8 px-4 py-6 sm:py-8">
+      <BlogItemListJsonLd posts={filtered} />
 
+      {/* Hero */}
       <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 p-4 shadow-sm sm:p-5">
         <p className="eyebrow-label">Research notes</p>
-        <h1 className="mt-2 heading-premium max-w-3xl">Research notes</h1>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-soft">
+        <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">Research notes</h1>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
           Mechanisms, preparations, safety limits, and evidence maturity for fast scanning.
         </p>
-        <p className="mt-2 text-sm font-semibold text-[#46574d]">{sortedPosts.length} research notes available</p>
+        <p className="mt-1 text-sm font-semibold text-[#46574d]">{count} research notes available</p>
       </section>
 
-      {featuredPost ? (
-        <section className="surface-depth card-spacing">
-          <p className="eyebrow-label">Latest research note</p>
-          <Link href={`/blog/${featuredPost.slug}`} className="identity-article scientific-card mt-3 group">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="identity-kicker">{inferArticleStyle(featuredPost)}</span>
-              <time dateTime={featuredPost.date || ''} className="identity-meta">{formatDate(featuredPost.date)}</time>
-              {featuredPost.readingTime ? <span className="identity-meta">{featuredPost.readingTime}</span> : null}
-            </div>
-            <h2 className="mt-2 max-w-3xl text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800 sm:text-2xl">
-              {featuredPost.title}
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-6 text-[#46574d]">{truncateText(featuredPost.excerpt, 140)}</p>
-            <span className="mt-3 inline-flex text-sm font-semibold text-brand-800 transition group-hover:translate-x-0.5">Read note -&gt;</span>
-          </Link>
-        </section>
-      ) : null}
+      {/* Category filter (static links) */}
+      <div>
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66]">Filter by style</p>
+        <CategoryFilterBar active={category} />
+      </div>
 
-      <SemanticBrowseModule
-        eyebrow="Browse articles by research style"
-        title="Choose the context you need."
-        groups={BLOG_STYLE_GROUPS}
-      />
+      {/* Latest 3 prominently */}
+      {!category && latestThree.length > 0 ? <LatestStrip posts={latestThree} /> : null}
 
+      {/* Grid + pagination */}
       <section className="space-y-4">
-        <div>
-          <p className="eyebrow-label">Archive</p>
-          <h2 className="mt-2 max-w-3xl">All research notes</h2>
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="eyebrow-label">{category ? 'Matching notes' : 'Archive'}</p>
+            <h2 className="compact-heading">{category ? 'Notes in this style.' : 'All research notes.'}</h2>
+          </div>
+          <span className="hidden text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66] sm:inline">
+            {totalForGrid} notes
+          </span>
         </div>
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {remainingPosts.map((post) => (
-            <ArticleCard key={post.slug} post={post} />
-          ))}
-        </div>
+
+        {pageItems.length === 0 ? (
+          <div className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-6 text-sm text-[#46574d]">
+            No notes in this filter. <Link href="/blog" className="font-semibold text-brand-800">View all</Link>.
+          </div>
+        ) : (
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {pageItems.map((post) => (
+              <BlogCard key={post.slug} post={post} />
+            ))}
+          </div>
+        )}
+
+        {/* Pagination (12 per page) */}
+        {totalPages > 1 && (
+          <nav className="flex flex-wrap items-center justify-between gap-3 rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-3 text-sm" aria-label="Blog pagination">
+            <div>
+              Page {currentPage} of {totalPages} — showing {start + 1}–{Math.min(start + BLOG_PAGE_SIZE, totalForGrid)} of {totalForGrid}
+            </div>
+            <div className="flex gap-3">
+              {currentPage > 1 ? (
+                <Link rel="prev" href={buildBlogHref(currentPage - 1, category)} className="font-semibold text-brand-800">
+                  ← Previous
+                </Link>
+              ) : null}
+              {currentPage < totalPages ? (
+                <Link rel="next" href={buildBlogHref(currentPage + 1, category)} className="font-semibold text-brand-800">
+                  Next →
+                </Link>
+              ) : null}
+            </div>
+          </nav>
+        )}
       </section>
 
-      {/* Server-rendered plain link index for crawler visibility (progressive enhancement only; cards above are the visual layer) */}
+      {/* Crawlable index */}
       <nav aria-label="All research notes index" className="sr-only">
         <ul>
-          {sortedPosts.map((post: BlogPost) => (
+          {filtered.map((post) => (
             <li key={post.slug}>
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </li>

@@ -9,7 +9,7 @@ export const DEFAULT_OG_IMAGE = '/og-default.jpg'
 export const SITE_NAME = 'The Hippie Scientist'
 export const TWITTER_HANDLE = '@HippieScientist'
 export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
-export const DEFAULT_DESCRIPTION = 'Evidence-first herb and compound reference grounded in mechanisms, safety context, and scientific review.'
+export const DEFAULT_DESCRIPTION = 'The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for 900+ profiles.'
 
 export type PageType = 'website' | 'article'
 
