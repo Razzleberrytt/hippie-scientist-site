@@ -43,9 +43,9 @@ function interleaveFeatured(herbs: LandingCard[], compounds: LandingCard[]) {
 }
 
 const trustStrip = [
-  'Evidence-weighted guidance',
-  'Safety checkpoints before buying',
-  'Static, privacy-friendly flow',
+  'Human trials separated from mechanism-only claims',
+  'Safety & drug interactions surfaced first',
+  '295 herbs · 600+ compounds reviewed',
 ]
 
 const wizardSteps = [
@@ -55,12 +55,36 @@ const wizardSteps = [
 ]
 
 const credibilityPillars = [
-  'Human evidence is separated from mechanism-only claims.',
+  'Human clinical trial evidence is separated from petri dish mechanistic plausibility.',
   'Contraindications and medication flags appear before product-quality CTAs.',
   'Affiliate context is disclosed without changing the evidence standard.',
 ]
 
-// Fallbacks / curated popular starting points (high-recognition, high-intent per task)
+const featuredArticles = [
+  {
+    href: '/articles/lions-mane',
+    label: 'Deep Dive',
+    title: "Lion's Mane: Mechanisms, Clinical Evidence & Dosage",
+    description: "NGF and BDNF pathways, three randomized trials in MCI and mild Alzheimer's, and practical dosing guidance with extract selection criteria.",
+    readingTime: '12 min read',
+  },
+  {
+    href: '/blog/rhodiola-vs-ashwagandha',
+    label: 'Comparison',
+    title: 'Rhodiola vs. Ashwagandha: Matching Adaptogens to Your Needs',
+    description: "Cortisol timing, fatigue profiles, and when stimulating adaptogens outperform sedating ones — and vice versa.",
+    readingTime: '5 min read',
+  },
+  {
+    href: '/blog/reishi-sleep-immunity',
+    label: 'Research Note',
+    title: 'Reishi for Sleep and Immunity: What the Studies Say',
+    description: 'Triterpenes, beta-glucans, and the evidence behind Reishi\'s dual reputation as an adaptogen and immune modulator.',
+    readingTime: '4 min read',
+  },
+]
+
+// Fallbacks / curated popular starting points
 const featuredFallbacks: LandingCard[] = [
   {
     href: '/herbs/ashwagandha',
@@ -146,7 +170,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
       <StickyChecklistBar storageKey='homepage-sticky-checklist' />
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
-        {/* Hero */}
+        {/* ── Hero ─────────────────────────────────────────────── */}
         <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-6 py-8 shadow-sm sm:px-10 sm:py-12'>
           <div className='grid gap-8 lg:grid-cols-[1.14fr_0.86fr] lg:items-center'>
             <div className='flex flex-col items-center text-center lg:items-start lg:text-left'>
@@ -154,23 +178,23 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 Evidence-first supplement decisions
               </p>
               <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
-                Evidence-First Herb &amp; Compound Research
+                Supplement Science Without the&nbsp;Hype
               </h1>
               <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
-                Science-backed profiles for 295 herbs and 600+ compounds. No fluff, no hype — just mechanism, evidence, and context.
+                295 herb profiles and 600+ compound reviews — each one separating what the clinical trials actually show from mechanism-only marketing claims.
               </p>
               <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
                 <Link
                   href='/start-here/quiz'
                   className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none text-center'
                 >
-                  Take the Intake Quiz
+                  Find What Fits You
                 </Link>
                 <Link
-                  href='/safety-checker'
+                  href='/goals'
                   className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none text-center'
                 >
-                  Check Safety &amp; Medications
+                  Browse by Health Goal
                 </Link>
               </div>
               <div className='mt-6 flex flex-wrap justify-center lg:justify-start gap-2' aria-label='Trust signals'>
@@ -182,7 +206,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               </div>
             </div>
 
-            {/* Hero Visual Card */}
+            {/* Hero image */}
             <div className='relative overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-md transition-all duration-500 hover:shadow-xl hover:scale-[1.01]'>
               <div className='relative w-full h-[200px] sm:h-[240px] lg:h-[380px]'>
                 <Image
@@ -198,9 +222,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        <SafetyChecklistPromo goal='default' variant='hero' />
-
-        {/* Goal Guides Card Grid */}
+        {/* ── Evidence Reviews: Goal Pathways ──────────────────── */}
         <section className='space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
@@ -209,7 +231,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               as='h2'
             />
             <Link href='/goals' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
-              View all 15 goals →
+              View all 15 →
             </Link>
           </div>
 
@@ -225,7 +247,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 >
                   <div>
                     <div className='flex items-center justify-between'>
-                      <span className='text-[10px] font-bold uppercase tracking-wider text-muted'>Goal Pathway</span>
+                      <span className='text-[10px] font-bold uppercase tracking-wider text-muted'>Evidence Review</span>
                       <span className='h-2 w-2 rounded-full bg-brand-700' />
                     </div>
                     <Link href={`/goals/${hGoal.slug}`} className='group mt-2 block'>
@@ -274,7 +296,45 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        {/* Intake Wizard Entry */}
+        {/* ── Research Highlights ───────────────────────────────── */}
+        <section className='space-y-4'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+            <SectionHeader
+              title='From the Research Notes'
+              subtitle='Deep dives and evidence reviews — mechanisms, clinical data, and safety context in one place.'
+              as='h2'
+            />
+            <Link href='/blog' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              All articles →
+            </Link>
+          </div>
+
+          <div className='grid gap-4 md:grid-cols-3'>
+            {featuredArticles.map((article) => (
+              <Link
+                key={article.href}
+                href={article.href}
+                className='group flex flex-col rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-900/20 hover:shadow-md'
+              >
+                <span className='inline-flex text-[10px] font-bold uppercase tracking-[0.15em] text-brand-700'>
+                  {article.label}
+                </span>
+                <h3 className='mt-2 text-base font-bold tracking-tight text-ink group-hover:text-brand-700 leading-snug'>
+                  {article.title}
+                </h3>
+                <p className='mt-2 line-clamp-3 text-xs leading-relaxed text-muted flex-1'>
+                  {article.description}
+                </p>
+                <div className='mt-3 flex items-center justify-between'>
+                  <span className='text-[11px] text-muted'>{article.readingTime}</span>
+                  <ActionCue>Read</ActionCue>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Intake Wizard ─────────────────────────────────────── */}
         <section className='grid gap-6 rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm lg:grid-cols-[1fr_0.9fr] lg:p-6'>
           <div>
             <SectionHeader
@@ -301,34 +361,17 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </ol>
         </section>
 
-        {/* Sourcing checklist block */}
-        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>
-          <div className='flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between'>
-            <div className='space-y-2.5'>
-              <span className='inline-flex rounded-full bg-brand-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brand-800'>Sourcing Guidelines</span>
-              <h2 className='text-xl font-bold tracking-tight text-ink sm:text-2xl'>Always check for label transparency first.</h2>
-              <p className='max-w-3xl text-sm leading-relaxed text-muted'>
-                Before clicking any sponsored buy link, compare third-party verification (USP, NSF, ConsumerLab), standardization metrics (e.g. 5% ginsenosides), active extract markers, and toxic metal test disclosures.
-              </p>
-              <p className='text-xs leading-5 text-muted'>This site contains qualifying affiliate links, but product criteria stay independent from commissions.</p>
-            </div>
-            <Link href='/buy-guide' className='inline-flex shrink-0 justify-center rounded-full bg-brand-700 px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-800'>
-              Read Sourcing Guide →
-            </Link>
-          </div>
-        </section>
-
-        {/* Popular Ingredient Profiles */}
+        {/* ── Ingredient Library ────────────────────────────────── */}
         <section className='space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
-              title='Or Browse by Ingredient Library'
+              title='Or Browse by Ingredient'
               subtitle='Research profiles on standalone adaptogens, biological compounds, and minerals.'
               as='h2'
             />
             <div className='flex flex-wrap gap-4 text-sm font-bold'>
-              <Link href='/herbs' className='text-brand-700 transition hover:text-brand-800'>Herbs Library <span aria-hidden='true'>→</span></Link>
-              <Link href='/compounds' className='text-brand-700 transition hover:text-brand-800'>Compounds Library <span aria-hidden='true'>→</span></Link>
+              <Link href='/herbs' className='text-brand-700 transition hover:text-brand-800'>Herbs <span aria-hidden='true'>→</span></Link>
+              <Link href='/compounds' className='text-brand-700 transition hover:text-brand-800'>Compounds <span aria-hidden='true'>→</span></Link>
             </div>
           </div>
           <div className='grid gap-3 md:grid-cols-2 lg:grid-cols-3'>
@@ -350,11 +393,11 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        {/* Evidence + Safety Methodology details */}
+        {/* ── Evidence & Safety Methodology ────────────────────── */}
         <section className='grid gap-4 lg:grid-cols-2'>
           <div className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm sm:p-5'>
             <SectionHeader
-              title='Methodology: Weight of Clinical Evidence'
+              title='How We Grade the Evidence'
               subtitle='Our catalog separates human clinical trial evidence from petri dish mechanistic plausibility.'
               as='h2'
             />
@@ -386,13 +429,15 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
+        <SafetyChecklistPromo goal='default' variant='hero' />
+
         <NewsletterCtaBlock
           title='Browse evidence-first newsletter notes'
           description='Use the archive for concise supplement safety and sourcing updates.'
           location='homepage-newsletter'
         />
 
-        {/* Disclaimer */}
+        {/* ── Disclaimer ───────────────────────────────────────── */}
         <section className='rounded-[0.85rem] border border-amber-200/80 bg-amber-50/50 p-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
             <p className='max-w-4xl text-sm leading-relaxed text-amber-950/85'>

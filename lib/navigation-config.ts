@@ -68,51 +68,29 @@ export const SITE_URL = 'https://www.thehippiescientist.net'
  */
 export const mainNavigation: NavigationItem[] = [
   {
-    label: 'Herbs',
-    href: '/herbs',
-    description: 'Browse all medicinal herbs',
+    label: 'Home',
+    href: '/',
+    description: 'The Hippie Scientist – evidence-first supplement research',
   },
   {
-    label: 'Compounds',
-    href: '/compounds',
-    description: 'Active compounds and their effects',
+    label: 'Articles',
+    href: '/blog',
+    description: 'Research articles on herbs, compounds, and supplement science',
   },
   {
-    label: 'Goals',
-    href: '/goals',
-    description: 'Find remedies by health goals and outcomes',
-  },
-  {
-    label: 'Stacks',
-    href: '/stacks',
-    description: 'Curated supplement stacks',
-  },
-  {
-    label: 'Compare',
+    label: 'Comparisons',
     href: '/compare',
     description: 'Side-by-side herb and compound comparisons',
   },
   {
-    label: 'Blog',
-    href: '/blog',
-    description: 'Articles and updates',
+    label: 'Evidence Reviews',
+    href: '/goals',
+    description: 'Health pathway guides with evidence-graded candidate compounds',
   },
   {
-    label: 'Learn',
-    href: '/learn',
-    description: 'Educational guides and deep dives',
-  },
-  {
-    label: 'Search',
-    href: '/search',
-    description: 'Search all content',
-    desktopOnly: true,
-  },
-  {
-    label: 'Tools',
-    href: '/tools',
-    description: 'Research tools for herb and compound data',
-    desktopOnly: true,
+    label: 'About',
+    href: '/about',
+    description: 'About The Hippie Scientist',
   },
 ]
 

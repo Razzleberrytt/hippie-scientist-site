@@ -7,13 +7,11 @@ import { Menu, X } from 'lucide-react'
 import { SearchModal } from './SearchModal'
 
 const desktopLinks = [
-  { href: '/herbs', label: 'Herbs' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/goals', label: 'Goals' },
-  { href: '/stacks', label: 'Stacks' },
-  { href: '/compare', label: 'Compare' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/learn', label: 'Learn' },
+  { href: '/', label: 'Home' },
+  { href: '/blog', label: 'Articles' },
+  { href: '/compare', label: 'Comparisons' },
+  { href: '/goals', label: 'Evidence Reviews' },
+  { href: '/about', label: 'About' },
 ]
 
 function openPagefindSearch() {
@@ -54,10 +52,9 @@ export function Navigation() {
   }, [mobileOpen])
 
   const isActive = (href: string) => {
-    if (pathname === href) return true
-    if (href === '/blog' || href === '/learn') return pathname.startsWith(href + '/')
-    if (href !== '/') return pathname.startsWith(href + '/')
-    return false
+    if (href === '/') return pathname === '/'
+    if (href === '/blog') return pathname === '/blog' || pathname.startsWith('/blog/') || pathname.startsWith('/articles/')
+    return pathname === href || pathname.startsWith(href + '/')
   }
 
   const closeMobile = () => setMobileOpen(false)
@@ -80,7 +77,7 @@ export function Navigation() {
             The Hippie Scientist
           </Link>
 
-          {/* Desktop nav links (exact required order) */}
+          {/* Desktop nav links */}
           <div className="hidden items-center gap-5 text-sm md:flex lg:gap-6">
             {desktopLinks.map((link) => (
               <Link
@@ -95,26 +92,6 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-
-            {/* Search as actionable item that opens Pagefind */}
-            <button
-              type="button"
-              onClick={openPagefindSearch}
-              className={`font-medium transition-colors ${
-                pathname === '/search' ? 'text-brand-800' : 'text-ink/80 hover:text-ink'
-              }`}
-              aria-label="Open site search"
-            >
-              Search
-            </button>
-
-            {/* Far-right small CTA */}
-            <Link
-              href="/about"
-              className="ml-2 rounded-full border border-brand-900/15 px-3 py-1 text-xs font-semibold text-brand-800 transition hover:border-brand-900/30 hover:bg-brand-50"
-            >
-              About
-            </Link>
           </div>
 
           {/* Right side actions (desktop search trigger + mobile hamburger) */}
@@ -178,35 +155,18 @@ export function Navigation() {
                 </Link>
               ))}
 
+              <div className="my-2 h-px bg-brand-900/10" />
+
               <button
                 type="button"
                 onClick={() => {
                   closeMobile()
                   openPagefindSearch()
                 }}
-                className={`text-left rounded-lg px-3 py-2.5 font-medium transition ${
-                  pathname === '/search' ? 'bg-brand-50 text-brand-900' : 'text-ink hover:bg-brand-50/60'
-                }`}
+                className="text-left rounded-lg px-3 py-2.5 text-sm font-medium text-ink/70 transition hover:bg-brand-50/60"
               >
                 Search
               </button>
-
-              <div className="my-2 h-px bg-brand-900/10" />
-
-              <Link
-                href="/about"
-                onClick={closeMobile}
-                className="rounded-lg px-3 py-2 text-sm font-semibold text-brand-800 hover:bg-brand-50"
-              >
-                About
-              </Link>
-              <Link
-                href="/methodology"
-                onClick={closeMobile}
-                className="rounded-lg px-3 py-2 text-sm text-ink/80 hover:bg-brand-50/60"
-              >
-                Methodology
-              </Link>
             </nav>
 
             <div className="mt-8 px-3">
