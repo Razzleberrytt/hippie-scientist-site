@@ -104,3 +104,8 @@ validation-report.md
 *_REPORT.md
 *_audit*.json
 *_audit*.md
+
+# Local Claude environment and database state
+.claude/
+ops/state.db
+
