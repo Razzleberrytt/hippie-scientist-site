@@ -15,6 +15,7 @@ export default [
       'next-env.d.ts',
       'scripts/data/build-runtime-from-workbook.mjs',
       'scratch/**',
+      '.claude/**',
     ],
   },
   js.configs.recommended,
