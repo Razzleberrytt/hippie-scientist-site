@@ -43,6 +43,7 @@ export default function Footer() {
 
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
+  const showBuildMeta = process.env.NEXT_PUBLIC_SHOW_BUILD_META === 'true'
   const buildDate = formatBuildDate(__BUILD_DATE__)
   const copyrightYear = buildDate ? new Date(buildDate).getUTCFullYear() : new Date().getFullYear()
   const versionStampParts = [`v${__APP_VERSION__}`, __COMMIT_HASH__]
@@ -123,7 +124,7 @@ export default function Footer() {
         </div>
 
         <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/8 pt-4 text-xs text-white/65 sm:flex-row'>
-          <div>Build {versionStampParts.join(' · ')}</div>
+          {showBuildMeta && <div>Build {versionStampParts.join(' · ')}</div>}
           <div>© 2024–{copyrightYear} The Hippie Scientist – Educational use only. Not medical advice.</div>
         </div>
       </div>

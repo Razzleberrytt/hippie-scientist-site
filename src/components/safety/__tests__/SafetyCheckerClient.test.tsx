@@ -129,6 +129,13 @@ describe('SafetyCheckerClient', () => {
     expect(screen.getByText(/Risk Level: high/i)).toBeInTheDocument()
   })
 
+  // TODO: Add an acknowledgement gate to SafetyCheckerClient so users must confirm
+  //       the medical disclaimer before they can interact with the tool.
+  //       Expected behaviors once implemented:
+  it.todo('action buttons/search should be disabled until user acknowledges the medical disclaimer')
+  it.todo('disclaimer acknowledgement panel remains visible until user explicitly accepts')
+  it.todo('after acknowledgement, the search input and medication buttons become interactive')
+
   it('scans and alerts for Drug-Supplement MAOI + serotonergic danger overlap', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
     

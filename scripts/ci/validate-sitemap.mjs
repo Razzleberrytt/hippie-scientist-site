@@ -2,6 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = process.cwd()
+const REQUIRE_BUILT = process.argv.includes('--require-built')
+const BAD_HOST = 'www.thehippiescientist.net'
 
 function parseXmlUrls(xmlContent) {
   const urls = []
@@ -18,6 +20,10 @@ function main() {
   const sitemapPath = path.join(outDir, 'sitemap.xml')
 
   if (!fs.existsSync(outDir)) {
+    if (REQUIRE_BUILT) {
+      console.error('[validate-sitemap] FAIL: out/ directory does not exist. Run `npm run build` first.')
+      process.exit(1)
+    }
     console.log('[validate-sitemap] SKIP: out/ directory does not exist yet (pre-build stage).')
     return
   }
@@ -64,10 +70,29 @@ function main() {
   const foundCore = new Set()
 
   for (const url of urls) {
-    // 1. Confirm trailing slash (exclude default root and domain-only URLs if needed, but since it is e.g. https://thehippiescientist.net/about/ it should end with /)
-    const urlObj = new URL(url)
+    // 1. Reject deprecated www host
+    if (url.includes(BAD_HOST)) {
+      errors.push(`URL references deprecated www host: "${url}"`)
+      failed = true
+    }
+
+    // 2. Reject non-apex canonical URLs (any www. prefix in host)
+    let urlObj
+    try {
+      urlObj = new URL(url)
+    } catch {
+      errors.push(`Malformed URL in sitemap: "${url}"`)
+      failed = true
+      continue
+    }
     const pathname = urlObj.pathname
 
+    if (urlObj.hostname.startsWith('www.')) {
+      errors.push(`Non-apex canonical URL (www. prefix not allowed): "${url}"`)
+      failed = true
+    }
+
+    // 3. Confirm trailing slash
     if (pathname !== '/') {
       if (!pathname.endsWith('/')) {
         errors.push(`URL does not end with trailing slash: "${url}"`)
@@ -75,7 +100,7 @@ function main() {
       }
     }
 
-    // 2. Count routes
+    // 4. Count routes
     if (pathname.startsWith('/herbs/')) {
       herbCount++
     } else if (pathname.startsWith('/compounds/')) {
@@ -86,7 +111,7 @@ function main() {
       guideCount++
     }
 
-    // Check core routes
+    // 5. Check core routes
     for (const core of expectedCorePrefixes) {
       if (pathname === core || pathname === `${core}/`) {
         foundCore.add(core)

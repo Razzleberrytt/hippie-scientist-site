@@ -28,10 +28,18 @@ This project follows semantic versioning for the site. Security fixes are applie
 ## Third-Party Dependencies
 
 - We regularly run `npm audit` and address high/critical issues.
+- **Production audit is clean** (`npm audit --omit=dev` reports 0 vulnerabilities).
 - SheetJS/xlsx (exceljs in dev) is used **only** in build-time data pipeline scripts (`scripts/data/build-runtime-from-workbook.mjs` and related) for parsing the source-of-truth `data-sources/herb_monograph_master.xlsx`.
   - **Rationale for allowlist**: xlsx CVE reports (historical prototype pollution, etc.) are relevant for untrusted input. Our input is a controlled internal workbook (never user-supplied). The package is dev-only, not shipped to production bundles or runtime.
   - See `docs/security/xlsx-audit.md` and `docs/security/workbook-parsing-threat-model.md` for details.
   - If a critical CVE affects our exact usage, we will pin, patch, or migrate (e.g., to a safer parser) before next data build.
+- **Known dev-only advisory: `exceljs` → `uuid` (GHSA-w5hq-g745-h8pq, moderate)**
+  - Affected package: `uuid < 11.1.1` — missing buffer bounds check in `v3/v5/v6` when a `buf` argument is provided.
+  - `exceljs@4.4.0` (devDependency) pulls in a vulnerable `uuid` version transitively.
+  - **Impact**: none in production. The `uuid` vulnerability only triggers when user-supplied `buf` arguments are passed to `v3/v5/v6()`. Our workbook pipeline never calls `uuid` directly and never accepts untrusted public input.
+  - **Workbook ingestion safety**: only the controlled internal workbook (`data-sources/herb_monograph_master.xlsx`) is ever parsed. No arbitrary public uploads.
+  - **Remediation**: will resolve when `exceljs` upgrades to `uuid >= 11.1.1`. Track: https://github.com/advisories/GHSA-w5hq-g745-h8pq. Force-upgrading `uuid` via npm overrides is not recommended as it can break exceljs internal behavior.
+  - **Verification**: run `npm audit --omit=dev` — zero production vulnerabilities.
 - Validate boundaries with `npm run validate:xlsx-boundary` and `npm run validate:direct-dependencies`.
 
 ## Security Headers
