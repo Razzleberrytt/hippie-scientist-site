@@ -88,7 +88,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Navigation />
           </header>
           <Breadcrumbs />
-          {/* This is the ONLY <main> landmark on the page (per WCAG/landmark rules). 
+          {/* This is the ONLY <main> landmark on the page (per WCAG/landmark rules).
               Page components must use <div>, <section>, <article>, etc. — NEVER another <main>. */}
           <main
             id='main-content'

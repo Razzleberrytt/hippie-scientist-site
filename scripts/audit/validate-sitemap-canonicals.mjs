@@ -94,7 +94,7 @@ async function runSitemapAudit() {
   let otherDomainsCount = 0;
 
   urls.forEach(u => {
-    if (u.startsWith('https://thehippiescientist.net')) {
+    if (u.startsWith('https://www.thehippiescientist.net')) {
       wwwCount++;
     } else if (u.startsWith('https://thehippiescientist.net')) {
       nonWwwCount++;
