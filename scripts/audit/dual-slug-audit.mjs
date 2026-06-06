@@ -34,6 +34,7 @@ function ensureDirExists(dirPath) {
 async function run() {
   const workbookPath = 'data-sources/herb_monograph_master.xlsx';
   const sitemapPath = 'out/sitemap.xml';
+  const herbsJsonPath = 'public/data/herbs.json';
 
   if (!fs.existsSync(workbookPath)) {
     console.error(`Error: Workbook not found at ${workbookPath}`);
@@ -43,6 +44,42 @@ async function run() {
   // Load workbook data
   console.log(`Loading sheet 'Herb Master V3' from ${workbookPath}...`);
   const rows = await getSheetData(workbookPath, 'Herb Master V3');
+
+  // Load public herbs JSON to calculate completeness of existing profiles
+  let herbsJson = [];
+  if (fs.existsSync(herbsJsonPath)) {
+    herbsJson = JSON.parse(fs.readFileSync(herbsJsonPath, 'utf8'));
+  }
+  const herbsJsonMap = new Map(herbsJson.map(h => [h.slug, h]));
+
+  const checkSafety = (val) => {
+    if (!val) return false;
+    const s = String(val).toLowerCase();
+    return !['needs review', 'safety review pending', 'placeholder', 'pending'].some(p => s.includes(p));
+  };
+  const checkDescription = (val) => {
+    if (!val) return false;
+    const s = String(val).toLowerCase();
+    return s.length >= 15 && !['evidence-aware', 'needs review', 'placeholder'].some(p => s.includes(p));
+  };
+  const checkBestFor = (val) => {
+    if (!val) return false;
+    const s = String(val).toLowerCase();
+    return !['research pending', 'research_only', 'placeholder'].some(p => s.includes(p));
+  };
+  const getCompleteness = (slug) => {
+    const h = herbsJsonMap.get(slug);
+    if (!h) return -1; // doesn't exist
+    let filled = 0;
+    if (checkDescription(h.description || h.summary)) filled++;
+    if (checkSafety(h.safety)) filled++;
+    if (h.evidence_tier || h.evidence_grade) filled++;
+    if (h.canonical_mechanisms && h.canonical_mechanisms.length > 0) filled++;
+    if (checkBestFor(h.effects || h.primary_effects)) filled++;
+    if (h.dosage || h.typical_dosage) filled++;
+    if (h.interactions && h.interactions.length > 0) filled++;
+    return filled / 7;
+  };
 
   // Load sitemap URLs
   let sitemapUrls = [];
@@ -88,7 +125,6 @@ async function run() {
     // Heuristics for latin name detection from slug if not set
     if (!latinName && rawSlug.includes('-')) {
       const parts = rawSlug.split('-');
-      // If second part is typical botanical term, or not common English
       const botanicalWords = ['sativum', 'erinaceus', 'lucidum', 'chamomilla', 'officinale', 'somnifera', 'monnieri', 'rosea', 'sinensis', 'vulgaris', 'odorata'];
       if (botanicalWords.includes(parts[parts.length - 1])) {
         latinName = parts.join(' ');
@@ -124,19 +160,15 @@ async function run() {
       const herb2 = herbs[j];
       let isMatch = false;
 
-      // Match condition 1: Normalized common names are identical
       if (herb1.normalizedName && herb1.normalizedName === herb2.normalizedName) {
         isMatch = true;
       }
-      // Match condition 2: Latin slug of herb1 matches slug of herb2
       else if (herb1.latinSlug && herb1.latinSlug === herb2.slug) {
         isMatch = true;
       }
-      // Match condition 3: Latin slug of herb2 matches slug of herb1
       else if (herb2.latinSlug && herb2.latinSlug === herb1.slug) {
         isMatch = true;
       }
-      // Match condition 4: Common slug of one matches slug of another
       else if (herb1.commonSlug && herb1.commonSlug === herb2.slug) {
         isMatch = true;
       }
@@ -153,66 +185,55 @@ async function run() {
     groups.push(group);
   }
 
-  // Step 3: Process groups to determine common name, scientific name, and new composite slug
-  const processedGroups = groups.map(group => {
-    // Find best common name
-    let bestCommon = '';
-    let bestLatin = '';
-
-    group.forEach(h => {
-      if (!bestCommon || (h.commonName && h.commonName.length < bestCommon.length)) {
-        bestCommon = h.commonName;
-      }
-      if (h.latinName) {
-        bestLatin = h.latinName;
-      }
-    });
-
-    // Fallback if no latin name found
-    if (!bestLatin) {
-      // check if any slug contains known Latin patterns
-      group.forEach(h => {
-        if (h.slug.includes('-') && h.slug !== bestCommon.toLowerCase()) {
-          bestLatin = h.slug.replace(/-/g, ' ');
-        }
-      });
-    }
-
-    const commonSlug = slugify(bestCommon);
-    const latinSlug = bestLatin ? slugify(bestLatin) : '';
-
-    let compositeSlug = commonSlug;
-    if (latinSlug && commonSlug !== latinSlug) {
-      // Check if commonSlug already ends with latinSlug or has it
-      if (!commonSlug.includes(latinSlug)) {
-        compositeSlug = `${commonSlug}-${latinSlug}`;
-      }
-    }
-
-    return {
-      items: group,
-      commonSlug,
-      latinSlug,
-      compositeSlug
-    };
-  });
-
-  // Step 4: Map sitemap slugs to composite slugs & generate redirect map
+  // Step 3: Process groups to determine canonical and redirect mapping
   const redirectMap = {};
   const mappedResults = [];
   const sitemapOrphans = [];
 
-  // Sort groups by compositeSlug to be deterministic
-  processedGroups.sort((a, b) => a.compositeSlug.localeCompare(b.compositeSlug));
+  // Sort groups deterministically by their first item's slug
+  groups.sort((a, b) => a[0].slug.localeCompare(b[0].slug));
 
-  // We want to generate redirects from any legacy slug in the group to the composite slug,
-  // ONLY if they are different from the composite slug!
-  processedGroups.forEach(group => {
-    const targetPath = `/herbs/${group.compositeSlug}`;
+  groups.forEach(group => {
+    const DEPRECATED_HERB_CANONICALS = {
+      'allium-sativum': 'garlic',
+      'valeriana-officinalis': 'valerian',
+      'hericium-erinaceus': 'lions-mane',
+      'passiflora-incarnata': 'passionflower',
+      'piper-methysticum': 'kava',
+      'ganoderma-lucidum': 'reishi',
+      'hypericum-perforatum': 'st-johns-wort',
+      'silybum-marianum': 'milk-thistle',
+    };
+
+    let forceSlug = '';
+    group.forEach(item => {
+      if (DEPRECATED_HERB_CANONICALS[item.slug]) {
+        forceSlug = DEPRECATED_HERB_CANONICALS[item.slug];
+      }
+    });
+
+    let bestSlug = '';
+    if (forceSlug) {
+      bestSlug = forceSlug;
+    } else {
+      let bestScore = -2;
+      group.forEach(item => {
+        const score = getCompleteness(item.slug);
+        if (score > bestScore) {
+          bestScore = score;
+          bestSlug = item.slug;
+        }
+      });
+      if (!bestSlug) {
+        bestSlug = group[0].slug;
+      }
+    }
+
+    const targetPath = `/herbs/${bestSlug}`;
     
     // Legacy slugs inside this group
     const legacySlugs = new Set();
-    group.items.forEach(item => {
+    group.forEach(item => {
       legacySlugs.add(item.slug);
       if (item.commonSlug) legacySlugs.add(item.commonSlug);
       if (item.latinSlug) legacySlugs.add(item.latinSlug);
@@ -220,7 +241,7 @@ async function run() {
 
     const matchedSitemapSlugs = [];
     legacySlugs.forEach(slug => {
-      if (slug !== group.compositeSlug) {
+      if (slug !== bestSlug) {
         redirectMap[`/herbs/${slug}`] = targetPath;
       }
       if (sitemapSlugs.has(slug)) {
@@ -229,19 +250,19 @@ async function run() {
     });
 
     mappedResults.push({
-      compositeSlug: group.compositeSlug,
+      canonicalSlug: bestSlug,
       legacySlugs: Array.from(legacySlugs),
       sitemapMatches: matchedSitemapSlugs,
-      workbookRows: group.items.map(h => `Row ${h.originalRowIndex} (${h.slug})`).join(', ')
+      workbookRows: group.map(h => `Row ${h.originalRowIndex} (${h.slug})`).join(', ')
     });
   });
 
   // Identify sitemap slugs that were NOT mapped to any group
   sitemapSlugs.forEach(slug => {
     let found = false;
-    processedGroups.forEach(group => {
-      const legacySlugs = new Set(group.items.flatMap(item => [item.slug, item.commonSlug, item.latinSlug]));
-      if (legacySlugs.has(slug) || group.compositeSlug === slug) {
+    groups.forEach(group => {
+      const legacySlugs = new Set(group.flatMap(item => [item.slug, item.commonSlug, item.latinSlug]));
+      if (legacySlugs.has(slug)) {
         found = true;
       }
     });
@@ -265,19 +286,19 @@ Generated on: ${new Date().toISOString()}
 ## Summary Statistics
 
 - **Total Workbook Profiles Processed**: ${herbs.length}
-- **De-duplicated Herb Groups**: ${processedGroups.length}
+- **De-duplicated Herb Groups**: ${groups.length}
 - **Sitemap Herb Slugs Evaluated**: ${sitemapSlugs.size}
 - **Mapped High-Confidence Redirect Rules**: ${Object.keys(redirectMap).length}
 - **Orphaned Sitemap Slugs (Unmatched)**: ${sitemapOrphans.length}
 
-## Mapped Duplicate Groups & Composite Slugs
+## Mapped Duplicate Groups & Canonical Targets
 
-| Target Composite Slug | Legacy Slugs | Sitemap Matches | Source Rows |
+| Target Canonical Slug | Legacy Slugs | Sitemap Matches | Source Rows |
 | --- | --- | --- | --- |
 `;
 
   mappedResults.forEach(r => {
-    md += `| **\`${r.compositeSlug}\`** | ${r.legacySlugs.map(s => `\`${s}\``).join(', ')} | ${r.sitemapMatches.map(s => `\`${s}\``).join(', ') || '*None*'} | ${r.workbookRows} |\n`;
+    md += `| **\`${r.canonicalSlug}\`** | ${r.legacySlugs.map(s => `\`${s}\``).join(', ')} | ${r.sitemapMatches.map(s => `\`${s}\``).join(', ') || '*None*'} | ${r.workbookRows} |\n`;
   });
 
   md += `\n## Orphaned Sitemap Slugs\n\n`;

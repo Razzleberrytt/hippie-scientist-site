@@ -1881,7 +1881,7 @@
   {
     "slug": "bupleurum-falcatum",
     "name": "Bupleurum Falcatum",
-    "summary": "Lean bulk ingestion row for Bupleurum falcatum.",
+    "summary": "Bupleurum falcatum is an herb historically used in traditional East Asian medicine, containing active compounds like Saikosaponin A.",
     "primary_effects": [
       "liver-protective",
       "anti-inflammatory"
@@ -1901,7 +1901,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 83,
+      "score": 93,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -1912,7 +1912,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -2904,7 +2904,7 @@
   {
     "slug": "citrus-sinensis",
     "name": "Citrus Sinensis",
-    "summary": "Lean bulk ingestion row for Citrus sinensis.",
+    "summary": "Citrus sinensis (Sweet Orange) is a fruit botanical notable for its rich content of flavonoids like hesperidin.",
     "primary_effects": [
       "antioxidant",
       "digestive"
@@ -2924,7 +2924,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 83,
+      "score": 93,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -2935,7 +2935,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -3495,7 +3495,7 @@
   {
     "slug": "crocus-sativus",
     "name": "Crocus Sativus",
-    "summary": "Lean bulk ingestion row for Crocus sativus.",
+    "summary": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support.",
     "primary_effects": [
       "research-pending"
     ],
@@ -3525,7 +3525,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -5001,7 +5001,7 @@
   {
     "slug": "glycyrrhiza-glabra",
     "name": "Glycyrrhiza Glabra",
-    "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
+    "summary": "Glycyrrhiza glabra (Licorice) is a traditional root botanical studied for gastrointestinal soothing and cortisol support.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -5019,7 +5019,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 78,
+      "score": 88,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -5030,7 +5030,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -6336,7 +6336,7 @@
   {
     "slug": "lavandula-angustifolia",
     "name": "Lavender",
-    "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
+    "summary": "Lavandula angustifolia (Lavender) is an aromatic herb widely used for its calming and sleep-promoting properties.",
     "primary_effects": [
       "sleep"
     ],
@@ -6355,7 +6355,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 90,
+      "score": 100,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -6366,7 +6366,7 @@
         "mechanism-context",
         "profile-status:top50_authority_patched",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -7677,7 +7677,7 @@
   {
     "slug": "nigella-sativa",
     "name": "Nigella Sativa",
-    "summary": "Lean bulk ingestion row for Nigella sativa.",
+    "summary": "Nigella sativa (Black Seed) is a traditional seed extract containing thymoquinone, studied for antioxidant and immune support.",
     "primary_effects": [
       "metabolic"
     ],
@@ -7695,7 +7695,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 78,
+      "score": 88,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -7706,7 +7706,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -7911,7 +7911,7 @@
   {
     "slug": "olea-europaea",
     "name": "Olive Leaf",
-    "summary": "Lean bulk ingestion row for Olea europaea.",
+    "summary": "Olea europaea (Olive Leaf) contains oleuropein and hydroxytyrosol, with notable cardiovascular and immune support.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -7933,7 +7933,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 95,
+      "score": 100,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -7944,7 +7944,7 @@
         "mechanism-context",
         "profile-status:top50_authority_patched",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -9331,7 +9331,7 @@
   {
     "slug": "rheum-palmatum",
     "name": "Rheum Palmatum",
-    "summary": "Lean bulk ingestion row for Rheum palmatum.",
+    "summary": "Rheum palmatum (Turkish Rhubarb) is a root botanical containing emodin and rhein, used traditionally for digestive health.",
     "primary_effects": [
       "research-pending"
     ],
@@ -9361,7 +9361,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -9878,7 +9878,7 @@
   {
     "slug": "schisandra-chinensis",
     "name": "Schisandra Chinensis",
-    "summary": "Lean bulk ingestion row for Schisandra chinensis.",
+    "summary": "Schisandra chinensis is an adaptogenic berry botanical rich in schisandrins, used to support stress resilience and cognitive focus.",
     "primary_effects": [
       "research-pending"
     ],
@@ -9908,7 +9908,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -9917,7 +9917,7 @@
   {
     "slug": "scutellaria-baicalensis",
     "name": "Scutellaria Baicalensis",
-    "summary": "Lean bulk ingestion row for Scutellaria baicalensis.",
+    "summary": "Scutellaria baicalensis (Baical Skullcap) is a root botanical containing baicalin and baicalein, studied for sleep and relaxation.",
     "primary_effects": [
       "research-pending"
     ],
@@ -9947,7 +9947,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -10112,7 +10112,7 @@
   {
     "slug": "scutellaria-lateriflora",
     "name": "Skullcap",
-    "summary": "American Skullcap (Scutellaria lateriflora) is a North American herb whose flavones (baicalin, scutellarein) act on GABA-A receptors and inhibit monoamine oxidase B at higher concentrations. Small double-blind trials show reduced anxiety without sedation at doses of 100-350 mg. It is distinct from Chinese skullcap (S. baicalensis), though adulteration between species is a sourcing concern.",
+    "summary": "Scutellaria lateriflora (American Skullcap) is an herb traditionally used for nervous tension, anxiety, and sleep support.",
     "primary_effects": [
       "sleep"
     ],
@@ -10543,7 +10543,7 @@
   {
     "slug": "syzygium-aromaticum",
     "name": "Syzygium Aromaticum",
-    "summary": "Lean bulk ingestion row for Syzygium aromaticum.",
+    "summary": "Syzygium aromaticum (Clove) is an aromatic spice botanical rich in eugenol, studied for antioxidant and dental health support.",
     "primary_effects": [
       "research-pending"
     ],
@@ -10573,7 +10573,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -10855,7 +10855,7 @@
   {
     "slug": "tripterygium-wilfordii",
     "name": "Tripterygium Wilfordii",
-    "summary": "Lean bulk ingestion row for Tripterygium wilfordii.",
+    "summary": "Tripterygium wilfordii (Thunder God Vine) contains celastrol, studied for auto-immune and inflammatory regulation.",
     "primary_effects": [
       "anti-inflammatory",
       "tonic"
@@ -10875,7 +10875,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 83,
+      "score": 93,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -10886,7 +10886,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },

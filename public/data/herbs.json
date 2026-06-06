@@ -1345,7 +1345,7 @@
     "slug": "angelica-sinensis",
     "name": "Angelica Sinensis",
     "summary": "angelica sinensis is tracked for inflammation,cardiovascular,hormone with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Angelica Sinensis is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "hormonal",
@@ -3416,7 +3416,7 @@
     "slug": "bayberry",
     "name": "Bayberry",
     "summary": "bayberry is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Bayberry is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -4234,7 +4234,7 @@
     "slug": "black-tea",
     "name": "Black Tea",
     "summary": "black tea is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Black Tea is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -4363,7 +4363,7 @@
     "slug": "blue-lotus",
     "name": "Blue Lotus",
     "summary": "blue lotus is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Blue Lotus is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep",
       "stress"
@@ -4472,7 +4472,7 @@
     "slug": "blueberry",
     "name": "Blueberry",
     "summary": "blueberry is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Blueberry is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -5122,7 +5122,7 @@
     "slug": "buckwheat",
     "name": "Buckwheat",
     "summary": "buckwheat is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Buckwheat is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "cardiovascular",
@@ -5366,8 +5366,8 @@
   {
     "slug": "bupleurum-falcatum",
     "name": "Bupleurum Falcatum",
-    "summary": "Lean bulk ingestion row for Bupleurum falcatum.",
-    "description": "Lean bulk ingestion row for Bupleurum falcatum. Key active compounds include Saikosaponin A.",
+    "summary": "Bupleurum falcatum is an herb historically used in traditional East Asian medicine, containing active compounds like Saikosaponin A.",
+    "description": "Bupleurum falcatum (Chinese thoroughwax) is a traditional medicinal herb containing saikosaponins. It is historically studied for its potential anti-inflammatory, neuroprotective, and HPA-axis modulating effects.",
     "effects": [
       "liver-protective",
       "anti-inflammatory"
@@ -5450,7 +5450,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 83,
+      "score": 93,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -5461,7 +5461,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -8231,8 +8231,8 @@
   {
     "slug": "citrus-sinensis",
     "name": "Citrus Sinensis",
-    "summary": "Lean bulk ingestion row for Citrus sinensis.",
-    "description": "Lean bulk ingestion row for Citrus sinensis. Key active compounds include Hesperidin.",
+    "summary": "Citrus sinensis (Sweet Orange) is a fruit botanical notable for its rich content of flavonoids like hesperidin.",
+    "description": "Citrus sinensis (Sweet Orange) peel and fruit extracts are rich sources of bioactive flavonoids, particularly hesperidin. It is studied for cardiovascular support, antioxidant defense, and inflammatory response regulation.",
     "effects": [
       "antioxidant",
       "digestive"
@@ -8324,7 +8324,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 83,
+      "score": 93,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -8335,7 +8335,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -8666,7 +8666,7 @@
     "slug": "coffea-arabica",
     "name": "Coffee",
     "summary": "Coffee is tracked for cognition,energy,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Coffee is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "energy",
       "stimulant",
@@ -9930,8 +9930,8 @@
   {
     "slug": "crocus-sativus",
     "name": "Crocus Sativus",
-    "summary": "Lean bulk ingestion row for Crocus sativus.",
-    "description": "Lean bulk ingestion row for Crocus sativus. Key active compounds include Crocin; Crocetin.",
+    "summary": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support.",
+    "description": "Crocus sativus (Saffron) is a spice botanical with rich clinical literature supporting its use for mood improvement, anxiety regulation, and neuroprotection. Bioactive components include crocin and safranal.",
     "effects": [
       "stress"
     ],
@@ -10032,7 +10032,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -10705,7 +10705,7 @@
     "slug": "damiana",
     "name": "Damiana",
     "summary": "damiana is tracked for stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Damiana is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "stress"
     ],
@@ -11241,7 +11241,7 @@
     "slug": "dong-quai",
     "name": "Dong Quai",
     "summary": "dong quai is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Dong Quai is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "hormonal",
@@ -12249,7 +12249,7 @@
     "slug": "eucalyptus",
     "name": "Eucalyptus",
     "summary": "eucalyptus is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Eucalyptus is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -12777,7 +12777,7 @@
     "slug": "feverfew",
     "name": "Feverfew",
     "summary": "feverfew is tracked for inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Feverfew is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "analgesic"
@@ -14147,8 +14147,8 @@
   {
     "slug": "glycyrrhiza-glabra",
     "name": "Glycyrrhiza Glabra",
-    "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
-    "description": "Lean bulk ingestion row for Glycyrrhiza glabra. Key active compounds include Glycyrrhizin.",
+    "summary": "Glycyrrhiza glabra (Licorice) is a traditional root botanical studied for gastrointestinal soothing and cortisol support.",
+    "description": "Glycyrrhiza glabra (Licorice) root contains glycyrrhizin, which can prolong the half-life of cortisol by inhibiting 11beta-HSD. It is utilized for gastrointestinal lining support and adrenal regulation.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -14231,7 +14231,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 78,
+      "score": 88,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -14242,7 +14242,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -14501,7 +14501,7 @@
     "slug": "vitis-vinifera",
     "name": "Grape",
     "summary": "Grape is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Grape is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "stress"
     ],
@@ -14622,7 +14622,7 @@
     "slug": "grapefruit",
     "name": "Grapefruit",
     "summary": "grapefruit is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Grapefruit is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "digestive"
     ],
@@ -14953,7 +14953,7 @@
     "slug": "guarana",
     "name": "Guarana",
     "summary": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Guarana is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -17724,7 +17724,7 @@
     "slug": "kudzu",
     "name": "Kudzu",
     "summary": "kudzu is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Kudzu is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -17959,8 +17959,8 @@
   {
     "slug": "lavandula-angustifolia",
     "name": "Lavender",
-    "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
-    "description": "Lean bulk ingestion row for Lavandula angustifolia. Key active compounds include Linalool.",
+    "summary": "Lavandula angustifolia (Lavender) is an aromatic herb widely used for its calming and sleep-promoting properties.",
+    "description": "Lavandula angustifolia (Lavender) is a popular botanical containing linalool and linalyl acetate. It has human evidence supporting its use for anxiety reduction, nervous system relaxation, and sleep quality enhancement.",
     "effects": [
       "sleep",
       "stress"
@@ -18036,7 +18036,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 90,
+      "score": 100,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -18047,7 +18047,7 @@
         "mechanism-context",
         "profile-status:top50_authority_patched",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -21760,8 +21760,8 @@
   {
     "slug": "nigella-sativa",
     "name": "Nigella Sativa",
-    "summary": "Lean bulk ingestion row for Nigella sativa.",
-    "description": "Lean bulk ingestion row for Nigella sativa. Key active compounds include Thymoquinone.",
+    "summary": "Nigella sativa (Black Seed) is a traditional seed extract containing thymoquinone, studied for antioxidant and immune support.",
+    "description": "Nigella sativa (Black Seed) is a traditional medicinal seed rich in thymoquinone. Research indicates support for immune signaling, respiratory health, metabolic homeostasis, and antioxidant pathways.",
     "effects": [
       "metabolic"
     ],
@@ -21863,7 +21863,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 78,
+      "score": 88,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -21874,7 +21874,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -22456,8 +22456,8 @@
   {
     "slug": "olea-europaea",
     "name": "Olive Leaf",
-    "summary": "Lean bulk ingestion row for Olea europaea.",
-    "description": "Lean bulk ingestion row for Olea europaea. Key active compounds include Oleuropein; Hydroxytyrosol.",
+    "summary": "Olea europaea (Olive Leaf) contains oleuropein and hydroxytyrosol, with notable cardiovascular and immune support.",
+    "description": "Olea europaea (Olive Leaf) extracts are rich in oleuropein and hydroxytyrosol. Clinical studies demonstrate benefits for blood pressure regulation, antioxidant defense, and immune function.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -22558,7 +22558,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 95,
+      "score": 100,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -22569,7 +22569,7 @@
         "mechanism-context",
         "profile-status:top50_authority_patched",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -22803,7 +22803,7 @@
     "slug": "oregano",
     "name": "Oregano",
     "summary": "oregano is tracked for sleep with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Oregano is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep"
     ],
@@ -23266,7 +23266,7 @@
     "slug": "parsley",
     "name": "Parsley",
     "summary": "parsley is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Parsley is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep"
     ],
@@ -25758,7 +25758,7 @@
     "slug": "raspberry-leaf",
     "name": "Raspberry Leaf",
     "summary": "raspberry leaf is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Raspberry Leaf is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -26560,8 +26560,8 @@
   {
     "slug": "rheum-palmatum",
     "name": "Rheum Palmatum",
-    "summary": "Lean bulk ingestion row for Rheum palmatum.",
-    "description": "Lean bulk ingestion row for Rheum palmatum. Key active compounds include Emodin; Rhein.",
+    "summary": "Rheum palmatum (Turkish Rhubarb) is a root botanical containing emodin and rhein, used traditionally for digestive health.",
+    "description": "Rheum palmatum (Turkish Rhubarb) root contains anthraquinones like emodin and rhein. It is studied for bowel motility regulation, gastrointestinal support, and inflammatory pathway modulation.",
     "effects": [
       "research-pending"
     ],
@@ -26648,7 +26648,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -26775,7 +26775,7 @@
     "slug": "rice-bran",
     "name": "Rice Bran",
     "summary": "rice bran is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Rice Bran is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -27242,7 +27242,7 @@
     "slug": "rosemary",
     "name": "Rosemary",
     "summary": "rosemary is tracked for cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+    "description": "Rosemary (Rosmarinus officinalis) is a traditional herb containing carnosic acid and rosmarinic acid. It is studied for antioxidant defense, acetylcholine preservation, and memory enhancement.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -27486,7 +27486,7 @@
     "slug": "sage",
     "name": "Sage",
     "summary": "sage is tracked for stress,cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied. Lean bulk enrichment added: Carnosic acid.",
+    "description": "Sage (Salvia officinalis) contains rosmarinic acid and terpenes. Clinical studies suggest support for cognitive processing speed, memory recall, and mood regulation via acetylcholinesterase inhibition.",
     "effects": [
       "stress"
     ],
@@ -28165,8 +28165,8 @@
   {
     "slug": "schisandra-chinensis",
     "name": "Schisandra Chinensis",
-    "summary": "Lean bulk ingestion row for Schisandra chinensis.",
-    "description": "Lean bulk ingestion row for Schisandra chinensis. Key active compounds include Schisandrin.",
+    "summary": "Schisandra chinensis is an adaptogenic berry botanical rich in schisandrins, used to support stress resilience and cognitive focus.",
+    "description": "Schisandra chinensis is an adaptogenic berry widely used in traditional medicine. Its active schisandrins are studied for physical endurance support, cognitive focus, hepatic protection, and HPA-axis regulation.",
     "effects": [
       "stress"
     ],
@@ -28263,7 +28263,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -28278,8 +28278,8 @@
   {
     "slug": "scutellaria-baicalensis",
     "name": "Scutellaria Baicalensis",
-    "summary": "Lean bulk ingestion row for Scutellaria baicalensis.",
-    "description": "Lean bulk ingestion row for Scutellaria baicalensis. Key active compounds include Baicalin; Baicalein; Wogonin.",
+    "summary": "Scutellaria baicalensis (Baical Skullcap) is a root botanical containing baicalin and baicalein, studied for sleep and relaxation.",
+    "description": "Scutellaria baicalensis (Baical Skullcap) root contains flavonoids like baicalin, baicalein, and wogonin. It exerts notable GABA-A positive allosteric modulation, supporting sleep and anxiety reduction.",
     "effects": [
       "stress"
     ],
@@ -28395,7 +28395,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -28858,8 +28858,8 @@
   {
     "slug": "scutellaria-lateriflora",
     "name": "Skullcap",
-    "summary": "American Skullcap (Scutellaria lateriflora) is a North American herb whose flavones (baicalin, scutellarein) act on GABA-A receptors and inhibit monoamine oxidase B at higher concentrations. Small double-blind trials show reduced anxiety without sedation at doses of 100-350 mg. It is distinct from Chinese skullcap (S. baicalensis), though adulteration between species is a sourcing concern.",
-    "description": "GABAergic.",
+    "summary": "Scutellaria lateriflora (American Skullcap) is an herb traditionally used for nervous tension, anxiety, and sleep support.",
+    "description": "Scutellaria lateriflora (American Skullcap) is an herb traditionally used to alleviate nervous tension, anxiety, and insomnia. It acts primarily via GABAergic pathways to promote relaxation.",
     "effects": [
       "sleep",
       "stress"
@@ -29288,7 +29288,7 @@
     "slug": "soybean",
     "name": "Soybean",
     "summary": "soybean is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Soybean is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -30052,8 +30052,8 @@
   {
     "slug": "syzygium-aromaticum",
     "name": "Syzygium Aromaticum",
-    "summary": "Lean bulk ingestion row for Syzygium aromaticum.",
-    "description": "Lean bulk ingestion row for Syzygium aromaticum. Key active compounds include Eugenol.",
+    "summary": "Syzygium aromaticum (Clove) is an aromatic spice botanical rich in eugenol, studied for antioxidant and dental health support.",
+    "description": "Syzygium aromaticum (Clove) bud extracts are rich in eugenol and acetyl eugenol. It exhibits strong local anesthetic, antimicrobial, and antioxidant activities, and is studied for digestive and dental health support.",
     "effects": [
       "stress"
     ],
@@ -30152,7 +30152,7 @@
         "profile-status:partial",
         "research-pending-effect",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -30612,7 +30612,7 @@
     "slug": "thyme",
     "name": "Thyme",
     "summary": "thyme is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Thyme is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep"
     ],
@@ -30936,8 +30936,8 @@
   {
     "slug": "tripterygium-wilfordii",
     "name": "Tripterygium Wilfordii",
-    "summary": "Lean bulk ingestion row for Tripterygium wilfordii.",
-    "description": "Lean bulk ingestion row for Tripterygium wilfordii. Key active compounds include Celastrol.",
+    "summary": "Tripterygium wilfordii (Thunder God Vine) contains celastrol, studied for auto-immune and inflammatory regulation.",
+    "description": "Tripterygium wilfordii (Thunder God Vine) contains celastrol. It is a potent anti-inflammatory agent studied under strict medical contexts for autoimmune regulation, though it carries a narrow therapeutic index.",
     "effects": [
       "anti-inflammatory",
       "tonic"
@@ -31032,7 +31032,7 @@
     "indexability_status": "eligible",
     "indexability_score": {
       "status": "PUBLISH",
-      "score": 83,
+      "score": 93,
       "robots": "index,follow",
       "sitemap_included": true,
       "reasons": [
@@ -31043,7 +31043,7 @@
         "mechanism-context",
         "profile-status:partial",
         "safety-context",
-        "summary-present",
+        "summary-depth",
         "summary-quality-missing"
       ]
     },
@@ -31957,7 +31957,7 @@
     "slug": "yarrow",
     "name": "Yarrow",
     "summary": "yarrow is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Yarrow is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "digestive"
@@ -32062,7 +32062,7 @@
     "slug": "yerba-mate",
     "name": "Yerba Mate",
     "summary": "yerba mate is tracked for fat_loss,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
-    "description": "Conservative evidence framing applied.",
+    "description": "Yerba Mate is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",

@@ -20,6 +20,8 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphType: 'website',
 })
 
+export const dynamic = 'force-static'
+
 const BLOG_PAGE_SIZE = 12
 
 const allPosts: BlogPost[] = (rawPosts as BlogPost[]).filter((p) => p && p.slug && p.title)

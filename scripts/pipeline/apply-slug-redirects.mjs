@@ -22,9 +22,26 @@ function run() {
   }
 
   const redirectMap = JSON.parse(fs.readFileSync(mapPath, 'utf8'));
-  const redirectsContent = fs.readFileSync(redirectsPath, 'utf8');
+  let redirectsContent = fs.readFileSync(redirectsPath, 'utf8');
 
-  // Split into lines and normalize whitespace to easily check for existing lines
+  // Truncate any previous SYSTEM SLUG DE-DUPLICATION REDIRECTS or AUTO-GENERATED sections
+  const indexSystem = redirectsContent.indexOf('# SYSTEM SLUG DE-DUPLICATION REDIRECTS');
+  const indexAuto = redirectsContent.indexOf('# AUTO-GENERATED DUPLICATE SLUG REDIRECTS');
+  let sectionHeaderIndex = -1;
+  if (indexSystem !== -1 && indexAuto !== -1) {
+    sectionHeaderIndex = Math.min(indexSystem, indexAuto);
+  } else if (indexSystem !== -1) {
+    sectionHeaderIndex = indexSystem;
+  } else if (indexAuto !== -1) {
+    sectionHeaderIndex = indexAuto;
+  }
+  if (sectionHeaderIndex !== -1) {
+    console.log('Truncating previous system slug de-duplication redirects section...');
+    redirectsContent = redirectsContent.substring(0, sectionHeaderIndex).trim() + '\n';
+    fs.writeFileSync(redirectsPath, redirectsContent, 'utf8');
+  }
+
+  // Split into lines and normalize whitespace to easily check for existing lines in the cleaned file
   const existingRules = new Set(
     redirectsContent.split('\n')
       .map(line => line.trim())
@@ -63,7 +80,7 @@ function run() {
   });
 
   if (newLines.length > 0) {
-    // Append a section header if we are adding new redirect rules
+    // Append a section header
     const header = `\n# SYSTEM SLUG DE-DUPLICATION REDIRECTS (Generated ${new Date().toLocaleDateString()})\n`;
     const appendContent = header + newLines.join('\n') + '\n';
     fs.appendFileSync(redirectsPath, appendContent, 'utf8');

@@ -71,7 +71,7 @@ const routeContentExpectations = [
   },
   {
     route: '/compounds',
-    required: ['Compound &amp; Nootropic Profiles', 'Compound profiles index', 'Compound research library'],
+    required: ['Compound Library', 'Compound profiles index', 'Compound decision library'],
     forbidden: ['Herb Profiles &amp; Research Library', 'Find the right supplement path for your goals.'],
   },
   {

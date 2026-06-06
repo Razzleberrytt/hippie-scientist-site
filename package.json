@@ -54,6 +54,7 @@
     "audit:leaked-text": "node scripts/audit/find-leaked-pipeline-text.mjs",
     "audit:dual-slugs": "node scripts/audit/dual-slug-audit.mjs",
     "pipeline:apply-redirects": "node scripts/pipeline/apply-slug-redirects.mjs",
+    "pipeline:clean-leaks": "node scripts/pipeline/clean-workbook-leaks.mjs",
     "generate:redirects": "node scripts/generate-redirects.mjs",
     "guard:source-of-truth": "node scripts/ci/validate-workbook-source.mjs && node scripts/data/verify-workbook-only-path.mjs",
     "guard:generated-data": "node scripts/ci/guard-generated-data.mjs",

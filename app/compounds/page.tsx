@@ -14,6 +14,8 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/compounds',
 })
 
+export const dynamic = 'force-static'
+
 interface Compound {
   slug?: string
   name?: string
@@ -137,7 +139,7 @@ function getSearchCorpus(c: Compound): string {
 function matchesCategory(c: Compound, value: string): boolean {
   if (value === 'all') return true
   const opt = CATEGORY_FILTERS.find((o) => o.value === value)
-  if (!opt || !('terms' in opt)) return true
+  if (!opt || !opt.terms) return true
   const corpus = getSearchCorpus(c)
   return opt.terms.some((t) => corpus.includes(t))
 }
@@ -247,7 +249,7 @@ export default async function CompoundsPage({
   const filtered = filterCompounds(allCompounds, f)
 
   // Apply sort (default alpha by name; evidence strength secondary)
-  let sorted = [...filtered]
+  const sorted = [...filtered]
   if (f.sort === 'evidence') {
     sorted.sort((a, b) => {
       const ea = getEvidenceLabel(a)

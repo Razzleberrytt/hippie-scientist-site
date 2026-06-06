@@ -112,7 +112,7 @@ const steps = [
   },
   {
     name: 'enrichment-review-gate',
-    cmd: 'node -e "console.log(\\"[orchestrate] (enrichment release-gate advisory/skipped for this run — run explicitly with --run-id for strict Lane C AI patch approval checks; see docs/data-pipeline.md)\\"); process.exit(0);"',
+    cmd: 'node -e "console.log(\'[orchestrate] (enrichment release-gate advisory/skipped for this run — run explicitly with --run-id for strict Lane C AI patch approval checks; see docs/data-pipeline.md)\'); process.exit(0);"',
     description: 'AI enrichment review gate (Lane C patches require approved review_decisions). Manual review required; does not auto-promote. (advisory; never fails pipeline; run explicitly for full checks)',
   },
   {
