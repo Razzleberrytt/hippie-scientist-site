@@ -45,6 +45,7 @@ type FilterState = {
   category: string
   evidence: string
   safety: string
+  sort: string
 }
 
 const CATEGORY_FILTERS = [
@@ -105,6 +106,19 @@ function getSafetyLabel(c: Compound): string {
   )
 }
 
+function getBestFor(c: Compound): string {
+  const primary = list(c.primary_effects || c.effects)
+    .map(formatDisplayLabel)
+    .filter(Boolean)
+    .slice(0, 3)
+  if (primary.length > 0) return primary.join(' • ')
+  const mech = list(c.mechanisms || c.mechanism_categories)
+    .map(formatDisplayLabel)
+    .filter(Boolean)
+    .slice(0, 2)
+  return mech.length > 0 ? mech.join(' • ') : 'Research context'
+}
+
 function getSearchCorpus(c: Compound): string {
   return [
     getName(c),
@@ -161,6 +175,7 @@ function buildFilterUrl(base: string, next: Partial<FilterState>, page?: number)
   if (next.category && next.category !== 'all') p.set('category', next.category)
   if (next.evidence && next.evidence !== 'all') p.set('evidence', next.evidence)
   if (next.safety && next.safety !== 'all') p.set('safety', next.safety)
+  if (next.sort && next.sort !== 'alpha') p.set('sort', next.sort)
   if (page && page > 1) p.set('page', String(page))
   const qs = p.toString()
   return qs ? `${base}?${qs}` : base
@@ -186,6 +201,7 @@ function CompoundCard({ c }: { c: Compound }) {
   const cat = getCategory(c)
   const desc = getBrief(c)
   const ev = getEvidenceLabel(c)
+  const best = getBestFor(c)
   const slug = c.slug || ''
   const href = `/compounds/${slug}`
 
@@ -200,6 +216,9 @@ function CompoundCard({ c }: { c: Compound }) {
       </div>
       <div className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.08em] text-[#5f6f66]">{cat}</div>
       <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#46574d]">{desc || 'Compound profile with mechanism, evidence, and safety context.'}</p>
+      {best && best !== 'Research context' && (
+        <div className="mt-2 text-[11px] text-[#5f6f66] line-clamp-1">Best for: {best}</div>
+      )}
       <span className="mt-auto pt-3 text-xs font-semibold text-brand-800 group-hover:underline">View profile →</span>
     </Link>
   )
@@ -217,6 +236,7 @@ export default async function CompoundsPage({
     category: text(Array.isArray(sp.category) ? sp.category[0] : sp.category) || 'all',
     evidence: text(Array.isArray(sp.evidence) ? sp.evidence[0] : sp.evidence) || 'all',
     safety: text(Array.isArray(sp.safety) ? sp.safety[0] : sp.safety) || 'all',
+    sort: text(Array.isArray(sp.sort) ? sp.sort[0] : sp.sort) || 'alpha',
   }
 
   const page = clampPositiveInt(Array.isArray(sp.page) ? sp.page[0] : sp.page, 1)
@@ -225,7 +245,22 @@ export default async function CompoundsPage({
   const allCompounds: Compound[] = raw.filter((c: any) => c?.slug && getRuntimeVisibility(c).canRender)
 
   const filtered = filterCompounds(allCompounds, f)
-  const paged = paginateItems(filtered, page, COMPOUNDS_PAGE_SIZE)
+
+  // Apply sort (default alpha by name; evidence strength secondary)
+  let sorted = [...filtered]
+  if (f.sort === 'evidence') {
+    sorted.sort((a, b) => {
+      const ea = getEvidenceLabel(a)
+      const eb = getEvidenceLabel(b)
+      const rank = (s: string) => /strong/i.test(s) ? 3 : /moderate/i.test(s) ? 2 : 1
+      const r = rank(eb) - rank(ea)
+      return r !== 0 ? r : getName(a).localeCompare(getName(b))
+    })
+  } else {
+    sorted.sort((a, b) => getName(a).localeCompare(getName(b)))
+  }
+
+  const paged = paginateItems(sorted, page, COMPOUNDS_PAGE_SIZE)
 
   const total = filtered.length
   const showingFrom = paged.pageItems.length > 0 ? (paged.currentPage - 1) * paged.pageSize + 1 : 0
@@ -328,8 +363,31 @@ export default async function CompoundsPage({
             </div>
           </div>
 
+          {/* Sort options (server-driven) */}
+          <div>
+            <div className="mb-1 text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66]">Sort</div>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { label: 'A–Z', value: 'alpha' },
+                { label: 'Evidence strength', value: 'evidence' },
+              ].map((opt) => {
+                const href = buildFilterUrl(basePath, { ...f, sort: opt.value }, 1)
+                const active = (f.sort || 'alpha') === opt.value
+                return (
+                  <Link
+                    key={opt.value}
+                    href={href}
+                    className={`rounded-full border px-2.5 py-1 text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+                  >
+                    {opt.label}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+
           {/* Active filters reset */}
-          {(f.q || f.category !== 'all' || f.evidence !== 'all' || f.safety !== 'all') && (
+          {(f.q || f.category !== 'all' || f.evidence !== 'all' || f.safety !== 'all' || (f.sort && f.sort !== 'alpha')) && (
             <div className="pt-1">
               <Link href={basePath} className="text-xs font-semibold text-brand-800 underline-offset-2 hover:underline">
                 Clear all filters
