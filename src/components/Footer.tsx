@@ -57,7 +57,7 @@ export default function Footer() {
           <div>
             <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
             <p className='mt-2 text-xs text-white/65'>
-              Evidence-first botanical reference and harm reduction context.
+              Evidence-first botanical research. Not medical advice.
             </p>
           </div>
 
