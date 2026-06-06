@@ -119,12 +119,12 @@ if (!sitemapContent || !sitemapContent.includes('<urlset')) {
   contentFailures++
 }
 const requiredSitemapUrls = [
-  'https://www.thehippiescientist.net/',
-  'https://www.thehippiescientist.net/about/',
-  'https://www.thehippiescientist.net/blog/',
-  'https://www.thehippiescientist.net/herbs/',
-  'https://www.thehippiescientist.net/compounds/',
-  'https://www.thehippiescientist.net/compare/',
+  'https://thehippiescientist.net/',
+  'https://thehippiescientist.net/about/',
+  'https://thehippiescientist.net/blog/',
+  'https://thehippiescientist.net/herbs/',
+  'https://thehippiescientist.net/compounds/',
+  'https://thehippiescientist.net/compare/',
   '/blog/', // at least some blog post
   '/herbs/', // detail
   '/compounds/', // detail

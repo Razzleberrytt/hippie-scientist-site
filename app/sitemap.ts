@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { MetadataRoute } from 'next';
 
-const SITE_URL = 'https://www.thehippiescientist.net';
+const SITE_URL = 'https://thehippiescientist.net';
 
 type SitemapSourceItem = {
   slug?: string;
