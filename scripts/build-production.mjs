@@ -9,6 +9,16 @@ let pagesMoved = false
 
 let exitCode = 0
 
+// Clean stale build artifacts before building to prevent Windows file-locking
+// write errors when overwriting a prior out/ directory mid-export.
+const outPath = path.join(process.cwd(), 'out')
+const nextPath = path.join(process.cwd(), '.next')
+for (const dir of [outPath, nextPath]) {
+  if (fs.existsSync(dir)) {
+    fs.rmSync(dir, { recursive: true, force: true })
+  }
+}
+
 try {
   if (fs.existsSync(pagesPath)) {
     console.log('[build] Temporarily moving src/pages to avoid Next.js routing conflicts...')

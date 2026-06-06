@@ -19,6 +19,7 @@ export type BuildMetaArgs = {
   path?: string
   image?: string
   keepQueryParams?: string[]
+  keywords?: string | string[]
 }
 
 export type GovernedSummarySignals = {
@@ -101,6 +102,7 @@ export function buildPageMetadata({
   keepQueryParams = [],
   openGraphType = 'website',
   robots,
+  keywords = ['science', 'evidence', 'logic', 'psyche', 'clean', 'trippy', 'symmetrical'],
 }: BuildPageMetadataArgs): Metadata {
   const meta = buildMeta({ title, description, path, image, keepQueryParams })
   const fullTitle = title || DEFAULT_TITLE
@@ -108,6 +110,7 @@ export function buildPageMetadata({
   return {
     title: fullTitle,
     description: fullDesc,
+    keywords,
     alternates: { canonical: meta.url },
     openGraph: {
       title: fullTitle,

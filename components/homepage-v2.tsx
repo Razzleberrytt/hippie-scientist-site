@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
 import { goals } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -146,37 +147,53 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* Hero */}
-        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-4 py-8 shadow-sm sm:px-8 sm:py-12'>
-          <div className='mx-auto flex max-w-4xl flex-col items-center text-center'>
-            <p role='doc-subtitle' className='mb-3 inline-flex text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-700'>
-              Evidence-first supplement decisions
-            </p>
-            <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
-              Evidence-First Herb &amp; Compound Research
-            </h1>
-            <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
-              Science-backed profiles for 295 herbs and 600+ compounds. No fluff, no hype — just mechanism, evidence, and context.
-            </p>
-            <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
-              <Link
-                href='/start-here/quiz'
-                className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none'
-              >
-                Take the Intake Quiz
-              </Link>
-              <Link
-                href='/safety-checker'
-                className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none'
-              >
-                Check Safety &amp; Medications
-              </Link>
+        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-6 py-8 shadow-sm sm:px-10 sm:py-12'>
+          <div className='grid gap-8 lg:grid-cols-[1.14fr_0.86fr] lg:items-center'>
+            <div className='flex flex-col items-center text-center lg:items-start lg:text-left'>
+              <p role='doc-subtitle' className='mb-3 inline-flex text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-700'>
+                Evidence-first supplement decisions
+              </p>
+              <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
+                Evidence-First Herb &amp; Compound Research
+              </h1>
+              <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
+                Science-backed profiles for 295 herbs and 600+ compounds. No fluff, no hype — just mechanism, evidence, and context.
+              </p>
+              <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
+                <Link
+                  href='/start-here/quiz'
+                  className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none text-center'
+                >
+                  Take the Intake Quiz
+                </Link>
+                <Link
+                  href='/safety-checker'
+                  className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none text-center'
+                >
+                  Check Safety &amp; Medications
+                </Link>
+              </div>
+              <div className='mt-6 flex flex-wrap justify-center lg:justify-start gap-2' aria-label='Trust signals'>
+                {trustStrip.map((item) => (
+                  <span key={item} className='rounded-full border border-brand-900/10 bg-brand-50 px-3.5 py-1 text-xs font-semibold text-brand-800'>
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
-            <div className='mt-6 flex flex-wrap justify-center gap-2' aria-label='Trust signals'>
-              {trustStrip.map((item) => (
-                <span key={item} className='rounded-full border border-brand-900/10 bg-brand-50 px-3.5 py-1 text-xs font-semibold text-brand-800'>
-                  {item}
-                </span>
-              ))}
+
+            {/* Hero Visual Card */}
+            <div className='relative hidden sm:block overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-md transition-all duration-500 hover:shadow-xl hover:scale-[1.01]'>
+              <div className='relative w-full h-[240px] lg:h-[380px]'>
+                <Image
+                  src='/hero-illustration.jpg'
+                  alt='The Hippie Scientist Botanical Research Lab'
+                  fill
+                  priority
+                  className='object-cover'
+                />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/10 to-transparent' />
+              </div>
             </div>
           </div>
         </section>

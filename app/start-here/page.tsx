@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Start Here',
@@ -74,34 +75,46 @@ const goalPaths = [
 export default function StartHerePage() {
   return (
     <div className='space-y-12'>
-      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
-        <p className='eyebrow-label'>Start here</p>
-        <h1 className='mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
-          Learn how to explore supplements without the hype.
-        </h1>
-        <div className='mt-4 max-w-4xl space-y-4 text-base leading-7 text-muted sm:text-lg'>
-          <p>
-            The Hippie Scientist helps you compare evidence strength, tradeoffs, safety concerns, and realistic
-            expectations before deciding what is worth researching further.
-          </p>
-          <p>
-            This content is educational only, not medical advice, and individual response can vary substantially.
-          </p>
+      <section className='overflow-hidden rounded-[2rem] border border-brand-900/10 bg-white/90 p-0 shadow-sm'>
+        <div className='relative w-full h-[180px] sm:h-[260px] md:h-[320px]'>
+          <Image
+            src='/start-here-banner.jpg'
+            alt='The Onboarding Discovery Pathway'
+            fill
+            priority
+            className='object-cover'
+          />
+          <div className='absolute inset-0 bg-gradient-to-t from-white/90 via-white/20 to-transparent' />
         </div>
 
-        <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/goals' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
-            Explore goals
-          </Link>
-          <Link href='/compare' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
-            Compare supplements
-          </Link>
-          <Link href='/herbs' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
-            Browse herbs
-          </Link>
-          <Link href='/learn' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
-            Learn the basics
-          </Link>
+        <div className='p-6 sm:p-8 pt-4 sm:pt-6'>
+          <p className='eyebrow-label'>Start here</p>
+          <h1 className='mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
+            Learn how to explore supplements without the hype.
+          </h1>
+          <div className='mt-4 max-w-4xl space-y-4 text-base leading-7 text-muted sm:text-lg'>
+            <p>
+              The Hippie Scientist helps you compare evidence strength, tradeoffs, safety concerns, and realistic
+              expectations before deciding what is worth researching further.
+            </p>
+            <p>
+              This content is educational only, not medical advice, and individual response can vary substantially.
+            </p>
+          </div>
+          <div className='mt-6 flex flex-wrap gap-3'>
+            <Link href='/goals' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
+              Explore goals
+            </Link>
+            <Link href='/compare' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
+              Compare supplements
+            </Link>
+            <Link href='/herbs' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
+              Browse herbs
+            </Link>
+            <Link href='/learn' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
+              Learn the basics
+            </Link>
+          </div>
         </div>
       </section>
 
