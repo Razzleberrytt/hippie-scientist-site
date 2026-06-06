@@ -25,6 +25,8 @@ import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-uti
 import AuthorCredentials from '@/components/AuthorCredentials'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
+import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
+import { extractCitationsFromRecord } from '@/lib/citations'
 import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
@@ -378,6 +380,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
+  const citations = extractCitationsFromRecord(compound)
 
   const affiliateUrl = suppressAffiliate
     ? ''
@@ -563,6 +566,7 @@ export default async function CompoundPage({ params }: PageProps) {
             <EvidenceSnapshotCard snapshot={snapshot} />
           </div>
           <EvidenceGradeExplainer />
+          <ShowMeTheStudies citations={citations} />
         </section>
 
         <EmailCapture

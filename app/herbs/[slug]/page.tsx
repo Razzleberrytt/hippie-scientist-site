@@ -28,6 +28,8 @@ import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
+import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
+import { extractCitationsFromRecord } from '@/lib/citations'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -347,6 +349,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
+  const citations = extractCitationsFromRecord(herb)
 
   const affiliateUrl =
     revenueProducts?.products.find((p) => p.slot === 'overall')?.affiliateUrl ??
@@ -519,6 +522,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           )}
         </div>
         <EvidenceGradeExplainer />
+        <ShowMeTheStudies citations={citations} />
       </section>
 
       {/* Section 4: Mechanisms (Collapsible) */}

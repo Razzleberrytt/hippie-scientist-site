@@ -243,19 +243,19 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                         const productSet = getRevenueProductSet(pick.slug)
                         const overallProduct = productSet?.products.find((p) => p.slot === 'overall')
                         return (
-                          <div key={pick.slug} className='flex items-baseline justify-between gap-2 text-xs'>
-                            <span className='text-muted truncate max-w-[120px]'>{pick.need}:</span>
+                          <div key={pick.slug} className='flex items-baseline justify-between gap-2 text-xs min-w-0'>
+                            <span className='text-muted shrink-0 max-w-[120px] truncate'>{pick.need}:</span>
                             {overallProduct ? (
                               <a
                                 href={overallProduct.affiliateUrl}
                                 target='_blank'
                                 rel='nofollow sponsored noopener noreferrer'
-                                className='font-bold text-brand-700 hover:text-brand-800 hover:underline truncate text-right'
+                                className='font-bold text-brand-700 hover:text-brand-800 hover:underline text-right break-words min-w-0'
                               >
                                 {overallProduct.brand} {(overallProduct.title || '').replace(/^[^a-zA-Z]+/g, '').split(' ').slice(1, 3).join(' ')} →
                               </a>
                             ) : (
-                              <span className='font-bold text-brand-700'>{pick.option}</span>
+                              <span className='font-bold text-brand-700 text-right break-words min-w-0'>{pick.option}</span>
                             )}
                           </div>
                         )
