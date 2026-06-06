@@ -1,4 +1,6 @@
-import createBundleAnalyzer from '@next/bundle-analyzer'
+import bundleAnalyzer from '@next/bundle-analyzer'
+
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -23,7 +25,7 @@ const nextConfig = {
   webpack: (config, { webpack }) => {
     const buildDate = new Date().toISOString().split('T')[0]
     const buildTime = new Date().toISOString()
-    const commitHash = process.env.COMMIT_HASH || 'unknown'
+    const commitHash = process.env.COMMIT_HASH || process.env.CF_PAGES_COMMIT_SHA || 'dev'
     const appVersion = process.env.APP_VERSION || '1.0.0'
 
     config.plugins.push(
@@ -39,5 +41,4 @@ const nextConfig = {
   },
 }
 
-// Skip bundle analyzer wrapper to avoid config errors
-export default nextConfig
+export default withBundleAnalyzer(nextConfig)
