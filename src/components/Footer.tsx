@@ -13,6 +13,7 @@ const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
   { href: PUBLIC_ROUTES.build, label: 'Build a Blend' },
+  { href: '/goals', label: 'Goals' },
 ]
 
 const safetyLinks = [

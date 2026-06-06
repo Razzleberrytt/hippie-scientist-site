@@ -92,6 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/stacks/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/compare/`, currentDate, 'monthly', 0.7),
+    route(`${SITE_URL}/tools/`, currentDate, 'monthly', 0.6),
     route(`${SITE_URL}/dosing/`, currentDate, 'monthly', 0.6),
     route(`${SITE_URL}/affiliate-disclosure/`, currentDate, 'yearly', 0.5),
     route(`${SITE_URL}/privacy/`, currentDate, 'yearly', 0.4),
