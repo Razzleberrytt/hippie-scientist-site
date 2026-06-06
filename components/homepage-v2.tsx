@@ -183,8 +183,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </div>
 
             {/* Hero Visual Card */}
-            <div className='relative hidden sm:block overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-md transition-all duration-500 hover:shadow-xl hover:scale-[1.01]'>
-              <div className='relative w-full h-[240px] lg:h-[380px]'>
+            <div className='relative overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-md transition-all duration-500 hover:shadow-xl hover:scale-[1.01]'>
+              <div className='relative w-full h-[200px] sm:h-[240px] lg:h-[380px]'>
                 <Image
                   src='/hero-illustration.jpg'
                   alt='The Hippie Scientist Botanical Research Lab'
