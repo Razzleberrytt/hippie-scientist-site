@@ -9,10 +9,10 @@ describe('blog index model', () => {
     expect(hrefs).toEqual([
       '/articles/style/research-digests',
       '/articles/style/pharmacology-basics',
-      '/articles/style/traditional-use',
-      '/articles/style/extraction-preparation',
       '/articles/style/safety-set-setting',
-      '/articles/style/field-notes',
+      '/articles/style/traditional-use',
+      '/articles/style/nootropics',
+      '/articles/style/extraction-preparation',
     ])
     expect(hrefs).not.toContain('/articles')
   })

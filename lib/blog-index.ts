@@ -16,45 +16,45 @@ export type BlogStyleGroup = {
 export const BLOG_STYLE_GROUPS: BlogStyleGroup[] = [
   {
     slug: 'research-digests',
-    title: 'Research digests',
+    title: 'Research',
     description: 'Evidence summaries with limitations and cautious interpretation.',
     href: '/articles/style/research-digests',
     meta: 'Evidence',
   },
   {
     slug: 'pharmacology-basics',
-    title: 'Pharmacology basics',
+    title: 'Mechanisms',
     description: 'Mechanism-first explainers for pathways, compounds, and receptor context.',
     href: '/articles/style/pharmacology-basics',
     meta: 'Mechanism',
   },
   {
-    slug: 'traditional-use',
-    title: 'Traditional use',
-    description: 'Historical context kept separate from modern efficacy claims.',
-    href: '/articles/style/traditional-use',
-    meta: 'Tradition',
-  },
-  {
-    slug: 'extraction-preparation',
-    title: 'Extraction & preparation',
-    description: 'Form, solvent, dose visibility, and practical preparation notes.',
-    href: '/articles/style/extraction-preparation',
-    meta: 'Methods',
-  },
-  {
     slug: 'safety-set-setting',
-    title: 'Safety / set / setting',
+    title: 'Safety',
     description: 'Conservative reading for uncertainty, cautions, and context of use.',
     href: '/articles/style/safety-set-setting',
     meta: 'Safety',
   },
   {
-    slug: 'field-notes',
-    title: 'Field notes',
-    description: 'Editorial observations that help turn profiles into memorable learning.',
-    href: '/articles/style/field-notes',
-    meta: 'Notes',
+    slug: 'traditional-use',
+    title: 'Herbal Medicine',
+    description: 'Historical context kept separate from modern efficacy claims.',
+    href: '/articles/style/traditional-use',
+    meta: 'Tradition',
+  },
+  {
+    slug: 'nootropics',
+    title: 'Nootropics',
+    description: 'Cognitive enhancers, smart drugs, and evidence-graded nootropic profiles.',
+    href: '/articles/style/nootropics',
+    meta: 'Nootropics',
+  },
+  {
+    slug: 'extraction-preparation',
+    title: 'Supplement Science',
+    description: 'Form, solvent, dose visibility, bioavailability, and preparation notes.',
+    href: '/articles/style/extraction-preparation',
+    meta: 'Science',
   },
 ]
 
@@ -138,6 +138,8 @@ export const getPostsForStyle = (sourcePosts: BlogPost[], styleSlug: string): Bl
         return text.includes('extraction') || text.includes('preparation') || text.includes('formulation')
       case 'safety-set-setting':
         return text.includes('safety') || text.includes('set setting') || text.includes('set / setting')
+      case 'nootropics':
+        return text.includes('nootropic') || text.includes('cognitive') || text.includes('brain') || text.includes('focus')
       case 'field-notes':
         return text.includes('field notes') || text.includes('bioassay') || text.includes('notes')
       default:

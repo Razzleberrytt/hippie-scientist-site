@@ -1,4 +1,10 @@
 /atom.xml /feed.xml 301
+# CONTENT TAXONOMY MIGRATION: Learn → Guides (June 2026)
+/learn /guides 301
+/learn/ /guides/ 301
+# Articles style category legacy redirect (field-notes → nootropics)
+/articles/style/field-notes /articles/style/nootropics 301
+/articles/style/field-notes/ /articles/style/nootropics/ 301
 /best-herbs-for-anxiety /guides/best-herbs-for-anxiety 301
 /herbs-for-sleep /guides/herbs-for-sleep 301
 /best-nootropics-for-focus /guides/best-nootropics-for-focus 301

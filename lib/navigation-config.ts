@@ -73,29 +73,29 @@ export const mainNavigation: NavigationItem[] = [
     description: 'The Hippie Scientist – evidence-first supplement research',
   },
   {
-    label: 'Guides & Articles',
+    label: 'Database',
+    href: '/herbs',
+    description: 'Browse the full herb database with evidence-graded profiles',
+  },
+  {
+    label: 'Compounds',
+    href: '/compounds',
+    description: 'Active compounds, mechanisms, and evidence summaries',
+  },
+  {
+    label: 'Guides',
     href: '/guides',
-    description: 'Goal-oriented guides, comparisons, and practical supplement decision pages',
+    description: 'Problem-solving, high-intent, evergreen supplement guides with internal linking and evidence summaries',
   },
   {
     label: 'Articles',
     href: '/articles',
-    description: 'Research notes, evidence reviews, regulatory updates, and editorial deep dives',
+    description: 'Educational and research content: pharmacology, mechanisms, historical medicine, safety discussions',
   },
   {
-    label: 'Comparisons',
-    href: '/compare',
-    description: 'Side-by-side herb and compound comparisons',
-  },
-  {
-    label: 'Goal Guides',
-    href: '/goals',
-    description: 'Goal-based decision guides with evidence-graded herbs and compounds',
-  },
-  {
-    label: 'About',
-    href: '/about',
-    description: 'About The Hippie Scientist',
+    label: 'Safety',
+    href: '/safety-checker',
+    description: 'Interaction checker and safety context for herbs and supplements',
   },
 ]
 
@@ -203,15 +203,26 @@ export const routeLabels: Record<string, RouteMetadata> = {
     parent: '/articles',
     isDynamic: true,
   },
+  '/guides': {
+    label: 'Guides',
+    description: 'Problem-solving supplement guides for sleep, anxiety, focus, stress, and more',
+    parent: '/',
+  },
+  '/guides/[slug]': {
+    label: 'Guide',
+    description: 'Evidence-informed supplement guide',
+    parent: '/guides',
+    isDynamic: true,
+  },
   '/learn': {
-    label: 'Learn',
-    description: 'Educational guides and deep dives',
+    label: 'Guides',
+    description: 'Educational guides (migrated to /guides)',
     parent: '/',
   },
   '/learn/[slug]': {
     label: 'Guide',
-    description: 'Educational guide',
-    parent: '/learn',
+    description: 'Supplement guide',
+    parent: '/guides',
     isDynamic: true,
   },
   '/tools': {
@@ -220,14 +231,14 @@ export const routeLabels: Record<string, RouteMetadata> = {
     parent: '/',
   },
   '/education': {
-    label: 'Education',
-    description: 'Educational resources (redirects to /learn)',
+    label: 'Guides',
+    description: 'Educational resources (redirects to /guides)',
     parent: '/',
   },
   '/education/[slug]': {
-    label: 'Education Guide',
-    description: 'Educational guide (redirects to /learn/[slug])',
-    parent: '/education',
+    label: 'Guide',
+    description: 'Supplement guide (redirects to /guides/[slug])',
+    parent: '/guides',
     isDynamic: true,
   },
 }

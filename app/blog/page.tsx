@@ -169,6 +169,7 @@ export default async function BlogPage({
       if (category === 'traditional-use') return corpus.includes('traditional')
       if (category === 'extraction-preparation') return corpus.includes('extraction') || corpus.includes('preparation') || corpus.includes('formulation')
       if (category === 'safety-set-setting') return corpus.includes('safety') || corpus.includes('set setting')
+      if (category === 'nootropics') return corpus.includes('nootropic') || corpus.includes('cognitive') || corpus.includes('brain') || corpus.includes('focus')
       if (category === 'field-notes') return corpus.includes('field note') || corpus.includes('bioassay')
       return true
     })
@@ -200,16 +201,16 @@ export default async function BlogPage({
       {/* Hero */}
       <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 p-4 shadow-sm sm:p-5">
           <p className="eyebrow-label">Articles</p>
-          <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">Guides &amp; research notes</h1>
+          <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">Educational &amp; research articles</h1>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
-          Mechanisms, preparations, safety limits, and evidence maturity for fast scanning.
+          Pharmacology, mechanisms, historical medicine, safety discussions, and compound deep dives. Citation-heavy, less commercial, supporting topical authority.
         </p>
         <p className="mt-1 text-sm font-semibold text-[#46574d]">{count} articles available</p>
       </section>
 
       {/* Category filter (static links) */}
       <div>
-        <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66]">Filter by style</p>
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66]">Filter by category</p>
         <CategoryFilterBar active={category} />
       </div>
 
