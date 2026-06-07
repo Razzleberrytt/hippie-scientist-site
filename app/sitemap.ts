@@ -3,6 +3,7 @@ import path from 'node:path';
 import { MetadataRoute } from 'next';
 
 import { SITE_URL } from '@/lib/site';
+import { learnPosts } from './learn/data';
 
 type SitemapSourceItem = {
   slug?: string;
@@ -82,7 +83,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/about/`, currentDate, 'yearly', 0.6),
     route(`${SITE_URL}/contact/`, currentDate, 'yearly', 0.5),
     route(`${SITE_URL}/faq/`, currentDate, 'monthly', 0.7),
-    route(`${SITE_URL}/learn/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/methodology/`, currentDate, 'yearly', 0.6),
     route(`${SITE_URL}/safety-checker/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/herbs/`, currentDate, 'weekly', 0.9),
@@ -90,7 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/articles/`, currentDate, 'daily', 0.8),
     route(`${SITE_URL}/goals/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/stacks/`, currentDate, 'monthly', 0.7),
-    route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.7),
+    route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.85),
     route(`${SITE_URL}/compare/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/tools/`, currentDate, 'monthly', 0.6),
     route(`${SITE_URL}/dosing/`, currentDate, 'monthly', 0.6),
@@ -170,6 +170,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!guide.slug) return;
 
     sitemapEntries.push(route(`${SITE_URL}/guides/${guide.slug}/`, currentDate, 'monthly', 0.65));
+  });
+
+  learnPosts.forEach((post) => {
+    sitemapEntries.push(route(`${SITE_URL}/learn/${post.slug}/`, currentDate, 'monthly', 0.7));
   });
 
   // Add compare detail routes (data-driven, for task requirement to cover /compare/:slug)

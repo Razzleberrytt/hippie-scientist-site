@@ -111,8 +111,8 @@ export default function StartHerePage() {
             <Link href='/herbs' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
               Browse herbs
             </Link>
-            <Link href='/learn' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
-              Learn the basics
+            <Link href='/guides' className='rounded-full border border-brand-900/10 bg-white/90 px-4 py-2 text-sm font-medium text-ink transition hover:bg-white'>
+              Browse guides
             </Link>
           </div>
         </div>

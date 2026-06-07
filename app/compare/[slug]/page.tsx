@@ -420,7 +420,7 @@ export default async function Page({ params }: Params) {
             description: 'Start with practical overviews before advanced stacking.',
             links: [
               { href: `/${winner.entityType === 'herb' ? 'herbs' : 'compounds'}/${winner.slug}`, label: `${displayName(winner)} profile` },
-              { href: '/learn', label: 'Learn evidence basics' },
+              { href: '/guides', label: 'Browse supplement guides' },
             ],
           },
           {
