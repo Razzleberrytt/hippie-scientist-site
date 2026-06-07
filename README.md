@@ -1,6 +1,6 @@
 # The Hippie Scientist
 
-Data-driven educational site for herbs and compounds. always full of bugs.
+Data-driven educational site for herbs and compounds.
 
 ## Quick start
 
