@@ -212,7 +212,7 @@ export const routeLabels: Record<string, RouteMetadata> = {
 export const footerLinks = {
   legal: [
     { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Terms of Service', href: '/terms' },
+    { label: 'Disclaimer', href: '/disclaimer' },
     { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
   ],
   social: [
