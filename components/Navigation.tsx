@@ -9,7 +9,7 @@ import { SearchModal } from './SearchModal'
 const desktopLinks = [
   { href: '/', label: 'Home' },
   { href: '/guides', label: 'Guides & Articles' },
-  { href: '/research-notes', label: 'Research Notes' },
+  { href: '/articles', label: 'Articles' },
   { href: '/compare', label: 'Comparisons' },
   { href: '/goals', label: 'Goal Guides' },
   { href: '/about', label: 'About' },
@@ -54,7 +54,7 @@ export function Navigation() {
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
-    if (href === '/research-notes') return pathname === '/research-notes' || pathname.startsWith('/research-notes/') || pathname.startsWith('/articles/') || pathname === '/blog' || pathname.startsWith('/blog/')
+    if (href === '/articles') return pathname === '/articles' || pathname.startsWith('/articles/') || pathname === '/research-notes' || pathname.startsWith('/research-notes/') || pathname === '/blog' || pathname.startsWith('/blog/')
     return pathname === href || pathname.startsWith(href + '/')
   }
 

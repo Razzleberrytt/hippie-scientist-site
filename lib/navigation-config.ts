@@ -78,9 +78,9 @@ export const mainNavigation: NavigationItem[] = [
     description: 'Goal-oriented guides, comparisons, and practical supplement decision pages',
   },
   {
-    label: 'Research Notes',
-    href: '/research-notes',
-    description: 'Deep dives, evidence reviews, regulatory updates, and editorial research notes',
+    label: 'Articles',
+    href: '/articles',
+    description: 'Research notes, evidence reviews, regulatory updates, and editorial deep dives',
   },
   {
     label: 'Comparisons',
@@ -182,14 +182,25 @@ export const routeLabels: Record<string, RouteMetadata> = {
     isDynamic: true,
   },
   '/research-notes': {
-    label: 'Research Notes',
-    description: 'Evidence reviews, regulatory updates, monographs, and research notes',
+    label: 'Articles',
+    description: 'Legacy research notes archive path',
     parent: '/',
   },
   '/research-notes/[slug]': {
-    label: 'Research Note',
-    description: 'Research note or evidence review',
+    label: 'Article',
+    description: 'Legacy research note detail path',
     parent: '/research-notes',
+    isDynamic: true,
+  },
+  '/articles': {
+    label: 'Articles',
+    description: 'Research notes, evidence reviews, regulatory updates, and editorial deep dives',
+    parent: '/',
+  },
+  '/articles/[slug]': {
+    label: 'Article',
+    description: 'Research note or evidence review',
+    parent: '/articles',
     isDynamic: true,
   },
   '/learn': {

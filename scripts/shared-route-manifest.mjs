@@ -3,13 +3,12 @@ import path from 'node:path'
 import { countBootstrapSources } from './source-normalization.mjs'
 
 const ROOT = process.cwd()
-const BLOG_PER_PAGE = 12
 const DEFAULT_ENTITY_CAP = Number.parseInt(process.env.PRERENDER_ENTITY_CAP || '2000', 10)
 
 const CORE_STATIC_ROUTES = [
   '/',
   '/about',
-  '/blog',
+  '/articles',
   '/newsletter',
   '/privacy',
   '/disclaimer',
@@ -43,7 +42,7 @@ const DISALLOWED_ROUTES = [
 const CORE_ROUTE_META = new Map([
   ['/', { title: 'The Hippie Scientist', description: 'Science-first herbal education and evidence-aware reference pages.' }],
   ['/about', { title: 'About | The Hippie Scientist', description: 'Editorial standards, mission, and evidence posture.' }],
-  ['/blog', { title: 'Research Notebook | The Hippie Scientist', description: 'Mechanism-focused herbal and compound research notes.' }],
+  ['/articles', { title: 'Articles | The Hippie Scientist', description: 'Mechanism-focused herbal and compound research notes.' }],
   ['/newsletter', { title: 'Newsletter | The Hippie Scientist', description: 'Get research notes, safety-first updates, and new guides.' }],
   ['/privacy', { title: 'Privacy Policy | The Hippie Scientist', description: 'How The Hippie Scientist handles analytics and subscriber data.' }],
   ['/disclaimer', { title: 'Disclaimer | The Hippie Scientist', description: 'Educational-use disclaimer and risk boundaries.' }],
@@ -95,7 +94,7 @@ const ENTRY_ROUTES = [
 
 const CORE_SITEMAP_META = new Map([
   ['/', { priority: 1.0, changefreq: 'weekly' }],
-  ['/blog', { priority: 0.8, changefreq: 'daily' }],
+  ['/articles', { priority: 0.8, changefreq: 'daily' }],
   ['/herbs', { priority: 0.9, changefreq: 'weekly' }],
   ['/compounds', { priority: 0.9, changefreq: 'weekly' }],
   ['/downloads', { priority: 0.6, changefreq: 'monthly' }],
@@ -584,7 +583,7 @@ function getBlogEntries() {
       .filter(post => post?.draft !== true)
       .map(post => {
         const slug = String(post?.slug || '').replace(/^\/+|\/+$/g, '')
-        return slug ? `/blog/${slug}` : ''
+        return slug ? `/articles/${slug}` : ''
       })
       .filter(Boolean)
   ).map(route => {
@@ -592,7 +591,7 @@ function getBlogEntries() {
     const post = posts.find(item => item?.slug === slug)
     return {
       route,
-      title: `${post?.title || 'Blog Post'} | The Hippie Scientist`,
+      title: `${post?.title || 'Article'} | The Hippie Scientist`,
       description: clip(post?.summary || post?.description || 'Research notebook entry.'),
       lastmod: normalizeDate(post?.date),
     }
@@ -736,18 +735,6 @@ export function getSharedRouteManifest() {
     putSitemapMeta(entry.route, { priority: 0.6, changefreq: 'weekly', lastmod: entry.lastmod })
   })
 
-  const blogPages = Math.ceil(blogEntries.length / BLOG_PER_PAGE)
-  const paginatedBlogRoutes =
-    blogPages > 1 ? Array.from({ length: blogPages - 1 }, (_, index) => `/blog/page/${index + 2}`) : []
-  paginatedBlogRoutes.forEach((route, index) => {
-    putRouteMeta(route, `Research Notebook — Page ${index + 2} | The Hippie Scientist`, 'Paginated archive of research posts and field notes.')
-    putSitemapMeta(route, { priority: 0.6, changefreq: 'weekly' })
-    putRouteDirectives(route, {
-      noindex: true,
-      reason: 'paginated-archive',
-    })
-  })
-
   const learningAllowlist = extractLearningRouteAllowlist()
   const herbSeedRecords = pickFirstDataFile(['public/data/herbs.json', 'public/data/herbs-summary.json'])
   const herbRecords = herbSeedRecords.length > 0 ? herbSeedRecords : readDetailDataFiles('herbs-detail')
@@ -844,7 +831,6 @@ export function getSharedRouteManifest() {
     ...goalRoutes,
     ...ENTRY_ROUTES.map(entry => entry.route),
     ...collectionRoutes,
-    ...paginatedBlogRoutes,
     ...blogEntries.map(entry => entry.route),
     ...herbEntries.map(entry => entry.route),
     ...compoundEntries.map(entry => entry.route),
@@ -867,7 +853,7 @@ export function getSharedRouteManifest() {
     metadata: {
       entityCap: DEFAULT_ENTITY_CAP,
       blogPosts: blogEntries.length,
-      paginatedBlogRoutes: paginatedBlogRoutes.length,
+      paginatedBlogRoutes: 0,
       coreRoutes: CORE_STATIC_ROUTES.length,
       goalRoutes: goalRoutes.length,
       collectionRoutes: collectionRoutes.length,

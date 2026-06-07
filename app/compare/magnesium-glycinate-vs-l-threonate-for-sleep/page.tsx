@@ -181,7 +181,7 @@ export default function MagnesiumGlycinateVsLThreonateForSleepPage() {
           Deep Sleep Support
         </Link>
 
-        <Link href="/blog/sleep-recovery" className="chip-readable">
+        <Link href="/articles/sleep-recovery" className="chip-readable">
           Sleep Recovery Hub
         </Link>
       </div>

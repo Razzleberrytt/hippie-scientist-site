@@ -31,7 +31,7 @@ export function buildMedicalWebPageSchema(entity: any, type: 'herb' | 'compound'
 }
 
 export function buildArticleSchema(post: any) {
-  const url = `https://thehippiescientist.net/blog/${post.slug}/`
+  const url = `https://thehippiescientist.net/articles/${post.slug}/`
   const datePublished = post.date ? new Date(post.date).toISOString() : new Date().toISOString()
   const dateModified = post.lastModified || post.updated || post.date 
     ? new Date(post.lastModified || post.updated || post.date).toISOString() 

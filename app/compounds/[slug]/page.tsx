@@ -6,6 +6,7 @@ import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import ReadingProgress from '@/components/ui/ReadingProgress'
 import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
@@ -367,7 +368,7 @@ function RegulatoryStatusSection({ compound }: { compound: any }) {
 
       {stateRows.length ? (
         <div className="space-y-3">
-          <div className="overflow-x-auto rounded-xl border border-red-200 bg-white" role="region" aria-label="50-state 7-OH regulatory table">
+          <ResponsiveTable label="50-state 7-OH regulatory table" className="border-red-200">
             <table className="min-w-[920px] w-full text-left text-sm">
               <caption className="sr-only">
                 State-by-state triage table distinguishing natural kratom leaf from concentrated or synthetic 7-hydroxymitragynine products.
@@ -393,7 +394,7 @@ function RegulatoryStatusSection({ compound }: { compound: any }) {
                 ))}
               </tbody>
             </table>
-          </div>
+          </ResponsiveTable>
           <p className="text-xs leading-5 text-red-900">
             Regulations change quickly and local bans can be stricter than state law. Treat this table as regulatory triage, not legal advice; verify against official state and local sources before relying on any status.
           </p>
@@ -566,11 +567,12 @@ export default async function CompoundPage({ params }: PageProps) {
   })
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed =
-    compound.reviewed_date ||
-    compound.reviewed_at ||
-    compound.updated_at ||
+    compound.last_updated ||
+    compound.lastUpdated ||
     compound.updatedAt ||
-    compound.last_updated
+    compound.updated_at ||
+    compound.reviewed_date ||
+    compound.reviewed_at
 
   return (
     <>

@@ -15,7 +15,7 @@ export default function BlogList({ posts }: { posts: PostPreview[] }) {
           className='rounded-xl border border-[color:color-mix(in_oklab,var(--border-c)_80%,transparent_20%)] bg-[color-mix(in_oklab,var(--surface-c)_90%,transparent_10%)] p-4 backdrop-blur'
         >
           <h3 className='text-xl font-semibold text-[color:var(--text-c)]'>
-            <Link to={`/blog/${post.slug}/`} className='link text-[color:var(--accent)]'>
+            <Link to={`/articles/${post.slug}/`} className='link text-[color:var(--accent)]'>
               {post.title}
             </Link>
           </h3>

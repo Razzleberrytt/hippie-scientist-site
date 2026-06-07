@@ -11,6 +11,7 @@ import {
   type BlogPost,
 } from '@/lib/blog-index'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import EmailCapture from '../../../components/EmailCapture'
 import NewsletterCtaBlock from '../../../components/NewsletterCtaBlock'
 
@@ -32,7 +33,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
 
   if (!post) return {}
 
-  const path = `/research-notes/${resolvedParams.slug}`
+  const path = `/articles/${resolvedParams.slug}`
   const base = {
     title: post.title,
     description: post.excerpt || 'Research note with mechanisms, evidence, and safety context.',
@@ -86,15 +87,16 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
 
   // Use reusable breadcrumb + BlogPosting (Article) from central helper
   const pageBreadcrumb = breadcrumbJsonLd([
-    { name: 'Research Notes', url: 'https://thehippiescientist.net/research-notes' },
-    { name: post.title, url: `https://thehippiescientist.net/research-notes/${post.slug}` },
+    { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
+    { name: post.title, url: `https://thehippiescientist.net/articles/${post.slug}` },
   ])
   const blogLd = blogJsonLd({
     title: post.title,
     slug: post.slug,
     date: post.date || '2026-01-01',
+    updated: post.updatedAt || post.date || undefined,
     excerpt: post.excerpt,
-  }, `/research-notes/${resolvedParams.slug}`)
+  }, `/articles/${resolvedParams.slug}`)
 
   return (
     <article className="mx-auto max-w-5xl space-y-8 px-4 pb-20 sm:px-6 lg:px-8">
@@ -109,8 +111,8 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
       />
 
       <nav className="flex items-center gap-2 text-sm text-muted">
-        <Link href="/research-notes" className="transition hover:text-ink">
-          Research Notes
+        <Link href="/articles" className="transition hover:text-ink">
+          Articles
         </Link>
 
         <span>/</span>
@@ -126,7 +128,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         </div>
       )}
 
-      <Link href="/research-notes" className="text-sm font-bold text-brand-800">&lt;- Back to research notes</Link>
+      <Link href="/articles" className="text-sm font-bold text-brand-800">&lt;- Back to articles</Link>
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-3">
@@ -141,6 +143,9 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
             Will
           </a>
         </p>
+        <div className="mt-3">
+          <LastUpdatedBadge date={post.updatedAt || post.date} label="Last updated" />
+        </div>
         <p className="mt-3 text-reading max-w-3xl text-muted-soft">{post.excerpt}</p>
       </section>
 

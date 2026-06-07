@@ -37,7 +37,7 @@ const normalizedPosts = (Array.isArray(posts) ? posts : [])
 
 const items = normalizedPosts
   .map(post => {
-    const url = `${SITE}/blog/${post.slug}`
+    const url = `${SITE}/articles/${post.slug}`
     return `
     <item>
       <title><![CDATA[${post.title}]]></title>
@@ -53,7 +53,7 @@ const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
   <title>The Hippie Scientist Blog</title>
-  <link>${SITE}/blog</link>
+  <link>${SITE}/articles</link>
   <description>Psychoactive botany, safety, and DIY blend guides</description>
   <language>en</language>
   <lastBuildDate>${now}</lastBuildDate>
