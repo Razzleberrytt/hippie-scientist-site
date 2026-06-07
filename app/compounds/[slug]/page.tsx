@@ -205,6 +205,13 @@ export async function generateMetadata({ params }: PageProps) {
     }
   }
 
+  if (isRestrictedRecord(compound)) {
+    return {
+      ...metadata,
+      robots: { index: false, follow: true },
+    }
+  }
+
   return metadata
 }
 

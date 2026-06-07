@@ -114,6 +114,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
+  if (isRestrictedRecord(herb)) {
+    return {
+      ...metadata,
+      robots: { index: false, follow: true },
+    }
+  }
+
   return metadata
 }
 

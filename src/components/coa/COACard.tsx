@@ -74,7 +74,7 @@ export default function COACard({ coa }: COACardProps) {
       )}
 
       {coa.pdfUrl && (
-        <a href={coa.pdfUrl} target='_blank' rel='noreferrer' className='text-sm font-semibold text-brand-800 hover:text-brand-700 underline'>
+        <a href={coa.pdfUrl} target='_blank' rel='noopener noreferrer' className='text-sm font-semibold text-brand-800 hover:text-brand-700 underline'>
           Open full COA PDF
         </a>
       )}

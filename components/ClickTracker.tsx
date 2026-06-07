@@ -55,14 +55,9 @@ export default function ClickTracker() {
           console.log('[Analytics] Affiliate Click tracked:', eventData)
         }
 
-        // 3. Persist local log for debugging/instrumentation
-        try {
-          const clicks = JSON.parse(localStorage.getItem('affiliate_clicks') || '[]')
-          clicks.push(eventData)
-          localStorage.setItem('affiliate_clicks', JSON.stringify(clicks.slice(-100))) // keep last 100
-        } catch {
-          // ignore localStorage issues
-        }
+        // 3. No localStorage click log (privacy: affiliate clicks are only sent to consented analytics if gtag present).
+        //    Previously stored full eventData (href, route, CTA, ingredient, ts) in localStorage under 'affiliate_clicks'.
+        //    Removed to reduce stored data; rely on GA4 (gated by consent) + dev console only.
       }
     }
 

@@ -20,6 +20,7 @@ import {
   publicSafetyLabel,
 } from '@/lib/decision-primitives'
 import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
+import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 
 type SearchType = 'Herb' | 'Compound'
 type FilterType = 'All' | 'Herb' | 'Compound'
@@ -492,8 +493,14 @@ export default function SearchClient() {
   const searchIntent = getSearchIntent(normalizedQuery)
 
   const searchItems = useMemo(() => {
-    const herbs = (herbsSummaryData as any[]).map(item => normalizeItem(item, 'Herb')).filter(Boolean) as SearchItem[]
-    const compounds = (compoundsSummaryData as any[]).map(item => normalizeItem(item, 'Compound')).filter(Boolean) as SearchItem[]
+    const herbs = (herbsSummaryData as any[])
+      .filter((item: any) => !isRestrictedRecord(item))
+      .map(item => normalizeItem(item, 'Herb'))
+      .filter(Boolean) as SearchItem[]
+    const compounds = (compoundsSummaryData as any[])
+      .filter((item: any) => !isRestrictedRecord(item))
+      .map(item => normalizeItem(item, 'Compound'))
+      .filter(Boolean) as SearchItem[]
     return [...herbs, ...compounds].sort(compareAuthority)
   }, [])
 

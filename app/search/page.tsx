@@ -29,13 +29,13 @@ export default function SearchPage() {
     { name: 'Turmeric/Curcumin', href: '/herbs/turmeric/' },
     { name: 'Melatonin', href: '/compounds/melatonin/' },
     { name: 'L-Theanine', href: '/compounds/l-theanine/' },
-    { name: 'Rhodiola', href: '/herbs/rhodiola-rosea/' },
-    { name: 'Bacopa', href: '/herbs/bacopa-monnieri/' },
+    { name: 'Rhodiola', href: '/herbs/rhodiola/' },
+    { name: 'Bacopa', href: '/herbs/bacopa/' },
     { name: 'Berberine', href: '/compounds/berberine/' },
     { name: 'NMN', href: '/compounds/nmn/' },
     { name: 'Tongkat Ali', href: '/herbs/tongkat-ali/' },
-    { name: 'Fadogia Agrestis', href: '/herbs/fadogia-agrestis/' },
-    { name: 'Black Seed Oil', href: '/herbs/black-seed-oil/' },
+    { name: 'Fadogia Agrestis', href: '/compounds/fadogia-agrestis/' },
+    { name: 'Black Seed Oil', href: '/compounds/black-seed-oil/' },
     { name: 'Boron', href: '/compounds/boron/' },
     { name: 'Apigenin', href: '/compounds/apigenin/' },
   ]
@@ -61,8 +61,11 @@ export default function SearchPage() {
         </p>
       </div>
 
-      {/* Static search directory for SEO indexing and JS-disabled users */}
-      <div id="static-search-links" className="mb-8 space-y-6 rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+      {/* Static search directory for SEO indexing, no-JS users, and quick navigation.
+          Intentionally visible for all users (JS + no-JS) to provide accessible entry points
+          and crawlable links without relying on client hydration. The interactive search UI below
+          offers enhanced filtering and discovery. */}
+      <div className="mb-8 space-y-6 rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <p className="text-sm leading-6 text-muted">
           Our search database indexes 290 herb profiles and 617 compound profiles. Compare primary active constituents, traditional uses, clinical human evidence levels, safety warnings, and drug interactions across popular adaptogens, amino acids, and minerals.
         </p>
@@ -108,12 +111,6 @@ export default function SearchPage() {
           </div>
         </div>
       </div>
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.getElementById('static-search-links')?.classList.add('hidden');`
-        }}
-      />
 
       <Suspense fallback={<SearchSkeleton />}>
         <SearchClient />

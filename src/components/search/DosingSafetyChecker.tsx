@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { AlertTriangle, Info, Weight, ShieldAlert } from 'lucide-react'
+import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 
 type SubstanceItem = {
   slug: string
@@ -27,9 +28,11 @@ export default function DosingSafetyChecker({ items }: DosingSafetyCheckerProps)
   const [weight, setWeight] = useState<number | ''>('')
   const [weightUnit, setWeightUnit] = useState<'kg' | 'lbs'>('kg')
 
-  // Filter list to only items that have name/slug
+  // Filter list to only items that have name/slug; exclude restricted (no dosing UI for controlled/high-risk substances)
   const selectableItems = useMemo(() => {
-    return items.filter(item => item.name && item.slug).sort((a, b) => a.name.localeCompare(b.name))
+    return items
+      .filter(item => item.name && item.slug && !isRestrictedRecord(item))
+      .sort((a, b) => a.name.localeCompare(b.name))
   }, [items])
 
   const selectedItem = useMemo(() => {

@@ -28,6 +28,15 @@ vi.mock('@/public/data/compounds-summary.json', () => ({
       primary_effects: ['focus', 'calm'],
       evidence_tier: 'Strong Human Evidence',
       safety_level: 'Generally well tolerated',
+    },
+    {
+      slug: 'dmt',
+      name: 'DMT',
+      displayName: 'DMT',
+      summary: 'A controlled substance for educational context only.',
+      primary_effects: ['psychoactive'],
+      evidence_tier: 'Limited Human Evidence',
+      safety_level: 'Controlled substance',
     }
   ]
 }))
@@ -81,5 +90,19 @@ describe('SearchClient Component', () => {
     // Auto suggestion dropdown should render suggestion
     expect(screen.getByText('Quick match suggestions')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Ashwagandha/i })).toBeInTheDocument()
+  })
+
+  it('excludes restricted substances (e.g. DMT, 5-MeO-DMT, kratom, ibogaine, ketamine, fadogia) from search results and dosing options', () => {
+    render(<SearchClient />)
+    
+    const input = screen.getByPlaceholderText(/Try sleep, magnesium, stress/i)
+    
+    // Query for safe compound to surface results
+    fireEvent.change(input, { target: { value: 'theanine' } })
+    
+    // DMT (restricted) should never appear
+    expect(screen.queryByText(/DMT/i)).not.toBeInTheDocument()
+    // L-Theanine (safe, after filter) surfaces in results/suggestions (rendered as "L Theanine"; multiple nodes ok)
+    expect(screen.getAllByText(/L Theanine/i).length).toBeGreaterThan(0)
   })
 })

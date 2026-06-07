@@ -74,7 +74,7 @@ export default function PrivacyPage() {
             <div>
               <h3 className='text-lg font-bold text-ink mb-1'>2. Cookies and Tracking</h3>
               <p>
-                This site uses cookies and local storage to analyze site usage and support affiliate links (such as Amazon Associates). Affiliate networks use tracking parameters to attribute purchase credits; they control their own cookie policies. You can manage or block cookies via your browser settings.
+                This site uses cookies and local storage to analyze site usage (if you opt in via Privacy settings) and to support affiliate link attribution. Affiliate networks (e.g. Amazon Associates) use their own tracking parameters and cookies to attribute purchases; they control their own privacy practices. We do not store full affiliate click histories in browser localStorage. Anonymous interaction events may be sent to consented analytics (GA4) when enabled. You can manage or block cookies via your browser settings or the Privacy settings control in the footer.
               </p>
             </div>
 
