@@ -1,8 +1,10 @@
+import { TOTAL_PROFILE_COUNT } from './profile-counts'
+
 const DEFAULT_SITE_URL = 'https://thehippiescientist.net'
 const DEFAULT_SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_DESCRIPTION_MAX_LENGTH = 155
 export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
-export const DEFAULT_DESCRIPTION = 'The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for 900+ profiles.'
+export const DEFAULT_DESCRIPTION = `The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for ${TOTAL_PROFILE_COUNT}+ profiles.`
 export const TWITTER_HANDLE = '@HippieScientist'
 export const DEFAULT_OG_IMAGE = '/og-default.jpg'
 

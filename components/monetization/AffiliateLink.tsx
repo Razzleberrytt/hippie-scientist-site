@@ -18,6 +18,16 @@ export function AffiliateLink({
   merchant,
   className = '',
 }: AffiliateLinkProps) {
+  const isValid = typeof href === 'string' && (href.startsWith('/') || href.startsWith('http://') || href.startsWith('https://'))
+
+  if (!isValid) {
+    return (
+      <span className={`${className} cursor-not-allowed opacity-60`} title="Link unavailable">
+        {children}
+      </span>
+    )
+  }
+
   if (!isExternal(href)) {
     return (
       <Link href={href} className={className}>

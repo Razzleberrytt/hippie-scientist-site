@@ -40,6 +40,7 @@ export default defineConfig({
       '@/lib/decision-primitives': path.resolve(__dirname, './lib/decision-primitives'),
       '@/lib/evidence': path.resolve(__dirname, './lib/evidence'),
       '@/lib/safety-classification': path.resolve(__dirname, './lib/safety-classification'),
+      '@/lib/profile-counts': path.resolve(__dirname, './lib/profile-counts'),
       '@/lib': path.resolve(__dirname, './src/lib'),
       '@/config': path.resolve(__dirname, './config'),
       '@/types': path.resolve(__dirname, './src/types'),

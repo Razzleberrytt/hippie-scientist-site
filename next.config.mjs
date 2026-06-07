@@ -29,8 +29,8 @@ const nextConfig = {
   webpack: (config, { webpack }) => {
     const buildDate = new Date().toISOString().split('T')[0]
     const buildTime = new Date().toISOString()
-    const rawHash = process.env.COMMIT_HASH || process.env.CF_PAGES_COMMIT_SHA
-    const commitHash = rawHash && rawHash !== 'unknown' ? rawHash.slice(0, 7) : 'dev'
+    const rawHash = process.env.COMMIT_HASH || process.env.CF_PAGES_COMMIT_SHA || process.env.NEXT_PUBLIC_COMMIT_SHA
+    const commitHash = rawHash && rawHash !== 'unknown' && rawHash !== 'local' ? rawHash.slice(0, 7) : 'local'
     const appVersion = process.env.APP_VERSION || '1.0.0'
 
     config.plugins.push(

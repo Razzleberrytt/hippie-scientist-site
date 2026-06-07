@@ -26,6 +26,7 @@ import {
 } from '@/lib/research-intelligence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
+import Disclaimer from '@/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
@@ -624,6 +625,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
       <AuthorCredentials />
 
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">

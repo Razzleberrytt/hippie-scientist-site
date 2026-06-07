@@ -103,7 +103,8 @@
     "audit:internal-links": "node scripts/ci/audit-internal-links.mjs",
     "audit:structured-data": "node scripts/ci/audit-structured-data.mjs",
     "enrichment:release-gate": "node scripts/enrichment/release-gate.mjs",
-    "check:release": "npm run typecheck && npm run lint && npm run validate:static-export && npm run validate:security-headers && npm run validate:canonical-host && npm run validate:fonts && npm audit --omit=dev && npm run build && npm run validate:sitemap:built && npm run validate:footer-build-hash && npm run validate:build-artifacts"
+    "check:release": "npm run typecheck && npm run lint && npm run validate:static-export && npm run validate:security-headers && npm run validate:canonical-host && npm run validate:fonts && npm audit --omit=dev && npm run build && npm run validate:sitemap:built && npm run validate:footer-build-hash && npm run validate:build-artifacts",
+    "validate:release": "npm run check:data && npm run typecheck && npm run lint && npm run validate:canonical-host && npm run build:fast && npm run build:pagefind && npm run validate:build-artifacts"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",

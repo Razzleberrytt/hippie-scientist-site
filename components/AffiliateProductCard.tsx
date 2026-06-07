@@ -30,7 +30,9 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
   const title = product.title || product.name || 'Supplement option'
   const imageUrl = product.imageUrl || product.image
   const rationale = product.rationale || product.notes || 'Review the label, dose, third-party testing, and safety context before buying.'
-  const affiliateUrl = product.affiliateUrl || product.url || product.link || '#'
+  const rawUrl = product.affiliateUrl || product.url || product.link
+  const isValidUrl = typeof rawUrl === 'string' && (rawUrl.startsWith('http://') || rawUrl.startsWith('https://'))
+  const affiliateUrl = isValidUrl ? rawUrl : ''
   const ctaLabel = product.ctaLabel || 'Check current price'
 
   return (
@@ -67,20 +69,26 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
           </p>
         ) : null}
 
-        <a
-          href={affiliateUrl}
-          target='_blank'
-          rel='noopener noreferrer nofollow sponsored'
-          onClick={() => trackRevenueEvent({
-            kind: 'recommendation_click',
-            location: product.trackingLocation || 'recommendation-section',
-            label: title,
-            target: affiliateUrl,
-          })}
-          className='mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900'
-        >
-          {ctaLabel}
-        </a>
+        {isValidUrl ? (
+          <a
+            href={affiliateUrl}
+            target='_blank'
+            rel='noopener noreferrer nofollow sponsored'
+            onClick={() => trackRevenueEvent({
+              kind: 'recommendation_click',
+              location: product.trackingLocation || 'recommendation-section',
+              label: title,
+              target: affiliateUrl,
+            })}
+            className='mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900'
+          >
+            {ctaLabel}
+          </a>
+        ) : (
+          <span className='mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-50 border border-brand-900/10 px-4 py-2.5 text-sm font-bold text-muted cursor-not-allowed'>
+            Product Unavailable
+          </span>
+        )}
       </div>
     </article>
   )

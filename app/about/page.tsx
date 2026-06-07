@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
 import AuthorCredentials from '@/components/AuthorCredentials'
 
 export default function AboutPage() {
@@ -33,7 +34,7 @@ export default function AboutPage() {
         </h1>
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg">
-          The Hippie Scientist is an evidence-first reference for herbs, supplements, and compounds. We publish mechanism, safety, and practical context for 900+ profiles — plain-English, conservative on claims, and grounded in the strength of available research.
+          The Hippie Scientist is an evidence-first reference for herbs, supplements, and compounds. We publish mechanism, safety, and practical context for {TOTAL_PROFILE_COUNT}+ profiles — plain-English, conservative on claims, and grounded in the strength of available research.
         </p>
 
         <div className="mt-7 flex flex-wrap gap-3">
