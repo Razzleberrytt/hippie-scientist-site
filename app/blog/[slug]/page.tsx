@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
 
   if (!post) return {}
 
-  const path = `/blog/${resolvedParams.slug}`
+  const path = `/research-notes/${resolvedParams.slug}`
   const base = {
     title: post.title,
     description: post.excerpt || 'Research note with mechanisms, evidence, and safety context.',
@@ -86,15 +86,15 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
 
   // Use reusable breadcrumb + BlogPosting (Article) from central helper
   const pageBreadcrumb = breadcrumbJsonLd([
-    { name: 'Blog', url: 'https://thehippiescientist.net/blog' },
-    { name: post.title, url: `https://thehippiescientist.net/blog/${post.slug}` },
+    { name: 'Research Notes', url: 'https://thehippiescientist.net/research-notes' },
+    { name: post.title, url: `https://thehippiescientist.net/research-notes/${post.slug}` },
   ])
   const blogLd = blogJsonLd({
     title: post.title,
     slug: post.slug,
     date: post.date || '2026-01-01',
     excerpt: post.excerpt,
-  }, `/blog/${resolvedParams.slug}`)
+  }, `/research-notes/${resolvedParams.slug}`)
 
   return (
     <article className="mx-auto max-w-5xl space-y-8 px-4 pb-20 sm:px-6 lg:px-8">
@@ -109,8 +109,8 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
       />
 
       <nav className="flex items-center gap-2 text-sm text-muted">
-        <Link href="/blog" className="transition hover:text-ink">
-          Blog
+        <Link href="/research-notes" className="transition hover:text-ink">
+          Research Notes
         </Link>
 
         <span>/</span>
@@ -126,7 +126,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         </div>
       )}
 
-      <Link href="/blog" className="text-sm font-bold text-brand-800">&lt;- Back to research notes</Link>
+      <Link href="/research-notes" className="text-sm font-bold text-brand-800">&lt;- Back to research notes</Link>
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-3">

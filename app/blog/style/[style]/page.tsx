@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: BlogStyleRouteProps): Promise
   return buildPageMetadata({
     title: `${group.title} | Research Notes`,
     description: group.description,
-    path: group.href || `/blog/style/${style}`,
+    path: group.href || `/research-notes/style/${style}`,
     openGraphType: 'website',
   })
 }
@@ -51,7 +51,7 @@ export default async function BlogStylePage({ params }: BlogStyleRouteProps) {
   return (
     <div className="section-spacing pb-10">
       <nav className="flex items-center gap-2 text-sm text-muted">
-        <Link href="/blog" className="transition hover:text-ink">
+        <Link href="/research-notes" className="transition hover:text-ink">
           Research notes
         </Link>
         <span>/</span>
@@ -71,7 +71,7 @@ export default async function BlogStylePage({ params }: BlogStyleRouteProps) {
             <p className="eyebrow-label">Archive</p>
             <h2 className="mt-2 max-w-3xl">{group.title}</h2>
           </div>
-          <Link href="/blog" className="text-sm font-semibold text-brand-800 transition hover:text-brand-900">
+          <Link href="/research-notes" className="text-sm font-semibold text-brand-800 transition hover:text-brand-900">
             View all notes
           </Link>
         </div>
@@ -81,7 +81,7 @@ export default async function BlogStylePage({ params }: BlogStyleRouteProps) {
             <ContentIdentityCard
               key={post.slug}
               item={{
-                href: `/blog/${post.slug}`,
+                href: `/research-notes/${post.slug}`,
                 title: post.title,
                 description: truncateText(post.excerpt, 130),
                 meta: `${inferArticleStyle(post)} - ${formatDate(post.date)}`,

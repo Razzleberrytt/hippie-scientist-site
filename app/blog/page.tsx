@@ -16,7 +16,7 @@ import { clampPositiveInt } from '@/lib/pagination'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Research Notes',
   description: '75+ research notes on herbs, compounds, safety, and preparation. Mechanisms, evidence, and practical context for evidence-driven readers.',
-  path: '/blog',
+  path: '/research-notes',
   openGraphType: 'website',
 })
 
@@ -34,13 +34,13 @@ function getPostCategory(post: BlogPost): { label: string; href: string } {
     (g.slug === 'extraction-preparation' && (style.toLowerCase().includes('preparation') || style.toLowerCase().includes('extraction'))) ||
     (g.slug === 'safety-set-setting' && style.toLowerCase().includes('safety'))
   )
-  return group ? { label: group.title, href: group.href } : { label: 'Editorial note', href: '/blog' }
+  return group ? { label: group.title, href: group.href } : { label: 'Editorial note', href: '/research-notes' }
 }
 
 function BlogCard({ post }: { post: BlogPost }) {
   const cat = getPostCategory(post)
   const excerpt = truncateText(post.excerpt, 160)
-  const href = `/blog/${post.slug}`
+  const href = `/research-notes/${post.slug}`
 
   return (
     <article className="flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm transition hover:border-brand-700/20">
@@ -89,13 +89,13 @@ function CategoryFilterBar({ active }: { active: string }) {
   return (
     <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
       <Link
-        href="/blog"
+        href="/research-notes"
         className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${!active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
       >
         All notes
       </Link>
       {BLOG_STYLE_GROUPS.map((g) => {
-        const href = `/blog?category=${g.slug}`
+        const href = `/research-notes?category=${g.slug}`
         const isActive = active === g.slug
         return (
           <Link
@@ -119,7 +119,7 @@ function BlogItemListJsonLd({ posts }: { posts: BlogPost[] }) {
     itemListElement: posts.slice(0, 200).map((post, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `${SITE_URL}/blog/${post.slug}`,
+      url: `${SITE_URL}/research-notes/${post.slug}`,
       name: post.title,
     })),
   }
@@ -174,7 +174,7 @@ export default async function BlogPage({
     if (cat) params.set('category', cat)
     if (p > 1) params.set('page', String(p))
     const qs = params.toString()
-    return qs ? `/blog?${qs}` : '/blog'
+    return qs ? `/research-notes?${qs}` : '/research-notes'
   }
 
   return (
@@ -214,7 +214,7 @@ export default async function BlogPage({
 
         {pageItems.length === 0 ? (
           <div className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-6 text-sm text-[#46574d]">
-            No notes in this filter. <Link href="/blog" className="font-semibold text-brand-800">View all</Link>.
+            No notes in this filter. <Link href="/research-notes" className="font-semibold text-brand-800">View all</Link>.
           </div>
         ) : (
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -251,7 +251,7 @@ export default async function BlogPage({
         <ul>
           {filtered.map((post) => (
             <li key={post.slug}>
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              <Link href={`/research-notes/${post.slug}`}>{post.title}</Link>
             </li>
           ))}
         </ul>

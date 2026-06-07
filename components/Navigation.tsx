@@ -8,7 +8,8 @@ import { SearchModal } from './SearchModal'
 
 const desktopLinks = [
   { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Articles' },
+  { href: '/guides', label: 'Guides & Articles' },
+  { href: '/research-notes', label: 'Research Notes' },
   { href: '/compare', label: 'Comparisons' },
   { href: '/goals', label: 'Goal Guides' },
   { href: '/about', label: 'About' },
@@ -53,7 +54,7 @@ export function Navigation() {
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
-    if (href === '/blog') return pathname === '/blog' || pathname.startsWith('/blog/') || pathname.startsWith('/articles/')
+    if (href === '/research-notes') return pathname === '/research-notes' || pathname.startsWith('/research-notes/') || pathname.startsWith('/articles/') || pathname === '/blog' || pathname.startsWith('/blog/')
     return pathname === href || pathname.startsWith(href + '/')
   }
 
