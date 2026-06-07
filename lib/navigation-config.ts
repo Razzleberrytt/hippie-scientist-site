@@ -215,14 +215,14 @@ export const routeLabels: Record<string, RouteMetadata> = {
     isDynamic: true,
   },
   '/learn': {
-    label: 'Guides',
-    description: 'Educational guides (migrated to /guides)',
-    parent: '/',
+    label: 'Articles',
+    description: 'Educational articles and practical learning content',
+    parent: '/articles',
   },
   '/learn/[slug]': {
-    label: 'Guide',
-    description: 'Supplement guide',
-    parent: '/guides',
+    label: 'Article',
+    description: 'Educational article',
+    parent: '/articles',
     isDynamic: true,
   },
   '/tools': {

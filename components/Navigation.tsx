@@ -54,8 +54,8 @@ export function Navigation() {
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
-    if (href === '/articles') return pathname === '/articles' || pathname.startsWith('/articles/') || pathname === '/research-notes' || pathname.startsWith('/research-notes/') || pathname === '/blog' || pathname.startsWith('/blog/')
-    if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/') || pathname === '/learn' || pathname.startsWith('/learn/')
+    if (href === '/articles') return pathname === '/articles' || pathname.startsWith('/articles/') || pathname === '/learn' || pathname.startsWith('/learn/') || pathname === '/research-notes' || pathname.startsWith('/research-notes/') || pathname === '/blog' || pathname.startsWith('/blog/')
+    if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/')
     return pathname === href || pathname.startsWith(href + '/')
   }
 
