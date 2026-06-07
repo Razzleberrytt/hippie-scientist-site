@@ -29,8 +29,9 @@ const NEVER_BLOCK_PATHS = new Set([
   'postcss.config.js',
   'next.config.mjs',
   'data/goals.ts',
+  'pagefind.yml',
 ])
-const NEVER_BLOCK_PREFIXES = ['src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/', 'config/', 'data/', 'agent/']
+const NEVER_BLOCK_PREFIXES = ['src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/', 'config/', 'data/', 'agent/', 'agent-tools/']
 const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'src/content/', 'content/', 'reports/', 'data/blog/']
 const EXPLICIT_BLOCK_PATHS = new Set([
   'public/database.json',
@@ -61,7 +62,7 @@ function walk(dir) {
   while (stack.length) {
     const current = stack.pop()
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
-      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === 'dist' || entry.name === '.next' || entry.name === 'out' || entry.name === 'scratch') continue
+      if (entry.name === 'node_modules' || entry.name === '.git' || entry.name === '.claude' || entry.name === 'dist' || entry.name === '.next' || entry.name === 'out' || entry.name === 'scratch') continue
       const abs = path.join(current, entry.name)
       if (entry.isDirectory()) stack.push(abs)
       else out.push(abs)

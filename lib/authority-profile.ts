@@ -70,6 +70,10 @@ export function buildExecutiveSummary(record: any): AuthoritySignal[] {
 }
 
 export function buildBestForSignals(record: any): AuthoritySignal[] {
+  // Placeholder tags like "research pending" and "research only" are suppressed here via the
+  // cleanSignals → dedupeEditorialItems → isWeakSemanticValue pipeline in editorial-rendering.ts.
+  // Additionally, list() calls formatDisplayLabel() which calls hideInternalValue(), which
+  // matches INTERNAL_PATTERNS in display-utils.ts (covers both patterns).
   return cleanSignals([
     ...list(record?.best_for),
     ...list(record?.bestFor),

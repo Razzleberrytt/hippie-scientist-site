@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
+import { HERB_COUNT, COMPOUND_COUNT } from '@/lib/profile-counts'
 import { goals } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import NewsletterCtaBlock from './NewsletterCtaBlock'
@@ -45,7 +46,7 @@ function interleaveFeatured(herbs: LandingCard[], compounds: LandingCard[]) {
 const trustStrip = [
   'Human trials separated from mechanism-only claims',
   'Safety & drug interactions surfaced first',
-  '295 herbs · 600+ compounds reviewed',
+  `${HERB_COUNT} herbs · ${COMPOUND_COUNT} compounds reviewed`,
 ]
 
 const wizardSteps = [
@@ -181,7 +182,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 Supplement Science Without the&nbsp;Hype
               </h1>
               <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
-                295 herb profiles and 600+ compound reviews — each one separating what the clinical trials actually show from mechanism-only marketing claims.
+                {HERB_COUNT} herb profiles and {COMPOUND_COUNT} compound reviews — each one separating what the clinical trials actually show from mechanism-only marketing claims.
               </p>
               <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
                 <Link

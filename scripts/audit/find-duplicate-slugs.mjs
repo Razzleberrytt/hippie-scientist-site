@@ -1,6 +1,24 @@
 import fs from 'fs';
 import path from 'path';
 
+// Pairs that the similarity algorithm incorrectly groups — these are distinct substances
+// that happen to have similar slug names. Never auto-redirect these.
+const DENY_REDIRECT_PAIRS = new Set([
+  'iron|boron', 'boron|iron',
+  'iron|morin', 'morin|iron',
+  'dim|msm', 'msm|dim',
+  'lutein|actein', 'actein|lutein',
+  'kava|gaba', 'gaba|kava',
+  'kavain|papain', 'papain|kavain',
+  'loganin|wogonin', 'wogonin|loganin',
+  'taurine|matrine', 'matrine|taurine',
+  'carnosol|farnesol', 'farnesol|carnosol',
+  'choline|proline', 'proline|choline',
+  'maca|cacao', 'cacao|maca',
+  'hmb|bhb', 'bhb|hmb',
+  'nr|nmn', 'nmn|nr',
+]);
+
 // Helper to ensure directory exists
 function ensureDirExists(dirPath) {
   if (!fs.existsSync(dirPath)) {
@@ -157,7 +175,7 @@ function runAudit() {
         // Match Rule B: Levenshtein distance of slugs < 3
         else if (levenshtein(slug1, slug2) < 3) {
           isMatch = true;
-          confidence = slug1.length > 4 ? 'HIGH' : 'MEDIUM';
+          confidence = slug1.length > 5 ? 'HIGH' : 'MEDIUM';
           reason = `Slug Levenshtein distance = ${levenshtein(slug1, slug2)}`;
         }
         // Match Rule C: Scientific/Latin name matching clean name or slug
@@ -200,6 +218,11 @@ function runAudit() {
             confidence = 'MEDIUM';
             reason = 'One name is subset of other name (e.g. extract / berry variation)';
           }
+        }
+
+        // Deny-list check: skip known false-positive pairs regardless of algorithm confidence
+        if (isMatch && DENY_REDIRECT_PAIRS.has(`${slug1}|${slug2}`)) {
+          isMatch = false;
         }
 
         if (isMatch) {
@@ -251,7 +274,7 @@ function runAudit() {
           // Find match details to check confidence
           const match = g.matches.find(m => m.slug === c.item.slug);
           const conf = match ? match.confidence : 'LOW';
-          if (conf === 'HIGH' || conf === 'MEDIUM') {
+          if (conf === 'HIGH') {
             const redirectPath = `${prefix}/${c.item.slug}`;
             allRedirects[redirectPath] = canonicalPath;
           }
