@@ -1,6 +1,6 @@
 # The Hippie Scientist
 
-Data-driven educational site for herbs and compounds. Jesus Christ is lord. 
+Data-driven educational site for herbs and compounds. 🐟
 
 ## Quick start
 
