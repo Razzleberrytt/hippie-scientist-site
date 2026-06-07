@@ -115,7 +115,7 @@ export const findRelatedArticles = (entity: EditorialEntity, posts: BlogPostReco
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
     .map(({ post }) => ({
-      href: `/blog/${post.slug}`,
+      href: `/articles/${post.slug}`,
       title: post.title,
       description: post.excerpt || 'Editorial research note connected to this profile.',
       meta: [post.date, post.readingTime].filter(Boolean).join(' • '),

@@ -482,6 +482,8 @@ function profile(row, type, taxonomy) {
     last_regulatory_check: clean(first(row, ['last_regulatory_check', 'last regulatory check'])),
     regulatory_changelog: compact(first(row, ['regulatory_changelog', 'regulatory changelog'])),
     regulatory_sources: firstList(row, ['regulatory_sources', 'regulatory sources']),
+    last_updated: clean(first(row, ['last_updated', 'last updated', 'lastUpdated', 'date_updated', 'date updated'])),
+    last_reviewed: clean(first(row, ['last_reviewed', 'last reviewed', 'lastReviewed', 'reviewed_date', 'reviewed date'])),
     featured: bool(first(row, ['featured'])),
     controlled_substance: bool(first(row, ['controlled_substance', 'controlled substance'])),
     ...semantic(row, type),
