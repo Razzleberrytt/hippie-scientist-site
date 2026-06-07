@@ -19,6 +19,11 @@ export default async function HerbsPage() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-5 px-4 py-4 sm:py-6">
+      <div className="space-y-1 pb-1">
+        <p className="eyebrow-label">Botanical Research Library</p>
+        <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Herb Profiles</h1>
+        <p className="text-sm text-muted">Mechanisms, safety notes, active compounds, and research context for {herbs.length} herbs — plain language, conservative claims.</p>
+      </div>
       <nav className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-3 text-sm">
         <p className="font-semibold">Page 1 of {pageData.totalPages}</p>
         {pageData.hasNext ? <Link rel="next" href="/herbs/page/2">Next page →</Link> : null}

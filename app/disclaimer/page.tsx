@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/disclaimer',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 }
 
 export default function DisclaimerPage() {

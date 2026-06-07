@@ -12,7 +12,9 @@ import { FooterEmailCapture } from '@/components/monetization/FooterEmailCapture
 const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
-  { href: PUBLIC_ROUTES.build, label: 'Build a Blend' },
+  { href: '/compare', label: 'Compare' },
+  { href: PUBLIC_ROUTES.blog, label: 'Learn' },
+  { href: '/search', label: 'Search' },
   { href: '/goals', label: 'Goals' },
 ]
 

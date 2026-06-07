@@ -9,6 +9,7 @@ import StackCard from '@/components/StackCard'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
+import AuthorCredentials from '@/components/AuthorCredentials'
 
 type Params = { params: Promise<{ slug: string }> }
 type StackItemRecord = Record<string, any>
@@ -350,6 +351,8 @@ export default async function StackPage({ params }: Params) {
           </tbody>
         </table>
       </section>
+
+      <AuthorCredentials />
     </div>
   )
 }

@@ -86,7 +86,14 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h3 className='text-lg font-bold text-ink mb-1'>4. CCPA Compliance (California Residents)</h3>
+              <h3 className='text-lg font-bold text-ink mb-1'>4. Email Subscriptions</h3>
+              <p>
+                If you subscribe to Research Notes via the footer email form, your email address is transmitted to Mailchimp (an Intuit company) and stored there. We use it only to send evidence summaries and occasional long-form research notes. You can unsubscribe at any time via the link in any email we send. We do not sell or share your email address with other parties. Mailchimp's privacy practices are governed by <a href='https://www.intuit.com/privacy/statement/' className='text-emerald-700 hover:underline' rel='noopener noreferrer' target='_blank'>their own privacy statement</a>.
+              </p>
+            </div>
+
+            <div>
+              <h3 className='text-lg font-bold text-ink mb-1'>5. CCPA Compliance (California Residents)</h3>
               <p>
                 Under the California Consumer Privacy Act (CCPA), California consumers have the right to know what personal information is collected, request its deletion, and opt-out of any potential sale or sharing of personal data. The Hippie Scientist does not sell, lease, or share personal data to third parties for monetary gain.
               </p>
