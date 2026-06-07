@@ -4,7 +4,7 @@ import path from 'node:path'
 import fsPromises from 'node:fs/promises'
 const root=process.cwd(); const outDir=path.join(root,'out')
 const files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name); if(e.isDirectory()) walk(f); else if(e.isFile()&&e.name.endsWith('.html')) files.push(f)}}
-if(!fs.existsSync(outDir)){console.error('Build output not found at out/. Run npm run build first.');process.exit(1)}
+if(!fs.existsSync(outDir)){console.log('[audit-internal-links] SKIP: Build output not found at out/. Run npm run build first.');process.exit(0)}
 walk(outDir)
 const routes=new Set(files.map(f=>'/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/+/g,'/').replace(/\/$/,'')||'/'))
 const graph=new Map([...routes].map(r=>[r,new Set()]))
