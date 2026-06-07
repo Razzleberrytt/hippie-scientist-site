@@ -18,6 +18,10 @@ Use these scripts as the canonical release pipeline:
 - [ ] Run `npm run build`
 - [ ] Run `npm run verify:build`
 - [ ] Confirm expected diffs in content/data outputs (if running data/blog generation)
+- [ ] **Mailchimp env vars set in Cloudflare Pages**
+  - [ ] MAILCHIMP_API_KEY
+  - [ ] MAILCHIMP_AUDIENCE_ID
+  - [ ] MAILCHIMP_SERVER
 - [ ] Merge to `main` (Cloudflare Pages builds from the production branch)
 
 ## Deployment workflow reality
@@ -29,6 +33,4 @@ Use these scripts as the canonical release pipeline:
 
 ## Legacy (archived)
 
-The previous checklist in this file referenced unrelated game/store release tasks and is archived as obsolete for this repository.
-
-For detailed script ownership and generated-artifact policy, see `docs/build-and-verification.md`.
+The previous checklist in this file referenced unrelated game/store release tasks and is archive
