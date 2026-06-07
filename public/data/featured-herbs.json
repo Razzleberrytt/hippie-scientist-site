@@ -151,8 +151,17 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "insufficient",
     "evidence_tier": "Mechanistic Evidence",
-    "contraindications": [],
-    "interactions": [],
+    "contraindications": [
+      "Not source-complete in workbook",
+      "screen pregnancy",
+      "lactation",
+      "medical conditions",
+      "and medications before use."
+    ],
+    "interactions": [
+      "Not source-complete in workbook",
+      "check medication and supplement interactions before use."
+    ],
     "side_effects": [],
     "dosage": "",
     "typical_dosage": "",
@@ -197,7 +206,7 @@
         "mechanism-context",
         "non-publishable-profile-status",
         "profile-status:minimal",
-        "safety-context-missing",
+        "safety-context",
         "summary-depth",
         "summary-quality-missing"
       ]

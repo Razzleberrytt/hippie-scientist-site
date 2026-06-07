@@ -48,7 +48,10 @@
       "advanced kidney disease",
       "active renal monitoring concerns"
     ],
-    "interactions": [],
+    "interactions": [
+      "Not source-complete in workbook",
+      "check medication and supplement interactions before use."
+    ],
     "side_effects": [],
     "dosage": "3-5",
     "typical_dosage": "3-5",
@@ -159,7 +162,10 @@
       "advanced kidney disease",
       "active renal monitoring concerns"
     ],
-    "interactions": [],
+    "interactions": [
+      "Not source-complete in workbook",
+      "check medication and supplement interactions before use."
+    ],
     "side_effects": [],
     "dosage": "3-5",
     "typical_dosage": "3-5",
@@ -274,7 +280,10 @@
       "kidney disease",
       "high-dose laxative intolerance"
     ],
-    "interactions": [],
+    "interactions": [
+      "Not source-complete in workbook",
+      "check medication and supplement interactions before use."
+    ],
     "side_effects": [],
     "dosage": "200-400",
     "typical_dosage": "200-400",

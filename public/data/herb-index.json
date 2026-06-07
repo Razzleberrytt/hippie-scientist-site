@@ -6681,7 +6681,7 @@
         "mechanism-context",
         "non-publishable-profile-status",
         "profile-status:minimal",
-        "safety-context-missing",
+        "safety-context",
         "summary-depth",
         "summary-quality-missing"
       ]

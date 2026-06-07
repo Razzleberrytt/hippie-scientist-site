@@ -285,20 +285,20 @@
     "relationship": "partial"
   },
   {
-    "id": "bacopa-monnieri-bacopaside-ii",
-    "herb_slug": "bacopa-monnieri",
+    "id": "bacopa-bacopaside-ii",
+    "herb_slug": "bacopa",
     "compound_slug": "bacopaside-ii",
     "relationship": "partial"
   },
   {
-    "id": "bacopa-monnieri-bacoside-a",
-    "herb_slug": "bacopa-monnieri",
+    "id": "bacopa-bacoside-a",
+    "herb_slug": "bacopa",
     "compound_slug": "bacoside-a",
     "relationship": "partial"
   },
   {
-    "id": "bacopa-monnieri-bacoside-b",
-    "herb_slug": "bacopa-monnieri",
+    "id": "bacopa-bacoside-b",
+    "herb_slug": "bacopa",
     "compound_slug": "bacoside-b",
     "relationship": "partial"
   },
@@ -523,37 +523,6 @@
     "id": "capsicum-annuum-capsaicin",
     "herb_slug": "capsicum-annuum",
     "compound_slug": "capsaicin",
-    "relationship": "primary",
-    "notes": "Capsaicin activates TRPV1 receptors, increasing thermogenesis and reducing pain signaling."
-  },
-  {
-    "id": "capsicum-frutescens-capsaicin",
-    "herb_slug": "capsicum-frutescens",
-    "compound_slug": "capsaicin",
-    "relationship": "partial"
-  },
-  {
-    "id": "centella-asiatica-asiatic-acid",
-    "herb_slug": "centella-asiatica",
-    "compound_slug": "asiatic-acid",
-    "relationship": "partial"
-  },
-  {
-    "id": "centella-asiatica-asiaticoside",
-    "herb_slug": "centella-asiatica",
-    "compound_slug": "asiaticoside",
-    "relationship": "partial"
-  },
-  {
-    "id": "centella-asiatica-madecassic-acid",
-    "herb_slug": "centella-asiatica",
-    "compound_slug": "madecassic-acid",
-    "relationship": "partial"
-  },
-  {
-    "id": "centella-asiatica-madecassoside",
-    "herb_slug": "centella-asiatica",
-    "compound_slug": "madecassoside",
     "relationship": "partial"
   },
   {
@@ -786,25 +755,6 @@
     "relationship": "partial"
   },
   {
-    "id": "curcuma-longa-bisdemethoxycurcumin",
-    "herb_slug": "curcuma-longa",
-    "compound_slug": "bisdemethoxycurcumin",
-    "relationship": "partial"
-  },
-  {
-    "id": "curcuma-longa-curcumin",
-    "herb_slug": "curcuma-longa",
-    "compound_slug": "curcumin",
-    "relationship": "primary",
-    "notes": "Curcuminoids inhibit NF-κB and COX-2 pathways, reducing systemic inflammation and oxidative stress."
-  },
-  {
-    "id": "curcuma-longa-demethoxycurcumin",
-    "herb_slug": "curcuma-longa",
-    "compound_slug": "demethoxycurcumin",
-    "relationship": "partial"
-  },
-  {
     "id": "curcuma-wenyujin-beta-elemene",
     "herb_slug": "curcuma-wenyujin",
     "compound_slug": "beta-elemene",
@@ -1001,6 +951,13 @@
     "notes": "Unstable compound formed on crushing"
   },
   {
+    "id": "ginger-gingerols",
+    "herb_slug": "ginger",
+    "compound_slug": "gingerols",
+    "relationship": "partial",
+    "notes": "PMID:11710709; standardized extract context; pain-domain evidence."
+  },
+  {
     "id": "ginkgo-biloba-bilobetin",
     "herb_slug": "ginkgo-biloba",
     "compound_slug": "bilobetin",
@@ -1059,6 +1016,30 @@
     "id": "goldenseal-palmatine",
     "herb_slug": "goldenseal",
     "compound_slug": "palmatine",
+    "relationship": "partial"
+  },
+  {
+    "id": "gotu-kola-asiatic-acid",
+    "herb_slug": "gotu-kola",
+    "compound_slug": "asiatic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "gotu-kola-asiaticoside",
+    "herb_slug": "gotu-kola",
+    "compound_slug": "asiaticoside",
+    "relationship": "partial"
+  },
+  {
+    "id": "gotu-kola-madecassic-acid",
+    "herb_slug": "gotu-kola",
+    "compound_slug": "madecassic-acid",
+    "relationship": "partial"
+  },
+  {
+    "id": "gotu-kola-madecassoside",
+    "herb_slug": "gotu-kola",
+    "compound_slug": "madecassoside",
     "relationship": "partial"
   },
   {
@@ -1507,12 +1488,6 @@
     "relationship": "partial"
   },
   {
-    "id": "ocimum-sanctum-ursolic-acid",
-    "herb_slug": "ocimum-sanctum",
-    "compound_slug": "ursolic-acid",
-    "relationship": "partial"
-  },
-  {
     "id": "ocotea-odorifera-safrole",
     "herb_slug": "ocotea-odorifera",
     "compound_slug": "safrole",
@@ -1932,32 +1907,32 @@
     "relationship": "partial"
   },
   {
-    "id": "rhodiola-rosea-rosarin",
-    "herb_slug": "rhodiola-rosea",
+    "id": "rhodiola-rosarin",
+    "herb_slug": "rhodiola",
     "compound_slug": "rosarin",
     "relationship": "partial"
   },
   {
-    "id": "rhodiola-rosea-rosavin",
-    "herb_slug": "rhodiola-rosea",
+    "id": "rhodiola-rosavin",
+    "herb_slug": "rhodiola",
     "compound_slug": "rosavin",
     "relationship": "partial"
   },
   {
-    "id": "rhodiola-rosea-rosin",
-    "herb_slug": "rhodiola-rosea",
+    "id": "rhodiola-rosin",
+    "herb_slug": "rhodiola",
     "compound_slug": "rosin",
     "relationship": "partial"
   },
   {
-    "id": "rhodiola-rosea-salidroside",
-    "herb_slug": "rhodiola-rosea",
+    "id": "rhodiola-salidroside",
+    "herb_slug": "rhodiola",
     "compound_slug": "salidroside",
     "relationship": "partial"
   },
   {
-    "id": "rhodiola-rosea-tyrosol",
-    "herb_slug": "rhodiola-rosea",
+    "id": "rhodiola-tyrosol",
+    "herb_slug": "rhodiola",
     "compound_slug": "tyrosol",
     "relationship": "partial"
   },
@@ -2412,13 +2387,6 @@
     "relationship": "partial"
   },
   {
-    "id": "withania-somnifera-withanolides",
-    "herb_slug": "withania-somnifera",
-    "compound_slug": "withanolides",
-    "relationship": "primary",
-    "notes": "Reduces cortisol via HPA axis modulation; enhances GABAergic signaling and reduces systemic inflammation."
-  },
-  {
     "id": "yerba-mate-apigenin",
     "herb_slug": "yerba-mate",
     "compound_slug": "apigenin",
@@ -2429,12 +2397,5 @@
     "herb_slug": "yerba-mate",
     "compound_slug": "caffeine",
     "relationship": "partial"
-  },
-  {
-    "id": "zingiber-officinale-gingerols",
-    "herb_slug": "zingiber-officinale",
-    "compound_slug": "gingerols",
-    "relationship": "partial",
-    "notes": "PMID:11710709; standardized extract context; pain-domain evidence."
   }
 ]

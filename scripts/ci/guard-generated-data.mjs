@@ -83,7 +83,17 @@ function getChangedFiles(base) {
     // Committed diff only (tree vs tree, ignore any working tree dirt / line endings in data).
     // Use two-commit form so that large working-tree modifications to public/data/*.json
     // (from running data build steps) do not pollute the "recently changed source files" list.
-    const out = execSync(`git diff --name-only --diff-filter=ACMR ${base}...HEAD`, {
+    let diffTarget = base
+    try {
+      const headSha = execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim()
+      const baseSha = execSync(`git rev-parse ${base}`, { encoding: 'utf8' }).trim()
+      if (headSha === baseSha) {
+        diffTarget = 'HEAD~1'
+      }
+    } catch {
+      // Ignore if rev-parse fails
+    }
+    const out = execSync(`git diff --name-only --diff-filter=ACMR ${diffTarget}...HEAD`, {
       cwd: REPO_ROOT,
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
