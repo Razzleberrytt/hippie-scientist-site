@@ -236,7 +236,12 @@
 # HERB CANONICAL REDIRECTS (generate-herb-redirects.mjs)
 /herbs/ashwagandha-withania-somnifera /herbs/ashwagandha 301
 /herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
+# Search Popular Links Redirects
+/herbs/rhodiola-rosea /herbs/rhodiola 301
 /herbs/rhodiola-rosea/ /herbs/rhodiola/ 301
+/herbs/bacopa-monnieri /herbs/bacopa 301
 /herbs/bacopa-monnieri/ /herbs/bacopa/ 301
+/herbs/fadogia-agrestis /compounds/fadogia-agrestis 301
 /herbs/fadogia-agrestis/ /compounds/fadogia-agrestis/ 301
-/herbs/black-seed-oil/ /herbs/black-seed/ 301
+/herbs/black-seed-oil /compounds/black-seed-oil 301
+/herbs/black-seed-oil/ /compounds/black-seed-oil/ 301
