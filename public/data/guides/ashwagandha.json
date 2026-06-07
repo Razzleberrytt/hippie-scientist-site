@@ -1,0 +1,171 @@
+{
+  "slug": "ashwagandha",
+  "title": "Ashwagandha",
+  "subtitle": "Adaptogen Evidence Review — Stress, Cortisol, and Sleep",
+  "category": "Adaptogen",
+  "heroImage": "/images/guides/ashwagandha.svg",
+  "lastUpdated": "2026-06-07",
+  "readingTime": 7,
+  "intro": "Ashwagandha (Withania somnifera) is the most clinically studied adaptogen for perceived stress, cortisol modulation, and sleep quality. Multiple RCTs using standardized KSM-66 and Sensoril extracts demonstrate consistent effects on stress biomarkers, with emerging evidence for testosterone and cognitive support. Understanding which extract and dose you're using matters significantly for interpreting results.",
+  "sections": [
+    {
+      "id": "what-is-ashwagandha",
+      "title": "What Is Ashwagandha?",
+      "body": "Ashwagandha is a small shrub in the nightshade family (Solanaceae) native to India, North Africa, and the Mediterranean. Used for over 3,000 years in Ayurvedic medicine as a rasayana (rejuvenating tonic), its modern interest is driven by a robust clinical trial base. The active constituents most studied are withanolides — steroidal lactones concentrated primarily in the root.",
+      "subsections": [
+        {
+          "title": "KSM-66 vs Sensoril",
+          "body": "KSM-66 is a root-only extract standardized to ≥5% withanolides, used in most clinical trials for cortisol, testosterone, and physical performance. Sensoril uses both root and leaf material, standardized to ≥10% withanolides, and is more represented in cognitive and sleep trials. Both are well-validated; the choice often depends on the specific outcome being targeted."
+        }
+      ]
+    },
+    {
+      "id": "mechanisms",
+      "title": "Mechanisms of Action",
+      "body": "Ashwagandha's adaptogenic effects operate through several parallel pathways. Its primary actions include modulation of the HPA axis (hypothalamic-pituitary-adrenal stress response), GABAergic signaling (contributing to anxiolytic and sleep-promoting effects), and potentially androgen receptor sensitivity.",
+      "subsections": [
+        {
+          "title": "HPA Axis Modulation",
+          "body": "Withanolides appear to buffer HPA axis reactivity, reducing cortisol output under chronic stress conditions. Multiple RCTs have confirmed reductions in serum cortisol of 15–30% compared to placebo in stressed populations."
+        },
+        {
+          "title": "GABAergic and Serotonergic Activity",
+          "body": "Ashwagandha demonstrates GABA-A receptor partial agonist activity, providing a plausible mechanism for its anxiolytic and sleep-latency effects. This also underpins its safety profile — it is not a full GABA agonist and does not produce tolerance or dependence at studied doses."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "Clinical Evidence Summary",
+      "body": "The ashwagandha evidence base is one of the strongest in the botanical adaptogen category. Effects on perceived stress and cortisol are well-replicated. Sleep quality improvements are supported by multiple trials. Testosterone effects are real but modest and secondary to stress reduction in most cases.",
+      "subsections": [
+        {
+          "title": "Stress and Cortisol",
+          "body": "A 2012 RCT (Chandrasekhar et al., IPGT) found 300mg KSM-66 twice daily reduced serum cortisol by 27.9% and PSS stress scores significantly vs. placebo over 60 days. Multiple subsequent trials have replicated the cortisol and PSS findings."
+        },
+        {
+          "title": "Sleep Quality",
+          "body": "A 2019 RCT (Langade et al.) using 300mg Sensoril twice daily found significant improvements in sleep quality index (PSQI), sleep onset latency, and total sleep time over 10 weeks in adults with insomnia."
+        },
+        {
+          "title": "Testosterone and Physical Performance",
+          "body": "A 2015 RCT (Wankhede et al.) in resistance-trained men found 300mg KSM-66 twice daily significantly increased testosterone (15–18%), muscle strength, and recovery vs. placebo over 8 weeks. Effects appear mediated partly through cortisol suppression rather than direct androgenicity."
+        }
+      ]
+    },
+    {
+      "id": "who-should-consider",
+      "title": "Who Should Consider Ashwagandha?",
+      "body": "Ashwagandha is best suited for adults experiencing chronic perceived stress, difficulty with sleep onset, or seeking mild hormonal support secondary to stress reduction. It is not a sedative, not a fast-acting anxiolytic, and not a replacement for clinical treatment of anxiety disorders. Full effects typically emerge after 4–8 weeks of consistent daily use.",
+      "blocks": [
+        {
+          "type": "warning",
+          "text": "Ashwagandha is contraindicated in pregnancy (documented abortifacient effects in high doses) and should be avoided by people with autoimmune conditions (Hashimoto's, lupus, MS) as it may stimulate immune activity. Discontinue at least 2 weeks before surgery."
+        },
+        {
+          "type": "tip",
+          "text": "Taking ashwagandha with a small amount of fat (e.g., milk or food) may modestly improve withanolide absorption, consistent with traditional Ayurvedic preparation in milk."
+        }
+      ]
+    }
+  ],
+  "evidenceHighlights": [
+    {
+      "claim": "Reduces serum cortisol by 15–28% under chronic stress conditions",
+      "level": "strong",
+      "context": "Multiple RCTs using KSM-66 300mg BID over 60 days in stressed adults"
+    },
+    {
+      "claim": "Improves sleep quality and reduces sleep onset latency",
+      "level": "moderate",
+      "context": "Sensoril 300mg BID; 10-week RCT in adults with mild insomnia"
+    },
+    {
+      "claim": "Increases testosterone ~15–18% in resistance-trained men",
+      "level": "moderate",
+      "context": "Likely secondary to cortisol suppression; 8-week RCT (n=57)"
+    },
+    {
+      "claim": "Reduces perceived stress scores (PSS) consistently",
+      "level": "strong",
+      "context": "Most replicated finding across 6+ RCTs with standardized extracts"
+    }
+  ],
+  "dosageGuidelines": [
+    {
+      "form": "KSM-66 Root Extract (≥5% withanolides)",
+      "range": "300–600 mg/day (split or single dose)",
+      "notes": "Most commonly studied dose. Take with food.",
+      "bioavailabilityNote": "Best validated for cortisol, testosterone, and physical performance"
+    },
+    {
+      "form": "Sensoril (Root + Leaf, ≥10% withanolides)",
+      "range": "125–250 mg/day (often split)",
+      "notes": "Lower milligram dose due to higher withanolide concentration",
+      "bioavailabilityNote": "Stronger evidence for sleep and cognitive outcomes"
+    },
+    {
+      "form": "Generic Ashwagandha Extract",
+      "range": "500–1000 mg/day",
+      "notes": "Variable withanolide content; match label to studied concentrations",
+      "bioavailabilityNote": "Verify standardization percentage; 'root powder' is not equivalent"
+    }
+  ],
+  "safetyNotes": [
+    {
+      "severity": "warning",
+      "text": "Contraindicated in pregnancy. Multiple traditional and animal sources document uterotonic and abortifacient activity at higher doses. Avoid entirely during pregnancy."
+    },
+    {
+      "severity": "caution",
+      "text": "May stimulate immune activity. People with autoimmune conditions (Hashimoto's thyroiditis, lupus, MS, rheumatoid arthritis) should consult a physician before use."
+    },
+    {
+      "severity": "info",
+      "text": "Rare reports of hepatotoxicity have been documented at very high doses (>1500mg/day for extended periods). Stick to studied dose ranges and cycle use (e.g., 8–12 weeks on, 4 weeks off) as a precaution."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/herbs/ashwagandha",
+      "label": "Ashwagandha Herb Profile",
+      "type": "herb",
+      "description": "Full monograph with mechanism detail, safety classifications, and citations."
+    },
+    {
+      "href": "/compounds/withanolides",
+      "label": "Withanolides",
+      "type": "compound",
+      "description": "The active steroidal lactones responsible for most adaptogenic effects."
+    },
+    {
+      "href": "/goals/stress",
+      "label": "Stress Support Goal",
+      "type": "goal",
+      "description": "Evidence-ranked options for stress, cortisol, and HPA axis support."
+    },
+    {
+      "href": "/compare/ashwagandha-vs-rhodiola",
+      "label": "Ashwagandha vs Rhodiola",
+      "type": "compare",
+      "description": "Head-to-head comparison of the two most-studied stress adaptogens."
+    },
+    {
+      "href": "/guides/how-to-lower-cortisol-naturally",
+      "label": "How to Lower Cortisol Naturally",
+      "type": "guide",
+      "description": "Practical guide for lifestyle and supplementation approaches to cortisol management."
+    },
+    {
+      "href": "/guides/best-natural-sleep-aids-that-work",
+      "label": "Best Natural Sleep Aids",
+      "type": "guide",
+      "description": "Sleep-support guide covering evidence quality, timing, and safety tradeoffs."
+    }
+  ],
+  "seo": {
+    "title": "Ashwagandha Guide — Cortisol, Stress, Sleep & Testosterone Evidence Review",
+    "description": "Evidence-based guide to ashwagandha: proven effects on cortisol and stress, how KSM-66 and Sensoril differ, dosing guidelines, and safety considerations including contraindications.",
+    "canonical": "/guides/ashwagandha"
+  }
+}
