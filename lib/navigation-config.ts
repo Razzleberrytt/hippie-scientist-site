@@ -83,9 +83,9 @@ export const mainNavigation: NavigationItem[] = [
     description: 'Side-by-side herb and compound comparisons',
   },
   {
-    label: 'Evidence Reviews',
+    label: 'Goal Guides',
     href: '/goals',
-    description: 'Health pathway guides with evidence-graded candidate compounds',
+    description: 'Goal-based decision guides with evidence-graded herbs and compounds',
   },
   {
     label: 'About',
