@@ -10,7 +10,7 @@ const desktopLinks = [
   { href: '/', label: 'Home' },
   { href: '/blog', label: 'Articles' },
   { href: '/compare', label: 'Comparisons' },
-  { href: '/goals', label: 'Evidence Reviews' },
+  { href: '/goals', label: 'Goal Guides' },
   { href: '/about', label: 'About' },
 ]
 
