@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "26448818",
+      "title": "Anti-Aging Potential of Phytoextract Loaded-Pharmaceutical Creams for Human Skin Cell Longetivity",
+      "authors": "Jadoon S et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26448818/"
+    },
+    {
+      "pubmedId": "39445611",
+      "title": "Nuciferine Alleviates High-Fat Diet- and ApoE(-/-)-Induced Hepatic Steatosis and Ferroptosis in NAFLD Mice via the PPARα Signaling Pathway",
+      "authors": "Qiu J et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39445611/"
+    },
+    {
+      "pubmedId": "34361003",
+      "title": "Effect of Neferine on DNCB-Induced Atopic Dermatitis in HaCaT Cells and BALB/c Mice",
+      "authors": "Yang CC et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34361003/"
+    }
+  ]
 }

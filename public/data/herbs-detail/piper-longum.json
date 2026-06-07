@@ -29,5 +29,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38158101",
+      "title": "Piperine promotes PI3K/AKT/mTOR-mediated gut-brain autophagy to degrade α-Synuclein in Parkinson's disease rats",
+      "authors": "Yu L et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38158101/"
+    },
+    {
+      "pubmedId": "35349239",
+      "title": "Black Pepper",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35349239/"
+    },
+    {
+      "pubmedId": "36256521",
+      "title": "Piper longum L.: A comprehensive review on traditional uses, phytochemistry, pharmacology, and health-promoting activities",
+      "authors": "Biswas P et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36256521/"
+    }
+  ]
 }

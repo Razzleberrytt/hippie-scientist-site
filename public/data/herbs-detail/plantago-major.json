@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37314054",
+      "title": "Update on the treatment of chemotherapy and radiotherapy-induced buccal mucositis: a systematic review",
+      "authors": "Wen S et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37314054/"
+    },
+    {
+      "pubmedId": "29028587",
+      "title": "Chemical constituents and medical benefits of Plantago major",
+      "authors": "Adom MB et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29028587/"
+    },
+    {
+      "pubmedId": "37631007",
+      "title": "Antimicrobial and Other Biomedical Properties of Extracts from Plantago major, Plantaginaceae",
+      "authors": "Zhakipbekov K et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37631007/"
+    }
+  ]
 }

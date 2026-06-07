@@ -105,5 +105,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "22095937",
+      "title": "A review of the efficacy and safety of banaba (Lagerstroemia speciosa L.) and corosolic acid",
+      "authors": "Stohs SJ et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22095937/"
+    },
+    {
+      "pubmedId": "40613623",
+      "title": "Exploring nutraceutical solutions for prediabetes: a narrative review on the effects of banaba and chromium picolinate",
+      "authors": "Derosa G et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40613623/"
+    },
+    {
+      "pubmedId": "15671695",
+      "title": "Effects of malted barley extract and banaba extract on blood glucose levels in genetically diabetic mice",
+      "authors": "Hong H et al.",
+      "year": 2004,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15671695/"
+    }
+  ]
 }

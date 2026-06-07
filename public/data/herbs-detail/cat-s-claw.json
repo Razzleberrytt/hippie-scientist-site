@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "33917843",
+      "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
+      "authors": "Gregory J et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+    },
+    {
+      "pubmedId": "31643645",
+      "title": "Cat's Claw",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643645/"
+    },
+    {
+      "pubmedId": "17210508",
+      "title": "Cat's claw: an Amazonian vine decreases inflammation in osteoarthritis",
+      "authors": "Hardin SR et al.",
+      "year": 2007,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17210508/"
+    }
+  ]
 }

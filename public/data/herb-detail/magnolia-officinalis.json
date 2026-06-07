@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "37682792",
+      "title": "Safety and efficacy of zanubrutinib in relapsed/refractory marginal zone lymphoma: final analysis of the MAGNOLIA study",
+      "authors": "Opat S et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37682792/"
+    },
+    {
+      "pubmedId": "29925102",
+      "title": "Safety and Toxicology of Magnolol and Honokiol",
+      "authors": "Sarrica A et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29925102/"
+    },
+    {
+      "pubmedId": "40751788",
+      "title": "Metabolism of coclaurine into the WADA-banned substance higenamine: a doping-relevant analytical evaluation of Kampo extracts",
+      "authors": "Sakamoto S et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40751788/"
+    }
+  ]
 }

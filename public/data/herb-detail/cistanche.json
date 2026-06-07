@@ -96,5 +96,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "29344414",
+      "title": "Herba Cistanches: Anti-aging",
+      "authors": "Wang N et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29344414/"
+    },
+    {
+      "pubmedId": "27659301",
+      "title": "Anti-ageing active ingredients from herbs and nutraceuticals used in traditional Chinese medicine: pharmacological mechanisms and implications for drug discovery",
+      "authors": "Shen CY et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27659301/"
+    },
+    {
+      "pubmedId": "41106096",
+      "title": "Cistanche deserticola extract and its active components, echinacoside, ameliorate sarcopenia by activating the IGF-1/PI3K-AKT pathway to modulate ferroptosis",
+      "authors": "Wang X et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41106096/"
+    }
+  ]
 }

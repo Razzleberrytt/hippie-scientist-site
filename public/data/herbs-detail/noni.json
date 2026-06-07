@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "31643695",
+      "title": "Noni",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643695/"
+    },
+    {
+      "pubmedId": "37313239",
+      "title": "Resmetirom: An Orally Administered, Smallmolecule, Liver-directed, β-selective THR Agonist for the Treatment of Non-alcoholic Fatty Liver Disease and Non-alcoholic Steatohepatitis",
+      "authors": "Karim G et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37313239/"
+    },
+    {
+      "pubmedId": "41875856",
+      "title": "Noni Franklin-Tong",
+      "authors": "Franklin-Tong N et al.",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41875856/"
+    }
+  ]
 }

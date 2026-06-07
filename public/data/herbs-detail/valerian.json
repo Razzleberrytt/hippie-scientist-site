@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "33086877",
+      "title": "Valerian Root in Treating Sleep Problems and Associated Disorders-A Systematic Review and Meta-Analysis",
+      "authors": "Shinjyo N et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33086877/"
+    },
+    {
+      "pubmedId": "34946512",
+      "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
+      "authors": "Kenda M et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+    },
+    {
+      "pubmedId": "33480339",
+      "title": "Anti-anxiety Properties of Selected Medicinal Plants",
+      "authors": "Khan A et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33480339/"
+    }
+  ]
 }

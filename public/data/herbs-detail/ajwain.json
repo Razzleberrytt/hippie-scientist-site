@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "39303542",
+      "title": "Synthesis and pharmacological evaluation of Andrographolide and Ajwain as promising alternatives to antibiotics for treating Salmonella gallinarum infection in chicken",
+      "authors": "Mudasir Ahmad S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39303542/"
+    },
+    {
+      "pubmedId": "18940228",
+      "title": "Ameliorative effect of ajwain extract on hexachlorocyclohexane-induced lipid peroxidation in rat liver",
+      "authors": "Anilakumar KR et al.",
+      "year": 2009,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18940228/"
+    },
+    {
+      "pubmedId": "36596101",
+      "title": "Effect of ajwain (Trachyspermum ammi) extract and gamma irradiation on the shelf-life extension of rohu (Labeo rohita) and seer (Scomberomorus guttatus) fish steaks during chilled storage",
+      "authors": "Mishra PK et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36596101/"
+    }
+  ]
 }

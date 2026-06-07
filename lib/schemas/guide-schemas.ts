@@ -54,6 +54,21 @@ export interface GuideSeo {
   canonical: string
 }
 
+export interface GuideProductOption {
+  name: string
+  description: string
+  form: 'capsule' | 'powder' | 'liquid' | 'extract'
+  dosage: string
+  amazonAsin: string
+  amazonUrl: string
+  affiliateTag: string
+  approxPrice: string
+  rating: string
+  whyChosen: string
+  pros: string[]
+  cons: string[]
+}
+
 export interface GuideData {
   slug: string
   title: string
@@ -66,6 +81,7 @@ export interface GuideData {
   sections: GuideSection[]
   evidenceHighlights: EvidenceHighlight[]
   dosageGuidelines?: DosageGuideline[]
+  options?: GuideProductOption[]
   safetyNotes?: SafetyNote[]
   relatedLinks: GuideInternalLink[]
   seo: GuideSeo

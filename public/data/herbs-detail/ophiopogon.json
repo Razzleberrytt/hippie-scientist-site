@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "31030757",
+      "title": "The structures and biological functions of polysaccharides from traditional Chinese herbs",
+      "authors": "Zeng P et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31030757/"
+    },
+    {
+      "pubmedId": "39101149",
+      "title": "Ophiopogonin D: review of pharmacological activity",
+      "authors": "Chen KQ et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39101149/"
+    },
+    {
+      "pubmedId": "41800803",
+      "title": "Methylophiopogonanone a attenuates pulmonary fibrosis by inhibiting SPP1-mediated macrophage polarization via the PI3K/Akt pathway",
+      "authors": "Yang F et al.",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41800803/"
+    }
+  ]
 }

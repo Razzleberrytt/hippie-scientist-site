@@ -111,5 +111,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "30637820",
+      "title": "Berberine and barberry (Berberis vulgaris): A clinical review",
+      "authors": "Imenshahidi M et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30637820/"
+    },
+    {
+      "pubmedId": "27671811",
+      "title": "Berberine and Its Role in Chronic Disease",
+      "authors": "Cicero AF et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/"
+    },
+    {
+      "pubmedId": "10767672",
+      "title": "Berberine",
+      "authors": "PubMed indexed authors",
+      "year": 2000,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10767672/"
+    }
+  ]
 }

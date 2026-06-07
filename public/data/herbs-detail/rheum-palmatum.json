@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27188216",
+      "title": "Emodin: A Review of its Pharmacology, Toxicity and Pharmacokinetics",
+      "authors": "Dong X et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27188216/"
+    },
+    {
+      "pubmedId": "31680350",
+      "title": "Aloe-emodin: A review of its pharmacology, toxicity, and pharmacokinetics",
+      "authors": "Dong X et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31680350/"
+    },
+    {
+      "pubmedId": "30000922",
+      "title": "Rhubarb",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000922/"
+    }
+  ]
 }

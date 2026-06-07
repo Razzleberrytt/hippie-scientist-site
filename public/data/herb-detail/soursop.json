@@ -96,5 +96,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "35208993",
+      "title": "Pharmacological Activities of Soursop (Annona muricata Lin.)",
+      "authors": "Mutakin M et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35208993/"
+    },
+    {
+      "pubmedId": "37048268",
+      "title": "Soursop (Annona muricata) Properties and Perspectives for Integral Valorization",
+      "authors": "Santos IL et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37048268/"
+    },
+    {
+      "pubmedId": "39171117",
+      "title": "Soursop leaf extract and fractions protects against L-NAME-induced hypertension and hyperlipidemia",
+      "authors": "Nsor OO et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39171117/"
+    }
+  ]
 }

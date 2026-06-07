@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "36876591",
+      "title": "Inulin: properties and health benefits",
+      "authors": "Qin YQ et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36876591/"
+    },
+    {
+      "pubmedId": "26310198",
+      "title": "Pharmacological Studies of Artichoke Leaf Extract and Their Health Benefits",
+      "authors": "Ben Salem M et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26310198/"
+    },
+    {
+      "pubmedId": "38542782",
+      "title": "Functional and Therapeutic Potential of Cynara scolymus in Health Benefits",
+      "authors": "Porro C et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38542782/"
+    }
+  ]
 }

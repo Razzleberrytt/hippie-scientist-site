@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37701897",
+      "title": "Oxidative stress, hormones, and effects of natural antioxidants on intestinal inflammation in inflammatory bowel disease",
+      "authors": "Sahoo DK et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37701897/"
+    },
+    {
+      "pubmedId": "33840996",
+      "title": "Tamarind (Tamarindus indica L.) Seed a Candidate Protein Source with Potential for Combating SARS-CoV-2 Infection in Obesity",
+      "authors": "Morais AHA et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33840996/"
+    },
+    {
+      "pubmedId": "31643417",
+      "title": "Garcinia Cambogia",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643417/"
+    }
+  ]
 }

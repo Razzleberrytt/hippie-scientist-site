@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { MetadataRoute } from 'next';
 
@@ -24,6 +24,22 @@ function readJsonArray<T>(relativePath: string): T[] {
   try {
     const parsed = JSON.parse(readFileSync(filePath, 'utf8'));
     return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function readJsonDirectory<T extends { slug?: string }>(relativePath: string): T[] {
+  const dirPath = path.join(process.cwd(), relativePath);
+  if (!existsSync(dirPath)) return [];
+
+  try {
+    return readdirSync(dirPath)
+      .filter((fileName) => fileName.endsWith('.json'))
+      .map((fileName) => {
+        const parsed = JSON.parse(readFileSync(path.join(dirPath, fileName), 'utf8')) as T;
+        return parsed.slug ? parsed : { ...parsed, slug: fileName.replace(/\.json$/, '') };
+      });
   } catch {
     return [];
   }
@@ -76,7 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
   const goalsData = readJsonArray<SitemapSourceItem>('public/data/goals.json');
   const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
-  const guidesData = readJsonArray<SitemapSourceItem>('public/data/guides.json');
+  const guidesData = readJsonDirectory<SitemapSourceItem>('public/data/guides');
 
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(`${SITE_URL}/`, currentDate, 'weekly', 1.0),
@@ -91,6 +107,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/goals/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/stacks/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.85),
+    route(`${SITE_URL}/learn/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/compare/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/tools/`, currentDate, 'monthly', 0.6),
     route(`${SITE_URL}/dosing/`, currentDate, 'monthly', 0.6),

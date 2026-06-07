@@ -102,5 +102,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "25576957",
+      "title": "Toxicological assessment of Ashitaba Chalcone",
+      "authors": "Maronpot RR et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25576957/"
+    },
+    {
+      "pubmedId": "29880082",
+      "title": "Possible antithrombotic effects of Angelica keiskei (Ashitaba)",
+      "authors": "Ohkura N et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29880082/"
+    },
+    {
+      "pubmedId": "27399234",
+      "title": "A Review of the Medicinal Uses and Pharmacology of Ashitaba",
+      "authors": "Caesar LK et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27399234/"
+    }
+  ]
 }

@@ -111,5 +111,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "36877269",
+      "title": "Morus alba: a comprehensive phytochemical and pharmacological review",
+      "authors": "Batiha GE et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36877269/"
+    },
+    {
+      "pubmedId": "37120060",
+      "title": "Mulberry extract ameliorates T2DM-related symptoms via AMPK pathway in STZ-HFD-induced C57BL/6J mice",
+      "authors": "Zhang L et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37120060/"
+    },
+    {
+      "pubmedId": "39544693",
+      "title": "Morus alba: natural and valuable effects in weight loss management",
+      "authors": "Ntalouka F et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39544693/"
+    }
+  ]
 }

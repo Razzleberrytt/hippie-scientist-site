@@ -105,5 +105,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "35935936",
+      "title": "Efficacy and Safety of Curcumin and Curcuma longa Extract in the Treatment of Arthritis: A Systematic Review and Meta-Analysis of Randomized Controlled Trial",
+      "authors": "Zeng L et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35935936/"
+    },
+    {
+      "pubmedId": "27837604",
+      "title": "Curcumin (Turmeric) and cancer",
+      "authors": "Unlu A et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27837604/"
+    },
+    {
+      "pubmedId": "26528921",
+      "title": "Curcumin, an active component of turmeric (Curcuma longa), and its effects on health",
+      "authors": "Kocaadam B et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26528921/"
+    }
+  ]
 }

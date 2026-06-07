@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34307603",
+      "title": "Herb-induced liver injury: Systematic review and meta-analysis",
+      "authors": "Ballotin VR et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34307603/"
+    },
+    {
+      "pubmedId": "40205009",
+      "title": "Wogonin attenuates septic cardiomyopathy by suppressing ALOX15-mediated ferroptosis",
+      "authors": "Ye H et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40205009/"
+    },
+    {
+      "pubmedId": "38495279",
+      "title": "Insights into skullcap herb-induced liver injury",
+      "authors": "Soldera J et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38495279/"
+    }
+  ]
 }

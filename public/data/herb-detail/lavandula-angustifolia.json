@@ -97,5 +97,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "12112282",
+      "title": "Biological activities of lavender essential oil",
+      "authors": "Cavanagh HM et al.",
+      "year": 2002,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12112282/"
+    },
+    {
+      "pubmedId": "31655395",
+      "title": "Effects of lavender on anxiety: A systematic review and meta-analysis",
+      "authors": "Donelli D et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31655395/"
+    },
+    {
+      "pubmedId": "29464801",
+      "title": "Herbal medicine for depression and anxiety: A systematic review with assessment of potential psycho-oncologic relevance",
+      "authors": "Yeung KS et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29464801/"
+    }
+  ]
 }

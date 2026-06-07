@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "16891209",
+      "title": "Absinthe--a review",
+      "authors": "Lachenmeier DW et al.",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16891209/"
+    },
+    {
+      "pubmedId": "38616734",
+      "title": "Effects of Artemisia absinthium on broiler chicken coccidiosis: a systematic review and meta-analysis",
+      "authors": "Hezil N et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38616734/"
+    },
+    {
+      "pubmedId": "36432868",
+      "title": "Species-Specific Plant-Derived Nanoparticle Characteristics",
+      "authors": "Viršilė A et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36432868/"
+    }
+  ]
 }

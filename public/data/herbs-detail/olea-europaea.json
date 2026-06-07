@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38256329",
+      "title": "Nutritional Supplements for Skin Health-A Review of What Should Be Chosen and Why",
+      "authors": "Januszewski J et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38256329/"
+    },
+    {
+      "pubmedId": "36513474",
+      "title": "What is the efficacy of dietary, nutraceutical, and probiotic interventions for the management of gastroesophageal reflux disease symptoms? A systematic literature review and meta-analysis",
+      "authors": "Martin Z et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36513474/"
+    },
+    {
+      "pubmedId": "39719741",
+      "title": "Olive leaf extract (OLE) reduces mast cell-mediated allergic inflammation",
+      "authors": "Somma F et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39719741/"
+    }
+  ]
 }

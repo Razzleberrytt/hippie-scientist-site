@@ -115,5 +115,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "35458696",
+      "title": "Health Benefits of Quercetin in Age-Related Diseases",
+      "authors": "Deepika et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35458696/"
+    },
+    {
+      "pubmedId": "34087741",
+      "title": "The role of quercetin in plants",
+      "authors": "Singh P et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34087741/"
+    },
+    {
+      "pubmedId": "27187333",
+      "title": "Quercetin and Its Anti-Allergic Immune Response",
+      "authors": "Mlcek J et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27187333/"
+    }
+  ]
 }

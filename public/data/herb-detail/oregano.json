@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "27994215",
+      "title": "Antimicrobial Activity of Basil, Oregano, and Thyme Essential Oils",
+      "authors": "Sakkas H et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27994215/"
+    },
+    {
+      "pubmedId": "37184199",
+      "title": "Oregano",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37184199/"
+    },
+    {
+      "pubmedId": "30000904",
+      "title": "Oregano",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000904/"
+    }
+  ]
 }

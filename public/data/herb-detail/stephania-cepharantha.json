@@ -97,5 +97,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "36558061",
+      "title": "Pharmacological Effects and Clinical Prospects of Cepharanthine",
+      "authors": "Liang D et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36558061/"
+    },
+    {
+      "pubmedId": "41655513",
+      "title": "Transcriptome analysis of Stephania cepharantha and characterization of two CYP80B genes involved in the benzylisoquinoline alkaloid biosynthesis",
+      "authors": "Feng Y et al.",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41655513/"
+    },
+    {
+      "pubmedId": "30678239",
+      "title": "High Performance Liquid Chromatography Determination and Optimization of the Extraction Process for the Total Alkaloids from Traditional Herb Stephania cepharantha Hayata",
+      "authors": "Xiao J et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30678239/"
+    }
+  ]
 }

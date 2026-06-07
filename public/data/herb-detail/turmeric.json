@@ -122,5 +122,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": true,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "26528921",
+      "title": "Curcumin, an active component of turmeric (Curcuma longa), and its effects on health",
+      "authors": "Kocaadam B et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26528921/"
+    },
+    {
+      "pubmedId": "27213821",
+      "title": "Effects of Turmeric (Curcuma longa) on Skin Health: A Systematic Review of the Clinical Evidence",
+      "authors": "Vaughn AR et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27213821/"
+    },
+    {
+      "pubmedId": "38558676",
+      "title": "Ayurvedic Herbal Medicines: A Literature Review of Their Applications in Female Reproductive Health",
+      "authors": "Patibandla S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/"
+    }
+  ]
 }

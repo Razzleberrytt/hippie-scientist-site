@@ -125,5 +125,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34073784",
+      "title": "Black Cumin (Nigella sativa L.): A Comprehensive Review on Phytochemistry, Health Benefits, Molecular Pharmacology, and Safety",
+      "authors": "Hannan MA et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34073784/"
+    },
+    {
+      "pubmedId": "37184195",
+      "title": "Black Cumin Seed",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37184195/"
+    },
+    {
+      "pubmedId": "30000936",
+      "title": "Black Seed",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/"
+    }
+  ]
 }

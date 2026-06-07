@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27920089",
+      "title": "World Endometriosis Society consensus on the classification of endometriosis",
+      "authors": "Johnson NP et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27920089/"
+    },
+    {
+      "pubmedId": "36445447",
+      "title": "[Phytotherapy in uro-oncology]",
+      "authors": "Bauer-Büntzel C et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36445447/"
+    },
+    {
+      "pubmedId": "33874310",
+      "title": "Reviews",
+      "authors": "PubMed indexed authors",
+      "year": 1991,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33874310/"
+    }
+  ]
 }

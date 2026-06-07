@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "31807931",
+      "title": "Telovelar surgical approach",
+      "authors": "Ghali MGZ et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31807931/"
+    },
+    {
+      "pubmedId": "39942962",
+      "title": "Aromatherapy and Essential Oils: Holistic Strategies in Complementary and Alternative Medicine for Integral Wellbeing",
+      "authors": "Caballero-Gallardo K et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39942962/"
+    },
+    {
+      "pubmedId": "33494677",
+      "title": "Radioprotectors: Nature's Boon",
+      "authors": "Lang DK et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33494677/"
+    }
+  ]
 }

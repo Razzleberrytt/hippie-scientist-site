@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34770801",
+      "title": "Clove Essential Oil (Syzygium aromaticum L. Myrtaceae): Extraction, Chemical Composition, Food Applications, and Essential Bioactivity for Human Health",
+      "authors": "Haro-González JN et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34770801/"
+    },
+    {
+      "pubmedId": "32019140",
+      "title": "Syzygium aromaticum L. (Myrtaceae): Traditional Uses, Bioactive Chemical Constituents, Pharmacological and Toxicological Activities",
+      "authors": "Batiha GE et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32019140/"
+    },
+    {
+      "pubmedId": "28346030",
+      "title": "Antimicrobial activity of eugenol and essential oils containing eugenol: A mechanistic viewpoint",
+      "authors": "Marchese A et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28346030/"
+    }
+  ]
 }

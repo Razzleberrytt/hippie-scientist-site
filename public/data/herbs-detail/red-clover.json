@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34946512",
+      "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
+      "authors": "Kenda M et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+    },
+    {
+      "pubmedId": "39477563",
+      "title": "Complementary and Alternative Medicine for Menopause",
+      "authors": "Smith-Francis MJ et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39477563/"
+    },
+    {
+      "pubmedId": "33383165",
+      "title": "Neither soy nor isoflavone intake affects male reproductive hormones: An expanded and updated meta-analysis of clinical studies",
+      "authors": "Reed KE et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33383165/"
+    }
+  ]
 }

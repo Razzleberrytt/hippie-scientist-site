@@ -29,5 +29,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "33174095",
+      "title": "Plants Used as Antihypertensive",
+      "authors": "Verma T et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/"
+    },
+    {
+      "pubmedId": "30000851",
+      "title": "Coriander",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000851/"
+    },
+    {
+      "pubmedId": "37513187",
+      "title": "Coriandrum sativum and Its Utility in Psychiatric Disorders",
+      "authors": "Santibáñez A et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37513187/"
+    }
+  ]
 }

@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37078654",
+      "title": "Effects of dietary fibers or probiotics on functional constipation symptoms and roles of gut microbiota: a double-blinded randomized placebo trial",
+      "authors": "Lai H et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37078654/"
+    },
+    {
+      "pubmedId": "33762150",
+      "title": "The effects of foods on LDL cholesterol levels: A systematic review of the accumulated evidence from systematic reviews and meta-analyses of randomized controlled trials",
+      "authors": "Schoeneck M et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33762150/"
+    },
+    {
+      "pubmedId": "23609775",
+      "title": "Fiber and prebiotics: mechanisms and health benefits",
+      "authors": "Slavin J et al.",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23609775/"
+    }
+  ]
 }

@@ -118,5 +118,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "33917159",
+      "title": "The Use of Chinese Skullcap (Scutellaria baicalensis) and Its Extracts for Sustainable Animal Production",
+      "authors": "Yin B et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33917159/"
+    },
+    {
+      "pubmedId": "35530094",
+      "title": "Polyphenols of Chinese skullcap roots: from chemical profiles to anticancer effects",
+      "authors": "Wang L et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35530094/"
+    },
+    {
+      "pubmedId": "30708034",
+      "title": "Chinese Skullcap (Scutellaria baicalensis Georgi) inhibits inflammation and proliferation on benign prostatic hyperplasia in rats",
+      "authors": "Jin BR et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30708034/"
+    }
+  ]
 }

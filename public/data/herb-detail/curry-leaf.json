@@ -102,5 +102,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39253925",
+      "title": "Murraya koenigii (L.) Spreng. as a Natural Intervention for Diabesity: A Review",
+      "authors": "Jachak SM et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39253925/"
+    },
+    {
+      "pubmedId": "37701635",
+      "title": "A comprehensive review on genomic resources in medicinally and industrially important major spices for future breeding programs: Status, utility and challenges",
+      "authors": "Das P et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37701635/"
+    },
+    {
+      "pubmedId": "41150909",
+      "title": "Trunk injection of a curry leaf extract to promote citrus tree health in Huanglongbing-endemic regions",
+      "authors": "Aglave T et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41150909/"
+    }
+  ]
 }

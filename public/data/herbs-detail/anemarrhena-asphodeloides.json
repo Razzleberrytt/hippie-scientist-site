@@ -29,5 +29,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "39904199",
+      "title": "Exploring the active components and potential mechanisms of Zhimu-Huangbai herb-pair in the treatment of depression",
+      "authors": "Lei X et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39904199/"
+    },
+    {
+      "pubmedId": "36330891",
+      "title": "A review of the botany, ethnopharmacology, phytochemistry, pharmacology, toxicology and quality of Anemarrhena asphodeloides Bunge",
+      "authors": "Liu C et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36330891/"
+    },
+    {
+      "pubmedId": "39476924",
+      "title": "Advances in the study of polysaccharides from Anemarrhena asphodeloides Bge.: A review",
+      "authors": "An H et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39476924/"
+    }
+  ]
 }

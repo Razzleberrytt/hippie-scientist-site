@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "31431019",
+      "title": "Schisandra chinensis and its phytotherapeutical applications",
+      "authors": "Rybnikář M et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31431019/"
+    },
+    {
+      "pubmedId": "30731931",
+      "title": "First Report of Botrytis Leaf Blight and Fruit Rot on Schisandra chinensis Caused by Botrytis cinerea in China",
+      "authors": "Yu RH et al.",
+      "year": 2011,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30731931/"
+    },
+    {
+      "pubmedId": "30722342",
+      "title": "First Report of Fruit Rot on Schisandra chinensis Caused by Penicillium glabrum and P. adametzii in China",
+      "authors": "Chen CQ et al.",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30722342/"
+    }
+  ]
 }

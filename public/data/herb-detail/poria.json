@@ -111,5 +111,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39482471",
+      "title": "Poria cocos: traditional uses, triterpenoid components and their renoprotective pharmacology",
+      "authors": "Guo ZY et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39482471/"
+    },
+    {
+      "pubmedId": "37788785",
+      "title": "Fuling-Zexie formula attenuates hyperuricemia-induced nephropathy and inhibits JAK2/STAT3 signaling and NLRP3 inflammasome activation in mice",
+      "authors": "Lu M et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37788785/"
+    },
+    {
+      "pubmedId": "39520951",
+      "title": "Kaixinsan regulates neuronal mitochondrial homeostasis to improve the cognitive function of Alzheimer's disease by activating CaMKKβ-AMPK-PGC-1α signaling axis",
+      "authors": "Ren J et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39520951/"
+    }
+  ]
 }

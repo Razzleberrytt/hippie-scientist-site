@@ -102,5 +102,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "38140277",
+      "title": "Acute Effects of Naturally Occurring Guayusa Tea and Nordic Lion's Mane Extracts on Cognitive Performance",
+      "authors": "La Monica MB et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38140277/"
+    },
+    {
+      "pubmedId": "31366209",
+      "title": "A critical review of the composition and history of safe use of guayusa: a stimulant and antioxidant novel food",
+      "authors": "Wise G et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31366209/"
+    },
+    {
+      "pubmedId": "38920890",
+      "title": "Evaluation of Ilex guayusa and Piper marginatum Extract Cytotoxicity on Human Dental Pulp Mesenchymal Stem Cells",
+      "authors": "Sequeda-Castañeda LG et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38920890/"
+    }
+  ]
 }

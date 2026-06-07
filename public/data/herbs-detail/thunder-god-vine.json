@@ -34,5 +34,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "26000480",
+      "title": "Treatment of obesity with celastrol",
+      "authors": "Liu J et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26000480/"
+    },
+    {
+      "pubmedId": "36732502",
+      "title": "Celastrol suppresses colorectal cancer via covalent targeting peroxiredoxin 1",
+      "authors": "Xu H et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36732502/"
+    },
+    {
+      "pubmedId": "32323812",
+      "title": "Therapeutic targets of thunder god vine (Tripterygium wilfordii hook) in rheumatoid arthritis (Review)",
+      "authors": "Song X et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32323812/"
+    }
+  ]
 }

@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "29999893",
+      "title": "Oil of Lemon Eucalyptus",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29999893/"
+    },
+    {
+      "pubmedId": "39458790",
+      "title": "Regeneration and Genetic Transformation in Eucalyptus Species, Current Research and Future Perspectives",
+      "authors": "Wang Y et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39458790/"
+    },
+    {
+      "pubmedId": "27914909",
+      "title": "Benefits, pitfalls and risks of phytotherapy in clinical practice in otorhinolaryngology",
+      "authors": "Laccourreye O et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27914909/"
+    }
+  ]
 }

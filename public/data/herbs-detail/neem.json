@@ -30,5 +30,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38565924",
+      "title": "Rosemary and neem: an insight into their combined anti-dandruff and anti-hair loss efficacy",
+      "authors": "Hashem MM et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38565924/"
+    },
+    {
+      "pubmedId": "38358164",
+      "title": "Alternative first-line malaria treatment",
+      "authors": "Maafoh C et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38358164/"
+    },
+    {
+      "pubmedId": "38290997",
+      "title": "Phytotherapy in periodontics as an effective and sustainable supplemental treatment: a narrative review",
+      "authors": "Gawish AS et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38290997/"
+    }
+  ]
 }

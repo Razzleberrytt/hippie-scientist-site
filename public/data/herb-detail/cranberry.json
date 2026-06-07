@@ -94,5 +94,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "32752183",
+      "title": "Cranberry Polyphenols and Prevention against Urinary Tract Infections: Relevant Considerations",
+      "authors": "González de Llano D et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32752183/"
+    },
+    {
+      "pubmedId": "30000897",
+      "title": "Cranberry",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000897/"
+    },
+    {
+      "pubmedId": "18204103",
+      "title": "Safety and efficacy of cranberry (vaccinium macrocarpon) during pregnancy and lactation",
+      "authors": "Dugoua JJ et al.",
+      "year": 2008,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18204103/"
+    }
+  ]
 }

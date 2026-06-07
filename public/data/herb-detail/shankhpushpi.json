@@ -103,5 +103,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "33917843",
+      "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
+      "authors": "Gregory J et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+    },
+    {
+      "pubmedId": "35878793",
+      "title": "Role of Shankhpushpi (Convolvulus pluricaulis) in neurological disorders: An umbrella review covering evidence from ethnopharmacology to clinical studies",
+      "authors": "Sharma R et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35878793/"
+    },
+    {
+      "pubmedId": "19912732",
+      "title": "An update on Shankhpushpi, a cognition-boosting Ayurvedic medicine",
+      "authors": "Sethiya NK et al.",
+      "year": 2009,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19912732/"
+    }
+  ]
 }

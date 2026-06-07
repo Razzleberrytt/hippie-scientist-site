@@ -167,5 +167,91 @@
     "title": "Ashwagandha Guide — Cortisol, Stress, Sleep & Testosterone Evidence Review",
     "description": "Evidence-based guide to ashwagandha: proven effects on cortisol and stress, how KSM-66 and Sensoril differ, dosing guidelines, and safety considerations including contraindications.",
     "canonical": "/guides/ashwagandha"
-  }
+  },
+  "options": [
+    {
+      "name": "NaturaLife Labs Organic Ashwagandha 2100mg",
+      "description": "Organic ashwagandha root powder plus root extract blend standardized for withanolides.",
+      "form": "capsule",
+      "dosage": "3 capsules daily with meals",
+      "amazonAsin": "B06ZYHJYD5",
+      "approxPrice": "$14-18/month",
+      "rating": "4.5/5 (52,000+ reviews)",
+      "whyChosen": "A best-selling broad-spectrum ashwagandha option with a very large review base and accessible pricing. Best for readers who want a simple powder-plus-extract capsule rather than a branded extract.",
+      "pros": [
+        "Large review base",
+        "Organic powder plus extract blend",
+        "Budget-friendly"
+      ],
+      "cons": [
+        "Lower standardization than KSM-66 options",
+        "Three-capsule serving"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B06ZYHJYD5?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Nutricost KSM-66 Ashwagandha 600mg",
+      "description": "KSM-66 full-spectrum ashwagandha root extract standardized to 5% withanolides with BioPerine.",
+      "form": "capsule",
+      "dosage": "600mg daily",
+      "amazonAsin": "B079K32QB6",
+      "approxPrice": "$12-20/month",
+      "rating": "4.6/5 (3,800+ reviews)",
+      "whyChosen": "This is the clearest budget KSM-66 pick: a clinically recognizable extract, disclosed withanolide standardization, and a straightforward one-capsule serving.",
+      "pros": [
+        "KSM-66 branded extract",
+        "5% withanolides disclosed",
+        "Simple daily serving"
+      ],
+      "cons": [
+        "Contains BioPerine, which may affect medication metabolism",
+        "Not ideal for people avoiding potent extracts"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B079K32QB6?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Himalaya Organic Ashwagandha Root",
+      "description": "Organic whole-root ashwagandha caplets from an established Ayurvedic herb brand.",
+      "form": "capsule",
+      "dosage": "1 caplet daily or as directed on label",
+      "amazonAsin": "B0002BBATC",
+      "approxPrice": "$18-23/month",
+      "rating": "4.6/5 (12,000+ reviews)",
+      "whyChosen": "A heritage-brand whole-root option for readers who prefer traditional herb positioning over high-potency extract marketing. It is useful as the gentler comparison pick.",
+      "pros": [
+        "USDA organic positioning",
+        "Established botanical brand",
+        "Whole-root style formula"
+      ],
+      "cons": [
+        "Less standardized than KSM-66",
+        "Caplet format may not suit everyone"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B0002BBATC?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Nature's Bounty Stress Relief Ashwagandha KSM-66",
+      "description": "KSM-66 ashwagandha paired with L-theanine in a vegetarian stress-support tablet.",
+      "form": "capsule",
+      "dosage": "2 tablets daily with meals",
+      "amazonAsin": "B0C6MZV9NT",
+      "approxPrice": "$16-33/month",
+      "rating": "4.5/5 (7,000+ reviews)",
+      "whyChosen": "This option combines the guide’s stress-focused ashwagandha use case with L-theanine, making it relevant for readers comparing calm-focused formulas instead of single-ingredient capsules.",
+      "pros": [
+        "Includes KSM-66",
+        "Adds L-theanine for calm support",
+        "Mainstream retail brand"
+      ],
+      "cons": [
+        "Not single-ingredient ashwagandha",
+        "Combination formulas make attribution harder"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B0C6MZV9NT?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    }
+  ]
 }

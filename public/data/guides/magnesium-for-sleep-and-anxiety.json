@@ -165,5 +165,91 @@
     "title": "Magnesium for Sleep & Anxiety — Forms, Evidence, and Dosing Guide",
     "description": "Complete guide to using magnesium for sleep and anxiety: which form to choose (glycinate vs l-threonate vs oxide), what the clinical evidence shows, dosing guidelines, and safety considerations.",
     "canonical": "/guides/magnesium-for-sleep-and-anxiety"
-  }
+  },
+  "options": [
+    {
+      "name": "Pure Encapsulations Magnesium Glycinate",
+      "description": "Magnesium glycinate capsules aimed at sleep, stress, nerves, muscles, and metabolic support.",
+      "form": "capsule",
+      "dosage": "120-240mg elemental magnesium daily",
+      "amazonAsin": "B0058HWV9S",
+      "approxPrice": "$26-30/month",
+      "rating": "4.6/5 (45,000+ reviews)",
+      "whyChosen": "A premium glycinate option with a very large Amazon review base and clean-label positioning. Best for readers who prioritize tolerability and brand reputation over lowest price.",
+      "pros": [
+        "Gentle glycinate form",
+        "Large review base",
+        "Minimalist formula positioning"
+      ],
+      "cons": [
+        "Higher cost per serving",
+        "Lower elemental magnesium per capsule"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B0058HWV9S?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Doctor's Best High Absorption Magnesium",
+      "description": "Chelated magnesium glycinate/lysinate using TRAACS for high absorption.",
+      "form": "capsule",
+      "dosage": "200-400mg elemental magnesium daily",
+      "amazonAsin": "B000BD0RT0",
+      "approxPrice": "$12-22/month",
+      "rating": "4.5/5 (60,000+ reviews)",
+      "whyChosen": "A widely used chelated magnesium option that fits the guide’s preference for better-tolerated forms. It is one of the best value picks for magnesium glycinate-style supplementation.",
+      "pros": [
+        "Chelated magnesium form",
+        "Excellent value",
+        "Large review base"
+      ],
+      "cons": [
+        "Tablet format can be large",
+        "Some users need lower starting doses"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B000BD0RT0?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Nature Made Magnesium Glycinate 200mg",
+      "description": "High-absorption magnesium glycinate capsules for muscle, nerve, heart, and bone support.",
+      "form": "capsule",
+      "dosage": "200mg elemental magnesium daily",
+      "amazonAsin": "B08XXHCGZT",
+      "approxPrice": "$10-15/month",
+      "rating": "4.6/5 (13,000+ reviews)",
+      "whyChosen": "A mainstream drugstore-tier glycinate option with an easy 200mg serving. Good for readers who want a familiar brand and a conservative starting dose.",
+      "pros": [
+        "Familiar retail brand",
+        "Clear 200mg serving",
+        "Gentle glycinate form"
+      ],
+      "cons": [
+        "Only 30-day bottle in common listing",
+        "Less specialized than practitioner brands"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B08XXHCGZT?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "CGM Labs Magnesium Glycinate with Vitamin B6",
+      "description": "Magnesium glycinate capsules with vitamin B6, positioned for calm, relaxation, and muscle support.",
+      "form": "capsule",
+      "dosage": "Follow label; start with one serving daily",
+      "amazonAsin": "B0DFV5NG8G",
+      "approxPrice": "$14-16/month",
+      "rating": "4.6/5 (29 reviews)",
+      "whyChosen": "Included as a newer budget option with clear Amazon listing details and a low monthly cost. Best for readers comparing simple glycinate products with added B6.",
+      "pros": [
+        "Low monthly price",
+        "Includes vitamin B6",
+        "Third-party lab testing claim"
+      ],
+      "cons": [
+        "Small review base",
+        "Added B6 is unnecessary for some users"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B0DFV5NG8G?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    }
+  ]
 }

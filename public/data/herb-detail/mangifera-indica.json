@@ -119,5 +119,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "22228940",
+      "title": "Mangifera indica (mango)",
+      "authors": "Shah KA et al.",
+      "year": 2010,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22228940/"
+    },
+    {
+      "pubmedId": "41155688",
+      "title": "A Review on Phytochemistry, Ethnopharmacology, and Antiparasitic Potential of Mangifera indica L",
+      "authors": "Mendonça D et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41155688/"
+    },
+    {
+      "pubmedId": "35662629",
+      "title": "Anti-inflammatory and immunomodulatory activity of Mangifera indica L. reveals the modulation of COX-2/mPGES-1 axis and Th17/Treg ratio",
+      "authors": "Saviano A et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35662629/"
+    }
+  ]
 }

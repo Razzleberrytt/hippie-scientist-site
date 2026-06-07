@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "41498029",
+      "title": "Immunomodulatory Mechanisms of Rehmanniae Radix Praeparata-Achyranthes Root-Chinese Angelica Root Combination in Nontraumatic Osteonecrosis of the Femoral Head: A Comprehensive Network Pharmacology and Molecular Docking Study Focusing on Immunological Pathways",
+      "authors": "Li X et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41498029/"
+    },
+    {
+      "pubmedId": "16857355",
+      "title": "Pharmaceutical prerequisites for a multi-target therapy",
+      "authors": "Kroll U et al.",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16857355/"
+    },
+    {
+      "pubmedId": "24365638",
+      "title": "Danggui to Angelica sinensis root: are potential benefits to European women lost in translation? A review",
+      "authors": "Hook IL et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24365638/"
+    }
+  ]
 }

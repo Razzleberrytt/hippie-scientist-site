@@ -102,5 +102,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "35311615",
+      "title": "Clinician guidelines for the treatment of psychiatric disorders with nutraceuticals and phytoceuticals: The World Federation of Societies of Biological Psychiatry (WFSBP) and Canadian Network for Mood and Anxiety Treatments (CANMAT) Taskforce",
+      "authors": "Sarris J et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35311615/"
+    },
+    {
+      "pubmedId": "33424664",
+      "title": "Pharmacotherapy of Anxiety Disorders: Current and Emerging Treatment Options",
+      "authors": "Garakani A et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33424664/"
+    },
+    {
+      "pubmedId": "28762712",
+      "title": "Common Herbal Dietary Supplement-Drug Interactions",
+      "authors": "Asher GN et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+    }
+  ]
 }

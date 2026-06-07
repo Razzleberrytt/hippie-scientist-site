@@ -109,5 +109,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "37907043",
+      "title": "Progress of research into the pharmacological effect and clinical application of the traditional Chinese medicine Rehmanniae Radix",
+      "authors": "Jia J et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37907043/"
+    },
+    {
+      "pubmedId": "37579922",
+      "title": "Rehmannia glutinosa Libosch and Cornus officinalis Sieb herb couple ameliorates renal interstitial fibrosis in CKD rats by inhibiting the TGF-β1/MAPK signaling pathway",
+      "authors": "Zhu JH et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37579922/"
+    },
+    {
+      "pubmedId": "36634722",
+      "title": "Extraction, structure and bioactivities of polysaccharides from Rehmannia glutinosa: A review",
+      "authors": "Bian Z et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36634722/"
+    }
+  ]
 }

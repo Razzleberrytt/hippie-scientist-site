@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30980598",
+      "title": "An overview of herbal alternatives in androgenetic alopecia",
+      "authors": "Dhariwala MY et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30980598/"
+    },
+    {
+      "pubmedId": "19719333",
+      "title": "Interactions between herbal medicines and prescribed drugs: an updated systematic review",
+      "authors": "Izzo AA et al.",
+      "year": 2009,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19719333/"
+    },
+    {
+      "pubmedId": "31807332",
+      "title": "Use of saw palmetto (Serenoa repens) extract for benign prostatic hyperplasia",
+      "authors": "Kwon Y et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31807332/"
+    }
+  ]
 }

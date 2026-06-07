@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "36938015",
+      "title": "California poppy (Eschscholzia californica), the Papaveraceae golden girl model organism for evodevo and specialized metabolism",
+      "authors": "Becker A et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36938015/"
+    },
+    {
+      "pubmedId": "37673017",
+      "title": "Alkaloids in commercial preparations of California poppy - Quantification, intestinal permeability and microbiota interactions",
+      "authors": "Chauveau A et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37673017/"
+    },
+    {
+      "pubmedId": "37172085",
+      "title": "Electromagnetic fields disrupt the pollination service by honeybees",
+      "authors": "Molina-Montenegro MA et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37172085/"
+    }
+  ]
 }

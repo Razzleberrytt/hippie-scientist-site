@@ -111,5 +111,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34755935",
+      "title": "Effects of the consumption of guarana on human health: A narrative review",
+      "authors": "Torres EAFS et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34755935/"
+    },
+    {
+      "pubmedId": "33802176",
+      "title": "The Use and Impact of Cognitive Enhancers among University Students: A Systematic Review",
+      "authors": "Sharif S et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33802176/"
+    },
+    {
+      "pubmedId": "36862943",
+      "title": "International society of sports nutrition position stand: energy drinks and energy shots",
+      "authors": "Jagim AR et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36862943/"
+    }
+  ]
 }

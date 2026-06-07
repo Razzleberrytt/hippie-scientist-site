@@ -95,5 +95,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "27568784",
+      "title": "Systemic allergic dermatitis caused by sesquiterpene lactones",
+      "authors": "Paulsen E et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27568784/"
+    },
+    {
+      "pubmedId": "17919303",
+      "title": "Contact allergy and medicinal herbs",
+      "authors": "Aberer W et al.",
+      "year": 2008,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17919303/"
+    },
+    {
+      "pubmedId": "30428203",
+      "title": "Ultrasound and Microwave-Assisted Extraction of Elecampane (Inula helenium) Roots",
+      "authors": "Petkova N et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30428203/"
+    }
+  ]
 }

@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "33992045",
+      "title": "The anti-obesity and health-promoting effects of tea and coffee",
+      "authors": "Sirotkin AV et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33992045/"
+    },
+    {
+      "pubmedId": "33374338",
+      "title": "Neuroprotective Effects of Coffee Bioactive Compounds: A Review",
+      "authors": "Socała K et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33374338/"
+    },
+    {
+      "pubmedId": "36769029",
+      "title": "Health Benefits of Coffee Consumption for Cancer and Other Diseases and Mechanisms of Action",
+      "authors": "Safe S et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36769029/"
+    }
+  ]
 }

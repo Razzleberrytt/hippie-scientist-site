@@ -114,5 +114,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "35745040",
+      "title": "Green Tea (Camellia sinensis): A Review of Its Phytochemistry, Pharmacology, and Toxicology",
+      "authors": "Zhao T et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35745040/"
+    },
+    {
+      "pubmedId": "32478963",
+      "title": "Warfarin and food, herbal or dietary supplement interactions: A systematic review",
+      "authors": "Tan CSS et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32478963/"
+    },
+    {
+      "pubmedId": "28762712",
+      "title": "Common Herbal Dietary Supplement-Drug Interactions",
+      "authors": "Asher GN et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+    }
+  ]
 }

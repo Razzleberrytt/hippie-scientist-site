@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "39527684",
+      "title": "Tongkat Ali",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39527684/"
+    },
+    {
+      "pubmedId": "36013514",
+      "title": "Eurycoma longifolia (Jack) Improves Serum Total Testosterone in Men: A Systematic Review and Meta-Analysis of Clinical Trials",
+      "authors": "Leisegang K et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36013514/"
+    },
+    {
+      "pubmedId": "33541567",
+      "title": "A 6-month, double-blind, placebo-controlled, randomized trial to evaluate the effect of Eurycoma longifolia (Tongkat Ali) and concurrent training on erectile function and testosterone levels in androgen deficiency of aging males (ADAM)",
+      "authors": "Leitão AE et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33541567/"
+    }
+  ]
 }

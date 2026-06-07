@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "29568244",
+      "title": "Herbal medicine for sports: a review",
+      "authors": "Sellami M et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29568244/"
+    },
+    {
+      "pubmedId": "37373268",
+      "title": "Anti-Cancer Potential of Edible/Medicinal Mushrooms in Breast Cancer",
+      "authors": "Gariboldi MB et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37373268/"
+    },
+    {
+      "pubmedId": "31030757",
+      "title": "The structures and biological functions of polysaccharides from traditional Chinese herbs",
+      "authors": "Zeng P et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31030757/"
+    }
+  ]
 }

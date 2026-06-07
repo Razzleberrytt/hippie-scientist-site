@@ -115,5 +115,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "38290997",
+      "title": "Phytotherapy in periodontics as an effective and sustainable supplemental treatment: a narrative review",
+      "authors": "Gawish AS et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38290997/"
+    },
+    {
+      "pubmedId": "29232282",
+      "title": "Selected Food/Herb-Drug Interactions: Mechanisms and Clinical Relevance",
+      "authors": "Amadi CN et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29232282/"
+    },
+    {
+      "pubmedId": "33171832",
+      "title": "Grape Pomace Valorization: A Systematic Review and Meta-Analysis",
+      "authors": "Antonić B et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33171832/"
+    }
+  ]
 }

@@ -22,5 +22,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "29702210",
+      "title": "Antibacterial mechanisms of cinnamon and its constituents: A review",
+      "authors": "Vasconcelos NG et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29702210/"
+    },
+    {
+      "pubmedId": "35807953",
+      "title": "Cinnamon as a Complementary Therapeutic Approach for Dysglycemia and Dyslipidemia Control in Type 2 Diabetes Mellitus and Its Molecular Mechanism of Action: A Review",
+      "authors": "Silva ML et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35807953/"
+    },
+    {
+      "pubmedId": "37818728",
+      "title": "The effect of cinnamon supplementation on glycemic control in patients with type 2 diabetes mellitus: An updated systematic review and dose-response meta-analysis of randomized controlled trials",
+      "authors": "Moridpour AH et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37818728/"
+    }
+  ]
 }

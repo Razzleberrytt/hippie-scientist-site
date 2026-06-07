@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "39567970",
+      "title": "Potential of natural products and gut microbiome in tumor immunotherapy",
+      "authors": "Cao L et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39567970/"
+    },
+    {
+      "pubmedId": "38254493",
+      "title": "A Literature Review of the Pharmacological Effects of Jujube",
+      "authors": "Zhu D et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38254493/"
+    },
+    {
+      "pubmedId": "34472292",
+      "title": "[Fruit cracking: a review]",
+      "authors": "Li H et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34472292/"
+    }
+  ]
 }

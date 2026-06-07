@@ -97,5 +97,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "30303602",
+      "title": "Chromatographic separation, determination and identification of ecdysteroids: Focus on Maral root (Rhaponticum carthamoides, Leuzea carthamoides)",
+      "authors": "Głazowska J et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30303602/"
+    },
+    {
+      "pubmedId": "40332350",
+      "title": "Maral Root Extract and Its Main Constituent 20-Hydroxyecdysone Enhance Stress Resilience in Caenorhabditis elegans",
+      "authors": "Todorova V et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40332350/"
+    },
+    {
+      "pubmedId": "36364156",
+      "title": "Chemical Profiling and Biological Activity of Extracts from Nine Norwegian Medicinal and Aromatic Plants",
+      "authors": "Slimestad R et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36364156/"
+    }
+  ]
 }

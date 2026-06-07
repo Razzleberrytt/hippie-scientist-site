@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30000865",
+      "title": "Eleuthero",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000865/"
+    },
+    {
+      "pubmedId": "25005060",
+      "title": "Biotechnological production of eleutherosides: current state and perspectives",
+      "authors": "Murthy HN et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25005060/"
+    },
+    {
+      "pubmedId": "32061978",
+      "title": "Selective in vivo molecular and cellular biocompatibility of black peppercorns by piperine-protein intrinsic atomic interaction with elicited oxidative stress and apoptosis in zebrafish eleuthero embryos",
+      "authors": "Patel P et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32061978/"
+    }
+  ]
 }

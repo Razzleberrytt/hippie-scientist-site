@@ -22,5 +22,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "33927629",
+      "title": "Artemisia dracunculus (Tarragon): A Review of Its Traditional Uses, Phytochemistry and Pharmacology",
+      "authors": "Ekiert H et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33927629/"
+    },
+    {
+      "pubmedId": "21942448",
+      "title": "Artemisia dracunculus L. (tarragon): a critical review of its traditional use, chemical composition, pharmacology, and safety",
+      "authors": "Obolskiy D et al.",
+      "year": 2011,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21942448/"
+    },
+    {
+      "pubmedId": "38068651",
+      "title": "Unraveling the Potential of Organic Oregano and Tarragon Essential Oils: Profiling Composition, FT-IR and Bioactivities",
+      "authors": "Vârban D et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38068651/"
+    }
+  ]
 }

@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "41031161",
+      "title": "Stephania tetrandra S. Moore: a promising candidate drug for treating diabetic kidney disease",
+      "authors": "Wang W et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41031161/"
+    },
+    {
+      "pubmedId": "26899361",
+      "title": "Tetrandrine--A molecule of wide bioactivity",
+      "authors": "Bhagya N et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26899361/"
+    },
+    {
+      "pubmedId": "37043739",
+      "title": "Modulation of in Vitro SARS-CoV-2 Infection by Stephania tetrandra and Its Alkaloid Constituents",
+      "authors": "Khadilkar A et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37043739/"
+    }
+  ]
 }

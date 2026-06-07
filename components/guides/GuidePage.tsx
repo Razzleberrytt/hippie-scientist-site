@@ -4,6 +4,7 @@ import type {
   EvidenceLevel,
   SafetySeverity,
   GuideSection,
+  GuideProductOption,
 } from '@/lib/schemas/guide-schemas'
 import InternalLinks from './InternalLinks'
 
@@ -128,12 +129,76 @@ function SectionContent({ section }: { section: GuideSection }) {
   )
 }
 
+function ProductOptions({ options }: { options: GuideProductOption[] }) {
+  return (
+    <section id="products" className="scroll-mt-20 space-y-4">
+      <h2 className="text-2xl font-semibold tracking-tight text-ink">Product Options</h2>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {options.map((option) => (
+          <article
+            key={option.amazonAsin}
+            className="rounded-xl border border-brand-900/10 bg-white/90 p-4 shadow-sm"
+          >
+            <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-[0.12em] text-brand-700">
+              <span>{option.form}</span>
+              <span className="text-muted">{option.approxPrice}</span>
+            </div>
+            <h3 className="mt-2 text-base font-semibold text-ink">{option.name}</h3>
+            <p className="mt-1 text-sm leading-6 text-muted">{option.description}</p>
+            <dl className="mt-3 grid gap-2 text-xs text-muted">
+              <div>
+                <dt className="font-semibold text-ink">Typical dose</dt>
+                <dd>{option.dosage}</dd>
+              </div>
+              <div>
+                <dt className="font-semibold text-ink">Amazon rating</dt>
+                <dd>{option.rating}</dd>
+              </div>
+            </dl>
+            <p className="mt-3 text-sm leading-6 text-muted">{option.whyChosen}</p>
+            <div className="mt-3 grid gap-3 text-xs sm:grid-cols-2">
+              <div>
+                <p className="font-semibold text-ink">Pros</p>
+                <ul className="mt-1 list-disc space-y-1 pl-4 text-muted">
+                  {option.pros.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="font-semibold text-ink">Cons</p>
+                <ul className="mt-1 list-disc space-y-1 pl-4 text-muted">
+                  {option.cons.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <a
+              href={option.amazonUrl}
+              rel="nofollow sponsored noopener noreferrer"
+              target="_blank"
+              className="mt-4 inline-flex rounded-full bg-brand-700 px-4 py-2 text-xs font-bold text-white hover:bg-brand-800"
+            >
+              View on Amazon
+            </a>
+          </article>
+        ))}
+      </div>
+      <p className="text-xs text-muted">
+        Affiliate disclosure: qualifying purchases may earn a commission at no extra cost to you.
+      </p>
+    </section>
+  )
+}
+
 interface Props {
   guide: GuideData
 }
 
 export default function GuidePage({ guide }: Props) {
   const hasDosage = guide.dosageGuidelines && guide.dosageGuidelines.length > 0
+  const hasOptions = guide.options && guide.options.length > 0
   const hasSafety = guide.safetyNotes && guide.safetyNotes.length > 0
 
   return (
@@ -208,6 +273,19 @@ export default function GuidePage({ guide }: Props) {
                     {guide.sections.length + (hasDosage ? 2 : 1)}.
                   </span>
                   Safety &amp; Precautions
+                </a>
+              </li>
+            )}
+            {hasOptions && (
+              <li>
+                <a
+                  href="#products"
+                  className="flex items-baseline gap-2 text-sm text-ink hover:text-brand-700"
+                >
+                  <span className="text-xs text-muted">
+                    {guide.sections.length + (hasDosage ? 1 : 0) + (hasSafety ? 1 : 0) + 1}.
+                  </span>
+                  Product Options
                 </a>
               </li>
             )}
@@ -314,6 +392,8 @@ export default function GuidePage({ guide }: Props) {
           })}
         </section>
       )}
+
+      {hasOptions && <ProductOptions options={guide.options!} />}
 
       {/* Internal links */}
       {guide.relatedLinks.length > 0 && (

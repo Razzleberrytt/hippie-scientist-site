@@ -100,5 +100,21 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "33391017",
+      "title": "Anise Hyssop Agastache foeniculum Increases Lifespan, Stress Resistance, and Metabolism by Affecting Free Radical Processes in Drosophila",
+      "authors": "Strilbytska OM et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33391017/"
+    },
+    {
+      "pubmedId": "34439010",
+      "title": "Biologically Active Extracts from Different Medicinal Plants Tested as Potential Additives against Bee Pathogens",
+      "authors": "Pașca C et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34439010/"
+    }
+  ]
 }

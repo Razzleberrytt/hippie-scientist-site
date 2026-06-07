@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "38068631",
+      "title": "Latin American Plants against Microorganisms",
+      "authors": "Cuevas-Cianca SI et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38068631/"
+    },
+    {
+      "pubmedId": "33779758",
+      "title": "Isatis indigotica: a review of phytochemistry, pharmacological activities and clinical applications",
+      "authors": "Chen Q et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33779758/"
+    },
+    {
+      "pubmedId": "38301993",
+      "title": "The double-edged sword effect of indigo naturalis",
+      "authors": "Xu Y et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38301993/"
+    }
+  ]
 }

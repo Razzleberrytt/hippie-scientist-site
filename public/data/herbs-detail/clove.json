@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "28621716",
+      "title": "Antibacterial and Antifungal Activities of Spices",
+      "authors": "Liu Q et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28621716/"
+    },
+    {
+      "pubmedId": "34770801",
+      "title": "Clove Essential Oil (Syzygium aromaticum L. Myrtaceae): Extraction, Chemical Composition, Food Applications, and Essential Bioactivity for Human Health",
+      "authors": "Haro-González JN et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34770801/"
+    },
+    {
+      "pubmedId": "33916044",
+      "title": "Biological Properties and Prospects for the Application of Eugenol-A Review",
+      "authors": "Ulanowska M et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33916044/"
+    }
+  ]
 }

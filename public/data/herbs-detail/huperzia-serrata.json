@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34770940",
+      "title": "Huperzine A and Its Neuroprotective Molecular Signaling in Alzheimer's Disease",
+      "authors": "Friedli MJ et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34770940/"
+    },
+    {
+      "pubmedId": "14725492",
+      "title": "Huperzine A",
+      "authors": "PubMed indexed authors",
+      "year": 2004,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14725492/"
+    },
+    {
+      "pubmedId": "31778363",
+      "title": "The use of Huperzia species for the treatment of Alzheimer's disease",
+      "authors": "Kim Thu D et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31778363/"
+    }
+  ]
 }

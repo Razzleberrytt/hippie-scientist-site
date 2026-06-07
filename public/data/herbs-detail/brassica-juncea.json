@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "33666283",
+      "title": "Phytotherapy and food applications from Brassica genus",
+      "authors": "Salehi B et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33666283/"
+    },
+    {
+      "pubmedId": "31504785",
+      "title": "Identification and functional characterization of a novel selenocysteine methyltransferase from Brassica juncea L",
+      "authors": "Chen M et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31504785/"
+    },
+    {
+      "pubmedId": "33317112",
+      "title": "Brassica juncea L. (Mustard) Extract Silver NanoParticles and Knocking off Oxidative Stress, ProInflammatory Cytokine and Reverse DNA Genotoxicity",
+      "authors": "Hassan SA et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33317112/"
+    }
+  ]
 }

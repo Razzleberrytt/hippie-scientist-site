@@ -27,5 +27,21 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "40143483",
+      "title": "A narrative review on the role of traditional Chinese medicine (TCM) in treating coronary artery disease",
+      "authors": "Zhang A et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40143483/"
+    },
+    {
+      "pubmedId": "16552829",
+      "title": "Biochemical basis of the \"Qi-invigorating\" action of Schisandra berry (wu-wei-zi) in Chinese medicine",
+      "authors": "Ko KM et al.",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16552829/"
+    }
+  ]
 }

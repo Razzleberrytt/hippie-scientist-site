@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27994215",
+      "title": "Antimicrobial Activity of Basil, Oregano, and Thyme Essential Oils",
+      "authors": "Sakkas H et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27994215/"
+    },
+    {
+      "pubmedId": "29785774",
+      "title": "Thymol, thyme, and other plant sources: Health and potential uses",
+      "authors": "Salehi B et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29785774/"
+    },
+    {
+      "pubmedId": "32917001",
+      "title": "Thymol and Thyme Essential Oil-New Insights into Selected Therapeutic Applications",
+      "authors": "Kowalczyk A et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32917001/"
+    }
+  ]
 }

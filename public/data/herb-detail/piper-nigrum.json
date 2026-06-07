@@ -95,5 +95,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "29065496",
+      "title": "Curcumin: A Review of Its Effects on Human Health",
+      "authors": "Hewlings SJ et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29065496/"
+    },
+    {
+      "pubmedId": "32929825",
+      "title": "Piperine: A review of its biological effects",
+      "authors": "Haq IU et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32929825/"
+    },
+    {
+      "pubmedId": "30651162",
+      "title": "Health Benefits of Culinary Herbs and Spices",
+      "authors": "Jiang TA et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30651162/"
+    }
+  ]
 }

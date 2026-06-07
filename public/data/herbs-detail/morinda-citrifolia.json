@@ -32,5 +32,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "36041061",
+      "title": "D-mannose for preventing and treating urinary tract infections",
+      "authors": "Cooper TE et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36041061/"
+    },
+    {
+      "pubmedId": "23472485",
+      "title": "Adverse effects of herbal medicines: an overview of systematic reviews",
+      "authors": "Posadzki P et al.",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/"
+    },
+    {
+      "pubmedId": "31840355",
+      "title": "Indian Morinda species: A review",
+      "authors": "Singh B et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31840355/"
+    }
+  ]
 }

@@ -106,5 +106,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "29805742",
+      "title": "Antitumoral and antimetastatic activity of Maitake D-Fraction in triple-negative breast cancer cells",
+      "authors": "Alonso EN et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29805742/"
+    },
+    {
+      "pubmedId": "21480800",
+      "title": "Maitake (D fraction) mushroom extract induces apoptosis in breast cancer cells by BAK-1 gene activation",
+      "authors": "Soares R et al.",
+      "year": 2011,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21480800/"
+    },
+    {
+      "pubmedId": "36070433",
+      "title": "Effect of Maitake D-fraction in advanced laryngeal and pharyngeal cancers during concurrent chemoradiotherapy: A randomized clinical trial",
+      "authors": "Hu Q et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36070433/"
+    }
+  ]
 }

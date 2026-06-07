@@ -111,5 +111,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "32335802",
+      "title": "Biological properties and clinical applications of berberine",
+      "authors": "Song D et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32335802/"
+    },
+    {
+      "pubmedId": "33174095",
+      "title": "Plants Used as Antihypertensive",
+      "authors": "Verma T et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/"
+    },
+    {
+      "pubmedId": "36650621",
+      "title": "Herb-Drug Interactions and Their Impact on Pharmacokinetics: An Update",
+      "authors": "Cheng W et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36650621/"
+    }
+  ]
 }

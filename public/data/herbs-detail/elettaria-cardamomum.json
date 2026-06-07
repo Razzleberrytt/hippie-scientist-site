@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38558676",
+      "title": "Ayurvedic Herbal Medicines: A Literature Review of Their Applications in Female Reproductive Health",
+      "authors": "Patibandla S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/"
+    },
+    {
+      "pubmedId": "34283916",
+      "title": "Effectiveness of Inhaled Aromatherapy on Chemotherapy-Induced Nausea and Vomiting: A Systematic Review",
+      "authors": "Toniolo J et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34283916/"
+    },
+    {
+      "pubmedId": "33506690",
+      "title": "Functional foods modulating inflammation and metabolism in chronic diseases: a systematic review",
+      "authors": "Luvián-Morales J et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33506690/"
+    }
+  ]
 }

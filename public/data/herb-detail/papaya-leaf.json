@@ -106,5 +106,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "32367410",
+      "title": "Therapeutic application of Carica papaya leaf extract in the management of human diseases",
+      "authors": "Singh SP et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32367410/"
+    },
+    {
+      "pubmedId": "37234180",
+      "title": "A Comparative Analysis of Effectiveness of Recombinant Interleukin-11 Versus Papaya Leaf Extract for Treatment of Thrombocytopenia: A Review",
+      "authors": "Mishra KP et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37234180/"
+    },
+    {
+      "pubmedId": "35458146",
+      "title": "Carica papaya Leaf Juice for Dengue: A Scoping Review",
+      "authors": "Teh BP et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35458146/"
+    }
+  ]
 }

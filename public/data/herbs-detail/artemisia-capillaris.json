@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "40708494",
+      "title": "The Role of Chinese Medicine in the Treatment of Chronic Hepatitis B",
+      "authors": "Zheng S et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40708494/"
+    },
+    {
+      "pubmedId": "34680529",
+      "title": "The Pharmacological Effects and Pharmacokinetics of Active Compounds of Artemisia capillaris",
+      "authors": "Hsueh TP et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34680529/"
+    },
+    {
+      "pubmedId": "39186724",
+      "title": "Exploration of the potential mechanism of aqueous extract of Artemisia capillaris for the treatment of non-alcoholic fatty liver disease based on network pharmacology and experimental verification",
+      "authors": "Liang M et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39186724/"
+    }
+  ]
 }

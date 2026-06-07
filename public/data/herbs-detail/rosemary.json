@@ -29,5 +29,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30621719",
+      "title": "Rosmarinus officinalis L. (rosemary) as therapeutic and prophylactic agent",
+      "authors": "de Oliveira JR et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30621719/"
+    },
+    {
+      "pubmedId": "38174012",
+      "title": "Complementary and alternative supplements: a review of dermatologic effectiveness for androgenetic alopecia",
+      "authors": "Ufomadu P et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38174012/"
+    },
+    {
+      "pubmedId": "38565924",
+      "title": "Rosemary and neem: an insight into their combined anti-dandruff and anti-hair loss efficacy",
+      "authors": "Hashem MM et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38565924/"
+    }
+  ]
 }

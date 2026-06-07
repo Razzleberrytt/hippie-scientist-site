@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "10675182",
+      "title": "Herb-drug interactions",
+      "authors": "Fugh-Berman A et al.",
+      "year": 2000,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/"
+    },
+    {
+      "pubmedId": "29698387",
+      "title": "Salvia miltiorrhizaBurge (Danshen): a golden herbal medicine in cardiovascular therapeutics",
+      "authors": "Li ZM et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29698387/"
+    },
+    {
+      "pubmedId": "39296670",
+      "title": "Huangqi-Danshen Decoction Against Renal Fibrosis in UUO Mice via TGF-β1 Induced Downstream Signaling Pathway",
+      "authors": "Huang X et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39296670/"
+    }
+  ]
 }

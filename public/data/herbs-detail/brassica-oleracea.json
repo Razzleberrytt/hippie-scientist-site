@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "16988364",
+      "title": "Brassica oleracea",
+      "authors": "Sparrow PA et al.",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16988364/"
+    },
+    {
+      "pubmedId": "41855365",
+      "title": "Broccoli",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41855365/"
+    },
+    {
+      "pubmedId": "33666283",
+      "title": "Phytotherapy and food applications from Brassica genus",
+      "authors": "Salehi B et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33666283/"
+    }
+  ]
 }

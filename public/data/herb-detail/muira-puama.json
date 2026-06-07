@@ -97,5 +97,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "10919969",
+      "title": "Selected herbals and human exercise performance",
+      "authors": "Bucci LR et al.",
+      "year": 2000,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10919969/"
+    },
+    {
+      "pubmedId": "29551532",
+      "title": "Effect of ginger, Paullinia cupana, muira puama and l- citrulline, singly or in combination, on modulation of the inducible nitric oxide- NO-cGMP pathway in rat penile smooth muscle cells",
+      "authors": "Ferrini MG et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29551532/"
+    },
+    {
+      "pubmedId": "39845379",
+      "title": "Nutraceutical and low energy shockwave treatments improved sexual function recovery in a rat pelvic neurovascular injury model",
+      "authors": "Crisostomo-Wynne TC et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39845379/"
+    }
+  ]
 }

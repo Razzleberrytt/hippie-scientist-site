@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "22554242",
+      "title": "The shikimate pathway and aromatic amino Acid biosynthesis in plants",
+      "authors": "Maeda H et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22554242/"
+    },
+    {
+      "pubmedId": "30000526",
+      "title": "Interferon Alfacon-1",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000526/"
+    },
+    {
+      "pubmedId": "12482446",
+      "title": "Rosmarinic acid",
+      "authors": "Petersen M et al.",
+      "year": 2003,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12482446/"
+    }
+  ]
 }

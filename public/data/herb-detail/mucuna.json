@@ -118,5 +118,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "19576959",
+      "title": "Microneurography of pruritus",
+      "authors": "Handwerker HO et al.",
+      "year": 2010,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19576959/"
+    },
+    {
+      "pubmedId": "40808332",
+      "title": "Levodopa and Plant-Derived Bioactive Compounds in Parkinson's Disease: Mechanisms, Efficacy, and Future Perspectives",
+      "authors": "Aktaş E et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40808332/"
+    },
+    {
+      "pubmedId": "24598311",
+      "title": "The role of L-DOPA in plants",
+      "authors": "Soares AR et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24598311/"
+    }
+  ]
 }

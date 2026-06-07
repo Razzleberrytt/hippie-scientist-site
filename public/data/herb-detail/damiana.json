@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "35684259",
+      "title": "Antiphotoaging Effects of Damiana (Turnera diffusa) Leaves Extract via Regulation AP-1 and Nrf2/ARE Signaling Pathways",
+      "authors": "Kim M et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35684259/"
+    },
+    {
+      "pubmedId": "40125913",
+      "title": "Damiana (Turnera diffusa) Reduces Adipocyte Cell Differentiation and Ameliorates Myocyte Glucose Uptake",
+      "authors": "Chae HS et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40125913/"
+    },
+    {
+      "pubmedId": "30823394",
+      "title": "Cytotoxic Properties of Damiana (Turnera diffusa) Extracts and Constituents and A Validated Quantitative UHPLC-DAD Assay",
+      "authors": "Willer J et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30823394/"
+    }
+  ]
 }

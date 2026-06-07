@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "32600229",
+      "title": "Herbal Extracts with Antifungal Activity against Candida albicans: A Systematic Review",
+      "authors": "Hsu H et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32600229/"
+    },
+    {
+      "pubmedId": "38010396",
+      "title": "Therapeutic potential of Lawsonia inermis Linn: a comprehensive overview",
+      "authors": "Batiha GE et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38010396/"
+    },
+    {
+      "pubmedId": "24886774",
+      "title": "Lawsonia inermis L. (henna): ethnobotanical, phytochemical and pharmacological aspects",
+      "authors": "Badoni Semwal R et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24886774/"
+    }
+  ]
 }

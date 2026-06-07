@@ -21,5 +21,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "36753600",
+      "title": "Hawthorn",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36753600/"
+    },
+    {
+      "pubmedId": "30000891",
+      "title": "Hawthorn",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000891/"
+    },
+    {
+      "pubmedId": "12597258",
+      "title": "Hawthorn",
+      "authors": "Fong HH et al.",
+      "year": 2002,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12597258/"
+    }
+  ]
 }

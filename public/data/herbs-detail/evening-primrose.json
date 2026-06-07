@@ -20,5 +20,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34946512",
+      "title": "Herbal Products Used in Menopause and for Gynecological Disorders",
+      "authors": "Kenda M et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+    },
+    {
+      "pubmedId": "30000954",
+      "title": "Evening Primrose",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000954/"
+    },
+    {
+      "pubmedId": "29403626",
+      "title": "A review of effective herbal medicines in controlling menopausal symptoms",
+      "authors": "Kargozar R et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/"
+    }
+  ]
 }

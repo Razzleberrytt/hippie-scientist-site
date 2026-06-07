@@ -30,5 +30,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34946576",
+      "title": "The Analgesic Properties of Corydalis yanhusuo",
+      "authors": "Alhassen L et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34946576/"
+    },
+    {
+      "pubmedId": "35003289",
+      "title": "Processing and Compatibility of Corydalis yanhusuo: Phytochemistry, Pharmacology, Pharmacokinetics, and Safety",
+      "authors": "Wu L et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35003289/"
+    },
+    {
+      "pubmedId": "38551844",
+      "title": "Corynoline Suppresses Osteoclastogenesis and Attenuates ROS Activities by Regulating NF-κB/MAPKs and Nrf2 Signaling Pathways",
+      "authors": "Jin C et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38551844/"
+    }
+  ]
 }

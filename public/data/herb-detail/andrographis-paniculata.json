@@ -106,5 +106,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "30040451",
+      "title": "Overview of pharmacological activities of Andrographis paniculata and its major compound andrographolide",
+      "authors": "Dai Y et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30040451/"
+    },
+    {
+      "pubmedId": "34818697",
+      "title": "Andrographolide: A review of its pharmacology, pharmacokinetics, toxicity and clinical trials and pharmaceutical researches",
+      "authors": "Zeng B et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34818697/"
+    },
+    {
+      "pubmedId": "37821383",
+      "title": "Efficacy of Andrographis paniculata spray in acute pharyngitis: A randomized controlled trial",
+      "authors": "Okonogi R et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37821383/"
+    }
+  ]
 }

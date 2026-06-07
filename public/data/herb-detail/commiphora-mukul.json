@@ -121,5 +121,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34071454",
+      "title": "A Systematic Review and Meta-Analysis of Ayurvedic Herbal Preparations for Hypercholesterolemia",
+      "authors": "Gyawali D et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34071454/"
+    },
+    {
+      "pubmedId": "37301302",
+      "title": "Commiphora mukul (Hook. ex Stocks) Engl.: Historical records, application rules, phytochemistry, pharmacology, clinical research, and adverse reaction",
+      "authors": "Garang Z et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37301302/"
+    },
+    {
+      "pubmedId": "38148708",
+      "title": "Current stage of preclinical and clinical development of guggulsterone in cancers: Challenges and promises",
+      "authors": "Ijaz S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38148708/"
+    }
+  ]
 }

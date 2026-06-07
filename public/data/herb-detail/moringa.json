@@ -124,5 +124,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "36768420",
+      "title": "Moringa oleifera: An Updated Comprehensive Review of Its Pharmacological Activities, Ethnomedicinal, Phytopharmaceutical Formulation, Clinical, Phytochemical, and Toxicological Aspects",
+      "authors": "Pareek A et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36768420/"
+    },
+    {
+      "pubmedId": "25374169",
+      "title": "Health benefits of Moringa oleifera",
+      "authors": "Abdull Razis AF et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25374169/"
+    },
+    {
+      "pubmedId": "17089328",
+      "title": "Moringa oleifera: a food plant with multiple medicinal uses",
+      "authors": "Anwar F et al.",
+      "year": 2007,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17089328/"
+    }
+  ]
 }

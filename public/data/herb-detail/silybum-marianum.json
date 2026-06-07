@@ -112,5 +112,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "28762712",
+      "title": "Common Herbal Dietary Supplement-Drug Interactions",
+      "authors": "Asher GN et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+    },
+    {
+      "pubmedId": "30080294",
+      "title": "Milk thistle (Silybum marianum): A concise overview on its chemistry, pharmacological, and nutraceutical uses in liver diseases",
+      "authors": "Abenavoli L et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30080294/"
+    },
+    {
+      "pubmedId": "32065376",
+      "title": "Silymarin as Supportive Treatment in Liver Diseases: A Narrative Review",
+      "authors": "Gillessen A et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32065376/"
+    }
+  ]
 }

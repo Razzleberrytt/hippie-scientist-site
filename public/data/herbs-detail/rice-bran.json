@@ -30,5 +30,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "35587098",
+      "title": "Dermatological uses of rice products: Trend or true?",
+      "authors": "Zamil DH et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35587098/"
+    },
+    {
+      "pubmedId": "33138751",
+      "title": "Biological and Pharmacological Effects of Gamma-oryzanol: An Updated Review of the Molecular Mechanisms",
+      "authors": "Ramazani E et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33138751/"
+    },
+    {
+      "pubmedId": "34239993",
+      "title": "The effects of twenty-four nutrients and phytonutrients on immune system function and inflammation: A narrative review",
+      "authors": "Poles J et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34239993/"
+    }
+  ]
 }

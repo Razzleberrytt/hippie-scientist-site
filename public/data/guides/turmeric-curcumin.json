@@ -213,5 +213,91 @@
     "title": "Turmeric & Curcumin Guide — Evidence-Based Benefits, Bioavailability & Dosing",
     "description": "Comprehensive evidence review of turmeric and curcumin: proven benefits for joint pain and inflammation, how to choose the right formulation, dosing guidelines, and safety context.",
     "canonical": "/guides/turmeric-curcumin"
-  }
+  },
+  "options": [
+    {
+      "name": "Qunol Turmeric Curcumin with Black Pepper",
+      "description": "High-potency turmeric extract standardized to 95% curcuminoids with black pepper and ginger for absorption support.",
+      "form": "capsule",
+      "dosage": "1500-2400mg turmeric extract daily with food",
+      "amazonAsin": "B08GMP4WRP",
+      "approxPrice": "$15-30/month",
+      "rating": "4.6/5 (8,500+ reviews)",
+      "whyChosen": "A widely purchased curcumin option that pairs a high-curcuminoid extract with piperine-style absorption support. Good fit for readers prioritizing potency and value.",
+      "pros": [
+        "95% curcuminoid extract",
+        "Includes black pepper for absorption",
+        "Strong value per serving"
+      ],
+      "cons": [
+        "Piperine may interact with medications",
+        "Higher capsule burden than some formulas"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B08GMP4WRP?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Sports Research Turmeric Curcumin C3 Complex Softgels",
+      "description": "C3 Complex curcuminoids in softgels with BioPerine and organic coconut oil.",
+      "form": "capsule",
+      "dosage": "500-1000mg curcuminoids daily with meals",
+      "amazonAsin": "B00A39MPNI",
+      "approxPrice": "$10-32/month",
+      "rating": "4.6/5 (9,600+ reviews)",
+      "whyChosen": "Uses a named C3 Complex curcuminoid ingredient plus BioPerine, matching the guide emphasis on enhanced bioavailability. The softgel format is convenient for people who dislike dry capsules.",
+      "pros": [
+        "Named C3 Complex ingredient",
+        "BioPerine plus lipid carrier",
+        "Non-GMO positioning"
+      ],
+      "cons": [
+        "Softgels are not vegan",
+        "Piperine interaction caution applies"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B00A39MPNI?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "NatureWise Curcumin Turmeric 2250mg",
+      "description": "Vegan curcumin/turmeric capsule formula standardized to 95% curcuminoids with BioPerine black pepper extract.",
+      "form": "capsule",
+      "dosage": "1500-2250mg daily with food",
+      "amazonAsin": "B01BMDAVIY",
+      "approxPrice": "$15-25/month",
+      "rating": "4.7/5 (50,000+ reviews)",
+      "whyChosen": "A high-review-count Amazon turmeric option with the core features readers should look for: standardized curcuminoids and piperine. Best for shoppers comparing price and review volume.",
+      "pros": [
+        "Large review base",
+        "Vegan capsule format",
+        "Standardized curcuminoids"
+      ],
+      "cons": [
+        "Not a phytosome formulation",
+        "Review quality should still be evaluated"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B01BMDAVIY?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Doctor's Best High Absorption Curcumin",
+      "description": "Curcumin extract positioned around enhanced absorption for joint and antioxidant support.",
+      "form": "capsule",
+      "dosage": "500-1000mg daily with meals",
+      "amazonAsin": "B000BD0RQS",
+      "approxPrice": "$18-35/month",
+      "rating": "4.6/5 (3,600+ reviews)",
+      "whyChosen": "A long-running supplement brand option for readers who want curcumin without chasing the highest raw milligram count. Useful as a more conservative comparison against high-dose piperine formulas.",
+      "pros": [
+        "Established supplement brand",
+        "Moderate daily dosing",
+        "Good fit for routine use"
+      ],
+      "cons": [
+        "Confirm current label before buying",
+        "May cost more per serving than bulk formulas"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B000BD0RQS?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    }
+  ]
 }

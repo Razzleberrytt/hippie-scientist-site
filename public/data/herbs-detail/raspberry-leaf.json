@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30000844",
+      "title": "Raspberry",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000844/"
+    },
+    {
+      "pubmedId": "31975502",
+      "title": "Anti-aging and brightening effects of a topical treatment containing vitamin C, vitamin E, and raspberry leaf cell culture extract: A split-face, randomized controlled trial",
+      "authors": "Rattanawiwatpong P et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31975502/"
+    },
+    {
+      "pubmedId": "35336978",
+      "title": "Known and Potential Invertebrate Vectors of Raspberry Viruses",
+      "authors": "Tan JL et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35336978/"
+    }
+  ]
 }
