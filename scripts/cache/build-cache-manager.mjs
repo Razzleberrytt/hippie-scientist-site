@@ -192,3 +192,29 @@ export class CacheManager {
     }
   }
 }
+
+// CLI Execution
+if (process.argv[1] && (process.argv[1] === fileURLToPath(import.meta.url) || process.argv[1].endsWith('build-cache-manager.mjs'))) {
+  const manager = new CacheManager()
+  const cmd = process.argv[2]
+  if (cmd === 'clear') {
+    manager.clearAll()
+  } else if (cmd === 'status') {
+    manager.printStatus()
+  } else if (cmd === 'clear-step') {
+    const step = process.argv[3]
+    if (!step) {
+      console.error('Error: Please specify a step name.')
+      process.exit(1)
+    }
+    manager.clearStep(step)
+    console.log(`✓ Cleared cache for step: ${step}`)
+  } else {
+    console.log('Build Cache Manager')
+    console.log('Usage:')
+    console.log('  node scripts/cache/build-cache-manager.mjs status')
+    console.log('  node scripts/cache/build-cache-manager.mjs clear')
+    console.log('  node scripts/cache/build-cache-manager.mjs clear-step <stepName>')
+  }
+}
+

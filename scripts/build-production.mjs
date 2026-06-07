@@ -29,7 +29,7 @@ try {
   console.log('[build] Running next build...')
   execSync('npx next build', {
     stdio: 'inherit',
-    env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=4096' },
+    env: { ...process.env, NODE_OPTIONS: '--max-old-space-size=4096', NEXT_TELEMETRY_DISABLED: '1' },
   })
 } catch (error) {
   console.error('[build] Build failed:', error)

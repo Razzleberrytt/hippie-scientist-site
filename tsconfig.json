@@ -13,6 +13,9 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
+      // NOTE: Hybrid alias maps to src/ first, then falls back to root folder (e.g. app/, components/, lib/).
+      // This is preserved to avoid breaking legacy src/ references, but developers should be careful
+      // with name collisions between root components/ and src/components/.
       "@/*": ["./src/*", "./*"]
     },
     "incremental": true,
