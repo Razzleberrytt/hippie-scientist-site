@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitest/config'
-import { transformWithEsbuild } from 'vite'
+import { transformWithOxc } from 'vite'
 import path from 'path'
 
 export default defineConfig({
@@ -8,12 +8,13 @@ export default defineConfig({
       name: 'vitest-tsx-transform',
       enforce: 'pre',
       async transform(code, id) {
-        if (!id.endsWith('.tsx')) return null
+        const filepath = id.split('?')[0]
+        if (!filepath.endsWith('.tsx')) return null
 
-        return transformWithEsbuild(code, id, {
-          loader: 'tsx',
-          jsx: 'automatic',
-          jsxImportSource: 'react',
+        return transformWithOxc(code, id, {
+          jsx: {
+            runtime: 'automatic',
+          }
         })
       },
     },
@@ -23,6 +24,14 @@ export default defineConfig({
     globals: true,
     setupFiles: './vitest.setup.ts',
     exclude: ['**/node_modules/**', '**/dist/**', '**/.next/**', '**/.claude/**', '**/out/**'],
+    maxWorkers: '50%',
+    testTimeout: 15000,
+    // @ts-expect-error poolOptions is supported by Vitest 4 but InlineConfig types in this environment do not declare it.
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
   },
   resolve: {
     alias: {
