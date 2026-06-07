@@ -7,7 +7,7 @@ const coreRoutes = [
   '/',
   '/herbs',
   '/compounds',
-  '/blog',
+  '/research-notes',
   '/learn',
   '/about',
   '/contact',
@@ -75,7 +75,7 @@ const routeContentExpectations = [
     forbidden: ['Herb Profiles &amp; Research Library', 'Find the right supplement path for your goals.'],
   },
   {
-    route: '/blog',
+    route: '/research-notes',
     required: ['Research Notes', 'All research notes'],
     forbidden: [LOADING_SENTINEL, 'Find the right supplement path for your goals.'],
   },
@@ -121,11 +121,11 @@ if (!sitemapContent || !sitemapContent.includes('<urlset')) {
 const requiredSitemapUrls = [
   'https://thehippiescientist.net/',
   'https://thehippiescientist.net/about/',
-  'https://thehippiescientist.net/blog/',
+  'https://thehippiescientist.net/research-notes/',
   'https://thehippiescientist.net/herbs/',
   'https://thehippiescientist.net/compounds/',
   'https://thehippiescientist.net/compare/',
-  '/blog/', // at least some blog post
+  '/research-notes/', // at least some research note
   '/herbs/', // detail
   '/compounds/', // detail
 ]

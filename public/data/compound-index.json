@@ -92,6 +92,36 @@
     "indexability_reasons": []
   },
   {
+    "slug": "7-hydroxymitragynine",
+    "name": "7-Hydroxymitragynine",
+    "summary": "7-Hydroxymitragynine is a potent kratom alkaloid present only in trace amounts in natural kratom leaf, but concentrated or synthetic 7-OH products carry opioid-like safety and regulatory risk.",
+    "primary_effects": [
+      "research_only"
+    ],
+    "effects": [
+      "research_only"
+    ],
+    "evidence_grade": "c",
+    "evidence_tier": "Limited Human Evidence",
+    "profile_status": "research_only",
+    "runtime_export_decision": "hidden_until_grounded",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "eligible",
+    "indexability_score": {
+      "status": "NOINDEX",
+      "score": 0,
+      "robots": "noindex,follow",
+      "sitemap_included": false,
+      "reasons": [
+        "noindex-decision:hidden_until_grounded"
+      ]
+    },
+    "indexability_reasons": []
+  },
+  {
     "slug": "acarbose",
     "name": "Acarbose",
     "summary": "Acarbose is tracked for Inhibits intestinal alpha-glucosidases, delaying carbohydrate digestion and postprandial glucose absorption with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",

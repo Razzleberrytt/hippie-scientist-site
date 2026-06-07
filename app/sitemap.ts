@@ -87,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/safety-checker/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/herbs/`, currentDate, 'weekly', 0.9),
     route(`${SITE_URL}/compounds/`, currentDate, 'weekly', 0.9),
-    route(`${SITE_URL}/blog/`, currentDate, 'daily', 0.8),
+    route(`${SITE_URL}/research-notes/`, currentDate, 'daily', 0.8),
     route(`${SITE_URL}/goals/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/stacks/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.7),
@@ -145,7 +145,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     sitemapEntries.push(
       route(
-        `${SITE_URL}/blog/${post.slug}/`,
+        `${SITE_URL}/research-notes/${post.slug}/`,
         currentDate,
         'monthly',
         0.75,
@@ -202,7 +202,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
   routeManifest.forEach((entry: any) => {
     const r = (entry && (entry.route || entry.slug)) as string | undefined;
-    if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
+    if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/research-notes/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
     if (r.startsWith('/_') || r.includes('dynamic')) return;
     const url = r.endsWith('/') || r === '' ? `${SITE_URL}${r || '/'}` : `${SITE_URL}${r}/`;
     sitemapEntries.push(route(url, currentDate, 'monthly', 0.5));

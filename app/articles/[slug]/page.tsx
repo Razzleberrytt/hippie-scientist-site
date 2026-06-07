@@ -239,7 +239,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
   if (!article) return notFound()
 
   const pageBreadcrumb = breadcrumbJsonLd([
-    { name: 'Articles', url: 'https://thehippiescientist.net/blog' },
+    { name: 'Articles', url: 'https://thehippiescientist.net/research-notes' },
     { name: article.title, url: `https://thehippiescientist.net/articles/${article.slug}` },
   ])
 
@@ -263,7 +263,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/blog" className="transition hover:text-ink">Articles</Link>
+        <Link href="/research-notes" className="transition hover:text-ink">Articles</Link>
         <span>/</span>
         <span className="text-ink line-clamp-1">{article.title}</span>
       </nav>
@@ -376,7 +376,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
               <Link href="/herbs" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
                 Herb Profiles →
               </Link>
-              <Link href="/blog" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
+              <Link href="/research-notes" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
                 Research Notes →
               </Link>
             </div>
@@ -386,7 +386,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
 
       {/* Back link */}
       <div className="mt-8">
-        <Link href="/blog" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/research-notes" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
         </Link>
       </div>

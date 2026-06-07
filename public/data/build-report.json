@@ -3,7 +3,7 @@
   "workbook": "herb_monograph_master.xlsx",
   "counts": {
     "herbs": 287,
-    "compounds": 594,
+    "compounds": 595,
     "claims": 0,
     "herbCompoundMap": 396,
     "canonicalMechanisms": 53,

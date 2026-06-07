@@ -40,6 +40,14 @@ type PageProps = {
   params: Promise<{ slug: string }>
 }
 
+type RegulatoryStateRow = {
+  state: string
+  naturalKratom: string
+  concentrated7oh: string
+  keyDetails: string
+  notes: string
+}
+
 const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
   coq10: 'coenzyme-q10',
   'coenzyme-q10-ubiquinol': 'coenzyme-q10',
@@ -283,6 +291,142 @@ function shouldSuppressAffiliate(record: any): boolean {
   return safetyText.includes('high caution') || safetyText.includes('needs-review') || safetyText.includes('needs review') || safetyText.includes('severe')
 }
 
+function parseRegulatoryStateRows(value: unknown): RegulatoryStateRow[] {
+  if (!value || typeof value !== 'string') return []
+  try {
+    const parsed = JSON.parse(value)
+    if (!Array.isArray(parsed)) return []
+    return parsed
+      .map((row) => ({
+        state: cleanText(row?.state),
+        naturalKratom: cleanText(row?.naturalKratom),
+        concentrated7oh: cleanText(row?.concentrated7oh),
+        keyDetails: cleanText(row?.keyDetails),
+        notes: cleanText(row?.notes),
+      }))
+      .filter((row) => row.state)
+  } catch {
+    return []
+  }
+}
+
+function splitRegulatoryParagraphs(value: unknown) {
+  return cleanText(value)
+    .split(/\n\s*\n|(?:\s*\|\s*)/g)
+    .map((item) => cleanText(item))
+    .filter(Boolean)
+}
+
+function splitRegulatorySources(value: unknown): string[] {
+  const rawValues: unknown[] = Array.isArray(value) ? value : [value]
+  const values = rawValues.flatMap((item) => String(item ?? '').split(/[\n|;,]+/))
+  return unique(
+    values
+      .map((item: string) => cleanText(item))
+      .filter((item: string) => /^https?:\/\//i.test(item)),
+  ).slice(0, 8)
+}
+
+function RegulatoryStatusSection({ compound }: { compound: any }) {
+  const federalParagraphs = splitRegulatoryParagraphs(compound.regulatory_federal || compound.regulatory_status)
+  const stateRows = parseRegulatoryStateRows(compound.regulatory_states_table)
+  const stateSummary = cleanText(compound.regulatory_states_summary)
+  const changelog = splitRegulatoryParagraphs(compound.regulatory_changelog)
+  const sources = splitRegulatorySources(compound.regulatory_sources)
+  const lastChecked = cleanText(compound.last_regulatory_check)
+
+  if (!federalParagraphs.length && !stateRows.length && !stateSummary) return null
+
+  return (
+    <section className="rounded-2xl border border-red-200 bg-red-50/70 p-4 sm:p-5 space-y-5" aria-labelledby="regulatory-status-heading">
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-red-800">Regulatory status</p>
+          <h2 id="regulatory-status-heading" className="mt-1 text-lg font-bold text-red-950">
+            2026 federal and state regulatory context
+          </h2>
+        </div>
+        {lastChecked ? (
+          <span className="rounded-full border border-red-200 bg-white px-3 py-1 text-xs font-semibold text-red-900">
+            Last checked {lastChecked}
+          </span>
+        ) : null}
+      </div>
+
+      <div className="space-y-3 text-sm leading-6 text-red-950">
+        {federalParagraphs.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+      </div>
+
+      {stateSummary ? (
+        <div className="rounded-xl border border-red-200 bg-white/80 p-3 text-sm leading-6 text-red-950">
+          <strong>State-level pattern:</strong> {stateSummary}
+        </div>
+      ) : null}
+
+      {stateRows.length ? (
+        <div className="space-y-3">
+          <div className="overflow-x-auto rounded-xl border border-red-200 bg-white" role="region" aria-label="50-state 7-OH regulatory table">
+            <table className="min-w-[920px] w-full text-left text-sm">
+              <caption className="sr-only">
+                State-by-state triage table distinguishing natural kratom leaf from concentrated or synthetic 7-hydroxymitragynine products.
+              </caption>
+              <thead className="bg-red-100/80 text-red-950">
+                <tr>
+                  <th scope="col" className="px-3 py-3 text-xs font-bold uppercase tracking-wider">State</th>
+                  <th scope="col" className="px-3 py-3 text-xs font-bold uppercase tracking-wider">Natural kratom</th>
+                  <th scope="col" className="px-3 py-3 text-xs font-bold uppercase tracking-wider">Concentrated/synthetic 7-OH</th>
+                  <th scope="col" className="px-3 py-3 text-xs font-bold uppercase tracking-wider">Key details / limits</th>
+                  <th scope="col" className="px-3 py-3 text-xs font-bold uppercase tracking-wider">Notes / dates</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-red-100">
+                {stateRows.map((row) => (
+                  <tr key={row.state} className="align-top">
+                    <th scope="row" className="px-3 py-3 font-semibold text-red-950">{row.state}</th>
+                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.naturalKratom}</td>
+                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.concentrated7oh}</td>
+                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.keyDetails}</td>
+                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.notes}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs leading-5 text-red-900">
+            Regulations change quickly and local bans can be stricter than state law. Treat this table as regulatory triage, not legal advice; verify against official state and local sources before relying on any status.
+          </p>
+        </div>
+      ) : null}
+
+      {changelog.length ? (
+        <div className="rounded-xl border border-red-200 bg-white/80 p-3">
+          <h3 className="text-sm font-bold text-red-950">Regulatory changelog</h3>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-red-950">
+            {changelog.map((entry) => <li key={entry}>{entry}</li>)}
+          </ul>
+        </div>
+      ) : null}
+
+      {sources.length ? (
+        <div className="text-xs leading-5 text-red-900">
+          <p className="font-bold uppercase tracking-wider">Primary sources</p>
+          <ul className="mt-2 space-y-1">
+            {sources.map((source) => (
+              <li key={source}>
+                <a href={source} target="_blank" rel="noopener noreferrer" className="break-all font-semibold text-red-800 hover:underline">
+                  {source}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </section>
+  )
+}
+
 
 
 export default async function CompoundPage({ params }: PageProps) {
@@ -490,6 +634,8 @@ export default async function CompoundPage({ params }: PageProps) {
             ) : null}
           </section>
         ) : null}
+
+        <RegulatoryStatusSection compound={compound} />
 
         {/* Section 1: Quick Stats */}
         <section className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">

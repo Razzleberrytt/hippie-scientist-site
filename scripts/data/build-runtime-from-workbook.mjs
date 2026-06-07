@@ -212,6 +212,10 @@ function stripAffiliateForRestricted(record) {
   }
 }
 
+function canExportRestrictedReference(record) {
+  return bool(record?.allow_restricted_reference_export)
+}
+
 function num(v) {
   const n = Number(clean(v))
   return Number.isFinite(n) ? n : null
@@ -378,7 +382,10 @@ function normalizeMechanisms(rawValues, taxonomy) {
 function visibility(base, type) {
   const visibilityTier = clean(base.visibility_tier || base.visibilityTier || '') || 'public'
   const robots = clean(base.robots || '') || (visibilityTier === 'hidden' ? 'noindex,nofollow' : 'index,follow')
-  const sitemapIncluded = visibilityTier !== 'hidden'
+  const explicitSitemapIncluded = clean(base.sitemap_included)
+  const sitemapIncluded = explicitSitemapIncluded
+    ? bool(explicitSitemapIncluded)
+    : visibilityTier !== 'hidden'
 
   return {
     visibility_tier: visibilityTier,
@@ -443,6 +450,9 @@ function profile(row, type, taxonomy) {
     evidence_tier: clean(first(row, ['evidence_tier', 'evidence tier'])),
     profile_status: clean(first(row, ['profile_status', 'profile status'])),
     runtime_export_decision: clean(first(row, ['runtime_export_decision', 'runtime export decision'])),
+    visibility_tier: clean(first(row, ['visibility_tier', 'visibility tier'])),
+    robots: clean(first(row, ['robots'])),
+    sitemap_included: first(row, ['sitemap_included', 'sitemap included']),
     ...(runtimeSafety ? { safety: runtimeSafety } : {}),
     safety_level: clean(first(row, ['safety_level', 'safety level'])),
     contraindications: firstList(row, ['contraindications', 'avoid_if', 'avoid if']),
@@ -465,6 +475,13 @@ function profile(row, type, taxonomy) {
     meta_title: clean(first(row, ['meta_title', 'meta title'])),
     meta_description: clean(first(row, ['meta_description', 'meta description'])),
     ...governanceFlags(row),
+    allow_restricted_reference_export: bool(first(row, ['allow_restricted_reference_export', 'allow restricted reference export'])),
+    regulatory_federal: compact(first(row, ['regulatory_federal', 'regulatory federal'])),
+    regulatory_states_summary: compact(first(row, ['regulatory_states_summary', 'regulatory states summary'])),
+    regulatory_states_table: compact(first(row, ['regulatory_states_table', 'regulatory states table'])),
+    last_regulatory_check: clean(first(row, ['last_regulatory_check', 'last regulatory check'])),
+    regulatory_changelog: compact(first(row, ['regulatory_changelog', 'regulatory changelog'])),
+    regulatory_sources: firstList(row, ['regulatory_sources', 'regulatory sources']),
     featured: bool(first(row, ['featured'])),
     controlled_substance: bool(first(row, ['controlled_substance', 'controlled substance'])),
     ...semantic(row, type),
@@ -741,8 +758,8 @@ async function main() {
   const taxonomy = buildMechanismTaxonomy(read(wb, SHEETS.canonicalMechanisms, true))
   const allHerbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb', taxonomy)))
   const allCompounds = dedupe(read(wb, SHEETS.compounds).map((r) => profile(r, 'compound', taxonomy)))
-  const herbs = allHerbs.filter((record) => !isRestrictedRuntimeRecord(record))
-  const compounds = allCompounds.filter((record) => !isRestrictedRuntimeRecord(record))
+  const herbs = allHerbs.filter((record) => !isRestrictedRuntimeRecord(record) || canExportRestrictedReference(record))
+  const compounds = allCompounds.filter((record) => !isRestrictedRuntimeRecord(record) || canExportRestrictedReference(record))
   const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)
   const herbCompoundMap = filterRestrictedMapRows(normalizeRows(read(wb, SHEETS.map), mapRow), allHerbs, allCompounds)
   const graph = Object.fromEntries(Object.entries(GRAPH_SHEETS).map(([kind, names]) => [kind, normalizeRows(read(wb, names, true), (r) => graphRow(r, kind))]))

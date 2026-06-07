@@ -1,10 +1,10 @@
 {
   "reportVersion": 1,
   "canonicalMechanisms": 53,
-  "records": 881,
+  "records": 882,
   "fullyMappedRecords": 659,
   "partiallyMappedRecords": 155,
-  "unmappedRecords": 66,
+  "unmappedRecords": 67,
   "noRawMechanismRecords": 1,
   "unmappedMechanisms": [
     {
@@ -140,6 +140,10 @@
       "count": 1
     },
     {
+      "term": "higher potency than mitragynine preclinical",
+      "count": 1
+    },
+    {
       "term": "increases gastric acidity",
       "count": 1
     },
@@ -245,6 +249,10 @@
     },
     {
       "term": "PKC modulation",
+      "count": 1
+    },
+    {
+      "term": "potent mu-opioid receptor agonism",
       "count": 1
     },
     {

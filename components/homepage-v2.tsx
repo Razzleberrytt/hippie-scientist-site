@@ -70,14 +70,14 @@ const featuredArticles = [
     readingTime: '12 min read',
   },
   {
-    href: '/blog/rhodiola-vs-ashwagandha',
+    href: '/research-notes/rhodiola-vs-ashwagandha',
     label: 'Comparison',
     title: 'Rhodiola vs. Ashwagandha: Matching Adaptogens to Your Needs',
     description: "Cortisol timing, fatigue profiles, and when stimulating adaptogens outperform sedating ones — and vice versa.",
     readingTime: '5 min read',
   },
   {
-    href: '/blog/reishi-sleep-immunity',
+    href: '/research-notes/reishi-sleep-immunity',
     label: 'Research Note',
     title: 'Reishi for Sleep and Immunity: What the Studies Say',
     description: 'Triterpenes, beta-glucans, and the evidence behind Reishi\'s dual reputation as an adaptogen and immune modulator.',
@@ -301,12 +301,12 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         <section className='space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
-              title='From the Research Notes'
-              subtitle='Deep dives and evidence reviews — mechanisms, clinical data, and safety context in one place.'
+              title='Guides & research notes'
+              subtitle='Practical guides live in /guides; deep dives, regulatory updates, and evidence notes live in the research-note archive.'
               as='h2'
             />
-            <Link href='/blog' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
-              All articles →
+            <Link href='/research-notes' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              All research notes →
             </Link>
           </div>
 

@@ -73,9 +73,14 @@ export const mainNavigation: NavigationItem[] = [
     description: 'The Hippie Scientist – evidence-first supplement research',
   },
   {
-    label: 'Articles',
-    href: '/blog',
-    description: 'Research articles on herbs, compounds, and supplement science',
+    label: 'Guides & Articles',
+    href: '/guides',
+    description: 'Goal-oriented guides, comparisons, and practical supplement decision pages',
+  },
+  {
+    label: 'Research Notes',
+    href: '/research-notes',
+    description: 'Deep dives, evidence reviews, regulatory updates, and editorial research notes',
   },
   {
     label: 'Comparisons',
@@ -166,14 +171,25 @@ export const routeLabels: Record<string, RouteMetadata> = {
     isDynamic: true,
   },
   '/blog': {
-    label: 'Blog',
-    description: 'Articles and updates',
+    label: 'Research Notes',
+    description: 'Legacy research notes archive path',
     parent: '/',
   },
   '/blog/[slug]': {
-    label: 'Article',
-    description: 'Blog article',
+    label: 'Research Note',
+    description: 'Legacy research note path',
     parent: '/blog',
+    isDynamic: true,
+  },
+  '/research-notes': {
+    label: 'Research Notes',
+    description: 'Evidence reviews, regulatory updates, monographs, and research notes',
+    parent: '/',
+  },
+  '/research-notes/[slug]': {
+    label: 'Research Note',
+    description: 'Research note or evidence review',
+    parent: '/research-notes',
     isDynamic: true,
   },
   '/learn': {
