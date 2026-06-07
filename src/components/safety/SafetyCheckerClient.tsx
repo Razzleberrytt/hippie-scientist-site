@@ -72,6 +72,7 @@ interface SafetyCheckerClientProps {
 }
 
 export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerClientProps) {
+  const [acknowledged, setAcknowledged] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedItems, setSelectedItems] = useState<SafetyItem[]>([])
   const [selectedMeds, setSelectedMeds] = useState<PharmaceuticalMedication[]>([])
@@ -363,30 +364,56 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
   }
 
   return (
-    <div className='grid gap-8 lg:grid-cols-3'>
-      {/* Selection Column */}
-      <div className='lg:col-span-1 space-y-6'>
-        {/* Search Ingredients */}
-        <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' ref={dropdownRef}>
-          <h2 className='text-lg font-bold text-slate-800'>Search Ingredients</h2>
-          <p className='text-xs text-slate-500'>
-            Add multiple herbs or compounds to evaluate contraindications, drug interactions, and physiological loading overlaps.
-          </p>
+    <div className='space-y-6'>
+      {/* Disclaimer Acknowledgment Gate */}
+      <div className={`rounded-3xl border p-6 transition-all ${
+        acknowledged 
+          ? 'border-emerald-900/10 bg-emerald-50/10' 
+          : 'border-rose-900/20 bg-rose-50/20 shadow-sm'
+      }`}>
+        <h2 className='text-base font-bold text-slate-800 flex items-center gap-2'>
+          ⚠️ Medical Disclaimer & Safety Acknowledgment
+        </h2>
+        <p className='mt-2 text-xs text-slate-600 leading-relaxed'>
+          This safety checker is an educational reference tool built on general biomedical pathways and public databases. It is <strong>not</strong> medical advice, is not monitored by doctors, and cannot replace personalized guidance from a qualified health professional. Stacking supplements, especially alongside prescription drugs, carries inherent physiological risks.
+        </p>
+        <label className='mt-4 flex items-start gap-3 cursor-pointer select-none text-xs font-semibold text-slate-700'>
+          <input
+            type='checkbox'
+            id='safety-disclaimer-checkbox'
+            checked={acknowledged}
+            onChange={e => setAcknowledged(e.target.checked)}
+            className='mt-0.5 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500'
+          />
+          <span>I acknowledge that this tool is for educational purposes only and agree to consult a clinical professional before starting or changing any supplement regimen.</span>
+        </label>
+      </div>
 
-          <div className='relative'>
-            <input
-              type='text'
-              value={searchQuery}
-              onChange={e => {
-                setSearchQuery(e.target.value)
-                setIsOpen(true)
-                setFocusedIndex(-1)
-              }}
-              onFocus={() => setIsOpen(true)}
-              onKeyDown={handleKeyDown}
-              placeholder='Type herb or compound...'
-              className='min-h-11 w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-base sm:text-sm focus:border-emerald-500 focus:outline-none'
-            />
+      <div className='grid gap-8 lg:grid-cols-3'>
+        {/* Selection Column */}
+        <div className={`lg:col-span-1 space-y-6 ${!acknowledged ? 'opacity-60 pointer-events-none select-none' : ''}`}>
+          {/* Search Ingredients */}
+          <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' ref={dropdownRef}>
+            <h2 className='text-lg font-bold text-slate-800'>Search Ingredients</h2>
+            <p className='text-xs text-slate-500'>
+              Add multiple herbs or compounds to evaluate contraindications, drug interactions, and physiological loading overlaps.
+            </p>
+
+            <div className='relative'>
+              <input
+                type='text'
+                value={searchQuery}
+                disabled={!acknowledged}
+                onChange={e => {
+                  setSearchQuery(e.target.value)
+                  setIsOpen(true)
+                  setFocusedIndex(-1)
+                }}
+                onFocus={() => setIsOpen(true)}
+                onKeyDown={handleKeyDown}
+                placeholder={acknowledged ? 'Type herb or compound...' : 'Please acknowledge disclaimer first...'}
+                className='min-h-11 w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-base sm:text-sm focus:border-emerald-500 focus:outline-none disabled:bg-slate-50 disabled:text-slate-400'
+              />
             {isOpen && filteredItems.length > 0 && (
               <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
                 {filteredItems.map((item, idx) => (
@@ -423,6 +450,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 <button
                   key={med.id}
                   type='button'
+                  disabled={!acknowledged}
                   onClick={() => {
                     if (isSelected) {
                       setSelectedMeds(selectedMeds.filter(m => m.id !== med.id))
@@ -516,7 +544,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
       </div>
 
       {/* Interaction Reports */}
-      <div className='lg:col-span-2 space-y-6'>
+      <div className={`lg:col-span-2 space-y-6 ${!acknowledged ? 'opacity-60 pointer-events-none select-none' : ''}`}>
         <div className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6'>
           <div className='border-b border-slate-100 pb-4 flex items-center justify-between'>
             <h2 className='text-xl font-bold text-slate-800'>Interactive Safety Audit</h2>
@@ -603,6 +631,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
           )}
         </div>
       </div>
+    </div>
     </div>
   )
 }

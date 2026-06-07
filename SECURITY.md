@@ -31,6 +31,7 @@ This project follows semantic versioning for the site. Security fixes are applie
 - **Production audit is clean** (`npm audit --omit=dev` reports 0 vulnerabilities).
 - SheetJS/xlsx (exceljs in dev) is used **only** in build-time data pipeline scripts (`scripts/data/build-runtime-from-workbook.mjs` and related) for parsing the source-of-truth `data-sources/herb_monograph_master.xlsx`.
   - **Rationale for allowlist**: xlsx CVE reports (historical prototype pollution, etc.) are relevant for untrusted input. Our input is a controlled internal workbook (never user-supplied). The package is dev-only, not shipped to production bundles or runtime.
+  - **ExcelJS dependency warning (`exceljs -> uuid`)**: A vulnerability warning may appear in transitively imported versions of `uuid` under `exceljs`. Since `exceljs` is a development-only tool used strictly in the offline data pipeline for processing local, trusted workbook source files during the build process, it is not included in the client bundles or production runtime and poses no threat to the live production site.
   - See `docs/security/xlsx-audit.md` and `docs/security/workbook-parsing-threat-model.md` for details.
   - If a critical CVE affects our exact usage, we will pin, patch, or migrate (e.g., to a safer parser) before next data build.
 - **Known dev-only advisory: `exceljs` → `uuid` (GHSA-w5hq-g745-h8pq, moderate)**

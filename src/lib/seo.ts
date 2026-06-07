@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { getRuntimeVisibility } from './runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
+import { SITE_URL, SITE_NAME } from '@/lib/site'
 
-export const SITE_URL = 'https://thehippiescientist.net'
+export { SITE_URL, SITE_NAME }
 export const SEO_YEAR = '2026'
 export const DEFAULT_OG_IMAGE = '/og-default.jpg'
-export const SITE_NAME = 'The Hippie Scientist'
 export const TWITTER_HANDLE = '@HippieScientist'
 export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
 export const DEFAULT_DESCRIPTION = 'The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for 900+ profiles.'

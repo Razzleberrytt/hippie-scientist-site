@@ -87,6 +87,9 @@
     "build:analyze": "ANALYZE=true npm run build",
     "validate:guide-faqs": "node scripts/ci/validate-guide-faqs.mjs",
     "validate:sitemap": "node scripts/ci/validate-sitemap.mjs",
+    "validate:sitemap:built": "node scripts/ci/validate-sitemap.mjs --require-built",
+    "validate:fonts": "node scripts/ci/validate-fonts.mjs",
+    "validate:canonical-host": "node scripts/ci/validate-canonical-host.mjs",
     "validate:guide-related": "npx tsx scripts/ci/validate-guide-related.mjs",
     "validate:direct-dependencies": "node scripts/ci/validate-direct-dependencies.mjs",
     "validate:xlsx-boundary": "node scripts/ci/validate-xlsx-boundary.mjs",
@@ -102,7 +105,8 @@
     "audit:seo-routes": "node scripts/ci/audit-seo-routes.mjs",
     "audit:internal-links": "node scripts/ci/audit-internal-links.mjs",
     "audit:structured-data": "node scripts/ci/audit-structured-data.mjs",
-    "enrichment:release-gate": "node scripts/enrichment/release-gate.mjs"
+    "enrichment:release-gate": "node scripts/enrichment/release-gate.mjs",
+    "check:release": "npm run typecheck && npm run lint && npm run validate:static-export && npm run validate:security-headers && npm run validate:canonical-host && npm run validate:fonts && npm audit --omit=dev && npm run build && npm run validate:sitemap:built"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",

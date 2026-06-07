@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { MetadataRoute } from 'next';
 
-const SITE_URL = 'https://thehippiescientist.net';
+import { SITE_URL } from '@/lib/site';
 
 type SitemapSourceItem = {
   slug?: string;
@@ -99,8 +99,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/disclaimer/`, currentDate, 'yearly', 0.4),
   ];
 
+  const DEPRECATED_HERBS = new Set([
+    'allium-sativum',
+    'valeriana-officinalis',
+    'hericium-erinaceus',
+    'passiflora-incarnata',
+    'piper-methysticum',
+    'ganoderma-lucidum',
+  ]);
+
   herbsData.forEach((herb) => {
     if (!herb.slug) return;
+    if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
 
     sitemapEntries.push(
       route(
@@ -171,6 +181,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (slug) sitemapEntries.push(route(`${SITE_URL}/compare/${slug}/`, currentDate, 'monthly', 0.65));
   });
 
+  // Inactive collections routes (redirect targets or defined in lib) are excluded from the sitemap.
   // Add /top/* and best-supplements-for-* entry pages (from seo-entry-pages definitions)
   const topPages = [
     'best-supplements-for-sleep',

@@ -51,11 +51,26 @@ describe('SafetyCheckerClient', () => {
     
     expect(screen.getByText(/Search Ingredients/i)).toBeInTheDocument()
     expect(screen.getByText(/Add items/i)).toBeInTheDocument()
+    expect(screen.getByRole('checkbox')).not.toBeChecked()
   })
 
-  it('scans and alerts for CNS Depressant / GABAergic overlap', async () => {
+  it('disables interactions and search input by default when disclaimer is unchecked', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
     
+    const input = screen.getByPlaceholderText(/Please acknowledge disclaimer first/i)
+    expect(input).toBeDisabled()
+
+    const ssriBtn = screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })
+    expect(ssriBtn).toBeDisabled()
+  })
+
+  it('scans and alerts for CNS Depressant / GABAergic overlap after checking disclaimer', async () => {
+    render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
+    
+    // Acknowledge disclaimer
+    const checkbox = screen.getByRole('checkbox')
+    fireEvent.click(checkbox)
+
     // Add Kava
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     fireEvent.focus(input)
@@ -74,9 +89,13 @@ describe('SafetyCheckerClient', () => {
     expect(screen.getByText(/Risk Level: medium/i)).toBeInTheDocument()
   })
 
-  it('scans and alerts for MAOI + Serotonergic/Stimulant contraindications', () => {
+  it('scans and alerts for MAOI + Serotonergic/Stimulant contraindications after checking disclaimer', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
     
+    // Acknowledge disclaimer
+    const checkbox = screen.getByRole('checkbox')
+    fireEvent.click(checkbox)
+
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     fireEvent.focus(input)
     
@@ -97,6 +116,10 @@ describe('SafetyCheckerClient', () => {
   it('clears list when clear button is clicked', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
     
+    // Acknowledge disclaimer
+    const checkbox = screen.getByRole('checkbox')
+    fireEvent.click(checkbox)
+
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     fireEvent.focus(input)
     fireEvent.change(input, { target: { value: 'Kava' } })
@@ -113,6 +136,10 @@ describe('SafetyCheckerClient', () => {
   it('scans and alerts for Drug-Supplement SSRI + serotonergic danger overlap', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
     
+    // Acknowledge disclaimer
+    const checkbox = screen.getByRole('checkbox')
+    fireEvent.click(checkbox)
+
     // Add Kanna Extract (serotonergic supplement)
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     fireEvent.focus(input)
@@ -120,7 +147,7 @@ describe('SafetyCheckerClient', () => {
     fireEvent.click(screen.getByText('Kanna Extract'))
 
     // Add SSRI antidepressant
-    const ssriBtn = screen.getByText('SSRI / SNRI Antidepressants')
+    const ssriBtn = screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })
     fireEvent.click(ssriBtn)
 
     // Assert Warning is visible
@@ -139,6 +166,10 @@ describe('SafetyCheckerClient', () => {
   it('scans and alerts for Drug-Supplement MAOI + serotonergic danger overlap', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
     
+    // Acknowledge disclaimer
+    const checkbox = screen.getByRole('checkbox')
+    fireEvent.click(checkbox)
+
     // Add Kanna Extract (serotonergic supplement)
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     fireEvent.focus(input)
@@ -146,7 +177,7 @@ describe('SafetyCheckerClient', () => {
     fireEvent.click(screen.getByText('Kanna Extract'))
 
     // Add MAO Inhibitors
-    const maoiBtn = screen.getByText('MAO Inhibitors (MAOIs)')
+    const maoiBtn = screen.getByRole('button', { name: /MAO Inhibitors \(MAOIs\)/i })
     fireEvent.click(maoiBtn)
 
     // Assert Warning is visible

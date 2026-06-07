@@ -18,6 +18,7 @@ function parseXmlUrls(xmlContent) {
 function main() {
   const outDir = path.join(ROOT, 'out')
   const sitemapPath = path.join(outDir, 'sitemap.xml')
+  const requireBuilt = process.argv.includes('--require-built')
 
   if (!fs.existsSync(outDir)) {
     if (REQUIRE_BUILT) {
@@ -70,13 +71,6 @@ function main() {
   const foundCore = new Set()
 
   for (const url of urls) {
-    // 1. Reject deprecated www host
-    if (url.includes(BAD_HOST)) {
-      errors.push(`URL references deprecated www host: "${url}"`)
-      failed = true
-    }
-
-    // 2. Reject non-apex canonical URLs (any www. prefix in host)
     let urlObj
     try {
       urlObj = new URL(url)
@@ -87,12 +81,10 @@ function main() {
     }
     const pathname = urlObj.pathname
 
-    if (urlObj.hostname.startsWith('www.')) {
-      errors.push(`Non-apex canonical URL (www. prefix not allowed): "${url}"`)
+    if (urlObj.hostname !== 'thehippiescientist.net') {
+      errors.push(`URL hostname is not canonical (expected "thehippiescientist.net"): "${url}"`)
       failed = true
     }
-
-    // 3. Confirm trailing slash
     if (pathname !== '/') {
       if (!pathname.endsWith('/')) {
         errors.push(`URL does not end with trailing slash: "${url}"`)
@@ -100,6 +92,20 @@ function main() {
       }
     }
 
+    // Verify built file exists on disk
+    if (fs.existsSync(outDir)) {
+      let localPath
+      if (pathname === '/') {
+        localPath = path.join(outDir, 'index.html')
+      } else {
+        const cleanPath = pathname.replace(/^\/|\/$/g, '')
+        localPath = path.join(outDir, cleanPath, 'index.html')
+      }
+      if (!fs.existsSync(localPath)) {
+        errors.push(`Sitemap URL path "${pathname}" has no corresponding built file "${localPath}"`)
+        failed = true
+      }
+    }
     // 4. Count routes
     if (pathname.startsWith('/herbs/')) {
       herbCount++
@@ -144,7 +150,7 @@ function main() {
     process.exit(1)
   }
 
-  console.log('[validate-sitemap] PASS: Sitemap is fully valid (trailing slashes, route counts, and core pages).')
+  console.log('[validate-sitemap] PASS: Sitemap is fully valid (trailing slashes, route counts, built static files, and core pages).')
 }
 
 main()

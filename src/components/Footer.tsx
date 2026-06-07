@@ -48,10 +48,10 @@ export default function Footer() {
   // typeof guard: DefinePlugin injects these for webpack; Turbopack dev leaves them undeclared.
   const buildDate = formatBuildDate(typeof __BUILD_DATE__ !== 'undefined' ? __BUILD_DATE__ : '')
   const copyrightYear = buildDate ? new Date(buildDate).getUTCFullYear() : new Date().getFullYear()
-  const versionStampParts = [
-    `v${typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0'}`,
-    typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev',
-  ]
+  const rawHash = typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'
+  const commitHash = typeof rawHash === 'string' ? rawHash.slice(0, 7) : 'dev'
+  const appVersion = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0'
+  const versionStampParts = [`v${appVersion}`, commitHash]
   if (buildDate) {
     versionStampParts.push(buildDate)
   }
