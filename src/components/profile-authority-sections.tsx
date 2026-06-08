@@ -31,11 +31,11 @@ import {
 type EntityType = 'herb' | 'compound'
 
 type ProfileAuthoritySectionsProps = {
-  record: any
+  record: Record<string, unknown>
   entityType: EntityType
-  relatedRecords?: any[]
-  comparisonRecords?: any[]
-  stackRecords?: any[]
+  relatedRecords?: Record<string, unknown>[]
+  comparisonRecords?: Record<string, unknown>[]
+  stackRecords?: Record<string, unknown>[]
   effects?: string[]
   mechanisms?: string[]
   summary?: string
@@ -52,11 +52,11 @@ function cleanList(value: unknown, limit = 6) {
   ).slice(0, limit)
 }
 
-function getSummary(record: any, fallback = '', entityType: EntityType) {
+function getSummary(record: Record<string, unknown>, fallback = '', entityType: EntityType) {
   return cleanSummary(fallback || record?.summary || record?.description || '', entityType)
 }
 
-function getPrimaryEffects(record: any, provided: string[] | undefined) {
+function getPrimaryEffects(record: Record<string, unknown>, provided: string[] | undefined) {
   return cleanList([
     ...(provided || []),
     ...list(record?.primary_effects),
@@ -65,7 +65,7 @@ function getPrimaryEffects(record: any, provided: string[] | undefined) {
   ], 6)
 }
 
-function getMechanisms(record: any, provided: string[] | undefined) {
+function getMechanisms(record: Record<string, unknown>, provided: string[] | undefined) {
   return cleanList([
     ...(provided || []),
     ...list(record?.mechanisms),
@@ -74,7 +74,7 @@ function getMechanisms(record: any, provided: string[] | undefined) {
   ], 8)
 }
 
-function getSafetySignals(record: any) {
+function getSafetySignals(record: Record<string, unknown>) {
   return cleanList([
     ...list(record?.safety?.cautionSignals),
     ...list(record?.cautionSignals),
@@ -87,7 +87,7 @@ function getSafetySignals(record: any) {
   ], 5)
 }
 
-function getAliases(record: any) {
+function getAliases(record: Record<string, unknown>) {
   const primaryName = formatDisplayLabel(record?.name || record?.slug).toLowerCase()
 
   return cleanList([
@@ -100,21 +100,21 @@ function getAliases(record: any) {
   ], 6).filter(item => item.toLowerCase() !== primaryName)
 }
 
-function getPathwaySignals(record: any) {
+function getPathwaySignals(record: Record<string, unknown>) {
   return cleanList([
     ...list(record?.pathways),
     ...list(record?.pathway_bucket),
   ], 6)
 }
 
-function getBiologicalTargets(record: any) {
+function getBiologicalTargets(record: Record<string, unknown>) {
   return cleanList([
     ...list(record?.targets),
     ...list(record?.biologicalTargets),
   ], 6)
 }
 
-function getResearchFocus(record: any) {
+function getResearchFocus(record: Record<string, unknown>) {
   return cleanList([
     text(record?.evidenceLevel),
     text(record?.evidence_tier),
@@ -128,7 +128,7 @@ function getResearchFocus(record: any) {
   ], 6)
 }
 
-function getTraditionalContext(record: any) {
+function getTraditionalContext(record: Record<string, unknown>) {
   return cleanList([
     ...list(record?.traditionalUses),
     text(record?.preparation),
@@ -136,7 +136,7 @@ function getTraditionalContext(record: any) {
   ], 6)
 }
 
-function getAssociationSignals(record: any, entityType: EntityType) {
+function getAssociationSignals(record: Record<string, unknown>, entityType: EntityType) {
   return cleanList([
     ...list(record?.activeCompounds),
     ...list(record?.foundIn),
@@ -144,7 +144,7 @@ function getAssociationSignals(record: any, entityType: EntityType) {
   ], 8)
 }
 
-function getPharmacologyContext(record: any) {
+function getPharmacologyContext(record: Record<string, unknown>) {
   return cleanList([
     text(record?.compoundClass),
     text(record?.class),
@@ -156,7 +156,7 @@ function getPharmacologyContext(record: any) {
   ], 6)
 }
 
-function getEvidenceText(record: any) {
+function getEvidenceText(record: Record<string, unknown>) {
   return formatDisplayLabel(
     record?.evidence_tier ||
       record?.safety?.evidenceTier ||
@@ -167,7 +167,7 @@ function getEvidenceText(record: any) {
   )
 }
 
-function getAuthoritySignals(record: any, density: string) {
+function getAuthoritySignals(record: Record<string, unknown>, density: string) {
   const signals = [
     ...getSemanticTrustLabels(record, 5),
     ...getSafetyLabels(record, 3),
@@ -358,7 +358,7 @@ function MechanismClusters({ mechanisms }: { mechanisms: string[] }) {
   )
 }
 
-function EvidenceOverview({ record }: { record: any }) {
+function EvidenceOverview({ record }: { record: Record<string, unknown> }) {
   const strata = getEvidenceStrata(record)
   const disciplineSummary = getEvidenceDisciplineSummary(strata)
   const trustBadges = getSemanticTrustBadges(record, 4)
@@ -493,7 +493,7 @@ function ScientificSnapshot({
 }
 
 
-function EcosystemIntelligence({ record, relatedRecords, entityType, compact }: { record: any; relatedRecords: any[]; entityType: EntityType; compact: boolean }) {
+function EcosystemIntelligence({ record, relatedRecords, entityType, compact }: { record: Record<string, unknown>; relatedRecords: Record<string, unknown>[]; entityType: EntityType; compact: boolean }) {
   const fields = normalizeEcosystemFields(record)
   const ecosystemSections = [
     {
@@ -610,7 +610,15 @@ function WhyItMatters({
   compact = false,
   practicalRelevance,
   mechanismContext,
-}: any) {
+}: {
+  summary: string
+  effects: string[]
+  mechanisms: string[]
+  entityType: EntityType
+  compact?: boolean
+  practicalRelevance?: string
+  mechanismContext?: string
+}) {
   if (!summary && effects.length === 0 && mechanisms.length === 0) return null
 
   const displaySummary = compact ? compressEditorialCopy(summary).split(/(?<=[.!?])\s+/).slice(0, 1).join(' ') : summary
@@ -648,7 +656,7 @@ function WhyItMatters({
   )
 }
 
-function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType }) {
+function DiscoveryCard({ item, entityType }: { item: Record<string, unknown>; entityType: EntityType }) {
   const overlap = cleanList(item.relatedOverlap || item.overlap || item.effects || item.mechanisms, 2)
   const targetType = item.entityType === 'herb' || item.entityType === 'compound' ? item.entityType : entityType
 
@@ -686,7 +694,7 @@ function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType
 }
 
 
-function GraphCandidateCard({ item, entityType, kind }: { item: any; entityType: EntityType; kind: 'comparison' | 'stack' }) {
+function GraphCandidateCard({ item, entityType, kind }: { item: Record<string, unknown>; entityType: EntityType; kind: 'comparison' | 'stack' }) {
   const targetType = item.entityType === 'herb' || item.entityType === 'compound' ? item.entityType : entityType
   const mechanismSignals = cleanList(kind === 'stack' ? item.graphMechanismComplementarity : item.graphMechanismOverlap, 3)
   const pathwaySignals = cleanList(kind === 'stack' ? item.graphPathwayComplementarity : item.graphPathwayOverlap, 3)
@@ -726,8 +734,8 @@ function GraphCandidateCard({ item, entityType, kind }: { item: any; entityType:
 }
 
 function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, compact }: {
-  comparisonRecords: any[]
-  stackRecords: any[]
+  comparisonRecords: Record<string, unknown>[]
+  stackRecords: Record<string, unknown>[]
   entityType: EntityType
   compact: boolean
 }) {
@@ -783,7 +791,15 @@ function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, c
   )
 }
 
-function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '', baseRecord }: any) {
+type DiscoveryRailsProps = {
+  relatedRecords: Record<string, unknown>[]
+  entityType: EntityType
+  compact?: boolean
+  narrative?: string
+  baseRecord: Record<string, unknown>
+}
+
+function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '', baseRecord }: DiscoveryRailsProps) {
   const visible = rankEvidenceSensitiveRelatedRecords(baseRecord, relatedRecords || [], compact ? 3 : 8)
     .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
 

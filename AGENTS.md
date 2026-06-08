@@ -58,3 +58,30 @@
   - `public/data/publication-manifest.json`
   - `counts.herbs_eligible > 0`
 - Do not hand-edit generated workbook JSON to force eligibility.
+
+## Agent Enrichment and Patch Workflow
+
+The agent system automatically generates patches for content enrichment. These patches are tracked and validated in CI:
+
+**Agent execution:**
+```bash
+npm run agent:run --mode=standard --batch=5
+```
+Produces JSON patches in `agent/patches/{date}/*.json`
+
+**CI Validation (automatic in npm run check:full):**
+- `npm run validate:agent-patches` — Validates patch JSON structure and required fields
+- `npm run report:pending-patches` — Reports summary of pending patches
+
+**Manual Review:**
+```bash
+npm run agent:review
+```
+Generates `ops/agent-review/approved-patches.{json,csv}` with patch summaries.
+
+**Integration:**
+1. Review approved patches from CSV/JSON
+2. Extract and merge approved data into workbook
+3. Run `npm run data:build` to regenerate public/data
+
+See `docs/agent-integration-guide.md` for full details on patch formats, validation, and future automation.

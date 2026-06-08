@@ -91,4 +91,35 @@ Before any build change, run:
 npm run validate:static-export
 ```
 
-Never add `export const dynamic = 
+Never add `export const dynamic = 'force-dynamic'`, `export const revalidate`, `cookies()`, `headers()`, or any Next.js runtime-only API to App Router pages.
+
+## Theme and Styling
+
+- **Light mode only.** Do not add dark-mode classes (`dark:`) to new pages.
+- CSS variables defined in `app/globals.css`: `--bg: #fffdf7`, emerald accent `#358f52`.
+- Fonts: Inter (body) + Fraunces (display), both loaded via `next/font/google`.
+- Tailwind CSS v4 (`tailwindcss: 4.3.0`).
+
+## Affiliate Config
+
+Always use `AFFILIATE_TAGS.amazon` from `config/affiliate.ts`. Never hardcode affiliate strings. Set `AMAZON_AFFILIATE_TAG` env var in Cloudflare Pages for production.
+
+## Route Contracts (never delete or rename)
+
+- `/herbs/:slug`
+- `/compounds/:slug`
+- `/goals/:slug`
+- `/stacks/:slug`
+- `/compare/:slug`
+- Discovery cluster routes in `AGENTS.md`
+
+## Pre-PR Quality Gate
+
+```bash
+npm run lint && npm run typecheck && npm run check
+```
+
+For data changes, also run:
+```bash
+npm run data:build && npm run data:validate && npm run guard:source-of-truth
+```

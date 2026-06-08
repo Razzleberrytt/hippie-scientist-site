@@ -1,7 +1,7 @@
-export const isNonEmpty = (v: any) =>
+export const isNonEmpty = (v: unknown) =>
   Array.isArray(v) ? v.filter(Boolean).length > 0 : !!String(v ?? "").trim();
 
-export const toArray = (v: any): string[] => {
+export const toArray = (v: unknown): string[] => {
   if (Array.isArray(v)) return v.filter(Boolean).map(String);
   const s = String(v ?? "").trim();
   if (!s) return [];
@@ -11,13 +11,13 @@ export const toArray = (v: any): string[] => {
     .filter((x) => x && !/^unknown$/i.test(x));
 };
 
-export const formatList = (v: any, max?: number) => {
+export const formatList = (v: unknown, max?: number) => {
   const arr = toArray(v);
   return (max ? arr.slice(0, max) : arr).join(", ");
 };
 
 // Clean & normalize text (semicolons, spaces, sentence-case)
-export const tidy = (s: any) => {
+export const tidy = (s: unknown) => {
   const raw = String(s ?? "")
     .replace(/[;]+/g, ", ")
     .replace(/\s+/g, " ")
@@ -29,38 +29,38 @@ export const tidy = (s: any) => {
 export const urlish = (s: string) => /^https?:\/\//i.test(s);
 
 // Robust getters (handle key drift)
-const getText = (o: any, names: string[]) => {
+const getText = (o: unknown, names: string[]): string => {
   const map: Record<string, string> = {};
-  Object.keys(o || {}).forEach((k) => (map[k.toLowerCase()] = k));
+  Object.keys((o as Record<string, unknown>) ?? {}).forEach((k) => (map[k.toLowerCase()] = k));
   for (const n of names) {
     const hit = map[n.toLowerCase()];
     if (hit) {
-      const val = String(o[hit] ?? "").trim();
+      const val = String(((o as Record<string, unknown>)[hit]) ?? "").trim();
       if (val) return val;
     }
   }
   return "";
 };
-const getList = (o: any, names: string[]) => toArray(getText(o, names));
+const getList = (o: unknown, names: string[]): string[] => toArray(getText(o, names));
 
 export const pick = {
-  effects: (o: any) => getText(o, ["effects", "effect"]),
-  description: (o: any) =>
+  effects: (o: unknown): string => getText(o, ["effects", "effect"]),
+  description: (o: unknown): string =>
     getText(o, ["description", "summary", "overview", "desc"]),
-  region: (o: any) =>
+  region: (o: unknown): string =>
     getText(o, ["region", "regions", "origin", "geography", "distribution"]),
-  intensity: (o: any) => getText(o, ["intensity", "potency", "strength"]),
-  legalstatus: (o: any) =>
+  intensity: (o: unknown): string => getText(o, ["intensity", "potency", "strength"]),
+  legalstatus: (o: unknown): string =>
     getText(o, ["legalstatus", "legal_status", "status"]),
-  compounds: (o: any) =>
+  compounds: (o: unknown): string[] =>
     getList(o, ["compounds", "compound", "keycompounds", "actives", "constituents"]),
-  contraind: (o: any) =>
+  contraind: (o: unknown): string[] =>
     getList(o, ["contraindications", "contradictions", "cautions"]),
-  interactions: (o: any) =>
+  interactions: (o: unknown): string[] =>
     getList(o, ["interactions", "interaction", "drug_interactions"]),
-  tags: (o: any) => getList(o, ["tags", "labels", "keywords"]),
-  sources: (o: any) => getList(o, ["sources", "refs", "references"]),
-  mechanism: (o: any) =>
+  tags: (o: unknown): string[] => getList(o, ["tags", "labels", "keywords"]),
+  sources: (o: unknown): string[] => getList(o, ["sources", "refs", "references"]),
+  mechanism: (o: unknown): string =>
     getText(o, [
       "mechanism",
       "mechanismofaction",
@@ -68,9 +68,9 @@ export const pick = {
       "mechanism_of_action",
       "action",
     ]),
-  preparations: (o: any) =>
+  preparations: (o: unknown): string[] =>
     getList(o, ["preparations", "preparation", "forms", "formulations", "method"]),
-  dosage: (o: any) =>
+  dosage: (o: unknown): string =>
     getText(o, [
       "dosage",
       "dose",
@@ -78,7 +78,7 @@ export const pick = {
       "dosage_and_administration",
       "administration",
     ]),
-  therapeutic: (o: any) =>
+  therapeutic: (o: unknown): string =>
     getText(o, [
       "therapeutic",
       "uses",
@@ -86,14 +86,13 @@ export const pick = {
       "benefits",
       "traditional_uses",
     ]),
-  sideeffects: (o: any) =>
+  sideeffects: (o: unknown): string[] =>
     getList(o, ["sideeffects", "side_effects", "adverse_effects", "unwanted_effects"]),
-  safety: (o: any) =>
+  safety: (o: unknown): string =>
     getText(o, ["safety", "warnings", "precautions", "risk_profile"]),
-  toxicity: (o: any) => getText(o, ["toxicity", "tox_profile"]),
-  toxicity_ld50: (o: any) =>
-    getText(o, ["toxicity_ld50", "toxicityld50", "toxicityId5"]),
-  legalnotes: (o: any) => getText(o, ["legalnotes", "legal_notes"]),
-  schedule: (o: any) => getText(o, ["schedule", "controlled_schedule"]),
-  regiontags: (o: any) => getList(o, ["regiontags", "region_tags", "regions"]),
+  toxicity: (o: unknown): string => getText(o, ["toxicity", "tox_profile"]),
+  toxicity_ld50: (o: unknown): string => getText(o, ["toxicity_ld50", "toxicityld50", "toxicityId5"]),
+  legalnotes: (o: unknown): string => getText(o, ["legalnotes", "legal_notes"]),
+  schedule: (o: unknown): string => getText(o, ["schedule", "controlled_schedule"]),
+  regiontags: (o: unknown): string[] => getList(o, ["regiontags", "region_tags", "regions"]),
 };
