@@ -150,6 +150,11 @@ const parseFile = (filePath, fileName) => {
     url: ref.url || (ref.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/` : ''),
   })) : []
 
+  const faqs = Array.isArray(meta.faqs) ? meta.faqs.map(faq => ({
+    question: faq.question || '',
+    answer: faq.answer || '',
+  })).filter(faq => faq.question && faq.answer) : []
+
   const article = {
     slug,
     title,
@@ -163,6 +168,7 @@ const parseFile = (filePath, fileName) => {
     readingTime,
     content: body,
     references,
+    ...(faqs.length ? { faqs } : {}),
     profile_status: stripQuotes(meta.profile_status || 'published'),
     ai_assisted: meta.ai_assisted === 'true' || meta.ai_assisted === true,
   }

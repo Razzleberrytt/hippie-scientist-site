@@ -6,7 +6,7 @@ import BlogPostPage, {
   generateMetadata as generateBlogMetadata,
   generateStaticParams as generateBlogStaticParams,
 } from '../../blog/[slug]/page'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '@/lib/seo'
 import { formatDate } from '@/lib/blog-index'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
@@ -17,6 +17,11 @@ export type ArticleReference = {
   year: string
   pmid: string
   url: string
+}
+
+export type ArticleFaq = {
+  question: string
+  answer: string
 }
 
 export type Article = {
@@ -32,6 +37,7 @@ export type Article = {
   readingTime: string
   content: string
   references: ArticleReference[]
+  faqs?: ArticleFaq[]
   profile_status: string
   ai_assisted: boolean
 }
@@ -71,6 +77,7 @@ type Block =
   | { type: 'blockquote'; text: string }
   | { type: 'hr' }
   | { type: 'ul'; items: string[] }
+  | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'p'; text: string }
 
 function parseBlocks(raw: string): Block[] {
@@ -87,6 +94,30 @@ function parseBlocks(raw: string): Block[] {
     if (line.startsWith('## ')) { blocks.push({ type: 'h2', text: line.slice(3) }); i++; continue }
     if (line.startsWith('> ')) { blocks.push({ type: 'blockquote', text: line.slice(2) }); i++; continue }
     if (line === '---') { blocks.push({ type: 'hr' }); i++; continue }
+
+    if (
+      line.startsWith('|') &&
+      line.endsWith('|') &&
+      i + 1 < lines.length &&
+      /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(lines[i + 1])
+    ) {
+      const splitRow = (value: string) =>
+        value
+          .replace(/^\|/, '')
+          .replace(/\|$/, '')
+          .split('|')
+          .map(cell => cell.trim())
+
+      const headers = splitRow(line)
+      const rows: string[][] = []
+      i += 2
+      while (i < lines.length && lines[i].startsWith('|') && lines[i].endsWith('|')) {
+        rows.push(splitRow(lines[i]))
+        i++
+      }
+      blocks.push({ type: 'table', headers, rows })
+      continue
+    }
 
     if (line.startsWith('- ') || line.startsWith('* ')) {
       const items: string[] = []
@@ -107,6 +138,11 @@ function parseBlocks(raw: string): Block[] {
 
 function inlineFormat(text: string): string {
   return text
+    .replace(/\[([^\]]+)]\(([^)]+)\)/g, (_match, label: string, href: string) => {
+      const isExternal = /^https?:\/\//i.test(href)
+      const attrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''
+      return `<a href="${href}"${attrs} class="font-semibold text-brand-700 hover:text-brand-800 hover:underline">${label}</a>`
+    })
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
     .replace(/_(.+?)_/g, '<em>$1</em>')
@@ -170,6 +206,40 @@ function ArticleBody({ content }: { content: string }) {
                 />
               ))}
             </ul>
+          )
+        }
+        if (block.type === 'table') {
+          return (
+            <div key={i} className="my-6">
+              <ResponsiveTable label="Article comparison table">
+                <table className="min-w-[760px] w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-brand-900/10">
+                      {block.headers.map((header, j) => (
+                        <th
+                          key={j}
+                          className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted"
+                          dangerouslySetInnerHTML={{ __html: inlineFormat(header) }}
+                        />
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-brand-900/5">
+                    {block.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex} className="align-top">
+                        {row.map((cell, cellIndex) => (
+                          <td
+                            key={cellIndex}
+                            className="py-3 pr-4 leading-6 text-[#46574d]"
+                            dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }}
+                          />
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </ResponsiveTable>
+            </div>
           )
         }
         return (
@@ -263,17 +333,42 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
     updated: article.updatedAt || article.date || undefined,
     excerpt: article.description,
   }, `/articles/${article.slug}`)
+  const enrichedArticleLd = {
+    ...articleLd,
+    keywords: article.keywords,
+    about: article.tags.map(tag => ({ '@type': 'Thing', name: tag })),
+    citation: article.references.map(ref => ({
+      '@type': 'ScholarlyArticle',
+      headline: ref.title,
+      author: ref.authors,
+      datePublished: ref.year,
+      identifier: ref.pmid ? `PMID:${ref.pmid}` : undefined,
+      url: ref.url || (ref.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/` : undefined),
+    })),
+  }
+  const faqLd = article.faqs?.length
+    ? faqPageJsonLd({
+        pagePath: `/articles/${article.slug}`,
+        questions: article.faqs,
+      })
+    : null
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(enrichedArticleLd) }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
       />
+      {faqLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      )}
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
