@@ -1,5 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  assertUniqueArticleTitles,
+  validateArticleQuality,
+} from './lib/article-quality-gates.mjs';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'blog', 'posts.json');
@@ -26,7 +30,7 @@ const normalizeExcerpt = (excerpt, fallback) => {
   if (preferred) return preferred;
 
   const compact = String(fallback || '').replace(/\s+/g, ' ').trim();
-  if (!compact) return 'No summary yet.';
+  if (!compact) return '';
   return compact.length > 220 ? `${compact.slice(0, 219).trimEnd()}…` : compact;
 };
 
@@ -215,6 +219,16 @@ function buildPostFromFile(fileName) {
       post.sitemap_included = data.sitemap_included;
     }
 
+    const qualityIssues = validateArticleQuality(post, {
+      fileName,
+      requireReferences: false,
+      requireEntityMatch: false,
+    });
+
+    if (qualityIssues.length > 0) {
+      throw new Error(`Quality gate failed for ${fileName}:\n- ${qualityIssues.join('\n- ')}`);
+    }
+
     return post;
   } catch (error) {
     throw new Error(`Failed to build blog post ${fileName}: ${error.message}`);
@@ -247,6 +261,11 @@ function run() {
       throw new Error(`Duplicate slug detected: ${post.slug}`);
     }
     seen.add(post.slug);
+  }
+
+  const duplicateTitleIssues = assertUniqueArticleTitles(posts, 'content/blog');
+  if (duplicateTitleIssues.length > 0) {
+    throw new Error(`[build-blog] ${duplicateTitleIssues.join('\n')}`);
   }
 
   posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());

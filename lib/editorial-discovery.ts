@@ -21,10 +21,16 @@ export type BlogPostRecord = {
   sitemap_included?: boolean
   controlled_substance?: boolean
   ai_assisted?: boolean
+  tags?: string[]
+  categories?: string[]
 }
 
 const normalize = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
 const words = (value = '') => new Set(normalize(value).split(' ').filter(word => word.length > 2))
+const sharedCount = (left: string[] = [], right: string[] = []) => {
+  const rightValues = new Set(right.map(normalize).filter(Boolean))
+  return left.map(normalize).filter(value => value && rightValues.has(value)).length
+}
 
 export const getEntityLabel = (entity: EditorialEntity) => (
   formatDisplayLabel(entity.displayName) ||
@@ -38,12 +44,88 @@ export const getEntitySearchText = (entity: EditorialEntity) => unique([
   text(entity.summary),
   text(entity.description),
   text(entity.mechanism_summary),
+  text(entity.pathway),
+  text(entity.pathways),
   ...list(entity.primary_effects),
   ...list(entity.primaryActions),
   ...list(entity.effects),
   ...list(entity.mechanisms),
+  ...list(entity.compounds),
+  ...list(entity.active_compounds),
+  ...list(entity.constituents),
+  ...list(entity.pathways),
   ...list(entity.tags),
 ].filter(Boolean)).join(' ')
+
+const getEntityCompounds = (entity: EditorialEntity) =>
+  unique([
+    ...list(entity.compounds),
+    ...list(entity.active_compounds),
+    ...list(entity.constituents),
+    ...list(entity.key_compounds),
+  ].map(formatDisplayLabel).filter(isClean))
+
+const getEntityMechanisms = (entity: EditorialEntity) =>
+  unique([
+    ...list(entity.mechanisms),
+    ...list(entity.mechanism_tags),
+    formatDisplayLabel(entity.mechanism_summary),
+  ].map(formatDisplayLabel).filter(isClean))
+
+const getEntityPathways = (entity: EditorialEntity) =>
+  unique([
+    ...list(entity.pathways),
+    ...list(entity.pathway),
+    ...list(entity.pathway_tags),
+  ].map(formatDisplayLabel).filter(isClean))
+
+const getEntityEvidenceClusters = (entity: EditorialEntity) =>
+  unique([
+    ...list(entity.evidence_clusters),
+    ...list(entity.primary_effects),
+    ...list(entity.primaryActions),
+    ...list(entity.effects),
+  ].map(formatDisplayLabel).filter(isClean))
+
+const scoreArticleEntityRelationship = (
+  post: BlogPostRecord,
+  entity: EditorialEntity,
+  label: string,
+) => {
+  const titleText = normalize(post.title || '')
+  const bodyText = normalize([post.excerpt, post.content].filter(Boolean).join(' '))
+  const fullText = `${titleText} ${bodyText}`
+  const postTaxonomy = unique([...(post.tags || []), ...(post.categories || [])].map(formatDisplayLabel).filter(isClean))
+  const postWords = words(fullText)
+
+  const labelText = normalize(label)
+  const exactTitleScore = labelText && titleText.includes(labelText) ? 30 : 0
+  const exactBodyScore = labelText && bodyText.includes(labelText) ? 12 : 0
+
+  const compoundMatches = getEntityCompounds(entity).filter(value => fullText.includes(normalize(value))).length
+  const mechanismMatches = getEntityMechanisms(entity).filter(value => fullText.includes(normalize(value))).length
+  const pathwayMatches = getEntityPathways(entity).filter(value => fullText.includes(normalize(value))).length
+  const evidenceMatches = sharedCount(getEntityEvidenceClusters(entity), postTaxonomy)
+  const taxonomyMatches = sharedCount([...list(entity.tags), ...list(entity.categories)], postTaxonomy)
+
+  const entityWords = words(getEntitySearchText(entity))
+  const weakWordOverlap = [...entityWords].filter(word => postWords.has(word)).length
+
+  const score =
+    exactTitleScore +
+    exactBodyScore +
+    compoundMatches * 8 +
+    mechanismMatches * 5 +
+    pathwayMatches * 5 +
+    evidenceMatches * 4 +
+    taxonomyMatches * 3 +
+    Math.min(weakWordOverlap, 4)
+
+  return {
+    score,
+    hasStrongSignal: exactTitleScore > 0 || exactBodyScore > 0 || compoundMatches > 0 || mechanismMatches > 0 || pathwayMatches > 0,
+  }
+}
 
 export const getMechanismFamily = (value = '') => {
   const normalized = normalize(value)
@@ -101,17 +183,13 @@ export const buildSemanticTopics = (entity: EditorialEntity) => {
 
 export const findRelatedArticles = (entity: EditorialEntity, posts: BlogPostRecord[], limit = 4): DiscoveryLink[] => {
   const label = getEntityLabel(entity)
-  const entityWords = words([label, getEntitySearchText(entity)].join(' '))
 
   return posts
     .map(post => {
-      const haystack = [post.title, post.excerpt, post.content].filter(Boolean).join(' ')
-      const postWords = words(haystack)
-      const exactNameScore = normalize(haystack).includes(normalize(label)) ? 8 : 0
-      const overlapScore = [...entityWords].filter(word => postWords.has(word)).length
-      return { post, score: exactNameScore + overlapScore }
+      const relationship = scoreArticleEntityRelationship(post, entity, label)
+      return { post, ...relationship }
     })
-    .filter(item => item.score > 1)
+    .filter(item => item.hasStrongSignal && item.score >= 8)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
     .map(({ post }) => ({
@@ -124,18 +202,13 @@ export const findRelatedArticles = (entity: EditorialEntity, posts: BlogPostReco
 }
 
 export const findArticleEntities = (post: BlogPostRecord, entities: EditorialEntity[], kind: 'herb' | 'compound', limit = 6): DiscoveryLink[] => {
-  const haystack = [post.title, post.excerpt, post.content].filter(Boolean).join(' ')
-  const postWords = words(haystack)
-
   return entities
     .map(entity => {
       const label = getEntityLabel(entity)
-      const exactNameScore = normalize(haystack).includes(normalize(label)) ? 10 : 0
-      const entityWords = words(getEntitySearchText(entity))
-      const overlapScore = [...entityWords].filter(word => postWords.has(word)).length
-      return { entity, score: exactNameScore + overlapScore }
+      const relationship = scoreArticleEntityRelationship(post, entity, label)
+      return { entity, ...relationship }
     })
-    .filter(item => item.score > 1 && item.entity.slug)
+    .filter(item => item.entity.slug && item.hasStrongSignal && item.score >= 8)
     .sort((a, b) => b.score - a.score)
     .slice(0, limit)
     .map(({ entity }) => {

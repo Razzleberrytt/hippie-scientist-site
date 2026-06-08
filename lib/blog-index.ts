@@ -68,7 +68,7 @@ export const sortPostsNewestFirst = (sourcePosts: BlogPost[]): BlogPost[] =>
   [...sourcePosts].sort((a, b) => getPostSortValue(b) - getPostSortValue(a))
 
 export const truncateText = (value: string | undefined, maxLength: number): string => {
-  if (!value) return 'No summary yet.'
+  if (!value) return ''
   if (value.length <= maxLength) return value
   return `${value.slice(0, maxLength - 1).trimEnd()}...`
 }
@@ -102,7 +102,6 @@ export const inferResearchStyle = (post: BlogPost): string => {
 
 export const shouldNoindexBlogPost = (post: Pick<BlogPost, 'slug' | 'title'> & Partial<BlogPost>): boolean => {
   const slug = post.slug || ''
-  const corpus = `${post.title ?? ''} ${post.excerpt ?? ''} ${post.content ?? ''}`.toLowerCase()
   const profileStatus = String(post.profile_status || '').toLowerCase()
 
   if (post.sitemap_included === false) {
@@ -117,7 +116,7 @@ export const shouldNoindexBlogPost = (post: Pick<BlogPost, 'slug' | 'title'> & P
     return true
   }
 
-  return corpus.includes('placeholder reference a') || corpus.includes('placeholder reference b')
+  return false
 }
 
 export const getBlogStyleGroup = (slug: string): BlogStyleGroup | undefined =>

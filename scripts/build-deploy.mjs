@@ -11,16 +11,18 @@
  * Or: node scripts/build-deploy.mjs
  *
  * Steps executed in order:
- * 1. build-blog (blog post generation)
- * 2. build-runtime-from-workbook (data extraction)
- * 3. build-related-runtime-maps (relationship maps)
- * 4. build-runtime-summary-indexes (search indexes)
- * 5. build-route-manifest (route discovery)
- * 6. build-sitemap-manifest (SEO sitemap)
- * 7. build-export-batches (batch optimization)
- * 8. build-semantic-snapshots (snapshot generation)
- * 9. build-production (next build)
- * 10. build-pagefind (static search index)
+ * 1. validate-article-quality (article quality gates)
+ * 2. build-blog (blog post generation)
+ * 3. build-articles (long-form article generation)
+ * 4. build-runtime-from-workbook (data extraction)
+ * 5. build-related-runtime-maps (relationship maps)
+ * 6. build-runtime-summary-indexes (search indexes)
+ * 7. build-route-manifest (route discovery)
+ * 8. build-sitemap-manifest (SEO sitemap)
+ * 9. build-export-batches (batch optimization)
+ * 10. build-semantic-snapshots (snapshot generation)
+ * 11. build-production (next build)
+ * 12. build-pagefind (static search index)
  *
  * Time estimate: ~40-55s (instead of ~180s with full validation)
  * Savings: ~125s by deferring non-critical checks to npm run build:qa
@@ -39,10 +41,24 @@ const startTime = performance.now()
 
 const steps = [
   {
+    name: 'validate-article-quality',
+    cmd: 'node scripts/ci/validate-article-quality.mjs',
+    inputs: ['content/blog/**/*.{md,mdx}', 'content/articles/**/*.{md,mdx}', 'scripts/ci/validate-article-quality.mjs', 'scripts/lib/article-quality-gates.mjs'],
+    outputs: [],
+    cacheable: false,
+  },
+  {
     name: 'build-blog',
     cmd: 'node --trace-uncaught scripts/build-blog.mjs',
     inputs: ['content/blog/**/*.{md,mdx}', 'scripts/build-blog.mjs'],
     outputs: ['data/blog/posts.json'],
+    cacheable: false,
+  },
+  {
+    name: 'build-articles',
+    cmd: 'node --trace-uncaught scripts/build-articles.mjs',
+    inputs: ['content/articles/**/*.{md,mdx}', 'scripts/build-articles.mjs', 'scripts/lib/article-quality-gates.mjs'],
+    outputs: ['data/articles/articles.json'],
     cacheable: false,
   },
   {

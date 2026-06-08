@@ -31,9 +31,19 @@ const startTime = performance.now()
  */
 const steps = [
   {
+    name: 'validate-article-quality',
+    cmd: 'node scripts/ci/validate-article-quality.mjs',
+    description: 'Fail on thin, placeholder, duplicated, empty, or mismatched article content',
+  },
+  {
     name: 'build-blog',
     cmd: 'node scripts/build-blog.mjs',
     description: 'Generate blog posts and indexes from MDX/content',
+  },
+  {
+    name: 'build-articles',
+    cmd: 'node scripts/build-articles.mjs',
+    description: 'Generate long-form article JSON from vetted Markdown content',
   },
   {
     name: 'validate-workbook-source',
