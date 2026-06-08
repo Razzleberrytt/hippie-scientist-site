@@ -513,7 +513,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .map((item: Record<string, unknown>) => ({ ...item, entityType: 'herb' }))
 
   const visibleEcosystemContinuityRecords = ecosystemContinuityRecords
-    .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
+    .filter((item): item is Record<string, unknown> => Boolean(item && getRuntimeVisibility(item).canRender))
 
   const semanticRelated = mergeEcosystemContinuityRecords(
     [...relatedCompounds, ...relatedHerbs],

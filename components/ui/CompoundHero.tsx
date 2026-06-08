@@ -2,7 +2,7 @@ import EvidenceBadge from './EvidenceBadge'
 import SafetyBadge from './SafetyBadge'
 
 export default function CompoundHero({
-  compound,
+  compound = {},
   evidenceLevel,
   safetyLevel
 }: { compound?: { name?: string; summary?: string }; evidenceLevel?: string; safetyLevel?: string }) {

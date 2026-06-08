@@ -41,6 +41,10 @@ export function getRuntimeDiscoveryPayload(record: Record<string, unknown>) {
 
       return {
         ...item,
+        href: String(item.href || ''),
+        title: String(item.title || ''),
+        description: typeof item.description === 'string' ? item.description : undefined,
+        category: typeof item.category === 'string' ? item.category : undefined,
         adaptiveScore: score?.adaptiveScore || 0,
         recommendationTier:
           score?.recommendationTier || 'supporting',

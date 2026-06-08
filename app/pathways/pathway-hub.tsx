@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
-import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import {
   getPathwayLabel,
@@ -183,7 +183,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
     const fields = normalizeEcosystemFields(record)
     return [...fields.topicClusters, ...fields.pathwayEcosystems, ...fields.mechanismEcosystems]
   })).slice(0, 12)
-  const authorityAnchors = getAuthorityAnchorRecords(relatedRecords, 4)
+  const authorityAnchors = getAuthorityAnchorRecords(relatedRecords, 4) as unknown as RuntimeRecord[]
   const mechanisms = unique([...relatedRecords.flatMap(getMechanisms), ...ecosystemSignals]).slice(0, 12)
   const effects = unique(relatedRecords.flatMap(getEffects)).slice(0, 12)
   const supportedRelated = config.related.filter((item) => item.href.startsWith('/pathways/') || item.href.startsWith('/goals/') || item.href.startsWith('/guides/'))
@@ -247,7 +247,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
             {authorityAnchors.map((record: RuntimeRecord) => (
-              <Link key={record.slug} href={`/${relatedHerbs.some((herb: RuntimeRecord) => herb.slug === record.slug) ? 'herbs' : 'compounds'}/${record.slug}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
+              <Link key={text(record.slug) || getRecordName(record)} href={`/${relatedHerbs.some((herb: RuntimeRecord) => text(herb.slug) === text(record.slug)) ? 'herbs' : 'compounds'}/${text(record.slug)}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
                 {getRecordName(record)}
               </Link>
             ))}

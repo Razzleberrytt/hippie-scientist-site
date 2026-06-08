@@ -42,7 +42,7 @@ function hydrateContinuityEntries(entries: RuntimeRelationshipEntry[], records: 
   }
 
   return entries
-    .map((entry) => {
+    .map((entry): RuntimeRecord | null => {
       const slug = safeSlug(entry?.slug)
       if (!slug) return null
 
@@ -71,7 +71,7 @@ function hydrateContinuityEntries(entries: RuntimeRelationshipEntry[], records: 
         ecosystemOverlap: safeScore(entry?.ecosystemOverlap),
         mechanismOverlap: safeScore(entry?.mechanismOverlap),
         pathwayOverlap: safeScore(entry?.pathwayOverlap),
-      }
+      } as RuntimeRecord
     })
     .filter((x): x is RuntimeRecord => x !== null)
 }
