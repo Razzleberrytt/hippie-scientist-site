@@ -9,8 +9,14 @@ const MAX_RELATIONSHIP_KINDS = 6
 
 type RuntimeMapKind = 'related' | 'comparison' | 'stack' | 'ecosystem'
 
-type RuntimeMapEntry = {
+export type RuntimeMapEntry = {
   slug: string
+  href?: string
+  label?: string
+  title?: string
+  sourceSlug?: string
+  targetSlug?: string
+  targetType?: string
   score?: number
   overlapLabels?: string[]
   relationshipKinds?: string[]
@@ -41,6 +47,12 @@ function sanitizeEntry(entry: any): RuntimeMapEntry | null {
 
   return {
     slug,
+    href: text(entry?.href) || undefined,
+    label: text(entry?.label) || undefined,
+    title: text(entry?.title) || undefined,
+    sourceSlug: text(entry?.sourceSlug) || undefined,
+    targetSlug: text(entry?.targetSlug) || undefined,
+    targetType: text(entry?.targetType) || undefined,
     score: Number.isFinite(Number(entry?.score)) ? Number(entry.score) : 0,
     overlapLabels: Array.isArray(entry?.overlapLabels)
       ? entry.overlapLabels.map(text).filter(Boolean).slice(0, MAX_OVERLAP_LABELS)
@@ -107,6 +119,9 @@ export const getComparisonMap = cache(async () => getRuntimeMapByFile('compariso
 export const getStackMap = cache(async () => getRuntimeMapByFile('stack-map.json'))
 export const getEcosystemMap = cache(async () => getRuntimeMapByFile('ecosystem-map.json'))
 export const getAuthorityHubsMap = cache(async () => getRuntimeMapByFile('authority-hubs.json'))
+export const getEntityConditionMap = cache(async () => getRuntimeMapByFile('entity-to-conditions.json'))
+export const getConditionHerbMap = cache(async () => getRuntimeMapByFile('condition-to-herbs.json'))
+export const getComparisonRecommendationsMap = cache(async () => getRuntimeMapByFile('comparison-recommendations.json'))
 
 export const getRuntimeMapEntries = cache(async (
   kind: RuntimeMapKind,
@@ -118,6 +133,27 @@ export const getRuntimeMapEntries = cache(async (
 
   const map = await getRuntimeMapByFile(mapFileForKind(kind))
 
+  return sanitizeEntries(map?.[normalizedSlug])
+})
+
+export const getEntityConditionEntries = cache(async (slug: string): Promise<RuntimeMapEntry[]> => {
+  const normalizedSlug = text(slug)
+  if (!normalizedSlug) return []
+  const map = await getEntityConditionMap()
+  return sanitizeEntries(map?.[normalizedSlug])
+})
+
+export const getConditionHerbEntries = cache(async (slug: string): Promise<RuntimeMapEntry[]> => {
+  const normalizedSlug = text(slug)
+  if (!normalizedSlug) return []
+  const map = await getConditionHerbMap()
+  return sanitizeEntries(map?.[normalizedSlug])
+})
+
+export const getComparisonRecommendationEntries = cache(async (slug: string): Promise<RuntimeMapEntry[]> => {
+  const normalizedSlug = text(slug)
+  if (!normalizedSlug) return []
+  const map = await getComparisonRecommendationsMap()
   return sanitizeEntries(map?.[normalizedSlug])
 })
 

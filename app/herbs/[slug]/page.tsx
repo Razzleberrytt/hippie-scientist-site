@@ -8,6 +8,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 import { normalizeSlug } from '@/lib/slug-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
+import { getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { generateDetailMetadata, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
@@ -221,7 +222,8 @@ function getSafetyDetailGroups(herb: Record<string, unknown>) {
     ? pregnancySpecific
     : contraindicationsRaw.filter((s: string) => !interactionSet.has(s.toLowerCase()))
 
-  const cautions = cleanItems(herb.cautions || herb.warnings || herb.safety?.cautionSignals, 10)
+  const safetyObject = herb.safety && typeof herb.safety === 'object' ? herb.safety as Record<string, unknown> : {}
+  const cautions = cleanItems(herb.cautions || herb.warnings || safetyObject.cautionSignals, 10)
   const classifications = getSafetyClassifications(herb, 8)
   const labels = getSafetyLabels(herb, 8)
 
@@ -301,18 +303,20 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   const herbSlugs = new Set(herbs.map((item: Record<string, unknown>) => item.slug))
   const compoundSlugs = new Set(compounds.map((item: Record<string, unknown>) => item.slug))
-  const sourceRecordSlug = herb.slug
+  const sourceRecordSlug = String(herb.slug || normalizedSlug)
 
   const [
     relatedBySlug,
     comparisonBySlug,
     _stackBySlug,
     ecosystemContinuityRecords,
+    conditionLinks,
   ] = await Promise.all([
     getBatchedRuntimeRecords('related', [herb], allRecords, 8),
     getBatchedRuntimeRecords('comparison', [herb], allRecords, 8),
     getBatchedRuntimeRecords('stack', [herb], allRecords, 6),
     getEcosystemContinuityRecords(herb, allRecords, 6),
+    getEntityConditionEntries(sourceRecordSlug),
   ])
 
   const relatedCandidates = (relatedBySlug[sourceRecordSlug] || [])
@@ -377,7 +381,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const comparisonLinks = comparisonRecords
     .filter((record: Record<string, unknown>) => record?.slug)
     .map((record: Record<string, unknown>) => {
-      const compSlug = getValidComparisonSlug(sourceRecordSlug, record.slug)
+      const compSlug = getValidComparisonSlug(sourceRecordSlug, String(record.slug || ''))
       if (!compSlug) return null
       return {
         label: formatDisplayLabel(record.name || record.title || record.slug),
@@ -451,6 +455,23 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
               >
                 {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {conditionLinks.length > 0 ? (
+        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
+              <Link
+                key={link.slug}
+                href={link.href || `/goals/${link.slug}`}
+                className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+              >
+                {link.label || formatDisplayLabel(link.slug)}
               </Link>
             ))}
           </div>

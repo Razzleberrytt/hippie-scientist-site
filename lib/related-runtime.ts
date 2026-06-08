@@ -66,7 +66,7 @@ function hydrateRuntimeEntries(
         pathwayOverlap: safeScore(entry?.pathwayOverlap),
       }
     })
-    .filter(Boolean)
+    .filter((record) => record !== null) as RuntimeRecord[]
 }
 
 function sortHydratedRecords(records: Record<string, unknown>[]) {

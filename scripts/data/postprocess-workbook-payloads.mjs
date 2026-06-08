@@ -16,6 +16,26 @@ function readHerbSourcesCache() {
 }
 
 const herbSourcesCache = readHerbSourcesCache()
+const MAX_WRITE_ATTEMPTS = 5
+
+function sleep(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms)
+}
+
+function writeFileWithRetry(filePath, body) {
+  let lastError
+  for (let attempt = 1; attempt <= MAX_WRITE_ATTEMPTS; attempt += 1) {
+    try {
+      fs.writeFileSync(filePath, body)
+      return
+    } catch (error) {
+      lastError = error
+      if (attempt === MAX_WRITE_ATTEMPTS) break
+      sleep(75 * attempt)
+    }
+  }
+  throw lastError
+}
 
 function ensureArray(v) {
   if (!v) return []
@@ -36,7 +56,7 @@ function patchFile(file) {
     sources: ensureArray(row.sources || row.references || [])
   }))
 
-  fs.writeFileSync(full, JSON.stringify(patched, null, 2))
+  writeFileWithRetry(full, JSON.stringify(patched, null, 2))
   console.log(`[data-postprocess] normalized ${file}`)
 }
 
@@ -55,7 +75,7 @@ function patchDetailDir(dirName) {
     if (Array.isArray(json.sources)) continue
     const slug = json.slug || entry.replace(/\.json$/, '')
     json.sources = ensureArray(json.sources || json.references || herbSourcesCache[slug] || [])
-    fs.writeFileSync(full, JSON.stringify(json, null, 2) + '\n')
+    writeFileWithRetry(full, JSON.stringify(json, null, 2) + '\n')
     count += 1
   }
 

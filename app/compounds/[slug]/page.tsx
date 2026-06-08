@@ -18,6 +18,7 @@ import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
+import { getConditionHerbEntries, getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
@@ -178,7 +179,7 @@ export async function generateStaticParams() {
 
   const dynamicParams = compounds
     .filter((compound: Record<string, unknown>) => getRuntimeVisibility(compound).canRender)
-    .filter((compound: Record<string, unknown>) => !DEPRECATED_COMPOUND_CANONICALS[compound.slug])
+    .filter((compound: Record<string, unknown>) => !DEPRECATED_COMPOUND_CANONICALS[String(compound.slug || '')])
     .map((compound: Record<string, unknown>) => ({ slug: compound.slug }))
 
   // Include deprecated slugs so legacy /compounds/old-slug can redirect instead of 404 in static export
@@ -462,7 +463,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
   const herbSlugs = new Set(herbs.map((item: Record<string, unknown>) => item.slug))
   const compoundSlugs = new Set(compounds.map((item: Record<string, unknown>) => item.slug))
-  const sourceSlug = compound.slug
+  const sourceSlug = String(compound.slug || normalizedSlug)
 
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
 
@@ -471,7 +472,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .filter(isClean)
 
   const mechanisms = list(compound.mechanisms)
-    .map((item: Record<string, unknown>) => formatDisplayLabel(item))
+    .map((item: string) => formatDisplayLabel(item))
     .filter(isClean)
 
   const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier || compound.evidenceLevel || compound.evidence_grade)
@@ -484,12 +485,18 @@ export default async function CompoundPage({ params }: PageProps) {
     comparisonBySlug,
     _stackBySlug,
     ecosystemContinuityRecords,
+    conditionLinks,
   ] = await Promise.all([
     getBatchedRuntimeRecords('related', [compound], allRecords, 8),
     getBatchedRuntimeRecords('comparison', [compound], allRecords, 8),
     getBatchedRuntimeRecords('stack', [compound], allRecords, 6),
     getEcosystemContinuityRecords(compound, allRecords, 6),
+    getEntityConditionEntries(sourceSlug),
   ])
+
+  const conditionHerbEntries = conditionLinks[0]?.slug
+    ? await getConditionHerbEntries(conditionLinks[0].slug)
+    : []
 
 
   const relatedCandidates = (relatedBySlug[sourceSlug] || [])
@@ -619,6 +626,23 @@ export default async function CompoundPage({ params }: PageProps) {
                   className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
                 >
                   {link.label}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {conditionLinks.length > 0 ? (
+          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
+                <Link
+                  key={link.slug}
+                  href={link.href || `/goals/${link.slug}`}
+                  className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+                >
+                  {link.label || formatDisplayLabel(link.slug)}
                 </Link>
               ))}
             </div>
@@ -810,6 +834,21 @@ export default async function CompoundPage({ params }: PageProps) {
                 </div>
               </div>
             )}
+            {conditionHerbEntries.length > 0 && (
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Herbs for similar conditions</h3>
+                <div className="flex flex-col gap-2">
+                  {conditionHerbEntries
+                    .filter((item: RuntimeMapEntry) => item.slug !== sourceSlug)
+                    .slice(0, 4)
+                    .map((item: RuntimeMapEntry) => (
+                      <Link key={item.slug} href={`/herbs/${item.slug}`} className="text-sm font-semibold text-brand-800 hover:underline">
+                        {item.title || formatDisplayLabel(item.slug)}
+                      </Link>
+                    ))}
+                </div>
+              </div>
+            )}
             {comparisonRecords.length > 0 && (
               <div className="space-y-2">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Tradeoffs</h3>
@@ -817,10 +856,10 @@ export default async function CompoundPage({ params }: PageProps) {
                   {comparisonRecords
                     .filter((item: Record<string, unknown>) => item?.slug)
                     .map((item: Record<string, unknown>) => {
-                      const compSlug = getValidComparisonSlug(sourceSlug, item.slug)
+                      const compSlug = getValidComparisonSlug(sourceSlug, String(item.slug || ''))
                       if (!compSlug) return null
                       return (
-                        <Link key={item.slug} href={`/compare/${compSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">Compare {formatDisplayLabel(item.name || item.slug)}</Link>
+                        <Link key={String(item.slug || compSlug)} href={`/compare/${compSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">Compare {formatDisplayLabel(item.name || item.slug)}</Link>
                       )
                     })
                     .filter(Boolean)}

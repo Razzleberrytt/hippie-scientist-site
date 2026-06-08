@@ -16,6 +16,77 @@ const MAX_SIGNALS_PER_RECORD = 24
 const MAX_SIGNAL_INDEX_ROWS = 80
 const MAX_OVERLAP_LABELS = 5
 const MAX_RELATIONSHIP_KINDS = 4
+const MAX_CONDITION_LINKS = 5
+const MAX_CONDITION_ENTITY_LINKS = 8
+const MAX_COMPARISON_RECOMMENDATIONS = 6
+
+const CONDITION_TOPICS = [
+  {
+    slug: 'sleep',
+    label: 'Sleep',
+    signals: ['sleep', 'insomnia', 'sedative', 'relaxation', 'gaba', 'melatonin', 'circadian', 'rest'],
+  },
+  {
+    slug: 'stress',
+    label: 'Stress',
+    signals: ['stress', 'adaptogen', 'cortisol', 'resilience', 'burnout', 'relaxation'],
+  },
+  {
+    slug: 'anxiety',
+    label: 'Anxiety',
+    signals: ['anxiety', 'anxiolytic', 'calm', 'gaba', 'serotonin', 'nervous tension', 'relaxation'],
+  },
+  {
+    slug: 'focus',
+    label: 'Focus',
+    signals: ['focus', 'attention', 'cognition', 'nootropic', 'alertness', 'dopamine', 'cholinergic'],
+  },
+  {
+    slug: 'cognition',
+    label: 'Cognition',
+    signals: ['cognition', 'memory', 'learning', 'neuroplasticity', 'cholinergic', 'brain', 'bdnf'],
+  },
+  {
+    slug: 'energy',
+    label: 'Energy',
+    signals: ['energy', 'fatigue', 'stamina', 'mitochondrial', 'atp', 'alertness', 'performance'],
+  },
+  {
+    slug: 'inflammation',
+    label: 'Inflammation',
+    signals: ['inflammation', 'anti-inflammatory', 'nf-kb', 'cox', 'lox', 'immune modulation'],
+  },
+  {
+    slug: 'pain',
+    label: 'Pain',
+    signals: ['pain', 'analgesic', 'joint', 'inflammation', 'mobility', 'soreness'],
+  },
+  {
+    slug: 'gut-health',
+    label: 'Gut health',
+    signals: ['gut', 'digestive', 'microbiome', 'prebiotic', 'fiber', 'bloating', 'ibs'],
+  },
+  {
+    slug: 'joint-support',
+    label: 'Joint support',
+    signals: ['joint', 'mobility', 'cartilage', 'osteoarthritis', 'inflammation', 'pain'],
+  },
+  {
+    slug: 'blood-pressure',
+    label: 'Blood pressure',
+    signals: ['blood pressure', 'cardiovascular', 'nitric oxide', 'vascular', 'hypertension', 'circulation'],
+  },
+  {
+    slug: 'fat-loss',
+    label: 'Fat loss',
+    signals: ['fat loss', 'weight', 'metabolic', 'thermogenic', 'glucose', 'appetite'],
+  },
+  {
+    slug: 'recovery',
+    label: 'Recovery',
+    signals: ['recovery', 'soreness', 'exercise', 'performance', 'sleep', 'inflammation'],
+  },
+]
 
 function resolveOutDir(argv) {
   const flag = argv.find((arg) => arg.startsWith('--data-dir=')) || argv.find((arg) => arg.startsWith('--out='))
@@ -307,6 +378,30 @@ function discoveryScore(source, candidate) {
   return score
 }
 
+function conditionScore(record, condition) {
+  const haystack = unique([
+    getSignalBundle(record).all,
+    record?.summary,
+    record?.description,
+    record?.best_for,
+    record?.primary_uses,
+    record?.traditional_uses,
+    record?.traditionalUses,
+  ].flatMap((value) => list(value)), 80).join(' ')
+
+  if (!haystack) return 0
+
+  let score = 0
+  for (const signal of condition.signals) {
+    const needle = lower(signal)
+    if (!needle) continue
+    if (haystack.includes(needle)) score += needle.includes(' ') ? 4 : 3
+  }
+  if (/strong|moderate|clinical|human/i.test(text(record?.evidence_tier || record?.evidenceTier || record?.evidence_grade))) score += 2
+  if (/complete|ready|published/i.test(text(record?.profile_status || record?.review_status || record?.summary_quality))) score += 1
+  return score
+}
+
 function relationshipEntry(source, candidate, preferredSlugs = []) {
   const candidateSlug = safeSlug(candidate?.slug)
   if (!candidateSlug) return null
@@ -429,6 +524,72 @@ function buildAuthorityHubs(records) {
   return hubs
 }
 
+function buildConditionMaps(records) {
+  const conditionToHerbs = {}
+  const entityToConditions = {}
+
+  for (const condition of CONDITION_TOPICS) {
+    const rows = records
+      .filter((record) => record?.entityType === 'herb')
+      .map((record) => ({
+        slug: safeSlug(record?.slug),
+        score: conditionScore(record, condition),
+        label: condition.label,
+        title: text(record?.name || record?.title || record?.slug),
+      }))
+      .filter((entry) => entry.slug && entry.score > 0)
+      .sort(sortEntries)
+      .slice(0, MAX_CONDITION_ENTITY_LINKS)
+    conditionToHerbs[condition.slug] = rows
+  }
+
+  for (const record of records) {
+    const slug = safeSlug(record?.slug)
+    if (!slug) continue
+    const rows = CONDITION_TOPICS
+      .map((condition) => ({
+        slug: condition.slug,
+        href: `/goals/${condition.slug}`,
+        label: condition.label,
+        score: conditionScore(record, condition),
+      }))
+      .filter((entry) => entry.score > 0)
+      .sort(sortEntries)
+      .slice(0, MAX_CONDITION_LINKS)
+    entityToConditions[slug] = rows
+  }
+
+  return { conditionToHerbs, entityToConditions }
+}
+
+function buildComparisonRecommendationMap(records, comparisonMap) {
+  const output = {}
+  const recordsBySlug = new Map(records.map((record) => [safeSlug(record?.slug), record]))
+
+  for (const [sourceSlug, entries] of Object.entries(comparisonMap)) {
+    const source = recordsBySlug.get(sourceSlug)
+    if (!source) continue
+    output[sourceSlug] = capList(entries, MAX_COMPARISON_RECOMMENDATIONS)
+      .map((entry) => {
+        const candidate = recordsBySlug.get(entry.slug)
+        if (!candidate) return null
+        return {
+          href: `/compare/${sourceSlug}-vs-${entry.slug}`,
+          sourceSlug,
+          targetSlug: entry.slug,
+          targetType: candidate.entityType || 'compound',
+          title: `${text(source.name || source.slug)} vs ${text(candidate.name || candidate.slug)}`,
+          score: entry.score || 0,
+          overlapLabels: capList(entry.overlapLabels, MAX_OVERLAP_LABELS),
+          relationshipKinds: capList(entry.relationshipKinds, MAX_RELATIONSHIP_KINDS),
+        }
+      })
+      .filter(Boolean)
+  }
+
+  return output
+}
+
 async function mergeRows(kind, baseFile, summaryFile) {
   const baseRows = await readJson(baseFile, [])
   const summaryRows = await readJson(summaryFile, [])
@@ -478,10 +639,15 @@ async function main() {
     ...compounds.map((record) => ({ ...record, entityType: 'compound' })),
   ]
   const index = buildIndex(records)
+  const comparisonMap = buildCandidateMap(records, index, 'comparison')
+  const conditionMaps = buildConditionMaps(records)
 
   await Promise.all([
     writeJson('related-profiles.json', buildRelatedMap(records, index)),
-    writeJson('comparison-map.json', buildCandidateMap(records, index, 'comparison')),
+    writeJson('comparison-map.json', comparisonMap),
+    writeJson('comparison-recommendations.json', buildComparisonRecommendationMap(records, comparisonMap)),
+    writeJson('condition-to-herbs.json', conditionMaps.conditionToHerbs),
+    writeJson('entity-to-conditions.json', conditionMaps.entityToConditions),
     writeJson('stack-map.json', buildCandidateMap(records, index, 'stack')),
     writeJson('ecosystem-map.json', buildEcosystemMap(records, index)),
     writeJson('authority-hubs.json', buildAuthorityHubs(records)),

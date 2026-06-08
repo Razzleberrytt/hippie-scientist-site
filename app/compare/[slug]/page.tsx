@@ -14,6 +14,8 @@ import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 import { isFlagshipCompareSlug } from '@/lib/goal-hub-links'
 import { buildCompareDetailSchemaGraph } from '@/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { getComparisonRecommendationEntries } from '@/lib/runtime-related-maps'
+import { getValidComparisonSlug } from '@/lib/comparison-utils'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -26,8 +28,9 @@ const formatSlug = (value: string) =>
     .replace(/\bD3\b/g, 'D3')
 
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
+const asString = (value: unknown, fallback = '') => typeof value === 'string' ? value : fallback
 
-const displayName = (compound: Record<string, unknown>) => compound?.displayName || compound?.name || formatSlug(compound?.slug || 'Compound')
+const displayName = (compound: Record<string, unknown>) => asString(compound?.displayName) || asString(compound?.name) || formatSlug(asString(compound?.slug, 'Compound'))
 const summary = (compound: Record<string, unknown>) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the profile for more detail.'
 
 const evidenceScore = (compound: Record<string, unknown>) => {
@@ -40,7 +43,14 @@ const evidenceScore = (compound: Record<string, unknown>) => {
 
 const findCompound = (compounds: Record<string, unknown>[], candidates: string[]) =>
   compounds.find((compound: Record<string, unknown>) => {
-    const aliases = new Set([compound.slug, normalize(compound.slug), compound.name, compound.displayName, normalize(compound.name), normalize(compound.displayName)].filter(Boolean))
+    const aliases = new Set([
+      asString(compound.slug),
+      normalize(asString(compound.slug)),
+      asString(compound.name),
+      asString(compound.displayName),
+      normalize(asString(compound.name)),
+      normalize(asString(compound.displayName)),
+    ].filter(Boolean))
     return candidates.some(candidate => aliases.has(candidate) || aliases.has(normalize(candidate)))
   })
 
@@ -122,7 +132,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   })
 }
 
-function isFieldEmpty(val: Record<string, unknown>): boolean {
+function isFieldEmpty(val: unknown): boolean {
   if (val === null || val === undefined) return true
   const str = String(val).trim().toLowerCase()
   return str === '' || str === 'nan' || str === 'null' || str === 'undefined'
@@ -150,7 +160,7 @@ export default async function Page({ params }: Params) {
   const chooseLoserIf = `You seek an alternative pathway profile, or if your goals focus specifically on ${firstItems(getSignals(loser), 'targeted support').slice(0, 2).join(' and ')}.`
 
   const relatedStack = stacks.find((s: Record<string, unknown>) =>
-    (s.compounds || s.stack || []).some((i: Record<string, unknown>) => {
+    (Array.isArray(s.compounds) ? s.compounds : Array.isArray(s.stack) ? s.stack : []).some((i: Record<string, unknown>) => {
       const compoundSlug = i.compound_slug || i.compound
       return compoundSlug === a.slug || compoundSlug === b.slug
     })
@@ -159,12 +169,32 @@ export default async function Page({ params }: Params) {
   const relatedComparisons = supplementComparisons
     .filter(item => item.slug !== slug)
     .filter(item =>
-      item.a.candidates.includes(a.slug) || item.b.candidates.includes(a.slug) ||
-      item.b.candidates.includes(b.slug) || item.b.candidates.includes(b.slug) ||
-      item.a.candidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug)) ||
-      item.b.candidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug))
+      item.a.candidates.includes(asString(a.slug)) || item.b.candidates.includes(asString(a.slug)) ||
+      item.b.candidates.includes(asString(b.slug)) || item.b.candidates.includes(asString(b.slug)) ||
+      item.a.candidates.some(candidate => normalize(candidate) === normalize(asString(a.slug)) || normalize(candidate) === normalize(asString(b.slug))) ||
+      item.b.candidates.some(candidate => normalize(candidate) === normalize(asString(a.slug)) || normalize(candidate) === normalize(asString(b.slug)))
     )
     .slice(0, 3)
+
+  const runtimeComparisonLinks = (
+    await Promise.all([
+      getComparisonRecommendationEntries(String(a.slug || '')),
+      getComparisonRecommendationEntries(String(b.slug || '')),
+    ])
+  )
+    .flat()
+    .map((item) => {
+      const targetSlug = item.targetSlug || item.slug
+      const validSlug = getValidComparisonSlug(item.sourceSlug || '', targetSlug)
+      if (!validSlug || validSlug === slug) return null
+      return {
+        slug: validSlug,
+        title: item.title || formatSlug(validSlug),
+      }
+    })
+    .filter((item): item is { slug: string; title: string } => item !== null)
+    .filter((item, index, items) => items.findIndex((candidate) => candidate.slug === item.slug) === index)
+    .slice(0, 4)
 
   const relatedBestPages = bestPages
     .filter(page => page.compoundCandidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug)))
@@ -181,7 +211,7 @@ export default async function Page({ params }: Params) {
   const costA = formatDisplayLabel(a?.cost) || 'Price varies by product quality'
   const costB = formatDisplayLabel(b?.cost) || 'Price varies by product quality'
 
-  const renderRow = (label: string, valA: React.ReactNode, valB: React.ReactNode, rawValA?: Record<string, unknown>, rawValB?: Record<string, unknown>) => {
+  const renderRow = (label: string, valA: React.ReactNode, valB: React.ReactNode, rawValA?: unknown, rawValB?: unknown) => {
     const isEmptyA = rawValA !== undefined ? isFieldEmpty(rawValA) : !valA
     const isEmptyB = rawValB !== undefined ? isFieldEmpty(rawValB) : !valB
     if (isEmptyA && isEmptyB) return null
@@ -199,7 +229,7 @@ export default async function Page({ params }: Params) {
   }
 
   const renderVerdictCell = (compound: Record<string, unknown>, verdictText: string) => {
-    const shopLinks = getAffiliateShopLinks(compound, displayName(compound), compound.entityType)
+    const shopLinks = getAffiliateShopLinks(compound, displayName(compound), asString(compound.entityType, 'compound') as 'herb' | 'compound')
     const cta = shopLinks.find(l => l.url)
     return (
       <div className="space-y-4">
@@ -232,13 +262,13 @@ export default async function Page({ params }: Params) {
     entities: [
       {
         name: displayName(a),
-        url: a.entityType === 'herb' ? `/herbs/${a.slug}` : `/compounds/${a.slug}`,
-        type: (a.entityType || 'compound') as 'herb' | 'compound',
+        url: a.entityType === 'herb' ? `/herbs/${asString(a.slug)}` : `/compounds/${asString(a.slug)}`,
+        type: asString(a.entityType, 'compound') as 'herb' | 'compound',
       },
       {
         name: displayName(b),
-        url: b.entityType === 'herb' ? `/herbs/${b.slug}` : `/compounds/${b.slug}`,
-        type: (b.entityType || 'compound') as 'herb' | 'compound',
+        url: b.entityType === 'herb' ? `/herbs/${asString(b.slug)}` : `/compounds/${asString(b.slug)}`,
+        type: asString(b.entityType, 'compound') as 'herb' | 'compound',
       },
     ],
   })
@@ -260,7 +290,7 @@ export default async function Page({ params }: Params) {
       {/* Side-by-Side Quick Cards */}
       <section className="grid gap-6 sm:grid-cols-2">
         {[a, b].map((compound: Record<string, unknown>) => (
-          <article key={compound.slug} className="card-premium p-6 space-y-3">
+          <article key={asString(compound.slug)} className="card-premium p-6 space-y-3">
             <span className="identity-kicker">Evidence signal: {evidenceScore(compound)}/5</span>
             <h2 className="text-xl font-bold text-ink">{displayName(compound)}</h2>
             <p className="text-sm leading-relaxed text-muted">{summary(compound)}</p>
@@ -270,7 +300,7 @@ export default async function Page({ params }: Params) {
               ))}
             </div>
             <div className="pt-2">
-              <Link href={compound.entityType === 'herb' ? `/herbs/${compound.slug}` : `/compounds/${compound.slug}`} className="text-sm font-bold text-teal-700 hover:text-teal-900">
+              <Link href={compound.entityType === 'herb' ? `/herbs/${asString(compound.slug)}` : `/compounds/${asString(compound.slug)}`} className="text-sm font-bold text-teal-700 hover:text-teal-900">
                 Open full profile →
               </Link>
             </div>
@@ -384,6 +414,19 @@ export default async function Page({ params }: Params) {
             <h3 className="font-bold text-ink">Related comparisons</h3>
             <div className="flex flex-col gap-2">
               {relatedComparisons.map(item => (
+                <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
+                  {item.title} →
+                </Link>
+              ))}
+            </div>
+          </article>
+        )}
+
+        {runtimeComparisonLinks.length > 0 && (
+          <article className="card-premium p-5 space-y-2">
+            <h3 className="font-bold text-ink">More comparison paths</h3>
+            <div className="flex flex-col gap-2">
+              {runtimeComparisonLinks.map(item => (
                 <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
                   {item.title} →
                 </Link>
