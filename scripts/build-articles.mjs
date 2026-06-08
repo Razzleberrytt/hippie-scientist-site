@@ -1,5 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import {
+  assertUniqueArticleTitles,
+  validateArticleQuality,
+} from './lib/article-quality-gates.mjs'
 
 const ARTICLES_DIR = path.join(process.cwd(), 'content', 'articles')
 const OUTPUT_PATH = path.join(process.cwd(), 'data', 'articles', 'articles.json')
@@ -146,7 +150,7 @@ const parseFile = (filePath, fileName) => {
     url: ref.url || (ref.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/` : ''),
   })) : []
 
-  return {
+  const article = {
     slug,
     title,
     description: stripQuotes(meta.description || meta.excerpt || ''),
@@ -162,6 +166,18 @@ const parseFile = (filePath, fileName) => {
     profile_status: stripQuotes(meta.profile_status || 'published'),
     ai_assisted: meta.ai_assisted === 'true' || meta.ai_assisted === true,
   }
+
+  const qualityIssues = validateArticleQuality(article, {
+    fileName,
+    requireReferences: true,
+    requireEntityMatch: true,
+  })
+
+  if (qualityIssues.length > 0) {
+    throw new Error(`Quality gate failed for ${fileName}:\n- ${qualityIssues.join('\n- ')}`)
+  }
+
+  return article
 }
 
 const main = () => {
@@ -177,6 +193,11 @@ const main = () => {
     const filePath = path.join(ARTICLES_DIR, file)
     const article = parseFile(filePath, file)
     if (article) articles.push(article)
+  }
+
+  const duplicateTitleIssues = assertUniqueArticleTitles(articles, 'content/articles')
+  if (duplicateTitleIssues.length > 0) {
+    throw new Error(`[build-articles] ${duplicateTitleIssues.join('\n')}`)
   }
 
   // Sort newest first

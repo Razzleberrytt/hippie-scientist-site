@@ -75,6 +75,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
   const post = allPosts.find((candidate) => candidate.slug === resolvedParams.slug)
 
   if (!post) return notFound()
+  if (!post.date) return notFound()
 
   const lines = (post.content ?? '').split('\n').map((line) => line.trim()).filter(Boolean)
   const [herbs, compounds] = await Promise.all([
@@ -93,7 +94,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
   const blogLd = blogJsonLd({
     title: post.title,
     slug: post.slug,
-    date: post.date || '2026-01-01',
+    date: post.date,
     updated: post.updatedAt || post.date || undefined,
     excerpt: post.excerpt,
   }, `/articles/${resolvedParams.slug}`)
@@ -146,43 +147,40 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         <div className="mt-3">
           <LastUpdatedBadge date={post.updatedAt || post.date} label="Last updated" />
         </div>
-        <p className="mt-3 text-reading max-w-3xl text-muted-soft">{post.excerpt}</p>
+        {post.excerpt ? <p className="mt-3 text-reading max-w-3xl text-muted-soft">{post.excerpt}</p> : null}
       </section>
 
       <section className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
         <article className="surface-depth card-spacing space-y-4">
-          {post.ai_assisted && (
-            <div className="rounded-xl border border-emerald-100 bg-emerald-50/50 px-4 py-3 text-xs text-emerald-800 leading-5 mb-4">
-              <p>
-                This article was drafted with AI assistance and reviewed against workbook source data. Report errors via our <Link href="/contact/" className="font-semibold underline hover:text-emerald-900">contact page</Link>.
-              </p>
-            </div>
-          )}
-          <div className="pull-quote-science mb-6">
-            This note is part of the scientific graph: use it as context, then follow the related profiles for structured evidence, safety, and mechanism details.
-          </div>
           {lines.map(renderBlock)}
         </article>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <div className="mobile-reading-card">
-            <p className="eyebrow-label">How to read this</p>
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-[#46574d]">
-              <li>Treat mechanisms as context, not proof.</li>
-              <li>Look for safety constraints before practical use.</li>
-              <li>Continue into profiles for structured comparison.</li>
-            </ul>
-          </div>
+          {relatedItems.length > 0 ? (
+            <div className="mobile-reading-card">
+              <p className="eyebrow-label">Related profiles</p>
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-[#46574d]">
+                {relatedItems.slice(0, 5).map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="font-semibold text-brand-800 hover:underline">
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </aside>
       </section>
 
-      <section className="surface-depth card-spacing">
-        <ResearchContinuityBlock
-          title="Related herbs and compounds"
-          description="These links are selected from overlap between article language, entity names, effects, and mechanism terms."
-          items={relatedItems}
-        />
-      </section>
+      {relatedItems.length > 0 ? (
+        <section className="surface-depth card-spacing">
+          <ResearchContinuityBlock
+            title="Related profiles"
+            items={relatedItems}
+          />
+        </section>
+      ) : null}
 
       <EmailCapture
         headline="Get future research notes by email"

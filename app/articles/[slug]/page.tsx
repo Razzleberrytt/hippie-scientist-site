@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 import rawArticles from '../../../data/articles/articles.json'
 import BlogPostPage, {
   generateMetadata as generateBlogMetadata,
@@ -22,7 +23,7 @@ export type Article = {
   slug: string
   title: string
   description: string
-  date: string | null
+  date: string
   updatedAt: string | null
   author: string
   keywords: string[]
@@ -55,7 +56,7 @@ export async function generateMetadata({ params }: { params: ArticleRouteParams 
 
   return buildPageMetadata({
     title: article.title,
-    description: article.description || 'An evidence-based article from The Hippie Scientist.',
+    description: article.description,
     path: `/articles/${slug}`,
     openGraphType: 'article',
   })
@@ -248,6 +249,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
   const { slug } = await params
   const article = allArticles.find((a) => a.slug === slug)
   if (!article) return <BlogPostPage params={Promise.resolve({ slug })} />
+  if (!article.date) return notFound()
 
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
@@ -257,7 +259,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
   const articleLd = blogJsonLd({
     title: article.title,
     slug: article.slug,
-    date: article.date || '2026-01-01',
+    date: article.date,
     updated: article.updatedAt || article.date || undefined,
     excerpt: article.description,
   }, `/articles/${article.slug}`)
@@ -333,27 +335,12 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
       {/* Body + sidebar */}
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
         <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-          {article.ai_assisted && (
-            <div className="mb-6 rounded-xl border border-emerald-100 bg-emerald-50/50 px-4 py-3 text-xs text-emerald-800 leading-5">
-              This article was drafted with AI assistance and reviewed for accuracy. Report errors via our{' '}
-              <Link href="/contact/" className="font-semibold underline hover:text-emerald-900">contact page</Link>.
-            </div>
-          )}
           <ArticleBody content={article.content} />
           <ReferencesTable refs={article.references} />
         </section>
 
         {/* Sidebar */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Reading guide</p>
-            <ul className="mt-3 space-y-2.5 text-sm leading-6 text-[#46574d]">
-              <li>Mechanisms provide context — not proof of efficacy.</li>
-              <li>Check safety sections before practical use.</li>
-              <li>References link to peer-reviewed sources; PMID = PubMed.</li>
-            </ul>
-          </div>
-
           {article.references.length > 0 && (
             <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
