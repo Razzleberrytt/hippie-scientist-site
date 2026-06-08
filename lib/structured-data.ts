@@ -32,9 +32,10 @@ export function buildMedicalWebPageSchema(entity: Record<string, unknown>, type:
 
 export function buildArticleSchema(post: Record<string, unknown>) {
   const url = `https://thehippiescientist.net/articles/${post.slug}/`
-  const datePublished = post.date ? new Date(post.date).toISOString() : new Date().toISOString()
-  const dateModified = post.lastModified || post.updated || post.date 
-    ? new Date(post.lastModified || post.updated || post.date).toISOString() 
+  const datePublished = post.date ? new Date(post.date as string).toISOString() : new Date().toISOString()
+  const rawModified = post.lastModified || post.updated || post.date
+  const dateModified = rawModified
+    ? new Date(rawModified as string).toISOString()
     : datePublished
 
   return {

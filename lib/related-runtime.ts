@@ -24,6 +24,15 @@ type RuntimeRelationshipEntry = {
   pathwayOverlap?: number
 }
 
+type HydratedRecord = RuntimeRecord & {
+  relatedScore: number
+  relatedOverlap: string[]
+  relatedGraphKinds: string[]
+  ecosystemOverlap: number
+  mechanismOverlap: number
+  pathwayOverlap: number
+}
+
 function clampLimit(value: unknown, fallback: number, max: number) {
   const parsed = safeScore(value, fallback)
   if (!Number.isFinite(parsed)) return fallback
@@ -66,11 +75,11 @@ function hydrateRuntimeEntries(
         pathwayOverlap: safeScore(entry?.pathwayOverlap),
       }
     })
-    .filter(Boolean)
+    .filter((x): x is HydratedRecord => x !== null)
 }
 
-function sortHydratedRecords(records: Record<string, unknown>[]) {
-  return records.sort((a: Record<string, unknown>, b: Record<string, unknown>) => {
+function sortHydratedRecords(records: HydratedRecord[]) {
+  return records.sort((a: HydratedRecord, b: HydratedRecord) => {
     const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
     if (scoreDelta !== 0) return scoreDelta
 

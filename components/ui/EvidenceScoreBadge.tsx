@@ -1,4 +1,5 @@
 import { getEvidenceLetterGrade, type EvidenceLetterGrade } from '@/lib/evidence'
+import type { RuntimeRecord } from '@/src/types/content'
 
 const GRADE_CONFIG: Record<EvidenceLetterGrade, {
   label: string
@@ -57,7 +58,7 @@ export default function EvidenceScoreBadge({
   showLabel = true,
   className = '',
 }: EvidenceScoreBadgeProps) {
-  const letterGrade = grade ?? (record ? getEvidenceLetterGrade(record) : 'C')
+  const letterGrade = grade ?? (record ? getEvidenceLetterGrade(record as RuntimeRecord) : 'C')
   const config = GRADE_CONFIG[letterGrade]
 
   const sizeClasses =

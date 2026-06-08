@@ -20,7 +20,7 @@ function capLimit(limit: number | undefined) {
   return Math.min(MAX_ECOSYSTEM_CONTINUITY_RECORDS, Math.max(0, safeScore(limit, MAX_ECOSYSTEM_CONTINUITY_RECORDS)))
 }
 
-function sortByScoreThenName(a: Record<string, unknown>, b: Record<string, unknown>) {
+function sortByScoreThenName(a: RuntimeRecord, b: RuntimeRecord) {
   const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
   if (scoreDelta !== 0) return scoreDelta
 
@@ -73,7 +73,7 @@ function hydrateContinuityEntries(entries: RuntimeRelationshipEntry[], records: 
         pathwayOverlap: safeScore(entry?.pathwayOverlap),
       }
     })
-    .filter(Boolean)
+    .filter((x): x is RuntimeRecord => x !== null)
 }
 
 export async function getEcosystemContinuityRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_ECOSYSTEM_CONTINUITY_RECORDS) {

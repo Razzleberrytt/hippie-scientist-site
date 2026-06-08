@@ -1,6 +1,6 @@
 import { formatDisplayLabel } from '@/lib/display-utils'
 
-export default function CompoundStats({ compound }: Record<string, unknown>) {
+export default function CompoundStats({ compound }: { compound: Record<string, unknown> }) {
   const stats = [
     {
       label: 'Evidence',

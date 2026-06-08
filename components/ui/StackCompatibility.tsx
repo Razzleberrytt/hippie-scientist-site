@@ -1,4 +1,4 @@
-export default function StackCompatibility({ related = [] }: Record<string, unknown>) {
+export default function StackCompatibility({ related = [] }: { related?: Record<string, unknown>[] }) {
   if (!related?.length) return null
 
   return (

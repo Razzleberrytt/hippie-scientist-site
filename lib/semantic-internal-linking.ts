@@ -15,10 +15,10 @@ export function buildSemanticLinkSuggestions(source: Record<string, unknown>, ca
   const sourceSignals = unique([
     source?.slug,
     source?.name,
-    ...(source?.effects || []),
-    ...(source?.primary_effects || []),
-    ...(source?.mechanisms || []),
-    ...(source?.pathways || []),
+    ...(Array.isArray(source?.effects) ? source.effects : []),
+    ...(Array.isArray(source?.primary_effects) ? source.primary_effects : []),
+    ...(Array.isArray(source?.mechanisms) ? source.mechanisms : []),
+    ...(Array.isArray(source?.pathways) ? source.pathways : []),
   ].map(normalize).filter(Boolean))
 
   return candidates
@@ -27,10 +27,10 @@ export function buildSemanticLinkSuggestions(source: Record<string, unknown>, ca
       const candidateSignals = unique([
         candidate?.slug,
         candidate?.name,
-        ...(candidate?.effects || []),
-        ...(candidate?.primary_effects || []),
-        ...(candidate?.mechanisms || []),
-        ...(candidate?.pathways || []),
+        ...(Array.isArray(candidate?.effects) ? candidate.effects : []),
+        ...(Array.isArray(candidate?.primary_effects) ? candidate.primary_effects : []),
+        ...(Array.isArray(candidate?.mechanisms) ? candidate.mechanisms : []),
+        ...(Array.isArray(candidate?.pathways) ? candidate.pathways : []),
       ].map(normalize).filter(Boolean))
 
       const overlap = sourceSignals.filter((signal) =>

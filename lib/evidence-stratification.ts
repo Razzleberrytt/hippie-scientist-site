@@ -4,18 +4,18 @@ type EvidenceStratum = {
   tone: 'strong' | 'moderate' | 'caution' | 'neutral'
 }
 
-function asText(value: Record<string, unknown>) {
+function asText(value: unknown) {
   return String(value || '').trim()
 }
 
-function hasPattern(value: Record<string, unknown>, pattern: RegExp) {
+function hasPattern(value: unknown, pattern: RegExp) {
   return pattern.test(asText(value))
 }
 
 export function getEvidenceStrata(record: Record<string, unknown>): EvidenceStratum[] {
   const evidence = asText(record?.evidence_tier || record?.evidenceTier || record?.confidence)
   const summary = asText(record?.summary || record?.description)
-  const safety = asText(record?.safety?.notes || record?.safety || record?.interactions || record?.cautionSignals)
+  const safety = asText((record?.safety as Record<string, unknown>)?.notes || record?.safety || record?.interactions || record?.cautionSignals)
   const traditionalUse = asText(record?.traditional_use || record?.traditionalUse || record?.history)
 
   const strata: EvidenceStratum[] = []

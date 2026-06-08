@@ -84,7 +84,7 @@ export function buildProductRecommendationContext(record: Record<string, unknown
 }
 
 export function buildStackProductRecommendationContext(stack: Record<string, unknown>) {
-  const items = [...(stack?.compounds || stack?.stack || [])]
+  const items = [...(Array.isArray(stack?.compounds) ? stack.compounds : Array.isArray(stack?.stack) ? stack.stack : [])]
 
   return {
     title: title(stack?.title || stack?.goal || stack?.slug || 'Stack'),

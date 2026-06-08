@@ -6,11 +6,11 @@ export function detectContentGap(record: Record<string, unknown>) {
 }
 
 export function detectCompareGap(record: Record<string, unknown>) {
-  return !(record?.compare_candidates?.length || record?.compareCandidates?.length)
+  return !(Array.isArray(record?.compare_candidates) && record.compare_candidates.length || Array.isArray(record?.compareCandidates) && record.compareCandidates.length)
 }
 
 export function detectEcosystemGap(record: Record<string, unknown>) {
-  return !(record?.topics?.length || record?.pathways?.length)
+  return !(Array.isArray(record?.topics) && record.topics.length || Array.isArray(record?.pathways) && record.pathways.length)
 }
 
 export function buildPublishingOpportunity(record: Record<string, unknown>) {

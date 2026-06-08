@@ -50,7 +50,7 @@ export function calculateDiscoveryScore(base: Record<string, unknown>, candidate
   return score
 }
 
-function normalize(value: Record<string, unknown>): string[] {
+function normalize(value: unknown): string[] {
   if (!value) return []
 
   const array = Array.isArray(value) ? value : [value]

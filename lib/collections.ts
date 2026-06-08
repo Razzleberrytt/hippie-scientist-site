@@ -3,6 +3,7 @@ import { cleanSummary, formatDisplayLabel, isClean, text, unique } from '@/lib/d
 import { getPathwayLabel, getSupportedPathways } from '@/lib/pathways'
 import { collectRuntimeSignals, asList, asLowerText, asText } from '@/lib/runtime-normalize'
 import { buildPageMetadata } from '@/lib/seo'
+import type { RuntimeRecord } from '@/src/types/content'
 
 export type CollectionKind = 'sleep' | 'stress' | 'cholinergic' | 'inflammation' | 'gaba' | 'recovery' | 'relaxation'
 export type CollectionRecordType = 'herb' | 'compound' | 'mixed'
@@ -147,11 +148,11 @@ function evidenceMatches(record: Record<string, unknown>, requirement?: Collecti
   if (!requirement) return true
   if (!record || typeof record !== 'object') return false
 
-  if (requirement === 'human') return hasHumanEvidence(record)
-  if (requirement === 'mechanism') return hasMechanismEvidence(record) || hasHumanEvidence(record)
+  if (requirement === 'human') return hasHumanEvidence(record as RuntimeRecord)
+  if (requirement === 'mechanism') return hasMechanismEvidence(record as RuntimeRecord) || hasHumanEvidence(record as RuntimeRecord)
 
-  const tier = getEvidenceTier(record)
-  return tier === 'strong' || tier === 'moderate' || hasHumanEvidence(record)
+  const tier = getEvidenceTier(record as RuntimeRecord)
+  return tier === 'strong' || tier === 'moderate' || hasHumanEvidence(record as RuntimeRecord)
 }
 
 export function normalizeCollection(collection: unknown): ScientificCollection | null {

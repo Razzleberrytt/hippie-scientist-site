@@ -173,7 +173,7 @@ export function getSemanticRelationshipRecords(record: Record<string, unknown>, 
         relatedOverlap: overlap.map(formatDisplayLabel).filter(Boolean).slice(0, 4),
         relatedScore: relationshipScore,
         relationshipReason: explicitMatch ? 'Workbook semantic neighbor' : 'Shared ecosystem signals',
-      }
+      } as Record<string, unknown> & { relatedScore: number; relatedOverlap: string[]; relationshipReason: string }
     })
     .filter((candidate) => candidate.relatedScore > 1)
     .sort((a, b) => b.relatedScore - a.relatedScore || safeLower(a?.name).localeCompare(safeLower(b?.name)))

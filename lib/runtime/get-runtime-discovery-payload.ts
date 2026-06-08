@@ -10,6 +10,15 @@ import {
   buildAdaptiveRecommendationScores,
 } from '@/src/lib/adaptive-recommendation-scoring'
 
+type ScoredItem = Record<string, unknown> & {
+  adaptiveScore: number
+  recommendationTier: string
+  evidenceScore: number
+  authorityScore: number
+  continuityScore: number
+  ecosystemScore: number
+}
+
 export function getRuntimeDiscoveryPayload(record: Record<string, unknown>) {
   const context = getContextFromRecord(record)
 
@@ -21,7 +30,7 @@ export function getRuntimeDiscoveryPayload(record: Record<string, unknown>) {
   )
 
   const rankedRecommendations = recommendations
-    .map((item: Record<string, unknown>) => {
+    .map((item: Record<string, unknown>): ScoredItem => {
       const score = adaptiveScores.find(
         (entry) => entry.slug === item.slug,
       )
@@ -38,12 +47,12 @@ export function getRuntimeDiscoveryPayload(record: Record<string, unknown>) {
       }
     })
     .filter(
-      (item: Record<string, unknown>) =>
+      (item: ScoredItem) =>
         item.recommendationTier !== 'suppressed' &&
         item.evidenceScore >= 42 &&
         item.authorityScore >= 44,
     )
-    .sort((a: Record<string, unknown>, b: Record<string, unknown>) => {
+    .sort((a: ScoredItem, b: ScoredItem) => {
       const continuityDelta =
         (b.continuityScore || 0) -
         (a.continuityScore || 0)

@@ -1,4 +1,6 @@
-export default function SectionBlock({ title, children }: Record<string, unknown>) {
+import type { ReactNode } from 'react'
+
+export default function SectionBlock({ title, children }: { title?: ReactNode; children?: ReactNode }) {
   return (
     <section className="surface-subtle section-spacing card-spacing">
       <div className="space-y-3 border-b border-brand-900/10 pb-4">

@@ -97,7 +97,7 @@ export function buildInternalLinkDensity(record: Record<string, unknown>) {
 
   const compares = pathways
     .map((pathway) => {
-      const validSlug = getValidComparisonSlug(record?.slug, pathway)
+      const validSlug = getValidComparisonSlug(String(record?.slug ?? ''), pathway)
       if (!validSlug) return null
       return {
         label: `Compare ${record?.slug} alternatives`,

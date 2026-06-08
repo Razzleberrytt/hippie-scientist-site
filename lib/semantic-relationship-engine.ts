@@ -15,7 +15,7 @@ function normalize(str: string): string {
 
 function getOverlap<T>(arr1: T[], arr2: T[]): T[] {
   const set2 = new Set((arr2 || []).map((x) => typeof x === 'string' ? normalize(x) : x))
-  return (arr1 || []).filter((x) => set2.has(typeof x === 'string' ? normalize(x as Record<string, unknown>) : x))
+  return (arr1 || []).filter((x) => set2.has(typeof x === 'string' ? normalize(x) : x))
 }
 
 export function getMechanismOverlap(slugA: string, slugB: string, graphInput?: GraphRuntime): string[] {

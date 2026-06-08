@@ -1,6 +1,6 @@
 import { formatDisplayLabel, isClean } from '@/lib/display-utils'
 
-export default function UseCases({ effects = [] }: Record<string, unknown>) {
+export default function UseCases({ effects = [] }: { effects?: unknown[] }) {
   const visibleEffects = effects.map(formatDisplayLabel).filter(isClean).slice(0, 8)
 
   if (!visibleEffects.length) return null

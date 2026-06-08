@@ -81,7 +81,7 @@ export function buildContinuationCTA(record: Record<string, unknown>): Conversio
 }
 
 export function buildEcosystemCTA(record: Record<string, unknown>): ConversionCTA {
-  const topic = slug(record?.primary_effects?.[0] || record?.topics?.[0] || record?.slug)
+  const topic = slug((Array.isArray(record?.primary_effects) ? record.primary_effects[0] : undefined) || (Array.isArray(record?.topics) ? record.topics[0] : undefined) || record?.slug)
 
   return {
     label: 'Explore the broader ecosystem',

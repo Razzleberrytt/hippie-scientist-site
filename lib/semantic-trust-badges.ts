@@ -1,5 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { hasHumanEvidence, hasMechanismEvidence, isPreliminaryResearch } from '@/lib/evidence'
+import type { RuntimeRecord } from '@/src/types/content'
 
 export type SemanticTrustBadge = {
   label: string
@@ -46,15 +47,15 @@ export function getSemanticTrustBadges(record: Record<string, unknown>, limit = 
   const source = joined(record)
   const badges: SemanticTrustBadge[] = []
 
-  if (hasHumanEvidence(record)) {
+  if (hasHumanEvidence(record as RuntimeRecord)) {
     badges.push(badge('Human Research', 'Includes human or clinically oriented evidence signals.', 'clinical'))
   }
 
-  if (hasMechanismEvidence(record) || hasAny(record, ['mechanisms', 'primary_mechanisms', 'pathways'])) {
+  if (hasMechanismEvidence(record as RuntimeRecord) || hasAny(record, ['mechanisms', 'primary_mechanisms', 'pathways'])) {
     badges.push(badge('Mechanistic Focus', 'Mechanism or pathway context is available for cautious interpretation.', 'mechanistic'))
   }
 
-  if (isPreliminaryResearch(record) || /\b(limited|weak|insufficient|low|partial|draft|needs review|not established)\b/.test(source)) {
+  if (isPreliminaryResearch(record as RuntimeRecord) || /\b(limited|weak|insufficient|low|partial|draft|needs review|not established)\b/.test(source)) {
     badges.push(badge('Evidence-Limited', 'Evidence is framed as incomplete rather than clinically settled.', 'caution'))
   }
 
@@ -95,11 +96,11 @@ export function getSemanticTrustLabels(record: Record<string, unknown>, limit = 
 export function getEvidenceMaturity(record: Record<string, unknown>): 'mature' | 'moderate' | 'exploratory' {
   const source = joined(record)
 
-  if (hasHumanEvidence(record) && /\b(strong|high|robust|clinical|rct|randomi[sz]ed|meta|systematic|grade\s*a|tier\s*a)\b/.test(source)) {
+  if (hasHumanEvidence(record as RuntimeRecord) && /\b(strong|high|robust|clinical|rct|randomi[sz]ed|meta|systematic|grade\s*a|tier\s*a)\b/.test(source)) {
     return 'mature'
   }
 
-  if (hasHumanEvidence(record) || /\b(moderate|grade\s*b|tier\s*b)\b/.test(source)) {
+  if (hasHumanEvidence(record as RuntimeRecord) || /\b(moderate|grade\s*b|tier\s*b)\b/.test(source)) {
     return 'moderate'
   }
 
@@ -128,6 +129,6 @@ export function getMechanismDepth(record: Record<string, unknown>): 'deep' | 'ma
   const mechanisms = unique([...list(record?.mechanisms), ...list(record?.primary_mechanisms), ...list(record?.pathways)].map(text).filter(Boolean))
 
   if (mechanisms.length >= 5) return 'deep'
-  if (mechanisms.length >= 2 || hasMechanismEvidence(record)) return 'mapped'
+  if (mechanisms.length >= 2 || hasMechanismEvidence(record as RuntimeRecord)) return 'mapped'
   return 'light'
 }

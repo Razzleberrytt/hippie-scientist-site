@@ -5,9 +5,9 @@ type CacheEntry<T> = {
 
 const DEFAULT_TTL = 1000 * 60 * 15
 
-const runtimeCache = new Map<string, CacheEntry<Record<string, unknown>>>()
+const runtimeCache = new Map<string, CacheEntry<unknown>>()
 
-function isFresh(entry: CacheEntry<Record<string, unknown>>, ttl: number) {
+function isFresh(entry: CacheEntry<unknown>, ttl: number) {
   return Date.now() - entry.createdAt < ttl
 }
 
