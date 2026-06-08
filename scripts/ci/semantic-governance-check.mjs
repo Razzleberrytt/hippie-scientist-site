@@ -3,10 +3,10 @@
 import { spawn } from 'node:child_process'
 
 const checks = [
-  ['route manifest budget', 'node', ['scripts/ci/validate-route-manifest-budget.mjs']],
-  ['runtime payload budgets', 'node', ['scripts/ci/validate-runtime-payload-budgets.mjs']],
-  ['deterministic JSON order', 'node', ['scripts/ci/validate-deterministic-json-order.mjs']],
-  ['semantic graph health', 'node', ['scripts/ci/validate-semantic-graph-health.mjs']],
+  ['route manifest budget', process.execPath, ['scripts/ci/validate-route-manifest-budget.mjs']],
+  ['runtime payload budgets', process.execPath, ['scripts/ci/validate-runtime-payload-budgets.mjs']],
+  ['deterministic JSON order', process.execPath, ['scripts/ci/validate-deterministic-json-order.mjs']],
+  ['semantic graph health', process.execPath, ['scripts/ci/validate-semantic-graph-health.mjs']],
 ]
 
 function runCheck([name, command, args]) {
@@ -14,7 +14,7 @@ function runCheck([name, command, args]) {
     const startedAt = Date.now()
     const child = spawn(command, args, {
       stdio: 'inherit',
-      shell: process.platform === 'win32',
+      shell: false,
     })
 
     child.on('close', (code) => {
