@@ -5,6 +5,7 @@ import {
 } from '@/lib/decision-primitives'
 import { getSemanticTrustLabels } from '@/lib/semantic-trust-badges'
 import { getSafetyLabels } from '@/lib/safety-classification'
+import type { RuntimeRecord } from '@/src/types/content'
 
 type EvidenceBadgeKind =
   | 'Human Evidence'
@@ -57,12 +58,12 @@ export function EvidenceBadge({ label, className = '' }: EvidenceBadgeProps) {
 
 export function getEvidenceBadges(record: Record<string, unknown>): string[] {
   const badges = new Set<string>()
-  const label = getEvidenceLabel(record)
+  const label = getEvidenceLabel(record as RuntimeRecord)
 
-  getSemanticTrustLabels(record, 4).forEach(badge => badges.add(badge))
-  getSafetyLabels(record, 2).forEach(badge => badges.add(badge))
+  getSemanticTrustLabels(record as RuntimeRecord, 4).forEach(badge => badges.add(badge))
+  getSafetyLabels(record as RuntimeRecord, 2).forEach(badge => badges.add(badge))
   if (/traditional/i.test(label)) badges.add('Traditional use')
-  if (hasStrongSafetyProfile(record)) badges.add('Generally well tolerated')
+  if (hasStrongSafetyProfile(record as RuntimeRecord)) badges.add('Generally well tolerated')
 
   if (!badges.size) badges.add(label)
 

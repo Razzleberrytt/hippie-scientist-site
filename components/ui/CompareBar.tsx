@@ -8,9 +8,9 @@ const knownComparisonSlugs = new Set([
   ...supplementComparisons.map((comparison) => comparison.slug),
 ])
 
-export default function CompareBar({ items = [] }: Record<string, unknown>) {
+export default function CompareBar({ items = [] }: { items?: Record<string, unknown>[] }) {
   const compareItems = items
-    .filter((item: Record<string, unknown>) => item?.slug && item?.name)
+    .filter((item) => item?.slug && item?.name)
     .slice(0, 2)
 
   if (compareItems.length < 2) return null
@@ -28,7 +28,7 @@ export default function CompareBar({ items = [] }: Record<string, unknown>) {
         <div className="min-w-0 flex-1">
           <p className="eyebrow-label text-[0.58rem] leading-none">Compare</p>
           <p className="mt-0.5 truncate text-xs font-semibold leading-5 text-ink sm:text-sm">
-            {compareItems.map((item: Record<string, unknown>) => item.name).join(' vs ')}
+            {compareItems.map((item) => item.name).join(' vs ')}
           </p>
         </div>
 

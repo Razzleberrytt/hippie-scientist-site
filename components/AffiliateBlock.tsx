@@ -26,10 +26,10 @@ export default function AffiliateBlock({ compound, intentLabel, compact = false 
   const displayName = formatName(compound)
 
   const entry = useMemo(() => {
-    const exact = data.find((d: Record<string, unknown>) => normalize(d.compound) === normalized)
+    const exact = data.find((d) => normalize(String(d.compound ?? '')) === normalized)
     if (exact) return exact
 
-    return data.find((d: Record<string, unknown>) => normalize(d.compound).includes(normalized) || normalized.includes(normalize(d.compound)))
+    return data.find((d) => normalize(String(d.compound ?? '')).includes(normalized) || normalized.includes(normalize(String(d.compound ?? ''))))
   }, [normalized])
 
   if (!entry) {

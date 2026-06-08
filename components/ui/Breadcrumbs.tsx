@@ -1,9 +1,9 @@
 import Link from 'next/link'
 
-export default function Breadcrumbs({ items = [] }: Record<string, unknown>) {
+export default function Breadcrumbs({ items = [] }: { items?: { href?: string; label?: string }[] }) {
   return (
     <nav className="text-xs text-neutral-500 flex gap-2 flex-wrap">
-      {items.map((item: Record<string, unknown>, i:number)=>(
+      {items.map((item, i)=>(
         <span key={i} className="flex items-center gap-2">
           {i > 0 && <span>/</span>}
           {item.href ? (

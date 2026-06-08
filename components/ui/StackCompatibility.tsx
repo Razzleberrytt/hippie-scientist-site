@@ -13,7 +13,7 @@ export default function StackCompatibility({ related = [] }: { related?: Record<
           </div>
 
           <div className="font-semibold text-sm text-ink">
-            {item.name}
+            {String(item.name ?? '')}
           </div>
 
           <div className="text-xs text-[#46574d] mt-2 leading-5">

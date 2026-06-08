@@ -139,7 +139,7 @@ export default async function StackPage({ params }: Params) {
   const displaySummary = namedStack?.summary || stack.summary || 'Stack designed from available human evidence and mechanism support.'
   const categoryLinks = categoryStackLinks[slug] || []
   const items: StackItemRecord[] = [...(stack.compounds || stack.stack || [])]
-  const goal = formatGoal(stackGoal(stack))
+  const goal = formatGoal(String(stackGoal(stack) || ''))
 
   if (categoryLinks.length > 0) {
     const overviewListJsonLd = itemListJsonLd({

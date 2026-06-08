@@ -173,10 +173,11 @@ function getEffects(item: Record<string, unknown>) {
 }
 
 function getEvidence(item: Record<string, unknown>) {
+  const safety = item.safety && typeof item.safety === 'object' ? item.safety as Record<string, unknown> : {}
   return normalizeDecisionEvidence(
     item.evidence_tier ||
       item.evidenceTier ||
-      item.safety?.evidenceTier ||
+      safety.evidenceTier ||
       item.evidence_grade ||
       item.evidenceLevel ||
       item.confidence ||
@@ -186,10 +187,11 @@ function getEvidence(item: Record<string, unknown>) {
 }
 
 function getSafety(item: Record<string, unknown>) {
+  const safety = item.safety && typeof item.safety === 'object' ? item.safety as Record<string, unknown> : {}
   return normalizeDecisionSafety(
     item.safety_level ||
       item.safetyLevel ||
-      item.safety?.confidence ||
+      safety.confidence ||
       item.safetyNotes ||
       item.confidenceTier ||
       item.profile_status,

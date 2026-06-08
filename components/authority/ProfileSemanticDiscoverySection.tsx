@@ -10,14 +10,20 @@ export default function ProfileSemanticDiscoverySection({
   protocolRecommendations = [],
   comparisonRecommendations = [],
   topicContinuity = [],
-}: Record<string, unknown>) {
+}: {
+  semanticMetadata?: Record<string, unknown>
+  semanticDiscovery?: unknown[]
+  protocolRecommendations?: unknown[]
+  comparisonRecommendations?: unknown[]
+  topicContinuity?: unknown[]
+}) {
   return (
     <div className="space-y-10">
       <SemanticEntitySignals
-        effects={semanticMetadata?.semanticEffects || []}
-        mechanisms={semanticMetadata?.semanticMechanisms || []}
-        pathways={semanticMetadata?.semanticPathways || []}
-        ecosystems={semanticMetadata?.semanticEcosystems || []}
+        effects={(semanticMetadata?.semanticEffects as unknown[] | undefined) || []}
+        mechanisms={(semanticMetadata?.semanticMechanisms as unknown[] | undefined) || []}
+        pathways={(semanticMetadata?.semanticPathways as unknown[] | undefined) || []}
+        ecosystems={(semanticMetadata?.semanticEcosystems as unknown[] | undefined) || []}
       />
 
       <UnifiedSemanticDiscoveryPanel

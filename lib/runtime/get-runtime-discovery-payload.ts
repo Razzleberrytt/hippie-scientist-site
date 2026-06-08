@@ -11,6 +11,10 @@ import {
 } from '@/src/lib/adaptive-recommendation-scoring'
 
 type ScoredItem = Record<string, unknown> & {
+  href: string
+  title: string
+  description?: string
+  category?: string
   adaptiveScore: number
   recommendationTier: string
   evidenceScore: number

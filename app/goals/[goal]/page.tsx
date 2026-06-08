@@ -217,7 +217,7 @@ export default async function GoalDecisionPage({
       const record = match.type === 'herb'
         ? await getHerbBySlug(match.slug)
         : await getCompoundBySlug(match.slug)
-      return buildDynamicEnrichedOption(match, record, staticOpt)
+      return buildDynamicEnrichedOption(match, record ?? {}, staticOpt)
     })
   )
 
