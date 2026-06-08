@@ -9,9 +9,11 @@ walk(outDir)
 const routes=new Set(files.map(f=>'/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/+/g,'/').replace(/\/$/,'')||'/'))
 const graph=new Map([...routes].map(r=>[r,new Set()]))
 const hrefRe=/href=["'](\/[^"'#\s>]+)["']/g
+const robotsNoindexRe=/<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*\bnoindex\b/i
 
 async function run() {
   const batchSize = 100
+  const noindexRoutes = new Set()
   console.log(`[internal-links] Starting audit of ${files.length} HTML files in batches of ${batchSize}...`)
   for (let i = 0; i < files.length; i += batchSize) {
     console.log(`[internal-links] Processing batch ${i / batchSize + 1}/${Math.ceil(files.length / batchSize)} (files ${i} to ${Math.min(i + batchSize, files.length)})...`)
@@ -21,6 +23,7 @@ async function run() {
       const fileIndex = i + idx;
       console.log(`[internal-links] Scanning ${fileIndex}: ${route}`);
       const html=await fsPromises.readFile(f,'utf8');
+      if (robotsNoindexRe.test(html)) noindexRoutes.add(route)
       const start = Date.now();
       for(const m of html.matchAll(hrefRe)){
         const h=m[1];
@@ -40,7 +43,7 @@ async function run() {
   const density=[...graph.entries()].map(([r,o])=>({route:r,outbound:o.size})).sort((a,b)=>b.outbound-a.outbound)
   const report={generatedAt:new Date().toISOString(),totalRoutes:routes.size,orphanRoutes:orphan,weaklyConnected:weak,internalLinkDensity:density.slice(0,100)}
   fs.mkdirSync(path.join(root,'ops','reports'),{recursive:true}); fs.writeFileSync(path.join(root,'ops/reports/internal-link-report.json'),JSON.stringify(report,null,2));
-  const nonIndexable = orphan.filter(r => r.startsWith('/_not-found') || r.startsWith('/sitemap.xml') || r.startsWith('/robots.txt') || r.startsWith('/opengraph-image') || r.startsWith('/twitter-image') || r.startsWith('/blogdata'))
+  const nonIndexable = orphan.filter(r => r.startsWith('/_not-found') || r.startsWith('/sitemap.xml') || r.startsWith('/robots.txt') || r.startsWith('/opengraph-image') || r.startsWith('/twitter-image') || r.startsWith('/blogdata') || noindexRoutes.has(r))
   const blockingOrphans = orphan.filter(r => !nonIndexable.includes(r))
   console.log(`internal-links: routes=${routes.size}, orphan=${orphan.length}, blockingOrphan=${blockingOrphans.length}, weak=${weak.length}`)
   if (blockingOrphans.length) {
