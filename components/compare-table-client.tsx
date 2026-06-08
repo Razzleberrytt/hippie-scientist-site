@@ -9,12 +9,12 @@ import { formatDisplayLabel, isClean, list as cleanList, text as cleanText } fro
 
 type Compound = Record<string, any>
 
-const text = (v: any) => {
+const text = (v: Record<string, unknown>) => {
   const value = cleanText(v)
   return isClean(value) ? formatDisplayLabel(value) : ''
 }
 
-const list = (v: any) => cleanList(v)
+const list = (v: Record<string, unknown>) => cleanList(v)
 
 const getUseCaseLabel = (c: Compound) => {
   const h = `${text(c.role)} ${list(c.primary_effects || c.effects).join(' ')}`.toLowerCase()
@@ -25,7 +25,7 @@ const getUseCaseLabel = (c: Compound) => {
   return text(c.role) || 'General wellness'
 }
 
-const summary = (v: any) => {
+const summary = (v: Record<string, unknown>) => {
   const i = list(v)
   return i.length ? i.slice(0, 2).join(' · ') : '—'
 }

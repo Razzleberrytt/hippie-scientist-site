@@ -156,8 +156,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   blogPosts.forEach((post) => {
     if (!post.slug) return;
-    const status = (post as any).profile_status || '';
-    if ((post as any).sitemap_included === false) return;
+    const status = (post as Record<string, unknown>).profile_status || '';
+    if ((post as Record<string, unknown>).sitemap_included === false) return;
     if (/draft|archived/i.test(String(status))) return;
 
     sitemapEntries.push(
@@ -196,7 +196,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add compare detail routes (data-driven, for task requirement to cover /compare/:slug)
   const compareFromGen = readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons');
   const compareFromData = readTsStringArray('data/comparisons.ts', 'supplementComparisons')
-    .map((s: any) => (typeof s === 'string' ? s : (s && s.slug) || ''))
+    .map((s: Record<string, unknown>) => (typeof s === 'string' ? s : (s && s.slug) || ''))
     .filter(Boolean);
   Array.from(new Set([...compareFromGen, ...compareFromData])).forEach((slug) => {
     if (slug) sitemapEntries.push(route(`${SITE_URL}/compare/${slug}/`, currentDate, 'monthly', 0.65));
@@ -221,7 +221,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
-  routeManifest.forEach((entry: any) => {
+  routeManifest.forEach((entry: Record<string, unknown>) => {
     const r = (entry && (entry.route || entry.slug)) as string | undefined;
     if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/research-notes/') || r.startsWith('/articles/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
     if (r.startsWith('/_') || r.includes('dynamic')) return;

@@ -11,7 +11,7 @@ function normalize(value: unknown) {
   return text(value).toLowerCase().trim()
 }
 
-export function buildSemanticLinkSuggestions(source: any, candidates: any[] = [], limit = 12): SemanticLinkSuggestion[] {
+export function buildSemanticLinkSuggestions(source: Record<string, unknown>, candidates: Record<string, unknown>[] = [], limit = 12): SemanticLinkSuggestion[] {
   const sourceSignals = unique([
     source?.slug,
     source?.name,

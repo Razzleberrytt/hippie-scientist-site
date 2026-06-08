@@ -142,11 +142,11 @@ const crossContentLinks: { goals: DiscoveryLink[]; compare: DiscoveryLink[]; lea
   ],
 }
 
-function getName(item: any) {
+function getName(item: Record<string, unknown>) {
   return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
 }
 
-function getSummary(item: any, type: SearchType) {
+function getSummary(item: Record<string, unknown>, type: SearchType) {
   const summary =
     item.short_earthy_summary ||
     item.shortEarthySummary ||
@@ -159,7 +159,7 @@ function getSummary(item: any, type: SearchType) {
   return cleanSummary(summary, type === 'Herb' ? 'herb' : 'compound')
 }
 
-function getEffects(item: any) {
+function getEffects(item: Record<string, unknown>) {
   return unique([
     ...list(item.primary_effects),
     ...list(item.primaryEffects),
@@ -172,7 +172,7 @@ function getEffects(item: any) {
     .slice(0, 4)
 }
 
-function getEvidence(item: any) {
+function getEvidence(item: Record<string, unknown>) {
   return normalizeDecisionEvidence(
     item.evidence_tier ||
       item.evidenceTier ||
@@ -185,7 +185,7 @@ function getEvidence(item: any) {
   )
 }
 
-function getSafety(item: any) {
+function getSafety(item: Record<string, unknown>) {
   return normalizeDecisionSafety(
     item.safety_level ||
       item.safetyLevel ||
@@ -197,7 +197,7 @@ function getSafety(item: any) {
   )
 }
 
-function getQuality(item: any) {
+function getQuality(item: Record<string, unknown>) {
   return labelize(item.profile_status || item.summary_quality || item.review_status || item.status || item.confidence, 'Profile Review')
 }
 
@@ -244,7 +244,7 @@ function weightedSearchScore(item: SearchItem, relevanceScore: number, intent: S
   return relevanceScore * 0.7 + item.discoveryScore * 0.2 + item.authorityScore * 0.1
 }
 
-function normalizeItem(item: any, type: SearchType): SearchItem | null {
+function normalizeItem(item: Record<string, unknown>, type: SearchType): SearchItem | null {
   const rawSlug = text(item.slug || item.id)
   if (!rawSlug) return null
   const slug = rawSlug.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -493,12 +493,12 @@ export default function SearchClient() {
   const searchIntent = getSearchIntent(normalizedQuery)
 
   const searchItems = useMemo(() => {
-    const herbs = (herbsSummaryData as any[])
-      .filter((item: any) => !isRestrictedRecord(item))
+    const herbs = (herbsSummaryData as Record<string, unknown>[])
+      .filter((item: Record<string, unknown>) => !isRestrictedRecord(item))
       .map(item => normalizeItem(item, 'Herb'))
       .filter(Boolean) as SearchItem[]
-    const compounds = (compoundsSummaryData as any[])
-      .filter((item: any) => !isRestrictedRecord(item))
+    const compounds = (compoundsSummaryData as Record<string, unknown>[])
+      .filter((item: Record<string, unknown>) => !isRestrictedRecord(item))
       .map(item => normalizeItem(item, 'Compound'))
       .filter(Boolean) as SearchItem[]
     return [...herbs, ...compounds].sort(compareAuthority)

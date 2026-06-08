@@ -22,7 +22,7 @@ function slug(value: unknown) {
     .replace(/^-|-$/g, '')
 }
 
-export function buildPrimaryCTA(record: any): ConversionCTA {
+export function buildPrimaryCTA(record: Record<string, unknown>): ConversionCTA {
   const semantic = buildSemanticIntelligenceReport(record)
   const name = title(record?.displayName || record?.name || record?.slug)
 
@@ -43,7 +43,7 @@ export function buildPrimaryCTA(record: any): ConversionCTA {
   }
 }
 
-export function buildCompareCTA(record: any): ConversionCTA {
+export function buildCompareCTA(record: Record<string, unknown>): ConversionCTA {
   const topic = title(record?.displayName || record?.name || record?.slug)
 
   return {
@@ -54,7 +54,7 @@ export function buildCompareCTA(record: any): ConversionCTA {
   }
 }
 
-export function buildStackCTA(record: any): ConversionCTA {
+export function buildStackCTA(record: Record<string, unknown>): ConversionCTA {
   const topic = title(record?.displayName || record?.name || record?.slug)
 
   return {
@@ -65,7 +65,7 @@ export function buildStackCTA(record: any): ConversionCTA {
   }
 }
 
-export function buildContinuationCTA(record: any): ConversionCTA {
+export function buildContinuationCTA(record: Record<string, unknown>): ConversionCTA {
   const semantic = buildSemanticIntelligenceReport(record)
 
   return {
@@ -80,7 +80,7 @@ export function buildContinuationCTA(record: any): ConversionCTA {
   }
 }
 
-export function buildEcosystemCTA(record: any): ConversionCTA {
+export function buildEcosystemCTA(record: Record<string, unknown>): ConversionCTA {
   const topic = slug(record?.primary_effects?.[0] || record?.topics?.[0] || record?.slug)
 
   return {
@@ -91,7 +91,7 @@ export function buildEcosystemCTA(record: any): ConversionCTA {
   }
 }
 
-export function buildAdaptiveConversionCTAs(record: any) {
+export function buildAdaptiveConversionCTAs(record: Record<string, unknown>) {
   const monetization = buildMonetizationOpportunity(record)
 
   const base = [

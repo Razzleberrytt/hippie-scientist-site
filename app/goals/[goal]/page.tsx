@@ -73,7 +73,7 @@ const unique = (values: string[]): string[] => Array.from(new Set(values.filter(
 
 function buildDynamicEnrichedOption(
   match: { slug: string; name: string; type: 'herb' | 'compound' | 'stack'; score: number; confidence: number; reasons: string[]; bestFor: string[]; avoidIf: string[] },
-  record: any,
+  record: Record<string, unknown>,
   staticOpt?: (typeof goals)[number]['options'][number]
 ): EnrichedGoalOption {
   const evidenceLabel = normalizeDecisionEvidence(

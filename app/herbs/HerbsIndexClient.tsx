@@ -40,11 +40,11 @@ const filterOptions: FilterOption[] = [
   },
 ]
 
-function getName(item: any) {
+function getName(item: Record<string, unknown>) {
   return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
 }
 
-function getSummary(item: any) {
+function getSummary(item: Record<string, unknown>) {
   const name = getName(item)
   const primaryUse = item.primary_effects && item.primary_effects[0] ? formatDisplayLabel(item.primary_effects[0]).toLowerCase() : ''
   const mech = item.mechanisms && item.mechanisms[0] ? formatDisplayLabel(item.mechanisms[0]).toLowerCase().replace(/\s+(signaling|modulation|context|response)/g, '') : ''
@@ -73,7 +73,7 @@ function getSummary(item: any) {
   return `${name} profile summarizing available evidence, mechanisms, safety context, and practical research notes.`
 }
 
-function getEvidence(item: any) {
+function getEvidence(item: Record<string, unknown>) {
   return normalizeDecisionEvidence(
     item.evidence_tier ||
       item.evidenceTier ||
@@ -84,7 +84,7 @@ function getEvidence(item: any) {
   )
 }
 
-function getSafety(item: any) {
+function getSafety(item: Record<string, unknown>) {
   return normalizeDecisionSafety(
     item.safety_level ||
       item.safetyLevel ||
@@ -95,7 +95,7 @@ function getSafety(item: any) {
   )
 }
 
-function getEffects(item: any) {
+function getEffects(item: Record<string, unknown>) {
   return unique([
     ...list(item.primary_effects),
     ...list(item.primaryEffects),
@@ -108,7 +108,7 @@ function getEffects(item: any) {
     .slice(0, 2)
 }
 
-function getMechanisms(item: any) {
+function getMechanisms(item: Record<string, unknown>) {
   return unique([
     ...list(item.mechanisms),
     ...list(item.primary_mechanisms),
@@ -120,7 +120,7 @@ function getMechanisms(item: any) {
     .slice(0, 2)
 }
 
-function getBestFor(item: any) {
+function getBestFor(item: Record<string, unknown>) {
   const effects = getEffects(item)
 
   if (effects.length > 0) return effects.join(' • ')
@@ -132,7 +132,7 @@ function getBestFor(item: any) {
   return traditionalUses.length > 0 ? traditionalUses.join(' • ') : 'Research context'
 }
 
-function getTimeToEffect(item: any) {
+function getTimeToEffect(item: Record<string, unknown>) {
   const value = labelize(
     item.time_to_effect ||
       item.timeToEffect ||
@@ -145,7 +145,7 @@ function getTimeToEffect(item: any) {
   return value && isClean(value) ? value : ''
 }
 
-function scoreHerb(item: any) {
+function scoreHerb(item: Record<string, unknown>) {
   let score = 0
 
   const quality = text(item.profile_status || item.summary_quality || item.safety?.confidence).toLowerCase()
@@ -163,7 +163,7 @@ function firstParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] || '' : value || ''
 }
 
-function getSearchCorpus(item: any) {
+function getSearchCorpus(item: Record<string, unknown>) {
   return [
     getName(item),
     getSummary(item),
@@ -183,7 +183,7 @@ function getSearchCorpus(item: any) {
     .join(' ')
 }
 
-function filterHerbs(herbs: any[], query: string, context: string) {
+function filterHerbs(herbs: Record<string, unknown>[], query: string, context: string) {
   const normalizedQuery = query.trim().toLowerCase()
   const option = filterOptions.find(item => item.value === context)
 
@@ -247,7 +247,7 @@ function EmptyFilteredState({ query, context }: { query: string; context: string
   )
 }
 
-function HerbCard({ herb, featured = false }: { herb: any; featured?: boolean }) {
+function HerbCard({ herb, featured = false }: { herb: Record<string, unknown>; featured?: boolean }) {
   return (
     <DecisionProfileCard
       href={`/herbs/${herb.slug}`}
@@ -282,25 +282,25 @@ const browsePaths = [
   },
 ]
 
-export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: any[]; allHerbs?: any[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
+export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: Record<string, unknown>[]; allHerbs?: Record<string, unknown>[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const query = firstParam(initialQuery)
   const context = firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
-  const baseHerbs = [...(allHerbs || sourceHerbs)].sort((a: any, b: any) => scoreHerb(b) - scoreHerb(a))
-  const herbs = [...sourceHerbs].sort((a: any, b: any) => scoreHerb(b) - scoreHerb(a))
+  const baseHerbs = [...(allHerbs || sourceHerbs)].sort((a: Record<string, unknown>, b: Record<string, unknown>) => scoreHerb(b) - scoreHerb(a))
+  const herbs = [...sourceHerbs].sort((a: Record<string, unknown>, b: Record<string, unknown>) => scoreHerb(b) - scoreHerb(a))
 
   const visibleHerbs = filterHerbs(baseHerbs, query, activeFilter)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
   const totalProfiles = baseHerbs.length
 
-  const readyProfiles = baseHerbs.filter((herb: any) =>
+  const readyProfiles = baseHerbs.filter((herb: Record<string, unknown>) =>
     /complete|strong|high|ready/i.test(
       text(herb.profile_status || herb.summary_quality || herb.safety?.confidence)
     )
   ).length
 
-  const evidenceForward = baseHerbs.filter((herb: any) =>
+  const evidenceForward = baseHerbs.filter((herb: Record<string, unknown>) =>
     /human|clinical|strong|high/i.test(
       text(herb.evidence_tier || herb.evidence_grade || herb.evidenceLevel)
     )
@@ -410,7 +410,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                 </div>
 
                 <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {featuredHerbs.map((herb: any) => (
+                  {featuredHerbs.map((herb: Record<string, unknown>) => (
                     <HerbCard key={herb.slug} herb={herb} featured />
                   ))}
                 </div>
@@ -432,7 +432,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                 </div>
 
                 <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {libraryHerbs.map((herb: any) => (
+                  {libraryHerbs.map((herb: Record<string, unknown>) => (
                     <HerbCard key={herb.slug} herb={herb} />
                   ))}
                 </div>

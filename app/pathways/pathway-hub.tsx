@@ -88,11 +88,11 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
   },
 }
 
-function getRecordName(record: any) {
+function getRecordName(record: Record<string, unknown>) {
   return formatDisplayLabel(record?.displayName || record?.name || record?.slug)
 }
 
-function getMechanisms(record: any) {
+function getMechanisms(record: Record<string, unknown>) {
   return unique([
     ...list(record?.mechanisms),
     ...list(record?.mechanism),
@@ -101,7 +101,7 @@ function getMechanisms(record: any) {
   ]).filter(isClean)
 }
 
-function getEffects(record: any) {
+function getEffects(record: Record<string, unknown>) {
   return unique([
     ...list(record?.primary_effects),
     ...list(record?.primaryEffects),
@@ -111,7 +111,7 @@ function getEffects(record: any) {
   ]).filter(isClean)
 }
 
-function RecordCard({ record, href, type }: { record: any; href: string; type: 'herb' | 'compound' }) {
+function RecordCard({ record, href, type }: { record: Record<string, unknown>; href: string; type: 'herb' | 'compound' }) {
   const name = getRecordName(record)
   const signals = getPathwaySignals(record).slice(0, 3)
   const summary = cleanSummary(record?.summary || record?.description || '', type)
@@ -166,15 +166,15 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
 
   const relatedHerbs = getRelatedPathwayRecords(herbs, pathway)
-    .filter((record: any) => getRuntimeVisibility(record).canRender)
+    .filter((record: Record<string, unknown>) => getRuntimeVisibility(record).canRender)
     .slice(0, 9)
 
   const relatedCompounds = getRelatedPathwayRecords(compounds, pathway)
-    .filter((record: any) => getRuntimeVisibility(record).canRender)
+    .filter((record: Record<string, unknown>) => getRuntimeVisibility(record).canRender)
     .slice(0, 9)
 
   const relatedRecords = [...relatedHerbs, ...relatedCompounds]
-  const ecosystemSignals = unique(relatedRecords.flatMap((record: any) => {
+  const ecosystemSignals = unique(relatedRecords.flatMap((record: Record<string, unknown>) => {
     const fields = normalizeEcosystemFields(record)
     return [...fields.topicClusters, ...fields.pathwayEcosystems, ...fields.mechanismEcosystems]
   })).slice(0, 12)
@@ -241,8 +241,8 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
             <p className="text-sm leading-7 text-[#46574d]">These profiles provide semantic navigation centers for the pathway without implying that all adjacent records share the same clinical evidence.</p>
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
-            {authorityAnchors.map((record: any) => (
-              <Link key={record.slug} href={`/${relatedHerbs.some((herb: any) => herb.slug === record.slug) ? 'herbs' : 'compounds'}/${record.slug}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
+            {authorityAnchors.map((record: Record<string, unknown>) => (
+              <Link key={record.slug} href={`/${relatedHerbs.some((herb: Record<string, unknown>) => herb.slug === record.slug) ? 'herbs' : 'compounds'}/${record.slug}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
                 {getRecordName(record)}
               </Link>
             ))}
@@ -271,7 +271,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {relatedHerbs.map((record: any) => (
+            {relatedHerbs.map((record: Record<string, unknown>) => (
               <RecordCard key={record.slug} record={record} href={`/herbs/${record.slug}`} type="herb" />
             ))}
           </div>
@@ -286,7 +286,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {relatedCompounds.map((record: any) => (
+            {relatedCompounds.map((record: Record<string, unknown>) => (
               <RecordCard key={record.slug} record={record} href={`/compounds/${record.slug}`} type="compound" />
             ))}
           </div>
@@ -296,7 +296,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
   )
 }
 
-export function CompactRelatedPathways({ record }: { record: any }) {
+export function CompactRelatedPathways({ record }: { record: Record<string, unknown> }) {
   const pathways = getSupportedPathways(record)
     .filter((pathway) => ['gaba', 'dopamine', 'inflammation'].includes(pathway))
     .slice(0, 4)

@@ -18,7 +18,7 @@ function title(value: unknown) {
   return text(value).replace(/[-_]/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-export function buildCommercialPageBlueprint(record: any): CommercialPageBlueprint {
+export function buildCommercialPageBlueprint(record: Record<string, unknown>): CommercialPageBlueprint {
   const context = buildProductRecommendationContext(record)
   const name = title(record?.displayName || record?.name || record?.slug)
   const slug = slugify(name)
@@ -42,7 +42,7 @@ export function buildCommercialPageBlueprint(record: any): CommercialPageBluepri
   }
 }
 
-export function buildCommercialPageBlueprints(records: any[] = [], limit = 24) {
+export function buildCommercialPageBlueprints(records: Record<string, unknown>[] = [], limit = 24) {
   return records
     .map(buildCommercialPageBlueprint)
     .sort((a, b) => a.title.localeCompare(b.title))

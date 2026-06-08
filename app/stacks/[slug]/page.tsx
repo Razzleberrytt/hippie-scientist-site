@@ -67,7 +67,7 @@ const formatGoal = (value?: string) =>
     .replace(/[-_]/g, ' ')
     .replace(/\b\w/g, char => char.toUpperCase())
 
-const stackGoal = (stack: any) => stack?.goal_slug || stack?.goal || stack?.slug
+const stackGoal = (stack: Record<string, unknown>) => stack?.goal_slug || stack?.goal || stack?.slug
 
 const groupByRole = (items: StackItemRecord[]): RoleGroups => {
   const groups: RoleGroups = { anchor: [], amplifier: [], support: [] }
@@ -213,7 +213,7 @@ export default async function StackPage({ params }: Params) {
   }
 
   const { herbRecords, allRecords } = await getUnifiedRuntimeRecords()
-  const herbSlugs = new Set<string>(herbRecords.map((h: any) => String(h.slug || '')))
+  const herbSlugs = new Set<string>(herbRecords.map((h: Record<string, unknown>) => String(h.slug || '')))
 
   const groups = groupByRole(items)
   const relatedRecords = items.map(item => stackItemToRecord(item, herbSlugs)).filter((record) => record.slug)
@@ -238,9 +238,9 @@ export default async function StackPage({ params }: Params) {
   // Helper to resolve affiliate fields for a stack item card
   const getCardAffiliateProps = (item: StackItemRecord, entityType: 'herb' | 'compound') => {
     const itemSlug = resolveStackItemSlug(item)
-    const record = (allRecords as any[]).find(r => r.slug === itemSlug)
+    const record = (allRecords as Record<string, unknown>[]).find(r => r.slug === itemSlug)
     if (!record) return {}
-    const shopLinks = getAffiliateShopLinks(record, (record as any).name || itemSlug, entityType)
+    const shopLinks = getAffiliateShopLinks(record, (record as Record<string, unknown>).name || itemSlug, entityType)
     const primary = shopLinks.find(l => l.url)
     return primary ? { affiliateUrl: primary.url, affiliateLabel: primary.label } : {}
   }

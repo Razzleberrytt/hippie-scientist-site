@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function StackBuilderPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((h: any) => {
+  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
     try {
       return getRuntimeVisibility(h).canRender
     } catch {
@@ -20,7 +20,7 @@ export default async function StackBuilderPage() {
     }
   })
 
-  const compounds = rawCompounds.filter((c: any) => {
+  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
     try {
       return getRuntimeVisibility(c).canRender
     } catch {

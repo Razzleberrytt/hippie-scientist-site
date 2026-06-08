@@ -1,6 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
 
-export function buildSemanticSearchDocument(record: any) {
+export function buildSemanticSearchDocument(record: Record<string, unknown>) {
   const searchable = unique([
     record?.slug,
     record?.displayName,
@@ -22,7 +22,7 @@ export function buildSemanticSearchDocument(record: any) {
   }
 }
 
-export function semanticSearch(query: string, records: any[] = [], limit = 12) {
+export function semanticSearch(query: string, records: Record<string, unknown>[] = [], limit = 12) {
   const normalized = text(query).toLowerCase().trim()
 
   return records

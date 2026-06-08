@@ -48,7 +48,7 @@ function firstParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] || '' : value || ''
 }
 
-function getName(item: any) {
+function getName(item: Record<string, unknown>) {
   return (
     formatDisplayLabel(item?.displayName) ||
     formatDisplayLabel(item?.name) ||
@@ -59,7 +59,7 @@ function getName(item: any) {
   )
 }
 
-function getSummary(item: any) {
+function getSummary(item: Record<string, unknown>) {
   return cleanSummary(
     item?.short_earthy_summary ||
       item?.shortEarthySummary ||
@@ -72,7 +72,7 @@ function getSummary(item: any) {
   )
 }
 
-function getEvidence(item: any) {
+function getEvidence(item: Record<string, unknown>) {
   return normalizeDecisionEvidence(
     item?.evidence_tier ||
       item?.evidenceTier ||
@@ -83,7 +83,7 @@ function getEvidence(item: any) {
   )
 }
 
-function getSafety(item: any) {
+function getSafety(item: Record<string, unknown>) {
   return normalizeDecisionSafety(
     item?.safety_level ||
       item?.safetyLevel ||
@@ -95,7 +95,7 @@ function getSafety(item: any) {
   )
 }
 
-function getEffects(item: any) {
+function getEffects(item: Record<string, unknown>) {
   return unique([
     ...list(item?.primary_effects),
     ...list(item?.primaryEffects),
@@ -110,7 +110,7 @@ function getEffects(item: any) {
     .slice(0, 2)
 }
 
-function getMechanismSignals(item: any) {
+function getMechanismSignals(item: Record<string, unknown>) {
   const effects = getEffects(item)
 
   return unique([
@@ -127,7 +127,7 @@ function getMechanismSignals(item: any) {
     .slice(0, 2)
 }
 
-function getBestFor(item: any) {
+function getBestFor(item: Record<string, unknown>) {
   const effects = getEffects(item)
   if (effects.length > 0) return effects.join(' • ')
 
@@ -137,7 +137,7 @@ function getBestFor(item: any) {
   return 'Research context'
 }
 
-function getTimeToEffect(item: any) {
+function getTimeToEffect(item: Record<string, unknown>) {
   const value = labelize(
     item?.time_to_effect ||
       item?.timeToEffect ||
@@ -150,7 +150,7 @@ function getTimeToEffect(item: any) {
   return value && isClean(value) ? value : ''
 }
 
-function scoreCompound(item: any) {
+function scoreCompound(item: Record<string, unknown>) {
   let score = 0
   const profile = text(item?.profile_status || item?.summary_quality || item?.status).toLowerCase()
   const evidence = text(item?.evidence_tier || item?.evidence_grade || item?.evidenceLevel).toLowerCase()
@@ -164,7 +164,7 @@ function scoreCompound(item: any) {
   return score
 }
 
-function getSearchCorpus(item: any) {
+function getSearchCorpus(item: Record<string, unknown>) {
   return [
     getName(item),
     getSummary(item),
@@ -189,7 +189,7 @@ function getSearchCorpus(item: any) {
     .join(' ')
 }
 
-function filterCompounds(compounds: any[], query: string, context: string) {
+function filterCompounds(compounds: Record<string, unknown>[], query: string, context: string) {
   const normalizedQuery = query.trim().toLowerCase()
   const option = filterOptions.find(item => item.value === context)
 
@@ -253,7 +253,7 @@ function EmptyFilteredState({ query, context }: { query: string; context: string
   )
 }
 
-function CompoundCard({ compound, featured = false }: { compound: any; featured?: boolean }) {
+function CompoundCard({ compound, featured = false }: { compound: Record<string, unknown>; featured?: boolean }) {
   return (
     <DecisionProfileCard
       href={`/compounds/${compound?.slug || ''}`}
@@ -288,19 +288,19 @@ const browsePaths = [
   },
 ]
 
-export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { compounds: any[]; allCompounds?: any[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
+export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { compounds: Record<string, unknown>[]; allCompounds?: Record<string, unknown>[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const query = firstParam(initialQuery)
   const context = firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
-  const baseCompounds = [...(allCompounds || sourceCompounds)].sort((a: any, b: any) => scoreCompound(b) - scoreCompound(a))
-  const compounds = [...sourceCompounds].sort((a: any, b: any) => scoreCompound(b) - scoreCompound(a))
+  const baseCompounds = [...(allCompounds || sourceCompounds)].sort((a: Record<string, unknown>, b: Record<string, unknown>) => scoreCompound(b) - scoreCompound(a))
+  const compounds = [...sourceCompounds].sort((a: Record<string, unknown>, b: Record<string, unknown>) => scoreCompound(b) - scoreCompound(a))
 
   const visibleCompounds = filterCompounds(baseCompounds, query, activeFilter)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
   const totalProfiles = baseCompounds.length
-  const evidenceForward = baseCompounds.filter((compound: any) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
-  const _safetyMapped = baseCompounds.filter((compound: any) => getSafety(compound) !== 'Safety review pending').length
+  const evidenceForward = baseCompounds.filter((compound: Record<string, unknown>) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
+  const _safetyMapped = baseCompounds.filter((compound: Record<string, unknown>) => getSafety(compound) !== 'Safety review pending').length
   const featuredCompounds = hasActiveFilters || paginated ? [] : baseCompounds.slice(0, 6)
   const libraryCompounds = hasActiveFilters ? visibleCompounds : paginated ? compounds : baseCompounds.slice(featuredCompounds.length)
 
@@ -405,7 +405,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                 </div>
 
                 <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {featuredCompounds.map((compound: any) => (
+                  {featuredCompounds.map((compound: Record<string, unknown>) => (
                     <CompoundCard key={compound.slug} compound={compound} featured />
                   ))}
                 </div>
@@ -427,7 +427,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                 </div>
 
                 <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {libraryCompounds.map((compound: any) => (
+                  {libraryCompounds.map((compound: Record<string, unknown>) => (
                     <CompoundCard key={compound.slug} compound={compound} />
                   ))}
                 </div>

@@ -15,7 +15,7 @@ function title(value: unknown) {
     .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-export function buildEditorialAuthorityNotes(record: any): EditorialAuthorityNote[] {
+export function buildEditorialAuthorityNotes(record: Record<string, unknown>): EditorialAuthorityNote[] {
   const semantic = buildSemanticIntelligenceReport(record)
   const research = buildResearchKnowledgeReport(record)
   const name = isRenderableText(record?.displayName || record?.name || record?.slug)

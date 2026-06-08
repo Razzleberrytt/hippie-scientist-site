@@ -9,16 +9,16 @@ export default function DecisionCard({
   avoid = [],
   time = '',
   evidence = ''
-}: any) {
+}: Record<string, unknown>) {
   const cleanedBestFor = bestFor
     .filter(isClean)
-    .map((item:any) => editorialUseCaseLabel(item))
+    .map((item: Record<string, unknown>) => editorialUseCaseLabel(item))
     .filter(isClean)
     .slice(0, 3)
 
   const cleanedAvoid = avoid
     .filter(isClean)
-    .map((item:any) => cleanLabel(String(item)))
+    .map((item: Record<string, unknown>) => cleanLabel(String(item)))
     .filter(isClean)
 
   return (
@@ -31,7 +31,7 @@ export default function DecisionCard({
             <p className="eyebrow-label">Commonly explored for</p>
 
             <ul className="space-y-3 text-sm leading-7 text-[#435246]">
-              {cleanedBestFor.map((b:any,i:number)=>(
+              {cleanedBestFor.map((b: Record<string, unknown>,i:number)=>(
                 <li key={i} className="flex gap-3">
                   <span className="mt-[0.45rem] h-1.5 w-1.5 rounded-full bg-brand-700" />
                   <span>{b}</span>
@@ -46,7 +46,7 @@ export default function DecisionCard({
 
           {cleanedAvoid.length > 0 ? (
             <ul className="space-y-3 text-sm leading-7 text-[#435246]">
-              {cleanedAvoid.map((a:any,i:number)=>(
+              {cleanedAvoid.map((a: Record<string, unknown>,i:number)=>(
                 <li key={i} className="flex gap-3">
                   <span className="mt-[0.45rem] h-1.5 w-1.5 rounded-full bg-amber-600" />
                   <span>{a}</span>

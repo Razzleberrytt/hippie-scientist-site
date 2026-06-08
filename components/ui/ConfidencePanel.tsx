@@ -1,5 +1,5 @@
-export default function ConfidencePanel({ level = 'moderate' }: any) {
-  const config: any = {
+export default function ConfidencePanel({ level = 'moderate' }: Record<string, unknown>) {
+  const config: Record<string, unknown> = {
     strong: {
       title: 'Higher Confidence Evidence',
       text: 'Supported by stronger human evidence and broader consistency across studies.'

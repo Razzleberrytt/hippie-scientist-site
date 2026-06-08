@@ -12,7 +12,7 @@ function normalize(value: unknown) {
   return text(value).toLowerCase().trim()
 }
 
-export function buildAffiliateRoutingDecision(record: any): AffiliateRoutingDecision {
+export function buildAffiliateRoutingDecision(record: Record<string, unknown>): AffiliateRoutingDecision {
   const monetization = buildMonetizationOpportunity(record)
 
   const productSignals = unique([

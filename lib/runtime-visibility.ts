@@ -1,6 +1,6 @@
 import { list, text } from '@/lib/display-utils'
 
-function hasResearchPending(record: any) {
+function hasResearchPending(record: Record<string, unknown>) {
   return list(record?.primary_effects).some((effect) =>
     /research-pending/i.test(effect)
   )
@@ -14,7 +14,7 @@ function hasIndexableQuality(summaryQuality: string) {
   return !/^(weak|minimal|thin|stub|research_needed)$/i.test(summaryQuality)
 }
 
-function getIndexabilityStatus(record: any) {
+function getIndexabilityStatus(record: Record<string, unknown>) {
   const status = text(record?.indexability_status)
   return /^(PUBLISH|NOINDEX|NEEDS_REVIEW|BLOCKED)$/i.test(status)
     ? status.toUpperCase()
@@ -39,7 +39,7 @@ function isEvidenceSupported(evidenceTier: string): boolean {
   return /\b(strong|moderate|human|clinical|commercial_ready)\b/i.test(evidenceTier)
 }
 
-export function getRuntimeVisibility(record: any) {
+export function getRuntimeVisibility(record: Record<string, unknown>) {
   const exportDecision = text(record?.runtime_export_decision)
   const profileStatus = text(record?.profile_status)
   const summaryQuality = text(record?.summary_quality)

@@ -52,7 +52,7 @@ function getValidEcosystemRoute(goal: string): string | undefined {
   return undefined
 }
 
-export function buildInternalLinkDensity(record: any) {
+export function buildInternalLinkDensity(record: Record<string, unknown>) {
   const goals = normalize([
     ...list(record?.best_for),
     ...list(record?.primary_effects),

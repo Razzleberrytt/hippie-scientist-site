@@ -2,7 +2,7 @@ import ContinueExploring from '@/components/runtime/continue-exploring'
 import { getRuntimeDiscoveryPayload } from '@/lib/runtime/get-runtime-discovery-payload'
 
 type Props = {
-  record: any
+  record: Record<string, unknown>
   title?: string
 }
 

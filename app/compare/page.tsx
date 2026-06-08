@@ -50,8 +50,8 @@ const guidanceCards = [
 export default async function ComparePage() {
   const compounds = await getCompounds()
   const safeCompounds = compounds
-    .filter((compound: any) => compound.slug && isClean(compound.name || compound.displayName || compound.slug))
-    .map((compound: any) => ({
+    .filter((compound: Record<string, unknown>) => compound.slug && isClean(compound.name || compound.displayName || compound.slug))
+    .map((compound: Record<string, unknown>) => ({
       slug: compound.slug,
       name: formatDisplayLabel(compound.displayName || compound.name || compound.slug),
       summary: cleanSummary(compound.summary || compound.description, 'compound'),

@@ -1,6 +1,6 @@
 import { buildAdaptiveSemanticFeed } from '@/lib/adaptive-semantic-feed'
 
-export function buildResearchCompanionExperience(source: any, candidates: any[] = []) {
+export function buildResearchCompanionExperience(source: Record<string, unknown>, candidates: Record<string, unknown>[] = []) {
   return {
     headline: 'Continue exploring intelligently',
     prompts: [

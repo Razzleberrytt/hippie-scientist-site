@@ -50,7 +50,7 @@ function score(value: unknown) {
   return Number.isFinite(number) ? number : 0
 }
 
-export function normalizeEcosystemFields(record: any): EcosystemFieldSet {
+export function normalizeEcosystemFields(record: Record<string, unknown>): EcosystemFieldSet {
   const slug = safeSlug(record?.slug || record?.name)
   const authorityStatus = text(record?.authority_supernode || record?.evidence_authority_status || record?.authority_status)
   const authorityScore = score(record?.authority_score)
@@ -125,7 +125,7 @@ export function normalizeEcosystemFields(record: any): EcosystemFieldSet {
   }
 }
 
-export function collectEcosystemSignals(record: any) {
+export function collectEcosystemSignals(record: Record<string, unknown>) {
   const fields = normalizeEcosystemFields(record)
 
   return unique([
@@ -139,7 +139,7 @@ export function collectEcosystemSignals(record: any) {
   ].map((item) => safeLower(item)).filter(Boolean))
 }
 
-export function getAuthorityAnchorRecords(records: any[], limit = 6) {
+export function getAuthorityAnchorRecords(records: Record<string, unknown>[], limit = 6) {
   return records
     .map((record) => ({ record, fields: normalizeEcosystemFields(record) }))
     .filter(({ record, fields }) => safeSlug(record?.slug) && fields.authoritySupernode)
@@ -148,7 +148,7 @@ export function getAuthorityAnchorRecords(records: any[], limit = 6) {
     .map(({ record, fields }) => ({ ...record, ecosystemFields: fields }))
 }
 
-export function getSemanticRelationshipRecords(record: any, records: any[], limit = 6) {
+export function getSemanticRelationshipRecords(record: Record<string, unknown>, records: Record<string, unknown>[], limit = 6) {
   const sourceSlug = safeSlug(record?.slug)
   const sourceSignals = new Set(collectEcosystemSignals(record))
   const explicit = new Set(normalizeEcosystemFields(record).semanticNeighbors)
@@ -180,7 +180,7 @@ export function getSemanticRelationshipRecords(record: any, records: any[], limi
     .slice(0, limit)
 }
 
-export function getComparisonTargets(record: any, records: any[], limit = 4) {
+export function getComparisonTargets(record: Record<string, unknown>, records: Record<string, unknown>[], limit = 4) {
   const fields = normalizeEcosystemFields(record)
   const candidateSlugs = new Set(fields.comparisonCandidates)
 

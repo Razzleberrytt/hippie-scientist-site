@@ -14,7 +14,7 @@ const NARRATIVES: Record<string, string> = {
   'Hormonal Activity Context': 'Hormone-adjacent wording is presented as context only, not as evidence of predictable endocrine effects in a given person.',
 }
 
-export function buildSafetyNarratives(record: any, limit = 3): SafetyNarrative[] {
+export function buildSafetyNarratives(record: Record<string, unknown>, limit = 3): SafetyNarrative[] {
   return getSafetyClassifications(record, limit)
     .map(classification => ({
       label: classification.label,
@@ -23,7 +23,7 @@ export function buildSafetyNarratives(record: any, limit = 3): SafetyNarrative[]
     .filter(item => item.narrative)
 }
 
-export function buildSafetyNarrativeSummary(record: any) {
+export function buildSafetyNarrativeSummary(record: Record<string, unknown>) {
   const narratives = buildSafetyNarratives(record, 2)
   if (narratives.length === 0) return ''
 

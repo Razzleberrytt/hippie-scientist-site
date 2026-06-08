@@ -43,7 +43,7 @@ function cleanSignals(values: unknown[], fallbackTone: AuthoritySignal['tone'] =
     .filter((signal) => shouldRenderCard(signal.label, signal.description))
 }
 
-export function buildExecutiveSummary(record: any): AuthoritySignal[] {
+export function buildExecutiveSummary(record: Record<string, unknown>): AuthoritySignal[] {
   const summary = cleanEditorialText(record?.summary || record?.description)
   const evidence = cleanEditorialText(record?.evidence_tier || record?.evidenceTier || record?.summary_quality || 'Evidence context varies')
   const safety = cleanEditorialText(record?.safety_level || record?.safety || record?.safetyNotes || 'Review safety context')
@@ -69,7 +69,7 @@ export function buildExecutiveSummary(record: any): AuthoritySignal[] {
   return signals.filter((signal) => shouldRenderCard(signal.label, signal.description))
 }
 
-export function buildBestForSignals(record: any): AuthoritySignal[] {
+export function buildBestForSignals(record: Record<string, unknown>): AuthoritySignal[] {
   // Placeholder tags like "research pending" and "research only" are suppressed here via the
   // cleanSignals → dedupeEditorialItems → isWeakSemanticValue pipeline in editorial-rendering.ts.
   // Additionally, list() calls formatDisplayLabel() which calls hideInternalValue(), which
@@ -83,7 +83,7 @@ export function buildBestForSignals(record: any): AuthoritySignal[] {
   ], 'strong')
 }
 
-export function buildAvoidIfSignals(record: any): AuthoritySignal[] {
+export function buildAvoidIfSignals(record: Record<string, unknown>): AuthoritySignal[] {
   const values = [
     ...list(record?.avoid_if),
     ...list(record?.avoidIf),
@@ -95,7 +95,7 @@ export function buildAvoidIfSignals(record: any): AuthoritySignal[] {
   return cleanSignals(values.length ? values : ['Check interactions, pregnancy status, medications, and medical conditions before use.'], 'caution')
 }
 
-export function buildEvidenceHierarchy(record: any): AuthoritySignal[] {
+export function buildEvidenceHierarchy(record: Record<string, unknown>): AuthoritySignal[] {
   const report = buildResearchKnowledgeReport(record)
 
   if (report.hierarchy.length > 0) {
@@ -115,7 +115,7 @@ export function buildEvidenceHierarchy(record: any): AuthoritySignal[] {
   }]
 }
 
-export function buildMechanismSummary(record: any): AuthoritySignal[] {
+export function buildMechanismSummary(record: Record<string, unknown>): AuthoritySignal[] {
   return cleanSignals([
     ...list(record?.mechanisms),
     ...list(record?.pathways),
@@ -124,7 +124,7 @@ export function buildMechanismSummary(record: any): AuthoritySignal[] {
   ], 'moderate')
 }
 
-export function buildTimelineExpectations(record: any): AuthoritySignal[] {
+export function buildTimelineExpectations(record: Record<string, unknown>): AuthoritySignal[] {
   const values = [
     record?.time_to_effect,
     record?.timeToEffect,
@@ -135,7 +135,7 @@ export function buildTimelineExpectations(record: any): AuthoritySignal[] {
   return cleanSignals(values.length ? values : ['Timing varies by dose, formulation, baseline status, and outcome.'], 'neutral')
 }
 
-export function buildStackCompatibility(record: any): AuthoritySignal[] {
+export function buildStackCompatibility(record: Record<string, unknown>): AuthoritySignal[] {
   const values = [
     ...list(record?.stack_with),
     ...list(record?.synergies),
@@ -146,7 +146,7 @@ export function buildStackCompatibility(record: any): AuthoritySignal[] {
   return cleanSignals(values.length ? values : ['Use stack context cautiously; watch for overlapping mechanisms and safety considerations.'], 'neutral')
 }
 
-export function buildEditorialInterpretation(record: any): AuthoritySignal {
+export function buildEditorialInterpretation(record: Record<string, unknown>): AuthoritySignal {
   const semantic = buildSemanticIntelligenceReport(record)
   const evidence = buildResearchKnowledgeReport(record)
   const name = title(record?.displayName || record?.name || record?.slug || 'This profile')
@@ -158,7 +158,7 @@ export function buildEditorialInterpretation(record: any): AuthoritySignal {
   }
 }
 
-export function buildAuthorityProfileModel(record: any): AuthorityProfileModel {
+export function buildAuthorityProfileModel(record: Record<string, unknown>): AuthorityProfileModel {
   const semantic = buildSemanticIntelligenceReport(record)
   const evidence = buildResearchKnowledgeReport(record)
   const readinessScore = semantic.totalScore + Math.min(30, evidence.evidenceWeight)

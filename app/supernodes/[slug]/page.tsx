@@ -42,12 +42,12 @@ function normalize(value: unknown) {
   return text(value).toLowerCase()
 }
 
-function inferEntityType(record: any) {
+function inferEntityType(record: Record<string, unknown>) {
   if (record?.entityType === 'compound' || record?.compound_class || record?.compoundClass) return 'compound'
   return 'herb'
 }
 
-function corpus(record: any) {
+function corpus(record: Record<string, unknown>) {
   return [
     record?.name,
     record?.displayName,
@@ -64,7 +64,7 @@ function corpus(record: any) {
   ].map(normalize).join(' ')
 }
 
-function score(record: any, keywords: string[]) {
+function score(record: Record<string, unknown>, keywords: string[]) {
   const haystack = corpus(record)
   let total = 0
 
@@ -78,15 +78,15 @@ function score(record: any, keywords: string[]) {
   return total
 }
 
-function getName(record: any) {
+function getName(record: Record<string, unknown>) {
   return formatDisplayLabel(record?.displayName || record?.name || record?.slug)
 }
 
-function getSummary(record: any) {
+function getSummary(record: Record<string, unknown>) {
   return cleanSummary(record?.summary || record?.description || '', record?.entityType === 'compound' ? 'compound' : 'herb')
 }
 
-function getSignals(record: any) {
+function getSignals(record: Record<string, unknown>) {
   return unique([
     ...list(record?.primary_effects),
     ...list(record?.effects),
@@ -95,11 +95,11 @@ function getSignals(record: any) {
   ].map(formatDisplayLabel).filter(isClean)).slice(0, 5)
 }
 
-function href(record: any) {
+function href(record: Record<string, unknown>) {
   return `/${record?.entityType === 'compound' ? 'compounds' : 'herbs'}/${record.slug}`
 }
 
-function evidenceLabel(record: any) {
+function evidenceLabel(record: Record<string, unknown>) {
   return formatDisplayLabel(record?.evidence_tier || record?.summary_quality || 'Evidence context')
 }
 
@@ -110,7 +110,7 @@ function evidenceClass(value: string) {
   return 'chip-readable'
 }
 
-function SupernodeCard({ record }: { record: any }) {
+function SupernodeCard({ record }: { record: Record<string, unknown> }) {
   const signals = getSignals(record)
   const evidence = evidenceLabel(record)
 
@@ -150,17 +150,17 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
   const { allRecords } = await getUnifiedRuntimeRecords()
 
   const ranked = allRecords
-    .filter((record: any) => getRuntimeVisibility(record).canRender)
-    .map((record: any) => ({ ...record, entityType: inferEntityType(record) }))
-    .map((record: any) => ({ record, score: score(record, node.keywords) }))
-    .filter((item: { record: any; score: number }) => item.score > 0)
+    .filter((record: Record<string, unknown>) => getRuntimeVisibility(record).canRender)
+    .map((record: Record<string, unknown>) => ({ ...record, entityType: inferEntityType(record) }))
+    .map((record: Record<string, unknown>) => ({ record, score: score(record, node.keywords) }))
+    .filter((item: { record: Record<string, unknown>; score: number }) => item.score > 0)
     .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
     .slice(0, 60)
-    .map((item: { record: any }) => item.record)
+    .map((item: { record: Record<string, unknown> }) => item.record)
 
   const top = ranked.slice(0, 10)
-  const evidenceForward = ranked.filter((record: any) => /strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))).slice(0, 8)
-  const pathwayDense = ranked.filter((record: any) => getSignals(record).length >= 4).slice(0, 8)
+  const evidenceForward = ranked.filter((record: Record<string, unknown>) => /strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))).slice(0, 8)
+  const pathwayDense = ranked.filter((record: Record<string, unknown>) => getSignals(record).length >= 4).slice(0, 8)
   const nodeRecord = {
     slug: node.slug,
     displayName: node.title,
@@ -236,7 +236,7 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
             </div>
 
             <div className="semantic-rail">
-              {top.map((record: any) => (
+              {top.map((record: Record<string, unknown>) => (
                 <SupernodeCard key={record.slug} record={record} />
               ))}
             </div>
@@ -266,7 +266,7 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {ranked.slice(10, 34).map((record: any) => (
+              {ranked.slice(10, 34).map((record: Record<string, unknown>) => (
                 <SupernodeCard key={record.slug} record={record} />
               ))}
             </div>

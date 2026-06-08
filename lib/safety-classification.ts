@@ -6,7 +6,7 @@ export type SafetyClassification = {
   tone: 'caution' | 'context' | 'neutral'
 }
 
-function safetyText(record: any): string {
+function safetyText(record: Record<string, unknown>): string {
   return [
     record?.safety,
     record?.safetyNotes,
@@ -29,7 +29,7 @@ function item(label: string, description: string, tone: SafetyClassification['to
   return { label, description, tone }
 }
 
-export function getSafetyClassifications(record: any, limit = 6): SafetyClassification[] {
+export function getSafetyClassifications(record: Record<string, unknown>, limit = 6): SafetyClassification[] {
   const source = safetyText(record)
   const classifications: SafetyClassification[] = []
 
@@ -67,11 +67,11 @@ export function getSafetyClassifications(record: any, limit = 6): SafetyClassifi
     .slice(0, Math.max(0, limit))
 }
 
-export function getSafetyLabels(record: any, limit = 6): string[] {
+export function getSafetyLabels(record: Record<string, unknown>, limit = 6): string[] {
   return unique(getSafetyClassifications(record, limit).map(classification => classification.label))
 }
 
-export function getSafetySensitivity(record: any): 'high' | 'moderate' | 'low' {
+export function getSafetySensitivity(record: Record<string, unknown>): 'high' | 'moderate' | 'low' {
   const labels = getSafetyLabels(record, 6)
   const source = safetyText(record)
 

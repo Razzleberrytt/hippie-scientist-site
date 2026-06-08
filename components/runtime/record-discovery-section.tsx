@@ -2,7 +2,7 @@ import RuntimeDiscoverySection from '@/components/runtime/runtime-discovery-sect
 import { getContextFromRecord } from '@/lib/runtime/get-context-from-record'
 
 type Props = {
-  record: any
+  record: Record<string, unknown>
   title?: string
   limit?: number
 }

@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default async function HerbsPage() {
-  const herbs = (await getHerbSummaryIndex()).filter((h: any) => getRuntimeVisibility(h).canRender)
+  const herbs = (await getHerbSummaryIndex()).filter((h: Record<string, unknown>) => getRuntimeVisibility(h).canRender)
   const pageData = paginateItems(herbs, 1, HERBS_PAGE_SIZE)
 
   return (
@@ -31,7 +31,7 @@ export default async function HerbsPage() {
       {/* Server-rendered link index for SEO crawlability — the interactive card grid is rendered by HerbsIndexClient below */}
       <nav aria-label="Herb profiles index" className="sr-only">
         <ul>
-          {herbs.map((herb: any) => (
+          {herbs.map((herb: Record<string, unknown>) => (
             <li key={herb.slug}>
               <Link href={`/herbs/${herb.slug}`}>{herb.displayName || herb.name || herb.slug}</Link>
             </li>

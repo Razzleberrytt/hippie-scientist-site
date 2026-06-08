@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default async function ProductQualityPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((herb: any) => {
+  const herbs = rawHerbs.filter((herb: Record<string, unknown>) => {
     if (isRestrictedRecord(herb)) return false
     try {
       return getRuntimeVisibility(herb).canRender
@@ -24,7 +24,7 @@ export default async function ProductQualityPage() {
     }
   })
 
-  const compounds = rawCompounds.filter((compound: any) => {
+  const compounds = rawCompounds.filter((compound: Record<string, unknown>) => {
     if (isRestrictedRecord(compound)) return false
     try {
       return getRuntimeVisibility(compound).canRender

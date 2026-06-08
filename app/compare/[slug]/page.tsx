@@ -27,10 +27,10 @@ const formatSlug = (value: string) =>
 
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 
-const displayName = (compound: any) => compound?.displayName || compound?.name || formatSlug(compound?.slug || 'Compound')
-const summary = (compound: any) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the profile for more detail.'
+const displayName = (compound: Record<string, unknown>) => compound?.displayName || compound?.name || formatSlug(compound?.slug || 'Compound')
+const summary = (compound: Record<string, unknown>) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the profile for more detail.'
 
-const evidenceScore = (compound: any) => {
+const evidenceScore = (compound: Record<string, unknown>) => {
   const text = `${compound?.evidence_grade ?? ''} ${compound?.evidenceTier ?? ''} ${compound?.tier_level ?? ''} ${compound?.evidence ?? ''} ${compound?.summary_quality ?? ''}`.toLowerCase()
   if (/strong|high|tier\s*1|a-tier|meta|rct/.test(text)) return 5
   if (/moderate|tier\s*2|human/.test(text)) return 4
@@ -38,8 +38,8 @@ const evidenceScore = (compound: any) => {
   return 3
 }
 
-const findCompound = (compounds: any[], candidates: string[]) =>
-  compounds.find((compound: any) => {
+const findCompound = (compounds: Record<string, unknown>[], candidates: string[]) =>
+  compounds.find((compound: Record<string, unknown>) => {
     const aliases = new Set([compound.slug, normalize(compound.slug), compound.name, compound.displayName, normalize(compound.name), normalize(compound.displayName)].filter(Boolean))
     return candidates.some(candidate => aliases.has(candidate) || aliases.has(normalize(candidate)))
   })
@@ -75,7 +75,7 @@ const allComparisonSlugs = Array.from(new Set([
   'aspalathin-vs-astragalin',
 ]))
 
-function getSignals(compound: any) {
+function getSignals(compound: Record<string, unknown>) {
   return unique([
     ...list(compound?.effects),
     ...list(compound?.primary_effects),
@@ -91,7 +91,7 @@ const evidenceLabel = (score: number) => {
   return 'Mixed'
 }
 
-const profileLabel = (compound: any) => {
+const profileLabel = (compound: Record<string, unknown>) => {
   const text = `${list(compound?.effects).join(' ')} ${list(compound?.primary_effects).join(' ')} ${compound?.summary || ''}`.toLowerCase()
   if (/stim|energy|focus|alert/.test(text)) return 'More stimulating'
   if (/sleep|calm|sedat|relax|anx/.test(text)) return 'More calming'
@@ -122,7 +122,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   })
 }
 
-function isFieldEmpty(val: any): boolean {
+function isFieldEmpty(val: Record<string, unknown>): boolean {
   if (val === null || val === undefined) return true
   const str = String(val).trim().toLowerCase()
   return str === '' || str === 'nan' || str === 'null' || str === 'undefined'
@@ -137,8 +137,8 @@ export default async function Page({ params }: Params) {
   const { allRecords } = await getUnifiedRuntimeRecords()
   const stacks = await getStacks()
 
-  const a = config ? findCompound(allRecords, config.a.candidates) : allRecords.find((c: any) => c.slug === aSlug)
-  const b = config ? findCompound(allRecords, config.b.candidates) : allRecords.find((c: any) => c.slug === bSlug)
+  const a = config ? findCompound(allRecords, config.a.candidates) : allRecords.find((c: Record<string, unknown>) => c.slug === aSlug)
+  const b = config ? findCompound(allRecords, config.b.candidates) : allRecords.find((c: Record<string, unknown>) => c.slug === bSlug)
   if (!a || !b) return notFound()
 
   const winner = evidenceScore(a) >= evidenceScore(b) ? a : b
@@ -149,8 +149,8 @@ export default async function Page({ params }: Params) {
   const chooseWinnerIf = `You prioritize a stronger clinical evidence base (${evidenceLabel(evidenceScore(winner))} Evidence), or if your goals align with the primary outcomes of ${firstItems(getSignals(winner), 'general support').slice(0, 2).join(' and ')}.`
   const chooseLoserIf = `You seek an alternative pathway profile, or if your goals focus specifically on ${firstItems(getSignals(loser), 'targeted support').slice(0, 2).join(' and ')}.`
 
-  const relatedStack = stacks.find((s: any) =>
-    (s.compounds || s.stack || []).some((i: any) => {
+  const relatedStack = stacks.find((s: Record<string, unknown>) =>
+    (s.compounds || s.stack || []).some((i: Record<string, unknown>) => {
       const compoundSlug = i.compound_slug || i.compound
       return compoundSlug === a.slug || compoundSlug === b.slug
     })
@@ -181,7 +181,7 @@ export default async function Page({ params }: Params) {
   const costA = formatDisplayLabel(a?.cost) || 'Price varies by product quality'
   const costB = formatDisplayLabel(b?.cost) || 'Price varies by product quality'
 
-  const renderRow = (label: string, valA: React.ReactNode, valB: React.ReactNode, rawValA?: any, rawValB?: any) => {
+  const renderRow = (label: string, valA: React.ReactNode, valB: React.ReactNode, rawValA?: Record<string, unknown>, rawValB?: Record<string, unknown>) => {
     const isEmptyA = rawValA !== undefined ? isFieldEmpty(rawValA) : !valA
     const isEmptyB = rawValB !== undefined ? isFieldEmpty(rawValB) : !valB
     if (isEmptyA && isEmptyB) return null
@@ -198,7 +198,7 @@ export default async function Page({ params }: Params) {
     )
   }
 
-  const renderVerdictCell = (compound: any, verdictText: string) => {
+  const renderVerdictCell = (compound: Record<string, unknown>, verdictText: string) => {
     const shopLinks = getAffiliateShopLinks(compound, displayName(compound), compound.entityType)
     const cta = shopLinks.find(l => l.url)
     return (
@@ -259,7 +259,7 @@ export default async function Page({ params }: Params) {
 
       {/* Side-by-Side Quick Cards */}
       <section className="grid gap-6 sm:grid-cols-2">
-        {[a, b].map((compound: any) => (
+        {[a, b].map((compound: Record<string, unknown>) => (
           <article key={compound.slug} className="card-premium p-6 space-y-3">
             <span className="identity-kicker">Evidence signal: {evidenceScore(compound)}/5</span>
             <h2 className="text-xl font-bold text-ink">{displayName(compound)}</h2>

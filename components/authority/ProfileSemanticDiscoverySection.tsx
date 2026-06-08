@@ -10,7 +10,7 @@ export default function ProfileSemanticDiscoverySection({
   protocolRecommendations = [],
   comparisonRecommendations = [],
   topicContinuity = [],
-}: any) {
+}: Record<string, unknown>) {
   return (
     <div className="space-y-10">
       <SemanticEntitySignals

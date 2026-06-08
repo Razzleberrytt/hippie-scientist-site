@@ -244,7 +244,7 @@ export default async function CompoundsPage({
   const page = clampPositiveInt(Array.isArray(sp.page) ? sp.page[0] : sp.page, 1)
 
   const raw = await getAllCompounds()
-  const allCompounds: Compound[] = raw.filter((c: any) => c?.slug && getRuntimeVisibility(c).canRender)
+  const allCompounds: Compound[] = raw.filter((c: Record<string, unknown>) => c?.slug && getRuntimeVisibility(c).canRender)
 
   const filtered = filterCompounds(allCompounds, f)
 

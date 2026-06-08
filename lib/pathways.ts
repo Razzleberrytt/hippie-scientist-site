@@ -70,7 +70,7 @@ function compactToken(value: unknown) {
   return normalizeToken(value).replace(/\s+/g, '')
 }
 
-function getSignalValues(record: any) {
+function getSignalValues(record: Record<string, unknown>) {
   if (!record || typeof record !== 'object') return []
 
   return unique([
@@ -114,7 +114,7 @@ export function getPathwayLabel(pathway: unknown) {
   return formatDisplayLabel(pathway)
 }
 
-export function getPathwaySignals(record: any) {
+export function getPathwaySignals(record: Record<string, unknown>) {
   return unique(
     getSignalValues(record)
       .map((value) => formatDisplayLabel(value))
@@ -122,7 +122,7 @@ export function getPathwaySignals(record: any) {
   )
 }
 
-export function isPathwayRelated(record: any, pathway: unknown) {
+export function isPathwayRelated(record: Record<string, unknown>, pathway: unknown) {
   const slug = normalizePathway(pathway)
   if (!slug) return false
 
@@ -147,12 +147,12 @@ export function isPathwayRelated(record: any, pathway: unknown) {
   })
 }
 
-export function getRelatedPathwayRecords(records: any[], pathway: unknown) {
+export function getRelatedPathwayRecords(records: Record<string, unknown>[], pathway: unknown) {
   if (!Array.isArray(records)) return []
 
   return records.filter((record) => isPathwayRelated(record, pathway))
 }
 
-export function getSupportedPathways(record: any) {
+export function getSupportedPathways(record: Record<string, unknown>) {
   return pathwaySlugs.filter((pathway) => isPathwayRelated(record, pathway))
 }

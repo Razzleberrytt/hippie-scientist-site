@@ -177,9 +177,9 @@ export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
 
   const dynamicParams = compounds
-    .filter((compound:any) => getRuntimeVisibility(compound).canRender)
-    .filter((compound:any) => !DEPRECATED_COMPOUND_CANONICALS[compound.slug])
-    .map((compound:any) => ({ slug: compound.slug }))
+    .filter((compound: Record<string, unknown>) => getRuntimeVisibility(compound).canRender)
+    .filter((compound: Record<string, unknown>) => !DEPRECATED_COMPOUND_CANONICALS[compound.slug])
+    .map((compound: Record<string, unknown>) => ({ slug: compound.slug }))
 
   // Include deprecated slugs so legacy /compounds/old-slug can redirect instead of 404 in static export
   const legacyRedirectParams = Object.keys(DEPRECATED_COMPOUND_CANONICALS).map((slug) => ({ slug }))
@@ -257,11 +257,11 @@ function cleanText(value: unknown) {
   return formatted
 }
 
-function getTimeline(compound: any) {
+function getTimeline(compound: Record<string, unknown>) {
   return cleanText(compound.time_to_effect || compound.timeToEffect || compound.time_to_notice || compound.timeToNotice || compound.onset)
 }
 
-function getAvoidIf(compound: any) {
+function getAvoidIf(compound: Record<string, unknown>) {
   return cleanItems([
     compound.avoid_if,
     compound.avoidIf,
@@ -272,21 +272,21 @@ function getAvoidIf(compound: any) {
   ], 4)
 }
 
-function getSafetySummary(compound: any, avoidIf: string[]) {
+function getSafetySummary(compound: Record<string, unknown>, avoidIf: string[]) {
   const note = cleanText(compound.safetyNotes || compound.safety_notes || compound.safety)
   if (avoidIf.length) return `Review before use if any apply: ${avoidIf.slice(0, 3).join(', ')}.`
   if (note) return firstSentences(note, 2)
   return 'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.'
 }
 
-function getMechanismHints(compound: any, provided: string[]) {
+function getMechanismHints(compound: Record<string, unknown>, provided: string[]) {
   return unique([
     ...provided,
     ...cleanItems(compound.primary_mechanisms || compound.primaryMechanisms || compound.pathways, 6),
   ]).slice(0, 6)
 }
 
-function shouldSuppressAffiliate(record: any): boolean {
+function shouldSuppressAffiliate(record: Record<string, unknown>): boolean {
   if (!record) return false
   const safetyText = String(record.safety || record.safetyNotes || record.safety_level || record.safety_rating || '').toLowerCase()
   return safetyText.includes('high caution') || safetyText.includes('needs-review') || safetyText.includes('needs review') || safetyText.includes('severe')
@@ -328,7 +328,7 @@ function splitRegulatorySources(value: unknown): string[] {
   ).slice(0, 8)
 }
 
-function RegulatoryStatusSection({ compound }: { compound: any }) {
+function RegulatoryStatusSection({ compound }: { compound: Record<string, unknown> }) {
   const federalParagraphs = splitRegulatoryParagraphs(compound.regulatory_federal || compound.regulatory_status)
   const stateRows = parseRegulatoryStateRows(compound.regulatory_states_table)
   const stateSummary = cleanText(compound.regulatory_states_summary)
@@ -460,8 +460,8 @@ export default async function CompoundPage({ params }: PageProps) {
     allRecords,
   } = await getUnifiedRuntimeRecords()
 
-  const herbSlugs = new Set(herbs.map((item:any) => item.slug))
-  const compoundSlugs = new Set(compounds.map((item:any) => item.slug))
+  const herbSlugs = new Set(herbs.map((item: Record<string, unknown>) => item.slug))
+  const compoundSlugs = new Set(compounds.map((item: Record<string, unknown>) => item.slug))
   const sourceSlug = compound.slug
 
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
@@ -471,7 +471,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .filter(isClean)
 
   const mechanisms = list(compound.mechanisms)
-    .map((item:any) => formatDisplayLabel(item))
+    .map((item: Record<string, unknown>) => formatDisplayLabel(item))
     .filter(isClean)
 
   const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier || compound.evidenceLevel || compound.evidence_grade)
@@ -493,20 +493,20 @@ export default async function CompoundPage({ params }: PageProps) {
 
 
   const relatedCandidates = (relatedBySlug[sourceSlug] || [])
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
 
   const relatedCompounds = relatedCandidates
-    .filter((item:any) => compoundSlugs.has(item.slug))
+    .filter((item: Record<string, unknown>) => compoundSlugs.has(item.slug))
     .slice(0, 4)
-    .map((item:any) => ({ ...item, entityType: 'compound' }))
+    .map((item: Record<string, unknown>) => ({ ...item, entityType: 'compound' }))
 
   const relatedHerbs = relatedCandidates
-    .filter((item:any) => herbSlugs.has(item.slug))
+    .filter((item: Record<string, unknown>) => herbSlugs.has(item.slug))
     .slice(0, 4)
-    .map((item:any) => ({ ...item, entityType: 'herb' }))
+    .map((item: Record<string, unknown>) => ({ ...item, entityType: 'herb' }))
 
   const visibleEcosystemContinuityRecords = ecosystemContinuityRecords
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
 
   const semanticRelated = mergeEcosystemContinuityRecords(
     [...relatedCompounds, ...relatedHerbs],
@@ -515,7 +515,7 @@ export default async function CompoundPage({ params }: PageProps) {
   )
 
   const comparisonRecords = (comparisonBySlug[sourceSlug] || [])
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
+    .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
 
   const displayName = formatDisplayLabel(compound.name || compound.slug)
@@ -815,8 +815,8 @@ export default async function CompoundPage({ params }: PageProps) {
                 <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Tradeoffs</h3>
                 <div className="flex flex-col gap-2">
                   {comparisonRecords
-                    .filter((item: any) => item?.slug)
-                    .map((item: any) => {
+                    .filter((item: Record<string, unknown>) => item?.slug)
+                    .map((item: Record<string, unknown>) => {
                       const compSlug = getValidComparisonSlug(sourceSlug, item.slug)
                       if (!compSlug) return null
                       return (

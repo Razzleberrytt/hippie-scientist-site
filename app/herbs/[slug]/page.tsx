@@ -67,9 +67,9 @@ export async function generateStaticParams() {
   console.log(`[generateStaticParams] read ${herbs.length} herbs from summary index`)
 
   const dynamicParams = herbs
-    .filter((herb: any) => getRuntimeVisibility(herb).canRender)
-    .filter((herb: any) => !DEPRECATED_HERB_CANONICALS[normalizeSlug(herb.slug)])
-    .map((herb: any) => ({ slug: herb.slug }))
+    .filter((herb: Record<string, unknown>) => getRuntimeVisibility(herb).canRender)
+    .filter((herb: Record<string, unknown>) => !DEPRECATED_HERB_CANONICALS[normalizeSlug(herb.slug)])
+    .map((herb: Record<string, unknown>) => ({ slug: herb.slug }))
 
   const totalParams = [
     ...dynamicParams,
@@ -125,7 +125,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return metadata
 }
 
-function getEffects(herb: any) {
+function getEffects(herb: Record<string, unknown>) {
   return unique([
     ...list(herb.primary_effects),
     ...list(herb.effects),
@@ -164,16 +164,16 @@ function getCommonName(herbName: string): string {
   return herbName.replace(/\s*\([^)]*\)\s*$/, '').trim()
 }
 
-function getPlainEnglishSummary(herb: any) {
+function getPlainEnglishSummary(herb: Record<string, unknown>) {
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
   return firstSentences(summary, 1) || `${formatDisplayLabel(herb.name || herb.slug)} profile with safety, use, and evidence context.`
 }
 
-function getEvidenceStrength(herb: any) {
+function getEvidenceStrength(herb: Record<string, unknown>) {
   return formatDisplayLabel(herb.evidenceLevel || herb.evidence_tier || herb.evidenceTier || herb.evidence_grade || getEvidenceLabel(herb))
 }
 
-function getSafetySummary(herb: any) {
+function getSafetySummary(herb: Record<string, unknown>) {
   const labels = getSafetyLabels(herb, 3)
   const notes = cleanText(herb.safetyNotes || herb.safety_notes || herb.safety)
   const contraindications = cleanItems(herb.contraindications, 3)
@@ -187,7 +187,7 @@ function getSafetySummary(herb: any) {
 }
 
 
-function getAvoidIf(herb: any) {
+function getAvoidIf(herb: Record<string, unknown>) {
   return cleanItems([
     herb.avoid_if,
     herb.avoidIf,
@@ -205,7 +205,7 @@ function getSafetyTone(summary: string, avoidIf: string[]) {
   return 'Standard caution'
 }
 
-function getSafetyDetailGroups(herb: any) {
+function getSafetyDetailGroups(herb: Record<string, unknown>) {
   const safetyNotes = cleanText(herb.safetyNotes || herb.safety_notes || herb.safety)
   const interactions = cleanItems(herb.interactions, 10)
 
@@ -229,25 +229,25 @@ function getSafetyDetailGroups(herb: any) {
     { title: 'Medication interactions', items: interactions },
     { title: 'Pregnancy, breastfeeding, and contraindications', items: pregnancyItems },
     { title: 'Chronic-condition and sensitivity cautions', items: cautions },
-    { title: 'Safety classifications', items: classifications.map((item: any) => `${item.label}: ${item.description}`) },
+    { title: 'Safety classifications', items: classifications.map((item: Record<string, unknown>) => `${item.label}: ${item.description}`) },
     { title: 'Full safety note', items: safetyNotes ? [safetyNotes] : [] },
     { title: 'Safety labels', items: labels },
   ].filter(group => group.items.length > 0)
 }
 
-function getTimeline(herb: any) {
+function getTimeline(herb: Record<string, unknown>) {
   return cleanText(herb.time_to_effect || herb.onset || herb.timeline || herb.minimum_effective_dose)
 }
 
-function getMechanisms(herb: any) {
+function getMechanisms(herb: Record<string, unknown>) {
   return cleanItems([herb.mechanisms, herb.primary_mechanisms, herb.pathways], 16)
 }
 
-function getTraditionalUses(herb: any) {
+function getTraditionalUses(herb: Record<string, unknown>) {
   return cleanItems(herb.traditionalUses || herb.traditional_uses, 10)
 }
 
-function getRelatedLinks(records: any[], entityType: 'herb' | 'compound', limit = 4) {
+function getRelatedLinks(records: Record<string, unknown>[], entityType: 'herb' | 'compound', limit = 4) {
   return records
     .filter(record => record?.slug)
     .map(record => ({
@@ -258,7 +258,7 @@ function getRelatedLinks(records: any[], entityType: 'herb' | 'compound', limit 
     .slice(0, limit)
 }
 
-function shouldSuppressAffiliate(record: any): boolean {
+function shouldSuppressAffiliate(record: Record<string, unknown>): boolean {
   if (!record) return false
   if (isRestrictedRecord(record)) return true
   const safetyText = String(record.safety || record.safetyNotes || record.safety_level || record.safety_rating || '').toLowerCase()
@@ -299,8 +299,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
     allRecords,
   } = await getUnifiedRuntimeRecords()
 
-  const herbSlugs = new Set(herbs.map((item: any) => item.slug))
-  const compoundSlugs = new Set(compounds.map((item: any) => item.slug))
+  const herbSlugs = new Set(herbs.map((item: Record<string, unknown>) => item.slug))
+  const compoundSlugs = new Set(compounds.map((item: Record<string, unknown>) => item.slug))
   const sourceRecordSlug = herb.slug
 
   const [
@@ -316,24 +316,24 @@ export default async function HerbDetailPage({ params }: PageProps) {
   ])
 
   const relatedCandidates = (relatedBySlug[sourceRecordSlug] || [])
-    .filter((item: any) => getRuntimeVisibility(item).canRender)
+    .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
 
   const relatedHerbs = relatedCandidates
-    .filter((item: any) => herbSlugs.has(item.slug))
+    .filter((item: Record<string, unknown>) => herbSlugs.has(item.slug))
     .slice(0, 4)
-    .map((item: any) => ({ ...item, entityType: 'herb' }))
+    .map((item: Record<string, unknown>) => ({ ...item, entityType: 'herb' }))
 
   const _relatedCompounds = relatedCandidates
-    .filter((item: any) => compoundSlugs.has(item.slug))
+    .filter((item: Record<string, unknown>) => compoundSlugs.has(item.slug))
     .slice(0, 4)
-    .map((item: any) => ({ ...item, entityType: 'compound' }))
+    .map((item: Record<string, unknown>) => ({ ...item, entityType: 'compound' }))
 
   const _visibleEcosystemContinuityRecords = ecosystemContinuityRecords
-    .filter((item: any) => getRuntimeVisibility(item).canRender)
+    .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
 
 
   const comparisonRecords = (comparisonBySlug[sourceRecordSlug] || [])
-    .filter((item: any) => getRuntimeVisibility(item).canRender)
+    .filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
 
   const effects = getEffects(herb)
@@ -375,8 +375,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
     herb.last_reviewed || herb.last_updated || herb.lastUpdated || herb.updatedAt || herb.updated_at || herb.reviewed_date || herb.reviewed_at
 
   const comparisonLinks = comparisonRecords
-    .filter((record: any) => record?.slug)
-    .map((record: any) => {
+    .filter((record: Record<string, unknown>) => record?.slug)
+    .map((record: Record<string, unknown>) => {
       const compSlug = getValidComparisonSlug(sourceRecordSlug, record.slug)
       if (!compSlug) return null
       return {

@@ -1,7 +1,7 @@
 import { getEvidenceMaturity, getMechanismDepth, getProfileCompleteness } from '@/lib/semantic-trust-badges'
 import { getSafetySensitivity } from '@/lib/safety-classification'
 
-export function calculateDiscoveryScore(base: any, candidate: any) {
+export function calculateDiscoveryScore(base: Record<string, unknown>, candidate: Record<string, unknown>) {
   let score = 0
 
   const baseEffects = normalize(base?.primary_effects || base?.effects)
@@ -50,7 +50,7 @@ export function calculateDiscoveryScore(base: any, candidate: any) {
   return score
 }
 
-function normalize(value: any): string[] {
+function normalize(value: Record<string, unknown>): string[] {
   if (!value) return []
 
   const array = Array.isArray(value) ? value : [value]
