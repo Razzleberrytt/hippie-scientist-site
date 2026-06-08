@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "40370689",
+      "title": "Neuroprotective Mushrooms",
+      "authors": "Abdelmoaty MM et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40370689/"
+    },
+    {
+      "pubmedId": "34102992",
+      "title": "Anti-oxidant and Anticancerous Effect of Fomitopsis officinalis (Vill. ex Fr. Bond. et Sing) Mushroom on Hepatocellular Carcinoma Cells In Vitro through NF-kB Pathway",
+      "authors": "Altannavch N et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34102992/"
+    },
+    {
+      "pubmedId": "35002589",
+      "title": "Old growth forests and large old trees as critical organisms connecting ecosystems and human health. A review",
+      "authors": "Gilhen-Baker M et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35002589/"
+    }
+  ]
 }

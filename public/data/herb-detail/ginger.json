@@ -109,5 +109,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "38903613",
+      "title": "A critical review of Ginger's (Zingiber officinale) antioxidant, anti-inflammatory, and immunomodulatory activities",
+      "authors": "Ayustaningwarno F et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38903613/"
+    },
+    {
+      "pubmedId": "36364048",
+      "title": "Effect of Ginger on Inflammatory Diseases",
+      "authors": "Ballester P et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36364048/"
+    },
+    {
+      "pubmedId": "31151279",
+      "title": "Bioactive Compounds and Bioactivities of Ginger (Zingiber officinale Roscoe)",
+      "authors": "Mao QQ et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31151279/"
+    }
+  ]
 }

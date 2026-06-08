@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38170849",
+      "title": "Medicine for chronic atrophic gastritis: a systematic review, meta- and network pharmacology analysis",
+      "authors": "Weng J et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38170849/"
+    },
+    {
+      "pubmedId": "40490795",
+      "title": "Atractylodes macrocephala-derived extracellular vesicles-like particles enhance the recovery of ulcerative colitis by remodeling intestinal microecological balance",
+      "authors": "Tan X et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40490795/"
+    },
+    {
+      "pubmedId": "39477683",
+      "title": "Atractylenolide I inhibits angiogenesis and reverses sunitinib resistance in clear cell renal cell carcinoma through ATP6V0D2-mediated autophagic degradation of EPAS1/HIF2α",
+      "authors": "Li Q et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39477683/"
+    }
+  ]
 }

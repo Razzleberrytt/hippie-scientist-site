@@ -30,5 +30,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27677719",
+      "title": "Botanicals and Their Bioactive Phytochemicals for Women's Health",
+      "authors": "Dietz BM et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/"
+    },
+    {
+      "pubmedId": "21315814",
+      "title": "Kudzu root: traditional uses and potential medicinal benefits in diabetes and cardiovascular diseases",
+      "authors": "Wong KH et al.",
+      "year": 2011,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21315814/"
+    },
+    {
+      "pubmedId": "36358493",
+      "title": "Pharmacological Activity, Pharmacokinetics, and Clinical Research Progress of Puerarin",
+      "authors": "Wang D et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36358493/"
+    }
+  ]
 }

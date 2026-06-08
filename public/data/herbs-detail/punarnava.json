@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27833367",
+      "title": "Clinical efficacy of Punarnava Mandura and Dhatri Lauha in the management of Garbhini Pandu (anemia in pregnancy)",
+      "authors": "Khandelwal DA et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27833367/"
+    },
+    {
+      "pubmedId": "23723672",
+      "title": "Clinical efficacy of Gokshura-Punarnava Basti in the management of microalbuminuria in diabetes mellitus",
+      "authors": "Ramteke RS et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23723672/"
+    },
+    {
+      "pubmedId": "26664234",
+      "title": "A clinical study of Punarnava Mandura in the management of Pandu Roga in old age (geriatric anemia)",
+      "authors": "Pandya MG et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26664234/"
+    }
+  ]
 }

@@ -12,7 +12,7 @@ function first(values: unknown[], fallback: string) {
   return values.map(text).find(Boolean) || fallback
 }
 
-export function buildPracticalInterpretation(record: any) {
+export function buildPracticalInterpretation(record: Record<string, unknown>) {
   const name = isRenderableText(record?.displayName || record?.name || record?.slug)
     ? title(record?.displayName || record?.name || record?.slug)
     : 'This profile'
@@ -29,7 +29,7 @@ export function buildPracticalInterpretation(record: any) {
   return `${name} is most commonly explored for ${effects.join(', ')} support. The strongest interpretation usually depends on formulation quality, baseline status, consistency, and whether the intended outcome matches the actual evidence base.`
 }
 
-export function buildRealisticExpectations(record: any) {
+export function buildRealisticExpectations(record: Record<string, unknown>) {
   const timing = cleanEditorialText(first([
     record?.time_to_effect,
     record?.timeToEffect,
@@ -39,7 +39,7 @@ export function buildRealisticExpectations(record: any) {
   return `Real-world outcomes are rarely immediate. ${timing}. Acute subjective effects, long-term adaptation, and measurable clinical outcomes should not be treated as interchangeable.`
 }
 
-export function buildOutcomeSpecificGuidance(record: any) {
+export function buildOutcomeSpecificGuidance(record: Record<string, unknown>) {
   const outcomes = dedupeEditorialItems([
     ...list(record?.best_for),
     ...list(record?.goals),
@@ -52,7 +52,7 @@ export function buildOutcomeSpecificGuidance(record: any) {
   })).filter((item) => shouldRenderCard(item.outcome, item.guidance))
 }
 
-export function buildCompareInsights(record: any) {
+export function buildCompareInsights(record: Record<string, unknown>) {
   const name = isRenderableText(record?.displayName || record?.name || record?.slug)
     ? title(record?.displayName || record?.name || record?.slug)
     : 'This profile'
@@ -69,7 +69,7 @@ export function buildCompareInsights(record: any) {
   }
 }
 
-export function buildHumanEvidenceSummary(record: any) {
+export function buildHumanEvidenceSummary(record: Record<string, unknown>) {
   const research = buildResearchKnowledgeReport(record)
 
   return {
@@ -84,7 +84,7 @@ export function buildHumanEvidenceSummary(record: any) {
   }
 }
 
-export function buildCommonMistakesSection(record: any) {
+export function buildCommonMistakesSection(record: Record<string, unknown>) {
   const name = isRenderableText(record?.displayName || record?.name || record?.slug)
     ? title(record?.displayName || record?.name || record?.slug)
     : 'This profile'

@@ -380,7 +380,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       }
       : null
   const goalLinks = getGoalsForEntity(normalizedSlug)
-  const lastReviewed = (herb.reviewed_date || herb.reviewed_at || herb.updated_at || herb.updatedAt || herb.last_updated) as string | undefined
+  const lastReviewed = (herb.last_reviewed || herb.last_updated || herb.lastUpdated || herb.updatedAt || herb.updated_at || herb.reviewed_date || herb.reviewed_at) as string | undefined
 
   const comparisonLinks = comparisonRecords
     .filter((record: RuntimeRecord) => record?.slug)

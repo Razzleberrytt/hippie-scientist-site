@@ -1,4 +1,10 @@
 /atom.xml /feed.xml 301
+# CONTENT TAXONOMY MIGRATION: Learn → Guides (June 2026)
+/learn /guides 301
+/learn/ /guides/ 301
+# Articles style category legacy redirect (field-notes → nootropics)
+/articles/style/field-notes /articles/style/nootropics 301
+/articles/style/field-notes/ /articles/style/nootropics/ 301
 /best-herbs-for-anxiety /guides/best-herbs-for-anxiety 301
 /herbs-for-sleep /guides/herbs-for-sleep 301
 /best-nootropics-for-focus /guides/best-nootropics-for-focus 301
@@ -124,8 +130,16 @@
 /compounds/trans-resveratrol /herbs/resveratrol 301
 /safety /safety-checker 301
 /safety/ /safety-checker 301
-/blog/2026-06-03-2c-b-mechanism-effects-and-harm-reduction /blog/2c-b-effects 301
-/blog/2026-06-03-2c-b-mechanism-effects-and-harm-reduction/ /blog/2c-b-effects/ 301
+/blog/2026-06-03-2c-b-mechanism-effects-and-harm-reduction /articles/2c-b-effects 301
+/blog/2026-06-03-2c-b-mechanism-effects-and-harm-reduction/ /articles/2c-b-effects/ 301
+/blog /articles 301
+/blog/ /articles/ 301
+/blog/style/* /articles/style/:splat 301
+/blog/* /articles/:splat 301
+/research-notes /articles 301
+/research-notes/ /articles/ 301
+/research-notes/style/* /articles/style/:splat 301
+/research-notes/* /articles/:splat 301
 
 # SYSTEM SLUG DE-DUPLICATION REDIRECTS (Generated 6/5/2026)
 /herbs/actaea-racemosa /herbs/black-cohosh 301

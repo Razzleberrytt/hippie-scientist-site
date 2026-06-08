@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "33352740",
+      "title": "Passiflora incarnata in Neuropsychiatric Disorders-A Systematic Review",
+      "authors": "Janda K et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33352740/"
+    },
+    {
+      "pubmedId": "29464801",
+      "title": "Herbal medicine for depression and anxiety: A systematic review with assessment of potential psycho-oncologic relevance",
+      "authors": "Yeung KS et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29464801/"
+    },
+    {
+      "pubmedId": "35378276",
+      "title": "Medicinal herbs for the treatment of anxiety: A systematic review and network meta-analysis",
+      "authors": "Zhang W et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35378276/"
+    }
+  ]
 }

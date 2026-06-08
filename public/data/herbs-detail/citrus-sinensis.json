@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "29976894",
+      "title": "Biological Activities and Safety of Citrus spp. Essential Oils",
+      "authors": "Dosoky NS et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29976894/"
+    },
+    {
+      "pubmedId": "39500772",
+      "title": "Aromatic plants as cosmeceuticals: benefits and applications for skin health",
+      "authors": "Olivero-Verbel J et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39500772/"
+    },
+    {
+      "pubmedId": "25588369",
+      "title": "Clinical evaluation of Moro (Citrus sinensis (L.) Osbeck) orange juice supplementation for the weight management",
+      "authors": "Cardile V et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25588369/"
+    }
+  ]
 }

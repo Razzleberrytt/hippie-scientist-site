@@ -30,5 +30,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37325288",
+      "title": "Scalp Seborrheic Dermatitis: What We Know So Far",
+      "authors": "Leroy AK et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37325288/"
+    },
+    {
+      "pubmedId": "37446683",
+      "title": "Dandelion (Taraxacum Genus): A Review of Chemical Constituents and Pharmacological Effects",
+      "authors": "Fan M et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37446683/"
+    },
+    {
+      "pubmedId": "36091818",
+      "title": "Anti-Inflammatory Effects and Mechanisms of Dandelion in RAW264.7 Macrophages and Zebrafish Larvae",
+      "authors": "Li W et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36091818/"
+    }
+  ]
 }

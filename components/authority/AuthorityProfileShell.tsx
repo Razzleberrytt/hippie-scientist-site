@@ -88,7 +88,7 @@ function InsightCard({ eyebrow, title, body }: { eyebrow: string; title: string;
   )
 }
 
-export default function AuthorityProfileShell({ model, record }: { model: AuthorityProfileModel; record?: any }) {
+export default function AuthorityProfileShell({ model, record }: { model: AuthorityProfileModel; record?: Record<string, unknown> }) {
   const practicalInterpretation = record ? buildPracticalInterpretation(record) : ''
   const realisticExpectations = record ? buildRealisticExpectations(record) : ''
   const compareInsights = record ? buildCompareInsights(record) : null

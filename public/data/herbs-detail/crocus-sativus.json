@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37864351",
+      "title": "The Effects of Crocus sativus (Saffron) on ADHD: A Systematic Review",
+      "authors": "Seyedi-Sahebari S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37864351/"
+    },
+    {
+      "pubmedId": "30036891",
+      "title": "The Efficacy of Saffron in the Treatment of Mild to Moderate Depression: A Meta-analysis",
+      "authors": "Tóth B et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30036891/"
+    },
+    {
+      "pubmedId": "35276955",
+      "title": "Saffron (Crocus sativus L.): A Source of Nutrients for Health and for the Treatment of Neuropsychiatric and Age-Related Diseases",
+      "authors": "El Midaoui A et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35276955/"
+    }
+  ]
 }

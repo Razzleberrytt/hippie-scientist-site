@@ -109,5 +109,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "30600979",
+      "title": "Migraine Headache Prophylaxis",
+      "authors": "Ha H et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30600979/"
+    },
+    {
+      "pubmedId": "40378325",
+      "title": "Migraine Headache Prophylaxis",
+      "authors": "Moreland P et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40378325/"
+    },
+    {
+      "pubmedId": "39853578",
+      "title": "Nutraceuticals and Headache 2024: Riboflavin, Coenzyme Q10, Feverfew, Magnesium, Melatonin, and Butterbur",
+      "authors": "Tepper SJ et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39853578/"
+    }
+  ]
 }

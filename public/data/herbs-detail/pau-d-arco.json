@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "24646717",
+      "title": "Pau d'arco activates Nrf2-dependent gene expression via the MEK/ERK-pathway",
+      "authors": "Richter M et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24646717/"
+    },
+    {
+      "pubmedId": "18992801",
+      "title": "Red Lapacho (Tabebuia impetiginosa)--a global ethnopharmacological commodity?",
+      "authors": "Gómez Castellanos JR et al.",
+      "year": 2009,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18992801/"
+    },
+    {
+      "pubmedId": "22632862",
+      "title": "The use of herbal medicine in cancer-related anorexia/ cachexia treatment around the world",
+      "authors": "Cheng KC et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22632862/"
+    }
+  ]
 }

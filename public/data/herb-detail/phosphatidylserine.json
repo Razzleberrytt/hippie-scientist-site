@@ -109,5 +109,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "25933483",
+      "title": "Phosphatidylserine and the human brain",
+      "authors": "Glade MJ et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25933483/"
+    },
+    {
+      "pubmedId": "31051106",
+      "title": "Deficient Endoplasmic Reticulum-Mitochondrial Phosphatidylserine Transfer Causes Liver Disease",
+      "authors": "Hernández-Alvarez MI et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31051106/"
+    },
+    {
+      "pubmedId": "26811286",
+      "title": "Phosphatidylethanolamine Metabolism in Health and Disease",
+      "authors": "Calzada E et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26811286/"
+    }
+  ]
 }

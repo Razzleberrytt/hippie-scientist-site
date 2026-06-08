@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38170849",
+      "title": "Medicine for chronic atrophic gastritis: a systematic review, meta- and network pharmacology analysis",
+      "authors": "Weng J et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38170849/"
+    },
+    {
+      "pubmedId": "31836457",
+      "title": "Anti-inflammatory and immunoregulatory effects of paeoniflorin and total glucosides of paeony",
+      "authors": "Zhang L et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31836457/"
+    },
+    {
+      "pubmedId": "30000962",
+      "title": "Peony",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000962/"
+    }
+  ]
 }

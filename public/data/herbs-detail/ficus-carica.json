@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "41500295",
+      "title": "Fig-derived exosome-like nanoparticles attenuating bone metastasis of breast cancer through establishing an anti-tumor microenvironment",
+      "authors": "Wang DD et al.",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41500295/"
+    },
+    {
+      "pubmedId": "41515938",
+      "title": "Effects of Common Fig (Ficus carica L.) and Its Extracts on Certain Cancer Types: Focusing on the Mechanism of Action",
+      "authors": "Gökçen EN et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41515938/"
+    },
+    {
+      "pubmedId": "38831870",
+      "title": "Physicochemistry, Nutritional, and Therapeutic Potential of Ficus carica - A Promising Nutraceutical",
+      "authors": "Fazel MF et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38831870/"
+    }
+  ]
 }

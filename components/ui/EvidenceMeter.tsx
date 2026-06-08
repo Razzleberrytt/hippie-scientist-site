@@ -1,11 +1,11 @@
-export default function EvidenceMeter({ level='moderate' }: any) {
-  const widths: any = {
+export default function EvidenceMeter({ level='moderate' }: Record<string, unknown>) {
+  const widths: Record<string, unknown> = {
     strong: 'w-full',
     moderate: 'w-2/3',
     limited: 'w-1/3'
   }
 
-  const tones:any = {
+  const tones: Record<string, unknown> = {
     strong: 'bg-emerald-700',
     moderate: 'bg-blue-700',
     limited: 'bg-amber-600'

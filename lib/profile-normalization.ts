@@ -18,7 +18,7 @@ export function normalizeDisplayName(value: unknown) {
   return normalized.replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-export function normalizePrimaryActions(record: any) {
+export function normalizePrimaryActions(record: Record<string, unknown>) {
   const primaryActions = record?.primaryActions || record?.primary_actions
 
   if (Array.isArray(primaryActions) && primaryActions.length > 0) {

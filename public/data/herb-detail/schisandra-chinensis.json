@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34445021",
+      "title": "Plant Adaptogens-History and Future Perspectives",
+      "authors": "Todorova V et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34445021/"
+    },
+    {
+      "pubmedId": "37895122",
+      "title": "Plant Extracts as Skin Care and Therapeutic Agents",
+      "authors": "Michalak M et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37895122/"
+    },
+    {
+      "pubmedId": "36987052",
+      "title": "Nootropic Herbs, Shrubs, and Trees as Potential Cognitive Enhancers",
+      "authors": "Malík M et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36987052/"
+    }
+  ]
 }

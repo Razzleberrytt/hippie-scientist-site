@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "40321800",
+      "title": "Mechanistic Insights into the Anti-Glioma Effects of Exosome-Like Nanoparticles Derived from Garcinia Mangostana L.: A Metabolomics, Network Pharmacology, and Experimental Study",
+      "authors": "Luo X et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40321800/"
+    },
+    {
+      "pubmedId": "36937066",
+      "title": "The origin of cultivated mangosteen (Garcinia mangostana L. var. mangostana): Critical assessments and an evolutionary-ecological perspective",
+      "authors": "Yao TL et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36937066/"
+    },
+    {
+      "pubmedId": "32280205",
+      "title": "Nanoparticle Drug Delivery Systems for α-Mangostin",
+      "authors": "Wathoni N et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32280205/"
+    }
+  ]
 }

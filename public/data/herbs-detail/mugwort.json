@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "23369181",
+      "title": "The skin prick test - European standards",
+      "authors": "Heinzerling L et al.",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23369181/"
+    },
+    {
+      "pubmedId": "21875536",
+      "title": "Spice allergy",
+      "authors": "Chen JL et al.",
+      "year": 2011,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21875536/"
+    },
+    {
+      "pubmedId": "27222528",
+      "title": "Sunflower seed allergy",
+      "authors": "Ukleja-Sokołowska N et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27222528/"
+    }
+  ]
 }

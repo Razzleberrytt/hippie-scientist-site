@@ -1,8 +1,9 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { MetadataRoute } from 'next';
 
 import { SITE_URL } from '@/lib/site';
+import { learnPosts } from './learn/data';
 
 type SitemapSourceItem = {
   slug?: string;
@@ -23,6 +24,22 @@ function readJsonArray<T>(relativePath: string): T[] {
   try {
     const parsed = JSON.parse(readFileSync(filePath, 'utf8'));
     return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function readJsonDirectory<T extends { slug?: string }>(relativePath: string): T[] {
+  const dirPath = path.join(process.cwd(), relativePath);
+  if (!existsSync(dirPath)) return [];
+
+  try {
+    return readdirSync(dirPath)
+      .filter((fileName) => fileName.endsWith('.json'))
+      .map((fileName) => {
+        const parsed = JSON.parse(readFileSync(path.join(dirPath, fileName), 'utf8')) as T;
+        return parsed.slug ? parsed : { ...parsed, slug: fileName.replace(/\.json$/, '') };
+      });
   } catch {
     return [];
   }
@@ -75,22 +92,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
   const goalsData = readJsonArray<SitemapSourceItem>('public/data/goals.json');
   const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
-  const guidesData = readJsonArray<SitemapSourceItem>('public/data/guides.json');
+  const guidesData = readJsonDirectory<SitemapSourceItem>('public/data/guides');
 
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(`${SITE_URL}/`, currentDate, 'weekly', 1.0),
     route(`${SITE_URL}/about/`, currentDate, 'yearly', 0.6),
     route(`${SITE_URL}/contact/`, currentDate, 'yearly', 0.5),
     route(`${SITE_URL}/faq/`, currentDate, 'monthly', 0.7),
-    route(`${SITE_URL}/learn/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/methodology/`, currentDate, 'yearly', 0.6),
     route(`${SITE_URL}/safety-checker/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/herbs/`, currentDate, 'weekly', 0.9),
     route(`${SITE_URL}/compounds/`, currentDate, 'weekly', 0.9),
-    route(`${SITE_URL}/blog/`, currentDate, 'daily', 0.8),
+    route(`${SITE_URL}/articles/`, currentDate, 'daily', 0.8),
     route(`${SITE_URL}/goals/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/stacks/`, currentDate, 'monthly', 0.7),
-    route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.7),
+    route(`${SITE_URL}/guides/`, currentDate, 'monthly', 0.85),
+    route(`${SITE_URL}/learn/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/compare/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/tools/`, currentDate, 'monthly', 0.6),
     route(`${SITE_URL}/dosing/`, currentDate, 'monthly', 0.6),
@@ -139,13 +156,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   blogPosts.forEach((post) => {
     if (!post.slug) return;
-    const status = (post as any).profile_status || '';
-    if ((post as any).sitemap_included === false) return;
+    const status = (post as Record<string, unknown>).profile_status || '';
+    if ((post as Record<string, unknown>).sitemap_included === false) return;
     if (/draft|archived/i.test(String(status))) return;
 
     sitemapEntries.push(
       route(
-        `${SITE_URL}/blog/${post.slug}/`,
+        `${SITE_URL}/articles/${post.slug}/`,
         currentDate,
         'monthly',
         0.75,
@@ -172,10 +189,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sitemapEntries.push(route(`${SITE_URL}/guides/${guide.slug}/`, currentDate, 'monthly', 0.65));
   });
 
+  learnPosts.forEach((post) => {
+    sitemapEntries.push(route(`${SITE_URL}/learn/${post.slug}/`, currentDate, 'monthly', 0.7));
+  });
+
   // Add compare detail routes (data-driven, for task requirement to cover /compare/:slug)
   const compareFromGen = readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons');
   const compareFromData = readTsStringArray('data/comparisons.ts', 'supplementComparisons')
-    .map((s: any) => (typeof s === 'string' ? s : (s && s.slug) || ''))
+    .map((s: Record<string, unknown>) => (typeof s === 'string' ? s : (s && s.slug) || ''))
     .filter(Boolean);
   Array.from(new Set([...compareFromGen, ...compareFromData])).forEach((slug) => {
     if (slug) sitemapEntries.push(route(`${SITE_URL}/compare/${slug}/`, currentDate, 'monthly', 0.65));
@@ -200,9 +221,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
-  routeManifest.forEach((entry: any) => {
+  routeManifest.forEach((entry: Record<string, unknown>) => {
     const r = (entry && (entry.route || entry.slug)) as string | undefined;
-    if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
+    if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/research-notes/') || r.startsWith('/articles/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
     if (r.startsWith('/_') || r.includes('dynamic')) return;
     const url = r.endsWith('/') || r === '' ? `${SITE_URL}${r || '/'}` : `${SITE_URL}${r}/`;
     sitemapEntries.push(route(url, currentDate, 'monthly', 0.5));

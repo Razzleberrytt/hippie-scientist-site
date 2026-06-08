@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "35892714",
+      "title": "Daphne odora Exerts Depigmenting Effects via Inhibiting CREB/MITF and Activating AKT/ERK-Signaling Pathways",
+      "authors": "Eom YS et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35892714/"
+    },
+    {
+      "pubmedId": "40941781",
+      "title": "Identification of Daphnane Diterpenoids from Flower Buds and Blooming Flowers of Daphne odora Using UHPLC-Q-Exactive-Orbitrap MS",
+      "authors": "Otsuki K et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40941781/"
+    },
+    {
+      "pubmedId": "37062005",
+      "title": "Complete genome sequence of daphne virus 1, a novel cytorhabdovirus infecting Daphne odora",
+      "authors": "Belete MT et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37062005/"
+    }
+  ]
 }

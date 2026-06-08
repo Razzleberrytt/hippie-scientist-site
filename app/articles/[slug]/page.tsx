@@ -1,9 +1,14 @@
-import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import rawArticles from '../../../data/articles/articles.json'
+import BlogPostPage, {
+  generateMetadata as generateBlogMetadata,
+  generateStaticParams as generateBlogStaticParams,
+} from '../../blog/[slug]/page'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import { formatDate } from '@/lib/blog-index'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 export type ArticleReference = {
   title: string
@@ -35,13 +40,18 @@ const allArticles = rawArticles as Article[]
 type ArticleRouteParams = Promise<{ slug: string }>
 
 export function generateStaticParams() {
-  return allArticles.map((a) => ({ slug: a.slug }))
+  const seen = new Set<string>()
+  return [...allArticles.map((a) => ({ slug: a.slug })), ...generateBlogStaticParams()].filter((param) => {
+    if (!param.slug || seen.has(param.slug)) return false
+    seen.add(param.slug)
+    return true
+  })
 }
 
 export async function generateMetadata({ params }: { params: ArticleRouteParams }) {
   const { slug } = await params
   const article = allArticles.find((a) => a.slug === slug)
-  if (!article) return {}
+  if (!article) return generateBlogMetadata({ params: Promise.resolve({ slug }) })
 
   return buildPageMetadata({
     title: article.title,
@@ -181,8 +191,9 @@ function ReferencesTable({ refs }: { refs: ArticleReference[] }) {
   return (
     <section className="mt-10 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6">
       <h2 className="mb-4 text-lg font-semibold tracking-tight text-ink">References</h2>
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
+      <ResponsiveTable label="Article references table">
+        <table className="min-w-[760px] w-full text-sm">
+          <caption className="sr-only">References cited in this article</caption>
           <thead>
             <tr className="border-b border-brand-900/10">
               <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">#</th>
@@ -226,7 +237,7 @@ function ReferencesTable({ refs }: { refs: ArticleReference[] }) {
             ))}
           </tbody>
         </table>
-      </div>
+      </ResponsiveTable>
     </section>
   )
 }
@@ -236,10 +247,10 @@ function ReferencesTable({ refs }: { refs: ArticleReference[] }) {
 export default async function ArticlePage({ params }: { params: ArticleRouteParams }) {
   const { slug } = await params
   const article = allArticles.find((a) => a.slug === slug)
-  if (!article) return notFound()
+  if (!article) return <BlogPostPage params={Promise.resolve({ slug })} />
 
   const pageBreadcrumb = breadcrumbJsonLd([
-    { name: 'Articles', url: 'https://thehippiescientist.net/blog' },
+    { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
     { name: article.title, url: `https://thehippiescientist.net/articles/${article.slug}` },
   ])
 
@@ -247,6 +258,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
     title: article.title,
     slug: article.slug,
     date: article.date || '2026-01-01',
+    updated: article.updatedAt || article.date || undefined,
     excerpt: article.description,
   }, `/articles/${article.slug}`)
 
@@ -263,7 +275,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/blog" className="transition hover:text-ink">Articles</Link>
+        <Link href="/articles" className="transition hover:text-ink">Articles</Link>
         <span>/</span>
         <span className="text-ink line-clamp-1">{article.title}</span>
       </nav>
@@ -294,6 +306,9 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
             {article.author}
           </a>
         </p>
+        <div className="mt-3">
+          <LastUpdatedBadge date={article.updatedAt || article.date} label="Last updated" />
+        </div>
 
         {article.description && (
           <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">
@@ -376,8 +391,8 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
               <Link href="/herbs" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
                 Herb Profiles →
               </Link>
-              <Link href="/blog" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
-                Research Notes →
+              <Link href="/articles" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
+                Articles →
               </Link>
             </div>
           </div>
@@ -386,7 +401,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
 
       {/* Back link */}
       <div className="mt-8">
-        <Link href="/blog" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/articles" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
         </Link>
       </div>

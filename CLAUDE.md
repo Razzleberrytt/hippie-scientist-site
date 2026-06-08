@@ -5,17 +5,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev              # Start Next.js dev server (Turbo)
-npm run build            # Full production build (orchestrated pipeline)
-npm run check            # Fast local quality gate: tsc + eslint + blog + orchestrate
-npm run check:full       # Exhaustive gate: all validations, data pipeline, build, verify
-npm run lint             # ESLint with zero warnings
-npm run typecheck        # tsc --noEmit
-npm run test             # Vitest (single run)
-npm run test:watch       # Vitest watch mode
-npm run data:build       # Regenerate public/data from workbook
-npm run data:validate    # Validate generated data
-npm run verify:build     # Post-build verification (routes, SEO, headers, etc.)
+npm run dev                      # Start Next.js dev server (Turbo)
+npm run build                    # Full production build (orchestrated pipeline)
+npm run check                    # Fast local quality gate: tsc + eslint + blog + orchestrate
+npm run check:full               # Exhaustive gate: all validations, data pipeline, build, verify
+npm run lint                     # ESLint with zero warnings
+npm run typecheck                # tsc --noEmit
+npm run test                     # Vitest (single run)
+npm run test:watch               # Vitest watch mode
+npm run data:build               # Regenerate public/data from workbook
+npm run data:validate            # Validate generated data
+npm run verify:build             # Post-build verification (routes, SEO, headers, etc.)
+npm run agent:run                # Generate agent enrichment patches (see CLAUDE.md Agent section)
+npm run agent:review             # Review pending patches and generate summary
+npm run validate:agent-patches   # Validate patch JSON structure (part of check:full)
+npm run report:pending-patches   # Report pending patches that need review (part of check:full)
 ```
 
 Run a single test file:
@@ -68,7 +72,17 @@ To fix a content issue, classify it as `WORKBOOK_FIX`, `WORKBOOK_GPT_FIX`, or `G
 
 ### Agent Enrichment System (`agent/`)
 
-A separate pipeline (`npm run agent:run`) that orchestrates AI-assisted content enrichment. Agents produce patch files under `agent/patches/`. Patches are reviewed (`npm run agent:review`) before being merged into the workbook — they do not modify `public/data` directly.
+A separate pipeline (`npm run agent:run`) that orchestrates AI-assisted content enrichment. Agents produce patch files under `agent/patches/`. Patches are automatically validated in CI (`npm run validate:agent-patches`), then reviewed (`npm run agent:review`) before being merged into the workbook source of truth. Patches do not modify `public/data` directly.
+
+**Workflow:**
+1. Run agents: `npm run agent:run --mode=standard --batch=5`
+2. Patches appear in `agent/patches/{date}/*.json`
+3. CI validates patches automatically (part of `npm run check:full`)
+4. Review patches: `npm run agent:review` → creates `ops/agent-review/approved-patches.json`
+5. Manually apply approved data to workbook
+6. Run `npm run data:build` to regenerate `public/data`
+
+See `docs/agent-integration-guide.md` for detailed integration workflow and future automation plans.
 
 ## Static Export Constraints
 
@@ -77,35 +91,4 @@ Before any build change, run:
 npm run validate:static-export
 ```
 
-Never add `export const dynamic = 'force-dynamic'`, `export const revalidate`, `cookies()`, `headers()`, or any Next.js runtime-only API to App Router pages.
-
-## Theme and Styling
-
-- **Light mode only.** Do not add dark-mode classes (`dark:`) to new pages.
-- CSS variables defined in `app/globals.css`: `--bg: #fffdf7`, emerald accent `#358f52`.
-- Fonts: Inter (body) + Fraunces (display), both loaded via `next/font/google`.
-- Tailwind CSS v4 (`tailwindcss: 4.3.0`).
-
-## Affiliate Config
-
-Always use `AFFILIATE_TAGS.amazon` from `config/affiliate.ts`. Never hardcode affiliate strings. Set `AMAZON_AFFILIATE_TAG` env var in Cloudflare Pages for production.
-
-## Route Contracts (never delete or rename)
-
-- `/herbs/:slug`
-- `/compounds/:slug`
-- `/goals/:slug`
-- `/stacks/:slug`
-- `/compare/:slug`
-- Discovery cluster routes in `AGENTS.md`
-
-## Pre-PR Quality Gate
-
-```bash
-npm run lint && npm run typecheck && npm run check
-```
-
-For data changes, also run:
-```bash
-npm run data:build && npm run data:validate && npm run guard:source-of-truth
-```
+Never add `export const dynamic = 

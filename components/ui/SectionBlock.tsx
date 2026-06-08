@@ -1,4 +1,4 @@
-export default function SectionBlock({ title, children }: any) {
+export default function SectionBlock({ title, children }: Record<string, unknown>) {
   return (
     <section className="surface-subtle section-spacing card-spacing">
       <div className="space-y-3 border-b border-brand-900/10 pb-4">

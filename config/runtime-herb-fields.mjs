@@ -113,6 +113,10 @@ export const HERB_RUNTIME_FIELDS = [
   'product_cta',
   'buying_criteria',
 
+  // Content freshness
+  'last_updated',
+  'last_reviewed',
+
   // Runtime gating / SEO
   'doNotMonetize',
   'doNotPromote',

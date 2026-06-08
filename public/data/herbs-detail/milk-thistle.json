@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30080294",
+      "title": "Milk thistle (Silybum marianum): A concise overview on its chemistry, pharmacological, and nutraceutical uses in liver diseases",
+      "authors": "Abenavoli L et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30080294/"
+    },
+    {
+      "pubmedId": "31069872",
+      "title": "Safety and toxicity of silymarin, the major constituent of milk thistle extract: An updated review",
+      "authors": "Soleimani V et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31069872/"
+    },
+    {
+      "pubmedId": "30000830",
+      "title": "Milk Thistle",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000830/"
+    }
+  ]
 }

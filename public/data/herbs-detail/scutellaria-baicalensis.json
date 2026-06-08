@@ -32,5 +32,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "40220415",
+      "title": "Scutellaria baicalensis Extracts Restrict Intestinal Epithelial Cell Ferroptosis by Regulating Lipid Peroxidation and GPX4/ACSL4 in Colitis",
+      "authors": "Zhang J et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40220415/"
+    },
+    {
+      "pubmedId": "31070530",
+      "title": "A comprehensive review on phytochemistry, pharmacology, and flavonoid biosynthesis of Scutellaria baicalensis",
+      "authors": "Wang ZL et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31070530/"
+    },
+    {
+      "pubmedId": "31236960",
+      "title": "Scutellaria baicalensis Georgi. (Lamiaceae): a review of its traditional uses, botany, phytochemistry, pharmacology and toxicology",
+      "authors": "Zhao T et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31236960/"
+    }
+  ]
 }

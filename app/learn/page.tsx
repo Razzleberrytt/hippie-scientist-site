@@ -2,21 +2,21 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Supplement Education Hub',
+  title: 'Supplement Guides — Stack Guides and Education',
   description:
-    'No hype, no marketing. Learn how to read supplement claims, evaluate evidence, compare adaptogens, nootropics, and herbs, and build safer stacks.',
-  alternates: { canonical: '/learn' },
+    'No hype, no marketing. Practical supplement stack guides for cognition, stress, sleep, and inflammation. Evidence-informed, safety-first.',
+  alternates: { canonical: '/guides' },
   openGraph: {
-    title: 'Learn Supplement Science and Safety Basics',
+    title: 'Supplement Stack Guides — The Hippie Scientist',
     description:
-      'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
-    url: '/learn',
+      'Practical supplement stack guides covering evidence, safety, dosing, and buying criteria for cognition, stress, sleep, and more.',
+    url: '/guides',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Learn Supplement Science and Safety Basics',
+    title: 'Supplement Stack Guides — The Hippie Scientist',
     description:
-      'Read plain-English education on supplement science, evidence quality, safety context, and decision-making tradeoffs.',
+      'Practical supplement stack guides: cognition, stress, sleep, inflammation. Evidence-informed, safety-first.',
   },
 }
 
@@ -105,7 +105,7 @@ export default function LearnPage() {
             <p className='eyebrow-label'>Learn the basics</p>
 
             <h1 className='text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
-              Evidence-informed supplement education
+              Supplement stack guides
             </h1>
           </div>
 
@@ -128,10 +128,10 @@ export default function LearnPage() {
             </Link>
 
             <Link
-              href='/learn/product-quality'
+              href='/guides'
               className='rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white'
             >
-              Product Quality Guide
+              Browse all guides
             </Link>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function LearnPage() {
           {learnPosts.map(post => (
             <Link
               key={post.slug}
-              href={`/education/${post.slug}`}
+              href={`/learn/${post.slug}`}
               className='rounded-2xl border border-brand-900/10 bg-white/90 p-5 transition hover:shadow-sm'
             >
               <p className='text-xs uppercase tracking-[0.16em] text-muted'>

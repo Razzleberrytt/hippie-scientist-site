@@ -104,5 +104,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34841626",
+      "title": "Social entrepreneurship in obesity prevention: A scoping review",
+      "authors": "Chia A et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34841626/"
+    },
+    {
+      "pubmedId": "34954676",
+      "title": "The gender responsiveness of social entrepreneurship in health - A review of initiatives by Ashoka fellows",
+      "authors": "Khalid S et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34954676/"
+    },
+    {
+      "pubmedId": "37390875",
+      "title": "A comprehensive review on Saraca asoca (Fabaceae) - Historical perspective, traditional uses, biological activities, and conservation",
+      "authors": "Urumarudappa SKJ et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37390875/"
+    }
+  ]
 }

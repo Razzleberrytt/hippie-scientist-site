@@ -29,5 +29,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "36249817",
+      "title": "Epimedium brevicornum Maxim. Extract exhibits pigmentation by melanin biosynthesis and melanosome biogenesis/transfer",
+      "authors": "Hong C et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36249817/"
+    },
+    {
+      "pubmedId": "40089686",
+      "title": "Epimedium brevicornum Maxim alleviates diabetes osteoporosis by regulating AGE-RAGE signaling pathway",
+      "authors": "Lei SS et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40089686/"
+    },
+    {
+      "pubmedId": "28798396",
+      "title": "Flavonoid glycosides isolated from Epimedium brevicornum and their estrogen biosynthesis-promoting effects",
+      "authors": "Li F et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28798396/"
+    }
+  ]
 }

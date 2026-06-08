@@ -1,7 +1,7 @@
 import RecordDiscoverySection from '@/components/runtime/record-discovery-section'
 
 type Props = {
-  record: any
+  record: Record<string, unknown>
   className?: string
 }
 

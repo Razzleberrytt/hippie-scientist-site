@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39064820",
+      "title": "Selaginella tamariscina Ethanol Extract Attenuates Influenza A Virus Infection by Inhibiting Hemagglutinin and Neuraminidase",
+      "authors": "Cho WK et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39064820/"
+    },
+    {
+      "pubmedId": "39258186",
+      "title": "Amentoflavone from Selaginella tamariscina inhibits SARS-CoV-2 RNA-dependent RNA polymerase",
+      "authors": "Youn KW et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39258186/"
+    },
+    {
+      "pubmedId": "34302944",
+      "title": "The traditional and modern uses of Selaginella tamariscina (P.Beauv.) Spring, in medicine and cosmetic: Applications and bioactive ingredients",
+      "authors": "Bailly C et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34302944/"
+    }
+  ]
 }

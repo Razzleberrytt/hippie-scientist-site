@@ -5,7 +5,7 @@ export default function CompoundHero({
   compound,
   evidenceLevel,
   safetyLevel
-}: any) {
+}: Record<string, unknown>) {
   return (
     <div className="space-y-2">
       <div className="space-y-2">

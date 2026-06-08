@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "39353308",
+      "title": "Insights into the anticancer effects of galangal and galangin: A comprehensive review",
+      "authors": "Wu Y et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39353308/"
+    },
+    {
+      "pubmedId": "40527613",
+      "title": "Galangin alleviates vitiligo by targeting ANXA2 degradation in macrophages",
+      "authors": "Wei W et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40527613/"
+    },
+    {
+      "pubmedId": "39408345",
+      "title": "Potential Neuroprotective Effects of Alpinia officinarum Hance (Galangal): A Review",
+      "authors": "Abd Rahman IZ et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39408345/"
+    }
+  ]
 }

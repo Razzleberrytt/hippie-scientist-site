@@ -26,10 +26,10 @@ export default function AffiliateBlock({ compound, intentLabel, compact = false 
   const displayName = formatName(compound)
 
   const entry = useMemo(() => {
-    const exact = data.find((d: any) => normalize(d.compound) === normalized)
+    const exact = data.find((d: Record<string, unknown>) => normalize(d.compound) === normalized)
     if (exact) return exact
 
-    return data.find((d: any) => normalize(d.compound).includes(normalized) || normalized.includes(normalize(d.compound)))
+    return data.find((d: Record<string, unknown>) => normalize(d.compound).includes(normalized) || normalized.includes(normalize(d.compound)))
   }, [normalized])
 
   if (!entry) {
@@ -55,7 +55,7 @@ export default function AffiliateBlock({ compound, intentLabel, compact = false 
   return (
     <div className={`grid gap-3 ${compact ? '' : 'mt-2'}`}>
       {intentLabel ? <p className='text-xs font-black uppercase tracking-[0.16em] text-emerald-100'>{intentLabel}</p> : null}
-      {products.map((p: any, i: number) => (
+      {products.map((p: Record<string, unknown>, i: number) => (
         <div key={i} className='rounded-2xl border border-white/10 bg-white/[0.03] p-2'>
           <p className='mb-2 px-1 text-[0.7rem] font-black uppercase tracking-[0.16em] text-white/45'>{labels[i] ?? 'Top pick'}</p>
           <AffiliateProductCard product={p} />

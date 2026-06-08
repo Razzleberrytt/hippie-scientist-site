@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "33827515",
+      "title": "Elderberry for prevention and treatment of viral respiratory illnesses: a systematic review",
+      "authors": "Wieland LS et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33827515/"
+    },
+    {
+      "pubmedId": "35348337",
+      "title": "Elderberry (Sambucus nigra L.): Bioactive Compounds, Health Functions, and Applications",
+      "authors": "Liu D et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35348337/"
+    },
+    {
+      "pubmedId": "30670267",
+      "title": "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis of randomized, controlled clinical trials",
+      "authors": "Hawkins J et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/"
+    }
+  ]
 }

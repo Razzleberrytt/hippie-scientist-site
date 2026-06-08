@@ -23,7 +23,7 @@ function title(value: unknown) {
     .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-function recordSignals(record: any) {
+function recordSignals(record: Record<string, unknown>) {
   return unique([
     ...list(record?.best_for),
     ...list(record?.primary_effects),
@@ -34,8 +34,8 @@ function recordSignals(record: any) {
   ].map(text).filter(Boolean)).slice(0, 12)
 }
 
-export function buildProgrammaticTopicClusters(records: any[] = [], limit = 24): ProgrammaticTopicCluster[] {
-  const counts = new Map<string, any[]>()
+export function buildProgrammaticTopicClusters(records: Record<string, unknown>[] = [], limit = 24): ProgrammaticTopicCluster[] {
+  const counts = new Map<string, Record<string, unknown>[]>()
 
   records.forEach((record) => {
     recordSignals(record).forEach((signal) => {

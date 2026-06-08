@@ -2,7 +2,7 @@
 import fs from 'node:fs';import path from 'node:path'
 import fsPromises from 'node:fs/promises'
 const root=process.cwd(), outDir=path.join(root,'out'); if(!fs.existsSync(outDir)){console.log('[audit-structured-data] SKIP: out/ not found. Run npm run build first.');process.exit(0)}
-const families=[['herbs','/herbs/'],['compounds','/compounds/'],['blog','/blog/'],['taxonomy','/blog/tags/'],['archives','/blog/categories/'],['homepage','/'],['ecosystem','/ecosystems/'],['protocols','/protocols/']]
+const families=[['herbs','/herbs/'],['compounds','/compounds/'],['articles','/articles/'],['legacy-blog','/blog/'],['taxonomy','/blog/tags/'],['archives','/blog/categories/'],['homepage','/'],['ecosystem','/ecosystems/'],['protocols','/protocols/']]
 const required=['MedicalWebPage','Article','BlogPosting','BreadcrumbList','FAQPage','Organization','WebSite']
 const files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name.endsWith('.html'))files.push(f)}};walk(outDir)
 const rows=[]
@@ -22,7 +22,7 @@ const currentCompoundSlugs = new Set(
 const repChecks = [
   { route: '/herbs/ashwagandha', types: ['MedicalWebPage', 'BreadcrumbList'] },
   { route: '/compounds/l-theanine', types: ['MedicalWebPage', 'BreadcrumbList'] },
-  { route: '/blog/2c-b-effects', types: ['BlogPosting', 'BreadcrumbList', 'Article'] },
+  { route: '/articles/2c-b-effects', types: ['BlogPosting', 'BreadcrumbList', 'Article'] },
   { route: '/faq', types: ['FAQPage', 'BreadcrumbList'] },
   { route: '/', types: ['WebSite', 'Organization'] },
 ]
@@ -169,13 +169,13 @@ async function run() {
       }
     }
     
-    // Blog detail page checks
-    if (route.startsWith('/blog/') && !route.startsWith('/blog/tags') && !route.startsWith('/blog/categories') && !route.startsWith('/blog/style') && !route.startsWith('/blog/page/')) {
+    // Article detail page checks
+    if (route.startsWith('/articles/') && !route.startsWith('/articles/style') && !route.startsWith('/articles/page/')) {
       if (!r.types.Article && !r.types.BlogPosting) {
-        errors.push(`Blog page "${route}" is missing "Article" / "BlogPosting" schema`);
+        errors.push(`Article page "${route}" is missing "Article" / "BlogPosting" schema`);
       }
       if (!r.types.BreadcrumbList) {
-        errors.push(`Blog page "${route}" is missing "BreadcrumbList" schema`);
+        errors.push(`Article page "${route}" is missing "BreadcrumbList" schema`);
       }
     }
     

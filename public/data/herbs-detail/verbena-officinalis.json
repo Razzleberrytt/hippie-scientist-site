@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37895122",
+      "title": "Plant Extracts as Skin Care and Therapeutic Agents",
+      "authors": "Michalak M et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37895122/"
+    },
+    {
+      "pubmedId": "30000912",
+      "title": "Vervain",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000912/"
+    },
+    {
+      "pubmedId": "32937665",
+      "title": "Verbena officinalis (Common Vervain) - A Review on the Investigations of This Medicinally Important Plant Species",
+      "authors": "Kubica P et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32937665/"
+    }
+  ]
 }

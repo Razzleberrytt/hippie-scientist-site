@@ -30,5 +30,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "41052496",
+      "title": "Integrated breeding strategies for blue lotus based on petal pH, anthocyanin profiling, and gene expression analysis",
+      "authors": "Liu Q et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41052496/"
+    },
+    {
+      "pubmedId": "38285776",
+      "title": "The Apoptotic Property of Nymphaea Caerulea Flower Extract on Acute Myeloid Leukaemia Cell Line, THP-1",
+      "authors": "Chatterjee D et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38285776/"
+    },
+    {
+      "pubmedId": "34345890",
+      "title": "Toxicity From Blue Lotus (Nymphaea caerulea) After Ingestion or Inhalation: A Case Series",
+      "authors": "Schimpf M et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34345890/"
+    }
+  ]
 }

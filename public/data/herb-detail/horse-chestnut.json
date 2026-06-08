@@ -105,5 +105,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "36379502",
+      "title": "Peripheral Edema: Evaluation and Management in Primary Care",
+      "authors": "Patel H et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36379502/"
+    },
+    {
+      "pubmedId": "31643542",
+      "title": "Horse Chestnut",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643542/"
+    },
+    {
+      "pubmedId": "40348378",
+      "title": "The role of venoactive compounds in the treatment of chronic venous disease",
+      "authors": "Gloviczki ML et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40348378/"
+    }
+  ]
 }

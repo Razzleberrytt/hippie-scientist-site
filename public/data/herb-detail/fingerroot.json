@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "28503050",
+      "title": "Fingerroot, Boesenbergia rotunda and its Aphrodisiac Activity",
+      "authors": "Ongwisespaiboon O et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28503050/"
+    },
+    {
+      "pubmedId": "36699694",
+      "title": "Pharmacological Activities of Fingerroot Extract and Its Phytoconstituents Against SARS-CoV-2 Infection in Golden Syrian Hamsters",
+      "authors": "Kongratanapasert T et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36699694/"
+    },
+    {
+      "pubmedId": "38328737",
+      "title": "Oral sub-chronic toxicity of fingerroot (Boesenbergia rotunda) rhizome extract formulation in Wistar rats",
+      "authors": "Techapichetvanich P et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38328737/"
+    }
+  ]
 }

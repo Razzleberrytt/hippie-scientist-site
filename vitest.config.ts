@@ -35,15 +35,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@/components': path.resolve(__dirname, './src/components'),
-      '@/lib/display-utils': path.resolve(__dirname, './lib/display-utils'),
-      '@/lib/decision-primitives': path.resolve(__dirname, './lib/decision-primitives'),
-      '@/lib/evidence': path.resolve(__dirname, './lib/evidence'),
-      '@/lib/safety-classification': path.resolve(__dirname, './lib/safety-classification'),
-      '@/lib/profile-counts': path.resolve(__dirname, './lib/profile-counts'),
-      '@/lib': path.resolve(__dirname, './src/lib'),
+      '@/components': path.resolve(__dirname, './components'),
+      '@/lib': path.resolve(__dirname, './lib'),
       '@/config': path.resolve(__dirname, './config'),
-      '@/types': path.resolve(__dirname, './src/types'),
+      '@/types': path.resolve(__dirname, './types'),
       '@': path.resolve(__dirname, './'),
     },
   },

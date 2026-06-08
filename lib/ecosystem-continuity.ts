@@ -20,7 +20,7 @@ function capLimit(limit: number | undefined) {
   return Math.min(MAX_ECOSYSTEM_CONTINUITY_RECORDS, Math.max(0, safeScore(limit, MAX_ECOSYSTEM_CONTINUITY_RECORDS)))
 }
 
-function sortByScoreThenName(a: any, b: any) {
+function sortByScoreThenName(a: Record<string, unknown>, b: Record<string, unknown>) {
   const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
   if (scoreDelta !== 0) return scoreDelta
 
@@ -89,14 +89,14 @@ export async function getEcosystemContinuityRecords(record: RuntimeRecord, recor
     .slice(0, requestedLimit)
 }
 
-export function mergeEcosystemContinuityRecords(primaryRecords: any[], continuityRecords: any[], limit = MAX_ECOSYSTEM_CONTINUITY_RECORDS) {
+export function mergeEcosystemContinuityRecords(primaryRecords: Record<string, unknown>[], continuityRecords: Record<string, unknown>[], limit = MAX_ECOSYSTEM_CONTINUITY_RECORDS) {
   const requestedLimit = capLimit(limit)
   const bySlug = new Map<string, any>()
 
   const mergedRecords = [
     ...safeArray(primaryRecords),
     ...safeArray(continuityRecords),
-  ] as any[]
+  ] as Record<string, unknown>[]
 
   for (const item of mergedRecords.sort(sortByScoreThenName)) {
     const slug = safeSlug(item?.slug)

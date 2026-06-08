@@ -108,5 +108,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39227108",
+      "title": "Composite microneedles loaded with Astragalus membranaceus polysaccharide nanoparticles promote wound healing by curbing the ROS/NF-κB pathway to regulate macrophage polarization",
+      "authors": "Liu X et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39227108/"
+    },
+    {
+      "pubmedId": "30144752",
+      "title": "Advancement in the chemical analysis of Paeoniae Radix (Shaoyao)",
+      "authors": "Yan B et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30144752/"
+    },
+    {
+      "pubmedId": "42196951",
+      "title": "Characterization of Isoorientin and Paeoniflorin as Botanical Glucocorticoid Receptor Modulators from White Peony and Chasteberry",
+      "authors": "Bashatwah RM et al.",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42196951/"
+    }
+  ]
 }

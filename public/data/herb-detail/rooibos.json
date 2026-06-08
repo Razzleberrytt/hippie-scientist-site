@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34620272",
+      "title": "Tacrolimus and herbs interactions: a review",
+      "authors": "Abushammala I et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34620272/"
+    },
+    {
+      "pubmedId": "32364226",
+      "title": "Experimental assembly reveals ecological drift as a major driver of root nodule bacterial diversity in a woody legume crop",
+      "authors": "Ramoneda J et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32364226/"
+    },
+    {
+      "pubmedId": "34402103",
+      "title": "Rooibos (Aspalathus linearis) influence on health and ovarian functions",
+      "authors": "Sirotkin AV et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34402103/"
+    }
+  ]
 }

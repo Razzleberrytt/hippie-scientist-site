@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "31145533",
+      "title": "A systematic review of Calendula officinalis extract for wound healing",
+      "authors": "Givol O et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31145533/"
+    },
+    {
+      "pubmedId": "39500772",
+      "title": "Aromatic plants as cosmeceuticals: benefits and applications for skin health",
+      "authors": "Olivero-Verbel J et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39500772/"
+    },
+    {
+      "pubmedId": "30000869",
+      "title": "Echinacea",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000869/"
+    }
+  ]
 }

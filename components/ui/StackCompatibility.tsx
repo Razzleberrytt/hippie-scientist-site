@@ -1,9 +1,9 @@
-export default function StackCompatibility({ related = [] }: any) {
+export default function StackCompatibility({ related = [] }: Record<string, unknown>) {
   if (!related?.length) return null
 
   return (
     <div className="grid sm:grid-cols-2 gap-3">
-      {related.slice(0, 4).map((item: any, i: number) => (
+      {related.slice(0, 4).map((item: Record<string, unknown>, i: number) => (
         <div
           key={i}
           className="rounded-2xl border p-4 bg-white/70 backdrop-blur"

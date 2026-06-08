@@ -22,5 +22,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "32478963",
+      "title": "Warfarin and food, herbal or dietary supplement interactions: A systematic review",
+      "authors": "Tan CSS et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32478963/"
+    },
+    {
+      "pubmedId": "29280987",
+      "title": "Anti-Inflammatory and Skin Barrier Repair Effects of Topical Application of Some Plant Oils",
+      "authors": "Lin TK et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29280987/"
+    },
+    {
+      "pubmedId": "36615326",
+      "title": "Chamomile: A Review of Its Traditional Uses, Chemical Constituents, Pharmacological Activities and Quality Control Studies",
+      "authors": "Dai YL et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36615326/"
+    }
+  ]
 }

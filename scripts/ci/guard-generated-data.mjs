@@ -58,12 +58,12 @@ const SOURCE_PATHS = [
   'lib/navigation-config.ts', // affects nav/routes/breadcrumbs (can impact manifests indirectly)
   'lib/decision-primitives.ts', // affects safety/evidence labels used in data postprocess
   'lib/safety-enum.ts',
-  'lib/', // any lib files
-  'src/lib/', // any src/lib files
-  'src/types/', // types changes
   // Data hygiene / dupe cleanup (per validation-report + plan; allows reviewed applies of issues.csv via scripts/cleanup.js without false "suspicious" )
   'docs/internal/issues.csv',
   'scripts/cleanup.js',
+  'src/types/',
+  'src/lib/',
+  'lib/',
 ]
 
 function getBaseRef() {

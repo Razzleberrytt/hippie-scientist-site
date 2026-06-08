@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30000936",
+      "title": "Black Seed",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/"
+    },
+    {
+      "pubmedId": "30000850",
+      "title": "Caraway",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000850/"
+    },
+    {
+      "pubmedId": "17427617",
+      "title": "Peppermint oil",
+      "authors": "Kligler B et al.",
+      "year": 2007,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17427617/"
+    }
+  ]
 }

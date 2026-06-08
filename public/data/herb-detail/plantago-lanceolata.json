@@ -102,5 +102,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39000214",
+      "title": "Plantago major and Plantago lanceolata Exhibit Antioxidant and Borrelia burgdorferi Inhibiting Activities",
+      "authors": "Laanet PR et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39000214/"
+    },
+    {
+      "pubmedId": "40512457",
+      "title": "Natural antitussive products for children and adolescents: darkness and shadow",
+      "authors": "Ciprandi G et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40512457/"
+    },
+    {
+      "pubmedId": "38002180",
+      "title": "Polyphenols in Agricultural Grassland Crops and Their Health-Promoting Activities-A Review",
+      "authors": "Verhulst EP et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38002180/"
+    }
+  ]
 }

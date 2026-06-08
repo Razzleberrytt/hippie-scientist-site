@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "36606510",
+      "title": "A clinical trial about effects of prebiotic and probiotic supplementation on weight loss, psychological profile and metabolic parameters in obese subjects",
+      "authors": "Ben Othman R et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36606510/"
+    },
+    {
+      "pubmedId": "37457186",
+      "title": "Nutritional, biochemical, and clinical applications of carob: A review",
+      "authors": "Ikram A et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37457186/"
+    },
+    {
+      "pubmedId": "31583011",
+      "title": "Functional polysaccharides of carob fruit: a review",
+      "authors": "Zhu BJ et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31583011/"
+    }
+  ]
 }

@@ -21,5 +21,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27117114",
+      "title": "Frankincense--therapeutic properties",
+      "authors": "Al-Yasiry AR et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27117114/"
+    },
+    {
+      "pubmedId": "29018060",
+      "title": "Dietary supplements for treating osteoarthritis: a systematic review and meta-analysis",
+      "authors": "Liu X et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29018060/"
+    },
+    {
+      "pubmedId": "32680575",
+      "title": "Effectiveness of Boswellia and Boswellia extract for osteoarthritis patients: a systematic review and meta-analysis",
+      "authors": "Yu G et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32680575/"
+    }
+  ]
 }

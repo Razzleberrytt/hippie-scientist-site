@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "27000311",
+      "title": "Dietary supplements for dysmenorrhoea",
+      "authors": "Pattanittum P et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27000311/"
+    },
+    {
+      "pubmedId": "40317096",
+      "title": "Nutritional and herbal interventions for polycystic ovary syndrome (PCOS): a comprehensive review of dietary approaches, macronutrient impact, and herbal medicine in management",
+      "authors": "Muhammed Saeed AA et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40317096/"
+    },
+    {
+      "pubmedId": "29403626",
+      "title": "A review of effective herbal medicines in controlling menopausal symptoms",
+      "authors": "Kargozar R et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29403626/"
+    }
+  ]
 }

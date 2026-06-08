@@ -1,6 +1,6 @@
 import { text } from '@/lib/display-utils'
 
-export function buildProfileSchema(record: any) {
+export function buildProfileSchema(record: Record<string, unknown>) {
   const name = text(record?.displayName || record?.name || record?.slug)
   const description = text(record?.summary || record?.description)
 

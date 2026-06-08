@@ -105,5 +105,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34445021",
+      "title": "Plant Adaptogens-History and Future Perspectives",
+      "authors": "Todorova V et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34445021/"
+    },
+    {
+      "pubmedId": "35745023",
+      "title": "The Effectiveness of Rhodiola rosea L. Preparations in Alleviating Various Aspects of Life-Stress Symptoms and Stress-Induced Conditions-Encouraging Clinical Evidence",
+      "authors": "Ivanova Stojcheva E et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35745023/"
+    },
+    {
+      "pubmedId": "29568244",
+      "title": "Herbal medicine for sports: a review",
+      "authors": "Sellami M et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29568244/"
+    }
+  ]
 }

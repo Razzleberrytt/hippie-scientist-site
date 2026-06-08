@@ -106,5 +106,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39378978",
+      "title": "Alleviation of colitis by honeysuckle MIR2911 via direct regulation of gut microbiota",
+      "authors": "Li W et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39378978/"
+    },
+    {
+      "pubmedId": "38490155",
+      "title": "Cynaroside improved depressive-like behavior in CUMS mice by suppressing microglial inflammation and ferroptosis",
+      "authors": "Zhou Y et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38490155/"
+    },
+    {
+      "pubmedId": "37226859",
+      "title": "High-resolution genome mapping and functional dissection of chlorogenic acid production in Lonicera maackii",
+      "authors": "Li R et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37226859/"
+    }
+  ]
 }

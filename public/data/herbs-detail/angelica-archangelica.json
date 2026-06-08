@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "22960104",
+      "title": "Coumarins from Angelica archangelica Linn. and their effects on anxiety-like behavior",
+      "authors": "Kumar D et al.",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22960104/"
+    },
+    {
+      "pubmedId": "31605258",
+      "title": "Awareness and current knowledge of epilepsy",
+      "authors": "Khan AU et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31605258/"
+    },
+    {
+      "pubmedId": "33047814",
+      "title": "Optimization of extraction conditions of Angelica archangelica extract and activity evaluation in experimental fibromyalgia",
+      "authors": "Kaur A et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33047814/"
+    }
+  ]
 }

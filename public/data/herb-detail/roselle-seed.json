@@ -104,5 +104,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "38432993",
+      "title": "The Potential of Roselle (Hibiscus sabdariffa) Plant in Industrial Applications: A Promising Source of Functional Compounds",
+      "authors": "Chew LY et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38432993/"
+    },
+    {
+      "pubmedId": "17995816",
+      "title": "Roselle (Hibiscus sabdariffa) seed oil is a rich source of gamma-tocopherol",
+      "authors": "Mohamed R et al.",
+      "year": 2007,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17995816/"
+    },
+    {
+      "pubmedId": "24575672",
+      "title": "In vitro antioxidant activities of extract and oil from roselle (Hibiscus sabdariffa L.) seed against sunflower oil autoxidation",
+      "authors": "Nyam KL et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24575672/"
+    }
+  ]
 }

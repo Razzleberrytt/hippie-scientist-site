@@ -40,8 +40,8 @@ export default function ClickTracker() {
         }
 
         // 1. Send to GA4 if active
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          ;(window as any).gtag('event', 'affiliate_click', {
+        if (typeof window !== 'undefined' && (window as Record<string, unknown>).gtag) {
+          ;(window as Record<string, unknown>).gtag('event', 'affiliate_click', {
             event_category: 'Affiliate',
             event_label: cta,
             destination: href,

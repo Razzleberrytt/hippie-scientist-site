@@ -115,5 +115,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39940699",
+      "title": "Network Pharmacology and Bioinformatics Study of Six Medicinal Food Homologous Plants Against Colorectal Cancer",
+      "authors": "Zhao X et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39940699/"
+    },
+    {
+      "pubmedId": "24339367",
+      "title": "Puerarin: a review of pharmacological effects",
+      "authors": "Zhou YX et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24339367/"
+    },
+    {
+      "pubmedId": "39326132",
+      "title": "Puerarin ameliorates colitis by direct suppression of macrophage M1 polarization in DSS mice",
+      "authors": "Tao Q et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39326132/"
+    }
+  ]
 }

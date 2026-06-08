@@ -34,5 +34,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "32183224",
+      "title": "Pharmacological Update Properties of Aloe Vera and its Major Active Constituents",
+      "authors": "Sánchez M et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32183224/"
+    },
+    {
+      "pubmedId": "37915246",
+      "title": "Aloe Barbadensis Miller (Aloe Vera)",
+      "authors": "Kaur S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37915246/"
+    },
+    {
+      "pubmedId": "38998660",
+      "title": "Aloe vera-An Extensive Review Focused on Recent Studies",
+      "authors": "Catalano A et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38998660/"
+    }
+  ]
 }

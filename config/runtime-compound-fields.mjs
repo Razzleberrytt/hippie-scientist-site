@@ -119,9 +119,14 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'product_cta',
   'buying_criteria',
 
+  // Content freshness
+  'last_updated',
+  'last_reviewed',
+
   // Runtime gating / SEO
   'doNotMonetize',
   'doNotPromote',
+  'allow_restricted_reference_export',
   'governance_status',
   'legal_status',
   'controlled_status',
@@ -129,6 +134,12 @@ export const COMPOUND_RUNTIME_FIELDS = [
   'dea_status',
   'dea_watchlist_status',
   'regulatory_status',
+  'regulatory_federal',
+  'regulatory_states_summary',
+  'regulatory_states_table',
+  'last_regulatory_check',
+  'regulatory_changelog',
+  'regulatory_sources',
   'profile_status',
   'summary_quality',
   'runtime_export_decision',

@@ -14,7 +14,7 @@ function list(value: unknown): string[] {
     .filter(Boolean)
 }
 
-export function getContextFromRecord(record: any): DiscoveryContext {
+export function getContextFromRecord(record: Record<string, unknown>): DiscoveryContext {
   const combined = [
     text(record?.title),
     text(record?.name),

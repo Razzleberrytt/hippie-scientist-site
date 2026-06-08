@@ -1,0 +1,243 @@
+{
+  "slug": "lions-mane-mushroom",
+  "title": "Lion's Mane Mushroom",
+  "subtitle": "Cognitive Support, NGF Stimulation, and Evidence Review",
+  "category": "Nootropic & Neuroprotective",
+  "heroImage": "/images/guides/lions-mane-mushroom.svg",
+  "lastUpdated": "2026-06-07",
+  "readingTime": 7,
+  "intro": "Lion's Mane (Hericium erinaceus) is a culinary and medicinal mushroom with the strongest pre-clinical neuroprotective evidence of any studied fungal supplement. Its active compounds — hericenones and erinacines — stimulate Nerve Growth Factor (NGF) synthesis, supporting neuronal maintenance and potentially cognitive function. Human clinical evidence is emerging but still limited in scale and duration.",
+  "sections": [
+    {
+      "id": "what-is-lions-mane",
+      "title": "What Is Lion's Mane?",
+      "body": "Hericium erinaceus is a white, shaggy mushroom named for its resemblance to a lion's mane. Used in East Asian cuisine and traditional medicine for centuries, it gained modern research interest when studies isolated hericenones from the fruiting body and erinacines from the mycelium — both shown to cross the blood-brain barrier and induce NGF expression in neural tissue.",
+      "subsections": [
+        {
+          "title": "Fruiting Body vs. Mycelium",
+          "body": "Hericenones are found predominantly in the fruiting body; erinacines in the mycelium. Many commercial products use myceliated grain (mycelium grown on rice or oats), which may contain more grain starch than active erinacines. Hot-water extracted fruiting body powders are generally preferred for confirmed bioactive content. Always look for beta-glucan content (target ≥25%) as a quality proxy."
+        }
+      ]
+    },
+    {
+      "id": "mechanisms",
+      "title": "How Lion's Mane Supports Brain Health",
+      "body": "Lion's Mane's primary mechanism is upregulation of NGF (Nerve Growth Factor) — a protein essential for the growth, maintenance, and survival of neurons, particularly in the hippocampus. NGF also supports cholinergic neurons, which are heavily affected in Alzheimer's disease. Secondary mechanisms include anti-inflammatory effects via NF-κB inhibition and BDNF (Brain-Derived Neurotrophic Factor) modulation.",
+      "blocks": [
+        {
+          "type": "tip",
+          "text": "NGF cannot cross the blood-brain barrier itself. Lion's Mane compounds work by stimulating NGF production within the brain — a fundamentally different mechanism from exogenous NGF administration."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "Clinical Evidence Summary",
+      "body": "Human evidence for Lion's Mane cognitive effects is promising but limited by small sample sizes and short trial durations. The most cited RCT (Mori et al., 2009) showed significant improvements in cognitive function scores in mild cognitive impairment patients over 16 weeks, with effect reversal 4 weeks after stopping — suggesting ongoing use is required.",
+      "subsections": [
+        {
+          "title": "Mild Cognitive Impairment",
+          "body": "The landmark 2009 Mori et al. RCT (n=30, mean age 73) found 250mg Lion's Mane powder 3×/day significantly improved Cognitive Function Scale scores vs. placebo at 8 and 16 weeks. Cognitive scores declined toward baseline 4 weeks post-discontinuation, suggesting effects require continued supplementation."
+        },
+        {
+          "title": "Anxiety and Depression",
+          "body": "A 2010 trial (Nagano et al.) in menopausal women found 500mg Lion's Mane 3×/day for 4 weeks improved self-reported anxiety and depression scores, potentially through NGF-mediated hippocampal support."
+        },
+        {
+          "title": "Nerve Regeneration (Preclinical)",
+          "body": "Multiple animal studies demonstrate accelerated peripheral nerve regeneration with Lion's Mane supplementation, creating interest in post-injury neurological support. Human translation remains to be established in well-powered trials."
+        }
+      ]
+    },
+    {
+      "id": "who-should-consider",
+      "title": "Who Should Consider Lion's Mane?",
+      "body": "Lion's Mane is best suited for adults with cognitive goals — particularly those in mid-life who are proactively supporting neurological health, those experiencing mild cognitive complaints, or those interested in neuroprotection. It is not a fast-acting cognitive enhancer like caffeine or racetams — effects build over weeks to months.",
+      "blocks": [
+        {
+          "type": "tip",
+          "text": "Lion's Mane has a very favorable safety profile and is well-tolerated as a food. Choose fruiting body hot-water extracts over myceliated grain products to maximize bioactive content per dose."
+        }
+      ]
+    }
+  ],
+  "evidenceHighlights": [
+    {
+      "claim": "Stimulates NGF synthesis — the most replicated pre-clinical finding",
+      "level": "strong",
+      "context": "Consistent in vitro and animal evidence; mechanism well-characterized for hericenones and erinacines"
+    },
+    {
+      "claim": "Improves cognitive function scores in mild cognitive impairment",
+      "level": "limited",
+      "context": "Single RCT (n=30, Mori 2009); significant results but replication in larger trials needed"
+    },
+    {
+      "claim": "May reduce anxiety and depression in menopausal women",
+      "level": "preliminary",
+      "context": "Small trial (n=30, Nagano 2010); promising but insufficient for broad claims"
+    },
+    {
+      "claim": "Accelerates peripheral nerve regeneration",
+      "level": "preliminary",
+      "context": "Primarily preclinical; human data limited"
+    }
+  ],
+  "dosageGuidelines": [
+    {
+      "form": "Fruiting Body Hot-Water Extract (≥25% beta-glucans)",
+      "range": "500–1000 mg/day",
+      "notes": "Preferred form for confirmed bioactive content",
+      "bioavailabilityNote": "Look for 8:1 or 10:1 extract ratio and verified beta-glucan percentage"
+    },
+    {
+      "form": "Fruiting Body Powder (non-extracted)",
+      "range": "3000–5000 mg/day",
+      "notes": "Lower concentration requires higher gram dose to match extract efficacy",
+      "bioavailabilityNote": "Cooking or heat processing may improve polysaccharide availability"
+    },
+    {
+      "form": "Dual-Extracted (Water + Alcohol Extract)",
+      "range": "500–750 mg/day",
+      "notes": "Captures both water-soluble beta-glucans and alcohol-soluble hericenones",
+      "bioavailabilityNote": "Premium formulation for comprehensive bioactive delivery"
+    }
+  ],
+  "safetyNotes": [
+    {
+      "severity": "info",
+      "text": "Lion's Mane has a well-established safety profile from centuries of culinary use and modern trials showing no significant adverse events at studied doses. GI sensitivity is the most common minor complaint."
+    },
+    {
+      "severity": "caution",
+      "text": "Individuals with mushroom allergies should exercise caution and start with very small amounts. Rare reports of allergic dermatitis and respiratory symptoms exist."
+    },
+    {
+      "severity": "info",
+      "text": "No significant drug interactions have been established, though theoretical interactions with anticoagulants are possible due to platelet-inhibitory activity observed in preclinical studies. Discuss with a healthcare provider if on blood thinners."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/herbs/lions-mane",
+      "label": "Lion's Mane Herb Profile",
+      "type": "herb",
+      "description": "Full profile with NGF research, safety data, and quality considerations."
+    },
+    {
+      "href": "/goals/focus",
+      "label": "Focus & Cognition Goal",
+      "type": "goal",
+      "description": "Evidence-ranked nootropics and cognitive support options."
+    },
+    {
+      "href": "/guides/supplements-for-brain-fog-and-fatigue",
+      "label": "Supplements for Brain Fog",
+      "type": "guide",
+      "description": "Skeptical decision guide for fatigue, mental clarity, and recovery support."
+    },
+    {
+      "href": "/guides/focus-without-caffeine-crash",
+      "label": "Focus Without the Caffeine Crash",
+      "type": "guide",
+      "description": "Evidence-ranked non-stimulant options for sustained cognitive performance."
+    },
+    {
+      "href": "/compare/lions-mane-vs-bacopa",
+      "label": "Lion's Mane vs Bacopa",
+      "type": "compare",
+      "description": "Compare two leading botanical nootropics for long-term cognitive support."
+    }
+  ],
+  "seo": {
+    "title": "Lion's Mane Mushroom Guide — NGF, Cognitive Support & Evidence Review",
+    "description": "Evidence-based guide to Lion's Mane: how hericenones and erinacines stimulate NGF, what the clinical trials actually show, best forms to buy, and dosing guidance.",
+    "canonical": "/guides/lions-mane-mushroom"
+  },
+  "options": [
+    {
+      "name": "Real Mushrooms Lion's Mane Capsules",
+      "description": "Organic lion’s mane fruiting body extract capsules with beta-glucan focused quality positioning.",
+      "form": "capsule",
+      "dosage": "2 capsules daily",
+      "amazonAsin": "B078SZX3ML",
+      "approxPrice": "$28-35/month",
+      "rating": "4.5/5 (23,000+ reviews)",
+      "whyChosen": "A strong default pick for readers who care about fruiting body extract rather than mycelium-on-grain. It has high visibility, clear positioning, and broad buyer validation.",
+      "pros": [
+        "Fruiting body extract",
+        "Large review base",
+        "Beta-glucan quality focus"
+      ],
+      "cons": [
+        "Pricier than budget capsules",
+        "Capsule dose may be lower than powder users prefer"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B078SZX3ML?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Host Defense Lion's Mane Mushroom",
+      "description": "Organic lion’s mane mushroom supplement from Host Defense in capsule form.",
+      "form": "capsule",
+      "dosage": "2 capsules daily",
+      "amazonAsin": "B00N0PZRRO",
+      "approxPrice": "$25-35/month",
+      "rating": "4.6/5 (thousands of reviews)",
+      "whyChosen": "Host Defense is one of the most recognized mushroom supplement brands, making it useful for readers who prioritize brand familiarity and organic mushroom sourcing.",
+      "pros": [
+        "Recognized mushroom brand",
+        "Organic positioning",
+        "Easy capsule format"
+      ],
+      "cons": [
+        "Mycelium-based approach is debated",
+        "Higher cost than generic options"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B00N0PZRRO?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Double Wood Lion's Mane Mushroom",
+      "description": "Lion’s mane capsules positioned as a budget-friendly focus and cognitive support supplement.",
+      "form": "capsule",
+      "dosage": "1000-1500mg daily",
+      "amazonAsin": "B07PM8X5CG",
+      "approxPrice": "$14-20/month",
+      "rating": "4.5/5 (several thousand reviews)",
+      "whyChosen": "A lower-cost capsule option for readers who want to try lion’s mane without committing to premium fruiting-body brands. It keeps the comparison practical for budget-sensitive buyers.",
+      "pros": [
+        "Budget-friendly",
+        "Simple capsule format",
+        "Third-party testing positioning"
+      ],
+      "cons": [
+        "Less premium sourcing story",
+        "Confirm current fruiting-body label details"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B07PM8X5CG?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "OM Mushroom Lion's Mane Gummies",
+      "description": "Organic lion’s mane gummy format for users who dislike capsules or powders.",
+      "form": "extract",
+      "dosage": "2 gummies daily",
+      "amazonAsin": "B0B7VKJCFM",
+      "approxPrice": "$18-25/month",
+      "rating": "4.4/5 (hundreds of reviews)",
+      "whyChosen": "A compliance-focused pick for readers who will not consistently take powders or capsules. It trades concentration for ease of use and taste.",
+      "pros": [
+        "Easy gummy format",
+        "No capsules to swallow",
+        "Good for routine adherence"
+      ],
+      "cons": [
+        "Added sugar and gummy excipients",
+        "Usually lower dose per dollar"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B0B7VKJCFM?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    }
+  ]
+}

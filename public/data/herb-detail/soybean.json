@@ -121,5 +121,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "32171732",
+      "title": "Toward a \"Green Revolution\" for Soybean",
+      "authors": "Liu S et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32171732/"
+    },
+    {
+      "pubmedId": "31649123",
+      "title": "Celebrating 20 Years of Genetic Discoveries in Legume Nodulation and Symbiotic Nitrogen Fixation",
+      "authors": "Roy S et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31649123/"
+    },
+    {
+      "pubmedId": "33090664",
+      "title": "Molecular mechanisms for the photoperiodic regulation of flowering in soybean",
+      "authors": "Lin X et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33090664/"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-export function buildEcosystemHeatmap(nodes: any[] = []) {
+export function buildEcosystemHeatmap(nodes: Record<string, unknown>[] = []) {
   return nodes.map((node, index) => ({
     id: node?.slug || `node-${index}`,
     weight: node?.weight || 1,

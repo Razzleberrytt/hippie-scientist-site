@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "37043592",
+      "title": "Bitter Melon",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37043592/"
+    },
+    {
+      "pubmedId": "35911428",
+      "title": "Complementary and alternative medicine for glycemic control of diabetes mellitus: A systematic review",
+      "authors": "Setiyorini E et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35911428/"
+    },
+    {
+      "pubmedId": "32951763",
+      "title": "Hypoglycemic efficacy and safety of Momordica charantia (bitter melon) in patients with type 2 diabetes mellitus",
+      "authors": "Kim SK et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32951763/"
+    }
+  ]
 }

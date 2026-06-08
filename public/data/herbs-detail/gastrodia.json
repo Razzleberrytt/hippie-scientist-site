@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37749449",
+      "title": "Review on pharmacological effects of gastrodin",
+      "authors": "Xiao G et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37749449/"
+    },
+    {
+      "pubmedId": "38552431",
+      "title": "Gastrodin regulates the TLR4/TRAF6/NF-κB pathway to reduce neuroinflammation and microglial activation in an AD model",
+      "authors": "Wang W et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38552431/"
+    },
+    {
+      "pubmedId": "38165423",
+      "title": "Gastrodin: a comprehensive pharmacological review",
+      "authors": "Wang Y et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38165423/"
+    }
+  ]
 }

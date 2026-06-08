@@ -43,7 +43,7 @@ const GRADE_CONFIG: Record<EvidenceLetterGrade, {
 }
 
 type EvidenceScoreBadgeProps = {
-  record?: any
+  record?: Record<string, unknown>
   grade?: EvidenceLetterGrade
   size?: 'sm' | 'md'
   showLabel?: boolean

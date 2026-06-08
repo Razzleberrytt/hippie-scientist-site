@@ -19,5 +19,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37958943",
+      "title": "Neurotrophic and Neuroprotective Effects of Hericium erinaceus",
+      "authors": "Szućko-Kociuba I et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37958943/"
+    },
+    {
+      "pubmedId": "40284172",
+      "title": "Lion's Mane Mushroom (Hericium erinaceus): A Neuroprotective Fungus with Antioxidant, Anti-Inflammatory, and Antimicrobial Potential-A Narrative Review",
+      "authors": "Contato AG et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40284172/"
+    },
+    {
+      "pubmedId": "33917843",
+      "title": "Neuroprotective Herbs for the Management of Alzheimer's Disease",
+      "authors": "Gregory J et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+    }
+  ]
 }

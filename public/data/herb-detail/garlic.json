@@ -119,5 +119,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "32213941",
+      "title": "Chemical Constituents and Pharmacological Activities of Garlic (Allium sativum L.): A Review",
+      "authors": "El-Saber Batiha G et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32213941/"
+    },
+    {
+      "pubmedId": "25153873",
+      "title": "Allicin: chemistry and biological properties",
+      "authors": "Borlinghaus J et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25153873/"
+    },
+    {
+      "pubmedId": "10675182",
+      "title": "Herb-drug interactions",
+      "authors": "Fugh-Berman A et al.",
+      "year": 2000,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/"
+    }
+  ]
 }

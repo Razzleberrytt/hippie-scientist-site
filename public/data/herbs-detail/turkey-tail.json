@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37513265",
+      "title": "Medicinal Mushrooms: Their Bioactive Components, Nutritional Value and Application in Functional Food Production-A Review",
+      "authors": "Łysakowska P et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37513265/"
+    },
+    {
+      "pubmedId": "36995535",
+      "title": "Medicinal Mushroom Supplements in Cancer: A Systematic Review of Clinical Studies",
+      "authors": "Narayanan S et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36995535/"
+    },
+    {
+      "pubmedId": "28267306",
+      "title": "Medicinal Mushrooms (PDQ®): Patient Version",
+      "authors": "PDQ Integrative, Alternative, and Complementary Therapies Editorial Board et al.",
+      "year": 2002,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28267306/"
+    }
+  ]
 }

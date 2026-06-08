@@ -108,5 +108,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34978226",
+      "title": "Plant-derived nootropics and human cognition: A systematic review",
+      "authors": "Lorca C et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34978226/"
+    },
+    {
+      "pubmedId": "36061899",
+      "title": "Pharmacological attributes of Bacopa monnieri extract: Current updates and clinical manifestation",
+      "authors": "Fatima U et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36061899/"
+    },
+    {
+      "pubmedId": "36987052",
+      "title": "Nootropic Herbs, Shrubs, and Trees as Potential Cognitive Enhancers",
+      "authors": "Malík M et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36987052/"
+    }
+  ]
 }

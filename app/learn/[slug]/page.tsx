@@ -26,8 +26,9 @@ export async function generateMetadata({ params }: LearnRouteProps): Promise<Met
   }
 
   return {
-    title: `${post.title} | Learn`,
+    title: `${post.title} | Guides`,
     description: post.description,
+    alternates: { canonical: `/learn/${post.slug}` },
   }
 }
 
@@ -45,7 +46,7 @@ export default async function Page({ params }: LearnRouteProps) {
         <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
-            { label: 'Learn', href: '/learn' },
+            { label: 'Guides', href: '/guides' },
             { label: post.title },
           ]}
         />
@@ -118,7 +119,7 @@ export default async function Page({ params }: LearnRouteProps) {
               links: [
                 { href: '/guides/sleep-herbs-vs-melatonin', label: 'Sleep herbs vs melatonin' },
                 { href: '/guides/psychedelic-adjacent-herbs', label: 'Psychedelic-adjacent herbs' },
-                { href: '/learn', label: 'Browse all learn guides' },
+                { href: '/guides', label: 'Browse all guides' },
               ],
             },
           ]}

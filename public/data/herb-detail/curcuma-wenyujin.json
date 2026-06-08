@@ -98,5 +98,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39954619",
+      "title": "Curcuma wenyujin extract alleviates cognitive deficits and restrains pyroptosis through PINK1/Parkin mediated autophagy in Alzheimer's disease",
+      "authors": "Qi Y et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39954619/"
+    },
+    {
+      "pubmedId": "38604260",
+      "title": "Curcuma wenyujin rhizomes extract ameliorates lipid accumulation",
+      "authors": "Wang H et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38604260/"
+    },
+    {
+      "pubmedId": "37610136",
+      "title": "Two new guaiane-type sesquiterpenes from Curcuma wenyujin",
+      "authors": "Jiang XJ et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37610136/"
+    }
+  ]
 }

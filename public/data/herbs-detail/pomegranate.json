@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "39275022",
+      "title": "Pomegranate (Punica granatum L.) Extract Effects on Inflammaging",
+      "authors": "Cordiano R et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39275022/"
+    },
+    {
+      "pubmedId": "37748009",
+      "title": "Pomegranate",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37748009/"
+    },
+    {
+      "pubmedId": "36076615",
+      "title": "Medicinal uses, pharmacological activities, phytochemistry, and the molecular mechanisms of Punica granatum L. (pomegranate) plant extracts: A review",
+      "authors": "Maphetu N et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36076615/"
+    }
+  ]
 }

@@ -118,5 +118,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "30934670",
+      "title": "Resveratrol and Its Effects on the Vascular System",
+      "authors": "Breuss JM et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30934670/"
+    },
+    {
+      "pubmedId": "31756276",
+      "title": "Resveratrol: a review of plant sources, synthesis, stability, modification and food application",
+      "authors": "Tian B et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31756276/"
+    },
+    {
+      "pubmedId": "36079777",
+      "title": "Effects of Resveratrol, Curcumin and Quercetin Supplementation on Bone Metabolism-A Systematic Review",
+      "authors": "Inchingolo AD et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36079777/"
+    }
+  ]
 }

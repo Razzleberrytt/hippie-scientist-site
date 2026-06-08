@@ -71,7 +71,7 @@ function main() {
   const counts = {
     herbs: routes.filter(route => /^\/herbs\/[^/]+$/.test(route)).length,
     compounds: routes.filter(route => /^\/compounds\/[^/]+$/.test(route)).length,
-    blogPosts: routes.filter(route => /^\/blog\/[^/]+$/.test(route)).length,
+    blogPosts: routes.filter(route => /^\/articles\/[^/]+$/.test(route)).length,
     sitemapUrls: countSitemapUrls(),
   }
 

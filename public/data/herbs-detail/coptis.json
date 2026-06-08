@@ -29,5 +29,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "32335802",
+      "title": "Biological properties and clinical applications of berberine",
+      "authors": "Song D et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32335802/"
+    },
+    {
+      "pubmedId": "36650621",
+      "title": "Herb-Drug Interactions and Their Impact on Pharmacokinetics: An Update",
+      "authors": "Cheng W et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36650621/"
+    },
+    {
+      "pubmedId": "39068762",
+      "title": "Berberine alleviates ulcerative colitis by inhibiting inflammation through targeting IRGM1",
+      "authors": "Meng G et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39068762/"
+    }
+  ]
 }

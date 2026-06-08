@@ -25,6 +25,7 @@ export default function LastUpdatedBadge({
 
   return (
     <p
+      aria-label={`${label}: ${formatted}`}
       className={`inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-white/80 px-3 py-1 text-xs font-semibold text-muted ${className}`}
     >
       <span className='h-1.5 w-1.5 rounded-full bg-emerald-600' aria-hidden='true' />

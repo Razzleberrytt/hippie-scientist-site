@@ -69,8 +69,8 @@ function hydrateRuntimeEntries(
     .filter(Boolean)
 }
 
-function sortHydratedRecords(records: any[]) {
-  return records.sort((a: any, b: any) => {
+function sortHydratedRecords(records: Record<string, unknown>[]) {
+  return records.sort((a: Record<string, unknown>, b: Record<string, unknown>) => {
     const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
     if (scoreDelta !== 0) return scoreDelta
 

@@ -102,5 +102,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "33174095",
+      "title": "Plants Used as Antihypertensive",
+      "authors": "Verma T et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/"
+    },
+    {
+      "pubmedId": "36933876",
+      "title": "Therapeutic potential and industrial applications of Terminalia arjuna bark",
+      "authors": "Kumar V et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36933876/"
+    },
+    {
+      "pubmedId": "37814683",
+      "title": "Antimicrobial and anti-inflammatory activity of Terminalia arjuna",
+      "authors": "R V et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37814683/"
+    }
+  ]
 }

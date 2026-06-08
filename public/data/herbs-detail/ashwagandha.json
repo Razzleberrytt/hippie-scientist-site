@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34559859",
+      "title": "Effect of Ashwagandha (Withania somnifera) extract on sleep: A systematic review and meta-analysis",
+      "authors": "Cheah KL et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34559859/"
+    },
+    {
+      "pubmedId": "39348746",
+      "title": "Effects of Ashwagandha (Withania Somnifera) on stress and anxiety: A systematic review and meta-analysis",
+      "authors": "Arumugam V et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39348746/"
+    },
+    {
+      "pubmedId": "31517876",
+      "title": "An investigation into the stress-relieving and pharmacological actions of an ashwagandha (Withania somnifera) extract: A randomized, double-blind, placebo-controlled study",
+      "authors": "Lopresti AL et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/"
+    }
+  ]
 }

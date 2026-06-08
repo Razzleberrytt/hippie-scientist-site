@@ -27,5 +27,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30000884",
+      "title": "Capsicum",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000884/"
+    },
+    {
+      "pubmedId": "29083760",
+      "title": "Capsaicin",
+      "authors": "Chang A et al.",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29083760/"
+    },
+    {
+      "pubmedId": "37493973",
+      "title": "Peppers and their constituents against obesity",
+      "authors": "Sirotkin AV et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37493973/"
+    }
+  ]
 }

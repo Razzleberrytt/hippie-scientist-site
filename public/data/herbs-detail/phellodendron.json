@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27671811",
+      "title": "Berberine and Its Role in Chronic Disease",
+      "authors": "Cicero AF et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/"
+    },
+    {
+      "pubmedId": "25498346",
+      "title": "Meta-analysis of the effect and safety of berberine in the treatment of type 2 diabetes mellitus, hyperlipemia and hypertension",
+      "authors": "Lan J et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25498346/"
+    },
+    {
+      "pubmedId": "39612339",
+      "title": "Convergent evolution of berberine biosynthesis",
+      "authors": "Xu Z et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39612339/"
+    }
+  ]
 }

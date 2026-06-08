@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37716049",
+      "title": "Recent chemical synthesis of plant polysaccharides",
+      "authors": "Wang X et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37716049/"
+    },
+    {
+      "pubmedId": "37313777",
+      "title": "Genome-wide high-throughput chromosome conformation capture analysis reveals hierarchical chromatin interactions during early somatic embryogenesis",
+      "authors": "Chen Y et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37313777/"
+    },
+    {
+      "pubmedId": "31090276",
+      "title": "Pericarp and seed of litchi and longan fruits: constituent, extraction, bioactive activity, and potential utilization",
+      "authors": "Zhu XR et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31090276/"
+    }
+  ]
 }

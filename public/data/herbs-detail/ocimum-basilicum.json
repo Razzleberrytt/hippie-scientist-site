@@ -34,5 +34,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "30000886",
+      "title": "Basil",
+      "authors": "PubMed indexed authors",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30000886/"
+    },
+    {
+      "pubmedId": "38257301",
+      "title": "Antimicrobial and Other Pharmacological Properties of Ocimum basilicum, Lamiaceae",
+      "authors": "Zhakipbekov K et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38257301/"
+    },
+    {
+      "pubmedId": "38433659",
+      "title": "Sweet basil (Ocimum basilicum) leaf and seed extracts alleviate neuronal dysfunction in aluminum chloride-induced neurotoxicity in Drosophila melanogaster Meigen model",
+      "authors": "Oyeniran OH et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38433659/"
+    }
+  ]
 }

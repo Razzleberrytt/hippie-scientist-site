@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38116085",
+      "title": "Chaga mushroom: a super-fungus with countless facets and untapped potential",
+      "authors": "Fordjour E et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38116085/"
+    },
+    {
+      "pubmedId": "37513265",
+      "title": "Medicinal Mushrooms: Their Bioactive Components, Nutritional Value and Application in Functional Food Production-A Review",
+      "authors": "Łysakowska P et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37513265/"
+    },
+    {
+      "pubmedId": "38813471",
+      "title": "Therapeutic properties of Inonotus obliquus (Chaga mushroom): A review",
+      "authors": "Ern PTY et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38813471/"
+    }
+  ]
 }

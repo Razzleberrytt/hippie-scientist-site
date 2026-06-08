@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "26046143",
+      "title": "Dendrobium micropropagation: a review",
+      "authors": "da Silva JA et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26046143/"
+    },
+    {
+      "pubmedId": "30066218",
+      "title": "Genome-wide researches and applications on Dendrobium",
+      "authors": "Zheng SG et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30066218/"
+    },
+    {
+      "pubmedId": "35576743",
+      "title": "Alkaloids from Dendrobium and their biosynthetic pathway, biological activity and total synthesis",
+      "authors": "Duan H et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35576743/"
+    }
+  ]
 }

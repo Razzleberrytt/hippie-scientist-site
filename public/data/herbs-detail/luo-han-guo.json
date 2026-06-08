@@ -26,5 +26,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "34718674",
+      "title": "Research progress of pharmacological effects of Siraitia grosvenorii extract",
+      "authors": "Li H et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34718674/"
+    },
+    {
+      "pubmedId": "41272020",
+      "title": "Exploring the potential mechanisms of anti-pulmonary fibrosis effects of Luo Han Guo via network pharmacology, molecular docking, and experimental validation",
+      "authors": "Cui Q et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41272020/"
+    },
+    {
+      "pubmedId": "41841386",
+      "title": "Divergent Synthesis of Mogrosides",
+      "authors": "Petrović G et al.",
+      "year": 2026,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/41841386/"
+    }
+  ]
 }

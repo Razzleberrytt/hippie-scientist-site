@@ -1,8 +1,8 @@
 import { isClean, text } from '@/lib/display-utils'
 
-export default function ResearchHighlights({ sources = [] }: any) {
+export default function ResearchHighlights({ sources = [] }: Record<string, unknown>) {
   const visibleSources = sources
-    .map((source: any) => text(source))
+    .map((source: Record<string, unknown>) => text(source))
     .filter(isClean)
     .slice(0, 3)
 

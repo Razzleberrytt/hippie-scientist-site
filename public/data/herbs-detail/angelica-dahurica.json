@@ -28,5 +28,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "37267693",
+      "title": "Proteomics and transcriptomics explore the effect of mixture of herbal extract on diabetic wound healing process",
+      "authors": "Liu Y et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37267693/"
+    },
+    {
+      "pubmedId": "34451622",
+      "title": "Oxypeucedanin: Chemotaxonomy, Isolation, and Bioactivities",
+      "authors": "Mottaghipisheh J et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34451622/"
+    },
+    {
+      "pubmedId": "35847034",
+      "title": "The Angelica dahurica: A Review of Traditional Uses, Phytochemistry and Pharmacology",
+      "authors": "Zhao H et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35847034/"
+    }
+  ]
 }

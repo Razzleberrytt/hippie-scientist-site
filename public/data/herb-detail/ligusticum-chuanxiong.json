@@ -116,5 +116,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "40235541",
+      "title": "Ligusticum chuanxiong: a chemical, pharmacological and clinical review",
+      "authors": "Wang Y et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40235541/"
+    },
+    {
+      "pubmedId": "39004032",
+      "title": "Elucidating the mechanisms of Buyang Huanwu Decoction in treating chronic cerebral ischemia: A combined approach using network pharmacology, molecular docking, and in vivo validation",
+      "authors": "Cao Y et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39004032/"
+    },
+    {
+      "pubmedId": "39180449",
+      "title": "Ligusticum chuanxiong Hort.: a review of its phytochemistry, pharmacology, and toxicology",
+      "authors": "Kong Q et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39180449/"
+    }
+  ]
 }

@@ -49,7 +49,7 @@ function main() {
 
   let herbCount = 0
   let compoundCount = 0
-  let blogCount = 0
+  let articleCount = 0
   let guideCount = 0
   
   const expectedCorePrefixes = [
@@ -66,7 +66,7 @@ function main() {
     '/herbs',
     '/compounds',
     '/stacks',
-    '/blog'
+    '/articles'
   ]
   const foundCore = new Set()
 
@@ -111,8 +111,8 @@ function main() {
       herbCount++
     } else if (pathname.startsWith('/compounds/')) {
       compoundCount++
-    } else if (pathname.startsWith('/blog/')) {
-      blogCount++
+    } else if (pathname.startsWith('/articles/')) {
+      articleCount++
     } else if (pathname.startsWith('/guides/')) {
       guideCount++
     }
@@ -126,7 +126,7 @@ function main() {
   }
 
   // Asserts
-  console.log(`[validate-sitemap] Category counts: herbs=${herbCount}, compounds=${compoundCount}, blog=${blogCount}, guides=${guideCount}`)
+  console.log(`[validate-sitemap] Category counts: herbs=${herbCount}, compounds=${compoundCount}, articles=${articleCount}, guides=${guideCount}`)
 
   if (herbCount < 280) {
     errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 280).`)

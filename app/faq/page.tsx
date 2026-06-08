@@ -165,12 +165,12 @@ export default function FaqPage() {
             </Link>
 
             <Link
-              href='/blog'
+              href='/articles'
               className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
             >
-              <p className='text-sm font-semibold text-ink'>Blog</p>
+              <p className='text-sm font-semibold text-ink'>Articles</p>
               <p className='mt-1 text-sm leading-6 text-muted'>
-                Read explainers, comparisons, and practical notes.
+                Research notes, evidence reviews, and practical notes.
               </p>
             </Link>
           </div>

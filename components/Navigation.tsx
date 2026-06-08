@@ -8,10 +8,11 @@ import { SearchModal } from './SearchModal'
 
 const desktopLinks = [
   { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Articles' },
-  { href: '/compare', label: 'Comparisons' },
-  { href: '/goals', label: 'Goal Guides' },
-  { href: '/about', label: 'About' },
+  { href: '/herbs', label: 'Database' },
+  { href: '/compounds', label: 'Compounds' },
+  { href: '/guides', label: 'Guides' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/safety-checker', label: 'Safety' },
 ]
 
 function openPagefindSearch() {
@@ -53,7 +54,8 @@ export function Navigation() {
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
-    if (href === '/blog') return pathname === '/blog' || pathname.startsWith('/blog/') || pathname.startsWith('/articles/')
+    if (href === '/articles') return pathname === '/articles' || pathname.startsWith('/articles/') || pathname === '/learn' || pathname.startsWith('/learn/') || pathname === '/research-notes' || pathname.startsWith('/research-notes/') || pathname === '/blog' || pathname.startsWith('/blog/')
+    if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/')
     return pathname === href || pathname.startsWith(href + '/')
   }
 

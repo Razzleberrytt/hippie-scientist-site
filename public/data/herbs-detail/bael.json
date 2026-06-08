@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "23089553",
+      "title": "Aegle marmelos (L.) Correa (Bael) and its phytochemicals in the treatment and prevention of cancer",
+      "authors": "Baliga MS et al.",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23089553/"
+    },
+    {
+      "pubmedId": "37026028",
+      "title": "Phytochemical and biological review of Aegle marmelos Linn",
+      "authors": "Monika S et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37026028/"
+    },
+    {
+      "pubmedId": "29615046",
+      "title": "Phytochemical composition, antilipidemic and antihypercholestrolemic perspectives of Bael leaf extracts",
+      "authors": "Asghar N et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29615046/"
+    }
+  ]
 }

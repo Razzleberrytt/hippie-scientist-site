@@ -55,7 +55,7 @@ export function EvidenceBadge({ label, className = '' }: EvidenceBadgeProps) {
   )
 }
 
-export function getEvidenceBadges(record: any): string[] {
+export function getEvidenceBadges(record: Record<string, unknown>): string[] {
   const badges = new Set<string>()
   const label = getEvidenceLabel(record)
 
@@ -74,7 +74,7 @@ export function EvidenceBadgeGroup({
   compact = false,
   className = '',
 }: {
-  record: any
+  record: Record<string, unknown>
   compact?: boolean
   className?: string
 }) {

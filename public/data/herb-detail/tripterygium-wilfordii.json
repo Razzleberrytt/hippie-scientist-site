@@ -116,5 +116,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "37062220",
+      "title": "A comprehensive review on celastrol, triptolide and triptonide: Insights on their pharmacological activity, toxicity, combination therapy, new dosage form and novel drug delivery routes",
+      "authors": "Song J et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37062220/"
+    },
+    {
+      "pubmedId": "39368758",
+      "title": "Exploring the liver toxicity mechanism of Tripterygium wilfordii extract based on metabolomics, network pharmacological analysis and experimental validation",
+      "authors": "Zhou GL et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39368758/"
+    },
+    {
+      "pubmedId": "38149060",
+      "title": "Mechanistic engineering of celastrol liposomes induces ferroptosis and apoptosis by directly targeting VDAC2 in hepatocellular carcinoma",
+      "authors": "Luo P et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38149060/"
+    }
+  ]
 }

@@ -103,5 +103,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "29698776",
+      "title": "Aloysia citrodora Paláu (Lemon verbena): A review of phytochemistry and pharmacology",
+      "authors": "Bahramsoltani R et al.",
+      "year": 2018,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/29698776/"
+    },
+    {
+      "pubmedId": "35620220",
+      "title": "Anaesthesia of decapod crustaceans",
+      "authors": "de Souza Valente C et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35620220/"
+    },
+    {
+      "pubmedId": "39286661",
+      "title": "Effectiveness of Lemon Verbena (Cymbopogon citratus) in Oral Candidiasis: A Systematic Review",
+      "authors": "Cuenca-León K et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39286661/"
+    }
+  ]
 }

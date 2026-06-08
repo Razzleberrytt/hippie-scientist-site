@@ -18,7 +18,7 @@ function title(value: unknown) {
     .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-function safetyRisk(record: any) {
+function safetyRisk(record: Record<string, unknown>) {
   const safety = text([
     record?.safety_level,
     record?.safety,
@@ -30,7 +30,7 @@ function safetyRisk(record: any) {
   return /avoid|unsafe|contraindicat|pregnancy|bleeding|liver|seizure|bipolar|interaction/.test(safety)
 }
 
-export function buildProductRecommendationContext(record: any): ProductRecommendationContext {
+export function buildProductRecommendationContext(record: Record<string, unknown>): ProductRecommendationContext {
   const affiliate = buildAffiliateRoutingDecision(record)
   const research = buildResearchKnowledgeReport(record)
   const semantic = buildSemanticIntelligenceReport(record)
@@ -83,7 +83,7 @@ export function buildProductRecommendationContext(record: any): ProductRecommend
   }
 }
 
-export function buildStackProductRecommendationContext(stack: any) {
+export function buildStackProductRecommendationContext(stack: Record<string, unknown>) {
   const items = [...(stack?.compounds || stack?.stack || [])]
 
   return {
@@ -99,7 +99,7 @@ export function buildStackProductRecommendationContext(stack: any) {
   }
 }
 
-export function buildEvidenceSafeProductCTA(record: any) {
+export function buildEvidenceSafeProductCTA(record: Record<string, unknown>) {
   const context = buildProductRecommendationContext(record)
 
   return {
@@ -110,7 +110,7 @@ export function buildEvidenceSafeProductCTA(record: any) {
   }
 }
 
-export function rankProductRecommendationOpportunities(records: any[] = [], limit = 16) {
+export function rankProductRecommendationOpportunities(records: Record<string, unknown>[] = [], limit = 16) {
   return records
     .map((record) => ({
       record,

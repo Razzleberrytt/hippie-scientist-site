@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "40050867",
+      "title": "Antiviral treatment for viral pneumonia: current drugs and natural compounds",
+      "authors": "Zhang H et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40050867/"
+    },
+    {
+      "pubmedId": "39742094",
+      "title": "Houttuynia cordata-Derived Exosome-Like Nanoparticles Mitigate Colitis in Mice via Inhibition of the NLRP3 Signaling Pathway and Modulation of the Gut Microbiota",
+      "authors": "Li JH et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39742094/"
+    },
+    {
+      "pubmedId": "37901360",
+      "title": "Identifying the Potential of miRNAs in Houttuynia cordata-Derived Exosome-Like Nanoparticles Against Respiratory RNA Viruses",
+      "authors": "Zhu H et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37901360/"
+    }
+  ]
 }

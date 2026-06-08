@@ -100,5 +100,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "38326604",
+      "title": "Salacia spp.: recent insights on biotechnological interventions and future perspectives",
+      "authors": "Chavan J et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38326604/"
+    },
+    {
+      "pubmedId": "26031882",
+      "title": "Anti-diabetic and Anti-hyperlipidemic Effects and Safety of Salacia reticulata and Related Species",
+      "authors": "Stohs SJ et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26031882/"
+    },
+    {
+      "pubmedId": "25889885",
+      "title": "Salacia reticulata (Kothala himbutu) revisited; a missed opportunity to treat diabetes and obesity?",
+      "authors": "Medagama AB et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25889885/"
+    }
+  ]
 }

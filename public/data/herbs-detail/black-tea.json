@@ -33,5 +33,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "31577095",
+      "title": "Nutraceutical treatment and prevention of benign prostatic hyperplasia and prostate cancer",
+      "authors": "Cicero AFG et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31577095/"
+    },
+    {
+      "pubmedId": "34029903",
+      "title": "Inhibition of α-glucosidases by tea polyphenols in rat intestinal extract and Caco-2 cells grown on Transwell",
+      "authors": "Kan L et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34029903/"
+    },
+    {
+      "pubmedId": "24915350",
+      "title": "Tea and its consumption: benefits and risks",
+      "authors": "Hayat K et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24915350/"
+    }
+  ]
 }

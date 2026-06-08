@@ -31,7 +31,7 @@ async function run() {
 
   const items = posts.map(p => {
     const slug = String(p.slug || "").replace(/^\/+|\/+$/g, "");
-    const url = `/blog/${slug}/`;
+    const url = `/articles/${slug}/`;
     const date = p.date ? `<time datetime="${esc(p.date)}">${esc(p.date)}</time>` : "";
     const desc = p.description ? `<div class="desc">${esc(p.description)}</div>` : "";
     return `<li><a href="${esc(url)}">${esc(p.title || slug)}</a> ${date}${desc}</li>`;
@@ -41,7 +41,7 @@ async function run() {
   <footer>
     <nav>
       <a href="/">Home</a> ·
-      <a href="/blog">Blog</a> ·
+      <a href="/articles">Articles</a> ·
       <a href="/#/about">About</a> ·
       <a href="/privacy-policy">Privacy</a> ·
       <a href="/disclaimer">Disclaimer</a> ·
@@ -57,7 +57,7 @@ async function run() {
   <title>Blog — The Hippie Scientist</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://thehippiescientist.net/blog/" />
+  <link rel="canonical" href="https://thehippiescientist.net/articles/" />
   <style>
     body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
     h1 { font-size: 1.75rem; margin-bottom: 1rem; }

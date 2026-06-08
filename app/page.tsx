@@ -12,8 +12,8 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default async function Page() {
-  let featuredHerbs: any[] = []
-  let featuredCompounds: any[] = []
+  let featuredHerbs: Record<string, unknown>[] = []
+  let featuredCompounds: Record<string, unknown>[] = []
 
   try {
     const [herbs, compounds] = await Promise.all([
@@ -26,19 +26,19 @@ export default async function Page() {
     const popularCompSlugs = ['magnesium-glycinate', 'melatonin', 'l-theanine']
 
     featuredHerbs = popularHerbSlugs
-      .map(slug => herbs.find((item: any) => item.slug === slug))
-      .filter((item: any): item is any => Boolean(item) && getRuntimeVisibility(item).canFeature)
+      .map(slug => herbs.find((item: Record<string, unknown>) => item.slug === slug))
+      .filter((item: Record<string, unknown>): item is any => Boolean(item) && getRuntimeVisibility(item).canFeature)
 
     featuredCompounds = popularCompSlugs
-      .map(slug => compounds.find((item: any) => item.slug === slug))
-      .filter((item: any): item is any => Boolean(item) && getRuntimeVisibility(item).canFeature)
+      .map(slug => compounds.find((item: Record<string, unknown>) => item.slug === slug))
+      .filter((item: Record<string, unknown>): item is any => Boolean(item) && getRuntimeVisibility(item).canFeature)
 
     // Fallback to any canFeature if curated missing (should not happen)
     if (featuredHerbs.length === 0) {
-      featuredHerbs = herbs.filter((item: any) => getRuntimeVisibility(item).canFeature).slice(0, 3)
+      featuredHerbs = herbs.filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canFeature).slice(0, 3)
     }
     if (featuredCompounds.length === 0) {
-      featuredCompounds = compounds.filter((item: any) => getRuntimeVisibility(item).canFeature).slice(0, 3)
+      featuredCompounds = compounds.filter((item: Record<string, unknown>) => getRuntimeVisibility(item).canFeature).slice(0, 3)
     }
   } catch (e) {
     console.error('[homepage] Data load failed:', e)

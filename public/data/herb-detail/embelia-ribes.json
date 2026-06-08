@@ -98,5 +98,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "27984799",
+      "title": "Antidiabetic activity of Embelia ribes, embelin and its derivatives: A systematic review and meta-analysis",
+      "authors": "Durg S et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27984799/"
+    },
+    {
+      "pubmedId": "35883850",
+      "title": "Reviewing the Traditional/Modern Uses, Phytochemistry, Essential Oils/Extracts and Pharmacology of Embelia ribes Burm",
+      "authors": "Sharma V et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35883850/"
+    },
+    {
+      "pubmedId": "28289385",
+      "title": "Plant Derived Phytocompound, Embelin in CNS Disorders: A Systematic Review",
+      "authors": "Kundap UP et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28289385/"
+    }
+  ]
 }

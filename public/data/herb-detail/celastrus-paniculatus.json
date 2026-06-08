@@ -120,5 +120,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "34529902",
+      "title": "Phytochemistry and pharmacology of Celastrus paniculatus Wild.: a nootropic drug",
+      "authors": "Aleem M et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34529902/"
+    },
+    {
+      "pubmedId": "35005853",
+      "title": "Neuroprotective potential of Celastrus paniculatus seeds against common neurological ailments: a narrative review",
+      "authors": "Sankaramourthy D et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35005853/"
+    },
+    {
+      "pubmedId": "35199395",
+      "title": "An extensive review on phytochemistry and pharmacological activities of Indian medicinal plant Celastrus paniculatus Willd",
+      "authors": "Nagpal K et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35199395/"
+    }
+  ]
 }

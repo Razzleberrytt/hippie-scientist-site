@@ -100,5 +100,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "39666848",
+      "title": "Gymnema",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39666848/"
+    },
+    {
+      "pubmedId": "23472485",
+      "title": "Adverse effects of herbal medicines: an overview of systematic reviews",
+      "authors": "Posadzki P et al.",
+      "year": 2013,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23472485/"
+    },
+    {
+      "pubmedId": "34467577",
+      "title": "The effect of Gymnema sylvestre supplementation on glycemic control in type 2 diabetes patients: A systematic review and meta-analysis",
+      "authors": "Devangan S et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34467577/"
+    }
+  ]
 }

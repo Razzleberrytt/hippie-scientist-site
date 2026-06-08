@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "40986632",
+      "title": "A Canadian Consensus on Androgenetic Alopecia: Approach and Management",
+      "authors": "Landells I et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40986632/"
+    },
+    {
+      "pubmedId": "39312451",
+      "title": "Discovery of Natural Products for Cancer Prevention",
+      "authors": "Blanco Carcache PJ et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39312451/"
+    },
+    {
+      "pubmedId": "39170416",
+      "title": "Mangosteen extract reduces the bacterial load of eggshell and improves egg quality",
+      "authors": "Zhu J et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39170416/"
+    }
+  ]
 }

@@ -109,5 +109,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "36650621",
+      "title": "Herb-Drug Interactions and Their Impact on Pharmacokinetics: An Update",
+      "authors": "Cheng W et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36650621/"
+    },
+    {
+      "pubmedId": "28833680",
+      "title": "Toxicological Effects of Glycyrrhiza glabra (Licorice): A Review",
+      "authors": "Nazari S et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28833680/"
+    },
+    {
+      "pubmedId": "18446848",
+      "title": "Review of pharmacological effects of Glycyrrhiza sp. and its bioactive compounds",
+      "authors": "Asl MN et al.",
+      "year": 2008,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18446848/"
+    }
+  ]
 }

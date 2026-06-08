@@ -7,7 +7,7 @@ export type SemanticTrustBadge = {
   tone: 'clinical' | 'mechanistic' | 'caution' | 'traditional' | 'emerging' | 'neutral'
 }
 
-function joined(record: any): string {
+function joined(record: Record<string, unknown>): string {
   return [
     record?.evidence_tier,
     record?.evidenceTier,
@@ -34,7 +34,7 @@ function joined(record: any): string {
     .toLowerCase()
 }
 
-function hasAny(record: any, fields: string[]): boolean {
+function hasAny(record: Record<string, unknown>, fields: string[]): boolean {
   return fields.some(field => list(record?.[field]).map(text).some(Boolean))
 }
 
@@ -42,7 +42,7 @@ function badge(label: string, description: string, tone: SemanticTrustBadge['ton
   return { label, description, tone }
 }
 
-export function getSemanticTrustBadges(record: any, limit = 5): SemanticTrustBadge[] {
+export function getSemanticTrustBadges(record: Record<string, unknown>, limit = 5): SemanticTrustBadge[] {
   const source = joined(record)
   const badges: SemanticTrustBadge[] = []
 
@@ -88,11 +88,11 @@ export function getSemanticTrustBadges(record: any, limit = 5): SemanticTrustBad
     .slice(0, Math.max(0, limit))
 }
 
-export function getSemanticTrustLabels(record: any, limit = 5): string[] {
+export function getSemanticTrustLabels(record: Record<string, unknown>, limit = 5): string[] {
   return unique(getSemanticTrustBadges(record, limit).map(item => item.label))
 }
 
-export function getEvidenceMaturity(record: any): 'mature' | 'moderate' | 'exploratory' {
+export function getEvidenceMaturity(record: Record<string, unknown>): 'mature' | 'moderate' | 'exploratory' {
   const source = joined(record)
 
   if (hasHumanEvidence(record) && /\b(strong|high|robust|clinical|rct|randomi[sz]ed|meta|systematic|grade\s*a|tier\s*a)\b/.test(source)) {
@@ -106,7 +106,7 @@ export function getEvidenceMaturity(record: any): 'mature' | 'moderate' | 'explo
   return 'exploratory'
 }
 
-export function getProfileCompleteness(record: any): 'complete' | 'developing' | 'sparse' {
+export function getProfileCompleteness(record: Record<string, unknown>): 'complete' | 'developing' | 'sparse' {
   const filled = [
     record?.summary || record?.description,
     record?.evidence_tier || record?.evidenceTier,
@@ -124,7 +124,7 @@ export function getProfileCompleteness(record: any): 'complete' | 'developing' |
   return 'sparse'
 }
 
-export function getMechanismDepth(record: any): 'deep' | 'mapped' | 'light' {
+export function getMechanismDepth(record: Record<string, unknown>): 'deep' | 'mapped' | 'light' {
   const mechanisms = unique([...list(record?.mechanisms), ...list(record?.primary_mechanisms), ...list(record?.pathways)].map(text).filter(Boolean))
 
   if (mechanisms.length >= 5) return 'deep'

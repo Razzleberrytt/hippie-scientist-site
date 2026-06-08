@@ -103,5 +103,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "38990057",
+      "title": "Plumbagin ameliorates LPS-induced acute lung injury by regulating PI3K/AKT/mTOR and Keap1-Nrf2/HO-1 signalling pathways",
+      "authors": "Liu Z et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38990057/"
+    },
+    {
+      "pubmedId": "38232876",
+      "title": "Purification and structural characterization of two polysaccharides with anti-inflammatory activities from Plumbago zeylanica L",
+      "authors": "Zhang X et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38232876/"
+    },
+    {
+      "pubmedId": "39616734",
+      "title": "Plumbagin alleviates muscle atrophy in female mice through inhibiting the DANCR/NF-κB axis",
+      "authors": "Liu Y et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39616734/"
+    }
+  ]
 }

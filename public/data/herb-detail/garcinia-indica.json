@@ -109,5 +109,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "22719626",
+      "title": "(1S,5R,7R,30S)-14-De-oxy-isogarcinol",
+      "authors": "Kaur R et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22719626/"
+    },
+    {
+      "pubmedId": "34959738",
+      "title": "Pharmacological Activity of Garcinia indica (Kokum): An Updated Review",
+      "authors": "Lim SH et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34959738/"
+    },
+    {
+      "pubmedId": "35933691",
+      "title": "Bioactive compounds, bio-functional properties, and food applications of Garcinia indica: A review",
+      "authors": "Desai S et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35933691/"
+    }
+  ]
 }

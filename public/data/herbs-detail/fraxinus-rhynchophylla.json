@@ -29,5 +29,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38471319",
+      "title": "Esculin inhibits hepatic stellate cell activation and CCl(4)-induced liver fibrosis by activating the Nrf2/GPX4 signaling pathway",
+      "authors": "Xu S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38471319/"
+    },
+    {
+      "pubmedId": "34808701",
+      "title": "Esculetin: A review of its pharmacology and pharmacokinetics",
+      "authors": "Zhang L et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34808701/"
+    },
+    {
+      "pubmedId": "38561058",
+      "title": "Esculin induces endoplasmic reticulum stress and drives apoptosis and ferroptosis in colorectal cancer via PERK regulating eIF2α/CHOP and Nrf2/HO-1 cascades",
+      "authors": "Ji X et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38561058/"
+    }
+  ]
 }

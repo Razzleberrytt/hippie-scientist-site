@@ -117,5 +117,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "28762712",
+      "title": "Common Herbal Dietary Supplement-Drug Interactions",
+      "authors": "Asher GN et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+    },
+    {
+      "pubmedId": "27671811",
+      "title": "Berberine and Its Role in Chronic Disease",
+      "authors": "Cicero AF et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/"
+    },
+    {
+      "pubmedId": "33242239",
+      "title": "Berberine",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33242239/"
+    }
+  ]
 }

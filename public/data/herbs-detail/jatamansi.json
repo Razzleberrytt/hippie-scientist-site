@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "38318825",
+      "title": "Valeriana jatamansi: Bioactive Compounds and their Medicinal Uses",
+      "authors": "Maurya AK et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38318825/"
+    },
+    {
+      "pubmedId": "38042505",
+      "title": "Nardostachys jatamansi: Phytochemistry, ethnomedicinal uses, and pharmacological activities: A comprehensive review",
+      "authors": "Pathak S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38042505/"
+    },
+    {
+      "pubmedId": "39447789",
+      "title": "Endoperoxidases in biosynthesis of endoperoxide bonds",
+      "authors": "Zhang S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39447789/"
+    }
+  ]
 }

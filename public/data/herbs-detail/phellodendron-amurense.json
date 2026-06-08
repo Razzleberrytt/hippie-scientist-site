@@ -30,5 +30,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "27671811",
+      "title": "Berberine and Its Role in Chronic Disease",
+      "authors": "Cicero AF et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/"
+    },
+    {
+      "pubmedId": "39612339",
+      "title": "Convergent evolution of berberine biosynthesis",
+      "authors": "Xu Z et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39612339/"
+    },
+    {
+      "pubmedId": "38465436",
+      "title": "Safety Issues of Herb-Warfarin Interactions",
+      "authors": "Hazra S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38465436/"
+    }
+  ]
 }

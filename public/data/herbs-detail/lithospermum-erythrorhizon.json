@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "26448818",
+      "title": "Anti-Aging Potential of Phytoextract Loaded-Pharmaceutical Creams for Human Skin Cell Longetivity",
+      "authors": "Jadoon S et al.",
+      "year": 2015,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26448818/"
+    },
+    {
+      "pubmedId": "31275019",
+      "title": "Lithospermum erythrorhizon cell cultures: Present and future aspects",
+      "authors": "Yazaki K et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31275019/"
+    },
+    {
+      "pubmedId": "35620294",
+      "title": "Evidence and Potential Mechanism of Action of Lithospermum erythrorhizon and Its Active Components for Psoriasis",
+      "authors": "Wang J et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35620294/"
+    }
+  ]
 }

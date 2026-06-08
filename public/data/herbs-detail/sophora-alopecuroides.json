@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "31442619",
+      "title": "Sophora alopecuroides L.: An ethnopharmacological, phytochemical, and pharmacological review",
+      "authors": "Wang R et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31442619/"
+    },
+    {
+      "pubmedId": "35433636",
+      "title": "Research Advances on Matrine",
+      "authors": "Sun XY et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35433636/"
+    },
+    {
+      "pubmedId": "38746009",
+      "title": "A review on the pharmacology, pharmacokinetics and toxicity of sophocarpine",
+      "authors": "Wei S et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38746009/"
+    }
+  ]
 }

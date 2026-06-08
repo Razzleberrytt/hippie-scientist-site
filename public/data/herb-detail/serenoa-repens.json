@@ -115,5 +115,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "37151166",
+      "title": "Natural Compounds Used for Treating Hair Loss",
+      "authors": "Gasmi A et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37151166/"
+    },
+    {
+      "pubmedId": "30980598",
+      "title": "An overview of herbal alternatives in androgenetic alopecia",
+      "authors": "Dhariwala MY et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30980598/"
+    },
+    {
+      "pubmedId": "32066284",
+      "title": "A review of the treatment of male pattern hair loss",
+      "authors": "York K et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32066284/"
+    }
+  ]
 }

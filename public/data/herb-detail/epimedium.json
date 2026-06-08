@@ -107,5 +107,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "27677719",
+      "title": "Botanicals and Their Bioactive Phytochemicals for Women's Health",
+      "authors": "Dietz BM et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27677719/"
+    },
+    {
+      "pubmedId": "35676785",
+      "title": "Anti-inflammatory and immunoregulatory effects of icariin and icaritin",
+      "authors": "Bi Z et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35676785/"
+    },
+    {
+      "pubmedId": "39026367",
+      "title": "Adipose-derived stem cell exosomes loaded with icariin alleviates rheumatoid arthritis by modulating macrophage polarization in rats",
+      "authors": "Yan Q et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39026367/"
+    }
+  ]
 }

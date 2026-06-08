@@ -38,5 +38,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "32335802",
+      "title": "Biological properties and clinical applications of berberine",
+      "authors": "Song D et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32335802/"
+    },
+    {
+      "pubmedId": "30637820",
+      "title": "Berberine and barberry (Berberis vulgaris): A clinical review",
+      "authors": "Imenshahidi M et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30637820/"
+    },
+    {
+      "pubmedId": "27671811",
+      "title": "Berberine and Its Role in Chronic Disease",
+      "authors": "Cicero AF et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27671811/"
+    }
+  ]
 }

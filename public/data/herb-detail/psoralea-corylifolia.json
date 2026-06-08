@@ -120,5 +120,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "36176207",
+      "title": "Applications of bakuchiol in dermatology: Systematic review of the literature",
+      "authors": "Puyana C et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36176207/"
+    },
+    {
+      "pubmedId": "24471735",
+      "title": "Bakuchiol: a retinol-like functional compound revealed by gene expression profiling and clinically proven to have anti-aging effects",
+      "authors": "Chaudhuri RK et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24471735/"
+    },
+    {
+      "pubmedId": "22772918",
+      "title": "Isobavachalcone: an overview",
+      "authors": "Kuete V et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22772918/"
+    }
+  ]
 }

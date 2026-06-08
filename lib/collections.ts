@@ -102,7 +102,7 @@ export const scientificCollections: ScientificCollection[] = [
   },
 ]
 
-function asArray(records: unknown): any[] {
+function asArray(records: unknown): Record<string, unknown>[] {
   return Array.isArray(records) ? records.filter(Boolean) : []
 }
 
@@ -110,7 +110,7 @@ function safeLower(value: unknown) {
   return asLowerText(value)
 }
 
-function signalValues(record: any) {
+function signalValues(record: Record<string, unknown>) {
   if (!record || typeof record !== 'object') return []
 
   return unique([
@@ -133,7 +133,7 @@ function signalValues(record: any) {
   ].filter(Boolean))
 }
 
-function keywordMatch(record: any, keywords: string[]) {
+function keywordMatch(record: Record<string, unknown>, keywords: string[]) {
   const normalizedSignals = signalValues(record).map(safeLower).join(' ')
   if (!normalizedSignals) return false
 
@@ -143,7 +143,7 @@ function keywordMatch(record: any, keywords: string[]) {
   })
 }
 
-function evidenceMatches(record: any, requirement?: CollectionEvidence) {
+function evidenceMatches(record: Record<string, unknown>, requirement?: CollectionEvidence) {
   if (!requirement) return true
   if (!record || typeof record !== 'object') return false
 
@@ -202,7 +202,7 @@ export function buildCollectionMetadata(collection: unknown) {
   return buildPageMetadata({ title: `${title} | Scientific Collections`, description, path })
 }
 
-export function isCollectionMatch(record: any, collection: unknown) {
+export function isCollectionMatch(record: Record<string, unknown>, collection: unknown) {
   const normalized = normalizeCollection(collection)
   if (!normalized || !record || typeof record !== 'object') return false
   if (!text(record.slug)) return false
@@ -222,7 +222,7 @@ export function findCollectionBySlug(slug: unknown) {
   return scientificCollections.find(collection => collection.slug === value) || null
 }
 
-export function getFeaturedCollections(record: any) {
+export function getFeaturedCollections(record: Record<string, unknown>) {
   return scientificCollections
     .filter(collection => isCollectionMatch(record, collection))
     .map(collection => ({
@@ -233,7 +233,7 @@ export function getFeaturedCollections(record: any) {
     }))
 }
 
-export function getCollectionRecordSignals(record: any, collection: ScientificCollection) {
+export function getCollectionRecordSignals(record: Record<string, unknown>, collection: ScientificCollection) {
   const keywords = unique(collection.kinds.flatMap(kind => COLLECTION_KEYWORDS[kind] || []))
   const signals = signalValues(record)
     .filter(value => keywordMatch({ summary: value }, keywords))
@@ -245,7 +245,7 @@ export function getCollectionRecordSignals(record: any, collection: ScientificCo
   return unique([...signals, ...pathways]).slice(0, 4)
 }
 
-export function getCollectionCard(record: any, type: 'herb' | 'compound', collection: ScientificCollection) {
+export function getCollectionCard(record: Record<string, unknown>, type: 'herb' | 'compound', collection: ScientificCollection) {
   const slug = text(record?.slug)
   const label = formatDisplayLabel(record?.displayName || record?.name || slug)
 

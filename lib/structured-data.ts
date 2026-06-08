@@ -1,4 +1,4 @@
-export function buildMedicalWebPageSchema(entity: any, type: 'herb' | 'compound') {
+export function buildMedicalWebPageSchema(entity: Record<string, unknown>, type: 'herb' | 'compound') {
   const url = `https://thehippiescientist.net/${type === 'herb' ? 'herbs' : 'compounds'}/${entity.slug}/`
   const description = entity.description || entity.summary || `${entity.name} profile – mechanisms, safety, evidence level, and practical context.`
 
@@ -30,8 +30,8 @@ export function buildMedicalWebPageSchema(entity: any, type: 'herb' | 'compound'
   }
 }
 
-export function buildArticleSchema(post: any) {
-  const url = `https://thehippiescientist.net/blog/${post.slug}/`
+export function buildArticleSchema(post: Record<string, unknown>) {
+  const url = `https://thehippiescientist.net/articles/${post.slug}/`
   const datePublished = post.date ? new Date(post.date).toISOString() : new Date().toISOString()
   const dateModified = post.lastModified || post.updated || post.date 
     ? new Date(post.lastModified || post.updated || post.date).toISOString() 

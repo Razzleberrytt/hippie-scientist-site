@@ -1,0 +1,255 @@
+{
+  "slug": "magnesium-for-sleep-and-anxiety",
+  "title": "Magnesium for Sleep & Anxiety",
+  "subtitle": "Forms, Evidence, and Practical Dosing Guide",
+  "category": "Essential Mineral",
+  "heroImage": "/images/guides/magnesium-for-sleep-and-anxiety.svg",
+  "lastUpdated": "2026-06-07",
+  "readingTime": 6,
+  "intro": "Magnesium is an essential mineral involved in over 300 enzymatic reactions, including those governing neuromuscular relaxation, NMDA receptor activity, and GABA transmission. Widespread dietary insufficiency in Western populations makes it one of the most relevant nutritional interventions for sleep quality, muscle tension, and mild anxiety — with a safety profile that makes it appropriate for most healthy adults.",
+  "sections": [
+    {
+      "id": "why-magnesium",
+      "title": "Why Magnesium for Sleep and Anxiety?",
+      "body": "Magnesium acts as a natural NMDA receptor antagonist, reducing excitatory glutamate activity in the central nervous system. It also potentiates GABA-A receptor function — the primary inhibitory neurotransmitter system that benzodiazepines target pharmaceutically. These mechanisms collectively produce a calming, relaxant effect on both physical muscle tissue and mental arousal states.",
+      "subsections": [
+        {
+          "title": "NMDA Receptor Antagonism",
+          "body": "Magnesium blocks NMDA glutamate receptors at resting membrane potential, acting as a voltage-gated physiological brake on excitatory neurotransmission. Deficiency removes this brake, increasing baseline neuronal excitability and contributing to hyperarousal, anxiety, and sleep disturbances."
+        },
+        {
+          "title": "GABA Potentiation",
+          "body": "Magnesium increases GABA-A receptor sensitivity and may modulate GABAergic tone, contributing to its anxiolytic and sleep-promoting effects. Unlike pharmaceutical GABA modulators, this effect is gentle and does not produce tolerance or rebound anxiety."
+        }
+      ]
+    },
+    {
+      "id": "forms",
+      "title": "Choosing the Right Magnesium Form",
+      "body": "Not all magnesium forms are equivalent in bioavailability or organ target. The form determines absorption efficiency, GI tolerance, and whether the magnesium reaches neural tissue vs. primarily acting peripherally.",
+      "subsections": [
+        {
+          "title": "Magnesium Glycinate",
+          "body": "The gold standard for sleep and anxiety. Magnesium bound to glycine — an inhibitory amino acid with its own calming properties and GABA-A agonist activity. High bioavailability, gentle on the stomach, and the most commonly recommended form for neurological goals."
+        },
+        {
+          "title": "Magnesium L-Threonate (Magtein)",
+          "body": "The only form demonstrated to significantly increase brain magnesium concentrations in animal studies. Developed at MIT specifically for cognitive and neurological applications. Human data is limited but includes a placebo-controlled trial showing improvements in cognitive flexibility and short-term memory."
+        },
+        {
+          "title": "Magnesium Oxide",
+          "body": "The most common and cheapest form. Only ~4% bioavailability — most passes through the GI tract as a laxative. Not recommended for sleep or anxiety goals despite being ubiquitous in mass-market supplements."
+        }
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "Clinical Evidence",
+      "body": "Evidence for magnesium in sleep and anxiety is moderate-strength and constrained largely to populations with baseline magnesium insufficiency, which may include a majority of Western adults consuming typical diets.",
+      "subsections": [
+        {
+          "title": "Sleep Quality",
+          "body": "A 2012 RCT in elderly adults with insomnia (n=46) found 500mg magnesium oxide daily for 8 weeks significantly improved ISI (Insomnia Severity Index), sleep efficiency, sleep onset latency, and serum cortisol vs. placebo. Effects were most pronounced in those with baseline deficiency."
+        },
+        {
+          "title": "Anxiety and Stress",
+          "body": "A 2017 systematic review (Boyle et al.) of 18 studies found evidence supporting magnesium supplementation for mild anxiety, particularly in mildly deficient populations. Effect sizes were modest; evidence quality was rated as 'limited to moderate.'"
+        }
+      ]
+    },
+    {
+      "id": "who-should-consider",
+      "title": "Who Should Consider Magnesium?",
+      "body": "Magnesium supplementation is most clearly beneficial for people who are deficient or insufficient — a category that includes an estimated 50–60% of US adults based on dietary surveys. People with symptoms of physical tension, muscle cramps, poor sleep, irritability, or anxiety alongside a typical Western diet are reasonable candidates.",
+      "blocks": [
+        {
+          "type": "tip",
+          "text": "Magnesium glycinate at 200–400mg elemental magnesium (not mg of the compound weight) taken 30–60 minutes before bed is the most common starting protocol. Glycine itself has independent sleep-promoting effects."
+        },
+        {
+          "type": "warning",
+          "text": "People with kidney disease or renal impairment should not supplement magnesium without medical supervision — impaired kidneys cannot adequately excrete excess magnesium, creating risk of hypermagnesemia."
+        }
+      ]
+    }
+  ],
+  "evidenceHighlights": [
+    {
+      "claim": "Improves sleep quality and onset latency in adults with insomnia",
+      "level": "moderate",
+      "context": "Multiple RCTs; effects clearest in deficient or elderly populations"
+    },
+    {
+      "claim": "Reduces mild anxiety in mildly deficient adults",
+      "level": "moderate",
+      "context": "Systematic review of 18 studies; modest effect sizes"
+    },
+    {
+      "claim": "Blocks NMDA receptors and potentiates GABA-A — well-characterized mechanism",
+      "level": "strong",
+      "context": "Preclinical mechanism evidence is robust; underpins clinical rationale"
+    },
+    {
+      "claim": "Magnesium L-threonate increases brain magnesium concentrations",
+      "level": "preliminary",
+      "context": "Animal studies and limited human cognition RCT (Akhavan et al., 2022)"
+    }
+  ],
+  "dosageGuidelines": [
+    {
+      "form": "Magnesium Glycinate",
+      "range": "200–400 mg elemental magnesium/day",
+      "notes": "Best form for sleep and anxiety; take 30–60 min before bed",
+      "bioavailabilityNote": "High bioavailability; gentle on GI tract"
+    },
+    {
+      "form": "Magnesium L-Threonate (Magtein)",
+      "range": "1500–2000 mg/day (provides ~140mg elemental Mg)",
+      "notes": "Higher cost; use when targeting brain-specific magnesium for cognitive goals",
+      "bioavailabilityNote": "Only form shown to cross the blood-brain barrier efficiently"
+    },
+    {
+      "form": "Magnesium Malate",
+      "range": "300–500 mg elemental magnesium/day",
+      "notes": "Good bioavailability; malate may support energy metabolism — better for daytime use",
+      "bioavailabilityNote": "Intermediate bioavailability; less sedating than glycinate"
+    }
+  ],
+  "safetyNotes": [
+    {
+      "severity": "caution",
+      "text": "Contraindicated in kidney disease or renal impairment. Kidneys regulate magnesium excretion, and impaired renal function can cause dangerous magnesium accumulation (hypermagnesemia)."
+    },
+    {
+      "severity": "info",
+      "text": "GI side effects (loose stools, cramping) are dose-dependent and more common with poorly absorbed forms like oxide or citrate. Glycinate and threonate have the best GI tolerance profiles."
+    },
+    {
+      "severity": "info",
+      "text": "Magnesium can affect absorption of some medications including bisphosphonates (osteoporosis drugs), certain antibiotics (fluoroquinolones, tetracyclines), and diuretics. Space timing appropriately and check with a pharmacist if you take these medications."
+    }
+  ],
+  "relatedLinks": [
+    {
+      "href": "/compounds/magnesium",
+      "label": "Magnesium Compound Profile",
+      "type": "compound",
+      "description": "Full biochemistry, deficiency signs, and evidence scoring for magnesium."
+    },
+    {
+      "href": "/goals/sleep",
+      "label": "Sleep Support Goal",
+      "type": "goal",
+      "description": "Evidence-ranked overview of sleep onset, quality, and architecture support options."
+    },
+    {
+      "href": "/guides/sleep-herbs-vs-melatonin",
+      "label": "Sleep Herbs vs Melatonin",
+      "type": "guide",
+      "description": "Understand when to use melatonin vs. calming botanicals and minerals for sleep."
+    },
+    {
+      "href": "/guides/magnesium-vs-melatonin",
+      "label": "Magnesium vs Melatonin",
+      "type": "guide",
+      "description": "Detailed comparison of the two most common OTC nighttime options."
+    },
+    {
+      "href": "/compare/magnesium-glycinate-vs-l-threonate",
+      "label": "Glycinate vs L-Threonate",
+      "type": "compare",
+      "description": "Compare the two premium magnesium forms for sleep, anxiety, and cognition."
+    }
+  ],
+  "seo": {
+    "title": "Magnesium for Sleep & Anxiety — Forms, Evidence, and Dosing Guide",
+    "description": "Complete guide to using magnesium for sleep and anxiety: which form to choose (glycinate vs l-threonate vs oxide), what the clinical evidence shows, dosing guidelines, and safety considerations.",
+    "canonical": "/guides/magnesium-for-sleep-and-anxiety"
+  },
+  "options": [
+    {
+      "name": "Pure Encapsulations Magnesium Glycinate",
+      "description": "Magnesium glycinate capsules aimed at sleep, stress, nerves, muscles, and metabolic support.",
+      "form": "capsule",
+      "dosage": "120-240mg elemental magnesium daily",
+      "amazonAsin": "B0058HWV9S",
+      "approxPrice": "$26-30/month",
+      "rating": "4.6/5 (45,000+ reviews)",
+      "whyChosen": "A premium glycinate option with a very large Amazon review base and clean-label positioning. Best for readers who prioritize tolerability and brand reputation over lowest price.",
+      "pros": [
+        "Gentle glycinate form",
+        "Large review base",
+        "Minimalist formula positioning"
+      ],
+      "cons": [
+        "Higher cost per serving",
+        "Lower elemental magnesium per capsule"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B0058HWV9S?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Doctor's Best High Absorption Magnesium",
+      "description": "Chelated magnesium glycinate/lysinate using TRAACS for high absorption.",
+      "form": "capsule",
+      "dosage": "200-400mg elemental magnesium daily",
+      "amazonAsin": "B000BD0RT0",
+      "approxPrice": "$12-22/month",
+      "rating": "4.5/5 (60,000+ reviews)",
+      "whyChosen": "A widely used chelated magnesium option that fits the guide’s preference for better-tolerated forms. It is one of the best value picks for magnesium glycinate-style supplementation.",
+      "pros": [
+        "Chelated magnesium form",
+        "Excellent value",
+        "Large review base"
+      ],
+      "cons": [
+        "Tablet format can be large",
+        "Some users need lower starting doses"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B000BD0RT0?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "Nature Made Magnesium Glycinate 200mg",
+      "description": "High-absorption magnesium glycinate capsules for muscle, nerve, heart, and bone support.",
+      "form": "capsule",
+      "dosage": "200mg elemental magnesium daily",
+      "amazonAsin": "B08XXHCGZT",
+      "approxPrice": "$10-15/month",
+      "rating": "4.6/5 (13,000+ reviews)",
+      "whyChosen": "A mainstream drugstore-tier glycinate option with an easy 200mg serving. Good for readers who want a familiar brand and a conservative starting dose.",
+      "pros": [
+        "Familiar retail brand",
+        "Clear 200mg serving",
+        "Gentle glycinate form"
+      ],
+      "cons": [
+        "Only 30-day bottle in common listing",
+        "Less specialized than practitioner brands"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B08XXHCGZT?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    },
+    {
+      "name": "CGM Labs Magnesium Glycinate with Vitamin B6",
+      "description": "Magnesium glycinate capsules with vitamin B6, positioned for calm, relaxation, and muscle support.",
+      "form": "capsule",
+      "dosage": "Follow label; start with one serving daily",
+      "amazonAsin": "B0DFV5NG8G",
+      "approxPrice": "$14-16/month",
+      "rating": "4.6/5 (29 reviews)",
+      "whyChosen": "Included as a newer budget option with clear Amazon listing details and a low monthly cost. Best for readers comparing simple glycinate products with added B6.",
+      "pros": [
+        "Low monthly price",
+        "Includes vitamin B6",
+        "Third-party lab testing claim"
+      ],
+      "cons": [
+        "Small review base",
+        "Added B6 is unnecessary for some users"
+      ],
+      "amazonUrl": "https://amazon.com/dp/B0DFV5NG8G?tag=razzleberry02-20",
+      "affiliateTag": "razzleberry02-20"
+    }
+  ]
+}

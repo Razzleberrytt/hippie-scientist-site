@@ -24,5 +24,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "28762712",
+      "title": "Common Herbal Dietary Supplement-Drug Interactions",
+      "authors": "Asher GN et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28762712/"
+    },
+    {
+      "pubmedId": "31643260",
+      "title": "Green Tea",
+      "authors": "PubMed indexed authors",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31643260/"
+    },
+    {
+      "pubmedId": "26093535",
+      "title": "Therapeutic effect of high-dose green tea extract on weight reduction: A randomized, double-blind, placebo-controlled clinical trial",
+      "authors": "Chen IJ et al.",
+      "year": 2016,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26093535/"
+    }
+  ]
 }

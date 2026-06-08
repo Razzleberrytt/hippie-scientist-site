@@ -25,5 +25,14 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "21589758",
+      "title": "Variation in gymnemic acid content and non-destructive harvesting of Gymnema sylvestre (Gudmar)",
+      "authors": "Pandey AK et al.",
+      "year": 2010,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21589758/"
+    }
+  ]
 }

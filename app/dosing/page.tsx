@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default async function DosingPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((h: any) => {
+  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
     if (isRestrictedRecord(h)) return false
     try {
       return getRuntimeVisibility(h).canRender
@@ -23,7 +23,7 @@ export default async function DosingPage() {
     }
   })
 
-  const compounds = rawCompounds.filter((c: any) => {
+  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
     if (isRestrictedRecord(c)) return false
     try {
       return getRuntimeVisibility(c).canRender

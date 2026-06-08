@@ -123,5 +123,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "33174095",
+      "title": "Plants Used as Antihypertensive",
+      "authors": "Verma T et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33174095/"
+    },
+    {
+      "pubmedId": "37814683",
+      "title": "Antimicrobial and anti-inflammatory activity of Terminalia arjuna",
+      "authors": "R V et al.",
+      "year": 2023,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37814683/"
+    },
+    {
+      "pubmedId": "24600529",
+      "title": "Terminalia arjuna in Chronic Stable Angina: Systematic Review and Meta-Analysis",
+      "authors": "Kaur N et al.",
+      "year": 2014,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24600529/"
+    }
+  ]
 }

@@ -23,5 +23,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "32918995",
+      "title": "Confirmation of ethnopharmacological anti-inflammatory properties of Ocotea odorifera and determination of its main active compounds",
+      "authors": "de Alcântara BGV et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32918995/"
+    },
+    {
+      "pubmedId": "28407959",
+      "title": "Identification of phenolic compounds and biologically related activities from Ocotea odorifera aqueous extract leaves",
+      "authors": "Gontijo DC et al.",
+      "year": 2017,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28407959/"
+    },
+    {
+      "pubmedId": "36432799",
+      "title": "Exploring Contact Toxicity of Essential Oils against Sitophilus zeamais through a Meta-Analysis Approach",
+      "authors": "Achimón F et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36432799/"
+    }
+  ]
 }

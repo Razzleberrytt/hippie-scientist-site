@@ -101,5 +101,28 @@
   "meta_title": "",
   "meta_description": "",
   "featured": false,
-  "controlled_substance": false
+  "controlled_substance": false,
+  "sources": [
+    {
+      "pubmedId": "16767798",
+      "title": "A review of the bioactivity and potential health benefits of peppermint tea (Mentha piperita L.)",
+      "authors": "McKay DL et al.",
+      "year": 2006,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16767798/"
+    },
+    {
+      "pubmedId": "32173933",
+      "title": "Ethnomedicinal, phytochemical and pharmacological updates on Peppermint (Mentha × piperita L.)-A review",
+      "authors": "Mahendran G et al.",
+      "year": 2020,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32173933/"
+    },
+    {
+      "pubmedId": "21144345",
+      "title": "Mentha piperita (peppermint)",
+      "authors": "Herro E et al.",
+      "year": 2010,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21144345/"
+    }
+  ]
 }

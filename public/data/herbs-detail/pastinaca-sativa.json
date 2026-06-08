@@ -25,5 +25,28 @@
   "traditionalUses": [],
   "evidenceLevel": "",
   "relatedHerbs": [],
-  "region": ""
+  "region": "",
+  "sources": [
+    {
+      "pubmedId": "33833896",
+      "title": "Review of Pharmacological Properties and Chemical Constituents of Pastinaca sativa",
+      "authors": "Kenari HM et al.",
+      "year": 2021,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33833896/"
+    },
+    {
+      "pubmedId": "31173794",
+      "title": "Wild parsnip (Pastinaca sativa)-induced photosensitization",
+      "authors": "Stegelmeier BL et al.",
+      "year": 2019,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31173794/"
+    },
+    {
+      "pubmedId": "39202761",
+      "title": "New Insights Concerning Phytophotodermatitis Induced by Phototoxic Plants",
+      "authors": "Grosu Dumitrescu C et al.",
+      "year": 2024,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39202761/"
+    }
+  ]
 }
