@@ -70,6 +70,7 @@ export default function RotatingHerbHero() {
           className='bg-psychedelic-gradient/30 soft-border-glow relative overflow-hidden rounded-2xl p-4 text-center text-white shadow-lg backdrop-blur-md'
         >
           {imageProps && (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               {...imageProps}
               alt={herbName(herb)}

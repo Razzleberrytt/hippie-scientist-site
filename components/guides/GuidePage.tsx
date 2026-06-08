@@ -207,6 +207,7 @@ export default function GuidePage({ guide }: Props) {
       <section className="overflow-hidden rounded-[2rem] border border-brand-900/10 bg-white/90 shadow-sm">
         {guide.heroImage && (
           <div className="relative h-48 w-full overflow-hidden sm:h-64">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={guide.heroImage}
               alt={guide.title}

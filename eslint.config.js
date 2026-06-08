@@ -1,4 +1,5 @@
 import js from '@eslint/js'
+import nextPlugin from '@next/eslint-plugin-next'
 import tseslint from 'typescript-eslint'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -23,10 +24,13 @@ export default [
   {
     files: ['**/*.{ts,tsx,js,jsx,mjs,cjs}'],
     plugins: {
+      '@next/next': nextPlugin,
       'jsx-a11y': jsxA11y,
       'react-hooks': reactHooks,
     },
     rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs['core-web-vitals'].rules,
       ...jsxA11y.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'jsx-a11y/alt-text': 'off',

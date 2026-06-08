@@ -63,6 +63,7 @@ export default function HeroFeaturedHerb({ fixedId = '' }: Props) {
           className={`pointer-events-none absolute inset-0 -z-10 opacity-70 blur-2xl ${accentGradient}`}
         />
         {imageProps && (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             {...imageProps}
             alt={herbName(herb)}

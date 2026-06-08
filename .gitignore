@@ -21,6 +21,7 @@ public/stats.json
 archive-orphaned-not-for-app/
 src/data/backups/
 *.backup.json
+*.orig
 *.tmp
 *.temp
 *~
