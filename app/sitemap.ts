@@ -196,7 +196,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add compare detail routes (data-driven, for task requirement to cover /compare/:slug)
   const compareFromGen = readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons');
   const compareFromData = readTsStringArray('data/comparisons.ts', 'supplementComparisons')
-    .map((s: Record<string, unknown>) => (typeof s === 'string' ? s : (s && s.slug) || ''))
+    .map((s: string) => s)
     .filter(Boolean);
   Array.from(new Set([...compareFromGen, ...compareFromData])).forEach((slug) => {
     if (slug) sitemapEntries.push(route(`${SITE_URL}/compare/${slug}/`, currentDate, 'monthly', 0.65));

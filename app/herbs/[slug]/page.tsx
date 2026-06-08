@@ -9,6 +9,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 import { normalizeSlug } from '@/lib/slug-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
+import { getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { generateDetailMetadata, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
@@ -317,11 +318,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
     comparisonBySlug,
     _stackBySlug,
     ecosystemContinuityRecords,
+    conditionLinks,
   ] = await Promise.all([
     getBatchedRuntimeRecords('related', [herb], allRecords, 8),
     getBatchedRuntimeRecords('comparison', [herb], allRecords, 8),
     getBatchedRuntimeRecords('stack', [herb], allRecords, 6),
     getEcosystemContinuityRecords(herb, allRecords, 6),
+    getEntityConditionEntries(sourceRecordSlug),
   ])
 
   const relatedCandidates = ((relatedBySlug[sourceRecordSlug] || []) as unknown as RuntimeRecord[])
@@ -459,6 +462,23 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
               >
                 {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {conditionLinks.length > 0 ? (
+        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
+              <Link
+                key={link.slug}
+                href={link.href || `/goals/${link.slug}`}
+                className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+              >
+                {link.label || formatDisplayLabel(link.slug)}
               </Link>
             ))}
           </div>
