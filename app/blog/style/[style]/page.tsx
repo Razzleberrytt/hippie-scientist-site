@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import posts from '../../../../data/blog/posts.json'
+import articles from '../../../../data/articles/articles.json'
 import { ContentIdentityCard } from '@/components/scientific-discovery'
 import {
   BLOG_STYLE_GROUPS,
@@ -16,7 +17,38 @@ import { buildPageMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
-const allPosts: BlogPost[] = posts
+type ArticleIndexRecord = {
+  slug?: string
+  title?: string
+  description?: string
+  date?: string
+  updatedAt?: string | null
+  tags?: string[]
+  category?: string
+  readingTime?: string
+  content?: string
+  profile_status?: string
+  sitemap_included?: boolean
+}
+
+const allPosts: BlogPost[] = [
+  ...(articles as ArticleIndexRecord[]).map((article) => ({
+    slug: article.slug || '',
+    title: article.title || '',
+    excerpt: article.description || '',
+    date: article.date || '',
+    updatedAt: article.updatedAt || undefined,
+    tags: article.tags || [],
+    categories: article.category ? [article.category] : [],
+    readingTime: article.readingTime || '',
+    content: article.content || '',
+    profile_status: article.profile_status,
+    sitemap_included: article.sitemap_included,
+  })),
+  ...(posts as BlogPost[]),
+]
+  .filter((post) => post && post.slug && post.title)
+  .filter((post, index, source) => source.findIndex((candidate) => candidate.slug === post.slug) === index)
 
 type BlogStyleRouteProps = {
   params: Promise<{ style: string }>

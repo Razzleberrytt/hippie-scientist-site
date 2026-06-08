@@ -89,6 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const compoundsData = readJsonArray<SitemapSourceItem>('public/data/compounds.json');
   // Blog posts come from build-blog data pipeline (not the missing blog-manifest); filter sitemap-eligible
   const blogPosts = readJsonArray<SitemapSourceItem>('data/blog/posts.json');
+  const articlesData = readJsonArray<SitemapSourceItem>('data/articles/articles.json');
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
   const goalsData = readJsonArray<SitemapSourceItem>('public/data/goals.json');
   const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
@@ -154,8 +155,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     );
   });
 
+  const articleSlugs = new Set<string>();
+
+  articlesData.forEach((article) => {
+    if (!article.slug) return;
+    const status = (article as Record<string, unknown>).profile_status || '';
+    if ((article as Record<string, unknown>).sitemap_included === false) return;
+    if (/draft|archived/i.test(String(status))) return;
+    articleSlugs.add(article.slug);
+
+    sitemapEntries.push(
+      route(
+        `${SITE_URL}/articles/${article.slug}/`,
+        currentDate,
+        'monthly',
+        0.75,
+        article.updatedAt || article.date || article.lastUpdated,
+      ),
+    );
+  });
+
   blogPosts.forEach((post) => {
     if (!post.slug) return;
+    if (articleSlugs.has(post.slug)) return;
     const status = (post as Record<string, unknown>).profile_status || '';
     if ((post as Record<string, unknown>).sitemap_included === false) return;
     if (/draft|archived/i.test(String(status))) return;

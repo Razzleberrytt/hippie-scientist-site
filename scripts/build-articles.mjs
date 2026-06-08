@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import matter from 'gray-matter'
 import {
   assertUniqueArticleTitles,
   validateArticleQuality,
@@ -117,14 +118,14 @@ const parseFrontmatter = raw => {
 
 const parseFile = (filePath, fileName) => {
   const raw = fs.readFileSync(filePath, 'utf8')
-  const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)/)
-  if (!fmMatch) {
+  const parsed = matter(raw)
+  if (!parsed.data || Object.keys(parsed.data).length === 0) {
     console.warn(`[build-articles] No frontmatter in ${fileName}, skipping.`)
     return null
   }
 
-  const meta = parseFrontmatter(fmMatch[1])
-  const body = (fmMatch[2] || '').trim()
+  const meta = parsed.data
+  const body = (parsed.content || '').trim()
 
   const slug = meta.slug || fileName.replace(/\.(md|mdx)$/i, '').toLowerCase()
   if (!SLUG_PATTERN.test(slug)) {
@@ -164,12 +165,17 @@ const parseFile = (filePath, fileName) => {
     author: stripQuotes(meta.author || 'Will'),
     keywords: Array.isArray(meta.keywords) ? meta.keywords : [],
     featuredImage: stripQuotes(meta.featured_image || meta.featuredImage || ''),
+    category: stripQuotes(meta.category || ''),
+    evidence_grade: stripQuotes(meta.evidence_grade || meta.evidenceGrade || ''),
+    herb: stripQuotes(meta.herb || ''),
+    scientific_name: stripQuotes(meta.scientific_name || meta.scientificName || ''),
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     readingTime,
     content: body,
     references,
     ...(faqs.length ? { faqs } : {}),
     profile_status: stripQuotes(meta.profile_status || 'published'),
+    sitemap_included: meta.sitemap_included === 'false' || meta.sitemap_included === false ? false : true,
     ai_assisted: meta.ai_assisted === 'true' || meta.ai_assisted === true,
   }
 

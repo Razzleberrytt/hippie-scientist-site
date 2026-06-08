@@ -578,22 +578,49 @@ function auditCollectionRoutes({ herbs, compounds, combos }) {
 
 function getBlogEntries() {
   const posts = readJson('data/blog/posts.json')
+  const articles = readJson('data/articles/articles.json')
+  const articleEntries = articles
+    .filter(article => article?.draft !== true)
+    .filter(article => article?.sitemap_included !== false)
+    .filter(article => !/draft|archived/i.test(String(article?.profile_status || '')))
+    .map(article => {
+      const slug = String(article?.slug || '').replace(/^\/+|\/+$/g, '')
+      if (!slug) return null
+      return {
+        route: `/articles/${slug}`,
+        title: `${article?.title || 'Article'} | The Hippie Scientist`,
+        description: clip(article?.description || article?.summary || article?.excerpt || 'Research article.'),
+        lastmod: normalizeDate(article?.updatedAt) || normalizeDate(article?.date),
+      }
+    })
+    .filter(Boolean)
+  const articleRoutes = new Set(articleEntries.map(entry => entry.route))
+  const blogEntries = posts
+    .filter(post => post?.draft !== true)
+    .filter(post => !articleRoutes.has(`/articles/${String(post?.slug || '').replace(/^\/+|\/+$/g, '')}`))
+    .map(post => {
+      const slug = String(post?.slug || '').replace(/^\/+|\/+$/g, '')
+      if (!slug) return null
+      return {
+        route: `/articles/${slug}`,
+        title: `${post?.title || 'Article'} | The Hippie Scientist`,
+        description: clip(post?.summary || post?.description || 'Research notebook entry.'),
+        lastmod: normalizeDate(post?.date),
+      }
+    })
+    .filter(Boolean)
   return dedupe(
-    posts
-      .filter(post => post?.draft !== true)
-      .map(post => {
-        const slug = String(post?.slug || '').replace(/^\/+|\/+$/g, '')
-        return slug ? `/articles/${slug}` : ''
-      })
+    [...articleEntries, ...blogEntries]
+      .map(entry => entry.route)
       .filter(Boolean)
   ).map(route => {
     const slug = route.split('/').pop()
-    const post = posts.find(item => item?.slug === slug)
+    const post = [...articleEntries, ...blogEntries].find(item => item?.route === route)
     return {
       route,
-      title: `${post?.title || 'Article'} | The Hippie Scientist`,
-      description: clip(post?.summary || post?.description || 'Research notebook entry.'),
-      lastmod: normalizeDate(post?.date),
+      title: post?.title || 'Article | The Hippie Scientist',
+      description: post?.description || 'Research article.',
+      lastmod: post?.lastmod,
     }
   })
 }

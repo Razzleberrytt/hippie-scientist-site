@@ -6,6 +6,7 @@ const root = process.cwd()
 const herbsPath = path.join(root, 'public/data/herbs.json')
 const compoundsPath = path.join(root, 'public/data/compounds.json')
 const blogManifestPaths = [
+  path.join(root, 'data/articles/articles.json'),
   path.join(root, 'public/blogdata/index.json'),
   path.join(root, 'data/blog/posts.json'),
 ]
@@ -20,14 +21,15 @@ function safeCount(value) {
 }
 
 function countArticles() {
+  const slugs = new Set()
   for (const manifestPath of blogManifestPaths) {
     if (!fs.existsSync(manifestPath)) continue
     const payload = readJson(manifestPath)
     if (Array.isArray(payload)) {
-      return payload.filter(item => Boolean(item?.slug)).length
+      payload.filter(item => Boolean(item?.slug)).forEach(item => slugs.add(item.slug))
     }
   }
-  return 0
+  return slugs.size
 }
 
 const herbs = safeCount(readJson(herbsPath))

@@ -33,12 +33,17 @@ export type Article = {
   author: string
   keywords: string[]
   featuredImage: string
+  category?: string
+  evidence_grade?: string
+  herb?: string
+  scientific_name?: string
   tags: string[]
   readingTime: string
   content: string
   references: ArticleReference[]
   faqs?: ArticleFaq[]
   profile_status: string
+  sitemap_included?: boolean
   ai_assisted: boolean
 }
 
@@ -336,7 +341,21 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
   const enrichedArticleLd = {
     ...articleLd,
     keywords: article.keywords,
-    about: article.tags.map(tag => ({ '@type': 'Thing', name: tag })),
+    articleSection: article.category || undefined,
+    about: [
+      ...article.tags.map(tag => ({ '@type': 'Thing', name: tag })),
+      article.herb ? { '@type': 'Thing', name: article.herb } : null,
+      article.scientific_name ? { '@type': 'Thing', name: article.scientific_name } : null,
+    ].filter(Boolean),
+    additionalProperty: [
+      article.evidence_grade
+        ? { '@type': 'PropertyValue', name: 'evidence_grade', value: article.evidence_grade }
+        : null,
+      article.herb ? { '@type': 'PropertyValue', name: 'herb', value: article.herb } : null,
+      article.scientific_name
+        ? { '@type': 'PropertyValue', name: 'scientific_name', value: article.scientific_name }
+        : null,
+    ].filter(Boolean),
     citation: article.references.map(ref => ({
       '@type': 'ScholarlyArticle',
       headline: ref.title,

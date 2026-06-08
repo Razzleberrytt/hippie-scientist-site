@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import rawPosts from '@/data/blog/posts.json'
+import rawArticles from '@/data/articles/articles.json'
 import {
   BLOG_STYLE_GROUPS,
   formatDate,
@@ -24,7 +25,42 @@ export const dynamic = 'force-static'
 
 const BLOG_PAGE_SIZE = 12
 
-const allPosts: BlogPost[] = (rawPosts as BlogPost[]).filter((p) => p && p.slug && p.title)
+type ArticleIndexRecord = {
+  slug?: string
+  title?: string
+  description?: string
+  date?: string
+  updatedAt?: string | null
+  tags?: string[]
+  category?: string
+  readingTime?: string
+  content?: string
+  profile_status?: string
+  sitemap_included?: boolean
+}
+
+function articleToPost(article: ArticleIndexRecord): BlogPost {
+  return {
+    slug: article.slug || '',
+    title: article.title || '',
+    excerpt: article.description || '',
+    date: article.date || '',
+    updatedAt: article.updatedAt || undefined,
+    tags: article.tags || [],
+    categories: article.category ? [article.category] : [],
+    readingTime: article.readingTime || '',
+    content: article.content || '',
+    profile_status: article.profile_status,
+    sitemap_included: article.sitemap_included,
+  }
+}
+
+const allPosts: BlogPost[] = [
+  ...(rawArticles as ArticleIndexRecord[]).map(articleToPost),
+  ...(rawPosts as BlogPost[]),
+]
+  .filter((p) => p && p.slug && p.title)
+  .filter((post, index, posts) => posts.findIndex((candidate) => candidate.slug === post.slug) === index)
 
 function getPostCategory(post: BlogPost): { label: string; href: string } {
   const style = inferArticleStyle(post)
