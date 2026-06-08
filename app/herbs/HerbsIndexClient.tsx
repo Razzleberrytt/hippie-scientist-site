@@ -5,6 +5,7 @@ import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import '@/styles/premium-cards.css'
+import type { RuntimeRecord } from '@/types/content'
 
 type FilterOption = {
   label: string
@@ -40,15 +41,21 @@ const filterOptions: FilterOption[] = [
   },
 ]
 
-function getName(item: any) {
-  return formatDisplayLabel(item.displayName) || formatDisplayLabel(item.name) || formatDisplayLabel(item.slug)
+function getName(item: RuntimeRecord) {
+  return formatDisplayLabel(item?.displayName) || formatDisplayLabel(item?.name) || formatDisplayLabel(item?.slug)
 }
 
-function getSummary(item: any) {
+function getSummary(item: RuntimeRecord) {
   const name = getName(item)
-  const primaryUse = item.primary_effects && item.primary_effects[0] ? formatDisplayLabel(item.primary_effects[0]).toLowerCase() : ''
-  const mech = item.mechanisms && item.mechanisms[0] ? formatDisplayLabel(item.mechanisms[0]).toLowerCase().replace(/\s+(signaling|modulation|context|response)/g, '') : ''
-  const ev = item.evidence_tier ? formatDisplayLabel(item.evidence_tier) : ''
+  const firstPrimaryEffect = Array.isArray(item?.primary_effects)
+    ? item.primary_effects[0]
+    : (typeof item?.primary_effects === 'string' ? item.primary_effects : '')
+  const primaryUse = firstPrimaryEffect ? formatDisplayLabel(firstPrimaryEffect).toLowerCase() : ''
+  const firstMech = Array.isArray(item?.mechanisms)
+    ? item.mechanisms[0]
+    : (typeof item?.mechanisms === 'string' ? item.mechanisms : '')
+  const mech = firstMech ? formatDisplayLabel(firstMech).toLowerCase().replace(/\s+(signaling|modulation|context|response)/g, '') : ''
+  const ev = item?.evidence_tier ? formatDisplayLabel(item.evidence_tier) : ''
 
   if (primaryUse || mech || ev) {
     let s = `${name} `
@@ -59,13 +66,13 @@ function getSummary(item: any) {
   }
 
   const summary =
-    item.short_earthy_summary ||
-    item.shortEarthySummary ||
-    item.summary ||
-    item.coreInsight ||
-    item.hero ||
-    item.description ||
-    item.generated_description
+    (item?.short_earthy_summary as string) ||
+    (item?.shortEarthySummary as string) ||
+    (item?.summary as string) ||
+    (item?.coreInsight as string) ||
+    (item?.hero as string) ||
+    (item?.description as string) ||
+    (item?.generated_description as string)
 
   const cleaned = cleanSummary(summary, 'herb')
   if (cleaned && cleaned.length > 15) return cleaned
@@ -73,83 +80,84 @@ function getSummary(item: any) {
   return `${name} profile summarizing available evidence, mechanisms, safety context, and practical research notes.`
 }
 
-function getEvidence(item: any) {
+function getEvidence(item: RuntimeRecord) {
   return normalizeDecisionEvidence(
-    item.evidence_tier ||
-      item.evidenceTier ||
-      item.safety?.evidenceTier ||
-      item.evidence_grade ||
-      item.evidenceLevel ||
-      item.summary_quality
+    item?.evidence_tier ||
+      item?.evidenceTier ||
+      item?.safety?.evidenceTier ||
+      item?.evidence_grade ||
+      item?.evidenceLevel ||
+      item?.summary_quality
   )
 }
 
-function getSafety(item: any) {
+function getSafety(item: RuntimeRecord) {
   return normalizeDecisionSafety(
-    item.safety_level ||
-      item.safetyLevel ||
-      item.safety?.confidence ||
-      item.confidence ||
-      item.profile_status,
-    { hasSafetyNotes: Boolean(item.safetyNotes || item.safety_notes || item.safety) }
+    item?.safety_level ||
+      item?.safetyLevel ||
+      item?.safety?.confidence ||
+      item?.confidence ||
+      item?.profile_status,
+    { hasSafetyNotes: Boolean(item?.safetyNotes || item?.safety_notes || item?.safety) }
   )
 }
 
-function getEffects(item: any) {
+function getEffects(item: RuntimeRecord) {
   return unique([
-    ...list(item.primary_effects),
-    ...list(item.primaryEffects),
-    ...list(item.primaryActions),
-    ...list(item.effects),
-    ...list(item.primaryDomain),
-    ...list(item.mechanisms),
+    ...list(item?.primary_effects),
+    ...list(item?.primaryEffects),
+    ...list(item?.primaryActions),
+    ...list(item?.effects),
+    ...list(item?.primaryDomain),
+    ...list(item?.mechanisms),
   ])
     .filter(isClean)
     .slice(0, 2)
 }
 
-function getMechanisms(item: any) {
+function getMechanisms(item: RuntimeRecord) {
+  const effects = getEffects(item)
   return unique([
-    ...list(item.mechanisms),
-    ...list(item.primary_mechanisms),
-    ...list(item.pathways),
-    ...list(item.activeCompounds),
+    ...list(item?.mechanisms),
+    ...list(item?.primary_mechanisms),
+    ...list(item?.pathways),
+    ...list(item?.activeCompounds),
   ])
     .filter(isClean)
-    .filter((value: string) => !getEffects(item).includes(value))
+    .filter((value: string) => !effects.includes(value))
     .slice(0, 2)
 }
 
-function getBestFor(item: any) {
+function getBestFor(item: RuntimeRecord) {
   const effects = getEffects(item)
 
-  if (effects.length > 0) return effects.join(' • ')
+  if (effects.length > 0) return text(effects.join(' • '))
 
-  const traditionalUses = list(item.traditionalUses || item.traditional_uses)
+  const traditionalUses = list(item?.traditionalUses || item?.traditional_uses)
     .filter(isClean)
     .slice(0, 2)
 
-  return traditionalUses.length > 0 ? traditionalUses.join(' • ') : 'Research context'
+  return traditionalUses.length > 0 ? text(traditionalUses.join(' • ')) : 'Research context'
 }
 
-function getTimeToEffect(item: any) {
+function getTimeToEffect(item: RuntimeRecord) {
   const value = labelize(
-    item.time_to_effect ||
-      item.timeToEffect ||
-      item.onset ||
-      item.practical?.timeToEffect ||
-      item.timeline,
+    item?.time_to_effect ||
+      item?.timeToEffect ||
+      item?.onset ||
+      (item?.practical as Record<string, unknown>)?.timeToEffect ||
+      item?.timeline,
     ''
   )
 
   return value && isClean(value) ? value : ''
 }
 
-function scoreHerb(item: any) {
+function scoreHerb(item: RuntimeRecord) {
   let score = 0
 
-  const quality = text(item.profile_status || item.summary_quality || item.safety?.confidence).toLowerCase()
-  const evidence = text(item.evidence_tier || item.evidence_grade || item.evidenceLevel).toLowerCase()
+  const quality = text(item?.profile_status || item?.summary_quality || item?.safety?.confidence).toLowerCase()
+  const evidence = text(item?.evidence_tier || item?.evidence_grade || item?.evidenceLevel).toLowerCase()
 
   if (/complete|strong|high|ready/.test(quality)) score += 5
   if (/strong|human|clinical|high/.test(evidence)) score += 4
@@ -163,27 +171,27 @@ function firstParam(value: string | string[] | undefined) {
   return Array.isArray(value) ? value[0] || '' : value || ''
 }
 
-function getSearchCorpus(item: any) {
+function getSearchCorpus(item: RuntimeRecord) {
   return [
     getName(item),
     getSummary(item),
     getBestFor(item),
     getEvidence(item),
     getSafety(item),
-    item.scientific,
-    item.common,
-    item.region,
-    ...list(item.primaryActions),
-    ...list(item.primary_effects),
-    ...list(item.mechanisms),
-    ...list(item.activeCompounds),
-    ...list(item.traditionalUses),
+    item?.scientific,
+    item?.common,
+    item?.region,
+    ...list(item?.primaryActions),
+    ...list(item?.primary_effects),
+    ...list(item?.mechanisms),
+    ...list(item?.activeCompounds),
+    ...list(item?.traditionalUses),
   ]
     .map(value => text(value).toLowerCase())
     .join(' ')
 }
 
-function filterHerbs(herbs: any[], query: string, context: string) {
+function filterHerbs(herbs: RuntimeRecord[], query: string, context: string) {
   const normalizedQuery = query.trim().toLowerCase()
   const option = filterOptions.find(item => item.value === context)
 
@@ -214,7 +222,8 @@ function StatCard({ value, label }: { value: number; label: string }) {
   )
 }
 
-function EmptyLibraryState() {
+// Unused local empty state
+export function EmptyLibraryState() {
   return (
     <DecisionEmptyState
       eyebrow="Profiles unavailable"
@@ -247,7 +256,7 @@ function EmptyFilteredState({ query, context }: { query: string; context: string
   )
 }
 
-function HerbCard({ herb, featured = false }: { herb: any; featured?: boolean }) {
+function HerbCard({ herb, featured = false }: { herb: RuntimeRecord; featured?: boolean }) {
   return (
     <DecisionProfileCard
       href={`/herbs/${herb.slug}`}
@@ -282,25 +291,25 @@ const browsePaths = [
   },
 ]
 
-export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: any[]; allHerbs?: any[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
+export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: RuntimeRecord[]; allHerbs?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const query = firstParam(initialQuery)
   const context = firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
-  const baseHerbs = [...(allHerbs || sourceHerbs)].sort((a: any, b: any) => scoreHerb(b) - scoreHerb(a))
-  const herbs = [...sourceHerbs].sort((a: any, b: any) => scoreHerb(b) - scoreHerb(a))
+  const baseHerbs = [...(allHerbs || sourceHerbs)].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreHerb(b) - scoreHerb(a))
+  const herbs = [...sourceHerbs].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreHerb(b) - scoreHerb(a))
 
   const visibleHerbs = filterHerbs(baseHerbs, query, activeFilter)
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
   const totalProfiles = baseHerbs.length
 
-  const readyProfiles = baseHerbs.filter((herb: any) =>
+  const readyProfiles = baseHerbs.filter((herb: RuntimeRecord) =>
     /complete|strong|high|ready/i.test(
       text(herb.profile_status || herb.summary_quality || herb.safety?.confidence)
     )
   ).length
 
-  const evidenceForward = baseHerbs.filter((herb: any) =>
+  const evidenceForward = baseHerbs.filter((herb: RuntimeRecord) =>
     /human|clinical|strong|high/i.test(
       text(herb.evidence_tier || herb.evidence_grade || herb.evidenceLevel)
     )
@@ -410,7 +419,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                 </div>
 
                 <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {featuredHerbs.map((herb: any) => (
+                  {featuredHerbs.map((herb: RuntimeRecord) => (
                     <HerbCard key={herb.slug} herb={herb} featured />
                   ))}
                 </div>
@@ -432,7 +441,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                 </div>
 
                 <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {libraryHerbs.map((herb: any) => (
+                  {libraryHerbs.map((herb: RuntimeRecord) => (
                     <HerbCard key={herb.slug} herb={herb} />
                   ))}
                 </div>

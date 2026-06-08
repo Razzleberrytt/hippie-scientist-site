@@ -115,36 +115,36 @@ export function normalizeHerbDetails(herb: Herb) {
     herb.region,
     pick.region(herb),
     mergeLists(herb.regiontags).join(', '),
-    (herb as any).regionNotes
+    herb.regionNotes
   )
   const active_compounds = mergeLists(
     herb.active_compounds,
     herb.compounds,
-    (herb as any).compoundsDetailed,
-    (herb as any).activeconstituents,
-    ((herb as any).activeConstituents || []).map((entry: any) => entry?.name)
+    herb.compoundsDetailed,
+    herb.activeconstituents,
+    (herb.activeConstituents || []).map((entry) => entry?.name)
   )
   const preparation = firstText(
     herb.preparation,
     herb.preparations,
-    (herb as any).preparationsText,
+    herb.preparationsText,
     pick.preparations(herb)
   )
-  const dosage = firstText(herb.dosage, (herb as any).dosage_notes, pick.dosage(herb))
+  const dosage = firstText(herb.dosage, herb.dosage_notes, pick.dosage(herb))
   const contraindications = firstText(
     herb.contraindications,
-    (herb as any).contraindicationsText,
+    herb.contraindicationsText,
     pick.contraind(herb)
   )
   const interactions = firstText(
     herb.interactions,
-    (herb as any).interactionsText,
-    (herb as any).drugInteractions,
+    herb.interactionsText,
+    herb.drugInteractions,
     pick.interactions(herb)
   )
   const legal = [
-    firstText(herb.legal, herb.legalstatus, (herb as any).legalStatus, pick.legalstatus(herb)),
-    firstText(herb.legalnotes, (herb as any).legalnotes),
+    firstText(herb.legal, herb.legalstatus, herb.legalStatus, pick.legalstatus(herb)),
+    firstText(herb.legalnotes, herb.legalnotes),
   ]
     .filter(Boolean)
     .join(' — ')
@@ -255,7 +255,7 @@ export default function HerbDetails({ herb }: { herb: Herb }) {
   const evidenceTier = firstText(herb.evidence_tier, herb.evidenceLevel, herb.confidence)
   const summary = firstText(herb.summary, details.description)
   const confidence = firstText(herb.confidence, herb.evidenceLevel)
-  const primaryEffects = normalizeList((herb as any).primary_effects ?? herb.effects)
+  const primaryEffects = normalizeList(herb.primary_effects ?? herb.effects)
 
   return (
     <div className='space-y-8'>

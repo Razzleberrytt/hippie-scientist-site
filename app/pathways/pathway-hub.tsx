@@ -88,33 +88,38 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
   },
 }
 
-function getRecordName(record: any) {
-  return formatDisplayLabel(record?.displayName || record?.name || record?.slug)
+import type { RuntimeRecord } from '@/types/content'
+
+function getRecordName(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
+  return formatDisplayLabel((raw.displayName || raw.name || raw.slug) as string)
 }
 
-function getMechanisms(record: any) {
+function getMechanisms(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
   return unique([
-    ...list(record?.mechanisms),
-    ...list(record?.mechanism),
-    ...list(record?.pathways),
-    ...list(record?.pathway_bucket),
+    ...list(raw.mechanisms),
+    ...list(raw.mechanism),
+    ...list(raw.pathways),
+    ...list(raw.pathway_bucket),
   ]).filter(isClean)
 }
 
-function getEffects(record: any) {
+function getEffects(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
   return unique([
-    ...list(record?.primary_effects),
-    ...list(record?.primaryEffects),
-    ...list(record?.effects),
-    ...list(record?.best_for),
-    ...list(record?.bestFor),
+    ...list(raw.primary_effects),
+    ...list(raw.primaryEffects),
+    ...list(raw.effects),
+    ...list(raw.best_for),
+    ...list(raw.bestFor),
   ]).filter(isClean)
 }
 
-function RecordCard({ record, href, type }: { record: any; href: string; type: 'herb' | 'compound' }) {
+function RecordCard({ record, href, type }: { record: RuntimeRecord; href: string; type: 'herb' | 'compound' }) {
   const name = getRecordName(record)
   const signals = getPathwaySignals(record).slice(0, 3)
-  const summary = cleanSummary(record?.summary || record?.description || '', type)
+  const summary = cleanSummary((record.summary || record.description || '') as string, type)
 
   if (!name) return null
 
@@ -165,16 +170,16 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
   const config = getPathwayConfig(pathway)
   const [herbs, compounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const relatedHerbs = getRelatedPathwayRecords(herbs, pathway)
-    .filter((record: any) => getRuntimeVisibility(record).canRender)
+  const relatedHerbs = (getRelatedPathwayRecords(herbs, pathway) as RuntimeRecord[])
+    .filter((record: RuntimeRecord) => getRuntimeVisibility(record).canRender)
     .slice(0, 9)
 
-  const relatedCompounds = getRelatedPathwayRecords(compounds, pathway)
-    .filter((record: any) => getRuntimeVisibility(record).canRender)
+  const relatedCompounds = (getRelatedPathwayRecords(compounds, pathway) as RuntimeRecord[])
+    .filter((record: RuntimeRecord) => getRuntimeVisibility(record).canRender)
     .slice(0, 9)
 
   const relatedRecords = [...relatedHerbs, ...relatedCompounds]
-  const ecosystemSignals = unique(relatedRecords.flatMap((record: any) => {
+  const ecosystemSignals = unique(relatedRecords.flatMap((record: RuntimeRecord) => {
     const fields = normalizeEcosystemFields(record)
     return [...fields.topicClusters, ...fields.pathwayEcosystems, ...fields.mechanismEcosystems]
   })).slice(0, 12)
@@ -241,8 +246,8 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
             <p className="text-sm leading-7 text-[#46574d]">These profiles provide semantic navigation centers for the pathway without implying that all adjacent records share the same clinical evidence.</p>
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
-            {authorityAnchors.map((record: any) => (
-              <Link key={record.slug} href={`/${relatedHerbs.some((herb: any) => herb.slug === record.slug) ? 'herbs' : 'compounds'}/${record.slug}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
+            {authorityAnchors.map((record: RuntimeRecord) => (
+              <Link key={record.slug} href={`/${relatedHerbs.some((herb: RuntimeRecord) => herb.slug === record.slug) ? 'herbs' : 'compounds'}/${record.slug}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
                 {getRecordName(record)}
               </Link>
             ))}
@@ -271,7 +276,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {relatedHerbs.map((record: any) => (
+            {relatedHerbs.map((record: RuntimeRecord) => (
               <RecordCard key={record.slug} record={record} href={`/herbs/${record.slug}`} type="herb" />
             ))}
           </div>
@@ -286,7 +291,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {relatedCompounds.map((record: any) => (
+            {relatedCompounds.map((record: RuntimeRecord) => (
               <RecordCard key={record.slug} record={record} href={`/compounds/${record.slug}`} type="compound" />
             ))}
           </div>
@@ -296,7 +301,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
   )
 }
 
-export function CompactRelatedPathways({ record }: { record: any }) {
+export function CompactRelatedPathways({ record }: { record: RuntimeRecord }) {
   const pathways = getSupportedPathways(record)
     .filter((pathway) => ['gaba', 'dopamine', 'inflammation'].includes(pathway))
     .slice(0, 4)

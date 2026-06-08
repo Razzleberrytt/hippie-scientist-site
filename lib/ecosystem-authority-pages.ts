@@ -2,6 +2,7 @@ import { list, text, unique } from '@/lib/display-utils'
 import { buildSemanticLinkSuggestions } from '@/lib/semantic-internal-linking'
 import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
 import { buildProgrammaticTopicClusters } from '@/lib/programmatic-topic-clusters'
+import type { RuntimeRecord } from '@/types/content'
 
 export type EcosystemAuthorityPage = {
   slug: string
@@ -32,11 +33,11 @@ function title(value: unknown) {
     .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
-function recordName(record: any) {
+function recordName(record: RuntimeRecord) {
   return title(record?.displayName || record?.name || record?.slug)
 }
 
-function recordSignals(record: any) {
+function recordSignals(record: RuntimeRecord) {
   return unique([
     ...list(record?.best_for),
     ...list(record?.primary_effects),
@@ -47,14 +48,14 @@ function recordSignals(record: any) {
   ].map(title).filter(Boolean))
 }
 
-export function buildEcosystemExecutiveSummary(ecosystem: string, records: any[] = []) {
+export function buildEcosystemExecutiveSummary(ecosystem: string, records: RuntimeRecord[] = []) {
   const label = title(ecosystem)
   const topSignals = unique(records.flatMap(recordSignals)).slice(0, 5)
 
   return `${label} is best explored as an ecosystem: connected profiles, pathways, evidence maturity, safety context, and realistic expectations. Key signals include ${topSignals.join(', ') || 'mechanism, evidence, safety, and practical fit'}.`
 }
 
-export function buildEcosystemPathwayOverview(ecosystem: string, records: any[] = []) {
+export function buildEcosystemPathwayOverview(ecosystem: string, records: RuntimeRecord[] = []) {
   const signals = unique(records.flatMap(recordSignals)).slice(0, 8)
 
   return signals.length
@@ -73,7 +74,7 @@ export function buildEcosystemBeginnerGuide(ecosystem: string) {
   ]
 }
 
-export function buildEcosystemResearchHighlights(records: any[] = []) {
+export function buildEcosystemResearchHighlights(records: RuntimeRecord[] = []) {
   return records
     .map((record) => ({
       name: recordName(record),
@@ -84,7 +85,7 @@ export function buildEcosystemResearchHighlights(records: any[] = []) {
     .map((item) => `${item.name}: ${item.report.summary}`)
 }
 
-export function buildEcosystemCompareMatrix(records: any[] = []) {
+export function buildEcosystemCompareMatrix(records: RuntimeRecord[] = []) {
   return records.slice(0, 8).map((record) => {
     const signals = recordSignals(record)
     const evidence = buildResearchKnowledgeReport(record)
@@ -98,7 +99,7 @@ export function buildEcosystemCompareMatrix(records: any[] = []) {
   })
 }
 
-export function buildEcosystemAuthorityPage(ecosystem: string, records: any[] = []): EcosystemAuthorityPage {
+export function buildEcosystemAuthorityPage(ecosystem: string, records: RuntimeRecord[] = []): EcosystemAuthorityPage {
   const seed = {
     slug: slugify(ecosystem),
     name: ecosystem,
@@ -119,7 +120,7 @@ export function buildEcosystemAuthorityPage(ecosystem: string, records: any[] = 
   }
 }
 
-export function buildPriorityEcosystemAuthorityPages(records: any[] = []) {
+export function buildPriorityEcosystemAuthorityPages(records: RuntimeRecord[] = []) {
   const priority = ['sleep', 'cognition', 'stress', 'inflammation', 'mitochondrial support', 'longevity', 'metabolic health']
   const clusters = buildProgrammaticTopicClusters(records, 24)
 

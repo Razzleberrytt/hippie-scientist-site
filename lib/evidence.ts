@@ -1,10 +1,12 @@
+import type { RuntimeRecord } from '@/types/content'
+
 type EvidenceTier = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'traditional' | 'mixed' | 'insufficient' | 'review'
 
 type EvidenceColor = 'emerald' | 'blue' | 'amber' | 'sand' | 'violet' | 'slate'
 
-function readPath(record: any, path: string[]): unknown {
+function readPath(record: unknown, path: string[]): unknown {
   return path.reduce(
-    (value, key) => (value && typeof value === 'object' ? (value as any)[key] : undefined),
+    (value, key) => (value && typeof value === 'object' ? (value as Record<string, unknown>)[key] : undefined),
     record,
   )
 }
@@ -30,7 +32,7 @@ function list(value: unknown): unknown[] {
   return value ? [value] : []
 }
 
-function evidenceText(record: any): string {
+function evidenceText(record: RuntimeRecord): string {
   return [
     readPath(record, ['safety', 'confidence']),
     readPath(record, ['safety', 'evidenceTier']),
@@ -50,7 +52,7 @@ function evidenceText(record: any): string {
     .toLowerCase()
 }
 
-export function hasHumanEvidence(record: any): boolean {
+export function hasHumanEvidence(record: RuntimeRecord): boolean {
   const evidence = evidenceText(record)
 
   if (/\b(no|none|theoretical|traditional|preclinical|in\s*vitro|animal)\b/.test(evidence)) {
@@ -71,13 +73,13 @@ export function hasHumanEvidence(record: any): boolean {
   )
 }
 
-export function hasMechanismEvidence(record: any): boolean {
+export function hasMechanismEvidence(record: RuntimeRecord): boolean {
   return [record?.mechanisms, record?.primary_effects, record?.effects, record?.pathways].some(
     value => list(value).map(text).some(Boolean),
   )
 }
 
-export function isPreliminaryResearch(record: any): boolean {
+export function isPreliminaryResearch(record: RuntimeRecord): boolean {
   const evidence = evidenceText(record)
 
   return /\b(preliminary|emerging|limited|low|weak|partial|draft|none|preclinical|animal|in\s*vitro|theoretical|grade\s*[cd]|tier\s*[cd])\b/.test(
@@ -85,7 +87,7 @@ export function isPreliminaryResearch(record: any): boolean {
   )
 }
 
-export function getEvidenceTier(record: any): EvidenceTier {
+export function getEvidenceTier(record: RuntimeRecord): EvidenceTier {
   const evidence = evidenceText(record)
 
   if (/\b(needs? review|unknown|tbd|draft|placeholder|profile pending)\b/.test(evidence)) return 'review'
@@ -102,7 +104,7 @@ export function getEvidenceTier(record: any): EvidenceTier {
   return 'limited'
 }
 
-export function getEvidenceLabel(record: any): string {
+export function getEvidenceLabel(record: RuntimeRecord): string {
   const labels: Record<EvidenceTier, string> = {
     strong: 'Strong evidence',
     moderate: 'Moderate evidence',
@@ -117,7 +119,7 @@ export function getEvidenceLabel(record: any): string {
   return labels[getEvidenceTier(record)]
 }
 
-export function getEvidenceColor(record: any): EvidenceColor {
+export function getEvidenceColor(record: RuntimeRecord): EvidenceColor {
   const colors: Record<EvidenceTier, EvidenceColor> = {
     strong: 'emerald',
     moderate: 'blue',
@@ -158,7 +160,7 @@ function tierTextToLetter(tier: string): EvidenceLetterGrade | null {
   return null
 }
 
-export function getEvidenceLetterGrade(record: any): EvidenceLetterGrade {
+export function getEvidenceLetterGrade(record: RuntimeRecord): EvidenceLetterGrade {
   // Letter grades are unambiguous — prefer them first
   const rawGrade = record?.evidence_grade
   if (rawGrade && typeof rawGrade === 'string') {
@@ -192,7 +194,7 @@ export function getEvidenceLetterGrade(record: any): EvidenceLetterGrade {
   return tierMap[getEvidenceTier(record)] ?? 'C'
 }
 
-export function hasStrongSafetyProfile(record: any): boolean {
+export function hasStrongSafetyProfile(record: RuntimeRecord): boolean {
   const safety = [
     record?.safety,
     record?.safetyNotes,

@@ -3,13 +3,15 @@ import { getEvidenceMaturity, getMechanismDepth, getProfileCompleteness } from '
 import { getSafetySensitivity } from '@/lib/safety-classification'
 import { scoreSemanticRecommendation } from '@/lib/semantic-orchestration'
 
+import type { RuntimeRecord } from '@/types/content'
+
 type DiscoveryGroup = {
   title: string
   description: string
-  items: any[]
+  items: RuntimeRecord[]
 }
 
-function normalize(value: any): string[] {
+function normalize(value: unknown): string[] {
   if (!value) return []
 
   const array = Array.isArray(value) ? value : [value]
@@ -23,7 +25,7 @@ function overlap(a: string[], b: string[]) {
   return a.filter(item => b.includes(item)).length
 }
 
-function evidenceSensitiveAdjustment(base: any, candidate: any) {
+function evidenceSensitiveAdjustment(base: RuntimeRecord, candidate: RuntimeRecord) {
   const baseMaturity = getEvidenceMaturity(base)
   const candidateMaturity = getEvidenceMaturity(candidate)
   const baseSafety = getSafetySensitivity(base)
@@ -57,13 +59,13 @@ function evidenceSensitiveAdjustment(base: any, candidate: any) {
   return score
 }
 
-function semanticOrchestrationAdjustment(base: any, candidate: any) {
+function semanticOrchestrationAdjustment(base: RuntimeRecord, candidate: RuntimeRecord) {
   const scored = scoreSemanticRecommendation(base, candidate)
 
   return scored.score * 22 + scored.signals.authorityScore * 8 + scored.signals.discoveryScore * 10
 }
 
-function sortByDiscoveryScore(base: any, items: any[]) {
+function sortByDiscoveryScore(base: RuntimeRecord, items: RuntimeRecord[]) {
   return [...items].sort((a, b) => {
     const scoreB =
       calculateDiscoveryScore(base, b) +
@@ -81,7 +83,7 @@ function sortByDiscoveryScore(base: any, items: any[]) {
   })
 }
 
-export function rankEvidenceSensitiveRelatedRecords(base: any, relatedRecords: any[] = [], limit = 8) {
+export function rankEvidenceSensitiveRelatedRecords(base: RuntimeRecord, relatedRecords: RuntimeRecord[] = [], limit = 8) {
   const seen = new Set<string>()
 
   return sortByDiscoveryScore(base, relatedRecords)
@@ -94,7 +96,7 @@ export function rankEvidenceSensitiveRelatedRecords(base: any, relatedRecords: a
     .slice(0, Math.max(0, limit))
 }
 
-export function classifyDiscoveryGroups(base: any, relatedRecords: any[] = []): DiscoveryGroup[] {
+export function classifyDiscoveryGroups(base: RuntimeRecord, relatedRecords: RuntimeRecord[] = []): DiscoveryGroup[] {
   const baseEffects = normalize(base?.primary_effects || base?.effects)
   const baseMechanisms = normalize(base?.mechanisms)
   const basePathways = normalize(base?.pathways)
@@ -103,14 +105,14 @@ export function classifyDiscoveryGroups(base: any, relatedRecords: any[] = []): 
   const baseSafety = getSafetySensitivity(base)
   const baseMechanismDepth = getMechanismDepth(base)
 
-  const mechanismMatches: any[] = []
-  const pathwayMatches: any[] = []
-  const evidenceMatches: any[] = []
-  const safetyMatches: any[] = []
-  const completenessMatches: any[] = []
-  const contextualMatches: any[] = []
-  const orchestrationMatches: any[] = []
-  const authorityMatches: any[] = []
+  const mechanismMatches: RuntimeRecord[] = []
+  const pathwayMatches: RuntimeRecord[] = []
+  const evidenceMatches: RuntimeRecord[] = []
+  const safetyMatches: RuntimeRecord[] = []
+  const completenessMatches: RuntimeRecord[] = []
+  const contextualMatches: RuntimeRecord[] = []
+  const orchestrationMatches: RuntimeRecord[] = []
+  const authorityMatches: RuntimeRecord[] = []
 
   relatedRecords.forEach(record => {
     const effects = normalize(record?.primary_effects || record?.effects)
@@ -159,7 +161,7 @@ export function classifyDiscoveryGroups(base: any, relatedRecords: any[] = []): 
     }
   })
 
-  const dedupe = (items: any[]) => {
+  const dedupe = (items: RuntimeRecord[]) => {
     const seen = new Set()
 
     return sortByDiscoveryScore(base, items).filter(item => {

@@ -2,13 +2,14 @@ import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, list, text } from '@/lib/display-utils'
 import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
 import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
+import type { RuntimeRecord } from '@/types/content'
 
 type EntityType = 'herb' | 'compound'
 
 type ProfileDecisionLayerProps = {
-  record: any
+  record: RuntimeRecord
   entityType: EntityType
-  relatedRecords?: any[]
+  relatedRecords?: RuntimeRecord[]
   effects?: string[]
   mechanisms?: string[]
   summary?: string
@@ -30,18 +31,18 @@ function cleanList(value: unknown, limit = 6) {
   )
 }
 
-function getName(record: any) {
+function getName(record: RuntimeRecord) {
   const name = formatDisplayLabel(record?.displayName || record?.name || record?.slug)
   return isRenderableText(name) ? name : ''
 }
 
-function getSummary(record: any, entityType: EntityType, fallback = '') {
+function getSummary(record: RuntimeRecord, entityType: EntityType, fallback = '') {
   return cleanSummary(
     fallback ||
-      record?.quick_take ||
-      record?.quickTake ||
-      record?.decision_summary ||
-      record?.decisionSummary ||
+      (record?.quick_take as string) ||
+      (record?.quickTake as string) ||
+      (record?.decision_summary as string) ||
+      (record?.decisionSummary as string) ||
       record?.summary ||
       record?.description ||
       '',
@@ -49,7 +50,7 @@ function getSummary(record: any, entityType: EntityType, fallback = '') {
   )
 }
 
-function getBestFor(record: any, provided?: string[]) {
+function getBestFor(record: RuntimeRecord, provided?: string[]) {
   return cleanList([
     ...(provided || []),
     ...list(record?.best_for),
@@ -59,7 +60,7 @@ function getBestFor(record: any, provided?: string[]) {
   ], 4)
 }
 
-function getAvoidIf(record: any) {
+function getAvoidIf(record: RuntimeRecord) {
   return cleanList([
     ...list(record?.avoid_if),
     ...list(record?.avoidIf),
@@ -71,7 +72,7 @@ function getAvoidIf(record: any) {
   ], 3)
 }
 
-function getMechanismSnapshot(record: any, provided?: string[]) {
+function getMechanismSnapshot(record: RuntimeRecord, provided?: string[]) {
   return cleanList([
     ...(provided || []),
     ...list(record?.mechanism_snapshot),
@@ -81,7 +82,7 @@ function getMechanismSnapshot(record: any, provided?: string[]) {
   ], 3)
 }
 
-function getCompareTo(record: any, relatedRecords: any[] = []) {
+function getCompareTo(record: RuntimeRecord, relatedRecords: RuntimeRecord[] = []) {
   const explicit = cleanList([
     ...list(record?.compare_to),
     ...list(record?.compareTo),
@@ -99,7 +100,7 @@ function getCompareTo(record: any, relatedRecords: any[] = []) {
   )
 }
 
-function getEvidenceText(record: any) {
+function getEvidenceText(record: RuntimeRecord) {
   return cleanEditorialText(formatDisplayLabel(
     record?.evidence_snapshot ||
       record?.evidenceSnapshot ||
@@ -111,7 +112,7 @@ function getEvidenceText(record: any) {
   ))
 }
 
-function getSafetyText(record: any, avoidIf: string[]) {
+function getSafetyText(record: RuntimeRecord, avoidIf: string[]) {
   return cleanEditorialText(formatDisplayLabel(
     record?.safety_snapshot ||
       record?.safetySnapshot ||
@@ -122,7 +123,7 @@ function getSafetyText(record: any, avoidIf: string[]) {
   ))
 }
 
-function getTimeToNotice(record: any) {
+function getTimeToNotice(record: RuntimeRecord) {
   return cleanEditorialText(formatDisplayLabel(
     record?.time_to_notice ||
       record?.timeToNotice ||

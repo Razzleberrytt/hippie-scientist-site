@@ -1,12 +1,13 @@
 import { cleanSummary, formatDisplayLabel, list, text } from '@/lib/display-utils'
 import { cleanEditorialText, dedupeEditorialItems, isRenderableText } from '@/lib/editorial-rendering'
+import type { RuntimeRecord } from '@/types/content'
 
 type EntityType = 'herb' | 'compound'
 
 type DecisionClarityInput = {
-  record: any
+  record: RuntimeRecord
   entityType: EntityType
-  relatedRecords?: any[]
+  relatedRecords?: RuntimeRecord[]
   effects?: string[]
   mechanisms?: string[]
   summary?: string
@@ -208,7 +209,7 @@ const FLAGSHIP_OVERRIDES: Record<string, Partial<DecisionClarityModel>> = {
   },
 }
 
-function normalizeSlug(record: any) {
+function normalizeSlug(record: RuntimeRecord) {
   return text(record?.slug || record?.id || record?.name)
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
@@ -229,19 +230,19 @@ function compactSentence(value: string) {
   return clean.endsWith('.') ? clean : `${clean}.`
 }
 
-function getName(record: any) {
+function getName(record: RuntimeRecord) {
   const name = formatDisplayLabel(record?.displayName || record?.name || record?.slug)
   return isRenderableText(name) ? name : 'This profile'
 }
 
-function routeFor(record: any, fallbackType: EntityType) {
+function routeFor(record: RuntimeRecord, fallbackType: EntityType) {
   const slug = record?.slug
   if (!isRenderableText(slug)) return undefined
   const type = record?.entityType === 'herb' || record?.entityType === 'compound' ? record.entityType : fallbackType
   return `/${type === 'herb' ? 'herbs' : 'compounds'}/${slug}`
 }
 
-function inferBestFit(record: any, effects: string[], entityType: EntityType) {
+function inferBestFit(record: RuntimeRecord, effects: string[], entityType: EntityType) {
   const explicit = cleanItems([
     record?.best_fit_for,
     record?.bestFitFor,
@@ -289,7 +290,7 @@ function inferBestFit(record: any, effects: string[], entityType: EntityType) {
   ]
 }
 
-function inferUsuallyNotIdeal(record: any, effects: string[]) {
+function inferUsuallyNotIdeal(record: RuntimeRecord, effects: string[]) {
   const explicit = cleanItems([
     record?.usually_not_ideal_for,
     record?.usuallyNotIdealFor,
@@ -317,7 +318,7 @@ function inferUsuallyNotIdeal(record: any, effects: string[]) {
   return items.slice(0, 3)
 }
 
-function inferMisunderstandings(record: any, name: string, effects: string[], mechanisms: string[]) {
+function inferMisunderstandings(record: RuntimeRecord, name: string, effects: string[], mechanisms: string[]) {
   const explicit = cleanItems([
     record?.common_misunderstandings,
     record?.commonMisunderstandings,
@@ -344,7 +345,7 @@ function inferMisunderstandings(record: any, name: string, effects: string[], me
   return items.slice(0, 3)
 }
 
-function inferRealisticExpectations(record: any) {
+function inferRealisticExpectations(record: RuntimeRecord) {
   const explicit = cleanItems([
     record?.realistic_expectations,
     record?.realisticExpectations,
@@ -362,7 +363,7 @@ function inferRealisticExpectations(record: any) {
   ]
 }
 
-function inferAcuteVsCumulative(record: any, effects: string[]) {
+function inferAcuteVsCumulative(record: RuntimeRecord, effects: string[]) {
   const explicit = cleanItems([
     record?.acute_vs_cumulative,
     record?.acuteVsCumulative,
@@ -393,7 +394,7 @@ function inferAcuteVsCumulative(record: any, effects: string[]) {
   ]
 }
 
-function inferResponderVariability(record: any) {
+function inferResponderVariability(record: RuntimeRecord) {
   const explicit = cleanItems([
     record?.responder_variability,
     record?.responderVariability,
@@ -409,7 +410,7 @@ function inferResponderVariability(record: any) {
   ]
 }
 
-function inferFormulationVariability(record: any, entityType: EntityType) {
+function inferFormulationVariability(record: RuntimeRecord, entityType: EntityType) {
   const explicit = cleanItems([
     record?.formulation_variability,
     record?.formulationVariability,
@@ -431,7 +432,7 @@ function inferFormulationVariability(record: any, entityType: EntityType) {
       ]
 }
 
-function inferBeginnerStartingPoints(record: any, effects: string[]) {
+function inferBeginnerStartingPoints(record: RuntimeRecord, effects: string[]) {
   const explicit = cleanItems([
     record?.beginner_starting_points,
     record?.beginnerStartingPoints,
@@ -455,7 +456,7 @@ function inferBeginnerStartingPoints(record: any, effects: string[]) {
   return ['Start by matching the profile to one goal, one constraint, and one comparison instead of stacking immediately.']
 }
 
-function inferStackConsiderations(record: any, effects: string[]) {
+function inferStackConsiderations(record: RuntimeRecord, effects: string[]) {
   const explicit = cleanItems([
     record?.stack_considerations,
     record?.stackConsiderations,
@@ -480,7 +481,7 @@ function inferStackConsiderations(record: any, effects: string[]) {
   return items.slice(0, 2)
 }
 
-function inferNextBestSteps(record: any, entityType: EntityType, relatedRecords: any[]) {
+function inferNextBestSteps(record: RuntimeRecord, entityType: EntityType, relatedRecords: RuntimeRecord[]) {
   const explicit = cleanItems([
     record?.next_best_steps,
     record?.nextBestSteps,

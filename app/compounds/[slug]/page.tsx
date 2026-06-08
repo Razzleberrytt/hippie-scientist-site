@@ -35,6 +35,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import { getStackRecommendations } from '@/lib/recommendation-engine'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import type { RuntimeRecord } from '@/types/content'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -168,9 +169,9 @@ export async function generateStaticParams() {
   const { compounds } = await getUnifiedRuntimeRecords()
 
   const dynamicParams = compounds
-    .filter((compound:any) => getRuntimeVisibility(compound).canRender)
-    .filter((compound:any) => !DEPRECATED_COMPOUND_CANONICALS[compound.slug])
-    .map((compound:any) => ({ slug: compound.slug }))
+    .filter((compound: RuntimeRecord) => getRuntimeVisibility(compound).canRender)
+    .filter((compound: RuntimeRecord) => !DEPRECATED_COMPOUND_CANONICALS[compound.slug])
+    .map((compound: RuntimeRecord) => ({ slug: compound.slug }))
 
   // Include deprecated slugs so legacy /compounds/old-slug can redirect instead of 404 in static export
   const legacyRedirectParams = Object.keys(DEPRECATED_COMPOUND_CANONICALS).map((slug) => ({ slug }))
@@ -248,41 +249,65 @@ function cleanText(value: unknown) {
   return formatted
 }
 
-function getTimeline(compound: any) {
-  return cleanText(compound.time_to_effect || compound.timeToEffect || compound.time_to_notice || compound.timeToNotice || compound.onset)
+function getTimeline(compound: RuntimeRecord) {
+  const raw = compound as Record<string, unknown>
+  return cleanText(
+    (raw.time_to_effect ||
+      raw.timeToEffect ||
+      raw.time_to_notice ||
+      raw.timeToNotice ||
+      raw.onset) as string | undefined
+  )
 }
 
-function getAvoidIf(compound: any) {
+function getAvoidIf(compound: RuntimeRecord) {
+  const raw = compound as Record<string, unknown>
   return cleanItems([
-    compound.avoid_if,
-    compound.avoidIf,
-    compound.who_should_skip,
-    compound.whoShouldSkip,
-    compound.contraindications,
-    compound.interactions,
+    raw.avoid_if,
+    raw.avoidIf,
+    raw.who_should_skip,
+    raw.whoShouldSkip,
+    raw.contraindications,
+    raw.interactions,
   ], 4)
 }
 
-function getSafetySummary(compound: any, avoidIf: string[]) {
-  const note = cleanText(compound.safetyNotes || compound.safety_notes || compound.safety)
+function getSafetySummary(compound: RuntimeRecord, avoidIf: string[]) {
+  const raw = compound as Record<string, unknown>
+  const note = cleanText(
+    (raw.safetyNotes || raw.safety_notes || (typeof raw.safety === 'string' ? raw.safety : '')) as string | undefined
+  )
   if (avoidIf.length) return `Review before use if any apply: ${avoidIf.slice(0, 3).join(', ')}.`
   if (note) return firstSentences(note, 2)
   return 'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.'
 }
 
-function getMechanismHints(compound: any, provided: string[]) {
+function getMechanismHints(compound: RuntimeRecord, provided: string[]) {
+  const raw = compound as Record<string, unknown>
   return unique([
     ...provided,
-    ...cleanItems(compound.primary_mechanisms || compound.primaryMechanisms || compound.pathways, 6),
+    ...cleanItems(raw.primary_mechanisms || raw.primaryMechanisms || raw.pathways, 6),
   ]).slice(0, 6)
 }
 
-function shouldSuppressAffiliate(record: any): boolean {
+function shouldSuppressAffiliate(record: RuntimeRecord): boolean {
   if (!record) return false
-  const safetyText = String(record.safety || record.safetyNotes || record.safety_level || record.safety_rating || '').toLowerCase()
-  return safetyText.includes('high caution') || safetyText.includes('needs-review') || safetyText.includes('needs review') || safetyText.includes('severe')
+  const raw = record as Record<string, unknown>
+  const safetyVal = typeof raw.safety === 'string' ? raw.safety : (raw.safety && typeof raw.safety === 'object' && 'notes' in raw.safety ? (raw.safety as Record<string, unknown>).notes : '')
+  const safetyText = String(
+    safetyVal ||
+    raw.safetyNotes ||
+    raw.safety_level ||
+    raw.safety_rating ||
+    ''
+  ).toLowerCase()
+  return (
+    safetyText.includes('high caution') ||
+    safetyText.includes('needs-review') ||
+    safetyText.includes('needs review') ||
+    safetyText.includes('severe')
+  )
 }
-
 
 
 export default async function CompoundPage({ params }: PageProps) {
@@ -293,11 +318,13 @@ export default async function CompoundPage({ params }: PageProps) {
     redirect(canonicalSlug.startsWith('/') ? `${canonicalSlug}/` : `/compounds/${canonicalSlug}/`)
   }
 
-  const compound = await getCompoundBySlug(normalizedSlug)
+  const compoundRaw = await getCompoundBySlug(normalizedSlug)
 
-  if (!compound || !getRuntimeVisibility(compound).canRender) {
+  if (!compoundRaw || !getRuntimeVisibility(compoundRaw as unknown as RuntimeRecord).canRender) {
     notFound()
   }
+
+  const compound = compoundRaw as unknown as RuntimeRecord
 
   if (slug !== normalizedSlug || normalizeSlug(compound.slug) != normalizedSlug) {
     redirect(`/compounds/${normalizeSlug(compound.slug)}/`)
@@ -315,22 +342,29 @@ export default async function CompoundPage({ params }: PageProps) {
     allRecords,
   } = await getUnifiedRuntimeRecords()
 
-  const herbSlugs = new Set(herbs.map((item:any) => item.slug))
-  const compoundSlugs = new Set(compounds.map((item:any) => item.slug))
+  const herbSlugs = new Set(herbs.map((item: RuntimeRecord) => item.slug))
+  const compoundSlugs = new Set(compounds.map((item: RuntimeRecord) => item.slug))
   const sourceSlug = compound.slug
 
   const summary = cleanSummary(compound.summary || compound.description, 'compound')
 
   const effects = list(compound.effects || compound.primary_effects || compound.primaryActions)
-    .map((effect:string) => formatDisplayLabel(effect))
+    .map((effect: string) => formatDisplayLabel(effect))
     .filter(isClean)
 
   const mechanisms = list(compound.mechanisms)
-    .map((item:any) => formatDisplayLabel(item))
+    .map((item: unknown) => formatDisplayLabel(item as string))
     .filter(isClean)
 
-  const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier || compound.evidenceLevel || compound.evidence_grade)
-  const safetyLevel = normalizeSafetyLevel(compound.safety || compound.safetyNotes)
+  const evidenceLevel = normalizeEvidenceLevel(
+    (compound.evidence_tier || compound.evidenceLevel || (compound as Record<string, unknown>).evidence_grade) as string | undefined
+  )
+  const safetyVal = typeof compound.safety === 'string'
+    ? compound.safety
+    : (Array.isArray(compound.safetyNotes)
+      ? compound.safetyNotes[0]
+      : (compound.safetyNotes || undefined))
+  const safetyLevel = normalizeSafetyLevel(safetyVal)
 
   const snapshot = getEvidenceSnapshot(compound)
 
@@ -347,21 +381,21 @@ export default async function CompoundPage({ params }: PageProps) {
   ])
 
 
-  const relatedCandidates = (relatedBySlug[sourceSlug] || [])
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
+  const relatedCandidates = ((relatedBySlug[sourceSlug] || []) as RuntimeRecord[])
+    .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
 
   const relatedCompounds = relatedCandidates
-    .filter((item:any) => compoundSlugs.has(item.slug))
+    .filter((item: RuntimeRecord) => compoundSlugs.has(item.slug))
     .slice(0, 4)
-    .map((item:any) => ({ ...item, entityType: 'compound' }))
+    .map((item: RuntimeRecord) => ({ ...item, entityType: 'compound' as const }))
 
   const relatedHerbs = relatedCandidates
-    .filter((item:any) => herbSlugs.has(item.slug))
+    .filter((item: RuntimeRecord) => herbSlugs.has(item.slug))
     .slice(0, 4)
-    .map((item:any) => ({ ...item, entityType: 'herb' }))
+    .map((item: RuntimeRecord) => ({ ...item, entityType: 'herb' as const }))
 
-  const visibleEcosystemContinuityRecords = ecosystemContinuityRecords
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
+  const visibleEcosystemContinuityRecords = (ecosystemContinuityRecords as unknown as RuntimeRecord[])
+    .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
 
   const semanticRelated = mergeEcosystemContinuityRecords(
     [...relatedCompounds, ...relatedHerbs],
@@ -369,9 +403,10 @@ export default async function CompoundPage({ params }: PageProps) {
     6,
   )
 
-  const comparisonRecords = (comparisonBySlug[sourceSlug] || [])
-    .filter((item:any) => getRuntimeVisibility(item).canRender)
+  const comparisonRecords = ((comparisonBySlug[sourceSlug] || []) as RuntimeRecord[])
+    .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
+
 
   const displayName = formatDisplayLabel(compound.name || compound.slug)
   const quickSummary = firstSentences(summary, 1) || 'Compound profile with safety, mechanism, and fit context.'
@@ -411,7 +446,7 @@ export default async function CompoundPage({ params }: PageProps) {
       description: summary,
       category: compound.compoundClass || compound.class || undefined,
       evidenceGrade: evidenceLevel || undefined,
-      safetyNotes: compound.safetyNotes || compound.safety_notes || compound.safety || undefined,
+      safetyNotes: (typeof compound.safetyNotes === 'string' ? compound.safetyNotes : (typeof compound.safety_notes === 'string' ? compound.safety_notes : (typeof compound.safety === 'string' ? compound.safety : undefined))),
       breadcrumbId,
     },
     breadcrumbs: [
@@ -421,12 +456,11 @@ export default async function CompoundPage({ params }: PageProps) {
     product: productSchema,
   })
   const goalLinks = getGoalsForEntity(normalizedSlug)
-  const lastReviewed =
-    compound.reviewed_date ||
+  const lastReviewed = (compound.reviewed_date ||
     compound.reviewed_at ||
     compound.updated_at ||
     compound.updatedAt ||
-    compound.last_updated
+    compound.last_updated) as string | null | undefined
 
   return (
     <>

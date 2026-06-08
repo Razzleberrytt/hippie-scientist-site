@@ -1,7 +1,6 @@
 import { cache } from './react-cache'
 import { getCompounds, getHerbs } from '@/lib/runtime-data'
-
-export type RuntimeRecord = Record<string, any>
+import type { RuntimeRecord } from '@/types/content'
 
 function attachEntityType(records: RuntimeRecord[], entityType: 'herb' | 'compound') {
   return records.map((record) => ({

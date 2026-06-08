@@ -17,6 +17,8 @@ import SemanticGraphMap from '@/components/semantic-graph-map'
 import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
 import SemanticAssistantPanel from '@/components/semantic-assistant-panel'
 
+import type { RuntimeRecord } from '@/types/content'
+
 type SupernodeRouteParams = Promise<{ slug: string }>
 
 type SupernodeRouteProps = {
@@ -42,29 +44,31 @@ function normalize(value: unknown) {
   return text(value).toLowerCase()
 }
 
-function inferEntityType(record: any) {
-  if (record?.entityType === 'compound' || record?.compound_class || record?.compoundClass) return 'compound'
+function inferEntityType(record: RuntimeRecord): 'herb' | 'compound' {
+  const raw = record as Record<string, unknown>
+  if (raw.entityType === 'compound' || raw.compound_class || raw.compoundClass) return 'compound'
   return 'herb'
 }
 
-function corpus(record: any) {
+function corpus(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
   return [
-    record?.name,
-    record?.displayName,
-    record?.slug,
-    record?.summary,
-    record?.description,
-    record?.evidence_tier,
-    record?.summary_quality,
-    ...list(record?.primary_effects),
-    ...list(record?.effects),
-    ...list(record?.mechanisms),
-    ...list(record?.pathways),
-    ...list(record?.topics),
+    raw.name,
+    raw.displayName,
+    raw.slug,
+    raw.summary,
+    raw.description,
+    raw.evidence_tier,
+    raw.summary_quality,
+    ...list(raw.primary_effects),
+    ...list(raw.effects),
+    ...list(raw.mechanisms),
+    ...list(raw.pathways),
+    ...list(raw.topics),
   ].map(normalize).join(' ')
 }
 
-function score(record: any, keywords: string[]) {
+function score(record: RuntimeRecord, keywords: string[]) {
   const haystack = corpus(record)
   let total = 0
 
@@ -72,35 +76,41 @@ function score(record: any, keywords: string[]) {
     if (haystack.includes(keyword.toLowerCase())) total += 2
   })
 
-  if (/strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))) total += 3
-  if (/complete|strong|high/i.test(text(record?.profile_status || record?.summary_quality))) total += 2
+  const raw = record as Record<string, unknown>
+  if (/strong|clinical|human|high/i.test(text(raw.evidence_tier || raw.summary_quality))) total += 3
+  if (/complete|strong|high/i.test(text(raw.profile_status || raw.summary_quality))) total += 2
 
   return total
 }
 
-function getName(record: any) {
-  return formatDisplayLabel(record?.displayName || record?.name || record?.slug)
+function getName(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
+  return formatDisplayLabel((raw.displayName || raw.name || raw.slug) as string)
 }
 
-function getSummary(record: any) {
-  return cleanSummary(record?.summary || record?.description || '', record?.entityType === 'compound' ? 'compound' : 'herb')
+function getSummary(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
+  return cleanSummary((raw.summary || raw.description || '') as string, raw.entityType === 'compound' ? 'compound' : 'herb')
 }
 
-function getSignals(record: any) {
+function getSignals(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
   return unique([
-    ...list(record?.primary_effects),
-    ...list(record?.effects),
-    ...list(record?.mechanisms),
-    ...list(record?.pathways),
+    ...list(raw.primary_effects),
+    ...list(raw.effects),
+    ...list(raw.mechanisms),
+    ...list(raw.pathways),
   ].map(formatDisplayLabel).filter(isClean)).slice(0, 5)
 }
 
-function href(record: any) {
-  return `/${record?.entityType === 'compound' ? 'compounds' : 'herbs'}/${record.slug}`
+function href(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
+  return `/${raw.entityType === 'compound' ? 'compounds' : 'herbs'}/${raw.slug}`
 }
 
-function evidenceLabel(record: any) {
-  return formatDisplayLabel(record?.evidence_tier || record?.summary_quality || 'Evidence context')
+function evidenceLabel(record: RuntimeRecord) {
+  const raw = record as Record<string, unknown>
+  return formatDisplayLabel((raw.evidence_tier || raw.summary_quality || 'Evidence context') as string)
 }
 
 function evidenceClass(value: string) {
@@ -110,15 +120,16 @@ function evidenceClass(value: string) {
   return 'chip-readable'
 }
 
-function SupernodeCard({ record }: { record: any }) {
+function SupernodeCard({ record }: { record: RuntimeRecord }) {
   const signals = getSignals(record)
   const evidence = evidenceLabel(record)
+  const raw = record as Record<string, unknown>
 
   return (
     <Link href={href(record)} className="compact-card group section-rhythm-compact">
       <div className="flex flex-wrap gap-2">
         <span className={evidenceClass(evidence)}>{evidence}</span>
-        <span className="identity-kicker">{record?.entityType === 'compound' ? 'Compound' : 'Herb'}</span>
+        <span className="identity-kicker">{raw.entityType === 'compound' ? 'Compound' : 'Herb'}</span>
       </div>
 
       <div className="space-y-2">
@@ -149,19 +160,22 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
 
   const { allRecords } = await getUnifiedRuntimeRecords()
 
-  const ranked = allRecords
-    .filter((record: any) => getRuntimeVisibility(record).canRender)
-    .map((record: any) => ({ ...record, entityType: inferEntityType(record) }))
-    .map((record: any) => ({ record, score: score(record, node.keywords) }))
-    .filter((item: { record: any; score: number }) => item.score > 0)
+  const ranked = (allRecords as RuntimeRecord[])
+    .filter((record: RuntimeRecord) => getRuntimeVisibility(record).canRender)
+    .map((record: RuntimeRecord) => ({ ...record, entityType: inferEntityType(record) }))
+    .map((record: RuntimeRecord) => ({ record, score: score(record, node.keywords) }))
+    .filter((item: { record: RuntimeRecord; score: number }) => item.score > 0)
     .sort((a: { score: number }, b: { score: number }) => b.score - a.score)
     .slice(0, 60)
-    .map((item: { record: any }) => item.record)
+    .map((item: { record: RuntimeRecord }) => item.record)
 
   const top = ranked.slice(0, 10)
-  const evidenceForward = ranked.filter((record: any) => /strong|clinical|human|high/i.test(text(record?.evidence_tier || record?.summary_quality))).slice(0, 8)
-  const pathwayDense = ranked.filter((record: any) => getSignals(record).length >= 4).slice(0, 8)
-  const nodeRecord = {
+  const evidenceForward = ranked.filter((record: RuntimeRecord) => {
+    const raw = record as Record<string, unknown>
+    return /strong|clinical|human|high/i.test(text(raw.evidence_tier || raw.summary_quality))
+  }).slice(0, 8)
+  const pathwayDense = ranked.filter((record: RuntimeRecord) => getSignals(record).length >= 4).slice(0, 8)
+  const nodeRecord: RuntimeRecord = {
     slug: node.slug,
     displayName: node.title,
     name: node.title,
@@ -236,7 +250,7 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
             </div>
 
             <div className="semantic-rail">
-              {top.map((record: any) => (
+              {top.map((record: RuntimeRecord) => (
                 <SupernodeCard key={record.slug} record={record} />
               ))}
             </div>
@@ -266,7 +280,7 @@ export default async function SemanticSupernodePage({ params }: SupernodeRoutePr
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {ranked.slice(10, 34).map((record: any) => (
+              {ranked.slice(10, 34).map((record: RuntimeRecord) => (
                 <SupernodeCard key={record.slug} record={record} />
               ))}
             </div>

@@ -15,6 +15,8 @@ import { isFlagshipCompareSlug } from '@/lib/goal-hub-links'
 import { buildCompareDetailSchemaGraph } from '@/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 
+import type { RuntimeRecord } from '@/types/content'
+
 type Params = { params: Promise<{ slug: string }> }
 
 const formatSlug = (value: string) =>
@@ -27,20 +29,38 @@ const formatSlug = (value: string) =>
 
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 
-const displayName = (compound: any) => compound?.displayName || compound?.name || formatSlug(compound?.slug || 'Compound')
-const summary = (compound: any) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the profile for more detail.'
+const displayName = (compound: RuntimeRecord | undefined) => {
+  if (!compound) return 'Compound'
+  const raw = compound as Record<string, unknown>
+  return (raw.displayName || raw.name || formatSlug(raw.slug as string || 'Compound')) as string
+}
 
-const evidenceScore = (compound: any) => {
-  const text = `${compound?.evidence_grade ?? ''} ${compound?.evidenceTier ?? ''} ${compound?.tier_level ?? ''} ${compound?.evidence ?? ''} ${compound?.summary_quality ?? ''}`.toLowerCase()
-  if (/strong|high|tier\s*1|a-tier|meta|rct/.test(text)) return 5
-  if (/moderate|tier\s*2|human/.test(text)) return 4
-  if (/limited|low|tier\s*3/.test(text)) return 2
+const summary = (compound: RuntimeRecord | undefined) => {
+  if (!compound) return 'Open the profile for more detail.'
+  const raw = compound as Record<string, unknown>
+  return cleanSummary((raw.summary || raw.description) as string, 'compound') || 'Open the profile for more detail.'
+}
+
+const evidenceScore = (compound: RuntimeRecord | undefined) => {
+  if (!compound) return 3
+  const raw = compound as Record<string, unknown>
+  const textVal = `${raw.evidence_grade ?? ''} ${raw.evidenceTier ?? ''} ${raw.tier_level ?? ''} ${raw.evidence ?? ''} ${raw.summary_quality ?? ''}`.toLowerCase()
+  if (/strong|high|tier\s*1|a-tier|meta|rct/.test(textVal)) return 5
+  if (/moderate|tier\s*2|human/.test(textVal)) return 4
+  if (/limited|low|tier\s*3/.test(textVal)) return 2
   return 3
 }
 
-const findCompound = (compounds: any[], candidates: string[]) =>
-  compounds.find((compound: any) => {
-    const aliases = new Set([compound.slug, normalize(compound.slug), compound.name, compound.displayName, normalize(compound.name), normalize(compound.displayName)].filter(Boolean))
+const findCompound = (compounds: RuntimeRecord[], candidates: string[]) =>
+  compounds.find((compound: RuntimeRecord) => {
+    const aliases = new Set([
+      compound.slug,
+      normalize(compound.slug),
+      compound.name,
+      compound.displayName,
+      normalize(compound.name),
+      normalize(compound.displayName)
+    ].filter(Boolean))
     return candidates.some(candidate => aliases.has(candidate) || aliases.has(normalize(candidate)))
   })
 
@@ -73,14 +93,17 @@ const allComparisonSlugs = Array.from(new Set([
   'asiatic-acid-vs-asiaticoside',
   'asiaticoside-vs-aspalathin',
   'aspalathin-vs-astragalin',
+  'aspalathin-vs-astragalin',
 ]))
 
-function getSignals(compound: any) {
+function getSignals(compound: RuntimeRecord | undefined) {
+  if (!compound) return []
+  const raw = compound as Record<string, unknown>
   return unique([
-    ...list(compound?.effects),
-    ...list(compound?.primary_effects),
-    ...list(compound?.mechanisms),
-    ...list(compound?.pathways),
+    ...list(raw.effects),
+    ...list(raw.primary_effects),
+    ...list(raw.mechanisms),
+    ...list(raw.pathways),
   ].map(formatDisplayLabel).filter(isClean)).slice(0, 6)
 }
 
@@ -91,10 +114,12 @@ const evidenceLabel = (score: number) => {
   return 'Mixed'
 }
 
-const profileLabel = (compound: any) => {
-  const text = `${list(compound?.effects).join(' ')} ${list(compound?.primary_effects).join(' ')} ${compound?.summary || ''}`.toLowerCase()
-  if (/stim|energy|focus|alert/.test(text)) return 'More stimulating'
-  if (/sleep|calm|sedat|relax|anx/.test(text)) return 'More calming'
+const profileLabel = (compound: RuntimeRecord | undefined) => {
+  if (!compound) return 'Mixed or goal-dependent'
+  const raw = compound as Record<string, unknown>
+  const textVal = `${list(raw.effects).join(' ')} ${list(raw.primary_effects).join(' ')} ${raw.summary || ''}`.toLowerCase()
+  if (/stim|energy|focus|alert/.test(textVal)) return 'More stimulating'
+  if (/sleep|calm|sedat|relax|anx/.test(textVal)) return 'More calming'
   return 'Mixed or goal-dependent'
 }
 
@@ -122,7 +147,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   })
 }
 
-function isFieldEmpty(val: any): boolean {
+function isFieldEmpty(val: unknown): boolean {
   if (val === null || val === undefined) return true
   const str = String(val).trim().toLowerCase()
   return str === '' || str === 'nan' || str === 'null' || str === 'undefined'
@@ -137,8 +162,8 @@ export default async function Page({ params }: Params) {
   const { allRecords } = await getUnifiedRuntimeRecords()
   const stacks = await getStacks()
 
-  const a = config ? findCompound(allRecords, config.a.candidates) : allRecords.find((c: any) => c.slug === aSlug)
-  const b = config ? findCompound(allRecords, config.b.candidates) : allRecords.find((c: any) => c.slug === bSlug)
+  const a = config ? findCompound(allRecords as RuntimeRecord[], config.a.candidates) : (allRecords as RuntimeRecord[]).find((c) => c.slug === aSlug)
+  const b = config ? findCompound(allRecords as RuntimeRecord[], config.b.candidates) : (allRecords as RuntimeRecord[]).find((c) => c.slug === bSlug)
   if (!a || !b) return notFound()
 
   const winner = evidenceScore(a) >= evidenceScore(b) ? a : b
@@ -149,12 +174,14 @@ export default async function Page({ params }: Params) {
   const chooseWinnerIf = `You prioritize a stronger clinical evidence base (${evidenceLabel(evidenceScore(winner))} Evidence), or if your goals align with the primary outcomes of ${firstItems(getSignals(winner), 'general support').slice(0, 2).join(' and ')}.`
   const chooseLoserIf = `You seek an alternative pathway profile, or if your goals focus specifically on ${firstItems(getSignals(loser), 'targeted support').slice(0, 2).join(' and ')}.`
 
-  const relatedStack = stacks.find((s: any) =>
-    (s.compounds || s.stack || []).some((i: any) => {
+  const relatedStack = stacks.find((s: RuntimeRecord) => {
+    const rawS = s as Record<string, unknown>
+    const compoundsArr = (rawS.compounds || rawS.stack || []) as Record<string, unknown>[]
+    return compoundsArr.some((i) => {
       const compoundSlug = i.compound_slug || i.compound
       return compoundSlug === a.slug || compoundSlug === b.slug
     })
-  )
+  })
 
   const relatedComparisons = supplementComparisons
     .filter(item => item.slug !== slug)
@@ -172,16 +199,16 @@ export default async function Page({ params }: Params) {
 
   const evidenceA = evidenceScore(a)
   const evidenceB = evidenceScore(b)
-  const cautionA = list(a?.safety_flags || a?.safetyNotes || a?.contraindications).map(formatDisplayLabel).filter(isClean)
-  const cautionB = list(b?.safety_flags || b?.safetyNotes || b?.contraindications).map(formatDisplayLabel).filter(isClean)
-  const timingA = formatDisplayLabel(a?.time_to_effect) || 'Timing varies'
-  const timingB = formatDisplayLabel(b?.time_to_effect) || 'Timing varies'
-  const durationA = formatDisplayLabel(a?.duration) || 'Not consistently reported'
-  const durationB = formatDisplayLabel(b?.duration) || 'Not consistently reported'
-  const costA = formatDisplayLabel(a?.cost) || 'Price varies by product quality'
-  const costB = formatDisplayLabel(b?.cost) || 'Price varies by product quality'
+  const cautionA = list(a.safety_flags || a.safetyNotes || a.contraindications).map(formatDisplayLabel).filter(isClean)
+  const cautionB = list(b.safety_flags || b.safetyNotes || b.contraindications).map(formatDisplayLabel).filter(isClean)
+  const timingA = formatDisplayLabel(a.time_to_effect as string || a.onset as string) || 'Timing varies'
+  const timingB = formatDisplayLabel(b.time_to_effect as string || b.onset as string) || 'Timing varies'
+  const durationA = formatDisplayLabel(a.duration as string) || 'Not consistently reported'
+  const durationB = formatDisplayLabel(b.duration as string) || 'Not consistently reported'
+  const costA = formatDisplayLabel(a.cost as string) || 'Price varies by product quality'
+  const costB = formatDisplayLabel(b.cost as string) || 'Price varies by product quality'
 
-  const renderRow = (label: string, valA: React.ReactNode, valB: React.ReactNode, rawValA?: any, rawValB?: any) => {
+  const renderRow = (label: string, valA: React.ReactNode, valB: React.ReactNode, rawValA?: unknown, rawValB?: unknown) => {
     const isEmptyA = rawValA !== undefined ? isFieldEmpty(rawValA) : !valA
     const isEmptyB = rawValB !== undefined ? isFieldEmpty(rawValB) : !valB
     if (isEmptyA && isEmptyB) return null
@@ -198,8 +225,9 @@ export default async function Page({ params }: Params) {
     )
   }
 
-  const renderVerdictCell = (compound: any, verdictText: string) => {
-    const shopLinks = getAffiliateShopLinks(compound, displayName(compound), compound.entityType)
+  const renderVerdictCell = (compound: RuntimeRecord, verdictText: string) => {
+    const raw = compound as Record<string, unknown>
+    const shopLinks = getAffiliateShopLinks(compound, displayName(compound), raw.entityType as 'herb' | 'compound' | undefined)
     const cta = shopLinks.find(l => l.url)
     return (
       <div className="space-y-4">
@@ -259,7 +287,7 @@ export default async function Page({ params }: Params) {
 
       {/* Side-by-Side Quick Cards */}
       <section className="grid gap-6 sm:grid-cols-2">
-        {[a, b].map((compound: any) => (
+        {[a, b].map((compound: RuntimeRecord) => (
           <article key={compound.slug} className="card-premium p-6 space-y-3">
             <span className="identity-kicker">Evidence signal: {evidenceScore(compound)}/5</span>
             <h2 className="text-xl font-bold text-ink">{displayName(compound)}</h2>
@@ -323,10 +351,10 @@ export default async function Page({ params }: Params) {
           )}
 
           {renderRow('Best For', 
-            <p>{a.best_for || a.summary}</p>, 
-            <p>{b.best_for || b.summary}</p>,
-            a.best_for || a.summary,
-            b.best_for || b.summary
+            <p>{((a as Record<string, unknown>).best_for || a.summary) as React.ReactNode}</p>, 
+            <p>{((b as Record<string, unknown>).best_for || b.summary) as React.ReactNode}</p>,
+            (a as Record<string, unknown>).best_for || a.summary,
+            (b as Record<string, unknown>).best_for || b.summary
           )}
 
           {renderRow('Cost Tier', 

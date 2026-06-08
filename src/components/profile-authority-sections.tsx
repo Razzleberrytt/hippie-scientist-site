@@ -27,15 +27,16 @@ import {
   buildPracticalRelevance,
   buildScientificSummary,
 } from '@/lib/profile-synthesis'
+import type { RuntimeRecord } from '@/types/content'
 
 type EntityType = 'herb' | 'compound'
 
 type ProfileAuthoritySectionsProps = {
-  record: any
+  record: RuntimeRecord
   entityType: EntityType
-  relatedRecords?: any[]
-  comparisonRecords?: any[]
-  stackRecords?: any[]
+  relatedRecords?: RuntimeRecord[]
+  comparisonRecords?: RuntimeRecord[]
+  stackRecords?: RuntimeRecord[]
   effects?: string[]
   mechanisms?: string[]
   summary?: string
@@ -52,11 +53,11 @@ function cleanList(value: unknown, limit = 6) {
   ).slice(0, limit)
 }
 
-function getSummary(record: any, fallback = '', entityType: EntityType) {
+function getSummary(record: RuntimeRecord, fallback = '', entityType: EntityType) {
   return cleanSummary(fallback || record?.summary || record?.description || '', entityType)
 }
 
-function getPrimaryEffects(record: any, provided: string[] | undefined) {
+function getPrimaryEffects(record: RuntimeRecord, provided: string[] | undefined) {
   return cleanList([
     ...(provided || []),
     ...list(record?.primary_effects),
@@ -65,7 +66,7 @@ function getPrimaryEffects(record: any, provided: string[] | undefined) {
   ], 6)
 }
 
-function getMechanisms(record: any, provided: string[] | undefined) {
+function getMechanisms(record: RuntimeRecord, provided: string[] | undefined) {
   return cleanList([
     ...(provided || []),
     ...list(record?.mechanisms),
@@ -74,7 +75,7 @@ function getMechanisms(record: any, provided: string[] | undefined) {
   ], 8)
 }
 
-function getSafetySignals(record: any) {
+function getSafetySignals(record: RuntimeRecord) {
   return cleanList([
     ...list(record?.safety?.cautionSignals),
     ...list(record?.cautionSignals),
@@ -87,7 +88,7 @@ function getSafetySignals(record: any) {
   ], 5)
 }
 
-function getAliases(record: any) {
+function getAliases(record: RuntimeRecord) {
   const primaryName = formatDisplayLabel(record?.name || record?.slug).toLowerCase()
 
   return cleanList([
@@ -100,21 +101,21 @@ function getAliases(record: any) {
   ], 6).filter(item => item.toLowerCase() !== primaryName)
 }
 
-function getPathwaySignals(record: any) {
+function getPathwaySignals(record: RuntimeRecord) {
   return cleanList([
     ...list(record?.pathways),
     ...list(record?.pathway_bucket),
   ], 6)
 }
 
-function getBiologicalTargets(record: any) {
+function getBiologicalTargets(record: RuntimeRecord) {
   return cleanList([
     ...list(record?.targets),
     ...list(record?.biologicalTargets),
   ], 6)
 }
 
-function getResearchFocus(record: any) {
+function getResearchFocus(record: RuntimeRecord) {
   return cleanList([
     text(record?.evidenceLevel),
     text(record?.evidence_tier),
@@ -128,7 +129,7 @@ function getResearchFocus(record: any) {
   ], 6)
 }
 
-function getTraditionalContext(record: any) {
+function getTraditionalContext(record: RuntimeRecord) {
   return cleanList([
     ...list(record?.traditionalUses),
     text(record?.preparation),
@@ -136,7 +137,7 @@ function getTraditionalContext(record: any) {
   ], 6)
 }
 
-function getAssociationSignals(record: any, entityType: EntityType) {
+function getAssociationSignals(record: RuntimeRecord, entityType: EntityType) {
   return cleanList([
     ...list(record?.activeCompounds),
     ...list(record?.foundIn),
@@ -144,7 +145,7 @@ function getAssociationSignals(record: any, entityType: EntityType) {
   ], 8)
 }
 
-function getPharmacologyContext(record: any) {
+function getPharmacologyContext(record: RuntimeRecord) {
   return cleanList([
     text(record?.compoundClass),
     text(record?.class),
@@ -156,7 +157,7 @@ function getPharmacologyContext(record: any) {
   ], 6)
 }
 
-function getEvidenceText(record: any) {
+function getEvidenceText(record: RuntimeRecord) {
   return formatDisplayLabel(
     record?.evidence_tier ||
       record?.safety?.evidenceTier ||
@@ -167,7 +168,7 @@ function getEvidenceText(record: any) {
   )
 }
 
-function getAuthoritySignals(record: any, density: string) {
+function getAuthoritySignals(record: RuntimeRecord, density: string) {
   const signals = [
     ...getSemanticTrustLabels(record, 5),
     ...getSafetyLabels(record, 3),
@@ -358,7 +359,7 @@ function MechanismClusters({ mechanisms }: { mechanisms: string[] }) {
   )
 }
 
-function EvidenceOverview({ record }: { record: any }) {
+function EvidenceOverview({ record }: { record: RuntimeRecord }) {
   const strata = getEvidenceStrata(record)
   const disciplineSummary = getEvidenceDisciplineSummary(strata)
   const trustBadges = getSemanticTrustBadges(record, 4)
@@ -493,7 +494,7 @@ function ScientificSnapshot({
 }
 
 
-function EcosystemIntelligence({ record, relatedRecords, entityType, compact }: { record: any; relatedRecords: any[]; entityType: EntityType; compact: boolean }) {
+function EcosystemIntelligence({ record, relatedRecords, entityType, compact }: { record: RuntimeRecord; relatedRecords: RuntimeRecord[]; entityType: EntityType; compact: boolean }) {
   const fields = normalizeEcosystemFields(record)
   const ecosystemSections = [
     {
@@ -602,6 +603,16 @@ function HighIntentFraming({ effects, mechanisms }: { effects: string[]; mechani
   )
 }
 
+interface WhyItMattersProps {
+  summary: string
+  effects: string[]
+  mechanisms: string[]
+  entityType: EntityType
+  compact?: boolean
+  practicalRelevance?: string
+  mechanismContext?: string
+}
+
 function WhyItMatters({
   summary,
   effects,
@@ -610,7 +621,7 @@ function WhyItMatters({
   compact = false,
   practicalRelevance,
   mechanismContext,
-}: any) {
+}: WhyItMattersProps) {
   if (!summary && effects.length === 0 && mechanisms.length === 0) return null
 
   const displaySummary = compact ? compressEditorialCopy(summary).split(/(?<=[.!?])\s+/).slice(0, 1).join(' ') : summary
@@ -648,7 +659,7 @@ function WhyItMatters({
   )
 }
 
-function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType }) {
+function DiscoveryCard({ item, entityType }: { item: RuntimeRecord; entityType: EntityType }) {
   const overlap = cleanList(item.relatedOverlap || item.overlap || item.effects || item.mechanisms, 2)
   const targetType = item.entityType === 'herb' || item.entityType === 'compound' ? item.entityType : entityType
 
@@ -686,7 +697,7 @@ function DiscoveryCard({ item, entityType }: { item: any; entityType: EntityType
 }
 
 
-function GraphCandidateCard({ item, entityType, kind }: { item: any; entityType: EntityType; kind: 'comparison' | 'stack' }) {
+function GraphCandidateCard({ item, entityType, kind }: { item: RuntimeRecord; entityType: EntityType; kind: 'comparison' | 'stack' }) {
   const targetType = item.entityType === 'herb' || item.entityType === 'compound' ? item.entityType : entityType
   const mechanismSignals = cleanList(kind === 'stack' ? item.graphMechanismComplementarity : item.graphMechanismOverlap, 3)
   const pathwaySignals = cleanList(kind === 'stack' ? item.graphPathwayComplementarity : item.graphPathwayOverlap, 3)
@@ -726,16 +737,16 @@ function GraphCandidateCard({ item, entityType, kind }: { item: any; entityType:
 }
 
 function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, compact }: {
-  comparisonRecords: any[]
-  stackRecords: any[]
+  comparisonRecords: RuntimeRecord[]
+  stackRecords: RuntimeRecord[]
   entityType: EntityType
   compact: boolean
 }) {
   const comparisons = (comparisonRecords || [])
-    .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
+    .filter((item: RuntimeRecord) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
     .slice(0, 8)
   const stacks = (stackRecords || [])
-    .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
+    .filter((item: RuntimeRecord) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
     .slice(0, 6)
 
   if (comparisons.length === 0 && stacks.length === 0) return null
@@ -756,7 +767,7 @@ function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, c
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {comparisons.slice(0, compact ? 3 : 8).map((item: any) => (
+              {comparisons.slice(0, compact ? 3 : 8).map((item: RuntimeRecord) => (
                 <GraphCandidateCard key={`comparison-${item.slug}`} item={item} entityType={entityType} kind="comparison" />
               ))}
             </div>
@@ -772,7 +783,7 @@ function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, c
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {stacks.slice(0, compact ? 3 : 6).map((item: any) => (
+              {stacks.slice(0, compact ? 3 : 6).map((item: RuntimeRecord) => (
                 <GraphCandidateCard key={`stack-${item.slug}`} item={item} entityType={entityType} kind="stack" />
               ))}
             </div>
@@ -783,9 +794,17 @@ function GraphIntelligenceRails({ comparisonRecords, stackRecords, entityType, c
   )
 }
 
-function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '', baseRecord }: any) {
+interface DiscoveryRailsProps {
+  relatedRecords: RuntimeRecord[]
+  entityType: EntityType
+  compact?: boolean
+  narrative?: string
+  baseRecord: RuntimeRecord
+}
+
+function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative = '', baseRecord }: DiscoveryRailsProps) {
   const visible = rankEvidenceSensitiveRelatedRecords(baseRecord, relatedRecords || [], compact ? 3 : 8)
-    .filter((item: any) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
+    .filter((item: RuntimeRecord) => item?.slug && isClean(formatDisplayLabel(item?.name || item?.slug)))
 
   if (visible.length === 0) return null
 
@@ -813,7 +832,7 @@ function DiscoveryRails({ relatedRecords, entityType, compact = false, narrative
               <p className="text-sm leading-7 text-[#5b6b61]">{group.description}</p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {group.items.slice(0, compact ? 3 : 4).map((item: any) => (
+              {group.items.slice(0, compact ? 3 : 4).map((item: RuntimeRecord) => (
                 <DiscoveryCard key={item.slug} item={item} entityType={entityType} />
               ))}
             </div>

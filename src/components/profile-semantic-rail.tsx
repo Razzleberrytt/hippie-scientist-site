@@ -1,27 +1,28 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { rankSemanticRecommendations } from '@/lib/semantic-orchestration'
+import type { RuntimeRecord } from '@/types/content'
 
 type EntityType = 'herb' | 'compound'
 
 type ProfileSemanticRailProps = {
-  record: any
+  record: RuntimeRecord
   entityType: EntityType
-  relatedRecords?: any[]
-  comparisonRecords?: any[]
-  stackRecords?: any[]
+  relatedRecords?: RuntimeRecord[]
+  comparisonRecords?: RuntimeRecord[]
+  stackRecords?: RuntimeRecord[]
 }
 
-function getHref(item: any, fallbackType: EntityType) {
+function getHref(item: RuntimeRecord, fallbackType: EntityType) {
   const type = item?.entityType === 'herb' || item?.entityType === 'compound' ? item.entityType : fallbackType
   return `/${type === 'herb' ? 'herbs' : 'compounds'}/${item.slug}`
 }
 
-function getName(item: any) {
+function getName(item: RuntimeRecord) {
   return formatDisplayLabel(item?.displayName || item?.name || item?.slug)
 }
 
-function getSignals(item: any) {
+function getSignals(item: RuntimeRecord) {
   return unique([
     ...list(item?.primary_effects),
     ...list(item?.effects),
@@ -30,7 +31,7 @@ function getSignals(item: any) {
   ].map(formatDisplayLabel).filter(isClean)).slice(0, 3)
 }
 
-function RailCard({ item, fallbackType, reason }: { item: any; fallbackType: EntityType; reason?: string }) {
+function RailCard({ item, fallbackType, reason }: { item: RuntimeRecord; fallbackType: EntityType; reason?: string }) {
   if (!item?.slug) return null
 
   const name = getName(item)
@@ -66,7 +67,7 @@ function RailCard({ item, fallbackType, reason }: { item: any; fallbackType: Ent
 function RailSection({ title, description, items, entityType, reason }: {
   title: string
   description: string
-  items: any[]
+  items: RuntimeRecord[]
   entityType: EntityType
   reason: string
 }) {
