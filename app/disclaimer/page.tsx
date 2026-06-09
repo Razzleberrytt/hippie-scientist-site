@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: '/disclaimer',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 }

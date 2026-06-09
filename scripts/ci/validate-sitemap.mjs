@@ -128,8 +128,8 @@ function main() {
   // Asserts
   console.log(`[validate-sitemap] Category counts: herbs=${herbCount}, compounds=${compoundCount}, articles=${articleCount}, guides=${guideCount}`)
 
-  if (herbCount < 280) {
-    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 280).`)
+  if (herbCount < 278) {
+    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 278 canonical, non-redirect URLs).`)
     failed = true
   }
 

@@ -64,6 +64,42 @@ function readTsStringArray(relativePath: string, varName: string): string[] {
   }
 }
 
+function normalizeRoutePath(value: string): string {
+  if (!value) return '/';
+  try {
+    const url = value.startsWith('http') ? new URL(value) : null;
+    value = url ? url.pathname : value;
+  } catch {
+    // Keep original relative path.
+  }
+  const pathOnly = value.split(/[?#]/)[0] || '/';
+  const withSlash = pathOnly.startsWith('/') ? pathOnly : `/${pathOnly}`;
+  return withSlash.length > 1 ? withSlash.replace(/\/+$/, '') : '/';
+}
+
+function readRedirectSources(relativePath = 'public/_redirects'): Set<string> {
+  const filePath = path.join(process.cwd(), relativePath);
+  const sources = new Set<string>();
+  if (!existsSync(filePath)) return sources;
+
+  try {
+    const lines = readFileSync(filePath, 'utf8').split(/\r?\n/);
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const [source, target, status] = trimmed.split(/\s+/);
+      if (!source || source.includes('*')) continue;
+      if (!/^30[1278]$/.test(status || '')) continue;
+      if (target && normalizeRoutePath(source) === normalizeRoutePath(target)) continue;
+      sources.add(normalizeRoutePath(source));
+    }
+  } catch {
+    return sources;
+  }
+
+  return sources;
+}
+
 function route(
   url: string,
   currentDate: string,
@@ -81,6 +117,7 @@ function route(
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString().split('T')[0];
+  const redirectSources = readRedirectSources();
 
   const herbsData = readJsonArray<SitemapSourceItem>('public/data/herbs.json');
   const compoundsData = readJsonArray<SitemapSourceItem>('public/data/compounds.json');
@@ -114,6 +151,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/disclaimer/`, currentDate, 'yearly', 0.4),
   ];
 
+  const addRoute = (
+    pathName: string,
+    changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
+    priority: number,
+    lastModified?: string,
+  ) => {
+    const normalized = normalizeRoutePath(pathName);
+    if (redirectSources.has(normalized)) return;
+    sitemapEntries.push(route(`${SITE_URL}${normalized === '/' ? '/' : `${normalized}/`}`, currentDate, changeFrequency, priority, lastModified));
+  };
+
   const DEPRECATED_HERBS = new Set([
     'allium-sativum',
     'valeriana-officinalis',
@@ -127,29 +175,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!herb.slug) return;
     if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
 
-    sitemapEntries.push(
-      route(
-        `${SITE_URL}/herbs/${herb.slug}/`,
-        currentDate,
-        'weekly',
-        0.85,
-        herb.lastUpdated || herb.updatedAt,
-      ),
-    );
+    addRoute(`/herbs/${herb.slug}`, 'weekly', 0.85, herb.lastUpdated || herb.updatedAt);
   });
 
   compoundsData.forEach((compound) => {
     if (!compound.slug) return;
 
-    sitemapEntries.push(
-      route(
-        `${SITE_URL}/compounds/${compound.slug}/`,
-        currentDate,
-        'weekly',
-        0.85,
-        compound.lastUpdated || compound.updatedAt,
-      ),
-    );
+    addRoute(`/compounds/${compound.slug}`, 'weekly', 0.85, compound.lastUpdated || compound.updatedAt);
   });
 
   const articleSlugs = new Set<string>();
@@ -161,15 +193,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (/draft|archived/i.test(String(status))) return;
     articleSlugs.add(article.slug);
 
-    sitemapEntries.push(
-      route(
-        `${SITE_URL}/articles/${article.slug}/`,
-        currentDate,
-        'monthly',
-        0.75,
-        article.updatedAt || article.date || article.lastUpdated,
-      ),
-    );
+    addRoute(`/articles/${article.slug}`, 'monthly', 0.75, article.updatedAt || article.date || article.lastUpdated);
   });
 
   blogPosts.forEach((post) => {
@@ -179,37 +203,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if ((post as Record<string, unknown>).sitemap_included === false) return;
     if (/draft|archived/i.test(String(status))) return;
 
-    sitemapEntries.push(
-      route(
-        `${SITE_URL}/articles/${post.slug}/`,
-        currentDate,
-        'monthly',
-        0.75,
-        post.date || post.lastUpdated || post.updatedAt,
-      ),
-    );
+    addRoute(`/articles/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || post.updatedAt);
   });
 
   goalsData.forEach((goal) => {
     if (!goal.slug) return;
 
-    sitemapEntries.push(route(`${SITE_URL}/goals/${goal.slug}/`, currentDate, 'monthly', 0.7));
+    addRoute(`/goals/${goal.slug}`, 'monthly', 0.7);
   });
 
   stacksData.forEach((stack) => {
     if (!stack.slug) return;
 
-    sitemapEntries.push(route(`${SITE_URL}/stacks/${stack.slug}/`, currentDate, 'monthly', 0.65));
+    addRoute(`/stacks/${stack.slug}`, 'monthly', 0.65);
   });
 
   guidesData.forEach((guide) => {
     if (!guide.slug) return;
 
-    sitemapEntries.push(route(`${SITE_URL}/guides/${guide.slug}/`, currentDate, 'monthly', 0.65));
+    addRoute(`/guides/${guide.slug}`, 'monthly', 0.65);
   });
 
   learnPosts.forEach((post) => {
-    sitemapEntries.push(route(`${SITE_URL}/learn/${post.slug}/`, currentDate, 'monthly', 0.7));
+    addRoute(`/learn/${post.slug}`, 'monthly', 0.7);
   });
 
   // Add compare detail routes (data-driven, for task requirement to cover /compare/:slug)
@@ -218,7 +234,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((s: string) => s)
     .filter(Boolean);
   Array.from(new Set([...compareFromGen, ...compareFromData])).forEach((slug) => {
-    if (slug) sitemapEntries.push(route(`${SITE_URL}/compare/${slug}/`, currentDate, 'monthly', 0.65));
+    if (slug) addRoute(`/compare/${slug}`, 'monthly', 0.65);
   });
 
   // Inactive collections routes (redirect targets or defined in lib) are excluded from the sitemap.
@@ -236,7 +252,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'best-adaptogens-for-stress',
   ];
   topPages.forEach((p) => {
-    sitemapEntries.push(route(`${SITE_URL}/${p}/`, currentDate, 'monthly', 0.6));
+    addRoute(`/${p}`, 'monthly', 0.6);
   });
 
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
@@ -244,13 +260,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const r = (entry && (entry.route || entry.slug)) as string | undefined;
     if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/research-notes/') || r.startsWith('/articles/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
     if (r.startsWith('/_') || r.includes('dynamic')) return;
-    const url = r.endsWith('/') || r === '' ? `${SITE_URL}${r || '/'}` : `${SITE_URL}${r}/`;
-    sitemapEntries.push(route(url, currentDate, 'monthly', 0.5));
+    addRoute(r, 'monthly', 0.5);
   });
 
   // Dedupe by url (supplements + manifest may overlap) for valid lean sitemap
   const seen = new Set<string>();
   const uniqueEntries = sitemapEntries.filter((e) => {
+    if (redirectSources.has(normalizeRoutePath(e.url))) return false;
     if (seen.has(e.url)) return false;
     seen.add(e.url);
     return true;

@@ -215,7 +215,10 @@ export const canonicalGuidePages: SeoEntryConfig[] = seoEntryPages.filter((page)
   page.route.startsWith('guides/'),
 )
 
-export const indexableGuidePages: SeoEntryConfig[] = manualGuideSeoEntryPages
+export const indexableGuidePages: SeoEntryConfig[] = [
+  ...manualGuideSeoEntryPages,
+  ...generatedSeoEntryPages.filter((page) => page.route === 'guides/magnesium-for-sleep'),
+]
 
 
 const revenueProductSlugs: Record<string, string[]> = {
@@ -359,7 +362,6 @@ export function generateSeoEntryMetadata(route: string): Metadata {
   const canonicalRoute = manualSeoEntryPages.some((item) => item.route === route)
     ? canonicalGuideRouteOverrides[route] || `guides/${route}`
     : page.route
-  const isDeprecatedRoute = canonicalRoute !== page.route
   const isGeneratedGuideRoute = route.startsWith('guides/')
     && !indexableGuidePages.some((item) => item.route === route)
 
@@ -372,7 +374,7 @@ export function generateSeoEntryMetadata(route: string): Metadata {
     image: `/og/guides/${slug}.png`,
     openGraphType: 'article',
   })
-  if (isDeprecatedRoute || isGeneratedGuideRoute) {
+  if (isGeneratedGuideRoute) {
     meta = { ...meta, robots: { index: false, follow: true } }
   }
   return meta

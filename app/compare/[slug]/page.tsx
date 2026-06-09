@@ -120,7 +120,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const title = config?.title ? `${config.title}: Which Is Better?` : `${formatSlug(slug)}: Which Is Better?`
   const description = config?.summary || `Compare ${formatSlug(slug)} for benefits, safety, evidence, best use cases, and supplement buying options.`
 
-  const indexable = isFlagshipCompareSlug(slug)
+  const indexable = isFlagshipCompareSlug(slug) || allComparisonSlugs.includes(slug)
   return buildPageMetadata({
     title,
     description,
