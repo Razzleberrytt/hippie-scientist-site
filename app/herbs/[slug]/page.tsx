@@ -11,7 +11,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
-import { generateDetailMetadata, SITE_URL } from '@/lib/seo'
+import { faqPageJsonLd, generateDetailMetadata, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildProfileSchemaGraph } from '@/lib/schema-graph'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
@@ -105,7 +105,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       ...metadata,
       alternates: { canonical: `${SITE_URL}/herbs/${canonicalSlug}/` },
-      robots: { index: false, follow: true },
+      robots: { index: true, follow: true },
     }
   }
 
@@ -113,18 +113,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       ...metadata,
       alternates: { canonical: `${SITE_URL}/herbs/${aliasCanonicalSlug}/` },
-      robots: { index: false, follow: true },
+      robots: { index: true, follow: true },
     }
   }
 
-  if (isRestrictedRecord(herb)) {
-    return {
-      ...metadata,
-      robots: { index: false, follow: true },
-    }
+  return {
+    ...metadata,
+    robots: { index: true, follow: true },
   }
-
-  return metadata
 }
 
 function getEffects(herb: Herb) {
@@ -419,6 +415,33 @@ export default async function HerbDetailPage({ params }: PageProps) {
     product: productSchema,
   })
 
+  const faqSchema = faqPageJsonLd({
+    pagePath: `/herbs/${normalizedSlug}/`,
+    questions: [
+      {
+        question: `What is ${displayName} used for?`,
+        answer: cleanText(herb.clinicalUse || herb.clinical_use || summary) || briefSummary,
+      },
+      {
+        question: `Is ${displayName} safe?`,
+        answer:
+          cleanText(
+            herb.safetyProfile ||
+              herb.safety_profile ||
+              herb.safetyNotes ||
+              herb.safety_notes ||
+              herb.safety,
+          ) || safetySummary,
+      },
+      {
+        question: `What is the dose of ${displayName}?`,
+        answer:
+          cleanText(herb.dosing || herb.dose || herb.dosage || herb.doseInfo || '') ||
+          'See dosing guidelines and product labeling.',
+      },
+    ],
+  })
+
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-4 py-6">
@@ -427,6 +450,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
       )}
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
 
       {/* Header Breadcrumb - use only common name, not scientific name */}
       <nav className="flex items-center gap-2 text-xs text-muted">

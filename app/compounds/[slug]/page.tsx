@@ -10,7 +10,7 @@ import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { generateDetailMetadata, SITE_URL } from '@/lib/seo'
+import { faqPageJsonLd, generateDetailMetadata, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildProfileSchemaGraph } from '@/lib/schema-graph'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
@@ -197,8 +197,8 @@ export async function generateMetadata({ params }: PageProps) {
   const redirectedCanonical = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
   if (redirectedCanonical?.startsWith('/')) {
     return {
-      alternates: { canonical: `${SITE_URL}${redirectedCanonical}` },
-      robots: { index: false, follow: true },
+      alternates: { canonical: `${SITE_URL}${redirectedCanonical}/` },
+      robots: { index: true, follow: true },
     }
   }
 
@@ -211,19 +211,15 @@ export async function generateMetadata({ params }: PageProps) {
   if (canonicalSlug !== normalizedSlug) {
     return {
       ...metadata,
-      alternates: { canonical: `${SITE_URL}/compounds/${canonicalSlug}` },
-      robots: { index: false, follow: true },
+      alternates: { canonical: `${SITE_URL}/compounds/${canonicalSlug}/` },
+      robots: { index: true, follow: true },
     }
   }
 
-  if (isRestrictedRecord(compound)) {
-    return {
-      ...metadata,
-      robots: { index: false, follow: true },
-    }
+  return {
+    ...metadata,
+    robots: { index: true, follow: true },
   }
-
-  return metadata
 }
 
 
@@ -572,6 +568,33 @@ export default async function CompoundPage({ params }: PageProps) {
     ],
     product: productSchema,
   })
+
+  const faqSchema = faqPageJsonLd({
+    pagePath: `/compounds/${normalizedSlug}/`,
+    questions: [
+      {
+        question: `What is ${displayName} used for?`,
+        answer: cleanText(compound.clinicalUse || compound.clinical_use || summary) || quickSummary,
+      },
+      {
+        question: `Is ${displayName} safe?`,
+        answer:
+          cleanText(
+            compound.safetyProfile ||
+              compound.safety_profile ||
+              compound.safetyNotes ||
+              compound.safety_notes ||
+              compound.safety,
+          ) || safetySummary,
+      },
+      {
+        question: `What is the dose of ${displayName}?`,
+        answer:
+          cleanText(compound.dosing || compound.dose || compound.dosage || compound.doseInfo || '') ||
+          'See dosing guidelines and product labeling.',
+      },
+    ],
+  })
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed =
     compound.last_updated ||
@@ -584,6 +607,12 @@ export default async function CompoundPage({ params }: PageProps) {
   return (
     <>
       <SchemaGraphScript graph={schemaGraph} />
+      {faqSchema ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      ) : null}
 
       <ReadingProgress />
 

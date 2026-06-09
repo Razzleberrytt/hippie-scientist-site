@@ -12,6 +12,7 @@ const GUIDE_SLUGS = [
   "kava",
   "elderberry",
   "passionflower",
+  "lions-mane",
   "rhodiola-complete-guide",
   "rhodiola-extract-vs-powder",
   "rhodiola-energy",
