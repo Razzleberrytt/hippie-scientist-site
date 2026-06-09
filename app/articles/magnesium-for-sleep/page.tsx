@@ -761,15 +761,21 @@ export default function MagnesiumForSleepPage() {
                     how it compares to other options.
                   </p>
                 </Link>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
+                <Link
+                  href="/articles/best-herbs-for-sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Coming Soon
+                    Sleep Cluster Hub
                   </p>
-                  <p className="font-semibold text-ink">Best Herbs for Sleep</p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Best Herbs for Sleep
+                  </p>
                   <p className="mt-1 text-xs text-muted">
-                    A comparative guide to the most evidence-supported botanicals for sleep quality.
+                    Evidence-ranked guide to magnesium, ashwagandha, L-theanine, valerian,
+                    passionflower, and more — with decision framework and combination guidance.
                   </p>
-                </div>
+                </Link>
                 <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
                     Coming Soon
