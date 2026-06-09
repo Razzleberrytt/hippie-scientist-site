@@ -776,15 +776,21 @@ export default function MagnesiumForSleepPage() {
                     passionflower, and more — with decision framework and combination guidance.
                   </p>
                 </Link>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
+                <Link
+                  href="/articles/magnesium-types-for-sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Coming Soon
+                    Sleep Cluster
                   </p>
-                  <p className="font-semibold text-ink">Magnesium Types for Sleep</p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Magnesium Types for Sleep
+                  </p>
                   <p className="mt-1 text-xs text-muted">
-                    Deep dive into glycinate vs threonate vs citrate for sleep applications.
+                    Deep dive into glycinate vs threonate vs citrate vs oxide vs malate — which
+                    form is right for you.
                   </p>
-                </div>
+                </Link>
                 <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
                     Coming Soon
