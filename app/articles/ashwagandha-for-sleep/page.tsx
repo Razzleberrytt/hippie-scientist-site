@@ -661,6 +661,21 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
+                  href="/articles/ashwagandha-vs-magnesium-for-sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Sleep Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Ashwagandha vs Magnesium for Sleep
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Side-by-side comparison of mechanisms, evidence, timing, safety, and cost
+                    to help you choose between the two or use both.
+                  </p>
+                </Link>
+                <Link
                   href="/articles"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
