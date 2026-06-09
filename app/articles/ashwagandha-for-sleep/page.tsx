@@ -601,6 +601,21 @@ export default function AshwagandhaForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
+                  href="/articles/best-herbs-for-sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Sleep Cluster Hub
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Best Herbs for Sleep
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Evidence-ranked guide to magnesium, ashwagandha, L-theanine, valerian,
+                    passionflower, and more — with decision framework and combination guidance.
+                  </p>
+                </Link>
+                <Link
                   href="/sleep-herbs-vs-melatonin"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
