@@ -806,6 +806,21 @@ export default function MagnesiumForSleepPage() {
                     and whether combining them makes sense.
                   </p>
                 </Link>
+                <Link
+                  href="/articles/l-theanine-for-sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Sleep Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    L-Theanine for Sleep
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    How L-theanine promotes mental relaxation without sedation — and when to stack
+                    it with magnesium.
+                  </p>
+                </Link>
                 <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
                     Coming Soon
