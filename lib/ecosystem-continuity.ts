@@ -73,7 +73,7 @@ function hydrateContinuityEntries(entries: RuntimeRelationshipEntry[], records: 
         pathwayOverlap: safeScore(entry?.pathwayOverlap),
       } as RuntimeRecord
     })
-    .filter((x): x is RuntimeRecord => x !== null)
+    .filter((x) => x !== null) as RuntimeRecord[]
 }
 
 export async function getEcosystemContinuityRecords(record: RuntimeRecord, records: RuntimeRecord[], limit = MAX_ECOSYSTEM_CONTINUITY_RECORDS) {

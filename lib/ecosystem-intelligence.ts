@@ -145,7 +145,7 @@ export function getAuthorityAnchorRecords(records: Record<string, unknown>[], li
     .filter(({ record, fields }) => safeSlug(record?.slug) && fields.authoritySupernode)
     .sort((a, b) => score(b.record?.authority_score) - score(a.record?.authority_score))
     .slice(0, limit)
-    .map(({ record, fields }) => ({ ...record, ecosystemFields: fields }))
+    .map(({ record, fields }) => ({ ...record, ecosystemFields: fields }) as Record<string, unknown> & { ecosystemFields: EcosystemFieldSet })
 }
 
 export function getSemanticRelationshipRecords(record: Record<string, unknown>, records: Record<string, unknown>[], limit = 6) {
