@@ -1098,6 +1098,21 @@ export default function LTheanineForSleepPage() {
                     supplements safely and effectively.
                   </p>
                 </Link>
+                <Link
+                  href="/articles/natural-anxiety-relief"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Anxiety Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Natural Anxiety Relief
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    L-theanine ranks among the top evidence-based anxiety supplements. See the
+                    full anxiety hub guide.
+                  </p>
+                </Link>
               </div>
             </div>
 

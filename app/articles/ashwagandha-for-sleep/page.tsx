@@ -704,6 +704,21 @@ export default function AshwagandhaForSleepPage() {
                     Evidence-based research notes on herbs, adaptogens, and supplements.
                   </p>
                 </Link>
+                <Link
+                  href="/articles/natural-anxiety-relief"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Anxiety Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Natural Anxiety Relief
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Evidence-ranked guide to natural supplements for anxiety — ashwagandha,
+                    L-theanine, kava, passionflower, saffron, and more.
+                  </p>
+                </Link>
               </div>
             </div>
 
