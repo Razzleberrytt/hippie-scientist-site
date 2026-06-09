@@ -19182,113 +19182,6 @@
     "sources": []
   },
   {
-    "slug": "lions-mane",
-    "name": "Lion’s Mane",
-    "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
-    "description": "Lion’s Mane is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Neurobiology. Current workbook signals support mechanistic context around Neuroprotective Activity, not treatment claims.",
-    "effects": [
-      "cognitive",
-      "neuroprotective",
-      "mood"
-    ],
-    "primary_effects": [
-      "cognitive",
-      "neuroprotective",
-      "mood"
-    ],
-    "mechanisms": [
-      "Neuroprotective Activity"
-    ],
-    "raw_mechanisms": [
-      "Neuroprotective Activity"
-    ],
-    "canonical_mechanisms": [
-      "Neuroprotective activity"
-    ],
-    "mechanism_categories": [
-      "core"
-    ],
-    "mechanism_classes": [
-      "Physiological effect"
-    ],
-    "mechanism_target_systems": [
-      "nervous system"
-    ],
-    "mechanism_normalization_status": "fully_mapped",
-    "unmapped_mechanisms": [],
-    "evidence_grade": "insufficient",
-    "evidence_tier": "Mechanistic Evidence",
-    "contraindications": [
-      "Not source-complete in workbook",
-      "screen pregnancy",
-      "lactation",
-      "medical conditions",
-      "and medications before use."
-    ],
-    "interactions": [
-      "Not source-complete in workbook",
-      "check medication and supplement interactions before use."
-    ],
-    "side_effects": [],
-    "dosage": "",
-    "typical_dosage": "",
-    "forms": [],
-    "available_forms": [],
-    "conditions": [],
-    "tags": [],
-    "keywords": [],
-    "affiliate_ready": true,
-    "affiliate_url": "https://www.amazon.com/s?k=organic+lions-mane&tag=razzleberry02-20",
-    "affiliate_label": "Check sourcing options",
-    "affiliate_query": "",
-    "default_product_type": "",
-    "amazon_affiliate_url": "https://www.amazon.com/s?k=organic+lions-mane+mushroom+extract+powder",
-    "iherb_affiliate_url": "",
-    "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
-    "doNotMonetize": false,
-    "doNotPromote": false,
-    "governance_status": "",
-    "legal_status": "",
-    "controlled_status": "",
-    "controlled_schedule": "",
-    "dea_status": "",
-    "dea_watchlist_status": "",
-    "regulatory_status": "",
-    "profile_status": "minimal",
-    "runtime_export_decision": "limited",
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "eligible",
-    "indexability_score": {
-      "status": "NEEDS_REVIEW",
-      "score": 45,
-      "robots": "noindex,follow",
-      "sitemap_included": false,
-      "reasons": [
-        "effect-coverage",
-        "evidence-signal",
-        "export-decision:limited",
-        "identity-present",
-        "mechanism-context",
-        "non-publishable-profile-status",
-        "profile-status:minimal",
-        "safety-context",
-        "summary-depth",
-        "summary-quality-missing"
-      ]
-    },
-    "indexability_reasons": [],
-    "meta_title": "",
-    "meta_description": "",
-    "featured": true,
-    "controlled_substance": false,
-    "safety": "Generally well tolerated for most users.",
-    "sources": []
-  },
-  {
     "slug": "lithospermum-erythrorhizon",
     "name": "Lithospermum Erythrorhizon",
     "summary": "Lithospermum erythrorhizon contains Shikonin and is linked here to PKM2 inhibition.",
@@ -30588,6 +30481,113 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": []
+  },
+  {
+    "slug": "lions-mane",
+    "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
+    "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+    "description": "Lion’s Mane is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Neurobiology. Current workbook signals support mechanistic context around Neuroprotective Activity, not treatment claims.",
+    "effects": [
+      "cognitive",
+      "neuroprotective",
+      "mood"
+    ],
+    "primary_effects": [
+      "cognitive",
+      "neuroprotective",
+      "mood"
+    ],
+    "mechanisms": [
+      "Neuroprotective Activity"
+    ],
+    "raw_mechanisms": [
+      "Neuroprotective Activity"
+    ],
+    "canonical_mechanisms": [
+      "Neuroprotective activity"
+    ],
+    "mechanism_categories": [
+      "core"
+    ],
+    "mechanism_classes": [
+      "Physiological effect"
+    ],
+    "mechanism_target_systems": [
+      "nervous system"
+    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
+    "evidence_grade": "Lion's Mane (Hericium erinaceus) shows promising but still emerging human evidence for cognitive support, primarily through neurotrophic and neuroprotective mechanisms. Several small randomized and open-label human studies have reported improvements in cognitive function, mood, and nerve-related outcomes, though results vary by extract type, dosage, population, and study duration. Preclinical research has identified hericenones and erinacines as key compounds that stimulate nerve growth factor (NGF) synthesis and promote neurogenesis, particularly in the hippocampus. Human data remains more limited. A 2019 double-blind, placebo-controlled trial in adults with mild cognitive impairment found that 3 g/day of Lion's Mane powder for 16 weeks was associated with improved cognitive scores compared with placebo, with effects diminishing after supplementation ended. Other small studies have explored benefits for mood, anxiety, and depression symptoms, as well as peripheral nerve recovery, with generally favorable but preliminary findings. Evidence quality is currently rated Moderate (B). Strengths include consistent mechanistic rationale and some positive human trials using standardized extracts. Limitations include small sample sizes, short durations, heterogeneous preparations (fruiting body vs. mycelium, varying beta-glucan content), and a lack of large, long-term RCTs in healthy or clinical populations. Product standardization remains inconsistent across commercial sources, which may affect reproducibility of effects. Overall, Lion's Mane is best positioned as a supportive compound for cognitive maintenance and mild mood support rather than a primary treatment for diagnosed conditions. Individuals interested in trying it should prioritize third-party tested fruiting-body extracts with verified beta-glucan content and track personal response over 8–12 weeks.",
+    "evidence_tier": "Mechanistic Evidence",
+    "contraindications": [
+      "Not source-complete in workbook",
+      "screen pregnancy",
+      "lactation",
+      "medical conditions",
+      "and medications before use."
+    ],
+    "interactions": [
+      "Not source-complete in workbook",
+      "check medication and supplement interactions before use."
+    ],
+    "side_effects": [],
+    "dosage": "",
+    "typical_dosage": "",
+    "forms": [],
+    "available_forms": [],
+    "conditions": [],
+    "tags": [],
+    "keywords": [],
+    "affiliate_ready": true,
+    "affiliate_url": "https://www.amazon.com/s?k=organic+lions-mane&tag=razzleberry02-20",
+    "affiliate_label": "Check sourcing options",
+    "affiliate_query": "",
+    "default_product_type": "",
+    "amazon_affiliate_url": "https://www.amazon.com/s?k=organic+lions-mane+mushroom+extract+powder",
+    "iherb_affiliate_url": "",
+    "buying_criteria": [],
+    "last_updated": "",
+    "last_reviewed": "",
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
+    "profile_status": "minimal",
+    "runtime_export_decision": "limited",
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "eligible",
+    "indexability_score": {
+      "status": "NEEDS_REVIEW",
+      "score": 45,
+      "robots": "noindex,follow",
+      "sitemap_included": false,
+      "reasons": [
+        "effect-coverage",
+        "evidence-signal",
+        "export-decision:limited",
+        "identity-present",
+        "mechanism-context",
+        "non-publishable-profile-status",
+        "profile-status:minimal",
+        "safety-context",
+        "summary-depth",
+        "summary-quality-missing"
+      ]
+    },
+    "indexability_reasons": [],
+    "meta_title": "",
+    "meta_description": "",
+    "featured": true,
     "controlled_substance": false,
     "safety": "Generally well tolerated for most users.",
     "sources": []
