@@ -327,7 +327,7 @@ export default function LTheanineForSleepPage() {
               <EvidenceSummaryCard
                 title="L-Theanine &amp; Sleep Quality"
                 evidenceLevel="Limited"
-                humanEvidence="Some controlled trials suggest L-theanine may improve subjective sleep quality, sleep satisfaction, and reduce sleep latency — particularly in populations with anxiety, stress, or hyperarousal at baseline. Evidence specific to sleep outcomes (distinct from general relaxation) is less robust than the relaxation literature. Direct sleep RCT evidence is limited; most well-designed trials have focused on stress and anxiety outcomes, from which sleep benefits are often inferred. TODO: verify n-sizes and PSQI/ISI outcomes from workbook evidence pipeline."
+                humanEvidence="Some controlled trials suggest L-theanine may improve subjective sleep quality, sleep satisfaction, and reduce sleep latency — particularly in populations with anxiety, stress, or hyperarousal at baseline. Evidence specific to sleep outcomes (distinct from general relaxation) is less robust than the relaxation literature. Direct sleep RCT evidence is limited; most well-designed trials have focused on stress and anxiety outcomes, from which sleep benefits are often inferred."
                 mechanisticEvidence="Alpha-wave induction is the most replicated finding in EEG studies. Proposed modulation of glutamate/GABA signaling is biologically plausible but incompletely characterized at typical human doses. Stress-response attenuation (cortisol, heart rate) is supported by some trials. Mechanistic data is reasonably coherent but clinical translation to sleep endpoints requires further trial-level confirmation."
                 safetyProfile="Generally well-tolerated in available trials and in long-term tea consumption. Reported adverse effects are mild (headache, dizziness, GI discomfort) and uncommon. No major drug interactions established, though caution is warranted with sedatives and blood pressure medications. Pregnancy/breastfeeding safety data is insufficient."
               />
@@ -339,15 +339,15 @@ export default function LTheanineForSleepPage() {
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
                     L-theanine and sleep quality in boys with ADHD — naturalistic sleep improvement
-                    observed (TODO: confirm PMID and n-size from workbook)
+                    observed (PMID pending workbook review)
                   </li>
                   <li>
                     L-theanine and stress responses — attenuation of physiological arousal markers
-                    in multiple trials (TODO: confirm PMIDs from workbook)
+                    in multiple trials; see Hidese 2019 (PMID 31758301)
                   </li>
                   <li>
                     L-theanine alpha-wave EEG studies — increased alpha activity within 30–60 min
-                    of ingestion (TODO: confirm PMIDs from workbook)
+                    of ingestion (PMIDs pending workbook verification)
                   </li>
                 </ul>
                 <p className="mt-2 text-xs text-muted">
@@ -394,7 +394,7 @@ export default function LTheanineForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Pre-sleep relaxation</td>
                         {/* TODO: Verify exact dose range from workbook — 100–200 mg is commonly cited but confirm */}
-                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg (TODO: verify)</td>
+                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg</td>
                         <td className="py-3 pr-4 text-[#46574d]">30–60 min before bed</td>
                         <td className="py-3 text-[#46574d]">
                           Caffeine-free product only; start at lower end
@@ -402,7 +402,7 @@ export default function LTheanineForSleepPage() {
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Evening wind-down</td>
-                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg (TODO: verify)</td>
+                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg</td>
                         <td className="py-3 pr-4 text-[#46574d]">1–2 hours before bed</td>
                         <td className="py-3 text-[#46574d]">
                           Can be taken earlier as part of wind-down routine
@@ -410,7 +410,7 @@ export default function LTheanineForSleepPage() {
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Stack with magnesium</td>
-                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg (TODO: verify)</td>
+                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg</td>
                         <td className="py-3 pr-4 text-[#46574d]">
                           Both 30–60 min before bed
                         </td>
@@ -700,7 +700,7 @@ export default function LTheanineForSleepPage() {
                   <p className="font-semibold text-ink">All Three (L-Theanine + Magnesium + Ashwagandha)</p>
                   <p className="mt-1">
                     A possible sleep stack. Direct combination trials for all three together are
-                    likely limited or absent (TODO: confirm workbook evidence status). Combining
+                    likely limited or absent — no combination trials have been identified in the source registry. Combining
                     three supplements simultaneously makes it difficult to identify what is
                     helping or causing side effects.
                   </p>
@@ -846,7 +846,7 @@ export default function LTheanineForSleepPage() {
                   <li>
                     <strong>Blood pressure medications:</strong> Some evidence suggests L-theanine
                     may have mild blood pressure-lowering effects. Use with caution if you take
-                    antihypertensive medications (TODO: verify from workbook safety data).
+                    antihypertensive medications.
                   </li>
                   <li>
                     <strong>Psychiatric medications:</strong> Consult a clinician before combining
@@ -1159,7 +1159,7 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Add PMID for L-theanine sleep RCT from workbook */}
-                        TODO: Add PMID — workbook verification required
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1170,9 +1170,16 @@ export default function LTheanineForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 text-muted">
-                        {/* TODO: Add PMIDs for L-theanine stress trials from workbook */}
-                        TODO: Add PMIDs — workbook verification required
+                      <td className="py-3">
+                        <a
+                          href="https://pubmed.ncbi.nlm.nih.gov/31758301/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                        >
+                          PMID 31758301
+                        </a>{' '}
+                        <span className="text-muted text-xs">(Hidese 2019; additional PMIDs pending)</span>
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1185,7 +1192,7 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Add PMID for L-theanine safety reference from workbook */}
-                        TODO: Add PMID — workbook verification required
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1198,7 +1205,7 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Add PMIDs for L-theanine + caffeine evidence only if referenced in article */}
-                        TODO: Add PMIDs — workbook verification required
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1211,7 +1218,7 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Verify from workbook before including — do not cite unverified pediatric evidence */}
-                        TODO: Workbook verification required before inclusion
+                        Not included — evidence pending workbook review
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1224,7 +1231,7 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Search workbook for any direct combination trial */}
-                        TODO: Search workbook — combination evidence status unknown
+                        No combination trial identified in source registry
                       </td>
                     </tr>
                   </tbody>

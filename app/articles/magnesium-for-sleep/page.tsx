@@ -892,9 +892,15 @@ export default function MagnesiumForSleepPage() {
                         Abbasi B, Kimiagar M, Sadeghniiat K, Shirazi MM, Hedayati M, Rashidkhani B
                       </td>
                       <td className="py-3 pr-4 text-muted">2012</td>
-                      <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                      <td className="py-3">
+                        <a
+                          href="https://pubmed.ncbi.nlm.nih.gov/23853635/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                        >
+                          PMID 23853635
+                        </a>
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -906,7 +912,7 @@ export default function MagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">2010</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -922,7 +928,7 @@ export default function MagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">2002</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -937,7 +943,7 @@ export default function MagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">2010</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -952,7 +958,7 @@ export default function MagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">2007</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                        PMID pending
                       </td>
                     </tr>
                   </tbody>

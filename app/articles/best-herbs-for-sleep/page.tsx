@@ -271,7 +271,14 @@ export default function BestHerbsForSleepPage() {
                         <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Racing thoughts, anxious arousal at bedtime</td>
                         <td className="py-3 pr-4 text-[#46574d]">100–200 mg, 30–60 min before bed</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
+                        <td className="py-3 text-xs">
+                          <Link
+                            href="/articles/l-theanine-for-sleep"
+                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                          >
+                            Full guide →
+                          </Link>
+                        </td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">4</td>
@@ -967,7 +974,7 @@ export default function BestHerbsForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -977,7 +984,7 @@ export default function BestHerbsForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -987,7 +994,7 @@ export default function BestHerbsForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -997,7 +1004,7 @@ export default function BestHerbsForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1009,7 +1016,7 @@ export default function BestHerbsForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1021,7 +1028,7 @@ export default function BestHerbsForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                   </tbody>

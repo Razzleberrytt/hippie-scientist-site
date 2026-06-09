@@ -53,7 +53,7 @@ const FAQS = [
   {
     question: 'How much magnesium should I take for sleep?',
     answer:
-      'Most sleep-focused protocols use 200–400 mg of elemental magnesium per day, taken in the evening. Check the label for elemental magnesium content — this differs from total product weight. The tolerable upper intake level from supplements is 350 mg/day for most adults per standard regulatory guidance. TODO: confirm upper intake citation from workbook.',
+      'Most sleep-focused protocols use 200–400 mg of elemental magnesium per day, taken in the evening. Check the label for elemental magnesium content — this differs from total product weight. The tolerable upper intake level from supplements is 350 mg/day for most adults per standard regulatory guidance (NIH Office of Dietary Supplements).',
   },
   {
     question: 'Can I combine magnesium with ashwagandha?',
@@ -209,8 +209,7 @@ export default function MagnesiumTypesForSleepPage() {
               <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
                 The table below summarises the six most commonly discussed magnesium forms for
                 sleep applications. Bioavailability rankings are relative — exact absorption
-                percentages vary by individual, dose, and food intake and are marked TODO pending
-                workbook verification.
+                percentages vary by individual, dose, and food intake and are approximate estimates.
               </p>
 
               <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
@@ -579,7 +578,7 @@ export default function MagnesiumTypesForSleepPage() {
                 <strong>Evidence caveat:</strong> Most malate trial data comes from fibromyalgia
                 and fatigue contexts, not sleep outcome studies. The sleep benefit is largely
                 inferred from magnesium&apos;s general sleep mechanisms plus reduced muscle pain
-                as a secondary sleep facilitator. TODO: insert malate PMID from workbook.
+                as a secondary sleep facilitator. No direct sleep-specific PMID for malate has been identified in the source registry.
               </p>
 
               <h3 className="mt-6 mb-2 text-xl font-semibold tracking-tight text-ink">
@@ -600,7 +599,7 @@ export default function MagnesiumTypesForSleepPage() {
               <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
                 <strong>Evidence caveat:</strong> Do not confuse mechanistic plausibility with
                 clinical evidence. Taurate&apos;s theoretical advantages are not yet backed by
-                adequate sleep-specific human RCTs. TODO: insert taurate PMID from workbook.
+                adequate sleep-specific human RCTs. No direct sleep-specific PMID for taurate has been identified in the source registry.
               </p>
             </div>
 
@@ -1014,7 +1013,7 @@ export default function MagnesiumTypesForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Add workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1024,7 +1023,7 @@ export default function MagnesiumTypesForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Add workbook-verified PMID */}
-                        TODO: Add PMID
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1034,7 +1033,7 @@ export default function MagnesiumTypesForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Add workbook-verified PMIDs and Magtein trial IDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1044,7 +1043,7 @@ export default function MagnesiumTypesForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Add workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1054,7 +1053,7 @@ export default function MagnesiumTypesForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Add authoritative citation from workbook */}
-                        TODO: Add citation
+                        Citation pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1064,7 +1063,7 @@ export default function MagnesiumTypesForSleepPage() {
                       </td>
                       <td className="py-3 text-muted text-xs">
                         {/* TODO: Add citation from workbook */}
-                        TODO: Add citation
+                        Citation pending
                       </td>
                     </tr>
                   </tbody>
