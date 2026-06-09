@@ -1,112 +1,77 @@
-import type { Metadata } from 'next'
-import { SeoEntryPage, generateSeoEntryMetadata, seoEntryPages } from '../../seo-entry-pages'
-import { getGuideBySlug, getAllGuideSlugs } from '@/lib/guides'
-import type { GuideData } from '@/lib/schemas/guide-schemas'
-import { buildSeoEntrySchemaGraph } from '@/lib/schema-graph'
-import GuidePage from '@/components/guides/GuidePage'
+import { getGuideBySlug } from "@/lib/guides";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
+import Script from "next/script";
 
-type Params = Promise<{ slug: string }>
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+const GUIDE_SLUGS = [
+  "ashwagandha",
+  "kava",
+  "elderberry",
+  "passionflower",
+  "rhodiola-complete-guide",
+  "rhodiola-extract-vs-powder",
+  "rhodiola-energy",
+  "rhodiola-sleep-stack",
+];
 
 export async function generateStaticParams() {
-  const seoSlugs = seoEntryPages
-    .filter((page) => page.route.startsWith('guides/'))
-    .map((page) => ({ slug: page.route.replace('guides/', '') }))
-
-  const jsonSlugs = getAllGuideSlugs().map((slug) => ({ slug }))
-
-  const seen = new Set(seoSlugs.map((p) => p.slug))
-  const merged = [...seoSlugs]
-  for (const p of jsonSlugs) {
-    if (!seen.has(p.slug)) merged.push(p)
-  }
-  return merged
+  return GUIDE_SLUGS.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { slug } = await params
-  const guide = getGuideBySlug(slug)
-  if (guide) {
-    const description = generateMetaDescription(guide.intro, guide.title)
-    const url = `https://thehippiescientist.net/guides/${guide.slug}`
-    return {
-      title: `${guide.title} | The Hippie Scientist`,
-      description,
-      alternates: { canonical: guide.seo.canonical },
-      openGraph: {
-        title: guide.title,
-        description,
-        url,
-        images: [{
-          url: `/images/guides/${guide.slug}.jpg`,
-          width: 1200,
-          height: 630,
-        }],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: guide.title,
-        description,
-      },
-    }
-  }
-  return generateSeoEntryMetadata(`guides/${slug}`)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = await getGuideBySlug(slug);
+  if (!guide) return {};
+  return {
+    title: guide.title,
+    description: guide.description,
+  };
 }
 
-function generateMetaDescription(quickAnswer: string, title: string): string {
-  const firstSentence = quickAnswer.split('.')[0]
-  const truncated = firstSentence ? `${firstSentence}.` : quickAnswer
-  const desc = `${title}: ${truncated}`
-  return desc.substring(0, 155)
-}
+export default async function GuidePage({ params }: Props) {
+  const { slug } = await params;
+  const guide = await getGuideBySlug(slug);
+  if (!guide) notFound();
 
-function buildGuideFaqs(guide: GuideData): Array<{ question: string; answer: string }> {
-  const questions = [
-    {
-      question: `What is ${guide.title}?`,
-      answer: guide.intro,
-    },
-  ]
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || '';
+  const contentBlocks = guide.content
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean);
 
-  if (guide.evidenceHighlights.length > 0) {
-    questions.push({
-      question: `What is the evidence for ${guide.title}?`,
-      answer: guide.evidenceHighlights
-        .map(item => `${item.claim}${item.context ? ` (${item.context})` : ''}.`)
-        .join(' '),
-    })
-  }
-
-  if (guide.safetyNotes?.length) {
-    questions.push({
-      question: `What safety notes matter for ${guide.title}?`,
-      answer: guide.safetyNotes.map(note => note.text).join(' '),
-    })
-  }
-
-  return questions
-}
-
-export default async function Page({ params }: { params: Params }) {
-  const { slug } = await params
-  const guide = getGuideBySlug(slug)
-  if (guide) {
-    const schemaGraph = buildSeoEntrySchemaGraph({
-      route: `/guides/${guide.slug}`,
-      title: guide.seo.title || guide.title,
-      description: guide.seo.description || generateMetaDescription(guide.intro, guide.title),
-      h1: guide.title,
-      faqs: buildGuideFaqs(guide),
-    })
-
-    return (
-      <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
+  return (
+    <>
+      {ga4Id && (
+        <Script
+          id={`guide-page-view-${slug}`}
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('event', 'page_view', {
+                page_path: '/guides/${slug}',
+                page_title: '${guide.title.replace(/'/g, "\\'")}',
+                guide_slug: '${slug}',
+                guide_type: 'guide'
+              });
+            `,
+          }}
         />
-        <GuidePage guide={guide} />
-      </>
-    )
-  }
-  return <SeoEntryPage route={`guides/${slug}`} />
+      )}
+      <article className="max-w-3xl mx-auto px-4 py-8">
+        <h1>{guide.title}</h1>
+        <p className="text-gray-600 mb-8">{guide.description}</p>
+        <div className="prose prose-sm max-w-none">
+          {contentBlocks.map((block) => (
+            <p key={block}>{block}</p>
+          ))}
+        </div>
+      </article>
+    </>
+  );
 }
