@@ -956,16 +956,21 @@ export default function MagnesiumTypesForSleepPage() {
                     sleep supplement stack.
                   </p>
                 </div>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
+                <Link
+                  href="/articles/l-theanine-for-sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Coming Soon
+                    Sleep Cluster
                   </p>
-                  <p className="font-semibold text-ink">L-Theanine for Sleep</p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    L-Theanine for Sleep
+                  </p>
                   <p className="mt-1 text-xs text-muted">
                     How L-theanine promotes relaxation without sedation and when to use it
                     alongside magnesium.
                   </p>
-                </div>
+                </Link>
               </div>
             </div>
 
