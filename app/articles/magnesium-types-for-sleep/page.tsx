@@ -931,16 +931,21 @@ export default function MagnesiumTypesForSleepPage() {
                     how it stacks with magnesium.
                   </p>
                 </Link>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
+                <Link
+                  href="/articles/ashwagandha-vs-magnesium-for-sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Coming Soon
+                    Sleep Cluster
                   </p>
-                  <p className="font-semibold text-ink">Ashwagandha vs Magnesium</p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Ashwagandha vs Magnesium for Sleep
+                  </p>
                   <p className="mt-1 text-xs text-muted">
-                    Direct comparison of mechanisms, evidence, and use cases for the two most
-                    popular sleep supplements.
+                    Direct comparison of mechanisms, evidence, cost, and use cases for the two
+                    most popular sleep supplements.
                   </p>
-                </div>
+                </Link>
                 <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-60">
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
                     Coming Soon
