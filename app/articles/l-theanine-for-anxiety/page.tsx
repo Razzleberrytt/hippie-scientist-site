@@ -346,16 +346,22 @@ export default function LTheanineForAnxietyPage() {
               Ashwagandha for Anxiety
             </Link>
             <Link
+              href="/articles/cbd-vs-ashwagandha-for-anxiety"
+              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+            >
+              CBD vs Ashwagandha for Anxiety
+            </Link>
+            <Link
+              href="/articles/anxiety-stack-guide"
+              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+            >
+              Anxiety Stack Guide
+            </Link>
+            <Link
               href="/articles/l-theanine-for-sleep"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               L-Theanine for Sleep
-            </Link>
-            <Link
-              href="/articles/best-herbs-for-sleep"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Best Herbs for Sleep
             </Link>
             <Link
               href="/articles/sleep-stack-guide"

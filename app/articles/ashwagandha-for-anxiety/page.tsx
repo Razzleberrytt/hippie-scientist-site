@@ -372,25 +372,22 @@ export default function AshwagandhaForAnxietyPage() {
             <Link href="/articles/natural-anxiety-relief" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Natural Anxiety Relief: Evidence-Based Approaches
             </Link>
+            <Link href="/articles/l-theanine-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              L-Theanine for Anxiety
+            </Link>
+            <Link href="/articles/cbd-vs-ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              CBD vs Ashwagandha for Anxiety
+            </Link>
+            <Link href="/articles/anxiety-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Anxiety Stack Guide
+            </Link>
             <Link href="/articles/ashwagandha-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Ashwagandha for Sleep
-            </Link>
-            <Link href="/articles/l-theanine-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              L-Theanine for Sleep
-            </Link>
-            <Link href="/articles/magnesium-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              Magnesium for Sleep
-            </Link>
-            <Link href="/articles/best-herbs-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              Best Herbs for Sleep
             </Link>
             <Link href="/articles/sleep-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Sleep Stack Guide
             </Link>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Future articles (placeholders): L-Theanine for Anxiety • Magnesium for Anxiety • CBD vs Ashwagandha • Anxiety Stack Guide
-          </p>
         </section>
 
         {/* Buyer Guide */}

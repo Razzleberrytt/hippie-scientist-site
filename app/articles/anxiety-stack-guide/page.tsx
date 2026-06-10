@@ -6,8 +6,7 @@ import {
   faqPageJsonLd
 } from '@/lib/seo';
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge';
-import ResponsiveTable from '@/components/ResponsiveTable';
-import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard';
+import ResponsiveTable from '@/components/ui/ResponsiveTable';
 import SafetyNotice from '@/components/evidence/SafetyNotice';
 import EmailCapture from '@/components/EmailCapture';
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock';
@@ -66,13 +65,6 @@ export default function AnxietyStackGuidePage() {
     date: lastUpdated,
   };
 
-  const stackComparisonData = [
-    ["Beginner Stack", "Magnesium", "General stress support, low complexity", "Low", "Low", "Mild GI upset in some forms"],
-    ["Stress Stack", "Ashwagandha + Magnesium", "Chronic stress, daily foundational support", "Medium", "Medium", "Ashwagandha cautions (thyroid, autoimmune)"],
-    ["Racing Thoughts Stack", "L-Theanine + Magnesium", "Mental tension, calm focus", "Low-Medium", "Low-Medium", "Generally well tolerated"],
-    ["Anxiety + Sleep Stack", "Ashwagandha + Magnesium + L-Theanine", "Stress + sleep overlap", "Medium-High", "Medium", "More variables to monitor"],
-    ["Full Stack", "All three + others", "Comprehensive approach (not recommended for beginners)", "High", "Higher", "Highest risk of over-supplementation"]
-  ];
 
   return (
     <>
@@ -159,10 +151,62 @@ export default function AnxietyStackGuidePage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Stack Comparison</h2>
 
-          <ResponsiveTable
-            headers={["Stack", "Ingredients", "Best For", "Complexity", "Cost", "Main Caution"]}
-            rows={stackComparisonData}
-          />
+          <ResponsiveTable label="Anxiety stack comparison by use case and complexity">
+            <table className="min-w-[680px] w-full text-sm">
+              <thead>
+                <tr className="border-b border-brand-900/10">
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Stack</th>
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Ingredients</th>
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Best For</th>
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Complexity</th>
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Cost</th>
+                  <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">Main Caution</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/5">
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Beginner Stack</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Magnesium</td>
+                  <td className="py-3 pr-4 text-[#46574d]">General stress support, low complexity</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Low</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Low</td>
+                  <td className="py-3 text-[#46574d]">Mild GI upset in some forms</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Stress Stack</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha + Magnesium</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Chronic stress, daily foundational support</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Medium</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Medium</td>
+                  <td className="py-3 text-[#46574d]">Ashwagandha cautions (thyroid, autoimmune)</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Racing Thoughts Stack</td>
+                  <td className="py-3 pr-4 text-[#46574d]">L-Theanine + Magnesium</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Mental tension, calm focus</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Low–Medium</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Low–Medium</td>
+                  <td className="py-3 text-[#46574d]">Generally well tolerated</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Anxiety + Sleep Stack</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha + Magnesium + L-Theanine</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Stress + sleep overlap</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Medium–High</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Medium</td>
+                  <td className="py-3 text-[#46574d]">More variables to monitor</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Full Stack</td>
+                  <td className="py-3 pr-4 text-[#46574d]">All three + others</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Comprehensive (not for beginners)</td>
+                  <td className="py-3 pr-4 text-[#46574d]">High</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Higher</td>
+                  <td className="py-3 text-[#46574d]">Highest risk of over-supplementation</td>
+                </tr>
+              </tbody>
+            </table>
+          </ResponsiveTable>
         </section>
 
         <section className="mb-12">
@@ -210,27 +254,67 @@ export default function AnxietyStackGuidePage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Timing Guide</h2>
 
-          <ResponsiveTable
-            headers={["Time of Day", "Recommended Supplements", "Notes"]}
-            rows={[
-              ["Morning", "Ashwagandha (some prefer), L-Theanine (with or without caffeine)", "TODO: Verify preferred timing from evidence"],
-              ["Afternoon", "L-Theanine (for calm focus)", "Useful during high-stress periods"],
-              ["Evening", "Magnesium, Ashwagandha (some prefer), L-Theanine", "Support relaxation and sleep quality"]
-            ]}
-          />
+          <ResponsiveTable label="Anxiety supplement timing guide">
+            <table className="min-w-[500px] w-full text-sm">
+              <thead>
+                <tr className="border-b border-brand-900/10">
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Time of Day</th>
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Recommended Supplements</th>
+                  <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">Notes</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/5">
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Morning</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha (some prefer), L-Theanine (with or without caffeine)</td>
+                  <td className="py-3 text-[#46574d]">TODO: Verify preferred timing from evidence</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Afternoon</td>
+                  <td className="py-3 pr-4 text-[#46574d]">L-Theanine (for calm focus)</td>
+                  <td className="py-3 text-[#46574d]">Useful during high-stress periods</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Evening</td>
+                  <td className="py-3 pr-4 text-[#46574d]">Magnesium, Ashwagandha (some prefer), L-Theanine</td>
+                  <td className="py-3 text-[#46574d]">Support relaxation and sleep quality</td>
+                </tr>
+              </tbody>
+            </table>
+          </ResponsiveTable>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Dosing Guide</h2>
 
-          <ResponsiveTable
-            headers={["Supplement", "Common Research Range", "Notes"]}
-            rows={[
-              ["Ashwagandha (standardized extract)", "TODO: Typical daily range from studies", "Often taken once or twice daily"],
-              ["L-Theanine", "TODO: Typical single and daily doses", "Often 100–200 mg per dose"],
-              ["Magnesium (glycinate/bisglycinate)", "TODO: Elemental magnesium range", "Split doses may improve tolerability"]
-            ]}
-          />
+          <ResponsiveTable label="Anxiety supplement dosing guide">
+            <table className="min-w-[500px] w-full text-sm">
+              <thead>
+                <tr className="border-b border-brand-900/10">
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Supplement</th>
+                  <th className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">Common Research Range</th>
+                  <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">Notes</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/5">
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Ashwagandha (standardized extract)</td>
+                  <td className="py-3 pr-4 text-[#46574d]">TODO: Typical daily range from studies</td>
+                  <td className="py-3 text-[#46574d]">Often taken once or twice daily</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
+                  <td className="py-3 pr-4 text-[#46574d]">TODO: Typical single and daily doses</td>
+                  <td className="py-3 text-[#46574d]">Often 100–200 mg per dose</td>
+                </tr>
+                <tr className="align-top">
+                  <td className="py-3 pr-4 font-medium text-ink">Magnesium (glycinate/bisglycinate)</td>
+                  <td className="py-3 pr-4 text-[#46574d]">TODO: Elemental magnesium range</td>
+                  <td className="py-3 text-[#46574d]">Split doses may improve tolerability</td>
+                </tr>
+              </tbody>
+            </table>
+          </ResponsiveTable>
         </section>
 
         <section className="mb-12">
