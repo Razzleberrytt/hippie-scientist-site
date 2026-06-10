@@ -15,7 +15,7 @@ const outPath = path.join(process.cwd(), 'out')
 const nextPath = path.join(process.cwd(), '.next')
 for (const dir of [outPath, nextPath]) {
   if (fs.existsSync(dir)) {
-    fs.rmSync(dir, { recursive: true, force: true })
+    fs.rmSync(dir, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 })
   }
 }
 
