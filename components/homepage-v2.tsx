@@ -4,6 +4,7 @@ import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
 import { HERB_COUNT, COMPOUND_COUNT } from '@/lib/profile-counts'
 import { goals } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import NewsletterCtaBlock from './NewsletterCtaBlock'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
@@ -61,6 +62,14 @@ const credibilityPillars = [
   'Affiliate context is disclosed without changing the evidence standard.',
 ]
 
+const focusAdhdGuideCards = focusAdhdArticles.map((article) => ({
+  href: `/articles/${article.slug}`,
+  title: article.title.split(':')[0],
+  description: article.description,
+  category: article.category,
+  readingTime: article.readingTime,
+}))
+
 const featuredArticles = [
   {
     href: '/articles/lions-mane',
@@ -84,6 +93,27 @@ const featuredArticles = [
     readingTime: '4 min read',
   },
 ]
+
+const compoundSlugAliases: Record<string, string> = {
+  psyllium: 'psyllium-husk',
+}
+
+function trimRepeatedAdjacentTokens(value: string) {
+  const tokens = value.split(/\s+/).filter(Boolean)
+  return tokens.filter((token, index) => index === 0 || token.toLowerCase() !== tokens[index - 1].toLowerCase()).join(' ')
+}
+
+function getProductDisplayName(product: { brand?: string; title?: string }) {
+  const brand = (product.brand || '').trim()
+  const title = (product.title || '').replace(/^[^a-zA-Z]+/g, '').trim()
+  if (!brand) return trimRepeatedAdjacentTokens(title)
+  if (!title) return brand
+  return trimRepeatedAdjacentTokens(title.toLowerCase().startsWith(brand.toLowerCase()) ? title : `${brand} ${title}`)
+}
+
+function getEvidenceItemHref(slug: string) {
+  return `/compounds/${compoundSlugAliases[slug] || slug}`
+}
 
 // Fallbacks / curated popular starting points
 const featuredFallbacks: LandingCard[] = [
@@ -275,10 +305,15 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                                 rel='nofollow sponsored noopener noreferrer'
                                 className='font-bold text-brand-700 hover:text-brand-800 hover:underline text-right break-words min-w-0'
                               >
-                                {overallProduct.brand} {(overallProduct.title || '').replace(/^[^a-zA-Z]+/g, '').split(' ').slice(1, 3).join(' ')} →
+                                {getProductDisplayName(overallProduct)} →
                               </a>
                             ) : (
-                              <span className='font-bold text-brand-700 text-right break-words min-w-0'>{pick.option}</span>
+                              <Link
+                                href={getEvidenceItemHref(pick.slug)}
+                                className='font-bold text-brand-700 hover:text-brand-800 hover:underline text-right break-words min-w-0'
+                              >
+                                {pick.option} →
+                              </Link>
                             )}
                           </div>
                         )
@@ -297,12 +332,50 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
+        {/* ── Focus / ADHD Guides ───────────────────────────────── */}
+        <section className='space-y-4'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+            <SectionHeader
+              title='Focus &amp; ADHD Evidence Guides'
+              subtitle='Conservative articles on focus, sleep, nutrient status, and adjunctive supplement evidence. Informational only; not treatment advice.'
+              as='h2'
+            />
+            <Link href='/articles?category=nootropics' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              Focus articles →
+            </Link>
+          </div>
+
+          <div className='grid gap-4 md:grid-cols-3'>
+            {focusAdhdGuideCards.map((article) => (
+              <Link
+                key={article.href}
+                href={article.href}
+                className='group flex flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-900/20 hover:shadow-md'
+              >
+                <div className='flex items-center justify-between gap-3'>
+                  <span className='inline-flex text-[10px] font-bold uppercase tracking-[0.15em] text-brand-700'>
+                    {article.category}
+                  </span>
+                  <span className='text-[11px] text-muted'>{article.readingTime}</span>
+                </div>
+                <h3 className='mt-2 text-base font-bold tracking-tight text-ink group-hover:text-brand-700 leading-snug'>
+                  {article.title}
+                </h3>
+                <p className='mt-2 line-clamp-3 text-xs leading-relaxed text-muted flex-1'>
+                  {article.description}
+                </p>
+                <div className='mt-3'><ActionCue>Read guide</ActionCue></div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* ── Research Highlights ───────────────────────────────── */}
         <section className='space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
-              title='Guides & research notes'
-              subtitle='Practical guides live in /guides; deep dives, regulatory updates, and evidence notes live in the research-note archive.'
+              title='Guides & articles'
+              subtitle='Practical guides, evidence comparisons, safety discussions, and compound deep dives.'
               as='h2'
             />
             <Link href='/articles' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>

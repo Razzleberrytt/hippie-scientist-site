@@ -1,6 +1,6 @@
 import FocusAdhdArticlePage, { focusAdhdMetadata } from '@/components/articles/FocusAdhdArticlePage'
 
-const SLUG = 'magnesium-for-adhd'
+const SLUG = 'melatonin-for-adhd-sleep'
 
 export const metadata = focusAdhdMetadata(SLUG)
 

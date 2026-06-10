@@ -13,10 +13,11 @@ import {
 } from '@/lib/blog-index'
 import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 import { clampPositiveInt } from '@/lib/pagination'
+import { focusAdhdArticleSummaries } from '@/lib/focus-adhd-articles'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Articles',
-  description: '75+ research notes on herbs, compounds, safety, and preparation. Mechanisms, evidence, and practical context for evidence-driven readers.',
+  description: 'Evidence-first articles on herbs, compounds, supplement safety, focus, sleep, and practical decision-making.',
   path: '/articles',
   openGraphType: 'website',
 })
@@ -56,6 +57,7 @@ function articleToPost(article: ArticleIndexRecord): BlogPost {
 }
 
 const allPosts: BlogPost[] = [
+  ...focusAdhdArticleSummaries.map(articleToPost),
   ...(rawArticles as ArticleIndexRecord[]).map(articleToPost),
   ...(rawPosts as BlogPost[]),
 ]
@@ -64,6 +66,9 @@ const allPosts: BlogPost[] = [
 
 function getPostCategory(post: BlogPost): { label: string; href: string } {
   const style = inferArticleStyle(post)
+  if (post.tags?.some((tag) => ['ADHD', 'Focus', 'Supplement Evidence'].includes(tag))) {
+    return { label: post.categories?.[0] || 'Focus', href: '/articles?category=nootropics' }
+  }
   const group = BLOG_STYLE_GROUPS.find((g) =>
     style.toLowerCase().includes(g.slug.split('-')[0]) ||
     (g.slug === 'research-digests' && style.toLowerCase().includes('digest')) ||
@@ -96,7 +101,7 @@ function BlogCard({ post }: { post: BlogPost }) {
       <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#46574d]">{excerpt}</p>
 
       <Link href={href} className="mt-auto pt-3 text-sm font-semibold text-brand-800 hover:underline">
-        Read note →
+        Read article →
       </Link>
     </article>
   )
@@ -109,7 +114,7 @@ function LatestStrip({ posts }: { posts: BlogPost[] }) {
       <div className="flex items-end justify-between">
         <div>
           <p className="eyebrow-label">Latest</p>
-          <h2 className="compact-heading">The three most recent notes.</h2>
+          <h2 className="compact-heading">The three most recent articles.</h2>
         </div>
       </div>
       <div className="grid gap-3 md:grid-cols-3">
@@ -128,7 +133,7 @@ function CategoryFilterBar({ active }: { active: string }) {
         href="/articles"
         className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${!active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
       >
-        All notes
+        All articles
       </Link>
       {BLOG_STYLE_GROUPS.map((g) => {
         const href = `/articles?category=${g.slug}`
@@ -156,7 +161,7 @@ function BlogItemListJsonLd({ posts }: { posts: BlogPost[] }) {
         '@type': 'CollectionPage',
         '@id': `${SITE_URL}/articles/#webpage`,
         name: 'Articles',
-        headline: 'Guides & research notes',
+        headline: 'Guides & articles',
         description: 'Research notes on herbs, compounds, safety, preparation, mechanisms, and evidence maturity.',
         url: `${SITE_URL}/articles/`,
         mainEntity: { '@id': itemListId },
@@ -239,7 +244,7 @@ export default async function BlogPage({
           <p className="eyebrow-label">Articles</p>
           <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">Educational &amp; research articles</h1>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
-          Pharmacology, mechanisms, historical medicine, safety discussions, and compound deep dives. Citation-heavy, less commercial, supporting topical authority.
+          Pharmacology, mechanisms, safety discussions, practical guides, and compound deep dives. Conservative, evidence-first context for supplement decisions.
         </p>
         <p className="mt-1 text-sm font-semibold text-[#46574d]">{count} articles available</p>
       </section>
@@ -257,7 +262,7 @@ export default async function BlogPage({
       <section className="space-y-4">
         <div className="flex items-end justify-between">
           <div>
-            <p className="eyebrow-label">{category ? 'Matching notes' : 'Archive'}</p>
+            <p className="eyebrow-label">{category ? 'Matching articles' : 'Archive'}</p>
             <h2 className="compact-heading">{category ? 'Articles in this style.' : 'All articles.'}</h2>
           </div>
           <span className="hidden text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66] sm:inline">
@@ -267,7 +272,7 @@ export default async function BlogPage({
 
         {pageItems.length === 0 ? (
           <div className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-6 text-sm text-[#46574d]">
-            No notes in this filter. <Link href="/articles" className="font-semibold text-brand-800">View all</Link>.
+            No articles in this filter. <Link href="/articles" className="font-semibold text-brand-800">View all</Link>.
           </div>
         ) : (
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -300,7 +305,7 @@ export default async function BlogPage({
       </section>
 
       {/* Crawlable index */}
-      <nav aria-label="All research notes index" className="sr-only">
+      <nav aria-label="All articles index" className="sr-only">
         <ul>
           {filtered.map((post) => (
             <li key={post.slug}>

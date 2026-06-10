@@ -472,7 +472,7 @@ export default function AshwagandhaForADHDPage() {
                           Evidence Strength
                         </th>
                         <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                          Notes / TODO
+                          Notes / Status
                         </th>
                       </tr>
                     </thead>
