@@ -42,6 +42,26 @@ function readMdxSlugs(relativePath: string): SitemapSourceItem[] {
   }
 }
 
+// Discovers App Router article pages by scanning app/articles/ for subdirectories
+// that contain a page.tsx. This picks up cluster articles that have no .md counterpart
+// in content/articles/ without requiring a hardcoded list.
+function readAppArticlePageSlugs(relativePath: string): SitemapSourceItem[] {
+  const dirPath = path.join(process.cwd(), relativePath);
+  if (!existsSync(dirPath)) return [];
+
+  try {
+    return readdirSync(dirPath, { withFileTypes: true })
+      .filter((entry) => {
+        if (!entry.isDirectory()) return false;
+        if (/^\[/.test(entry.name)) return false; // skip [slug] dynamic routes
+        return existsSync(path.join(dirPath, entry.name, 'page.tsx'));
+      })
+      .map((entry) => ({ slug: entry.name }));
+  } catch {
+    return [];
+  }
+}
+
 function readTsStringArray(relativePath: string, varName: string): string[] {
   const filePath = path.join(process.cwd(), relativePath);
   if (!existsSync(filePath)) return [];
@@ -204,6 +224,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (/draft|archived/i.test(String(status))) return;
 
     addRoute(`/articles/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || post.updatedAt);
+  });
+
+  // Add App Router article pages not covered by articles.json or blog posts.json
+  readAppArticlePageSlugs('app/articles').forEach((article) => {
+    if (!article.slug || articleSlugs.has(article.slug)) return;
+    articleSlugs.add(article.slug);
+    addRoute(`/articles/${article.slug}`, 'monthly', 0.75);
   });
 
   goalsData.forEach((goal) => {
