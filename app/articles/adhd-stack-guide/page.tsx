@@ -847,7 +847,9 @@ export default function ADHDStackGuidePage() {
                           Pending workbook verification
                         </td>
                         <td className="py-3 text-[#46574d]">
-                          L-Theanine for ADHD (coming soon)
+                          <Link href="/articles/l-theanine-for-adhd" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+                            L-Theanine for ADHD
+                          </Link>
                         </td>
                       </tr>
                       <tr className="align-top">
@@ -867,7 +869,9 @@ export default function ADHDStackGuidePage() {
                           Pending workbook verification
                         </td>
                         <td className="py-3 text-[#46574d]">
-                          Magnesium for ADHD (coming soon)
+                          <Link href="/articles/magnesium-for-adhd" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+                            Magnesium for ADHD
+                          </Link>
                         </td>
                       </tr>
                       <tr className="align-top">
@@ -887,7 +891,9 @@ export default function ADHDStackGuidePage() {
                           Pending workbook verification
                         </td>
                         <td className="py-3 text-[#46574d]">
-                          Ashwagandha for ADHD (coming soon)
+                          <Link href="/articles/ashwagandha-for-adhd" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+                            Ashwagandha for ADHD
+                          </Link>
                         </td>
                       </tr>
                     </tbody>
@@ -1104,26 +1110,36 @@ export default function ADHDStackGuidePage() {
                     with caffeine-containing protocols.
                   </p>
                 </Link>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-70">
+                <Link
+                  href="/articles/magnesium-for-adhd"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Focus Cluster — Coming Soon
+                    Focus Cluster
                   </p>
-                  <p className="font-semibold text-ink">Magnesium for ADHD</p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Magnesium for ADHD
+                  </p>
                   <p className="mt-1 text-xs text-muted">
                     Deficiency prevalence, supplementation trial outcomes, different chemical forms,
                     and practical integration.
                   </p>
-                </div>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-70">
+                </Link>
+                <Link
+                  href="/articles/ashwagandha-for-adhd"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Focus Cluster — Coming Soon
+                    Focus Cluster
                   </p>
-                  <p className="font-semibold text-ink">Ashwagandha for ADHD</p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Ashwagandha for ADHD
+                  </p>
                   <p className="mt-1 text-xs text-muted">
                     Stress-axis and anxiety pathways, the limited direct ADHD evidence base,
                     standardization, and monitoring.
                   </p>
-                </div>
+                </Link>
                 <div className="rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm opacity-70">
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
                     Focus Cluster — Coming Soon
