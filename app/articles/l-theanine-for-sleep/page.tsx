@@ -315,10 +315,6 @@ export default function LTheanineForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Evidence Summary */}
-            {/* TODO: Replace evidence grade with workbook-verified grade once evidence pipeline runs for L-theanine sleep */}
-            {/* TODO: Insert exact PMIDs for L-theanine sleep trials from workbook */}
-            {/* TODO: Verify trial n-sizes for sleep-specific outcomes */}
-            {/* TODO: Verify stress/anxiety outcomes relevant to sleep from workbook */}
             <div id="evidence-summary">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Evidence Summary
@@ -334,8 +330,6 @@ export default function LTheanineForSleepPage() {
 
               <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
                 <p className="font-semibold text-ink">Key studies referenced:</p>
-                {/* TODO: Populate PMID links from workbook once evidence pipeline is complete */}
-                {/* TODO: Verify L-theanine ADHD/pediatric sleep evidence before including — only cite if verified */}
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
                     L-theanine and sleep quality in boys with ADHD — naturalistic sleep improvement
@@ -360,9 +354,6 @@ export default function LTheanineForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Dosage and Timing */}
-            {/* TODO: Verify exact dose range from workbook evidence pipeline */}
-            {/* TODO: Verify timing recommendations from L-theanine sleep trials */}
-            {/* TODO: Verify pediatric/ADHD sleep dosing if referenced — confirm before citing */}
             <div id="dosage">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Dosage and Timing
@@ -393,7 +384,6 @@ export default function LTheanineForSleepPage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Pre-sleep relaxation</td>
-                        {/* TODO: Verify exact dose range from workbook — 100–200 mg is commonly cited but confirm */}
                         <td className="py-3 pr-4 text-[#46574d]">100–200 mg</td>
                         <td className="py-3 pr-4 text-[#46574d]">30–60 min before bed</td>
                         <td className="py-3 text-[#46574d]">
@@ -666,7 +656,6 @@ export default function LTheanineForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Can You Combine */}
-            {/* TODO: Search workbook for any direct combination trial evidence (L-theanine + magnesium or L-theanine + ashwagandha co-administration) */}
             <div id="combining">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Can You Combine L-Theanine With Magnesium or Ashwagandha?
@@ -820,8 +809,6 @@ export default function LTheanineForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Safety */}
-            {/* TODO: Add workbook-verified safety citations for L-theanine */}
-            {/* TODO: Verify blood pressure interaction evidence from workbook */}
             <div id="safety">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Safety and Side Effects
@@ -1119,13 +1106,6 @@ export default function LTheanineForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Replace placeholder stubs with workbook-verified references once evidence pipeline runs for L-theanine */}
-            {/* TODO: Add exact PMIDs for L-theanine sleep trials */}
-            {/* TODO: Add exact PMIDs for L-theanine stress/anxiety trials */}
-            {/* TODO: Add exact PMIDs for L-theanine safety evidence */}
-            {/* TODO: Add exact PMIDs for L-theanine + caffeine trials — only include if caffeine interaction is discussed */}
-            {/* TODO: Confirm whether any direct combination trial (L-theanine + magnesium or L-theanine + ashwagandha) exists in workbook */}
-            {/* TODO: Include L-theanine pediatric/ADHD sleep evidence only if verified from workbook */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <ResponsiveTable label="Article references">
@@ -1158,7 +1138,6 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add PMID for L-theanine sleep RCT from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1191,7 +1170,6 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add PMID for L-theanine safety reference from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1204,7 +1182,6 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add PMIDs for L-theanine + caffeine evidence only if referenced in article */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1217,7 +1194,6 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Verify from workbook before including — do not cite unverified pediatric evidence */}
                         Not included — evidence pending workbook review
                       </td>
                     </tr>
@@ -1230,7 +1206,6 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Search workbook for any direct combination trial */}
                         No combination trial identified in source registry
                       </td>
                     </tr>

@@ -293,8 +293,6 @@ export default function AshwagandhaForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Evidence Summary */}
-            {/* TODO: Replace summary text with workbook-verified evidence once the evidence pipeline runs for ashwagandha-sleep */}
-            {/* TODO: Insert exact trial PMID links from workbook: Langade 2019 (PMID 31564735), Langade 2021, Deshpande 2020, Cheah 2021 */}
             <div id="evidence-summary">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Evidence Summary
@@ -310,7 +308,6 @@ export default function AshwagandhaForSleepPage() {
 
               <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
                 <p className="font-semibold text-ink">Key trials reviewed:</p>
-                {/* TODO: Populate PMID links from workbook once evidence pipeline is complete */}
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
                     Langade et al. (2019) — KSM-66, 300 mg twice daily, 10 weeks, n=58 (stressed
@@ -338,8 +335,6 @@ export default function AshwagandhaForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Dosage */}
-            {/* TODO: Verify dosage ranges against workbook herb profile for Ashwagandha (check dosage_low / dosage_high fields) */}
-            {/* TODO: Add extract-specific dosing note (KSM-66 vs Sensoril vs raw powder) once workbook data is verified */}
             <div id="dosage">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Dosage and Usage
@@ -725,8 +720,6 @@ export default function AshwagandhaForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Replace placeholder PMID stubs with workbook-verified references once evidence pipeline runs */}
-            {/* TODO: Add full citation details — Langade 2021 and Cheah 2021 PMIDs need to be confirmed in workbook */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <ResponsiveTable label="Article references">
@@ -784,7 +777,6 @@ export default function AshwagandhaForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">2012</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -821,7 +813,6 @@ export default function AshwagandhaForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">2017</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>

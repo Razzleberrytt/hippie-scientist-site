@@ -201,7 +201,6 @@ export default function MagnesiumTypesForSleepPage() {
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
 
             {/* Comparison table */}
-            {/* TODO: Verify bioavailability rankings against workbook compound data for all magnesium forms */}
             <div id="comparison-table">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Magnesium Forms Compared
@@ -336,7 +335,6 @@ export default function MagnesiumTypesForSleepPage() {
                 threonate) are generally better absorbed than inorganic forms (oxide, carbonate).
                 The exact absorption percentages vary by form, dose, individual magnesium status,
                 and whether the supplement is taken with food.
-                {/* TODO: Add workbook-verified bioavailability figures with PMIDs for each form */}
                 Absorption rankings, from best to worst, are broadly: threonate ≈ glycinate &gt;
                 malate ≈ citrate &gt; oxide.
               </p>
@@ -369,7 +367,6 @@ export default function MagnesiumTypesForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Glycinate deep dive */}
-            {/* TODO: Insert glycinate PMIDs and workbook evidence grades */}
             <div id="glycinate">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Deep Dive: Magnesium Glycinate
@@ -426,8 +423,6 @@ export default function MagnesiumTypesForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Threonate deep dive */}
-            {/* TODO: Verify Magtein™ elemental magnesium per dose from workbook compound data */}
-            {/* TODO: Insert threonate/Magtein PMIDs from workbook */}
             <div id="threonate">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Deep Dive: Magnesium L-Threonate
@@ -468,7 +463,6 @@ export default function MagnesiumTypesForSleepPage() {
                 </p>
                 <p>
                   <strong>Dosing note:</strong> Magtein™ products typically deliver approximately
-                  {/* TODO: Confirm Magtein™ elemental magnesium per serving from workbook */}{' '}
                   ~144 mg elemental magnesium at the standard product dose. Follow the specific
                   label — elemental magnesium per dose varies by product.
                 </p>
@@ -553,7 +547,6 @@ export default function MagnesiumTypesForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Malate and Taurate deep dive */}
-            {/* TODO: Insert malate and taurate PMIDs from workbook */}
             <div id="malate-taurate">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Deep Dive: Magnesium Malate and Taurate
@@ -606,8 +599,6 @@ export default function MagnesiumTypesForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Dosage and label reading */}
-            {/* TODO: Confirm common supplemental elemental magnesium dose range from workbook */}
-            {/* TODO: Add upper tolerable intake citation from workbook once evidence pipeline runs */}
             <div id="dosage-label-reading">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Dosage and Label Reading
@@ -639,7 +630,6 @@ export default function MagnesiumTypesForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Glycinate</td>
                         <td className="py-3 pr-4 text-[#46574d]">
-                          {/* TODO: Verify dose range from workbook */}
                           200–400 mg
                         </td>
                         <td className="py-3 pr-4 text-[#46574d]">30–60 min before bed</td>
@@ -648,7 +638,6 @@ export default function MagnesiumTypesForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Threonate</td>
                         <td className="py-3 pr-4 text-[#46574d]">
-                          {/* TODO: Confirm Magtein™ elemental magnesium per dose from workbook */}
                           ~144 mg (per typical Magtein™ label)
                         </td>
                         <td className="py-3 pr-4 text-[#46574d]">Evening; follow product label</td>
@@ -663,7 +652,6 @@ export default function MagnesiumTypesForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Malate</td>
                         <td className="py-3 pr-4 text-[#46574d]">
-                          {/* TODO: Verify malate dose range from workbook */}
                           200–400 mg
                         </td>
                         <td className="py-3 pr-4 text-[#46574d]">Evening; can split dose</td>
@@ -677,7 +665,6 @@ export default function MagnesiumTypesForSleepPage() {
                   content — not total product weight. The tolerable upper intake level from
                   supplements is 350 mg/day elemental magnesium for most adults per standard
                   regulatory guidance.
-                  {/* TODO: Add upper tolerable intake citation/PMID from workbook */}
                 </p>
               </div>
 
@@ -745,7 +732,6 @@ export default function MagnesiumTypesForSleepPage() {
                     tolerable upper intake level from supplemental magnesium is 350 mg/day elemental
                     for most adults. Higher doses require medical supervision, particularly with
                     any degree of kidney impairment.
-                    {/* TODO: Add upper intake citation PMID/reference from workbook */}
                   </li>
                   <li>
                     <strong>Pregnancy and lactation:</strong> Dietary magnesium is important during
@@ -981,8 +967,6 @@ export default function MagnesiumTypesForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Replace placeholder stubs with workbook-verified references once evidence pipeline runs */}
-            {/* TODO: Add PMIDs for all entries once workbook evidence pipeline is complete */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <p className="mb-4 text-sm text-muted">
@@ -1012,7 +996,6 @@ export default function MagnesiumTypesForSleepPage() {
                         Abbasi et al. 2012 (Mg sleep RCT); Held et al. 2002; Nielsen et al. 2010
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Add workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1022,7 +1005,6 @@ export default function MagnesiumTypesForSleepPage() {
                         Yamadera et al. 2007 (glycine and subjective sleep quality)
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Add workbook-verified PMID */}
                         PMID pending
                       </td>
                     </tr>
@@ -1032,7 +1014,6 @@ export default function MagnesiumTypesForSleepPage() {
                         Slutsky et al. 2010 (brain Mg elevation); human threonate cognition/sleep trials
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Add workbook-verified PMIDs and Magtein trial IDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1042,7 +1023,6 @@ export default function MagnesiumTypesForSleepPage() {
                         Comparative bioavailability studies; Mg citrate vs oxide absorption trials
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Add workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1052,7 +1032,6 @@ export default function MagnesiumTypesForSleepPage() {
                         NIH Office of Dietary Supplements Mg fact sheet; IOM Dietary Reference Intakes
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Add authoritative citation from workbook */}
                         Citation pending
                       </td>
                     </tr>
@@ -1062,7 +1041,6 @@ export default function MagnesiumTypesForSleepPage() {
                         FDA supplement labelling regulations; form-specific elemental content tables
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Add citation from workbook */}
                         Citation pending
                       </td>
                     </tr>
