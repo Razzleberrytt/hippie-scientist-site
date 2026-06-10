@@ -200,7 +200,6 @@ export default function NaturalAnxietyReliefPage() {
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
 
             {/* Ranking table */}
-            {/* TODO: Insert evidence grades from workbook once anxiety evidence pipeline is complete */}
             <div id="ranking-table">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Anxiety Supplements Ranked by Evidence
@@ -241,7 +240,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">1</td>
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Chronic stress-driven anxiety, cortisol reduction</td>
                         <td className="py-3 pr-4 text-[#46574d]">Rare hepatotoxicity; avoid in pregnancy</td>
@@ -257,7 +255,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">2</td>
                         <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Mild anxiety, racing thoughts, situational stress</td>
                         <td className="py-3 pr-4 text-[#46574d]">Minimal; very well-tolerated</td>
@@ -273,7 +270,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">3</td>
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited</td>
                         <td className="py-3 pr-4 text-[#46574d]">Nervous system baseline support, muscle tension</td>
                         <td className="py-3 pr-4 text-[#46574d]">Kidney disease; GI upset at high doses</td>
@@ -289,7 +285,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">4</td>
                         <td className="py-3 pr-4 font-medium text-ink">Passionflower</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited</td>
                         <td className="py-3 pr-4 text-[#46574d]">Mild anxiety, anxiety-adjacent sleep difficulty</td>
                         <td className="py-3 pr-4 text-[#46574d]">Avoid with sedatives; caution in pregnancy</td>
@@ -298,7 +293,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">5</td>
                         <td className="py-3 pr-4 font-medium text-ink">Saffron</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Mood/anxiety overlap, mild depression</td>
                         <td className="py-3 pr-4 text-[#46574d]">Serotonergic activity; caution with SSRIs</td>
@@ -307,7 +301,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">6</td>
                         <td className="py-3 pr-4 font-medium text-ink">Kava</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Generalized anxiety, acute anxiolytic effect</td>
                         <td className="py-3 pr-4 text-[#46574d]">Hepatotoxicity risk; avoid with alcohol/sedatives</td>
@@ -316,7 +309,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-[#46574d]">7</td>
                         <td className="py-3 pr-4 font-medium text-ink">Valerian</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Mixed / weak</td>
                         <td className="py-3 pr-4 text-[#46574d]">Anxiety-adjacent insomnia, mild sedation</td>
                         <td className="py-3 pr-4 text-[#46574d]">Sedation; avoid with CNS depressants</td>
@@ -332,7 +324,6 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-[#46574d]">8</td>
                         <td className="py-3 pr-4 font-medium text-ink">CBD</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited (preliminary)</td>
                         <td className="py-3 pr-4 text-[#46574d]">Stress, social anxiety (small trials)</td>
                         <td className="py-3 pr-4 text-[#46574d]">Drug interactions; quality variation</td>
@@ -450,7 +441,6 @@ export default function NaturalAnxietyReliefPage() {
               <hr className="border-brand-900/10" />
 
               {/* L-Theanine */}
-              {/* TODO: Insert L-theanine anxiety PMIDs and evidence grades from workbook */}
               <div id="l-theanine" className="mt-8 mb-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   2. L-Theanine
@@ -500,7 +490,6 @@ export default function NaturalAnxietyReliefPage() {
               <hr className="border-brand-900/10" />
 
               {/* Magnesium */}
-              {/* TODO: Insert magnesium anxiety PMIDs and evidence grades from workbook */}
               <div id="magnesium" className="mt-8 mb-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   3. Magnesium
@@ -549,7 +538,6 @@ export default function NaturalAnxietyReliefPage() {
               <hr className="border-brand-900/10" />
 
               {/* Passionflower */}
-              {/* TODO: Insert passionflower anxiety PMIDs and evidence grades from workbook */}
               <div id="passionflower" className="mt-8 mb-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   4. Passionflower
@@ -589,7 +577,6 @@ export default function NaturalAnxietyReliefPage() {
               <hr className="border-brand-900/10" />
 
               {/* Kava */}
-              {/* TODO: Insert kava anxiety PMIDs and evidence grades from workbook */}
               <div id="kava" className="mt-8 mb-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   5. Kava
@@ -632,7 +619,6 @@ export default function NaturalAnxietyReliefPage() {
               <hr className="border-brand-900/10" />
 
               {/* Saffron */}
-              {/* TODO: Insert saffron anxiety PMIDs and evidence grades from workbook */}
               <div id="saffron" className="mt-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   6. Saffron
@@ -1175,13 +1161,6 @@ export default function NaturalAnxietyReliefPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Insert workbook-verified PMIDs for all evidence rows below */}
-            {/* TODO: Insert exact anxiety-specific trial n-sizes from workbook */}
-            {/* TODO: Insert exact dose ranges from workbook herb profiles */}
-            {/* TODO: Insert medication interaction citations */}
-            {/* TODO: Insert safety citations for kava hepatotoxicity cases */}
-            {/* TODO: Insert safety citations for ashwagandha hepatotoxicity cases */}
-            {/* TODO: Insert emergency/medical-care guidance citations */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <p className="mb-4 text-sm text-muted">
@@ -1211,8 +1190,7 @@ export default function NaturalAnxietyReliefPage() {
                         Chandrasekhar et al. 2012; Pratte et al. 2014; anxiety scale RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1221,8 +1199,7 @@ export default function NaturalAnxietyReliefPage() {
                         Alpha-wave promotion trials; acute stress response studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1231,8 +1208,7 @@ export default function NaturalAnxietyReliefPage() {
                         Boyle et al. 2017 meta-analysis; magnesium deficiency and neuronal excitability studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1241,8 +1217,7 @@ export default function NaturalAnxietyReliefPage() {
                         Pre-procedural anxiety RCTs; GAD comparison trials
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1251,8 +1226,7 @@ export default function NaturalAnxietyReliefPage() {
                         Pittler &amp; Ernst meta-analysis; HAM-A outcome RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1261,8 +1235,7 @@ export default function NaturalAnxietyReliefPage() {
                         Lopresti &amp; Drummond 2014; mood/anxiety overlap RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1271,8 +1244,7 @@ export default function NaturalAnxietyReliefPage() {
                         Blessing et al. 2015 review; social anxiety fMRI studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1281,8 +1253,7 @@ export default function NaturalAnxietyReliefPage() {
                         Kava hepatotoxicity case series; ashwagandha DILI reports; saffron-SSRI interaction data
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
-                        TODO: Add PMIDs
+                        PMIDs pending
                       </td>
                     </tr>
                   </tbody>

@@ -339,8 +339,6 @@ export default function SleepStackGuidePage() {
                 </Link>
               </p>
 
-              {/* TODO: Replace evidence grade with workbook-verified grade once evidence pipeline runs for combination stacks */}
-              {/* TODO: Confirm workbook evidence status for the three-supplement combination vs each individually */}
               <div className="mt-5">
                 <EvidenceSummaryCard
                   title="Natural Sleep Stack — Combined Evidence Overview"
@@ -551,7 +549,6 @@ export default function SleepStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Relaxation Stack */}
-            {/* TODO: Search workbook for any direct L-theanine + magnesium combination trial evidence */}
             <div id="relaxation-stack">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Relaxation Stack: Magnesium + L-Theanine
@@ -627,7 +624,6 @@ export default function SleepStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Stress Stack */}
-            {/* TODO: Search workbook for any direct ashwagandha + magnesium combination trial evidence */}
             <div id="stress-stack">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Stress Stack: Ashwagandha + Magnesium
@@ -713,8 +709,6 @@ export default function SleepStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Full Stack */}
-            {/* TODO: Confirm workbook evidence status for three-ingredient combination trials */}
-            {/* TODO: Verify direct combination trial data (magnesium + L-theanine + ashwagandha co-administration) */}
             <div id="full-stack">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Full Stack: Magnesium + L-Theanine + Ashwagandha
@@ -765,8 +759,6 @@ export default function SleepStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Timing Guide */}
-            {/* TODO: Verify exact timing from clinical trials in workbook for each supplement */}
-            {/* TODO: Verify whether ashwagandha morning vs evening timing matters for sleep outcomes */}
             <div id="timing-guide">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Timing Guide
@@ -801,7 +793,6 @@ export default function SleepStackGuidePage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                        {/* TODO: Verify exact timing from workbook magnesium sleep trials */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           30–60 min before bed
                         </td>
@@ -814,7 +805,6 @@ export default function SleepStackGuidePage() {
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">L-theanine</td>
-                        {/* TODO: Verify exact timing from workbook L-theanine sleep/relaxation trials */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           30–60 min before bed
                         </td>
@@ -827,7 +817,6 @@ export default function SleepStackGuidePage() {
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        {/* TODO: Verify whether evening vs morning timing affects sleep outcomes in workbook trials */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           Evening with dinner or before bed
                         </td>
@@ -866,8 +855,6 @@ export default function SleepStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Dosing Guide */}
-            {/* TODO: Verify exact dose ranges from workbook for all three supplements */}
-            {/* TODO: Confirm elemental magnesium conversion for glycinate product labelling */}
             <div id="dosing-guide">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Dosing Guide
@@ -903,7 +890,6 @@ export default function SleepStackGuidePage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                        {/* TODO: Verify elemental magnesium dose range from workbook sleep trials */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           200–400 mg elemental magnesium
                         </td>
@@ -912,7 +898,6 @@ export default function SleepStackGuidePage() {
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">L-theanine</td>
-                        {/* TODO: Verify L-theanine dose range from workbook sleep/relaxation trials */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           100–200 mg
                         </td>
@@ -921,7 +906,6 @@ export default function SleepStackGuidePage() {
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha (KSM-66)</td>
-                        {/* TODO: Verify ashwagandha dose range from workbook sleep RCTs */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           300–600 mg standardised extract
                         </td>
@@ -943,8 +927,6 @@ export default function SleepStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* What Not To Combine */}
-            {/* TODO: Add workbook-verified medication interaction citations */}
-            {/* TODO: Add safety citations for alcohol + sedative interactions */}
             <div id="what-not-to-combine">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 What Not To Combine
@@ -1424,13 +1406,6 @@ export default function SleepStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Replace placeholder stubs with workbook-verified references once evidence pipeline runs */}
-            {/* TODO: Add exact PMIDs for magnesium sleep evidence */}
-            {/* TODO: Add exact PMIDs for L-theanine sleep and relaxation evidence */}
-            {/* TODO: Add exact PMIDs for ashwagandha sleep evidence */}
-            {/* TODO: Confirm combination trial evidence status for all three together */}
-            {/* TODO: Add medication interaction citations for each supplement */}
-            {/* TODO: Add sleep disorder medical guidance citations (CBT-I, apnea) */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <ResponsiveTable label="Article references">
@@ -1463,7 +1438,6 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMIDs for magnesium sleep trials from workbook */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1476,7 +1450,6 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMIDs for L-theanine sleep and relaxation trials from workbook */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1488,7 +1461,6 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMIDs for ashwagandha sleep RCTs from workbook */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1501,7 +1473,6 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Search workbook — combination trial evidence status unknown */}
                         No combination trial identified in source registry
                       </td>
                     </tr>
@@ -1514,7 +1485,6 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add safety citations from workbook for each supplement */}
                         Citations pending
                       </td>
                     </tr>
@@ -1527,7 +1497,6 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add medical guidance citations (AASM, sleep medicine guidelines) */}
                         Citations pending
                       </td>
                     </tr>

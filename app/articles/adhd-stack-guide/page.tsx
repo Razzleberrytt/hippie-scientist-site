@@ -306,7 +306,6 @@ export default function ADHDStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Medication interactions */}
-            {/* TODO: Verify specific documented interaction cases and strength of evidence in primary sources for workbook */}
             <div id="medication-interactions">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Medication Interaction Considerations
@@ -777,7 +776,6 @@ export default function ADHDStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Evidence ranking */}
-            {/* TODO: Formalize evidence grades with specific study quality assessments and effect-size details in workbook */}
             <div id="evidence-ranking">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Evidence Ranking for Cluster Compounds
@@ -842,7 +840,6 @@ export default function ADHDStackGuidePage() {
                         <td className="py-3 pr-4 text-[#46574d]">
                           Small samples; limited adult data; combination often studied with caffeine
                         </td>
-                        {/* TODO: Workbook verification required for dose ranges */}
                         <td className="py-3 pr-4 text-muted">
                           Pending workbook verification
                         </td>
@@ -864,7 +861,6 @@ export default function ADHDStackGuidePage() {
                         <td className="py-3 pr-4 text-[#46574d]">
                           Heterogeneity; best when status low; not core monotherapy
                         </td>
-                        {/* TODO: Workbook verification required for dose ranges */}
                         <td className="py-3 pr-4 text-muted">
                           Pending workbook verification
                         </td>
@@ -886,7 +882,6 @@ export default function ADHDStackGuidePage() {
                         <td className="py-3 pr-4 text-[#46574d]">
                           Very limited direct ADHD trials; caution in interpretation
                         </td>
-                        {/* TODO: Workbook verification required for dose ranges */}
                         <td className="py-3 pr-4 text-muted">
                           Pending workbook verification
                         </td>
@@ -1249,12 +1244,6 @@ export default function ADHDStackGuidePage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Verify specific documented interaction cases and strength of evidence in primary sources for workbook */}
-            {/* TODO: Formalize evidence grades with specific study quality assessments and effect-size details in workbook */}
-            {/* TODO: Add exact PMIDs for L-theanine ADHD RCTs (2020 pediatric RCT; 2024 systematic review) from workbook */}
-            {/* TODO: Add exact PMIDs for magnesium ADHD meta-analysis (2019) and RCT (Mg + Vit D, 2020) from workbook */}
-            {/* TODO: Add exact PMIDs for ashwagandha ADHD + anxiety RCT from workbook */}
-            {/* TODO: Add safety citations for medication interaction data once workbook verification complete */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <ResponsiveTable label="Article references">
@@ -1288,7 +1277,6 @@ export default function ADHDStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">2020</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMID for 2020 pediatric ADHD RCT from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1300,7 +1288,6 @@ export default function ADHDStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">2024</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMID for 2024 systematic review from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1312,7 +1299,6 @@ export default function ADHDStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">2019</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMID for 2019 magnesium meta-analysis from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1324,7 +1310,6 @@ export default function ADHDStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">2020</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMID for 2020 Mg + Vit D RCT from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1336,7 +1321,6 @@ export default function ADHDStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add exact PMID for ashwagandha ADHD + anxiety RCT from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1349,7 +1333,6 @@ export default function ADHDStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add safety citations from workbook */}
                         Citations pending
                       </td>
                     </tr>

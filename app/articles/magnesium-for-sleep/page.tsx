@@ -294,8 +294,6 @@ export default function MagnesiumForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Evidence Summary */}
-            {/* TODO: Replace summary text with workbook-verified evidence once the evidence pipeline runs for magnesium-sleep */}
-            {/* TODO: Insert exact trial PMID links from workbook once available */}
             <div id="evidence-summary">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Evidence Summary
@@ -311,7 +309,6 @@ export default function MagnesiumForSleepPage() {
 
               <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
                 <p className="font-semibold text-ink">Key trials and reviews referenced:</p>
-                {/* TODO: Populate PMID links from workbook once evidence pipeline is complete */}
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
                     Abbasi et al. — magnesium supplementation in elderly adults with insomnia,
@@ -335,7 +332,6 @@ export default function MagnesiumForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Magnesium Types Comparison */}
-            {/* TODO: Verify bioavailability figures against workbook compound data for magnesium forms */}
             <div id="types-comparison">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Magnesium Types Comparison
@@ -475,8 +471,6 @@ export default function MagnesiumForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Dosage */}
-            {/* TODO: Verify elemental magnesium content calculations for each form against workbook compound data */}
-            {/* TODO: Confirm upper tolerable intake level citation from workbook once evidence pipeline runs */}
             <div id="dosage">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Dosage and Usage
@@ -518,7 +512,6 @@ export default function MagnesiumForSleepPage() {
                         </td>
                         <td className="py-3 pr-4 text-[#46574d]">Evening, with or without food</td>
                         <td className="py-3 text-[#46574d]">
-                          {/* TODO: Verify typical Magtein™ dose from workbook */}
                           Higher price point; follow product-specific label
                         </td>
                       </tr>
@@ -856,8 +849,6 @@ export default function MagnesiumForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Replace placeholder stubs with workbook-verified references once evidence pipeline runs */}
-            {/* TODO: Add full citation details and PMIDs for all trials once workbook evidence pipeline is complete */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <ResponsiveTable label="Article references">
@@ -911,7 +902,6 @@ export default function MagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">Nielsen FH, Johnson LK, Zeng H</td>
                       <td className="py-3 pr-4 text-muted">2010</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -927,7 +917,6 @@ export default function MagnesiumForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">2002</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -942,7 +931,6 @@ export default function MagnesiumForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">2010</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -957,7 +945,6 @@ export default function MagnesiumForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">2007</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>
