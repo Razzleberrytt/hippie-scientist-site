@@ -1,106 +1,92 @@
-import Link from 'next/link';
-import {
-  buildPageMetadata,
-  blogJsonLd,
-  breadcrumbJsonLd,
-  faqPageJsonLd
-} from '@/lib/seo';
-import { LastUpdatedBadge } from '@/components/LastUpdatedBadge';
-import { EvidenceSummaryCard } from '@/components/EvidenceSummaryCard';
-import { SafetyNotice } from '@/components/SafetyNotice';
-import { EmailCapture } from '@/components/EmailCapture';
-import { NewsletterCtaBlock } from '@/components/NewsletterCtaBlock';
-import { AFFILIATE_TAGS } from '@/config/affiliate';
+import Link from 'next/link'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '@/lib/seo'
+import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+import SafetyNotice from '@/components/evidence/SafetyNotice'
+import EmailCapture from '@/components/EmailCapture'
+import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
+import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import { AFFILIATE_TAGS } from '@/config/affiliate'
 
-const articleTitle = "L-Theanine for Anxiety: Benefits, Dosage, Safety, and Research Review";
-const articleDescription = "An evidence-based review of L-theanine for anxiety, stress, calm focus, dosage, safety, and how it compares with ashwagandha and magnesium.";
-const lastUpdated = "2026-06-10";
-const slug = "l-theanine-for-anxiety";
+const SLUG = 'l-theanine-for-anxiety'
+const TITLE = 'L-Theanine for Anxiety: Benefits, Dosage, Safety, and Research Review'
+const DESCRIPTION =
+  'An evidence-based review of L-theanine for anxiety, stress, calm focus, dosage, safety, and how it compares with ashwagandha and magnesium.'
+const DATE = '2026-06-10'
 
 export const metadata = buildPageMetadata({
-  title: articleTitle,
-  description: articleDescription,
-  path: `/articles/${slug}`,
+  title: TITLE,
+  description: DESCRIPTION,
+  path: `/articles/${SLUG}`,
   openGraphType: 'article',
-  publishedTime: lastUpdated,
-  modifiedTime: lastUpdated,
-});
+})
 
-const breadcrumbs = [
-  { name: 'Home', url: '/' },
-  { name: 'Anxiety', url: '/articles/natural-anxiety-relief' },
-  { name: 'L-Theanine for Anxiety', url: `/articles/${slug}` },
-];
+const FAQS = [
+  {
+    question: 'Does L-theanine help anxiety?',
+    answer:
+      'L-theanine has been studied for its potential to promote relaxation and reduce stress-related mental tension. Some research suggests it may support calm focus without heavy sedation, though results vary and more high-quality evidence is needed for anxiety specifically.',
+  },
+  {
+    question: 'How long does it take for L-theanine to work?',
+    answer:
+      'Many people report effects within 30–60 minutes. Research often examines both acute (single-dose) effects and longer-term daily use. Individual responses differ.',
+  },
+  {
+    question: 'Is L-theanine better than ashwagandha for anxiety?',
+    answer:
+      'They serve somewhat different roles. L-theanine is often discussed for more acute mental relaxation and calm focus, while ashwagandha has more research around chronic stress adaptation. Direct comparative studies are limited.',
+  },
+  {
+    question: 'Can I combine L-theanine with ashwagandha?',
+    answer:
+      'Some people stack them for complementary effects (acute calm + longer-term stress support). There is limited published research on the specific combination. Start with one at a time and consult a clinician if you take medications.',
+  },
+  {
+    question: 'Can I take L-theanine every day?',
+    answer:
+      'Daily use is common. Most studies examine consistent use over days to weeks. It is generally considered well-tolerated, but long-term safety data is still developing.',
+  },
+  {
+    question: 'Is L-theanine sedating?',
+    answer:
+      'L-theanine is often described as promoting relaxation without strong sedation. Many people use it during the day for calm focus. Individual sensitivity varies.',
+  },
+]
 
 export default function LTheanineForAnxietyPage() {
-  const faqItems = [
-    {
-      question: "Does L-theanine help anxiety?",
-      answer: "L-theanine has been studied for its potential to promote relaxation and reduce stress-related mental tension. Some research suggests it may support calm focus without heavy sedation, though results vary and more high-quality evidence is needed for anxiety specifically."
-    },
-    {
-      question: "How long does it take for L-theanine to work?",
-      answer: "Many people report effects within 30–60 minutes. Research often examines both acute (single-dose) effects and longer-term daily use. Individual responses differ."
-    },
-    {
-      question: "Is L-theanine better than ashwagandha for anxiety?",
-      answer: "They serve somewhat different roles. L-theanine is often discussed for more acute mental relaxation and calm focus, while ashwagandha has more research around chronic stress adaptation. Direct comparative studies are limited."
-    },
-    {
-      question: "Can I combine L-theanine with ashwagandha?",
-      answer: "Some people stack them for complementary effects (acute calm + longer-term stress support). There is limited published research on the specific combination. Start with one at a time and consult a clinician if you take medications."
-    },
-    {
-      question: "Can I take L-theanine every day?",
-      answer: "Daily use is common. Most studies examine consistent use over days to weeks. It is generally considered well-tolerated, but long-term safety data is still developing."
-    },
-    {
-      question: "Is L-theanine sedating?",
-      answer: "L-theanine is often described as promoting relaxation without strong sedation. Many people use it during the day for calm focus. Individual sensitivity varies."
-    }
-  ];
+  const pageBreadcrumb = breadcrumbJsonLd([
+    { name: 'Home', url: 'https://thehippiescientist.net' },
+    { name: 'Anxiety', url: 'https://thehippiescientist.net/articles/natural-anxiety-relief' },
+    { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
+  ])
 
-  const post = {
-    title: articleTitle,
-    description: articleDescription,
-    datePublished: lastUpdated,
-    dateModified: lastUpdated,
-    author: "The Hippie Scientist",
-  };
+  const articleLd = blogJsonLd(
+    { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
+    `/articles/${SLUG}`,
+  )
+
+  const faqLd = faqPageJsonLd({ pagePath: `/articles/${SLUG}`, questions: FAQS })
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blogJsonLd(post, `/articles/${slug}`))
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs))
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqPageJsonLd({
-            pagePath: `/articles/${slug}`,
-            questions: faqItems,
-          }))
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <LastUpdatedBadge date={lastUpdated} />
-          <h1 className="text-4xl font-bold tracking-tight mt-4 mb-4">
-            {articleTitle}
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            {articleDescription}
-          </p>
+          <LastUpdatedBadge date={DATE} />
+          <h1 className="text-4xl font-bold tracking-tight mt-4 mb-4">{TITLE}</h1>
+          <p className="text-xl text-muted-foreground">{DESCRIPTION}</p>
         </div>
 
         <div className="prose prose-sm mb-8 p-4 bg-muted/50 rounded-lg">
@@ -127,17 +113,17 @@ export default function LTheanineForAnxietyPage() {
           <div className="prose prose-lg max-w-none">
             <p>
               L-theanine is a non-protein amino acid primarily found in tea leaves (Camellia sinensis).
-              It is best known for its potential to promote relaxation while supporting alertness and focus —
-              a combination often described as "calm focus."
+              It is best known for its potential to promote relaxation while supporting alertness and
+              focus — a combination often described as &ldquo;calm focus.&rdquo;
             </p>
             <p>
-              Unlike sedative compounds, L-theanine does not typically cause drowsiness.
-              It is thought to influence brain wave activity (particularly alpha waves) and may
-              interact with neurotransmitters involved in stress and mood regulation.
+              Unlike sedative compounds, L-theanine does not typically cause drowsiness. It is thought
+              to influence brain wave activity (particularly alpha waves) and may interact with
+              neurotransmitters involved in stress and mood regulation.
             </p>
             <p>
-              It is commonly used as a standalone supplement or stacked with caffeine for focus,
-              or with other calming compounds for stress support.
+              It is commonly used as a standalone supplement or stacked with caffeine for focus, or
+              with other calming compounds for stress support.
             </p>
           </div>
         </section>
@@ -156,8 +142,9 @@ export default function LTheanineForAnxietyPage() {
               interact with caffeine to improve focus while mitigating jitteriness.
             </p>
             <p>
-              Current evidence suggests L-theanine may be most relevant for situational or stress-related
-              mental tension rather than severe clinical anxiety disorders. More robust research is needed.
+              Current evidence suggests L-theanine may be most relevant for situational or
+              stress-related mental tension rather than severe clinical anxiety disorders. More robust
+              research is needed.
             </p>
           </div>
         </section>
@@ -166,7 +153,8 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Evidence Summary</h2>
 
           <EvidenceSummaryCard
-            evidenceLevel="TODO: Workbook evidence grade for L-theanine and anxiety/stress"
+            title="L-Theanine for Anxiety &amp; Stress"
+            evidenceLevel="Limited"
             humanEvidence="TODO: Summary of human trials examining L-theanine for anxiety, stress, or relaxation"
             mechanisticEvidence="TODO: Proposed mechanisms (alpha waves, neurotransmitters, stress response)"
             safetyProfile="TODO: General safety overview from available data"
@@ -197,13 +185,14 @@ export default function LTheanineForAnxietyPage() {
               morning or early afternoon for calm focus, while others use it in the evening.
             </p>
             <p>
-              Consistency and individual response appear important. Many people experiment with
-              timing and stacking (e.g., with caffeine or other supplements).
+              Consistency and individual response appear important. Many people experiment with timing
+              and stacking (e.g., with caffeine or other supplements).
             </p>
           </div>
 
           <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm">
-            <strong>TODO:</strong> Insert workbook-verified dosage ranges and specific trial protocols used in anxiety/stress studies.
+            <strong>TODO:</strong> Insert workbook-verified dosage ranges and specific trial protocols
+            used in anxiety/stress studies.
           </div>
         </section>
 
@@ -219,9 +208,12 @@ export default function LTheanineForAnxietyPage() {
               stress. It is typically used daily over weeks.
             </p>
             <p>
-              Many people find the two complementary and use them at different times of day or
-              for different aspects of stress and anxiety. See our comparison in
-              <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">Ashwagandha for Anxiety</Link>.
+              Many people find the two complementary and use them at different times of day or for
+              different aspects of stress and anxiety. See our comparison in{' '}
+              <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">
+                Ashwagandha for Anxiety
+              </Link>
+              .
             </p>
           </div>
         </section>
@@ -237,9 +229,12 @@ export default function LTheanineForAnxietyPage() {
               and sleep support. Different forms of magnesium have varying effects.
             </p>
             <p>
-              The two are sometimes stacked because they may address overlapping but distinct
-              aspects of stress (mental vs physical). See related content in
-              <Link href="/articles/magnesium-for-sleep" className="text-primary underline">Magnesium for Sleep</Link>.
+              The two are sometimes stacked because they may address overlapping but distinct aspects
+              of stress (mental vs physical). See related content in{' '}
+              <Link href="/articles/magnesium-for-sleep" className="text-primary underline">
+                Magnesium for Sleep
+              </Link>
+              .
             </p>
           </div>
         </section>
@@ -249,16 +244,26 @@ export default function LTheanineForAnxietyPage() {
           <div className="prose prose-lg max-w-none">
             <p>
               Stress and anxiety frequently affect sleep quality, and poor sleep can worsen daytime
-              anxiety. L-theanine is sometimes used in the evening for its relaxing properties
-              without strong next-day grogginess.
+              anxiety. L-theanine is sometimes used in the evening for its relaxing properties without
+              strong next-day grogginess.
             </p>
-            <p>
-              For broader context, see:
-            </p>
+            <p>For broader context, see:</p>
             <ul>
-              <li><Link href="/articles/l-theanine-for-sleep" className="text-primary underline">L-Theanine for Sleep</Link></li>
-              <li><Link href="/articles/best-herbs-for-sleep" className="text-primary underline">Best Herbs for Sleep</Link></li>
-              <li><Link href="/articles/sleep-stack-guide" className="text-primary underline">Sleep Stack Guide</Link></li>
+              <li>
+                <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">
+                  L-Theanine for Sleep
+                </Link>
+              </li>
+              <li>
+                <Link href="/articles/best-herbs-for-sleep" className="text-primary underline">
+                  Best Herbs for Sleep
+                </Link>
+              </li>
+              <li>
+                <Link href="/articles/sleep-stack-guide" className="text-primary underline">
+                  Sleep Stack Guide
+                </Link>
+              </li>
             </ul>
           </div>
         </section>
@@ -270,9 +275,17 @@ export default function LTheanineForAnxietyPage() {
             <ul className="space-y-2">
               <li>L-theanine is generally well tolerated at typical supplemental doses.</li>
               <li>Some people may experience mild side effects such as headache or dizziness.</li>
-              <li>Caution is advised when combining with medications that affect blood pressure or have sedative effects.</li>
-              <li>Pregnancy and breastfeeding: Limited safety data — consult a healthcare provider.</li>
-              <li>Always speak with a qualified clinician before starting, especially if you have medical conditions or take medications.</li>
+              <li>
+                Caution is advised when combining with medications that affect blood pressure or have
+                sedative effects.
+              </li>
+              <li>
+                Pregnancy and breastfeeding: Limited safety data — consult a healthcare provider.
+              </li>
+              <li>
+                Always speak with a qualified clinician before starting, especially if you have
+                medical conditions or take medications.
+              </li>
             </ul>
           </SafetyNotice>
         </section>
@@ -287,26 +300,28 @@ export default function LTheanineForAnxietyPage() {
               <li>Prefer options that are generally non-sedating</li>
               <li>Are looking for a supplement that can be used as needed or daily</li>
             </ul>
-            <p>
-              It is not positioned as a primary treatment for clinical anxiety disorders.
-            </p>
+            <p>It is not positioned as a primary treatment for clinical anxiety disorders.</p>
           </div>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">What Not To Do</h2>
           <ul className="space-y-3 text-muted-foreground">
-            <li>• Do not expect dramatic or immediate results in all cases — individual responses vary.</li>
+            <li>
+              • Do not expect dramatic or immediate results in all cases — individual responses vary.
+            </li>
             <li>• Do not combine multiple new supplements at once without guidance.</li>
             <li>• Do not stop prescribed medications without medical supervision.</li>
-            <li>• Do not ignore severe or worsening anxiety symptoms — seek professional support.</li>
+            <li>
+              • Do not ignore severe or worsening anxiety symptoms — seek professional support.
+            </li>
           </ul>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Frequently Asked Questions</h2>
           <div className="space-y-6">
-            {faqItems.map((faq, index) => (
+            {FAQS.map((faq, index) => (
               <div key={index} className="border-l-4 border-primary pl-4">
                 <h3 className="font-semibold text-lg mb-2">{faq.question}</h3>
                 <p className="text-muted-foreground">{faq.answer}</p>
@@ -318,19 +333,34 @@ export default function LTheanineForAnxietyPage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link href="/articles/natural-anxiety-relief" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link
+              href="/articles/natural-anxiety-relief"
+              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+            >
               Natural Anxiety Relief: Evidence-Based Approaches
             </Link>
-            <Link href="/articles/ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link
+              href="/articles/ashwagandha-for-anxiety"
+              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+            >
               Ashwagandha for Anxiety
             </Link>
-            <Link href="/articles/l-theanine-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link
+              href="/articles/l-theanine-for-sleep"
+              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+            >
               L-Theanine for Sleep
             </Link>
-            <Link href="/articles/best-herbs-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link
+              href="/articles/best-herbs-for-sleep"
+              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+            >
               Best Herbs for Sleep
             </Link>
-            <Link href="/articles/sleep-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link
+              href="/articles/sleep-stack-guide"
+              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+            >
               Sleep Stack Guide
             </Link>
           </div>
@@ -382,7 +412,9 @@ export default function LTheanineForAnxietyPage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Sources &amp; References</h2>
           <div className="p-6 bg-muted/50 rounded-xl text-sm">
-            <p className="mb-4 font-medium">TODO: Populate with verified references from the evidence workbook.</p>
+            <p className="mb-4 font-medium">
+              TODO: Populate with verified references from the evidence workbook.
+            </p>
             <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
               <li>L-theanine anxiety and stress clinical trials (PMIDs, n-sizes, outcomes)</li>
               <li>Systematic reviews and meta-analyses</li>
@@ -400,5 +432,5 @@ export default function LTheanineForAnxietyPage() {
         </div>
       </div>
     </>
-  );
+  )
 }
