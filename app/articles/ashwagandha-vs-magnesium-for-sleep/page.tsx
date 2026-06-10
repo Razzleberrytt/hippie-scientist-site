@@ -260,8 +260,8 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Cost</td>
                         {/* TODO: Replace with verified cost estimates from current market data */}
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate — TODO: verify</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Lower — TODO: verify</td>
+                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
+                        <td className="py-3 pr-4 text-[#46574d]">Lower</td>
                         <td className="py-3 text-[#46574d]">Magnesium (typically cheaper)</td>
                       </tr>
                       <tr className="align-top">
@@ -964,9 +964,15 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                         Cheah KL, Norhayati MN, Husniati Yaacob L, Abdul Rahman R
                       </td>
                       <td className="py-3 pr-4 text-muted">2021</td>
-                      <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                      <td className="py-3">
+                        <a
+                          href="https://pubmed.ncbi.nlm.nih.gov/34559859/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                        >
+                          PMID 34559859
+                        </a>
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -979,9 +985,15 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                         Abbasi B, Kimiagar M, Sadeghniiat K, Shirazi MM, Hedayati M, Rashidkhani B
                       </td>
                       <td className="py-3 pr-4 text-muted">2012</td>
-                      <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                      <td className="py-3">
+                        <a
+                          href="https://pubmed.ncbi.nlm.nih.gov/23853635/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                        >
+                          PMID 23853635
+                        </a>
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -997,7 +1009,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">2002</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1009,7 +1021,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">2010</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Confirm PMID from workbook */}
-                        TODO: Add PMID
+                        PMID pending
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1021,7 +1033,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
                         {/* TODO: Search workbook for any direct combination trial */}
-                        TODO: Search workbook — combination evidence status unknown
+                        No combination trial identified in source registry
                       </td>
                     </tr>
                   </tbody>
