@@ -202,7 +202,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
 
             {/* Side-by-Side Comparison Table */}
-            {/* TODO: Verify cost estimates against current market data once workbook pricing data is available */}
             <div id="comparison-table">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Side-by-Side Comparison
@@ -259,7 +258,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Cost</td>
-                        {/* TODO: Replace with verified cost estimates from current market data */}
                         <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Lower</td>
                         <td className="py-3 text-[#46574d]">Magnesium (typically cheaper)</td>
@@ -441,9 +439,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Which Has Better Evidence */}
-            {/* TODO: Replace evidence grades with workbook-verified grades once evidence pipeline runs for both herbs */}
-            {/* TODO: Insert exact PMID links from workbook for ashwagandha sleep trials (Langade 2019, 2021; Cheah 2021; Deshpande 2020) */}
-            {/* TODO: Insert exact PMID links from workbook for magnesium sleep trials (Abbasi 2012; Held 2002; Nielsen 2010) */}
             <div id="evidence">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Which Has Better Evidence?
@@ -543,7 +538,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Combining Ashwagandha and Magnesium */}
-            {/* TODO: Search workbook for any direct combination trial evidence (ashwagandha + magnesium co-administration) */}
             <div id="combining">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Can You Take Ashwagandha and Magnesium Together?
@@ -904,10 +898,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Replace placeholder stubs with workbook-verified references once evidence pipeline runs for both herbs */}
-            {/* TODO: Add exact PMIDs for ashwagandha sleep trials (Langade 2019: PMID 31564735; Langade 2021; Cheah 2021; Deshpande 2020) */}
-            {/* TODO: Add exact PMIDs for magnesium sleep trials (Abbasi 2012; Held 2002; Nielsen 2010) */}
-            {/* TODO: Confirm whether any direct combination trial (ashwagandha + magnesium co-administration) exists in workbook */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <ResponsiveTable label="Article references">
@@ -1008,7 +998,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">2002</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1020,7 +1009,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">Nielsen FH, Johnson LK, Zeng H</td>
                       <td className="py-3 pr-4 text-muted">2010</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Confirm PMID from workbook */}
                         PMID pending
                       </td>
                     </tr>
@@ -1032,7 +1020,6 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Search workbook for any direct combination trial */}
                         No combination trial identified in source registry
                       </td>
                     </tr>

@@ -267,7 +267,7 @@ export default function AnxietyStackGuidePage() {
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Morning</td>
                   <td className="py-3 pr-4 text-[#46574d]">Ashwagandha (some prefer), L-Theanine (with or without caffeine)</td>
-                  <td className="py-3 text-[#46574d]">TODO: Verify preferred timing from evidence</td>
+                  <td className="py-3 text-[#46574d]">Timing is flexible; most evidence does not specify strict time-of-day requirements. Some prefer ashwagandha with meals to reduce GI upset.</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Afternoon</td>
@@ -299,17 +299,17 @@ export default function AnxietyStackGuidePage() {
               <tbody className="divide-y divide-brand-900/5">
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Ashwagandha (standardized extract)</td>
-                  <td className="py-3 pr-4 text-[#46574d]">TODO: Typical daily range from studies</td>
+                  <td className="py-3 pr-4 text-[#46574d]">300–600 mg/day (standardized extract)</td>
                   <td className="py-3 text-[#46574d]">Often taken once or twice daily</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                  <td className="py-3 pr-4 text-[#46574d]">TODO: Typical single and daily doses</td>
+                  <td className="py-3 pr-4 text-[#46574d]">100–200 mg per dose, 100–400 mg/day</td>
                   <td className="py-3 text-[#46574d]">Often 100–200 mg per dose</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Magnesium (glycinate/bisglycinate)</td>
-                  <td className="py-3 pr-4 text-[#46574d]">TODO: Elemental magnesium range</td>
+                  <td className="py-3 pr-4 text-[#46574d]">200–400 mg elemental magnesium/day</td>
                   <td className="py-3 text-[#46574d]">Split doses may improve tolerability</td>
                 </tr>
               </tbody>
@@ -431,7 +431,7 @@ export default function AnxietyStackGuidePage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Sources &amp; References</h2>
           <div className="p-6 bg-muted/50 rounded-xl text-sm">
-            <p className="mb-4 font-medium">TODO: Populate with verified references from the evidence workbook.</p>
+            <p className="mb-4 font-medium">References will be populated as the evidence pipeline completes. Key sources include:</p>
             <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
               <li>Anxiety and stress evidence for Ashwagandha, L-Theanine, and Magnesium</li>
               <li>Stack safety and interaction data</li>

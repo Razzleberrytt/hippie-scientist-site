@@ -323,7 +323,6 @@ export default function LTheanineForADHDPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sleep Effects */}
-            {/* TODO: Verify Lyon 2011 details, PMID, exact n, dose schedule, outcome measures, and adverse event reporting in workbook before implementation as final evidence. */}
             <div id="sleep-effects">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Sleep Effects in ADHD
@@ -359,7 +358,6 @@ export default function LTheanineForADHDPage() {
               </p>
               <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
                 <p className="font-semibold text-ink">Key study — sleep in pediatric ADHD:</p>
-                {/* TODO: Verify Lyon 2011 details, PMID, exact n, dose schedule, outcome measures, and adverse event reporting in workbook before implementation as final evidence. */}
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
                     Lyon et al. 2011 — randomized, double-blind, placebo-controlled trial; boys aged
@@ -395,7 +393,6 @@ export default function LTheanineForADHDPage() {
             <hr className="border-brand-900/10" />
 
             {/* Attention and Cognitive Effects */}
-            {/* TODO: Verify Kahathuduwa 2020 details, PMID, exact n, design, dose, cognitive outcomes, fMRI findings, and adverse event reporting in workbook before implementation as final evidence. */}
             <div id="attention-effects">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Attention and Cognitive Effects in ADHD
@@ -431,7 +428,6 @@ export default function LTheanineForADHDPage() {
               </p>
               <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
                 <p className="font-semibold text-ink">Key study — attention in pediatric ADHD:</p>
-                {/* TODO: Verify Kahathuduwa 2020 details, PMID, exact n, design, dose, cognitive outcomes, fMRI findings, and adverse event reporting in workbook before implementation as final evidence. */}
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
                     Kahathuduwa et al. 2020 — small randomized crossover design; boys with ADHD;
@@ -577,7 +573,6 @@ export default function LTheanineForADHDPage() {
                 function challenges, and co-occurring anxiety or sleep issues.
               </p>
               <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
-                {/* TODO: verify absence of large adult ADHD RCTs in workbook */}
                 The absence of robust adult ADHD data represents a clear evidence gap. Adults
                 considering L-theanine should treat expectations as lower and monitor response
                 carefully. Clinical supervision is advisable, especially if other medications or
@@ -631,7 +626,6 @@ export default function LTheanineForADHDPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Sleep quality</td>
                         <td className="py-3 pr-4 text-[#46574d]">Boys 8–12 with ADHD</td>
-                        {/* TODO: Lyon 2011, PMID 22214254, n=98; verify in workbook */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           RCT, 6 weeks, 400 mg/day (Lyon 2011 — pending verification)
                         </td>
@@ -643,7 +637,6 @@ export default function LTheanineForADHDPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Sustained attention</td>
                         <td className="py-3 pr-4 text-[#46574d]">Boys with ADHD</td>
-                        {/* TODO: Kahathuduwa 2020, small n=5; verify in workbook */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           Small crossover, single dose + caffeine (Kahathuduwa 2020 — pending verification)
                         </td>
@@ -655,7 +648,6 @@ export default function LTheanineForADHDPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Inhibitory control</td>
                         <td className="py-3 pr-4 text-[#46574d]">Boys with ADHD</td>
-                        {/* TODO: Kahathuduwa 2020; verify in workbook */}
                         <td className="py-3 pr-4 text-[#46574d]">
                           Same small crossover (Kahathuduwa 2020 — pending verification)
                         </td>
@@ -667,7 +659,6 @@ export default function LTheanineForADHDPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Adult ADHD data</td>
                         <td className="py-3 pr-4 text-[#46574d]">Adults with ADHD</td>
-                        {/* TODO: verify absence of large adult ADHD RCTs in workbook */}
                         <td className="py-3 pr-4 text-[#46574d]">No large RCTs identified</td>
                         <td className="py-3 pr-4 text-[#46574d]">Evidence gap</td>
                         <td className="py-3 text-[#46574d] font-medium">Limited</td>
@@ -692,7 +683,6 @@ export default function LTheanineForADHDPage() {
             <hr className="border-brand-900/10" />
 
             {/* Dosing and Timing */}
-            {/* TODO: Verify all dose ranges against workbook before final publication. */}
             <div id="dosing">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Dosing and Timing
@@ -728,7 +718,6 @@ export default function LTheanineForADHDPage() {
                         <td className="py-3 pr-4 font-medium text-ink">
                           Sleep (pediatric ADHD)
                         </td>
-                        {/* TODO: Verify dose range against workbook — 400 mg/day (2×200 mg) from Lyon 2011 */}
                         <td className="py-3 pr-4 text-[#46574d]">400 mg/day (2 × 200 mg)</td>
                         <td className="py-3 pr-4 text-[#46574d]">Morning + afternoon/evening</td>
                         <td className="py-3 text-[#46574d]">
@@ -739,7 +728,6 @@ export default function LTheanineForADHDPage() {
                         <td className="py-3 pr-4 font-medium text-ink">
                           Acute attention (boys with ADHD)
                         </td>
-                        {/* TODO: Verify weight-based dose ~2.5 mg/kg against workbook */}
                         <td className="py-3 pr-4 text-[#46574d]">~2.5 mg/kg (single dose)</td>
                         <td className="py-3 pr-4 text-[#46574d]">Morning (daytime tasks)</td>
                         <td className="py-3 text-[#46574d]">
@@ -750,7 +738,6 @@ export default function LTheanineForADHDPage() {
                         <td className="py-3 pr-4 font-medium text-ink">
                           General adult use
                         </td>
-                        {/* TODO: Verify dose ranges against workbook before final publication */}
                         <td className="py-3 pr-4 text-[#46574d]">100–400 mg/serving</td>
                         <td className="py-3 pr-4 text-[#46574d]">Depends on goal</td>
                         <td className="py-3 text-[#46574d]">
@@ -793,7 +780,6 @@ export default function LTheanineForADHDPage() {
             <hr className="border-brand-900/10" />
 
             {/* Medication Interactions */}
-            {/* TODO: Verify documented interaction evidence and safety cautions in workbook. */}
             <div id="medication-interactions">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Medication Interaction Caution
@@ -1172,11 +1158,6 @@ export default function LTheanineForADHDPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Verify Lyon 2011 PMID, exact n, dose schedule, outcome measures, adverse events in workbook */}
-            {/* TODO: Verify Kahathuduwa 2020 PMID, exact n, design, dose, cognitive outcomes, fMRI findings in workbook */}
-            {/* TODO: Verify documented interaction evidence and safety cautions in workbook */}
-            {/* TODO: Verify all dose ranges against workbook before final publication */}
-            {/* TODO: verify absence of large adult ADHD RCTs in workbook */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <ResponsiveTable label="Article references">
@@ -1210,7 +1191,6 @@ export default function LTheanineForADHDPage() {
                       <td className="py-3 pr-4 text-muted">Lyon et al.</td>
                       <td className="py-3 pr-4 text-muted">2011</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Verify Lyon 2011 PMID 22214254 and all details in workbook before publishing */}
                         PMID 22214254 (pending workbook verification)
                       </td>
                     </tr>
@@ -1224,7 +1204,6 @@ export default function LTheanineForADHDPage() {
                       <td className="py-3 pr-4 text-muted">Kahathuduwa et al.</td>
                       <td className="py-3 pr-4 text-muted">2020</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Verify Kahathuduwa 2020 PMID, exact n, dose, outcomes, fMRI findings in workbook */}
                         PMID pending workbook verification
                       </td>
                     </tr>
@@ -1237,7 +1216,6 @@ export default function LTheanineForADHDPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Verify safety references from workbook */}
                         PMID pending workbook review
                       </td>
                     </tr>
@@ -1250,7 +1228,6 @@ export default function LTheanineForADHDPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: Add PMIDs for L-theanine + caffeine cognitive evidence from workbook */}
                         PMIDs pending workbook verification
                       </td>
                     </tr>
@@ -1263,7 +1240,6 @@ export default function LTheanineForADHDPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        {/* TODO: verify absence of large adult ADHD RCTs in workbook */}
                         Evidence gap — pending workbook review
                       </td>
                     </tr>

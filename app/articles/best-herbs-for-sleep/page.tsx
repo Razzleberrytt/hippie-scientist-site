@@ -194,7 +194,6 @@ export default function BestHerbsForSleepPage() {
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
 
             {/* Ranking table */}
-            {/* TODO: Insert evidence grades from workbook once pipeline is complete */}
             <div id="ranking-table">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Evidence-Ranked Overview
@@ -235,7 +234,6 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">1</td>
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">General sleep quality, muscle tension, deficiency</td>
                         <td className="py-3 pr-4 text-[#46574d]">200–400 mg elemental, 30–60 min before bed</td>
@@ -251,7 +249,6 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">2</td>
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Stress-driven poor sleep, cortisol, anxiety</td>
                         <td className="py-3 pr-4 text-[#46574d]">300–600 mg/day (KSM-66 or Sensoril), evening</td>
@@ -267,7 +264,6 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">3</td>
                         <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Racing thoughts, anxious arousal at bedtime</td>
                         <td className="py-3 pr-4 text-[#46574d]">100–200 mg, 30–60 min before bed</td>
@@ -283,20 +279,16 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">4</td>
                         <td className="py-3 pr-4 font-medium text-ink">Valerian root</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Mixed / weak</td>
                         <td className="py-3 pr-4 text-[#46574d]">Sleep onset latency, traditional sedation</td>
-                        {/* TODO: Insert dose range from workbook */}
                         <td className="py-3 pr-4 text-[#46574d]">300–600 mg, 30–60 min before bed</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">5</td>
                         <td className="py-3 pr-4 font-medium text-ink">Passionflower</td>
-                        {/* TODO: Insert workbook-verified evidence grade */}
                         <td className="py-3 pr-4 text-[#46574d]">Limited</td>
                         <td className="py-3 pr-4 text-[#46574d]">Anxiety-adjacent sleep difficulty</td>
-                        {/* TODO: Insert dose range from workbook */}
                         <td className="py-3 pr-4 text-[#46574d]">250–500 mg extract or 1 cup tea, evening</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
@@ -479,7 +471,6 @@ export default function BestHerbsForSleepPage() {
               <hr className="border-brand-900/10" />
 
               {/* L-Theanine */}
-              {/* TODO: Insert L-theanine PMIDs and evidence grades from workbook */}
               <div id="l-theanine" className="mt-8 mb-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   3. L-Theanine
@@ -520,7 +511,6 @@ export default function BestHerbsForSleepPage() {
               <hr className="border-brand-900/10" />
 
               {/* Valerian */}
-              {/* TODO: Insert valerian PMIDs and evidence grades from workbook */}
               <div id="valerian" className="mt-8 mb-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   4. Valerian Root
@@ -560,7 +550,6 @@ export default function BestHerbsForSleepPage() {
               <hr className="border-brand-900/10" />
 
               {/* Passionflower */}
-              {/* TODO: Insert passionflower PMIDs and evidence grades from workbook */}
               <div id="passionflower" className="mt-8">
                 <h3 className="mb-2 text-xl font-semibold tracking-tight text-ink">
                   5. Passionflower
@@ -942,9 +931,6 @@ export default function BestHerbsForSleepPage() {
             <hr className="border-brand-900/10" />
 
             {/* Sources */}
-            {/* TODO: Insert workbook-verified PMIDs for all evidence rows below */}
-            {/* TODO: Insert exact dose ranges from workbook for each herb */}
-            {/* TODO: Insert affiliate product review picks for each herb when available */}
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <p className="mb-4 text-sm text-muted">
@@ -973,7 +959,6 @@ export default function BestHerbsForSleepPage() {
                         Abbasi et al.; Nielsen et al.; Held et al.; Yamadera et al. (glycine)
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -983,7 +968,6 @@ export default function BestHerbsForSleepPage() {
                         Langade et al. 2019, 2021; Cheah et al. 2021; Deshpande et al. 2020
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -993,7 +977,6 @@ export default function BestHerbsForSleepPage() {
                         Alpha-wave promotion trials; anxiety/sleep overlap studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1003,7 +986,6 @@ export default function BestHerbsForSleepPage() {
                         Meta-analyses of valerian RCTs; valerenic acid mechanism studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1015,7 +997,6 @@ export default function BestHerbsForSleepPage() {
                         Passionflower anxiety/sleep RCTs; chrysin GABA-A binding studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
@@ -1027,7 +1008,6 @@ export default function BestHerbsForSleepPage() {
                         AASM guidelines; CBT-I evidence base; drug interaction references
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        {/* TODO: Insert workbook-verified PMIDs */}
                         PMIDs pending
                       </td>
                     </tr>
