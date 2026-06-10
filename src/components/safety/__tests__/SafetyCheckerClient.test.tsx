@@ -156,12 +156,54 @@ describe('SafetyCheckerClient', () => {
     expect(screen.getByText(/Risk Level: high/i)).toBeInTheDocument()
   })
 
-  // TODO: Add an acknowledgement gate to SafetyCheckerClient so users must confirm
-  //       the medical disclaimer before they can interact with the tool.
-  //       Expected behaviors once implemented:
-  it.todo('action buttons/search should be disabled until user acknowledges the medical disclaimer')
-  it.todo('disclaimer acknowledgement panel remains visible until user explicitly accepts')
-  it.todo('after acknowledgement, the search input and medication buttons become interactive')
+  it('action buttons/search should be disabled until user acknowledges the medical disclaimer', () => {
+    render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
+
+    const input = screen.getByPlaceholderText(/Please acknowledge disclaimer first/i)
+    expect(input).toBeDisabled()
+
+    const ssriBtn = screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })
+    expect(ssriBtn).toBeDisabled()
+
+    const maoiBtn = screen.getByRole('button', { name: /MAO Inhibitors \(MAOIs\)/i })
+    expect(maoiBtn).toBeDisabled()
+
+    const anticoagulantBtn = screen.getByRole('button', { name: /Blood Thinners \/ Anticoagulants/i })
+    expect(anticoagulantBtn).toBeDisabled()
+  })
+
+  it('disclaimer acknowledgement panel remains visible until user explicitly accepts', () => {
+    render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
+
+    // Panel and disclaimer text visible before acknowledgement
+    expect(screen.getByText(/Medical Disclaimer & Safety Acknowledgment/i)).toBeInTheDocument()
+    expect(screen.getByText(/This safety checker is an educational reference tool/i)).toBeInTheDocument()
+    expect(screen.getByRole('checkbox')).not.toBeChecked()
+
+    // Panel remains visible after acknowledgement
+    fireEvent.click(screen.getByRole('checkbox'))
+    expect(screen.getByText(/Medical Disclaimer & Safety Acknowledgment/i)).toBeInTheDocument()
+    expect(screen.getByRole('checkbox')).toBeChecked()
+  })
+
+  it('after acknowledgement, the search input and medication buttons become interactive', () => {
+    render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
+
+    const checkbox = screen.getByRole('checkbox')
+    expect(checkbox).not.toBeChecked()
+
+    fireEvent.click(checkbox)
+    expect(checkbox).toBeChecked()
+
+    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    expect(input).not.toBeDisabled()
+
+    const ssriBtn = screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })
+    expect(ssriBtn).not.toBeDisabled()
+
+    const maoiBtn = screen.getByRole('button', { name: /MAO Inhibitors \(MAOIs\)/i })
+    expect(maoiBtn).not.toBeDisabled()
+  })
 
   it('scans and alerts for Drug-Supplement MAOI + serotonergic danger overlap', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
