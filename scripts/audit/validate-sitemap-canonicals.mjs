@@ -155,15 +155,19 @@ async function runSitemapAudit() {
   // Identify missing sitemap entries (in data but not in sitemap)
   // Wait, does sitemap_included control if it should be in sitemap?
   // Yes, the JSON data has a field `sitemap_included`. Let's check against both all database entries and sitemap_included eligible ones.
+  // sitemap_included may arrive as boolean or legacy "true"/"false" strings.
+  const sitemapEligible = (value) =>
+    !(value === false || String(value).toLowerCase() === 'false');
+
   const missingHerbs = [...herbSlugs].filter(slug => {
     const herbObj = herbs.find(h => h.slug === slug);
-    const eligible = herbObj ? herbObj.sitemap_included !== false : true;
+    const eligible = herbObj ? sitemapEligible(herbObj.sitemap_included) : true;
     return eligible && !sitemapHerbs.has(slug);
   });
-  
+
   const missingCompounds = [...compoundSlugs].filter(slug => {
     const compObj = compounds.find(c => c.slug === slug);
-    const eligible = compObj ? compObj.sitemap_included !== false : true;
+    const eligible = compObj ? sitemapEligible(compObj.sitemap_included) : true;
     return eligible && !sitemapCompounds.has(slug);
   });
 

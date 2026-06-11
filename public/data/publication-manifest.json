@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T10:55:20.848Z",
+  "generatedAt": "2026-06-11T23:12:36.343Z",
   "source": "workbook+summary-indexes",
   "entities": {
     "herbs": [
@@ -641,15 +641,11 @@
       },
       {
         "slug": "lions-mane",
-        "name": "Lion’s Mane"
+        "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute."
       },
       {
         "slug": "lithospermum-erythrorhizon",
         "name": "Lithospermum Erythrorhizon"
-      },
-      {
-        "slug": "lobelia-inflata",
-        "name": "Lobelia Inflata"
       },
       {
         "slug": "longan",
@@ -754,14 +750,6 @@
       {
         "slug": "nettle-root",
         "name": "Nettle Root"
-      },
-      {
-        "slug": "nicotiana-glauca",
-        "name": "Nicotiana Glauca"
-      },
-      {
-        "slug": "nicotiana-tabacum",
-        "name": "Nicotiana Tabacum"
       },
       {
         "slug": "nigella-sativa",
@@ -1514,7 +1502,7 @@
   },
   "counts": {
     "herbs_total": 290,
-    "herbs_eligible": 290,
+    "herbs_eligible": 287,
     "compounds_total": 614,
     "compounds_eligible": 345
   }

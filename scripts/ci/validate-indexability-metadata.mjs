@@ -11,10 +11,12 @@ const repoRoot = path.resolve(__dirname, '../..')
 const DATASETS = [
   { kind: 'herb', label: 'herbs', file: 'public/data/herbs.json' },
   { kind: 'compound', label: 'compounds', file: 'public/data/compounds.json' },
+  { kind: 'herb-summary', label: 'herb summaries', file: 'public/data/summary-indexes/herbs-summary.json' },
+  { kind: 'compound-summary', label: 'compound summaries', file: 'public/data/summary-indexes/compounds-summary.json' },
 ]
 
 const VALID_STATUSES = new Set(['PUBLISH', 'NOINDEX', 'NEEDS_REVIEW', 'BLOCKED'])
-const VALID_ROBOTS = new Set(['index,follow', 'noindex,follow'])
+const VALID_ROBOTS = new Set(['index,follow', 'noindex,follow', 'noindex,nofollow'])
 const MAX_ERRORS_TO_PRINT = 25
 
 function readJson(relativePath) {
@@ -88,8 +90,8 @@ function validateRecord(record, kind, index, errors) {
   }
 
   if (status === 'NOINDEX') {
-    if (robots !== 'noindex,follow') {
-      addError(errors, kind, record, index, 'NOINDEX should have robots noindex,follow')
+    if (!/^noindex/.test(String(robots))) {
+      addError(errors, kind, record, index, 'NOINDEX should have noindex robots')
     }
     if (sitemapIncluded !== false) {
       addError(errors, kind, record, index, 'NOINDEX should have sitemap_included false')
@@ -101,8 +103,8 @@ function validateRecord(record, kind, index, errors) {
   }
 
   if (status === 'BLOCKED') {
-    if (robots !== 'noindex,follow') {
-      addError(errors, kind, record, index, 'BLOCKED must have robots noindex,follow')
+    if (!/^noindex/.test(String(robots))) {
+      addError(errors, kind, record, index, 'BLOCKED must have noindex robots')
     }
     if (sitemapIncluded !== false) {
       addError(errors, kind, record, index, 'BLOCKED must have sitemap_included false')

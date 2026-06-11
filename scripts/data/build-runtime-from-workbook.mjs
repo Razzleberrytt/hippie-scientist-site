@@ -387,13 +387,24 @@ function visibility(base, type) {
     ? bool(explicitSitemapIncluded)
     : visibilityTier !== 'hidden'
 
+  const hidden = visibilityTier === 'hidden'
+  const policy = scoreIndexability({ ...base, type, robots, sitemap_included: sitemapIncluded })
+  // Status mirrors the effective sitemap_included + robots gate so every
+  // downstream consumer (runtime-visibility, publication manifest, sitemap)
+  // reads the same decision. The policy score stays advisory.
+  const indexabilityStatus = hidden
+    ? 'BLOCKED'
+    : sitemapIncluded && /^index/i.test(robots)
+      ? 'PUBLISH'
+      : 'NOINDEX'
+
   return {
     visibility_tier: visibilityTier,
     robots,
     sitemap_included: sitemapIncluded,
-    indexability_status: visibilityTier === 'hidden' ? 'suppressed' : 'eligible',
-    indexability_score: scoreIndexability({ ...base, type, robots, sitemapIncluded }),
-    indexability_reasons: visibilityTier === 'hidden' ? ['hidden_visibility_tier'] : [],
+    indexability_status: indexabilityStatus,
+    indexability_score: policy.score,
+    indexability_reasons: hidden ? ['hidden_visibility_tier', ...policy.reasons] : policy.reasons,
   }
 }
 

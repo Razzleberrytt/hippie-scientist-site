@@ -1,0 +1,388 @@
+{
+  "generatedAt": "2026-06-11T23:12:33.972Z",
+  "counts": {
+    "herbs": 287,
+    "compounds": 595,
+    "total": 882
+  },
+  "statusDistributions": {
+    "herbs": {
+      "total": 287,
+      "byStatus": {
+        "PUBLISH": 287,
+        "NOINDEX": 0,
+        "NEEDS_REVIEW": 0,
+        "BLOCKED": 0,
+        "UNKNOWN": 0
+      },
+      "percentages": {
+        "PUBLISH": 100,
+        "NOINDEX": 0,
+        "NEEDS_REVIEW": 0,
+        "BLOCKED": 0,
+        "UNKNOWN": 0
+      },
+      "averageScoreByStatus": {
+        "PUBLISH": 79.2,
+        "NOINDEX": null,
+        "NEEDS_REVIEW": null,
+        "BLOCKED": null,
+        "UNKNOWN": null
+      },
+      "sitemapIncluded": 287,
+      "robotsDistribution": {
+        "index,follow": 287
+      }
+    },
+    "compounds": {
+      "total": 595,
+      "byStatus": {
+        "PUBLISH": 594,
+        "NOINDEX": 1,
+        "NEEDS_REVIEW": 0,
+        "BLOCKED": 0,
+        "UNKNOWN": 0
+      },
+      "percentages": {
+        "PUBLISH": 99.8,
+        "NOINDEX": 0.2,
+        "NEEDS_REVIEW": 0,
+        "BLOCKED": 0,
+        "UNKNOWN": 0
+      },
+      "averageScoreByStatus": {
+        "PUBLISH": 22.4,
+        "NOINDEX": 0,
+        "NEEDS_REVIEW": null,
+        "BLOCKED": null,
+        "UNKNOWN": null
+      },
+      "sitemapIncluded": 594,
+      "robotsDistribution": {
+        "index,follow": 594,
+        "noindex,follow": 1
+      }
+    }
+  },
+  "candidates": {
+    "needsReviewHerbs": [],
+    "needsReviewCompounds": [],
+    "noindexClosestToPublish": [
+      {
+        "kind": "compound",
+        "slug": "7-hydroxymitragynine",
+        "name": "7-Hydroxymitragynine",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      }
+    ],
+    "suspiciousLowPublish": [
+      {
+        "kind": "compound",
+        "slug": "11-keto-beta-boswellic-acid",
+        "name": "11-keto-beta-boswellic acid",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "23-epi-26-deoxyactein",
+        "name": "23-epi-26-deoxyactein",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "5-htp",
+        "name": "5-HTP",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acarbose",
+        "name": "Acarbose",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acemannan",
+        "name": "acemannan",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetate",
+        "name": "acetate",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetyl-11-keto-beta-boswellic-acid",
+        "name": "acetyl-11-keto-beta-boswellic acid",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetyl-beta-boswellic-acid",
+        "name": "acetyl-beta-boswellic acid",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetylshikonin",
+        "name": "acetylshikonin",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "actein",
+        "name": "Actein",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acteoside",
+        "name": "acteoside",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "adenosine",
+        "name": "Adenosine",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "aescin",
+        "name": "aescin",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "agaricus-blazei",
+        "name": "Agaricus blazei",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "agmatine-sulfate",
+        "name": "Agmatine sulfate",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "ajoene",
+        "name": "ajoene",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "albiflorin",
+        "name": "albiflorin",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alkylamides",
+        "name": "Alkylamides",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "allicin",
+        "name": "Allicin",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "aloe-vera",
+        "name": "Aloe Vera",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alpha-asarone",
+        "name": "alpha-asarone",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alpha-lipoic-acid",
+        "name": "Alpha-Lipoic Acid",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alpha-mangostin",
+        "name": "alpha-mangostin",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "anandamide",
+        "name": "Anandamide",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "andrographis",
+        "name": "Andrographis",
+        "status": "PUBLISH",
+        "score": 0,
+        "robots": "index,follow",
+        "sitemap_included": true,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      }
+    ]
+  },
+  "warnings": []
+}
