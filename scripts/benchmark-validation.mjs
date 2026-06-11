@@ -8,7 +8,8 @@ const commands = [
   { name: 'validate:code', cmd: 'npm run validate:code' },
   { name: 'verify:build', cmd: 'npm run verify:build' },
   { name: 'build', cmd: 'npm run build' },
-  { name: 'validate:release', cmd: 'npm run validate:release' }
+  { name: 'validate:release', cmd: 'npm run validate:release' },
+  { name: 'validate:release:full', cmd: 'npm run validate:release:full' }
 ]
 
 console.log('╔════════════════════════════════════════════════╗')
