@@ -285,7 +285,7 @@
     "slug": "bupleurum-falcatum",
     "name": "Bupleurum Falcatum",
     "title": "Bupleurum Falcatum | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Bupleurum falcatum."
+    "description": "Bupleurum falcatum is an herb historically used in traditional East Asian medicine, containing active compounds like Saikosaponin A."
   },
   {
     "slug": "burdock",
@@ -441,7 +441,7 @@
     "slug": "citrus-sinensis",
     "name": "Citrus Sinensis",
     "title": "Citrus Sinensis | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Citrus sinensis."
+    "description": "Citrus sinensis (Sweet Orange) is a fruit botanical notable for its rich content of flavonoids like hesperidin."
   },
   {
     "slug": "clove",
@@ -531,7 +531,7 @@
     "slug": "crocus-sativus",
     "name": "Crocus Sativus",
     "title": "Crocus Sativus | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Crocus sativus."
+    "description": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support."
   },
   {
     "slug": "curcuma-wenyujin",
@@ -633,7 +633,7 @@
     "slug": "eleuthero",
     "name": "Eleuthero",
     "title": "Eleuthero | The Hippie Scientist",
-    "description": "Stress resilience."
+    "description": "Eleuthero (Siberian ginseng) is an adaptogenic root used to support stress resilience and physical endurance. It modulates HPA axis activity and influences cortisol and catecholamine signaling. Human trials report reduced fatigue and improved cognitive performance under stress conditions, particularly in shift workers and athletes."
   },
   {
     "slug": "embelia-ribes",
@@ -759,7 +759,7 @@
     "slug": "glycyrrhiza-glabra",
     "name": "Glycyrrhiza Glabra",
     "title": "Glycyrrhiza Glabra | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Glycyrrhiza glabra."
+    "description": "Glycyrrhiza glabra (Licorice) is a traditional root botanical studied for gastrointestinal soothing and cortisol support."
   },
   {
     "slug": "goldenseal",
@@ -963,7 +963,7 @@
     "slug": "lavandula-angustifolia",
     "name": "Lavender",
     "title": "Lavender | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Lavandula angustifolia."
+    "description": "Lavandula angustifolia (Lavender) is an aromatic herb widely used for its calming and sleep-promoting properties."
   },
   {
     "slug": "lawsonia-inermis",
@@ -1005,25 +1005,13 @@
     "slug": "hericium-erinaceus",
     "name": "Lion's Mane",
     "title": "Lion's Mane | The Hippie Scientist",
-    "description": "NGF stimulation."
-  },
-  {
-    "slug": "lions-mane",
-    "name": "Lion’s Mane",
-    "title": "Lion’s Mane | The Hippie Scientist",
-    "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications."
+    "description": "Lion's Mane (Hericium erinaceus) is a culinary-medicinal mushroom that stimulates Nerve Growth Factor (NGF) synthesis via hericenones and erinacines. Human RCTs demonstrate cognitive improvements in older adults with mild cognitive impairment, and emerging data support mood and nerve regeneration applications."
   },
   {
     "slug": "lithospermum-erythrorhizon",
     "name": "Lithospermum Erythrorhizon",
     "title": "Lithospermum Erythrorhizon | The Hippie Scientist",
     "description": "Lithospermum erythrorhizon contains Shikonin and is linked here to PKM2 inhibition."
-  },
-  {
-    "slug": "lobelia-inflata",
-    "name": "Lobelia Inflata",
-    "title": "Lobelia Inflata | The Hippie Scientist",
-    "description": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation."
   },
   {
     "slug": "longan",
@@ -1170,22 +1158,10 @@
     "description": "It is best framed distinctly from nettle leaf."
   },
   {
-    "slug": "nicotiana-glauca",
-    "name": "Nicotiana Glauca",
-    "title": "Nicotiana Glauca | The Hippie Scientist",
-    "description": "Nicotiana glauca contains Anabasine and is linked here to nicotinic acetylcholine receptor modulation."
-  },
-  {
-    "slug": "nicotiana-tabacum",
-    "name": "Nicotiana Tabacum",
-    "title": "Nicotiana Tabacum | The Hippie Scientist",
-    "description": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation."
-  },
-  {
     "slug": "nigella-sativa",
     "name": "Nigella Sativa",
     "title": "Nigella Sativa | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Nigella sativa."
+    "description": "Nigella sativa (Black Seed) is a traditional seed extract containing thymoquinone, studied for antioxidant and immune support."
   },
   {
     "slug": "noni",
@@ -1221,7 +1197,7 @@
     "slug": "olea-europaea",
     "name": "Olive Leaf",
     "title": "Olive Leaf | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Olea europaea."
+    "description": "Olea europaea (Olive Leaf) contains oleuropein and hydroxytyrosol, with notable cardiovascular and immune support."
   },
   {
     "slug": "ophiopogon",
@@ -1425,7 +1401,7 @@
     "slug": "reishi",
     "name": "Reishi (Ganoderma lucidum)",
     "title": "Reishi (Ganoderma lucidum) | The Hippie Scientist",
-    "description": "Immune modulation."
+    "description": "Reishi (Ganoderma lucidum) is a medicinal mushroom used across East Asian traditions for immune regulation and adaptogenic support. Its beta-glucan polysaccharides and triterpenes (ganoderic acids) modulate innate and adaptive immunity, NK cell activity, and inflammatory signaling. Clinical evidence supports immunomodulatory effects; sleep and fatigue data are emerging."
   },
   {
     "slug": "resveratrol",
@@ -1437,7 +1413,7 @@
     "slug": "rheum-palmatum",
     "name": "Rheum Palmatum",
     "title": "Rheum Palmatum | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Rheum palmatum."
+    "description": "Rheum palmatum (Turkish Rhubarb) is a root botanical containing emodin and rhein, used traditionally for digestive health."
   },
   {
     "slug": "rhodiola",
@@ -1509,7 +1485,7 @@
     "slug": "schisandra",
     "name": "Schisandra (Schisandra chinensis)",
     "title": "Schisandra (Schisandra chinensis) | The Hippie Scientist",
-    "description": "Liver + stress."
+    "description": "Schisandra (Schisandra chinensis) is a five-flavor berry used in TCM as an adaptogen and liver tonic. Its primary lignans (schisandrin A/B/C) support hepatocyte detoxification via CYP450 modulation and exhibit antioxidant activity. Human data support mild stress reduction and liver enzyme normalization in hepatitis populations."
   },
   {
     "slug": "schisandra-berry",
@@ -1521,13 +1497,13 @@
     "slug": "schisandra-chinensis",
     "name": "Schisandra Chinensis",
     "title": "Schisandra Chinensis | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Schisandra chinensis."
+    "description": "Schisandra chinensis is an adaptogenic berry botanical rich in schisandrins, used to support stress resilience and cognitive focus."
   },
   {
     "slug": "scutellaria-baicalensis",
     "name": "Scutellaria Baicalensis",
     "title": "Scutellaria Baicalensis | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Scutellaria baicalensis."
+    "description": "Scutellaria baicalensis (Baical Skullcap) is a root botanical containing baicalin and baicalein, studied for sleep and relaxation."
   },
   {
     "slug": "selaginella-tamariscina",
@@ -1557,7 +1533,7 @@
     "slug": "scutellaria-lateriflora",
     "name": "Skullcap",
     "title": "Skullcap | The Hippie Scientist",
-    "description": "GABAergic."
+    "description": "Scutellaria lateriflora (American Skullcap) is an herb traditionally used for nervous tension, anxiety, and sleep support."
   },
   {
     "slug": "sophora-alopecuroides",
@@ -1587,7 +1563,7 @@
     "slug": "st-johns-wort",
     "name": "St. John's Wort (Hypericum perforatum)",
     "title": "St. John's Wort (Hypericum perforatum) | The Hippie Scientist",
-    "description": "St."
+    "description": "St. John's Wort (Hypericum perforatum) is a yellow-flowered herb with well-studied antidepressant effects for mild-to-moderate depression. Its active constituents (hypericin, hyperforin) inhibit reuptake of serotonin, dopamine, and norepinephrine. Multiple meta-analyses confirm efficacy comparable to low-dose SSRIs for mild depression, with fewer side effects in that population."
   },
   {
     "slug": "stellera-chamaejasme",
@@ -1620,10 +1596,16 @@
     "description": "It should be framed conservatively because traditional-use breadth exceeds evidence depth."
   },
   {
+    "slug": "lions-mane",
+    "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
+    "title": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute. | The Hippie Scientist",
+    "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications."
+  },
+  {
     "slug": "syzygium-aromaticum",
     "name": "Syzygium Aromaticum",
     "title": "Syzygium Aromaticum | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Syzygium aromaticum."
+    "description": "Syzygium aromaticum (Clove) is an aromatic spice botanical rich in eugenol, studied for antioxidant and dental health support."
   },
   {
     "slug": "tamarind",
@@ -1671,13 +1653,13 @@
     "slug": "tripterygium-wilfordii",
     "name": "Tripterygium Wilfordii",
     "title": "Tripterygium Wilfordii | The Hippie Scientist",
-    "description": "Lean bulk ingestion row for Tripterygium wilfordii."
+    "description": "Tripterygium wilfordii (Thunder God Vine) contains celastrol, studied for auto-immune and inflammatory regulation."
   },
   {
     "slug": "turkey-tail",
     "name": "Turkey Tail",
     "title": "Turkey Tail | The Hippie Scientist",
-    "description": "Immune modulation."
+    "description": "Turkey Tail (Trametes versicolor) is a shelf mushroom yielding two extensively studied polysaccharopeptides: PSK (krestin) and PSP. These compounds stimulate NK cells, macrophages, and T-cell activity, and PSK is approved in Japan as an adjunct cancer immunotherapy. Human evidence for standalone immune support in healthy populations is limited but supportive."
   },
   {
     "slug": "turmeric",

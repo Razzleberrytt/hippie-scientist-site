@@ -245,7 +245,7 @@ function runAudit() {
           let score = 0;
           score += (25 - item.slug.length); // shorter is better
           if (!item.name.includes('(')) score += 10;
-          if (item.sitemap_included) score += 5;
+          if (item.sitemap_included === true || String(item.sitemap_included).toLowerCase() === 'true') score += 5;
           score += completeness * 15;
 
           return { item, score, completeness };

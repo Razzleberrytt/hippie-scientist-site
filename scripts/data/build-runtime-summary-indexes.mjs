@@ -102,7 +102,14 @@ function summarizeRecord(record, entityType) {
       continue
     }
 
-    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+    // Booleans and numbers must survive as-is: stringifying them produces
+    // truthy "false" strings that silently break visibility gates downstream.
+    if (typeof value === 'boolean' || typeof value === 'number') {
+      summary[field] = value
+      continue
+    }
+
+    if (typeof value === 'string') {
       const normalized = text(value).slice(0, MAX_TEXT_LENGTH)
       if (normalized) summary[field] = normalized
       continue
