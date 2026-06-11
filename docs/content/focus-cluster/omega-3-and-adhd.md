@@ -11,7 +11,7 @@ secondaryKeywords:
   - "omega-3 supplementation ADHD"
   - "fish oil for ADHD"
   - "EPA vs DHA ADHD"
-status: "draft-source"
+status: "published"
 cluster: "focus-adhd"
 ---
 

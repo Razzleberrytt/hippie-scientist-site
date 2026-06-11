@@ -25,6 +25,10 @@ const relatedLinks = [
   ['l-theanine-for-adhd', 'L-Theanine for ADHD'],
   ['melatonin-for-adhd-sleep', 'Melatonin for ADHD Sleep'],
   ['omega-3-and-adhd', 'Omega-3 and ADHD'],
+  ['zinc-and-adhd', 'Zinc and ADHD'],
+  ['iron-ferritin-and-adhd', 'Iron, Ferritin, and ADHD'],
+  ['vitamin-d-and-adhd', 'Vitamin D and ADHD'],
+  ['ashwagandha-for-adhd', 'Ashwagandha for ADHD'],
   ['citicoline-vs-alpha-gpc', 'Citicoline vs Alpha-GPC'],
 ] as const
 

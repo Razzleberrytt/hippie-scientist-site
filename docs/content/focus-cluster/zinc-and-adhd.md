@@ -9,7 +9,7 @@ secondaryKeywords:
   - "ADHD zinc supplementation"
   - "zinc ADHD symptoms"
   - "zinc children ADHD"
-status: "draft-source"
+status: "published"
 cluster: "focus-adhd"
 ---
 

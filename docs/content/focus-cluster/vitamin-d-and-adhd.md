@@ -10,7 +10,7 @@ secondaryKeywords:
   - "low vitamin D ADHD"
   - "vitamin D supplementation ADHD"
   - "vitamin D children ADHD"
-status: "draft-source"
+status: "published"
 cluster: "focus-adhd"
 ---
 

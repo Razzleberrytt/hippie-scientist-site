@@ -10,7 +10,7 @@ secondaryKeywords:
   - "iron deficiency ADHD"
   - "ferritin levels ADHD"
   - "iron supplementation ADHD"
-status: "draft-source"
+status: "published"
 cluster: "focus-adhd"
 ---
 
