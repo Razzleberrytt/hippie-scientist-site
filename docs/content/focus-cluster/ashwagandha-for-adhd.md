@@ -9,7 +9,7 @@ secondaryKeywords:
   - "ashwagandha sleep ADHD"
   - "KSM-66 ADHD"
   - "ashwagandha emotional regulation"
-status: "draft-source"
+status: "published"
 cluster: "focus-adhd"
 ---
 

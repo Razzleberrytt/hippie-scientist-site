@@ -155,35 +155,58 @@ Melatonin is generally discussed as a timing signal rather than a sedative. Dose
   },
   {
     slug: 'omega-3-and-adhd',
-    title: 'Omega-3 and ADHD: What the Evidence Suggests About EPA, DHA, and Attention',
-    seoTitle: 'Omega-3 and ADHD: What the Evidence Suggests About EPA, DHA, and Attention',
-    description: 'Evidence-first overview of omega-3 fatty acids in ADHD, including modest average effects, EPA/DHA questions, diet context, safety, and realistic expectations.',
+    source: 'docs/content/focus-cluster/omega-3-and-adhd.md',
+    title: 'Omega-3 and ADHD: What the Research Shows About EPA, DHA, Symptoms, and Supplementation',
+    seoTitle: 'Omega-3 and ADHD: What the Research Shows About EPA, DHA, Symptoms, and Supplementation',
+    description: 'Evidence-based review of omega-3 fatty acids for ADHD. Covers EPA, DHA, omega-3 deficiency, pediatric and adult evidence, hyperactivity, attention, dosing, safety, fish oil quality, and practical decision-making.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
-    date: '2026-06-10',
-    readingTime: '6 min read',
-    fallbackBody: `## Important medical context
-
-Omega-3 fatty acids are nutrients, not ADHD medications. Research signals are generally modest and mixed, and supplementation should be considered in the context of diet, baseline intake, product quality, bleeding risk, and clinician guidance.
-
-## What omega-3s are
-
-EPA and DHA are long-chain omega-3 fatty acids involved in cell membranes, inflammatory signaling, and brain development. Low dietary intake may be relevant for some people, but the response to supplementation varies.
-
-## Evidence summary
-
-Some meta-analyses report small improvements in ADHD-related outcomes, often with stronger interest in EPA-containing formulas. Other analyses find limited or inconsistent effects. This makes omega-3 more plausible as a nutritional adjunct than as a primary intervention.
-
-## Practical considerations
-
-- Look at total EPA and DHA, not just total fish-oil milligrams.
-- Consider dietary fish intake and baseline nutrition.
-- Use caution with anticoagulants, bleeding disorders, surgery timing, or fish allergy.
-- Track one or two specific outcomes rather than relying on vague impressions.
-
-## Related articles
-
-See [Nutrient Deficiencies and ADHD](/articles/nutrient-deficiencies-and-adhd), [Best Supplements for ADHD](/articles/best-supplements-for-adhd), and the [ADHD Stack Guide](/articles/adhd-stack-guide).`,
+    date: '2026-06-11',
+    readingTime: '12 min read',
+  },
+  {
+    slug: 'zinc-and-adhd',
+    source: 'docs/content/focus-cluster/zinc-and-adhd.md',
+    title: 'Zinc and ADHD: What the Research Shows About Symptoms, Deficiency, and Supplementation',
+    seoTitle: 'Zinc and ADHD: What the Research Shows About Symptoms, Deficiency, and Supplementation',
+    description: 'Evidence-based review of zinc and ADHD. Covers zinc deficiency, symptom severity, pediatric and adult evidence, supplementation studies, dosing, safety, medication interactions, and practical decision-making.',
+    category: 'Nutrient Deficiencies',
+    tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
+    date: '2026-06-11',
+    readingTime: '11 min read',
+  },
+  {
+    slug: 'iron-ferritin-and-adhd',
+    source: 'docs/content/focus-cluster/iron-ferritin-and-adhd.md',
+    title: 'Iron/Ferritin and ADHD: What the Research Shows About Low Iron Stores, Symptoms, and Supplementation',
+    seoTitle: 'Iron/Ferritin and ADHD: What the Research Shows About Low Iron Stores, Symptoms, and Supplementation',
+    description: 'Evidence-based review of iron and ferritin in ADHD. Covers low ferritin, symptom severity, stimulant response, pediatric and adult evidence, supplementation studies, testing, safety, and practical decision-making.',
+    category: 'Nutrient Deficiencies',
+    tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
+    date: '2026-06-11',
+    readingTime: '12 min read',
+  },
+  {
+    slug: 'vitamin-d-and-adhd',
+    source: 'docs/content/focus-cluster/vitamin-d-and-adhd.md',
+    title: 'Vitamin D and ADHD: What the Research Shows About Deficiency, Symptoms, and Supplementation',
+    seoTitle: 'Vitamin D and ADHD: What the Research Shows About Deficiency, Symptoms, and Supplementation',
+    description: 'Evidence-based review of vitamin D and ADHD. Covers vitamin D deficiency, symptom severity, pediatric and adult evidence, supplementation studies, testing, dosing, safety, and practical decision-making.',
+    category: 'Nutrient Deficiencies',
+    tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
+    date: '2026-06-11',
+    readingTime: '11 min read',
+  },
+  {
+    slug: 'ashwagandha-for-adhd',
+    source: 'docs/content/focus-cluster/ashwagandha-for-adhd.md',
+    title: 'Ashwagandha for ADHD: Evidence on Stress, Focus, Sleep, and Emotional Regulation',
+    seoTitle: 'Ashwagandha for ADHD: Evidence on Stress, Focus, Sleep, and Emotional Regulation',
+    description: 'Evidence-based review of ashwagandha for ADHD-related symptoms. Examines stress reduction, sleep quality, emotional regulation, pediatric and adult data, dosing, safety, and realistic expectations as an adjunctive support.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
+    date: '2026-06-11',
+    readingTime: '8 min read',
   },
   {
     slug: 'citicoline-vs-alpha-gpc',
@@ -226,6 +249,15 @@ const removeEditorialScaffold = (raw: string) =>
     .join('\n')
     .trim()
 
+const stripFrontmatter = (raw: string) => raw.replace(/^---[\s\S]*?---\s*\n/, '').trim()
+
+// Strip editorial-only sections that are not meant for rendered output
+const stripEditorialTerminal = (raw: string) =>
+  raw
+    .replace(/\n## Related Articles[\s\S]*$/, '')
+    .replace(/\n## Internal Linking Recommendations[\s\S]*$/, '')
+    .trim()
+
 export function getFocusAdhdArticle(slug: string) {
   const article = focusAdhdArticles.find((item) => item.slug === slug)
   if (!article) return null
@@ -235,7 +267,15 @@ export function getFocusAdhdArticle(slug: string) {
     const sourcePath = path.join(process.cwd(), article.source)
     if (existsSync(sourcePath)) {
       const raw = readFileSync(sourcePath, 'utf8')
-      body = sectionValue(raw, 'Full Article Content') || sectionValue(raw, 'Full article content') || body
+      const explicit = sectionValue(raw, 'Full Article Content') || sectionValue(raw, 'Full article content')
+      if (explicit) {
+        body = explicit
+      } else if (raw.trimStart().startsWith('---')) {
+        // YAML-frontmatter source doc — strip frontmatter and editorial terminal sections
+        body = stripEditorialTerminal(stripFrontmatter(raw))
+      } else {
+        body = raw
+      }
     }
   }
 
