@@ -17,7 +17,7 @@ export type FocusAdhdArticle = {
 export const focusAdhdArticles: FocusAdhdArticle[] = [
   {
     slug: 'best-supplements-for-adhd',
-    source: 'docs/content/focus-cluster/best-supplements-for-adhd-content-v1.md',
+    source: 'docs/content/focus-cluster/best-supplements-for-adhd-v2-content.md',
     title: 'Best Supplements for ADHD: Evidence-Based Options for Focus, Sleep, and Emotional Regulation',
     seoTitle: 'Best Supplements for ADHD: Evidence-Based Options for Focus, Sleep, and Emotional Regulation',
     description: 'Evidence-based comparison of supplements for ADHD symptoms. Reviews L-Theanine, Magnesium, Ashwagandha, Omega-3, Zinc, and others with clear strength-of-evidence ratings, safety considerations, and practical guidance.',
@@ -28,7 +28,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
   },
   {
     slug: 'adhd-stack-guide',
-    source: 'docs/content/focus-cluster/adhd-stack-guide-content-v1.md',
+    source: 'docs/content/focus-cluster/adhd-stack-guide-v2-content.md',
     title: 'ADHD Stack Guide: Evidence-Based Supplement Combinations for Focus, Attention, and Symptom Support',
     seoTitle: 'ADHD Stack Guide: Evidence-Based Supplement Combinations for Focus, Attention, and Symptom Support',
     description: 'Comprehensive evidence-based guide to building supplement stacks for adults with ADHD symptoms. Covers neurobiology foundations, medication interactions, tiered protocols, monitoring strategies, and safety. Not medical advice.',
@@ -39,6 +39,7 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
   },
   {
     slug: 'sleep-and-adhd',
+    source: 'docs/content/focus-cluster/sleep-and-adhd-content-v1.md',
     title: 'Sleep and ADHD: Evidence-Based Support for Rest, Timing, and Next-Day Focus',
     seoTitle: 'Sleep and ADHD: Evidence-Based Support for Rest, Timing, and Next-Day Focus',
     description: 'Conservative guide to the sleep-ADHD connection, including circadian timing, stimulant timing, behavioral foundations, and where melatonin, magnesium, and L-theanine may fit.',
@@ -46,32 +47,10 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
     readingTime: '6 min read',
-    fallbackBody: `## Important medical context
-
-Sleep problems are common in people with ADHD, but poor sleep can also mimic or worsen attention problems. This article is informational only and is not a substitute for ADHD diagnosis, sleep-disorder evaluation, or medication guidance from a qualified clinician.
-
-## Why sleep matters in ADHD
-
-Short sleep, irregular sleep timing, delayed circadian rhythm, sleep apnea, restless legs, anxiety, and evening stimulant effects can all worsen next-day attention and emotional regulation. Before adding supplements, the most useful first step is usually to identify the specific sleep pattern: delayed sleep onset, night waking, insufficient sleep opportunity, or poor sleep quality.
-
-## Evidence-first supplement context
-
-- [Melatonin for ADHD Sleep](/articles/melatonin-for-adhd-sleep) is most relevant when delayed sleep onset or circadian timing is the main issue.
-- [Magnesium for ADHD](/articles/magnesium-for-adhd) may be most relevant when dietary intake or status is low, or when muscle tension and sleep quality are part of the picture.
-- [L-Theanine for ADHD](/articles/l-theanine-for-adhd) is discussed mainly for calm focus and sleep-quality support, not as an ADHD treatment.
-
-## Practical hierarchy
-
-1. Review stimulant timing, caffeine timing, screen timing, and consistent wake time.
-2. Screen for snoring, restless legs, insomnia disorder, anxiety, and medication side effects.
-3. Consider supplements only as adjuncts, one at a time, with a defined outcome such as sleep latency or total sleep time.
-
-## Related articles
-
-Start with [Best Supplements for ADHD](/articles/best-supplements-for-adhd) for the broad evidence map, then use the [ADHD Stack Guide](/articles/adhd-stack-guide) for conservative combination principles.`,
   },
   {
     slug: 'nutrient-deficiencies-and-adhd',
+    source: 'docs/content/focus-cluster/nutrient-deficiencies-and-adhd-content-v1.md',
     title: 'Nutrient Deficiencies and ADHD: What to Check Before Supplementing',
     seoTitle: 'Nutrient Deficiencies and ADHD: What to Check Before Supplementing',
     description: 'Evidence-first guide to nutrient status in ADHD, including magnesium, omega-3, iron/ferritin, zinc, vitamin D, and why deficiency correction differs from treating ADHD.',
@@ -79,33 +58,10 @@ Start with [Best Supplements for ADHD](/articles/best-supplements-for-adhd) for 
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-10',
     readingTime: '7 min read',
-    fallbackBody: `## Important medical context
-
-Nutrient deficiencies can affect energy, sleep, mood, and cognition, but correcting a deficiency is not the same thing as treating ADHD. Testing and interpretation should be handled with a qualified clinician, especially for children, pregnancy, anemia, kidney disease, or medication use.
-
-## Why baseline status matters
-
-Some ADHD supplement claims are strongest when a person starts with low intake or low measured status. This is especially relevant for minerals and fatty acids. Without baseline context, supplementation can look ineffective, unnecessary, or occasionally unsafe.
-
-## Nutrients commonly discussed
-
-- [Magnesium for ADHD](/articles/magnesium-for-adhd): most relevant when intake or status is low, or when sleep and physical tension are prominent.
-- [Omega-3 and ADHD](/articles/omega-3-and-adhd): evidence is mixed, with modest average effects in some analyses and major variability by EPA/DHA dose and baseline diet.
-- Iron/ferritin, zinc, and vitamin D: potentially important when low, but should be tested rather than guessed.
-
-## Conservative decision framework
-
-1. Identify the symptom domain: attention, sleep, emotional regulation, fatigue, or restlessness.
-2. Check diet and labs where clinically appropriate.
-3. Correct clear deficiencies before building complex stacks.
-4. Track outcomes and adverse effects.
-
-## Related articles
-
-For a broader comparison, see [Best Supplements for ADHD](/articles/best-supplements-for-adhd). For combination logic, see the [ADHD Stack Guide](/articles/adhd-stack-guide).`,
   },
   {
     slug: 'melatonin-for-adhd-sleep',
+    source: 'docs/content/focus-cluster/melatonin-for-adhd-sleep-content-v1.md',
     title: 'Melatonin for ADHD Sleep: Evidence, Timing, and Safety Considerations',
     seoTitle: 'Melatonin for ADHD Sleep: Evidence, Timing, and Safety Considerations',
     description: 'Conservative review of melatonin for ADHD-related sleep onset problems, with timing, dose caution, medication context, and links to broader sleep-support guides.',
@@ -113,23 +69,6 @@ For a broader comparison, see [Best Supplements for ADHD](/articles/best-supplem
     tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
     date: '2026-06-10',
     readingTime: '6 min read',
-    fallbackBody: `## Important medical context
-
-Melatonin is a hormone involved in circadian timing. It is not an ADHD treatment and should not be used to mask untreated sleep disorders, medication side effects, or inadequate sleep opportunity. Pediatric use should be clinician-guided.
-
-## Where melatonin may fit
-
-Melatonin is most relevant when the main problem is delayed sleep onset or a shifted sleep schedule. It is less likely to solve night waking, insufficient time in bed, untreated sleep apnea, or daytime attention problems unrelated to sleep.
-
-## Timing matters
-
-Melatonin is generally discussed as a timing signal rather than a sedative. Dose, timing, formulation, age, and concurrent medications all matter. More is not automatically better, and next-day grogginess or vivid dreams can occur.
-
-## Cross-links in the ADHD sleep cluster
-
-- Start with [Sleep and ADHD](/articles/sleep-and-adhd) for the broader sleep framework.
-- Compare calming adjuncts in [Magnesium for ADHD](/articles/magnesium-for-adhd) and [L-Theanine for ADHD](/articles/l-theanine-for-adhd).
-- Use [Best Supplements for ADHD](/articles/best-supplements-for-adhd) and the [ADHD Stack Guide](/articles/adhd-stack-guide) for evidence ranking and stacking cautions.`,
   },
   {
     slug: 'magnesium-for-adhd',
@@ -218,6 +157,17 @@ Melatonin is generally discussed as a timing signal rather than a sedative. Dose
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-10',
     readingTime: '13 min read',
+  },
+  {
+    slug: 'l-theanine-vs-caffeine-for-focus',
+    source: 'docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md',
+    title: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
+    seoTitle: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
+    description: 'Direct comparison of L-Theanine and caffeine for focus, attention, and calm energy. Reviews mechanisms, evidence in ADHD and healthy adults, dosing ratios, safety, sleep impact, and a practical decision framework.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
+    date: '2026-06-10',
+    readingTime: '9 min read',
   },
 ]
 

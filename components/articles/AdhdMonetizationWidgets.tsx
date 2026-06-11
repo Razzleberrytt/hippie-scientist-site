@@ -151,7 +151,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
   let items: { label: string; text: string }[] = []
   let compareLink = ''
 
-  if (slug === 'best-supplements-for-adhd' || slug === 'adhd-stack-guide' || slug === 'magnesium-for-adhd' || slug === 'l-theanine-for-adhd') {
+  if (slug === 'best-supplements-for-adhd' || slug === 'adhd-stack-guide' || slug === 'magnesium-for-adhd' || slug === 'l-theanine-for-adhd' || slug === 'ashwagandha-for-adhd') {
     cardTitle = 'Comparison: Magnesium vs. L-Theanine'
     cardDesc = 'Both support relaxation, but via entirely different mechanisms. Many adults combine them to address different aspects of cognitive fatigue.'
     items = [
@@ -187,6 +187,15 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Decision Logic', text: 'Omega-3s can be supplemented conservatively based on dietary gap; minerals like iron and zinc should be verified via blood labs first.' },
     ]
     compareLink = '/compare/omega-3-vs-zinc'
+  } else if (slug === 'l-theanine-vs-caffeine-for-focus') {
+    cardTitle = 'Comparison: Caffeine vs. L-Theanine'
+    cardDesc = 'Caffeine provides rapid, direct stimulation, while L-Theanine supports calm alpha-wave activity to smooth out neurotransmitter spikes.'
+    items = [
+      { label: 'Alertness vs. Calm', text: 'Caffeine blocks adenosine receptors to keep you awake; L-Theanine modulates GABA and glutamate to quiet excessive mental noise.' },
+      { label: 'Synergistic Ratio', text: 'Clinical trials often pair them in a 2:1 ratio (200mg L-Theanine to 100mg Caffeine) to maximize attention while reducing jitteriness.' },
+      { label: 'Sleep & Timing', text: 'Caffeine has a 3-7 hour half-life and can disrupt sleep if taken late; L-Theanine is non-sedating and safe to take closer to bedtime.' },
+    ]
+    compareLink = '/compare/caffeine-vs-theanine'
   } else {
     return null
   }
