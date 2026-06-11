@@ -62,6 +62,25 @@ function readAppArticlePageSlugs(relativePath: string): SitemapSourceItem[] {
   }
 }
 
+// Discovers App Router guide pages by scanning app/guides/ for subdirectories
+// that contain a page.tsx. This picks up custom guides without requiring a hardcoded list.
+function readAppGuidePageSlugs(relativePath: string): SitemapSourceItem[] {
+  const dirPath = path.join(process.cwd(), relativePath);
+  if (!existsSync(dirPath)) return [];
+
+  try {
+    return readdirSync(dirPath, { withFileTypes: true })
+      .filter((entry) => {
+        if (!entry.isDirectory()) return false;
+        if (/^\[/.test(entry.name)) return false; // skip [slug] dynamic routes
+        return existsSync(path.join(dirPath, entry.name, 'page.tsx'));
+      })
+      .map((entry) => ({ slug: entry.name }));
+  } catch {
+    return [];
+  }
+}
+
 function readTsStringArray(relativePath: string, varName: string): string[] {
   const filePath = path.join(process.cwd(), relativePath);
   if (!existsSync(filePath)) return [];
@@ -245,9 +264,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addRoute(`/stacks/${stack.slug}`, 'monthly', 0.65);
   });
 
+  const guideSlugs = new Set<string>();
+
   guidesData.forEach((guide) => {
     if (!guide.slug) return;
+    guideSlugs.add(guide.slug);
+    addRoute(`/guides/${guide.slug}`, 'monthly', 0.65);
+  });
 
+  // Add App Router guide pages not covered by content/guides
+  readAppGuidePageSlugs('app/guides').forEach((guide) => {
+    if (!guide.slug || guideSlugs.has(guide.slug)) return;
+    guideSlugs.add(guide.slug);
     addRoute(`/guides/${guide.slug}`, 'monthly', 0.65);
   });
 
