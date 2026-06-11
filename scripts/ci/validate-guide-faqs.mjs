@@ -74,9 +74,46 @@ function main() {
 
   // 2. Also check if the built HTML files in out/ contain any leaked taxonomy FAQs (post-build verification)
   const outDir = path.join(process.cwd(), 'out');
+  const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true';
   if (fs.existsSync(outDir)) {
     console.log('[validate-guide-faqs] Built output found. Auditing HTML files...');
     
+    function auditHtmlFile(res) {
+      console.log('Auditing HTML file:', res);
+      const html = fs.readFileSync(res, 'utf8');
+      if (!html.includes('"FAQPage"')) return;
+      
+      // Match FAQPage schema using non-backtracking string splits
+      let parts = html.split('<script type="application/ld+json">');
+      if (parts.length === 1) {
+        parts = html.split("<script type='application/ld+json'>");
+      }
+      for (let i = 1; i < parts.length; i++) {
+        const endIdx = parts[i].indexOf('</script>');
+        if (endIdx === -1) continue;
+        const content = parts[i].slice(0, endIdx).trim();
+        try {
+          const parsed = JSON.parse(content);
+          const schemas = Array.isArray(parsed) ? parsed : [parsed];
+          for (const schema of schemas) {
+            if (schema['@type'] === 'FAQPage' && Array.isArray(schema.mainEntity)) {
+              for (const qa of schema.mainEntity) {
+                if (qa['@type'] === 'Question' && qa.name) {
+                  const err = validateQuestion(qa.name, path.relative(outDir, res));
+                  if (err) {
+                    errors.push(err);
+                    failed = true;
+                  }
+                }
+              }
+            }
+          }
+        } catch (e) {
+          // Ignore non-FAQ LD+JSON tags
+        }
+      }
+    }
+
     function checkHtmlFiles(dir) {
       const entries = fs.readdirSync(dir, { withFileTypes: true });
       for (const entry of entries) {
@@ -85,44 +122,26 @@ function main() {
           if (['_next', 'blogdata'].includes(entry.name)) continue;
           checkHtmlFiles(res);
         } else if (entry.isFile() && entry.name.endsWith('.html')) {
-          console.log('Auditing HTML file:', res);
-          const html = fs.readFileSync(res, 'utf8');
-          if (!html.includes('"FAQPage"')) continue;
-          
-          // Match FAQPage schema using non-backtracking string splits
-          let parts = html.split('<script type="application/ld+json">');
-          if (parts.length === 1) {
-            parts = html.split("<script type='application/ld+json'>");
-          }
-          for (let i = 1; i < parts.length; i++) {
-            const endIdx = parts[i].indexOf('</script>');
-            if (endIdx === -1) continue;
-            const content = parts[i].slice(0, endIdx).trim();
-            try {
-              const parsed = JSON.parse(content);
-              const schemas = Array.isArray(parsed) ? parsed : [parsed];
-              for (const schema of schemas) {
-                if (schema['@type'] === 'FAQPage' && Array.isArray(schema.mainEntity)) {
-                  for (const qa of schema.mainEntity) {
-                    if (qa['@type'] === 'Question' && qa.name) {
-                      const err = validateQuestion(qa.name, path.relative(outDir, res));
-                      if (err) {
-                        errors.push(err);
-                        failed = true;
-                      }
-                    }
-                  }
-                }
-              }
-            } catch (e) {
-              // Ignore non-FAQ LD+JSON tags
-            }
-          }
+          auditHtmlFile(res);
         }
       }
     }
     
-    checkHtmlFiles(outDir);
+    if (!FULL_HTML_AUDIT) {
+      console.log('[validate-guide-faqs] Running in targeted mode. Scanning critical guide/FAQ pages (use FULL_HTML_AUDIT=1 to audit all files).');
+      const criticalFiles = [
+        'index.html',
+        'faq/index.html',
+        'articles/best-supplements-for-adhd/index.html',
+        'articles/adhd-stack-guide/index.html',
+        'guides/index.html'
+      ].map(p => path.join(outDir, p)).filter(fs.existsSync);
+      for (const f of criticalFiles) {
+        auditHtmlFile(f);
+      }
+    } else {
+      checkHtmlFiles(outDir);
+    }
   }
 
   if (failed) {

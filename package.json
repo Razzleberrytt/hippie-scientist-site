@@ -106,8 +106,10 @@
     "audit:structured-data": "node scripts/ci/audit-structured-data.mjs",
     "audit:seo-reports": "node scripts/ci/build-seo-audit-reports.mjs",
     "enrichment:release-gate": "node scripts/enrichment/release-gate.mjs",
-    "check:release": "npm run typecheck && npm run lint && npm run validate:static-export && npm run validate:security-headers && npm run validate:canonical-host && npm run validate:fonts && npm audit --omit=dev && npm run build && npm run validate:sitemap:built && npm run validate:footer-build-hash && npm run validate:build-artifacts",
-    "validate:release": "npm run check:data && npm run typecheck && npm run lint && npm run validate:canonical-host && npm run build:fast && npm run build:pagefind && npm run validate:build-artifacts"
+    "validate:content": "node scripts/ci/validate-article-quality.mjs && node scripts/ci/lint-touched-files.mjs && npm run validate:workbook-source && npm run data:validate && npm run typecheck",
+    "validate:code": "npm run typecheck && npm run lint",
+    "validate:release": "node -e \"process.env.FULL_HTML_AUDIT='1'; require('child_process').execSync('npm run check:full', { stdio: 'inherit' })\"",
+    "benchmark:validation": "node scripts/benchmark-validation.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",
