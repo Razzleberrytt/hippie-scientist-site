@@ -60,6 +60,17 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     readingTime: '7 min read',
   },
   {
+    slug: 'adhd-blood-tests',
+    source: 'docs/content/focus-cluster/adhd-blood-tests.md',
+    title: 'ADHD Blood Tests Guide: What Labs Matter and Why',
+    seoTitle: 'ADHD Blood Tests Guide: Ferritin, Vitamin D, Zinc, Magnesium, Thyroid, and B12',
+    description: 'Evidence-based guide to ADHD blood tests. Learn which labs may help identify nutrient deficiencies, sleep-related contributors, thyroid issues, anemia, and other factors that can worsen attention, mood, fatigue, or treatment response.',
+    category: 'Nutrient Deficiencies',
+    tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
+    date: '2026-06-11',
+    readingTime: '13 min read',
+  },
+  {
     slug: 'melatonin-for-adhd-sleep',
     source: 'docs/content/focus-cluster/melatonin-for-adhd-sleep-content-v1.md',
     title: 'Melatonin for ADHD Sleep: Evidence, Timing, and Safety Considerations',

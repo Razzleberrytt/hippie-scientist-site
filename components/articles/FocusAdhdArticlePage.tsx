@@ -21,6 +21,7 @@ const relatedLinks = [
   ['adhd-stack-guide', 'ADHD Stack Guide'],
   ['sleep-and-adhd', 'Sleep and ADHD'],
   ['nutrient-deficiencies-and-adhd', 'Nutrient Deficiencies and ADHD'],
+  ['adhd-blood-tests', 'ADHD Blood Tests Guide'],
   ['magnesium-for-adhd', 'Magnesium for ADHD'],
   ['l-theanine-for-adhd', 'L-Theanine for ADHD'],
   ['melatonin-for-adhd-sleep', 'Melatonin for ADHD Sleep'],
