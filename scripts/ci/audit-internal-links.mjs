@@ -3,9 +3,32 @@ import fs from 'node:fs'
 import path from 'node:path'
 import fsPromises from 'node:fs/promises'
 const root=process.cwd(); const outDir=path.join(root,'out')
-const files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name); if(e.isDirectory()) walk(f); else if(e.isFile()&&e.name.endsWith('.html')) files.push(f)}}
+const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true';
+let files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name); if(e.isDirectory()) walk(f); else if(e.isFile()&&e.name.endsWith('.html')) files.push(f)}}
 if(!fs.existsSync(outDir)){console.log('[audit-internal-links] SKIP: Build output not found at out/. Run npm run build first.');process.exit(0)}
 walk(outDir)
+
+if (!FULL_HTML_AUDIT) {
+  const criticalSubpaths = [
+    '/index.html',
+    '/faq/index.html',
+    '/herbs/index.html',
+    '/compounds/index.html',
+    '/articles/index.html',
+    '/guides/index.html',
+    '/herbs/ashwagandha/index.html',
+    '/compounds/l-theanine/index.html',
+    '/articles/best-supplements-for-adhd/index.html',
+    '/articles/adhd-stack-guide/index.html',
+    '/articles/2c-b-effects/index.html'
+  ];
+  files = files.filter(f => {
+    const rel = '/' + path.relative(outDir, f).replace(/\\/g, '/');
+    return criticalSubpaths.includes(rel);
+  });
+  console.log(`[audit-internal-links] Running in targeted mode. Scanning ${files.length} critical pages (use FULL_HTML_AUDIT=1 to audit all files).`);
+}
+
 const routes=new Set(files.map(f=>'/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/+/g,'/').replace(/\/$/,'')||'/'))
 const graph=new Map([...routes].map(r=>[r,new Set()]))
 const hrefRe=/href=["'](\/[^"'#\s>]+)["']/g

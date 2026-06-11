@@ -1,6 +1,6 @@
 import FocusAdhdArticlePage, { focusAdhdMetadata } from '@/components/articles/FocusAdhdArticlePage'
 
-const SLUG = 'ashwagandha-for-adhd'
+const SLUG = 'iron-ferritin-and-adhd'
 
 export const metadata = focusAdhdMetadata(SLUG)
 
