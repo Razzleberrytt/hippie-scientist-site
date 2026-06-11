@@ -6,6 +6,8 @@ import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getFocusAdhdArticle, focusAdhdArticles } from '@/lib/focus-adhd-articles'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import { StartHereBox, AdhdCtaDashboard, EmailCaptureForm, AdhdComparisonCard } from './AdhdMonetizationWidgets'
 
 type Block =
   | { type: 'h2' | 'h3' | 'h4'; text: string }
@@ -190,10 +192,22 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
         <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
         <div className="mt-3"><LastUpdatedBadge date={article.date} label="Last updated" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{article.description}</p>
+        
+        <StartHereBox currentSlug={slug} />
       </section>
 
       <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+        <AffiliateDisclosure variant="compact" className="mb-6" />
+        
         <MarkdownBody body={article.body} />
+        
+        <AdhdComparisonCard slug={slug} />
+        
+        <AdhdCtaDashboard currentSlug={slug} />
+        
+        <EmailCaptureForm />
+        
+        <AffiliateDisclosure variant="full" className="mt-8" />
       </section>
 
       <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-brand-50/70 p-5">
