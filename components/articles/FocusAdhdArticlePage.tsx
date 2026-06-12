@@ -26,9 +26,10 @@ type RelatedLink = {
 
 const focusArticleSlugs = new Set(focusAdhdArticles.map((article) => article.slug))
 
-function articleLink(slug: string, label: string, eyebrow: string): RelatedLink {
+function articleLink(slug: string, label: string, eyebrow: string): RelatedLink | null {
+  if (!focusArticleSlugs.has(slug)) return null
   return {
-    href: focusArticleSlugs.has(slug) ? `/articles/${slug}/` : `/articles/${slug}/`,
+    href: `/articles/${slug}/`,
     label,
     eyebrow,
   }
@@ -36,6 +37,10 @@ function articleLink(slug: string, label: string, eyebrow: string): RelatedLink 
 
 function routeLink(href: string, label: string, eyebrow: string): RelatedLink {
   return { href, label, eyebrow }
+}
+
+function addRelatedLinks(links: RelatedLink[], ...nextLinks: Array<RelatedLink | null>) {
+  links.push(...nextLinks.filter((link): link is RelatedLink => Boolean(link)))
 }
 
 const deficiencyArticleSlugs = new Set([
@@ -66,14 +71,17 @@ const cognitiveFocusArticleSlugs = new Set([
 ])
 
 function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
-  const links: RelatedLink[] = [
-    routeLink('/guides/adhd-supplements/', 'ADHD Supplements Guide', 'Start here'),
+  const links: RelatedLink[] = [routeLink('/guides/adhd-supplements/', 'ADHD Supplements Guide', 'Start here')]
+
+  addRelatedLinks(
+    links,
     articleLink('best-supplements-for-adhd', 'Best Supplements for ADHD', 'Core guide'),
     articleLink('adhd-stack-guide', 'ADHD Stack Guide', 'Stack guide'),
-  ]
+  )
 
   if (deficiencyArticleSlugs.has(slug)) {
-    links.push(
+    addRelatedLinks(
+      links,
       articleLink('nutrient-deficiencies-and-adhd', 'Nutrient Deficiencies and ADHD', 'Deficiency guide'),
       articleLink('adhd-blood-tests', 'ADHD Blood Tests Guide', 'Testing guide'),
       articleLink('iron-ferritin-and-adhd', 'Iron/Ferritin and ADHD', 'Iron status'),
@@ -83,7 +91,8 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),
     )
   } else if (sleepCalmArticleSlugs.has(slug)) {
-    links.push(
+    addRelatedLinks(
+      links,
       articleLink('sleep-and-adhd', 'Sleep and ADHD', 'Sleep guide'),
       articleLink('melatonin-for-adhd-sleep', 'Melatonin for ADHD Sleep', 'Sleep timing'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
@@ -93,7 +102,8 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       routeLink('/articles/best-herbs-for-sleep/', 'Best Herbs for Sleep', 'Sleep guide'),
     )
   } else if (cognitiveFocusArticleSlugs.has(slug)) {
-    links.push(
+    addRelatedLinks(
+      links,
       articleLink('adhd-stack-guide', 'ADHD Stack Guide', 'Stack guide'),
       articleLink('best-supplements-for-adhd', 'Best Supplements for ADHD', 'Core guide'),
       articleLink('citicoline-vs-alpha-gpc', 'Citicoline vs Alpha-GPC', 'Choline comparison'),
