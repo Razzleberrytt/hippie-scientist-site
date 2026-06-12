@@ -11,6 +11,13 @@ type PagesFunctionContext = {
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const MD5_SHIFT_AMOUNTS = [
+  7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
+  5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
+  4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
+  6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21,
+]
+const MD5_CONSTANTS = Array.from({ length: 64 }, (_, index) => Math.floor(Math.abs(Math.sin(index + 1)) * 2 ** 32) >>> 0)
 
 function jsonResponse(payload: Record<string, unknown>, status = 200): Response {
   return new Response(JSON.stringify(payload), {
@@ -32,13 +39,6 @@ function addUnsigned(a: number, b: number): number {
 
 function md5Cycle(state: number[], block: number[]): void {
   let [a, b, c, d] = state
-  const s = [
-    7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
-    5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
-    4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
-    6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21,
-  ]
-  const k = Array.from({ length: 64 }, (_, index) => Math.floor(Math.abs(Math.sin(index + 1)) * 2 ** 32) >>> 0)
 
   for (let i = 0; i < 64; i += 1) {
     let f: number
@@ -61,7 +61,13 @@ function md5Cycle(state: number[], block: number[]): void {
     const next = d
     d = c
     c = b
-    b = addUnsigned(b, rotateLeft(addUnsigned(addUnsigned(a, f), addUnsigned(k[i], block[g])), s[i]))
+    b = addUnsigned(
+      b,
+      rotateLeft(
+        addUnsigned(addUnsigned(a, f), addUnsigned(MD5_CONSTANTS[i], block[g])),
+        MD5_SHIFT_AMOUNTS[i],
+      ),
+    )
     a = next
   }
 
