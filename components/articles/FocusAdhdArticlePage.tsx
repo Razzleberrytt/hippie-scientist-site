@@ -39,7 +39,7 @@ function routeLink(href: string, label: string, eyebrow: string): RelatedLink {
   return { href, label, eyebrow }
 }
 
-function addRelatedLinks(links: RelatedLink[], ...nextLinks: Array<RelatedLink | null>) {
+function addRelatedLinks(links: RelatedLink[], ...nextLinks: Array<RelatedLink | null>): void {
   links.push(...nextLinks.filter((link): link is RelatedLink => Boolean(link)))
 }
 
