@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import NewsletterSignup from '../../components/NewsletterSignup'
 import NewsletterCtaBlock from '../../components/NewsletterCtaBlock'
 
 import { buildPageMetadata } from '@/lib/seo'
@@ -38,11 +38,11 @@ export default function SupplementSafetyChecklistPage() {
         </ul>
       </section>
 
-      <EmailCaptureBox
-        goal='safety-checklist'
-        variant='wide'
+      <NewsletterSignup
+        variant='card'
         title='Send me the free safety checklist'
         description='Enter your email to get the checklist workflow and occasional evidence-first updates. Educational only — not medical advice.'
+        location='supplement-safety-checklist'
       />
 
       <section className='grid gap-4 md:grid-cols-3'>

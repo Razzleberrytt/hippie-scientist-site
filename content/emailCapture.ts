@@ -18,10 +18,9 @@ export type LeadMagnet = {
   ctaLabel: string
 }
 
-export const emailCaptureProviderAction =
-  process.env.NEXT_PUBLIC_EMAIL_CAPTURE_ACTION?.trim() || ''
+export const emailCaptureProviderAction = mailchimpSignupConfig.action
 
-export const emailCaptureProviderConfigured = emailCaptureProviderAction.length > 0
+export const emailCaptureProviderConfigured = true
 
 function getMailchimpHoneypotName(action: string): string {
   try {
@@ -34,7 +33,7 @@ function getMailchimpHoneypotName(action: string): string {
   }
 }
 
-export const emailCaptureProviderHoneypotName = getMailchimpHoneypotName(emailCaptureProviderAction)
+export const emailCaptureProviderHoneypotName = mailchimpSignupConfig.honeypotName || getMailchimpHoneypotName(emailCaptureProviderAction)
 
 export const leadMagnets: Record<EmailCaptureGoal, LeadMagnet> = {
   sleep: {
@@ -120,3 +119,4 @@ export function getLeadMagnet(goal: string | undefined): LeadMagnet {
   if (!goal) return leadMagnets.default
   return leadMagnets[(goal as EmailCaptureGoal)] ?? leadMagnets.default
 }
+import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'

@@ -14,6 +14,7 @@ import Footer from '@/components/Footer'
 import MobileBottomNav from '@/components/mobile-bottom-nav'
 import ClickTracker from '@/components/ClickTracker'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
+import StickyFooterCTA from '@/components/StickyFooterCTA'
 import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, SITE_NAME, websiteJsonLd, organizationJsonLd } from '@/lib/seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
@@ -108,6 +109,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
           </main>
           <Footer />
+          <StickyFooterCTA />
           <MobileBottomNav />
           <CitationDrawerLazy />
           <ClickTracker />

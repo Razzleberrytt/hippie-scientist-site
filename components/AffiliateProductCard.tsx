@@ -5,6 +5,7 @@ import { isOptimizableRemoteImage } from '@/lib/image-hosts'
 import { trackRevenueEvent } from '@/lib/revenue-tracking'
 
 export type AffiliateProduct = {
+  asin?: string
   title?: string
   name?: string
   brand?: string

@@ -125,6 +125,7 @@ export function buildPageMetadata({
       description: fullDesc,
       images: [meta.image],
       site: TWITTER_HANDLE,
+      creator: TWITTER_HANDLE,
     },
     ...(robots ? { robots } : {}),
   }

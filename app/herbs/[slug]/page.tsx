@@ -32,11 +32,13 @@ import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '@/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
+import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import { extractCitationsFromRecord } from '@/lib/citations'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
+import RecommendedProduct from '@/components/RecommendedProduct'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { getStackRecommendations } from '@/lib/recommendation-engine'
 import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
@@ -490,6 +492,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
+      {!suppressAffiliate && revenueProducts ? (
+        <RecommendedProduct
+          slug={normalizedSlug}
+          title={`Ready to try this? See top ${displayName} brands`}
+          compact
+        />
+      ) : null}
+
       {conditionLinks.length > 0 ? (
         <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
@@ -568,6 +578,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
           <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} size="sm" />
         </div>
+        <EvidenceMeter level={evidenceStrength || 'moderate'} />
         <div className="space-y-3 text-sm leading-6 text-[#46574d]">
           <p>
             {displayName} has a <strong>{evidenceStrength.toLowerCase()}</strong> evidence level. It is categorized as {researchMaturity.toLowerCase()} with a {researchStyle.toLowerCase()} evidence style.

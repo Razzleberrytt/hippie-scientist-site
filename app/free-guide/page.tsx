@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SEO_GUIDE_ROUTES } from '@/lib/canonical-routes'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import NewsletterSignup from '../../components/NewsletterSignup'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function FreeGuidePage() {
         </p>
       </section>
 
-      <EmailCaptureBox goal='default' variant='wide' />
+      <NewsletterSignup location='free-guide' />
 
       <section className='grid gap-4 md:grid-cols-3'>
         {[
@@ -57,9 +57,10 @@ export default function FreeGuidePage() {
       <AffiliateDisclosure variant='full' />
 
       <section className='card-premium p-6'>
-        <h2 className='text-xl font-semibold text-ink'>Current email status</h2>
+        <h2 className='text-xl font-semibold text-ink'>What you get</h2>
         <p className='mt-3 text-sm leading-7 text-muted'>
-          The signup box is intentionally honest: if no email provider action URL is configured, it shows that email signup is coming soon instead of pretending a subscription succeeded.
+          The free checklist is a static, printable resource you can use immediately: medication review,
+          dose and form checks, stacking risk prompts, and quality markers before buying.
         </p>
         <div className='mt-4 flex flex-wrap gap-4'>
           <Link href='/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>

@@ -48,7 +48,7 @@ const tools: ToolCard[] = [
   },
 ]
 
-const comingSoon: ToolCard[] = [
+const plannedTools: ToolCard[] = [
   {
     href: '#',
     title: 'Dosing Calculator',
@@ -116,7 +116,7 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      {/* Coming soon */}
+      {/* Planned tools */}
       <section className="space-y-4">
         <div>
           <p className="eyebrow-label">Planned</p>
@@ -124,7 +124,7 @@ export default function ToolsPage() {
         </div>
 
         <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {comingSoon.map((tool) => {
+          {plannedTools.map((tool) => {
             const Icon = tool.icon
             return (
               <div
@@ -138,7 +138,7 @@ export default function ToolsPage() {
                   <h3 className="text-base font-semibold tracking-tight text-ink">{tool.title}</h3>
                 </div>
                 <p className="mt-2 flex-1 text-sm leading-6 text-[#46574d]">{tool.description}</p>
-                <span className="mt-3 inline-flex text-xs font-semibold text-[#5f6f66]">Coming soon</span>
+                <span className="mt-3 inline-flex text-xs font-semibold text-[#5f6f66]">Planned tool</span>
               </div>
             )
           })}

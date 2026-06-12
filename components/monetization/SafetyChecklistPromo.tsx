@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { EmailCaptureBox } from '@/components/monetization/EmailCaptureBox'
+import NewsletterSignup from '../NewsletterSignup'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 
 type SafetyChecklistPromoProps = {
@@ -72,11 +72,11 @@ export default function SafetyChecklistPromo({
             See what&apos;s inside the checklist →
           </Link>
         </div>
-        <EmailCaptureBox
-          goal={goal}
+        <NewsletterSignup
           variant='card'
           title='Send me the free safety checklist'
-          description='Join for the checklist PDF path plus occasional evidence-first notes. Unsubscribe anytime.'
+          description='Join for the printable checklist plus occasional evidence-first notes. Unsubscribe anytime.'
+          location={`safety-checklist-promo-${goal}`}
           className='border-emerald-900/15 bg-white/95 shadow-sm'
         />
       </div>

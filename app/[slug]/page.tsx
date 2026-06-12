@@ -10,7 +10,7 @@ import {
   focusClusterArticleSources,
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from '@/lib/seo'
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
 
 const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net'
 
@@ -54,6 +54,8 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
       title: article.seoTitle,
       description: article.metaDescription,
       images: [DEFAULT_OG_IMAGE],
+      site: TWITTER_HANDLE,
+      creator: TWITTER_HANDLE,
     },
   }
 }

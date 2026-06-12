@@ -7,7 +7,7 @@ import { onOpenConsent } from '../lib/consentBus'
 import NonEmpty from './NonEmpty'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '@/lib/public-routes'
-import { FooterEmailCapture } from '@/components/monetization/FooterEmailCapture'
+import NewsletterSignup from '../../components/NewsletterSignup'
 
 const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
@@ -63,8 +63,14 @@ export default function Footer() {
     <footer className='mt-8 w-full border-t border-white/8 bg-[#07080F] px-4 py-12'>
       <div className='mx-auto w-full max-w-screen-lg'>
         <div className='mb-10 border-b border-white/8 pb-8'>
-          <div className='max-w-sm'>
-            <FooterEmailCapture />
+          <div className='max-w-3xl'>
+            <NewsletterSignup
+              title='Get the supplement safety checklist'
+              description='Weekly evidence updates plus the printable checklist: meds, dose, form, and stacking risk before you buy.'
+              ctaLabel='Join the list'
+              location='footer'
+              variant='footer'
+            />
           </div>
         </div>
 
@@ -74,6 +80,19 @@ export default function Footer() {
             <p className='mt-2 text-xs text-white/65'>
               Evidence-first botanical research. Not medical advice.
             </p>
+            <div className='mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/50'>
+              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='transition-colors hover:text-white'>
+                Twitter
+              </a>
+              <span>•</span>
+              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='transition-colors hover:text-white'>
+                Instagram
+              </a>
+              <span>•</span>
+              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' className='transition-colors hover:text-white'>
+                YouTube
+              </a>
+            </div>
           </div>
 
           <NonEmpty>

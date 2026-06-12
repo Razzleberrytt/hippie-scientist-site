@@ -328,7 +328,7 @@ export default async function GoalDecisionPage({
         </div>
       </section>
 
-      <section className="card-premium p-6 sm:p-8">
+      <section id='comparison-table' className="card-premium scroll-mt-24 p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-ink">Quick Comparison Notes</h2>
         <p className="mt-2 text-sm leading-6 text-muted">
           These are starting points for comparison, not recommendations, prescriptions, or guaranteed outcomes.
@@ -354,6 +354,19 @@ export default async function GoalDecisionPage({
       </section>
 
       <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
+
+      <section className='rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Ready to start?</h2>
+        <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
+          Which supplement should you start with? Review the ranked options, then open the product-quality notes before buying.
+        </p>
+        <Link
+          href={goal.slug === 'focus' ? '/best-magnesium-supplements-for-adhd/' : `/goals/${goal.slug}/#comparison-table`}
+          className='mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900'
+        >
+          See ranked options
+        </Link>
+      </section>
 
       <section className="card-premium p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-ink">Comparison Table</h2>

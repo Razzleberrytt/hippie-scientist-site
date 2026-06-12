@@ -8,6 +8,7 @@ import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import NewsletterCtaBlock from './NewsletterCtaBlock'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
+import ExitIntentModal from '@/components/ExitIntentModal'
 
 type RuntimeFeature = Record<string, unknown>
 type HomepageV2Props = { featuredHerbs?: RuntimeFeature[]; featuredCompounds?: RuntimeFeature[] }
@@ -199,6 +200,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
   return (
     <div className='overflow-x-clip bg-site-bg'>
       <StickyChecklistBar storageKey='homepage-sticky-checklist' />
+      <ExitIntentModal />
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
@@ -216,10 +218,10 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               </p>
               <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
                 <Link
-                  href='/start-here/quiz'
+                  href='/goals/focus/'
                   className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none text-center'
                 >
-                  Find What Fits You
+                  Take the ADHD Focus Quiz
                 </Link>
                 <Link
                   href='/goals'

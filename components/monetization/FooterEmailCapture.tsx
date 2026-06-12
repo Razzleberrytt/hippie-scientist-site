@@ -64,7 +64,7 @@ export function FooterEmailCapture() {
     <div>
       <p className='mb-3 text-sm font-semibold text-white/90'>Research Notes</p>
       <p className='mb-3 text-xs text-white/55'>
-        {disabled ? 'Evidence summaries and occasional deep dives coming soon.' : 'Evidence summaries and occasional deep dives. No spam.'}
+        Evidence summaries, the safety checklist, and occasional deep dives. No spam.
       </p>
       <form
         onSubmit={handleSubmit}
@@ -100,12 +100,9 @@ export function FooterEmailCapture() {
           disabled={disabled || status === 'submitting'}
           className='min-h-10 rounded-full bg-emerald-600 px-5 text-sm font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-50'
         >
-          {disabled ? 'Newsletter coming soon' : (status === 'submitting' ? 'Subscribing…' : 'Subscribe')}
+          {disabled ? 'Subscribe' : (status === 'submitting' ? 'Subscribing...' : 'Subscribe')}
         </button>
       </form>
-      {disabled && (
-        <p className='mt-2 text-xs text-amber-400'>Email signup coming soon. Provider not connected yet.</p>
-      )}
       {status === 'error' && (
         <p className='mt-2 text-xs text-red-400'>{errorMsg}</p>
       )}
