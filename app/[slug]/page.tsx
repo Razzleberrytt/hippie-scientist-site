@@ -4,9 +4,10 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
+import SchemaOrg from '@/components/SchemaOrg'
+import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
 import {
   focusClusterArticleSources,
-  getAllFocusClusterArticles,
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from '@/lib/seo'
@@ -346,10 +347,7 @@ function ArticleJsonLd({
   }
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
-    />
+    <SchemaOrg node={graph} />
   )
 }
 
@@ -357,8 +355,6 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
   const { slug } = await params
   const article = getFocusClusterArticle(slug)
   if (!article) notFound()
-
-  const related = getAllFocusClusterArticles().filter((item) => item.slug !== article.slug)
 
   return (
     <article className="mx-auto max-w-4xl px-4 pb-20 pt-8 sm:px-6 lg:px-8">
@@ -399,20 +395,7 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
         <MarkdownArticle markdown={article.markdown} />
       </section>
 
-      <section className="mt-12 rounded-[0.85rem] border border-brand-900/10 bg-brand-50/70 p-5">
-        <h2 className="text-lg font-semibold tracking-tight text-ink">More Focus &amp; ADHD guides</h2>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {related.map((item) => (
-            <Link
-              key={item.slug}
-              href={`/${item.slug}`}
-              className="rounded-[0.75rem] border border-brand-900/10 bg-white/80 p-3 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white"
-            >
-              {item.title}
-            </Link>
-          ))}
-        </div>
-      </section>
+      <SeeAlsoInCluster currentPath={`/${article.slug}`} title="More Focus & ADHD guides" />
     </article>
   )
 }

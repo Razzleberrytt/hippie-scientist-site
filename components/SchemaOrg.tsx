@@ -1,52 +1,51 @@
-/**
- * SchemaOrg — flexible JSON-LD <script> renderer.
- *
- * Accepts either:
- *  - `graph`  — a pre-built @graph object (from buildProfileSchemaGraph etc.)
- *  - `schema` — a flat JSON-LD object (from herbJsonLd, faqPageJsonLd etc.)
- *
- * Both render as <script type="application/ld+json"> in the document.
- * Null-safe: renders nothing when the schema is empty or malformed.
- *
- * Relationship to existing components:
- *  - components/seo/SchemaGraphScript.tsx handles @graph objects only.
- *  - This component is a superset: use it when you need to render either kind
- *    or want a named, stable import path.
- */
+import type { SchemaNode } from '@/lib/schema'
 
 type SchemaOrgProps = {
-  /** Pre-built @graph object (e.g. from buildProfileSchemaGraph). */
   graph?: Record<string, unknown> | null
-  /** Flat JSON-LD object (e.g. from faqPageJsonLd, herbJsonLd). */
   schema?: Record<string, unknown> | null
+  node?: SchemaNode | null
+  nodes?: Array<SchemaNode | null | undefined>
 }
 
-export default function SchemaOrg({ graph, schema }: SchemaOrgProps) {
-  if (graph) {
-    const graphArray = graph['@graph']
-    const hasNodes =
-      Array.isArray(graphArray) && graphArray.length > 0
-    if (!hasNodes) return null
+function hasGraphNodes(graph: Record<string, unknown>): boolean {
+  return Array.isArray(graph['@graph']) && graph['@graph'].length > 0
+}
 
-    return (
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
-      />
-    )
+function hasSchemaType(schema: Record<string, unknown>): boolean {
+  return Boolean(schema['@type'])
+}
+
+function toPayload({
+  graph,
+  schema,
+  node,
+  nodes,
+}: SchemaOrgProps): Record<string, unknown> | SchemaNode | null {
+  if (graph) return hasGraphNodes(graph) ? graph : null
+  if (schema) return hasSchemaType(schema) ? schema : null
+  if (node) return node
+
+  const graphNodes = (nodes ?? []).filter((item): item is SchemaNode => Boolean(item))
+  if (!graphNodes.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': graphNodes.map(({ '@context': _context, ...item }) => item),
   }
+}
 
-  if (schema) {
-    const type = schema['@type']
-    if (!type) return null
+function serializeJsonLd(payload: Record<string, unknown> | SchemaNode): string {
+  return JSON.stringify(payload).replace(/</g, '\\u003c')
+}
 
-    return (
-      <script
-        type='application/ld+json'
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
-    )
-  }
+export default function SchemaOrg(props: SchemaOrgProps) {
+  const payload = toPayload(props)
+  if (!payload) return null
 
-  return null
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(payload) }}
+    />
+  )
 }

@@ -2,7 +2,6 @@ import {
   breadcrumbJsonLd,
   collectionPageJsonLd,
   compoundJsonLd,
-  faqPageJsonLd,
   herbJsonLd,
   itemListJsonLd,
   SITE_URL,
@@ -10,6 +9,14 @@ import {
   type CompoundJsonLdArgs,
   type HerbJsonLdArgs,
 } from '@/lib/seo'
+import {
+  buildFAQPageFromComparisonRows,
+  buildFocusClusterBreadcrumb,
+  buildWorkbookEntitySchema,
+  isFocusClusterRecord,
+  type ComparisonFaqRow,
+  type WorkbookLinkedProfile,
+} from '@/lib/schema'
 
 type SchemaNode = Record<string, unknown> | null | undefined
 
@@ -39,6 +46,7 @@ export type ProfileSchemaGraphArgs = {
   herb?: HerbJsonLdArgs
   compound?: CompoundJsonLdArgs
   breadcrumbs: Array<{ name: string; url: string }>
+  workbookRecord?: WorkbookLinkedProfile
 }
 
 export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
@@ -60,15 +68,35 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
         '@id': webpageId,
         url: canonical,
         mainEntityOfPage: canonical,
+        mainEntity: { '@id': `${canonical}#entity` },
       }
     : null
+
+  const entity = buildWorkbookEntitySchema({
+    kind: args.kind,
+    slug: args.slug,
+    name: args.kind === 'herb' ? args.herb?.name ?? args.slug : args.compound?.name ?? args.slug,
+    url: canonical,
+    description: args.kind === 'herb' ? args.herb?.description : args.compound?.description,
+    record: args.workbookRecord,
+    evidenceGrade: args.kind === 'herb' ? args.herb?.evidenceGrade : args.compound?.evidenceGrade,
+    safetyNotes: args.kind === 'herb' ? args.herb?.safetyNotes : args.compound?.safetyNotes,
+    primaryEffects: args.kind === 'herb' ? args.herb?.primaryEffects : undefined,
+  })
 
   const breadcrumb = {
     ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
     '@id': breadcrumbId,
   }
 
-  return buildSchemaGraph([webpage, breadcrumb])
+  const focusBreadcrumb = isFocusClusterRecord(args.workbookRecord ?? args.slug)
+    ? buildFocusClusterBreadcrumb({
+        currentName: args.kind === 'herb' ? args.herb?.name ?? args.slug : args.compound?.name ?? args.slug,
+        currentUrl: canonical,
+      })
+    : null
+
+  return buildSchemaGraph([webpage, entity, breadcrumb, focusBreadcrumb])
 }
 
 export function buildGoalSchemaGraph(args: {
@@ -77,6 +105,7 @@ export function buildGoalSchemaGraph(args: {
   description: string
   breadcrumbs: Array<{ name: string; url: string }>
   faqQuestions: Array<{ question: string; answer: string }>
+  comparisonRows?: ComparisonFaqRow[]
   itemList: { name: string; items: Array<{ name: string; url: string }> }
 }) {
   const canonical = normalizeCanonical(toAbsoluteUrl(args.goalPath))
@@ -85,7 +114,11 @@ export function buildGoalSchemaGraph(args: {
   const faqId = `${canonical}#faq`
   const webpageId = `${canonical}#webpage`
 
-  const faq = faqPageJsonLd({ pagePath: args.goalPath, questions: args.faqQuestions })
+  const faq = buildFAQPageFromComparisonRows({
+    pagePath: args.goalPath,
+    fallbackQuestions: args.faqQuestions,
+    rows: args.comparisonRows ?? [],
+  })
   const faqNode = faq
     ? { ...stripSchemaContext(faq), '@id': faqId, isPartOf: { '@id': webpageId } }
     : null

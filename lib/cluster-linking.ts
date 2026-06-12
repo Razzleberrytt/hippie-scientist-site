@@ -16,7 +16,7 @@
 import { SITE_URL } from '@/lib/site'
 import type { ClusterDefinition, ClusterId, EntityKind, SeeAlsoEntry } from '@/lib/schema'
 import { buildRelatedLinksSchema } from '@/lib/schema'
-import { buildProfileSchemaGraph, buildSchemaGraph, stripSchemaContext } from '@/lib/schema-graph'
+import { buildProfileSchemaGraph, buildSchemaGraph } from '@/lib/schema-graph'
 import type { ProfileSchemaGraphArgs } from '@/lib/schema-graph'
 
 // ─────────────────────────────────────────────────────────────────────────────

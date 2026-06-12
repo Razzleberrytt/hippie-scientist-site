@@ -8,7 +8,7 @@
  *  - relatedLink + ItemList helpers for cluster interlinking
  */
 
-import { SITE_URL } from '@/lib/site'
+import { SITE_NAME, SITE_URL, toAbsoluteUrl } from '@/lib/seo'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Cluster types — consumed by lib/cluster-linking.ts and components
@@ -59,7 +59,57 @@ export type SeeAlsoEntry = {
 // Schema.org node arg types (strict — no `any` or generic unknown values)
 // ─────────────────────────────────────────────────────────────────────────────
 
-type SchemaNode = Record<string, unknown>
+export type SchemaNode = Record<string, unknown>
+
+export type WorkbookLinkedProfile = Record<string, unknown> & {
+  slug?: unknown
+  name?: unknown
+  common?: unknown
+  commonName?: unknown
+  scientific?: unknown
+  scientific_name?: unknown
+  latinName?: unknown
+  category?: unknown
+  compoundClass?: unknown
+  class?: unknown
+  pubchem_cid?: unknown
+  pubchemCid?: unknown
+  cas_number?: unknown
+  casNumber?: unknown
+  molecular_formula?: unknown
+  molecularFormula?: unknown
+}
+
+export type ProfileEntitySchemaArgs = {
+  kind: 'herb' | 'compound'
+  slug: string
+  name: string
+  url: string
+  description?: string
+  record?: WorkbookLinkedProfile
+  evidenceGrade?: string
+  safetyNotes?: string
+  primaryEffects?: string[]
+}
+
+export type ComparisonFaqRow = {
+  question?: string
+  answer?: string
+  need?: string
+  option?: string
+  name?: string
+  bestFor?: string
+  evidence?: string
+  risk?: string
+  safety?: string
+  profileHref?: string
+}
+
+export type FocusClusterLink = {
+  title: string
+  href: string
+  description: string
+}
 
 export type DrugSchemaArgs = {
   name: string
@@ -76,6 +126,103 @@ export type ThingSchemaArgs = {
   url: string
   description?: string
   sameAs?: string[]
+}
+
+const WORKBOOK_SOURCE_ID = 'data-sources/herb_monograph_master.xlsx'
+
+const FOCUS_CLUSTER_ENTITY_SLUGS = new Set([
+  'alpha-gpc',
+  'ashwagandha',
+  'bacopa',
+  'caffeine',
+  'citicoline',
+  'l-theanine',
+  'magnesium',
+  'omega-3',
+  'rhodiola',
+  'tyrosine',
+])
+
+const FOCUS_CLUSTER_KEYWORDS = /\b(adhd|attention|focus|concentration|cognition|cognitive)\b/i
+
+export const focusClusterSeeAlsoLinks: FocusClusterLink[] = [
+  {
+    title: 'Best Supplements for ADHD',
+    href: '/best-supplements-for-adhd',
+    description: 'Cluster overview for ADHD-adjacent supplement questions.',
+  },
+  {
+    title: 'Omega-3 for ADHD',
+    href: '/omega-3-for-adhd',
+    description: 'EPA/DHA context for attention-support research.',
+  },
+  {
+    title: 'Magnesium for ADHD',
+    href: '/magnesium-for-adhd',
+    description: 'Magnesium status, sleep, and focus-adjacent framing.',
+  },
+  {
+    title: 'L-Theanine for ADHD',
+    href: '/l-theanine-for-adhd',
+    description: 'Calm-focus positioning without stimulant claims.',
+  },
+  {
+    title: 'Citicoline vs Alpha-GPC',
+    href: '/citicoline-vs-alpha-gpc',
+    description: 'Choline donor comparison for focus stacks.',
+  },
+  {
+    title: 'Best Supplements for Focus Without Caffeine',
+    href: '/best-supplements-for-focus-without-caffeine',
+    description: 'Non-caffeine focus options and tradeoffs.',
+  },
+]
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+}
+
+function text(value: unknown): string {
+  return typeof value === 'string' || typeof value === 'number' ? String(value).trim() : ''
+}
+
+function optionalText(value: unknown): string | undefined {
+  const cleaned = text(value)
+  return cleaned || undefined
+}
+
+function firstText(record: Record<string, unknown> | undefined, keys: string[]): string | undefined {
+  if (!record) return undefined
+  for (const key of keys) {
+    const value = optionalText(record[key])
+    if (value) return value
+  }
+  return undefined
+}
+
+function compactObject(value: Record<string, unknown>): SchemaNode {
+  return Object.fromEntries(
+    Object.entries(value).filter(([, entry]) => {
+      if (entry === undefined || entry === null) return false
+      if (Array.isArray(entry)) return entry.length > 0
+      if (typeof entry === 'object') return Object.keys(entry).length > 0
+      return true
+    }),
+  )
+}
+
+function propertyValue(propertyID: string, value: string, name?: string): SchemaNode {
+  return compactObject({
+    '@type': 'PropertyValue',
+    ...(name ? { name } : {}),
+    propertyID,
+    value,
+  })
+}
+
+function normalizeCanonical(urlOrPath: string): string {
+  const absolute = /^https?:\/\//i.test(urlOrPath) ? urlOrPath : toAbsoluteUrl(urlOrPath)
+  return absolute.endsWith('/') ? absolute : `${absolute}/`
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -185,5 +332,166 @@ export function buildClusterDefinedTermSet(cluster: ClusterDefinition): SchemaNo
         inDefinedTermSet: { '@id': termSetId },
       }
     }),
+  }
+}
+
+function buildWorkbookIdentifiers(args: {
+  kind: 'herb' | 'compound'
+  slug: string
+  record?: WorkbookLinkedProfile
+}): SchemaNode[] {
+  const record = args.record
+  const identifiers = [
+    propertyValue('THS slug', args.slug, 'The Hippie Scientist slug'),
+    propertyValue('THS entity type', args.kind, 'The Hippie Scientist entity type'),
+    propertyValue('source workbook', WORKBOOK_SOURCE_ID, 'Workbook source'),
+  ]
+
+  const workbookRowId = firstText(record, ['id', 'workbook_id', 'row_id', 'source_id'])
+  if (workbookRowId) identifiers.push(propertyValue('workbook row', workbookRowId, 'Workbook row id'))
+
+  const pubchemCid = firstText(record, ['pubchem_cid', 'pubchemCid'])
+  if (pubchemCid) identifiers.push(propertyValue('PubChem CID', pubchemCid))
+
+  const casNumber = firstText(record, ['cas_number', 'casNumber'])
+  if (casNumber) identifiers.push(propertyValue('CAS', casNumber))
+
+  return identifiers
+}
+
+export function buildWorkbookEntitySchema(args: ProfileEntitySchemaArgs): SchemaNode {
+  const record = isRecord(args.record) ? args.record : undefined
+  const canonical = normalizeCanonical(args.url)
+  const scientificName = firstText(record, ['scientific', 'scientific_name', 'latinName'])
+  const category = firstText(record, ['category', 'compoundClass', 'class'])
+  const molecularFormula = firstText(record, ['molecular_formula', 'molecularFormula'])
+  const pubchemCid = firstText(record, ['pubchem_cid', 'pubchemCid'])
+  const sameAs = pubchemCid ? [`https://pubchem.ncbi.nlm.nih.gov/compound/${pubchemCid}`] : []
+
+  return compactObject({
+    '@type': args.kind === 'herb' ? ['Drug', 'Thing'] : ['Thing', 'ChemicalSubstance'],
+    '@id': `${canonical}#entity`,
+    name: args.name,
+    url: canonical,
+    description: args.description,
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+    identifier: buildWorkbookIdentifiers({ kind: args.kind, slug: args.slug, record }),
+    ...(scientificName ? { alternateName: scientificName } : {}),
+    ...(category ? { category } : {}),
+    ...(args.evidenceGrade ? { evidenceLevel: args.evidenceGrade } : {}),
+    ...(args.safetyNotes ? { safetyWarnings: args.safetyNotes } : {}),
+    ...(args.primaryEffects?.length ? { knownUse: args.primaryEffects } : {}),
+    ...(molecularFormula ? { molecularFormula } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
+    additionalProperty: [
+      propertyValue('workbook source', WORKBOOK_SOURCE_ID),
+      propertyValue('static route', canonical),
+    ],
+  })
+}
+
+function normalizeFaqEntries(rows: ComparisonFaqRow[]): Array<{ question: string; answer: string }> {
+  const entries = rows.flatMap((row) => {
+    if (row.question && row.answer) {
+      return [{ question: row.question, answer: row.answer }]
+    }
+
+    if (row.need && row.option) {
+      return [{
+        question: `What is a common option to compare for ${row.need.toLowerCase()}?`,
+        answer: `${row.option} is listed as a comparison starting point for ${row.need.toLowerCase()}. Review the full profile for evidence, safety, timing, and fit before making a decision.`,
+      }]
+    }
+
+    if (row.name && row.bestFor) {
+      const evidence = row.evidence ? ` Evidence context: ${row.evidence}.` : ''
+      const risk = row.risk || row.safety
+      const safety = risk ? ` Safety context: ${risk}.` : ''
+      return [{
+        question: `What is ${row.name} best for in this comparison?`,
+        answer: `${row.name} is listed for ${row.bestFor}.${evidence}${safety}`,
+      }]
+    }
+
+    return []
+  })
+
+  const seen = new Set<string>()
+  return entries.filter((entry) => {
+    const key = entry.question.toLowerCase()
+    if (seen.has(key)) return false
+    seen.add(key)
+    return entry.question.length > 0 && entry.answer.length > 0
+  })
+}
+
+export function buildFAQPageFromComparisonRows(args: {
+  pagePath: string
+  rows: ComparisonFaqRow[]
+  fallbackQuestions?: Array<{ question: string; answer: string }>
+}): SchemaNode | null {
+  const questions = normalizeFaqEntries([
+    ...(args.fallbackQuestions ?? []),
+    ...args.rows,
+  ])
+
+  if (!questions.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: questions.slice(0, 8).map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+    url: normalizeCanonical(args.pagePath),
+  }
+}
+
+export function isFocusClusterRecord(recordOrSlug: string | Record<string, unknown>): boolean {
+  if (typeof recordOrSlug === 'string') {
+    return FOCUS_CLUSTER_ENTITY_SLUGS.has(recordOrSlug)
+  }
+
+  const slug = text(recordOrSlug.slug).toLowerCase()
+  if (slug && FOCUS_CLUSTER_ENTITY_SLUGS.has(slug)) return true
+
+  const searchable = [
+    recordOrSlug.name,
+    recordOrSlug.displayName,
+    recordOrSlug.summary,
+    recordOrSlug.description,
+    recordOrSlug.category,
+    recordOrSlug.primary_effects,
+    recordOrSlug.effects,
+    recordOrSlug.tags,
+  ]
+    .flat()
+    .map((value) => text(value))
+    .join(' ')
+
+  return FOCUS_CLUSTER_KEYWORDS.test(searchable)
+}
+
+export function buildFocusClusterBreadcrumb(args: {
+  currentName: string
+  currentUrl: string
+}): SchemaNode {
+  const currentUrl = normalizeCanonical(args.currentUrl)
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${currentUrl}#focus-cluster-breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Goals', item: `${SITE_URL}/goals/` },
+      { '@type': 'ListItem', position: 3, name: 'Focus', item: `${SITE_URL}/goals/focus/` },
+      { '@type': 'ListItem', position: 4, name: 'Focus & ADHD cluster', item: `${SITE_URL}/best-supplements-for-adhd/` },
+      { '@type': 'ListItem', position: 5, name: args.currentName, item: currentUrl },
+    ],
   }
 }

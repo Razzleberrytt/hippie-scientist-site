@@ -25,6 +25,7 @@ import {
 } from '@/lib/evidence-engine'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
+import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
 
 type GoalOption = {
   option: {
@@ -140,6 +141,10 @@ export default function GoalDecisionExperience({
       <SafetyChecklistPromo goal={captureGoal} variant="hero" />
 
       <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
+
+      {goal.slug === 'focus' ? (
+        <SeeAlsoInCluster currentPath="/goals/focus" />
+      ) : null}
 
       {goal.slug === 'anxiety' ? (
         <section className="rounded-2xl border border-emerald-700/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">

@@ -13,7 +13,8 @@ import { normalizeSlug } from '@/lib/slug-utils'
 import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import CompoundSourceHerbs from '@/components/seo/CompoundSourceHerbs'
-import { buildProfileSchemaGraph } from '@/lib/schema-graph'
+import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
+import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
@@ -538,8 +539,9 @@ export default async function CompoundPage({ params }: PageProps) {
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
   const citations = extractCitationsFromRecord(compound)
+  const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'compound', 8)
 
-  const schemaGraph = buildProfileSchemaGraph({
+  const schemaGraph = buildProfileSchemaGraphWithCluster({
     kind: 'compound',
     slug: compound.slug,
     compound: {
@@ -559,6 +561,8 @@ export default async function CompoundPage({ params }: PageProps) {
       { name: 'Compounds', url: `${SITE_URL}/compounds/` },
       { name: displayName, url: `${SITE_URL}/compounds/${compound.slug}/` },
     ],
+    workbookRecord: { ...compound, slug: normalizedSlug },
+    seeAlsoEntries: clusterSeeAlso,
   })
 
   const faqSchema = faqPageJsonLd({
@@ -652,6 +656,8 @@ export default async function CompoundPage({ params }: PageProps) {
             </div>
           </section>
         ) : null}
+
+        <SeeAlsoCluster slug={normalizedSlug} kind="compound" limit={6} />
 
         {conditionLinks.length > 0 ? (
           <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">

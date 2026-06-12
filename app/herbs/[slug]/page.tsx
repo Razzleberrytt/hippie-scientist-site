@@ -14,7 +14,6 @@ import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
-import { buildProfileSchemaGraph } from '@/lib/schema-graph'
 import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
 import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
@@ -405,6 +404,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       { name: 'Herbs', url: `${SITE_URL}/herbs/` },
       { name: displayName, url: `${SITE_URL}/herbs/${normalizedSlug}/` },
     ],
+    workbookRecord: { ...herb, slug: normalizedSlug } as Record<string, unknown>,
     seeAlsoEntries: clusterSeeAlso,
   })
 

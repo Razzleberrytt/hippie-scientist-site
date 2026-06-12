@@ -20,6 +20,7 @@ import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePic
 import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffiliate'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
+import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
 
 import GoalDecisionExperience from './GoalDecisionExperience'
 import GoalHubSections from '@/components/goals/GoalHubSections'
@@ -29,7 +30,7 @@ import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 
 type GoalRouteParams = { goal: string }
-type RuntimeCompound = Record<string, any>
+type RuntimeCompound = Record<string, unknown>
 
 type EnrichedGoalOption = {
   option: {
@@ -239,6 +240,13 @@ export default async function GoalDecisionPage({
       { name: goal.title, url: `${SITE_URL}${goalPath}/` },
     ],
     faqQuestions,
+    comparisonRows: enrichedOptions.map((opt) => ({
+      name: opt.option.name,
+      bestFor: opt.option.bestFor,
+      evidence: opt.option.evidence,
+      risk: opt.option.risk,
+      profileHref: opt.profileHref,
+    })),
     itemList: {
       name: `${goal.title} Options`,
       items: enrichedOptions.map(opt => ({
@@ -295,6 +303,10 @@ export default async function GoalDecisionPage({
       </section>
 
       <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="hero" />
+
+      {goal.slug === 'focus' ? (
+        <SeeAlsoInCluster currentPath="/goals/focus" />
+      ) : null}
 
       <section className="rounded-2xl border border-amber-600/10 bg-amber-50/50 p-6 text-sm leading-7 text-amber-950 shadow-sm">
         <h2 className="text-base font-bold text-amber-950">How to read this guide</h2>
@@ -457,7 +469,10 @@ export default async function GoalDecisionPage({
                     />
                   )
                 }
-                const shopLinks = getAffiliateShopLinks(compound, option.name, compound?.entityType)
+                const entityType = compound?.entityType === 'herb' || compound?.entityType === 'compound'
+                  ? compound.entityType
+                  : undefined
+                const shopLinks = getAffiliateShopLinks(compound, option.name, entityType)
                 const cta = shopLinks.find((l) => l.url)
                 if (!cta) return null
                 return (
