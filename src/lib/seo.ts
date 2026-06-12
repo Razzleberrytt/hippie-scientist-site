@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getRuntimeVisibility } from './runtime-visibility'
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { formatDisplayLabel, list } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 import { SITE_URL, SITE_NAME } from '@/lib/site'
 
@@ -379,7 +379,6 @@ export function herbJsonLd(herb: HerbJsonLdArgs) {
             ).toLowerCase()}. Educational reference only.`,
             ...(herb.evidenceGrade ? { evidenceLevel: herb.evidenceGrade } : {}),
             ...(herb.safetyNotes ? { safetyWarnings: herb.safetyNotes } : {}),
-            ...(herb.primaryEffects ? { duplicateTherapy: herb.primaryEffects } : {}),
           },
           ...(hasPart.length ? { hasPart } : {}),
         }
@@ -389,7 +388,6 @@ export function herbJsonLd(herb: HerbJsonLdArgs) {
             name: herb.latinName || herb.name,
             ...(herb.evidenceGrade ? { evidenceLevel: herb.evidenceGrade } : {}),
             ...(herb.safetyNotes ? { safetyWarnings: herb.safetyNotes } : {}),
-            ...(herb.primaryEffects ? { duplicateTherapy: herb.primaryEffects } : {}),
           },
         }),
     ...(herb.image ? { image: herb.image } : {}),
@@ -405,12 +403,37 @@ export type CompoundJsonLdArgs = {
   governedSummary?: GovernedSummarySignals
   evidenceGrade?: string
   safetyNotes?: string
+  // Phase-1-ready molecular identifiers. When any are present the `about` node
+  // upgrades from a generic ChemicalSubstance to a MolecularEntity with formula,
+  // CAS/PubChem identifiers, and a PubChem sameAs link. Until the workbook
+  // populates these columns they are undefined and the schema is unchanged.
+  pubchemCid?: string | number
+  casNumber?: string
+  molecularFormula?: string
 }
 
 export function compoundJsonLd(compound: CompoundJsonLdArgs) {
   const url = `${SITE_URL}/compounds/${compound.slug}`
   const governed = compound.governedSummary
   const hasGoverned = Boolean(governed?.enrichedAndReviewed)
+
+  // Upgrade to MolecularEntity only when concrete molecular identifiers exist.
+  const hasMolecularData = Boolean(
+    compound.molecularFormula || compound.pubchemCid || compound.casNumber,
+  )
+  const compoundAboutType = hasMolecularData
+    ? ['MolecularEntity', 'ChemicalSubstance']
+    : 'ChemicalSubstance'
+  const molecularIdentifiers: Array<Record<string, string>> = []
+  if (compound.casNumber) {
+    molecularIdentifiers.push({ '@type': 'PropertyValue', propertyID: 'CAS', value: String(compound.casNumber) })
+  }
+  if (compound.pubchemCid) {
+    molecularIdentifiers.push({ '@type': 'PropertyValue', propertyID: 'PubChem CID', value: String(compound.pubchemCid) })
+  }
+  const molecularSameAs = compound.pubchemCid
+    ? [`https://pubchem.ncbi.nlm.nih.gov/compound/${compound.pubchemCid}`]
+    : []
   const hasPart = hasGoverned
     ? [
         { name: 'Evidence summary' },
@@ -435,7 +458,7 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
     aspect: ['treatment', 'safety', 'pharmacology', 'efficacy'],
     ...(compound.breadcrumbId ? { breadcrumb: { '@id': compound.breadcrumbId } } : {}),
     about: {
-      '@type': 'ChemicalSubstance',
+      '@type': compoundAboutType,
       name: compound.name,
       ...(compound.category ? { description: compound.category } : {}),
       ...(hasGoverned
@@ -447,6 +470,11 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
         : {}),
       ...(compound.evidenceGrade ? { evidenceLevel: compound.evidenceGrade } : {}),
       ...(compound.safetyNotes ? { safetyWarnings: compound.safetyNotes } : {}),
+      ...(compound.molecularFormula ? { molecularFormula: compound.molecularFormula } : {}),
+      ...(molecularIdentifiers.length
+        ? { identifier: molecularIdentifiers.length === 1 ? molecularIdentifiers[0] : molecularIdentifiers }
+        : {}),
+      ...(molecularSameAs.length ? { sameAs: molecularSameAs } : {}),
     },
     ...(hasPart.length ? { hasPart } : {}),
   }
@@ -573,55 +601,97 @@ export function commonSupplementFaqJsonLd(pagePath: string) {
   })
 }
 
+/**
+ * Boilerplate answers that should NOT be emitted as FAQ JSON-LD. Gating on these
+ * prevents Google from seeing placeholder Q&A (which can't earn rich results and
+ * dilutes the page's real content signals). Compared case-insensitively by prefix.
+ */
+export const FAQ_FALLBACK_ANSWERS: string[] = [
+  'See dosing guidelines and product labeling.',
+  'Review personal medications, pregnancy status, chronic conditions, and clinician guidance before use.',
+  'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.',
+  'See the page evidence section',
+]
+
+/** True when an FAQ answer is substantive enough to publish as structured data. */
+export function isMeaningfulFaqAnswer(answer: unknown): boolean {
+  const normalized = String(answer ?? '').trim()
+  if (normalized.length <= 50) return false
+  const lower = normalized.toLowerCase()
+  return !FAQ_FALLBACK_ANSWERS.some((fallback) =>
+    lower.startsWith(fallback.toLowerCase().slice(0, 40)),
+  )
+}
+
+/** Common-name-first display name: strips a trailing Latin parenthetical. */
+function getProfileDisplayName(record: any): string {
+  const raw = String(record?.name || record?.slug || '')
+  const commonName = raw.replace(/\s*\([^)]*\)\s*$/, '').trim()
+  return formatDisplayLabel(commonName || raw)
+}
+
+function getProfileEvidenceLabel(record: any): string {
+  return formatDisplayLabel(
+    record?.evidenceLevel ||
+      record?.evidence_tier ||
+      record?.evidenceTier ||
+      record?.evidence_grade ||
+      getEvidenceLabel(record),
+  )
+}
+
+/** Keyword-first title formula (manual `meta_title` overrides via precedence). */
+export function formatProfileTitle(displayName: string, type: 'herb' | 'compound'): string {
+  return type === 'herb'
+    ? `${displayName} Benefits, Dosage & Safety`
+    : `${displayName} Dosage, Effects & Safety: What the Evidence Says`
+}
+
+/** Intent-driven meta description formula (manual `meta_description` overrides). */
+export function formatProfileDescription(
+  record: any,
+  displayName: string,
+  type: 'herb' | 'compound',
+): string {
+  const evidence = getProfileEvidenceLabel(record)
+  const primaryUse = list(
+    record?.primary_effects || record?.primaryEffects || record?.effects || record?.useContexts || [],
+  )
+    .map((effect: string) => formatDisplayLabel(effect).toLowerCase())
+    .filter(Boolean)[0]
+
+  const evidenceClause = evidence ? ` ${evidence} research evidence.` : ''
+  const raw =
+    type === 'herb'
+      ? `${displayName} dosage ranges, effects, drug interactions, and harm-reduction safety guide${
+          primaryUse ? ` for ${primaryUse}` : ''
+        }.${evidenceClause}`
+      : `${displayName} dosage by use case, onset and duration, safety limits, and interactions${
+          primaryUse ? ` for ${primaryUse}` : ''
+        }, graded against research.${evidenceClause}`
+
+  const fallback =
+    type === 'herb'
+      ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
+      : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
+
+  return formatMetaDescription(raw, fallback, 160)
+}
+
 export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): Metadata {
-  const displayName = formatDisplayLabel(record.name || record.slug)
-  const evidence = formatDisplayLabel(record.evidenceLevel || record.evidence_tier || record.evidenceTier || record.evidence_grade || getEvidenceLabel(record))
+  const displayName = getProfileDisplayName(record)
 
-  // Construct premium, intent-aware titles
-  let titleSuffix = type === 'herb' ? 'Herb Profile: Benefits, Effects & Safety' : 'Benefits, Effects & Safety'
-  if (evidence.toLowerCase().includes('strong') || evidence.toLowerCase().includes('moderate') || evidence.toLowerCase().includes('human')) {
-    titleSuffix += ' | Evidence-Based Guide'
-  } else if (evidence.toLowerCase().includes('traditional')) {
-    titleSuffix += ' | Traditional Use Guide'
-  } else {
-    titleSuffix += ' Guide'
-  }
-  const title = `${displayName} ${titleSuffix}`
+  // Precedence: hand-authored workbook columns (meta_title / meta_description) win
+  // over the templated formula. These columns are empty today but ready for Phase 1.
+  const manualTitle = typeof record?.meta_title === 'string' ? record.meta_title.trim() : ''
+  const manualDescription =
+    typeof record?.meta_description === 'string' ? record.meta_description.trim() : ''
 
-  // Construct dynamic description -- make unique per profile using available fields (fixes mass duplicate generics)
-  const cleanDesc = cleanSummary(record.summary || record.description || '', type)
-  let firstSentence = cleanDesc.match(/[^.!?]+[.!?]+/)?.[0] || cleanDesc
-  if (!firstSentence || firstSentence.length < 20) {
-    firstSentence = `${displayName} ${type} profile with evidence framing.`
-  }
-
-  // extract unique signals
-  const latin = record.scientific_name || record.latin_name || (record.name && record.name.match(/\(([^)]+)\)/)?.[1] ? record.name.match(/\(([^)]+)\)/)[1] : '')
-  const effects = list(record.primary_effects || record.primaryEffects || record.effects || record.useContexts || record.primaryDomain || [])
-  const primaryUse = effects[0] ? formatDisplayLabel(effects[0]).toLowerCase() : ''
-  const mechs = list(record.mechanisms || record.primary_mechanisms || record.pathways || [])
-  const primaryMech = mechs[0] ? formatDisplayLabel(mechs[0]).toLowerCase().replace(/\s+(modulation|signaling|context|response)/g, '') : ''
-  const safetyNotes = text(record.safetyNotes || record.safety_notes || record.safety || record.safety_level || '').toLowerCase()
-  let safetySnippet = ''
-  if (safetyNotes.includes('avoid') || safetyNotes.includes('caution') || safetyNotes.includes('interaction') || safetyNotes.includes('contraindicat')) {
-    safetySnippet = ' Review safety and drug interactions before use.'
-  }
-
-  let uniqueTail = ''
-  if (latin) uniqueTail += ` (${formatDisplayLabel(latin)})`
-  if (primaryUse) uniqueTail += ` for ${primaryUse}`
-  if (primaryMech) uniqueTail += ` (${primaryMech})`
-  if (evidence) uniqueTail += ` — evidence level ${evidence.toLowerCase()}`
-
-  const rawDescription = `${firstSentence}${uniqueTail} Rated with ${evidence.toLowerCase()}.${safetySnippet} Educational reference only.`
-  const description = formatMetaDescription(rawDescription, `${displayName} effects, mechanisms, dosage, and safety.`, 155)
+  const title = manualTitle || formatProfileTitle(displayName, type)
+  const description = manualDescription || formatProfileDescription(record, displayName, type)
 
   const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`
-  const meta = buildMeta({
-    title,
-    description,
-    path,
-  })
+  const meta = buildMeta({ title, description, path })
 
   const visibility = getRuntimeVisibility(record)
 

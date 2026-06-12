@@ -10,8 +10,9 @@ import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { faqPageJsonLd, generateDetailMetadata, SITE_URL } from '@/lib/seo'
+import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import CompoundSourceHerbs from '@/components/seo/CompoundSourceHerbs'
 import { buildProfileSchemaGraph } from '@/lib/schema-graph'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
@@ -538,18 +539,6 @@ export default async function CompoundPage({ params }: PageProps) {
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
   const citations = extractCitationsFromRecord(compound)
 
-  const affiliateUrl = suppressAffiliate
-    ? ''
-    : revenueProducts?.products.find((p) => p.slot === 'overall')?.affiliateUrl ??
-      revenueProducts?.products[0]?.affiliateUrl
-  const productSchema = affiliateUrl
-    ? {
-        name: `${displayName} Supplement`,
-        description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
-        url: affiliateUrl,
-      }
-    : null
-
   const schemaGraph = buildProfileSchemaGraph({
     kind: 'compound',
     slug: compound.slug,
@@ -560,13 +549,16 @@ export default async function CompoundPage({ params }: PageProps) {
       category: compound.compoundClass || compound.class || undefined,
       evidenceGrade: evidenceLevel || undefined,
       safetyNotes: compound.safetyNotes || compound.safety_notes || compound.safety || undefined,
+      // Phase-1-ready molecular identifiers (undefined until the workbook populates them).
+      pubchemCid: (compound.pubchem_cid as string | number | undefined) || undefined,
+      casNumber: (compound.cas_number as string | undefined) || undefined,
+      molecularFormula: (compound.molecular_formula as string | undefined) || undefined,
       breadcrumbId,
     },
     breadcrumbs: [
       { name: 'Compounds', url: `${SITE_URL}/compounds/` },
       { name: displayName, url: `${SITE_URL}/compounds/${compound.slug}/` },
     ],
-    product: productSchema,
   })
 
   const faqSchema = faqPageJsonLd({
@@ -593,7 +585,7 @@ export default async function CompoundPage({ params }: PageProps) {
           cleanText(compound.dosing || compound.dose || compound.dosage || compound.doseInfo || '') ||
           'See dosing guidelines and product labeling.',
       },
-    ],
+    ].filter((entry) => isMeaningfulFaqAnswer(entry.answer)),
   })
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed =
@@ -724,6 +716,9 @@ export default async function CompoundPage({ params }: PageProps) {
             )}
           </div>
         </section>
+
+        {/* Source herbs — internal links from the curated relationship map */}
+        <CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} />
 
         {/* Affiliate CTA right after Quick Stats */}
         {affiliateCtaLink && !suppressAffiliate && (

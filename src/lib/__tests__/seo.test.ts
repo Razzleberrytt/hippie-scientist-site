@@ -1,5 +1,5 @@
-import { describe, it, expect, vi } from 'vitest'
-import { generateDetailMetadata, herbJsonLd, compoundJsonLd } from '../seo'
+import { describe, it, expect } from 'vitest'
+import { generateDetailMetadata, herbJsonLd, compoundJsonLd, isMeaningfulFaqAnswer } from '../seo'
 
 describe('SEO Metadata & JSON-LD Utilities', () => {
   const mockHerb = {
@@ -30,20 +30,28 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
     it('generates correct title, description, and alternates for a herb', () => {
       const meta = generateDetailMetadata(mockHerb, 'herb')
 
-      expect(meta.title).toContain('Ashwagandha')
-      expect(meta.title).toContain('Evidence-Based Guide')
-      expect(meta.description).toContain('Ashwagandha is an adaptogenic herb.')
-      expect(meta.description).toContain('Rated with strong')
-      expect(meta.description).toContain('Review safety and drug interactions before use.')
+      expect(meta.title).toBe('Ashwagandha Benefits, Dosage & Safety')
+      expect(meta.description).toContain('Ashwagandha dosage ranges')
+      expect(meta.description).toContain('Strong research evidence')
       expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/herbs/ashwagandha/')
     })
 
     it('generates correct metadata for a compound', () => {
       const meta = generateDetailMetadata(mockCompound, 'compound')
 
-      expect(meta.title).toContain('L Theanine')
-      expect(meta.title).toContain('Evidence-Based Guide')
+      expect(meta.title).toBe('L Theanine Dosage, Effects & Safety: What the Evidence Says')
+      expect(meta.description).toContain('L Theanine dosage by use case')
       expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/compounds/l-theanine/')
+    })
+
+    it('prefers a manual meta_title / meta_description when present', () => {
+      const meta = generateDetailMetadata(
+        { ...mockHerb, meta_title: 'Custom Ashwagandha Title', meta_description: 'Custom description override.' },
+        'herb',
+      )
+
+      expect(meta.title).toBe('Custom Ashwagandha Title')
+      expect(meta.description).toBe('Custom description override.')
     })
 
     it('sets robots to noindex if record is not indexable', () => {
@@ -77,7 +85,8 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
       expect(jsonLd.about['@type']).toBe('MedicalTherapy')
       expect(jsonLd.about.evidenceLevel).toBe('Strong')
       expect(jsonLd.about.safetyWarnings).toBe(mockHerb.safetyNotes)
-      expect(jsonLd.about.duplicateTherapy).toEqual(mockHerb.primary_effects)
+      // Effects no longer mis-mapped to duplicateTherapy (wrong schema.org semantics).
+      expect((jsonLd.about as Record<string, unknown>).duplicateTherapy).toBeUndefined()
     })
   })
 
@@ -98,6 +107,37 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
       expect(jsonLd.about.description).toBe(mockCompound.compoundClass)
       expect(jsonLd.about.evidenceLevel).toBe('Moderate')
       expect(jsonLd.about.safetyWarnings).toBe(mockCompound.safetyNotes)
+    })
+
+    it('upgrades to MolecularEntity when molecular identifiers are present', () => {
+      const jsonLd = compoundJsonLd({
+        name: 'Apigenin',
+        slug: 'apigenin',
+        molecularFormula: 'C15H10O5',
+        casNumber: '520-36-5',
+        pubchemCid: 5280443,
+      })
+
+      expect(jsonLd.about['@type']).toEqual(['MolecularEntity', 'ChemicalSubstance'])
+      expect(jsonLd.about.molecularFormula).toBe('C15H10O5')
+      expect(jsonLd.about.sameAs).toContain('https://pubchem.ncbi.nlm.nih.gov/compound/5280443')
+    })
+  })
+
+  describe('isMeaningfulFaqAnswer', () => {
+    it('rejects short and boilerplate answers, accepts substantive ones', () => {
+      expect(isMeaningfulFaqAnswer('See dosing guidelines and product labeling.')).toBe(false)
+      expect(isMeaningfulFaqAnswer('Too short.')).toBe(false)
+      expect(
+        isMeaningfulFaqAnswer(
+          'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.',
+        ),
+      ).toBe(false)
+      expect(
+        isMeaningfulFaqAnswer(
+          'Ashwagandha is typically dosed at 300 to 600 mg of a standardized root extract once or twice daily with food.',
+        ),
+      ).toBe(true)
     })
   })
 })
