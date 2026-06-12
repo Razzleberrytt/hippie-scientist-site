@@ -1,418 +1,632 @@
-# Performance, Schema & UX Plan — thehippiescientist.net
+# The Hippie Scientist Active Growth Plan
 
-**Status:** Historical / Superseded (June 2, 2026 original; refreshed 2026-06-05 post cadd761c pull + fixes).  
-**Date:** June 2, 2026 (with 2026-06-05 notes)  
-**Scope:** Core Web Vitals, advanced JSON-LD (`@graph`), Suspense/skeleton UX — **100% compatible with `output: 'export'`**
-
-**IMPORTANT (post-2026-06 pull + audit fixes):** This is historical roadmap. Many items (sitemap, schema/OG, a11y, pipeline orchestrate+guard, 404 legacies via DEPRECATED+params+redirects, build hygiene, data determinism) completed in phases + recent work (see commits 51131546, 7fcdafc8, cadd761c, merge notes). Current: verifies PASS, guard robust on win, structured audit relaxed for legacies but reps blocking. Refer to updated validation-report.md, NAVIGATION_UPGRADE_SUMMARY.md (phases 0-6 done), and active session plan for ongoing. Old unchecked tasks below largely done or low-pri now.
-
-**Related audits:** `AUDIT_REPORT_20260602.md`, `PRIORITY_ACTION_PLAN.md` (external audit overstated some gaps; see corrections below)
+**Status:** Active content and monetization roadmap  
+**Updated:** 2026-06-12  
+**Primary business goal:** Build search traffic and affiliate/email revenue high enough to make TheHippieScientist.net a real income asset, not just a database project.  
+**Technical constraint:** Preserve the Next.js static export / Cloudflare Pages setup. Do not introduce server runtime, dynamic route handlers, or hand-edited generated data.
 
 ---
 
-## Executive summary
+## Executive Direction
 
-The production App Router site is already built for static export (`next.config.mjs`: `output: 'export'`, `images.unoptimized: true`). Most content is server-rendered at build time from workbook JSON; heavy interactivity lives in a **small set of client islands** (compare table, safety checker, search, index browsers, quiz, nav).
+The site should now prioritize **commercially useful education clusters** over generic herb-database expansion.
 
-This plan prioritizes **measurable CWV wins** (fonts, image CLS, JS splitting) and **consolidated schema graphs** without touching the workbook pipeline or removing static export. Conversion work recently shipped (safety checklist promo, affiliate trust blocks) must remain intact.
+The database still matters, but it should support article clusters instead of being the only product. Google traffic is more likely to come from clear, searchable article hubs such as ADHD supplements, nootropics, sleep support, and peptide research than from broad encyclopedia pages alone.
 
-**Estimated effort:** 3 phases, ~12–18 files, 1–2 days implementation + validation.
+### Strategic shift
 
----
+Old default emphasis:
 
-## Static export safety contract (read first)
-
-Every item below is checked against `scripts/ci/validate-static-export-compatibility.mjs` and project `Agents.md`.
-
-| Rule | Plan compliance |
-|------|-----------------|
-| Keep `output: 'export'` in `next.config.mjs` | ✅ No change to export mode |
-| No `force-dynamic`, `revalidate`, `noStore`, route handlers | ✅ No new server runtime |
-| No `next/headers`, `next/server`, `use server` | ✅ Not introduced |
-| Data from workbook → `npm run data:build` at build | ✅ Schema/read paths use existing JSON only |
-| `fetch({ cache: 'no-store' })` | ✅ Not used |
-| `next/image` on static export | ✅ **Allowed** with `images.unoptimized: true` (already configured). Delivers width/height/sizes/priority for CLS/LCP; does not require Image Optimization API |
-| `next/font` | ✅ Fully static-export compatible (self-hosted at build) |
-| `loading.tsx` | ✅ Supported for statically generated App Router routes (emits static loading UI in `out/`) — use only on routes we statically generate |
-| React `Suspense` + `dynamic()` imports | ✅ Compatible; reduces client JS and improves hydration UX. Does not enable SSR streaming at request time |
-| JSON-LD `AggregateRating` | ⚠️ **Only when rating is visible on the page** (see Phase 3). Never invent ratings |
-
-**Explicitly out of scope (unsafe or low ROI for static export):**
-
-- ISR, PPR, middleware, edge functions, server actions
-- Removing `images.unoptimized` without a custom static image pipeline (would break export or require pre-generated assets)
-- `AggregateRating` on pages without displayed star ratings (manual action risk)
-
----
-
-## Current state (codebase audit)
-
-### Config & build
-
-- **Config file:** `next.config.mjs` (not `.js`) — `output: 'export'`, `trailingSlash: true`, `images.unoptimized: true`
-- **Build:** `npm run build` → `scripts/build-production.mjs` → `next build` (static HTML to `out/`)
-- **CI guard:** `validate-static-export-compatibility.mjs` blocks forbidden patterns
-
-### Images (`<img>` inventory — active App Router paths)
-
-Only **one** `<img>` in the main `app/` + `components/` tree used in production UI:
-
-| File | Usage | LCP relevance |
-|------|--------|---------------|
-| `components/AffiliateProductCard.tsx` | Product `imageUrl` when present | Medium (below fold on profile pages) |
-
-**Legacy / unused in App Router (do not prioritize unless imported):**
-
-- `src/components/HeroFeaturedHerb.tsx`, `src/components/RotatingHerbHero.tsx` — old SPA-era heroes, **not referenced from `app/`**
-
-**OG/marketing assets:** `/og-default.png`, `/logo.png` via metadata — not `<img>` tags.
-
-**Homepage LCP:** Text-heavy hero (`components/homepage-v2.tsx`) — no hero image. LCP = heading + fonts.
-
-### Fonts
-
-- `app/layout.tsx` imports full CSS packs:
-  - `@fontsource/inter/index.css`
-  - `@fontsource-variable/fraunces/index.css`
-- `app/globals.css` already defines `--font-inter` / `--font-fraunces` theme tokens but they are **not wired** via `next/font` today → render-blocking CSS, no subsetting.
-
-### Client JavaScript (high-impact bundles)
-
-| Component | Route(s) | Notes |
-|-----------|----------|--------|
-| `components/compare-table-client.tsx` | `/compare/` | Large table + `lucide-react` icons; already in `<Suspense>` with text fallback |
-| `src/components/safety/SafetyCheckerClient.tsx` | `/safety-checker/` | ~600 lines, loaded synchronously |
-| `app/search/SearchClient.tsx` | `/search/` | Search index client |
-| `app/herbs/HerbsIndexClient.tsx` | `/herbs/`, paginated | Suspense with `fallback={null}` |
-| `app/compounds/CompoundsIndexClient.tsx` | `/compounds/` | Same pattern |
-| `src/components/quiz/RecommendationQuiz.tsx` | `/start-here/quiz/` | Wizard |
-| `src/components/Header.tsx` + nav | Global layout | Always loaded |
-| `components/ClickTracker.tsx`, `CitationDrawer` | Global layout | Always loaded |
-
-**No existing `dynamic()` imports** in app code — opportunity to code-split tool routes.
-
-### JSON-LD (today)
-
-- **Root:** `WebSite` + `Organization` inline in `app/layout.tsx`
-- **Central helpers:** `src/lib/seo.ts` — `herbJsonLd`, `compoundJsonLd`, `faqPageJsonLd`, `breadcrumbJsonLd`, `collectionPageJsonLd`, `itemListJsonLd`, `productJsonLd`
-- **Goals:** Multiple separate `<script>` blocks per page (`app/goals/[goal]/page.tsx`)
-- **Profiles:** Separate MedicalWebPage + Breadcrumb + optional Product scripts
-- **Gap:** No `@graph` with `@id` cross-linking; duplicate `@context` blocks; **no `AggregateRating`** (correct — ratings rarely shown)
-- **AuthorityJsonLd:** `components/seo/AuthorityJsonLd.tsx` — separate scripts, not graph-linked
-
-### SEO / conversion (recent work — preserve)
-
-- Goal SEO titles/descriptions: `src/lib/goal-seo.ts`
-- Lead magnet: `SafetyChecklistPromo`, `StickyChecklistBar`
-- Affiliate trust: `ProductTrustAffiliate`, `GoalTopAffiliatePicks`
-- Do not regress metadata, affiliate tags (`config/affiliate.ts`), or route contracts
-
-### Audit report corrections
-
-| External audit claim | Actual codebase state |
-|---------------------|------------------------|
-| "No JSON-LD" | ❌ Incorrect — extensive JSON-LD exists |
-| "Sitemap binary" | Likely crawler/tool issue; `app/sitemap.ts` is standard Next metadata route — verify in `out/sitemap.xml` after build |
-| "Loading states hurt SEO" | Partially valid for **client** tools; fix via skeletons + static shell content (already good on compare hero) |
-
----
-
-## Phase 1 — Core Web Vitals optimization
-
-### 1.1 Fonts → `next/font` (high impact, static-safe)
-
-**Files:** `app/layout.tsx`, remove `@fontsource/*` imports from layout.
-
-**Implementation:**
-
-```ts
-import { Inter, Fraunces } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
-const fraunces = Fraunces({ subsets: ['latin'], display: 'swap', variable: '--font-fraunces' })
+```text
+Herb database first → articles later → monetization eventually
 ```
 
-- Apply `className={`${inter.variable} ${fraunces.variable}`}` on `<html>` or `<body>`
-- Keep existing Tailwind `font-sans` / `font-display` tokens in `globals.css`
-- **Optional:** `preload: true` only for Inter (body); Fraunces is display — load normally
+New emphasis:
 
-**Static export:** ✅ Fonts inlined/self-hosted at build.
-
-**Expected CWV:** Better LCP (less render-blocking CSS), improved FCP.
-
-### 1.2 Replace `<img>` with `next/image` (scoped)
-
-**Files:**
-
-- `components/AffiliateProductCard.tsx` — primary change
-- Add `components/ui/OptimizedImage.tsx` thin wrapper (optional) enforcing `quality={85}`, default `sizes`, alt text rules
-
-**Pattern (with `unoptimized: true`):**
-
-```tsx
-import Image from 'next/image'
-<Image src={imageUrl} alt={title} width={400} height={300} sizes="(max-width: 768px) 100vw, 33vw" quality={85} className="..." />
+```text
+High-intent article clusters first → internal links into database → email capture + affiliate paths
 ```
 
-- Fix empty `alt=''` → use product title
-- `loading="lazy"` default; `priority` only if ever above fold
+---
 
-**Legacy `src/components/*` img tags:** Leave untouched unless referenced; document as dead code.
+## Priority Allocation
 
-**Static export:** ✅ Requires `images.unoptimized: true` (keep in config).
+For the next content cycle, allocate effort roughly like this:
 
-### 1.3 Minimize client JavaScript (medium impact)
+| Area | Allocation | Reason |
+|---|---:|---|
+| Focus / ADHD | 35% | Existing momentum, strong topical cluster, affiliate-friendly, search demand |
+| Nootropics | 25% | Natural expansion from ADHD/focus; broad commercial demand |
+| Sleep optimization | 15% | Interlinks with ADHD, nootropics, magnesium, melatonin, herbs |
+| Peptides | 15% | High buzz, high curiosity, high-value audience, but more regulatory/YMYL risk |
+| Adaptogens / herbs | 7% | Existing site identity; use as support content and comparison content |
+| General database cleanup | 3% | Maintain quality, but do not let it consume all production time |
 
-**Strategy:** `next/dynamic` + `ssr: true` for heavy tools (still pre-rendered at build with props).
-
-| Target | Change |
-|--------|--------|
-| `SafetyCheckerClient` | Dynamic import in `app/safety-checker/page.tsx` |
-| `CompareTableClient` | Dynamic import in `app/compare/page.tsx` (keep Suspense) |
-| `SearchClient` | Dynamic import in `app/search/page.tsx` |
-| `RecommendationQuiz` | Dynamic import in `app/start-here/quiz/page.tsx` |
-| `HerbsIndexClient` / `CompoundsIndexClient` | Dynamic import (optional phase 1b) |
-
-**Global layout:** Defer non-critical UI:
-
-- `CitationDrawer` → dynamic with `ssr: false` **only if** drawer is not needed for SEO (interactive only) — reduces HTML size
-- `ClickTracker` → keep small or load after idle (`requestIdleCallback` pattern inside component)
-
-**Icons:** Audit `lucide-react` imports in `compare-table-client.tsx` — import named icons only (already should be tree-shaken); verify bundle in build analyzer.
-
-**Static export:** ✅ Code splitting only; no server runtime.
-
-### 1.4 Minor CWV polish
-
-- Add `fetchPriority="high"` on LCP text container? N/A — no LCP image on homepage
-- Ensure GA4 scripts remain `afterInteractive` (already in layout)
-- Preconnect to Amazon only on pages with affiliate CTAs (optional `<link rel="preconnect">` via metadata on herb/compound/goal templates)
+This is not permanent. Rebalance based on Google Search Console impressions, indexed pages, affiliate clicks, and email signups.
 
 ---
 
-## Phase 2 — React Suspense + skeleton loaders
+## Pillar Architecture
 
-### 2.1 Base component
+### Pillar 1 — Focus & ADHD
 
-**New:** `components/ui/Skeleton.tsx`
+**Role:** Current flagship cluster.  
+**Business purpose:** Capture users searching for ADHD supplement help, focus support, brain fog, stimulant support, sleep problems, and nutrient deficiencies.
 
-- Shimmer via CSS animation (no extra deps)
-- Variants: `line`, `block`, `circle` via props or className
-- Accessible: `aria-busy="true"`, `aria-label="Loading content"`
+#### Core pages
 
-### 2.2 Skeleton compositions
+- ADHD Supplements Guide
+- Best Supplements for ADHD
+- ADHD Stack Guide
+- ADHD Blood Tests Guide
+- Nutrient Deficiencies and ADHD
+- Sleep and ADHD
 
-**New folder:** `components/skeletons/`
+#### Missing or planned articles
 
-| File | Mimics |
-|------|--------|
-| `EvidenceCardSkeleton.tsx` | `EvidenceClaimCard` layout (for evidence-engine goal pages if we add client wrapper) |
-| `CompareTableSkeleton.tsx` | Filter bar + 5–6 table rows |
-| `GoalHeroSkeleton.tsx` | Goal hero shell (eyebrow, h1, 2 lines) — for optional loading.tsx |
-| `WizardSkeleton.tsx` | Quiz steps / safety wizard columns |
-| `index.ts` | Barrel exports |
+- L-Tyrosine and ADHD
+- Alpha-GPC and ADHD
+- Citicoline for ADHD
+- Rhodiola Rosea and ADHD
+- Bacopa and ADHD
+- Phosphatidylserine and ADHD
+- Huperzine A and ADHD
+- Best Nootropics for ADHD
+- ADHD Supplements vs Medication: What Supplements Can and Cannot Do
 
-### 2.3 Suspense integration points
+#### Internal linking rule
 
-| Route | Current fallback | New fallback |
-|-------|------------------|--------------|
-| `app/compare/page.tsx` | Text: "Preparing comparison filters..." | `<CompareTableSkeleton />` |
-| `app/safety-checker/page.tsx` | None (sync client) | Wrap dynamic `SafetyCheckerClient` in `<Suspense fallback={<WizardSkeleton />}>` |
-| `app/search/page.tsx` | TBD | `<CompareTableSkeleton />` or dedicated `SearchSkeleton` (minimal) |
-| `app/start-here/quiz/page.tsx` | None | `<WizardSkeleton />` |
-| `app/herbs/page.tsx` | `fallback={null}` | Lightweight grid skeleton (3×2 cards) — optional |
-| `app/goals/[goal]/page.tsx` | N/A (server) | No Suspense unless dynamic subsection added |
+Every ADHD article should link to:
 
-**Evidence cards:** `EvidenceClaimCard` is a **server component** — skeleton applies only if we lazy-load a client bundle for the claim grid (optional, lower priority). Prefer static HTML at build for SEO.
-
-### 2.4 `loading.tsx` (static-export safe routes only)
-
-Add only where routes are **fully static** at build:
-
-| File | Purpose |
-|------|---------|
-| `app/compare/loading.tsx` | Instant shell while navigating (static export generates loading HTML) |
-| `app/safety-checker/loading.tsx` | Wizard skeleton |
-| `app/search/loading.tsx` | Search skeleton |
-| `app/start-here/quiz/loading.tsx` | Quiz skeleton |
-
-**Do NOT add** `loading.tsx` under dynamic slug routes with huge `generateStaticParams` unless we confirm Next 15 export behavior for those segments (risk: multiplies build artifacts). Prefer Suspense on page for `[slug]` routes.
-
-**Static export:** ✅ Per Next.js static export docs, `loading.js` is emitted as static fallback UI.
+- `/guides/adhd-supplements/`
+- `/articles/best-supplements-for-adhd/`
+- `/articles/adhd-stack-guide/`
+- at least two related single-ingredient articles
+- at least one safety/testing article where relevant
 
 ---
 
-## Phase 3 — Advanced schema markup (`@graph`)
+### Pillar 2 — Nootropics
 
-### 3.1 New helper module
+**Role:** Main growth expansion after ADHD/focus.  
+**Business purpose:** Capture broader search demand around cognition, memory, focus, productivity, brain fog, studying, and nootropic stacks.
 
-**New:** `src/lib/schema-graph.ts` (or extend `src/lib/seo.ts`)
+Nootropics are a better near-term SEO target than peptides because they connect directly to existing ADHD/focus work and have lower regulatory friction.
 
-```ts
-buildSchemaGraph({ pageId, nodes: SchemaNode[] })
+#### Core hub pages to build
+
+1. Beginner's Guide to Nootropics
+2. Best Nootropics for Focus
+3. Best Nootropics for Brain Fog
+4. Best Nootropics for Memory
+5. Best Nootropic Stacks
+6. Nootropics for ADHD
+7. Natural Nootropics vs Synthetic Nootropics
+8. Nootropic Safety Guide
+9. Choline Supplements Compared
+10. Stimulant-Free Nootropics
+
+#### Single-compound reviews
+
+- Citicoline
+- Alpha-GPC
+- L-Theanine
+- L-Tyrosine
+- Acetyl-L-Carnitine
+- Phosphatidylserine
+- Bacopa Monnieri
+- Rhodiola Rosea
+- Lion's Mane
+- Huperzine A
+- Creatine for cognition
+- Caffeine + L-Theanine
+- Taurine for focus
+- Glycine for sleep/cognition crossover
+
+#### Comparison articles
+
+- Citicoline vs Alpha-GPC
+- L-Theanine vs Caffeine
+- Bacopa vs Lion's Mane
+- Rhodiola vs Ashwagandha
+- Alpha-GPC vs Huperzine A
+- L-Tyrosine vs Phenylalanine
+- Acetyl-L-Carnitine vs Citicoline
+- Creatine vs Alpha-GPC for cognition
+
+#### Monetization angle
+
+Nootropic articles should support:
+
+- affiliate product cards
+- comparison tables
+- email capture for a “Focus Stack Checklist”
+- internal links to ADHD and sleep clusters
+
+#### Editorial guardrails
+
+Avoid claims like:
+
+- “best smart drug”
+- “works like Adderall”
+- “guaranteed focus”
+- “treats ADHD”
+
+Use safer language:
+
+- “may support focus”
+- “evidence suggests”
+- “stronger/weaker evidence”
+- “not a replacement for medical ADHD treatment”
+
+---
+
+### Pillar 3 — Sleep Optimization
+
+**Role:** Cross-linking cluster for ADHD, anxiety, stress, nootropics, and recovery.  
+**Business purpose:** Capture high-intent readers who buy magnesium, melatonin, glycine, L-theanine, and calming herbs.
+
+#### Core pages
+
+- Best Supplements for Sleep
+- Magnesium Types for Sleep
+- L-Theanine for Sleep
+- Melatonin Guide
+- Glycine for Sleep
+- Apigenin for Sleep
+- Taurine for Sleep
+- Lemon Balm for Sleep
+- Valerian Root for Sleep
+- Sleep and ADHD
+
+#### Comparison articles
+
+- Magnesium Glycinate vs Threonate
+- Melatonin vs Magnesium
+- L-Theanine vs Glycine
+- Valerian vs Passionflower
+- Apigenin vs L-Theanine
+
+#### Internal linking rule
+
+Every sleep article should link to:
+
+- Sleep hub
+- ADHD sleep article where relevant
+- magnesium / L-theanine / melatonin articles
+- safety article if sedatives, pregnancy, children, or medication interactions are involved
+
+---
+
+### Pillar 4 — Peptides
+
+**Role:** Trend-sensitive expansion pillar.  
+**Business purpose:** Capture the peptide buzz without exposing the site to reckless medical, sourcing, or injection-protocol content.
+
+Peptides are popular and commercially interesting. They should be promoted from a minor future category into a major content pillar, but built with strict evidence and safety rules.
+
+#### Why peptides matter
+
+- High curiosity and social-media momentum
+- Searchers often look up specific compound names
+- Audience is commercially valuable
+- Peptide readers overlap with nootropics, recovery, longevity, fitness, and biohacking
+- Content can attract email subscribers if framed as research literacy and safety education
+
+#### Why peptides must be handled carefully
+
+- Many are not approved dietary supplements
+- Many are research chemicals or prescription-context molecules
+- Dosing, injection, and sourcing content creates major risk
+- Google may treat this as high-scrutiny health content
+- Unsafe wording can make the site look irresponsible
+
+#### Allowed peptide content style
+
+Build articles around:
+
+- what the peptide is
+- what it is being researched for
+- human vs animal evidence
+- safety concerns
+- legal/regulatory context
+- why claims online may be exaggerated
+- comparison to safer supplement/nootropic alternatives
+
+#### Avoid peptide content style
+
+Do **not** publish:
+
+- injection instructions
+- dosing protocols
+- “where to buy” pages
+- vendor lists
+- reconstitution instructions
+- cycle protocols
+- claims that a peptide treats, cures, heals, or reverses disease
+
+#### Initial peptide launch cluster
+
+Build a limited launch cluster first:
+
+1. Beginner's Guide to Peptides
+2. Peptide Safety Guide
+3. BPC-157 Research Review
+4. TB-500 Research Review
+5. Semax Research Review
+6. Selank Research Review
+7. CJC-1295 and Ipamorelin Explained
+8. MOTS-c Research Review
+9. Epitalon Research Review
+10. Peptides vs Nootropics
+
+#### Second-wave peptide articles
+
+Only after the first cluster is indexed and internally linked:
+
+- BPC-157 vs TB-500
+- Semax vs Selank
+- Peptides for Recovery: Evidence vs Hype
+- Peptides for Cognition: Evidence vs Hype
+- Peptides for Longevity: What Is Actually Known
+- GLP-1 Peptides Explained
+- Peptide Legality and Safety Basics
+
+#### Peptide editorial template
+
+Every peptide article should include:
+
+1. Quick summary
+2. What it is
+3. Why people are searching for it
+4. Evidence map: human, animal, in vitro, anecdotal
+5. Safety concerns
+6. Regulatory status / not medical advice
+7. What claims are overhyped
+8. Safer or better-studied alternatives
+9. FAQ
+10. References
+
+#### Peptide monetization rule
+
+Do not rush affiliate monetization on peptides. Prioritize email capture and trust first.
+
+Recommended CTA:
+
+```text
+Get the peptide research checklist: how to separate evidence from hype.
 ```
 
-- Single `<script type="application/ld+json">` per page
-- `@context: https://schema.org`
-- `@graph: [...]` with stable `@id` URLs:
-  - `{canonical}#webpage`
-  - `{canonical}#breadcrumb`
-  - `{canonical}#faq` (if visible FAQ)
-  - `{canonical}#product` (if affiliate product visible)
-  - `{canonical}#offers` (nested under Product)
+Avoid CTAs like:
 
-**Linking pattern:**
-
-```json
-{
-  "@type": "MedicalWebPage",
-  "@id": "https://thehippiescientist.net/herbs/ashwagandha/#webpage",
-  "breadcrumb": { "@id": "https://thehippiescientist.net/herbs/ashwagandha/#breadcrumb" },
-  "mainEntity": { "@id": "https://thehippiescientist.net/herbs/ashwagandha/#product" }
-}
+```text
+Buy BPC-157 here
+Best peptide vendor
+Start this peptide stack
 ```
 
-### 3.2 Page rollout (priority templates)
+---
 
-| Template | Graph nodes |
-|----------|-------------|
-| `app/herbs/[slug]/page.tsx` | MedicalWebPage, BreadcrumbList, Product+Offer (if affiliate visible), FAQPage (if on-page FAQ added later) |
-| `app/compounds/[slug]/page.tsx` | Same |
-| `app/goals/[goal]/page.tsx` | CollectionPage or MedicalWebPage, BreadcrumbList, FAQPage (visible FAQ from `data/goal-content.ts`), ItemList |
-| `app/safety-checker/page.tsx` | MedicalWebPage + Breadcrumb (migrate off duplicate AuthorityJsonLd scripts) |
-| `app/compare/page.tsx` | CollectionPage + Breadcrumb (lightweight) |
+### Pillar 5 — Adaptogens and Herbs
 
-**Merge** multiple inline scripts into one graph component:
+**Role:** Existing brand identity and supporting evidence base.  
+**Business purpose:** Support nootropics, sleep, anxiety, stress, and affiliate articles.
 
-**New:** `components/seo/SchemaGraphScript.tsx` — accepts graph object, renders one script tag.
+#### Priority herbs
 
-### 3.3 Product + Offer + AggregateRating policy
+- Ashwagandha
+- Rhodiola
+- Passionflower
+- Kava
+- Lemon Balm
+- Valerian
+- Bacopa
+- Lion's Mane
+- Panax Ginseng
+- Ginkgo Biloba
+- Saffron
+- Lavender
 
-| Field | Rule |
-|-------|------|
-| `Product` | Only when affiliate CTA block is rendered (same condition as today `productJsonLd`) |
-| `Offer` | `url` = affiliate URL; `availability` = OnlineOnly; no fake price |
-| `AggregateRating` | **Emit only if** `product.rating` is rendered in visible UI (`AffiliateProductCard` shows rating). Include `ratingValue`, `bestRating: 5`, `ratingCount` **only if** we have real count from data (otherwise omit AggregateRating entirely) |
+#### Content types
 
-**Never** add ratings to goal/herb pages without visible stars.
+- single-herb evidence reviews
+- comparison articles
+- safety-first buyer guides
+- “best herbs for X” articles
+- internal links into database profiles
 
-### 3.4 Root layout
+#### Cleanup priority
 
-- Keep global `WebSite` + `Organization` as separate minimal scripts OR fold into a site-wide graph on homepage only — avoid duplicating Organization on every page (optional cleanup: Organization once in layout, page-specific graph excludes duplicate WebSite).
+Legacy guide content must be cleaned before expanding. Any pasted-chat artifacts, duplicate scaffolds, “copy and paste” text, or unfinished assistant-style chunks should be removed.
+
+Recently cleaned examples:
+
+- Passionflower guide
+- Kava guide
+- Ashwagandha guide
 
 ---
 
-## Phase 4 — Preserve conversion & affiliate (regression guard)
+## 90-Day Content Production Roadmap
 
-No changes to:
+### Phase 1 — Consolidate the current ADHD/focus cluster
 
-- `config/affiliate.ts`, `config/revenue-products.ts`
-- `SafetyChecklistPromo`, `StickyChecklistBar`, `GoalTopAffiliatePicks`, `ProductTrustAffiliate`
-- `content/emailCapture.ts` provider wiring
+Goal: make the existing cluster coherent, internally linked, and ready for validation.
 
-**Verify after implementation:**
+#### Tasks
 
-- Affiliate links retain `rel="nofollow sponsored noopener noreferrer"`
-- `trackRevenueEvent` still fires on product clicks
-- Goal pages still show 2–4 affiliate picks
+- Run validation after recent related-link and guide cleanup work.
+- Resolve TODO markers in Focus/ADHD source articles.
+- Add missing ADHD article routes or remove planned slugs from taxonomy.
+- Finish at least four missing ingredient articles:
+  - L-Tyrosine and ADHD
+  - Alpha-GPC and ADHD
+  - Citicoline for ADHD
+  - Rhodiola Rosea and ADHD
+
+#### Success criteria
+
+- Cluster has no visible editorial artifacts.
+- Related links do not point to unpublished routes.
+- All articles link back to the ADHD supplements hub.
+- Google Search Console shows impressions for ADHD/focus queries.
 
 ---
 
-## File touch list (implementation preview)
+### Phase 2 — Launch nootropics hub
 
+Goal: turn Focus/ADHD momentum into a broader nootropics cluster.
+
+#### Build first
+
+1. Beginner's Guide to Nootropics
+2. Best Nootropics for Focus
+3. Nootropics for ADHD
+4. Best Nootropics for Brain Fog
+5. Choline Supplements Compared
+6. Nootropic Safety Guide
+
+#### Then build
+
+- Best Nootropic Stacks
+- Best Stimulant-Free Nootropics
+- Best Nootropics for Memory
+- Natural vs Synthetic Nootropics
+
+#### Success criteria
+
+- New `/guides/nootropics/` or equivalent hub exists.
+- At least six supporting articles published.
+- ADHD and nootropics clusters cross-link both ways.
+- Email capture exists for “Focus Stack Checklist” or “Nootropic Safety Checklist.”
+
+---
+
+### Phase 3 — Launch peptide research pillar
+
+Goal: capture peptide trend traffic safely.
+
+#### Build first
+
+1. Beginner's Guide to Peptides
+2. Peptide Safety Guide
+3. BPC-157 Research Review
+4. TB-500 Research Review
+5. Semax Research Review
+6. Selank Research Review
+7. Peptides vs Nootropics
+
+#### Required safety rules
+
+- No dosing protocols.
+- No injection instructions.
+- No vendor recommendations.
+- No disease-treatment claims.
+- Every article distinguishes human evidence from animal/preclinical evidence.
+
+#### Success criteria
+
+- Peptide hub has clear safety framing.
+- No article looks like a protocol page.
+- Email CTA captures peptide-curious readers.
+- Peptide pages link to safer, better-studied alternatives where relevant.
+
+---
+
+### Phase 4 — Sleep and recovery expansion
+
+Goal: connect nootropics, ADHD, adaptogens, and peptides through sleep/recovery intent.
+
+#### Build first
+
+- Best Supplements for Sleep
+- Magnesium Types for Sleep
+- L-Theanine for Sleep
+- Glycine for Sleep
+- Melatonin Guide
+- Apigenin for Sleep
+
+#### Success criteria
+
+- Sleep pages link into ADHD, nootropics, and adaptogen articles.
+- Affiliate product cards are present where appropriate.
+- Medical cautions are clear for sedatives, children, pregnancy, and medication interactions.
+
+---
+
+## Article Quality Rules
+
+### Required for every article
+
+- Clear H1
+- Short evidence snapshot
+- Practical summary table when useful
+- Conservative medical disclaimer
+- Human evidence separated from animal/preclinical evidence
+- Safety section
+- FAQ section where search intent supports it
+- Internal links to hub and related articles
+- References or source notes
+
+### Forbidden patterns
+
+- Pasted assistant text
+- “Here is the article”
+- “copy and paste”
+- “next chunk”
+- “part 1 of 3”
+- TODO markers in rendered content
+- fake certainty
+- fake dosing precision
+- product/vendor claims not grounded in source data
+
+### Medical language policy
+
+Use:
+
+- “may support”
+- “has been studied for”
+- “evidence suggests”
+- “limited human evidence”
+- “not a replacement for medical care”
+
+Avoid:
+
+- “treats”
+- “cures”
+- “heals”
+- “fixes”
+- “safe for everyone”
+- “no side effects”
+- “best protocol”
+
+---
+
+## Monetization Strategy
+
+### Primary monetization paths
+
+1. Affiliate product cards for low-risk supplement categories.
+2. Email capture around checklists and research guides.
+3. Comparison articles that help users choose between products or categories.
+4. Long-term productized research tools, not quick low-quality ads.
+
+### Best lead magnets
+
+- ADHD Supplement Checklist
+- Focus Stack Checklist
+- Nootropic Safety Checklist
+- Sleep Supplement Checklist
+- Peptide Research Literacy Checklist
+
+### What not to monetize aggressively
+
+- Peptide vendors
+- injection supplies
+- research chemicals
+- unapproved medical protocols
+- anything that makes the site look like a gray-market sourcing guide
+
+---
+
+## Internal Linking Map
+
+### ADHD → Nootropics
+
+Every ADHD focus ingredient should link to nootropic context where appropriate.
+
+Examples:
+
+- Citicoline for ADHD → Choline Supplements Compared
+- Alpha-GPC and ADHD → Citicoline vs Alpha-GPC
+- L-Tyrosine and ADHD → Best Nootropics for Focus
+- Rhodiola and ADHD → Rhodiola vs Ashwagandha
+
+### Nootropics → Sleep
+
+Nootropic articles should link to sleep support when stimulation, caffeine, insomnia, or recovery is relevant.
+
+Examples:
+
+- L-Theanine vs Caffeine → L-Theanine for Sleep
+- Best Nootropic Stacks → Sleep Supplement Guide
+- Brain Fog Guide → Magnesium, sleep, and nutrient deficiency articles
+
+### Nootropics → Peptides
+
+Use careful comparison pages, not protocols.
+
+Examples:
+
+- Peptides vs Nootropics
+- Semax vs traditional nootropics
+- Selank vs L-Theanine
+- Cognitive peptides: evidence vs hype
+
+### Peptides → Safer Alternatives
+
+Every peptide article should offer safer, better-studied alternatives where applicable.
+
+Examples:
+
+- BPC-157 → collagen, creatine, protein, sleep, physical therapy context
+- Semax → citicoline, caffeine/L-theanine, sleep, ADHD evaluation context
+- Selank → L-theanine, magnesium, ashwagandha, anxiety-care context
+
+---
+
+## Immediate Backlog
+
+### P0 — This week
+
+- Run validation for recent content cleanup commits.
+- Finish cleaning obvious legacy pasted-chat artifacts.
+- Resolve Focus/ADHD TODO evidence markers.
+- Build missing ADHD ingredient pages.
+- Confirm related links do not point at unpublished slugs.
+
+### P1 — Next
+
+- Create Nootropics hub.
+- Publish first six nootropic support articles.
+- Add nootropic internal-link blocks to ADHD articles.
+- Create Focus Stack Checklist lead magnet.
+
+### P2 — After Nootropics Hub
+
+- Create Peptides hub.
+- Publish peptide safety guide.
+- Publish BPC-157, TB-500, Semax, and Selank research reviews.
+- Add peptide research literacy email CTA.
+
+### P3 — Ongoing
+
+- Expand sleep articles.
+- Keep affiliate CTAs conservative and useful.
+- Monitor GSC queries weekly.
+- Update priorities based on impressions and clicks.
+
+---
+
+## Validation Commands
+
+Run after edits:
+
+```bash
+npm run validate:content
+npm run validate:code
+npm run build
 ```
-Phase 1
-├── next.config.mjs                    # confirm images.unoptimized unchanged
-├── app/layout.tsx                     # next/font, remove fontsource CSS imports
-├── components/AffiliateProductCard.tsx
-├── app/safety-checker/page.tsx        # dynamic import
-├── app/compare/page.tsx
-├── app/search/page.tsx
-├── app/start-here/quiz/page.tsx
 
-Phase 2
-├── components/ui/Skeleton.tsx
-├── components/skeletons/*.tsx
-├── components/skeletons/index.ts
-├── app/compare/loading.tsx
-├── app/safety-checker/loading.tsx
-├── app/search/loading.tsx
-├── app/start-here/quiz/loading.tsx
+If build time is limited, minimum local check for content-only commits:
 
-Phase 3
-├── src/lib/schema-graph.ts
-├── components/seo/SchemaGraphScript.tsx
-├── app/herbs/[slug]/page.tsx
-├── app/compounds/[slug]/page.tsx
-├── app/goals/[goal]/page.tsx
-├── app/safety-checker/page.tsx
+```bash
+npm run typecheck
+npm run validate:content
 ```
 
-**Not modified:** `data-sources/*`, `public/data/workbook-*.json` (hand-edit forbidden), route slug contracts.
-
 ---
 
-## Testing & validation (post-implementation)
+## Historical Technical Plan Note
 
-1. `npm run validate:static-export` (or full `npm run check:ui`)
-2. `npm run build` — must complete; inspect `out/` for `loading.html` siblings where added
-3. `npx serve out` — manual check: compare, safety-checker, goals/sleep, herbs/ashwagandha
-4. [PageSpeed Insights](https://pagespeed.web.dev/) — mobile homepage, `/goals/sleep/`, `/safety-checker/`, herb profile
-5. [Google Rich Results Test](https://search.google.com/test/rich-results) — goal FAQ, herb profile graph
-6. [Schema Markup Validator](https://validator.schema.org/) — confirm single graph, no orphan nodes
-7. `npm run audit:structured-data` (existing CI script) if present in workflow
-8. Affiliate smoke test — one Amazon link click tracking in network tab
-
----
-
-## Risks & mitigations
-
-| Risk | Mitigation |
-|------|------------|
-| Larger graph JSON on every page | One script tag vs many; keep graph lean |
-| Dynamic import flash on slow devices | Static shell + skeleton + server-rendered hero text |
-| `loading.tsx` build size | Only on 4 tool routes |
-| Font shift after next/font | Match current weights (400/600/700) and variable axes |
-| Breaking Suspense on static export | Test `out/` navigation locally |
-
----
-
-## Implementation order (after approval)
-
-1. Phase 1.1 Fonts (`next/font`)
-2. Phase 1.2 Image component
-3. Phase 2 Skeletons + Suspense/dynamic on tools
-4. Phase 3 Schema graph (herb → compound → goal → tools)
-5. Phase 1.3b Optional layout deferrals (CitationDrawer)
-6. Full build + audits
-
----
-
-## Approval checklist
-
-Please confirm:
-
-1. ✅ Proceed with **`next/font`** replacing `@fontsource` CSS imports?
-2. ✅ **`images.unoptimized: true`** stays (Next/Image for layout only)?
-3. ✅ **`AggregateRating` omitted** unless product rating is visible (recommended)?
-4. ✅ Add **`loading.tsx`** on compare / safety-checker / search / quiz only?
-5. ✅ Consolidate JSON-LD to **`@graph`** on herb, compound, goal, safety-checker first?
-
-Reply **approved** (with any edits) to begin implementation with per-file diffs.
-
----
-
-## 2026-06-05 Post-Audit Upgrades & Fixes Activation (auto-approved)
-Per user: "once audit finishes, auto approve and commence fixes and updates. commit merge and pull when done."
-
-Full plan + audit findings + APPROVED marker in session plan file (outside tree for this worktree session). 
-
-**Activated (surgical, AGENTS.md compliant):**
-- Phase 1 Data/Pipeline: issues.csv dry-run reviewed (61 SKIP-REFERENCED by ref checks; 0 net change applied conservatively), guard extended to whitelist cleanup process, Pagefind wired to orchestrate-build + build-deploy (cross-plat script fix), validation-report checklist completed, docs/data-pipeline.md updated.
-- fontsource prune: already absent.
-- Later phases per plan (legacy src audit/deletes, /about E-E-A-T polish, linking, content lean updates) with full re-validation after each.
-- All changes: minimal, run `npm run data:build` (no xlsx touch) + guard + verify-redirects/core + check + build + a11y + audits after edits. No manual public/data, preserve routes, static export.
-
-See: docs/internal/validation-report.md (updated), audit-execution.log, session plan.md. Commit will reference this + plan.
-
-Status: In progress (this activation); final commit/merge/pull at end.
+The previous `PLAN.md` content focused on Core Web Vitals, schema graph work, Suspense/skeleton UX, and static-export technical constraints. That plan is treated as historical/superseded unless reopened deliberately. Current execution priority is now content-market fit: Focus/ADHD, nootropics, sleep, and a carefully controlled peptide research pillar.
