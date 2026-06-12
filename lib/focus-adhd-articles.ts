@@ -202,10 +202,12 @@ const sectionValue = (raw: string, heading: string) => {
   return match?.[1]?.trim()
 }
 
+const editorialMarkerPattern = /^\s*(?:[-*]\s*)?(?:\[\s*)?(?:TODO|FIXME|TBD|PLACEHOLDER|DRAFT NOTE|EDITOR NOTE)(?:\s*\])?\s*(?::|-|—|–)?/i
+
 const removeEditorialScaffold = (raw: string) =>
   raw
     .split(/\r?\n/)
-    .filter((line) => !/^TODO:/i.test(line.trim()))
+    .filter((line) => !editorialMarkerPattern.test(line))
     .filter((line) => !/TODO markers/i.test(line))
     .join('\n')
     .trim()
@@ -245,4 +247,3 @@ export function getFocusAdhdArticle(slug: string) {
     body: removeEditorialScaffold(body),
   }
 }
-
