@@ -3,6 +3,40 @@ import { isRestrictedIngredient, isRestrictedRecord } from '@/lib/restricted-ing
 
 export const AMAZON_ASSOCIATE_ID = 'razzleberry02-20'
 
+export function extractUrlString(value: unknown): string {
+  if (!value) return ''
+  if (typeof value === 'string') return value.trim()
+  if (typeof value === 'object') {
+    const obj = value as Record<string, unknown>
+    const url = obj.hyperlink ?? obj.url ?? obj.value ?? obj.text
+    if (typeof url === 'string') return url.trim()
+  }
+  return String(value).trim()
+}
+
+export function ensureAmazonAffiliateTag(url: string): string {
+  if (!url) return ''
+  if (!url.includes('amazon.com') && !url.includes('amazon.co.uk')) {
+    return url
+  }
+  
+  try {
+    const urlObj = new URL(url)
+    const tag = urlObj.searchParams.get('tag')
+    if (tag !== AMAZON_ASSOCIATE_ID) {
+      urlObj.searchParams.set('tag', AMAZON_ASSOCIATE_ID)
+    }
+    return urlObj.toString()
+  } catch {
+    if (url.includes('tag=')) {
+      return url.replace(/tag=[^&]+/g, `tag=${AMAZON_ASSOCIATE_ID}`)
+    } else {
+      const separator = url.includes('?') ? '&' : '?'
+      return `${url}${separator}tag=${AMAZON_ASSOCIATE_ID}`
+    }
+  }
+}
+
 type AffiliateSearchLink = {
   label: string
   url: string
@@ -48,7 +82,8 @@ export function getAffiliateShopLinks(item: any, fallbackName: string, kind: 'he
   if (isRestrictedIngredient(query)) return []
   if (!isClean(query)) return []
 
-  const curatedUrl = text(item.amazon_affiliate_url) || text(item.affiliate_url) || text(item.product_url)
+  const rawUrl = extractUrlString(item.amazon_affiliate_url) || extractUrlString(item.affiliate_url) || extractUrlString(item.product_url)
+  const curatedUrl = ensureAmazonAffiliateTag(rawUrl)
   if (isRestrictedIngredient(curatedUrl)) return []
 
   if (curatedUrl) {

@@ -1,5 +1,5 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { canRenderAffiliateLinks } from '@/lib/affiliate'
+import { canRenderAffiliateLinks, extractUrlString, ensureAmazonAffiliateTag } from '@/lib/affiliate'
 import { text } from '@/lib/display-utils'
 import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
 
@@ -13,7 +13,8 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
   if (!canRenderAffiliateLinks(record) || isRestrictedIngredient(displayName)) return null
 
   // 1. Affiliate-ready detection
-  const directUrl = text(record?.amazon_affiliate_url || record?.affiliate_url)
+  const rawUrl = extractUrlString(record?.amazon_affiliate_url || record?.affiliate_url)
+  const directUrl = ensureAmazonAffiliateTag(rawUrl)
   const affiliateQuery = text(record?.affiliate_query) || displayName
 
   const isAffiliateReady = !!(directUrl || affiliateQuery)
@@ -21,11 +22,6 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
   // 2. Safe source link display
   const getUrl = () => {
     if (directUrl) {
-      // If it is already an Amazon link, make sure it has the affiliate tag
-      if (directUrl.includes('amazon.com') && !directUrl.includes('tag=')) {
-        const separator = directUrl.includes('?') ? '&' : '?'
-        return `${directUrl}${separator}tag=${AFFILIATE_TAGS.amazon}`
-      }
       return directUrl
     }
 

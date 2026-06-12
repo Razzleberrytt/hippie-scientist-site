@@ -6,7 +6,12 @@ import Fuse from 'fuse.js'
 import compoundsSummaryData from '@/public/data/compounds-summary.json'
 import herbsSummaryData from '@/public/data/herbs-summary.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
-import DosingSafetyChecker from '@/components/search/DosingSafetyChecker'
+import dynamic from 'next/dynamic'
+
+const DosingSafetyChecker = dynamic(
+  () => import('@/components/search/DosingSafetyChecker'),
+  { ssr: false }
+)
 import { ShieldAlert } from 'lucide-react'
 import clsx from 'clsx'
 import {

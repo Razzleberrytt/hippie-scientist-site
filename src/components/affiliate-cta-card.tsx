@@ -1,5 +1,5 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { canRenderAffiliateLinks } from '@/lib/affiliate'
+import { canRenderAffiliateLinks, extractUrlString, ensureAmazonAffiliateTag } from '@/lib/affiliate'
 import { list, text } from '@/lib/display-utils'
 import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
 
@@ -14,11 +14,13 @@ function getAffiliateUrl(record: any, displayName: string): string {
   if (!canRenderAffiliateLinks(record) || isRestrictedIngredient(displayName)) return ''
 
   // Prefer a direct product URL if available
-  const direct = text(record?.amazon_affiliate_url)
+  const rawDirect = extractUrlString(record?.amazon_affiliate_url)
+  const direct = ensureAmazonAffiliateTag(rawDirect)
   if (direct && direct.includes('amazon.com/dp/')) return direct
 
   // Prefer the pre-built affiliate URL if it's an Amazon URL (not a generic search category)
-  const prebuilt = text(record?.affiliate_url)
+  const rawPrebuilt = extractUrlString(record?.affiliate_url)
+  const prebuilt = ensureAmazonAffiliateTag(rawPrebuilt)
   if (prebuilt && prebuilt.includes('amazon.com') && prebuilt.includes('tag=')) {
     return prebuilt
   }
