@@ -1,7 +1,7 @@
 ---
-title: "Zinc and ADHD: What the Research Shows About Symptoms, Deficiency, Supplementation, and Cognitive Function"
-seoTitle: "Zinc and ADHD: What the Research Shows About Symptoms, Deficiency, Supplementation, and Cognitive Function"
-metaDescription: "Evidence-based review of zinc and ADHD. Covers zinc deficiency, hyperactivity, inattention, impulsivity, stimulant response, dosing, safety, copper balance, and realistic expectations."
+title: "Zinc and ADHD: Deficiency, Hyperactivity, Attention, and Supplementation"
+seoTitle: "Zinc and ADHD: Deficiency, Hyperactivity, Attention, and Supplementation"
+metaDescription: "Evidence-based review of zinc and ADHD. Covers deficiency, hyperactivity, attention, stimulant response, dosing, safety, and copper balance."
 primaryKeyword: "zinc ADHD"
 secondaryKeywords:
   - "zinc for ADHD"

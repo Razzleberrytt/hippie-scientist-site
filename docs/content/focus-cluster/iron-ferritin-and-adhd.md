@@ -1,7 +1,7 @@
 ---
-title: "Iron/Ferritin and ADHD: What the Research Shows About Dopamine, Deficiency, Attention, Hyperactivity, Sleep, and Supplementation"
-seoTitle: "Iron/Ferritin and ADHD: What the Research Shows About Dopamine, Deficiency, Attention, Hyperactivity, Sleep, and Supplementation"
-metaDescription: "Evidence-based review of iron, ferritin, and ADHD. Covers dopamine production, deficiency, restless sleep, symptom severity, supplementation studies, dosing, safety, testing, and realistic expectations."
+title: "Iron/Ferritin and ADHD: Low Ferritin, Dopamine, Sleep, and Supplementation"
+seoTitle: "Iron/Ferritin and ADHD: Low Ferritin, Dopamine, Sleep, and Supplementation"
+metaDescription: "Evidence-based review of iron, ferritin, and ADHD. Covers low ferritin, dopamine, restless sleep, testing, supplementation, and iron safety."
 primaryKeyword: "iron ferritin ADHD"
 secondaryKeywords:
   - "iron for ADHD"

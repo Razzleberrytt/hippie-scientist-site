@@ -10,11 +10,11 @@ Version: 1
 
 ## SEO Title
 
-Nutrient Deficiencies and ADHD: What the Research Shows
+Nutrient Deficiencies and ADHD: Iron, Zinc, Vitamin D, Magnesium, and Omega-3
 
 ## Meta Description
 
-Evidence-based review of nutrient deficiencies linked to ADHD. Examines magnesium, iron, zinc, vitamin D, omega-3 status, testing considerations, supplementation evidence, and practical guidance for children and adults.
+Evidence-based guide to nutrient deficiencies linked with ADHD symptoms, including ferritin, zinc, vitamin D, magnesium, omega-3, and testing.
 
 ## Primary Keyword
 

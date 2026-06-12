@@ -1,7 +1,7 @@
 ---
-title: "Vitamin D and ADHD"
-seoTitle: "Vitamin D and ADHD: Deficiency, Symptoms, Testing, and Supplementation"
-metaDescription: "Evidence-based guide to vitamin D and ADHD. Learn what studies show about deficiency, inattention, mood, sleep, testing, supplementation, safety, and realistic expectations."
+title: "Vitamin D and ADHD: Deficiency, Symptoms, Mood, Sleep, and Supplementation"
+seoTitle: "Vitamin D and ADHD: Deficiency, Symptoms, Mood, Sleep, and Supplementation"
+metaDescription: "Evidence-based review of vitamin D and ADHD. Covers deficiency, symptom severity, mood, sleep, testing, dosing, safety, and realistic expectations."
 slug: "vitamin-d-and-adhd"
 primaryKeyword: "vitamin D ADHD"
 secondaryKeywords:

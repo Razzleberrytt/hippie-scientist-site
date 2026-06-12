@@ -1,7 +1,7 @@
 ---
-title: "Omega-3 and ADHD: What the Research Shows About EPA, DHA, Symptoms, and Supplementation"
-seoTitle: "Omega-3 and ADHD: What the Research Shows About EPA, DHA, Symptoms, and Supplementation"
-metaDescription: "Evidence-based review of omega-3 and ADHD. Covers EPA, DHA, symptom severity, inattention, hyperactivity, impulsivity, dosing, safety, and realistic expectations as adjunctive support."
+title: "Omega-3 and ADHD: EPA, DHA, Symptoms, Dosing, and Fish Oil Quality"
+seoTitle: "Omega-3 and ADHD: EPA, DHA, Symptoms, Dosing, and Fish Oil Quality"
+metaDescription: "Evidence-based review of omega-3 and ADHD. Covers EPA, DHA, symptom research, dosing, fish oil quality, safety, and realistic expectations."
 primaryKeyword: "omega-3 ADHD"
 secondaryKeywords:
   - "omega-3 for ADHD"

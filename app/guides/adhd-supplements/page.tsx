@@ -4,8 +4,8 @@ import { buildPageMetadata } from '@/lib/seo'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 
 const SLUG = 'adhd-supplements'
-const TITLE = 'Evidence-Based ADHD Supplements: A Practical Science-Backed Guide'
-const DESCRIPTION = 'A complete guide to supplements discussed for ADHD symptoms. Reviews evidence hierarchy (melatonin, magnesium, omega-3, zinc, iron, L-theanine, citicoline, ashwagandha, caffeine).'
+const TITLE = 'ADHD Supplements Guide: Evidence, Safety, Testing, and Practical Use'
+const DESCRIPTION = 'Start here for evidence-based ADHD supplement guidance, including nutrient deficiencies, sleep support, focus stacks, safety, and testing.'
 
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,

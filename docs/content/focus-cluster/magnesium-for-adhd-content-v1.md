@@ -10,11 +10,11 @@ Version: 1
 
 ## SEO Title
 
-Magnesium for ADHD: Forms, Evidence, Dosage, and Practical Use
+Magnesium for ADHD: Evidence, Forms, Sleep, Calm, and Practical Use
 
 ## Meta Description
 
-Evidence-based review of magnesium for ADHD-related symptoms. Covers magnesium deficiency, forms like glycinate and threonate, pediatric and adult evidence, sleep, hyperactivity, emotional regulation, dosing, safety, and testing.
+Evidence-based guide to magnesium and ADHD. Covers forms, sleep, calm focus, deficiency, dosing, safety, and realistic expectations.
 
 ## Primary Keyword
 

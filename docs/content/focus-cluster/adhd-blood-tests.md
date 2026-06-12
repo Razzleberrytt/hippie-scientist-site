@@ -1,7 +1,7 @@
 ---
-title: "ADHD Blood Tests Guide: What Labs Matter and Why"
+title: "ADHD Blood Tests Guide: Ferritin, Vitamin D, Zinc, Magnesium, Thyroid, and B12"
 seoTitle: "ADHD Blood Tests Guide: Ferritin, Vitamin D, Zinc, Magnesium, Thyroid, and B12"
-metaDescription: "Evidence-based guide to ADHD blood tests. Learn which labs may help identify nutrient deficiencies, sleep-related contributors, thyroid issues, anemia, and other factors that can worsen attention, mood, fatigue, or treatment response."
+metaDescription: "Learn which blood tests may reveal nutrient, thyroid, or anemia issues that can worsen focus, sleep, fatigue, mood, or ADHD-like symptoms."
 primaryKeyword: "ADHD blood tests"
 secondaryKeywords:
   - "blood tests for ADHD"

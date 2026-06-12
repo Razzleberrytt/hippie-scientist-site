@@ -10,11 +10,11 @@ Version: 2
 
 ## SEO Title
 
-ADHD Stack Guide: Building an Evidence-Based Approach to Focus, Sleep, and Emotional Regulation
+ADHD Stack Guide: Evidence-Based Supplement Combinations for Focus, Sleep, and Support
 
 ## Meta Description
 
-Evidence-based guide to building an ADHD supplement stack. Reviews magnesium, L-theanine, omega-3, ashwagandha, melatonin, citicoline, and Alpha-GPC with practical frameworks, safety considerations, and realistic expectations.
+Learn how to build safer ADHD supplement stacks with evidence-based combinations, deficiency checks, medication cautions, and realistic expectations.
 
 ## Primary Keyword
 

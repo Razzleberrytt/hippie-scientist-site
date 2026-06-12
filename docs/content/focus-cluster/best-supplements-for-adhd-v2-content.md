@@ -10,11 +10,11 @@ Version: 2
 
 ## SEO Title
 
-Best Supplements for ADHD: Evidence-Based Options for Focus, Sleep, and Emotional Regulation
+Best Supplements for ADHD: Evidence-Based Options for Focus, Sleep, and Nutrient Support
 
 ## Meta Description
 
-Comprehensive evidence-based review of supplements commonly discussed for ADHD, including omega-3, magnesium, L-theanine, melatonin, ashwagandha, citicoline, Alpha-GPC, zinc, iron, and vitamin D.
+Compare ADHD supplements by evidence, safety, and use case. Covers omega-3, magnesium, zinc, iron, vitamin D, L-theanine, citicoline, and more.
 
 ## Primary Keyword
 
