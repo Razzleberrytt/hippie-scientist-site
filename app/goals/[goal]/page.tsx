@@ -21,6 +21,7 @@ import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffilia
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
+import { getGoalCluster } from '@/lib/goal-clusters'
 
 import GoalDecisionExperience from './GoalDecisionExperience'
 import GoalHubSections from '@/components/goals/GoalHubSections'
@@ -199,6 +200,35 @@ function goalCaptureGoal(slug: string): EmailCaptureGoal {
   return allowed.includes(slug as EmailCaptureGoal) ? (slug as EmailCaptureGoal) : 'default'
 }
 
+function SleepClusterLinks() {
+  const sleepCluster = getGoalCluster('sleep')
+  if (!sleepCluster) return null
+
+  return (
+    <section className="rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
+      <p className="eyebrow-label">Sleep article cluster</p>
+      <h2 className="mt-2 text-xl font-semibold text-ink">Read the practical sleep supplement guides</h2>
+      <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
+        Use the cornerstone first, then compare the focused magnesium, melatonin, L-theanine, and stack guides.
+      </p>
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {sleepCluster.articles.map((article) => (
+          <Link
+            key={article.slug}
+            href={`/articles/${article.slug}/`}
+            className="rounded-2xl border border-brand-900/10 bg-white/75 p-4 text-sm transition hover:border-brand-700/20 hover:bg-white"
+          >
+            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-700">
+              {article.kind.replace('-', ' ')}
+            </span>
+            <span className="mt-1 block font-semibold text-ink">{article.title}</span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 export default async function GoalDecisionPage({
   params,
 }: {
@@ -303,6 +333,8 @@ export default async function GoalDecisionPage({
       </section>
 
       <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="hero" />
+
+      {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
 
       {goal.slug === 'focus' ? (
         <SeeAlsoInCluster currentPath="/goals/focus" />
