@@ -18,22 +18,96 @@ type Block =
   | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'hr' }
 
-const relatedLinks = [
-  ['best-supplements-for-adhd', 'Best Supplements for ADHD'],
-  ['adhd-stack-guide', 'ADHD Stack Guide'],
-  ['sleep-and-adhd', 'Sleep and ADHD'],
-  ['nutrient-deficiencies-and-adhd', 'Nutrient Deficiencies and ADHD'],
-  ['adhd-blood-tests', 'ADHD Blood Tests Guide'],
-  ['magnesium-for-adhd', 'Magnesium for ADHD'],
-  ['l-theanine-for-adhd', 'L-Theanine for ADHD'],
-  ['melatonin-for-adhd-sleep', 'Melatonin for ADHD Sleep'],
-  ['omega-3-and-adhd', 'Omega-3 and ADHD'],
-  ['zinc-and-adhd', 'Zinc and ADHD'],
-  ['iron-ferritin-and-adhd', 'Iron, Ferritin, and ADHD'],
-  ['vitamin-d-and-adhd', 'Vitamin D and ADHD'],
-  ['ashwagandha-for-adhd', 'Ashwagandha for ADHD'],
-  ['citicoline-vs-alpha-gpc', 'Citicoline vs Alpha-GPC'],
-] as const
+type RelatedLink = {
+  href: string
+  label: string
+  eyebrow: string
+}
+
+const focusArticleSlugs = new Set(focusAdhdArticles.map((article) => article.slug))
+
+function articleLink(slug: string, label: string, eyebrow: string): RelatedLink {
+  return {
+    href: focusArticleSlugs.has(slug) ? `/articles/${slug}/` : `/articles/${slug}/`,
+    label,
+    eyebrow,
+  }
+}
+
+function routeLink(href: string, label: string, eyebrow: string): RelatedLink {
+  return { href, label, eyebrow }
+}
+
+const deficiencyArticleSlugs = new Set([
+  'iron-ferritin-and-adhd',
+  'vitamin-d-and-adhd',
+  'zinc-and-adhd',
+  'magnesium-for-adhd',
+  'omega-3-and-adhd',
+  'nutrient-deficiencies-and-adhd',
+  'adhd-blood-tests',
+])
+
+const sleepCalmArticleSlugs = new Set([
+  'sleep-and-adhd',
+  'l-theanine-for-adhd',
+  'melatonin-for-adhd-sleep',
+  'ashwagandha-for-adhd',
+  'magnesium-for-adhd',
+])
+
+const cognitiveFocusArticleSlugs = new Set([
+  'citicoline-vs-alpha-gpc',
+  'l-theanine-vs-caffeine-for-focus',
+  'l-tyrosine-and-adhd',
+  'alpha-gpc-and-adhd',
+  'citicoline-for-adhd',
+  'rhodiola-rosea-and-adhd',
+])
+
+function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
+  const links: RelatedLink[] = [
+    routeLink('/guides/adhd-supplements/', 'ADHD Supplements Guide', 'Start here'),
+    articleLink('best-supplements-for-adhd', 'Best Supplements for ADHD', 'Core guide'),
+    articleLink('adhd-stack-guide', 'ADHD Stack Guide', 'Stack guide'),
+  ]
+
+  if (deficiencyArticleSlugs.has(slug)) {
+    links.push(
+      articleLink('nutrient-deficiencies-and-adhd', 'Nutrient Deficiencies and ADHD', 'Deficiency guide'),
+      articleLink('adhd-blood-tests', 'ADHD Blood Tests Guide', 'Testing guide'),
+      articleLink('iron-ferritin-and-adhd', 'Iron/Ferritin and ADHD', 'Iron status'),
+      articleLink('vitamin-d-and-adhd', 'Vitamin D and ADHD', 'Vitamin D'),
+      articleLink('zinc-and-adhd', 'Zinc and ADHD', 'Mineral guide'),
+      articleLink('magnesium-for-adhd', 'Magnesium for ADHD', 'Mineral guide'),
+      articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),
+    )
+  } else if (sleepCalmArticleSlugs.has(slug)) {
+    links.push(
+      articleLink('sleep-and-adhd', 'Sleep and ADHD', 'Sleep guide'),
+      articleLink('melatonin-for-adhd-sleep', 'Melatonin for ADHD Sleep', 'Sleep timing'),
+      articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
+      articleLink('magnesium-for-adhd', 'Magnesium for ADHD', 'Calm support'),
+      routeLink('/articles/l-theanine-for-sleep/', 'L-Theanine for Sleep', 'Sleep guide'),
+      routeLink('/articles/magnesium-types-for-sleep/', 'Magnesium Types for Sleep', 'Sleep guide'),
+      routeLink('/articles/best-herbs-for-sleep/', 'Best Herbs for Sleep', 'Sleep guide'),
+    )
+  } else if (cognitiveFocusArticleSlugs.has(slug)) {
+    links.push(
+      articleLink('adhd-stack-guide', 'ADHD Stack Guide', 'Stack guide'),
+      articleLink('best-supplements-for-adhd', 'Best Supplements for ADHD', 'Core guide'),
+      articleLink('citicoline-vs-alpha-gpc', 'Citicoline vs Alpha-GPC', 'Choline comparison'),
+      articleLink('l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine for Focus', 'Focus comparison'),
+      articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
+      articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),
+    )
+  }
+
+  const seen = new Set<string>()
+  return links
+    .filter((link) => link.href !== `/articles/${slug}/` && !seen.has(link.href) && seen.add(link.href))
+    .slice(0, 8)
+}
 
 function parseBlocks(raw: string): Block[] {
   const lines = raw.split(/\r?\n/)
@@ -219,6 +293,7 @@ export function focusAdhdMetadata(slug: string): Metadata {
 export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
   const article = getFocusAdhdArticle(slug)
   if (!article) notFound()
+  const related = getRelatedFocusAdhdLinks(slug)
 
   const articleLd = blogJsonLd({
     title: article.title,
@@ -277,11 +352,12 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
       </section>
 
       <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-brand-50/70 p-5">
-        <h2 className="text-lg font-semibold tracking-tight text-ink">Related Focus &amp; ADHD guides</h2>
+        <h2 className="text-lg font-semibold tracking-tight text-ink">Related Focus, ADHD &amp; Sleep guides</h2>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {relatedLinks.filter(([relatedSlug]) => relatedSlug !== slug).map(([relatedSlug, label]) => (
-            <Link key={relatedSlug} href={`/articles/${relatedSlug}`} className="rounded-[0.75rem] border border-brand-900/10 bg-white/80 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white">
-              {label}
+          {related.map((link) => (
+            <Link key={link.href} href={link.href} className="rounded-[0.75rem] border border-brand-900/10 bg-white/80 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white">
+              <span className="block text-[0.68rem] font-bold uppercase tracking-wider text-muted">{link.eyebrow}</span>
+              <span className="mt-0.5 block">{link.label}</span>
             </Link>
           ))}
         </div>
