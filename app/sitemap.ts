@@ -4,6 +4,7 @@ import { MetadataRoute } from 'next';
 
 import { SITE_URL } from '@/lib/site';
 import { learnPosts } from './learn/data';
+import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 
 type SitemapSourceItem = {
   slug?: string;
@@ -243,6 +244,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (/draft|archived/i.test(String(status))) return;
 
     addRoute(`/articles/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || post.updatedAt);
+  });
+
+  getAllFocusClusterArticles().forEach((article) => {
+    addRoute(`/${article.slug}`, 'monthly', 0.75, article.dateModified);
   });
 
   // Add App Router article pages not covered by articles.json or blog posts.json

@@ -140,9 +140,9 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         <h1 className="mt-4 heading-premium max-w-4xl">{post.title}</h1>
         <p className="mt-3 text-sm text-muted">
           By{' '}
-          <a href="/about" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/about" rel="author" className="font-medium text-ink hover:underline">
             Will
-          </a>
+          </Link>
         </p>
         <div className="mt-3">
           <LastUpdatedBadge date={post.updatedAt || post.date} label="Last updated" />

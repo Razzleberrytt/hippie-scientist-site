@@ -418,9 +418,9 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
 
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <a href="/about" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/about" rel="author" className="font-medium text-ink hover:underline">
             {article.author}
-          </a>
+          </Link>
         </p>
         <div className="mt-3">
           <LastUpdatedBadge date={article.updatedAt || article.date} label="Last updated" />

@@ -14,6 +14,7 @@ import {
 import { buildPageMetadata, SITE_URL } from '@/lib/seo'
 import { clampPositiveInt } from '@/lib/pagination'
 import { focusAdhdArticleSummaries } from '@/lib/focus-adhd-articles'
+import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Articles',
@@ -25,6 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
 export const dynamic = 'force-static'
 
 const BLOG_PAGE_SIZE = 12
+const rootFocusClusterArticles = getAllFocusClusterArticles()
 
 type ArticleIndexRecord = {
   slug?: string
@@ -120,6 +122,38 @@ function LatestStrip({ posts }: { posts: BlogPost[] }) {
       <div className="grid gap-3 md:grid-cols-3">
         {posts.map((post) => (
           <BlogCard key={post.slug} post={post} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function FocusAdhdRootSection() {
+  if (rootFocusClusterArticles.length === 0) return null
+
+  return (
+    <section className="space-y-3">
+      <div>
+        <p className="eyebrow-label">Focus &amp; ADHD</p>
+        <h2 className="compact-heading">Supplement guides for attention, calm focus, and ADHD-adjacent support.</h2>
+      </div>
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        {rootFocusClusterArticles.map((article) => (
+          <Link
+            key={article.slug}
+            href={`/${article.slug}`}
+            className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm transition hover:border-brand-700/20"
+          >
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
+              Focus &amp; ADHD
+            </p>
+            <h3 className="mt-2 text-lg font-semibold tracking-tight text-ink hover:text-brand-800">
+              {article.title}
+            </h3>
+            <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#46574d]">
+              {article.metaDescription}
+            </p>
+          </Link>
         ))}
       </div>
     </section>
@@ -257,6 +291,8 @@ export default async function BlogPage({
 
       {/* Latest 3 prominently */}
       {!category && latestThree.length > 0 ? <LatestStrip posts={latestThree} /> : null}
+
+      {!category ? <FocusAdhdRootSection /> : null}
 
       {/* Grid + pagination */}
       <section className="space-y-4">

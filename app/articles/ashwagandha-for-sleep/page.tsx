@@ -127,9 +127,9 @@ export default function AshwagandhaForSleepPage() {
 
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <a href="/about" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/about" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
-          </a>
+          </Link>
         </p>
 
         <div className="mt-3">
