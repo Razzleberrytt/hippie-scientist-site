@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { buildPageMetadata } from '@/lib/seo'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
+import { AdhdInlineCta } from '@/components/articles/AdhdMonetizationWidgets'
 
 const SLUG = 'adhd-supplements'
 const TITLE = 'ADHD Supplements Guide: Evidence, Safety, Testing, and Practical Use'
@@ -103,6 +104,8 @@ export default function AdhdSupplementsHub() {
         </div>
       </section>
 
+      <AdhdInlineCta type="checklist" />
+
       {/* Evidence Hierarchy */}
       <section className="space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <h2 className="text-2xl font-bold tracking-tight text-ink">The Evidence Hierarchy</h2>
@@ -149,6 +152,8 @@ export default function AdhdSupplementsHub() {
         </div>
       </section>
 
+      <AdhdInlineCta type="safety" />
+
       {/* Article Grid */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-ink">Explore the ADHD Content Cluster</h2>
@@ -183,6 +188,8 @@ export default function AdhdSupplementsHub() {
           ))}
         </div>
       </section>
+
+      <AdhdInlineCta type="stack" />
 
       {/* FAQ Accordion */}
       <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">

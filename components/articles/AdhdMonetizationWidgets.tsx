@@ -1,6 +1,3 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
 
 export function StartHereBox({ currentSlug }: { currentSlug: string }) {
@@ -94,56 +91,6 @@ export function AdhdCtaDashboard({ currentSlug }: { currentSlug: string }) {
   )
 }
 
-export function EmailCaptureForm() {
-  const [email, setEmail] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (email.trim()) {
-      setSubscribed(true)
-      setEmail('')
-    }
-  }
-
-  return (
-    <div id="join-updates" className="mt-8 rounded-xl border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm scroll-mt-20">
-      <div className="max-w-2xl">
-        <h3 className="font-display text-lg font-bold text-ink">Join the Hippie Scientist Research List</h3>
-        <p className="mt-2 text-sm text-muted">
-          Subscribe for clinical research updates, evidence breakdowns, and new compound profiles. No spam, no product selling. Just clean, evidence-based botanical and nutritional science.
-        </p>
-        
-        {subscribed ? (
-          <div className="mt-4 rounded-lg border border-emerald-900/10 bg-emerald-50 p-4 text-sm font-semibold text-emerald-800">
-            ✓ Thank you for subscribing! We will send you new evidence updates directly to your inbox.
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-2 sm:flex-row">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              required
-              className="flex-1 rounded-full border border-brand-900/15 bg-white px-4 py-2 text-sm text-ink placeholder:text-muted/60 focus:border-brand-700 focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="rounded-full bg-brand-800 px-6 py-2.5 text-sm font-bold text-white transition hover:bg-brand-700 shadow-sm"
-            >
-              Join Updates
-            </button>
-          </form>
-        )}
-        
-        <p className="mt-2.5 text-[0.7rem] text-muted/80">
-          By signing up, you agree to receive research updates. We value your privacy and you can unsubscribe at any time.
-        </p>
-      </div>
-    </div>
-  )
-}
 
 export function AdhdComparisonCard({ slug }: { slug: string }) {
   let cardTitle = ''
@@ -221,6 +168,104 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
         <Link href={compareLink} className="text-xs font-semibold text-brand-700 hover:text-brand-800 hover:underline">
           View full comparison analysis →
         </Link>
+      </div>
+    </div>
+  )
+}
+
+export function getAdhdCtasForSlug(slug: string) {
+  let top: 'start-here' | 'stack' | 'checklist' = 'start-here'
+  let mid: 'checklist' | 'safety' = 'checklist'
+  let bottom: 'stack' | 'checklist' | 'start-here' = 'stack'
+
+  if (slug === 'best-supplements-for-adhd') {
+    top = 'start-here'
+    mid = 'checklist'
+    bottom = 'stack'
+  } else if (slug === 'adhd-stack-guide') {
+    top = 'start-here'
+    mid = 'checklist'
+    bottom = 'checklist'
+  } else if (slug === 'adhd-blood-tests') {
+    top = 'start-here'
+    mid = 'safety'
+    bottom = 'stack'
+  } else if (slug === 'adhd-supplements') {
+    top = 'checklist'
+    mid = 'safety'
+    bottom = 'stack'
+  } else {
+    top = 'start-here'
+    mid = 'checklist'
+    bottom = 'stack'
+  }
+
+  return { top, mid, bottom }
+}
+
+export function AdhdInlineCta({ type }: { type: 'start-here' | 'checklist' | 'stack' | 'safety' }) {
+  if (type === 'safety') {
+    return (
+      <div className="my-8 rounded-xl border border-amber-900/15 bg-amber-50/50 p-5 shadow-sm">
+        <div className="flex items-start gap-3">
+          <span className="text-xl leading-none">⚠️</span>
+          <div>
+            <h4 className="text-sm font-bold text-amber-900">Safety &amp; Testing First</h4>
+            <p className="mt-1.5 text-sm leading-relaxed text-amber-800/95">
+              Supplements do not treat or cure ADHD. Nutrients like iron, zinc, and vitamin D are best approached through testing and professional guidance.
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  let title = ''
+  let text = ''
+  let href = ''
+  let buttonText = ''
+  let badgeText = ''
+
+  if (type === 'start-here') {
+    title = 'Start Here'
+    text = 'New to ADHD supplements? Start with the evidence-first guide before building a stack.'
+    href = '/guides/adhd-supplements'
+    buttonText = 'Read Guide'
+    badgeText = 'Evidence-First Guide'
+  } else if (type === 'checklist') {
+    title = 'ADHD Supplement Checklist'
+    text = 'Want a safer supplement checklist? Review what to test first before adding iron, zinc, vitamin D, or magnesium.'
+    href = '/articles/adhd-blood-tests'
+    buttonText = 'View Checklist'
+    badgeText = 'Testing Checklist'
+  } else if (type === 'stack') {
+    title = 'ADHD Stack Guide'
+    text = 'Building a supplement stack? Read the ADHD Stack Guide to avoid overlapping ingredients and unrealistic expectations.'
+    href = '/articles/adhd-stack-guide'
+    buttonText = 'Read Stack Guide'
+    badgeText = 'Safer Stacking'
+  }
+
+  return (
+    <div className="my-8 rounded-xl border border-brand-900/10 bg-brand-50/30 p-5 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex-1">
+          <div className="flex items-center gap-2">
+            <span className="rounded bg-brand-100 px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-brand-800">
+              {badgeText}
+            </span>
+          </div>
+          <h4 className="mt-2 text-base font-bold text-ink">{title}</h4>
+          <p className="mt-1 text-sm leading-relaxed text-muted">{text}</p>
+        </div>
+        <div className="flex shrink-0 items-center">
+          <Link
+            href={href}
+            className="w-full sm:w-auto text-center rounded-full bg-brand-800 px-5 py-2 text-xs font-bold text-white transition hover:bg-brand-700 shadow-sm"
+          >
+            {buttonText} →
+          </Link>
+        </div>
       </div>
     </div>
   )

@@ -1,13 +1,15 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import React from 'react'
 
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getFocusAdhdArticle, focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
-import { StartHereBox, AdhdCtaDashboard, EmailCaptureForm, AdhdComparisonCard } from './AdhdMonetizationWidgets'
+import { StartHereBox, AdhdCtaDashboard, AdhdComparisonCard, AdhdInlineCta, getAdhdCtasForSlug } from './AdhdMonetizationWidgets'
+import EmailCapture from '@/components/EmailCapture'
 
 type Block =
   | { type: 'h2' | 'h3' | 'h4'; text: string }
@@ -105,24 +107,73 @@ function inlineFormat(text: string) {
     .replace(/`(.+?)`/g, '<code class="rounded bg-brand-50 px-1 py-0.5 font-mono text-sm text-brand-800">$1</code>')
 }
 
-function MarkdownBody({ body }: { body: string }) {
+function MarkdownBody({ body, slug }: { body: string; slug: string }) {
+  const blocks = parseBlocks(body)
+  const ctaTypes = getAdhdCtasForSlug(slug)
+
+  // Find insertion points
+  // 1. Top insertion point: right before the first h2 block, or index 3 if no h2
+  const firstH2Index = blocks.findIndex((b) => b.type === 'h2')
+  const topCtaIndex = firstH2Index !== -1 ? firstH2Index : 3
+
+  // 2. Bottom insertion point: right before the first h2 block containing "FAQ" or "Frequently Asked Questions", or blocks.length - 2
+  const faqIndex = blocks.findIndex((b) => b.type === 'h2' && (b.text.toLowerCase().includes('faq') || b.text.toLowerCase().includes('frequently asked questions')))
+  const bottomCtaIndex = faqIndex !== -1 ? faqIndex : Math.max(0, blocks.length - 2)
+
+  // 3. Mid insertion point: midpoint between top and bottom CTAs, after a paragraph block
+  const midPoint = Math.floor((topCtaIndex + bottomCtaIndex) / 2)
+  let midCtaIndex = midPoint
+  for (let idx = midPoint; idx < bottomCtaIndex; idx++) {
+    if (blocks[idx]?.type === 'p') {
+      midCtaIndex = idx + 1
+      break
+    }
+  }
+
+  const renderedCtas = new Set<string>()
+
   return (
     <div className="space-y-4">
-      {parseBlocks(body).map((block, index) => {
-        if (block.type === 'h2') return <h2 key={index} className="mt-10 text-2xl font-semibold tracking-tight text-ink first:mt-0" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
-        if (block.type === 'h3') return <h3 key={index} className="mt-7 text-xl font-semibold tracking-tight text-ink" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
-        if (block.type === 'h4') return <h4 key={index} className="mt-5 text-base font-semibold text-ink" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
-        if (block.type === 'hr') return <hr key={index} className="my-6 border-brand-900/10" />
-        if (block.type === 'ul' || block.type === 'ol') {
+      {blocks.map((block, index) => {
+        const elements: React.ReactNode[] = []
+
+        // Render top CTA
+        if (index === topCtaIndex && !renderedCtas.has('top')) {
+          elements.push(<AdhdInlineCta key="top-cta" type={ctaTypes.top} />)
+          renderedCtas.add('top')
+        }
+
+        // Render mid CTA
+        if (index === midCtaIndex && !renderedCtas.has('mid') && midCtaIndex > topCtaIndex + 2 && midCtaIndex < bottomCtaIndex - 2) {
+          elements.push(<AdhdInlineCta key="mid-cta" type={ctaTypes.mid} />)
+          renderedCtas.add('mid')
+        }
+
+        // Render bottom CTA
+        if (index === bottomCtaIndex && !renderedCtas.has('bottom') && bottomCtaIndex > topCtaIndex + 2) {
+          elements.push(<AdhdInlineCta key="bottom-cta" type={ctaTypes.bottom} />)
+          renderedCtas.add('bottom')
+        }
+
+        // Render the block itself
+        let blockEl: React.ReactNode = null
+        if (block.type === 'h2') {
+          blockEl = <h2 key={index} className="mt-10 text-2xl font-semibold tracking-tight text-ink first:mt-0" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
+        } else if (block.type === 'h3') {
+          blockEl = <h3 key={index} className="mt-7 text-xl font-semibold tracking-tight text-ink" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
+        } else if (block.type === 'h4') {
+          blockEl = <h4 key={index} className="mt-5 text-base font-semibold text-ink" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
+        } else if (block.type === 'hr') {
+          blockEl = <hr key={index} className="my-6 border-brand-900/10" />
+        } else if (block.type === 'ul' || block.type === 'ol') {
           const List = block.type
-          return (
+          blockEl = (
             <List key={index} className={`ml-5 space-y-1.5 ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
               {block.items.map((item, itemIndex) => <li key={itemIndex} className="leading-7 text-[#46574d]" dangerouslySetInnerHTML={{ __html: inlineFormat(item) }} />)}
             </List>
           )
-        }
-        if (block.type === 'table') {
-          return (
+        } else if (block.type === 'table') {
+          blockEl = (
             <ResponsiveTable key={index} label="Focus and ADHD evidence table">
               <table className="min-w-[760px] w-full text-sm">
                 <thead>
@@ -140,11 +191,15 @@ function MarkdownBody({ body }: { body: string }) {
               </table>
             </ResponsiveTable>
           )
+        } else if (block.type === 'p') {
+          blockEl = <p key={index} className="text-[1.01rem] leading-[1.85] text-[#46574d]" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
         }
-        if (block.type === 'p') {
-          return <p key={index} className="text-[1.01rem] leading-[1.85] text-[#46574d]" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
+
+        if (blockEl) {
+          elements.push(blockEl)
         }
-        return null
+
+        return <React.Fragment key={index}>{elements}</React.Fragment>
       })}
     </div>
   )
@@ -204,13 +259,19 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
       <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
         <AffiliateDisclosure variant="compact" className="mb-6" />
         
-        <MarkdownBody body={article.body} />
+        <MarkdownBody body={article.body} slug={slug} />
         
         <AdhdComparisonCard slug={slug} />
         
         <AdhdCtaDashboard currentSlug={slug} />
         
-        <EmailCaptureForm />
+        <EmailCapture
+          headline="Get the ADHD supplement checklist"
+          description="Receive our evidence-first supplement checklist, safety reminders, and updates on ADHD nutrient research. No medical claims or personalized advice."
+          ctaLabel="Get Checklist"
+          location="adhd-articles"
+          className="mt-8"
+        />
         
         <AffiliateDisclosure variant="full" className="mt-8" />
       </section>
