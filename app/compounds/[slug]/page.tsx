@@ -39,6 +39,8 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import { getStackRecommendations } from '@/lib/recommendation-engine'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import PathwayDiagram from '@/components/PathwayDiagram'
+import { generatePathwayDiagram } from '@/lib/generate-pathway'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -591,6 +593,7 @@ export default async function CompoundPage({ params }: PageProps) {
       },
     ].filter((entry) => isMeaningfulFaqAnswer(entry.answer)),
   })
+  const pathwayDiagram = generatePathwayDiagram({ ...compound, name: displayName })
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed =
     compound.last_updated ||
@@ -822,6 +825,17 @@ export default async function CompoundPage({ params }: PageProps) {
           productName={displayName}
           recommendations={stackRecommendations}
         />
+
+        {/* Section 3b: Mechanism Pathway Diagram */}
+        {pathwayDiagram && (
+          <section className="card-premium p-4 sm:p-5 space-y-3">
+            <h2 className="text-lg font-bold text-ink">How {displayName} Works</h2>
+            <p className="text-xs text-muted leading-5">
+              Simplified mechanism pathway based on preclinical and pharmacological evidence. Does not confirm clinical efficacy.
+            </p>
+            <PathwayDiagram data={pathwayDiagram} />
+          </section>
+        )}
 
         {/* Section 4: Mechanisms (Collapsible) */}
         {mechanismHints.length > 0 && (

@@ -44,6 +44,8 @@ import { getStackRecommendations } from '@/lib/recommendation-engine'
 import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 import LegacyProfileBanner from '@/components/LegacyProfileBanner'
+import PathwayDiagram from '@/components/PathwayDiagram'
+import { generatePathwayDiagram } from '@/lib/generate-pathway'
 
 
 type PageProps = {
@@ -370,6 +372,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const citations = extractCitationsFromRecord(herb)
+  const pathwayDiagram = generatePathwayDiagram({ ...(herb as unknown as Record<string, unknown>), name: displayName })
 
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed = (herb.last_reviewed || herb.last_updated || herb.lastUpdated || herb.updatedAt || herb.updated_at || herb.reviewed_date || herb.reviewed_at) as string | undefined
@@ -595,6 +598,17 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <EvidenceGradeExplainer />
         <ShowMeTheStudies citations={citations} />
       </section>
+
+      {/* Section 3b: Mechanism Pathway Diagram */}
+      {pathwayDiagram && (
+        <section className="card-premium p-4 sm:p-5 space-y-3">
+          <h2 className="text-lg font-bold text-ink">How {displayName} Works</h2>
+          <p className="text-xs text-muted leading-5">
+            Simplified mechanism pathway based on preclinical and pharmacological evidence. Does not confirm clinical efficacy.
+          </p>
+          <PathwayDiagram data={pathwayDiagram} />
+        </section>
+      )}
 
       {/* Section 4: Mechanisms (Collapsible) */}
       {mechanisms.length > 0 && (
