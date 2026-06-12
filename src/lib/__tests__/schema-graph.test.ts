@@ -16,7 +16,6 @@ describe('schema-graph', () => {
         { name: 'Herbs', url: 'https://thehippiescientist.net/herbs/' },
         { name: 'Ashwagandha', url: 'https://thehippiescientist.net/herbs/ashwagandha/' },
       ],
-      product: null,
     })
 
     expect(graph['@context']).toBe('https://schema.org')

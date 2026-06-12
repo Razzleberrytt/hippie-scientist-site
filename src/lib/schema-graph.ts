@@ -5,7 +5,6 @@ import {
   faqPageJsonLd,
   herbJsonLd,
   itemListJsonLd,
-  productJsonLd,
   SITE_URL,
   toAbsoluteUrl,
   type CompoundJsonLdArgs,
@@ -40,7 +39,6 @@ export type ProfileSchemaGraphArgs = {
   herb?: HerbJsonLdArgs
   compound?: CompoundJsonLdArgs
   breadcrumbs: Array<{ name: string; url: string }>
-  product?: { name: string; description: string; url: string; rating?: number; ratingCount?: number } | null
 }
 
 export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
@@ -48,7 +46,6 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
   const canonical = normalizeCanonical(`${SITE_URL}/${segment}/${args.slug}`)
   const webpageId = `${canonical}#webpage`
   const breadcrumbId = `${canonical}#breadcrumb`
-  const productId = `${canonical}#product`
 
   const webpageRaw =
     args.kind === 'herb' && args.herb
@@ -63,7 +60,6 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
         '@id': webpageId,
         url: canonical,
         mainEntityOfPage: canonical,
-        ...(args.product ? { mainEntity: { '@id': productId } } : {}),
       }
     : null
 
@@ -72,33 +68,7 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
     '@id': breadcrumbId,
   }
 
-  const product = args.product
-    ? {
-        ...stripSchemaContext(
-          productJsonLd({
-            name: args.product.name,
-            description: args.product.description,
-            url: args.product.url,
-          }),
-        ),
-        '@id': productId,
-        mainEntityOfPage: { '@id': webpageId },
-        ...(typeof args.product.rating === 'number' && args.product.rating > 0
-          ? {
-              aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: args.product.rating,
-                bestRating: 5,
-                ...(typeof args.product.ratingCount === 'number' && args.product.ratingCount > 0
-                  ? { ratingCount: args.product.ratingCount }
-                  : {}),
-              },
-            }
-          : {}),
-      }
-    : null
-
-  return buildSchemaGraph([webpage, breadcrumb, product])
+  return buildSchemaGraph([webpage, breadcrumb])
 }
 
 export function buildGoalSchemaGraph(args: {

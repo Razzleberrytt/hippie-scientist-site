@@ -11,8 +11,9 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
-import { faqPageJsonLd, generateDetailMetadata, SITE_URL } from '@/lib/seo'
+import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
 import { buildProfileSchemaGraph } from '@/lib/schema-graph'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
@@ -367,17 +368,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const citations = extractCitationsFromRecord(herb)
 
-  const affiliateUrl =
-    revenueProducts?.products.find((p) => p.slot === 'overall')?.affiliateUrl ??
-    revenueProducts?.products[0]?.affiliateUrl
-  const productSchema =
-    affiliateUrl && !suppressAffiliate
-      ? {
-          name: `${displayName} Supplement`,
-          description: `${displayName} supplement sourcing guide — safety context, dosage notes, and curated product picks.`,
-          url: affiliateUrl,
-      }
-      : null
   const goalLinks = getGoalsForEntity(normalizedSlug)
   const lastReviewed = (herb.last_reviewed || herb.last_updated || herb.lastUpdated || herb.updatedAt || herb.updated_at || herb.reviewed_date || herb.reviewed_at) as string | undefined
 
@@ -412,7 +402,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
       { name: 'Herbs', url: `${SITE_URL}/herbs/` },
       { name: displayName, url: `${SITE_URL}/herbs/${normalizedSlug}/` },
     ],
-    product: productSchema,
   })
 
   const faqSchema = faqPageJsonLd({
@@ -439,7 +428,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           cleanText(herb.dosing || herb.dose || herb.dosage || herb.doseInfo || '') ||
           'See dosing guidelines and product labeling.',
       },
-    ],
+    ].filter((entry) => isMeaningfulFaqAnswer(entry.answer)),
   })
 
 
@@ -611,6 +600,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
           </details>
         </section>
       )}
+
+      {/* Active compounds — internal links from the curated relationship map */}
+      <HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} />
 
       {/* Section 5: Compare Nearby + CTA */}
       <section className="card-premium p-4 sm:p-5 space-y-4">
