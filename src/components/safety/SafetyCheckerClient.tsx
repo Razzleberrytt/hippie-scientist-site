@@ -383,13 +383,13 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
             id='safety-disclaimer-checkbox'
             checked={acknowledged}
             onChange={e => setAcknowledged(e.target.checked)}
-            className='mt-0.5 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500'
+            className='mt-0.5 h-5 w-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer transition'
           />
           <span>I acknowledge that this tool is for educational purposes only and agree to consult a clinical professional before starting or changing any supplement regimen.</span>
         </label>
       </div>
 
-      <div className='grid gap-8 lg:grid-cols-3'>
+      <div className='grid grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-3'>
         {/* Selection Column */}
         <div className={`lg:col-span-1 space-y-6 ${!acknowledged ? 'opacity-60 pointer-events-none select-none' : ''}`}>
           {/* Search Ingredients */}
@@ -512,8 +512,9 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                   </div>
                   <button
                     onClick={() => handleRemoveItem(item.slug)}
-                    className='text-slate-400 hover:text-rose-600 text-xs p-1'
+                    className='text-slate-450 hover:text-rose-600 hover:bg-slate-100 rounded-lg p-2 transition flex items-center justify-center min-h-[36px] min-w-[36px]'
                     type='button'
+                    aria-label={`Remove ${item.name}`}
                   >
                     ✕
                   </button>
@@ -531,8 +532,9 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                   </div>
                   <button
                     onClick={() => setSelectedMeds(selectedMeds.filter(m => m.id !== med.id))}
-                    className='text-slate-400 hover:text-rose-600 text-xs p-1'
+                    className='text-slate-450 hover:text-rose-600 hover:bg-emerald-100/60 rounded-lg p-2 transition flex items-center justify-center min-h-[36px] min-w-[36px]'
                     type='button'
+                    aria-label={`Remove ${med.name}`}
                   >
                     ✕
                   </button>

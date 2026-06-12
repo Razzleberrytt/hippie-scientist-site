@@ -21,8 +21,29 @@ export default function AboutPage() {
     window.location.href = mailtoUrl
   }
 
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Will',
+    url: 'https://thehippiescientist.net/about/',
+    jobTitle: 'Founder & Head Researcher',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'The Hippie Scientist',
+      url: 'https://thehippiescientist.net/',
+    },
+    sameAs: [
+      'https://twitter.com/HippieScientist',
+      'https://www.instagram.com/thehippiescientist',
+    ],
+  }
+
   return (
     <div className="mx-auto max-w-5xl space-y-12 px-4 py-8 sm:py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Hero / Vision Section */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: '/search',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 }

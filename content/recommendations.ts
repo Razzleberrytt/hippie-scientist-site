@@ -54,6 +54,16 @@ const amazonPath = (id: string, query: string): SourcingPath => ({
   notes: 'Search URL placeholder for product-specific replacement.',
 })
 
+const amazonAsinPath = (id: string, asin: string): SourcingPath => ({
+  id: `${id}-amazon-product`,
+  label: 'View product',
+  description: 'Direct affiliate link to curated recommended product.',
+  href: `https://www.amazon.com/dp/${asin}?tag=${AFFILIATE_TAGS.amazon}`,
+  affiliate: true,
+  merchant: 'Amazon',
+  notes: 'Direct curated product URL.',
+})
+
 export const recommendations: RecommendationItem[] = [
   {
     id: 'sleep-magnesium',
@@ -65,7 +75,7 @@ export const recommendations: RecommendationItem[] = [
     avoidIf: 'You have kidney disease, significant digestive sensitivity, or use medications that require mineral spacing.',
     safetyNote: 'Magnesium can interact with absorption of some medications and can cause loose stools depending on form and dose.',
     practicalNote: 'Glycinate or bisglycinate forms are often chosen for evening use; check elemental magnesium on the label.',
-    sourcingPaths: [profilePath('compound', 'magnesium'), amazonPath('magnesium', 'magnesium glycinate supplement')],
+    sourcingPaths: [profilePath('compound', 'magnesium'), amazonAsinPath('magnesium', 'B07F7NWYD8')],
   },
   {
     id: 'sleep-theanine',
@@ -77,7 +87,7 @@ export const recommendations: RecommendationItem[] = [
     avoidIf: 'You are very sensitive to calming supplements or combining several sedating products.',
     safetyNote: 'Use extra caution with sedatives, alcohol, or medications that affect alertness.',
     practicalNote: 'Often used earlier in the evening rather than as a knockout sleep aid.',
-    sourcingPaths: [profilePath('compound', 'l-theanine'), amazonPath('l-theanine', 'L-theanine 200 mg supplement')],
+    sourcingPaths: [profilePath('compound', 'l-theanine'), amazonAsinPath('l-theanine', 'B01GAOCB56')],
   },
   {
     id: 'sleep-glycine',
@@ -125,7 +135,7 @@ export const recommendations: RecommendationItem[] = [
     avoidIf: 'Pregnant, nursing, thyroid-sensitive, autoimmune-sensitive, or using sedatives unless cleared by a clinician.',
     safetyNote: 'Rare liver safety reports and endocrine context make fit important.',
     practicalNote: 'Standardized extracts differ; avoid assuming all ashwagandha products are equivalent.',
-    sourcingPaths: [profilePath('herb', 'ashwagandha'), amazonPath('ashwagandha', 'ashwagandha KSM-66 supplement')],
+    sourcingPaths: [profilePath('herb', 'ashwagandha'), amazonAsinPath('ashwagandha', 'B07LFMM7N1')],
   },
   {
     id: 'stress-magnesium',
@@ -233,7 +243,7 @@ export const recommendations: RecommendationItem[] = [
     avoidIf: 'Kidney disease or clinician-advised creatine restriction.',
     safetyNote: 'Discuss persistent brain fog with a qualified clinician rather than self-treating indefinitely.',
     practicalNote: 'Plain creatine monohydrate is the reference form for most buyers.',
-    sourcingPaths: [profilePath('compound', 'creatine'), amazonPath('creatine', 'creatine monohydrate supplement')],
+    sourcingPaths: [profilePath('compound', 'creatine'), amazonAsinPath('creatine', 'B002DYIZEO')],
   },
   {
     id: 'brain-fog-b-vitamins',
@@ -281,7 +291,7 @@ export const recommendations: RecommendationItem[] = [
     avoidIf: 'Kidney disease or clinician-advised restriction.',
     safetyNote: 'Hydration, dose, and medical context matter.',
     practicalNote: 'Creatine monohydrate is the simplest comparison benchmark.',
-    sourcingPaths: [profilePath('compound', 'creatine'), amazonPath('fatigue-creatine', 'creatine monohydrate supplement')],
+    sourcingPaths: [profilePath('compound', 'creatine'), amazonAsinPath('creatine', 'B002DYIZEO')],
   },
   {
     id: 'fatigue-coq10',

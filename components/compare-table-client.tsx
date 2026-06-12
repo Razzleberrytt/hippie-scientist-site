@@ -140,7 +140,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                 }}
                 onFocus={() => setShowDropdown(true)}
                 placeholder="Type to search (e.g. Rhodiola, Kanna)..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-full border border-brand-900/10 focus:border-brand-700 bg-white/80 text-sm text-ink placeholder:text-muted transition"
+                className="min-h-11 w-full pl-10 pr-4 py-2 rounded-full border border-brand-900/10 focus:border-brand-700 bg-white/80 text-sm text-ink placeholder:text-muted transition"
               />
               {searchQuery && (
                 <button
@@ -149,7 +149,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                     setSearchQuery('')
                     setShowDropdown(false)
                   }}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted hover:text-ink"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-muted hover:text-ink p-2 rounded-full hover:bg-slate-150 transition duration-150 flex items-center justify-center min-h-[36px] min-w-[36px]"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -203,7 +203,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                     type="button"
                     onClick={() => toggleCompound(c.slug)}
                     aria-label={`Remove ${c.name || c.slug}`}
-                    className="hover:bg-white/20 rounded-full p-0.5 transition"
+                    className="hover:bg-white/20 rounded-full p-1 transition flex items-center justify-center min-h-[28px] min-w-[28px]"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>

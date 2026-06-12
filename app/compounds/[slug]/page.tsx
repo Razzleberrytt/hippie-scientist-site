@@ -29,6 +29,7 @@ import { normalizeEvidenceLevel, normalizeSafetyLevel } from '@/lib/evidence-uti
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '@/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
+import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import { extractCitationsFromRecord } from '@/lib/citations'
@@ -769,6 +770,7 @@ export default async function CompoundPage({ params }: PageProps) {
             <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
             <EvidenceScoreBadge record={compound} size="sm" />
           </div>
+          <EvidenceMeter level={evidenceLevel || 'moderate'} />
           <div className="space-y-3 text-sm leading-6 text-[#46574d]">
             <p>
               {displayName} has a <strong>{evidenceLevel?.toLowerCase() || 'mixed or uncertain'}</strong> evidence rating.
