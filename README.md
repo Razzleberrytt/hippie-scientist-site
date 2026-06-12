@@ -67,6 +67,7 @@ This repository is a **source repo**. Deploy static output from `out/`.
 - Verify before deploy: `npm run verify:build`
 - Deploy directory: `out/`
 - Redirect and header infrastructure is static and Cloudflare-compatible via `public/_redirects` and `public/_headers` (exported into `out/`)
+- Email capture uses Cloudflare Pages Functions at `/api/subscribe`; set `MAILCHIMP_API_KEY`, `MAILCHIMP_SERVER_PREFIX`, `MAILCHIMP_AUDIENCE_ID`, and `MAILCHIMP_ADHD_TAG` in Cloudflare Pages.
 
 Do **not** commit generated deploy output.
 

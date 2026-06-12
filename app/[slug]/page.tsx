@@ -6,6 +6,7 @@ import React from 'react'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SchemaOrg from '@/components/SchemaOrg'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
+import EmailCapture from '@/components/articles/EmailCapture'
 import {
   focusClusterArticleSources,
   getFocusClusterArticle,
@@ -13,6 +14,14 @@ import {
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
 
 const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net'
+const ADHD_CHECKLIST_SLUGS = new Set([
+  'best-supplements-for-adhd',
+  'omega-3-for-adhd',
+  'magnesium-for-adhd',
+  'l-theanine-for-adhd',
+  'citicoline-vs-alpha-gpc',
+  'best-supplements-for-focus-without-caffeine',
+])
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -232,93 +241,140 @@ function renderInline(text: string): React.ReactNode[] {
   return nodes
 }
 
-function MarkdownArticle({ markdown }: { markdown: string }) {
+function AdhdChecklistCapture() {
+  return (
+    <EmailCapture
+      title="Get the ADHD Supplement Starter Checklist"
+      description="A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks."
+      ctaLabel="Send me the checklist"
+      magnet="adhd-supplement-starter-checklist"
+      className="my-8"
+    />
+  )
+}
+
+function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string }) {
   const blocks = parseBlocks(markdown)
+  const shouldShowChecklist = ADHD_CHECKLIST_SLUGS.has(slug)
+  const faqIndex = blocks.findIndex(
+    (block) => block.type === 'h2' && /^(faq|frequently asked questions)\b/i.test(block.text),
+  )
+  const captureIndex = shouldShowChecklist
+    ? (faqIndex >= 0 ? faqIndex : Math.max(blocks.length - 1, 0))
+    : -1
 
   return (
     <div className="space-y-5">
       {blocks.map((block, index) => {
+        const capture = index === captureIndex ? <AdhdChecklistCapture key="adhd-checklist-capture" /> : null
+
         if (block.type === 'h2') {
           return (
-            <h2 key={index} className="mt-11 text-2xl font-semibold tracking-tight text-ink first:mt-0">
-              {renderInline(block.text)}
-            </h2>
+            <React.Fragment key={index}>
+              {capture}
+              <h2 className="mt-11 text-2xl font-semibold tracking-tight text-ink first:mt-0">
+                {renderInline(block.text)}
+              </h2>
+            </React.Fragment>
           )
         }
 
         if (block.type === 'h3') {
           return (
-            <h3 key={index} className="mt-8 text-xl font-semibold tracking-tight text-ink">
-              {renderInline(block.text)}
-            </h3>
+            <React.Fragment key={index}>
+              {capture}
+              <h3 className="mt-8 text-xl font-semibold tracking-tight text-ink">
+                {renderInline(block.text)}
+              </h3>
+            </React.Fragment>
           )
         }
 
         if (block.type === 'h4') {
           return (
-            <h4 key={index} className="mt-6 text-lg font-semibold tracking-tight text-ink">
-              {renderInline(block.text)}
-            </h4>
+            <React.Fragment key={index}>
+              {capture}
+              <h4 className="mt-6 text-lg font-semibold tracking-tight text-ink">
+                {renderInline(block.text)}
+              </h4>
+            </React.Fragment>
           )
         }
 
         if (block.type === 'p') {
           return (
-            <p key={index} className="text-[1.03rem] leading-8 text-[#46574d]">
-              {renderInline(block.text)}
-            </p>
+            <React.Fragment key={index}>
+              {capture}
+              <p className="text-[1.03rem] leading-8 text-[#46574d]">
+                {renderInline(block.text)}
+              </p>
+            </React.Fragment>
           )
         }
 
         if (block.type === 'blockquote') {
           return (
-            <blockquote key={index} className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-[#46574d]">
-              {renderInline(block.text)}
-            </blockquote>
+            <React.Fragment key={index}>
+              {capture}
+              <blockquote className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-[#46574d]">
+                {renderInline(block.text)}
+              </blockquote>
+            </React.Fragment>
           )
         }
 
         if (block.type === 'ul' || block.type === 'ol') {
           const List = block.type
           return (
-            <List key={index} className={`ml-6 space-y-2 text-[1.01rem] leading-8 text-[#46574d] ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
-              {block.items.map((item, itemIndex) => (
-                <li key={itemIndex}>{renderInline(item)}</li>
-              ))}
-            </List>
+            <React.Fragment key={index}>
+              {capture}
+              <List className={`ml-6 space-y-2 text-[1.01rem] leading-8 text-[#46574d] ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
+                {block.items.map((item, itemIndex) => (
+                  <li key={itemIndex}>{renderInline(item)}</li>
+                ))}
+              </List>
+            </React.Fragment>
           )
         }
 
         if (block.type === 'table') {
           return (
-            <ResponsiveTable key={index} label="Article table" className="my-7">
-              <table className="w-full min-w-[760px] text-sm">
-                <thead>
-                  <tr className="border-b border-brand-900/10">
-                    {block.headers.map((header, headerIndex) => (
-                      <th key={`${header}-${headerIndex}`} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        {renderInline(header)}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-brand-900/5">
-                  {block.rows.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
-                      {row.map((cell, cellIndex) => (
-                        <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-[#46574d]">
-                          {renderInline(cell)}
-                        </td>
+            <React.Fragment key={index}>
+              {capture}
+              <ResponsiveTable label="Article table" className="my-7">
+                <table className="w-full min-w-[760px] text-sm">
+                  <thead>
+                    <tr className="border-b border-brand-900/10">
+                      {block.headers.map((header, headerIndex) => (
+                        <th key={`${header}-${headerIndex}`} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
+                          {renderInline(header)}
+                        </th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </ResponsiveTable>
+                  </thead>
+                  <tbody className="divide-y divide-brand-900/5">
+                    {block.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex}>
+                        {row.map((cell, cellIndex) => (
+                          <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-[#46574d]">
+                            {renderInline(cell)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </ResponsiveTable>
+            </React.Fragment>
           )
         }
 
-        return <hr key={index} className="my-8 border-brand-900/10" />
+        return (
+          <React.Fragment key={index}>
+            {capture}
+            <hr className="my-8 border-brand-900/10" />
+          </React.Fragment>
+        )
       })}
     </div>
   )
@@ -394,7 +450,7 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
       </header>
 
       <section className="mt-8">
-        <MarkdownArticle markdown={article.markdown} />
+        <MarkdownArticle markdown={article.markdown} slug={article.slug} />
       </section>
 
       <SeeAlsoInCluster currentPath={`/${article.slug}`} title="More Focus & ADHD guides" />
