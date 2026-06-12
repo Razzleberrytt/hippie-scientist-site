@@ -47,6 +47,7 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   }
 
   const isLoading = state === 'loading'
+  const statusClassName = state === 'error' ? 'text-sm leading-6 text-red-700' : 'text-sm leading-6 text-[#46574d]'
 
   return (
     <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby="email-capture-title">
@@ -105,7 +106,7 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
           </button>
 
           {message ? (
-            <p className={`text-sm leading-6 ${state === 'error' ? 'text-red-700' : 'text-[#46574d]'}`} role="status">
+            <p className={statusClassName} role="status">
               {message}
             </p>
           ) : null}
