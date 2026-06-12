@@ -22,10 +22,80 @@ function jsonResponse(payload: Record<string, unknown>, status = 200): Response 
   })
 }
 
-async function md5Hex(value: string): Promise<string> {
-  const data = new TextEncoder().encode(value)
-  const hashBuffer = await crypto.subtle.digest('MD5', data)
-  return Array.from(new Uint8Array(hashBuffer))
+function rotateLeft(value: number, amount: number): number {
+  return (value << amount) | (value >>> (32 - amount))
+}
+
+function addUnsigned(a: number, b: number): number {
+  return (a + b) >>> 0
+}
+
+function md5Cycle(state: number[], block: number[]): void {
+  let [a, b, c, d] = state
+  const s = [
+    7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
+    5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
+    4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
+    6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21,
+  ]
+  const k = Array.from({ length: 64 }, (_, index) => Math.floor(Math.abs(Math.sin(index + 1)) * 2 ** 32) >>> 0)
+
+  for (let i = 0; i < 64; i += 1) {
+    let f: number
+    let g: number
+
+    if (i < 16) {
+      f = (b & c) | (~b & d)
+      g = i
+    } else if (i < 32) {
+      f = (d & b) | (~d & c)
+      g = (5 * i + 1) % 16
+    } else if (i < 48) {
+      f = b ^ c ^ d
+      g = (3 * i + 5) % 16
+    } else {
+      f = c ^ (b | ~d)
+      g = (7 * i) % 16
+    }
+
+    const next = d
+    d = c
+    c = b
+    b = addUnsigned(b, rotateLeft(addUnsigned(addUnsigned(a, f), addUnsigned(k[i], block[g])), s[i]))
+    a = next
+  }
+
+  state[0] = addUnsigned(state[0], a)
+  state[1] = addUnsigned(state[1], b)
+  state[2] = addUnsigned(state[2], c)
+  state[3] = addUnsigned(state[3], d)
+}
+
+function md5Hex(value: string): string {
+  const bytes = Array.from(new TextEncoder().encode(value))
+  const bitLength = bytes.length * 8
+  bytes.push(0x80)
+
+  while (bytes.length % 64 !== 56) {
+    bytes.push(0)
+  }
+
+  for (let i = 0; i < 8; i += 1) {
+    bytes.push(Math.floor(bitLength / 2 ** (8 * i)) & 0xff)
+  }
+
+  const state = [0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476]
+
+  for (let i = 0; i < bytes.length; i += 64) {
+    const block: number[] = []
+    for (let j = 0; j < 64; j += 4) {
+      block.push(bytes[i + j] | (bytes[i + j + 1] << 8) | (bytes[i + j + 2] << 16) | (bytes[i + j + 3] << 24))
+    }
+    md5Cycle(state, block)
+  }
+
+  return state
+    .flatMap((word) => [word & 0xff, (word >>> 8) & 0xff, (word >>> 16) & 0xff, (word >>> 24) & 0xff])
     .map((byte) => byte.toString(16).padStart(2, '0'))
     .join('')
 }
@@ -63,7 +133,7 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     return jsonResponse({ ok: false, error: 'Enter a valid email address.' }, 400)
   }
 
-  const subscriberHash = await md5Hex(email)
+  const subscriberHash = md5Hex(email)
   const baseUrl = `https://${serverPrefix}.api.mailchimp.com/3.0/lists/${audienceId}/members/${subscriberHash}`
   const headers = {
     Authorization: basicAuth(apiKey),
