@@ -120,11 +120,38 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --shadow-button-secondary: 0 1px 3px rgba(16, 32, 24, 0.04);
 }
 
+/* Class-based dark mode variant for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   background: var(--bg);
   color-scheme: light;
   scroll-behavior: smooth;
   text-rendering: optimizeLegibility;
+}
+
+/* Dark mode variable overrides — applied when <html class="dark"> is set by DarkModeProvider */
+html.dark {
+  --color-background: #111a14;
+  --color-surface: #1a2a1f;
+  --color-ink: #deeee1;
+  --color-muted: #8faa97;
+  --color-brand-50: #0d1f11;
+  --color-brand-100: #162b1c;
+  --bg: #111a14;
+  --surface: #1a2a1f;
+  --text-primary: #deeee1;
+  --text-secondary: #a8c4af;
+  --text-muted: #7a9983;
+  --border-soft: rgba(141, 170, 120, 0.12);
+  color-scheme: dark;
+}
+
+html.dark body {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(53, 143, 82, 0.06), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(29, 74, 47, 0.08), transparent 40%),
+    linear-gradient(180deg, #111a14 0%, #1a2a1f 100%);
 }
 
 body {

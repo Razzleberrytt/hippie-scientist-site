@@ -15,6 +15,8 @@ import MobileBottomNav from '@/components/mobile-bottom-nav'
 import ClickTracker from '@/components/ClickTracker'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, SITE_NAME, websiteJsonLd, organizationJsonLd } from '@/lib/seo'
+import { DarkModeProvider } from '@/lib/dark-mode-provider'
+import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 
@@ -45,6 +47,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
+      {/* Inline script runs before React hydration to prevent dark mode flash */}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(s===null&&p)){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className='font-sans antialiased'>
         {ga4Id && (
           <>
@@ -83,6 +93,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           Skip to main content
         </a>
+        <DarkModeProvider>
         <div className='min-h-screen bg-background text-ink'>
           <header>
             <Navigation />
@@ -100,7 +111,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <MobileBottomNav />
           <CitationDrawerLazy />
           <ClickTracker />
+          {/* Dark mode toggle — fixed bottom-right, accessible via keyboard */}
+          <div className='fixed bottom-20 right-4 z-40 md:bottom-6'>
+            <DarkModeToggle />
+          </div>
         </div>
+        </DarkModeProvider>
       </body>
     </html>
   )
