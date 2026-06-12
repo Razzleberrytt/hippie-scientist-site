@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
+import EmailCapture from '@/components/articles/EmailCapture'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SchemaOrg from '@/components/SchemaOrg'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
@@ -13,6 +14,12 @@ import {
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
 
 const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net'
+const ADHD_CHECKLIST_CAPTURE = {
+  title: 'Get the ADHD Supplement Starter Checklist',
+  description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',
+  ctaLabel: 'Send me the checklist',
+  magnet: 'adhd-supplement-starter-checklist',
+}
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -396,6 +403,8 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
       <section className="mt-8">
         <MarkdownArticle markdown={article.markdown} />
       </section>
+
+      <EmailCapture {...ADHD_CHECKLIST_CAPTURE} />
 
       <SeeAlsoInCluster currentPath={`/${article.slug}`} title="More Focus & ADHD guides" />
     </article>
