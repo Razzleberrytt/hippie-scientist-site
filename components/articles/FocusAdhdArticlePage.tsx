@@ -43,6 +43,20 @@ function addRelatedLinks(links: RelatedLink[], ...nextLinks: Array<RelatedLink |
   links.push(...nextLinks.filter((link): link is RelatedLink => Boolean(link)))
 }
 
+function dedupeRelatedLinks(links: RelatedLink[], currentArticleHref: string): RelatedLink[] {
+  const seen = new Set<string>()
+  const deduped: RelatedLink[] = []
+
+  for (const link of links) {
+    if (link.href === currentArticleHref || seen.has(link.href)) continue
+    seen.add(link.href)
+    deduped.push(link)
+    if (deduped.length >= 8) break
+  }
+
+  return deduped
+}
+
 const deficiencyArticleSlugs = new Set([
   'iron-ferritin-and-adhd',
   'vitamin-d-and-adhd',
@@ -113,10 +127,7 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
     )
   }
 
-  const seen = new Set<string>()
-  return links
-    .filter((link) => link.href !== `/articles/${slug}/` && !seen.has(link.href) && seen.add(link.href))
-    .slice(0, 8)
+  return dedupeRelatedLinks(links, `/articles/${slug}/`)
 }
 
 function parseBlocks(raw: string): Block[] {
