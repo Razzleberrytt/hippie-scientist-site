@@ -1100,6 +1100,34 @@ export default function LTheanineForSleepPage() {
                     full anxiety hub guide.
                   </p>
                 </Link>
+                <Link
+                  href="/articles/l-theanine-for-adhd"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Focus / ADHD Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    L-Theanine for ADHD
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Evidence on attention, hyperactivity, and sleep quality specific to ADHD.
+                  </p>
+                </Link>
+                <Link
+                  href="/articles/sleep-and-adhd"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Focus / ADHD Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Sleep and ADHD
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    How sleep debt affects executive function, behavioral regulation, and ADHD symptoms.
+                  </p>
+                </Link>
               </div>
             </div>
 

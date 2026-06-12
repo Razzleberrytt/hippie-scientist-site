@@ -961,6 +961,34 @@ export default function MagnesiumTypesForSleepPage() {
                     alongside magnesium.
                   </p>
                 </Link>
+                <Link
+                  href="/articles/magnesium-for-adhd"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Focus / ADHD Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Magnesium for ADHD
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Evidence, deficiency symptoms, forms (glycinate vs threonate), and safety specific to ADHD.
+                  </p>
+                </Link>
+                <Link
+                  href="/articles/sleep-and-adhd"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Focus / ADHD Cluster
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Sleep and ADHD
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Explores the bidirectional cycle where sleep disturbances exacerbate ADHD symptoms.
+                  </p>
+                </Link>
               </div>
             </div>
 

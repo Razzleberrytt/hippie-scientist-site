@@ -191,6 +191,37 @@ export default function AdhdSupplementsHub() {
 
       <AdhdInlineCta type="stack" />
 
+      {/* Sleep & Calm Focus Section */}
+      <section className="space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+        <h2 className="text-2xl font-bold tracking-tight text-ink">Sleep &amp; Calm Focus Connection</h2>
+        <p className="text-sm leading-relaxed text-muted">
+          Sleep disturbances are highly prevalent in individuals with ADHD, often compounding challenges with daytime focus, emotional regulation, and executive function. While targeted sleep support can reduce daytime symptom burden by improving sleep quality and duration, it does not treat or cure ADHD itself and does not replace professional care.
+        </p>
+        <p className="text-sm leading-relaxed text-muted">
+          When constructing an evening routine, compounds like magnesium and L-theanine are frequently utilized to promote calm and reduce bedtime arousal:
+        </p>
+        <div className="grid gap-4 sm:grid-cols-3 pt-2">
+          <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
+            <h3 className="font-semibold text-ink text-sm">L-Theanine for Calm</h3>
+            <p className="mt-1.5 text-xs text-muted leading-relaxed">
+              Promotes alpha brain wave activity to quiet a racing mind at bedtime. Learn more in our guide on <Link href="/articles/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">L-Theanine for Sleep</Link>.
+            </p>
+          </div>
+          <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
+            <h3 className="font-semibold text-ink text-sm">Magnesium Selection</h3>
+            <p className="mt-1.5 text-xs text-muted leading-relaxed">
+              Supports neuromuscular relaxation and GABA. It is vital to prioritize deficiency testing. Compare forms in our guide on <Link href="/articles/magnesium-types-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Magnesium Types for Sleep</Link>.
+            </p>
+          </div>
+          <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
+            <h3 className="font-semibold text-ink text-sm">Botanical Sleep Support</h3>
+            <p className="mt-1.5 text-xs text-muted leading-relaxed">
+              Herbs like chamomile, lemon balm, or valerian are commonly used for general relaxation. Explore the research in <Link href="/articles/best-herbs-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Best Herbs for Sleep</Link>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Accordion */}
       <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">
         <h2 className="text-xl font-bold text-ink">Frequently Asked Questions</h2>

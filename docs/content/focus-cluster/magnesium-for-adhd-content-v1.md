@@ -138,7 +138,7 @@ TODO: Verify emotional regulation outcome studies.
 
 ### Effects on Sleep
 
-Magnesium supports muscle relaxation and GABA activity, which may contribute to better sleep quality. Some trials have included sleep-related outcomes and reported modest improvements, particularly in children with ADHD and sleep difficulties. Evidence is stronger when magnesium status is low.
+Magnesium supports muscle relaxation and GABA activity, which may contribute to better sleep quality. Some trials have included sleep-related outcomes and reported modest improvements, particularly in children with ADHD and sleep difficulties. Evidence is stronger when magnesium status is low. For a detailed breakdown of different forms of magnesium and how they affect sleep architecture, read our guide on [Magnesium Types for Sleep](/articles/magnesium-types-for-sleep).
 
 Magnesium is sometimes considered alongside other sleep supports but is not positioned as a primary sleep medication.
 

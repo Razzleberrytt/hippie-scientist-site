@@ -134,7 +134,15 @@ export function productJsonLd(args: {
   name: string
   description: string
   url: string
+  price?: number | string
+  priceCurrency?: string
 }) {
+  const priceNum = typeof args.price === 'string' ? parseFloat(args.price) : args.price
+
+  if (typeof priceNum !== 'number' || isNaN(priceNum) || priceNum <= 0 || !args.priceCurrency) {
+    return null
+  }
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -143,6 +151,8 @@ export function productJsonLd(args: {
     url: args.url,
     offers: {
       '@type': 'Offer',
+      price: priceNum,
+      priceCurrency: args.priceCurrency,
       url: args.url,
       availability: 'https://schema.org/OnlineOnly',
     },

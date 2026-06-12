@@ -73,8 +73,31 @@ function isProtocolDetailRoute(route) {
   )
 }
 
+function checkOfferPrices(obj, route) {
+  if (!obj || typeof obj !== 'object') return;
+  if (Array.isArray(obj)) {
+    for (const item of obj) {
+      checkOfferPrices(item, route);
+    }
+    return;
+  }
+  if (obj['@type'] === 'Offer') {
+    const price = obj['price'];
+    const priceCurrency = obj['priceCurrency'];
+    if (price === undefined || price === null || price === '' || !priceCurrency) {
+      throw new Error(`[structured-data] Route "${route}" has an Offer without a price or priceCurrency: ${JSON.stringify(obj)}`);
+    }
+  }
+  for (const key of Object.keys(obj)) {
+    checkOfferPrices(obj[key], route);
+  }
+}
+
 async function run() {
   const batchSize = 100
+  let repFails = 0
+  const repErrors = []
+
   for (let i = 0; i < files.length; i += batchSize) {
     const batch = files.slice(i, i + batchSize)
     await Promise.all(batch.map(async (f) => {
@@ -82,6 +105,20 @@ async function run() {
       const html=await fsPromises.readFile(f,'utf8');
       if (html.includes('NEXT_REDIRECT')) return;
       const blocks=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+
+      for (const b of blocks) {
+        try {
+          const parsed = JSON.parse(b);
+          checkOfferPrices(parsed, route);
+        } catch (err) {
+          if (err.message && err.message.includes('Offer without a price')) {
+            console.error(err.message);
+            repFails++;
+            repErrors.push(err.message);
+          }
+        }
+      }
+
       const text=blocks.join(' ');
       const hit=Object.fromEntries(required.map(t=>[t,text.includes(`"${t}"`)||text.includes(`"@type":"${t}"`)]));
       const fam=(families.find(([,p])=>p==='/'?route==='/' : route.startsWith(p))||['other'])[0];
@@ -96,8 +133,6 @@ async function run() {
   const malformed=rows.filter(r=>r.blockCount===0).map(r=>r.route)
 
   // Representative checks + parse validation. These are the blocking checks.
-  let repFails = 0
-  const repErrors = []
   for (const rep of repChecks) {
     const r = rows.find(x => x.route === rep.route || x.route === rep.route + '/')
     if (!r) {

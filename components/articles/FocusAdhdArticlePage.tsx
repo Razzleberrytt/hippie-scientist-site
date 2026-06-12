@@ -372,6 +372,24 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
         <AffiliateDisclosure variant="full" className="mt-8" />
       </section>
 
+      {['sleep-and-adhd', 'magnesium-for-adhd', 'l-theanine-for-adhd', 'melatonin-for-adhd-sleep'].includes(slug) && (
+        <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+          <h2 className="text-lg font-semibold tracking-tight text-ink">Related Sleep &amp; Calm Guides</h2>
+          <p className="text-xs text-muted mt-1">For general sleep research and comparative guides on these ingredients:</p>
+          <div className="mt-3 grid gap-2 sm:grid-cols-3">
+            <Link href="/articles/l-theanine-for-sleep" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+              L-Theanine for Sleep →
+            </Link>
+            <Link href="/articles/magnesium-types-for-sleep" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+              Magnesium Types for Sleep →
+            </Link>
+            <Link href="/articles/best-herbs-for-sleep" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+              Best Herbs for Sleep →
+            </Link>
+          </div>
+        </section>
+      )}
+
       <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-brand-50/70 p-5">
         <h2 className="text-lg font-semibold tracking-tight text-ink">Related Focus, ADHD &amp; Sleep guides</h2>
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
