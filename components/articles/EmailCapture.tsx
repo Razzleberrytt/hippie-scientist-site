@@ -14,6 +14,7 @@ type SubmitState = 'idle' | 'loading' | 'success' | 'error'
 const CHECKLIST_URL = '/lead-magnets/adhd-supplement-starter-checklist.html'
 
 export default function EmailCapture({ title, description, ctaLabel, magnet }: EmailCaptureProps) {
+  const titleId = useId()
   const emailId = useId()
   const firstNameId = useId()
   const [email, setEmail] = useState('')
@@ -50,10 +51,10 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   const statusClassName = state === 'error' ? 'text-sm leading-6 text-red-700' : 'text-sm leading-6 text-[#46574d]'
 
   return (
-    <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby="email-capture-title">
+    <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby={titleId}>
       <div className="space-y-3">
         <p className="eyebrow-label">Free checklist</p>
-        <h2 id="email-capture-title" className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+        <h2 id={titleId} className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
           {title}
         </h2>
         <p className="max-w-2xl text-base leading-7 text-[#46574d]">{description}</p>
