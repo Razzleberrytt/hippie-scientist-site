@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
+import EmailCapture from '@/components/articles/EmailCapture'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SchemaOrg from '@/components/SchemaOrg'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
-import EmailCapture from '@/components/articles/EmailCapture'
 import {
   focusClusterArticleSources,
   getFocusClusterArticle,
@@ -14,14 +14,12 @@ import {
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
 
 const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net'
-const ADHD_CHECKLIST_SLUGS = new Set([
-  'best-supplements-for-adhd',
-  'omega-3-for-adhd',
-  'magnesium-for-adhd',
-  'l-theanine-for-adhd',
-  'citicoline-vs-alpha-gpc',
-  'best-supplements-for-focus-without-caffeine',
-])
+const ADHD_CHECKLIST_CAPTURE = {
+  title: 'Get the ADHD Supplement Starter Checklist',
+  description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',
+  ctaLabel: 'Send me the checklist',
+  magnet: 'adhd-supplement-starter-checklist',
+}
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -241,32 +239,17 @@ function renderInline(text: string): React.ReactNode[] {
   return nodes
 }
 
-function AdhdChecklistCapture() {
-  return (
-    <EmailCapture
-      title="Get the ADHD Supplement Starter Checklist"
-      description="A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks."
-      ctaLabel="Send me the checklist"
-      magnet="adhd-supplement-starter-checklist"
-      className="my-8"
-    />
-  )
-}
-
-function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string }) {
+function MarkdownArticle({ markdown }: { markdown: string }) {
   const blocks = parseBlocks(markdown)
-  const shouldShowChecklist = ADHD_CHECKLIST_SLUGS.has(slug)
   const faqIndex = blocks.findIndex(
     (block) => block.type === 'h2' && /^(faq|frequently asked questions)\b/i.test(block.text),
   )
-  const captureIndex = shouldShowChecklist
-    ? (faqIndex >= 0 ? faqIndex : Math.max(blocks.length - 1, 0))
-    : -1
+  const captureIndex = faqIndex >= 0 ? faqIndex : Math.max(blocks.length - 1, 0)
 
   return (
     <div className="space-y-5">
       {blocks.map((block, index) => {
-        const capture = index === captureIndex ? <AdhdChecklistCapture key="adhd-checklist-capture" /> : null
+        const capture = index === captureIndex ? <EmailCapture key="adhd-checklist-capture" {...ADHD_CHECKLIST_CAPTURE} /> : null
 
         if (block.type === 'h2') {
           return (
@@ -450,7 +433,7 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
       </header>
 
       <section className="mt-8">
-        <MarkdownArticle markdown={article.markdown} slug={article.slug} />
+        <MarkdownArticle markdown={article.markdown} />
       </section>
 
       <SeeAlsoInCluster currentPath={`/${article.slug}`} title="More Focus & ADHD guides" />
