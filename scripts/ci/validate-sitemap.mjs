@@ -3,7 +3,15 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const REQUIRE_BUILT = process.argv.includes('--require-built')
-const BAD_HOST = 'www.thehippiescientist.net'
+const FOCUS_CLUSTER_CANONICAL_HOST = 'www.thehippiescientist.net'
+const FOCUS_CLUSTER_PATHS = new Set([
+  '/best-supplements-for-adhd/',
+  '/omega-3-for-adhd/',
+  '/magnesium-for-adhd/',
+  '/l-theanine-for-adhd/',
+  '/citicoline-vs-alpha-gpc/',
+  '/best-supplements-for-focus-without-caffeine/',
+])
 
 function parseXmlUrls(xmlContent) {
   const urls = []
@@ -81,8 +89,10 @@ function main() {
     }
     const pathname = urlObj.pathname
 
-    if (urlObj.hostname !== 'thehippiescientist.net') {
-      errors.push(`URL hostname is not canonical (expected "thehippiescientist.net"): "${url}"`)
+    const isFocusClusterPath = FOCUS_CLUSTER_PATHS.has(pathname)
+    const expectedHost = isFocusClusterPath ? FOCUS_CLUSTER_CANONICAL_HOST : 'thehippiescientist.net'
+    if (urlObj.hostname !== expectedHost) {
+      errors.push(`URL hostname is not canonical (expected "${expectedHost}"): "${url}"`)
       failed = true
     }
     if (pathname !== '/') {

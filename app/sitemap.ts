@@ -6,6 +6,8 @@ import { SITE_URL } from '@/lib/site';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 
+const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net';
+
 type SitemapSourceItem = {
   slug?: string;
   lastUpdated?: string;
@@ -202,6 +204,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     sitemapEntries.push(route(`${SITE_URL}${normalized === '/' ? '/' : `${normalized}/`}`, currentDate, changeFrequency, priority, lastModified));
   };
 
+  const addFocusClusterRoute = (
+    pathName: string,
+    lastModified?: string,
+  ) => {
+    const normalized = normalizeRoutePath(pathName);
+    if (redirectSources.has(normalized)) return;
+    sitemapEntries.push(route(`${FOCUS_CLUSTER_SITE_URL}${normalized === '/' ? '/' : `${normalized}/`}`, currentDate, 'monthly', 0.75, lastModified));
+  };
+
   const DEPRECATED_HERBS = new Set([
     'allium-sativum',
     'valeriana-officinalis',
@@ -247,7 +258,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   getAllFocusClusterArticles().forEach((article) => {
-    addRoute(`/${article.slug}`, 'monthly', 0.75, article.dateModified);
+    addFocusClusterRoute(`/${article.slug}`, article.dateModified);
   });
 
   // Add App Router article pages not covered by articles.json or blog posts.json

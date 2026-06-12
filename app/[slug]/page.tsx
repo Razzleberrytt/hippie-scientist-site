@@ -9,7 +9,9 @@ import {
   getAllFocusClusterArticles,
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
-import { buildPageMetadata, SITE_NAME, SITE_URL } from '@/lib/seo'
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from '@/lib/seo'
+
+const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net'
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -32,13 +34,27 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   const { slug } = await params
   const article = getFocusClusterArticle(slug)
   if (!article) return {}
+  const canonical = `${FOCUS_CLUSTER_SITE_URL}/${article.slug}/`
 
-  return buildPageMetadata({
+  return {
     title: article.seoTitle,
     description: article.metaDescription,
-    path: `/${article.slug}`,
-    openGraphType: 'article',
-  })
+    alternates: { canonical },
+    openGraph: {
+      title: article.seoTitle,
+      description: article.metaDescription,
+      url: canonical,
+      siteName: SITE_NAME,
+      type: 'article',
+      images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: article.seoTitle }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.seoTitle,
+      description: article.metaDescription,
+      images: [DEFAULT_OG_IMAGE],
+    },
+  }
 }
 
 function parseBlocks(raw: string): Block[] {
@@ -316,7 +332,7 @@ function ArticleJsonLd({
   slug: string
   dateModified: string
 }) {
-  const url = `${SITE_URL}/${slug}/`
+  const url = `${FOCUS_CLUSTER_SITE_URL}/${slug}/`
   const graph = {
     '@context': 'https://schema.org',
     '@type': 'Article',

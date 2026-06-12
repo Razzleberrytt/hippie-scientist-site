@@ -22,50 +22,36 @@ export type FocusClusterArticle = {
 type FocusClusterSource = {
   slug: string
   fileName: string
-  fallbackTitle: string
 }
 
 export const focusClusterArticleSources: FocusClusterSource[] = [
   {
     slug: 'best-supplements-for-adhd',
     fileName: 'best-supplements-for-adhd.md',
-    fallbackTitle: 'Best Supplements for ADHD',
   },
   {
     slug: 'omega-3-for-adhd',
     fileName: 'omega-3-for-adhd.md',
-    fallbackTitle: 'Omega-3 for ADHD',
   },
   {
     slug: 'magnesium-for-adhd',
     fileName: 'magnesium-for-adhd.md',
-    fallbackTitle: 'Magnesium for ADHD',
   },
   {
     slug: 'l-theanine-for-adhd',
     fileName: 'l-theanine-for-adhd.md',
-    fallbackTitle: 'L-Theanine for ADHD',
   },
   {
     slug: 'citicoline-vs-alpha-gpc',
     fileName: 'citicoline-vs-alpha-gpc.md',
-    fallbackTitle: 'Citicoline vs Alpha-GPC',
   },
   {
     slug: 'best-supplements-for-focus-without-caffeine',
     fileName: 'best-supplements-for-focus-without-caffeine.md',
-    fallbackTitle: 'Best Supplements for Focus Without Caffeine',
   },
 ]
 
-const committedSourceFallbacks: Record<string, string> = {
-  'best-supplements-for-adhd.md': 'best-supplements-for-adhd-v2-content.md',
-  'omega-3-for-adhd.md': 'omega-3-and-adhd.md',
-  'magnesium-for-adhd.md': 'magnesium-and-adhd.md',
-  'l-theanine-for-adhd.md': 'l-theanine-and-adhd.md',
-  'citicoline-vs-alpha-gpc.md': 'citicoline-vs-alpha-gpc-content-v1.md',
-  'best-supplements-for-focus-without-caffeine.md': 'l-theanine-vs-caffeine-for-focus-content-v1.md',
-}
+const ALLOWED_SOURCE_STATUSES = new Set(['draft-source'])
 
 function asString(value: unknown): string {
   return typeof value === 'string' ? value.trim() : ''
@@ -91,12 +77,6 @@ function extractSection(raw: string, heading: string): string {
   return match?.[1]?.trim() || ''
 }
 
-function stripSourceHeader(raw: string): string {
-  return raw
-    .replace(/^# .+?\n+Status:[\s\S]*?\n---\s*\n+/i, '')
-    .trim()
-}
-
 function stripEditorialTerminal(raw: string): string {
   return raw
     .replace(/\n## Related Articles[\s\S]*$/i, '')
@@ -104,43 +84,14 @@ function stripEditorialTerminal(raw: string): string {
     .trim()
 }
 
-function resolveSourceFile(fileName: string): string {
-  const preferred = path.join(FOCUS_CLUSTER_DIR, fileName)
-  if (existsSync(preferred)) return preferred
-
-  const fallbackName = committedSourceFallbacks[fileName]
-  const fallback = fallbackName ? path.join(FOCUS_CLUSTER_DIR, fallbackName) : ''
-  if (fallback && existsSync(fallback)) return fallback
-
-  return preferred
-}
-
-function parseHeadingStyleSource(raw: string, source: FocusClusterSource, sourceFile: string): FocusClusterArticle {
-  const fullArticleContent = extractSection(raw, 'Full Article Content') || extractSection(raw, 'Full article content')
-  const markdown = fullArticleContent || stripSourceHeader(raw)
-  const h1 = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim()
-
-  return {
-    title: extractSection(raw, 'H1') || h1 || extractSection(raw, 'SEO Title') || source.fallbackTitle,
-    seoTitle: extractSection(raw, 'SEO Title') || h1 || source.fallbackTitle,
-    metaDescription: extractSection(raw, 'Meta Description'),
-    primaryKeyword: extractSection(raw, 'Primary Keyword'),
-    secondaryKeywords: asStringArray(extractSection(raw, 'Secondary Keywords')),
-    status: raw.match(/^Status:\s*(.+)$/im)?.[1]?.trim() || 'draft-source',
-    cluster: raw.match(/^Cluster:\s*(.+)$/im)?.[1]?.trim() || 'Focus / ADHD',
-    slug: source.slug,
-    sourceFile,
-    markdown: stripEditorialTerminal(markdown),
-    dateModified: '2026-06-12',
-  }
-}
-
-function parseYamlSource(raw: string, source: FocusClusterSource, sourceFile: string): FocusClusterArticle {
+function parseYamlSource(raw: string, sourceFile: string): FocusClusterArticle {
   const parsed = matter(raw)
   const data = parsed.data || {}
-  const markdown = stripEditorialTerminal((parsed.content || '').trim())
+  const content = (parsed.content || '').trim()
+  const fullArticleContent = extractSection(content, 'Full Article Content') || extractSection(content, 'Full article content')
+  const markdown = stripEditorialTerminal(fullArticleContent || content)
   const h1 = markdown.match(/^#\s+(.+)$/m)?.[1]?.trim()
-  const title = asString(data.title) || h1 || source.fallbackTitle
+  const title = asString(data.title) || h1 || ''
 
   return {
     title,
@@ -150,16 +101,24 @@ function parseYamlSource(raw: string, source: FocusClusterSource, sourceFile: st
     secondaryKeywords: asStringArray(data.secondaryKeywords),
     status: asString(data.status) || 'draft-source',
     cluster: asString(data.cluster) || 'focus-adhd',
-    slug: source.slug,
+    slug: asString(data.slug),
     sourceFile,
     markdown,
     dateModified: '2026-06-12',
   }
 }
 
-function validateArticle(article: FocusClusterArticle): void {
+function validateArticle(article: FocusClusterArticle, expectedSlug: string): void {
   if (!SLUG_PATTERN.test(article.slug)) {
     throw new Error(`[focus-cluster] Invalid slug: ${article.slug}`)
+  }
+
+  if (article.slug !== expectedSlug) {
+    throw new Error(`[focus-cluster] Frontmatter slug "${article.slug}" does not match expected route "${expectedSlug}"`)
+  }
+
+  if (!ALLOWED_SOURCE_STATUSES.has(article.status)) {
+    throw new Error(`[focus-cluster] Unsupported status "${article.status}" for ${article.slug}`)
   }
 
   const requiredFields: Array<keyof FocusClusterArticle> = [
@@ -183,16 +142,20 @@ export function getFocusClusterArticle(slug: string): FocusClusterArticle | null
   const source = focusClusterArticleSources.find((item) => item.slug === slug)
   if (!source) return null
 
-  const sourcePath = resolveSourceFile(source.fileName)
+  const sourcePath = path.join(FOCUS_CLUSTER_DIR, source.fileName)
   if (!existsSync(sourcePath)) return null
 
   const raw = readFileSync(sourcePath, 'utf8')
   const sourceFile = path.relative(process.cwd(), sourcePath).replace(/\\/g, '/')
   const article = raw.trimStart().startsWith('---')
-    ? parseYamlSource(raw, source, sourceFile)
-    : parseHeadingStyleSource(raw, source, sourceFile)
+    ? parseYamlSource(raw, sourceFile)
+    : null
 
-  validateArticle(article)
+  if (!article) {
+    throw new Error(`[focus-cluster] Missing YAML frontmatter in ${source.fileName}`)
+  }
+
+  validateArticle(article, source.slug)
   return article
 }
 
