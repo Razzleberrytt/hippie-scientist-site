@@ -15,6 +15,8 @@ import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL 
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
 import { buildProfileSchemaGraph } from '@/lib/schema-graph'
+import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
+import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
@@ -385,7 +387,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .slice(0, 4)
 
   const breadcrumbId = `${SITE_URL}/herbs/${normalizedSlug}/#breadcrumb`
-  const schemaGraph = buildProfileSchemaGraph({
+  const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'herb', 8)
+  const schemaGraph = buildProfileSchemaGraphWithCluster({
     kind: 'herb',
     slug: normalizedSlug,
     herb: {
@@ -402,6 +405,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       { name: 'Herbs', url: `${SITE_URL}/herbs/` },
       { name: displayName, url: `${SITE_URL}/herbs/${normalizedSlug}/` },
     ],
+    seeAlsoEntries: clusterSeeAlso,
   })
 
   const faqSchema = faqPageJsonLd({
@@ -502,6 +506,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
           </div>
         </section>
       ) : null}
+
+      <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
 
       {/* Section 1: Quick Stats */}
       <section className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">

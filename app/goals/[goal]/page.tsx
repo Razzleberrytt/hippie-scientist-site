@@ -7,6 +7,7 @@ import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decisi
 import { SITE_URL, SEO_YEAR } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGoalSchemaGraph } from '@/lib/schema-graph'
+import { buildGoalClusterGraph } from '@/lib/cluster-linking'
 import { buildGoalPageMetadata } from '@/lib/goal-seo'
 import { getGoalHubLinks } from '@/lib/goal-hub-links'
 import { getGoalContentExtension, getGoalFaqItems } from '@/data/goal-content'
@@ -247,7 +248,13 @@ export default async function GoalDecisionPage({
     },
   })
 
-  const structuredData = <SchemaGraphScript graph={schemaGraph} />
+  const clusterGraph = buildGoalClusterGraph(goal.slug)
+  const structuredData = (
+    <>
+      <SchemaGraphScript graph={schemaGraph} />
+      {clusterGraph ? <SchemaGraphScript graph={clusterGraph} /> : null}
+    </>
+  )
 
   const hubLinks = getGoalHubLinks(goal.slug)
   const goalEvidence = await getGoalEvidenceEngine(goal.slug)
