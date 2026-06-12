@@ -8,3 +8,8 @@ interface Window {
   gtag?: (command: string, ...args: unknown[]) => void
   dataLayer?: unknown[]
 }
+
+// Allow side-effect CSS imports (globals, fonts, vendor stylesheets).
+// Next.js handles the actual bundling; TypeScript only needs to know the
+// import is valid, not what it exports.
+declare module '*.css'
