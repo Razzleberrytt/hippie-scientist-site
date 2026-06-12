@@ -681,14 +681,30 @@ export function formatProfileDescription(
 export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): Metadata {
   const displayName = getProfileDisplayName(record)
 
-  // Precedence: hand-authored workbook columns (meta_title / meta_description) win
-  // over the templated formula. These columns are empty today but ready for Phase 1.
-  const manualTitle = typeof record?.meta_title === 'string' ? record.meta_title.trim() : ''
-  const manualDescription =
-    typeof record?.meta_description === 'string' ? record.meta_description.trim() : ''
+  // Title Priority:
+  // 1. meta_title
+  // 2. seoTitle
+  // 3. keyword-first generated title
+  // 4. fallback entity/page title
+  const title = (record.meta_title || record.metaTitle || '').trim() ||
+                (record.seoTitle || record.seo_title || '').trim() ||
+                formatProfileTitle(displayName, type) ||
+                displayName
 
-  const title = manualTitle || formatProfileTitle(displayName, type)
-  const description = manualDescription || formatProfileDescription(record, displayName, type)
+  // Description Priority:
+  // 1. meta_description
+  // 2. existing description/metaDescription
+  // 3. keyword-first generated description
+  // 4. safe fallback description
+  const keywordFirstDescription = formatProfileDescription(record, displayName, type)
+  const safeFallbackDescription = type === 'herb'
+    ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
+    : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
+
+  const description = (record.meta_description || record.metaDescription || '').trim() ||
+                      (record.description || record.metaDescription || '').trim() ||
+                      keywordFirstDescription ||
+                      safeFallbackDescription
 
   const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`
   const meta = buildMeta({ title, description, path })

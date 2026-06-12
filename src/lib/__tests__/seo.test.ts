@@ -54,6 +54,18 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
       expect(meta.description).toBe('Custom description override.')
     })
 
+    it('uses meta_title and meta_description overrides if provided', () => {
+      const overrideHerb = {
+        ...mockHerb,
+        meta_title: 'Hand-authored Ashwagandha Title Override',
+        meta_description: 'Hand-authored Ashwagandha Description override.',
+      }
+      const meta = generateDetailMetadata(overrideHerb, 'herb')
+
+      expect(meta.title).toBe('Hand-authored Ashwagandha Title Override')
+      expect(meta.description).toBe('Hand-authored Ashwagandha Description override.')
+    })
+
     it('sets robots to noindex if record is not indexable', () => {
       const draftHerb = {
         ...mockHerb,

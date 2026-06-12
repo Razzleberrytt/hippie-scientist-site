@@ -34,12 +34,19 @@ export default defineConfig({
     },
   },
   resolve: {
-    alias: {
-      '@/components': path.resolve(__dirname, './components'),
-      '@/lib': path.resolve(__dirname, './lib'),
-      '@/config': path.resolve(__dirname, './config'),
-      '@/types': path.resolve(__dirname, './types'),
-      '@': path.resolve(__dirname, './'),
-    },
+    alias: [
+      {
+        find: /^@\/(.*)$/,
+        replacement: '$1',
+        async customResolver(source: any, importer: any, options: any) {
+          const srcAttempt = path.resolve(__dirname, 'src', source)
+          const resolvedSrc = await this.resolve(srcAttempt, importer, { skipSelf: true })
+          if (resolvedSrc) return resolvedSrc
+
+          const rootAttempt = path.resolve(__dirname, source)
+          return this.resolve(rootAttempt, importer, { skipSelf: true })
+        }
+      }
+    ] as any
   },
 })

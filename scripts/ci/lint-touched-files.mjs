@@ -18,7 +18,7 @@ try {
 
   console.log(`[lint-touched] Linting ${files.length} modified files...`);
   // Map files to absolute or clean relative paths and invoke eslint
-  execSync(`npx eslint ${files.join(' ')} --max-warnings=0`, { stdio: 'inherit' })
+  execSync(`npx eslint ${files.join(' ')} --max-warnings=0 --no-warn-ignored`, { stdio: 'inherit' })
 } catch (err) {
   console.error('[lint-touched] Linting failed or eslint returned errors.');
   process.exit(1);
