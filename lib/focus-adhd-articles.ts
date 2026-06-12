@@ -180,6 +180,47 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     date: '2026-06-10',
     readingTime: '9 min read',
   },
+  // Phase 3a standalone pages — registered here for cross-linking; content lives in dedicated page.tsx files
+  {
+    slug: 'magnesium-glycinate-vs-citrate-for-adhd',
+    title: 'Magnesium Glycinate vs Citrate for ADHD: Which Form Works Better?',
+    seoTitle: 'Magnesium Glycinate vs Citrate for ADHD: Which Form Works Better?',
+    description: 'Evidence-based comparison of magnesium glycinate and citrate for ADHD. Covers absorption, sleep support, calming effects, GI tolerability, dosage, and practical product guidance.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
+    date: '2026-06-12',
+    readingTime: '11 min read',
+  },
+  {
+    slug: 'l-theanine-magnesium-adhd-stack',
+    title: 'L-Theanine and Magnesium for ADHD: How to Stack Them Safely',
+    seoTitle: 'L-Theanine and Magnesium for ADHD: How to Stack Them Safely',
+    description: 'Evidence-based guide to combining L-theanine and magnesium for ADHD. Covers mechanisms, synergy, safety, dosing order, timing, and drug interactions.',
+    category: 'Focus',
+    tags: ['Focus', 'ADHD', 'Sleep', 'Supplement Evidence'],
+    date: '2026-06-12',
+    readingTime: '10 min read',
+  },
+  {
+    slug: 'best-magnesium-supplement-for-adhd',
+    title: 'Best Magnesium Supplement for ADHD: Which Form, What Dose, and What to Look For',
+    seoTitle: 'Best Magnesium Supplement for ADHD: Which Form, What Dose, and What to Look For',
+    description: 'Practical buying guide to magnesium supplements for ADHD. Covers the best forms, what to ignore, how to read labels, dose ranges, and what to expect.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
+    date: '2026-06-12',
+    readingTime: '9 min read',
+  },
+  {
+    slug: 'l-theanine-without-caffeine',
+    title: 'L-Theanine Without Caffeine for ADHD: Calm Focus Without the Jitters',
+    seoTitle: 'L-Theanine Without Caffeine for ADHD: Calm Focus Without the Jitters',
+    description: 'Evidence guide to using L-theanine alone for ADHD — without caffeine. Covers alpha-wave effects, who benefits most, dosage, safety, and comparison to the caffeine combination.',
+    category: 'Focus',
+    tags: ['Focus', 'ADHD', 'Supplement Evidence'],
+    date: '2026-06-12',
+    readingTime: '10 min read',
+  },
 ]
 
 export const focusAdhdArticleSummaries = focusAdhdArticles.map((article) => ({

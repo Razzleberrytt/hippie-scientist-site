@@ -103,6 +103,9 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('zinc-and-adhd', 'Zinc and ADHD', 'Mineral guide'),
       articleLink('magnesium-for-adhd', 'Magnesium for ADHD', 'Mineral guide'),
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),
+      // Phase 3a: magnesium form guidance
+      articleLink('magnesium-glycinate-vs-citrate-for-adhd', 'Glycinate vs Citrate for ADHD', 'Form guide'),
+      articleLink('best-magnesium-supplement-for-adhd', 'Best Magnesium for ADHD', 'Buying guide'),
     )
   } else if (sleepCalmArticleSlugs.has(slug)) {
     addRelatedLinks(
@@ -111,6 +114,9 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('melatonin-for-adhd-sleep', 'Melatonin for ADHD Sleep', 'Sleep timing'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
       articleLink('magnesium-for-adhd', 'Magnesium for ADHD', 'Calm support'),
+      // Phase 3a: new stack + form pages
+      articleLink('l-theanine-magnesium-adhd-stack', 'L-Theanine + Magnesium Stack', 'Stack guide'),
+      articleLink('l-theanine-without-caffeine', 'L-Theanine Without Caffeine', 'Caffeine-free focus'),
       routeLink('/articles/l-theanine-for-sleep/', 'L-Theanine for Sleep', 'Sleep guide'),
       routeLink('/articles/magnesium-types-for-sleep/', 'Magnesium Types for Sleep', 'Sleep guide'),
       routeLink('/articles/best-herbs-for-sleep/', 'Best Herbs for Sleep', 'Sleep guide'),
@@ -124,6 +130,8 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine for Focus', 'Focus comparison'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),
+      // Phase 3a: caffeine-free focus option
+      articleLink('l-theanine-without-caffeine', 'L-Theanine Without Caffeine', 'Caffeine-free focus'),
     )
   }
 
