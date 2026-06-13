@@ -34,6 +34,7 @@ import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '@/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
+import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
@@ -587,6 +588,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
           <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} size="sm" />
         </div>
+        <ProfileEvidenceLens
+          record={herb as unknown as RuntimeRecord}
+          evidenceLevel={evidenceStrength}
+          safetySummary={safetySummary}
+          citationsCount={freshness.citationCount}
+          limitations={evidenceLimitations}
+        />
         <EvidenceMeter level={evidenceStrength || 'moderate'} />
         <div className="space-y-3 text-sm leading-6 text-[#46574d]">
           <p>
