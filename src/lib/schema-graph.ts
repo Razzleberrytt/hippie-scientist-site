@@ -47,6 +47,9 @@ export type ProfileSchemaGraphArgs = {
   compound?: CompoundJsonLdArgs
   breadcrumbs: Array<{ name: string; url: string }>
   workbookRecord?: WorkbookLinkedProfile
+  reviewedAt?: string
+  modifiedAt?: string
+  citationCount?: number
 }
 
 export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
@@ -69,6 +72,20 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
         url: canonical,
         mainEntityOfPage: canonical,
         mainEntity: { '@id': `${canonical}#entity` },
+        ...(args.modifiedAt ? { dateModified: args.modifiedAt } : {}),
+        ...(args.reviewedAt ? { dateReviewed: args.reviewedAt } : {}),
+        reviewedBy: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+        author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+        publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+        ...(typeof args.citationCount === 'number'
+          ? {
+              additionalProperty: {
+                '@type': 'PropertyValue',
+                propertyID: 'citation count',
+                value: args.citationCount,
+              },
+            }
+          : {}),
       }
     : null
 
