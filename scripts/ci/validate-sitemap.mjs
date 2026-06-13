@@ -3,7 +3,7 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const REQUIRE_BUILT = process.argv.includes('--require-built')
-const FOCUS_CLUSTER_CANONICAL_HOST = 'www.thehippiescientist.net'
+const FOCUS_CLUSTER_CANONICAL_HOST = 'thehippiescientist.net'
 const FOCUS_CLUSTER_PATHS = new Set([
   '/best-supplements-for-adhd/',
   '/omega-3-for-adhd/',

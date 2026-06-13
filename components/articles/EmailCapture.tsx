@@ -19,6 +19,7 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   const firstNameId = useId()
   const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
+  const [confirmEmail, setConfirmEmail] = useState('')
   const [state, setState] = useState<SubmitState>('idle')
   const [message, setMessage] = useState('')
 
@@ -31,7 +32,7 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, firstName, magnet }),
+        body: JSON.stringify({ email, firstName, magnet, confirmEmail }),
       })
       const payload = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null
 
@@ -95,6 +96,20 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
               onChange={(event) => setFirstName(event.target.value)}
               className="w-full rounded-2xl border border-brand-900/15 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-brand-700 focus:ring-2 focus:ring-brand-700/20"
               placeholder="First name"
+            />
+          </div>
+
+          {/* Honeypot field to catch spam bots */}
+          <div style={{ display: 'none' }} aria-hidden="true">
+            <label htmlFor="confirmEmail">Do not fill this field if you are a human</label>
+            <input
+              id="confirmEmail"
+              name="confirmEmail"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={confirmEmail}
+              onChange={(event) => setConfirmEmail(event.target.value)}
             />
           </div>
 

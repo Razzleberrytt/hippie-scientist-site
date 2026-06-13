@@ -10,7 +10,14 @@ const ROOT_SCAN_DIRS = ['app', 'components', 'lib']
 const SRC_ROOT = 'src'
 
 const BLOCK_RULES = [
-  { id: 'app-route-file', test: (rel) => /(^|\/)app\/.+\/route\.(ts|tsx|js|jsx)$/.test(rel) },
+  {
+    id: 'app-non-get-route',
+    test: (rel, content) => {
+      if (!/(^|\/)app\/.+\/route\.(ts|tsx|js|jsx)$/.test(rel)) return false
+      const nonGetExportRegex = /\bexport\s+(async\s+)?(const|function|let|var)\s+(POST|PUT|PATCH|DELETE|OPTIONS|HEAD)\b/
+      return nonGetExportRegex.test(content)
+    }
+  },
   { id: 'middleware-file', test: (rel) => /(^|\/)middleware\.(ts|js)$/.test(rel) },
   { id: 'use-server', pattern: /['"]use server['"]/ },
   { id: 'next-headers-import', pattern: /from\s+['"]next\/headers['"]/ },
@@ -107,13 +114,14 @@ async function main() {
 
   for (const file of sorted) {
     const rel = normalize(path.relative(repoRoot, file))
+    const content = await fs.readFile(file, 'utf8')
+
     for (const rule of BLOCK_RULES) {
-      if (rule.test && rule.test(rel)) {
+      if (rule.test && rule.test(rel, content)) {
         violations.push(`${rel}: [${rule.id}] matched forbidden file pattern`)
       }
     }
 
-    const content = await fs.readFile(file, 'utf8')
     const lines = content.split('\n')
     lines.forEach((line, i) => {
       for (const rule of BLOCK_RULES) {

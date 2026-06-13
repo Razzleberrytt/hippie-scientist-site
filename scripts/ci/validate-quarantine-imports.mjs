@@ -7,7 +7,6 @@ const repoRoot = process.cwd()
 
 const ACTIVE_ROOTS = [
   'app',
-  'src/app',
   'components',
   'src/components/explore',
   'src/components/runtime',
@@ -29,6 +28,8 @@ const SOURCE_EXTENSIONS = new Set([
 // Mirrors quarantined/deferred areas documented in tsconfig.json.
 // Keep this conservative and string-based to avoid heavy resolution logic.
 const QUARANTINED_IMPORT_PATTERNS = [
+  'legacy-quarantine/',
+  '@/src/app/',
   '@/src/pages/',
   '@/src/components/cta/',
   '@/src/components/detail/',

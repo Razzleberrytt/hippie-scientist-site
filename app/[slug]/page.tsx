@@ -15,7 +15,7 @@ import {
 } from '@/lib/focus-cluster-markdown'
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
 
-const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net'
+const FOCUS_CLUSTER_SITE_URL = 'https://thehippiescientist.net'
 const ADHD_CHECKLIST_CAPTURE = {
   title: 'Get the ADHD Supplement Starter Checklist',
   description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',

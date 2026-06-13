@@ -1,165 +1,48 @@
-# Legacy Code Quarantine
+# Legacy Code Quarantine Manifest
 
-This repository intentionally quarantines a set of legacy `src/**` modules from the active TypeScript compilation.
+This document records the quarantined legacy directories and files moved out of the active Next.js App Router compilation paths. These files are kept for historical context and reference, but are excluded from active builds, routing, and typechecking.
 
-The current production MVP is centered around:
+## Quarantined Directories
 
-- `app/**`
-- `components/**`
-- `lib/**`
-- `data/**`
-- active `src/lib/runtime-*.ts` modules
+### 1. `legacy-quarantine/app/`
+Contains routes that were defined in the active Next.js root `app/` folder but are redirected in production via `public/_redirects`. Moving them here prevents Next.js from building unused static pages.
+- `app/data-moat/` -> Moved to `legacy-quarantine/app/data-moat/`
+- `app/supernodes/` -> Moved to `legacy-quarantine/app/supernodes/`
+- `app/sourcing/` -> Moved to `legacy-quarantine/app/sourcing/`
+- `app/best-adaptogens-for-stress/` -> Moved to `legacy-quarantine/app/best-adaptogens-for-stress/`
+- `app/best-herbs-for-anxiety/` -> Moved to `legacy-quarantine/app/best-herbs-for-anxiety/`
+- `app/best-nootropics-for-focus/` -> Moved to `legacy-quarantine/app/best-nootropics-for-focus/`
+- `app/blog/` -> Moved to `legacy-quarantine/app/blog/`
+- `app/buy-guide/` -> Moved to `legacy-quarantine/app/buy-guide/`
+- `app/cognition-supplements/` -> Moved to `legacy-quarantine/app/cognition-supplements/`
+- `app/compare/ashwagandha-vs-rhodiola-for-stress/` -> Moved to `legacy-quarantine/app/compare/ashwagandha-vs-rhodiola-for-stress/`
+- `app/compare/sourcing/` -> Moved to `legacy-quarantine/app/compare/sourcing/`
+- `app/ecosystems/` -> Moved to `legacy-quarantine/app/ecosystems/`
+- `app/fat-loss-supplements/` -> Moved to `legacy-quarantine/app/fat-loss-supplements/`
+- `app/herbs-for-sleep/` -> Moved to `legacy-quarantine/app/herbs-for-sleep/`
+- `app/natural-testosterone-boosters/` -> Moved to `legacy-quarantine/app/natural-testosterone-boosters/`
+- `app/pathways/` -> Moved to `legacy-quarantine/app/pathways/`
+- `app/performance-supplements/` -> Moved to `legacy-quarantine/app/performance-supplements/`
+- `app/protocols/` -> Moved to `legacy-quarantine/app/protocols/`
+- `app/safety/` -> Moved to `legacy-quarantine/app/safety/`
+- `app/sleep-supplements/` -> Moved to `legacy-quarantine/app/sleep-supplements/`
+- `app/start-here/` -> Moved to `legacy-quarantine/app/start-here/`
+- `app/stress-supplements/` -> Moved to `legacy-quarantine/app/stress-supplements/`
+- `app/topics/` -> Moved to `legacy-quarantine/app/topics/`
 
-The quarantined files below belong to removed or deferred systems documented in the README:
+### 2. `legacy-quarantine/src/app/`
+Contains legacy App Router folder structures from a previous structure where typechecked code was housed under `src/app/`. The authoritative Next.js App Router tree is now strictly in the root `app/` directory.
+- `src/app/best/` -> Moved to `legacy-quarantine/src/app/best/`
+- `src/app/compare/` -> Moved to `legacy-quarantine/src/app/compare/`
+- `src/app/ecosystems/` -> Moved to `legacy-quarantine/src/app/ecosystems/`
+- `src/app/protocols/` -> Moved to `legacy-quarantine/src/app/protocols/`
+- `src/app/stacks/` -> Moved to `legacy-quarantine/src/app/stacks/`
+- `src/app/topics/` -> Moved to `legacy-quarantine/src/app/topics/`
 
-- legacy lead capture
-- affiliate/product modules
-- governed enrichment tooling
-- effect-search experiments
-- old client-router UI surfaces
-- deprecated analytics/tracking experiments
-- duplicate pre-workbook data loaders
+---
 
-## Quarantined paths
+## TSConfig & Import Enforcement
 
-### Legacy App Router predecessor pages
-
-Excluded:
-
-- `src/pages/**`
-
-Reasons:
-
-- legacy pre-App Router route tree
-- not used by the current Next.js App Router runtime
-- imports quarantined enrichment/data systems which pull deferred modules back into TypeScript compilation
-- preserving these pages in the active type graph causes excluded legacy modules to be reintroduced through import reachability
-
-To revive:
-
-- migrate route logic into `app/**`
-- reconnect only to workbook/runtime-backed data helpers
-- remove imports to quarantined enrichment and legacy data loaders
-
-### Legacy component surfaces
-
-Excluded examples include:
-
-- `src/components/AdvancedSearch.tsx`
-- `src/components/CategoryAnalytics.tsx`
-- `src/components/CategoryFilter.tsx`
-- `src/components/EffectExplorer.tsx`
-- `src/components/EmailCapture.tsx`
-- `src/components/EntityCard.tsx`
-- `src/components/NewsletterCard.tsx`
-- `src/components/NewsletterSignup.tsx`
-- `src/components/BlendSummaryCard.tsx`
-- `src/components/HerbList.tsx`
-- `src/components/QuickFillModal.tsx`
-- `src/components/RecommendedProducts.tsx`
-- `src/components/ShareInsightCard.tsx`
-- `src/components/cta/**`
-- `src/components/detail/**`
-- `src/components/filters/**`
-- `src/components/interactions/**`
-- `src/components/trust/**`
-
-Reasons:
-
-- depend on deleted `@/utils/*` helpers
-- depend on deleted `@/hooks/*` lead-capture flows
-- depend on removed `@/data/*` affiliate/product datasets
-- depend on removed governed-enrichment schemas
-- not reachable from active App Router pages
-- imported quarantined legacy data hooks such as `@/lib/herb-data` and analytics modules such as `@/lib/growth`
-- acted as import-chain parents that reintroduced quarantined files into TypeScript despite direct excludes
-- `src/components/EntityCard.tsx` type-imports `Entity` from `@/lib/data`, which resolves to quarantined `src/lib/data.ts`
-- `src/components/RecommendedProducts.tsx` imports `@/types` and `@/lib/herbProducts`, which resolve to quarantined legacy type/product modules
-
-To revive:
-
-- reconnect through workbook-generated runtime data
-- rebuild utilities against active runtime APIs
-- replace deleted schemas/types with current canonical runtime contracts
-- verify import reachability from `app/**`
-
-### Legacy library/data surfaces
-
-Excluded examples include:
-
-- `src/lib/curatedProducts.ts`
-- `src/lib/governedCta.ts`
-- `src/lib/governedResearch.ts`
-- `src/lib/researchEnrichment.ts`
-- `src/lib/herbRecommendations.ts`
-- `src/lib/compound-data.ts`
-- `src/lib/compoundHerbRelations.ts`
-- `src/lib/governedCollectionIntro.ts`
-- `src/lib/herb-data.ts`
-- `src/lib/data/herbs.ts`
-- `src/types.ts`
-
-The latest remaining TypeScript quarantine gap pass explicitly confirms these deferred `src`-era modules are excluded from active type checking:
-
-- `src/lib/compound-data.ts`
-- `src/lib/data.ts`
-- `src/lib/growth.ts`
-- `src/lib/herb-data.ts`
-- `src/lib/herbProducts.ts`
-- `src/lib/interactionSeed.ts`
-- `src/lib/researchEnrichment.ts`
-- `src/types.ts`
-
-Reasons:
-
-- rely on deleted recommendation/enrichment schemas
-- rely on removed analytics/event-storage systems
-- duplicate workbook-driven runtime data systems
-- predate the current static-export architecture
-- some files act as import-chain parents that pull quarantined modules back into TypeScript despite direct excludes
-- the remaining gap files depend on removed legacy modules and types such as `@/utils/calculateConfidence`, `@/utils/sanitizeData`, `@/types/enrichmentDiscovery`, `@/types/researchEnrichment`, `@/types/herb`, `../types/compound`, `@/utils/storageState`, `@/data/herbProducts`, `@/data/interactionTags.seed`, and `@/utils/interactions/interactionTagUtils`
-
-To revive:
-
-- migrate to workbook-governed runtime payloads under `public/data/**`
-- replace deleted utility dependencies with maintained runtime helpers
-- rebuild types from current workbook/runtime contracts instead of restoring obsolete schemas
-
-## Import reachability rule
-
-Excluding a file directly in `tsconfig.json` is insufficient if an active checked file imports it.
-
-Before adding or keeping a quarantine entry, verify that no active checked surface imports it, including:
-
-- `app/**`
-- `components/**`
-- `lib/**`
-- `data/**`
-- `scripts/data/**`
-- active `src/lib/runtime-*.ts`
-- active `src/components` navigation files
-
-If an active checked file imports a quarantined module, either replace that import with the active workbook/runtime data source or quarantine the importing file only when that importing file is also clearly legacy/deferred.
-
-## Important constraints
-
-These exclusions are intentionally narrow.
-
-The following remain type-checked and must stay active:
-
-- `app/**`
-- `components/**`
-- `lib/**`
-- active static-export runtime modules
-- sitemap/robots/SEO infrastructure
-- current data-build pipeline integration points
-
-Do not broaden the quarantine without confirming a file is unreachable from the active App Router runtime.
-
-**2026-06-05 post-pull (cadd761c + merge b6d95e1d) update:** Src/ still has active usage (e.g. app/topics/[slug] reexports from src/app/topics, lib/runtime/* imports from src/lib/ via @/ alias in tsconfig). Merge touched src/lib/schema-graph.ts (now required). Our prior surgical excludes (Header, EffectExplorer, many app/ dups like compare/stacks, component lists) + tsconfig notes remain. No mass delete; hybrid maintained for runtime bits. Full consolidation deferred per plan. Guard/verify still clean post all. See current tsconfig excludes + src-active-vs-legacy.md.
-
-**2026-06-05 Phase 2 update (plan activation):** 
-- Deleted confirmed dead: src/components/Header.tsx, src/components/EffectExplorer.tsx (excluded in tsconfig, no active imports from app/components/lib per audits, not reexported).
-- Added tsconfig excludes for more src/app dup trees (compare/stacks/etc — no reexports unlike topics) + Header.
-- outputFileTracingRoot added to next.config.mjs to address workspace/worktree tracing warnings.
-- src/ still has active bits (topics reexports, src/lib/* for some runtime scoring used via @/src paths). Hybrid maintained; full consolidation later. See tsconfig excludes + session plan.
+To ensure legacy quarantined files do not pollute typechecking or build size:
+1. `tsconfig.json` contains `"legacy-quarantine"` in its `"exclude"` list.
+2. `scripts/ci/validate-quarantine-imports.mjs` runs in pre-build and blocks any import statements referencing `'legacy-quarantine/'` or `@/src/app/`.

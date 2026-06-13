@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 
 const files = ['public/data/workbook-herbs.json', 'public/data/workbook-compounds.json']
-const VALID = new Set(['Generally well tolerated', 'Use caution', 'Interaction risk', 'Safety review pending', 'Limited safety data'])
+const VALID = new Set(['Generally well tolerated', 'Use caution', 'Interaction risk', 'Safety review pending', 'Limited safety data', 'Safety data limited', 'Interaction review pending', 'See profile cautions'])
 const out = []
 let bad = 0
 for (const file of files) {

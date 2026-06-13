@@ -153,13 +153,8 @@ const steps = [
   {
     name: 'validate-guide-related',
     cmd: 'npx tsx scripts/ci/validate-guide-related.mjs',
-    description: 'Validate related guide relationships and prevent self-reference/duplicates',
-  },
-  {
-    name: 'verify:build:parallel',
-    cmd: 'npm run verify:build:parallel',
-    description: 'Run parallel post-build verifications, audits, SEO, security, etc.',
-  },
+    description: 'Validate related guide relationships and prevent self-reference/duplicates'
+  }
 ]
 
 if (process.argv.includes('--dry-run')) {

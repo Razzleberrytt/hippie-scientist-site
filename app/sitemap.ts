@@ -6,7 +6,7 @@ import { SITE_URL } from '@/lib/site';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 
-const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net';
+const FOCUS_CLUSTER_SITE_URL = 'https://thehippiescientist.net';
 
 type SitemapSourceItem = {
   slug?: string;

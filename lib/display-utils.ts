@@ -132,7 +132,8 @@ export function formatDisplayLabel(value: unknown): string {
     return LABEL_MAP[normalized]
   }
 
-  return raw
+  const collapsed = collapseRepeatedNouns(raw)
+  return collapsed
     .replace(/_/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
@@ -184,7 +185,7 @@ export function cleanSummary(value: unknown, type: 'herb' | 'compound' = 'compou
 
   const summary = text(value)
 
-  if (isClean(summary)) return summary
+  if (isClean(summary)) return collapseRepeatedNouns(summary)
 
   if (type === 'herb') {
     return 'Botanical profile with evidence, safety, and practical fit.'
@@ -219,4 +220,9 @@ export function isSafeInternalHref(value: unknown): value is string {
   if (/\s/.test(href)) return false
 
   return true
+}
+
+export function collapseRepeatedNouns(textVal: string): string {
+  if (!textVal) return ''
+  return textVal.replace(/\b(\w+)\s+\1\b/gi, '$1')
 }

@@ -5,7 +5,7 @@ import rawArticles from '../../../data/articles/articles.json'
 import BlogPostPage, {
   generateMetadata as generateBlogMetadata,
   generateStaticParams as generateBlogStaticParams,
-} from '../../blog/[slug]/page'
+} from '@/components/blog/BlogPostPage'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '@/lib/seo'
 import { formatDate } from '@/lib/blog-index'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'

@@ -61,7 +61,10 @@ function getSummary(item: RuntimeRecord) {
     let s = `${name} `
     if (primaryUse) s += `for ${primaryUse} `
     if (mech) s += `via ${mech} `
-    if (ev) s += `(${ev.toLowerCase()} evidence)`
+    if (ev) {
+      const cleanEv = ev.toLowerCase().replace(/\s+evidence$/i, '')
+      s += `(${cleanEv} evidence)`
+    }
     return s.trim() + '.'
   }
 
@@ -98,7 +101,13 @@ function getSafety(item: RuntimeRecord) {
       item?.safety?.confidence ||
       item?.confidence ||
       item?.profile_status,
-    { hasSafetyNotes: Boolean(item?.safetyNotes || item?.safety_notes || item?.safety) }
+    {
+      hasSafetyNotes: Boolean(item?.safetyNotes || item?.safety_notes || item?.safety),
+      hasInteractions: Boolean(item?.interactions || item?.interaction_notes || item?.interaction_cautions),
+      hasCautions: Boolean(item?.cautions || item?.contraindications || item?.side_effects),
+      notes: text(item?.safetyNotes || item?.safety_notes || item?.safety),
+      interactions: text(item?.interactions || item?.interaction_notes || item?.interaction_cautions),
+    }
   )
 }
 
@@ -303,6 +312,16 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
   const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
   const totalProfiles = baseHerbs.length
 
+  const pageSize = 36
+  const showingFrom = paginated && totalProfiles > 0 ? (page - 1) * pageSize + 1 : 1
+  const showingTo = paginated ? Math.min(page * pageSize, totalProfiles) : totalProfiles
+  
+  const countLabel = hasActiveFilters
+    ? `Showing ${visibleHerbs.length} of ${totalProfiles}`
+    : paginated
+    ? `Showing ${showingFrom}–${showingTo} of ${totalProfiles}`
+    : `${totalProfiles}`
+
   const readyProfiles = baseHerbs.filter((herb: RuntimeRecord) =>
     /complete|strong|high|ready/i.test(
       text(herb.profile_status || herb.summary_quality || herb.safety?.confidence)
@@ -325,9 +344,9 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
           <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
             <div className="max-w-3xl space-y-2">
               <p className="eyebrow-label">Botanical decision library</p>
-              <h1 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
+              <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
                 Herbal research library
-              </h1>
+              </h2>
               <p className="max-w-2xl text-sm leading-6 text-[#46574d]">
                 Scan by practical context first, then compare evidence, timing, and caution notes where source data supports them.
               </p>
@@ -436,7 +455,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                     </h2>
                   </div>
                   <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
-                    {hasActiveFilters ? visibleHerbs.length : paginated ? herbs.length : totalProfiles} profiles
+                    {countLabel} profiles
                   </span>
                 </div>
 

@@ -1,0 +1,33 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      next-react:
+        patterns:
+          - "next"
+          - "react*"
+          - "@next/*"
+          - "@types/react*"
+      cloudflare-wrangler:
+        patterns:
+          - "wrangler"
+          - "@cloudflare/*"
+      testing-tooling:
+        patterns:
+          - "eslint*"
+          - "@eslint/*"
+          - "prettier*"
+          - "vitest"
+          - "@types/vitest"
+          - "typescript"
+          - "@typescript-eslint/*"
+          - "tsx"
+          - "lint-staged"
+          - "npm-run-all*"
+      ui-animation:
+        patterns:
+          - "framer-motion"
+          - "lucide-react"

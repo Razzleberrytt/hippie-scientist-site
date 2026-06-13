@@ -68,6 +68,8 @@ const asArray = value => (Array.isArray(value) ? value : [])
 const slugify = value =>
   text(value)
     .normalize('NFKD')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/\s*\(.*?\)/g, '')
     .replace(DIACRITICS_PATTERN, '')
     .toLowerCase()
     .replace(/&/g, ' and ')
@@ -90,6 +92,8 @@ function normalizeScientificName(value) {
 function normalizeGenericName(value) {
   return text(value)
     .normalize('NFKD')
+    .replace(/[\u2018\u2019]/g, "'")
+    .replace(/\s*\(.*?\)/g, '')
     .replace(DIACRITICS_PATTERN, '')
     .replace(GREEK_LETTER_PATTERN, character => GREEK_LETTER_NORMALIZATION_MAP.get(character) || character)
     .toLowerCase()

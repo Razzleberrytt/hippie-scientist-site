@@ -28,6 +28,7 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
+    "legacy-quarantine",
     // Dependencies; not project source.
     "node_modules",
 

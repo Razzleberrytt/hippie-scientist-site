@@ -19,6 +19,9 @@ export const STANDARD_SAFETY_LABELS = [
   'Interaction risk',
   'Safety review pending',
   'Limited safety data',
+  'Safety data limited',
+  'Interaction review pending',
+  'See profile cautions',
 ] as const
 
 export type StandardSafetyLabel = (typeof STANDARD_SAFETY_LABELS)[number]
@@ -93,23 +96,62 @@ export function getDecisionEvidenceTone(labelOrValue?: unknown): DecisionEvidenc
   return 'limited'
 }
 
-export function normalizeDecisionSafety(value?: unknown, options: { hasSafetyNotes?: boolean } = {}): StandardSafetyLabel {
+export function normalizeDecisionSafety(
+  value?: unknown,
+  options: {
+    hasSafetyNotes?: boolean
+    hasInteractions?: boolean
+    hasCautions?: boolean
+    notes?: string
+    interactions?: string
+  } = {}
+): StandardSafetyLabel {
   const raw = compactText(value)
-  if (!raw) return options.hasSafetyNotes ? 'Use caution' : 'Safety review pending'
+  let resolved: StandardSafetyLabel = 'Safety review pending'
 
-  const canonical = matchesCanonicalSafety(raw)
-  if (canonical) return canonical
+  if (raw) {
+    const canonical = matchesCanonicalSafety(raw)
+    if (canonical) {
+      resolved = canonical
+    } else {
+      resolved = normalizeSafetyEnum(raw).value
+    }
+  } else if (options.hasSafetyNotes || options.notes) {
+    resolved = 'Use caution'
+  }
 
-  const normalized = normalizeSafetyEnum(raw).value
-  if (normalized === 'Safety review pending' && options.hasSafetyNotes) return 'Use caution'
-  return normalized
+  // Refine safety review pending based on additional context
+  if (resolved === 'Safety review pending') {
+    const hasInteractions = options.hasInteractions || (options.interactions && options.interactions.length > 5)
+    const hasCautions = options.hasCautions || (options.notes && options.notes.toLowerCase().includes('caution'))
+    const hasSafetyNotes = options.hasCautions || options.hasSafetyNotes || (options.notes && options.notes.length > 5)
+
+    if (hasInteractions) {
+      return 'Interaction review pending'
+    } else if (hasCautions) {
+      return 'See profile cautions'
+    } else if (hasSafetyNotes) {
+      return 'Safety data limited'
+    }
+  }
+
+  return resolved
 }
 
-export function getDecisionSafetyTone(labelOrValue?: unknown, options: { hasSafetyNotes?: boolean } = {}): DecisionSafetyTone {
+export function getDecisionSafetyTone(
+  labelOrValue?: unknown,
+  options: {
+    hasSafetyNotes?: boolean
+    hasInteractions?: boolean
+    hasCautions?: boolean
+    notes?: string
+    interactions?: string
+  } = {}
+): DecisionSafetyTone {
   const label = normalizeDecisionSafety(labelOrValue, options)
   if (label === 'Generally well tolerated') return 'ok'
-  if (label === 'Interaction risk') return 'interaction'
-  if (label === 'Limited safety data') return 'limited'
+  if (label === 'Interaction risk' || label === 'Interaction review pending') return 'interaction'
+  if (label === 'Limited safety data' || label === 'Safety data limited') return 'limited'
   if (label === 'Safety review pending') return 'review'
   return 'caution'
 }
