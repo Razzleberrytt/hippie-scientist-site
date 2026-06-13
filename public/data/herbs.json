@@ -41,6 +41,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Kidney stone risk",
       "iron overload conditions",
@@ -146,6 +151,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -241,6 +251,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -363,6 +378,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "inflammatory bowel disease",
@@ -472,6 +492,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -579,6 +604,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -687,6 +717,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -808,6 +843,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -915,6 +955,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1023,6 +1068,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1131,6 +1181,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1227,6 +1282,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1343,6 +1403,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "bleeding disorders",
@@ -1450,6 +1515,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -1570,6 +1640,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Unstable angina",
       "heart failure without clinician oversight",
@@ -1677,6 +1752,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1794,6 +1874,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding unless medically indicated",
       "serious infection without medical care",
@@ -1902,6 +1987,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -2015,6 +2105,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Bile duct obstruction",
       "gallstones without clinician guidance",
@@ -2120,6 +2215,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "anticoagulant use without review"
@@ -2226,6 +2326,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -2339,6 +2444,11 @@
     ],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "Multiple human RCTs & meta-analyses",
+    "evidence_risk_of_bias": "Medium",
+    "evidence_consistency": "Consistent",
+    "evidence_rationale": "Ashwagandha has strong clinical backing for stress and anxiety reduction. Significant decreases in salivary cortisol and perceived stress scores have been replicated across multiple independent, double-blind, placebo-controlled human trials.",
+    "trial_design_insight": "Most clinical trials on Ashwagandha utilize standardized root extracts (such as KSM-66 or Shoden) at doses between 300mg and 600mg daily. Blinding is generally robust, although the characteristic smell of the herb requires careful placebo formulation.",
     "contraindications": [
       "Hyperthyroidism",
       "sedatives"
@@ -2449,6 +2559,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Stimulants",
       "anticoagulants"
@@ -2562,6 +2677,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Transplant/immunosuppression without clinician guidance",
       "autoimmune flare risk",
@@ -2690,6 +2810,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -2798,6 +2923,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -2910,6 +3040,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -3020,6 +3155,11 @@
     ],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Sedatives",
       "thyroid medications (possible interaction)"
@@ -3120,6 +3260,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -3229,6 +3374,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -3330,6 +3480,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -3455,6 +3610,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "breastfeeding",
@@ -3574,6 +3734,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -3685,6 +3850,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetics",
       "pregnancy avoid"
@@ -3794,6 +3964,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "liver disease",
       "pregnancy"
@@ -3891,6 +4066,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Many medications (CYP interactions)"
     ],
@@ -4014,6 +4194,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy at supplemental/high doses",
       "known allergy",
@@ -4139,6 +4324,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Severe caffeine sensitivity",
       "pregnancy caffeine limits",
@@ -4241,6 +4431,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "sedative-sensitive users",
@@ -4371,6 +4566,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulant use without review for high-dose extracts",
       "diabetes medication monitoring if large intake changes"
@@ -4465,6 +4665,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -4564,6 +4769,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "NSAIDs (caution)"
     ],
@@ -4665,6 +4875,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -4769,6 +4984,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -4873,6 +5093,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -4997,6 +5222,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -5108,6 +5338,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -5215,6 +5450,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -5316,6 +5556,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Asteraceae allergy",
       "pregnancy/breastfeeding without clinician guidance",
@@ -5415,6 +5660,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -5521,6 +5771,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Caffeine sensitivity"
     ],
@@ -5611,6 +5866,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "children",
@@ -5723,6 +5983,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Asteraceae allergy",
       "open/infected wounds without medical care",
@@ -5827,6 +6092,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "CNS depressants"
     ],
@@ -5927,6 +6197,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Broken or inflamed skin for topical use",
       "known chili/capsaicin allergy",
@@ -6024,6 +6299,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -6130,6 +6410,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Limited data"
     ],
@@ -6228,6 +6513,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Severe constipation/obstruction risk",
       "carob allergy"
@@ -6330,6 +6620,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -6440,6 +6735,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -6538,6 +6838,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -6641,6 +6946,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -6762,6 +7072,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -6886,6 +7201,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -6986,6 +7306,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants (coumarin content)"
     ],
@@ -7101,6 +7426,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Liver disease",
       "pregnancy/breastfeeding",
@@ -7212,6 +7542,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "bleeding disorders",
@@ -7330,6 +7665,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -7435,6 +7775,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetic drugs (additive hypoglycemia)"
     ],
@@ -7538,6 +7883,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "diabetes medications without monitoring"
@@ -7636,6 +7986,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "diarrhea-prone conditions"
@@ -7744,6 +8099,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "diarrhea-prone conditions"
@@ -7869,6 +8229,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -7985,6 +8350,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -8086,6 +8456,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Bleeding disorder",
       "liver disease",
@@ -8182,6 +8557,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -8289,6 +8669,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -8391,6 +8776,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Cardiovascular disease",
       "stimulants"
@@ -8504,6 +8894,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmias",
@@ -8608,6 +9003,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "hypotension",
@@ -8733,6 +9133,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -8853,6 +9258,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -8966,6 +9376,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -9082,6 +9497,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Immunosuppressants"
     ],
@@ -9198,6 +9618,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -9314,6 +9739,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -9407,6 +9837,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -9512,6 +9947,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "history of kidney stones (oxalate)"
     ],
@@ -9622,6 +10062,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -9723,6 +10168,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -9828,6 +10278,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -9937,6 +10392,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -10039,6 +10499,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -10144,6 +10609,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -10256,6 +10726,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding supplement dosing without guidance",
       "internal essential-oil use"
@@ -10354,6 +10829,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "seizure disorder without clinician review",
@@ -10464,6 +10944,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Asteraceae allergy",
       "bile duct obstruction",
@@ -10567,6 +11052,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "anticoagulant/antiplatelet therapy without clinician review",
@@ -10674,6 +11164,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -10772,6 +11267,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -10882,6 +11382,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "bleeding disorders",
@@ -10996,6 +11501,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "autoimmune conditions (theoretical)",
       "ragweed allergy"
@@ -11104,6 +11614,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Autoimmune/transplant immunosuppression without clinician review",
       "pregnancy/breastfeeding without guidance"
@@ -11201,6 +11716,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -11306,6 +11826,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -11421,6 +11946,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "safety": "Generally well tolerated. May interact with anticoagulants (warfarin) and immunosuppressants. Avoid combining with stimulants or digoxin. Not recommended during pregnancy without medical supervision.",
     "contraindications": [
       "Uncontrolled hypertension",
@@ -11522,6 +12052,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -11628,6 +12163,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "hormone-sensitive conditions without review",
@@ -11741,6 +12281,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "significant heart rhythm or blood-pressure instability",
@@ -11846,6 +12391,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Infants/young children for oil exposure near face",
       "asthma/bronchospasm sensitivity",
@@ -11951,6 +12501,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "hypotension or hypoglycemia risk"
@@ -12036,6 +12591,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "epilepsy (theoretical seizure risk)"
     ],
@@ -12143,6 +12703,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -12252,6 +12817,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetics",
       "anticoagulants"
@@ -12361,6 +12931,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "Asteraceae/ragweed allergy",
@@ -12473,6 +13048,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -12584,6 +13164,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -12698,6 +13283,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -12798,6 +13388,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -12908,6 +13503,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -13018,6 +13618,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "bleeding disorder/anticoagulant use without review"
@@ -13130,6 +13735,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants",
       "antiplatelets",
@@ -13253,6 +13863,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "bleeding disorders",
       "pre-surgery"
@@ -13357,6 +13972,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "sedative use without review"
@@ -13471,6 +14091,11 @@
     ],
     "evidence_grade": "b+",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -13575,6 +14200,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants",
       "SSRIs"
@@ -13673,6 +14303,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Hypertension",
       "kidney disease",
@@ -13795,6 +14430,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "infants/newborns",
@@ -13918,6 +14558,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Sedatives"
     ],
@@ -14034,6 +14679,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -14131,6 +14781,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Avoid or medically supervise with drugs labeled for grapefruit interaction",
       "narrow-therapeutic-index drugs",
@@ -14250,6 +14905,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Stimulants",
       "hepatotoxic drugs"
@@ -14352,6 +15012,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Liver disease",
       "stimulants"
@@ -14458,6 +15123,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmia",
@@ -14563,6 +15233,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmia",
@@ -14678,6 +15353,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -14782,6 +15462,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetic medications"
     ],
@@ -14885,6 +15570,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -14983,6 +15673,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Cardiac medications"
     ],
@@ -15089,6 +15784,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antihypertensives (additive)"
     ],
@@ -15209,6 +15909,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy (insufficient data)",
       "diabetes (monitor glucose)"
@@ -15321,6 +16026,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -15420,6 +16130,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -15528,6 +16243,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -15627,6 +16347,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "severe depression",
@@ -15735,6 +16460,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -15842,6 +16572,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -15944,6 +16679,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -16046,6 +16786,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -16161,6 +16906,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "CYP3A4 substrates",
       "metformin (additive)",
@@ -16266,6 +17016,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -16387,6 +17142,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "bleeding disorders",
@@ -16494,6 +17254,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -16599,6 +17364,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Diabetes/glucose management if using sweet fruit products",
       "pregnancy supplement dosing without guidance"
@@ -16697,6 +17467,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "kidney disease",
@@ -16801,6 +17576,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "bipolar/mania risk",
@@ -16914,6 +17694,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "alcohol",
       "hepatotoxic drugs"
@@ -17023,6 +17808,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -17141,6 +17931,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding caution",
       "hormone-sensitive cancers or conditions",
@@ -17250,6 +18045,11 @@
     ],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "MAO inhibitors",
       "thyroid meds"
@@ -17350,6 +18150,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Minimal",
       "caution with sedatives"
@@ -17450,6 +18255,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -17567,6 +18377,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Additive with CNS depressants (benzodiazepines",
       "alcohol)",
@@ -17674,6 +18489,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "kidney disease caution at high doses"
@@ -17782,6 +18602,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding supplement dosing without guidance",
       "internal essential-oil use"
@@ -17886,6 +18711,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Hypertension",
       "kidney disease",
@@ -18009,6 +18839,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -18110,6 +18945,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "safety": "Generally well tolerated. Rare cases of allergic reactions, particularly in individuals with mushroom sensitivities. Use caution if immunocompromised.",
     "contraindications": [
       "Unknown"
@@ -18213,6 +19053,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -18318,6 +19163,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -18422,6 +19272,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -18531,6 +19386,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "hormone-sensitive conditions (unclear relevance)"
     ],
@@ -18638,6 +19498,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Sedatives",
       "anticoagulants"
@@ -18746,6 +19611,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -18866,6 +19736,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -18971,6 +19846,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "bleeding disorder/anticoagulant use without review"
@@ -19069,6 +19949,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -19168,6 +20053,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Difficulty swallowing",
       "severe GI obstruction risk",
@@ -19268,6 +20158,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Celiac/gluten sensitivity unless certified gluten-free",
       "pregnancy/breastfeeding caution"
@@ -19384,6 +20279,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "CYP450 substrates (mild interaction)"
     ],
@@ -19497,6 +20397,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "ragweed allergy"
     ],
@@ -19621,6 +20526,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -19748,6 +20658,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding caution for concentrated extracts",
       "especially non-leaf parts",
@@ -19862,6 +20777,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Hypoglycemia risk",
       "pregnancy/breastfeeding without clinician guidance"
@@ -19976,6 +20896,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Psychosis/bipolar risk",
       "melanoma history caution",
@@ -20077,6 +21002,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "seizure disorder",
@@ -20178,6 +21108,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -20292,6 +21227,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Hypoglycemia risk",
       "pregnancy/breastfeeding without clinician guidance"
@@ -20386,6 +21326,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -20491,6 +21436,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -20601,6 +21551,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/trying to conceive",
       "children",
@@ -20720,6 +21675,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -20824,6 +21784,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -20946,6 +21911,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy at supplemental/high doses",
       "hypoglycemia-prone patients without monitoring",
@@ -21056,6 +22026,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Liver disease",
       "kidney disease/hyperkalemia risk",
@@ -21169,6 +22144,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "anticoagulant/antiplatelet use without clinician review",
@@ -21270,6 +22250,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Celiac disease/gluten sensitivity unless certified gluten-free",
       "pregnancy/breastfeeding caution"
@@ -21393,6 +22378,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -21496,6 +22486,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -21622,6 +22617,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antihypertensives"
     ],
@@ -21717,6 +22717,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -21830,6 +22835,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Citrus allergy",
       "internal essential-oil use without supervision"
@@ -21932,6 +22942,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding for medicinal-dose essential oil",
       "Lamiaceae allergy",
@@ -22049,6 +23064,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy without clinician guidance",
       "anticoagulant use without review"
@@ -22167,6 +23187,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -22275,6 +23300,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "papaya/latex allergy",
@@ -22389,6 +23419,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -22495,6 +23530,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Sedatives",
       "SSRIs (theoretical MAOI overlap)"
@@ -22595,6 +23635,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -22701,6 +23746,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -22805,6 +23855,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "GERD",
       "hiatal hernia"
@@ -22902,6 +23957,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding supplement use without guidance",
       "anticoagulant use without review"
@@ -23020,6 +24080,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -23137,6 +24202,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -23251,6 +24321,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants (theoretical)"
     ],
@@ -23360,6 +24435,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding caution",
       "significant reflux/ulcer disease",
@@ -23468,6 +24548,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -23572,6 +24657,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -23677,6 +24767,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -23782,6 +24877,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "gastritis/ulcer sensitivity"
@@ -23899,6 +24999,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -24007,6 +25112,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24127,6 +25237,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -24247,6 +25362,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -24362,6 +25482,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24462,6 +25587,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24563,6 +25693,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24680,6 +25815,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antibiotics (quinolones)",
       "anticoagulants"
@@ -24789,6 +25929,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "High-risk pregnancy",
       "early pregnancy without clinician guidance",
@@ -24902,6 +26047,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "hormone-sensitive cancer/condition without clinician review",
@@ -25010,6 +26160,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -25115,6 +26270,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -25222,6 +26382,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants",
       "immunosuppressants"
@@ -25336,6 +26501,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "safety": "Generally well tolerated at standard doses. Mild gastrointestinal effects possible. Use caution with anticoagulant medications and in patients with low platelet counts. Discontinue 2 weeks before surgery.",
     "contraindications": [
       "autoimmune conditions (caution)",
@@ -25458,6 +26628,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -25554,6 +26729,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -25663,6 +26843,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "SSRIs (theoretical serotonin effects)"
     ],
@@ -25787,6 +26972,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -25896,6 +27086,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -26006,6 +27201,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Kidney stone risk",
       "iron overload disorders with high vitamin C intake",
@@ -26113,6 +27313,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -26238,6 +27443,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -26349,6 +27559,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -26471,6 +27686,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy",
       "seizure disorder",
@@ -26580,6 +27800,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -26690,6 +27915,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Caution with anticoagulants and antiplatelets."
     ],
@@ -26795,6 +28025,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "hormone-sensitive conditions (theoretical)"
     ],
@@ -26903,6 +28138,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "safety": "Generally well tolerated. Use caution during pregnancy - traditional use is limited in first trimester. May affect CYP3A4 and P-glycoprotein activity; caution with medications cleared by those pathways.",
     "contraindications": [
       "pregnancy (insufficient data)"
@@ -27000,6 +28240,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "active reflux/ulcer sensitivity",
@@ -27109,6 +28354,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "active reflux/ulcer sensitivity",
@@ -27237,6 +28487,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Liver disease",
       "pregnancy/breastfeeding",
@@ -27344,6 +28599,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -27461,6 +28721,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -27566,6 +28831,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -27671,6 +28941,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/lactation use should be clinician-guided",
       "hormone-sensitive conditions without review"
@@ -27777,6 +29052,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "safety": "Generally well tolerated. Product adulteration with germander (Teucrium spp.) has been linked to hepatotoxicity in isolated cases - purchase from verified, third-party-tested sources. Mild sedative effects at high doses; caution when driving.",
     "contraindications": [
       "Sedatives",
@@ -27875,6 +29155,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -27984,6 +29269,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -28087,6 +29377,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -28209,6 +29504,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Soy allergy",
       "hormone-sensitive conditions without clinician review",
@@ -28312,6 +29612,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "safety": "Clinically significant drug interactions via CYP3A4 and CYP2C9 induction. Can substantially reduce blood levels of oral contraceptives, warfarin, cyclosporine, antiretrovirals, and many other medications. Do not combine with SSRIs or other serotonergic drugs due to serotonin syndrome risk. Photosensitivity reported at high doses. Consult a clinician before use if taking any prescription medications.",
     "contraindications": [
       "pregnancy",
@@ -28411,6 +29716,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -28510,6 +29820,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -28614,6 +29929,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -28718,6 +30038,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -28824,6 +30149,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -28926,6 +30256,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "Lion's Mane (Hericium erinaceus) shows promising but still emerging human evidence for cognitive support, primarily through neurotrophic and neuroprotective mechanisms. Several small randomized and open-label human studies have reported improvements in cognitive function, mood, and nerve-related outcomes, though results vary by extract type, dosage, population, and study duration. Preclinical research has identified hericenones and erinacines as key compounds that stimulate nerve growth factor (NGF) synthesis and promote neurogenesis, particularly in the hippocampus. Human data remains more limited. A 2019 double-blind, placebo-controlled trial in adults with mild cognitive impairment found that 3 g/day of Lion's Mane powder for 16 weeks was associated with improved cognitive scores compared with placebo, with effects diminishing after supplementation ended. Other small studies have explored benefits for mood, anxiety, and depression symptoms, as well as peripheral nerve recovery, with generally favorable but preliminary findings. Evidence quality is currently rated Moderate (B). Strengths include consistent mechanistic rationale and some positive human trials using standardized extracts. Limitations include small sample sizes, short durations, heterogeneous preparations (fruiting body vs. mycelium, varying beta-glucan content), and a lack of large, long-term RCTs in healthy or clinical populations. Product standardization remains inconsistent across commercial sources, which may affect reproducibility of effects. Overall, Lion's Mane is best positioned as a supportive compound for cognitive maintenance and mild mood support rather than a primary treatment for diagnosed conditions. Individuals interested in trying it should prioritize third-party tested fruiting-body extracts with verified beta-glucan content and track personal response over 8–12 weeks.",
     "evidence_tier": "Mechanistic Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Not source-complete in workbook",
       "screen pregnancy",
@@ -29033,6 +30368,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Bleeding disorder",
       "liver disease",
@@ -29140,6 +30480,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -29244,6 +30589,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -29346,6 +30696,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Caution with cardiac medications and anticoagulants."
     ],
@@ -29456,6 +30811,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "fertility attempts",
@@ -29575,6 +30935,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding for medicinal-dose essential oil",
       "significant GI irritation",
@@ -29680,6 +31045,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -29779,6 +31149,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "hormone-sensitive conditions (uncertain)"
     ],
@@ -29887,6 +31262,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "fertility attempts",
@@ -30003,6 +31383,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "safety": "Well tolerated in clinical trials at doses up to 9 g/day. Mild gastrointestinal effects at high doses. No significant drug interactions established. Use caution in severely immunocompromised individuals without medical supervision.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
@@ -30127,6 +31512,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b+",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants",
       "gallstones"
@@ -30230,6 +31620,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "CNS depressants",
       "alcohol",
@@ -30335,6 +31730,11 @@
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy",
       "caution with alcohol"
@@ -30439,6 +31839,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -30550,6 +31955,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy without clinician guidance",
       "anticoagulant use without review"
@@ -30653,6 +32063,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family"
@@ -30756,6 +32171,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "seizure disorder",
@@ -30861,6 +32281,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Asteraceae/ragweed allergy",
       "pregnancy",
@@ -30986,6 +32411,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmia",
@@ -31096,6 +32526,11 @@
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Hypertension",
       "arrhythmia",

@@ -47,6 +47,11 @@
     ],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "Multiple human RCTs & meta-analyses",
+    "evidence_risk_of_bias": "Medium",
+    "evidence_consistency": "Consistent",
+    "evidence_rationale": "Ashwagandha has strong clinical backing for stress and anxiety reduction. Significant decreases in salivary cortisol and perceived stress scores have been replicated across multiple independent, double-blind, placebo-controlled human trials.",
+    "trial_design_insight": "Most clinical trials on Ashwagandha utilize standardized root extracts (such as KSM-66 or Shoden) at doses between 300mg and 600mg daily. Blinding is generally robust, although the characteristic smell of the herb requires careful placebo formulation.",
     "contraindications": [
       "Hyperthyroidism",
       "sedatives"
@@ -147,6 +152,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "Lion's Mane (Hericium erinaceus) shows promising but still emerging human evidence for cognitive support, primarily through neurotrophic and neuroprotective mechanisms. Several small randomized and open-label human studies have reported improvements in cognitive function, mood, and nerve-related outcomes, though results vary by extract type, dosage, population, and study duration. Preclinical research has identified hericenones and erinacines as key compounds that stimulate nerve growth factor (NGF) synthesis and promote neurogenesis, particularly in the hippocampus. Human data remains more limited. A 2019 double-blind, placebo-controlled trial in adults with mild cognitive impairment found that 3 g/day of Lion's Mane powder for 16 weeks was associated with improved cognitive scores compared with placebo, with effects diminishing after supplementation ended. Other small studies have explored benefits for mood, anxiety, and depression symptoms, as well as peripheral nerve recovery, with generally favorable but preliminary findings. Evidence quality is currently rated Moderate (B). Strengths include consistent mechanistic rationale and some positive human trials using standardized extracts. Limitations include small sample sizes, short durations, heterogeneous preparations (fruiting body vs. mycelium, varying beta-glucan content), and a lack of large, long-term RCTs in healthy or clinical populations. Product standardization remains inconsistent across commercial sources, which may affect reproducibility of effects. Overall, Lion's Mane is best positioned as a supportive compound for cognitive maintenance and mild mood support rather than a primary treatment for diagnosed conditions. Individuals interested in trying it should prioritize third-party tested fruiting-body extracts with verified beta-glucan content and track personal response over 8–12 weeks.",
     "evidence_tier": "Mechanistic Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Not source-complete in workbook",
       "screen pregnancy",
@@ -268,6 +278,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "b+",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "Anticoagulants",
       "gallstones"

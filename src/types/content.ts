@@ -103,6 +103,13 @@ export interface Herb {
   researchEnrichmentSummary?: PublishSafeEnrichmentSummary
   researchEnrichment?: ResearchEnrichment
   curatedData?: CuratedData
+  evidence_design_match?: string
+  evidence_risk_of_bias?: string
+  evidence_consistency?: string
+  evidence_rationale?: string
+  trial_design_insight?: string
+  evidence_grade?: string
+  evidence_summary?: string
   [key: string]: unknown
 }
 
@@ -119,6 +126,13 @@ export interface Compound {
     keyEffects?: string[]
   }
   rawData?: Record<string, unknown>
+  evidence_design_match?: string
+  evidence_risk_of_bias?: string
+  evidence_consistency?: string
+  evidence_rationale?: string
+  trial_design_insight?: string
+  evidence_grade?: string
+  evidence_summary?: string
   [key: string]: unknown
 }
 

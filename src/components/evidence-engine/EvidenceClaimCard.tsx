@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import EvidenceSafetyNotes from '@/components/evidence-engine/EvidenceSafetyNotes'
 import EvidenceSourceList from '@/components/evidence-engine/EvidenceSourceList'
+import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import {
   getConfidenceDisplay,
   type EvidenceEngineClaim,
@@ -60,6 +61,19 @@ export default function EvidenceClaimCard({
           </div>
         </div>
       </dl>
+
+      {claim.design_type && (
+        <TrialDesignInsight
+          designType={claim.design_type}
+          sampleSize={claim.sample_size ?? undefined}
+          duration={claim.duration}
+          blinding={claim.blinding}
+          control={claim.control}
+          title={`${claim.ingredient_name} Study Design`}
+        >
+          {claim.design_insight}
+        </TrialDesignInsight>
+      )}
 
       <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-700 ring-1 ring-slate-200">
         <strong>{confidence.label}:</strong> {confidence.description}

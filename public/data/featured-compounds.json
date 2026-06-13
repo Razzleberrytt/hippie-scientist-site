@@ -44,6 +44,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "high",
     "evidence_tier": "Mechanistic Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "advanced kidney disease",
       "active renal monitoring concerns"
@@ -161,6 +166,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "high",
     "evidence_tier": "Mechanistic Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "advanced kidney disease",
       "active renal monitoring concerns"
@@ -282,6 +292,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "high",
     "evidence_tier": "Moderate Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "kidney disease",
       "high-dose laxative intolerance"
@@ -400,6 +415,11 @@
     ],
     "evidence_grade": "moderate",
     "evidence_tier": "Mechanistic Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "kidney disease",
       "high-dose magnesium intolerance"
@@ -510,6 +530,11 @@
     "unmapped_mechanisms": [],
     "evidence_grade": "high",
     "evidence_tier": "Strong Human Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
     "contraindications": [
       "sedatives",
       "pregnancy without clinician guidance",

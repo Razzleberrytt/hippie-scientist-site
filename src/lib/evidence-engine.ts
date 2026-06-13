@@ -27,6 +27,12 @@ export type EvidenceEngineClaim = {
   decision_group: string
   display_order: number
   published: boolean
+  design_type?: string
+  sample_size?: number | null
+  duration?: string
+  blinding?: string
+  control?: string
+  design_insight?: string
 }
 
 export type EvidenceEngineConfig = {
