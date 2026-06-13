@@ -31,6 +31,7 @@ import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '@/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
+import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
@@ -333,6 +334,27 @@ function splitRegulatorySources(value: unknown): string[] {
   ).slice(0, 8)
 }
 
+function getRegulatorySummaryCards(rows: RegulatoryStateRow[]) {
+  const restricted = rows.filter((row) =>
+    /ban|banned|illegal|prohibit|schedule|controlled|not allowed|restricted/i.test(
+      `${row.naturalKratom} ${row.concentrated7oh} ${row.keyDetails}`,
+    ),
+  ).length
+  const concentratedWarnings = rows.filter((row) =>
+    /7-oh|7oh|synthetic|concentrated|extract|isolate|pending|emergency|prohibit|ban/i.test(
+      `${row.concentrated7oh} ${row.keyDetails} ${row.notes}`,
+    ),
+  ).length
+  const ageLimits = rows.filter((row) => /\b(18|21|age|minor|adult)\b/i.test(`${row.keyDetails} ${row.notes}`)).length
+
+  return [
+    { label: 'Rows tracked', value: rows.length, detail: 'State-level entries in the workbook table.' },
+    { label: 'Restriction signals', value: restricted, detail: 'Rows with ban, scheduling, prohibition, or controlled-status language.' },
+    { label: '7-OH-specific signals', value: concentratedWarnings, detail: 'Rows calling out concentrated, synthetic, isolated, or pending 7-OH action.' },
+    { label: 'Age-limit signals', value: ageLimits, detail: 'Rows with age or minor-access language.' },
+  ]
+}
+
 function RegulatoryStatusSection({ compound }: { compound: Record<string, unknown> }) {
   const federalParagraphs = splitRegulatoryParagraphs(compound.regulatory_federal || compound.regulatory_status)
   const stateRows = parseRegulatoryStateRows(compound.regulatory_states_table)
@@ -373,6 +395,15 @@ function RegulatoryStatusSection({ compound }: { compound: Record<string, unknow
 
       {stateRows.length ? (
         <div className="space-y-3">
+          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4" aria-label="Regulatory table summary">
+            {getRegulatorySummaryCards(stateRows).map((item) => (
+              <div key={item.label} className="rounded-xl border border-red-200 bg-white/80 p-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-red-800">{item.label}</p>
+                <p className="mt-1 text-xl font-bold text-red-950">{item.value}</p>
+                <p className="mt-1 text-xs leading-5 text-red-900">{item.detail}</p>
+              </div>
+            ))}
+          </div>
           <ResponsiveTable label="50-state 7-OH regulatory table" className="border-red-200">
             <table className="min-w-[920px] w-full text-left text-sm">
               <caption className="sr-only">
@@ -773,6 +804,12 @@ export default async function CompoundPage({ params }: PageProps) {
             <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
             <EvidenceScoreBadge record={compound} size="sm" />
           </div>
+          <ProfileEvidenceLens
+            record={compound}
+            evidenceLevel={evidenceLevel || undefined}
+            safetySummary={safetySummary}
+            citationsCount={freshness.citationCount}
+          />
           <EvidenceMeter level={evidenceLevel || 'moderate'} />
           <div className="space-y-3 text-sm leading-6 text-[#46574d]">
             <p>

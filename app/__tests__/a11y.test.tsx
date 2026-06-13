@@ -4,6 +4,7 @@ import axe from 'axe-core'
 
 import SafetyBadge from '../../components/ui/SafetyBadge'
 import { DecisionProfileCard } from '../../components/ui/DecisionPrimitives'
+import ProfileEvidenceLens from '../../components/ui/ProfileEvidenceLens'
 
 // Basic axe runner for jsdom rendered output
 async function checkA11y(container: HTMLElement) {
@@ -65,6 +66,30 @@ describe('a11y (axe-core)', () => {
     )
     // Now visible per publicSafetyLabel change + metric render
     // (the metric itself may be present with value)
+    await checkA11y(container)
+  })
+
+  it('ProfileEvidenceLens exposes evidence progress and evidence-type distinctions accessibly', async () => {
+    const { container } = render(
+      <ProfileEvidenceLens
+        record={{
+          slug: 'ashwagandha',
+          name: 'Ashwagandha',
+          evidence_tier: 'moderate',
+          mechanisms: ['GABA modulation', 'stress response'],
+          primary_effects: ['stress'],
+          safetyNotes: 'Review use with sedatives and during pregnancy.',
+        }}
+        evidenceLevel="Moderate evidence"
+        safetySummary="Review use with sedatives and during pregnancy."
+        citationsCount={4}
+        limitations={['Short trial duration']}
+      />
+    )
+
+    expect(screen.getByRole('progressbar', { name: /Evidence strength/i })).toBeInTheDocument()
+    expect(screen.getByText(/Human clinical evidence/i)).toBeInTheDocument()
+    expect(screen.getByText(/Mechanistic/i)).toBeInTheDocument()
     await checkA11y(container)
   })
 })
