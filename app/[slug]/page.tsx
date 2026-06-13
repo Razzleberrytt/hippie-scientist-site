@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import ProductCriteriaBox from '@/components/articles/ProductCriteriaBox'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SchemaOrg from '@/components/SchemaOrg'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
@@ -26,6 +28,118 @@ type Block =
   | { type: 'blockquote'; text: string }
   | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'hr' }
+
+type CriteriaConfig = {
+  title: string
+  criteria: string[]
+  avoidList?: string[]
+  ctaLabel?: string
+  ctaHref?: string
+  afterSectionContaining: string
+}
+
+function getCriteriaForSlug(slug: string): CriteriaConfig | null {
+  switch (slug) {
+    case 'best-supplements-for-adhd':
+      return {
+        title: 'What to Look For in ADHD Supplements',
+        criteria: [
+          'Third-party tested (USP, NSF, Informed Sport, or equivalent)',
+          'Active dose clearly labeled — not just total formula weight',
+          'Evidence-fit for your goal: omega-3 for attention support, magnesium glycinate for sleep and calm, L-theanine for relaxed focus',
+          'No proprietary blends that hide individual ingredient amounts',
+        ],
+        avoidList: [
+          '"ADHD Support" blends with undisclosed or combined-dose ingredients',
+          'Products claiming to replace or replicate medication effects',
+          'Stacks with many stimulant or nootropic ingredients at unverified doses',
+        ],
+        afterSectionContaining: 'buy first',
+      }
+    case 'omega-3-for-adhd':
+      return {
+        title: 'What to Look For in an Omega-3 for ADHD',
+        criteria: [
+          'EPA-dominant formula — EPA content should exceed DHA for ADHD-related attention support',
+          'EPA and DHA amounts clearly listed on the label (not just "fish oil concentrate")',
+          'Third-party tested for heavy metals and oxidation (IFOS, NSF, or equivalent)',
+          'Freshness indicators: low TOTOX score or distilled oil; no rancid smell on opening',
+        ],
+        avoidList: [
+          'Vague "1,000 mg fish oil" labels with low or unlisted EPA/DHA content',
+          'Products with no freshness or oxidation testing disclosed',
+          'Formulas where combined EPA + DHA is less than 60% of total oil weight',
+        ],
+        afterSectionContaining: 'look for in a fish oil',
+      }
+    case 'magnesium-for-adhd':
+      return {
+        title: 'What to Look For in a Magnesium Supplement for ADHD',
+        criteria: [
+          'Form: glycinate or bisglycinate for calm and sleep support',
+          'Elemental magnesium clearly labeled — not just total compound weight',
+          'Gentle on digestion; glycinate forms are typically better tolerated than oxide or citrate at higher doses',
+          'No unnecessary additives, artificial colors, or stimulant co-ingredients',
+        ],
+        avoidList: [
+          'Magnesium oxide listed as the main or only form — poor bioavailability and high laxative effect',
+          'Labels that show "magnesium 400 mg" without specifying elemental vs. compound weight',
+          'Blends that combine magnesium with stimulant herbs (ginseng, guarana, etc.)',
+        ],
+        afterSectionContaining: 'magnesium forms',
+      }
+    case 'l-theanine-for-adhd':
+      return {
+        title: 'What to Look For in an L-Theanine Supplement',
+        criteria: [
+          'Standalone L-theanine — not buried in a proprietary blend',
+          '100–200 mg per serving: the range used in most attention and sleep trials',
+          'Caffeine-free unless you intentionally want the L-theanine + caffeine combination',
+          'Third-party tested for purity; pharmaceutical-grade L-theanine (e.g., Suntheanine) preferred by researchers',
+        ],
+        avoidList: [
+          'Proprietary blends where L-theanine content is unlisted or marked as "blend"',
+          'Products with hidden caffeine from green tea extract in calming-positioned formulas',
+          'Supplements making "ADHD treatment" claims — L-theanine is a support option, not a diagnostic therapy',
+        ],
+        afterSectionContaining: 'l-theanine dosage for adhd',
+      }
+    case 'citicoline-vs-alpha-gpc':
+      return {
+        title: 'What to Look For in Citicoline or Alpha-GPC',
+        criteria: [
+          'Citicoline: 250–500 mg per serving (Cognizin is the most-studied branded form)',
+          'Alpha-GPC: 300 mg starting dose; 50% active compound form is standard',
+          'Clear labeling of the exact compound — not just "choline complex"',
+          'Single-ingredient or clearly dosed formulas; avoid stacks where the choline source amount is unlisted',
+        ],
+        avoidList: [
+          'Stacking high-dose citicoline and Alpha-GPC simultaneously without medical guidance',
+          'Proprietary "nootropic blends" with combined choline content unlisted',
+          'Supplements marketing themselves as ADHD medication replacements',
+        ],
+        afterSectionContaining: 'alpha-gpc dosage',
+      }
+    case 'best-supplements-for-focus-without-caffeine':
+      return {
+        title: 'What to Look For in Caffeine-Free Focus Supplements',
+        criteria: [
+          'No caffeine, guarana, yerba mate, or other stimulant sources anywhere in the formula',
+          'Active doses clearly listed — not hidden in a proprietary blend',
+          'Goal-specific ingredient: L-theanine for calm focus, citicoline for attention, magnesium glycinate for sleep clarity',
+          'Third-party tested; single-ingredient products are easier to verify than multi-ingredient stacks',
+        ],
+        avoidList: [
+          '"Caffeine-free" labels on products that contain green tea extract, guarana, or stimulant-adjacent ingredients',
+          'Proprietary nootropic blends with many ingredients but no individual doses listed',
+          'Products marketed with vague "brain boost" claims without referenced evidence',
+        ],
+        afterSectionContaining: 'how we ranked',
+      }
+    default:
+      return null
+  }
+}
 
 export function generateStaticParams() {
   return focusClusterArticleSources.map((article) => ({ slug: article.slug }))
@@ -232,96 +346,146 @@ function renderInline(text: string): React.ReactNode[] {
   return nodes
 }
 
-function MarkdownArticle({ markdown }: { markdown: string }) {
-  const blocks = parseBlocks(markdown)
+function renderBlock(block: Block, index: number): React.ReactNode {
+  if (block.type === 'h2') {
+    return (
+      <h2 key={index} className="mt-11 text-2xl font-semibold tracking-tight text-ink first:mt-0">
+        {renderInline(block.text)}
+      </h2>
+    )
+  }
 
-  return (
-    <div className="space-y-5">
-      {blocks.map((block, index) => {
-        if (block.type === 'h2') {
-          return (
-            <h2 key={index} className="mt-11 text-2xl font-semibold tracking-tight text-ink first:mt-0">
-              {renderInline(block.text)}
-            </h2>
-          )
-        }
+  if (block.type === 'h3') {
+    return (
+      <h3 key={index} className="mt-8 text-xl font-semibold tracking-tight text-ink">
+        {renderInline(block.text)}
+      </h3>
+    )
+  }
 
-        if (block.type === 'h3') {
-          return (
-            <h3 key={index} className="mt-8 text-xl font-semibold tracking-tight text-ink">
-              {renderInline(block.text)}
-            </h3>
-          )
-        }
+  if (block.type === 'h4') {
+    return (
+      <h4 key={index} className="mt-6 text-lg font-semibold tracking-tight text-ink">
+        {renderInline(block.text)}
+      </h4>
+    )
+  }
 
-        if (block.type === 'h4') {
-          return (
-            <h4 key={index} className="mt-6 text-lg font-semibold tracking-tight text-ink">
-              {renderInline(block.text)}
-            </h4>
-          )
-        }
+  if (block.type === 'p') {
+    return (
+      <p key={index} className="text-[1.03rem] leading-8 text-[#46574d]">
+        {renderInline(block.text)}
+      </p>
+    )
+  }
 
-        if (block.type === 'p') {
-          return (
-            <p key={index} className="text-[1.03rem] leading-8 text-[#46574d]">
-              {renderInline(block.text)}
-            </p>
-          )
-        }
+  if (block.type === 'blockquote') {
+    return (
+      <blockquote key={index} className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-[#46574d]">
+        {renderInline(block.text)}
+      </blockquote>
+    )
+  }
 
-        if (block.type === 'blockquote') {
-          return (
-            <blockquote key={index} className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-[#46574d]">
-              {renderInline(block.text)}
-            </blockquote>
-          )
-        }
+  if (block.type === 'ul' || block.type === 'ol') {
+    const List = block.type
+    return (
+      <List key={index} className={`ml-6 space-y-2 text-[1.01rem] leading-8 text-[#46574d] ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
+        {block.items.map((item, itemIndex) => (
+          <li key={itemIndex}>{renderInline(item)}</li>
+        ))}
+      </List>
+    )
+  }
 
-        if (block.type === 'ul' || block.type === 'ol') {
-          const List = block.type
-          return (
-            <List key={index} className={`ml-6 space-y-2 text-[1.01rem] leading-8 text-[#46574d] ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
-              {block.items.map((item, itemIndex) => (
-                <li key={itemIndex}>{renderInline(item)}</li>
+  if (block.type === 'table') {
+    return (
+      <ResponsiveTable key={index} label="Article table" className="my-7">
+        <table className="w-full min-w-[760px] text-sm">
+          <thead>
+            <tr className="border-b border-brand-900/10">
+              {block.headers.map((header, headerIndex) => (
+                <th key={`${header}-${headerIndex}`} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
+                  {renderInline(header)}
+                </th>
               ))}
-            </List>
-          )
-        }
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-brand-900/5">
+            {block.rows.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {row.map((cell, cellIndex) => (
+                  <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-[#46574d]">
+                    {renderInline(cell)}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </ResponsiveTable>
+    )
+  }
 
-        if (block.type === 'table') {
-          return (
-            <ResponsiveTable key={index} label="Article table" className="my-7">
-              <table className="w-full min-w-[760px] text-sm">
-                <thead>
-                  <tr className="border-b border-brand-900/10">
-                    {block.headers.map((header, headerIndex) => (
-                      <th key={`${header}-${headerIndex}`} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        {renderInline(header)}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-brand-900/5">
-                  {block.rows.map((row, rowIndex) => (
-                    <tr key={rowIndex}>
-                      {row.map((cell, cellIndex) => (
-                        <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-[#46574d]">
-                          {renderInline(cell)}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </ResponsiveTable>
-          )
-        }
+  return <hr key={index} className="my-8 border-brand-900/10" />
+}
 
-        return <hr key={index} className="my-8 border-brand-900/10" />
-      })}
-    </div>
-  )
+function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string }) {
+  const blocks = parseBlocks(markdown)
+  const config = getCriteriaForSlug(slug)
+
+  // Find where to inject the criteria block: at the end of the target section
+  // (before the next h2 after the matched heading).
+  let criteriaInsertIndex = -1
+  if (config) {
+    const searchText = config.afterSectionContaining.toLowerCase()
+    const matchedIndex = blocks.findIndex(
+      (b) => (b.type === 'h2' || b.type === 'h3') && b.text.toLowerCase().includes(searchText),
+    )
+    if (matchedIndex !== -1) {
+      let nextH2Index = blocks.length
+      for (let i = matchedIndex + 1; i < blocks.length; i++) {
+        if (blocks[i].type === 'h2') {
+          nextH2Index = i
+          break
+        }
+      }
+      criteriaInsertIndex = nextH2Index
+    }
+  }
+
+  const elements: React.ReactNode[] = []
+  blocks.forEach((block, index) => {
+    if (config && criteriaInsertIndex !== -1 && index === criteriaInsertIndex) {
+      elements.push(<AffiliateDisclosure variant="compact" className="mt-6" />)
+      elements.push(
+        <ProductCriteriaBox
+          title={config.title}
+          criteria={config.criteria}
+          avoidList={config.avoidList}
+          ctaLabel={config.ctaLabel}
+          ctaHref={config.ctaHref}
+        />,
+      )
+    }
+    elements.push(renderBlock(block, index))
+  })
+
+  // Inject at end if target heading was last section (criteriaInsertIndex === blocks.length)
+  if (config && criteriaInsertIndex === blocks.length) {
+    elements.push(<AffiliateDisclosure variant="compact" className="mt-6" />)
+    elements.push(
+      <ProductCriteriaBox
+        title={config.title}
+        criteria={config.criteria}
+        avoidList={config.avoidList}
+        ctaLabel={config.ctaLabel}
+        ctaHref={config.ctaHref}
+      />,
+    )
+  }
+
+  return <div className="space-y-5">{elements}</div>
 }
 
 function ArticleJsonLd({
@@ -394,8 +558,12 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
       </header>
 
       <section className="mt-8">
-        <MarkdownArticle markdown={article.markdown} />
+        <MarkdownArticle markdown={article.markdown} slug={article.slug} />
       </section>
+
+      {getCriteriaForSlug(article.slug) !== null && (
+        <AffiliateDisclosure variant="full" className="mt-10" />
+      )}
 
       <SeeAlsoInCluster currentPath={`/${article.slug}`} title="More Focus & ADHD guides" />
     </article>
