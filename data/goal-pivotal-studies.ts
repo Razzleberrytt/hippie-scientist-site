@@ -60,6 +60,62 @@ export const goalPivotalStudies: Record<string, GoalPivotalStudy> = {
       { label: 'Langade et al., 2021 — RCT in insomnia (Cureus)' },
     ],
   },
+  stress: {
+    subject: 'Ashwagandha (Withania somnifera) for stress resilience',
+    grade: 'Moderate',
+    summary:
+      'Multiple randomized, double-blind, placebo-controlled trials suggest standardized ashwagandha root extract significantly reduces subjective stress and anxiety scores, while lowering salivary and serum cortisol levels over 4 to 8 weeks.',
+    gradeRationale:
+      'The evidence is graded "Moderate to Strong" because the effect is replicated across multiple independent, placebo-controlled trials using standardized extracts (such as KSM-66 or Shoden). However, long-term safety studies beyond 8 weeks are limited, and some trials have small cohorts or manufacturer funding.',
+    studyType: 'Randomized, double-blind, placebo-controlled trials',
+    population: 'Healthy adults experiencing high self-reported stress',
+    participants: 'Typically 60–120 participants per trial',
+    duration: '8 weeks',
+    comparator: 'Placebo',
+    dosing: '300–600 mg/day of standardized extract',
+    design: [
+      { label: 'Primary outcomes', value: 'Perceived Stress Scale (PSS-10), Hamilton Anxiety Rating Scale (HAM-A), serum cortisol' },
+    ],
+    limitations: [
+      'Most trials are short-term (8 weeks max), leaving long-term safety unquantified.',
+      'Manufacturer funding in several key clinical trials.',
+      'Thyroid-stimulating potential requires careful screening.',
+    ],
+    context:
+      'Ashwagandha is an effective baseline adaptogen for chronic cortisol-driven stress, but should be cycled and avoided in pregnancy, thyroid conditions, or autoimmune disease.',
+    sources: [
+      { label: 'Chandrasekhar et al., 2012 — RCT on stress/anxiety (Indian J Psychol Med)' },
+      { label: 'Salve et al., 2019 — RCT on stress and cortisol (Cureus)' },
+    ],
+  },
+  focus: {
+    subject: 'Caffeine and L-Theanine combination for cognitive focus',
+    grade: 'Moderate',
+    summary:
+      'Multiple randomized, crossover trials suggest that combining caffeine with L-theanine improves reaction time, word recognition, and rapid visual information processing, while significantly reducing the jitteriness and blood pressure spikes commonly caused by caffeine alone.',
+    gradeRationale:
+      'The evidence is graded "Moderate" because the synergy is demonstrated in multiple placebo-controlled crossover trials in healthy young adults. However, the studies are largely short-term (single-dose acute testing), leaving long-term cognitive adaptation and tolerance effects less clear.',
+    studyType: 'Randomized, double-blind, placebo-controlled, crossover trials',
+    population: 'Healthy young adults',
+    participants: 'Typically 20–30 participants per trial',
+    duration: 'Acute single-dose testing (measured 1–3 hours post-ingestion)',
+    comparator: 'Placebo, Caffeine alone, L-Theanine alone',
+    dosing: 'Typically 50–100 mg Caffeine paired with 100–200 mg L-Theanine (1:2 ratio)',
+    design: [
+      { label: 'Primary outcomes', value: 'Rapid visual information processing (RVIP), reaction time, alert/calm subjective scales' },
+    ],
+    limitations: [
+      'Acute, single-day designs do not prove long-term safety or cognitive enhancement.',
+      'Small cohort sizes in crossover trials.',
+      'Highly dependent on individual caffeine tolerance.',
+    ],
+    context:
+      'The caffeine and L-theanine stack is an exceptionally well-supported strategy for immediate, clean attention, but should be avoided close to bedtime.',
+    sources: [
+      { label: 'Owen et al., 2008 — Crossover trial on cognitive performance (Nutr Neurosci)' },
+      { label: 'Giesbrecht et al., 2010 — Crossover trial on focus and alertness (Nutr Neurosci)' },
+    ],
+  },
 }
 
 export function getGoalPivotalStudy(slug: string): GoalPivotalStudy | undefined {

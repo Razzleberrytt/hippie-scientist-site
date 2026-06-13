@@ -22,13 +22,29 @@ const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
     'melatonin-vs-l-theanine',
     'magnesium-vs-melatonin',
     'magnesium-glycinate-vs-l-threonate-for-sleep',
+    'melatonin-vs-valerian-vs-magnesium-for-sleep',
   ],
-  stress: ['ashwagandha-vs-rhodiola', 'ashwagandha-vs-rhodiola-for-stress', 'ashwagandha-vs-magnesium'],
-  anxiety: ['ashwagandha-vs-rhodiola', 'melatonin-vs-l-theanine'],
-  focus: ['caffeine-vs-theanine', 'caffeine-vs-theanine'],
+  stress: [
+    'ashwagandha-vs-rhodiola',
+    'ashwagandha-vs-rhodiola-for-stress',
+    'ashwagandha-vs-magnesium',
+    'ashwagandha-vs-l-theanine-vs-magnesium',
+  ],
+  anxiety: [
+    'ashwagandha-vs-rhodiola',
+    'melatonin-vs-l-theanine',
+    'ashwagandha-vs-l-theanine-vs-magnesium',
+  ],
+  focus: [
+    'caffeine-vs-theanine',
+    'caffeine-vs-l-theanine-vs-bacopa-for-focus',
+  ],
   pain: ['glucosamine-vs-chondroitin'],
   inflammation: ['glucosamine-vs-chondroitin'],
-  cognition: ['caffeine-vs-theanine'],
+  cognition: [
+    'caffeine-vs-theanine',
+    'caffeine-vs-l-theanine-vs-bacopa-for-focus',
+  ],
   energy: ['caffeine-vs-theanine', 'ashwagandha-vs-rhodiola'],
 }
 
@@ -58,6 +74,9 @@ const FLAGSHIP_COMPARE_ROUTES = new Set([
   'l-theanine-vs-magnesium',
   'magnesium-glycinate-vs-l-threonate-for-sleep',
   'sleep-herbs-vs-melatonin',
+  'ashwagandha-vs-l-theanine-vs-magnesium',
+  'melatonin-vs-valerian-vs-magnesium-for-sleep',
+  'caffeine-vs-l-theanine-vs-bacopa-for-focus',
 ])
 
 export function isFlagshipCompareSlug(slug: string): boolean {

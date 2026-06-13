@@ -84,6 +84,26 @@ function readAppGuidePageSlugs(relativePath: string): SitemapSourceItem[] {
   }
 }
 
+// Discovers App Router compare pages by scanning app/compare/ for subdirectories
+// that contain a page.tsx. This picks up custom compare pages.
+function readAppComparePageSlugs(relativePath: string): SitemapSourceItem[] {
+  const dirPath = path.join(process.cwd(), relativePath);
+  if (!existsSync(dirPath)) return [];
+
+  try {
+    return readdirSync(dirPath, { withFileTypes: true })
+      .filter((entry) => {
+        if (!entry.isDirectory()) return false;
+        if (/^\[/.test(entry.name)) return false; // skip [slug] dynamic routes
+        if (entry.name === 'dynamic') return false; // skip dynamic utility directory
+        return existsSync(path.join(dirPath, entry.name, 'page.tsx'));
+      })
+      .map((entry) => ({ slug: entry.name }));
+  } catch {
+    return [];
+  }
+}
+
 function readTsStringArray(relativePath: string, varName: string): string[] {
   const filePath = path.join(process.cwd(), relativePath);
   if (!existsSync(filePath)) return [];
@@ -306,12 +326,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addRoute(`/education/${edu.slug}`, 'monthly', 0.75);
   });
 
-  // Add compare detail routes (data-driven, for task requirement to cover /compare/:slug)
+  // Add compare detail routes (data-driven + custom directories)
   const compareFromGen = readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons');
   const compareFromData = readTsStringArray('data/comparisons.ts', 'supplementComparisons')
     .map((s: string) => s)
     .filter(Boolean);
-  Array.from(new Set([...compareFromGen, ...compareFromData])).forEach((slug) => {
+  const compareFromDirs = readAppComparePageSlugs('app/compare').map(item => item.slug).filter((s): s is string => Boolean(s));
+  Array.from(new Set([...compareFromGen, ...compareFromData, ...compareFromDirs])).forEach((slug) => {
     if (slug) addRoute(`/compare/${slug}`, 'monthly', 0.65);
   });
 

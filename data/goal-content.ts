@@ -37,6 +37,11 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
           'Melatonin has the strongest human evidence for circadian timing and sleep-onset support, but grogginess and vivid dreams are common reasons people stop. Magnesium and L-theanine are often used for wind-down support when timing or racing thoughts are the main issue — evidence is more limited and population-dependent.',
       },
       {
+        question: 'How do melatonin, valerian, and magnesium compare for sleep?',
+        answer:
+          'Melatonin acts as a hormonal timing signal to reset your body clock. Valerian root is a traditional GABAergic herb that helps reduce sleep latency over weeks of consistent daily use. Magnesium glycinate provides baseline mineral support to help physically relax muscles and the nervous system. Read our detailed Melatonin vs Valerian vs Magnesium guide in the comparisons section.',
+      },
+      {
         question: 'Are sleep supplements safe to combine with prescription sleep aids?',
         answer:
           'Combining sedating supplements with prescription hypnotics, benzodiazepines, or alcohol can increase oversedation risk. This page is educational only; medication changes require a qualified clinician or pharmacist.',
@@ -56,11 +61,13 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
       { compound: 'Melatonin', note: 'Often 0.3–3 mg for timing support; lower doses may reduce morning grogginess. Confirm product label.' },
       { compound: 'Magnesium (glycinate)', note: 'Evening doses per label; titrate slowly if GI tolerance is an issue.' },
       { compound: 'L-Theanine', note: 'Commonly 100–200 mg before bed; subtle alone — often paired with caffeine earlier in the day, not at night.' },
+      { compound: 'Valerian Root', note: 'Typically 300–600 mg of standardized extract (0.8% valerenic acids) taken 30–60 minutes before bedtime.' },
     ],
     evidenceRows: [
       { compound: 'Melatonin', evidence: 'Strong for circadian timing', humanData: 'Multiple RCTs', limitation: 'Weaker for chronic insomnia as monotherapy' },
       { compound: 'Magnesium', evidence: 'Limited to moderate', humanData: 'Mixed populations', limitation: 'Benefit may depend on baseline status' },
       { compound: 'L-Theanine', evidence: 'Moderate for relaxation', humanData: 'Smaller trials', limitation: 'Subtle for severe insomnia' },
+      { compound: 'Valerian Root', evidence: 'Limited to moderate', humanData: 'Subjective scales', limitation: 'Requires 2–4 weeks for cumulative effect; strong odor' },
     ],
     safetyBullets: [
       ...sharedSafety,
@@ -69,6 +76,11 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
   },
   stress: {
     faqItems: [
+      {
+        question: 'Ashwagandha vs L-theanine vs magnesium — which fits my stress pattern?',
+        answer:
+          'Ashwagandha is an adaptogen suited for long-term HPA-axis regulation and lowering chronic cortisol. L-Theanine is an amino acid that provides rapid, acute stress buffering and daytime calm within 30–90 minutes. Magnesium glycinate provides basic daily mineral support for physical tension and evening recovery. Compare these three in our dedicated comparison guide.',
+      },
       {
         question: 'Ashwagandha vs rhodiola — which has better stress evidence?',
         answer:
@@ -136,6 +148,11 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
   focus: {
     faqItems: [
       {
+        question: 'Caffeine vs L-theanine vs bacopa — how do they differ for focus?',
+        answer:
+          'Caffeine is a fast-acting stimulant that blocks adenosine for quick wakefulness. L-Theanine smooths out caffeine jitters, promoting calm attention when paired. Bacopa is a non-stimulant adaptogen that takes 4–12 weeks of daily dosing to build memory and learning rates. See our dedicated 3-way focus comparison guide.',
+      },
+      {
         question: 'What is the best non-stimulant focus supplement?',
         answer:
           'L-theanine (often with caffeine) and rhodiola are common non-stimulant or low-stimulant choices. Bacopa targets memory over weeks, not acute focus.',
@@ -155,6 +172,7 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
       { compound: 'Caffeine', evidence: 'Strong acute', humanData: 'Vigilance RCTs', limitation: 'Sleep and anxiety tradeoffs' },
       { compound: 'L-Theanine', evidence: 'Moderate', humanData: 'Attention with caffeine', limitation: 'Subtle alone' },
       { compound: 'Rhodiola', evidence: 'Moderate', humanData: 'Fatigue under stress', limitation: 'Overstimulation in some users' },
+      { compound: 'Bacopa Monnieri', evidence: 'Moderate', humanData: 'Learning/memory RCTs', limitation: 'Takes 4–12 weeks; potential GI upset' },
     ],
     safetyBullets: sharedSafety,
   },

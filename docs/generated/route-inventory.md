@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated on 2026-06-13T11:19:55.679Z
+Generated on 2026-06-13T11:48:44.156Z
 
 This file lists all active Page Router routes compiled by Next.js static export.
 
@@ -59,13 +59,16 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/best-supplements-for-joint-support` | static | [`app/best-supplements-for-joint-support/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/best-supplements-for-joint-support/page.tsx) |
 | `/best-supplements-for-sleep` | static | [`app/best-supplements-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/best-supplements-for-sleep/page.tsx) |
 | `/best-supplements-for-stress` | static | [`app/best-supplements-for-stress/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/best-supplements-for-stress/page.tsx) |
+| `/compare/ashwagandha-vs-l-theanine-vs-magnesium` | static | [`app/compare/ashwagandha-vs-l-theanine-vs-magnesium/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/ashwagandha-vs-l-theanine-vs-magnesium/page.tsx) |
 | `/compare/berberine-vs-metformin` | static | [`app/compare/berberine-vs-metformin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/berberine-vs-metformin/page.tsx) |
+| `/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus` | static | [`app/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/page.tsx) |
 | `/compare/dynamic` | static | [`app/compare/dynamic/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/dynamic/page.tsx) |
 | `/compare/kanna-vs-ssris` | static | [`app/compare/kanna-vs-ssris/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/kanna-vs-ssris/page.tsx) |
 | `/compare/kava-vs-alcohol` | static | [`app/compare/kava-vs-alcohol/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/kava-vs-alcohol/page.tsx) |
 | `/compare/l-theanine-vs-magnesium` | static | [`app/compare/l-theanine-vs-magnesium/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/l-theanine-vs-magnesium/page.tsx) |
 | `/compare/magnesium-glycinate-vs-l-threonate-for-sleep` | static | [`app/compare/magnesium-glycinate-vs-l-threonate-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/magnesium-glycinate-vs-l-threonate-for-sleep/page.tsx) |
 | `/compare/magnesium-glycinate-vs-magnesium-oxide` | static | [`app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx) |
+| `/compare/melatonin-vs-valerian-vs-magnesium-for-sleep` | static | [`app/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/page.tsx) |
 | `/compare` | static | [`app/compare/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/page.tsx) |
 | `/compare/rhodiola-vs-ashwagandha` | static | [`app/compare/rhodiola-vs-ashwagandha/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/rhodiola-vs-ashwagandha/page.tsx) |
 | `/compare/sleep-herbs-vs-melatonin` | static | [`app/compare/sleep-herbs-vs-melatonin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/sleep-herbs-vs-melatonin/page.tsx) |
