@@ -88,11 +88,6 @@ export default function NewsletterSignup({
               {ctaLabel}
             </button>
           </div>
-          {!mailchimpSignupConfig.isMailchimpAction ? (
-            <p className={`text-xs leading-5 ${mutedColor}`}>
-              Signup uses the static checklist fallback until the Mailchimp list-manage URL is configured.
-            </p>
-          ) : null}
         </form>
       </div>
     </section>

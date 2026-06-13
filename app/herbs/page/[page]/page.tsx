@@ -10,6 +10,17 @@ import type { RuntimeRecord } from '@/types/content'
 type P={params:Promise<{page:string}>}
 export async function generateStaticParams(){ const herbs=((await getHerbSummaryIndex()) as RuntimeRecord[]).filter((h)=>getRuntimeVisibility(h).canRender); const total=Math.max(1,Math.ceil(herbs.length/HERBS_PAGE_SIZE)); return Array.from({length:Math.max(total-1,0)},(_,i)=>({page:String(i+2)})) }
 export async function generateMetadata({params}:P):Promise<Metadata>{const n=clampPositiveInt((await params).page,2);return{title:`Herb Profiles & Research Library — Page ${n}`,alternates:{canonical:`/herbs/page/${n}`}}}
+
+function HerbsPageSkeleton() {
+  return (
+    <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div key={i} className="animate-pulse rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 shadow-sm h-36" />
+      ))}
+    </div>
+  )
+}
+
 export default async function HerbsPageN({params}:P){
   const n=clampPositiveInt((await params).page,2);
   const herbs=((await getHerbSummaryIndex()) as RuntimeRecord[]).filter((h)=>getRuntimeVisibility(h).canRender);
@@ -28,7 +39,7 @@ export default async function HerbsPageN({params}:P){
           {p.hasNext ? <Link rel="next" href={`/herbs/page/${p.currentPage+1}`}>Next page →</Link> : null}
         </div>
       </nav>
-      <Suspense fallback={null}>
+      <Suspense fallback={<HerbsPageSkeleton />}>
         <HerbsIndexClient herbs={p.pageItems as RuntimeRecord[]} allHerbs={herbs} paginated page={p.currentPage} totalPages={p.totalPages} />
       </Suspense>
     </div>
