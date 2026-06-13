@@ -201,7 +201,23 @@ function getSearchCorpus(item: RuntimeRecord) {
     .join(' ')
 }
 
-function filterHerbs(herbs: RuntimeRecord[], query: string, context: string) {
+const EVIDENCE_FILTER_OPTIONS = [
+  { label: 'Any evidence', value: 'all' },
+  { label: 'Strong', value: 'strong' },
+  { label: 'Moderate', value: 'moderate' },
+  { label: 'Limited / prelim', value: 'limited' },
+]
+
+function matchesEvidence(herb: RuntimeRecord, evidenceValue: string): boolean {
+  if (evidenceValue === 'all') return true
+  const ev = getEvidence(herb).toLowerCase()
+  if (evidenceValue === 'strong') return ev.includes('strong')
+  if (evidenceValue === 'moderate') return ev.includes('moderate')
+  if (evidenceValue === 'limited') return ev.includes('limited') || ev.includes('prelim') || ev.includes('traditional') || ev.includes('insufficient')
+  return true
+}
+
+function filterHerbs(herbs: RuntimeRecord[], query: string, context: string, evidenceFilter: string) {
   const normalizedQuery = query.trim().toLowerCase()
   const option = filterOptions.find(item => item.value === context)
 
@@ -209,15 +225,27 @@ function filterHerbs(herbs: RuntimeRecord[], query: string, context: string) {
     const corpus = getSearchCorpus(herb)
     const queryMatches = !normalizedQuery || normalizedQuery.split(/\s+/).every(term => corpus.includes(term))
     const contextMatches = !option || option.terms.some(term => corpus.includes(term))
+    const evMatches = matchesEvidence(herb, evidenceFilter)
 
-    return queryMatches && contextMatches
+    return queryMatches && contextMatches && evMatches
   })
 }
 
-function buildFilterHref(value: string, query: string) {
+function buildFilterHref(value: string, query: string, evidence?: string) {
   const params = new URLSearchParams()
   if (query.trim()) params.set('q', query.trim())
   if (value !== 'all') params.set('context', value)
+  if (evidence && evidence !== 'all') params.set('evidence', evidence)
+
+  const suffix = params.toString()
+  return suffix ? `/herbs?${suffix}` : '/herbs'
+}
+
+function buildEvidenceHref(evidenceValue: string, query: string, context: string) {
+  const params = new URLSearchParams()
+  if (query.trim()) params.set('q', query.trim())
+  if (context !== 'all') params.set('context', context)
+  if (evidenceValue !== 'all') params.set('evidence', evidenceValue)
 
   const suffix = params.toString()
   return suffix ? `/herbs?${suffix}` : '/herbs'
@@ -248,9 +276,10 @@ export function EmptyLibraryState() {
   )
 }
 
-function EmptyFilteredState({ query, context }: { query: string; context: string }) {
+function EmptyFilteredState({ query, context, evidence }: { query: string; context: string; evidence: string }) {
   const activeContext = filterOptions.find(option => option.value === context)?.label
-  const currentScan = [query ? `“${query}”` : '', activeContext || ''].filter(Boolean).join(' + ')
+  const activeEvLabel = EVIDENCE_FILTER_OPTIONS.find(o => o.value === evidence && evidence !== 'all')?.label
+  const currentScan = [query ? `"${query}"` : '', activeContext || '', activeEvLabel || ''].filter(Boolean).join(' + ')
 
   return (
     <DecisionEmptyState
@@ -302,16 +331,18 @@ const browsePaths = [
 ]
 
 export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: RuntimeRecord[]; allHerbs?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
-  const searchParams = useSearchParams()
-  const query = searchParams.get('q') || firstParam(initialQuery)
-  const context = searchParams.get('context') || firstParam(initialContext)
+  const urlParams = useSearchParams()
+  const query = urlParams?.get('q') || firstParam(initialQuery)
+  const context = urlParams?.get('context') || firstParam(initialContext)
+  const evidenceFilter = urlParams?.get('evidence') || 'all'
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
+  const activeEvidence = EVIDENCE_FILTER_OPTIONS.some(o => o.value === evidenceFilter) ? evidenceFilter : 'all'
 
   const baseHerbs = [...(allHerbs || sourceHerbs)].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreHerb(b) - scoreHerb(a))
   const herbs = [...sourceHerbs].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreHerb(b) - scoreHerb(a))
 
-  const visibleHerbs = filterHerbs(baseHerbs, query, activeFilter)
-  const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
+  const visibleHerbs = filterHerbs(baseHerbs, query, activeFilter, activeEvidence)
+  const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all' || activeEvidence !== 'all'
   const totalProfiles = baseHerbs.length
 
   const pageSize = 36
@@ -385,6 +416,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               className="min-h-10 w-full rounded-full border border-brand-900/10 bg-white px-4 text-sm text-ink shadow-sm placeholder:text-[#7b8a81]"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
+            {activeEvidence !== 'all' ? <input type="hidden" name="evidence" value={activeEvidence} /> : null}
             <button type="submit" className="button-primary min-h-10 px-4 py-2">
               Search
             </button>
@@ -394,9 +426,36 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
             options={filterOptions}
             activeFilter={activeFilter}
             query={query}
-            buildHref={buildFilterHref}
+            buildHref={(value, q) => buildFilterHref(value, q, activeEvidence)}
             open={hasActiveFilters}
           />
+
+          <div className="mt-2">
+            <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66]">Evidence level</div>
+            <div className="flex flex-wrap gap-2">
+              {EVIDENCE_FILTER_OPTIONS.map(opt => {
+                const href = buildEvidenceHref(opt.value, query, activeFilter)
+                const active = activeEvidence === opt.value
+                return (
+                  <Link
+                    key={opt.value}
+                    href={href}
+                    className={`rounded-full border px-2.5 py-1 text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+                  >
+                    {opt.label}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+
+          {hasActiveFilters && (
+            <div className="pt-1">
+              <Link href="/herbs" className="text-xs font-semibold text-brand-800 underline-offset-2 hover:underline">
+                Clear all filters
+              </Link>
+            </div>
+          )}
         </section>
 
         <section className="rounded-[0.85rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm">
@@ -424,7 +483,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
         {herbs.length === 0 ? (
           <EmptyLibraryState />
         ) : visibleHerbs.length === 0 ? (
-          <EmptyFilteredState query={query} context={activeFilter} />
+          <EmptyFilteredState query={query} context={activeFilter} evidence={activeEvidence} />
         ) : (
           <>
             {featuredHerbs.length > 0 ? (

@@ -17,6 +17,22 @@ export const metadata: Metadata = buildPageMetadata({
 
 export const dynamic = 'force-static'
 
+function HerbsLoadingSkeleton() {
+  return (
+    <div className="px-2 py-2 sm:px-3 sm:py-3">
+      <div className="mx-auto max-w-7xl space-y-4">
+        <div className="hero-shell animate-pulse rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5 h-32" />
+        <div className="animate-pulse rounded-[0.85rem] border border-brand-900/10 bg-white/85 p-3 shadow-sm h-24" />
+        <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="animate-pulse rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 shadow-sm h-36" />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default async function HerbsPage() {
   const herbs = ((await getHerbSummaryIndex()) as RuntimeRecord[])
     .filter((herb) => herb.slug && getRuntimeVisibility(herb).canRender)
@@ -65,7 +81,7 @@ export default async function HerbsPage() {
         </section>
       </noscript>
 
-      <Suspense fallback={null}>
+      <Suspense fallback={<HerbsLoadingSkeleton />}>
         <HerbsIndexClient herbs={pageData.pageItems} allHerbs={herbs} paginated page={1} totalPages={pageData.totalPages} />
       </Suspense>
     </div>

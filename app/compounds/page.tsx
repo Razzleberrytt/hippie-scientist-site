@@ -93,7 +93,33 @@ function getCategory(c: Compound): string {
 function getBrief(c: Compound): string {
   const raw = c.summary || c.description || c.short_earthy_summary || ''
   const cleaned = cleanSummary(raw, 'compound')
-  return (cleaned || '').slice(0, 120)
+  const genericFallback = 'Compound profile with evidence, safety, and practical fit.'
+  if (cleaned && cleaned !== genericFallback) return cleaned.slice(0, 130)
+
+  // Build a synthetic description from structured data when no prose summary exists
+  const name = getName(c)
+  const effects = list(c.primary_effects || c.effects)
+    .map(formatDisplayLabel)
+    .filter(Boolean)
+    .slice(0, 2)
+  const ev = getEvidenceLabel(c)
+
+  if (effects.length > 0) {
+    const effText = effects.map(e => e.toLowerCase()).join(' and ')
+    const evTone = /strong/i.test(ev) ? 'Human-trial evidence.' : /moderate/i.test(ev) ? 'Moderate evidence base.' : ''
+    return [`${name} studied for ${effText}.`, evTone].filter(Boolean).join(' ')
+  }
+
+  const mechs = list(c.mechanisms || c.mechanism_categories)
+    .map(formatDisplayLabel)
+    .filter(Boolean)
+    .slice(0, 2)
+
+  if (mechs.length > 0) {
+    return `${name} acts via ${mechs.map(m => m.toLowerCase()).join(' and ')} pathways.`
+  }
+
+  return `${name} — mechanism, evidence, and safety context. Profile data in progress.`
 }
 
 function getEvidenceLabel(c: Compound): string {
