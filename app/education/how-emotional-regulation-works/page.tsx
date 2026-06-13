@@ -24,15 +24,15 @@ const systems = [
 
 const related = [
   {
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
     title: 'Serotonin Pathway',
   },
   {
-    href: '/pathways/gaba',
+    href: '/education/gaba',
     title: 'GABA Pathway',
   },
   {
-    href: '/protocols/stress-regulation',
+    href: '/goals/stress',
     title: 'Stress Regulation',
   },
   {

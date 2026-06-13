@@ -49,17 +49,17 @@ export const DISCOVERY_SUPERNODES: DiscoverySupernode[] = [
     category: 'Adaptogen Comparisons',
   },
   {
-    href: '/protocols/burnout-recovery',
-    title: 'Burnout Recovery',
+    href: '/goals/stress',
+    title: 'Stress & Burnout Recovery',
     description:
-      'Recovery-oriented protocol ecosystem focused on stress overload, fatigue systems, and nervous-system restoration.',
-    category: 'Recovery Protocols',
+      'Goal-oriented stress support exploring fatigue systems, nervous-system restoration, and recovery-aware supplementation.',
+    category: 'Recovery Support',
   },
   {
-    href: '/protocols/non-stimulant-focus',
-    title: 'Non-Stimulant Focus',
+    href: '/goals/focus',
+    title: 'Calm Focus Support',
     description:
-      'Calm-focus protocol systems emphasizing attentional continuity and sustainable cognition.',
-    category: 'Focus Systems',
+      'Goal-oriented focus support emphasizing attentional continuity, sustainable cognition, and non-stimulant strategies.',
+    category: 'Focus Support',
   },
 ]

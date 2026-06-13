@@ -32,11 +32,11 @@ const relatedSystems = [
     title: 'Focus and Motivation',
   },
   {
-    href: '/pathways/glutamate',
+    href: '/education/glutamate',
     title: 'Glutamate Pathway',
   },
   {
-    href: '/pathways/cholinergic-system',
+    href: '/education/cholinergic-system',
     title: 'Cholinergic System',
   },
 ]
@@ -67,6 +67,7 @@ export default function MemoryFormationEducationPage() {
         description="Educational exploration of memory formation, cognition continuity, sleep-dependent consolidation, emotional salience, and neuropharmacology."
         url="https://thehippiescientist.net/education/how-memory-formation-works"
         type="Article"
+        faqItems={faqItems}
       />
 
       <AuthorityBreadcrumbs

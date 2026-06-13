@@ -46,7 +46,7 @@ const relatedSystems = [
     title: 'Recovery-Oriented Cognition Systems',
   },
   {
-    href: '/protocols/non-stimulant-focus',
+    href: '/goals/focus',
     title: 'Non-Stimulant Focus Stabilization',
   },
   {
@@ -54,7 +54,7 @@ const relatedSystems = [
     title: 'Scientific But Human Neuroscience',
   },
   {
-    href: '/protocols/burnout-recovery',
+    href: '/goals/stress',
     title: 'Burnout Recovery',
   },
 ]

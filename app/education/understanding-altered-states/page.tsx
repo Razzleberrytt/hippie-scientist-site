@@ -67,6 +67,7 @@ export default function AlteredStatesEducationPage() {
         description="Educational exploration of altered states, perception-oriented neurobiology, emotional processing, psychoactive context, and systems-oriented neuroscience."
         url="https://thehippiescientist.net/education/understanding-altered-states"
         type="Article"
+        faqItems={faqItems}
       />
 
       <AuthorityBreadcrumbs

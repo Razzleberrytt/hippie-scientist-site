@@ -24,7 +24,7 @@ const systems = [
 
 const related = [
   {
-    href: '/protocols/burnout-recovery',
+    href: '/goals/stress',
     title: 'Burnout Recovery',
   },
   {

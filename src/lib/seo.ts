@@ -372,6 +372,7 @@ export function herbJsonLd(herb: HerbJsonLdArgs) {
     '@context': 'https://schema.org',
     '@type': ['MedicalWebPage', 'WebPage'],
     name: `${herb.name} Herb Guide`,
+    headline: `${herb.name} Herb Guide`,
     description:
       herb.description || `${herb.name} herb profile — effects, safety, and pharmacology.`,
     url,
@@ -460,6 +461,7 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
     '@context': 'https://schema.org',
     '@type': ['MedicalWebPage', 'WebPage'],
     name: `${compound.name} Compound Guide`,
+    headline: `${compound.name} Compound Guide`,
     description:
       compound.description || `${compound.name} pharmacology, effects, and safety profile.`,
     url,

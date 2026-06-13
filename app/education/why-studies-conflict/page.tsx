@@ -51,6 +51,7 @@ export default function WhyStudiesConflictPage() {
         description="Educational exploration of scientific uncertainty, human variability, study design differences, and biological complexity in neuroscience and health research."
         url="https://thehippiescientist.net/education/why-studies-conflict"
         type="Article"
+        faqItems={faqs}
       />
       <AuthorityBreadcrumbs
         items={[

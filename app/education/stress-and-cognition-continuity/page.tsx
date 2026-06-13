@@ -38,11 +38,11 @@ const faqs = [
 
 const relatedSystems = [
   {
-    href: '/protocols/burnout-recovery',
+    href: '/goals/stress',
     title: 'Burnout Recovery',
   },
   {
-    href: '/protocols/recovery-oriented-productivity',
+    href: '/goals/stress',
     title: 'Recovery-Oriented Productivity',
   },
   {

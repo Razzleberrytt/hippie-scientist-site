@@ -4,19 +4,19 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 const systems = [
   {
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
     title: 'Serotonin Pathway',
   },
   {
-    href: '/pathways/dopamine',
+    href: '/education/dopamine',
     title: 'Dopamine Pathway',
   },
   {
-    href: '/pathways/gaba',
+    href: '/education/gaba',
     title: 'GABA Pathway',
   },
   {
-    href: '/pathways/glutamate',
+    href: '/education/glutamate',
     title: 'Glutamate Pathway',
   },
 ]

@@ -24,11 +24,11 @@ const systems = [
 
 const related = [
   {
-    href: '/pathways/dopamine',
+    href: '/education/dopamine',
     title: 'Dopamine Pathway',
   },
   {
-    href: '/protocols/non-stimulant-focus',
+    href: '/goals/focus',
     title: 'Non-Stimulant Focus',
   },
   {

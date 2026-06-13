@@ -16,7 +16,7 @@ const systems = [
     title: 'Kanna vs SSRIs',
   },
   {
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
     title: 'Serotonin Pathway',
   },
 ]

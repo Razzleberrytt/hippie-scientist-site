@@ -8,22 +8,22 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 
 const pathways = [
   {
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
     title: 'Serotonin Pathway',
     description: 'Mood-related signaling systems associated with emotional regulation, stress adaptation, appetite, sleep continuity, and psychoactive neuropharmacology.',
   },
   {
-    href: '/pathways/dopamine',
+    href: '/education/dopamine',
     title: 'Dopamine Pathway',
     description: 'Motivation and cognition-oriented systems associated with reward signaling, behavioral reinforcement, novelty processing, and attention continuity.',
   },
   {
-    href: '/pathways/gaba',
+    href: '/education/gaba',
     title: 'GABA Pathway',
     description: 'Calming inhibitory signaling systems associated with nervous-system downregulation, relaxation, sedation pathways, and sleep continuity.',
   },
   {
-    href: '/pathways/glutamate',
+    href: '/education/glutamate',
     title: 'Glutamate Pathway',
     description: 'Excitatory signaling systems associated with learning, neuroplasticity, cognition, memory formation, and altered-state neuropharmacology.',
   },

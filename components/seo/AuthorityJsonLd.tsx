@@ -1,6 +1,8 @@
 import { buildSchemaGraph } from '@/lib/schema-graph'
 import { SITE_URL } from '@/lib/seo'
 
+type FaqItem = { question: string; answer: string }
+
 type AuthorityJsonLdProps = {
   title: string
   description: string
@@ -10,6 +12,7 @@ type AuthorityJsonLdProps = {
     name: string
     url: string
   }>
+  faqItems?: FaqItem[]
 }
 
 export default function AuthorityJsonLd({
@@ -18,11 +21,13 @@ export default function AuthorityJsonLd({
   url,
   type = 'CollectionPage',
   breadcrumbs = [],
+  faqItems,
 }: AuthorityJsonLdProps) {
   const normalizedUrl = url.replace('https://thehippiescientist.net', SITE_URL)
   const canonical = normalizedUrl.endsWith('/') ? normalizedUrl : `${normalizedUrl}/`
   const webpageId = `${canonical}#webpage`
   const breadcrumbId = `${canonical}#breadcrumb`
+  const faqId = `${canonical}#faq`
 
   const webpage = {
     '@type': type === 'MedicalWebPage' ? ['MedicalWebPage', 'WebPage'] : type,
@@ -33,6 +38,7 @@ export default function AuthorityJsonLd({
     url: canonical,
     isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
     ...(breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
+    ...(faqItems?.length ? { hasPart: { '@id': faqId } } : {}),
   }
 
   const breadcrumb = breadcrumbs.length
@@ -48,13 +54,28 @@ export default function AuthorityJsonLd({
       }
     : null
 
-  const graph = buildSchemaGraph([webpage, breadcrumb])
+  const faq =
+    faqItems && faqItems.length > 0
+      ? {
+          '@type': 'FAQPage',
+          '@id': faqId,
+          url: canonical,
+          isPartOf: { '@id': webpageId },
+          mainEntity: faqItems.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer },
+          })),
+        }
+      : null
+
+  const graph = buildSchemaGraph([webpage, breadcrumb, faq])
 
   return (
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(graph),
+        __html: JSON.stringify(graph).replace(/</g, '\\u003c'),
       }}
     />
   )
