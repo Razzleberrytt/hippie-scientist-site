@@ -1,28 +1,29 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
 
 export const metadata: Metadata = {
-  title: 'Evidence Literacy: Reading Study Design and Grades',
+  title: 'Study Design Snapshots: Reading an Evidence Grade',
   description:
-    'A hub for evidence literacy — how evidence grades are assigned, which clinical trial design factors matter, and how to read limitations honestly. Includes embeddable Study Design Snapshot examples.',
-  alternates: { canonical: '/education/evidence-literacy' },
+    'How evidence grades are assigned and which clinical trial design factors matter — shown through embeddable Study Design Snapshots that keep the practical takeaway prominent.',
+  alternates: { canonical: '/education/study-design-snapshot' },
   openGraph: {
-    title: 'Evidence Literacy: Reading Study Design and Grades',
+    title: 'Study Design Snapshots: Reading an Evidence Grade',
     description:
-      'How evidence grades are assigned, which trial design factors matter, and how to read limitations honestly.',
-    url: '/education/evidence-literacy',
+      'How evidence grades are assigned and which clinical trial design factors matter, shown through embeddable Study Design Snapshots.',
+    url: '/education/study-design-snapshot',
   },
 }
 
-export default function EvidenceLiteracyHubPage() {
+export default function StudyDesignSnapshotHubPage() {
   return (
     <main className="container-page space-y-12 py-10">
       <AuthorityJsonLd
-        title="Evidence Literacy: Reading Study Design and Grades"
-        description="How evidence grades are assigned, which clinical trial design factors matter, and how to read limitations honestly."
-        url="https://thehippiescientist.net/education/evidence-literacy"
+        title="Study Design Snapshots: Reading an Evidence Grade"
+        description="How evidence grades are assigned and which clinical trial design factors matter, shown through embeddable Study Design Snapshots."
+        url="https://thehippiescientist.net/education/study-design-snapshot"
         type="Article"
       />
 
@@ -30,7 +31,7 @@ export default function EvidenceLiteracyHubPage() {
         items={[
           { label: 'Home', href: '/' },
           { label: 'Education', href: '/education' },
-          { label: 'Evidence Literacy' },
+          { label: 'Study Design Snapshots' },
         ]}
       />
 
@@ -42,11 +43,15 @@ export default function EvidenceLiteracyHubPage() {
           </h1>
         </div>
         <p className="text-lg leading-8 text-[#46574d]">
-          Every grade on this site is a shorthand for the quality of the human evidence behind a
-          claim. Below, the <strong>Study Design Snapshot</strong> keeps the practical takeaway
-          prominent and tucks the &ldquo;why&rdquo; — trial design and limitations — into an
-          optional, expandable panel. The same component is embeddable inside our structured
-          education content.
+          Every grade on this site is shorthand for the quality of the human evidence behind a
+          claim. The <strong>Study Design Snapshot</strong> keeps the practical takeaway prominent
+          and tucks the &ldquo;why&rdquo; — trial design and limitations — into an optional,
+          expandable panel. The same component is embeddable inside our structured education
+          content. For the full methodology guide, see{' '}
+          <Link href="/education/evidence-literacy" className="font-semibold text-brand-700 hover:text-brand-800">
+            Evidence Literacy
+          </Link>
+          .
         </p>
       </section>
 
@@ -97,7 +102,7 @@ export default function EvidenceLiteracyHubPage() {
             'Mechanistic plausibility frequently fails to translate to human benefit.',
             'No controlled human trials means effect and safety are unestablished.',
           ]}
-          context="A low grade is not a verdict that something &lsquo;does not work&rsquo; — it means the human evidence is not there yet."
+          context="A low grade is not a verdict that something does not work — it means the human evidence is not there yet."
         />
       </section>
 

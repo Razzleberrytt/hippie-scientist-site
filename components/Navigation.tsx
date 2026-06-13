@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { GlobalSearchModal } from './search/GlobalSearchModal'
+import DarkModeToggle from './DarkModeToggle'
 
 const desktopLinks = [
   { href: '/', label: 'Home' },
@@ -87,6 +88,7 @@ export function Navigation() {
           <div className="flex items-center gap-2">
             {/* Global search command palette (Cmd/Ctrl+K, "/" hotkey, visible trigger) */}
             <GlobalSearchModal />
+            <DarkModeToggle className="hidden md:inline-flex" />
 
             <button
               type="button"
@@ -144,6 +146,12 @@ export function Navigation() {
                 </Link>
               ))}
 
+              <div className="my-2 h-px bg-brand-900/10" />
+
+              <div className="flex items-center justify-between rounded-lg px-3 py-2.5">
+                <span className="text-sm font-medium text-ink/70">Theme</span>
+                <DarkModeToggle showLabel />
+              </div>
             </nav>
           </div>
         </div>

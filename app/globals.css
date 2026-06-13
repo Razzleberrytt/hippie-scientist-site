@@ -111,6 +111,15 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --text-muted: hsl(var(--text-muted-h), var(--text-muted-s), var(--text-muted-l)); /* #4f6057 */
 
   --border-soft: rgba(29, 74, 47, 0.1);
+  --border-strong: rgba(29, 74, 47, 0.18);
+  --surface-card: rgba(255, 255, 255, 0.86);
+  --surface-card-strong: rgba(255, 255, 255, 0.94);
+  --surface-subtle: rgba(238, 248, 241, 0.68);
+  --surface-code: #eef8f1;
+  --surface-warning: rgba(255, 251, 235, 0.82);
+  --surface-danger: rgba(255, 241, 242, 0.82);
+  --surface-info: rgba(239, 246, 255, 0.82);
+  --surface-neutral: rgba(248, 250, 252, 0.86);
   --ring-brand: rgba(53, 143, 82, 0.35);
   --radius-card-premium: 0.9rem;
   --radius-card-compact: 0.75rem;
@@ -133,17 +142,38 @@ html {
 /* Dark mode variable overrides — applied when <html class="dark"> is set by DarkModeProvider */
 html.dark {
   --color-background: #111a14;
-  --color-surface: #1a2a1f;
-  --color-ink: #deeee1;
-  --color-muted: #8faa97;
-  --color-brand-50: #0d1f11;
-  --color-brand-100: #162b1c;
+  --color-surface: #162019;
+  --color-ink: #eef7ef;
+  --color-muted: #bdd0c2;
+  --color-brand-50: #112318;
+  --color-brand-100: #183320;
+  --color-brand-200: #24472d;
+  --color-brand-300: #32633f;
+  --color-brand-400: #4f9b64;
+  --color-brand-500: #69c280;
+  --color-brand-600: #7ed091;
+  --color-brand-700: #9bddaa;
+  --color-brand-800: #c0ebc8;
+  --color-brand-900: #dcf5df;
+  --color-brand-950: #effbf0;
   --bg: #111a14;
-  --surface: #1a2a1f;
-  --text-primary: #deeee1;
-  --text-secondary: #a8c4af;
-  --text-muted: #7a9983;
-  --border-soft: rgba(141, 170, 120, 0.12);
+  --surface: #162019;
+  --surface-elevated: rgba(24, 34, 27, 0.88);
+  --text-primary: #eef7ef;
+  --text-secondary: #d5e4d8;
+  --text-muted: #bdd0c2;
+  --border-soft: rgba(196, 222, 203, 0.16);
+  --border-strong: rgba(196, 222, 203, 0.26);
+  --surface-card: rgba(24, 34, 27, 0.86);
+  --surface-card-strong: rgba(29, 42, 33, 0.94);
+  --surface-subtle: rgba(36, 71, 45, 0.34);
+  --surface-code: rgba(33, 64, 42, 0.76);
+  --surface-warning: rgba(69, 49, 20, 0.72);
+  --surface-danger: rgba(70, 28, 35, 0.72);
+  --surface-info: rgba(25, 45, 73, 0.72);
+  --surface-neutral: rgba(32, 41, 38, 0.82);
+  --shadow-card-calm: 0 1px 3px rgba(0, 0, 0, 0.22);
+  --shadow-card-calm-hover: 0 8px 22px rgba(0, 0, 0, 0.24);
   color-scheme: dark;
 }
 
@@ -166,6 +196,14 @@ body {
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+body * {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 220ms;
+  transition-timing-function: ease;
 }
 
 ::selection {
@@ -313,6 +351,11 @@ body {
       scroll-behavior: auto !important;
     }
   }
+}
+
+html.dark ::selection {
+  background: rgba(126, 208, 145, 0.28);
+  color: #f6fff7;
 }
 
 @layer components {
@@ -478,6 +521,228 @@ body {
     @apply inline-flex items-center justify-center rounded-full border border-brand-900/10 bg-white/85 px-4 py-2 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand-700/20 hover:bg-white hover:text-brand-800;
     box-shadow: var(--shadow-button-secondary);
   }
+}
+
+/* Dark-mode compatibility for legacy utility-heavy pages.
+   Keep this centralized so page contracts and generated content stay untouched. */
+html.dark :where(
+  .card-premium,
+  .glass-card,
+  .section-frame,
+  .surface-subtle,
+  .surface-depth,
+  .scientific-card,
+  .mobile-reading-card,
+  .compact-section,
+  .compact-card,
+  .semantic-rail-card,
+  .accordion-readable,
+  [class~="bg-white"],
+  [class~="bg-white/50"],
+  [class~="bg-white/60"],
+  [class~="bg-white/75"],
+  [class~="bg-white/80"],
+  [class~="bg-white/85"],
+  [class~="bg-white/90"],
+  [class~="bg-white/95"]
+) {
+  border-color: var(--border-soft);
+  background-color: var(--surface-card);
+  color: var(--text-primary);
+}
+
+html.dark :where(
+  .surface-depth,
+  .section-frame,
+  .glass-card,
+  .hero-shell,
+  [class~="bg-white/90"],
+  [class~="bg-white/95"]
+) {
+  background:
+    linear-gradient(180deg, var(--surface-card-strong), rgba(17, 26, 20, 0.9));
+}
+
+html.dark :where(
+  [class~="hover:bg-white"]:hover,
+  [class~="hover:bg-white/90"]:hover,
+  [class~="hover:bg-brand-50"]:hover,
+  [class~="hover:bg-brand-50/20"]:hover,
+  [class~="hover:bg-brand-50/30"]:hover,
+  [class~="hover:bg-brand-50/50"]:hover,
+  [class~="hover:bg-brand-50/60"]:hover
+) {
+  background-color: rgba(36, 71, 45, 0.46);
+}
+
+html.dark :where(
+  [class~="bg-brand-50"],
+  [class~="bg-brand-50/10"],
+  [class~="bg-brand-50/20"],
+  [class~="bg-brand-50/30"],
+  [class~="bg-brand-50/40"],
+  [class~="bg-brand-50/50"],
+  [class~="bg-brand-50/60"],
+  [class~="bg-brand-50/70"],
+  [class~="bg-brand-50/80"]
+) {
+  background-color: var(--surface-subtle);
+}
+
+html.dark :where(
+  [class~="bg-emerald-50"],
+  [class~="bg-emerald-50/30"],
+  [class~="bg-emerald-50/40"],
+  [class~="bg-emerald-50/45"],
+  [class~="bg-emerald-50/50"],
+  [class~="bg-emerald-50/60"],
+  [class~="bg-emerald-50/70"],
+  [class~="bg-emerald-50/80"],
+  [class~="bg-emerald-100"]
+) {
+  background-color: rgba(22, 101, 52, 0.28);
+}
+
+html.dark :where(
+  [class~="bg-amber-50"],
+  [class~="bg-amber-50/10"],
+  [class~="bg-amber-50/40"],
+  [class~="bg-amber-50/50"],
+  [class~="bg-amber-50/60"],
+  [class~="bg-amber-50/70"],
+  [class~="bg-amber-50/80"],
+  [class~="bg-amber-100"]
+) {
+  background-color: var(--surface-warning);
+}
+
+html.dark :where(
+  [class~="bg-blue-50"],
+  [class~="bg-blue-50/70"],
+  [class~="bg-blue-50/80"],
+  [class~="bg-blue-100"]
+) {
+  background-color: var(--surface-info);
+}
+
+html.dark :where(
+  [class~="bg-red-50"],
+  [class~="bg-red-50/70"],
+  [class~="bg-rose-50"],
+  [class~="bg-rose-50/50"],
+  [class~="bg-rose-100"]
+) {
+  background-color: var(--surface-danger);
+}
+
+html.dark :where(
+  [class~="bg-slate-50"],
+  [class~="bg-slate-50/80"],
+  [class~="bg-slate-100"],
+  [class~="bg-neutral-100"],
+  [class~="bg-[#fbfaf6]"]
+) {
+  background-color: var(--surface-neutral);
+}
+
+html.dark :where(
+  .content-prose,
+  .content-prose p,
+  .content-prose li,
+  .detail-reading,
+  .text-reading,
+  .muted-readable,
+  .compact-copy,
+  .accordion-readable p,
+  .accordion-readable li,
+  [class~="text-muted"],
+  [class~="text-[#46574d]"],
+  [class~="text-[#526359]"],
+  [class~="text-[#33443a]"],
+  [class~="text-[#5c6b63]"],
+  [class~="text-[#64766b]"]
+) {
+  color: var(--text-muted);
+}
+
+html.dark :where(
+  [class~="text-ink"],
+  [class~="text-ink/70"],
+  [class~="text-ink/80"],
+  [class~="text-brand-900"],
+  [class~="text-brand-900/80"],
+  [class~="text-brand-950"],
+  strong,
+  th
+) {
+  color: var(--text-primary);
+}
+
+html.dark :where(
+  a,
+  [class~="text-brand-700"],
+  [class~="text-brand-800"],
+  [class~="text-brand-850"]
+) {
+  color: #9bddaa;
+}
+
+html.dark :where(
+  a:hover,
+  [class~="hover:text-brand-700"]:hover,
+  [class~="hover:text-brand-800"]:hover,
+  [class~="hover:text-ink"]:hover
+) {
+  color: #c0ebc8;
+}
+
+html.dark :where(
+  [class*="border-brand-900"],
+  [class~="border-black/5"],
+  [class~="border-white/10"],
+  [class~="border-white/50"],
+  [class~="border-white/60"]
+) {
+  border-color: var(--border-soft);
+}
+
+html.dark :where(
+  input,
+  textarea,
+  select,
+  code,
+  .content-prose code,
+  [class~="bg-brand-50"][class~="text-brand-800"]
+) {
+  background-color: var(--surface-code);
+  color: var(--text-primary);
+}
+
+html.dark :where(table, thead, tbody, tr, td, th) {
+  border-color: var(--border-soft);
+}
+
+html.dark :where(.prose, .prose p, .prose li, .prose td) {
+  color: var(--text-muted);
+}
+
+html.dark :where(.prose h1, .prose h2, .prose h3, .prose h4, .prose strong) {
+  color: var(--text-primary);
+}
+
+html.dark :where(.identity-herb, .identity-compound, .identity-article, .identity-path) {
+  background:
+    linear-gradient(180deg, rgba(24, 34, 27, 0.9), rgba(22, 40, 28, 0.72));
+}
+
+html.dark :where(.button-secondary) {
+  background-color: var(--surface-card);
+  color: var(--text-primary);
+}
+
+html.dark :where(.button-primary, [class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]) {
+  background-color: #69c280;
+  color: #07150c;
 }
 
 @layer utilities {

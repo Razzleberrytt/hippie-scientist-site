@@ -32,6 +32,8 @@ import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
+import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
+import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { extractCitationsFromRecord } from '@/lib/citations'
 import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
@@ -780,6 +782,27 @@ export default async function CompoundPage({ params }: PageProps) {
             </p>
             <EvidenceSnapshotCard snapshot={snapshot} />
           </div>
+
+          {compound.evidence_design_match && compound.evidence_risk_of_bias && compound.evidence_consistency && (
+            <EvidenceGradeRationale
+              grade={compound.evidence_grade || 'C'}
+              designMatch={compound.evidence_design_match as string}
+              riskOfBias={compound.evidence_risk_of_bias as string}
+              consistency={compound.evidence_consistency as string}
+            >
+              {(compound.evidence_rationale || compound.evidence_summary || compound.summary || '') as string}
+            </EvidenceGradeRationale>
+          )}
+
+          {compound.trial_design_insight && (
+            <TrialDesignInsight
+              designType={(compound.trial_design_insight as string).includes('RCT') ? 'RCT' : 'Human Trial'}
+              title={`${displayName} Study Design Insight`}
+            >
+              {compound.trial_design_insight as string}
+            </TrialDesignInsight>
+          )}
+
           <EvidenceGradeExplainer />
           <ShowMeTheStudies citations={citations} />
         </section>

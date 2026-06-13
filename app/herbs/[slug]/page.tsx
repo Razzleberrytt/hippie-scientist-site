@@ -35,6 +35,8 @@ import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
+import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
+import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { extractCitationsFromRecord } from '@/lib/citations'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
@@ -595,6 +597,27 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </div>
           )}
         </div>
+
+        {herb.evidence_design_match && herb.evidence_risk_of_bias && herb.evidence_consistency && (
+          <EvidenceGradeRationale
+            grade={herb.evidence_grade || 'C'}
+            designMatch={herb.evidence_design_match as string}
+            riskOfBias={herb.evidence_risk_of_bias as string}
+            consistency={herb.evidence_consistency as string}
+          >
+            {(herb.evidence_rationale || herb.evidence_summary || herb.summary || '') as string}
+          </EvidenceGradeRationale>
+        )}
+
+        {herb.trial_design_insight && (
+          <TrialDesignInsight
+            designType={(herb.trial_design_insight as string).includes('RCT') ? 'RCT' : 'Human Trial'}
+            title={`${displayName} Study Design Insight`}
+          >
+            {herb.trial_design_insight as string}
+          </TrialDesignInsight>
+        )}
+
         <EvidenceGradeExplainer />
         <ShowMeTheStudies citations={citations} />
       </section>

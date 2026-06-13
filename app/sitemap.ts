@@ -170,6 +170,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const goalsData = readJsonArray<SitemapSourceItem>('public/data/goals.json');
   const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
   const guidesData = readMdxSlugs('content/guides');
+  const educationMdx = readMdxSlugs('content/education');
 
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(`${SITE_URL}/`, currentDate, 'weekly', 1.0),
@@ -297,6 +298,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   learnPosts.forEach((post) => {
     addRoute(`/learn/${post.slug}`, 'monthly', 0.7);
+  });
+
+  educationMdx.forEach((edu) => {
+    if (!edu.slug) return;
+    addRoute(`/education/${edu.slug}`, 'monthly', 0.75);
   });
 
   // Add compare detail routes (data-driven, for task requirement to cover /compare/:slug)

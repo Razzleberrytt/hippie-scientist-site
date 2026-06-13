@@ -71,7 +71,8 @@ import is needed:
 
 - `<StudyDesignSnapshot>` — keeps a practical takeaway prominent and tucks the
   grade rationale, trial design factors, and limitations into an optional,
-  accessible disclosure. See [`evidence-literacy.mdx`](evidence-literacy.mdx).
+  accessible disclosure. Live examples on the
+  [Study Design Snapshot hub](../../app/education/study-design-snapshot/page.tsx).
 - `<EvidenceSummaryCard>`, `<ResearchLimitations>`, `<MisconceptionCallout>`,
   `<SafetyNotice>`.
 
