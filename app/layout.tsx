@@ -47,12 +47,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
       {/* Inline script runs before React hydration to prevent dark mode flash */}
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(s===null&&p)){document.documentElement.classList.add('dark')}}catch(e){}})();`,
+            __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches;var dark=s==='dark'||((s===null||s==='system')&&p);d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light'}catch(e){}})();`,
           }}
         />
       </head>
@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Skip to main content
         </a>
         <DarkModeProvider>
-        <div className='min-h-screen bg-background text-ink'>
+        <div className='min-h-screen bg-background text-ink transition-colors duration-300'>
           <header>
             <Navigation />
           </header>
@@ -113,8 +113,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <MobileBottomNav />
           <CitationDrawerLazy />
           <ClickTracker />
-          {/* Dark mode toggle — fixed bottom-right, accessible via keyboard */}
-          <div className='fixed bottom-20 right-4 z-40 md:bottom-6'>
+          {/* Dark mode toggle — fixed fallback plus nav controls, accessible via keyboard */}
+          <div className='fixed bottom-20 right-4 z-40 md:bottom-6 md:hidden'>
             <DarkModeToggle />
           </div>
         </div>

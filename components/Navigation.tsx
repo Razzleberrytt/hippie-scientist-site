@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { SearchModal } from './SearchModal'
+import DarkModeToggle from './DarkModeToggle'
 
 const desktopLinks = [
   { href: '/', label: 'Home' },
@@ -100,6 +101,7 @@ export function Navigation() {
           <div className="flex items-center gap-2">
             {/* Pagefind UI (provides Cmd/Ctrl+K + web component; always mounted for global hotkey) */}
             <SearchModal />
+            <DarkModeToggle className="hidden md:inline-flex" />
 
             <button
               type="button"
@@ -158,6 +160,11 @@ export function Navigation() {
               ))}
 
               <div className="my-2 h-px bg-brand-900/10" />
+
+              <div className="flex items-center justify-between rounded-lg px-3 py-2.5">
+                <span className="text-sm font-medium text-ink/70">Theme</span>
+                <DarkModeToggle showLabel />
+              </div>
 
               <button
                 type="button"

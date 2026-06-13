@@ -1,5 +1,6 @@
 'use client'
 
+import { Moon, Sun } from 'lucide-react'
 import { useDarkMode } from '@/lib/dark-mode-provider'
 
 type Props = {
@@ -10,48 +11,30 @@ type Props = {
 }
 
 export default function DarkModeToggle({ showLabel = false, className = '' }: Props) {
-  const { isDark, toggle } = useDarkMode()
+  const { isDark, themePreference, toggle } = useDarkMode()
+  const label = isDark ? 'Switch to light mode' : 'Switch to dark mode'
 
   return (
     <button
       type="button"
       onClick={toggle}
       aria-pressed={isDark}
-      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-      className={`inline-flex min-h-9 min-w-9 items-center justify-center gap-1.5 rounded-full border border-brand-900/10 bg-white/80 px-2.5 text-sm font-semibold text-[#46574d] transition hover:border-brand-700/20 hover:bg-brand-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 ${className}`}
+      aria-label={label}
+      title={`${label}${themePreference === 'system' ? ' (currently following system)' : ''}`}
+      className={`inline-flex min-h-9 min-w-9 items-center justify-center gap-1.5 rounded-full border border-brand-900/10 bg-white/80 px-2.5 text-sm font-semibold text-muted shadow-sm transition hover:border-brand-700/20 hover:bg-brand-50 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 dark:focus-visible:ring-offset-slate-950 ${className}`}
     >
-      {/* Sun icon (shown in dark mode to indicate "switch to light") */}
       {isDark ? (
-        <svg
+        <Sun
           aria-hidden="true"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="4" />
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
-        </svg>
+          className="h-4 w-4"
+          strokeWidth={2}
+        />
       ) : (
-        /* Moon icon (shown in light mode to indicate "switch to dark") */
-        <svg
+        <Moon
           aria-hidden="true"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
+          className="h-4 w-4"
+          strokeWidth={2}
+        />
       )}
       {showLabel && (
         <span className="text-xs">{isDark ? 'Light' : 'Dark'}</span>

@@ -16,6 +16,18 @@
   --deep-lift-shadow: 0 20px 56px rgba(16, 32, 24, 0.10), 0 4px 14px rgba(16, 32, 24, 0.045);
 }
 
+html.dark {
+  --readable-muted: #bdd0c2;
+  --readable-soft: #a8bcad;
+  --paper-warm: rgba(17, 26, 20, 0.9);
+  --paper-card: rgba(24, 34, 27, 0.86);
+  --paper-card-strong: rgba(29, 42, 33, 0.94);
+  --scientific-border: rgba(196, 222, 203, 0.16);
+  --scientific-border-strong: rgba(196, 222, 203, 0.28);
+  --soft-lift-shadow: 0 14px 42px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.18);
+  --deep-lift-shadow: 0 20px 56px rgba(0, 0, 0, 0.28), 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
 html {
   scroll-padding-top: 6.5rem;
 }
@@ -106,6 +118,13 @@ canvas {
 .glass-card {
   background:
     linear-gradient(180deg, var(--paper-card-strong), rgba(251, 246, 233, 0.74));
+}
+
+html.dark .surface-depth,
+html.dark .section-frame,
+html.dark .glass-card {
+  background:
+    linear-gradient(180deg, var(--paper-card-strong), rgba(17, 26, 20, 0.78));
 }
 
 .section-spacing {

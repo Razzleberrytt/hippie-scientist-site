@@ -55,6 +55,10 @@ const supernodes = [
 
 const foundational = [
   {
+    title: 'Evidence Literacy: Clinical Trial Design',
+    href: '/education/evidence-literacy',
+  },
+  {
     title: 'How Neurotransmitters Work',
     href: '/education/how-neurotransmitters-work',
   },
