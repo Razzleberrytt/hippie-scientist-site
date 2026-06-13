@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
-import { SearchModal } from './SearchModal'
+import { GlobalSearchModal } from './search/GlobalSearchModal'
 
 const desktopLinks = [
   { href: '/', label: 'Home' },
@@ -14,19 +14,6 @@ const desktopLinks = [
   { href: '/articles', label: 'Articles' },
   { href: '/safety-checker', label: 'Safety' },
 ]
-
-function openPagefindSearch() {
-  // Try to activate the Pagefind web component trigger if present (global keyboard or button)
-  if (typeof document !== 'undefined') {
-    const trigger = document.querySelector('pagefind-modal-trigger') as HTMLElement | null
-    if (trigger) {
-      trigger.click()
-      return
-    }
-    // Fallback: navigate to search page
-    window.location.href = '/search'
-  }
-}
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -98,8 +85,8 @@ export function Navigation() {
 
           {/* Right side actions (desktop search trigger + mobile hamburger) */}
           <div className="flex items-center gap-2">
-            {/* Pagefind UI (provides Cmd/Ctrl+K + web component; always mounted for global hotkey) */}
-            <SearchModal />
+            {/* Global search command palette (Cmd/Ctrl+K, "/" hotkey, visible trigger) */}
+            <GlobalSearchModal />
 
             <button
               type="button"
@@ -157,23 +144,7 @@ export function Navigation() {
                 </Link>
               ))}
 
-              <div className="my-2 h-px bg-brand-900/10" />
-
-              <button
-                type="button"
-                onClick={() => {
-                  closeMobile()
-                  openPagefindSearch()
-                }}
-                className="text-left rounded-lg px-3 py-2.5 text-sm font-medium text-ink/70 transition hover:bg-brand-50/60"
-              >
-                Search
-              </button>
             </nav>
-
-            <div className="mt-8 px-3">
-              <SearchModal />
-            </div>
           </div>
         </div>
       )}

@@ -1,0 +1,87 @@
+---
+slug: evidence-literacy
+title: Evidence Literacy — Reading Study Design and Grades
+summary: How evidence grades are assigned, which clinical trial design factors matter, and how to read limitations honestly — with embeddable Study Design Snapshots.
+category: Research Methodology
+goals: []
+pathways: []
+evidenceGrade: Educational
+safety: Educational overview only — it does not endorse any supplement.
+keywords:
+  - evidence grade
+  - study design
+  - randomized controlled trial
+  - blinding
+  - limitations
+  - clinical evidence
+tags:
+  - methodology
+  - evidence
+readingTime: 7 min read
+updated: 2026-06-12
+# Optional structured study context that a page can spread into
+# <StudyDesignSnapshot {...frontmatter.pivotalStudy} />. Kept out of the
+# component so the same component can be reused anywhere.
+pivotalStudy:
+  grade: Moderate
+  summary: A few small human trials point the same way, but the evidence is thinner — promising, not settled.
+  gradeRationale: A few randomized trials show a consistent signal, but small samples and short durations limit confidence.
+  studyType: Several small randomized, placebo-controlled trials
+  population: Modest adult samples
+  participants: Dozens per trial
+  duration: 4–8 weeks
+  comparator: Placebo
+  limitations:
+    - Small samples widen the uncertainty around the true effect.
+    - Short trials cannot speak to long-term use.
+---
+
+A grade on this site is shorthand for **how good the human evidence is** — not a
+promise about how well something will work for you. The `<StudyDesignSnapshot>`
+component keeps the practical takeaway prominent and moves the reasoning — the
+grade rationale, trial design, and limitations — into an optional, expandable
+panel.
+
+## Minimal embed
+
+The only required prop is `summary`. Add a `grade` and you have a useful block:
+
+<StudyDesignSnapshot
+  grade="Moderate"
+  summary="A few small human trials suggest a real but modest effect."
+/>
+
+## Fuller embed
+
+Pass the convenience design props (`studyType`, `participants`, `duration`, …)
+plus `limitations` to explain *why* a grade was assigned:
+
+<StudyDesignSnapshot
+  grade="Moderate"
+  gradeRationale="Several randomized trials show a consistent signal, but the trials are small and short."
+  summary="Standardized extract appears to help sleep quality, with modest, replicated effects."
+  studyType="Randomized, double-blind, placebo-controlled"
+  population="Adults with poor sleep"
+  participants="~60 per trial"
+  duration="6–8 weeks"
+  comparator="Placebo"
+  dosing="~300–600 mg/day standardized extract"
+  limitations={[
+    "Small samples and short durations limit confidence in the effect size.",
+    "Several trials are manufacturer-funded.",
+  ]}
+  context="Treat it as a modest, optional support inside a broader routine."
+/>
+
+## Driving it from frontmatter
+
+Because the component holds no data of its own, a page can keep the facts in
+frontmatter and spread them in — so the same component renders consistently
+across profiles, goals, and education content:
+
+```mdx
+<StudyDesignSnapshot {...frontmatter.pivotalStudy} />
+```
+
+That is the recommended pattern when the study context belongs to the page
+rather than to the prose.
