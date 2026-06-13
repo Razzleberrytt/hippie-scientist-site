@@ -279,13 +279,13 @@ export function EmptyLibraryState() {
 function EmptyFilteredState({ query, context, evidence }: { query: string; context: string; evidence: string }) {
   const activeContext = filterOptions.find(option => option.value === context)?.label
   const activeEvLabel = EVIDENCE_FILTER_OPTIONS.find(o => o.value === evidence && evidence !== 'all')?.label
-  const currentScan = [query ? `”${query}”` : '', activeContext || '', activeEvLabel || ''].filter(Boolean).join(' + ')
+  const currentScan = [query ? `"${query}"` : '', activeContext || '', activeEvLabel || ''].filter(Boolean).join(' + ')
 
   return (
     <DecisionEmptyState
-      eyebrow=”No matching profiles”
-      title=”No herbs matched this scan.”
-      description=”Try a broader herb name, mechanism, or goal. Evidence and safety labels stay conservative when source data is incomplete.”
+      eyebrow="No matching profiles"
+      title="No herbs matched this scan."
+      description="Try a broader herb name, mechanism, or goal. Evidence and safety labels stay conservative when source data is incomplete."
       currentScan={currentScan || undefined}
       actions={[
         { href: '/herbs', label: 'Reset filters', variant: 'primary' },
