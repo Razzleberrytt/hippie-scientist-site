@@ -4,7 +4,7 @@ import React from 'react'
 
 import HerbsIndexClient from '../herbs/HerbsIndexClient'
 import { collapseRepeatedNouns } from '../../lib/display-utils'
-import type { RuntimeRecord } from '../../types/content'
+import type { RuntimeRecord } from '../../src/types/content'
 
 // Mock next/link since it is used in the component
 import { vi } from 'vitest'
