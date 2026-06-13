@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useId, type KeyboardEvent } from 'react'
 import Link from 'next/link'
 
 interface SafetyItem {
@@ -72,6 +72,11 @@ interface SafetyCheckerClientProps {
 }
 
 export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerClientProps) {
+  const searchInputId = useId()
+  const searchHelpId = useId()
+  const listboxId = useId()
+  const selectionStatusId = useId()
+  const riskStatusId = useId()
   const [acknowledged, setAcknowledged] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedItems, setSelectedItems] = useState<SafetyItem[]>([])
@@ -81,10 +86,10 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   // Merge datasets
-  const allItems = [
+  const allItems = useMemo(() => [
     ...herbs.map(item => ({ ...item, type: 'herb' as const })),
     ...compounds.map(item => ({ ...item, type: 'compound' as const })),
-  ] as SafetyItem[]
+  ] as SafetyItem[], [herbs, compounds])
 
   // Filter items for search
   const filteredItems = searchQuery
@@ -94,6 +99,10 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
         return matchesName && notSelected
       }).slice(0, 8)
     : []
+  const activeOptionId = focusedIndex >= 0 && filteredItems[focusedIndex]
+    ? `${listboxId}-${filteredItems[focusedIndex].slug}`
+    : undefined
+  const selectionCount = selectedItems.length + selectedMeds.length
 
   // Handle outside click to close dropdown
   useEffect(() => {
@@ -346,9 +355,10 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
     return { alerts, riskLevel }
   }, [selectedItems, selectedMeds])
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault()
+      setIsOpen(true)
       setFocusedIndex(prev => (prev < filteredItems.length - 1 ? prev + 1 : prev))
     } else if (e.key === 'ArrowUp') {
       e.preventDefault()
@@ -357,9 +367,12 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
       e.preventDefault()
       if (focusedIndex >= 0 && filteredItems[focusedIndex]) {
         handleAddItem(filteredItems[focusedIndex])
+      } else if (filteredItems.length === 1) {
+        handleAddItem(filteredItems[0])
       }
     } else if (e.key === 'Escape') {
       setIsOpen(false)
+      setFocusedIndex(-1)
     }
   }
 
@@ -372,7 +385,8 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
           : 'border-rose-900/20 bg-rose-50/20 shadow-sm'
       }`}>
         <h2 className='text-base font-bold text-slate-800 flex items-center gap-2'>
-          ⚠️ Medical Disclaimer & Safety Acknowledgment
+          <span aria-hidden="true">⚠️</span>
+          Medical Disclaimer & Safety Acknowledgment
         </h2>
         <p className='mt-2 text-xs text-slate-600 leading-relaxed'>
           This safety checker is an educational reference tool built on general biomedical pathways and public databases. It is <strong>not</strong> medical advice, is not monitored by doctors, and cannot replace personalized guidance from a qualified health professional. Stacking supplements, especially alongside prescription drugs, carries inherent physiological risks.
@@ -389,18 +403,24 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
         </label>
       </div>
 
+      <p id={selectionStatusId} className="sr-only" aria-live="polite">
+        {selectionCount === 0 ? 'Current safety checker selection: none.' : `Current safety checker selection: ${selectionCount} item${selectionCount === 1 ? '' : 's'}.`}
+      </p>
+
       <div className='grid grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-3'>
         {/* Selection Column */}
-        <div className={`lg:col-span-1 space-y-6 ${!acknowledged ? 'opacity-60 pointer-events-none select-none' : ''}`}>
+        <div className={`lg:col-span-1 space-y-6 ${!acknowledged ? 'opacity-70 select-none' : ''}`} aria-disabled={!acknowledged}>
           {/* Search Ingredients */}
-          <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' ref={dropdownRef}>
-            <h2 className='text-lg font-bold text-slate-800'>Search Ingredients</h2>
-            <p className='text-xs text-slate-500'>
+          <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' ref={dropdownRef} aria-labelledby="ingredient-search-heading">
+            <h2 id="ingredient-search-heading" className='text-lg font-bold text-slate-800'>Search Ingredients</h2>
+            <p id={searchHelpId} className='text-xs text-slate-500'>
               Add multiple herbs or compounds to evaluate contraindications, drug interactions, and physiological loading overlaps.
             </p>
 
             <div className='relative'>
+              <label htmlFor={searchInputId} className="sr-only">Search herbs or compounds</label>
               <input
+                id={searchInputId}
                 type='text'
                 value={searchQuery}
                 disabled={!acknowledged}
@@ -412,15 +432,24 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 onFocus={() => setIsOpen(true)}
                 onKeyDown={handleKeyDown}
                 placeholder={acknowledged ? 'Type herb or compound...' : 'Please acknowledge disclaimer first...'}
+                role='combobox'
+                aria-autocomplete='list'
+                aria-expanded={isOpen && filteredItems.length > 0}
+                aria-controls={listboxId}
+                aria-activedescendant={activeOptionId}
+                aria-describedby={searchHelpId}
                 className='min-h-11 w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-base sm:text-sm focus:border-emerald-500 focus:outline-none disabled:bg-slate-50 disabled:text-slate-400'
               />
             {isOpen && filteredItems.length > 0 && (
-              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
+              <div id={listboxId} role="listbox" aria-label="Ingredient search results" className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
                 {filteredItems.map((item, idx) => (
                   <button
                     key={item.slug}
+                    id={`${listboxId}-${item.slug}`}
                     onClick={() => handleAddItem(item)}
                     type='button'
+                    role='option'
+                    aria-selected={idx === focusedIndex}
                     className={`flex min-h-11 w-full items-center justify-between px-4 py-2.5 text-left text-sm transition ${
                       idx === focusedIndex ? 'bg-emerald-50 text-emerald-800' : 'hover:bg-slate-50 text-slate-700'
                     }`}
@@ -433,17 +462,22 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 ))}
               </div>
             )}
+            {isOpen && searchQuery && filteredItems.length === 0 && (
+              <p className="mt-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600" role="status">
+                No matching herbs or compounds found. Try a shorter name or check spelling.
+              </p>
+            )}
           </div>
-        </div>
+        </section>
 
         {/* Pharmaceutical Medications */}
-        <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4'>
-          <h2 className='text-sm font-bold text-slate-800'>Active Medications</h2>
+        <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' aria-labelledby="active-medications-heading">
+          <h2 id="active-medications-heading" className='text-sm font-bold text-slate-800'>Active Medications</h2>
           <p className='text-xs text-slate-500'>
             Add your current prescription classes to audit dangerous drug-supplement interactions.
           </p>
 
-          <div className='space-y-2 max-h-60 overflow-y-auto pr-1'>
+          <div className='space-y-2 max-h-60 overflow-y-auto pr-1' role="group" aria-label="Medication classes">
             {PHARMACEUTICAL_CLASSES.map(med => {
               const isSelected = selectedMeds.some(m => m.id === med.id)
               return (
@@ -451,6 +485,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                   key={med.id}
                   type='button'
                   disabled={!acknowledged}
+                  aria-pressed={isSelected}
                   onClick={() => {
                     if (isSelected) {
                       setSelectedMeds(selectedMeds.filter(m => m.id !== med.id))
@@ -466,19 +501,19 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 >
                   <div className='flex items-center justify-between w-full'>
                     <span className='font-bold'>{med.name}</span>
-                    {isSelected && <span className='text-emerald-700 font-bold'>✓ Active</span>}
+                    {isSelected && <span className='text-emerald-700 font-bold'><span aria-hidden="true">✓</span> Active</span>}
                   </div>
                   <span className='text-[10px] text-slate-500 leading-normal'>{med.description}</span>
                 </button>
               )
             })}
           </div>
-        </div>
+        </section>
 
         {/* Selected List */}
-        <div className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4'>
+        <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' aria-labelledby="selected-list-heading" aria-describedby={selectionStatusId}>
           <div className='flex items-center justify-between'>
-            <h3 className='text-sm font-bold text-slate-800'>Selected List ({selectedItems.length + selectedMeds.length})</h3>
+            <h2 id="selected-list-heading" className='text-sm font-bold text-slate-800'>Selected List ({selectionCount})</h2>
             {(selectedItems.length > 0 || selectedMeds.length > 0) && (
               <button
                 onClick={handleClearAll}
@@ -495,10 +530,11 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
               No items selected. Search above or select active medications to check interactions.
             </p>
           ) : (
-            <div className='space-y-2'>
+            <div className='space-y-2' role="list" aria-label="Selected ingredients and medication classes">
               {selectedItems.map(item => (
                 <div
                   key={item.slug}
+                  role="listitem"
                   className='flex items-center justify-between rounded-xl bg-slate-50 p-3 border border-slate-100'
                 >
                   <div className='min-w-0'>
@@ -516,7 +552,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                     type='button'
                     aria-label={`Remove ${item.name}`}
                   >
-                    ✕
+                    <span aria-hidden="true">✕</span>
                   </button>
                 </div>
               ))}
@@ -524,6 +560,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
               {selectedMeds.map(med => (
                 <div
                   key={med.id}
+                  role="listitem"
                   className='flex items-center justify-between rounded-xl bg-emerald-50/40 p-3 border border-emerald-100/60'
                 >
                   <div className='min-w-0'>
@@ -536,22 +573,22 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                     type='button'
                     aria-label={`Remove ${med.name}`}
                   >
-                    ✕
+                    <span aria-hidden="true">✕</span>
                   </button>
                 </div>
               ))}
             </div>
           )}
-        </div>
+        </section>
       </div>
 
       {/* Interaction Reports */}
-      <div className={`lg:col-span-2 space-y-6 ${!acknowledged ? 'opacity-60 pointer-events-none select-none' : ''}`}>
-        <div className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6'>
+      <div className={`lg:col-span-2 space-y-6 ${!acknowledged ? 'opacity-70 select-none' : ''}`} aria-disabled={!acknowledged}>
+        <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6' aria-labelledby="interactive-safety-audit-heading">
           <div className='border-b border-slate-100 pb-4 flex items-center justify-between'>
-            <h2 className='text-xl font-bold text-slate-800'>Interactive Safety Audit</h2>
+            <h2 id="interactive-safety-audit-heading" className='text-xl font-bold text-slate-800'>Interactive Safety Audit</h2>
             {(selectedItems.length > 0 || selectedMeds.length > 0) && (
-              <span className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${
+              <span id={riskStatusId} role="status" aria-live="polite" className={`rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${
                 analysis.riskLevel === 'high'
                   ? 'bg-rose-100 text-rose-800 animate-pulse'
                   : analysis.riskLevel === 'medium'
@@ -571,8 +608,8 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
             <div className='space-y-6'>
               {/* Warnings and Contraindications alerts */}
               {analysis.alerts.length === 0 ? (
-                <div className='rounded-2xl bg-emerald-50/50 border border-emerald-200/40 p-5 text-sm text-emerald-900 leading-relaxed'>
-                  <p className='font-bold'>✓ No Severe Interactions Detected</p>
+                <div className='rounded-2xl bg-emerald-50/50 border border-emerald-200/40 p-5 text-sm text-emerald-900 leading-relaxed' role="status">
+                  <p className='font-bold'><span aria-hidden="true">✓</span> No Severe Interactions Detected</p>
                   <p className='mt-1 text-xs text-emerald-800'>
                     The selected combination does not report immediate chemical contraindications or receptor loading overlaps in our database. Ensure you check individual extract quality guidelines before purchasing.
                   </p>
@@ -582,6 +619,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                   {analysis.alerts.map((alert: any, idx: number) => (
                     <div
                       key={idx}
+                      role={alert.type === 'danger' ? 'alert' : 'status'}
                       className={`rounded-2xl p-5 border text-sm leading-relaxed ${
                         alert.type === 'danger'
                           ? 'bg-rose-50 border-rose-200/50 text-rose-900'
@@ -589,7 +627,8 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                       }`}
                     >
                       <h4 className='font-bold flex items-center gap-2'>
-                        {alert.type === 'danger' ? '⚠️ Contraindication Alert:' : '⚠️ Caution Warning:'}{' '}
+                        <span aria-hidden="true">⚠️</span>
+                        {alert.type === 'danger' ? 'Contraindication Alert:' : 'Caution Warning:'}{' '}
                         {alert.title}
                       </h4>
                       <p className='mt-1.5 text-xs opacity-90'>{alert.desc}</p>
@@ -631,7 +670,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
               </div>
             </div>
           )}
-        </div>
+        </section>
       </div>
     </div>
     </div>

@@ -72,11 +72,12 @@ export default function EvidenceGradeRationale({
     Inconsistent: 'text-rose-700 font-semibold',
   }
   const consistencyColor = consistencyColors[consistency] || 'text-[#46574d]'
+  const headingId = `evidence-grade-${String(grade).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
 
   return (
     <section 
       className={`my-6 rounded-[1.25rem] border p-6 shadow-sm bg-white/95 border-brand-900/10`}
-      aria-label={`Evidence Grade Rationale: ${config.label}`}
+      aria-labelledby={headingId}
     >
       <div className="grid gap-6 md:grid-cols-[120px_1fr] items-start">
         {/* Large Grade Circle Bubble */}
@@ -95,29 +96,29 @@ export default function EvidenceGradeRationale({
         {/* Details and Description */}
         <div className="space-y-4">
           <div>
-            <h4 className="text-lg font-semibold text-ink font-display">
+            <h3 id={headingId} className="text-lg font-semibold text-ink font-display">
               {config.label}
-            </h4>
+            </h3>
             <p className="text-xs text-muted mt-0.5">
               Evaluation of methodological rigor, population reach, and evidence alignment.
             </p>
           </div>
 
           {/* Metadata Grid */}
-          <div className="grid gap-3 sm:grid-cols-3 bg-brand-50/10 border border-brand-900/5 rounded-xl p-3.5 text-xs">
+          <dl className="grid gap-3 sm:grid-cols-3 bg-brand-50/10 border border-brand-900/5 rounded-xl p-3.5 text-xs">
             <div>
-              <span className="text-muted block font-medium mb-0.5">Design Match</span>
-              <span className="text-ink font-semibold">{designMatch}</span>
+              <dt className="text-muted block font-medium mb-0.5">Design Match</dt>
+              <dd className="text-ink font-semibold">{designMatch}</dd>
             </div>
             <div>
-              <span className="text-muted block font-medium mb-0.5">Risk of Bias</span>
-              <span className={biasColor}>{riskOfBias}</span>
+              <dt className="text-muted block font-medium mb-0.5">Risk of Bias</dt>
+              <dd className={biasColor}>{riskOfBias}</dd>
             </div>
             <div>
-              <span className="text-muted block font-medium mb-0.5">Consistency</span>
-              <span className={consistencyColor}>{consistency}</span>
+              <dt className="text-muted block font-medium mb-0.5">Consistency</dt>
+              <dd className={consistencyColor}>{consistency}</dd>
             </div>
-          </div>
+          </dl>
 
           {/* Rationale explanation text */}
           <div className="text-sm leading-6 text-[#46574d] bg-white rounded-lg p-1.5">

@@ -55,7 +55,7 @@ export default async function EducationArticlePage({ params }: Props) {
   const blocks = parseMdxBlocks(article.content)
 
   return (
-    <main className="container-page py-10 space-y-8 max-w-4xl mx-auto px-4">
+    <article className="container-page py-10 space-y-8 max-w-4xl mx-auto px-4" aria-labelledby="education-article-title">
       {/* Breadcrumbs */}
       <AuthorityBreadcrumbs
         items={[
@@ -78,7 +78,7 @@ export default async function EducationArticlePage({ params }: Props) {
           <span className="text-muted">{article.readingTime}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
+        <h1 id="education-article-title" className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
           {article.title}
         </h1>
 
@@ -94,7 +94,7 @@ export default async function EducationArticlePage({ params }: Props) {
       </header>
 
       {/* Article Content Body */}
-      <section className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6">
+      <div className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6">
         {blocks.map((block, index) => {
           if (block.type === 'h2') {
             const id = block.text.toLowerCase().replace(/[^a-z0-9]+/g, '-')
@@ -162,11 +162,15 @@ export default async function EducationArticlePage({ params }: Props) {
               <div key={index} className="my-6">
                 <ResponsiveTable label="Education data table">
                   <table className="min-w-[760px] w-full text-sm">
+                    <caption className="sr-only">
+                      Structured evidence table for {article.title}
+                    </caption>
                     <thead>
                       <tr className="border-b border-brand-900/10">
                         {block.headers.map((header, j) => (
                           <th
                             key={j}
+                            scope="col"
                             className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted"
                             dangerouslySetInnerHTML={{ __html: inlineFormat(header) }}
                           />
@@ -177,11 +181,20 @@ export default async function EducationArticlePage({ params }: Props) {
                       {block.rows.map((row, rIndex) => (
                         <tr key={rIndex} className="align-top">
                           {row.map((cell, cIndex) => (
-                            <td
-                              key={cIndex}
-                              className="py-3 pr-4 leading-6 text-[#46574d]"
-                              dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }}
-                            />
+                            cIndex === 0 ? (
+                              <th
+                                key={cIndex}
+                                scope="row"
+                                className="py-3 pr-4 text-left align-top font-semibold leading-6 text-ink"
+                                dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }}
+                              />
+                            ) : (
+                              <td
+                                key={cIndex}
+                                className="py-3 pr-4 leading-6 text-[#46574d]"
+                                dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }}
+                              />
+                            )
                           ))}
                         </tr>
                       ))}
@@ -195,7 +208,7 @@ export default async function EducationArticlePage({ params }: Props) {
           if (block.type === 'TrialDesignInsight') {
             return (
               <TrialDesignInsight key={index} {...block.props}>
-                <div dangerouslySetInnerHTML={{ __html: inlineFormat(block.content) }} />
+                <div className="space-y-2" dangerouslySetInnerHTML={{ __html: inlineFormat(block.content) }} />
               </TrialDesignInsight>
             )
           }
@@ -203,7 +216,7 @@ export default async function EducationArticlePage({ params }: Props) {
           if (block.type === 'EvidenceGradeRationale') {
             return (
               <EvidenceGradeRationale key={index} {...block.props}>
-                <div dangerouslySetInnerHTML={{ __html: inlineFormat(block.content) }} />
+                <div className="space-y-2" dangerouslySetInnerHTML={{ __html: inlineFormat(block.content) }} />
               </EvidenceGradeRationale>
             )
           }
@@ -216,14 +229,14 @@ export default async function EducationArticlePage({ params }: Props) {
             />
           )
         })}
-      </section>
+      </div>
 
       {/* Footer / Navigation */}
-      <footer className="flex justify-between items-center pt-4 border-t border-brand-900/10">
+      <footer className="flex justify-between items-center pt-4 border-t border-brand-900/10" aria-label="Education article navigation">
         <Link href="/education" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Education Index
         </Link>
       </footer>
-    </main>
+    </article>
   )
 }

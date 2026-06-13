@@ -23,6 +23,14 @@ interface QuizProps {
 
 type QuizStep = 'goal' | 'stimulants' | 'evidence' | 'safety' | 'results'
 
+const STEP_LABELS: Record<QuizStep, string> = {
+  goal: 'Step 1 of 4: primary objective',
+  stimulants: 'Step 2 of 4: stimulant preference',
+  evidence: 'Step 3 of 4: evidence threshold',
+  safety: 'Step 4 of 4: safety threshold',
+  results: 'Recommendations generated',
+}
+
 export default function RecommendationQuiz({ herbs, compounds }: QuizProps) {
   const [step, setStep] = useState<QuizStep>('goal')
   const [goal, setGoal] = useState<'focus' | 'sleep' | 'stress' | null>(null)
@@ -104,14 +112,21 @@ export default function RecommendationQuiz({ herbs, compounds }: QuizProps) {
   const recommendations = getRecommendations()
 
   return (
-    <div className='mx-auto max-w-xl rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-md sm:p-8'>
+    <section
+      className='mx-auto max-w-xl rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-md sm:p-8'
+      aria-labelledby="recommendation-quiz-heading"
+      aria-describedby="recommendation-quiz-status"
+    >
+      <p id="recommendation-quiz-status" className="sr-only" aria-live="polite">
+        {STEP_LABELS[step]}
+      </p>
       {step === 'goal' && (
         <div className='space-y-6'>
           <div className='text-center space-y-1.5'>
             <p className='text-xs font-bold uppercase tracking-wider text-emerald-700'>Step 1 of 4</p>
-            <h2 className='text-xl font-bold text-slate-800'>What is your primary neurochemical objective?</h2>
+            <h2 id="recommendation-quiz-heading" className='text-xl font-bold text-slate-800'>What is your primary neurochemical objective?</h2>
           </div>
-          <div className='grid gap-3'>
+          <div className='grid gap-3' role="group" aria-labelledby="recommendation-quiz-heading">
             <button
               onClick={() => {
                 setGoal('focus')
@@ -153,9 +168,9 @@ export default function RecommendationQuiz({ herbs, compounds }: QuizProps) {
         <div className='space-y-6'>
           <div className='text-center space-y-1.5'>
             <p className='text-xs font-bold uppercase tracking-wider text-emerald-700'>Step 2 of 4</p>
-            <h2 className='text-xl font-bold text-slate-800'>Do you want to avoid central nervous system stimulants?</h2>
+            <h2 id="recommendation-quiz-heading" className='text-xl font-bold text-slate-800'>Do you want to avoid central nervous system stimulants?</h2>
           </div>
-          <div className='grid gap-3 sm:grid-cols-2'>
+          <div className='grid gap-3 sm:grid-cols-2' role="group" aria-labelledby="recommendation-quiz-heading">
             <button
               onClick={() => {
                 setNonStimulant(true)
@@ -195,9 +210,9 @@ export default function RecommendationQuiz({ herbs, compounds }: QuizProps) {
         <div className='space-y-6'>
           <div className='text-center space-y-1.5'>
             <p className='text-xs font-bold uppercase tracking-wider text-emerald-700'>Step 3 of 4</p>
-            <h2 className='text-xl font-bold text-slate-800'>What level of scientific evidence do you require?</h2>
+            <h2 id="recommendation-quiz-heading" className='text-xl font-bold text-slate-800'>What level of scientific evidence do you require?</h2>
           </div>
-          <div className='grid gap-3 sm:grid-cols-2'>
+          <div className='grid gap-3 sm:grid-cols-2' role="group" aria-labelledby="recommendation-quiz-heading">
             <button
               onClick={() => {
                 setHighEvidenceOnly(true)
@@ -237,9 +252,9 @@ export default function RecommendationQuiz({ herbs, compounds }: QuizProps) {
         <div className='space-y-6'>
           <div className='text-center space-y-1.5'>
             <p className='text-xs font-bold uppercase tracking-wider text-emerald-700'>Step 4 of 4</p>
-            <h2 className='text-xl font-bold text-slate-800'>How strict is your safety requirement?</h2>
+            <h2 id="recommendation-quiz-heading" className='text-xl font-bold text-slate-800'>How strict is your safety requirement?</h2>
           </div>
-          <div className='grid gap-3 sm:grid-cols-2'>
+          <div className='grid gap-3 sm:grid-cols-2' role="group" aria-labelledby="recommendation-quiz-heading">
             <button
               onClick={() => {
                 setMaxSafetyOnly(true)
@@ -279,7 +294,7 @@ export default function RecommendationQuiz({ herbs, compounds }: QuizProps) {
         <div className='space-y-6'>
           <div className='text-center space-y-1.5'>
             <p className='text-xs font-bold uppercase tracking-wider text-emerald-700'>Recommendations Generated</p>
-            <h2 className='text-2xl font-bold text-slate-800'>Your Top Matches</h2>
+            <h2 id="recommendation-quiz-heading" className='text-2xl font-bold text-slate-800'>Your Top Matches</h2>
             <p className='text-xs text-slate-500'>Based on your neurochemical preferences and safety criteria.</p>
           </div>
 
@@ -332,6 +347,6 @@ export default function RecommendationQuiz({ herbs, compounds }: QuizProps) {
           </button>
         </div>
       )}
-    </div>
+    </section>
   )
 }

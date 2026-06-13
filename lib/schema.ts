@@ -78,6 +78,18 @@ export type WorkbookLinkedProfile = Record<string, unknown> & {
   casNumber?: unknown
   molecular_formula?: unknown
   molecularFormula?: unknown
+  safetyNotes?: unknown
+  safety_notes?: unknown
+  safety?: unknown
+  evidenceLevel?: unknown
+  evidence_level?: unknown
+  evidence_tier?: unknown
+  evidenceTier?: unknown
+  primary_effects?: unknown
+  primaryEffects?: unknown
+  mechanisms?: unknown
+  primary_mechanisms?: unknown
+  pathways?: unknown
 }
 
 export type ProfileEntitySchemaArgs = {
@@ -189,6 +201,20 @@ function text(value: unknown): string {
 function optionalText(value: unknown): string | undefined {
   const cleaned = text(value)
   return cleaned || undefined
+}
+
+function textList(value: unknown, limit = 8): string[] {
+  const values = Array.isArray(value) ? value : [value]
+  return values
+    .flatMap((entry) => {
+      if (Array.isArray(entry)) return entry
+      if (typeof entry === 'string') return entry.split(/[|;,]/)
+      return entry
+    })
+    .map((entry) => text(entry))
+    .filter(Boolean)
+    .filter((entry, index, list) => list.findIndex((candidate) => candidate.toLowerCase() === entry.toLowerCase()) === index)
+    .slice(0, limit)
 }
 
 function firstText(record: Record<string, unknown> | undefined, keys: string[]): string | undefined {
@@ -367,25 +393,39 @@ export function buildWorkbookEntitySchema(args: ProfileEntitySchemaArgs): Schema
   const molecularFormula = firstText(record, ['molecular_formula', 'molecularFormula'])
   const pubchemCid = firstText(record, ['pubchem_cid', 'pubchemCid'])
   const sameAs = pubchemCid ? [`https://pubchem.ncbi.nlm.nih.gov/compound/${pubchemCid}`] : []
+  const safetyNotes = args.safetyNotes || firstText(record, ['safetyNotes', 'safety_notes', 'safety'])
+  const evidenceLevel = args.evidenceGrade || firstText(record, ['evidenceLevel', 'evidence_level', 'evidence_tier', 'evidenceTier'])
+  const knownUse = textList(args.primaryEffects?.length ? args.primaryEffects : record?.primary_effects || record?.primaryEffects, 8)
+  const mechanisms = textList(record?.mechanisms || record?.primary_mechanisms || record?.pathways, 8)
+  const entityTypes =
+    args.kind === 'herb'
+      ? ['DietarySupplement', 'MedicalSubstance', 'Thing']
+      : molecularFormula || pubchemCid
+        ? ['MolecularEntity', 'ChemicalSubstance']
+        : ['ChemicalSubstance', 'Thing']
 
   return compactObject({
-    '@type': args.kind === 'herb' ? ['Drug', 'Thing'] : ['Thing', 'ChemicalSubstance'],
+    '@type': entityTypes,
     '@id': `${canonical}#entity`,
     name: args.name,
     url: canonical,
     description: args.description,
+    mainEntityOfPage: { '@id': `${canonical}#webpage` },
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
     identifier: buildWorkbookIdentifiers({ kind: args.kind, slug: args.slug, record }),
     ...(scientificName ? { alternateName: scientificName } : {}),
     ...(category ? { category } : {}),
-    ...(args.evidenceGrade ? { evidenceLevel: args.evidenceGrade } : {}),
-    ...(args.safetyNotes ? { safetyWarnings: args.safetyNotes } : {}),
-    ...(args.primaryEffects?.length ? { knownUse: args.primaryEffects } : {}),
+    ...(evidenceLevel ? { evidenceLevel } : {}),
+    ...(safetyNotes ? { safetyWarnings: safetyNotes } : {}),
+    ...(knownUse.length ? { knownUse } : {}),
+    ...(mechanisms.length ? { mechanismOfAction: mechanisms.join('; ') } : {}),
     ...(molecularFormula ? { molecularFormula } : {}),
     ...(sameAs.length ? { sameAs } : {}),
     additionalProperty: [
       propertyValue('workbook source', WORKBOOK_SOURCE_ID),
       propertyValue('static route', canonical),
+      ...(mechanisms.length ? [propertyValue('mechanism summary', mechanisms.join('; '))] : []),
+      ...(knownUse.length ? [propertyValue('profile use contexts', knownUse.join('; '))] : []),
     ],
   })
 }

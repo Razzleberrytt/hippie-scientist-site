@@ -30,11 +30,13 @@ export default function TrialDesignInsight({
   const headerBadgeClass = isHuman
     ? 'bg-brand-100 text-brand-900 border-brand-200'
     : 'bg-amber-100 text-amber-900 border-amber-200'
+  const headingId = `trial-design-${String(title || designType).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
 
   return (
     <section 
       className={`my-6 rounded-[1rem] border p-5 shadow-sm transition-all ${borderClass}`}
-      aria-label={`Trial Design Insight: ${title || designType}`}
+      aria-labelledby={title ? headingId : undefined}
+      aria-label={title ? undefined : `Trial Design Insight: ${designType}`}
     >
       <div className="flex flex-col gap-3">
         {/* Top Header Badge Row */}
@@ -70,9 +72,9 @@ export default function TrialDesignInsight({
 
         {/* Title (Optional) */}
         {title && (
-          <h4 className="font-display text-lg font-bold tracking-tight text-ink mt-1">
+          <h3 id={headingId} className="font-display text-lg font-bold tracking-tight text-ink mt-1">
             {title}
-          </h4>
+          </h3>
         )}
 
         {/* Content Block */}
