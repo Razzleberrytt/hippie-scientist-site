@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { getHerbs, getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import PathwayExplorerClient from '@/components/pathways/PathwayExplorerClient'
+import { SearchSkeleton } from '@/components/skeletons'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+
+const PathwayExplorerClient = dynamic(
+  () => import('@/components/pathways/PathwayExplorerClient'),
+  { loading: () => <SearchSkeleton /> }
+)
 
 export const metadata: Metadata = {
   title: 'Biological Pathway Connectivity Explorer',

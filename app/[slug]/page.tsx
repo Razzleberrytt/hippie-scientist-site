@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/articles/EmailCapture'
 import ProductCriteriaBox from '@/components/articles/ProductCriteriaBox'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SchemaOrg from '@/components/SchemaOrg'
@@ -15,6 +16,12 @@ import {
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
 
 const FOCUS_CLUSTER_SITE_URL = 'https://www.thehippiescientist.net'
+const ADHD_CHECKLIST_CAPTURE = {
+  title: 'Get the ADHD Supplement Starter Checklist',
+  description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',
+  ctaLabel: 'Send me the checklist',
+  magnet: 'adhd-supplement-starter-checklist',
+}
 
 export const dynamic = 'force-static'
 export const dynamicParams = false
@@ -346,96 +353,17 @@ function renderInline(text: string): React.ReactNode[] {
   return nodes
 }
 
-function renderBlock(block: Block, index: number): React.ReactNode {
-  if (block.type === 'h2') {
-    return (
-      <h2 key={index} className="mt-11 text-2xl font-semibold tracking-tight text-ink first:mt-0">
-        {renderInline(block.text)}
-      </h2>
-    )
-  }
-
-  if (block.type === 'h3') {
-    return (
-      <h3 key={index} className="mt-8 text-xl font-semibold tracking-tight text-ink">
-        {renderInline(block.text)}
-      </h3>
-    )
-  }
-
-  if (block.type === 'h4') {
-    return (
-      <h4 key={index} className="mt-6 text-lg font-semibold tracking-tight text-ink">
-        {renderInline(block.text)}
-      </h4>
-    )
-  }
-
-  if (block.type === 'p') {
-    return (
-      <p key={index} className="text-[1.03rem] leading-8 text-[#46574d]">
-        {renderInline(block.text)}
-      </p>
-    )
-  }
-
-  if (block.type === 'blockquote') {
-    return (
-      <blockquote key={index} className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-[#46574d]">
-        {renderInline(block.text)}
-      </blockquote>
-    )
-  }
-
-  if (block.type === 'ul' || block.type === 'ol') {
-    const List = block.type
-    return (
-      <List key={index} className={`ml-6 space-y-2 text-[1.01rem] leading-8 text-[#46574d] ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
-        {block.items.map((item, itemIndex) => (
-          <li key={itemIndex}>{renderInline(item)}</li>
-        ))}
-      </List>
-    )
-  }
-
-  if (block.type === 'table') {
-    return (
-      <ResponsiveTable key={index} label="Article table" className="my-7">
-        <table className="w-full min-w-[760px] text-sm">
-          <thead>
-            <tr className="border-b border-brand-900/10">
-              {block.headers.map((header, headerIndex) => (
-                <th key={`${header}-${headerIndex}`} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                  {renderInline(header)}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-brand-900/5">
-            {block.rows.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-[#46574d]">
-                    {renderInline(cell)}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </ResponsiveTable>
-    )
-  }
-
-  return <hr key={index} className="my-8 border-brand-900/10" />
-}
-
 function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string }) {
   const blocks = parseBlocks(markdown)
   const config = getCriteriaForSlug(slug)
 
-  // Find where to inject the criteria block: at the end of the target section
-  // (before the next h2 after the matched heading).
+  // Email capture: inject before FAQ section or near end
+  const faqIndex = blocks.findIndex(
+    (block) => block.type === 'h2' && /^(faq|frequently asked questions)\b/i.test(block.text),
+  )
+  const captureIndex = faqIndex >= 0 ? faqIndex : Math.max(blocks.length - 1, 0)
+
+  // Criteria block: inject at end of target section (before the next h2)
   let criteriaInsertIndex = -1
   if (config) {
     const searchText = config.afterSectionContaining.toLowerCase()
@@ -454,38 +382,154 @@ function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string })
     }
   }
 
-  const elements: React.ReactNode[] = []
-  blocks.forEach((block, index) => {
-    if (config && criteriaInsertIndex !== -1 && index === criteriaInsertIndex) {
-      elements.push(<AffiliateDisclosure variant="compact" className="mt-6" />)
-      elements.push(
-        <ProductCriteriaBox
-          title={config.title}
-          criteria={config.criteria}
-          avoidList={config.avoidList}
-          ctaLabel={config.ctaLabel}
-          ctaHref={config.ctaHref}
-        />,
-      )
-    }
-    elements.push(renderBlock(block, index))
-  })
+  return (
+    <div className="space-y-5">
+      {blocks.map((block, index) => {
+        const capture = index === captureIndex ? <EmailCapture {...ADHD_CHECKLIST_CAPTURE} /> : null
+        const criteriaBlock =
+          config && criteriaInsertIndex !== -1 && index === criteriaInsertIndex ? (
+            <>
+              <AffiliateDisclosure variant="compact" className="mt-6" />
+              <ProductCriteriaBox
+                title={config.title}
+                criteria={config.criteria}
+                avoidList={config.avoidList}
+                ctaLabel={config.ctaLabel}
+                ctaHref={config.ctaHref}
+              />
+            </>
+          ) : null
 
-  // Inject at end if target heading was last section (criteriaInsertIndex === blocks.length)
-  if (config && criteriaInsertIndex === blocks.length) {
-    elements.push(<AffiliateDisclosure variant="compact" className="mt-6" />)
-    elements.push(
-      <ProductCriteriaBox
-        title={config.title}
-        criteria={config.criteria}
-        avoidList={config.avoidList}
-        ctaLabel={config.ctaLabel}
-        ctaHref={config.ctaHref}
-      />,
-    )
-  }
+        if (block.type === 'h2') {
+          return (
+            <React.Fragment key={index}>
+              {criteriaBlock}
+              {capture}
+              <h2 className="mt-11 text-2xl font-semibold tracking-tight text-ink first:mt-0">
+                {renderInline(block.text)}
+              </h2>
+            </React.Fragment>
+          )
+        }
 
-  return <div className="space-y-5">{elements}</div>
+        if (block.type === 'h3') {
+          return (
+            <React.Fragment key={index}>
+              {criteriaBlock}
+              {capture}
+              <h3 className="mt-8 text-xl font-semibold tracking-tight text-ink">
+                {renderInline(block.text)}
+              </h3>
+            </React.Fragment>
+          )
+        }
+
+        if (block.type === 'h4') {
+          return (
+            <React.Fragment key={index}>
+              {criteriaBlock}
+              {capture}
+              <h4 className="mt-6 text-lg font-semibold tracking-tight text-ink">
+                {renderInline(block.text)}
+              </h4>
+            </React.Fragment>
+          )
+        }
+
+        if (block.type === 'p') {
+          return (
+            <React.Fragment key={index}>
+              {criteriaBlock}
+              {capture}
+              <p className="text-[1.03rem] leading-8 text-[#46574d]">
+                {renderInline(block.text)}
+              </p>
+            </React.Fragment>
+          )
+        }
+
+        if (block.type === 'blockquote') {
+          return (
+            <React.Fragment key={index}>
+              {criteriaBlock}
+              {capture}
+              <blockquote className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-[#46574d]">
+                {renderInline(block.text)}
+              </blockquote>
+            </React.Fragment>
+          )
+        }
+
+        if (block.type === 'ul' || block.type === 'ol') {
+          const List = block.type
+          return (
+            <React.Fragment key={index}>
+              {criteriaBlock}
+              {capture}
+              <List className={`ml-6 space-y-2 text-[1.01rem] leading-8 text-[#46574d] ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
+                {block.items.map((item, itemIndex) => (
+                  <li key={itemIndex}>{renderInline(item)}</li>
+                ))}
+              </List>
+            </React.Fragment>
+          )
+        }
+
+        if (block.type === 'table') {
+          return (
+            <React.Fragment key={index}>
+              {criteriaBlock}
+              {capture}
+              <ResponsiveTable label="Article table" className="my-7">
+                <table className="w-full min-w-[760px] text-sm">
+                  <thead>
+                    <tr className="border-b border-brand-900/10">
+                      {block.headers.map((header, headerIndex) => (
+                        <th key={`${header}-${headerIndex}`} className="px-4 py-3 text-left text-xs font-bold uppercase tracking-wider text-muted">
+                          {renderInline(header)}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-brand-900/5">
+                    {block.rows.map((row, rowIndex) => (
+                      <tr key={rowIndex}>
+                        {row.map((cell, cellIndex) => (
+                          <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-[#46574d]">
+                            {renderInline(cell)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </ResponsiveTable>
+            </React.Fragment>
+          )
+        }
+
+        return (
+          <React.Fragment key={index}>
+            {criteriaBlock}
+            {capture}
+            <hr className="my-8 border-brand-900/10" />
+          </React.Fragment>
+        )
+      })}
+      {config && criteriaInsertIndex === blocks.length && (
+        <>
+          <AffiliateDisclosure variant="compact" className="mt-6" />
+          <ProductCriteriaBox
+            title={config.title}
+            criteria={config.criteria}
+            avoidList={config.avoidList}
+            ctaLabel={config.ctaLabel}
+            ctaHref={config.ctaHref}
+          />
+        </>
+      )}
+    </div>
+  )
 }
 
 function ArticleJsonLd({

@@ -1,6 +1,6 @@
 import GoalClusterArticlePage, { goalClusterArticleMetadata } from '@/components/articles/GoalClusterArticlePage'
 
-const SLUG = 'magnesium-for-sleep'
+const SLUG = 'sleep-best-supplements'
 
 export const metadata = goalClusterArticleMetadata(SLUG)
 

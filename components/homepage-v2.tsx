@@ -73,6 +73,13 @@ const focusAdhdGuideCards = focusAdhdArticles.map((article) => ({
 
 const featuredArticles = [
   {
+    href: '/articles/sleep-best-supplements',
+    label: 'Sleep Guide',
+    title: 'Best Supplements for Sleep: Evidence-Based Guide',
+    description: 'Magnesium, melatonin, valerian, and L-theanine compared by sleep problem, evidence quality, timing, and safety cautions.',
+    readingTime: '13 min read',
+  },
+  {
     href: '/articles/lions-mane',
     label: 'Deep Dive',
     title: "Lion's Mane: Mechanisms, Clinical Evidence & Dosage",
