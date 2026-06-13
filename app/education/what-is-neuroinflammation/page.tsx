@@ -24,11 +24,11 @@ const sections = [
 
 const relatedSystems = [
   {
-    href: '/protocols/burnout-recovery',
+    href: '/goals/stress',
     title: 'Burnout Recovery',
   },
   {
-    href: '/protocols/stress-regulation',
+    href: '/goals/stress',
     title: 'Stress Regulation',
   },
   {
@@ -36,7 +36,7 @@ const relatedSystems = [
     title: 'Adaptogens',
   },
   {
-    href: '/pathways/glutamate',
+    href: '/education/glutamate',
     title: 'Glutamate Pathway',
   },
 ]

@@ -22,7 +22,7 @@ const systems = [
 ]
 
 const relatedSystems = [
-  { href: '/protocols/burnout-recovery', title: 'Burnout Recovery' },
+  { href: '/goals/stress', title: 'Burnout Recovery' },
   { href: '/education/how-the-brain-recovers-from-fatigue', title: 'Fatigue Recovery' },
   { href: '/education/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
   { href: '/education/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },

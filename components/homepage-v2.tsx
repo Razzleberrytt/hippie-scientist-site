@@ -440,10 +440,10 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               as='h2'
             />
             <div className='mt-6 flex flex-wrap gap-2.5'>
-              <Link href='/start-here/quiz' className='rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800'>
+              <Link href='/goals/' className='rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800'>
                 Start safety intake →
               </Link>
-              <Link href='/start-here' className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink transition hover:bg-brand-50'>
+              <Link href='/guides/' className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink transition hover:bg-brand-50'>
                 Intake Guidelines
               </Link>
             </div>

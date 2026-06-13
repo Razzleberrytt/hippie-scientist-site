@@ -24,11 +24,11 @@ const mechanisms = [
 
 const related = [
   {
-    href: '/protocols/stress-regulation',
+    href: '/goals/stress',
     title: 'Stress Regulation',
   },
   {
-    href: '/protocols/burnout-recovery',
+    href: '/goals/stress',
     title: 'Burnout Recovery',
   },
   {

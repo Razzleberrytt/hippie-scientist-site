@@ -9,12 +9,12 @@ import RelatedEducationSystems from '@/components/education/related-education-sy
 
 const systems = [
   {
-    href: '/protocols/non-stimulant-focus',
+    href: '/goals/focus',
     title: 'Non-Stimulant Focus',
     description: 'Recovery-oriented focus systems emphasizing attentional continuity and calm cognition.',
   },
   {
-    href: '/pathways/dopamine',
+    href: '/education/dopamine',
     title: 'Dopamine Pathway',
     description: 'Educational exploration of motivational signaling, salience systems, and neuropharmacology.',
   },
@@ -71,6 +71,7 @@ export default function NootropicEducationPage() {
         description='Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.'
         url='https://thehippiescientist.net/education/what-is-a-nootropic'
         type='Article'
+        faqItems={faqItems}
       />
 
       <AuthorityBreadcrumbs

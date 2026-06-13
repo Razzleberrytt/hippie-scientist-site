@@ -8,7 +8,7 @@ const related = [
     title: 'Entheogens',
   },
   {
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
     title: 'Serotonin Pathway',
   },
   {

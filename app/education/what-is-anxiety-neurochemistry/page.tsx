@@ -4,17 +4,17 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
 const systems = [
   {
-    href: '/pathways/gaba',
+    href: '/education/gaba',
     title: 'GABA Pathway',
     description: 'Calming inhibitory signaling systems associated with nervous-system regulation and relaxation.',
   },
   {
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
     title: 'Serotonin Pathway',
     description: 'Mood-regulation systems associated with emotional processing and stress-related neuropharmacology.',
   },
   {
-    href: '/protocols/stress-regulation',
+    href: '/goals/stress',
     title: 'Stress Regulation',
     description: 'Recovery-oriented educational protocol focused on stress systems and nervous-system stabilization.',
   },

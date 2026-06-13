@@ -77,7 +77,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'neurobiology',
     label: 'Neurobiology',
-    href: '/pathways/dopamine',
+    href: '/education/dopamine',
     description: 'Neurotransmitter systems, mood-adjacent signals, cognition, calm, and arousal regulation.',
     systems: ['Dopamine', 'GABA', 'Arousal'],
     keywords: ['neuro', 'dopamine', 'gaba', 'serotonin', 'brain', 'mood'],

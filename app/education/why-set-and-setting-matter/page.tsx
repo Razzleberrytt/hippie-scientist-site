@@ -51,6 +51,7 @@ export default function WhySetAndSettingMatterPage() {
         description="Educational exploration of set and setting, contextual neurobiology, emotional regulation, environmental influence, and subjective experiences."
         url="https://thehippiescientist.net/education/why-set-and-setting-matter"
         type="Article"
+        faqItems={faqs}
       />
       <AuthorityBreadcrumbs
         items={[

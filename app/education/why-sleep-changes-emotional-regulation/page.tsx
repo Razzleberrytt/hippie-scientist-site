@@ -40,7 +40,7 @@ const relatedSystems = [
   { href: '/education/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
   { href: '/education/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
   { href: '/education/how-emotional-regulation-works', title: 'Emotional Regulation' },
-  { href: '/protocols/burnout-recovery', title: 'Burnout Recovery' },
+  { href: '/goals/stress', title: 'Burnout Recovery' },
 ]
 
 export default function WhySleepChangesEmotionalRegulationPage() {

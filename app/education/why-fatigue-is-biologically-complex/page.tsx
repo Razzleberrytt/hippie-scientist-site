@@ -39,7 +39,7 @@ const faqs = [
 const relatedSystems = [
   { href: '/education/how-the-brain-recovers-from-fatigue', title: 'Fatigue Recovery' },
   { href: '/education/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
-  { href: '/protocols/burnout-recovery', title: 'Burnout Recovery' },
+  { href: '/goals/stress', title: 'Burnout Recovery' },
   { href: '/education/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
 ]
 
@@ -51,6 +51,7 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
         description="Educational exploration of fatigue systems, recovery biology, stress physiology, burnout-oriented neurobiology, and cognition sustainability."
         url="https://thehippiescientist.net/education/why-fatigue-is-biologically-complex"
         type="Article"
+        faqItems={faqs}
       />
       <AuthorityBreadcrumbs
         items={[

@@ -9,12 +9,12 @@ import RelatedEducationSystems from '@/components/education/related-education-sy
 
 const systems = [
   {
-    href: '/protocols/stress-regulation',
+    href: '/goals/stress',
     title: 'Stress Regulation',
     description: 'Educational exploration of stress-response continuity, nervous-system resilience, and recovery biology.',
   },
   {
-    href: '/protocols/burnout-recovery',
+    href: '/goals/stress',
     title: 'Burnout Recovery',
     description: 'Recovery-oriented protocol ecosystem focused on fatigue, emotional regulation, and resilience.',
   },

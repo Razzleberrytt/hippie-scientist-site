@@ -24,11 +24,11 @@ const sections = [
 
 const related = [
   {
-    href: '/pathways/cholinergic-system',
+    href: '/education/cholinergic-system',
     title: 'Cholinergic System',
   },
   {
-    href: '/pathways/gaba',
+    href: '/education/gaba',
     title: 'GABA Pathway',
   },
   {

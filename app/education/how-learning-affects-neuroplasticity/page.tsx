@@ -36,7 +36,7 @@ const relatedSystems = [
     title: 'Sleep Neurochemistry',
   },
   {
-    href: '/pathways/glutamate',
+    href: '/education/glutamate',
     title: 'Glutamate Pathway',
   },
 ]
@@ -67,6 +67,7 @@ export default function NeuroplasticityEducationPage() {
         description="Educational exploration of neuroplasticity, learning systems, cognition continuity, recovery biology, and adaptive nervous-system signaling."
         url="https://thehippiescientist.net/education/how-learning-affects-neuroplasticity"
         type="Article"
+        faqItems={faqItems}
       />
 
       <AuthorityBreadcrumbs

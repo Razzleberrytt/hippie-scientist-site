@@ -5,19 +5,19 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 const systems = [
   {
     title: 'GABAergic Systems',
-    href: '/pathways/gaba',
+    href: '/education/gaba',
   },
   {
     title: 'Serotonergic Systems',
-    href: '/pathways/serotonin',
+    href: '/education/serotonin',
   },
   {
     title: 'Dopaminergic Systems',
-    href: '/pathways/dopamine',
+    href: '/education/dopamine',
   },
   {
     title: 'Cholinergic Systems',
-    href: '/pathways/cholinergic-system',
+    href: '/education/cholinergic-system',
   },
 ]
 
