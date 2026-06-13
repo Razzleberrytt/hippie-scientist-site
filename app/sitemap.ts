@@ -178,6 +178,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(`${SITE_URL}/contact/`, currentDate, 'yearly', 0.5),
     route(`${SITE_URL}/faq/`, currentDate, 'monthly', 0.7),
     route(`${SITE_URL}/methodology/`, currentDate, 'yearly', 0.6),
+    route(`${SITE_URL}/evidence-digest/`, currentDate, 'weekly', 0.8),
     route(`${SITE_URL}/safety-checker/`, currentDate, 'monthly', 0.8),
     route(`${SITE_URL}/herbs/`, currentDate, 'weekly', 0.9),
     route(`${SITE_URL}/compounds/`, currentDate, 'weekly', 0.9),

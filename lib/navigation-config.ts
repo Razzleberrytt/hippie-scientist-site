@@ -197,6 +197,11 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Research notes, evidence reviews, regulatory updates, and editorial deep dives',
     parent: '/',
   },
+  '/evidence-digest': {
+    label: 'Evidence Digest',
+    description: 'Recurring, conservatively graded human-trial evidence summaries by goal',
+    parent: '/',
+  },
   '/articles/[slug]': {
     label: 'Article',
     description: 'Research note or evidence review',

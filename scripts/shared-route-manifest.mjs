@@ -15,6 +15,7 @@ const CORE_STATIC_ROUTES = [
   '/methodology',
   '/contact',
   '/learning',
+  '/evidence-digest',
   '/herbs',
   '/compounds',
   '/downloads',
@@ -49,6 +50,7 @@ const CORE_ROUTE_META = new Map([
   ['/methodology', { title: 'Methodology | The Hippie Scientist', description: 'How evidence is selected, summarized, and scored for confidence.' }],
   ['/contact', { title: 'Contact | The Hippie Scientist', description: 'Contact the editorial team and submit corrections or sources.' }],
   ['/learning', { title: 'Learning Paths | The Hippie Scientist', description: 'Structured paths across herbs, compounds, and safety context.' }],
+  ['/evidence-digest', { title: 'Evidence Digest | The Hippie Scientist', description: 'A conservatively graded, recurring digest of human-trial evidence summaries organized by health goal.' }],
   ['/herbs', { title: 'Herb Database | The Hippie Scientist', description: 'Browse herb profiles, mechanisms, and safety notes.' }],
   ['/compounds', { title: 'Compound Database | The Hippie Scientist', description: 'Browse active compounds, pharmacology, and related herbs.' }],
   ['/downloads', { title: 'Downloads | The Hippie Scientist', description: 'Download practical guides, checklists, and educational resources.' }],
@@ -94,6 +96,7 @@ const ENTRY_ROUTES = [
 
 const CORE_SITEMAP_META = new Map([
   ['/', { priority: 1.0, changefreq: 'weekly' }],
+  ['/evidence-digest', { priority: 0.8, changefreq: 'weekly' }],
   ['/articles', { priority: 0.8, changefreq: 'daily' }],
   ['/herbs', { priority: 0.9, changefreq: 'weekly' }],
   ['/compounds', { priority: 0.9, changefreq: 'weekly' }],

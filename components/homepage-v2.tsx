@@ -9,6 +9,12 @@ import NewsletterCtaBlock from './NewsletterCtaBlock'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
 import ExitIntentModal from '@/components/ExitIntentModal'
+import { evidenceDigestEntryCount, evidenceDigestLatestDate } from '@/data/evidence-digest'
+
+const lastReviewedDisplay = new Date(`${evidenceDigestLatestDate}T00:00:00`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+})
 
 type RuntimeFeature = Record<string, unknown>
 type HomepageV2Props = { featuredHerbs?: RuntimeFeature[]; featuredCompounds?: RuntimeFeature[] }
@@ -244,6 +250,14 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                   </span>
                 ))}
               </div>
+              <p className='mt-4 inline-flex flex-wrap items-center gap-2 text-xs font-semibold text-muted'>
+                <span className='h-1.5 w-1.5 rounded-full bg-emerald-600' aria-hidden='true' />
+                <span>Last reviewed {lastReviewedDisplay}</span>
+                <span aria-hidden='true' className='text-brand-900/30'>•</span>
+                <Link href='/evidence-digest' className='text-emerald-700 hover:underline'>
+                  {evidenceDigestEntryCount} human-trial summaries in the Evidence Digest →
+                </Link>
+              </p>
             </div>
 
             {/* Hero image */}
@@ -492,9 +506,14 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 </li>
               ))}
             </ul>
-            <Link href='/education/research-methodology' className='mt-4 inline-flex text-sm font-bold text-brand-700 hover:text-brand-800'>
-              Research Methodology →
-            </Link>
+            <div className='mt-4 flex flex-wrap gap-4'>
+              <Link href='/methodology' className='inline-flex text-sm font-bold text-brand-700 hover:text-brand-800'>
+                How We Grade Evidence →
+              </Link>
+              <Link href='/evidence-digest' className='inline-flex text-sm font-bold text-brand-700 hover:text-brand-800'>
+                Evidence Digest →
+              </Link>
+            </div>
           </div>
           <div className='rounded-[1.25rem] border border-amber-200/80 bg-amber-50/50 p-4 shadow-sm sm:p-5'>
             <SectionHeader
