@@ -5,7 +5,7 @@ import { Suspense } from 'react'
 import { SearchSkeleton } from '@/components/skeletons'
 import { HERB_COUNT, COMPOUND_COUNT } from '@/lib/profile-counts'
 
-const SearchClient = dynamic(() => import('./SearchClient'), {
+const GlobalSearch = dynamic(() => import('@/components/search/GlobalSearch'), {
   loading: () => <SearchSkeleton />,
 })
 
@@ -114,7 +114,7 @@ export default function SearchPage() {
       </div>
 
       <Suspense fallback={<SearchSkeleton />}>
-        <SearchClient />
+        <GlobalSearch />
       </Suspense>
     </div>
   )
