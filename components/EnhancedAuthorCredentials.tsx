@@ -63,7 +63,7 @@ export default function EnhancedAuthorCredentials({
       ],
       process: 'Literature Review → Hierarchy Mapping → Limitation Assessment → Publication',
       cta: 'Read Our Methodology',
-      ctaHref: '/education/research-methodology',
+      ctaHref: '/methodology',
     },
   }
 

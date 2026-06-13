@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated on 2026-06-13T02:08:33.616Z
+Generated on 2026-06-13T11:19:55.679Z
 
 This file lists all active Page Router routes compiled by Next.js static export.
 
@@ -68,6 +68,7 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/compare/magnesium-glycinate-vs-magnesium-oxide` | static | [`app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx) |
 | `/compare` | static | [`app/compare/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/page.tsx) |
 | `/compare/rhodiola-vs-ashwagandha` | static | [`app/compare/rhodiola-vs-ashwagandha/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/rhodiola-vs-ashwagandha/page.tsx) |
+| `/compare/sleep-herbs-vs-melatonin` | static | [`app/compare/sleep-herbs-vs-melatonin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/sleep-herbs-vs-melatonin/page.tsx) |
 | `/compare/[slug]` | dynamic | [`app/compare/[slug]/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/[slug]/page.tsx) |
 | `/compounds/page/[page]` | dynamic | [`app/compounds/page/[page]/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compounds/page/[page]/page.tsx) |
 | `/compounds` | static | [`app/compounds/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compounds/page.tsx) |
@@ -135,6 +136,7 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/education/why-sleep-matters-for-mental-health` | static | [`app/education/why-sleep-matters-for-mental-health/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/education/why-sleep-matters-for-mental-health/page.tsx) |
 | `/education/why-studies-conflict` | static | [`app/education/why-studies-conflict/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/education/why-studies-conflict/page.tsx) |
 | `/education/[slug]` | dynamic | [`app/education/[slug]/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/education/[slug]/page.tsx) |
+| `/evidence-digest` | static | [`app/evidence-digest/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/evidence-digest/page.tsx) |
 | `/faq` | static | [`app/faq/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/faq/page.tsx) |
 | `/free-guide` | static | [`app/free-guide/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/free-guide/page.tsx) |
 | `/goals` | static | [`app/goals/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/goals/page.tsx) |

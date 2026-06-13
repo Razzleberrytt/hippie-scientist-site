@@ -4,63 +4,149 @@ import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerB
 import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 
 export const metadata: Metadata = {
-  title: 'Methodology',
+  title: 'How We Grade Evidence & Methodology',
   description:
-    'How The Hippie Scientist weighs human evidence, safety, practical usefulness, and uncertainty for supplement decision support.',
+    'Detailed review of The Hippie Scientist evidence grading levels, Conflict of Interest policy, conservative framing rules, and editorial credentials.',
   alternates: { canonical: '/methodology' },
 }
 
 export default function MethodologyPage() {
+  const grades = [
+    {
+      level: 'Strong Evidence',
+      badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+      description: 'Multiple robust, randomized controlled trials (RCTs) in humans showing consistent, statistically significant positive outcomes. High confidence in reproducibility.',
+    },
+    {
+      level: 'Moderate Evidence',
+      badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
+      description: 'Supported by clinical cohort studies, well-conducted small-scale RCTs, or a single highly powered trial. Good evidence for efficacy, though further research is needed to resolve minor questions.',
+    },
+    {
+      level: 'Limited Evidence',
+      badgeColor: 'bg-amber-100 text-amber-800 border-amber-200',
+      description: 'Backed primarily by exploratory pilot trials, animal models, or in-vitro cell culture work establishing mechanistic plausibility. Should not be treated as clinically verified.',
+    },
+    {
+      level: 'Mixed Evidence',
+      badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
+      description: 'Contradictory findings in peer-reviewed clinical studies. Efficacy is highly variable depending on individual neurochemistry, dosage forms, or trial population configurations.',
+    },
+    {
+      level: 'Traditional Only',
+      badgeColor: 'bg-neutral-100 text-neutral-800 border-neutral-200',
+      description: 'Based solely on historical botanical usage, ethnobotanical reports, or anecdotal case studies. Lacks modern validation via clinical double-blind protocols.',
+    },
+    {
+      level: 'Insufficient / Risk-Heavy',
+      badgeColor: 'bg-rose-100 text-rose-800 border-rose-200',
+      description: 'No credible data to support efficacy, or carries significant toxicological and pharmaceutical interaction risks that outweigh potential benefits.',
+    },
+  ]
+
   return (
-    <div className='container-page py-10 space-y-8'>
-      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
-        <p className='eyebrow-label'>Methodology</p>
-        <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>How The Hippie Scientist Ranks Supplements</h1>
-        <p className='mt-4 max-w-3xl text-muted'>
-          Rankings are designed as transparent decision support. They are not medical advice and do not guarantee that a supplement is right for a specific person.
+    <div className='container-page py-10 space-y-8 max-w-4xl mx-auto'>
+      {/* Hero */}
+      <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 bg-white/95'>
+        <p className='eyebrow-label'>E-E-A-T Editorial Standard</p>
+        <h1 className='mt-2 font-display text-3xl font-bold text-ink sm:text-4xl leading-tight'>
+          Evidence Grading &amp; Research Methodology
+        </h1>
+        <p className='mt-4 text-sm leading-relaxed text-muted sm:text-base'>
+          Supplement science is cluttered with hype. At <strong>The Hippie Scientist</strong>, we operate under a strict, conservative evidence-first framework. We separate preclinical mechanisms from actual human outcomes, ensuring you make choices rooted in clinical science.
         </p>
       </section>
 
       <TrustMethodologyCallout />
 
-      <section className='grid gap-4 md:grid-cols-2'>
-        {[
-          {
-            title: 'Human evidence',
-            body: 'Human trials and clinically relevant evidence carry more weight than mechanism-only reasoning, traditional use, or marketing claims.',
-          },
-          {
-            title: 'Safety context',
-            body: 'Medication interactions, pregnancy and nursing context, health conditions, dose, sedation, stimulation, and uncertainty can change practical fit.',
-          },
-          {
-            title: 'Practical usefulness',
-            body: 'A useful recommendation has a clear use case, realistic availability, understandable tradeoffs, and a form people can compare responsibly.',
-          },
-          {
-            title: 'Uncertainty',
-            body: 'Limited, mixed, or indirect evidence is stated plainly. Interesting does not automatically mean recommended.',
-          },
-        ].map((item) => (
-          <article key={item.title} className='card-premium p-6'>
-            <h2 className='text-xl font-semibold text-ink'>{item.title}</h2>
-            <p className='mt-3 text-sm leading-7 text-muted'>{item.body}</p>
-          </article>
-        ))}
+      {/* 1. Evidence Grading Levels */}
+      <section className='card-premium p-6 sm:p-8 space-y-6'>
+        <div className='space-y-2'>
+          <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>How We Grade Evidence</h2>
+          <p className='text-sm text-muted'>
+            Every compound, herb, and stack recommendation is assigned an evidence tier to represent our confidence in clinical human trials.
+          </p>
+        </div>
+
+        <div className='grid gap-4 md:grid-cols-2'>
+          {grades.map((item) => (
+            <article key={item.level} className='rounded-2xl border border-brand-900/5 bg-white p-5 space-y-3 shadow-sm'>
+              <div className='flex items-center gap-2'>
+                <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold ${item.badgeColor}`}>
+                  {item.level}
+                </span>
+              </div>
+              <p className='text-xs sm:text-sm leading-relaxed text-muted'>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* 2. Conservative Framing Policies */}
+      <section className='card-premium p-6 sm:p-8 space-y-6'>
+        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Conservative Framing Guidelines</h2>
+        <div className='grid gap-6 sm:grid-cols-3 text-sm text-muted'>
+          <div className='space-y-2'>
+            <h3 className='font-bold text-ink'>Human Trials Prioritization</h3>
+            <p className='text-xs leading-relaxed'>
+              We do not extrapolate rodent or test-tube mechanisms into human dosing instructions. If an ingredient only has mechanistic or animal studies, it is marked as having "limited" evidence.
+            </p>
+          </div>
+          <div className='space-y-2'>
+            <h3 className='font-bold text-ink'>Emphasizing Limitations</h3>
+            <p className='text-xs leading-relaxed'>
+              We highlight clinical trials limitations, such as small sample sizes, brief study durations, self-reported metrics, and potential biases from industry sponsorships.
+            </p>
+          </div>
+          <div className='space-y-2'>
+            <h3 className='font-bold text-ink'>Dosage &amp; Bioavailability</h3>
+            <p className='text-xs leading-relaxed'>
+              Active constituents vary wildly across botanical products. We detail the exact standardized extracts (e.g. KSM-66 for ashwagandha) and bioavailable forms required to replicate clinical results.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Conflict of Interest */}
+      <section className='card-premium p-6 sm:p-8 space-y-4 border-l-4 border-emerald-600 bg-emerald-50/10'>
+        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Conflict of Interest &amp; Independence Statement</h2>
+        <p className='text-sm leading-relaxed text-muted'>
+          <strong>The Hippie Scientist</strong> is completely self-funded and editorially independent. We do not accept brand sponsorships, paid reviews, or direct compensation from supplement companies.
+        </p>
+        <p className='text-sm leading-relaxed text-muted'>
+          Our editorial grades are set solely by our research team based on peer-reviewed literature. While we use affiliate links to support our hosting costs, product placement has zero impact on evidence grades, safety warnings, or brand reviews. If an ingredient carries risk or fails clinical standards, we state it plainly.
+        </p>
+        <div className='pt-2 flex flex-wrap gap-4'>
+          <Link href='/affiliate-disclosure' className='text-sm font-semibold text-emerald-800 hover:underline'>
+            Affiliate Disclosure →
+          </Link>
+          <Link href='/disclaimer' className='text-sm font-semibold text-emerald-800 hover:underline'>
+            Medical Disclaimer →
+          </Link>
+        </div>
+      </section>
+
+      {/* 4. Credentials & Team */}
+      <section className='card-premium p-6 sm:p-8 space-y-4 bg-white/95'>
+        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Our Research &amp; Editorial Credentials</h2>
+        <p className='text-sm leading-relaxed text-muted'>
+          Our pages are authored, validated, and updated by <strong>The Hippie Scientist Research Team</strong> — a collective of neurochemistry researchers, toxicology reviewers, and evidence-based nutrition analysts.
+        </p>
+        <div className='grid gap-4 sm:grid-cols-2 text-xs text-muted leading-relaxed'>
+          <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
+            <h4 className='font-bold text-ink text-sm'>Will R.</h4>
+            <p className='text-brand-700 font-medium mb-1'>Chief Content Systems Architect</p>
+            <p>Directs the static data pipeline and checks Excel monographs against active clinical trial endpoints on ClinicalTrials.gov and PubMed.</p>
+          </div>
+          <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
+            <h4 className='font-bold text-ink text-sm'>Research Team</h4>
+            <p className='text-brand-700 font-medium mb-1'>Medical Literature &amp; Toxicology Review</p>
+            <p>Validates dosage limits, pregnancy cautions, drug-supplement interaction indices, and parses clinical abstracts for evidence grading verification.</p>
+          </div>
+        </div>
       </section>
 
       <SafetyDisclaimerBox />
-
-      <section className='card-premium p-6'>
-        <h2 className='text-xl font-semibold text-ink'>Editorial independence</h2>
-        <p className='mt-3 text-sm leading-7 text-muted'>
-          Affiliate relationships may support the site, but they do not convert weak evidence into strong evidence or remove safety concerns. Product links are treated as sourcing paths, not prescriptions.
-        </p>
-        <div className='mt-4 flex flex-wrap gap-4'>
-          <Link href='/affiliate-disclosure' className='text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
-          <Link href='/free-guide' className='text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
-        </div>
-      </section>
     </div>
   )
 }

@@ -12,7 +12,7 @@ const desktopLinks = [
   { href: '/herbs', label: 'Database' },
   { href: '/compounds', label: 'Compounds' },
   { href: '/guides', label: 'Guides' },
-  { href: '/articles', label: 'Articles' },
+  { href: '/evidence-digest', label: 'Digest' },
   { href: '/safety-checker', label: 'Safety' },
 ]
 

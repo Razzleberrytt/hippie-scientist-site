@@ -6,7 +6,7 @@ import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo
 import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
 import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
-import { SEO_YEAR } from '@/lib/seo'
+import { getGoalFreshness } from '@/lib/freshness'
 import type { GoalContentExtension } from '@/data/goal-content'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 import GoalHubSections from '@/components/goals/GoalHubSections'
@@ -98,6 +98,7 @@ export default function GoalDecisionExperience({
   goalContent = null,
   captureGoal = 'default',
 }: GoalDecisionExperienceProps) {
+  const freshness = getGoalFreshness(goal.slug)
   const claims = evidence.claims
   const problemLabels = evidence.problemLabels
   const config = evidence.config ?? {}
@@ -164,7 +165,7 @@ export default function GoalDecisionExperience({
           </div>
         </div>
         <div className="mt-6">
-          <LastUpdatedBadge date={evidence.updatedAt || `${SEO_YEAR}-06-01`} />
+          <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
         </div>
       </section>
 

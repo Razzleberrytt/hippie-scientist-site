@@ -17,6 +17,7 @@ import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/clu
 import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import { getProfileFreshness } from '@/lib/freshness'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
@@ -443,6 +444,7 @@ export default async function CompoundPage({ params }: PageProps) {
   }
 
   const compound = await getCompoundBySlug(normalizedSlug)
+  const freshness = getProfileFreshness(normalizedSlug)
 
   if (!compound || !getRuntimeVisibility(compound).canRender) {
     notFound()
@@ -598,13 +600,6 @@ export default async function CompoundPage({ params }: PageProps) {
   })
   const pathwayDiagram = generatePathwayDiagram({ ...compound, name: displayName })
   const goalLinks = getGoalsForEntity(normalizedSlug)
-  const lastReviewed =
-    compound.last_updated ||
-    compound.lastUpdated ||
-    compound.updatedAt ||
-    compound.updated_at ||
-    compound.reviewed_date ||
-    compound.reviewed_at
 
   return (
     <>
@@ -641,7 +636,7 @@ export default async function CompoundPage({ params }: PageProps) {
           </div>
           <p className="text-base leading-7 text-[#46574d]">{quickSummary}</p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
-            <LastUpdatedBadge date={lastReviewed} />
+            <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
             <EvidenceScoreBadge record={compound} />
           </div>
         </header>

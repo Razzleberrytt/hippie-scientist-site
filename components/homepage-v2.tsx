@@ -9,6 +9,7 @@ import NewsletterCtaBlock from './NewsletterCtaBlock'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
 import ExitIntentModal from '@/components/ExitIntentModal'
+import { getHomepageFreshness } from '@/lib/freshness'
 
 type RuntimeFeature = Record<string, unknown>
 type HomepageV2Props = { featuredHerbs?: RuntimeFeature[]; featuredCompounds?: RuntimeFeature[] }
@@ -193,6 +194,12 @@ function ActionCue({ children }: { children: React.ReactNode }) {
 }
 
 export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] }: HomepageV2Props) {
+  const { lastReviewed, citationCount } = getHomepageFreshness()
+  const formattedDate = new Date(lastReviewed).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
   const herbCards = featuredHerbs
     .map(i => toFeaturedCard(i, 'herb'))
     .filter((i): i is LandingCard => Boolean(i))
@@ -221,8 +228,15 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 Supplement Science Without the&nbsp;Hype
               </h1>
               <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
-                {HERB_COUNT} herb profiles and {COMPOUND_COUNT} compound reviews — each one separating what the clinical trials actually show from mechanism-only marketing claims.
+                {HERB_COUNT} herb profiles and {COMPOUND_COUNT} compound reviews — each one separating what the clinical trials actually show from mechanism-only marketing claims. See our <Link href='/methodology' className='text-brand-700 font-semibold underline decoration-dotted underline-offset-4 hover:text-brand-800'>Evidence Grading Methodology</Link>.
               </p>
+              
+              <div className='mt-4 inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1 text-xs font-semibold text-brand-800 self-center lg:self-start' aria-label={`Last reviewed: ${formattedDate}. ${citationCount} peer-reviewed studies cited.`}>
+                <span className='h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse' aria-hidden='true' />
+                <span>Last reviewed: {formattedDate}</span>
+                <span className='text-brand-900/10'>•</span>
+                <span>{citationCount} peer-reviewed studies cited</span>
+              </div>
               <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
                 <Link
                   href='/goals/focus/'
@@ -492,7 +506,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 </li>
               ))}
             </ul>
-            <Link href='/education/research-methodology' className='mt-4 inline-flex text-sm font-bold text-brand-700 hover:text-brand-800'>
+            <Link href='/methodology' className='mt-4 inline-flex text-sm font-bold text-brand-700 hover:text-brand-800'>
               Research Methodology →
             </Link>
           </div>

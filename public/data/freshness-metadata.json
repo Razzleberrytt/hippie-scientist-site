@@ -1,0 +1,3450 @@
+{
+  "homepage": {
+    "lastReviewed": "2026-06-06",
+    "citationCount": 795
+  },
+  "goals": {
+    "pain": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 17
+    },
+    "inflammation": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 17
+    },
+    "focus": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 27
+    },
+    "sleep": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 21
+    },
+    "stress": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 22
+    },
+    "anxiety": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 19
+    },
+    "energy": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 4
+    },
+    "cognition": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 11
+    },
+    "longevity": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 12
+    },
+    "gut-health": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 9
+    },
+    "joint-support": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 10
+    },
+    "recovery": {
+      "lastReviewed": "2026-05-10",
+      "citationCount": 13
+    },
+    "fat-loss": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 12
+    },
+    "blood-pressure": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 10
+    },
+    "testosterone-support": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 15
+    }
+  },
+  "profiles": {
+    "acerola": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "agarikon": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "ajwain": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "aloe-vera": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "panax-quinquefolius": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "american-yellow-lotus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "andrographis-paniculata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "anemarrhena-asphodeloides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "angelica-archangelica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "angelica-dahurica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "angelica-pubescens": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "angelica-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "angelica-sinensis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "anise-hyssop": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 2
+    },
+    "arjuna": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "artemisia-absinthium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "artemisia-annua": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "artemisia-capillaris": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "artichoke": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "ashitaba": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ashoka": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "ashwagandha": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 6
+    },
+    "panax-ginseng": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "astragalus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "astragalus-membranaceus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "atractylodes": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "atractylodes-macrocephala": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "bacopa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 6
+    },
+    "bael": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "lagerstroemia-speciosa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "bayberry": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "berberis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "berberis-vulgaris": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "momordica-charantia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "black-cohosh": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "piper-nigrum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "black-seed": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "black-tea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "blue-lotus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "blueberry": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "boldo": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "boswellia-serrata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "boswellia-carterii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "brassica-juncea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "brassica-oleracea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "buckwheat": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 2
+    },
+    "bupleurum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bupleurum-falcatum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "burdock": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "butterbur": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "theobroma-cacao": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "calamus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "calendula": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "eschscholzia-californica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "capsicum-annuum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "caraway": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "elettaria-cardamomum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "carob": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cassia-alata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cat-s-claw": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "catuba": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cayenne": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "celastrus-paniculatus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "chaga": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "matricaria-chamomilla": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "chinese-skullcap": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "chuanxiong": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cichorium-intybus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cinnamomum-verum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cissus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cistanche": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 4
+    },
+    "cistanche-deserticola": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "citrus-bergamia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "citrus-sinensis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "clove": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cnidium-monnieri": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "codonopsis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "coffea-arabica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "coffee-cherry": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "coleus-forskohlii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "commiphora-mukul": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "coptis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "coptis-chinensis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cordyceps-sinensis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "coriandrum-sativum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cornus-officinalis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "corydalis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cranberry": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "crocus-sativus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "curcuma-wenyujin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "curcuma-zedoaria": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "curcumin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "curry-leaf": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cyclea-peltata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "cymbopogon-citratus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "damiana": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "dandelion": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "danshen": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "daphne-odora": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "dendrobium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "dong-quai": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "echinacea-purpurea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "elderberry": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "elecampane": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "elephantopus-scaber": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "eleuthero": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "embelia-ribes": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "epimedium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "epimedium-brevicornum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "eucalyptus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "eucommia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "evening-primrose": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "fennel": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "trigonella-foenum-graecum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "feverfew": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 2
+    },
+    "ficus-carica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "fingerroot": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "fraxinus-rhynchophylla": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "galangal": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "garcinia-indica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "garcinia-mangostana": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "allium-sativum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "garlic": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "gastrodia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "ginger": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "ginkgo-biloba": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "glycyrrhiza-glabra": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "goldenseal": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gotu-kola": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitis-vinifera": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "grapefruit": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "camellia-sinensis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "green-tea-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "guarana": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "guayusa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "gudmar": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "gymnema-sylvestre": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 4
+    },
+    "harpagophytum-procumbens": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "crataegus-monogyna": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "hibiscus-sabdariffa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "holy-basil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "holy-basil-purple": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "holy-basil-seed": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "honeysuckle": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "hops": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 4
+    },
+    "horse-chestnut": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "houttuynia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "huperzia-serrata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "hypericum-perforatum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "berberis-aristata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "isatis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "japanese-knotweed": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "jatamansi": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "jujube": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "juniper": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "kanna": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "piper-methysticum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "kuding-tea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "kudzu": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "tyrosine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 4
+    },
+    "lavandula-angustifolia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "lawsonia-inermis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "melissa-officinalis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 4
+    },
+    "lemon-verbena": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "lemongrass": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "licorice": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "ligusticum-chuanxiong": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "hericium-erinaceus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "lithospermum-erythrorhizon": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "longan": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "luo-han-guo": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "maca": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "magnolia-officinalis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "maitake-d-fraction": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "mangifera-indica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "mangosteen": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "maral-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "marshmallow": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "milk-oats": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "silybum-marianum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "milk-thistle": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "morinda-citrifolia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "moringa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "morus-alba": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "mucuna": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "mugwort": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "muira-puama": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "mulberry-leaf": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "myristica-fragrans": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "myrtle": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "neem": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "nelumbo-nucifera": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "nettle-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nigella-sativa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "noni": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "notoginseng": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "oatstraw": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ocimum-basilicum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "ocotea-odorifera": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "olea-europaea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "ophiopogon": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "orange-peel": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "oregano": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 2
+    },
+    "paeonia-lactiflora": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "paeonia-suffruticosa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "papaya-leaf": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "parsley": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "passiflora-incarnata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 4
+    },
+    "pastinaca-sativa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "pau-d-arco": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "peppermint": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "perilla": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "phellodendron": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "phellodendron-amurense": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "phosphatidylserine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "piper-longum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "plantago-lanceolata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "plantago-major": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "plumbago-zeylanica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "polygala": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "pomegranate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "poria": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "psoralea-corylifolia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "psyllium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "pueraria-lobata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "pueraria-mirifica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "punarnava": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "quercetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "raspberry-leaf": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "red-clover": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "rehmannia-glutinosa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "rehmannia-prepared": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ganoderma-lucidum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "reishi": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "resveratrol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "rheum-palmatum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "rhodiola": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 6
+    },
+    "rice-bran": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "rooibos": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "rose-hips": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "roselle-seed": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "rosemary": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "saffron": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "sage": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "salacia-reticulata": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "salvia-miltiorrhiza": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "saw-palmetto": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "schisandra": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "schisandra-berry": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 2
+    },
+    "schisandra-chinensis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "scutellaria-baicalensis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "selaginella-tamariscina": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "serenoa-repens": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "shankhpushpi": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "shatavari": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "scutellaria-lateriflora": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "sophora-alopecuroides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "sophora-flavescens": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "soursop": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "soybean": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "st-johns-wort": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "stellera-chamaejasme": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "stephania-cepharantha": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "stephania-japonica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "stephania-tetrandra": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "suma": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "lions-mane": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "syzygium-aromaticum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "tamarind": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "artemisia-dracunculus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "terminalia-arjuna": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "thunder-god-vine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "thyme": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "tongkat-ali": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "tribulus-terrestris": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "tripterygium-wilfordii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "turkey-tail": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "turmeric": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "valeriana-officinalis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "valerian": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "verbena-officinalis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "white-peony": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 3
+    },
+    "wild-yam": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "wormwood": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "yarrow": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "yerba-mate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "yohimbe": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "11-keto-beta-boswellic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "23-epi-26-deoxyactein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "5-htp": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "7-hydroxymitragynine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "acarbose": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "acemannan": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "acetate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "acetyl-11-keto-beta-boswellic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "acetyl-beta-boswellic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "acetyl-l-carnitine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "acetylshikonin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "actein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "acteoside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "adenosine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "aescin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "agaricus-blazei": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "aged-garlic-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "agmatine-sulfate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ajoene": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "albiflorin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "alkylamides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "allicin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "alpha-asarone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "alpha-gpc": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "alpha-lipoic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "alpha-mangostin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "american-ginseng-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "anandamide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "andrographis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "andrographolide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "anethole": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "angelicin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "apigenin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "arabinoxylan": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "l-arginine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "arjunolic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "artemisinin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "artemisinin-b": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "artesunate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "artichoke-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "ashitaba-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ashwagandha-extract-ksm-66": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ashwagandha-root-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "asiatic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "asiaticoside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "aspalathin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "astaxanthin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "astragalin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "astragaloside-iv": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "atractylenolide-i": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "atractylenolide-ii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "atractylenolide-iii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "aucubin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bacopa-extract-bacoside-standardized": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bacopaside-ii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bacoside-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bacoside-b": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "baicalein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "baicalin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "banaba-leaf-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "bcaa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bcaas": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "beetroot-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "beetroot-nitrate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "berbamine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "berberine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "berberine-hcl": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bergapten": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bhb": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "beta-alanine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "beta-caryophyllene": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "beta-ecdysterone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "beta-elemene": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "beta-glucans": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "beta-sitosterol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "betaine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "betaine-anhydrous": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "betaine-hcl": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "betaine-nitrate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "betulinic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bicarbonate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "probiotic-strain-bifidobacterium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bilberry-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bilobetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "biochanin-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "biotin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "bisabolol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bisdemethoxycurcumin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "black-seed-oil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "boron": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "boswellia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "boswellia-akba-standardized": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "boswellic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "boswellic-acids": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "bromelain": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "burdock-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "butylidenephthalide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "butyrate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cacao": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cafestol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "caffeic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "caffeine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "caffeine-l-theanine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "calcium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "calcium-d-glucarate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "calycosin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cannabidiol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "capsaicin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "carnitine-l-tartrate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "carnosic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "carnosol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "carvacrol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "caryophyllene-oxide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "catalpol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "catechin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "catuaba": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cbg": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "celastrol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cepharanthine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "chamazulene": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "chamomile": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "charantin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "chicoric-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "chlorella": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "chlorogenic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "choline": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "chondroitin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "chromium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "chromium-picolinate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "cimifugoside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cinnamaldehyde": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cinnamon-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "cdp-choline": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "citronellal": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "citrulline-malate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "coconut-oil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "coconut-water-powder": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "coenzyme-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "coenzyme-q10": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "coq10": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "collagen-peptides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "columbamine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "columbin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "commipheric-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "copper": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "coptisine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cordycepin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cordyceps": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cordyceps-militaris": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "corosolic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "creatine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "creatine-beta-alanine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "creatine-hcl": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "creatine-monohydrate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "crocetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "crocin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "cryptotanshinone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "curcumin-piperine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "curcumin-phytosome": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "curcumol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "curdione": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "d-aspartic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "d-chiro-inositol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "d-mannose": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "d-ribose": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "daidzein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "daidzin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "dandelion-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "daphnetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "deglycyrrhizinated-licorice": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "demethoxycurcumin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "deoxyelephantopin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "deoxymiroestrol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "desmethoxyyangonin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "devils-claw": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "dhea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "dietary-nitrates": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "digestive-enzymes": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "dihydrokavain": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "dihydromethysticin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "dim": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "diosgenin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "diosmin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "eaa-blend": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "eaa-essential-amino-acids": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "echinacea": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "echinacoside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "epigallocatechin-gallate-egcg": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "egcg-caffeine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "electrolyte-blend": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "electrolyte-mix": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "electrolytes-magnesium-blend": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "elemicin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "elephantopin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "eleuthero-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "eleutheroside-b": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "eleutheroside-e": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ellagic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "embelin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "emodin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "epicatechin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "epicatechin-gallate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "epigallocatechin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "erinacines": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "esculetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "estrogen-balance-stack": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "eugenol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "exogenous-ketones": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "melatonin-extended-release": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "fadogia-agrestis": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "farnesol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "fat-burner-proprietary-blend": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "fenugreek": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "fenugreek-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ferulic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "fisetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "folate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "folic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "formononetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "forskolin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "fraxetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "fos": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "fucoxanthin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "fukinolic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gaba": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "galangin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "galantamine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "gallic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gallocatechin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "garcinia-cambogia-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "garcinol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "garlic-aged-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "garlic-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gelatin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "genistein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gingerol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gingerols": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginkgo-biloba-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginkgo-egb-761": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginkgolide-b": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginkgolides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginsenoside-rb1": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginsenoside-rg1": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginsenoside-rg3": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginsenosides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glucomannan": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "glucomoringin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glucosamine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "glutamine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glutathione": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glycerol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glycinate-magnesium-complex": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "glycine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "glycine-sleep": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glycyrrhetinic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glycyrrhizin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "glycyrrhizin-isolated": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "grape-seed-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "graviola": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "green-tea-egcg-isolated": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "green-tea-extract-egcg": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "guggulsterone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gurmarin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gymnemagenin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "gymnemic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "harpagoside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hawthorn": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hawthorn-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "hcg-diet": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hericenones": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hesperidin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hmb": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "holy-basil-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "honokiol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "horsetail": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "huperzine-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "huperzine-b": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hyaluronic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "hydroxytyrosol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hyperforin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "hypericin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "iberogast": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "icariin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "imperatorin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "indirubin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "indole-3-carbinol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "inositol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "inositol-sleep": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "inositol-hexanicotinate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "inulin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "iodine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "iron": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "isoimperatorin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "isoleucine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "jatrorrhizine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "kaempferol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "kahweol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "kava": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "kavain": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "kavalactones": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "kotalanol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "krill-oil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "l-norvaline": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "l-carnitine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "l-citrulline": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "l-theanine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "l-theanine-sleep": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "l-tyrosine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "probiotic-strain-lactobacillus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lagerstroemin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lavender": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "lavender-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "lawsone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lecithin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lemon-balm": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "lemon-balm-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "leucine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "levodopa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "licorice-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ligustilide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "linalool": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lithium-orotate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "loganin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lumbrokinase": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lutein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "luteolin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "lycopene": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "maca-root-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "macamides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "madecassic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "madecassoside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "magnesium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "magnesium-citrate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "magnesium-glycinate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "magnesium-oxide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "magnesium-threonate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "magnoflorine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "magnolol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "manganese": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "mangiferin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "mangiferin-aglycone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "mangostin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "marshmallow-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "matcha": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "matrine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "mct-oil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "melatonin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "menthol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "mesembrenone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "mesembrine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "metformin-natural-comparison": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "methyl-eugenol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "methylcobalamin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "methyleugenol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "methylfolate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "methylliberine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "methysticin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "momordicoside-k": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "morin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "morroniside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "msm": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "mucuna-pruriens": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "mulberroside-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "myricetin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "myristicin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "n-acetylcysteine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nad-plus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nadh": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "naringenin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "naringin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nattokinase": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "neoandrographolide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nerolidol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "niacin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "niacinamide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nmn": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nicotinamide-riboside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nr": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nicotine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nicotinic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "nutmeg": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oleacein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oleamide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oleanolic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oleocanthal": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oleuropein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "olive-leaf-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "omega-3-dha-dominant": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "omega-3-epa": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "omega-3-epa-dominant": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "omega-3": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "ononin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oral-rehydration-salts": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oregon-grape-root": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ornithine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "orotic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "osthole": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oxymatrine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "oxyresveratrol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "paeoniflorin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "paeonol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "palmatine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "palmitoylethanolamide": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "panax-ginseng-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginseng-panax-red": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ginseng-panax-white": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "pantethine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "papain": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "passionflower": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "passionflower-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "passionflower-extract-standardized": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "pau-darco": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "peppermint-oil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "phenylalanine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "phloretin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "phosphatidic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "phosphatidylcholine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "piperine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "piperlongumine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "plant-sterols": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "plumbagin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "policosanol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "pomegranate-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "potassium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "electrolytes-potassium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "pqq": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "pregnenolone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "proanthocyanidins": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "probiotic-multistrain": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "probiotics": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "probiotics-bifidobacterium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "probiotics-lactobacillus": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "proline": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "propionate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "protodioscin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "psoralen": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "psyllium-husk": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "pterostilbene": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "puerarin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "pumpkin-seed-oil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "punicalagin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "putrescine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "pycnogenol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "pygeum": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "pyridoxal-5-phosphate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "quercetin-phytosome": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "raspberry-ketones": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "red-yeast-rice": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "resistant-starch": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "rhein": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "rhodiola-extract-shr5": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "rosarin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "rosavin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "rosin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "rosmarinic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "rutin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "saccharomyces-boulardii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "saffron-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "safranal": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "safrole": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "saikosaponin-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "salidroside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "salvianolic-acid-b": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "sam-e": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "saw-palmetto-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "schisandra-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "schisandrin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "schisandrin-b": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "schisandrins": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "scopoletin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "selenium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "senkyunolide-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "serine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "serrapeptase": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "shikonin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "shilajit": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "shilajit-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "shogaol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "silibinin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "silica": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "silybin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "silychristin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "silydianin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "silymarin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "skullcap": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "slippery-elm": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "sodium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "sodium-bicarbonate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "electrolytes-sodium": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "spermidine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "spirulina": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "stigmasterol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "sulforaphane": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "tanshinone-iia": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "taurine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "taurine-sleep": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "taurine-blend": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "testosterone-boosters-generic": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "testosterone-support-stack": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "tetrandrine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "theacrine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "theaflavin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "theanine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "thearubigin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "thujone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "thymol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "thymoquinone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "timosaponin-aiii": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "trans-resveratrol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "trigonelline": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "trimethylglycine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "tryptophan": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "tudca": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "turkesterone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "turmeric-curcumin-piperine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "tyrosol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "coenzyme-q10-ubiquinol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "uc-ii-collagen": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "umbelliferone": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "uracil": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "uridine-monophosphate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ursodeoxycholic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "ursolic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "uva-ursi": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "valepotriates": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "valerenic-acid": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "valerenol": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "valerian-extract-standardized": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "valerian-root-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "valine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "verbascoside": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vinpocetine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitamin-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "cobalamin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitamin-b3": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitamin-b6": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitamin-c": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "vitamin-d": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "vitamin-d3": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitamin-d3-k2": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitamin-e": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "vitamin-k2": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "protein-whey-isolate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "wild-dagga": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "willow-bark-extract": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "withaferin-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "withanolide-a": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "withanolides": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "withanoside-iv": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "wogonin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "xanthotoxin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "yangonin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "yellow-dock": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "yohimbine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "zeaxanthin": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "zinc": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 1
+    },
+    "zinc-carnosine": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "zinc-picolinate": {
+      "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    }
+  }
+}

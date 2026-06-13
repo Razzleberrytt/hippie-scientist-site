@@ -13,6 +13,7 @@ const CORE_STATIC_ROUTES = [
   '/privacy',
   '/disclaimer',
   '/methodology',
+  '/evidence-digest',
   '/contact',
   '/learning',
   '/herbs',
@@ -47,6 +48,7 @@ const CORE_ROUTE_META = new Map([
   ['/privacy', { title: 'Privacy Policy | The Hippie Scientist', description: 'How The Hippie Scientist handles analytics and subscriber data.' }],
   ['/disclaimer', { title: 'Disclaimer | The Hippie Scientist', description: 'Educational-use disclaimer and risk boundaries.' }],
   ['/methodology', { title: 'Methodology | The Hippie Scientist', description: 'How evidence is selected, summarized, and scored for confidence.' }],
+  ['/evidence-digest', { title: 'Latest Human Evidence Updates | Evidence Digest', description: 'Weekly summaries of new human clinical trials on adaptogens, biological compounds, and minerals.' }],
   ['/contact', { title: 'Contact | The Hippie Scientist', description: 'Contact the editorial team and submit corrections or sources.' }],
   ['/learning', { title: 'Learning Paths | The Hippie Scientist', description: 'Structured paths across herbs, compounds, and safety context.' }],
   ['/herbs', { title: 'Herb Database | The Hippie Scientist', description: 'Browse herb profiles, mechanisms, and safety notes.' }],
@@ -103,6 +105,7 @@ const CORE_SITEMAP_META = new Map([
   ['/compare', { priority: 0.6, changefreq: 'weekly' }],
   ['/guides/unknown-compound-survival-guide', { priority: 0.6, changefreq: 'monthly' }],
   ['/build', { priority: 0.8, changefreq: 'weekly' }],
+  ['/evidence-digest', { priority: 0.85, changefreq: 'weekly' }],
 ])
 
 const slugify = value =>

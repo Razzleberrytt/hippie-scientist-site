@@ -18,6 +18,7 @@ import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/clu
 import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '@/lib/goal-hub-links'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import { getProfileFreshness } from '@/lib/freshness'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getSafetySensitivity, getSafetyLabels, getSafetyClassifications } from '@/lib/safety-classification'
@@ -293,6 +294,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   }
 
   const herb = herbRaw as unknown as Herb
+  const freshness = getProfileFreshness(sourceSlug)
 
   if (slug !== normalizedSlug) {
     redirect(`/herbs/${normalizedSlug}/`)
@@ -377,7 +379,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const pathwayDiagram = generatePathwayDiagram({ ...(herb as unknown as Record<string, unknown>), name: displayName })
 
   const goalLinks = getGoalsForEntity(normalizedSlug)
-  const lastReviewed = (herb.last_reviewed || herb.last_updated || herb.lastUpdated || herb.updatedAt || herb.updated_at || herb.reviewed_date || herb.reviewed_at) as string | undefined
 
   const comparisonLinks = comparisonRecords
     .filter((record: RuntimeRecord) => record?.slug)
@@ -475,7 +476,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </div>
         <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
         <div className="mt-3 flex flex-wrap items-center gap-3">
-          <LastUpdatedBadge date={lastReviewed} />
+          <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
           <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} />
         </div>
       </header>

@@ -27,7 +27,7 @@ export default function GoalsPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/education/research-methodology" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/methodology" className="text-brand-700 hover:text-brand-800 hover:underline">
             Research methodology →
           </Link>
           <Link href="/education/evidence-hierarchy" className="text-brand-700 hover:text-brand-800 hover:underline">

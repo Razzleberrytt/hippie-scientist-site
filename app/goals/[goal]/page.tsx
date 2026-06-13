@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
 import { getHerbBySlug, getCompoundBySlug, getGoalEvidenceEngine } from '@/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
-import { SITE_URL, SEO_YEAR } from '@/lib/seo'
+import { SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildGoalSchemaGraph } from '@/lib/schema-graph'
 import { buildGoalClusterGraph } from '@/lib/cluster-linking'
@@ -30,6 +30,7 @@ import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
 import { getGoalPivotalStudy } from '@/data/goal-pivotal-studies'
 
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import { getGoalFreshness } from '@/lib/freshness'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 
 type GoalRouteParams = { goal: string }
@@ -243,6 +244,8 @@ export default async function GoalDecisionPage({
     notFound()
   }
 
+  const freshness = getGoalFreshness(goal.slug)
+
   const matches = rankEntitiesForGoal(goalSlug)
 
   const enrichedOptions = await Promise.all(
@@ -331,7 +334,7 @@ export default async function GoalDecisionPage({
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">{goal.description}</p>
         <div className="mt-4">
-          <LastUpdatedBadge date={`${SEO_YEAR}-06-01`} />
+          <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
         </div>
       </section>
 
@@ -351,7 +354,7 @@ export default async function GoalDecisionPage({
           full profile or speaking with a qualified clinician.
         </p>
         <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/education/research-methodology" className="text-brand-800 hover:text-brand-700 hover:underline">
+          <Link href="/methodology" className="text-brand-800 hover:text-brand-700 hover:underline">
             Research methodology →
           </Link>
           <Link href="/education/evidence-hierarchy" className="text-brand-800 hover:text-brand-700 hover:underline">
