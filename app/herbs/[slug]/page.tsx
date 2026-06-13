@@ -24,16 +24,13 @@ import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getSafetySensitivity, getSafetyLabels, getSafetyClassifications } from '@/lib/safety-classification'
 import { getEvidenceLabel } from '@/lib/evidence'
 import {
-  classifyResearchMaturity,
   deriveEvidenceLimitations,
   deriveResearchFocusAreas,
-  deriveResearchStyle,
 } from '@/lib/research-intelligence'
 import { SourcingCta } from '@/components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '@/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
-import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
@@ -368,8 +365,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const timeline = getTimeline(herb)
   const mechanisms = getMechanisms(herb)
   const traditionalUses = getTraditionalUses(herb)
-  const researchMaturity = classifyResearchMaturity({ profile: herb })
-  const researchStyle = deriveResearchStyle({ profile: herb })
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
   const topUses = unique([...effects, ...traditionalUses, ...deriveResearchFocusAreas({ profile: herb })]).slice(0, 8)
   const safetyTone = getSafetyTone(safetySummary, avoidIf)
@@ -529,8 +524,27 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
 
+      {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
+      <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
+        {[
+          { label: 'Quick Stats', href: '#quick-stats' },
+          { label: 'Safety', href: '#safety' },
+          { label: 'Evidence', href: '#evidence' },
+          ...(mechanisms.length > 0 ? [{ label: 'Mechanisms', href: '#mechanisms' }] : []),
+          { label: 'Compare', href: '#compare' },
+        ].map(({ label, href }) => (
+          <a
+            key={href}
+            href={href}
+            className="rounded-full border border-brand-900/10 bg-white/70 px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
       {/* Section 1: Quick Stats */}
-      <section className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">
+      <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">
         <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
@@ -565,7 +579,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {normalizedSlug === 'ashwagandha' && <AshwagandhaStressClaim />}
 
       {/* Section 2: Safety */}
-      <section className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">
+      <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">
         <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
         <p className="text-sm leading-6 text-[#5f4a24]">{safetySummary}</p>
         {safetyGroups.length > 0 && (
@@ -583,7 +597,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </section>
 
       {/* Section 3: Evidence Summary */}
-      <section className="card-premium p-4 sm:p-5 space-y-4">
+      <section id="evidence" className="card-premium p-4 sm:p-5 space-y-4">
         <div className="flex items-center gap-2 flex-wrap">
           <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
           <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} size="sm" />
@@ -595,20 +609,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
           citationsCount={freshness.citationCount}
           limitations={evidenceLimitations}
         />
-        <EvidenceMeter level={evidenceStrength || 'moderate'} />
-        <div className="space-y-3 text-sm leading-6 text-[#46574d]">
-          <p>
-            {displayName} has a <strong>{evidenceStrength.toLowerCase()}</strong> evidence level. It is categorized as {researchMaturity.toLowerCase()} with a {researchStyle.toLowerCase()} evidence style.
-          </p>
-          {evidenceLimitations.length > 0 && (
-            <div className="space-y-1.5">
-              <h3 className="font-semibold text-ink">Evidence limitations:</h3>
-              <ul className="list-disc pl-4 space-y-1">
-                {evidenceLimitations.map(item => <li key={item}>{item}</li>)}
-              </ul>
-            </div>
-          )}
-        </div>
 
         {herb.evidence_design_match && herb.evidence_risk_of_bias && herb.evidence_consistency && (
           <EvidenceGradeRationale
@@ -647,16 +647,21 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       {/* Section 4: Mechanisms (Collapsible) */}
       {mechanisms.length > 0 && (
-        <section className="card-premium p-4 sm:p-5">
+        <section id="mechanisms" className="card-premium p-4 sm:p-5">
           <details className="group">
-            <summary className="flex cursor-pointer items-center justify-between font-bold text-ink text-lg select-none">
+            <summary className="flex cursor-pointer items-center justify-between font-bold text-ink text-lg select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
               <span>Mechanisms &amp; Biological Pathways</span>
-              <span className="text-brand-500 group-open:rotate-180 transition-transform">▼</span>
+              <span aria-hidden="true" className="text-brand-500 group-open:rotate-180 transition-transform">▼</span>
             </summary>
             <div className="mt-4 pt-4 border-t border-brand-900/10 space-y-4">
-              <p className="text-sm leading-6 text-muted">
-                Preclinical mechanism details from scientific profiles; these represent plausible pathways but do not guarantee clinical efficacy in humans.
-              </p>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="inline-flex items-center rounded-full border border-amber-500/30 bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-800">
+                  Preclinical pathways
+                </span>
+                <p className="text-xs text-muted">
+                  Proposed mechanisms from in vitro and animal research; these do not confirm clinical outcomes in humans.
+                </p>
+              </div>
               <div className="flex flex-wrap gap-2">
                 {mechanisms.map(m => (
                   <span key={m} className="chip-readable text-xs">{m}</span>
@@ -671,7 +676,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} />
 
       {/* Section 5: Compare Nearby + CTA */}
-      <section className="card-premium p-4 sm:p-5 space-y-4">
+      <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
         <div className="space-y-1">
           <h2 className="text-lg font-bold text-ink">Compare &amp; Sourcing</h2>
           <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
