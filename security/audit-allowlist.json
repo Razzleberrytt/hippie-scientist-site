@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-25",
+  "generatedAt": "2026-06-13",
   "rules": [
     {
       "id": "xlsx-build-tooling-only-2026-05",
@@ -9,6 +9,26 @@
       "expiresOn": "2026-07-24",
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Migrate%20xlsx%20workbook%20parser%20to%20maintained%20alternative",
       "rationale": "xlsx is currently isolated to trusted local Node workbook/data tooling. Runtime/user-controlled spreadsheet inputs are blocked by the xlsx boundary validation and workbook-source guardrails. See docs/security/xlsx-audit.md. This is an interim allowlist only; migrate or further isolate the workbook parser before expiry."
+    },
+    {
+      "id": "esbuild-build-tooling-only-2026-06",
+      "package": "esbuild",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-gv7w-rqvm-qjhr",
+        "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20esbuild%2Fwrangler%20to%20resolve%20high-severity%20advisories",
+      "rationale": "esbuild is transitive build tooling (pulled by Next.js, vitest, and wrangler). GHSA-gv7w-rqvm-qjhr is Deno-specific (binary integrity in the Deno module) and this project does not use Deno. GHSA-g7r4-m6w7-qqqr affects the esbuild dev server on Windows; the esbuild dev server is not used in CI builds or the static-export production pipeline and is never exposed to untrusted networks. The only npm-offered fix force-downgrades wrangler to 3.6.0 (breaking), which would regress the Cloudflare Pages deploy pipeline. Interim allowlist until the esbuild dependency can be bumped upstream without breaking the deploy toolchain."
+    },
+    {
+      "id": "wrangler-deploy-tooling-only-2026-06",
+      "package": "wrangler",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20esbuild%2Fwrangler%20to%20resolve%20high-severity%20advisories",
+      "rationale": "wrangler is flagged only because it transitively depends on a vulnerable esbuild version (see esbuild-build-tooling-only-2026-06). wrangler is Cloudflare deploy tooling used exclusively in trusted CI/local contexts, not shipped to users (static export). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the deploy pipeline. Interim allowlist tied to the esbuild follow-up."
     }
   ]
 }

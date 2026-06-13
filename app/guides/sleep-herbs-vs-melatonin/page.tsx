@@ -69,6 +69,9 @@ export default function SleepHerbsVsMelatoninPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
+          <Link href="/compare/sleep-herbs-vs-melatonin" className="text-brand-700 hover:text-brand-800 hover:underline">
+            Full Evidence Comparison →
+          </Link>
           <Link href="/compare/l-theanine-vs-magnesium" className="text-brand-700 hover:text-brand-800 hover:underline">
             L-Theanine vs Magnesium →
           </Link>
