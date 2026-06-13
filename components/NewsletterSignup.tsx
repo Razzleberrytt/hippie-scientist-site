@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { type FormEvent, useId, useState } from 'react'
 import { safetyChecklistLeadMagnet } from '@/lib/lead-magnet'
 import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'
 
@@ -35,6 +38,47 @@ export default function NewsletterSignup({
   const buttonClass = isFooter
     ? 'min-h-11 rounded-full bg-emerald-600 px-5 text-sm font-semibold text-white transition hover:bg-emerald-500'
     : 'min-h-11 rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900'
+  const emailId = useId()
+  const honeypotId = useId()
+  const statusId = useId()
+  const [email, setEmail] = useState('')
+  const [confirmEmail, setConfirmEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+  const usesMailchimpForm = mailchimpSignupConfig.isMailchimpAction
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    if (usesMailchimpForm) return
+
+    event.preventDefault()
+    setStatus('submitting')
+    setMessage('')
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          firstName: '',
+          magnet: safetyChecklistLeadMagnet.slug,
+          confirmEmail,
+          source: location,
+        }),
+      })
+      const payload = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null
+
+      if (!response.ok || !payload?.ok) {
+        throw new Error(payload?.error || 'Could not subscribe this email right now.')
+      }
+
+      setStatus('success')
+      setMessage('You are subscribed. Open the safety checklist while the next evidence note is prepared.')
+    } catch (error) {
+      setStatus('error')
+      setMessage(error instanceof Error ? error.message : 'Could not subscribe this email right now.')
+    }
+  }
 
   return (
     <section className={`${variantClasses[variant]} ${className}`} data-signup-location={location}>
@@ -57,25 +101,28 @@ export default function NewsletterSignup({
         <form
           action={mailchimpSignupConfig.action}
           method={mailchimpSignupConfig.method}
+          onSubmit={handleSubmit}
           className='flex flex-col gap-3'
         >
           <input type='hidden' name='SOURCE' value={location} />
           <input type='hidden' name='LEAD_MAGNET' value={safetyChecklistLeadMagnet.slug} />
           <div aria-hidden='true' className='absolute left-[-5000px]'>
-            <label htmlFor={`newsletter-honeypot-${location}`}>Leave this field empty</label>
+            <label htmlFor={honeypotId}>Leave this field empty</label>
             <input
-              id={`newsletter-honeypot-${location}`}
+              id={honeypotId}
               name={mailchimpSignupConfig.honeypotName}
               tabIndex={-1}
               autoComplete='off'
+              value={confirmEmail}
+              onChange={(event) => setConfirmEmail(event.target.value)}
             />
           </div>
           <div className='flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row'>
-            <label className='sr-only' htmlFor={`newsletter-email-${location}`}>
+            <label className='sr-only' htmlFor={emailId}>
               Email address
             </label>
             <input
-              id={`newsletter-email-${location}`}
+              id={emailId}
               name={mailchimpSignupConfig.emailFieldName}
               type='email'
               required
@@ -83,14 +130,27 @@ export default function NewsletterSignup({
               autoComplete='email'
               placeholder='you@example.com'
               className={inputClass}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              aria-describedby={message ? statusId : undefined}
             />
-            <button type='submit' className={buttonClass}>
-              {ctaLabel}
+            <button type='submit' className={buttonClass} disabled={status === 'submitting'}>
+              {status === 'submitting' ? 'Sending...' : ctaLabel}
             </button>
           </div>
-          {!mailchimpSignupConfig.isMailchimpAction ? (
-            <p className={`text-xs leading-5 ${mutedColor}`}>
-              Signup uses the static checklist fallback until the Mailchimp list-manage URL is configured.
+          {message ? (
+            <p
+              id={statusId}
+              className={`text-xs leading-5 ${status === 'error' ? 'text-red-700' : mutedColor}`}
+              role={status === 'error' ? 'alert' : 'status'}
+              aria-live='polite'
+            >
+              {message}{' '}
+              {status === 'success' ? (
+                <Link href='/supplement-safety-checklist' className={isFooter ? 'text-emerald-300 hover:underline' : 'text-brand-800 hover:underline'}>
+                  Open checklist
+                </Link>
+              ) : null}
             </p>
           ) : null}
         </form>

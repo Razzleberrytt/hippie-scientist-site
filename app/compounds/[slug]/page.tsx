@@ -570,6 +570,9 @@ export default async function CompoundPage({ params }: PageProps) {
     ],
     workbookRecord: { ...compound, slug: normalizedSlug },
     seeAlsoEntries: clusterSeeAlso,
+    reviewedAt: freshness.lastReviewed,
+    modifiedAt: freshness.lastReviewed,
+    citationCount: freshness.citationCount,
   })
 
   const faqSchema = faqPageJsonLd({

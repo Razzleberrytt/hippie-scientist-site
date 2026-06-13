@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
@@ -301,8 +302,9 @@ const browsePaths = [
 ]
 
 export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: RuntimeRecord[]; allHerbs?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
-  const query = firstParam(initialQuery)
-  const context = firstParam(initialContext)
+  const searchParams = useSearchParams()
+  const query = searchParams.get('q') || firstParam(initialQuery)
+  const context = searchParams.get('context') || firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
   const baseHerbs = [...(allHerbs || sourceHerbs)].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreHerb(b) - scoreHerb(a))

@@ -414,6 +414,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
     ],
     workbookRecord: { ...herb, slug: normalizedSlug } as Record<string, unknown>,
     seeAlsoEntries: clusterSeeAlso,
+    reviewedAt: freshness.lastReviewed,
+    modifiedAt: freshness.lastReviewed,
+    citationCount: freshness.citationCount,
   })
 
   const faqSchema = faqPageJsonLd({
