@@ -26,6 +26,8 @@ import { getGoalCluster } from '@/lib/goal-clusters'
 import GoalDecisionExperience from './GoalDecisionExperience'
 import GoalHubSections from '@/components/goals/GoalHubSections'
 import GoalContentDepth from '@/components/goals/GoalContentDepth'
+import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
+import { getGoalPivotalStudy } from '@/data/goal-pivotal-studies'
 
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
@@ -255,6 +257,7 @@ export default async function GoalDecisionPage({
 
   const goalPath = `/goals/${goal.slug}`
   const goalContent = getGoalContentExtension(goal.slug)
+  const pivotalStudy = getGoalPivotalStudy(goal.slug)
   const fallbackFaq = goal.quickPicks.map((pick) => ({
     question: `What is the best option for ${pick.need.toLowerCase()}?`,
     answer: `A common starting point to review is ${pick.option}. Compare evidence, safety, and timing on the full profile before deciding.`,
@@ -562,6 +565,36 @@ export default async function GoalDecisionPage({
       </section>
 
       {goalContent ? <GoalContentDepth content={goalContent} /> : null}
+
+      {pivotalStudy ? (
+        <section className="card-premium p-6 sm:p-8" aria-labelledby="pivotal-evidence-heading">
+          <div className="mb-4 space-y-2">
+            <p className="eyebrow-label">Evidence transparency</p>
+            <h2 id="pivotal-evidence-heading" className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
+              How strong is the evidence here?
+            </h2>
+            <p className="text-sm leading-7 text-[#5c6b63]">
+              The practical takeaway stays up top; expand the snapshot for the trial design and limitations behind the grade.
+            </p>
+          </div>
+          <StudyDesignSnapshot
+            grade={pivotalStudy.grade}
+            summary={pivotalStudy.summary}
+            gradeRationale={pivotalStudy.gradeRationale}
+            studyType={pivotalStudy.studyType}
+            population={pivotalStudy.population}
+            participants={pivotalStudy.participants}
+            duration={pivotalStudy.duration}
+            comparator={pivotalStudy.comparator}
+            dosing={pivotalStudy.dosing}
+            design={pivotalStudy.design}
+            limitations={pivotalStudy.limitations}
+            context={pivotalStudy.context}
+            sources={pivotalStudy.sources}
+            title={`Study design snapshot · ${pivotalStudy.subject}`}
+          />
+        </section>
+      ) : null}
 
       <GoalHubSections
         goalSlug={goal.slug}
