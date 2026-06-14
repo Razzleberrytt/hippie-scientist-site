@@ -43,7 +43,7 @@ export function Breadcrumbs({
   const pathname = usePathname()
 
   // Generate breadcrumbs from pathname
-  const breadcrumbs = generateDynamicBreadcrumbs(pathname, customTrail)
+  const breadcrumbs = generateDynamicBreadcrumbs(pathname || '/', customTrail)
 
   // Don't show on homepage unless explicitly requested
   if (pathname === '/' && !showOnHome) {
@@ -72,7 +72,7 @@ export function Breadcrumbs({
               {/* Link or Current Page */}
               {breadcrumb.current ? (
                 <span
-                  className="text-slate-900 dark:text-white font-medium line-clamp-1"
+                  className="inline-flex min-h-[44px] items-center text-slate-900 dark:text-white font-medium line-clamp-1"
                   aria-current="page"
                 >
                   {breadcrumb.label}
@@ -80,7 +80,7 @@ export function Breadcrumbs({
               ) : (
                 <Link
                   href={breadcrumb.href}
-                  className="text-emerald-600 dark:text-emerald-500 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors hover:underline line-clamp-1"
+                  className="inline-flex min-h-[44px] items-center text-emerald-600 dark:text-emerald-500 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors hover:underline line-clamp-1"
                 >
                   {breadcrumb.label}
                 </Link>

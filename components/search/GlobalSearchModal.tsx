@@ -122,7 +122,7 @@ export function GlobalSearchModal() {
         ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-sm text-ink/70 transition hover:border-brand-700/25 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
+        className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-900/20 bg-white px-3 py-2.5 text-sm text-ink transition hover:border-brand-700/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 md:min-h-[auto] md:py-1.5"
         aria-label="Open search"
         aria-keyshortcuts="Meta+K Control+K"
       >

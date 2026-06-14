@@ -80,16 +80,16 @@ export default function Footer() {
             <p className='mt-2 text-xs text-white/65'>
               Evidence-first botanical research. Not medical advice.
             </p>
-            <div className='mt-4 flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/50'>
-              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='transition-colors hover:text-white'>
+            <div className='mt-4 flex flex-wrap items-center gap-x-2 text-xs text-white/50'>
+              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='flex min-h-[44px] items-center px-1 transition-colors hover:text-white'>
                 Twitter
               </a>
               <span>•</span>
-              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='transition-colors hover:text-white'>
+              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='flex min-h-[44px] items-center px-1 transition-colors hover:text-white'>
                 Instagram
               </a>
               <span>•</span>
-              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' className='transition-colors hover:text-white'>
+              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' className='flex min-h-[44px] items-center px-1 transition-colors hover:text-white'>
                 YouTube
               </a>
             </div>
