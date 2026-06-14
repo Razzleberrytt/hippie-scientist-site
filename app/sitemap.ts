@@ -358,8 +358,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const herbsData = readJsonArray<SitemapSourceItem>('public/data/herbs.json');
   const compoundsData = readJsonArray<SitemapSourceItem>('public/data/compounds.json');
-  const indexableHerbsSlugs = new Set(readJsonArray<string>('public/data/indexable-herbs.json'));
-  const indexableCompoundsSlugs = new Set(readJsonArray<string>('public/data/indexable-compounds.json'));
+
+  const parseSlugList = (path: string) => {
+    try {
+      const data = readJsonArray<any>(path);
+      return new Set(data.map(item => typeof item === 'string' ? item : item.slug || item.id).filter(Boolean));
+    } catch {
+      return new Set();
+    }
+  };
+
+  const indexableHerbsSlugs = parseSlugList('public/data/indexable-herbs.json');
+  const indexableCompoundsSlugs = parseSlugList('public/data/indexable-compounds.json');
   const blogPosts = readJsonArray<SitemapSourceItem>('data/blog/posts.json');
   const articlesData = readJsonArray<SitemapSourceItem>('data/articles/articles.json');
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
