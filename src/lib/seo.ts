@@ -127,7 +127,7 @@ export function buildPageMetadata({
       site: TWITTER_HANDLE,
       creator: TWITTER_HANDLE,
     },
-    ...(robots ? { robots } : {}),
+    robots: robots || { index: true, follow: true },
   }
 }
 

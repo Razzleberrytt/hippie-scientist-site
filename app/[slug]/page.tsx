@@ -178,6 +178,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
       site: TWITTER_HANDLE,
       creator: TWITTER_HANDLE,
     },
+    robots: { index: true, follow: true },
   }
 }
 
