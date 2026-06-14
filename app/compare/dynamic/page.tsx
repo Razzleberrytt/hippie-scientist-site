@@ -1,14 +1,15 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import DynamicComparerClient from '@/components/compare/DynamicComparerClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Ingredient Comparison Matrix',
   description: 'Select and compare any two herbs, compounds, or adaptogens side-by-side on evidence strength, mechanisms, safety profiles, and dosages.',
-  robots: { index: false, follow: true },
-}
+  path: '/compare/dynamic/',
+})
 
 export default async function DynamicComparePage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])

@@ -1,10 +1,12 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Focus Without a Caffeine Crash | Guide',
   description: 'Educational framework for building smoother focus routines with fewer spikes and crashes.',
-}
+  path: '/guides/focus-without-caffeine-crash/',
+})
 
 export default function Page() {
   return (

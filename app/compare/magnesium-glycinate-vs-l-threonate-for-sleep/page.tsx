@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Magnesium Glycinate vs L-Threonate for Sleep',
+  description: 'Evidence-informed comparison of magnesium glycinate and magnesium L-threonate for sleep routines, calm support, cognition positioning, safety, and supplement selection.',
+  path: '/compare/magnesium-glycinate-vs-l-threonate-for-sleep/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

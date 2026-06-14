@@ -359,9 +359,7 @@ function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
 export function generateSeoEntryMetadata(route: string): Metadata {
   const page = seoEntryPages.find((item) => item.route === route)
   if (!page) return { title: 'Supplement Guide | The Hippie Scientist' }
-  const canonicalRoute = manualSeoEntryPages.some((item) => item.route === route)
-    ? canonicalGuideRouteOverrides[route] || `guides/${route}`
-    : page.route
+  const canonicalRoute = page.route
   const isGeneratedGuideRoute = route.startsWith('guides/')
     && !indexableGuidePages.some((item) => item.route === route)
 

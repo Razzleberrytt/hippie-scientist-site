@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Kanna vs SSRIs',
+  description: 'Educational comparison of kanna and SSRI-related serotonergic systems, mood regulation, emotional processing, and safety considerations.',
+  path: '/compare/kanna-vs-ssris/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

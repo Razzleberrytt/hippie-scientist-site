@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Melatonin vs Valerian vs Magnesium for Sleep Support',
+  description: 'Evidence-informed 3-way comparison of melatonin, valerian root, and magnesium for sleep latency, circadian rhythm timing, safety, and supplement selection.',
+  path: '/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

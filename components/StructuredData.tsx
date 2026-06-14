@@ -1,3 +1,5 @@
+import JsonLd from './seo/JsonLd'
+
 const SITE_URL = 'https://thehippiescientist.net'
 const SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_AUTHOR = 'Will Thomas'
@@ -104,11 +106,7 @@ export default function StructuredData({
   return (
     <>
       {schemas.map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <JsonLd key={i} schema={schema} />
       ))}
     </>
   )

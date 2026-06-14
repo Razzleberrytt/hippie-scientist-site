@@ -1,12 +1,14 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Kratom 7-OH Withdrawal Management | Evidence-Informed Harm Reduction Guide',
   description: 'Comprehensive evidence-informed guide to 7-hydroxymitragynine (7-OH) withdrawal management, symptom timeline, harm reduction strategies, and medical support context.',
-}
+  path: '/guides/kratom-7oh-withdrawal-management/',
+})
 
 export default function Page() {
   const breadcrumbs = [

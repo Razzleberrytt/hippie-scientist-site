@@ -53,6 +53,7 @@
     "audit:duplicates": "node scripts/audit/find-duplicate-slugs.mjs",
     "audit:content-gaps": "node scripts/audit/content-gap-report.mjs",
     "audit:sitemap": "node scripts/audit/validate-sitemap-canonicals.mjs",
+    "seo:audit-sitemap": "node scripts/ci/audit-sitemap-indexability.mjs",
     "audit:best-for": "node scripts/audit/best-for-audit.mjs",
     "audit:leaked-text": "node scripts/audit/find-leaked-pipeline-text.mjs",
     "audit:dual-slugs": "node scripts/audit/dual-slug-audit.mjs",

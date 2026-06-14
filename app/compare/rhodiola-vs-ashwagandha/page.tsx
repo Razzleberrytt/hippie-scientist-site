@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Rhodiola vs Ashwagandha',
+  description: 'Evidence-informed comparison of rhodiola and ashwagandha for stress patterns, fatigue, calm support, safety, and supplement selection.',
+  path: '/compare/rhodiola-vs-ashwagandha/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

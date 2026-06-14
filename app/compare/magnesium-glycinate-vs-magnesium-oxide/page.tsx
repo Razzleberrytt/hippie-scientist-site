@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Magnesium Glycinate vs Magnesium Oxide',
+  description: 'Evidence-graded comparison of magnesium glycinate and magnesium oxide: bioavailability, sleep, anxiety, cost per absorbed milligram, and when each form makes sense.',
+  path: '/compare/magnesium-glycinate-vs-magnesium-oxide/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated on 2026-06-13T11:48:44.156Z
+Generated on 2026-06-14T11:57:51.280Z
 
 This file lists all active Page Router routes compiled by Next.js static export.
 
@@ -62,6 +62,7 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/compare/ashwagandha-vs-l-theanine-vs-magnesium` | static | [`app/compare/ashwagandha-vs-l-theanine-vs-magnesium/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/ashwagandha-vs-l-theanine-vs-magnesium/page.tsx) |
 | `/compare/berberine-vs-metformin` | static | [`app/compare/berberine-vs-metformin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/berberine-vs-metformin/page.tsx) |
 | `/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus` | static | [`app/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/page.tsx) |
+| `/compare/curcumin-vs-boswellia-vs-omega-3` | static | [`app/compare/curcumin-vs-boswellia-vs-omega-3/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/curcumin-vs-boswellia-vs-omega-3/page.tsx) |
 | `/compare/dynamic` | static | [`app/compare/dynamic/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/dynamic/page.tsx) |
 | `/compare/kanna-vs-ssris` | static | [`app/compare/kanna-vs-ssris/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/kanna-vs-ssris/page.tsx) |
 | `/compare/kava-vs-alcohol` | static | [`app/compare/kava-vs-alcohol/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/kava-vs-alcohol/page.tsx) |
@@ -159,6 +160,7 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/guides/psychedelic-adjacent-herbs` | static | [`app/guides/psychedelic-adjacent-herbs/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/psychedelic-adjacent-herbs/page.tsx) |
 | `/guides/sleep-herbs-vs-melatonin` | static | [`app/guides/sleep-herbs-vs-melatonin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/sleep-herbs-vs-melatonin/page.tsx) |
 | `/guides/supplements-for-brain-fog-and-fatigue` | static | [`app/guides/supplements-for-brain-fog-and-fatigue/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/supplements-for-brain-fog-and-fatigue/page.tsx) |
+| `/guides/turmeric-curcumin` | static | [`app/guides/turmeric-curcumin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/turmeric-curcumin/page.tsx) |
 | `/guides/[slug]` | dynamic | [`app/guides/[slug]/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/[slug]/page.tsx) |
 | `/herbs/page/[page]` | dynamic | [`app/herbs/page/[page]/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/herbs/page/[page]/page.tsx) |
 | `/herbs` | static | [`app/herbs/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/herbs/page.tsx) |

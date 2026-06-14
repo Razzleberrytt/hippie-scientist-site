@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Berberine vs Metformin',
+  description: 'Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each.',
+  path: '/compare/berberine-vs-metformin/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

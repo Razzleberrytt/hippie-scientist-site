@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'L-Theanine vs Magnesium for Calm and Focus',
+  description: 'Evidence-graded comparison of L-theanine and magnesium for calm focus, anxiety, and sleep. Mechanisms, overlapping NMDA and GABA pathways, stacking guidance, and when to use each.',
+  path: '/compare/l-theanine-vs-magnesium/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

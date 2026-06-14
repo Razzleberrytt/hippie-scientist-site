@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
+import { buildPageMetadata } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -69,11 +70,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const guide = await getGuideBySlug(slug);
   if (!guide) return {};
-  return {
+  return buildPageMetadata({
     title: guide.title,
     description: guide.description,
-    robots: { index: true, follow: true },
-  };
+    path: `/guides/${slug}/`,
+  });
 }
 
 export default async function GuidePage({ params }: Props) {

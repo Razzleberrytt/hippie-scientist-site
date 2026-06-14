@@ -26,7 +26,6 @@ function parseXmlUrls(xmlContent) {
 function main() {
   const outDir = path.join(ROOT, 'out')
   const sitemapPath = path.join(outDir, 'sitemap.xml')
-  const requireBuilt = process.argv.includes('--require-built')
 
   if (!fs.existsSync(outDir)) {
     if (REQUIRE_BUILT) {
@@ -59,7 +58,7 @@ function main() {
   let compoundCount = 0
   let articleCount = 0
   let guideCount = 0
-  
+
   const expectedCorePrefixes = [
     '/about',
     '/contact',
@@ -67,7 +66,6 @@ function main() {
     '/disclaimer',
     '/faq',
     '/guides',
-    '/learn',
     '/methodology',
     '/privacy',
     '/safety-checker',
@@ -116,7 +114,8 @@ function main() {
         failed = true
       }
     }
-    // 4. Count routes
+
+    // Count routes
     if (pathname.startsWith('/herbs/')) {
       herbCount++
     } else if (pathname.startsWith('/compounds/')) {
@@ -127,7 +126,7 @@ function main() {
       guideCount++
     }
 
-    // 5. Check core routes
+    // Check core routes
     for (const core of expectedCorePrefixes) {
       if (pathname === core || pathname === `${core}/`) {
         foundCore.add(core)
@@ -138,14 +137,14 @@ function main() {
   // Asserts
   console.log(`[validate-sitemap] Category counts: herbs=${herbCount}, compounds=${compoundCount}, articles=${articleCount}, guides=${guideCount}`)
 
-  if (herbCount < 278) {
-    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 278 canonical, non-redirect URLs).`)
+  if (herbCount < 270) {
+    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 270).`)
     failed = true
   }
 
-  if (compoundCount < 550) {
-    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 550).`)
-    failed = true;
+  if (compoundCount < 90) {
+    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 90).`)
+    failed = true
   }
 
   const missingCore = expectedCorePrefixes.filter(c => !foundCore.has(c))

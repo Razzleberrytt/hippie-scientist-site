@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Kava vs Alcohol',
+  description: 'Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations.',
+  path: '/compare/kava-vs-alcohol/',
+})
+
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'

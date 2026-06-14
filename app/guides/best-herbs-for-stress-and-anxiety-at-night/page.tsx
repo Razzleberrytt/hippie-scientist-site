@@ -1,9 +1,11 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Best Herbs for Stress and Anxiety at Night | Guide',
   description: 'Educational night-time guide for choosing calming herbs with safety-first framing and simple next steps.',
-}
+  path: '/guides/best-herbs-for-stress-and-anxiety-at-night/',
+})
 
 export default function Page() {
   return (

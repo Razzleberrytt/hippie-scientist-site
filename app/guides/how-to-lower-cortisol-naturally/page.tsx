@@ -1,10 +1,12 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'How to Lower Cortisol Naturally | Guide',
   description: 'Educational guide on stress-load reduction strategies and herbs often discussed for cortisol-context support.',
-}
+  path: '/guides/how-to-lower-cortisol-naturally/',
+})
 
 export default function Page() {
   return (

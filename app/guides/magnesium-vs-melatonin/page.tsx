@@ -1,10 +1,12 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Magnesium vs Melatonin | Guide',
   description: 'Educational comparison of magnesium and melatonin for sleep routines, timing, and practical selection.',
-}
+  path: '/guides/magnesium-vs-melatonin/',
+})
 
 export default function Page() {
   return (

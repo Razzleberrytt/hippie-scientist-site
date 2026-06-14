@@ -25,7 +25,7 @@ describe('revenue product recommendations', () => {
   it('keeps affiliate URLs centralized and tagged', () => {
     const allProducts = Object.values(revenueProductSets).flatMap(set => set.products)
 
-    expect(allProducts.length).toBe(174)
+    expect(allProducts.length).toBe(276)
     for (const product of allProducts) {
       expect(product.affiliateUrl).toContain('tag=')
       expect(product.affiliateUrl).toMatch(/^https:\/\/www\.amazon\.com\//)

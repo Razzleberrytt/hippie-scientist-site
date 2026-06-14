@@ -1,10 +1,12 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Best Natural Sleep Aids That Actually Work',
   description: 'A simple guide to herbs commonly discussed for sleep onset, relaxation, and nighttime calm.',
-}
+  path: '/guides/best-natural-sleep-aids-that-work/',
+})
 
 export default function Page(){
   return (

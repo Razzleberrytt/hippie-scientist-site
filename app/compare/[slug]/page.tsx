@@ -83,7 +83,7 @@ const allComparisonSlugs = Array.from(new Set([
   'asiatic-acid-vs-asiaticoside',
   'asiaticoside-vs-aspalathin',
   'aspalathin-vs-astragalin',
-]))
+])).filter(slug => slug !== 'berberine-vs-metformin')
 
 function getSignals(compound: Record<string, unknown>) {
   return unique([

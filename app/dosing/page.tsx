@@ -1,3 +1,4 @@
+import { buildPageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
@@ -5,11 +6,11 @@ import DosageCalculatorClient from '@/components/dosing/DosageCalculatorClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Dosage & Active Molecular Yield Calculator',
   description: 'Compute conservative educational supplement dosing ranges based on body weight and extract concentration. Calculate active chemical yields and cycle notes.',
-  robots: { index: true, follow: true },
-}
+  path: '/dosing/',
+})
 
 export default async function DosingPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
