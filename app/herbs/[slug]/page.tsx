@@ -13,6 +13,7 @@ import { getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-r
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import HerbSchemaGenerator from '@/components/herb-profile/SchemaGenerator'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
 import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
 import SeeAlsoCluster from '@/components/SeeAlsoCluster'
@@ -450,6 +451,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
       )}
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
+      <HerbSchemaGenerator
+        name={displayName}
+        slug={normalizedSlug}
+        description={briefSummary}
+        url={`${SITE_URL}/herbs/${normalizedSlug}/`}
+        image={`${SITE_URL}/og-default.jpg`}
+        dateReviewed={freshness.lastReviewed}
+        evidenceGrade={evidenceStrength || undefined}
+      />
       {faqSchema ? (
         <script
           type="application/ld+json"
