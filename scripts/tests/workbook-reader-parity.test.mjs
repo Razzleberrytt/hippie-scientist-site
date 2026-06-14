@@ -117,6 +117,20 @@ if (process.env.VITEST) {
     const result = await runParity({ log: false })
     expect(result.discrepancies).toEqual([])
   }, 30000)
+
+  test('parser adapter can materialize only requested sheets', async () => {
+    const repoRoot = process.cwd()
+    const workbookPath = resolveWorkbookPath(repoRoot)
+    assertWorkbookExists(workbookPath)
+
+    const workbook = await readWorkbook(workbookPath, {
+      sheets: ['Herb Master V3'],
+    })
+
+    expect(getSheetNames(workbook)).toContain('Compound Master V3')
+    expect(sheetToRows(getSheet(workbook, 'Herb Master V3')).length).toBeGreaterThan(0)
+    expect(getSheet(workbook, 'Compound Master V3')).toBeNull()
+  }, 30000)
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

@@ -17,11 +17,17 @@ import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
 // - workbook shape exposes Sheets + SheetNames
 // - downstream exporters depend on deterministic row object structure
 
-export async function readWorkbook(filePath) {
+export async function readWorkbook(filePath, options = {}) {
   const excelWorkbook = await readWorkbookExcelJS(filePath)
   const sheetNames = excelWorkbook.getSheetNames()
+  const requestedSheets = Array.isArray(options.sheets) && options.sheets.length
+    ? new Set(options.sheets)
+    : null
+  const sheetsToRead = requestedSheets
+    ? sheetNames.filter((sheetName) => requestedSheets.has(sheetName))
+    : sheetNames
   const sheets = Object.fromEntries(
-    sheetNames.map((sheetName) => [sheetName, excelWorkbook.getSheetData(sheetName)]),
+    sheetsToRead.map((sheetName) => [sheetName, excelWorkbook.getSheetData(sheetName)]),
   )
 
   return {

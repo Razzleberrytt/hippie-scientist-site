@@ -31,7 +31,9 @@ async function run() {
 
   let workbook
   try {
-    workbook = await readWorkbook(workbookPath)
+    workbook = await readWorkbook(workbookPath, {
+      sheets: ['Herb Master V3', 'Compound Master V3'],
+    })
   } catch (err) {
     console.warn('[workbook-gaps] WARNING: Could not parse workbook:', err.message)
     console.warn('[workbook-gaps] Skipping workbook gap audit — resolve xlsx parse error to re-enable.')
