@@ -1,4 +1,5 @@
 import bundleAnalyzer from '@next/bundle-analyzer'
+import { withContentCollections } from '@content-collections/next'
 
 const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })
 
@@ -46,4 +47,4 @@ const nextConfig = {
   },
 }
 
-export default withBundleAnalyzer(nextConfig)
+export default withContentCollections(withBundleAnalyzer(nextConfig))

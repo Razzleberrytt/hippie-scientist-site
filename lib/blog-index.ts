@@ -64,7 +64,7 @@ export const getPostSortValue = (post: BlogPost): number => {
   return Number.isNaN(value) ? 0 : value
 }
 
-export const sortPostsNewestFirst = (sourcePosts: BlogPost[]): BlogPost[] =>
+export const sortPostsNewestFirst = <TPost extends BlogPost>(sourcePosts: TPost[]): TPost[] =>
   [...sourcePosts].sort((a, b) => getPostSortValue(b) - getPostSortValue(a))
 
 export const truncateText = (value: string | undefined, maxLength: number): string => {

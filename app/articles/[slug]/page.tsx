@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { allArticleMonographs } from 'content-collections'
 import rawArticles from '../../../data/articles/articles.json'
 import BlogPostPage, {
   generateMetadata as generateBlogMetadata,
@@ -10,6 +11,7 @@ import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '
 import { formatDate } from '@/lib/blog-index'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
+import ArticleMdx from '@/components/articles/ArticleMdx'
 
 export type ArticleReference = {
   title: string
@@ -48,12 +50,17 @@ export type Article = {
 }
 
 const allArticles = rawArticles as Article[]
+const mdxArticles = allArticleMonographs
 
 type ArticleRouteParams = Promise<{ slug: string }>
 
 export function generateStaticParams() {
   const seen = new Set<string>()
-  return [...allArticles.map((a) => ({ slug: a.slug })), ...generateBlogStaticParams()].filter((param) => {
+  return [
+    ...mdxArticles.map((a) => ({ slug: a.slug })),
+    ...allArticles.map((a) => ({ slug: a.slug })),
+    ...generateBlogStaticParams(),
+  ].filter((param) => {
     if (!param.slug || seen.has(param.slug)) return false
     seen.add(param.slug)
     return true
@@ -62,6 +69,16 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: ArticleRouteParams }) {
   const { slug } = await params
+  const mdxArticle = mdxArticles.find((a) => a.slug === slug)
+  if (mdxArticle) {
+    return buildPageMetadata({
+      title: mdxArticle.title,
+      description: mdxArticle.description,
+      path: `/articles/${slug}`,
+      openGraphType: 'article',
+    })
+  }
+
   const article = allArticles.find((a) => a.slug === slug)
   if (!article) return generateBlogMetadata({ params: Promise.resolve({ slug }) })
 
@@ -71,6 +88,92 @@ export async function generateMetadata({ params }: { params: ArticleRouteParams 
     path: `/articles/${slug}`,
     openGraphType: 'article',
   })
+}
+
+function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) {
+  const pageBreadcrumb = breadcrumbJsonLd([
+    { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
+    { name: article.title, url: `https://thehippiescientist.net/articles/${article.slug}` },
+  ])
+
+  const articleLd = blogJsonLd({
+    title: article.title,
+    slug: article.slug,
+    date: article.lastUpdated,
+    updated: article.lastUpdated,
+    excerpt: article.description,
+  }, `/articles/${article.slug}`)
+  const enrichedArticleLd = {
+    ...articleLd,
+    keywords: article.tags,
+    articleSection: article.category,
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'evidenceGrade', value: article.evidenceGrade },
+    ],
+  }
+
+  return (
+    <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(enrichedArticleLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
+      />
+
+      <nav className="mb-6 flex items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
+        <Link href="/articles" className="transition hover:text-ink">Articles</Link>
+        <span>/</span>
+        <span className="line-clamp-1 text-ink">{article.title}</span>
+      </nav>
+
+      <header className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
+            {article.category}
+          </span>
+          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+            Evidence: {article.evidenceGrade}
+          </span>
+          <time dateTime={article.lastUpdated} className="text-muted">
+            Updated {formatDate(article.lastUpdated)}
+          </time>
+          <span className="text-muted">·</span>
+          <span className="text-muted">{article.readingTime}</span>
+        </div>
+
+        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
+          {article.title}
+        </h1>
+
+        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">
+          {article.description}
+        </p>
+
+        {article.tags.length > 0 ? (
+          <div className="mt-5 flex flex-wrap gap-2">
+            {article.tags.map((tag) => (
+              <span key={tag} className="chip-readable capitalize">
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </header>
+
+      <div className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+        <div className="content-prose max-w-none [&>*]:max-w-reading [&_blockquote]:max-w-reading [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-brand-700/40 [&_blockquote]:bg-brand-50/60 [&_blockquote]:py-3 [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_h2]:mt-10 [&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-xl [&_ol]:list-decimal [&_table]:w-full [&_table]:text-sm [&_td]:border-t [&_td]:border-brand-900/10 [&_td]:py-3 [&_td]:pr-4 [&_th]:border-b [&_th]:border-brand-900/10 [&_th]:pb-2 [&_th]:pr-4 [&_th]:text-left [&_ul]:list-disc">
+          <ArticleMdx code={article.body} />
+        </div>
+      </div>
+
+      <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
+        Educational disclaimer: this monograph is for research literacy and harm-reduction context only. It is not medical advice, diagnosis, or a recommendation to use any substance. Talk with a licensed clinician about personal risks, medications, dependence, withdrawal, or urgent symptoms.
+      </footer>
+    </article>
+  )
 }
 
 // ─── Markdown body renderer ──────────────────────────────────────────────────
@@ -322,6 +425,9 @@ function ReferencesTable({ refs }: { refs: ArticleReference[] }) {
 
 export default async function ArticlePage({ params }: { params: ArticleRouteParams }) {
   const { slug } = await params
+  const mdxArticle = mdxArticles.find((a) => a.slug === slug)
+  if (mdxArticle) return <MdxArticlePage article={mdxArticle} />
+
   const article = allArticles.find((a) => a.slug === slug)
   if (!article) return <BlogPostPage params={Promise.resolve({ slug })} />
   if (!article.date) return notFound()
