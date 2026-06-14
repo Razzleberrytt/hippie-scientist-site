@@ -14,7 +14,7 @@ const reportsDir = path.join(repoRoot, 'reports')
 const JUNK_VALUES = new Set(['', 'na', 'n/a', 'none', 'null', 'undefined', 'unknown', 'unk', 'tbd', '-', '--'])
 
 const REQUIRED_HERB_FIELDS = ['name', 'slug', 'summary', 'description', 'dosage', 'safetyNotes', 'preparation']
-const REQUIRED_COMPOUND_FIELDS = ['compoundName', 'canonicalCompoundId', 'summary', 'safetyNotes']
+const REQUIRED_COMPOUND_FIELDS = ['name', 'slug', 'summary', 'safetyNotes']
 
 function cleanText(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim()
@@ -75,7 +75,7 @@ async function run() {
     compoundsScanned = rows.length
     rows.forEach((row, index) => {
       const rowNumber = index + 2
-      const entityName = cleanText(row.compoundName || row.canonicalCompoundId || `Row ${rowNumber}`)
+      const entityName = cleanText(row.name || row.slug || `Row ${rowNumber}`)
       
       REQUIRED_COMPOUND_FIELDS.forEach(field => {
         const val = row[field]
