@@ -1,6 +1,7 @@
 node_modules
 /src/**/*.js
 .next
+.content-collections
 out
 dist
 node_modules/

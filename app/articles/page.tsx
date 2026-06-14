@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { allArticleMonographs } from 'content-collections'
 import rawPosts from '@/data/blog/posts.json'
 import rawArticles from '@/data/articles/articles.json'
 import {
@@ -37,12 +38,18 @@ type ArticleIndexRecord = {
   tags?: string[]
   category?: string
   readingTime?: string
+  evidenceGrade?: string
+  evidence_grade?: string
   content?: string
   profile_status?: string
   sitemap_included?: boolean
 }
 
-function articleToPost(article: ArticleIndexRecord): BlogPost {
+type ArticleCardPost = BlogPost & {
+  evidenceGrade?: string
+}
+
+function articleToPost(article: ArticleIndexRecord): ArticleCardPost {
   return {
     slug: article.slug || '',
     title: article.title || '',
@@ -55,10 +62,27 @@ function articleToPost(article: ArticleIndexRecord): BlogPost {
     content: article.content || '',
     profile_status: article.profile_status,
     sitemap_included: article.sitemap_included,
+    evidenceGrade: article.evidenceGrade || article.evidence_grade || '',
   }
 }
 
-const allPosts: BlogPost[] = [
+const contentCollectionArticles: ArticleCardPost[] = allArticleMonographs.map((article) => ({
+  slug: article.slug,
+  title: article.title,
+  excerpt: article.description,
+  date: article.lastUpdated,
+  updatedAt: article.lastUpdated,
+  tags: article.tags,
+  categories: [article.category],
+  readingTime: article.readingTime,
+  content: article.content,
+  evidenceGrade: article.evidenceGrade,
+  profile_status: 'published',
+  sitemap_included: true,
+}))
+
+const allPosts: ArticleCardPost[] = [
+  ...contentCollectionArticles,
   ...focusAdhdArticleSummaries.map(articleToPost),
   ...(rawArticles as ArticleIndexRecord[]).map(articleToPost),
   ...(rawPosts as BlogPost[]),
@@ -80,7 +104,7 @@ function getPostCategory(post: BlogPost): { label: string; href: string } {
   return group ? { label: group.title, href: group.href } : { label: 'Editorial note', href: '/articles' }
 }
 
-function BlogCard({ post }: { post: BlogPost }) {
+function BlogCard({ post }: { post: ArticleCardPost }) {
   const cat = getPostCategory(post)
   const excerpt = truncateText(post.excerpt, 160)
   const href = `/articles/${post.slug}`
@@ -93,6 +117,11 @@ function BlogCard({ post }: { post: BlogPost }) {
         </Link>
         <time dateTime={post.date || ''} className="text-[#5f6f66]">{formatDate(post.date)}</time>
         {post.readingTime ? <span className="text-[#5f6f66]">{post.readingTime}</span> : null}
+        {post.evidenceGrade ? (
+          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2 py-0.5 font-semibold text-brand-800">
+            {post.evidenceGrade}
+          </span>
+        ) : null}
         <span className="text-[#5f6f66]">· The Hippie Scientist</span>
       </div>
 
@@ -109,7 +138,7 @@ function BlogCard({ post }: { post: BlogPost }) {
   )
 }
 
-function LatestStrip({ posts }: { posts: BlogPost[] }) {
+function LatestStrip({ posts }: { posts: ArticleCardPost[] }) {
   if (!posts.length) return null
   return (
     <section className="space-y-3">
@@ -186,7 +215,7 @@ function CategoryFilterBar({ active }: { active: string }) {
   )
 }
 
-function BlogItemListJsonLd({ posts }: { posts: BlogPost[] }) {
+function BlogItemListJsonLd({ posts }: { posts: ArticleCardPost[] }) {
   const itemListId = `${SITE_URL}/articles/#item-list`
   const graph = {
     '@context': 'https://schema.org',

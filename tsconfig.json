@@ -15,7 +15,8 @@
       // NOTE: Hybrid alias maps to src/ first, then falls back to root folder (e.g. app/, components/, lib/).
       // This is preserved to avoid breaking legacy src/ references, but developers should be careful
       // with name collisions between root components/ and src/components/.
-      "@/*": ["./src/*", "./*"]
+      "@/*": ["./src/*", "./*"],
+      "content-collections": ["./.content-collections/generated"]
     },
     "incremental": true,
     "plugins": [{ "name": "next" }],
@@ -23,6 +24,7 @@
   },
   "include": [
     "next-env.d.ts",
+    ".content-collections/generated/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"

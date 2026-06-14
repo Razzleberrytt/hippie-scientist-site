@@ -23,6 +23,7 @@
     "data:build:core": "node scripts/data/build-runtime-from-workbook.mjs --out public/data && node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data && node scripts/data/build-export-batches.mjs --data-dir=public/data && node scripts/data/build-search-index.mjs --data-dir=public/data",
     "search:build-index": "node scripts/data/build-search-index.mjs --data-dir=public/data",
     "check": "npm run check:fast",
+    "content:build": "content-collections build",
     "articles:build": "node scripts/build-articles.mjs",
     "check:fast": "tsc --noEmit && eslint . --max-warnings=0 && node scripts/ci/validate-article-quality.mjs && node scripts/build-blog.mjs && node scripts/build-articles.mjs && node scripts/orchestrate-build.mjs",
     "test": "vitest run",
@@ -133,6 +134,10 @@
     "zustand": "5.0.12"
   },
   "devDependencies": {
+    "@content-collections/cli": "0.1.9",
+    "@content-collections/core": "0.15.1",
+    "@content-collections/mdx": "0.2.2",
+    "@content-collections/next": "0.2.11",
     "@eslint/js": "^9.11.1",
     "@next/bundle-analyzer": "^15.2.0",
     "@next/eslint-plugin-next": "^15.5.18",
