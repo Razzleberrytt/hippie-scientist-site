@@ -129,7 +129,14 @@
     "slug": "ashwagandha",
     "name": "Ashwagandha (Withania somnifera)",
     "title": "Ashwagandha (Withania somnifera) | The Hippie Scientist",
-    "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+    "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "sources": [
+      { "title": "Ashwagandha — NCCIH Health Information", "url": "https://www.nccih.nih.gov/health/ashwagandha", "publisher": "NIH/NCCIH", "type": "overview" },
+      { "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of Ashwagandha root (KSM-66)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3252722/", "publisher": "PubMed Central / Indian J Psychol Med", "type": "rct" },
+      { "title": "Adaptogenic and Anxiolytic Effects of Ashwagandha Root Extract (Withania somnifera): A Double-Blind, Randomized, Placebo-Controlled Clinical Trial", "url": "https://pubmed.ncbi.nlm.nih.gov/32818573/", "publisher": "PubMed / Medicine", "type": "rct" },
+      { "title": "Ashwagandha — Examine.com Research Summary", "url": "https://examine.com/supplements/ashwagandha/", "publisher": "Examine.com", "type": "review" },
+      { "title": "Ashwagandha — Mayo Clinic Drugs & Supplements", "url": "https://www.mayoclinic.org/drugs-supplements/ashwagandha/art-20047852", "publisher": "Mayo Clinic", "type": "clinical-reference" }
+    ]
   },
   {
     "slug": "panax-ginseng",
@@ -1599,7 +1606,14 @@
     "slug": "lions-mane",
     "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
     "title": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute. | The Hippie Scientist",
-    "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications."
+    "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+    "sources": [
+      { "title": "Improving Effects of the Mushroom Yamabushitake (Hericium erinaceus) on Mild Cognitive Impairment", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5987239/", "publisher": "PubMed Central / Phytother Res", "type": "rct" },
+      { "title": "Reduction of depression and anxiety by 4 weeks Hericium erinaceus intake (Mori et al., 2010)", "url": "https://pubmed.ncbi.nlm.nih.gov/20834180/", "publisher": "PubMed / Biomed Res", "type": "rct" },
+      { "title": "Lion's Mane Mushroom — Examine.com Research Summary", "url": "https://examine.com/supplements/lions-mane-mushroom/", "publisher": "Examine.com", "type": "review" },
+      { "title": "Hericium erinaceus and Nerve Growth Factor (NGF) — PubMed review", "url": "https://pubmed.ncbi.nlm.nih.gov/30806691/", "publisher": "PubMed / Int J Mol Sci", "type": "review" },
+      { "title": "Neurotrophic properties of the Lion's Mane medicinal mushroom: a systematic review", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6982118/", "publisher": "PubMed Central / Int J Mol Sci", "type": "review" }
+    ]
   },
   {
     "slug": "syzygium-aromaticum",
@@ -1665,7 +1679,14 @@
     "slug": "turmeric",
     "name": "Turmeric (Curcuma longa)",
     "title": "Turmeric (Curcuma longa) | The Hippie Scientist",
-    "description": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition."
+    "description": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+    "sources": [
+      { "title": "Turmeric — NCCIH Health Information", "url": "https://www.nccih.nih.gov/health/turmeric", "publisher": "NIH/NCCIH", "type": "overview" },
+      { "title": "Turmeric — Mayo Clinic Drugs & Supplements", "url": "https://www.mayoclinic.org/drugs-supplements/turmeric/art-20048621", "publisher": "Mayo Clinic", "type": "clinical-reference" },
+      { "title": "Curcumin: A Review of Its Effects on Human Health (Hewlings & Kalman, 2017)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5664031/", "publisher": "PubMed Central / Foods", "type": "review" },
+      { "title": "Curcumin — Examine.com Research Summary", "url": "https://examine.com/supplements/curcumin/", "publisher": "Examine.com", "type": "review" },
+      { "title": "Efficacy of Turmeric Extracts and Curcumin for Alleviating Symptoms of Joint Arthritis (Daily et al., 2016)", "url": "https://pubmed.ncbi.nlm.nih.gov/27533649/", "publisher": "PubMed / J Med Food", "type": "meta-analysis" }
+    ]
   },
   {
     "slug": "valeriana-officinalis",
