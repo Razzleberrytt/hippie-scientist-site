@@ -1,15 +1,7 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-13",
+  "generatedAt": "2026-06-14",
   "rules": [
-    {
-      "id": "xlsx-build-tooling-only-2026-05",
-      "package": "xlsx",
-      "severity": "high",
-      "expiresOn": "2026-07-24",
-      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Migrate%20xlsx%20workbook%20parser%20to%20maintained%20alternative",
-      "rationale": "xlsx is currently isolated to trusted local Node workbook/data tooling. Runtime/user-controlled spreadsheet inputs are blocked by the xlsx boundary validation and workbook-source guardrails. See docs/security/xlsx-audit.md. This is an interim allowlist only; migrate or further isolate the workbook parser before expiry."
-    },
     {
       "id": "esbuild-build-tooling-only-2026-06",
       "package": "esbuild",
@@ -30,5 +22,18 @@
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20esbuild%2Fwrangler%20to%20resolve%20high-severity%20advisories",
       "rationale": "wrangler is flagged only because it transitively depends on a vulnerable esbuild version (see esbuild-build-tooling-only-2026-06). wrangler is Cloudflare deploy tooling used exclusively in trusted CI/local contexts, not shipped to users (static export). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the deploy pipeline. Interim allowlist tied to the esbuild follow-up."
     }
-  ]
+  ],
+  "_informational": {
+    "note": "The following moderate-severity findings are tracked here for visibility but are not enforced by audit:high (which gates only on high/critical). Review at the next dependency update cycle.",
+    "moderate": [
+      {
+        "package": "uuid",
+        "via": "exceljs",
+        "advisory": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+        "severity": "moderate",
+        "notes": "uuid <11.1.1 has a missing buffer bounds check in v3/v5/v6 when buf is provided. exceljs is used only in trusted local Node data-pipeline scripts (workbook parsing). No user-controlled input reaches uuid calls. The npm fix downgrades exceljs to 3.4.0 (breaking major version change). Track for resolution at next exceljs major release.",
+        "addedOn": "2026-06-14"
+      }
+    ]
+  }
 }
