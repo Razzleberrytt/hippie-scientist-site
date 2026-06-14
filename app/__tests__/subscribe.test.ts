@@ -1,6 +1,21 @@
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest'
 import { onRequest } from '../../functions/api/subscribe'
 
+type MockKV = {
+  get(key: string): Promise<string | null>
+  put(key: string, value: string, options?: { expirationTtl?: number }): Promise<void>
+  delete(key: string): Promise<void>
+}
+
+type MockEnv = {
+  MAILCHIMP_API_KEY: string
+  MAILCHIMP_API_SERVER: string
+  MAILCHIMP_LIST_ID: string
+  MAILCHIMP_ADHD_TAG: string
+  RATE_LIMIT_KV: MockKV
+  TURNSTILE_SECRET_KEY?: string
+}
+
 const createMockKV = () => {
   const store = new Map<string, string>()
   return {
@@ -8,18 +23,21 @@ const createMockKV = () => {
     put: vi.fn(async (key: string, value: string) => {
       store.set(key, value)
     }),
-  } as any
+    delete: vi.fn(async (key: string) => {
+      store.delete(key)
+    }),
+  } as MockKV
 }
 
 describe('/api/subscribe Endpoint', () => {
-  let mockEnv: any
+  let mockEnv: MockEnv
   let originalFetch: typeof fetch
 
   beforeEach(() => {
     mockEnv = {
       MAILCHIMP_API_KEY: 'test-key',
-      MAILCHIMP_SERVER_PREFIX: 'us1',
-      MAILCHIMP_AUDIENCE_ID: 'test-audience',
+      MAILCHIMP_API_SERVER: 'us19',
+      MAILCHIMP_LIST_ID: 'test-audience',
       MAILCHIMP_ADHD_TAG: 'adhd-tag',
       RATE_LIMIT_KV: createMockKV(),
     }
@@ -32,7 +50,7 @@ describe('/api/subscribe Endpoint', () => {
   })
 
   const makeJsonRequest = (
-    body: any,
+    body: unknown,
     options: { method?: string; headers?: Record<string, string>; url?: string } = {}
   ) => {
     const method = options.method || 'POST'
@@ -156,7 +174,7 @@ describe('/api/subscribe Endpoint', () => {
 
     globalThis.fetch = vi.fn(async () => {
       return new Response(JSON.stringify({ ok: true }), { status: 200 })
-    }) as any
+    })
 
     const response = await onRequest({ request, env: mockEnv })
     expect(response.status).toBe(200)
@@ -167,7 +185,7 @@ describe('/api/subscribe Endpoint', () => {
   it('implements rate limiting (max 5 requests per 10 mins)', async () => {
     globalThis.fetch = vi.fn(async () => {
       return new Response(JSON.stringify({ ok: true }), { status: 200 })
-    }) as any
+    })
 
     // First 5 requests should pass
     for (let i = 0; i < 5; i++) {
@@ -194,12 +212,12 @@ describe('/api/subscribe Endpoint', () => {
     mockEnv.TURNSTILE_SECRET_KEY = 'turnstile-secret'
     
     // Mock Turnstile verification failing
-    globalThis.fetch = vi.fn(async (url: string) => {
-      if (url.includes('siteverify')) {
+    globalThis.fetch = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input).includes('siteverify')) {
         return new Response(JSON.stringify({ success: false }), { status: 200 })
       }
       return new Response(JSON.stringify({ ok: true }), { status: 200 })
-    }) as any
+    }) as typeof fetch
 
     const request = makeJsonRequest({
       email: 'valid@example.com',
@@ -220,7 +238,7 @@ describe('/api/subscribe Endpoint', () => {
         }),
         { status: 400 }
       )
-    }) as any
+    })
 
     const request = makeJsonRequest({ email: 'valid@example.com' })
     const response = await onRequest({ request, env: mockEnv })
@@ -234,10 +252,11 @@ describe('/api/subscribe Endpoint', () => {
 
   it('processes subscription and tagging successfully', async () => {
     const fetchCalls: string[] = []
-    globalThis.fetch = vi.fn(async (url: string) => {
+    globalThis.fetch = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
       fetchCalls.push(url)
       return new Response(JSON.stringify({ ok: true }), { status: 200 })
-    }) as any
+    }) as typeof fetch
 
     const request = makeJsonRequest({
       email: 'happy@example.com',

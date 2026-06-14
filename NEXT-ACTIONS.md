@@ -10,10 +10,8 @@ This is a flat, prioritized task list containing all pending operational and ver
 ### Cloudflare Environment Variable Verification
 Verify the following environment variables are correctly set in the **Cloudflare Pages Dashboard** (under Settings > Environment Variables for both Preview and Production):
 - [ ] **Mailchimp API Key:** `MAILCHIMP_API_KEY` (The private API key generated in Mailchimp)
-- [ ] **Mailchimp Server Prefix:** `MAILCHIMP_SERVER_PREFIX` (e.g., `us19` — check the prefix in your Mailchimp URL)
-  - *Note: Stale documentation referred to this as `MAILCHIMP_API_SERVER`.*
-- [ ] **Mailchimp Audience ID:** `MAILCHIMP_AUDIENCE_ID` (The audience list ID where subscribers are sent)
-  - *Note: Stale documentation referred to this as `MAILCHIMP_LIST_ID`.*
+- [ ] **Mailchimp Server Prefix:** `MAILCHIMP_API_SERVER` (e.g., `us19` — check the prefix in your Mailchimp URL)
+- [ ] **Mailchimp Audience ID:** `MAILCHIMP_LIST_ID` (The audience list ID where subscribers are sent)
 - [ ] **Cloudflare Turnstile Key:** `TURNSTILE_SECRET_KEY` (Required for API subscription form anti-bot validation)
 
 ### Cloudflare KV Binding

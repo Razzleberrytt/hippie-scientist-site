@@ -8,6 +8,7 @@ import {
   type EmailCaptureGoal,
   getLeadMagnet,
 } from '@/content/emailCapture'
+import { trackEmailSignup } from '@/lib/analytics'
 
 type EmailCaptureBoxProps = {
   variant?: 'inline' | 'card' | 'wide'
@@ -70,6 +71,7 @@ export function EmailCaptureBox({
       if (res.ok) {
         setStatus('success')
         setEmail('')
+        trackEmailSignup({ source: `email-capture-${goal}` })
       } else {
         const detail = await res.json().catch(() => ({})) as Record<string, unknown>
         setStatus('error')

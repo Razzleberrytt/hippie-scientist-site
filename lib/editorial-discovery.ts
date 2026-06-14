@@ -1,6 +1,6 @@
 import { formatDisplayLabel, isClean, list, text, unique } from './display-utils'
 
-export type EditorialEntity = Record<string, any>
+export type EditorialEntity = Record<string, unknown>
 
 export type DiscoveryLink = {
   href: string

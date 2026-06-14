@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useId, useState } from 'react'
+import { trackEmailSignup } from '@/lib/analytics'
 
 type EmailCaptureProps = {
   title: string
@@ -42,6 +43,7 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
 
       setState('success')
       setMessage('You are subscribed. Open the checklist below.')
+      trackEmailSignup({ source: `article-${magnet}` })
     } catch (error) {
       setState('error')
       setMessage(error instanceof Error ? error.message : 'Could not subscribe this email right now.')

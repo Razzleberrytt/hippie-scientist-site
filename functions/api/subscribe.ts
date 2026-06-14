@@ -6,6 +6,8 @@ interface KVNamespace {
 
 type Env = {
   MAILCHIMP_API_KEY?: string
+  MAILCHIMP_API_SERVER?: string
+  MAILCHIMP_LIST_ID?: string
   MAILCHIMP_SERVER_PREFIX?: string
   MAILCHIMP_AUDIENCE_ID?: string
   MAILCHIMP_ADHD_TAG?: string
@@ -270,11 +272,17 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
   }
 
   const apiKey = env.MAILCHIMP_API_KEY?.trim()
-  const serverPrefix = env.MAILCHIMP_SERVER_PREFIX?.trim()
-  const audienceId = env.MAILCHIMP_AUDIENCE_ID?.trim()
+  const serverPrefix = (env.MAILCHIMP_API_SERVER || env.MAILCHIMP_SERVER_PREFIX)?.trim()
+  const audienceId = (env.MAILCHIMP_LIST_ID || env.MAILCHIMP_AUDIENCE_ID)?.trim()
   const adhdTag = env.MAILCHIMP_ADHD_TAG?.trim()
 
   if (!apiKey || !serverPrefix || !audienceId || !adhdTag) {
+    console.error('Mailchimp subscription is missing required environment variables:', {
+      MAILCHIMP_API_KEY: Boolean(apiKey),
+      MAILCHIMP_API_SERVER: Boolean(serverPrefix),
+      MAILCHIMP_LIST_ID: Boolean(audienceId),
+      MAILCHIMP_ADHD_TAG: Boolean(adhdTag),
+    })
     return jsonResponse({ ok: false, error: 'Email subscription is not configured.' }, 500)
   }
 

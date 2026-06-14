@@ -1,6 +1,6 @@
 import { cleanEditorialText, dedupeEditorialItems } from '@/lib/editorial-rendering'
 
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 function asList(value: unknown): string[] {
   if (Array.isArray(value)) {

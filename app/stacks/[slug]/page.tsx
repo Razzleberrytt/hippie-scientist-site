@@ -12,7 +12,7 @@ import { getAffiliateShopLinks } from '@/lib/affiliate'
 import AuthorCredentials from '@/components/AuthorCredentials'
 
 type Params = { params: Promise<{ slug: string }> }
-type StackItemRecord = Record<string, any>
+type StackItemRecord = Record<string, unknown>
 type RoleGroups = { anchor: StackItemRecord[]; amplifier: StackItemRecord[]; support: StackItemRecord[] }
 type NamedStackDefinition = {
   parentSlug: string
@@ -88,7 +88,7 @@ const SLUG_MAPPING: Record<string, string> = {
 }
 
 function resolveStackItemSlug(item: StackItemRecord) {
-  const raw = item.compound_slug || item.compound || item.slug || ''
+  const raw = String(item.compound_slug || item.compound || item.slug || '')
   return SLUG_MAPPING[raw] || raw
 }
 
@@ -96,13 +96,13 @@ function stackItemToRecord(item: StackItemRecord, herbSlugs: Set<string> = new S
   const slug = resolveStackItemSlug(item)
   return {
     slug,
-    name: item.compound || item.name || slug,
-    displayName: item.compound || item.name || slug,
+    name: String(item.compound || item.name || slug),
+    displayName: String(item.compound || item.name || slug),
     entityType: herbSlugs.has(slug) ? 'herb' : 'compound',
     effects: [item.role, item.rationale].filter(Boolean),
     mechanisms: [item.rationale].filter(Boolean),
     pathways: [item.role].filter(Boolean),
-    summary: item.rationale,
+    summary: String(item.rationale || ''),
   }
 }
 
@@ -202,8 +202,8 @@ export default async function StackPage({ params }: Params) {
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             {items.map((item, index) => (
               <article key={`${item.compound || item.name || index}`} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
-                <h3 className="text-sm font-semibold text-ink">{item.compound || item.name || 'Stack component'}</h3>
-                <p className="mt-2 text-xs leading-5 text-muted">{item.rationale || item.role || 'Review the named protocol for context.'}</p>
+                <h3 className="text-sm font-semibold text-ink">{String(item.compound || item.name || 'Stack component')}</h3>
+                <p className="mt-2 text-xs leading-5 text-muted">{String(item.rationale || item.role || 'Review the named protocol for context.')}</p>
               </article>
             ))}
           </div>
@@ -240,7 +240,7 @@ export default async function StackPage({ params }: Params) {
     const itemSlug = resolveStackItemSlug(item)
     const record = (allRecords as Record<string, unknown>[]).find(r => r.slug === itemSlug)
     if (!record) return {}
-    const shopLinks = getAffiliateShopLinks(record, (record as Record<string, unknown>).name || itemSlug, entityType)
+    const shopLinks = getAffiliateShopLinks(record, String(record.name || itemSlug), entityType)
     const primary = shopLinks.find(l => l.url)
     return primary ? { affiliateUrl: primary.url, affiliateLabel: primary.label } : {}
   }

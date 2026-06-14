@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { type FormEvent, useId, useState } from 'react'
 import { safetyChecklistLeadMagnet } from '@/lib/lead-magnet'
 import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'
+import { trackEmailSignup } from '@/lib/analytics'
 
 type NewsletterSignupProps = {
   title?: string
@@ -74,6 +75,7 @@ export default function NewsletterSignup({
 
       setStatus('success')
       setMessage('You are subscribed. Open the safety checklist while the next evidence note is prepared.')
+      trackEmailSignup({ source: location })
     } catch (error) {
       setStatus('error')
       setMessage(error instanceof Error ? error.message : 'Could not subscribe this email right now.')

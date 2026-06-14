@@ -87,8 +87,8 @@ export function getAllEducationArticles(): EducationArticle[] {
   }
 }
 
-function parseAttributes(attrString: string): Record<string, any> {
-  const attrs: Record<string, any> = {}
+function parseAttributes(attrString: string): Record<string, string | number | boolean | undefined> {
+  const attrs: Record<string, string | number | boolean | undefined> = {}
   const regex = /(\w+)=(?:"([^"]*)"|{([^}]*)})/g
   let match
 
@@ -107,6 +107,14 @@ function parseAttributes(attrString: string): Record<string, any> {
     }
   }
   return attrs
+}
+
+function attrString(value: string | number | boolean | undefined, fallback = ''): string {
+  return typeof value === 'string' ? value : fallback
+}
+
+function attrNumber(value: string | number | boolean | undefined): number | undefined {
+  return typeof value === 'number' ? value : undefined
 }
 
 export function parseMdxBlocks(raw: string): MdxBlock[] {
@@ -150,12 +158,12 @@ export function parseMdxBlocks(raw: string): MdxBlock[] {
       blocks.push({
         type: 'TrialDesignInsight',
         props: {
-          designType: props.designType || 'RCT',
-          sampleSize: props.sampleSize,
-          duration: props.duration,
-          blinding: props.blinding,
-          control: props.control,
-          title: props.title,
+          designType: attrString(props.designType, 'RCT'),
+          sampleSize: attrNumber(props.sampleSize),
+          duration: attrString(props.duration) || undefined,
+          blinding: attrString(props.blinding) || undefined,
+          control: attrString(props.control) || undefined,
+          title: attrString(props.title) || undefined,
         },
         content: contentLines.join('\n').trim(),
       })
@@ -193,10 +201,10 @@ export function parseMdxBlocks(raw: string): MdxBlock[] {
       blocks.push({
         type: 'EvidenceGradeRationale',
         props: {
-          grade: props.grade || 'C',
-          designMatch: props.designMatch || '',
-          riskOfBias: props.riskOfBias || 'High',
-          consistency: props.consistency || 'Inconsistent',
+          grade: attrString(props.grade, 'C'),
+          designMatch: attrString(props.designMatch),
+          riskOfBias: attrString(props.riskOfBias, 'High'),
+          consistency: attrString(props.consistency, 'Inconsistent'),
         },
         content: contentLines.join('\n').trim(),
       })

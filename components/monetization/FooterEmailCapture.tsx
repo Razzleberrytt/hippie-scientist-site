@@ -6,6 +6,7 @@ import {
   emailCaptureProviderConfigured,
   emailCaptureProviderHoneypotName,
 } from '@/content/emailCapture'
+import { trackEmailSignup } from '@/lib/analytics'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
@@ -42,6 +43,7 @@ export function FooterEmailCapture() {
       if (res.ok) {
         setStatus('success')
         setEmail('')
+        trackEmailSignup({ source: 'footer-email-capture' })
       } else {
         setStatus('error')
         setErrorMsg('Something went wrong. Try again.')

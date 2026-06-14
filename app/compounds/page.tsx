@@ -39,8 +39,10 @@ interface Compound {
   profile_status?: unknown
   safetyNotes?: unknown
   safety_notes?: unknown
-  safety?: any
-  [key: string]: any
+  safety?: { interactions?: unknown; cautions?: unknown } | string | null
+  interactions?: unknown
+  cautions?: unknown
+  [key: string]: unknown
 }
 
 type FilterState = {
@@ -129,14 +131,15 @@ function getEvidenceLabel(c: Compound): string {
 }
 
 function getSafetyLabel(c: Compound): string {
+  const safetyObject = c.safety && typeof c.safety === 'object' ? c.safety : null
   return normalizeDecisionSafety(
     c.safety_level || c.safetyLevel || c.safetyStatus || c.profile_status,
     {
       hasSafetyNotes: Boolean(c.safetyNotes || c.safety_notes || c.safety),
-      hasInteractions: Boolean(c.safety?.interactions || c.interactions),
-      hasCautions: Boolean(c.safety?.cautions || c.cautions),
+      hasInteractions: Boolean(safetyObject?.interactions || c.interactions),
+      hasCautions: Boolean(safetyObject?.cautions || c.cautions),
       notes: text(c.safetyNotes || c.safety_notes || c.safety),
-      interactions: text(c.safety?.interactions || c.interactions),
+      interactions: text(safetyObject?.interactions || c.interactions),
     }
   )
 }

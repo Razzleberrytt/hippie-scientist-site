@@ -1,5 +1,5 @@
 import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 type ContinuityCandidate = {
   slug: string
@@ -75,13 +75,14 @@ export function getEcosystemContinuity({
   return candidates
     .filter((candidate) => isRenderableText(candidate?.slug) && candidate.slug !== current?.slug)
     .map((candidate) => {
+      const candidateSlug = String(candidate.slug || '')
       const candidateSignals = buildSignalSet(candidate)
       const matches = overlap(currentSignals, candidateSignals)
 
       return {
-        slug: candidate.slug,
-        title: cleanEditorialText(candidate.title || candidate.name || candidate.slug),
-        href: `${routeBase}/${candidate.slug}`,
+        slug: candidateSlug,
+        title: cleanEditorialText(candidate.title || candidate.name || candidateSlug),
+        href: `${routeBase}/${candidateSlug}`,
         overlap: dedupeEditorialItems(matches, 4),
         rationale: buildRationale(matches),
         score: scoreOverlap(matches),

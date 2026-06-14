@@ -1,23 +1,6 @@
 'use client'
 
-// TODO: wire to /lib/analytics.ts trackAffiliateClick when that module is available
-function trackAffiliateClick(slug: string, productTitle: string, url: string) {
-  try {
-    if (typeof window !== 'undefined' && typeof (window as { gtag?: unknown }).gtag === 'function') {
-      ;(
-        window as {
-          gtag: (event: string, name: string, params: Record<string, string>) => void
-        }
-      ).gtag('event', 'affiliate_click', {
-        supplement_slug: slug,
-        product_title: productTitle,
-        destination_url: url,
-      })
-    }
-  } catch {
-    // non-fatal
-  }
-}
+import { trackAffiliateClick } from '@/lib/analytics'
 
 export interface AffiliateEntry {
   slot: 'budget' | 'overall' | 'premium'
@@ -70,7 +53,7 @@ export default function AffiliateProductBox({ slug, products, heading = 'Recomme
                 href={url}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
-                onClick={() => trackAffiliateClick(slug, displayTitle, url)}
+                onClick={() => trackAffiliateClick({ itemName: displayTitle || slug, program: 'Amazon' })}
                 className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2 text-xs font-bold text-white transition hover:bg-brand-900"
               >
                 View on Amazon →

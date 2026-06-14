@@ -1,5 +1,5 @@
 import { dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 function asList(value: unknown): string[] {
   if (Array.isArray(value)) {

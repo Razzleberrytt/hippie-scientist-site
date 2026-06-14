@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
+import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
 import HerbsIndexClient from '../herbs/HerbsIndexClient'
 import { collapseRepeatedNouns } from '../../lib/display-utils'
@@ -10,7 +11,7 @@ import type { RuntimeRecord } from '../../src/types/content'
 import { vi } from 'vitest'
 vi.mock('next/link', () => {
   return {
-    default: ({ children, href, ...props }: any) => (
+    default: ({ children, href, ...props }: AnchorHTMLAttributes<HTMLAnchorElement> & { children: ReactNode; href: string }) => (
       <a href={href} {...props}>
         {children}
       </a>

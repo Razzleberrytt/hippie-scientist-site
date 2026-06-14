@@ -1,9 +1,15 @@
 'use client'
 
 import { useEffect } from 'react'
+import { trackAffiliateClick, trackGuideView } from '@/lib/analytics'
 
 export default function ClickTracker() {
   useEffect(() => {
+    const guideMatch = window.location.pathname.match(/^\/guides\/([^/]+)\/?$/)
+    if (guideMatch?.[1]) {
+      trackGuideView({ slug: guideMatch[1] })
+    }
+
     const handleDocumentClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement
       const link = target.closest('a')
@@ -40,15 +46,7 @@ export default function ClickTracker() {
         }
 
         // 1. Send to GA4 if active
-        if (typeof window !== 'undefined' && typeof (window as unknown as Record<string, unknown>).gtag === 'function') {
-          ;((window as unknown as Record<string, unknown>).gtag as (...args: unknown[]) => void)('event', 'affiliate_click', {
-            event_category: 'Affiliate',
-            event_label: cta,
-            destination: href,
-            ingredient: ingredient || 'unknown',
-            route: pathname
-          })
-        }
+        trackAffiliateClick({ itemName: ingredient || cta || 'unknown', program: href.includes('amazon') || href.includes('amzn.to') ? 'Amazon' : 'Affiliate' })
 
         // 2. Log to console in development
         if (process.env.NODE_ENV !== 'production') {

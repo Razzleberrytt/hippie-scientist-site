@@ -27,11 +27,11 @@ export default async function Page() {
 
     featuredHerbs = popularHerbSlugs
       .map(slug => herbs.find((item: Record<string, unknown>) => item.slug === slug))
-      .filter((item: Record<string, unknown>): item is any => Boolean(item) && getRuntimeVisibility(item).canFeature)
+      .filter((item: Record<string, unknown> | undefined): item is Record<string, unknown> => item !== undefined && getRuntimeVisibility(item).canFeature)
 
     featuredCompounds = popularCompSlugs
       .map(slug => compounds.find((item: Record<string, unknown>) => item.slug === slug))
-      .filter((item: Record<string, unknown>): item is any => Boolean(item) && getRuntimeVisibility(item).canFeature)
+      .filter((item: Record<string, unknown> | undefined): item is Record<string, unknown> => item !== undefined && getRuntimeVisibility(item).canFeature)
 
     // Fallback to any canFeature if curated missing (should not happen)
     if (featuredHerbs.length === 0) {

@@ -3,7 +3,7 @@ import 'server-only'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 const dataRoot = path.join(process.cwd(), 'public', 'data')
 

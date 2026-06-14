@@ -4,7 +4,7 @@ import { getRuntimeMapEntries } from '@/lib/runtime-related-maps'
 
 const MAX_ECOSYSTEM_CONTINUITY_RECORDS = 6
 
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 type RuntimeRelationshipEntry = {
   slug: string
@@ -91,7 +91,7 @@ export async function getEcosystemContinuityRecords(record: RuntimeRecord, recor
 
 export function mergeEcosystemContinuityRecords(primaryRecords: Record<string, unknown>[], continuityRecords: Record<string, unknown>[], limit = MAX_ECOSYSTEM_CONTINUITY_RECORDS) {
   const requestedLimit = capLimit(limit)
-  const bySlug = new Map<string, any>()
+  const bySlug = new Map<string, Record<string, unknown>>()
 
   const mergedRecords = [
     ...safeArray(primaryRecords),

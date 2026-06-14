@@ -932,9 +932,12 @@ export default async function CompoundPage({ params }: PageProps) {
               <div className="space-y-2">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-muted">Related alternatives</h3>
                 <div className="flex flex-col gap-2">
-                  {semanticRelated.slice(0, 4).map(item => (
-                    <Link key={item.slug} href={item.entityType === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`} className="text-sm font-semibold text-brand-800 hover:underline">{formatDisplayLabel(item.name || item.slug)}</Link>
-                  ))}
+                  {semanticRelated.slice(0, 4).map(item => {
+                    const relatedSlug = String(item.slug || '')
+                    return (
+                      <Link key={relatedSlug} href={item.entityType === 'herb' ? `/herbs/${relatedSlug}` : `/compounds/${relatedSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">{formatDisplayLabel(item.name || relatedSlug)}</Link>
+                    )
+                  })}
                 </div>
               </div>
             )}

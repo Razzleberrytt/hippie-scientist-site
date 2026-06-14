@@ -4,7 +4,7 @@ export type ResearchMaturity = 'Better studied' | 'Moderate / emerging' | 'Preli
 export type ResearchStyle = 'Human-clinical leaning' | 'Mechanism-heavy' | 'Traditional-use dominant' | 'Mixed evidence profile' | 'Emerging profile'
 export type TopicConfidence = 'Limited' | 'Preliminary' | 'Moderate' | 'Stronger'
 
-export type ProfileRecord = Record<string, any>
+export type ProfileRecord = Record<string, unknown>
 
 export type EvidenceInputs = {
   profile?: ProfileRecord | null

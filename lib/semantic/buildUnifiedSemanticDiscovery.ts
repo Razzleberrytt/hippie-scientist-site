@@ -5,7 +5,7 @@ import { buildTopicContinuity } from './buildTopicContinuity'
 import { mergeSemanticDiscovery } from './mergeSemanticDiscovery'
 import { getMemoizedSemanticValue } from './memoizedSemanticRuntime'
 
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 type UnifiedSemanticDiscoveryInput = {
   current: RuntimeRecord

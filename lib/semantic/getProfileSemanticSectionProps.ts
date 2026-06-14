@@ -1,6 +1,6 @@
 import { createProfileSemanticPayload } from './createProfileSemanticPayload'
 
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 export function getProfileSemanticSectionProps({
   current,

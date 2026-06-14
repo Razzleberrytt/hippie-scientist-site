@@ -1,7 +1,7 @@
 import { buildUnifiedSemanticDiscovery } from './buildUnifiedSemanticDiscovery'
 import { buildSemanticEntityMetadata } from './buildSemanticEntityMetadata'
 
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 export function hydrateUnifiedSemanticDiscovery({
   current,

@@ -1,6 +1,6 @@
 import { hydrateUnifiedSemanticDiscovery } from './hydrateUnifiedSemanticDiscovery'
 
-type RuntimeRecord = Record<string, any>
+type RuntimeRecord = Record<string, unknown>
 
 export function createProfileSemanticPayload({
   current,
