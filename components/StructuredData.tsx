@@ -23,6 +23,7 @@ export interface StructuredDataProps {
   authorName?: string
   faqs?: FAQItem[]
   breadcrumbs?: BreadcrumbItem[]
+  zone?: 'monetized' | 'harm-reduction'
 }
 
 export default function StructuredData({
@@ -34,46 +35,81 @@ export default function StructuredData({
   authorName = DEFAULT_AUTHOR,
   faqs,
   breadcrumbs,
+  zone = 'harm-reduction',
 }: StructuredDataProps) {
   const schemas: Record<string, unknown>[] = []
 
-  schemas.push({
-    '@context': 'https://schema.org',
-    '@type': 'MedicalWebPage',
-    '@id': `${pageUrl}#webpage`,
-    headline,
-    description,
-    url: pageUrl,
-    datePublished,
-    dateModified: dateModified ?? datePublished,
-    lastReviewed: dateModified ?? datePublished,
-    author: {
-      '@type': 'Person',
-      name: authorName,
-      url: SITE_URL,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/logo.png`,
+  const isMonetized = zone === 'monetized'
+
+  if (isMonetized) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': ['DietarySupplement', 'WebPage'],
+      '@id': `${pageUrl}#supplement`,
+      name: headline,
+      headline,
+      description,
+      url: pageUrl,
+      datePublished,
+      dateModified: dateModified ?? datePublished,
+      author: {
+        '@type': 'Person',
+        name: authorName,
+        url: SITE_URL,
       },
-    },
-    medicalAudience: {
-      '@type': 'MedicalAudience',
-      audienceType: 'Patient',
-    },
-    reviewedBy: {
-      '@type': 'Person',
-      name: authorName,
-    },
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': pageUrl,
-    },
-  })
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/logo.png`,
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': pageUrl,
+      },
+    })
+  } else {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': ['MedicalWebPage', 'Article'],
+      '@id': `${pageUrl}#webpage`,
+      headline,
+      description,
+      url: pageUrl,
+      datePublished,
+      dateModified: dateModified ?? datePublished,
+      lastReviewed: dateModified ?? datePublished,
+      author: {
+        '@type': 'Person',
+        name: authorName,
+        url: SITE_URL,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: SITE_NAME,
+        url: SITE_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${SITE_URL}/logo.png`,
+        },
+      },
+      medicalAudience: {
+        '@type': 'MedicalAudience',
+        audienceType: 'Patient',
+      },
+      reviewedBy: {
+        '@type': 'Person',
+        name: authorName,
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': pageUrl,
+      },
+    })
+  }
 
   if (faqs && faqs.length > 0) {
     schemas.push({

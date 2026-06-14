@@ -7,12 +7,25 @@ const siteUrl = SITE_URL
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-      },
-    ],
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: [
+        '/compare/dynamic',
+        '/analytics',
+        '/dashboard',
+        '/dashboard/revenue',
+        '/data-fix',
+        '/theme',
+        '/preview',
+        '/drafts',
+        '/tmp',
+        '/temp',
+        '/test',
+        '/dev',
+        '/data-report',
+      ],
+    },
     sitemap: `${siteUrl}/sitemap.xml`,
     host: siteUrl,
   }

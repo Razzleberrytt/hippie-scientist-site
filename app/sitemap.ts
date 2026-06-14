@@ -358,6 +358,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const herbsData = readJsonArray<SitemapSourceItem>('public/data/herbs.json');
   const compoundsData = readJsonArray<SitemapSourceItem>('public/data/compounds.json');
+  const indexableHerbsSlugs = new Set(readJsonArray<string>('public/data/indexable-herbs.json'));
+  const indexableCompoundsSlugs = new Set(readJsonArray<string>('public/data/indexable-compounds.json'));
   const blogPosts = readJsonArray<SitemapSourceItem>('data/blog/posts.json');
   const articlesData = readJsonArray<SitemapSourceItem>('data/articles/articles.json');
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
@@ -467,6 +469,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!herb.slug) return;
     if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
     if (!isSitemapEligible(herb)) return;
+    if (!indexableHerbsSlugs.has(herb.slug)) return;
 
     addRoute(`/herbs/${herb.slug}`, 'weekly', 0.85, herb.lastUpdated || herb.updatedAt);
   });
@@ -475,6 +478,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!compound.slug) return;
     if (DEPRECATED_COMPOUNDS.has(compound.slug.toLowerCase())) return;
     if (!isSitemapEligible(compound)) return;
+    if (!indexableCompoundsSlugs.has(compound.slug)) return;
 
     addRoute(`/compounds/${compound.slug}`, 'weekly', 0.85, compound.lastUpdated || compound.updatedAt);
   });
