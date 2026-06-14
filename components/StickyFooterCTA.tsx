@@ -13,7 +13,13 @@ export default function StickyFooterCTA() {
       return
     }
 
-    const onScroll = () => setVisible(window.scrollY > 420)
+    const onScroll = () => {
+      const scrollY = window.scrollY
+      const scrollHeight = document.documentElement.scrollHeight
+      const clientHeight = window.innerHeight
+      const nearBottom = scrollY + clientHeight >= scrollHeight - 400
+      setVisible(scrollY > 420 && !nearBottom)
+    }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
@@ -42,7 +48,7 @@ export default function StickyFooterCTA() {
           <button
             type='button'
             onClick={dismiss}
-            className='rounded-full px-2 py-1 text-xs font-bold text-muted hover:bg-stone-100'
+            className='flex h-11 w-11 items-center justify-center rounded-full text-base font-bold text-muted hover:bg-stone-100'
             aria-label='Dismiss sticky signup'
           >
             x

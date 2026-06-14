@@ -23,6 +23,7 @@ export default function ExitIntentModal({ storageKey = 'phase3b-exit-intent' }: 
     }
 
     const onScroll = () => {
+      if (window.innerWidth < 768) return
       const scrollable = document.documentElement.scrollHeight - window.innerHeight
       if (scrollable > 0 && window.scrollY / scrollable > 0.72) openOnce()
     }
@@ -43,7 +44,7 @@ export default function ExitIntentModal({ storageKey = 'phase3b-exit-intent' }: 
         <button
           type='button'
           onClick={() => setOpen(false)}
-          className='absolute right-4 top-4 z-10 rounded-full bg-white px-2 py-1 text-sm font-bold text-muted shadow-sm hover:bg-stone-100'
+          className='absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-base font-bold text-muted shadow-sm hover:bg-stone-100'
           aria-label='Close safety checklist signup'
         >
           x

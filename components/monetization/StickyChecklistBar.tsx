@@ -58,7 +58,7 @@ export default function StickyChecklistBar({ storageKey = 'sticky-checklist-bar'
           <button
             type='button'
             onClick={dismiss}
-            className='rounded-full px-2 py-1 text-xs font-bold text-muted hover:bg-stone-100'
+            className='flex h-11 w-11 items-center justify-center rounded-full text-base font-bold text-muted hover:bg-stone-100'
             aria-label='Dismiss'
           >
             ✕
