@@ -38,7 +38,7 @@ The Hippie Scientist is an evidence-based herbalism and supplement research plat
 - `/best-magnesium-supplements-for-adhd`
 
 ### Comparison Guides (12 routes)
-- `/compare/curcumin-vs-boswellia-vs-omega-3` (Recently added)
+- `/compare/curcumin-vs-boswellia-vs-omega-3`
 - `/compare/sleep-herbs-vs-melatonin`
 - `/compare/ashwagandha-vs-l-theanine-vs-magnesium`
 - `/compare/l-theanine-vs-magnesium`
@@ -52,7 +52,7 @@ The Hippie Scientist is an evidence-based herbalism and supplement research plat
 - `/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus`
 
 ### Topic & Symptom Guides (15 routes)
-- `/guides/turmeric-curcumin` (Recently added)
+- `/guides/turmeric-curcumin`
 - `/guides/adhd-supplements`
 - `/guides/best-herbs-for-stress-and-anxiety-at-night`
 - `/guides/best-natural-sleep-aids-that-work`
@@ -74,6 +74,20 @@ The Hippie Scientist is an evidence-based herbalism and supplement research plat
 - **Guide Layout UI Blocks:** Reusable components (`AffiliateProductBox`, `ComparisonTable`, `DosageBox`, `EvidenceSummaryBox`, `FAQAccordion`, `MechanismBox`, `SafetyBox`).
 - **Structured Data:** Built-in `SchemaGraphScript` automatically generates compliant JSON-LD structured data on herb, compound, goal, and compare pages.
 - **YMYL Compliance:** Author credentials and clinical review attributes mapped across content pages with details linked to `/author`.
+
+## Revenue Stack & Monetization Strategy
+
+### 1. Primary Affiliate Programs
+- **Amazon Associates:** 1-5% commission (high volume, proven customer trust, low conversion friction).
+- **iHerb:** 3-5% commission (excellent international coverage, 30-day cookie window).
+- **Nootropics Depot:** 8-12% commission (premium pricing, cult following for quality, aligned nootropics audience).
+
+### 2. Year 1 Targets & Revenue Mix
+- **Month 1:** $50-100 (Affiliate launch on goal paths and top monographs).
+- **Month 2:** $200-400 (Affiliate expansion + first email newsletter captures).
+- **Month 3:** $550-900 (Affiliate + newsletter sponsorships + first digital products).
+- **Months 4-6:** $1,000-1,700/mo (Blog SEO traffic ramp-up + list monetization).
+- **Months 7-12:** $1,800-3,300/mo (Compounding organic search traffic + sponsorships).
 
 ## Active Workstreams
 - **Goal Pages Expansion:** Add goal slugs beyond the current set, surface goals more prominently in the navigation, and cross-link from profiles.
