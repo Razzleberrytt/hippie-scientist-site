@@ -98,7 +98,7 @@ export default function Footer() {
           <NonEmpty>
             {exploreLinks.length > 0 && (
               <div>
-                <h4 className='section-label mb-3'>Explore</h4>
+                <h3 className='section-label mb-3'>Explore</h3>
                 <ul className='space-y-2'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
@@ -115,7 +115,7 @@ export default function Footer() {
           <NonEmpty>
             {safetyLinks.length > 0 && (
               <div>
-                <h4 className='section-label mb-3'>Safety</h4>
+                <h3 className='section-label mb-3'>Safety</h3>
                 <ul className='space-y-2'>
                   {safetyLinks.map(link => (
                     <li key={link.href}>
@@ -141,7 +141,7 @@ export default function Footer() {
           <NonEmpty>
             {availableLegalLinks.length > 0 && (
               <div>
-                <h4 className='section-label mb-3'>Legal</h4>
+                <h3 className='section-label mb-3'>Legal</h3>
                 <ul className='space-y-2'>
                   {availableLegalLinks.map(link => (
                     <li key={link.href}>
