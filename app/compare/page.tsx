@@ -29,6 +29,7 @@ const popularComparisonPairs = [
   { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },
   { label: 'L-Theanine vs Magnesium', href: '/compare/l-theanine-vs-magnesium' },
   { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin' },
+  { label: 'Curcumin vs Boswellia vs Omega-3', href: '/compare/curcumin-vs-boswellia-vs-omega-3' },
   { label: 'Dynamic comparison matrix', href: '/compare/dynamic' },
 ]
 

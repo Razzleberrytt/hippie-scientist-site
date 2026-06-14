@@ -39,8 +39,8 @@ const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
     'caffeine-vs-theanine',
     'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   ],
-  pain: ['glucosamine-vs-chondroitin'],
-  inflammation: ['glucosamine-vs-chondroitin'],
+  pain: ['curcumin-vs-boswellia-vs-omega-3', 'glucosamine-vs-chondroitin'],
+  inflammation: ['curcumin-vs-boswellia-vs-omega-3', 'glucosamine-vs-chondroitin'],
   cognition: [
     'caffeine-vs-theanine',
     'caffeine-vs-l-theanine-vs-bacopa-for-focus',
@@ -77,6 +77,7 @@ const FLAGSHIP_COMPARE_ROUTES = new Set([
   'ashwagandha-vs-l-theanine-vs-magnesium',
   'melatonin-vs-valerian-vs-magnesium-for-sleep',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',
+  'curcumin-vs-boswellia-vs-omega-3',
 ])
 
 export function isFlagshipCompareSlug(slug: string): boolean {
