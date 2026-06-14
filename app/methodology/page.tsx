@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildToolPageSchemaGraph } from '@/lib/schema-graph'
+import { SITE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'How We Grade Evidence & Methodology',
@@ -44,8 +47,37 @@ export default function MethodologyPage() {
     },
   ]
 
+  const schemaGraph = buildToolPageSchemaGraph({
+    path: '/methodology',
+    title: 'How We Grade Evidence & Methodology',
+    description:
+      'Detailed review of The Hippie Scientist evidence grading levels, conflict-of-interest policy, conservative framing rules, and editorial credentials.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Methodology', url: `${SITE_URL}/methodology/` },
+    ],
+    faqQuestions: [
+      {
+        question: 'How does The Hippie Scientist grade evidence?',
+        answer:
+          'Evidence grades prioritize clinical human trials, consistency, study design, and reproducibility. Mechanistic, animal, and in-vitro findings are treated as limited or preliminary unless human outcome data support the claim.',
+      },
+      {
+        question: 'Do affiliate links affect evidence grades?',
+        answer:
+          'No. Product placement and affiliate revenue do not affect evidence grades, safety warnings, or editorial conclusions. The site states risks plainly when an ingredient lacks support or carries meaningful interaction concerns.',
+      },
+      {
+        question: 'Why are some supplement claims framed conservatively?',
+        answer:
+          'Supplement evidence often depends on population, dose, preparation, trial duration, and outcome measure. Conservative framing prevents preclinical mechanisms or small exploratory studies from being presented as settled clinical proof.',
+      },
+    ],
+  })
+
   return (
     <div className='container-page py-10 space-y-8 max-w-4xl mx-auto'>
+      <SchemaGraphScript graph={schemaGraph} />
       {/* Hero */}
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 bg-white/95'>
         <p className='eyebrow-label'>E-E-A-T Editorial Standard</p>

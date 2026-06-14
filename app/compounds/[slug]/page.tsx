@@ -799,7 +799,7 @@ export default async function CompoundPage({ params }: PageProps) {
         </section>
 
         {/* Section 3: Evidence Summary */}
-        <section className="card-premium p-4 sm:p-5 space-y-4">
+        <section id="evidence-summary" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
           <div className="flex items-center gap-2 flex-wrap">
             <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
             <EvidenceScoreBadge record={compound} size="sm" />

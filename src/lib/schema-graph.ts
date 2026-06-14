@@ -57,6 +57,19 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
   const canonical = normalizeCanonical(`${SITE_URL}/${segment}/${args.slug}`)
   const webpageId = `${canonical}#webpage`
   const breadcrumbId = `${canonical}#breadcrumb`
+  const evidenceArticleId = `${canonical}#evidence-review`
+  const entityName = args.kind === 'herb'
+    ? args.herb?.name ?? args.slug
+    : args.compound?.name ?? args.slug
+  const description = args.kind === 'herb'
+    ? args.herb?.description
+    : args.compound?.description
+  const evidenceGrade = args.kind === 'herb'
+    ? args.herb?.evidenceGrade
+    : args.compound?.evidenceGrade
+  const safetyNotes = args.kind === 'herb'
+    ? args.herb?.safetyNotes
+    : args.compound?.safetyNotes
 
   const webpageRaw =
     args.kind === 'herb' && args.herb
@@ -72,6 +85,7 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
         url: canonical,
         mainEntityOfPage: canonical,
         mainEntity: { '@id': `${canonical}#entity` },
+        hasPart: { '@id': evidenceArticleId },
         ...(args.modifiedAt ? { dateModified: args.modifiedAt } : {}),
         ...(args.reviewedAt ? { dateReviewed: args.reviewedAt } : {}),
         reviewedBy: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
@@ -92,14 +106,45 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
   const entity = buildWorkbookEntitySchema({
     kind: args.kind,
     slug: args.slug,
-    name: args.kind === 'herb' ? args.herb?.name ?? args.slug : args.compound?.name ?? args.slug,
+    name: entityName,
     url: canonical,
-    description: args.kind === 'herb' ? args.herb?.description : args.compound?.description,
+    description,
     record: args.workbookRecord,
-    evidenceGrade: args.kind === 'herb' ? args.herb?.evidenceGrade : args.compound?.evidenceGrade,
-    safetyNotes: args.kind === 'herb' ? args.herb?.safetyNotes : args.compound?.safetyNotes,
+    evidenceGrade,
+    safetyNotes,
     primaryEffects: args.kind === 'herb' ? args.herb?.primaryEffects : undefined,
   })
+
+  const evidenceArticle = {
+    '@type': 'Article',
+    '@id': evidenceArticleId,
+    headline: `${entityName} evidence and safety summary`,
+    name: `${entityName} evidence and safety summary`,
+    description:
+      description ||
+      `Evidence, safety, and practical interpretation notes for ${entityName}.`,
+    url: `${canonical}#evidence-summary`,
+    isPartOf: { '@id': webpageId },
+    mainEntityOfPage: { '@id': webpageId },
+    about: { '@id': `${canonical}#entity` },
+    articleSection: ['Evidence Summary', 'Safety & Cautions'],
+    author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+    ...(args.reviewedAt ? { datePublished: args.reviewedAt } : {}),
+    ...(args.modifiedAt ? { dateModified: args.modifiedAt } : {}),
+    ...(evidenceGrade || safetyNotes
+      ? {
+          additionalProperty: [
+            evidenceGrade
+              ? { '@type': 'PropertyValue', name: 'Evidence grade', value: evidenceGrade }
+              : null,
+            safetyNotes
+              ? { '@type': 'PropertyValue', name: 'Safety notes', value: safetyNotes }
+              : null,
+          ].filter(Boolean),
+        }
+      : {}),
+  }
 
   const breadcrumb = {
     ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
@@ -113,7 +158,7 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
       })
     : null
 
-  return buildSchemaGraph([webpage, entity, breadcrumb, focusBreadcrumb])
+  return buildSchemaGraph([webpage, entity, evidenceArticle, breadcrumb, focusBreadcrumb])
 }
 
 export function buildGoalSchemaGraph(args: {
@@ -181,10 +226,13 @@ export function buildToolPageSchemaGraph(args: {
   title: string
   description: string
   breadcrumbs: Array<{ name: string; url: string }>
+  faqQuestions?: Array<{ question: string; answer: string }>
 }) {
   const canonical = normalizeCanonical(toAbsoluteUrl(args.path))
   const webpageId = `${canonical}#webpage`
   const breadcrumbId = `${canonical}#breadcrumb`
+  const faqId = `${canonical}#faq`
+  const faqQuestions = args.faqQuestions ?? []
 
   const webpage = {
     '@type': ['MedicalWebPage', 'WebPage'],
@@ -196,6 +244,7 @@ export function buildToolPageSchemaGraph(args: {
     isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
     breadcrumb: { '@id': breadcrumbId },
     medicalAudience: 'Consumer',
+    ...(faqQuestions.length ? { hasPart: { '@id': faqId } } : {}),
   }
 
   const breadcrumb = {
@@ -203,7 +252,24 @@ export function buildToolPageSchemaGraph(args: {
     '@id': breadcrumbId,
   }
 
-  return buildSchemaGraph([webpage, breadcrumb])
+  const faq = faqQuestions.length
+    ? {
+        '@type': 'FAQPage',
+        '@id': faqId,
+        url: canonical,
+        isPartOf: { '@id': webpageId },
+        mainEntity: faqQuestions.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null
+
+  return buildSchemaGraph([webpage, breadcrumb, faq])
 }
 
 export function buildSeoEntrySchemaGraph(args: {

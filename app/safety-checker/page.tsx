@@ -48,6 +48,23 @@ export default async function SafetyCheckerPage() {
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Safety Interaction Checker', url: `${SITE_URL}/safety-checker/` },
     ],
+    faqQuestions: [
+      {
+        question: 'What does the supplement safety checker evaluate?',
+        answer:
+          'The safety checker compares selected herbs and compounds against qualitative interaction patterns, contraindications, overlapping neurotransmitter or receptor effects, and stacking risks in the site reference database.',
+      },
+      {
+        question: 'Is the safety checker medical advice?',
+        answer:
+          'No. The checker is an educational screening tool and is not a substitute for individualized review by a clinician or pharmacist, especially when prescription medications, pregnancy, chronic conditions, or high-risk supplements are involved.',
+      },
+      {
+        question: 'Why should supplement stacks be checked before buying?',
+        answer:
+          'Stacking multiple supplements can increase sedation, stimulation, blood-pressure effects, serotonergic load, bleeding risk, or medication interactions. Reviewing combinations first helps identify reasons to avoid or simplify a stack.',
+      },
+    ],
   })
 
   return (
