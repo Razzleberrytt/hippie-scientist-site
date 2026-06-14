@@ -9,7 +9,7 @@
   # CSP exceptions documented in docs/security-headers.md
   # - script-src 'unsafe-inline' is temporarily required for Next-rendered JSON-LD inline script tags.
   # - style-src 'unsafe-inline' is required for current runtime style injection (React/Tailwind stack).
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; img-src 'self' data: https://*.media-amazon.com https://*.ssl-images-amazon.com https://m.media-amazon.com https://images-na.ssl-images-amazon.com https://images.amazon.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https:; object-src 'none'; base-uri 'self'; frame-src 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com 'unsafe-inline'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.google.com https://*.cloudflareinsights.com; img-src 'self' data: https://*.media-amazon.com https://*.ssl-images-amazon.com https://m.media-amazon.com https://images-na.ssl-images-amazon.com https://images.amazon.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https:; object-src 'none'; base-uri 'self'; frame-src 'self'; frame-ancestors 'none'
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
