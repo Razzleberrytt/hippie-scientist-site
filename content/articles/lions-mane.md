@@ -28,13 +28,13 @@ references:
   - title: "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial"
     authors: "Mori K, Inatomi S, Ouchi K, Azumi Y, Tuchida T"
     year: "2009"
-    pmid: "19681845"
-    url: "https://pubmed.ncbi.nlm.nih.gov/19681845/"
+    pmid: "18844328"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18844328/"
   - title: "Nerve growth factor-inducing activity of Hericium erinaceus in 1321N1 human astrocytoma cells"
     authors: "Mori K, Obara Y, Hirota M, Azumi Y, Kinugasa S, Inatomi S, Nakahata N"
     year: "2008"
-    pmid: "18844328"
-    url: "https://pubmed.ncbi.nlm.nih.gov/18844328/"
+    pmid: "18758067"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18758067/"
   - title: "Hericium erinaceus: an edible mushroom with medicinal values"
     authors: "Friedman M"
     year: "2015"
@@ -45,36 +45,56 @@ references:
     year: "2010"
     pmid: "20834180"
     url: "https://pubmed.ncbi.nlm.nih.gov/20834180/"
-  - title: "Erinacines A, B and C, strong stimulators of nerve growth factor (NGF)-synthesis, from the mycelia of Hericium erinaceum"
-    authors: "Kawagishi H, Ando M, Sakamoto H, Yoshida S, Ojima F, Ishiguro Y, Ukai N, Furukawa S"
-    year: "1996"
-    pmid: "8988622"
-    url: "https://pubmed.ncbi.nlm.nih.gov/8988622/"
+  - title: "Neuroregenerative potential of lion's mane mushroom, Hericium erinaceus, in the treatment of peripheral nerve injury"
+    authors: "Wong KH, Naidu M, David RP, Abdulla MA, Abdullah N, Kuppusamy UR, Sabaratnam V"
+    year: "2012"
+    pmid: "23510212"
+    url: "https://pubmed.ncbi.nlm.nih.gov/23510212/"
   - title: "Hericium erinaceus mycelium and its isolated erinacine A protection from MPTP-induced neurotoxicity through the ER stress, triggering an apoptosis cascade"
     authors: "Kuo HC, Lu CC, Shen CH, Tung SY, Hsieh MC, Lee KC, Lee LY, Chen CC, Teng CC, Huang WS, Chen CY, Lee KF"
     year: "2016"
-    pmid: "27385728"
-    url: "https://pubmed.ncbi.nlm.nih.gov/27385728/"
+    pmid: "26988860"
+    url: "https://pubmed.ncbi.nlm.nih.gov/26988860/"
   - title: "Protective effects of Hericium erinaceus mycelium and its isolated erinacine A against ischemia-injury-induced neuronal cell death via the inhibition of iNOS/p38 MAPK and nitrotyrosine"
     authors: "Lin ZY, Chen CM, Ling-Ling Chiu, Chen CY, Tung SY, Lee KC, Chen YC, Lee LY, Chen CC, Hsieh MC"
     year: "2014"
-    pmid: "24266378"
-    url: "https://pubmed.ncbi.nlm.nih.gov/24266378/"
+    pmid: "25167134"
+    url: "https://pubmed.ncbi.nlm.nih.gov/25167134/"
   - title: "Dietary supplementation of Hericium erinaceus increases mossy fiber-CA3 hippocampal neurotransmission and recognition memory in wild-type mice"
     authors: "Ryu S, Kim HG, Kim JY, Kim SY, Cho KO"
     year: "2018"
-    pmid: "29951947"
-    url: "https://pubmed.ncbi.nlm.nih.gov/29951947/"
-  - title: "A randomized, double-blind, placebo-controlled trial of a Hericium erinaceus enriched health supplement in adults with mild Alzheimer's disease"
-    authors: "Li IC, Chang HH, Lin CH, Chen WP, Lu TH, Lee LY, Chen YW, Chen YP, Chen CC, Lin DP"
+    pmid: "28115973"
+    url: "https://pubmed.ncbi.nlm.nih.gov/28115973/"
+  - title: "Prevention of Early Alzheimer's Disease by Erinacine A-Enriched Hericium erinaceus Mycelia Pilot Double-Blind Placebo-Controlled Study"
+    authors: "Li IC, Lee LY, Tzeng TT, Chen WP, Chen YP, Shiao YJ, Chen CC"
     year: "2020"
-    pmid: "32727229"
-    url: "https://pubmed.ncbi.nlm.nih.gov/32727229/"
+    pmid: "32581767"
+    url: "https://pubmed.ncbi.nlm.nih.gov/32581767/"
   - title: "Neurotrophic properties of the Lion's Mane medicinal mushroom, Hericium erinaceus (Higher Basidiomycetes) from Malaysia"
     authors: "Lai PL, Naidu M, Sabaratnam V, Wong KH, David RP, Kuppusamy UR, Abdullah N, Malek SN"
     year: "2013"
-    pmid: "23510212"
-    url: "https://pubmed.ncbi.nlm.nih.gov/23510212/"
+    pmid: "24266378"
+    url: "https://pubmed.ncbi.nlm.nih.gov/24266378/"
+  - title: "Improvement of cognitive functions by oral intake of Hericium erinaceus"
+    authors: "Saitsu Y, Nishide A, Kikushima K, Shimizu K, Ohnuki K"
+    year: "2019"
+    pmid: "31413233"
+    url: "https://pubmed.ncbi.nlm.nih.gov/31413233/"
+  - title: "The Acute and Chronic Effects of Lion's Mane Mushroom Supplementation on Cognitive Function, Stress and Mood in Young Adults"
+    authors: "Docherty S, Doughty FL, Smith EF"
+    year: "2023"
+    pmid: "38004235"
+    url: "https://pubmed.ncbi.nlm.nih.gov/38004235/"
+  - title: "Acute effects of a standardised extract of Hericium erinaceus (Lion's Mane mushroom) on cognition and mood in healthy younger adults"
+    authors: "Docherty S, Doughty FL, Smith EF"
+    year: "2025"
+    pmid: "40276537"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40276537/"
+  - title: "Benefits, side effects, and uses of Hericium erinaceus as a supplement: a systematic review"
+    authors: "Menon S, Jalal Z, Arshad S, Nawaz S, Kashyap D"
+    year: "2025"
+    pmid: "40959699"
+    url: "https://pubmed.ncbi.nlm.nih.gov/40959699/"
 ---
 
 ## Introduction
@@ -84,6 +104,16 @@ Lion's mane mushroom (*Hericium erinaceus*) occupies an unusual position in the 
 Modern interest centers on two bioactive compound classes — **hericenones** (found primarily in the fruiting body) and **erinacines** (concentrated in the mycelium) — that appear to stimulate the synthesis of nerve growth factor (NGF) and, to a lesser extent, brain-derived neurotrophic factor (BDNF). NGF is a signaling protein critical for the maintenance of cholinergic neurons in the basal forebrain, the same neurons that degenerate in Alzheimer's disease. This mechanistic link to a known disease pathway is part of what gives the clinical literature its significance, however early-stage it remains.
 
 This article evaluates the evidence objectively. Where human data exists it is presented with sample sizes, effect magnitudes, and limitations. Where only preclinical data exists, the appropriate inferential distance is flagged.
+
+---
+
+## Search Intent and Evidence Boundaries
+
+Lion's mane search traffic tends to collapse several different questions into one phrase: memory support, nerve regeneration, anxiety, depression, ADHD-adjacent focus, and dementia prevention. Those are not equivalent claims. The human evidence is most relevant to mild cognitive impairment, early cognitive decline, and small mood or stress studies; the nerve-regeneration story is still mostly preclinical or review-level evidence [1,4,5,9-12].
+
+The cleanest evidence-based phrase is "lion's mane mushroom for cognitive support," not "lion's mane reverses dementia." Clinical studies suggest possible cognitive benefit during active supplementation, but they do not prove durable disease modification. The Mori trial is especially instructive because cognitive scores improved during supplementation and declined after stopping, which points toward a maintenance effect rather than a one-time repair signal [1].
+
+For healthy younger adults, the evidence is thinner and more mixed. A 2023 pilot study reported tentative improvements in speed of performance and subjective stress, while the broader claim that lion's mane reliably boosts cognition in all healthy adults remains unproven [12]. That distinction matters for readers comparing lion's mane against acute nootropics such as caffeine, L-theanine, or prescription wakefulness agents.
 
 ---
 
@@ -99,7 +129,9 @@ Hericenones are aromatic compounds isolated from the fruiting body. Hericenone C
 
 Erinacines are diterpene-class compounds found predominantly in the mycelium. Erinacines A, B, and C were identified in 1996 as potent stimulators of NGF synthesis — at that time among the most active small molecules known to induce NGF in vitro. Erinacine A, the most studied, crosses the blood-brain barrier in rodent studies and increases hippocampal NGF and BDNF levels at oral doses. **Mycelium-based or erinacine-enriched extracts** are the relevant preparation here.
 
-This distinction matters practically: many low-cost lion's mane supplements use mycelium grown on oats or grain, which contributes starch (from the substrate) but may contain relatively little erinacine. The supplement market frequently conflates "mycelium" and "mycelium extract," but a mycelium extract standardized to erinacines is a different product from unprocessed myceliated grain. When evaluating a product, look for standardization statements or dual-extract methods that combine fruiting body (hericenones) with mycelium extract (erinacines).
+This distinction matters practically: many low-cost lion's mane supplements use mycelium grown on oats or grain, which contributes starch from the substrate but may contain relatively little erinacine. The supplement market frequently conflates "mycelium" and "mycelium extract," but a mycelium extract standardized to erinacines is a different product from unprocessed myceliated grain. When evaluating a product, look for standardization statements or dual-extract methods that combine fruiting body hericenones with mycelium extract erinacines.
+
+The strongest product-quality claim is not "fruiting body is always better" or "mycelium is always better." It is more precise: fruiting body products are easier to evaluate by beta-glucan and polysaccharide markers, while the most distinctive erinacine research requires a properly cultivated and extracted mycelium preparation [3,5,9]. A grain-heavy powder with no beta-glucan, starch, or erinacine testing should not inherit the evidence from standardized extracts.
 
 ---
 
@@ -134,7 +166,7 @@ These are preclinical findings. None translate directly to confirmed human neuro
 
 ### Mild Cognitive Impairment: The 2009 Mori Trial
 
-The landmark human study remains the 2009 double-blind, placebo-controlled trial by Mori and colleagues, published in *Phytotherapy Research* (PMID 19681845). Fifty Japanese adults aged 50–80 with mild cognitive impairment (MCI) were randomized to 250 mg tablets of powdered *Hericium erinaceus* fruiting body (four tablets three times daily = 3 g/day total) or placebo for 16 weeks. The Revised Hasegawa Dementia Scale (HDS-R) was the primary cognitive outcome.
+The landmark human study remains the 2009 double-blind, placebo-controlled trial by Mori and colleagues, published in *Phytotherapy Research* (PMID 18844328). Fifty Japanese adults aged 50–80 with mild cognitive impairment (MCI) were randomized to 250 mg tablets of powdered *Hericium erinaceus* fruiting body (four tablets three times daily = 3 g/day total) or placebo for 16 weeks. The Revised Hasegawa Dementia Scale (HDS-R) was the primary cognitive outcome.
 
 The lion's mane group showed significantly higher HDS-R scores at weeks 8, 12, and 16 compared to placebo. The between-group difference was statistically significant at all measured time points. **Critically, the benefits disappeared four weeks after supplementation ended**, suggesting the effect requires ongoing administration rather than inducing lasting structural change. No serious adverse events occurred. The sample size (n=50) limits generalizability, but the placebo-controlled design and significant separation at multiple time points is a meaningful signal in a field where small-molecule nootropics rarely pass this bar.
 
@@ -144,7 +176,17 @@ A parallel arm of Nagano et al. (2010, PMID 20834180) enrolled 30 Japanese women
 
 ### Alzheimer's Disease: The 2020 Li Trial
 
-Li et al. (2020, PMID 32727229) conducted a randomized double-blind placebo-controlled trial in 49 adults with mild Alzheimer's disease. The intervention was a lion's mane-enriched supplement (containing erinacine A-enriched mycelium standardized extract) versus placebo over 49 weeks. The lion's mane group showed significant improvement in the Alzheimer's Disease Assessment Scale-Cognitive subscale (ADAS-cog) and Activities of Daily Living (ADL) scores. Brain imaging suggested slower hippocampal atrophy in the treatment arm, though the imaging findings were preliminary. This is a stronger study design — longer duration, standardized extract, disease-state sample — and represents the best current evidence for lion's mane in an active neurodegenerative condition.
+Li et al. (2020, PMID 32581767) conducted a pilot double-blind placebo-controlled study of erinacine A-enriched *Hericium erinaceus* mycelia in early Alzheimer's disease. The intervention is important because it used a more standardized mycelium preparation rather than generic mushroom powder. The study suggested cognitive and functional signals, but the sample and pilot design mean it should be read as early-stage evidence, not as proof of disease prevention or treatment.
+
+### Cognitive Function in Older Adults: Saitsu 2019
+
+Saitsu and colleagues (2019, PMID 31413233) studied oral *Hericium erinaceus* intake and cognitive function in adults aged 50 and older. The trial is useful because it broadens the evidence beyond the original Mori MCI cohort. It still does not establish a universal anti-dementia effect; instead, it supports the narrower idea that older adults with cognitive concerns are the most plausible target population.
+
+### Healthy Young Adults: Pilot and Acute Data
+
+Docherty and colleagues (2023, PMID 38004235) tested acute and chronic lion's mane supplementation in healthy young adults and reported tentative signals for speed of performance and subjective stress. This is relevant for the nootropic audience, but the word "tentative" matters. Healthy adults should not expect the same signal size as older adults with measurable cognitive impairment.
+
+Newer acute work has also reported limited or nonsignificant overall cognitive and mood effects after a single standardized dose in healthy younger adults [13]. That does not invalidate the chronic trials; it reinforces the practical rule that lion's mane is not an acute stimulant.
 
 ### Evidence Quality Assessment
 
@@ -152,7 +194,9 @@ Li et al. (2020, PMID 32727229) conducted a randomized double-blind placebo-cont
 |---|---|---|---|---|---|---|
 | Mori 2009 | RCT, DB, PC | 50 | 16 weeks | Fruiting body powder | MCI cognitive scores ↑ | Moderate |
 | Nagano 2010 | RCT, DB, crossover | 30 | 4 weeks | Fruiting body in cookies | Depression/anxiety ↓ | Low-moderate |
-| Li 2020 | RCT, DB, PC | 49 | 49 weeks | Erinacine A mycelium extract | AD cognitive scores ↑ | Moderate-high |
+| Li 2020 | Pilot RCT, DB, PC | 49 | 49 weeks | Erinacine A mycelium extract | Early AD cognitive/function signals | Moderate |
+| Saitsu 2019 | Human trial | Older adults | 12 weeks | Hericium erinaceus | Cognitive scores ↑ | Moderate |
+| Docherty 2023 | Pilot RCT, DB | Healthy young adults | Acute + 28 days | Standardized extract | Speed/stress signals | Preliminary |
 
 RCT = randomized controlled trial; DB = double-blind; PC = placebo-controlled.
 
@@ -178,6 +222,12 @@ There is no established minimum effective dose for humans, and dose-escalation s
 
 **Extract ratio:** "10:1 extract" language is common but sometimes meaningless without specifying what compound class is being concentrated. Look for beta-glucan percentages (a marker of fungal material versus substrate) — ideally above 25–30%.
 
+### Product Selection Checklist
+
+For a practical "best lion's mane supplement for memory" decision, prioritize transparency over potency language. A credible product should disclose fruiting body or mycelium source, beta-glucan content, extraction method, serving size, and contaminant testing. If a product claims erinacines, it should say so explicitly and ideally provide standardization data.
+
+Avoid products that rely only on "polysaccharides" as a quality marker. Polysaccharide numbers can include starch from grain substrate, while beta-glucan testing is more useful for confirming fungal material. Also avoid products that imply proven treatment for Alzheimer's disease, neuropathy, ADHD, or depression; the evidence does not support those disease-treatment claims.
+
 ---
 
 ## Safety and Interactions
@@ -189,6 +239,8 @@ Lion's mane has a strong general safety profile across both traditional use and 
 - **Gastrointestinal discomfort** (bloating, loose stool) at higher doses — common with any high-fiber mushroom powder
 - **Skin sensitivity or mild allergic reactions** — rare, but documented in individuals with mold or mushroom allergies
 - **Respiratory reactions** — occupational asthma-like symptoms reported in farmers working with concentrated dried *Hericium* but not in supplementation contexts
+
+A 2025 systematic review summarized clinical and preclinical literature and reported that side effects are often underreported, with stomach discomfort, headache, and allergic reactions among the plausible supplement-related complaints [13]. That is not a major red flag, but it argues against telling readers that lion's mane is risk-free.
 
 ### Immune Modulation
 
@@ -208,6 +260,12 @@ No pharmacokinetic drug interaction studies exist for lion's mane in humans. The
 ### Pregnancy and Breastfeeding
 
 No adequate safety data exists for pregnant or breastfeeding individuals. Standard herbal medicine precaution: avoid unless under direct clinical supervision.
+
+### Who Should Be More Cautious
+
+Use extra caution with known mushroom allergy, active autoimmune disease, immunosuppressant therapy, bleeding disorders, anticoagulant or antiplatelet medication, and complex neurologic disease. In those contexts, the question is less "is lion's mane natural?" and more "could immune, platelet, or neurologic variables make this harder to interpret?"
+
+People with mild cognitive impairment or suspected dementia should not self-treat without evaluation. Lion's mane may be worth discussing as an adjunct, but it should not delay diagnosis, medication review, sleep apnea screening, depression assessment, hearing evaluation, or other reversible-cause workups.
 
 ---
 
@@ -261,3 +319,24 @@ Key remaining evidence gaps:
 - **Standardization** — without consistent extract characterization, inter-study comparison and product selection remain difficult
 
 For individuals with MCI, a formal discussion with their neurologist about a trial of lion's mane is reasonable. For healthy adults seeking cognitive resilience, lion's mane represents a low-risk addition to a broader protocol — one that earns its place based on evidence rather than marketing, provided the product is of verifiable quality.
+
+---
+
+## References
+
+| # | Authors | Title | Journal | Year | PMID |
+|---|---------|-------|---------|------|------|
+| 1 | Mori K et al. | Yamabushitake and mild cognitive impairment | Phytother Res | 2009 | [18844328](https://pubmed.ncbi.nlm.nih.gov/18844328/) |
+| 2 | Mori K et al. | NGF-inducing activity of Hericium erinaceus | Biol Pharm Bull | 2008 | [18758067](https://pubmed.ncbi.nlm.nih.gov/18758067/) |
+| 3 | Friedman M | Chemistry, nutrition, and bioactive compounds of Hericium erinaceus | J Agric Food Chem | 2015 | [26244378](https://pubmed.ncbi.nlm.nih.gov/26244378/) |
+| 4 | Nagano M et al. | Depression and anxiety after Hericium erinaceus intake | Biomed Res | 2010 | [20834180](https://pubmed.ncbi.nlm.nih.gov/20834180/) |
+| 5 | Wong KH et al. | Neuroregenerative potential in peripheral nerve injury | Int J Med Mushrooms | 2012 | [23510212](https://pubmed.ncbi.nlm.nih.gov/23510212/) |
+| 6 | Kuo HC et al. | Erinacine A and MPTP neurotoxicity model | J Transl Med | 2016 | [26988860](https://pubmed.ncbi.nlm.nih.gov/26988860/) |
+| 7 | Lin ZY et al. | Erinacine A against ischemia-induced neuronal death | Evid Based Complement Alternat Med | 2014 | [25167134](https://pubmed.ncbi.nlm.nih.gov/25167134/) |
+| 8 | Ryu S et al. | Hericium erinaceus and hippocampal neurotransmission | Curr Dev Nutr | 2017 | [28115973](https://pubmed.ncbi.nlm.nih.gov/28115973/) |
+| 9 | Li IC et al. | Erinacine A-enriched Hericium mycelia in early Alzheimer's disease | Front Aging Neurosci | 2020 | [32581767](https://pubmed.ncbi.nlm.nih.gov/32581767/) |
+| 10 | Saitsu Y et al. | Cognitive functions after oral Hericium erinaceus intake | Biomed Res | 2019 | [31413233](https://pubmed.ncbi.nlm.nih.gov/31413233/) |
+| 11 | Lai PL et al. | Neurotrophic properties of Hericium erinaceus | Int J Med Mushrooms | 2013 | [24266378](https://pubmed.ncbi.nlm.nih.gov/24266378/) |
+| 12 | Docherty S et al. | Acute and chronic effects in young adults | Nutrients | 2023 | [38004235](https://pubmed.ncbi.nlm.nih.gov/38004235/) |
+| 13 | Docherty S et al. | Acute standardized extract effects in healthy younger adults | Nutrients | 2025 | [40276537](https://pubmed.ncbi.nlm.nih.gov/40276537/) |
+| 14 | Menon S et al. | Benefits, side effects, and uses: systematic review | Front Nutr | 2025 | [40959699](https://pubmed.ncbi.nlm.nih.gov/40959699/) |
