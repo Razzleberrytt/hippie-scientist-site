@@ -40,7 +40,7 @@ export function Breadcrumbs({
   customTrail?: BreadcrumbItem[]
   showOnHome?: boolean
 } = {}) {
-  const pathname = usePathname()
+  const pathname = usePathname() || '/'
 
   // Generate breadcrumbs from pathname
   const breadcrumbs = generateDynamicBreadcrumbs(pathname || '/', customTrail)

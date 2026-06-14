@@ -19,7 +19,7 @@ const desktopLinks = [
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const pathname = usePathname()
+  const pathname = usePathname() || '/'
 
   // Scroll listener for subtle backdrop blur on sticky
   useEffect(() => {

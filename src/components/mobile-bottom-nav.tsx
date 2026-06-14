@@ -33,7 +33,7 @@ const navItems = [
 ]
 
 export default function MobileBottomNav() {
-  const pathname = usePathname()
+  const pathname = usePathname() || '/'
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/10 bg-white/[0.92] shadow-[0_-10px_30px_rgba(17,24,39,0.08)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 md:hidden">

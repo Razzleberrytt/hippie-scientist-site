@@ -55,7 +55,7 @@ export function useNavigate() {
 export function useLocation() {
   const pathname = usePathname() ?? "";
   const searchParams = useNextSearchParams();
-  const search = searchParams.toString();
+  const search = searchParams?.toString() ?? "";
   return { pathname, search: search ? `?${search}` : "" };
 }
 
@@ -63,7 +63,7 @@ export function useSearchParams(): [URLSearchParams, (next: URLSearchParams) => 
   const router = useRouter();
   const pathname = usePathname() ?? "";
   const params = useNextSearchParams();
-  const mutable = new URLSearchParams(params.toString());
+  const mutable = new URLSearchParams(params?.toString() ?? "");
 
   const setSearchParams = (next: URLSearchParams) => {
     const query = next.toString();

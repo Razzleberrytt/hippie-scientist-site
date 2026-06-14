@@ -13,7 +13,7 @@ type DesktopNavProps = {
 }
 
 export default function DesktopNav({ links }: DesktopNavProps) {
-  const pathname = usePathname()
+  const pathname = usePathname() || '/'
 
   return (
     <nav className='hidden items-center gap-1.5 md:flex' aria-label='Primary navigation'>

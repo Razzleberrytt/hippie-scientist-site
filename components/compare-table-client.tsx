@@ -48,7 +48,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
 
   // Initialize selected slugs from URL, or default to caffeine and l-theanine
   useEffect(() => {
-    const param = searchParams.get('c')
+    const param = searchParams?.get('c')
     if (param) {
       const slugs = param.split(',').map(s => s.trim().toLowerCase()).filter(Boolean).slice(0, 3)
       setSelectedSlugs(slugs)
@@ -315,4 +315,3 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
     </div>
   )
 }
-

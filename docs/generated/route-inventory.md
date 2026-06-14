@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated on 2026-06-14T11:57:51.280Z
+Generated on 2026-06-14T12:39:13.467Z
 
 This file lists all active Page Router routes compiled by Next.js static export.
 

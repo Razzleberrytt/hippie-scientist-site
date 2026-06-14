@@ -60,7 +60,7 @@ function generateBreadcrumbSchema(breadcrumbs: BreadcrumbItem[], siteUrl: string
  */
 export function BreadcrumbSchema() {
   const pathname = usePathname()
-  const breadcrumbs = generateDynamicBreadcrumbs(pathname)
+  const breadcrumbs = generateDynamicBreadcrumbs(pathname || '/')
   const schema = generateBreadcrumbSchema(breadcrumbs, SITE_URL)
 
   // Don't render if schema is null (single-level breadcrumbs)

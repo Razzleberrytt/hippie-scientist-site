@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { buildPageMetadata } from '@/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
@@ -8,24 +9,13 @@ import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscove
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared',
   description:
     'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.',
-  alternates: { canonical: '/compare/sleep-herbs-vs-melatonin' },
-  openGraph: {
-    title: 'Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared',
-    description:
-      'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Mechanisms, dosing, safety, and stacking guidance.',
-    url: 'https://thehippiescientist.net/compare/sleep-herbs-vs-melatonin',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sleep Herbs vs Melatonin',
-    description:
-      'Compare melatonin, magnesium, L-theanine, and valerian for sleep — evidence grades, mechanisms, and how to choose.',
-  },
-}
+  path: '/compare/sleep-herbs-vs-melatonin/',
+  openGraphType: 'article',
+})
 
 export default function SleepHerbsVsMelatoninComparePage() {
   const melatoninProducts = getRevenueProductSet('melatonin')?.products ?? []
