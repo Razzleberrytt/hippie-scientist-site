@@ -26,12 +26,8 @@ export default defineConfig({
     exclude: ['**/node_modules/**', '**/dist/**', '**/.next/**', '**/.claude/**', '**/out/**'],
     maxWorkers: '50%',
     testTimeout: 15000,
-    // @ts-expect-error poolOptions is supported by Vitest 4 but InlineConfig types in this environment do not declare it.
-    poolOptions: {
-      forks: {
-        singleFork: true,
-      },
-    },
+    pool: 'forks',
+    fileParallelism: false,
   },
   resolve: {
     alias: [

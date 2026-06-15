@@ -276,12 +276,11 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
   const audienceId = (env.MAILCHIMP_LIST_ID || env.MAILCHIMP_AUDIENCE_ID)?.trim()
   const adhdTag = env.MAILCHIMP_ADHD_TAG?.trim()
 
-  if (!apiKey || !serverPrefix || !audienceId || !adhdTag) {
+  if (!apiKey || !serverPrefix || !audienceId) {
     console.error('Mailchimp subscription is missing required environment variables:', {
       MAILCHIMP_API_KEY: Boolean(apiKey),
       MAILCHIMP_API_SERVER: Boolean(serverPrefix),
       MAILCHIMP_LIST_ID: Boolean(audienceId),
-      MAILCHIMP_ADHD_TAG: Boolean(adhdTag),
     })
     return jsonResponse({ ok: false, error: 'Email subscription is not configured.' }, 500)
   }
@@ -326,19 +325,23 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
       return jsonResponse({ ok: false, error: 'Could not subscribe this email right now. Please try again.' }, 500)
     }
 
-    const tagResponse = await fetch(`${baseUrl}/tags`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        tags: [{ name: adhdTag, status: 'active' }],
-      }),
-    })
+    if (adhdTag) {
+      try {
+        const tagResponse = await fetch(`${baseUrl}/tags`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            tags: [{ name: adhdTag, status: 'active' }],
+          }),
+        })
 
-    if (!tagResponse.ok) {
-      const detail = await tagResponse.json().catch(() => null) as { detail?: string; title?: string } | null
-      console.error('Mailchimp Tagging Error:', detail?.detail || detail?.title || 'Unknown Error')
-      // Sanitize upstream errors
-      return jsonResponse({ ok: false, error: 'Could not complete subscription registration. Please try again.' }, 500)
+        if (!tagResponse.ok) {
+          const detail = await tagResponse.json().catch(() => null) as { detail?: string; title?: string } | null
+          console.error('Mailchimp Tagging Error:', detail?.detail || detail?.title || 'Unknown Error')
+        }
+      } catch (tagError) {
+        console.error('Mailchimp Tagging Request failed:', tagError)
+      }
     }
 
     return jsonResponse({ ok: true, magnet })

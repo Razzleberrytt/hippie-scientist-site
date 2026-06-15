@@ -1101,7 +1101,7 @@ export default function BestHerbsForSleepPage() {
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/sleep-herbs-vs-melatonin"
+                href="/guides/sleep-herbs-vs-melatonin"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Sleep herbs vs melatonin →

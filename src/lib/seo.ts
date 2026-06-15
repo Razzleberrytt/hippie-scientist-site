@@ -556,7 +556,7 @@ export type HerbJsonLdArgs = {
 }
 
 export function herbJsonLd(herb: HerbJsonLdArgs) {
-  const url = `${SITE_URL}/herbs/${herb.slug}`
+  const url = `${SITE_URL}/herbs/${herb.slug}/`
   const governed = herb.governedSummary
   const hasGoverned = Boolean(governed?.enrichedAndReviewed)
   const hasPart = hasGoverned
@@ -627,7 +627,7 @@ export type CompoundJsonLdArgs = {
 }
 
 export function compoundJsonLd(compound: CompoundJsonLdArgs) {
-  const url = `${SITE_URL}/compounds/${compound.slug}`
+  const url = `${SITE_URL}/compounds/${compound.slug}/`
   const governed = compound.governedSummary
   const hasGoverned = Boolean(governed?.enrichedAndReviewed)
 

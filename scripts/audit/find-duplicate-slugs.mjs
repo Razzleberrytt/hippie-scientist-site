@@ -17,6 +17,18 @@ const DENY_REDIRECT_PAIRS = new Set([
   'maca|cacao', 'cacao|maca',
   'hmb|bhb', 'bhb|hmb',
   'nr|nmn', 'nmn|nr',
+  'boron|morin', 'morin|boron',
+  'bacoside-a|bacoside-b', 'bacoside-b|bacoside-a',
+  'baicalin|baicalein', 'baicalein|baicalin',
+  'daidzin|daidzein', 'daidzein|daidzin',
+  'crocin|crocetin', 'crocetin|crocin',
+  'eleutheroside-b|eleutheroside-e', 'eleutheroside-e|eleutheroside-b',
+  'atractylenolide-i|atractylenolide-ii', 'atractylenolide-ii|atractylenolide-i',
+  'atractylenolide-i|atractylenolide-iii', 'atractylenolide-iii|atractylenolide-i',
+  'atractylenolide-ii|atractylenolide-iii', 'atractylenolide-iii|atractylenolide-ii',
+  'l-carnitine|acetyl-l-carnitine', 'acetyl-l-carnitine|l-carnitine',
+  'caffeine|caffeine-l-theanine', 'caffeine-l-theanine|caffeine',
+  'magnesium|electrolytes-magnesium-blend', 'electrolytes-magnesium-blend|magnesium',
 ]);
 
 // Helper to ensure directory exists
@@ -225,6 +237,31 @@ function runAudit() {
           isMatch = false;
         }
 
+        // Chemistry-aware and Clinical profile distinction filtering:
+        // Do not redirect if they are both active and have different clinical features (mechanisms, effects, or evidence levels).
+        if (isMatch) {
+          const mechanisms1 = new Set(item1.mechanisms || []);
+          const mechanisms2 = new Set(item2.mechanisms || []);
+          const effects1 = new Set(item1.effects || []);
+          const effects2 = new Set(item2.effects || []);
+
+          const hasDifferentMechanisms = mechanisms1.size > 0 && mechanisms2.size > 0 && 
+            (![...mechanisms1].every(m => mechanisms2.has(m)) || ![...mechanisms2].every(m => mechanisms1.has(m)));
+
+          const hasDifferentEffects = effects1.size > 0 && effects2.size > 0 &&
+            (![...effects1].every(e => effects2.has(e)) || ![...effects2].every(e => effects1.has(e)));
+
+          const hasDistinctEvidence = item1.evidence_tier && item2.evidence_tier &&
+            item1.evidence_tier.toLowerCase().trim() !== item2.evidence_tier.toLowerCase().trim();
+
+          const hasDistinctEvidenceGrade = item1.evidence_grade && item2.evidence_grade &&
+            item1.evidence_grade.toLowerCase().trim() !== item2.evidence_grade.toLowerCase().trim();
+
+          if (hasDifferentMechanisms || hasDifferentEffects || hasDistinctEvidence || hasDistinctEvidenceGrade) {
+            isMatch = false;
+          }
+        }
+
         if (isMatch) {
           group.push(item2);
           matchDetails.push({ slug: item2.slug, confidence, reason });
@@ -287,8 +324,8 @@ function runAudit() {
   ensureDirExists('reports');
 
   // Write JSON redirects
-  fs.writeFileSync('reports/slug-redirects.json', JSON.stringify(allRedirects, null, 2));
-  console.log(`Wrote reports/slug-redirects.json containing ${Object.keys(allRedirects).length} redirects.`);
+  fs.writeFileSync('reports/slug-redirects.proposed.json', JSON.stringify(allRedirects, null, 2));
+  console.log(`Wrote reports/slug-redirects.proposed.json containing ${Object.keys(allRedirects).length} redirects.`);
 
   // Write Markdown report
   let md = `# Duplicate Slug Audit Report

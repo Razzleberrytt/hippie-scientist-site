@@ -2,15 +2,24 @@ import fs from 'fs';
 import path from 'path';
 
 function runGenerateRedirects() {
-  const jsonPath = 'reports/slug-redirects.json';
-  const redirectsPath = 'public/_redirects';
-
+  const isConfirmed = process.argv.includes('--confirmed');
+  let jsonPath = 'reports/slug-redirects.json';
   if (!fs.existsSync(jsonPath)) {
-    console.error(`Error: Duplicate slug redirect map "${jsonPath}" is missing.`);
-    console.error('Please run the duplicate slug audit first: npm run audit:duplicates');
-    process.exit(1);
+    if (isConfirmed && fs.existsSync('reports/slug-redirects.proposed.json')) {
+      jsonPath = 'reports/slug-redirects.proposed.json';
+    } else {
+      console.error(`Error: Duplicate slug redirect map "${jsonPath}" is missing.`);
+      if (fs.existsSync('reports/slug-redirects.proposed.json')) {
+        console.error('Proposed redirects exist at "reports/slug-redirects.proposed.json".');
+        console.error('Please review them and rename to "reports/slug-redirects.confirmed.json" (or "reports/slug-redirects.json"), or run: npm run generate:redirects -- --confirmed');
+      } else {
+        console.error('Please run the duplicate slug audit first: npm run audit:duplicates');
+      }
+      process.exit(1);
+    }
   }
 
+  const redirectsPath = 'public/_redirects';
   const newRedirects = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
   let existingContent = '';
   if (fs.existsSync(redirectsPath)) {
