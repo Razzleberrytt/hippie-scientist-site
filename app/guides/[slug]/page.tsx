@@ -9,16 +9,14 @@ interface Props {
   params: Promise<{ slug: string }>;
 }
 
+// NOTE: kava, elderberry, passionflower, and the rhodiola hub (complete-guide,
+// extract-vs-powder, energy, sleep-stack) were migrated to dedicated rich component
+// pages under app/guides/<slug>/page.tsx (Phase 2). They are removed here to avoid
+// static-export route collisions. ashwagandha and lions-mane remain on this legacy
+// renderer until they are upgraded to the dedicated pattern.
 const GUIDE_SLUGS = [
   "ashwagandha",
-  "kava",
-  "elderberry",
-  "passionflower",
   "lions-mane",
-  "rhodiola-complete-guide",
-  "rhodiola-extract-vs-powder",
-  "rhodiola-energy",
-  "rhodiola-sleep-stack",
 ];
 
 const SITE_URL = "https://thehippiescientist.net";

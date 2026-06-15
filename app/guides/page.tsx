@@ -75,6 +75,17 @@ const CONDITIONS = [
   },
 ]
 
+const SINGLE_HERB_GUIDES = [
+  { href: '/guides/rhodiola-complete-guide', title: 'Complete Rhodiola Guide', subtitle: 'Forms, benefits, dosing & evidence — pillar of the Rhodiola hub' },
+  { href: '/guides/rhodiola-energy', title: 'Rhodiola for Energy', subtitle: 'Sustained energy without the stimulant crash' },
+  { href: '/guides/rhodiola-extract-vs-powder', title: 'Rhodiola: Extract vs Powder', subtitle: 'Which form actually works — absorption, cost & evidence' },
+  { href: '/guides/rhodiola-sleep-stack', title: 'Rhodiola + Magnesium for Sleep', subtitle: 'The adaptogen stack for the "wired but tired" cycle' },
+  { href: '/guides/turmeric-curcumin', title: 'Turmeric & Curcumin', subtitle: 'Bioavailability, anti-inflammatory evidence & forms' },
+  { href: '/guides/elderberry', title: 'Elderberry for Colds & Flu', subtitle: 'Meta-analysis evidence, safety, and quality' },
+  { href: '/guides/passionflower', title: 'Passionflower', subtitle: 'Evidence for anxiety and sleep, with honest limits' },
+  { href: '/guides/kava', title: 'Kava (Harm Reduction)', subtitle: 'Anxiety evidence weighed against serious liver risk' },
+]
+
 const COMPARISONS = [
   { href: '/guides/magnesium-vs-melatonin', title: 'Magnesium vs Melatonin', subtitle: 'Relaxation support vs sleep-timing support' },
   { href: '/guides/sleep-herbs-vs-melatonin', title: 'Sleep Herbs vs Melatonin', subtitle: 'Herbals vs hormone for sleep onset' },
@@ -199,6 +210,35 @@ export default function GuidesPage() {
           </div>
         </section>
       ))}
+
+      {/* Single-herb evidence guides */}
+      <section className="space-y-4">
+        <div>
+          <p className="eyebrow-label">Single-herb evidence guides</p>
+          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+            Herb &amp; compound deep-dives
+          </h2>
+          <p className="mt-2 text-sm text-muted">
+            Long-form, evidence-graded profiles for individual herbs — mechanism, dosing, safety, and product
+            context. Includes the Rhodiola hub (pillar plus three focused angles).
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {SINGLE_HERB_GUIDES.map((g) => (
+            <Link
+              key={g.href}
+              href={g.href}
+              className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
+            >
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
+                Guide
+              </p>
+              <h3 className="mt-2 text-base font-semibold tracking-tight text-ink">{g.title}</h3>
+              <p className="mt-1 text-xs text-muted">{g.subtitle}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {/* Comparisons */}
       <section className="space-y-4">
