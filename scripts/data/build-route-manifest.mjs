@@ -10,7 +10,7 @@ const DATA_DIR = DATA_DIR_ARG
 
 const OUT_DIR = path.join(DATA_DIR, 'runtime-manifests')
 const MAX_ROUTES_PER_GROUP = 5000
-const SITE_URL = 'https://www.thehippiescientist.net'
+const SITE_URL = 'https://thehippiescientist.net'
 
 function text(value) {
   return String(value ?? '').trim()

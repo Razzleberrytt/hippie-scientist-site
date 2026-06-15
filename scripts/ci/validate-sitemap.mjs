@@ -3,7 +3,7 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const REQUIRE_BUILT = process.argv.includes('--require-built')
-const CANONICAL_HOST = 'www.thehippiescientist.net'
+const CANONICAL_HOST = 'thehippiescientist.net'
 
 function parseXmlUrls(xmlContent) {
   const urls = []
