@@ -5,6 +5,7 @@ import { builtinModules } from 'node:module'
 
 const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`)])
 const optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js'])
+const generatedImports = new Set(['content-collections'])
 const sourceRoots = ['app', 'components', 'src', 'lib', 'scripts', 'data', 'config']
 const sourceFiles = ['next.config.mjs', 'tailwind.config.ts', 'postcss.config.js']
 const ignored = new Set(['node_modules', '.next', 'out', 'dist', 'coverage', '.git'])
@@ -86,7 +87,13 @@ const parseUndeclaredDependencies = ({ root, declared }) => {
 
       const name = spec.startsWith('@') ? spec.split('/').slice(0, 2).join('/') : spec.split('/')[0]
 
-      if (builtinSet.has(spec) || builtinSet.has(name) || optionalProbes.has(name) || declared.has(name)) continue
+      if (
+        builtinSet.has(spec) ||
+        builtinSet.has(name) ||
+        optionalProbes.has(name) ||
+        generatedImports.has(name) ||
+        declared.has(name)
+      ) continue
 
       unresolved.push(`${rel}: ${name}`)
     }

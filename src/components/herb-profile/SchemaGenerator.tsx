@@ -1,8 +1,8 @@
 import {
-  serializeJsonLd,
   buildHerbProductSchema,
   buildHerbArticleSchema,
 } from '@/lib/schema-injector'
+import JsonLd from '@/components/seo/JsonLd'
 
 export type HerbSchemaGeneratorProps = {
   /** Common display name, e.g. "Ashwagandha" */
@@ -76,14 +76,8 @@ export default function HerbSchemaGenerator({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(productSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: serializeJsonLd(articleSchema) }}
-      />
+      <JsonLd schema={productSchema} />
+      <JsonLd schema={articleSchema} />
     </>
   )
 }

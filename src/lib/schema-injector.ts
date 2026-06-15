@@ -6,9 +6,8 @@
  * They are deliberately separate from the @graph to avoid type conflicts with
  * MedicalWebPage nodes and to allow per-section injection.
  *
- * Serialization: serializeJsonLd() centralises the HTML-safe escaping that
- * SchemaOrg.tsx currently applies inline. Use it whenever writing JSON-LD into
- * dangerouslySetInnerHTML to prevent </script>-injection attacks.
+ * Serialization: serializeJsonLd() centralises the HTML-safe escaping used when
+ * writing JSON-LD script payloads.
  */
 
 export type JsonLdNode = Record<string, unknown>
