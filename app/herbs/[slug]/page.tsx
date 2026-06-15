@@ -70,6 +70,14 @@ const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
   'passiflora-incarnata': 'passionflower',
   'piper-methysticum': 'kava',
   'ganoderma-lucidum': 'reishi',
+  // Duplicate / thin near-identical profiles consolidated to a single canonical
+  // (see public/_redirects and app/sitemap.ts DEPRECATED_HERBS).
+  'berberis-vulgaris': 'berberis',
+  'berberis-aristata': 'berberis',
+  'coptis-chinensis': 'coptis',
+  'boswellia-carterii': 'boswellia-serrata',
+  'morus-alba': 'mulberry-leaf',
+  phellodendron: 'phellodendron-amurense',
 }
 
 export async function generateStaticParams() {

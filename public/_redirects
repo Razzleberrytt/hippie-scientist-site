@@ -258,3 +258,19 @@
 /herbs/fadogia-agrestis/ /compounds/fadogia-agrestis/ 301
 /herbs/black-seed-oil /compounds/black-seed-oil 301
 /herbs/black-seed-oil/ /compounds/black-seed-oil/ 301
+# Duplicate/thin herb profiles consolidated to a single canonical (audit dedup)
+/herbs/berberis-vulgaris /herbs/berberis 301
+/herbs/berberis-vulgaris/ /herbs/berberis/ 301
+/herbs/berberis-aristata /herbs/berberis 301
+/herbs/berberis-aristata/ /herbs/berberis/ 301
+/herbs/coptis-chinensis /herbs/coptis 301
+/herbs/coptis-chinensis/ /herbs/coptis/ 301
+/herbs/boswellia-carterii /herbs/boswellia-serrata 301
+/herbs/boswellia-carterii/ /herbs/boswellia-serrata/ 301
+/herbs/morus-alba /herbs/mulberry-leaf 301
+/herbs/morus-alba/ /herbs/mulberry-leaf/ 301
+/herbs/phellodendron /herbs/phellodendron-amurense 301
+/herbs/phellodendron/ /herbs/phellodendron-amurense/ 301
+# Duplicate article consolidated to the comprehensive guide (audit dedup)
+/articles/ashwagandha-complete-guide-benefits-dosage-evidence /articles/ashwagandha 301
+/articles/ashwagandha-complete-guide-benefits-dosage-evidence/ /articles/ashwagandha/ 301

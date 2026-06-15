@@ -395,6 +395,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'passiflora-incarnata',
     'piper-methysticum',
     'ganoderma-lucidum',
+    // Duplicate / thin profiles consolidated to a single canonical
+    // (redirected in public/_redirects; canonical map in app/herbs/[slug]/page.tsx).
+    'berberis-vulgaris',
+    'berberis-aristata',
+    'coptis-chinensis',
+    'boswellia-carterii',
+    'morus-alba',
+    'phellodendron',
   ]);
 
   const DEPRECATED_COMPOUNDS = new Set([
