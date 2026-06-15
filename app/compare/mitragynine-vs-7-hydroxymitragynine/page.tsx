@@ -111,9 +111,17 @@ export default function MitragynineVsSevenOhPage() {
             7-hydroxymitragynine. Human pharmacokinetic data exist, but controlled outcome data remain
             limited.
           </p>
-          <Link href="/articles/mitragynine" className="chip-readable">
-            Read the mitragynine monograph
-          </Link>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/articles/mitragynine" className="chip-readable">
+              Read the mitragynine monograph
+            </Link>
+            <Link href="/compounds/mitragynine" className="chip-readable">
+              View mitragynine profile
+            </Link>
+            <Link href="/compounds/kratom" className="chip-readable">
+              View kratom profile
+            </Link>
+          </div>
         </article>
 
         <article className="card-premium p-6 space-y-4">
@@ -188,6 +196,9 @@ export default function MitragynineVsSevenOhPage() {
         <div className="flex flex-wrap gap-3">
           <Link href="/guides/kratom-7oh-withdrawal-management" className="chip-readable">
             Withdrawal management guide
+          </Link>
+          <Link href="/compounds/kratom" className="chip-readable">
+            Kratom reference profile
           </Link>
           <Link href="/safety-checker" className="chip-readable">
             Safety checker

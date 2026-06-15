@@ -8660,6 +8660,42 @@
     ]
   },
   {
+    "slug": "kratom",
+    "name": "Kratom",
+    "summary": "Kratom is the common name for Mitragyna speciosa leaf, a botanical source of mitragynine and trace 7-hydroxymitragynine. This reference-only profile distinguishes traditional leaf material from concentrated or enhanced alkaloid products and emphasizes FDA warnings, dependence and withdrawal risk, product variability, and state-by-state legal uncertainty.",
+    "primary_effects": [
+      "research_only",
+      "opioid_receptor_activity",
+      "dependence_risk"
+    ],
+    "effects": [
+      "research_only",
+      "opioid_receptor_activity",
+      "dependence_risk"
+    ],
+    "evidence_grade": "C",
+    "evidence_tier": "Limited Human Evidence",
+    "profile_status": "partial",
+    "runtime_export_decision": "limited",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 93,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  {
     "slug": "krill-oil",
     "name": "Krill Oil",
     "summary": "Krill Oil is best framed as a conservative research profile with mechanistic evidence and a focus on Inflammation; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Inflammatory Signaling Modulation; Metabolic Regulation; Lipid Metabolism Support, not treatment claims.",
@@ -10257,6 +10293,42 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  {
+    "slug": "mitragynine",
+    "name": "Mitragynine",
+    "summary": "Mitragynine is the primary alkaloid in kratom leaf and a partial mu-opioid receptor agonist that can be metabolized by CYP3A4 into 7-hydroxymitragynine. This profile is educational and reference-only because dependence, withdrawal, product variability, medication interactions, and regulatory concerns remain important safety issues.",
+    "primary_effects": [
+      "research_only",
+      "opioid_receptor_activity",
+      "dependence_risk"
+    ],
+    "effects": [
+      "research_only",
+      "opioid_receptor_activity",
+      "dependence_risk"
+    ],
+    "evidence_grade": "C",
+    "evidence_tier": "Limited Human Evidence",
+    "profile_status": "partial",
+    "runtime_export_decision": "limited",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 93,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
       "safety-context",
       "summary-depth",
       "summary-quality-missing"

@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process'
 
 const rootDir = process.cwd()
 const dataDir = path.join(rootDir, 'public', 'data')
+const CURATED_REFERENCE_COMPOUND_SLUGS = new Set(['kratom', 'mitragynine'])
 
 function readJson(fileName, fallback = []) {
   const filePath = path.join(dataDir, fileName)
@@ -96,7 +97,7 @@ function run() {
   const previousCompounds = Array.isArray(previousManifest?.entities?.compounds) ? previousManifest.entities.compounds : []
 
   const workbookHerbs = readJson('workbook-herbs.json', [])
-  const workbookCompounds = readJson('workbook-compounds.json', [])
+  const workbookCompounds = readJson('compounds.json', [])
   const herbSummaryIndex = readJson('summary-indexes/herbs-summary.json', [])
   const mapData = readJson('workbook-herb-compound-map.json', [])
 
@@ -117,8 +118,11 @@ function run() {
     .sort((a, b) => a.slug.localeCompare(b.slug))
 
   const eligibleCompounds = (Array.isArray(workbookCompounds) ? workbookCompounds : [])
-    .filter((compound) => isCompoundEligible(compound, herbCounts))
-    .map((compound) => String(compound?.id ?? compound?.canonicalCompoundId ?? compound?.slug ?? '').trim())
+    .filter((compound) => {
+      const slug = text(compound?.slug ?? compound?.id ?? compound?.canonicalCompoundId)
+      return isCompoundEligible(compound, herbCounts) || (CURATED_REFERENCE_COMPOUND_SLUGS.has(slug) && canIndex(compound))
+    })
+    .map((compound) => String(compound?.slug ?? compound?.id ?? compound?.canonicalCompoundId ?? '').trim())
     .filter(Boolean)
   const uniqueEligibleCompounds = [...new Set(eligibleCompounds)].sort((a, b) => a.localeCompare(b))
 
