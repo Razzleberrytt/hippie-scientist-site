@@ -22,7 +22,11 @@ const LEAK_PATTERNS = [
   { regex: /high.speed phytochemical/i, name: 'phytochemical ingestion template' },
   { regex: /internal cross-linking supports/i, name: 'cross-linking template' },
   { regex: /\bis tracked for\b/i, name: 'tracked-for template' },
-  { regex: /it is best framed (as|around|for)/i, name: 'best-framed template' }
+  { regex: /it is best framed (as|around|for)/i, name: 'best-framed template' },
+  { regex: /decision-ready summary/i, name: 'decision-ready summary prefix' },
+  { regex: /evidence level:/i, name: 'evidence-level template' },
+  { regex: /scispace evidence pass|evidence pass/i, name: 'evidence-pass template' },
+  { regex: /enriched in bulk|bulk mode/i, name: 'bulk-enrichment template' }
 ];
 
 // Fields that are displayed on the frontend to users

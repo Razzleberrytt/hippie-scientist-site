@@ -78,6 +78,10 @@ const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
   'boswellia-carterii': 'boswellia-serrata',
   'morus-alba': 'mulberry-leaf',
   phellodendron: 'phellodendron-amurense',
+  'astragalus-membranaceus': 'astragalus',
+  'atractylodes-macrocephala': 'atractylodes',
+  'angelica-sinensis': 'dong-quai',
+  'angelica-root': 'angelica-archangelica',
 }
 
 export async function generateStaticParams() {
