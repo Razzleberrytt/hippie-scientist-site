@@ -143,6 +143,7 @@ export function GlobalSearchModal() {
             onClick={close}
             aria-hidden="true"
           />
+          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- modal dialog requires onKeyDown for Escape/Tab focus trapping */}
           <div
             ref={dialogRef}
             role="dialog"

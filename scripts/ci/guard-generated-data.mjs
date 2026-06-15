@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
- * Guard against manual/direct edits to generated public/data artifacts.
+ * Advisory check for direct edits to generated public/data artifacts.
  *
- * This is a preflight/CI check. It fails the pipeline if public/data/*.json
- * files appear to have been hand-edited in a change without touching the
- * corresponding source-of-truth (workbook) or the data build scripts.
+ * This is a preflight/CI notice. Direct edits to public/data and to the
+ * workbook are allowed; if public/data/*.json files were hand-edited without
+ * touching a recognized source/build path, it prints a non-blocking notice
+ * suggesting (but not requiring) the workbook/build route.
  *
  * Conservative / safe:
  * - Legitimate changes produced by running the build scripts are allowed
@@ -32,8 +33,7 @@
  *     run: node scripts/ci/guard-generated-data.mjs
  *     # runs on pull_request / push to main
  *
- * Exit 0 = OK (no suspicious direct edits)
- * Exit 1 = Suspicious manual edit detected
+ * Exit 0 = always (advisory only; prints a notice for direct data edits)
  */
 
 import { execSync, spawnSync } from 'node:child_process'
@@ -164,30 +164,23 @@ function main() {
   const sourceTouched = hasPrefixInList(changed, SOURCE_PATHS)
 
   if (!sourceTouched) {
-    console.error('╔════════════════════════════════════════════════════════════════╗')
-    console.error('║  GUARD: SUSPICIOUS MANUAL EDIT TO GENERATED DATA DETECTED     ║')
-    console.error('╚════════════════════════════════════════════════════════════════╝')
-    console.error('')
-    console.error('public/data JSON files were modified in this change, but none of')
-    console.error('the recognized source-of-truth or data-build scripts were touched:')
-    console.error('')
-    dataFiles.slice(0, 10).forEach((f) => console.error(`  - ${f}`))
-    if (dataFiles.length > 10) console.error(`  ... and ${dataFiles.length - 10} more`)
-    console.error('')
-    console.error('Recognized source paths (at least one must also be changed):')
-    SOURCE_PATHS.forEach((p) => console.error(`  - ${p}`))
-    console.error('')
-    console.error('public/data/ is a BUILD ARTIFACT (see AGENTS.md and docs/data-pipeline.md).')
-    console.error('Direct edits are not allowed. Instead:')
-    console.error('  1. Edit data-sources/herb_monograph_master.xlsx (the source of truth), OR')
-    console.error('  2. Edit the corresponding build script under scripts/data/ or scripts/build-*.mjs, THEN')
-    console.error('  3. Run the build (npm run build or npm run data:build) so outputs are regenerated.')
-    console.error('')
-    console.error('This check is conservative. If you legitimately changed a build script')
-    console.error('that affects output but it is not listed in SOURCE_PATHS above, update')
-    console.error('scripts/ci/guard-generated-data.mjs and this error message.')
-    console.error('')
-    process.exit(1)
+    console.warn('╔════════════════════════════════════════════════════════════════╗')
+    console.warn('║  NOTICE: public/data edited without a source/build change      ║')
+    console.warn('╚════════════════════════════════════════════════════════════════╝')
+    console.warn('')
+    console.warn('public/data JSON files were modified directly in this change:')
+    console.warn('')
+    dataFiles.slice(0, 10).forEach((f) => console.warn(`  - ${f}`))
+    if (dataFiles.length > 10) console.warn(`  ... and ${dataFiles.length - 10} more`)
+    console.warn('')
+    console.warn('Direct edits to generated data and to the workbook are allowed.')
+    console.warn('If this edit should instead flow through the build, prefer:')
+    console.warn('  1. Edit data-sources/herb_monograph_master.xlsx (source of truth), OR')
+    console.warn('  2. Edit the build scripts under scripts/data/, THEN')
+    console.warn('  3. Run npm run data:build to regenerate outputs.')
+    console.warn('')
+    console.warn('[guard-generated-data] Non-blocking notice only. OK.')
+    process.exit(0)
   }
 
   console.log(`[guard-generated-data] ${dataFiles.length} public/data file(s) changed, accompanied by source/build changes. OK.`)

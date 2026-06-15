@@ -303,10 +303,10 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
   if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
     if ((CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)) {
-      return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.5 }
+      return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.7 }
     }
     if (passesGeneratedProfileQualityGate(pageData)) {
-      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.5 }
+      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
     }
     return { index: false, follow: true, reason: 'generated-herb-quality-gate-failed', priority: 0 }
   }
@@ -314,10 +314,10 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
   if (/^\/compounds\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
     if ((CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)) {
-      return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.5 }
+      return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.7 }
     }
     if (passesGeneratedProfileQualityGate(pageData)) {
-      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.5 }
+      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
     }
     return { index: false, follow: true, reason: 'generated-compound-quality-gate-failed', priority: 0 }
   }

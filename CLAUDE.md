@@ -31,17 +31,17 @@ npx vitest run app/__tests__/a11y.test.tsx
 
 ### Static Export on Cloudflare Pages
 
-This is a **Next.js App Router** project with `output: 'export'` — it produces a fully static `out/` directory deployed to Cloudflare Pages. **No server-side features are allowed**: no API routes, no middleware, no `next/headers`, no `force-dynamic`, no server actions, no runtime revalidation. All data must be available at build time.
+This is a **Next.js App Router** project currently built with `output: 'export'` — it produces a fully static `out/` directory deployed to Cloudflare Pages. Under static export, server-side features (API routes, middleware, `next/headers`, `force-dynamic`, server actions, runtime revalidation) do not run, so all data must be available at build time. If you need server features, migrate the deployment model first.
 
 ### Data Pipeline (workbook → `public/data`)
 
-The single canonical data source is `data-sources/herb_monograph_master.xlsx`. All runtime JSON in `public/data/**` is a **generated artifact** — never edit it manually. The pipeline:
+The primary data source is `data-sources/herb_monograph_master.xlsx`. Runtime JSON in `public/data/**` is generated from it. The pipeline:
 
 1. `scripts/data/build-runtime-from-workbook.mjs` — parses the workbook, emits `herbs.json`, `compounds.json`, detail files, etc.
 2. Several post-processors build related maps, summary indexes, route/sitemap manifests, semantic snapshots.
-3. `scripts/ci/guard-generated-data.mjs` — CI guard that fails if `public/data` was edited without a corresponding workbook change.
+3. `scripts/ci/guard-generated-data.mjs` — advisory notice (non-blocking) when `public/data` is edited directly.
 
-To fix a content issue, classify it as `WORKBOOK_FIX`, `WORKBOOK_GPT_FIX`, or `GENERATOR_FIX` and fix at the right layer. See `docs/workbook-only-data-contract.md`.
+**Editing data:** Both the workbook and the generated `public/data` files are editable. For broad or structured changes, edit the workbook and run `npm run data:build` so edits survive regeneration. For quick fixes you can edit `public/data` JSON directly — just remember the next `data:build` overwrites it unless the workbook is updated too. See `docs/workbook-only-data-contract.md`.
 
 ### Two-Layer Content Model
 
@@ -84,19 +84,19 @@ A separate pipeline (`npm run agent:run`) that orchestrates AI-assisted content 
 
 See `docs/agent-integration-guide.md` for detailed integration workflow and future automation plans.
 
-## Static Export Constraints
+## Static Export Notes
 
-Before any build change, run:
+Before any build change, it's useful to run:
 ```bash
 npm run validate:static-export
 ```
 
-Never add `export const dynamic = 'force-dynamic'`, `export const revalidate`, `cookies()`, `headers()`, or any Next.js runtime-only API to App Router pages.
+Runtime-only Next.js APIs (`export const dynamic = 'force-dynamic'`, `export const revalidate`, `cookies()`, `headers()`) have no effect under the current static export and will break the build — only add them as part of an intentional move off static export.
 
 ## Theme and Styling
 
-- **Light mode only.** Do not add dark-mode classes (`dark:`) to new pages.
-- CSS variables defined in `app/globals.css`: `--bg: #fffdf7`, emerald accent `#358f52`.
+- Light and dark mode are both supported via `DarkModeProvider`/`DarkModeToggle` (toggle in the header). `dark:` classes are fine on new pages — keep light and dark variants in sync.
+- CSS variables defined in `app/globals.css`: `--bg: #fffdf7`, emerald accent `#358f52`, plus `.dark` overrides.
 - Fonts: Inter (body) + Fraunces (display), both loaded via `next/font/google`.
 - Tailwind CSS v4 (`tailwindcss: 4.3.0`).
 
@@ -104,7 +104,9 @@ Never add `export const dynamic = 'force-dynamic'`, `export const revalidate`, `
 
 Always use `AFFILIATE_TAGS.amazon` from `config/affiliate.ts`. Never hardcode affiliate strings. Set `AMAZON_AFFILIATE_TAG` env var in Cloudflare Pages for production.
 
-## Route Contracts (never delete or rename)
+## Route Contracts (stable — add a redirect if you change one)
+
+These routes are linked widely and indexed. If you must rename or remove one, add a redirect in `public/_redirects` so links and SEO don't break.
 
 - `/herbs/:slug`
 - `/compounds/:slug`

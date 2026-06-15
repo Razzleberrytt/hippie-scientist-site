@@ -448,7 +448,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
     if (!indexableHerbsSlugs.has(herb.slug)) return;
 
-    addRoute(`/herbs/${herb.slug}`, 'monthly', 0.5, herb.lastUpdated || herb.updatedAt, herb);
+    addRoute(`/herbs/${herb.slug}`, 'monthly', 0.7, herb.lastUpdated || herb.updatedAt, herb);
   });
 
   compoundsData.forEach((compound) => {
@@ -456,7 +456,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (DEPRECATED_COMPOUNDS.has(compound.slug.toLowerCase())) return;
     if (!indexableCompoundsSlugs.has(compound.slug)) return;
 
-    addRoute(`/compounds/${compound.slug}`, 'monthly', 0.5, compound.lastUpdated || compound.updatedAt, compound);
+    addRoute(`/compounds/${compound.slug}`, 'monthly', 0.7, compound.lastUpdated || compound.updatedAt, compound);
   });
 
   const articleSlugs = new Set<string>();
