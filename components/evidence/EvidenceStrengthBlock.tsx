@@ -89,6 +89,7 @@ export default function EvidenceStrengthBlock({
           <p className="text-[11px] font-bold uppercase tracking-wider text-amber-800">
             Evidence caveats
           </p>
+          {/* eslint-disable-next-line jsx-a11y/no-redundant-roles -- explicit list role restores semantics dropped by Safari/VoiceOver when list-style is removed */}
           <ul className="space-y-1" role="list">
             {ev.downgradeReasons.map((reason) => (
               <li key={reason} className="flex items-start gap-2 text-xs text-amber-900">
@@ -112,6 +113,7 @@ export default function EvidenceStrengthBlock({
             </span>
             Evidence limitations ({evidenceLimitations.length})
           </summary>
+          {/* eslint-disable-next-line jsx-a11y/no-redundant-roles -- explicit list role restores semantics dropped by Safari/VoiceOver when list-style is removed */}
           <ul className="mt-2 space-y-1.5 pl-4" role="list">
             {evidenceLimitations.map((item) => (
               <li key={item} className="flex items-start gap-2 text-xs text-[#46574d]">
