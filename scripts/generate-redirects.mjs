@@ -1,22 +1,35 @@
 import fs from 'fs';
-import path from 'path';
 
 function runGenerateRedirects() {
   const isConfirmed = process.argv.includes('--confirmed');
-  let jsonPath = 'reports/slug-redirects.json';
+  const jsonPath = 'reports/slug-redirects.confirmed.json';
+  const legacyJsonPath = 'reports/slug-redirects.json';
+  const proposedJsonPath = 'reports/slug-redirects.proposed.json';
+
+  if (!isConfirmed) {
+    console.error('Error: Refusing to generate duplicate-slug redirects without explicit confirmation.');
+    console.error('Review reports/duplicate-slugs.md, then create reports/slug-redirects.confirmed.json and rerun with --confirmed.');
+    if (fs.existsSync(proposedJsonPath)) {
+      console.error(`Proposed redirects are available at "${proposedJsonPath}".`);
+    }
+    process.exit(1);
+  }
+
   if (!fs.existsSync(jsonPath)) {
-    if (isConfirmed && fs.existsSync('reports/slug-redirects.proposed.json')) {
-      jsonPath = 'reports/slug-redirects.proposed.json';
-    } else {
-      console.error(`Error: Duplicate slug redirect map "${jsonPath}" is missing.`);
-      if (fs.existsSync('reports/slug-redirects.proposed.json')) {
-        console.error('Proposed redirects exist at "reports/slug-redirects.proposed.json".');
-        console.error('Please review them and rename to "reports/slug-redirects.confirmed.json" (or "reports/slug-redirects.json"), or run: npm run generate:redirects -- --confirmed');
-      } else {
-        console.error('Please run the duplicate slug audit first: npm run audit:duplicates');
-      }
+    if (fs.existsSync(legacyJsonPath)) {
+      console.error(`Error: Found legacy redirect map "${legacyJsonPath}", but this script now requires "${jsonPath}".`);
+      console.error('Manually review the legacy map and rename it only after confirming every redirect is safe.');
       process.exit(1);
     }
+
+    if (fs.existsSync(proposedJsonPath)) {
+      console.error(`Error: Proposed redirects exist at "${proposedJsonPath}", but they are not safe to apply directly.`);
+      console.error(`Review them and copy only approved redirects to "${jsonPath}", then rerun with --confirmed.`);
+    } else {
+      console.error(`Error: Confirmed duplicate slug redirect map "${jsonPath}" is missing.`);
+      console.error('Run npm run audit:duplicates, review the report, and create a confirmed redirect map.');
+    }
+    process.exit(1);
   }
 
   const redirectsPath = 'public/_redirects';

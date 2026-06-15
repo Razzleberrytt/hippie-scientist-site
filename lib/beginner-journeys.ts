@@ -3,7 +3,7 @@ export const beginnerJourneys = [
     slug: 'new-to-sleep-support',
     title: 'New to sleep support?',
     description: 'Learn how calming compounds, circadian support, recovery, stress, and sleep architecture differ before trying random stacks.',
-    routes: ['/sleep-supplements', '/ecosystems/sleep', '/compare/glycine-vs-theanine'],
+    routes: ['/best-supplements-for-sleep', '/ecosystems/sleep', '/compare/glycine-vs-theanine'],
   },
   {
     slug: 'improve-focus',
