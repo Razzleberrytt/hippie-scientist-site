@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated on 2026-06-14T12:39:13.467Z
+Generated on 2026-06-15T11:52:40.459Z
 
 This file lists all active Page Router routes compiled by Next.js static export.
 
@@ -149,15 +149,22 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/guides/best-herbs-for-stress-and-anxiety-at-night` | static | [`app/guides/best-herbs-for-stress-and-anxiety-at-night/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-herbs-for-stress-and-anxiety-at-night/page.tsx) |
 | `/guides/best-natural-sleep-aids-that-work` | static | [`app/guides/best-natural-sleep-aids-that-work/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-natural-sleep-aids-that-work/page.tsx) |
 | `/guides/best-supplements-for-overthinking` | static | [`app/guides/best-supplements-for-overthinking/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-supplements-for-overthinking/page.tsx) |
+| `/guides/elderberry` | static | [`app/guides/elderberry/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/elderberry/page.tsx) |
 | `/guides/focus-without-caffeine-crash` | static | [`app/guides/focus-without-caffeine-crash/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/focus-without-caffeine-crash/page.tsx) |
 | `/guides/how-to-lower-cortisol-naturally` | static | [`app/guides/how-to-lower-cortisol-naturally/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/how-to-lower-cortisol-naturally/page.tsx) |
+| `/guides/kava` | static | [`app/guides/kava/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/kava/page.tsx) |
 | `/guides/kratom-7oh-withdrawal-management` | static | [`app/guides/kratom-7oh-withdrawal-management/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/kratom-7oh-withdrawal-management/page.tsx) |
 | `/guides/magnesium-for-sleep` | static | [`app/guides/magnesium-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/magnesium-for-sleep/page.tsx) |
 | `/guides/magnesium-vs-melatonin` | static | [`app/guides/magnesium-vs-melatonin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/magnesium-vs-melatonin/page.tsx) |
 | `/guides/natural-alternatives-to-anxiety-medication` | static | [`app/guides/natural-alternatives-to-anxiety-medication/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/natural-alternatives-to-anxiety-medication/page.tsx) |
 | `/guides/natural-anxiolytics-beyond-ashwagandha` | static | [`app/guides/natural-anxiolytics-beyond-ashwagandha/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/natural-anxiolytics-beyond-ashwagandha/page.tsx) |
 | `/guides` | static | [`app/guides/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/page.tsx) |
+| `/guides/passionflower` | static | [`app/guides/passionflower/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/passionflower/page.tsx) |
 | `/guides/psychedelic-adjacent-herbs` | static | [`app/guides/psychedelic-adjacent-herbs/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/psychedelic-adjacent-herbs/page.tsx) |
+| `/guides/rhodiola-complete-guide` | static | [`app/guides/rhodiola-complete-guide/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/rhodiola-complete-guide/page.tsx) |
+| `/guides/rhodiola-energy` | static | [`app/guides/rhodiola-energy/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/rhodiola-energy/page.tsx) |
+| `/guides/rhodiola-extract-vs-powder` | static | [`app/guides/rhodiola-extract-vs-powder/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/rhodiola-extract-vs-powder/page.tsx) |
+| `/guides/rhodiola-sleep-stack` | static | [`app/guides/rhodiola-sleep-stack/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/rhodiola-sleep-stack/page.tsx) |
 | `/guides/sleep-herbs-vs-melatonin` | static | [`app/guides/sleep-herbs-vs-melatonin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/sleep-herbs-vs-melatonin/page.tsx) |
 | `/guides/supplements-for-brain-fog-and-fatigue` | static | [`app/guides/supplements-for-brain-fog-and-fatigue/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/supplements-for-brain-fog-and-fatigue/page.tsx) |
 | `/guides/turmeric-curcumin` | static | [`app/guides/turmeric-curcumin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/turmeric-curcumin/page.tsx) |

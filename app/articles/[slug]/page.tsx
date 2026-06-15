@@ -7,7 +7,7 @@ import BlogPostPage, {
   generateMetadata as generateBlogMetadata,
   generateStaticParams as generateBlogStaticParams,
 } from '@/components/blog/BlogPostPage'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '@/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, SITE_URL } from '@/lib/seo'
 import { formatDate } from '@/lib/blog-index'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
@@ -92,14 +92,14 @@ export async function generateMetadata({ params }: { params: ArticleRouteParams 
 
 function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) {
   const pageBreadcrumb = breadcrumbJsonLd([
-    { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
-    { name: article.title, url: `https://thehippiescientist.net/articles/${article.slug}` },
+    { name: 'Articles', url: `${SITE_URL}/articles/` },
+    { name: article.title, url: `${SITE_URL}/articles/${article.slug}/` },
   ])
 
   const articleLd = blogJsonLd({
     title: article.title,
     slug: article.slug,
-    date: article.lastUpdated,
+    date: article.date || article.lastUpdated,
     updated: article.lastUpdated,
     excerpt: article.description,
   }, `/articles/${article.slug}`)
@@ -110,6 +110,14 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
     additionalProperty: [
       { '@type': 'PropertyValue', name: 'evidenceGrade', value: article.evidenceGrade },
     ],
+    citation: article.references.map((ref: ArticleReference) => ({
+      '@type': 'ScholarlyArticle',
+      headline: ref.title,
+      author: ref.authors,
+      datePublished: ref.year,
+      identifier: ref.pmid ? `PMID:${ref.pmid}` : undefined,
+      url: ref.url || (ref.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/` : undefined),
+    })),
   }
 
   return (
@@ -168,6 +176,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
           <ArticleMdx code={article.body} />
         </div>
       </div>
+      <ReferencesTable refs={article.references} />
 
       <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
         Educational disclaimer: this monograph is for research literacy and harm-reduction context only. It is not medical advice, diagnosis, or a recommendation to use any substance. Talk with a licensed clinician about personal risks, medications, dependence, withdrawal, or urgent symptoms.

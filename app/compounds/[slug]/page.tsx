@@ -722,6 +722,30 @@ export default async function CompoundPage({ params }: PageProps) {
           </section>
         ) : null}
 
+        {normalizedSlug === '7-hydroxymitragynine' ? (
+          <section className="rounded-2xl border border-red-200 bg-white p-4 shadow-sm sm:p-5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-red-800">7-OH evidence hub</p>
+            <h2 className="mt-1 text-lg font-bold text-red-950">Read the full 7-OH monograph before interpreting this profile</h2>
+            <p className="mt-2 text-sm leading-6 text-red-900">
+              The workbook profile stays intentionally scannable. For the broader evidence review, including whole-leaf kratom context, human pharmacokinetics, concentrated-product safety signals, and regulatory caveats, use the long-form monograph.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/articles/7-hydroxymitragynine"
+                className="rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-950 hover:bg-red-100"
+              >
+                Full evidence monograph →
+              </Link>
+              <Link
+                href="/guides/kratom-7oh-withdrawal-management"
+                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+              >
+                Withdrawal management guide →
+              </Link>
+            </div>
+          </section>
+        ) : null}
+
         <RegulatoryStatusSection compound={compound} />
 
         {/* Section 1: Quick Stats */}
