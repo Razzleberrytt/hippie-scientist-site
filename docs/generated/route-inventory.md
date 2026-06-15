@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated on 2026-06-15T11:52:40.459Z
+Generated on 2026-06-15T12:28:48.625Z
 
 This file lists all active Page Router routes compiled by Next.js static export.
 
@@ -70,6 +70,7 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/compare/magnesium-glycinate-vs-l-threonate-for-sleep` | static | [`app/compare/magnesium-glycinate-vs-l-threonate-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/magnesium-glycinate-vs-l-threonate-for-sleep/page.tsx) |
 | `/compare/magnesium-glycinate-vs-magnesium-oxide` | static | [`app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx) |
 | `/compare/melatonin-vs-valerian-vs-magnesium-for-sleep` | static | [`app/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/page.tsx) |
+| `/compare/mitragynine-vs-7-hydroxymitragynine` | static | [`app/compare/mitragynine-vs-7-hydroxymitragynine/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/mitragynine-vs-7-hydroxymitragynine/page.tsx) |
 | `/compare` | static | [`app/compare/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/page.tsx) |
 | `/compare/rhodiola-vs-ashwagandha` | static | [`app/compare/rhodiola-vs-ashwagandha/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/rhodiola-vs-ashwagandha/page.tsx) |
 | `/compare/sleep-herbs-vs-melatonin` | static | [`app/compare/sleep-herbs-vs-melatonin/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/sleep-herbs-vs-melatonin/page.tsx) |

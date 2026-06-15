@@ -291,6 +291,8 @@ export default function Page() {
       <div className="mt-8 flex gap-4 flex-wrap">
         <Link href="/guides" className="text-sm font-medium text-emerald-700 hover:underline">Back to guides →</Link>
         <Link href="/articles/7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">Read the 7-OH monograph →</Link>
+        <Link href="/articles/mitragynine" className="text-sm font-medium text-emerald-700 hover:underline">Read the mitragynine monograph →</Link>
+        <Link href="/compare/mitragynine-vs-7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">Compare mitragynine vs 7-OH →</Link>
         <Link href="/compounds/7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">View 7-OH compound profile →</Link>
       </div>
     </div>
