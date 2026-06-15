@@ -138,7 +138,7 @@ const crossContentLinks: { goals: DiscoveryLink[]; compare: DiscoveryLink[]; lea
     { label: 'Non-stimulant focus goals', href: '/goals/non-stimulant-focus', description: 'Build focus plans with lower stimulation load.' },
   ],
   compare: [
-    { label: 'Dynamic comparison matrix', href: '/compare/dynamic', description: 'Contrast common strategy patterns first.' },
+    { label: 'Comparison table', href: '/compare', description: 'Contrast common strategy patterns first.' },
     { label: 'L-theanine vs magnesium', href: '/compare/l-theanine-vs-magnesium', description: 'Compare calming support styles with practical tradeoffs.' },
   ],
   learn: [

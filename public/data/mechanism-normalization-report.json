@@ -1,10 +1,10 @@
 {
   "reportVersion": 1,
   "canonicalMechanisms": 53,
-  "records": 882,
+  "records": 884,
   "fullyMappedRecords": 659,
   "partiallyMappedRecords": 155,
-  "unmappedRecords": 67,
+  "unmappedRecords": 69,
   "noRawMechanismRecords": 1,
   "unmappedMechanisms": [
     {
@@ -45,6 +45,14 @@
     },
     {
       "term": "additional mechanisms (preclinical)",
+      "count": 1
+    },
+    {
+      "term": "adrenergic and serotonergic activity",
+      "count": 1
+    },
+    {
+      "term": "adrenergic and serotonergic activity under study",
       "count": 1
     },
     {
@@ -109,6 +117,10 @@
     },
     {
       "term": "core body temperature reduction",
+      "count": 1
+    },
+    {
+      "term": "CYP3A4-mediated conversion to 7-hydroxymitragynine",
       "count": 1
     },
     {
@@ -216,6 +228,10 @@
       "count": 1
     },
     {
+      "term": "mitragynine-dominant alkaloid mixture",
+      "count": 1
+    },
+    {
       "term": "mucilage barrier formation",
       "count": 1
     },
@@ -241,6 +257,14 @@
     },
     {
       "term": "osmotic fluid retention",
+      "count": 1
+    },
+    {
+      "term": "partial mu-opioid receptor activity",
+      "count": 1
+    },
+    {
+      "term": "partial mu-opioid receptor agonism",
       "count": 1
     },
     {
@@ -313,6 +337,10 @@
     },
     {
       "term": "Substrate in muscle protein synthesis and energy production.",
+      "count": 1
+    },
+    {
+      "term": "trace or enriched 7-hydroxymitragynine depending on product",
       "count": 1
     },
     {

@@ -1606,14 +1606,7 @@
     "slug": "lions-mane",
     "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
     "title": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute. | The Hippie Scientist",
-    "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
-    "sources": [
-      { "title": "Improving Effects of the Mushroom Yamabushitake (Hericium erinaceus) on Mild Cognitive Impairment", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5987239/", "publisher": "PubMed Central / Phytother Res", "type": "rct" },
-      { "title": "Reduction of depression and anxiety by 4 weeks Hericium erinaceus intake (Mori et al., 2010)", "url": "https://pubmed.ncbi.nlm.nih.gov/20834180/", "publisher": "PubMed / Biomed Res", "type": "rct" },
-      { "title": "Lion's Mane Mushroom — Examine.com Research Summary", "url": "https://examine.com/supplements/lions-mane-mushroom/", "publisher": "Examine.com", "type": "review" },
-      { "title": "Hericium erinaceus and Nerve Growth Factor (NGF) — PubMed review", "url": "https://pubmed.ncbi.nlm.nih.gov/30806691/", "publisher": "PubMed / Int J Mol Sci", "type": "review" },
-      { "title": "Neurotrophic properties of the Lion's Mane medicinal mushroom: a systematic review", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6982118/", "publisher": "PubMed Central / Int J Mol Sci", "type": "review" }
-    ]
+    "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications."
   },
   {
     "slug": "syzygium-aromaticum",

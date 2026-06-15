@@ -652,7 +652,7 @@ export default async function CompoundPage({ params }: PageProps) {
           items={[
             { label: 'Home', href: '/' },
             { label: 'Compounds', href: '/compounds' },
-            { label: compound.name },
+            { label: displayName },
           ]}
         />
 
@@ -747,6 +747,36 @@ export default async function CompoundPage({ params }: PageProps) {
                 className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
               >
                 Compare mitragynine vs 7-OH →
+              </Link>
+            </div>
+          </section>
+        ) : null}
+
+        {normalizedSlug === 'mitragynine' || normalizedSlug === 'kratom' ? (
+          <section className="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-amber-800">Kratom alkaloid evidence hub</p>
+            <h2 className="mt-1 text-lg font-bold text-amber-950">Use the long-form evidence pages for context</h2>
+            <p className="mt-2 text-sm leading-6 text-amber-900">
+              This workbook-backed profile is intentionally reference-only. Read the monograph and comparison page for human pharmacokinetic context, 7-OH metabolism, concentrated-product risk, and regulatory caveats.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/articles/mitragynine"
+                className="rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-100"
+              >
+                Mitragynine monograph →
+              </Link>
+              <Link
+                href="/compare/mitragynine-vs-7-hydroxymitragynine"
+                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+              >
+                Compare mitragynine vs 7-OH →
+              </Link>
+              <Link
+                href="/guides/kratom-7oh-withdrawal-management"
+                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+              >
+                Withdrawal management guide →
               </Link>
             </div>
           </section>

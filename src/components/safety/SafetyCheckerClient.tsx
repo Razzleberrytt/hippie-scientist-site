@@ -63,7 +63,42 @@ const PHARMACEUTICAL_CLASSES: PharmaceuticalMedication[] = [
     class: 'Cardiovascular',
     safety_triggers: ['bp-lowering'],
     description: 'Beta-blockers, ACE inhibitors, and calcium channel blockers (e.g. Metoprolol, Lisinopril, Amlodipine).',
-  }
+  },
+  {
+    id: 'thyroid-med',
+    name: 'Thyroid Medications',
+    class: 'Endocrine',
+    safety_triggers: ['thyroid'],
+    description: 'Thyroid hormone replacement or antithyroid drugs (e.g. Levothyroxine, Liothyronine, Methimazole).',
+  },
+  {
+    id: 'statin',
+    name: 'Statins / Cholesterol Meds',
+    class: 'Cardiovascular',
+    safety_triggers: ['cyp-interaction', 'liver'],
+    description: 'Lipid-lowering drugs with interaction or liver-enzyme considerations (e.g. Atorvastatin, Simvastatin, Rosuvastatin).',
+  },
+  {
+    id: 'diabetes-med',
+    name: 'Metformin / Diabetes Meds',
+    class: 'Metabolic',
+    safety_triggers: ['glucose-lowering'],
+    description: 'Blood-sugar-lowering therapies including metformin, insulin, GLP-1 drugs, and sulfonylureas.',
+  },
+  {
+    id: 'hormonal-contraceptive',
+    name: 'Hormonal Contraceptives',
+    class: 'Hormonal',
+    safety_triggers: ['cyp-interaction', 'hormonal'],
+    description: 'Oral, patch, ring, implant, or injectable contraceptives that may be affected by enzyme-inducing botanicals.',
+  },
+  {
+    id: 'immunosuppressant',
+    name: 'Immunosuppressants',
+    class: 'Immune',
+    safety_triggers: ['immune-modulating'],
+    description: 'Transplant, autoimmune, or biologic immune-suppressing therapies (e.g. Tacrolimus, Cyclosporine, Methotrexate, biologics).',
+  },
 ]
 
 interface SafetyCheckerClientProps {

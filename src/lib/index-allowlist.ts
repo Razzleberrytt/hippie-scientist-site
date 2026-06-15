@@ -67,4 +67,6 @@ export const CURATED_INDEXABLE_COMPOUND_SLUGS = [
   'acetyl-l-carnitine',
   'l-tyrosine',
   'huperzine-a',
+  'kratom',
+  'mitragynine',
 ] as const

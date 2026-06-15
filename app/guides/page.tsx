@@ -66,8 +66,8 @@ const CONDITIONS = [
     ],
   },
   {
-    label: 'Cognitive Performance',
-    slug: 'cognition',
+    label: 'Metabolic & Hormonal Health',
+    slug: 'metabolic-hormonal',
     guides: [
       { href: '/guides/best-supplements-for-fat-loss', title: 'Best Supplements for Fat Loss', readingTime: '9 min', evidenceStrength: 'Moderate' },
       { href: '/guides/natural-testosterone-boosters', title: 'Natural Testosterone Boosters', readingTime: '9 min', evidenceStrength: 'Moderate' },

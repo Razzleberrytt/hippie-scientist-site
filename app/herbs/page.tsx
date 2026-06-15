@@ -7,6 +7,7 @@ import { getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { HERBS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import { buildPageMetadata } from '@/lib/seo'
+import { formatDisplayLabel } from '@/lib/display-utils'
 import HerbsIndexClient from './HerbsIndexClient'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -16,6 +17,10 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export const dynamic = 'force-static'
+
+function getHerbName(herb: RuntimeRecord) {
+  return formatDisplayLabel(herb.displayName) || formatDisplayLabel(herb.name) || formatDisplayLabel(herb.slug)
+}
 
 function HerbsLoadingSkeleton() {
   return (
@@ -36,7 +41,7 @@ function HerbsLoadingSkeleton() {
 export default async function HerbsPage() {
   const herbs = ((await getHerbSummaryIndex()) as RuntimeRecord[])
     .filter((herb) => herb.slug && getRuntimeVisibility(herb).canRender)
-    .sort((a, b) => String(a.displayName || a.name || a.slug).localeCompare(String(b.displayName || b.name || b.slug)))
+    .sort((a, b) => getHerbName(a).localeCompare(getHerbName(b)))
   const pageData = paginateItems(herbs, 1, HERBS_PAGE_SIZE)
 
   return (
@@ -58,7 +63,7 @@ export default async function HerbsPage() {
         <ul>
           {herbs.map((herb) => (
             <li key={herb.slug}>
-              <Link href={`/herbs/${herb.slug}`}>{herb.displayName || herb.name || herb.slug}</Link>
+              <Link href={`/herbs/${herb.slug}`}>{getHerbName(herb)}</Link>
             </li>
           ))}
         </ul>
@@ -72,7 +77,7 @@ export default async function HerbsPage() {
               href={`/herbs/${herb.slug}`}
               className="block rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm"
             >
-              <h2 className="text-base font-semibold tracking-tight text-ink">{herb.displayName || herb.name || herb.slug}</h2>
+              <h2 className="text-base font-semibold tracking-tight text-ink">{getHerbName(herb)}</h2>
               <p className="mt-2 text-sm leading-6 text-[#46574d]">
                 {String(herb.summary || herb.description || 'Herb profile with evidence, mechanism, and safety context.')}
               </p>

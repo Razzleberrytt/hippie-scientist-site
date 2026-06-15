@@ -102,7 +102,7 @@ describe('SearchClient Component', () => {
     
     // DMT (restricted) should never appear
     expect(screen.queryByText(/DMT/i)).not.toBeInTheDocument()
-    // L-Theanine (safe, after filter) surfaces in results/suggestions (rendered as "L Theanine"; multiple nodes ok)
-    expect(screen.getAllByText(/L Theanine/i).length).toBeGreaterThan(0)
+    // L-Theanine (safe, after filter) surfaces in results/suggestions; multiple nodes ok.
+    expect(screen.getAllByText(/L-Theanine/i).length).toBeGreaterThan(0)
   })
 })

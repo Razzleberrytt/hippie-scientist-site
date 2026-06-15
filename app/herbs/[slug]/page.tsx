@@ -45,7 +45,6 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import { getStackRecommendations } from '@/lib/recommendation-engine'
 import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
-import LegacyProfileBanner from '@/components/LegacyProfileBanner'
 import PathwayDiagram from '@/components/PathwayDiagram'
 import { generatePathwayDiagram } from '@/lib/generate-pathway'
 
@@ -181,6 +180,15 @@ function getCommonName(herbName: string): string {
   return herbName.replace(/\s*\([^)]*\)\s*$/, '').trim()
 }
 
+function getHerbDisplayName(herb: Herb, fallbackSlug: string): string {
+  return (
+    formatDisplayLabel(herb.displayName) ||
+    formatDisplayLabel(getCommonName(herb.name || '')) ||
+    formatDisplayLabel(fallbackSlug) ||
+    'Herb profile'
+  )
+}
+
 function getPlainEnglishSummary(herb: Herb) {
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
   return firstSentences(summary, 1) || `${formatDisplayLabel(herb.name || herb.slug)} profile with safety, use, and evidence context.`
@@ -222,10 +230,29 @@ function getAvoidIf(herb: Herb) {
   ], 5)
 }
 
-function getSafetyTone(summary: string, avoidIf: string[]) {
+function getSafetyTone(summary: string, avoidIf: string[], sensitivity: string) {
+  if (/low|standard|minimal/i.test(sensitivity)) return 'Standard caution'
   const highCaution = /avoid|contraindicat|pregnancy|breastfeeding|liver|kidney|bleed|sedative|interaction|medication/i
   if (avoidIf.length || highCaution.test(summary)) return 'Use extra caution'
   return 'Standard caution'
+}
+
+function getTopUses(herb: Herb) {
+  const terms = unique([...getEffects(herb), ...getTraditionalUses(herb), ...deriveResearchFocusAreas({ profile: herb })])
+  const selected: string[] = []
+
+  for (const term of terms) {
+    const key = term.toLowerCase().replace(/\b(resilience|support|health|function|quality)\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim()
+    if (!key) continue
+    const isDuplicate = selected.some((existing) => {
+      const existingKey = existing.toLowerCase().replace(/\b(resilience|support|health|function|quality)\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim()
+      return existingKey === key || existingKey.includes(key) || key.includes(existingKey)
+    })
+    if (!isDuplicate) selected.push(term)
+    if (selected.length >= 8) break
+  }
+
+  return selected
 }
 
 function getSafetyDetailGroups(herb: Herb) {
@@ -310,13 +337,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
     redirect(`/herbs/${normalizedSlug}/`)
   }
 
-  // Legacy / old-system slug detection for migration banner (new scientific-name slugs are canonical)
-  const legacyToNewMap = Object.fromEntries(
-    Object.entries(HERB_CANONICAL_SOURCE_ALIASES).map(([newS, oldS]) => [oldS, newS])
-  )
-  const isLegacySlug = !!legacyToNewMap[normalizedSlug]
-  const newSlugForBanner = isLegacySlug ? `/herbs/${legacyToNewMap[normalizedSlug]}/` : null
-
   const suppressAffiliate = shouldSuppressAffiliate(herb)
 
   const {
@@ -364,9 +384,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
 
-  const effects = getEffects(herb)
   const summary = cleanSummary(herb.summary || herb.description || '', 'herb')
-  const displayName = formatDisplayLabel(getCommonName(herb.name || herb.slug))
+  const displayName = getHerbDisplayName(herb, normalizedSlug)
   const botanicalName = cleanText(herb.latin_name || herb.botanical_name || herb.scientific_name)
   const briefSummary = getPlainEnglishSummary(herb)
   const evidenceStrength = getEvidenceStrength(herb)
@@ -376,10 +395,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const avoidIf = getAvoidIf(herb)
   const timeline = getTimeline(herb)
   const mechanisms = getMechanisms(herb)
-  const traditionalUses = getTraditionalUses(herb)
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
-  const topUses = unique([...effects, ...traditionalUses, ...deriveResearchFocusAreas({ profile: herb })]).slice(0, 8)
-  const safetyTone = getSafetyTone(safetySummary, avoidIf)
+  const topUses = getTopUses(herb)
+  const safetyTone = getSafetyTone(safetySummary, avoidIf, safetySensitivity)
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
@@ -457,9 +475,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-4 py-6">
-      {isLegacySlug && newSlugForBanner && (
-        <LegacyProfileBanner newSlug={newSlugForBanner} herbName={displayName} />
-      )}
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
       <HerbSchemaGenerator

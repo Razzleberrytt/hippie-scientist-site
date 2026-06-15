@@ -389,20 +389,12 @@ function visibility(base, type) {
 
   const hidden = visibilityTier === 'hidden'
   const policy = scoreIndexability({ ...base, type, robots, sitemap_included: sitemapIncluded })
-  // Status mirrors the effective sitemap_included + robots gate so every
-  // downstream consumer (runtime-visibility, publication manifest, sitemap)
-  // reads the same decision. The policy score stays advisory.
-  const indexabilityStatus = hidden
-    ? 'BLOCKED'
-    : sitemapIncluded && /^index/i.test(robots)
-      ? 'PUBLISH'
-      : 'NOINDEX'
 
   return {
     visibility_tier: visibilityTier,
-    robots,
-    sitemap_included: sitemapIncluded,
-    indexability_status: indexabilityStatus,
+    robots: hidden ? 'noindex,nofollow' : policy.robots,
+    sitemap_included: hidden ? false : policy.sitemap_included,
+    indexability_status: hidden ? 'BLOCKED' : policy.status,
     indexability_score: policy.score,
     indexability_reasons: hidden ? ['hidden_visibility_tier', ...policy.reasons] : policy.reasons,
   }
