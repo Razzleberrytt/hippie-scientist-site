@@ -2,19 +2,15 @@
 
 ## Project guidance for coding agents
 
-- Preserve route contracts:
-  - `/herbs/:slug`
-  - `/compounds/:slug`
-  - `/goals/:slug`
+- Keep routes like `/herbs/:slug`, `/compounds/:slug`, `/goals/:slug` stable; if you must rename or remove one, add a redirect in `public/_redirects` so links and SEO don't break.
 - Prefer minimal, surgical changes.
 - Treat `/public/data` as a core publish target.
 - Validate slugs and required fields before writing JSON artifacts.
 - Avoid replacing existing data pipelines when they can be extended.
 - Keep changes small and easy to review.
 - Run build checks after data-pipeline edits.
-- Avoid unrelated refactors.
 - Favor lean payloads for initial shipping.
-- This project uses static export. Do not add API routes, middleware, server actions, next/headers, next/server runtime code, force-dynamic pages, or runtime revalidation unless the architecture is intentionally changed away from static export.
+- This project currently deploys as a static export (`output: 'export'` on Cloudflare Pages). Server features (API routes, middleware, server actions, `next/headers`, `next/server` runtime, `force-dynamic`, runtime revalidation) will not work under static export — if you need them, migrate the deployment model first.
 
 ## Site architecture
 
@@ -22,34 +18,32 @@
 1. **Discovery layer** — entry pages and cluster guides that capture broader search intent and funnel users into the depth layer
 2. **Depth layer** — herb and compound detail pages, goal pages, comparison pages
 
-### Discovery layer routes (do not delete or rename)
+### Discovery layer routes (stable; add a redirect if you change one)
 - `/natural-anxiolytics-beyond-ashwagandha` — anxiolytic herb cluster
 - `/sleep-herbs-vs-melatonin` — sleep supplement comparison cluster
 - `/psychedelic-adjacent-herbs` — harm-reduction herb cluster
 - `/goals/:slug` — goal-based decision guides
 - `/best-supplements-for-*` — SEO entry pages (see `app/seo-entry-pages.tsx`)
 
-### Depth layer routes (do not delete or rename)
+### Depth layer routes (stable; add a redirect if you change one)
 - `/herbs/:slug` — individual herb profiles
 - `/compounds/:slug` — individual compound profiles
 - `/stacks/:slug` — supplement stacks
 
 ## Data pipeline
-- Source of truth: `data-sources/herb_monograph_master.xlsx`
-- Generated JSON lives in `public/data/` — treat as build artifact, not source
-- Do NOT modify `public/data/workbook-herbs.json` or `public/data/workbook-compounds.json` directly
-- Run `npm run data:build` after workbook changes, before `npm run build`
-- CI/workflows enforce workbook source-of-truth via `npm run validate:workbook-source` before workbook-dependent commands
+- Primary source: `data-sources/herb_monograph_master.xlsx`. The workbook is editable — edit it to make broad/structured content changes, then run `npm run data:build`.
+- Generated JSON lives in `public/data/`. You may also edit these files directly to fix or patch content; CI no longer blocks direct edits (the guard is advisory only). For larger changes prefer the workbook so edits aren't lost on the next regeneration.
+- Run `npm run data:build` after workbook changes, before `npm run build`.
 
 ## Affiliate config
 - Affiliate tag is in `config/affiliate.ts` — use `AFFILIATE_TAGS.amazon` not hardcoded strings
 - Set `AMAZON_AFFILIATE_TAG` env var in Cloudflare Pages to override
 
 ## Theme
-- Light mode only. `--bg: #fffdf7`, dark text on warm background.
+- Light and dark mode are both supported (toggle in the header via `DarkModeProvider`/`DarkModeToggle`). Default base: `--bg: #fffdf7`, dark text on warm background.
 - Emerald accent: `#358f52`
-- `app/globals.css` is the source of truth for CSS variables.
-- Do NOT add dark-mode classes to new pages unless the whole site theme is migrated.
+- `app/globals.css` is the source of truth for CSS variables, including the `.dark` overrides.
+- New pages may use `dark:` classes; keep light and dark variants in sync.
 
 ## Publication manifest
 - Build/update with:
@@ -57,7 +51,6 @@
 - Verify:
   - `public/data/publication-manifest.json`
   - `counts.herbs_eligible > 0`
-- Do not hand-edit generated workbook JSON to force eligibility.
 
 ## Agent Enrichment and Patch Workflow
 
