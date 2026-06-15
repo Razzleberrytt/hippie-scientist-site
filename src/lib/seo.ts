@@ -842,7 +842,12 @@ export function isMeaningfulFaqAnswer(answer: unknown): boolean {
 function getProfileDisplayName(record: any): string {
   const raw = String(record?.name || record?.slug || '')
   const commonName = raw.replace(/\s*\([^)]*\)\s*$/, '').trim()
-  return formatDisplayLabel(commonName || raw)
+  return (
+    formatDisplayLabel(record?.displayName) ||
+    formatDisplayLabel(commonName || raw) ||
+    formatDisplayLabel(record?.slug) ||
+    (record ? 'Profile' : '')
+  )
 }
 
 function getProfileEvidenceLabel(record: any): string {
@@ -860,6 +865,36 @@ export function formatProfileTitle(displayName: string, type: 'herb' | 'compound
   return type === 'herb'
     ? `${displayName} Benefits, Dosage & Safety`
     : `${displayName} Dosage, Effects & Safety: What the Evidence Says`
+}
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function normalizeProfileNameInText(value: string, displayName: string): string {
+  if (!value || !displayName) return value
+
+  const pattern = escapeRegExp(displayName)
+    .replace(/\\-/g, '[-\\s]+')
+    .replace(/ /g, '[\\s-]+')
+
+  return value.replace(new RegExp(`\\b${pattern}\\b`, 'gi'), displayName)
+}
+
+function getSafeProfileTitleOverride(record: any, displayName: string, type: 'herb' | 'compound'): string {
+  const rawTitle = String(record?.meta_title || record?.metaTitle || record?.seoTitle || record?.seo_title || '').trim()
+  const lowerTitle = rawTitle.toLowerCase()
+  const slug = String(record?.slug || '').toLowerCase()
+
+  if (type === 'herb' && slug === 'ashwagandha' && /sleep support/.test(lowerTitle)) {
+    return `${displayName} for Stress: Evidence and Safety`
+  }
+
+  if (!rawTitle || /for uses:|unknown|placeholder|research pending/i.test(rawTitle)) {
+    return ''
+  }
+
+  return normalizeProfileNameInText(rawTitle, displayName)
 }
 
 /** Intent-driven meta description formula (manual `meta_description` overrides). */
@@ -901,8 +936,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   // 2. seoTitle
   // 3. keyword-first generated title
   // 4. fallback entity/page title
-  const title = (record.meta_title || record.metaTitle || '').trim() ||
-                (record.seoTitle || record.seo_title || '').trim() ||
+  const title = getSafeProfileTitleOverride(record, displayName, type) ||
                 formatProfileTitle(displayName, type) ||
                 displayName
 
@@ -916,8 +950,9 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
     : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
 
-  const description = (record.meta_description || record.metaDescription || '').trim() ||
-                      (record.description || record.metaDescription || '').trim() ||
+  const rawDescription = (record.meta_description || record.metaDescription || '').trim() ||
+                         (record.description || record.metaDescription || '').trim()
+  const description = normalizeProfileNameInText(rawDescription, displayName) ||
                       keywordFirstDescription ||
                       safeFallbackDescription
 

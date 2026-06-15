@@ -195,7 +195,7 @@ export default function ProfileEvidenceLens({
 
       {citationsCount > 0 ? (
         <p className="mt-3 text-xs leading-5 text-[#5f6f66]">
-          This page currently exposes {citationsCount} cited human-study signal{citationsCount === 1 ? '' : 's'} through the profile freshness layer.
+          This profile references {citationsCount} cited human-study signal{citationsCount === 1 ? '' : 's'} where available.
         </p>
       ) : null}
     </section>

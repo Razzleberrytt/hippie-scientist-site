@@ -42,6 +42,17 @@ const LABEL_MAP: Record<string, string> = {
   'sleep quality': 'Sleep quality',
   general_wellness: 'General wellness',
   'general wellness': 'General wellness',
+  'l theanine': 'L-Theanine',
+  'withanoside iv': 'Withanoside IV',
+}
+
+const ROMAN_NUMERAL_PATTERN = /\b(?:i|ii|iii|iv|v|vi|vii|viii|ix|x)\b/gi
+
+function isLikelyProseLabel(value: string) {
+  const words = value.trim().split(/\s+/).filter(Boolean)
+  if (words.length >= 12) return true
+  if (value.length > 90 && /[.!?]/.test(value)) return true
+  return false
 }
 
 export function text(value: unknown): string {
@@ -123,6 +134,7 @@ export function formatDisplayLabel(value: unknown): string {
 
   const raw = text(value)
   if (!raw || hideInternalValue(raw)) return ''
+  if (isLikelyProseLabel(raw)) return ''
 
   const normalized = raw.toLowerCase().trim()
 
@@ -138,6 +150,8 @@ export function formatDisplayLabel(value: unknown): string {
     .replace(/\s+/g, ' ')
     .trim()
     .replace(/\b\w/g, char => char.toUpperCase())
+    .replace(ROMAN_NUMERAL_PATTERN, match => match.toUpperCase())
+    .replace(/\bL Theanine\b/g, 'L-Theanine')
     .replace(/(['’])S\b/g, '$1s')
 }
 

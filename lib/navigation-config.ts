@@ -262,6 +262,23 @@ export const footerLinks = {
   ],
 }
 
+const SEGMENT_LABEL_OVERRIDES: Record<string, string> = {
+  'lions-mane': "Lion's Mane",
+  'l-theanine': 'L-Theanine',
+  'withanoside-iv': 'Withanoside IV',
+}
+
+function segmentToLabel(segment: string): string {
+  if (SEGMENT_LABEL_OVERRIDES[segment]) return SEGMENT_LABEL_OVERRIDES[segment]
+
+  return segment
+    .replace(/-/g, ' ')
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+    .replace(/\bL Theanine\b/g, 'L-Theanine')
+}
+
 /**
  * Generate dynamic breadcrumbs from a pathname
  *
@@ -319,11 +336,7 @@ export function generateDynamicBreadcrumbs(
       const patternKey = findDynamicRoutePattern(currentPath)
       if (patternKey) {
         const patternMetadata = routeLabels[patternKey]
-        const displayLabel = segments[i]
-          .replace(/-/g, ' ')
-          .split(' ')
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ')
+        const displayLabel = segmentToLabel(segments[i])
 
         breadcrumbs.push({
           label: displayLabel || patternMetadata.label,
@@ -332,11 +345,7 @@ export function generateDynamicBreadcrumbs(
         })
       } else {
         // Unknown dynamic route — use segment as label
-        const displayLabel = segments[i]
-          .replace(/-/g, ' ')
-          .split(' ')
-          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-          .join(' ')
+        const displayLabel = segmentToLabel(segments[i])
 
         breadcrumbs.push({
           label: displayLabel,
@@ -346,11 +355,7 @@ export function generateDynamicBreadcrumbs(
       }
     } else {
       // No match found — use segment as label
-      const displayLabel = segments[i]
-        .replace(/-/g, ' ')
-        .split(' ')
-        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ')
+      const displayLabel = segmentToLabel(segments[i])
 
       breadcrumbs.push({
         label: displayLabel,

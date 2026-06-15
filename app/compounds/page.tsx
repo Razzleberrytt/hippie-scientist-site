@@ -59,6 +59,9 @@ const CATEGORY_FILTERS = [
   { label: 'Focus & neuro', value: 'focus', terms: ['focus', 'cognition', 'neuro', 'dopamine', 'acetylcholine', 'attention', 'brain'] },
   { label: 'Inflammation', value: 'inflammation', terms: ['inflammation', 'inflammatory', 'oxidative', 'antioxidant', 'immune', 'nf-kb', 'cytokine'] },
   { label: 'Metabolism', value: 'metabolism', terms: ['metabolic', 'metabolism', 'mitochondria', 'glucose', 'lipid', 'ampk', 'energy'] },
+  { label: 'Immunity', value: 'immunity', terms: ['immunity', 'immune', 'infection', 'antiviral', 'antimicrobial', 'cytokine'] },
+  { label: 'Blood sugar', value: 'blood-sugar', terms: ['blood sugar', 'glucose', 'insulin', 'glycemic', 'diabetes', 'metformin'] },
+  { label: 'Heart health', value: 'heart-health', terms: ['heart', 'cardiovascular', 'blood pressure', 'lipid', 'cholesterol', 'endothelial'] },
 ]
 
 const EVIDENCE_FILTERS = [
@@ -108,8 +111,8 @@ function getBrief(c: Compound): string {
 
   if (effects.length > 0) {
     const effText = effects.map(e => e.toLowerCase()).join(' and ')
-    const evTone = /strong/i.test(ev) ? 'Human-trial evidence.' : /moderate/i.test(ev) ? 'Moderate evidence base.' : ''
-    return [`${name} studied for ${effText}.`, evTone].filter(Boolean).join(' ')
+    const evTone = /strong/i.test(ev) ? 'human-trial context' : /moderate/i.test(ev) ? 'moderate evidence context' : 'evidence context'
+    return `${name} profile covering ${effText}, safety considerations, and ${evTone}.`
   }
 
   const mechs = list(c.mechanisms || c.mechanism_categories)
@@ -154,7 +157,7 @@ function getBestFor(c: Compound): string {
     .map(formatDisplayLabel)
     .filter(Boolean)
     .slice(0, 2)
-  return mech.length > 0 ? mech.join(' • ') : 'Research context'
+  return mech.length > 0 ? 'Mechanism research context' : 'Research context'
 }
 
 function getSearchCorpus(c: Compound): string {
@@ -449,7 +452,7 @@ export default async function CompoundsPage({
           <span className="text-[#5f6f66]">Page {paged.currentPage} of {paged.totalPages}</span>
           {paged.hasNext ? (
             <Link rel="next" href={buildPaginatedHref(basePath, paged.currentPage + 1, (() => { const pp = new URLSearchParams(); if (f.q) pp.set('q', f.q); if (f.category !== 'all') pp.set('category', f.category); if (f.evidence !== 'all') pp.set('evidence', f.evidence); if (f.safety !== 'all') pp.set('safety', f.safety); return pp })())} className="ml-4">
-              Next →
+              Next page →
             </Link>
           ) : null}
         </nav>

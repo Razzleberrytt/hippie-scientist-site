@@ -31,7 +31,6 @@ const popularComparisonPairs = [
   { label: 'L-Theanine vs Magnesium', href: '/compare/l-theanine-vs-magnesium' },
   { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin' },
   { label: 'Curcumin vs Boswellia vs Omega-3', href: '/compare/curcumin-vs-boswellia-vs-omega-3' },
-  { label: 'Dynamic comparison matrix', href: '/compare/dynamic' },
 ]
 
 const guidanceCards = [
@@ -94,10 +93,10 @@ export default async function ComparePage() {
           </p>
           <div className="pt-2">
             <Link
-              href="/compare/dynamic"
+              href="#comparison-table"
               className="inline-flex items-center gap-2 rounded-full bg-brand-850 hover:bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow transition hover:-translate-y-0.5 focus:outline-none"
             >
-              Launch Dynamic Comparison Matrix
+              Open comparison table
             </Link>
           </div>
         </div>
@@ -147,7 +146,7 @@ export default async function ComparePage() {
         </div>
       </section>
 
-      <section className="space-y-4">
+      <section id="comparison-table" className="space-y-4 scroll-mt-24">
         <div>
           <p className="eyebrow-label">Comparison table</p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Scan for fit, then read deeper</h2>

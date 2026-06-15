@@ -652,7 +652,7 @@ export default async function CompoundPage({ params }: PageProps) {
           items={[
             { label: 'Home', href: '/' },
             { label: 'Compounds', href: '/compounds' },
-            { label: compound.name },
+            { label: displayName },
           ]}
         />
 
