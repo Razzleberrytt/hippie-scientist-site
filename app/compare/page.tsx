@@ -24,6 +24,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 
 const popularComparisonPairs = [
+  { label: 'Mitragynine vs 7-Hydroxymitragynine', href: '/compare/mitragynine-vs-7-hydroxymitragynine' },
   { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha' },
   { label: 'Kava vs Alcohol', href: '/compare/kava-vs-alcohol' },
   { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },

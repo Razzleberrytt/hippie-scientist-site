@@ -742,6 +742,12 @@ export default async function CompoundPage({ params }: PageProps) {
               >
                 Withdrawal management guide →
               </Link>
+              <Link
+                href="/compare/mitragynine-vs-7-hydroxymitragynine"
+                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+              >
+                Compare mitragynine vs 7-OH →
+              </Link>
             </div>
           </section>
         ) : null}
