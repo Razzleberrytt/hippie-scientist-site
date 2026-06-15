@@ -13,72 +13,74 @@ const BASE_PROPS = {
   evidenceGrade: 'B — Moderate',
 }
 
-function getScripts(c: HTMLElement): { product: Record<string, unknown>; article: Record<string, unknown> } {
+function getScripts(c: HTMLElement): { product?: Record<string, unknown>; article: Record<string, unknown> } {
   const scripts = c.querySelectorAll('script[type="application/ld+json"]')
-  expect(scripts.length).toBe(2)
   const parsed = Array.from(scripts).map(s => JSON.parse(s.textContent ?? '{}'))
-  const product = parsed.find(p => p['@type'] === 'Product')!
+  const product = parsed.find(p => p['@type'] === 'Product')
   const article = parsed.find(p => p['@type'] === 'Article')!
   return { product, article }
 }
 
 describe('HerbSchemaGenerator', () => {
-  it('renders exactly two JSON-LD script tags', () => {
+  it('renders Article JSON-LD by default', () => {
     const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
     const scripts = c.querySelectorAll('script[type="application/ld+json"]')
-    expect(scripts.length).toBe(2)
+    expect(scripts.length).toBe(1)
+    const { article, product } = getScripts(c)
+    expect(article['@type']).toBe('Article')
+    expect(product).toBeUndefined()
   })
 
   // ----- Product schema -----
 
   it('Product node has correct @context and @type', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
+    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
     const { product } = getScripts(c)
-    expect(product['@context']).toBe('https://schema.org')
-    expect(product['@type']).toBe('Product')
+    expect(product?.['@context']).toBe('https://schema.org')
+    expect(product?.['@type']).toBe('Product')
   })
 
   it('Product node contains the herb name', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
+    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
     const { product } = getScripts(c)
-    expect(product.name).toBe('Ashwagandha')
+    expect(product?.name).toBe('Ashwagandha')
   })
 
   it('Product node contains the description', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
+    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
     const { product } = getScripts(c)
-    expect(product.description).toBe(BASE_PROPS.description)
+    expect(product?.description).toBe(BASE_PROPS.description)
   })
 
   it('Product node uses slug as sku', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
+    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
     const { product } = getScripts(c)
-    expect(product.sku).toBe('ashwagandha')
+    expect(product?.sku).toBe('ashwagandha')
   })
 
   it('Product node defaults category to Herbal Supplement', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
+    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
     const { product } = getScripts(c)
-    expect(product.category).toBe('Herbal Supplement')
+    expect(product?.category).toBe('Herbal Supplement')
   })
 
   it('Product node accepts a custom category', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} category="Adaptogen" />)
+    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} category="Adaptogen" offer={{ price: 19.99, priceCurrency: 'USD' }} />)
     const { product } = getScripts(c)
-    expect(product.category).toBe('Adaptogen')
+    expect(product?.category).toBe('Adaptogen')
   })
 
   it('Product node brand is The Hippie Scientist', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
+    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
     const { product } = getScripts(c)
-    const brand = product.brand as Record<string, unknown>
+    const brand = product?.brand as Record<string, unknown>
     expect(brand.name).toBe('The Hippie Scientist')
   })
 
-  it('Product node omits offers when no offer prop is given', () => {
+  it('Product node is omitted when no offer prop is given', () => {
     const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
     const { product } = getScripts(c)
-    expect(product.offers).toBeUndefined()
+    expect(product).toBeUndefined()
   })
 
   it('Product node includes offers when offer prop is provided', () => {
@@ -89,7 +91,7 @@ describe('HerbSchemaGenerator', () => {
       />
     )
     const { product } = getScripts(c)
-    const offers = product.offers as Record<string, unknown>
+    const offers = product?.offers as Record<string, unknown>
     expect(offers['@type']).toBe('Offer')
     expect(offers.price).toBe(19.99)
     expect(offers.priceCurrency).toBe('USD')

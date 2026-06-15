@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { generateDetailMetadata, herbJsonLd, compoundJsonLd, isMeaningfulFaqAnswer, productJsonLd } from '../seo'
+import { generateDetailMetadata, herbJsonLd, compoundJsonLd, isMeaningfulFaqAnswer, productJsonLd, shouldIndexRoute } from '../seo'
 
 describe('SEO Metadata & JSON-LD Utilities', () => {
   const mockHerb = {
@@ -39,8 +39,8 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
     it('generates correct metadata for a compound', () => {
       const meta = generateDetailMetadata(mockCompound, 'compound')
 
-      expect(meta.title).toBe('L Theanine Dosage, Effects & Safety: What the Evidence Says')
-      expect(meta.description).toContain('L Theanine dosage by use case')
+      expect(meta.title).toBe('L-Theanine Dosage, Effects & Safety: What the Evidence Says')
+      expect(meta.description).toContain('L-Theanine dosage by use case')
       expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/compounds/l-theanine/')
     })
 
@@ -77,6 +77,23 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
       expect(meta.robots).toEqual({
         index: false,
         follow: true,
+      })
+    })
+
+    it('honors explicit publish policy for generated profile pages', () => {
+      const decision = shouldIndexRoute('/herbs/echinacea-purpurea', {
+        slug: 'echinacea-purpurea',
+        profile_status: 'partial',
+        indexability_status: 'PUBLISH',
+        robots: 'index,follow',
+        sitemap_included: true,
+        summary: 'Short generated summary.',
+      })
+
+      expect(decision).toMatchObject({
+        index: true,
+        follow: true,
+        reason: 'indexability-policy-publish',
       })
     })
   })

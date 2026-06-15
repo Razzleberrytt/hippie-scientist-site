@@ -183,6 +183,16 @@ function hasNoindexSignal(record: Record<string, unknown> | null | undefined): s
   return null
 }
 
+function hasExplicitPublishSignal(record: Record<string, unknown> | null | undefined): boolean {
+  if (!record) return false
+
+  const indexabilityStatus = String(record.indexability_status || '').toUpperCase()
+  const robots = String(record.robots || '').toLowerCase()
+  return indexabilityStatus === 'PUBLISH' &&
+    record.sitemap_included === true &&
+    /^index\b/.test(robots)
+}
+
 function recordText(record: Record<string, unknown>, fields: string[]): string {
   return fields
     .map((field) => record[field])
@@ -302,6 +312,9 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
 
   if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
+    if (hasExplicitPublishSignal(pageData)) {
+      return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
+    }
     if ((CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)) {
       return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.7 }
     }
@@ -313,6 +326,9 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
 
   if (/^\/compounds\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
+    if (hasExplicitPublishSignal(pageData)) {
+      return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
+    }
     if ((CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)) {
       return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.7 }
     }

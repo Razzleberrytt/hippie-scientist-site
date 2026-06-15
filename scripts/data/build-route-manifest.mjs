@@ -10,6 +10,7 @@ const DATA_DIR = DATA_DIR_ARG
 
 const OUT_DIR = path.join(DATA_DIR, 'runtime-manifests')
 const MAX_ROUTES_PER_GROUP = 5000
+const SITE_URL = 'https://www.thehippiescientist.net'
 
 function text(value) {
   return String(value ?? '').trim()
@@ -49,6 +50,48 @@ function normalizeSlug(value) {
     .replace(/[^a-z0-9-]+/g, '-')
     .replace(/-+/g, '-')
     .replace(/^-|-$/g, '')
+}
+
+function normalizeRoutePath(value) {
+  if (!value) return '/'
+  let pathName = value
+  try {
+    pathName = value.startsWith('http') ? new URL(value).pathname : value
+  } catch {
+    pathName = value
+  }
+
+  const pathOnly = pathName.split(/[?#]/)[0] || '/'
+  const withSlash = pathOnly.startsWith('/') ? pathOnly : `/${pathOnly}`
+  return withSlash.length > 1 ? withSlash.replace(/\/+$/, '') : '/'
+}
+
+async function readRedirectSources(relativePath = 'public/_redirects') {
+  const sources = new Set()
+
+  try {
+    const raw = await fs.readFile(path.join(process.cwd(), relativePath), 'utf8')
+    for (const line of raw.split(/\r?\n/)) {
+      const trimmed = line.trim()
+      if (!trimmed || trimmed.startsWith('#')) continue
+      const [source, target, status] = trimmed.split(/\s+/)
+      if (!source || source.includes('*')) continue
+      if (!/^30[1278]$/.test(status || '')) continue
+      if (target && normalizeRoutePath(source) === normalizeRoutePath(target)) continue
+      sources.add(normalizeRoutePath(source))
+    }
+  } catch {
+    return sources
+  }
+
+  return sources
+}
+
+function isPublishableRecord(record) {
+  if (!record?.slug) return false
+  if (record.sitemap_included !== true) return false
+  if (String(record.robots || '').toLowerCase() !== 'index,follow') return false
+  return String(record.indexability_status || '').toUpperCase() === 'PUBLISH'
 }
 
 function routeEntry(route, type) {
@@ -121,6 +164,7 @@ async function writeJson(fileName, value) {
 async function main() {
   const herbs = await readJson('summary-indexes/herbs-summary.json')
   const compounds = await readJson('summary-indexes/compounds-summary.json')
+  const redirectSources = await readRedirectSources()
 
   const staticRoutes = [
     routeEntry('/', 'static'),
@@ -128,19 +172,17 @@ async function main() {
     routeEntry('/compounds', 'static'),
     routeEntry('/compare', 'static'),
     routeEntry('/goals', 'static'),
-    routeEntry('/ecosystems', 'static'),
-    routeEntry('/topics', 'static'),
-    routeEntry('/protocols', 'static'),
     routeEntry('/stacks', 'static'),
   ].map(entry => ({
     ...entry,
     meta_title: entry.route === '/' ? 'The Hippie Scientist' : '',
     meta_description: '',
-    canonical_url: `https://thehippiescientist.net${entry.route === '/' ? '' : entry.route}/`,
+    canonical_url: `${SITE_URL}${entry.route === '/' ? '' : entry.route}/`,
   }))
+    .filter((entry) => !redirectSources.has(normalizeRoutePath(entry.route)))
 
   const herbRoutes = herbs
-    .filter((record) => record?.slug)
+    .filter(isPublishableRecord)
     .map((record) => {
       const slug = normalizeSlug(record.slug)
       const name = record.name || slug
@@ -150,12 +192,13 @@ async function main() {
         ...routeEntry(`/herbs/${slug}`, 'herb'),
         meta_title: title,
         meta_description: desc,
-        canonical_url: `https://thehippiescientist.net/herbs/${slug}/`,
+        canonical_url: `${SITE_URL}/herbs/${slug}/`,
       }
     })
+    .filter((entry) => !redirectSources.has(normalizeRoutePath(entry.route)))
 
   const compoundRoutes = compounds
-    .filter((record) => record?.slug)
+    .filter(isPublishableRecord)
     .map((record) => {
       const slug = normalizeSlug(record.slug)
       const name = record.name || slug
@@ -165,9 +208,10 @@ async function main() {
         ...routeEntry(`/compounds/${slug}`, 'compound'),
         meta_title: title,
         meta_description: desc,
-        canonical_url: `https://thehippiescientist.net/compounds/${slug}/`,
+        canonical_url: `${SITE_URL}/compounds/${slug}/`,
       }
     })
+    .filter((entry) => !redirectSources.has(normalizeRoutePath(entry.route)))
 
   const allRoutes = dedupeRoutes([
     ...staticRoutes,

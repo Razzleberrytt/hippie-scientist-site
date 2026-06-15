@@ -35,10 +35,9 @@ export type HerbSchemaGeneratorProps = {
  * profile page. These nodes are additive — they sit alongside the existing
  * MedicalWebPage/@graph emitted by SchemaGraphScript and do not replace it.
  *
- * Rendering two schema types improves Google Rich Results coverage:
- *   - Product: eligible for product snippets (especially useful when an
- *     affiliate offer is present)
- *   - Article: eligible for article rich results (headline + image carousel)
+ * Product schema is emitted only when a real offer is supplied. Educational
+ * herb profiles without offers should not advertise Product rich-result data.
+ * Article schema remains eligible for article rich results.
  *
  * The component is a pure server component: it emits only static <script>
  * tags and performs no client-side work, so it has zero hydration cost.
@@ -76,7 +75,7 @@ export default function HerbSchemaGenerator({
 
   return (
     <>
-      <JsonLd schema={productSchema} />
+      {offer ? <JsonLd schema={productSchema} /> : null}
       <JsonLd schema={articleSchema} />
     </>
   )
