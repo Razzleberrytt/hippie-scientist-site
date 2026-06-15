@@ -3,15 +3,7 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const REQUIRE_BUILT = process.argv.includes('--require-built')
-const FOCUS_CLUSTER_CANONICAL_HOST = 'thehippiescientist.net'
-const FOCUS_CLUSTER_PATHS = new Set([
-  '/best-supplements-for-adhd/',
-  '/omega-3-for-adhd/',
-  '/magnesium-for-adhd/',
-  '/l-theanine-for-adhd/',
-  '/citicoline-vs-alpha-gpc/',
-  '/best-supplements-for-focus-without-caffeine/',
-])
+const CANONICAL_HOST = 'www.thehippiescientist.net'
 
 function parseXmlUrls(xmlContent) {
   const urls = []
@@ -87,8 +79,7 @@ function main() {
     }
     const pathname = urlObj.pathname
 
-    const isFocusClusterPath = FOCUS_CLUSTER_PATHS.has(pathname)
-    const expectedHost = isFocusClusterPath ? FOCUS_CLUSTER_CANONICAL_HOST : 'thehippiescientist.net'
+    const expectedHost = CANONICAL_HOST
     if (urlObj.hostname !== expectedHost) {
       errors.push(`URL hostname is not canonical (expected "${expectedHost}"): "${url}"`)
       failed = true
@@ -137,13 +128,18 @@ function main() {
   // Asserts
   console.log(`[validate-sitemap] Category counts: herbs=${herbCount}, compounds=${compoundCount}, articles=${articleCount}, guides=${guideCount}`)
 
-  if (herbCount < 270) {
-    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 270).`)
+  if (urls.length > 450) {
+    errors.push(`Sitemap contains ${urls.length} URLs (expected no more than 450 for index-priority sitemap).`)
     failed = true
   }
 
-  if (compoundCount < 90) {
-    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 90).`)
+  if (herbCount < 10) {
+    errors.push(`Sitemap contains only ${herbCount} /herbs/* URLs (expected at least 10 curated/quality-gated herb URLs).`)
+    failed = true
+  }
+
+  if (compoundCount < 10) {
+    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 10 curated/quality-gated compound URLs).`)
     failed = true
   }
 

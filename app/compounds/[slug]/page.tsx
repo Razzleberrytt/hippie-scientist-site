@@ -10,7 +10,7 @@ import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '@/lib/seo'
+import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import CompoundSourceHerbs from '@/components/seo/CompoundSourceHerbs'
 import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
@@ -205,9 +205,10 @@ export async function generateMetadata({ params }: PageProps) {
   const normalizedSlug = normalizeSlug(slug)
   const redirectedCanonical = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
   if (redirectedCanonical?.startsWith('/')) {
+    const indexDecision = shouldIndexRoute(redirectedCanonical)
     return {
       alternates: { canonical: `${SITE_URL}${redirectedCanonical}/` },
-      robots: { index: true, follow: true },
+      robots: { index: indexDecision.index, follow: true },
     }
   }
 
@@ -218,17 +219,15 @@ export async function generateMetadata({ params }: PageProps) {
 
   const metadata = generateDetailMetadata(compound, 'compound')
   if (canonicalSlug !== normalizedSlug) {
+    const indexDecision = shouldIndexRoute(`/compounds/${canonicalSlug}`, { ...compound, slug: canonicalSlug })
     return {
       ...metadata,
       alternates: { canonical: `${SITE_URL}/compounds/${canonicalSlug}/` },
-      robots: { index: true, follow: true },
+      robots: { index: indexDecision.index, follow: true },
     }
   }
 
-  return {
-    ...metadata,
-    robots: { index: true, follow: true },
-  }
+  return metadata
 }
 
 
@@ -982,6 +981,9 @@ export default async function CompoundPage({ params }: PageProps) {
         <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
           <Link href="/compounds" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
             ← Back to compounds library
+          </Link>
+          <Link href="/safety-checker" className="text-sm font-bold text-brand-800 hover:underline">
+            Safety checker →
           </Link>
         </div>
       </div>
