@@ -3,6 +3,12 @@ import { getRuntimeVisibility } from './runtime-visibility'
 import { formatDisplayLabel, list } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 import { SITE_URL, SITE_NAME } from '@/lib/site'
+import {
+  CORE_INDEXABLE_ROUTES,
+  CURATED_INDEXABLE_COMPOUND_SLUGS,
+  CURATED_INDEXABLE_HERB_SLUGS,
+  MONEY_ENTRY_ROUTES,
+} from '@/lib/index-allowlist'
 
 import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
 
@@ -12,8 +18,17 @@ export const DEFAULT_OG_IMAGE = '/og-default.jpg'
 export const TWITTER_HANDLE = '@HippieScientist'
 export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
 export const DEFAULT_DESCRIPTION = `The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for ${TOTAL_PROFILE_COUNT}+ profiles.`
+export const DEFAULT_TITLE_TEMPLATE = `%s | ${SITE_NAME}`
+export const SITEMAP_URL_CAP = 450
 
 export type PageType = 'website' | 'article'
+
+export type IndexDecision = {
+  index: boolean
+  follow: boolean
+  reason: string
+  priority: number
+}
 
 export type BuildMetaArgs = {
   title: string
@@ -51,6 +66,10 @@ const withLeadingSlash = (value: string) => {
 export function toAbsoluteUrl(path: string): string {
   if (!path) return SITE_URL
   return isAbsoluteUrl(path) ? path : new URL(withLeadingSlash(path), SITE_URL).toString()
+}
+
+export function canonicalUrl(path = '/', keepQueryParams: string[] = []): string {
+  return toAbsoluteUrl(normalizeCanonicalPath(path, keepQueryParams))
 }
 
 const NON_CANONICAL_PARAM_PATTERNS: RegExp[] = [
@@ -129,6 +148,189 @@ export function buildPageMetadata({
     },
     robots: robots || { index: true, follow: true },
   }
+}
+
+function normalizeIndexRoutePath(path: string): string {
+  if (!path) return '/'
+  const url = isAbsoluteUrl(path) ? new URL(path) : null
+  const rawPath = (url ? url.pathname : path).split(/[?#]/)[0] || '/'
+  const withSlash = rawPath.startsWith('/') ? rawPath : `/${rawPath}`
+  return withSlash.length > 1 ? withSlash.replace(/\/+$/, '') : '/'
+}
+
+function hasNoindexSignal(record: Record<string, unknown> | null | undefined): string | null {
+  if (!record) return null
+  const sitemapIncluded = record.sitemap_included
+  if (sitemapIncluded === false || String(sitemapIncluded).toLowerCase() === 'false') return 'sitemap_included=false'
+
+  const robots = String(record.robots || '').toLowerCase()
+  if (robots.includes('noindex')) return 'robots=noindex'
+
+  const indexabilityStatus = String(record.indexability_status || '').toUpperCase()
+  if (['NOINDEX', 'NEEDS_REVIEW', 'BLOCKED'].includes(indexabilityStatus)) return `indexability_status=${indexabilityStatus}`
+
+  const decision = String(record.runtime_export_decision || '').toLowerCase()
+  if (['hide', 'hidden', 'blocked', 'block', 'alias_redirect_only', 'hidden_until_grounded', 'research_archive_runtime'].includes(decision)) {
+    return `runtime_export_decision=${decision}`
+  }
+
+  const profileStatus = String(record.profile_status || '').toLowerCase()
+  if (['draft', 'archived', 'minimal', 'research_only'].includes(profileStatus)) return `profile_status=${profileStatus}`
+
+  const summaryQuality = String(record.summary_quality || '').toLowerCase()
+  if (['weak', 'minimal', 'thin', 'stub', 'research_needed', 'none'].includes(summaryQuality)) return `summary_quality=${summaryQuality}`
+
+  return null
+}
+
+function recordText(record: Record<string, unknown>, fields: string[]): string {
+  return fields
+    .map((field) => record[field])
+    .flatMap((value) => Array.isArray(value) ? value : [value])
+    .map((value) => String(value ?? '').replace(/\s+/g, ' ').trim())
+    .filter(Boolean)
+    .join(' ')
+    .trim()
+}
+
+export function passesGeneratedProfileQualityGate(record: Record<string, unknown> | null | undefined): boolean {
+  if (!record) return false
+  if (hasNoindexSignal(record)) return false
+
+  const profileStatus = String(record.profile_status || '').toLowerCase()
+  const evidenceTier = String(record.evidence_tier || record.evidenceTier || record.evidence_grade || '').toLowerCase()
+  const hasTopTierSignal =
+    /^(complete|near_complete|top50_authority_patched|commercial_ready)$/.test(profileStatus) ||
+    /\b(strong|moderate)\s+human\s+evidence\b/.test(evidenceTier) ||
+    /\b(strong|moderate)\b/.test(evidenceTier)
+  if (!hasTopTierSignal) return false
+
+  const name = recordText(record, ['title', 'name', 'displayName', 'compoundName', 'canonicalCompoundName'])
+  if (!name) return false
+
+  const summary = recordText(record, [
+    'summary',
+    'overview',
+    'description',
+    'generated_description',
+    'short_earthy_summary',
+    'meta_description',
+  ])
+  if (summary.length < 250) return false
+
+  const supportingContext = recordText(record, [
+    'safety',
+    'safetyNotes',
+    'safety_notes',
+    'evidence',
+    'evidence_summary',
+    'evidence_tier',
+    'evidenceTier',
+    'evidence_grade',
+    'mechanisms',
+    'primary_mechanisms',
+    'pathways',
+    'dosage',
+    'dosing',
+    'dose',
+    'clinicalUse',
+    'clinical_use',
+    'primary_effects',
+    'effects',
+    'useContexts',
+  ])
+  if (!supportingContext) return false
+
+  const internalLinkSignals = recordText(record, [
+    'related',
+    'relatedHerbs',
+    'relatedCompounds',
+    'sourceHerbs',
+    'compounds',
+    'active_compounds',
+    'mechanisms',
+    'primary_effects',
+    'effects',
+  ])
+  return Boolean(internalLinkSignals)
+}
+
+export function shouldIndexRoute(path: string, pageData?: Record<string, unknown> | null): IndexDecision {
+  const normalizedPath = normalizeIndexRoutePath(path)
+  const noindexSignal = hasNoindexSignal(pageData)
+  const hardNoindexSignal =
+    noindexSignal && /^(sitemap_included|robots|indexability_status|runtime_export_decision)=/.test(noindexSignal)
+      ? noindexSignal
+      : null
+
+  if (
+    normalizedPath === '/compare/dynamic' ||
+    normalizedPath.startsWith('/admin') ||
+    normalizedPath.startsWith('/api') ||
+    normalizedPath.startsWith('/data') ||
+    normalizedPath.startsWith('/drafts') ||
+    normalizedPath.startsWith('/preview')
+  ) {
+    return { index: false, follow: true, reason: 'internal-or-utility-route', priority: 0 }
+  }
+
+  if (hardNoindexSignal) {
+    return { index: false, follow: true, reason: hardNoindexSignal, priority: 0 }
+  }
+
+  const coreRoutes = new Set<string>(CORE_INDEXABLE_ROUTES)
+  if (coreRoutes.has(normalizedPath)) {
+    return { index: true, follow: true, reason: 'core-route', priority: normalizedPath === '/' ? 1 : 0.8 }
+  }
+
+  const moneyRoutes = new Set<string>(MONEY_ENTRY_ROUTES)
+  if (moneyRoutes.has(normalizedPath)) {
+    return { index: true, follow: true, reason: 'money-entry-route', priority: 0.7 }
+  }
+
+  if (/^\/articles\/[^/]+$/.test(normalizedPath)) {
+    return { index: true, follow: true, reason: 'article-detail', priority: 0.7 }
+  }
+
+  if (/^\/guides\/[^/]+$/.test(normalizedPath)) {
+    return { index: true, follow: true, reason: 'guide-detail', priority: 0.7 }
+  }
+
+  if (/^\/goals\/[^/]+$/.test(normalizedPath)) {
+    return { index: true, follow: true, reason: 'goal-detail', priority: 0.7 }
+  }
+
+  if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
+    const slug = normalizedPath.split('/').pop() || ''
+    if ((CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)) {
+      return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.5 }
+    }
+    if (passesGeneratedProfileQualityGate(pageData)) {
+      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.5 }
+    }
+    return { index: false, follow: true, reason: 'generated-herb-quality-gate-failed', priority: 0 }
+  }
+
+  if (/^\/compounds\/[^/]+$/.test(normalizedPath)) {
+    const slug = normalizedPath.split('/').pop() || ''
+    if ((CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)) {
+      return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.5 }
+    }
+    if (passesGeneratedProfileQualityGate(pageData)) {
+      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.5 }
+    }
+    return { index: false, follow: true, reason: 'generated-compound-quality-gate-failed', priority: 0 }
+  }
+
+  if (/^\/(learn|education|compare|stacks|psychoactive)\/[^/]+$/.test(normalizedPath)) {
+    return { index: true, follow: true, reason: 'supporting-detail-route', priority: 0.6 }
+  }
+
+  return { index: false, follow: true, reason: 'not-priority-index-route', priority: 0 }
+}
+
+export function routePriority(path: string, pageData?: Record<string, unknown> | null): number {
+  return shouldIndexRoute(path, pageData).priority
 }
 
 export function productJsonLd(args: {
@@ -723,6 +925,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   const meta = buildMeta({ title, description, path })
 
   const visibility = getRuntimeVisibility(record)
+  const indexDecision = shouldIndexRoute(path, record)
 
   return buildPageMetadata({
     title: meta.title,
@@ -730,7 +933,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     path,
     image: `/og/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}.png`,
     openGraphType: 'article',
-    robots: visibility.canIndex
+    robots: visibility.canIndex && indexDecision.index
       ? undefined
       : {
           index: false,

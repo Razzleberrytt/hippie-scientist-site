@@ -21,6 +21,46 @@
       "expiresOn": "2026-09-13",
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20esbuild%2Fwrangler%20to%20resolve%20high-severity%20advisories",
       "rationale": "wrangler is flagged only because it transitively depends on a vulnerable esbuild version (see esbuild-build-tooling-only-2026-06). wrangler is Cloudflare deploy tooling used exclusively in trusted CI/local contexts, not shipped to users (static export). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the deploy pipeline. Interim allowlist tied to the esbuild follow-up."
+    },
+    {
+      "id": "content-collections-cli-build-tooling-only-2026-06",
+      "package": "@content-collections/cli",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fesbuild%20to%20resolve%20high-severity%20advisories",
+      "rationale": "@content-collections/cli is build tooling used to generate static content-collection artifacts before typechecking/build. It is flagged through @content-collections/core/integrations, whose high finding is the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume a patched esbuild release."
+    },
+    {
+      "id": "content-collections-core-build-tooling-only-2026-06",
+      "package": "@content-collections/core",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fesbuild%20to%20resolve%20high-severity%20advisories",
+      "rationale": "@content-collections/core is build tooling used by the content collection generator. Its high finding is the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume a patched esbuild release."
+    },
+    {
+      "id": "content-collections-integrations-build-tooling-only-2026-06",
+      "package": "@content-collections/integrations",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fesbuild%20to%20resolve%20high-severity%20advisories",
+      "rationale": "@content-collections/integrations is transitive build tooling used by the content collection generator. It is flagged through @content-collections/core, whose high finding is the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume a patched esbuild release."
+    },
+    {
+      "id": "content-collections-mdx-build-tooling-only-2026-06",
+      "package": "@content-collections/mdx",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fesbuild%20to%20resolve%20high-severity%20advisories",
+      "rationale": "@content-collections/mdx is build tooling for static MDX/content generation. Its high finding includes the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06, plus moderate mdx-bundler/uuid findings that are not enforced by audit:high. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume patched transitive dependencies."
+    },
+    {
+      "id": "content-collections-next-build-tooling-only-2026-06",
+      "package": "@content-collections/next",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fesbuild%20to%20resolve%20high-severity%20advisories",
+      "rationale": "@content-collections/next is build tooling for integrating generated content collections into Next.js. It is flagged through @content-collections/core/integrations, whose high finding is the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume a patched esbuild release."
     }
   ],
   "_informational": {

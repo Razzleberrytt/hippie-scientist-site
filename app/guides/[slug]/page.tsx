@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildPageMetadata, SITE_URL } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -19,8 +19,6 @@ const GUIDE_SLUGS = [
   "ashwagandha",
   "lions-mane",
 ];
-
-const SITE_URL = "https://thehippiescientist.net";
 
 // Related guides cross-links for the 4 main guide slugs
 const RELATED_GUIDE_MAP: Record<string, { href: string; label: string; description: string }[]> = {
@@ -152,6 +150,11 @@ export default async function GuidePage({ params }: Props) {
           </div>
         </div>
       )}
+      <nav className="mx-auto flex max-w-3xl flex-wrap gap-4 px-4 pb-12 text-sm font-semibold text-brand-700 sm:px-6" aria-label="Guide support links">
+        <Link href="/guides" className="hover:text-brand-800">All guides</Link>
+        <Link href="/articles" className="hover:text-brand-800">Articles</Link>
+        <Link href="/safety-checker" className="hover:text-brand-800">Safety checker</Link>
+      </nav>
     </>
   );
 }

@@ -11,7 +11,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
 import { getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
-import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '@/lib/seo'
+import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import HerbSchemaGenerator from '@/components/herb-profile/SchemaGenerator'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
@@ -110,25 +110,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const metadata = generateDetailMetadata({ ...herb, slug: aliasCanonicalSlug ?? canonicalSlug }, 'herb')
 
   if (canonicalSlug !== normalizedSlug) {
+    const indexDecision = shouldIndexRoute(`/herbs/${canonicalSlug}`, { ...herb, slug: canonicalSlug })
     return {
       ...metadata,
       alternates: { canonical: `${SITE_URL}/herbs/${canonicalSlug}/` },
-      robots: { index: true, follow: true },
+      robots: { index: indexDecision.index, follow: true },
     }
   }
 
   if (aliasCanonicalSlug) {
+    const indexDecision = shouldIndexRoute(`/herbs/${aliasCanonicalSlug}`, { ...herb, slug: aliasCanonicalSlug })
     return {
       ...metadata,
       alternates: { canonical: `${SITE_URL}/herbs/${aliasCanonicalSlug}/` },
-      robots: { index: true, follow: true },
+      robots: { index: indexDecision.index, follow: true },
     }
   }
 
-  return {
-    ...metadata,
-    robots: { index: true, follow: true },
-  }
+  return metadata
 }
 
 function getEffects(herb: Herb) {
@@ -761,6 +760,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
         <Link href="/herbs" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
           ← Back to herbs library
+        </Link>
+        <Link href="/safety-checker" className="text-sm font-bold text-brand-800 hover:underline">
+          Safety checker →
         </Link>
       </div>
     </div>

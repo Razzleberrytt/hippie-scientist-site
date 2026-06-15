@@ -171,6 +171,10 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
 
       <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
         Educational disclaimer: this monograph is for research literacy and harm-reduction context only. It is not medical advice, diagnosis, or a recommendation to use any substance. Talk with a licensed clinician about personal risks, medications, dependence, withdrawal, or urgent symptoms.
+        <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
+          <Link href="/articles" className="hover:underline">All articles</Link>
+          <Link href="/safety-checker" className="hover:underline">Safety checker</Link>
+        </div>
       </footer>
     </article>
   )
@@ -592,6 +596,9 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
           <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Explore more</p>
             <div className="mt-3 space-y-2">
+              <Link href="/safety-checker" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
+                Safety Checker →
+              </Link>
               <Link href="/goals" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
                 Evidence Reviews →
               </Link>
@@ -610,6 +617,9 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
       <div className="mt-8">
         <Link href="/articles" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
+        </Link>
+        <Link href="/safety-checker" className="ml-4 text-sm font-semibold text-brand-700 hover:text-brand-800">
+          Safety Checker →
         </Link>
       </div>
     </article>

@@ -14,8 +14,6 @@ import {
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
 import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
-
-const FOCUS_CLUSTER_SITE_URL = 'https://thehippiescientist.net'
 const ADHD_CHECKLIST_CAPTURE = {
   title: 'Get the ADHD Supplement Starter Checklist',
   description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',
@@ -156,7 +154,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   const { slug } = await params
   const article = getFocusClusterArticle(slug)
   if (!article) return {}
-  const canonical = `${FOCUS_CLUSTER_SITE_URL}/${article.slug}/`
+  const canonical = `${SITE_URL}/${article.slug}/`
 
   return {
     title: article.seoTitle,
@@ -544,7 +542,7 @@ function ArticleJsonLd({
   slug: string
   dateModified: string
 }) {
-  const url = `${FOCUS_CLUSTER_SITE_URL}/${slug}/`
+  const url = `${SITE_URL}/${slug}/`
   const graph = {
     '@context': 'https://schema.org',
     '@type': 'Article',

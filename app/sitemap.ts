@@ -4,6 +4,7 @@ import { MetadataRoute } from 'next';
 import matter from 'gray-matter';
 
 import { SITE_URL } from '@/lib/site';
+import { shouldIndexRoute } from '@/lib/seo';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 
@@ -183,45 +184,6 @@ function readRedirectSources(relativePath = 'public/_redirects'): Set<string> {
   return sources;
 }
 
-function hasNoindex(record: SitemapSourceItem | null | undefined): boolean {
-  if (!record) return true;
-
-  if (record.sitemap_included === false || record.sitemap_included === 'false') {
-    return true;
-  }
-
-  const robots = String(record.robots || '').toLowerCase();
-  if (robots.includes('noindex')) {
-    return true;
-  }
-
-  const indexabilityStatus = String(record.indexability_status || '').toUpperCase();
-  if (['NOINDEX', 'NEEDS_REVIEW', 'BLOCKED'].includes(indexabilityStatus)) {
-    return true;
-  }
-
-  const decision = String(record.runtime_export_decision || '').toLowerCase();
-  if (['hide', 'hidden', 'blocked', 'block', 'alias_redirect_only', 'hidden_until_grounded', 'research_archive_runtime'].includes(decision)) {
-    return true;
-  }
-
-  const profileStatus = String(record.profile_status || '').toLowerCase();
-  if (['draft', 'archived', 'minimal', 'research_only'].includes(profileStatus)) {
-    return true;
-  }
-
-  const summaryQuality = String(record.summary_quality || '').toLowerCase();
-  if (['weak', 'minimal', 'thin', 'stub', 'research_needed', 'none'].includes(summaryQuality)) {
-    return true;
-  }
-
-  return false;
-}
-
-function isSitemapEligible(record: SitemapSourceItem | null | undefined): boolean {
-  return !hasNoindex(record);
-}
-
 function checkRouteFileEligibility(normalizedRoute: string): boolean {
   const clean = normalizedRoute.replace(/^\//, '');
   if (clean.includes('[') || clean.includes(']')) return true;
@@ -386,8 +348,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(normalizeSitemapUrl('/methodology'), currentDate, 'yearly', 0.6),
     route(normalizeSitemapUrl('/evidence-digest'), currentDate, 'weekly', 0.85),
     route(normalizeSitemapUrl('/safety-checker'), currentDate, 'monthly', 0.8),
-    route(normalizeSitemapUrl('/herbs'), currentDate, 'weekly', 0.9),
-    route(normalizeSitemapUrl('/compounds'), currentDate, 'weekly', 0.9),
+    route(normalizeSitemapUrl('/supplement-safety-checklist'), currentDate, 'monthly', 0.8),
+    route(normalizeSitemapUrl('/herbs'), currentDate, 'weekly', 0.8),
+    route(normalizeSitemapUrl('/compounds'), currentDate, 'weekly', 0.8),
     route(normalizeSitemapUrl('/articles'), currentDate, 'daily', 0.8),
     route(normalizeSitemapUrl('/goals'), currentDate, 'monthly', 0.8),
     route(normalizeSitemapUrl('/stacks'), currentDate, 'monthly', 0.7),
@@ -405,10 +368,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
     priority: number,
     lastModified?: string,
+    pageData?: Record<string, unknown> | null,
   ) => {
     const normalized = normalizeRoutePath(pathName);
     if (redirectSources.has(normalized)) return;
-    sitemapEntries.push(route(normalizeSitemapUrl(normalized), currentDate, changeFrequency, priority, lastModified));
+    const indexDecision = shouldIndexRoute(normalized, pageData);
+    if (!indexDecision.index) return;
+    sitemapEntries.push(route(normalizeSitemapUrl(normalized), currentDate, changeFrequency, Math.min(priority, indexDecision.priority || priority), lastModified));
   };
 
   const addFocusClusterRoute = (
@@ -417,6 +383,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ) => {
     const normalized = normalizeRoutePath(pathName);
     if (redirectSources.has(normalized)) return;
+    const indexDecision = shouldIndexRoute(normalized);
+    if (!indexDecision.index) return;
     sitemapEntries.push(route(normalizeSitemapUrl(normalized), currentDate, 'monthly', 0.75, lastModified));
   };
 
@@ -478,92 +446,80 @@ export default function sitemap(): MetadataRoute.Sitemap {
   herbsData.forEach((herb) => {
     if (!herb.slug) return;
     if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
-    if (!isSitemapEligible(herb)) return;
     if (!indexableHerbsSlugs.has(herb.slug)) return;
 
-    addRoute(`/herbs/${herb.slug}`, 'weekly', 0.85, herb.lastUpdated || herb.updatedAt);
+    addRoute(`/herbs/${herb.slug}`, 'monthly', 0.5, herb.lastUpdated || herb.updatedAt, herb);
   });
 
   compoundsData.forEach((compound) => {
     if (!compound.slug) return;
     if (DEPRECATED_COMPOUNDS.has(compound.slug.toLowerCase())) return;
-    if (!isSitemapEligible(compound)) return;
     if (!indexableCompoundsSlugs.has(compound.slug)) return;
 
-    addRoute(`/compounds/${compound.slug}`, 'weekly', 0.85, compound.lastUpdated || compound.updatedAt);
+    addRoute(`/compounds/${compound.slug}`, 'monthly', 0.5, compound.lastUpdated || compound.updatedAt, compound);
   });
 
   const articleSlugs = new Set<string>();
 
   articlesData.forEach((article) => {
     if (!article.slug) return;
-    if (!isSitemapEligible(article)) return;
     articleSlugs.add(article.slug);
 
-    addRoute(`/articles/${article.slug}`, 'monthly', 0.75, article.updatedAt || article.date || article.lastUpdated);
+    addRoute(`/articles/${article.slug}`, 'monthly', 0.75, article.updatedAt || article.date || article.lastUpdated, article);
   });
 
   blogPosts.forEach((post) => {
     if (!post.slug) return;
     if (articleSlugs.has(post.slug)) return;
-    if (!isSitemapEligible(post)) return;
 
-    addRoute(`/articles/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || post.updatedAt);
+    addRoute(`/articles/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || post.updatedAt, post);
   });
 
   getAllFocusClusterArticles().forEach((article) => {
-    if (!isSitemapEligible(article)) return;
     addFocusClusterRoute(`/${article.slug}`, article.dateModified);
   });
 
   // Add App Router article pages not covered by articles.json or blog posts.json
   readAppArticlePageSlugs('app/articles').forEach((article) => {
     if (!article.slug || articleSlugs.has(article.slug)) return;
-    if (!isSitemapEligible(article)) return;
     articleSlugs.add(article.slug);
-    addRoute(`/articles/${article.slug}`, 'monthly', 0.75);
+    addRoute(`/articles/${article.slug}`, 'monthly', 0.75, undefined, article);
   });
 
   goalsData.forEach((goal) => {
     if (!goal.slug) return;
-    if (!isSitemapEligible(goal)) return;
 
-    addRoute(`/goals/${goal.slug}`, 'monthly', 0.7);
+    addRoute(`/goals/${goal.slug}`, 'monthly', 0.7, undefined, goal);
   });
 
   stacksData.forEach((stack) => {
     if (!stack.slug) return;
-    if (!isSitemapEligible(stack)) return;
 
-    addRoute(`/stacks/${stack.slug}`, 'monthly', 0.65);
+    addRoute(`/stacks/${stack.slug}`, 'monthly', 0.65, undefined, stack);
   });
 
   const guideSlugs = new Set<string>();
 
   guidesData.forEach((guide) => {
     if (!guide.slug) return;
-    if (!isSitemapEligible(guide)) return;
     guideSlugs.add(guide.slug);
-    addRoute(`/guides/${guide.slug}`, 'monthly', 0.65);
+    addRoute(`/guides/${guide.slug}`, 'monthly', 0.7, undefined, guide);
   });
 
   // Add App Router guide pages not covered by content/guides
   readAppGuidePageSlugs('app/guides').forEach((guide) => {
     if (!guide.slug || guideSlugs.has(guide.slug)) return;
-    if (!isSitemapEligible(guide)) return;
     guideSlugs.add(guide.slug);
-    addRoute(`/guides/${guide.slug}`, 'monthly', 0.65);
+    addRoute(`/guides/${guide.slug}`, 'monthly', 0.7, undefined, guide);
   });
 
   learnPosts.forEach((post) => {
-    if (!isSitemapEligible(post)) return;
-    addRoute(`/learn/${post.slug}`, 'monthly', 0.7);
+    addRoute(`/learn/${post.slug}`, 'monthly', 0.6, undefined, post);
   });
 
   educationMdx.forEach((edu) => {
     if (!edu.slug) return;
-    if (!isSitemapEligible(edu)) return;
-    addRoute(`/education/${edu.slug}`, 'monthly', 0.75);
+    addRoute(`/education/${edu.slug}`, 'monthly', 0.6, undefined, edu);
   });
 
   // Add compare detail routes (data-driven + custom directories)
@@ -573,7 +529,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(Boolean);
   const compareFromDirs = readAppComparePageSlugs('app/compare').map(item => item.slug).filter((s): s is string => Boolean(s));
   Array.from(new Set([...compareFromGen, ...compareFromData, ...compareFromDirs])).forEach((slug) => {
-    if (slug) addRoute(`/compare/${slug}`, 'monthly', 0.65);
+    if (slug) addRoute(`/compare/${slug}`, 'monthly', 0.6);
   });
 
   // Inactive collections routes (redirect targets or defined in lib) are excluded from the sitemap.
@@ -600,8 +556,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/research-notes/') || r.startsWith('/articles/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
     if (r.startsWith('/_') || r.includes('dynamic')) return;
     if (!isAllowedRouteManifestEntry(r)) return;
-    if (!isSitemapEligible(entry)) return;
-    addRoute(r, 'monthly', 0.5);
+    addRoute(r, 'monthly', 0.5, undefined, entry);
   });
 
   // Dedupe by url (supplements + manifest may overlap) for valid lean sitemap
