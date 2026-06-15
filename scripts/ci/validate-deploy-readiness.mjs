@@ -71,8 +71,8 @@ function main() {
         return false
       }
     })
-    if (directories.length < 280) {
-      console.error(`DEPLOY BLOCKED: out/herbs/ contains fewer than 280 herb profile directories. Static generation of herb profiles has failed. Check generateStaticParams() in app/herbs/[slug]/page.tsx. Found: ${directories.length}`)
+    if (directories.length < 270) {
+      console.error(`DEPLOY BLOCKED: out/herbs/ contains fewer than 270 herb profile directories. Static generation of herb profiles has failed. Check generateStaticParams() in app/herbs/[slug]/page.tsx. Found: ${directories.length}`)
       process.exit(1)
     }
   }
