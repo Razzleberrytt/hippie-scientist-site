@@ -34,6 +34,14 @@ const CANONICAL_MAP = {
   // Additional Latin → common pairs from audit
   'hypericum-perforatum': 'st-johns-wort',
   'silybum-marianum': 'milk-thistle',
+
+  // Duplicate / thin profiles consolidated to a single canonical (audit dedup)
+  'berberis-vulgaris': 'berberis',
+  'berberis-aristata': 'berberis',
+  'coptis-chinensis': 'coptis',
+  'boswellia-carterii': 'boswellia-serrata',
+  'morus-alba': 'mulberry-leaf',
+  phellodendron: 'phellodendron-amurense',
 }
 
 const REDIRECTS_PATH = path.resolve('public/_redirects')
