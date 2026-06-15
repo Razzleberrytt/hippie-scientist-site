@@ -54,33 +54,13 @@ type PageProps = {
 }
 
 import { getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
+import { DEPRECATED_HERB_CANONICALS } from '@/lib/deprecated-herb-canonicals'
 
 const HERB_CANONICAL_SOURCE_ALIASES: Record<string, string> = {
   'lions-mane': 'hericium-erinaceus',
   passionflower: 'passiflora-incarnata',
   kava: 'piper-methysticum',
   'ashwagandha-withania-somnifera': 'ashwagandha',
-}
-
-const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
-  'allium-sativum': 'garlic',
-  'valeriana-officinalis': 'valerian',
-  'hericium-erinaceus': 'lions-mane',
-  'passiflora-incarnata': 'passionflower',
-  'piper-methysticum': 'kava',
-  'ganoderma-lucidum': 'reishi',
-  // Duplicate / thin near-identical profiles consolidated to a single canonical
-  // (see public/_redirects and app/sitemap.ts DEPRECATED_HERBS).
-  'berberis-vulgaris': 'berberis',
-  'berberis-aristata': 'berberis',
-  'coptis-chinensis': 'coptis',
-  'boswellia-carterii': 'boswellia-serrata',
-  'morus-alba': 'mulberry-leaf',
-  phellodendron: 'phellodendron-amurense',
-  'astragalus-membranaceus': 'astragalus',
-  'atractylodes-macrocephala': 'atractylodes',
-  'angelica-sinensis': 'dong-quai',
-  'angelica-root': 'angelica-archangelica',
 }
 
 export async function generateStaticParams() {

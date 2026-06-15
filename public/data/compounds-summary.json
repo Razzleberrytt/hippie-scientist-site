@@ -60,8 +60,8 @@
     "id": "5-meo-dmt",
     "slug": "5-meo-dmt",
     "name": "5-MeO-DMT",
-    "summary": "5-MeO-DMT entry from SciSpace evidence pass. Evidence level: preliminary.",
-    "description": "5-MeO-DMT is cataloged as tryptamine psychedelic. Reported mechanisms: potent 5-HT1A and 5-HT2A agonism; rapid network effects.",
+    "summary": "5-MeO-DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "5-MeO-DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Stress Response Modulation"
@@ -78,8 +78,8 @@
     "id": "7-hydroxymitragynine",
     "slug": "7-hydroxymitragynine",
     "name": "7-Hydroxymitragynine",
-    "summary": "7-Hydroxymitragynine entry from SciSpace evidence pass. Evidence level: preclinical.",
-    "description": "7-Hydroxymitragynine is cataloged as indole alkaloid. Reported mechanisms: potent mu-opioid receptor agonism; higher potency than mitragynine preclinical.",
+    "summary": "7-Hydroxymitragynine is a potent kratom alkaloid present only in trace amounts in natural kratom leaf, but concentrated or synthetic 7-OH products carry opioid-like safety and regulatory risk.",
+    "description": "7-Hydroxymitragynine (7-OH) is a kratom alkaloid with mu-opioid receptor activity. The 2025-2026 regulatory focus is concentrated, synthetic, enhanced, or added-ingredient 7-OH products such as tablets, gummies, shots, and enhanced extracts, not plain natural kratom leaf with trace 7-OH.",
     "compoundClass": "",
     "mechanisms": [
       "potent mu-opioid receptor agonism",
@@ -573,8 +573,8 @@
     "id": "amanita-muscaria",
     "slug": "amanita-muscaria",
     "name": "Amanita muscaria",
-    "summary": "Decision-ready summary: Amanita muscaria is best framed for sedation research context; altered-state education; harm-reduction content; safety screen: CNS depressants; pregnancy; psychosis risk; toxicity/misidentification risk.",
-    "description": "Amanita muscaria supports sedation; altered state; safety with low confidence in this merged decision layer.",
+    "summary": "Amanita muscaria is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Amanita muscaria is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Neurotransmitter Modulation",
@@ -3998,8 +3998,8 @@
     "id": "dmt",
     "slug": "dmt",
     "name": "DMT",
-    "summary": "DMT entry from SciSpace evidence pass. Evidence level: low.",
-    "description": "DMT is cataloged as tryptamine psychedelic. Reported mechanisms: 5-HT2A receptor agonism; sigma-1 receptor activity proposed.",
+    "summary": "DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "5-HT2A receptor agonism",
@@ -5816,8 +5816,8 @@
     "id": "harmaline",
     "slug": "harmaline",
     "name": "Harmaline",
-    "summary": "Harmaline entry from SciSpace evidence pass. Evidence level: low.",
-    "description": "Harmaline is cataloged as beta-carboline alkaloid. Reported mechanisms: MAO-A inhibition; serotonergic/dopaminergic signaling modulation.",
+    "summary": "Harmaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Harmaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Neurotransmitter Modulation",
@@ -5835,8 +5835,8 @@
     "id": "harmine",
     "slug": "harmine",
     "name": "Harmine",
-    "summary": "Harmine entry from SciSpace evidence pass. Evidence level: low.",
-    "description": "Harmine is cataloged as beta-carboline alkaloid. Reported mechanisms: reversible MAO-A inhibition; monoamine elevation; BDNF/neurogenesis signaling preclinical.",
+    "summary": "Harmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Harmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Neuroprotective Activity"
@@ -6211,8 +6211,8 @@
     "id": "ibogaine",
     "slug": "ibogaine",
     "name": "Ibogaine",
-    "summary": "Ibogaine entry from SciSpace evidence pass. Evidence level: limited observational.",
-    "description": "Ibogaine is cataloged as indole alkaloid. Reported mechanisms: NMDA antagonism; opioid receptor modulation; monoamine reuptake inhibition; noribogaine metabolite effects.",
+    "summary": "Ibogaine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Ibogaine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Neuroprotective Activity"
@@ -6617,8 +6617,8 @@
     "id": "ketamine",
     "slug": "ketamine",
     "name": "Ketamine",
-    "summary": "Ketamine entry from SciSpace evidence pass. Evidence level: high clinical-specific.",
-    "description": "Ketamine is cataloged as arylcyclohexylamine dissociative anesthetic. Reported mechanisms: NMDA receptor antagonism; glutamate/AMPA activation; BDNF/mTOR synaptogenesis pathways.",
+    "summary": "Ketamine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Ketamine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Neuroprotective Activity",
@@ -6654,8 +6654,8 @@
     "id": "kratom",
     "slug": "kratom",
     "name": "Kratom",
-    "summary": "Kratom entry from SciSpace evidence pass. Evidence level: insufficient clinical.",
-    "description": "Kratom is cataloged as opioid-active botanical. Reported mechanisms: mitragynine/7-hydroxymitragynine partial mu-opioid receptor agonism; adrenergic/serotonergic activity preclinical.",
+    "summary": "Kratom is the common name for Mitragyna speciosa leaf, a botanical source of mitragynine and trace 7-hydroxymitragynine. This reference-only profile distinguishes traditional leaf material from concentrated or enhanced alkaloid products and emphasizes FDA warnings, dependence and withdrawal risk, product variability, and state-by-state legal uncertainty.",
+    "description": "Kratom leaf contains multiple alkaloids, with mitragynine usually dominant and 7-hydroxymitragynine normally present at much lower levels. Modern products vary widely and may include concentrated extracts or enhanced 7-OH products, which change the safety profile. This page is educational only and is not a recommendation to use or purchase kratom products.",
     "compoundClass": "",
     "mechanisms": [
       "Inflammatory Signaling Modulation"
@@ -7671,8 +7671,8 @@
     "id": "mescaline",
     "slug": "mescaline",
     "name": "Mescaline",
-    "summary": "Mescaline entry from SciSpace evidence pass. Evidence level: low.",
-    "description": "Mescaline is cataloged as phenethylamine psychedelic. Reported mechanisms: 5-HT2A receptor agonism; altered cortical network signaling.",
+    "summary": "Mescaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Mescaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Vascular Function Support",
@@ -7887,8 +7887,8 @@
     "id": "mitragynine",
     "slug": "mitragynine",
     "name": "Mitragynine",
-    "summary": "Mitragynine entry from SciSpace evidence pass. Evidence level: preclinical.",
-    "description": "Mitragynine is cataloged as indole alkaloid. Reported mechanisms: partial mu-opioid receptor agonism with G-protein biased signaling preclinical.",
+    "summary": "Mitragynine is the primary alkaloid in kratom leaf and a partial mu-opioid receptor agonist that can be metabolized by CYP3A4 into 7-hydroxymitragynine. This profile is educational and reference-only because dependence, withdrawal, product variability, medication interactions, and regulatory concerns remain important safety issues.",
+    "description": "Mitragynine is a kratom alkaloid with partial mu-opioid receptor activity and additional adrenergic and serotonergic pharmacology. Human pharmacokinetic data show measurable conversion to 7-hydroxymitragynine after oral kratom leaf powder. Controlled human outcome data remain limited, and this page should not be read as a recommendation to use or source kratom-derived products.",
     "compoundClass": "",
     "mechanisms": [
       "partial mu-opioid receptor agonism with G-protein biased signaling preclinical"
@@ -10289,8 +10289,8 @@
     "id": "salvinorin-a",
     "slug": "salvinorin-a",
     "name": "Salvinorin A",
-    "summary": "Salvinorin A entry from SciSpace evidence pass. Evidence level: low.",
-    "description": "Salvinorin A is cataloged as non-serotonergic diterpene hallucinogen. Reported mechanisms: potent kappa-opioid receptor agonism.",
+    "summary": "Salvinorin A is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Salvinorin A is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "potent kappa-opioid receptor agonism"
@@ -11103,8 +11103,8 @@
     "id": "tetrahydroharmine",
     "slug": "tetrahydroharmine",
     "name": "Tetrahydroharmine",
-    "summary": "Tetrahydroharmine entry from SciSpace evidence pass. Evidence level: low.",
-    "description": "Tetrahydroharmine is cataloged as beta-carboline alkaloid. Reported mechanisms: weak MAO-A inhibition; serotonin reuptake inhibition.",
+    "summary": "Tetrahydroharmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Tetrahydroharmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Neurotransmitter Modulation",
@@ -11141,8 +11141,8 @@
     "id": "thc",
     "slug": "thc",
     "name": "THC",
-    "summary": "THC entry from SciSpace evidence pass. Evidence level: moderate/high indication-specific.",
-    "description": "THC is cataloged as phytocannabinoid. Reported mechanisms: CB1 receptor agonism; neurotransmitter/dopamine release modulation.",
+    "summary": "THC is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "THC is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Inflammatory Signaling Modulation",
@@ -11162,8 +11162,8 @@
     "id": "thcv",
     "slug": "thcv",
     "name": "THCV",
-    "summary": "THCV entry from SciSpace evidence pass. Evidence level: preliminary.",
-    "description": "THCV is cataloged as phytocannabinoid. Reported mechanisms: CB1 antagonist at low dose and agonist at high dose; glucose metabolism effects.",
+    "summary": "THCV is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "THCV is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "compoundClass": "",
     "mechanisms": [
       "Metabolic Regulation",

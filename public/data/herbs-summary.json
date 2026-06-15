@@ -1090,8 +1090,8 @@
     "name": "Berberis",
     "common": "Barberry",
     "scientific": "Berberis vulgaris (and related Berberis spp.)",
-    "summary": "Barberry (Berberis) is a berberine-bearing shrub whose root and stem bark are the main supplement source. Human research has centered on berberine’s effects on glucose and lipid metabolism, alongside traditional use for digestive complaints.",
-    "description": "Barberry (Berberis) supplies berberine, an isoquinoline alkaloid concentrated in the root and stem bark. Human studies have examined berberine for support of healthy blood sugar and cholesterol levels, and the herb has a long traditional record for digestive complaints. Because berberine inhibits several liver CYP enzymes, it can interact with prescription medications and should be used cautiously alongside them.",
+    "summary": "Berberis centers on berberine-bearing root bark with GI and medication-interaction caution.",
+    "description": "Berberis centers on berberine-bearing root bark with GI and medication-interaction caution.",
     "primaryActions": [
       "anti-inflammatory",
       "digestive",
@@ -1457,8 +1457,8 @@
     "name": "Boswellia",
     "common": "Indian frankincense",
     "scientific": "Boswellia serrata",
-    "summary": "Boswellia serrata (Indian frankincense) yields a resin standardized to boswellic acids, especially AKBA, which inhibit the 5-lipoxygenase (5-LOX) inflammatory pathway. Human studies have examined standardized extracts for joint comfort and mobility.",
-    "description": "Boswellia serrata (Indian frankincense) is valued for its resin, standardized in supplements to boswellic acids such as AKBA. These compounds act on the 5-lipoxygenase (5-LOX) pathway involved in inflammation, and human studies have looked at boswellia extracts for joint comfort and mobility, including in osteoarthritis. It is generally well tolerated, with mild digestive upset the most common report.",
+    "summary": "Boswellia is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Boswellia is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "primaryActions": [
       "anti-inflammatory"
     ],
@@ -1656,8 +1656,8 @@
     "name": "Bupleurum Falcatum",
     "common": "Bupleurum Falcatum",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Bupleurum falcatum.",
-    "description": "Lean bulk ingestion row for Bupleurum falcatum. Key active compounds include Saikosaponin A.",
+    "summary": "Bupleurum falcatum is an herb historically used in traditional East Asian medicine, containing active compounds like Saikosaponin A.",
+    "description": "Bupleurum falcatum (Chinese thoroughwax) is a traditional medicinal herb containing saikosaponins. It is historically studied for its potential anti-inflammatory, neuroprotective, and HPA-axis modulating effects.",
     "primaryActions": [
       "liver-protective",
       "anti-inflammatory"
@@ -2528,8 +2528,8 @@
     "name": "Citrus Sinensis",
     "common": "Citrus Sinensis",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Citrus sinensis.",
-    "description": "Lean bulk ingestion row for Citrus sinensis. Key active compounds include Hesperidin.",
+    "summary": "Citrus sinensis (Sweet Orange) is a fruit botanical notable for its rich content of flavonoids like hesperidin.",
+    "description": "Citrus sinensis (Sweet Orange) peel and fruit extracts are rich sources of bioactive flavonoids, particularly hesperidin. It is studied for cardiovascular support, antioxidant defense, and inflammatory response regulation.",
     "primaryActions": [
       "antioxidant",
       "digestive"
@@ -2812,8 +2812,8 @@
     "name": "Coptis",
     "common": "Goldthread (Huang Lian)",
     "scientific": "Coptis chinensis",
-    "summary": "Coptis (goldthread, Huang Lian) is a traditional East Asian herb rich in berberine and related alkaloids such as palmatine and coptisine. It has been investigated for antimicrobial, anti-inflammatory, and glucose-metabolism activity, and is most often used within traditional formulas.",
-    "description": "Coptis (goldthread, Huang Lian) is one of the most berberine-dense herbs, also supplying palmatine and coptisine. Research has explored its antimicrobial, anti-inflammatory, and metabolic activity, though it is typically combined with other herbs in traditional formulas rather than taken alone. As a concentrated berberine source it shares the medication-interaction caution of related plants.",
+    "summary": "Coptis is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Coptis is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "primaryActions": [
       "anti-inflammatory"
     ],
@@ -3058,8 +3058,8 @@
     "name": "Crocus Sativus",
     "common": "Crocus Sativus",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Crocus sativus.",
-    "description": "Lean bulk ingestion row for Crocus sativus. Key active compounds include Crocin; Crocetin.",
+    "summary": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support.",
+    "description": "Crocus sativus (Saffron) is a spice botanical with rich clinical literature supporting its use for mood improvement, anxiety regulation, and neuroprotection. Bioactive components include crocin and safranal.",
     "primaryActions": [
       "stress"
     ],
@@ -4348,8 +4348,8 @@
     "name": "Glycyrrhiza Glabra",
     "common": "Glycyrrhiza Glabra",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Glycyrrhiza glabra.",
-    "description": "Lean bulk ingestion row for Glycyrrhiza glabra. Key active compounds include Glycyrrhizin.",
+    "summary": "Glycyrrhiza glabra (Licorice) is a traditional root botanical studied for gastrointestinal soothing and cortisol support.",
+    "description": "Glycyrrhiza glabra (Licorice) root contains glycyrrhizin, which can prolong the half-life of cortisol by inhibiting 11beta-HSD. It is utilized for gastrointestinal lining support and adrenal regulation.",
     "primaryActions": [
       "anti-inflammatory"
     ],
@@ -5522,8 +5522,8 @@
     "name": "Lavender",
     "common": "Lavender",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Lavandula angustifolia.",
-    "description": "Lean bulk ingestion row for Lavandula angustifolia. Key active compounds include Linalool.",
+    "summary": "Lavandula angustifolia (Lavender) is an aromatic herb widely used for its calming and sleep-promoting properties.",
+    "description": "Lavandula angustifolia (Lavender) is a popular botanical containing linalool and linalyl acetate. It has human evidence supporting its use for anxiety reduction, nervous system relaxation, and sleep quality enhancement.",
     "primaryActions": [
       "sleep",
       "stress"
@@ -5857,8 +5857,8 @@
     "name": "Lobelia Inflata",
     "common": "Lobelia Inflata",
     "scientific": "",
-    "summary": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
-    "description": "Lobelia inflata contains Lobeline and is linked here to nicotinic acetylcholine receptor modulation.",
+    "summary": "Lobelia Inflata is a botanical studied in connection with respiratory and stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Lobelia Inflata is a botanical studied in connection with respiratory and stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "primaryActions": [
       "respiratory",
       "stimulant"
@@ -6506,8 +6506,8 @@
     "name": "Mulberry Leaf",
     "common": "White mulberry leaf",
     "scientific": "Morus alba",
-    "summary": "Mulberry leaf (Morus alba) contains 1-deoxynojirimycin (DNJ) and related iminosugars that inhibit intestinal alpha-glucosidase, the enzyme that releases glucose from dietary carbohydrate. Human studies have examined it taken with meals for post-meal blood sugar response.",
-    "description": "Mulberry leaf (Morus alba) supplies 1-deoxynojirimycin (DNJ) and related iminosugars that slow intestinal alpha-glucosidase, the enzyme that breaks dietary carbohydrate into glucose. Human studies have examined mulberry leaf extract taken alongside carbohydrate-containing meals for its effect on post-meal blood sugar spikes. It is widely available as a tea or standardized extract and is generally well tolerated.",
+    "summary": "Mulberry Leaf centers on alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
+    "description": "Mulberry Leaf centers on alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
     "primaryActions": [
       "metabolic"
     ],
@@ -6710,8 +6710,8 @@
     "name": "Nicotiana Glauca",
     "common": "Nicotiana Glauca",
     "scientific": "",
-    "summary": "Nicotiana glauca contains Anabasine and is linked here to nicotinic acetylcholine receptor modulation.",
-    "description": "Nicotiana glauca contains Anabasine and is linked here to nicotinic acetylcholine receptor modulation.",
+    "summary": "Nicotiana Glauca is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Nicotiana Glauca is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "primaryActions": [
       "stimulant"
     ],
@@ -6742,8 +6742,8 @@
     "name": "Nicotiana Tabacum",
     "common": "Nicotiana Tabacum",
     "scientific": "",
-    "summary": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation.",
-    "description": "Nicotiana tabacum contains Anatabine and is linked here to nicotinic acetylcholine receptor modulation.",
+    "summary": "Nicotiana Tabacum is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Nicotiana Tabacum is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "primaryActions": [
       "stimulant"
     ],
@@ -6776,8 +6776,8 @@
     "name": "Nigella Sativa",
     "common": "Nigella Sativa",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Nigella sativa.",
-    "description": "Lean bulk ingestion row for Nigella sativa. Key active compounds include Thymoquinone.",
+    "summary": "Nigella sativa (Black Seed) is a traditional seed extract containing thymoquinone, studied for antioxidant and immune support.",
+    "description": "Nigella sativa (Black Seed) is a traditional medicinal seed rich in thymoquinone. Research indicates support for immune signaling, respiratory health, metabolic homeostasis, and antioxidant pathways.",
     "primaryActions": [
       "metabolic"
     ],
@@ -6993,8 +6993,8 @@
     "name": "Olive Leaf",
     "common": "Olive Leaf",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Olea europaea.",
-    "description": "Lean bulk ingestion row for Olea europaea. Key active compounds include Oleuropein; Hydroxytyrosol.",
+    "summary": "Olea europaea (Olive Leaf) contains oleuropein and hydroxytyrosol, with notable cardiovascular and immune support.",
+    "description": "Olea europaea (Olive Leaf) extracts are rich in oleuropein and hydroxytyrosol. Clinical studies demonstrate benefits for blood pressure regulation, antioxidant defense, and immune function.",
     "primaryActions": [
       "anti-inflammatory",
       "antioxidant",
@@ -7477,8 +7477,8 @@
     "name": "Phellodendron Amurense",
     "common": "Amur cork tree (Huang Bai)",
     "scientific": "Phellodendron amurense",
-    "summary": "Phellodendron amurense (Amur cork tree, Huang Bai) is a berberine-containing bark used in traditional East Asian medicine. In modern supplements it appears most often combined with magnolia bark, where the blend has been studied for stress, cortisol balance, and sleep quality.",
-    "description": "Phellodendron amurense (Amur cork tree, Huang Bai) is a berberine-containing bark with a long traditional record in East Asian medicine. In modern supplements it is most often paired with magnolia bark (as in Relora-type blends), and that combination has been studied for stress, cortisol balance, and sleep quality. As a berberine source it shares the metabolic and antimicrobial activity — and the medication-interaction caution — of related herbs.",
+    "summary": "Phellodendron Amurense is a botanical studied in connection with antimicrobial, anti-inflammatory and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Phellodendron Amurense is a botanical studied in connection with antimicrobial, anti-inflammatory and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
     "primaryActions": [
       "antimicrobial",
       "anti-inflammatory",
@@ -8235,8 +8235,8 @@
     "name": "Rheum Palmatum",
     "common": "Rheum Palmatum",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Rheum palmatum.",
-    "description": "Lean bulk ingestion row for Rheum palmatum. Key active compounds include Emodin; Rhein.",
+    "summary": "Rheum palmatum (Turkish Rhubarb) is a root botanical containing emodin and rhein, used traditionally for digestive health.",
+    "description": "Rheum palmatum (Turkish Rhubarb) root contains anthraquinones like emodin and rhein. It is studied for bowel motility regulation, gastrointestinal support, and inflammatory pathway modulation.",
     "primaryActions": [
       "research-pending"
     ],
@@ -8705,8 +8705,8 @@
     "name": "Schisandra Chinensis",
     "common": "Schisandra Chinensis",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Schisandra chinensis.",
-    "description": "Lean bulk ingestion row for Schisandra chinensis. Key active compounds include Schisandrin.",
+    "summary": "Schisandra chinensis is an adaptogenic berry botanical rich in schisandrins, used to support stress resilience and cognitive focus.",
+    "description": "Schisandra chinensis is an adaptogenic berry widely used in traditional medicine. Its active schisandrins are studied for physical endurance support, cognitive focus, hepatic protection, and HPA-axis regulation.",
     "primaryActions": [
       "stress"
     ],
@@ -8741,8 +8741,8 @@
     "name": "Scutellaria Baicalensis",
     "common": "Scutellaria Baicalensis",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Scutellaria baicalensis.",
-    "description": "Lean bulk ingestion row for Scutellaria baicalensis. Key active compounds include Baicalin; Baicalein; Wogonin.",
+    "summary": "Scutellaria baicalensis (Baical Skullcap) is a root botanical containing baicalin and baicalein, studied for sleep and relaxation.",
+    "description": "Scutellaria baicalensis (Baical Skullcap) root contains flavonoids like baicalin, baicalein, and wogonin. It exerts notable GABA-A positive allosteric modulation, supporting sleep and anxiety reduction.",
     "primaryActions": [
       "stress"
     ],
@@ -9276,8 +9276,8 @@
     "name": "Syzygium Aromaticum",
     "common": "Syzygium Aromaticum",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Syzygium aromaticum.",
-    "description": "Lean bulk ingestion row for Syzygium aromaticum. Key active compounds include Eugenol.",
+    "summary": "Syzygium aromaticum (Clove) is an aromatic spice botanical rich in eugenol, studied for antioxidant and dental health support.",
+    "description": "Syzygium aromaticum (Clove) bud extracts are rich in eugenol and acetyl eugenol. It exhibits strong local anesthetic, antimicrobial, and antioxidant activities, and is studied for digestive and dental health support.",
     "primaryActions": [
       "stress"
     ],
@@ -9542,8 +9542,8 @@
     "name": "Tripterygium Wilfordii",
     "common": "Tripterygium Wilfordii",
     "scientific": "",
-    "summary": "Lean bulk ingestion row for Tripterygium wilfordii.",
-    "description": "Lean bulk ingestion row for Tripterygium wilfordii. Key active compounds include Celastrol.",
+    "summary": "Tripterygium wilfordii (Thunder God Vine) contains celastrol, studied for auto-immune and inflammatory regulation.",
+    "description": "Tripterygium wilfordii (Thunder God Vine) contains celastrol. It is a potent anti-inflammatory agent studied under strict medical contexts for autoimmune regulation, though it carries a narrow therapeutic index.",
     "primaryActions": [
       "anti-inflammatory",
       "tonic"
