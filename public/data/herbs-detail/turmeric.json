@@ -53,5 +53,25 @@
       "year": 2024,
       "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": false,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "26528921",
+      "27213821",
+      "38558676"
+    ]
+  },
+  "claimMap": []
 }

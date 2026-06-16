@@ -49,5 +49,25 @@
       "year": 2010,
       "url": "https://pubmed.ncbi.nlm.nih.gov/21144345/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": false,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "16767798",
+      "32173933",
+      "21144345"
+    ]
+  },
+  "claimMap": []
 }

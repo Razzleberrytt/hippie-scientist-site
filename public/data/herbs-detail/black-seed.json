@@ -56,5 +56,25 @@
       "year": 2006,
       "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "34073784",
+      "37184195",
+      "30000936"
+    ]
+  },
+  "claimMap": []
 }

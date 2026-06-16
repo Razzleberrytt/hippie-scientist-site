@@ -49,5 +49,25 @@
       "year": 2026,
       "url": "https://pubmed.ncbi.nlm.nih.gov/41841386/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "34718674",
+      "41272020",
+      "41841386"
+    ]
+  },
+  "claimMap": []
 }

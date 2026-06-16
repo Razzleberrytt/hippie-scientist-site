@@ -1,26 +1,16 @@
 {
-  "generatedAt": "2026-04-26T19:44:13.085Z",
+  "generatedAt": "2026-06-16T02:36:00.653Z",
   "source": {
-    "workbookPath": "/workspace/hippie-scientist-site/data-sources/herb_monograph_master.xlsx",
-    "sheets": {
-      "herbs": "Herb Master V3",
-      "compounds": "Compound Master V3",
-      "herbCompoundMap": "Herb Compound Map V3",
-      "claimRows": "Claim Rows",
-      "researchQueue": "Research Queue"
-    }
+    "workbookPath": "C:\\Users\\Will\\Documents\\hippie-scientist-site\\.claude\\worktrees\\mystifying-sanderson-039a96\\data-sources\\herb_monograph_master.xlsx",
+    "workbook": "herb_monograph_master.xlsx"
   },
-  "output": "public/data",
+  "output": "public\\data",
   "counts": {
-    "herbs": 285,
-    "compounds": 235,
-    "herbsSummary": 285,
-    "compoundsSummary": 235,
-    "herbDetails": 285,
-    "compoundDetails": 235,
-    "claimRows": 4349,
-    "researchQueueRows": 290,
-    "skippedHerbs": 0,
-    "skippedCompounds": 0
+    "herbs": 287,
+    "compounds": 597,
+    "herbsSummary": 287,
+    "compoundsSummary": 597,
+    "herbDetails": 287,
+    "compoundDetails": 597
   }
 }

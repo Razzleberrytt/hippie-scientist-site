@@ -53,5 +53,25 @@
       "year": 2023,
       "url": "https://pubmed.ncbi.nlm.nih.gov/37376614/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "36902200",
+      "36144755",
+      "37376614"
+    ]
+  },
+  "claimMap": []
 }

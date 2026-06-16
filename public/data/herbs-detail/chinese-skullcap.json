@@ -53,5 +53,25 @@
       "year": 2019,
       "url": "https://pubmed.ncbi.nlm.nih.gov/30708034/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "33917159",
+      "35530094",
+      "30708034"
+    ]
+  },
+  "claimMap": []
 }

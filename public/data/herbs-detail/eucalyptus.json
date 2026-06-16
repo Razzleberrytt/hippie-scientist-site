@@ -49,5 +49,25 @@
       "year": 2017,
       "url": "https://pubmed.ncbi.nlm.nih.gov/27914909/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "29999893",
+      "39458790",
+      "27914909"
+    ]
+  },
+  "claimMap": []
 }

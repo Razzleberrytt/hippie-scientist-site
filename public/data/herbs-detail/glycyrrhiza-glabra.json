@@ -54,5 +54,25 @@
       "year": 2000,
       "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "28833680",
+      "30117204",
+      "10675182"
+    ]
+  },
+  "claimMap": []
 }

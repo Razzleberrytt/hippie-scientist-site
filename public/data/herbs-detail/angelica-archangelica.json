@@ -51,5 +51,25 @@
       "year": 2020,
       "url": "https://pubmed.ncbi.nlm.nih.gov/33047814/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "22960104",
+      "31605258",
+      "33047814"
+    ]
+  },
+  "claimMap": []
 }

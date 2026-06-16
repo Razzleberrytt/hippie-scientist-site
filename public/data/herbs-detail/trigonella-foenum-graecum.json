@@ -48,5 +48,25 @@
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/33150931/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "37257051",
+      "32048383",
+      "33150931"
+    ]
+  },
+  "claimMap": []
 }

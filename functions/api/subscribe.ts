@@ -13,6 +13,8 @@ type Env = {
   MAILCHIMP_ADHD_TAG?: string
   RATE_LIMIT_KV?: KVNamespace
   TURNSTILE_SECRET_KEY?: string
+  ENVIRONMENT?: string
+  RATE_LIMIT_IP_HASH_SALT?: string
 }
 
 type PagesFunctionContext = {
@@ -130,6 +132,24 @@ function maskEmail(email: string): string {
   return `${local.slice(0, 2)}***@${domain}`
 }
 
+
+function isProduction(env?: Env): boolean {
+  const value = env?.ENVIRONMENT || ''
+  return value === 'production' || value === 'prod' || value === 'true'
+}
+
+async function sha256Hex(value: string): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(value))
+  return Array.from(new Uint8Array(digest))
+    .map((byte) => byte.toString(16).padStart(2, '0'))
+    .join('')
+}
+
+async function rateLimitKeyForIp(ip: string, env: Env): Promise<string> {
+  const salt = env.RATE_LIMIT_IP_HASH_SALT || env.MAILCHIMP_LIST_ID || 'hippie-scientist-rate-limit'
+  return `rate-limit:${await sha256Hex(`${salt}:${ip}`)}`
+}
+
 async function verifyTurnstile(token: string, secretKey: string, ip?: string): Promise<boolean> {
   try {
     const formData = new FormData()
@@ -151,10 +171,16 @@ async function verifyTurnstile(token: string, secretKey: string, ip?: string): P
   }
 }
 
-async function checkRateLimit(ip: string, kv?: KVNamespace): Promise<boolean> {
-  if (!kv) return true // Graceful fallback if KV is not bound
+async function checkRateLimit(ip: string, env: Env): Promise<boolean> {
+  const kv = env.RATE_LIMIT_KV
 
-  const key = `rate-limit:${ip}`
+  if (!kv) {
+    // In production, missing KV means the endpoint is not safely rate limited.
+    // Fail closed rather than silently accepting unlimited requests.
+    return !isProduction(env)
+  }
+
+  const key = await rateLimitKeyForIp(ip, env)
   let data: { count: number; reset: number } | null = null
 
   try {
@@ -164,7 +190,7 @@ async function checkRateLimit(ip: string, kv?: KVNamespace): Promise<boolean> {
     }
   } catch (err) {
     console.error('Failed to read rate limit from KV:', err)
-    return true // Fallback to allow request if KV is down
+    return !isProduction(env)
   }
 
   const now = Date.now()
@@ -183,6 +209,7 @@ async function checkRateLimit(ip: string, kv?: KVNamespace): Promise<boolean> {
     await kv.put(key, JSON.stringify(data), { expirationTtl })
   } catch (err) {
     console.error('Failed to write rate limit to KV:', err)
+    return !isProduction(env)
   }
 
   return true
@@ -256,13 +283,17 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
 
   // 7. Rate Limiting
   const clientIp = request.headers.get('CF-Connecting-IP') || '127.0.0.1'
-  const rateLimitOk = await checkRateLimit(clientIp, env.RATE_LIMIT_KV)
+  const rateLimitOk = await checkRateLimit(clientIp, env)
   if (!rateLimitOk) {
     return jsonResponse({ ok: false, error: 'Too many requests. Please try again later.' }, 429)
   }
 
   // 8. Turnstile Token verification (optional, when secret key is defined)
   const turnstileSecret = env.TURNSTILE_SECRET_KEY?.trim()
+  if (!turnstileSecret && isProduction(env)) {
+    return jsonResponse({ ok: false, error: 'Security verification is not configured.' }, 503)
+  }
+
   if (turnstileSecret) {
     const turnstileToken = typeof body.turnstileToken === 'string' ? body.turnstileToken : ''
     const verified = await verifyTurnstile(turnstileToken, turnstileSecret, clientIp)

@@ -48,5 +48,25 @@
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/34411377/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "36671409",
+      "29141563",
+      "34411377"
+    ]
+  },
+  "claimMap": []
 }
