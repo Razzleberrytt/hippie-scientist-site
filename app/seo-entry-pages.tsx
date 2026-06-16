@@ -24,6 +24,7 @@ type SeoEntryConfig = {
   intro: string
   searchIntent: string
   bullets: string[]
+  customFaqs?: FaqItem[]
 }
 
 type FaqItem = {
@@ -135,6 +136,46 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
     intro: 'A practical guide to sleep herbs and nighttime support options, organized by timing, safety, and real-world fit.',
     searchIntent: 'herbs for sleep, natural sleep aids, calming herbs for sleep',
     bullets: ['Compare onset support, nighttime relaxation, and next-day grogginess risk.', 'Avoid stacking sedative herbs without checking interaction and medication context.', 'Use the sleep guide to move from broad herb ideas into specific compound profiles.'],
+  },
+  {
+    route: 'guides/magnesium-vs-melatonin',
+    goalSlug: 'sleep',
+    title: 'Magnesium vs Melatonin for Sleep (Evidence-Based Comparison)',
+    h1: 'Magnesium vs Melatonin',
+    intro: 'Complementary tools with distinct primary roles. Magnesium often supports relaxation, muscle ease, and sleep quality — particularly when intake is suboptimal or tension is present. Melatonin is more directly linked to sleep timing, onset latency, and circadian alignment (jet lag, schedule shifts). Effects are context-dependent.',
+    searchIntent: 'magnesium vs melatonin for sleep, magnesium or melatonin, sleep timing vs relaxation support',
+    bullets: [
+      'Magnesium is usually framed around relaxation, muscle tension, and deficiency-related sleep quality support.',
+      'Melatonin is more directly tied to sleep onset latency and circadian timing (jet lag, delayed sleep phase).',
+      'Many people use both together successfully when factors overlap.',
+      'Context, individual response, and addressing sleep fundamentals matter more than choosing one over the other.',
+    ],
+    customFaqs: [
+      {
+        question: "Can I take magnesium and melatonin together?",
+        answer: "Yes, many people do so safely as they work through different pathways. Start with lower doses of each, pay attention to timing (magnesium earlier in the evening, melatonin closer to bed), and watch for excessive drowsiness. Individual tolerance varies."
+      },
+      {
+        question: "How long does it take to notice benefits?",
+        answer: "Melatonin often shows effects on onset within the first few uses (timing-dependent). Magnesium benefits for sleep quality or relaxation frequently build over 1–4+ weeks of consistent use, especially if addressing lower status. Track subjective and objective measures if possible."
+      },
+      {
+        question: "Is one better than the other overall?",
+        answer: "No simple winner — it depends on your primary need. Melatonin has more consistent data for circadian timing and onset latency issues. Magnesium shows promise for quality, relaxation, and deficiency-related sleep disruption. Many benefit from addressing both angles or the underlying contributors."
+      },
+      {
+        question: "What about side effects or long-term use?",
+        answer: "Both are generally well-tolerated short-to-medium term at appropriate doses. Magnesium: watch GI tolerance and kidney status. Melatonin: possible next-day grogginess or vivid dreams in sensitive users; timing is key. Long-term nightly use should be discussed with a clinician, alongside good sleep practices."
+      },
+      {
+        question: "Which form of magnesium is best for sleep?",
+        answer: "Glycinate or bisglycinate are frequently preferred for absorption and calming effects with fewer GI issues. L-threonate has emerging data for sleep architecture and daytime function. Oxide is less ideal for sleep-focused use due to lower bioavailability."
+      },
+      {
+        question: "Does magnesium help produce melatonin?",
+        answer: "There is some biological interplay (magnesium supports enzymatic steps in melatonin synthesis; deficiency can affect rhythms), but they are not direct substitutes. Supplementation of one does not reliably replace the need for the other in all contexts."
+      }
+    ]
   },
   {
     route: 'best-nootropics-for-focus',
@@ -604,11 +645,15 @@ export async function SeoEntryPage({ route }: { route: string }) {
 
       <ConversionAffiliateCard name={page.h1} intent={page.searchIntent} variant="dark" />
 
+      {/* Frequently asked questions */}
       <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-6">
         <h2 className="text-2xl font-bold text-ink">Frequently asked questions</h2>
         <div className="space-y-4">
-          {faqs.map((faq) => (
-            <div key={faq.question} className="rounded-2xl border border-brand-900/10 bg-white p-4">
+          {(page.customFaqs && page.customFaqs.length > 0
+            ? page.customFaqs
+            : faqs
+          ).map((faq, index) => (
+            <div key={index} className="rounded-2xl border border-brand-900/10 bg-white p-4">
               <h3 className="font-semibold text-ink">{faq.question}</h3>
               <p className="mt-2 text-sm leading-6 text-muted">{faq.answer}</p>
             </div>
