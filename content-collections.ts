@@ -77,6 +77,37 @@ const compoundMdxPages = defineCollection({
   },
 })
 
+const novelPsychoactiveSubstancePages = defineCollection({
+  name: 'novelPsychoactiveSubstancePages',
+  directory: 'novel-psychoactive-substances',
+  include: '**/*.mdx',
+  schema: z.object({
+    title: z.string().min(1),
+    metaDescription: z.string().min(1),
+    keywords: z.array(z.string()).default([]),
+    lastUpdated: z.string().regex(isoDatePattern),
+    evidenceGrade: z.string().min(1).optional(),
+    section: z.literal('novel-psychoactive-substances'),
+    relatedSlugs: z.array(z.string().regex(slugPattern)).default([]),
+    content: z.string(),
+  }),
+  transform: async (document, context) => {
+    const body = await compileMDX(context, document)
+    const slug = document._meta.path
+
+    return {
+      ...document,
+      slug,
+      description: document.metaDescription,
+      body,
+      url:
+        slug === 'index'
+          ? '/novel-psychoactive-substances'
+          : `/novel-psychoactive-substances/${slug}`,
+    }
+  },
+})
+
 export default defineConfig({
-  content: [articleMonographs, compoundMdxPages],
+  content: [articleMonographs, compoundMdxPages, novelPsychoactiveSubstancePages],
 })

@@ -2,8 +2,8 @@
   {
     "slug": "acerola",
     "name": "Acerola",
-    "summary": "Acerola is a vitamin-C-rich fruit botanical with food/supplement relevance.",
-    "description": "Acerola is a vitamin-C-rich fruit botanical with food/supplement relevance.",
+    "summary": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+    "description": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
     "effects": [
       "antioxidant"
     ],
@@ -224,8 +224,8 @@
   {
     "slug": "ajwain",
     "name": "Ajwain",
-    "summary": "Ajwain is a culinary-medicinal seed with strong traditional GI positioning.",
-    "description": "Ajwain is a culinary-medicinal seed with strong traditional GI positioning.",
+    "summary": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning.",
+    "description": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning.",
     "effects": [
       "digestive"
     ],
@@ -324,8 +324,8 @@
   {
     "slug": "aloe-vera",
     "name": "Aloe Vera",
-    "summary": "Aloe Vera is a botanical studied in connection with immune, metabolic and skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Aloe Vera is a botanical studied in connection with immune, metabolic and skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+    "description": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
     "effects": [
       "immune",
       "metabolic",
@@ -456,8 +456,8 @@
   {
     "slug": "panax-quinquefolius",
     "name": "American Ginseng",
-    "summary": "American Ginseng is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "American Ginseng is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
+    "description": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
     "effects": [
       "metabolic"
     ],
@@ -563,8 +563,8 @@
   {
     "slug": "american-yellow-lotus",
     "name": "American Yellow Lotus",
-    "summary": "American Yellow Lotus is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "American Yellow Lotus is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+    "description": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
     "effects": [
       "sleep",
       "stress"
@@ -677,8 +677,8 @@
   {
     "slug": "andrographis-paniculata",
     "name": "Andrographis Paniculata",
-    "summary": "Andrographis Paniculata is a botanical studied in connection with respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Andrographis Paniculata is a botanical studied in connection with respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Andrographis paniculata lean herb row for high-speed phytochemical ingestion.",
+    "description": "Andrographis paniculata lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "respiratory"
     ],
@@ -790,8 +790,8 @@
   {
     "slug": "anemarrhena-asphodeloides",
     "name": "Anemarrhena Asphodeloides",
-    "summary": "Anemarrhena Asphodeloides is a botanical studied in connection with anti-inflammatory, metabolic and neuroprotective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Anemarrhena Asphodeloides is a botanical studied in connection with anti-inflammatory, metabolic and neuroprotective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Anemarrhena asphodeloides contains Timosaponin AIII and is linked here to PI3K/Akt modulation.",
+    "description": "Anemarrhena asphodeloides contains Timosaponin AIII and is linked here to PI3K/Akt modulation.",
     "effects": [
       "anti-inflammatory",
       "metabolic",
@@ -916,8 +916,8 @@
   {
     "slug": "angelica-archangelica",
     "name": "Angelica Archangelica",
-    "summary": "Angelica Archangelica is a botanical studied in connection with digestive, respiratory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Angelica Archangelica is a botanical studied in connection with digestive, respiratory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Angelica archangelica lean monograph row enriched in bulk mode.",
+    "description": "Angelica archangelica lean monograph row enriched in bulk mode.",
     "effects": [
       "digestive",
       "respiratory",
@@ -1030,8 +1030,8 @@
   {
     "slug": "angelica-dahurica",
     "name": "Angelica Dahurica",
-    "summary": "Angelica Dahurica is a botanical studied in connection with anti-inflammatory and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Angelica Dahurica is a botanical studied in connection with anti-inflammatory and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Angelica dahurica lean monograph row enriched in bulk mode.",
+    "description": "Angelica dahurica lean monograph row enriched in bulk mode.",
     "effects": [
       "anti-inflammatory",
       "analgesic",
@@ -1143,8 +1143,8 @@
   {
     "slug": "angelica-pubescens",
     "name": "Angelica Pubescens",
-    "summary": "Angelica Pubescens is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Angelica Pubescens is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Angelica pubescens lean monograph row enriched in bulk mode.",
+    "description": "Angelica pubescens lean monograph row enriched in bulk mode.",
     "effects": [
       "anti-inflammatory",
       "analgesic",
@@ -1356,8 +1356,8 @@
   {
     "slug": "angelica-sinensis",
     "name": "Angelica Sinensis",
-    "summary": "Angelica Sinensis is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Angelica Sinensis is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "angelica sinensis is tracked for inflammation,cardiovascular,hormone with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Angelica Sinensis is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "hormonal",
@@ -1481,8 +1481,8 @@
   {
     "slug": "anise-hyssop",
     "name": "Anise Hyssop",
-    "summary": "Anise Hyssop is a botanical studied in connection with digestive, respiratory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Anise Hyssop is a botanical studied in connection with digestive, respiratory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+    "description": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
     "effects": [
       "digestive",
       "respiratory",
@@ -1588,8 +1588,8 @@
   {
     "slug": "arjuna",
     "name": "Arjuna",
-    "summary": "Arjuna centers on bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
-    "description": "Arjuna centers on bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
+    "summary": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
+    "description": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
     "effects": [
       "antioxidant",
       "cardiovascular",
@@ -1718,8 +1718,8 @@
   {
     "slug": "artemisia-absinthium",
     "name": "Artemisia Absinthium",
-    "summary": "Artemisia Absinthium is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Artemisia Absinthium is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+    "description": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
     "effects": [
       "sleep"
     ],
@@ -1826,8 +1826,8 @@
   {
     "slug": "artemisia-annua",
     "name": "Artemisia Annua",
-    "summary": "Artemisia Annua is a botanical studied in connection with antiviral, immune and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Artemisia Annua is a botanical studied in connection with antiviral, immune and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+    "description": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
     "effects": [
       "antiviral",
       "immune",
@@ -1950,8 +1950,8 @@
   {
     "slug": "artemisia-capillaris",
     "name": "Artemisia Capillaris",
-    "summary": "Artemisia Capillaris is a botanical studied in connection with liver-protective and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Artemisia Capillaris is a botanical studied in connection with liver-protective and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Artemisia capillaris lean monograph row enriched in bulk mode.",
+    "description": "Artemisia capillaris lean monograph row enriched in bulk mode.",
     "effects": [
       "liver-protective",
       "digestive"
@@ -2063,8 +2063,8 @@
   {
     "slug": "artichoke",
     "name": "Artichoke",
-    "summary": "Artichoke centers on bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
-    "description": "Artichoke centers on bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+    "summary": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+    "description": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
     "effects": [
       "antioxidant",
       "digestive",
@@ -2179,8 +2179,8 @@
   {
     "slug": "ashitaba",
     "name": "Ashitaba",
-    "summary": "Ashitaba centers on chalcone-rich chemistry with modest translational evidence.",
-    "description": "Ashitaba centers on chalcone-rich chemistry with modest translational evidence.",
+    "summary": "It is best framed around chalcone-rich chemistry with modest translational evidence.",
+    "description": "It is best framed around chalcone-rich chemistry with modest translational evidence.",
     "effects": [
       "antioxidant",
       "metabolic"
@@ -2399,8 +2399,8 @@
   {
     "slug": "ashwagandha",
     "name": "Ashwagandha (Withania somnifera)",
-    "summary": "Ashwagandha (Withania somnifera) is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ashwagandha (Withania somnifera) is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep",
       "stress"
@@ -2517,8 +2517,8 @@
   {
     "slug": "panax-ginseng",
     "name": "Asian Ginseng",
-    "summary": "Asian Ginseng is a botanical studied in connection with cognitive and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Asian Ginseng is a botanical studied in connection with cognitive and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+    "description": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "cognitive",
       "metabolic"
@@ -2632,8 +2632,8 @@
   {
     "slug": "astragalus",
     "name": "Astragalus",
-    "summary": "Astragalus centers on astragalosides and polysaccharides.",
-    "description": "Astragalus centers on astragalosides and polysaccharides.",
+    "summary": "It is best framed around astragalosides and polysaccharides.",
+    "description": "It is best framed around astragalosides and polysaccharides.",
     "effects": [
       "stress"
     ],
@@ -2755,8 +2755,8 @@
   {
     "slug": "astragalus-membranaceus",
     "name": "Astragalus Membranaceus",
-    "summary": "Astragalus Membranaceus is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Astragalus Membranaceus is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation.",
+    "description": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation.",
     "effects": [
       "stress"
     ],
@@ -2888,8 +2888,8 @@
   {
     "slug": "atractylodes",
     "name": "Atractylodes",
-    "summary": "Atractylodes is a digestive-tonic rhizome with traditional-system relevance.",
-    "description": "Atractylodes is a digestive-tonic rhizome with traditional-system relevance.",
+    "summary": "It is best framed as a digestive-tonic rhizome with traditional-system relevance.",
+    "description": "It is best framed as a digestive-tonic rhizome with traditional-system relevance.",
     "effects": [
       "sleep"
     ],
@@ -2996,8 +2996,8 @@
   {
     "slug": "atractylodes-macrocephala",
     "name": "Atractylodes Macrocephala",
-    "summary": "Atractylodes Macrocephala is a botanical studied in connection with digestive, immune and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Atractylodes Macrocephala is a botanical studied in connection with digestive, immune and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
+    "description": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
     "effects": [
       "digestive",
       "immune",
@@ -3113,8 +3113,8 @@
   {
     "slug": "bacopa",
     "name": "Bacopa",
-    "summary": "Bacopa is a botanical studied in connection with antioxidant, cognitive and neuroprotective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Bacopa is a botanical studied in connection with antioxidant, cognitive and neuroprotective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+    "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "antioxidant",
       "cognitive",
@@ -3228,8 +3228,8 @@
   {
     "slug": "bael",
     "name": "Bael",
-    "summary": "Bael is a botanical studied in connection with antioxidant and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Bael is a botanical studied in connection with antioxidant and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin.",
+    "description": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin.",
     "effects": [
       "antioxidant",
       "digestive"
@@ -3333,8 +3333,8 @@
   {
     "slug": "lagerstroemia-speciosa",
     "name": "Banaba",
-    "summary": "Banaba is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Banaba is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Lagerstroemia speciosa contains Corosolic acid and is linked here to AMPK activation.",
+    "description": "Lagerstroemia speciosa contains Corosolic acid and is linked here to AMPK activation.",
     "effects": [
       "metabolic"
     ],
@@ -3445,8 +3445,8 @@
   {
     "slug": "bayberry",
     "name": "Bayberry",
-    "summary": "Bayberry is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Bayberry is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "bayberry is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Bayberry is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -3553,8 +3553,8 @@
   {
     "slug": "berberis",
     "name": "Berberis",
-    "summary": "Berberis centers on berberine-bearing root bark with GI and medication-interaction caution.",
-    "description": "Berberis centers on berberine-bearing root bark with GI and medication-interaction caution.",
+    "summary": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+    "description": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
     "effects": [
       "anti-inflammatory",
       "digestive",
@@ -3691,8 +3691,8 @@
   {
     "slug": "berberis-vulgaris",
     "name": "Berberis Vulgaris",
-    "summary": "Berberis Vulgaris is a botanical studied in connection with digestive and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Berberis Vulgaris is a botanical studied in connection with digestive and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Berberis vulgaris lean herb row for high-speed phytochemical ingestion.",
+    "description": "Berberis vulgaris lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "digestive",
       "antimicrobial"
@@ -4036,8 +4036,8 @@
   {
     "slug": "piper-nigrum",
     "name": "Black Pepper",
-    "summary": "Black Pepper is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Black Pepper is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism.",
+    "description": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism.",
     "effects": [
       "research-pending"
     ],
@@ -4270,8 +4270,8 @@
   {
     "slug": "black-tea",
     "name": "Black Tea",
-    "summary": "Black Tea is a botanical studied in connection with anti-inflammatory, antioxidant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Black Tea is a botanical studied in connection with anti-inflammatory, antioxidant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "black tea is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Black Tea is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -4400,8 +4400,8 @@
   {
     "slug": "blue-lotus",
     "name": "Blue Lotus",
-    "summary": "Blue Lotus is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Blue Lotus is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "blue lotus is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Blue Lotus is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep",
       "stress"
@@ -4510,8 +4510,8 @@
   {
     "slug": "blueberry",
     "name": "Blueberry",
-    "summary": "Blueberry is a botanical studied in connection with anti-inflammatory, antioxidant and cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Blueberry is a botanical studied in connection with anti-inflammatory, antioxidant and cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "blueberry is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Blueberry is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -4638,8 +4638,8 @@
   {
     "slug": "boldo",
     "name": "Boldo",
-    "summary": "Boldo is an aromatic bitter leaf botanical with modest human evidence.",
-    "description": "Boldo is an aromatic bitter leaf botanical with modest human evidence.",
+    "summary": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
+    "description": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
     "effects": [
       "digestive"
     ],
@@ -4739,8 +4739,8 @@
   {
     "slug": "boswellia-serrata",
     "name": "Boswellia",
-    "summary": "Boswellia is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Boswellia is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
+    "description": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -4840,8 +4840,8 @@
   {
     "slug": "boswellia-carterii",
     "name": "Boswellia Carterii",
-    "summary": "Boswellia Carterii centers on boswellic acids with 5-lipoxygenase relevance.",
-    "description": "Boswellia Carterii centers on boswellic acids with 5-lipoxygenase relevance.",
+    "summary": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
+    "description": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -5166,8 +5166,8 @@
   {
     "slug": "buckwheat",
     "name": "Buckwheat",
-    "summary": "Buckwheat is a botanical studied in connection with anti-inflammatory, cardiovascular and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Buckwheat is a botanical studied in connection with anti-inflammatory, cardiovascular and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "buckwheat is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Buckwheat is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "cardiovascular",
@@ -5524,8 +5524,8 @@
   {
     "slug": "burdock",
     "name": "Burdock",
-    "summary": "Burdock is a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
-    "description": "Burdock is a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+    "summary": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+    "description": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
     "effects": [
       "anti-inflammatory",
       "skin-support"
@@ -5735,8 +5735,8 @@
   {
     "slug": "theobroma-cacao",
     "name": "Cacao",
-    "summary": "Cacao centers on flavanols and methylxanthines with stimulant awareness.",
-    "description": "Cacao centers on flavanols and methylxanthines with stimulant awareness.",
+    "summary": "It is best framed around flavanols and methylxanthines with stimulant awareness.",
+    "description": "It is best framed around flavanols and methylxanthines with stimulant awareness.",
     "effects": [
       "stimulant"
     ],
@@ -5842,8 +5842,8 @@
   {
     "slug": "calamus",
     "name": "Calamus",
-    "summary": "Calamus is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Calamus is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
+    "description": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
     "effects": [
       "sleep"
     ],
@@ -5944,8 +5944,8 @@
   {
     "slug": "calendula",
     "name": "Calendula",
-    "summary": "Calendula centers on topical and tissue-soothing use rather than overextended systemic claims.",
-    "description": "Calendula centers on topical and tissue-soothing use rather than overextended systemic claims.",
+    "summary": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims.",
+    "description": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims.",
     "effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -6057,8 +6057,8 @@
   {
     "slug": "eschscholzia-californica",
     "name": "California Poppy",
-    "summary": "California Poppy is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "California Poppy is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "California Poppy is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "California Poppy is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep",
       "stress"
@@ -6272,8 +6272,8 @@
   {
     "slug": "caraway",
     "name": "Caraway",
-    "summary": "Caraway is an aromatic seed with traditional GI relevance.",
-    "description": "Caraway is an aromatic seed with traditional GI relevance.",
+    "summary": "It is best framed as an aromatic seed with traditional GI relevance.",
+    "description": "It is best framed as an aromatic seed with traditional GI relevance.",
     "effects": [
       "digestive"
     ],
@@ -6372,8 +6372,8 @@
   {
     "slug": "elettaria-cardamomum",
     "name": "Cardamom",
-    "summary": "Cardamom is an aromatic culinary seed with modest translational evidence.",
-    "description": "Cardamom is an aromatic culinary seed with modest translational evidence.",
+    "summary": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+    "description": "It is best framed as an aromatic culinary seed with modest translational evidence.",
     "effects": [
       "antioxidant",
       "cardiovascular",
@@ -6481,8 +6481,8 @@
   {
     "slug": "carob",
     "name": "Carob",
-    "summary": "Carob is a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
-    "description": "Carob is a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+    "summary": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+    "description": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
     "effects": [
       "digestive",
       "metabolic"
@@ -6585,8 +6585,8 @@
   {
     "slug": "cassia-alata",
     "name": "Cassia Alata",
-    "summary": "Cassia Alata is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cassia Alata is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
+    "description": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -6693,8 +6693,8 @@
   {
     "slug": "cat-s-claw",
     "name": "Cat's Claw",
-    "summary": "Cat'S Claw centers on oxindole alkaloids with autoimmune and transplant-related caution.",
-    "description": "Cat'S Claw centers on oxindole alkaloids with autoimmune and transplant-related caution.",
+    "summary": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
+    "description": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
     "effects": [
       "anti-inflammatory",
       "immune"
@@ -6912,8 +6912,8 @@
   {
     "slug": "cayenne",
     "name": "Cayenne",
-    "summary": "Cayenne is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cayenne is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
+    "description": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -7019,8 +7019,8 @@
   {
     "slug": "celastrus-paniculatus",
     "name": "Celastrus Paniculatus",
-    "summary": "Celastrus Paniculatus is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Celastrus Paniculatus is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
+    "description": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
     "effects": [
       "stress"
     ],
@@ -7377,8 +7377,8 @@
   {
     "slug": "chinese-skullcap",
     "name": "Chinese Skullcap",
-    "summary": "Chinese Skullcap is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Chinese Skullcap is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin.",
+    "description": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin.",
     "effects": [
       "antioxidant"
     ],
@@ -7502,8 +7502,8 @@
   {
     "slug": "chuanxiong",
     "name": "Chuanxiong",
-    "summary": "Chuanxiong is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Chuanxiong is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
+    "description": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -7620,8 +7620,8 @@
   {
     "slug": "cichorium-intybus",
     "name": "Cichorium Intybus",
-    "summary": "Cichorium Intybus is a botanical studied in connection with anti-inflammatory and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cichorium Intybus is a botanical studied in connection with anti-inflammatory and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Cichorium intybus lean monograph row enriched in bulk mode.",
+    "description": "Cichorium intybus lean monograph row enriched in bulk mode.",
     "effects": [
       "anti-inflammatory",
       "liver-protective"
@@ -8059,8 +8059,8 @@
   {
     "slug": "cistanche-deserticola",
     "name": "Cistanche Deserticola",
-    "summary": "Cistanche Deserticola is a botanical studied in connection with energy, reproductive and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cistanche Deserticola is a botanical studied in connection with energy, reproductive and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation.",
+    "description": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation.",
     "effects": [
       "energy",
       "reproductive",
@@ -8172,8 +8172,8 @@
   {
     "slug": "citrus-bergamia",
     "name": "Citrus Bergamia",
-    "summary": "Citrus Bergamia is a botanical studied in connection with cardiovascular and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Citrus Bergamia is a botanical studied in connection with cardiovascular and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Citrus bergamia lean monograph row enriched in bulk mode.",
+    "description": "Citrus bergamia lean monograph row enriched in bulk mode.",
     "effects": [
       "cardiovascular",
       "metabolic"
@@ -8531,8 +8531,8 @@
   {
     "slug": "cnidium-monnieri",
     "name": "Cnidium Monnieri",
-    "summary": "Cnidium Monnieri is a botanical studied in connection with reproductive and skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cnidium Monnieri is a botanical studied in connection with reproductive and skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Cnidium monnieri lean monograph row enriched in bulk mode.",
+    "description": "Cnidium monnieri lean monograph row enriched in bulk mode.",
     "effects": [
       "reproductive",
       "skin-support"
@@ -8632,8 +8632,8 @@
   {
     "slug": "codonopsis",
     "name": "Codonopsis",
-    "summary": "Codonopsis is a gentler tonic-style root with modest modern evidence.",
-    "description": "Codonopsis is a gentler tonic-style root with modest modern evidence.",
+    "summary": "It is best framed as a gentler tonic-style root with modest modern evidence.",
+    "description": "It is best framed as a gentler tonic-style root with modest modern evidence.",
     "effects": [
       "sleep",
       "stress"
@@ -8742,8 +8742,8 @@
   {
     "slug": "coffea-arabica",
     "name": "Coffee",
-    "summary": "Coffee is a botanical studied in connection with energy, stimulant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coffee is a botanical studied in connection with energy, stimulant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Coffee is tracked for cognition,energy,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Coffee is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "energy",
       "stimulant",
@@ -8849,8 +8849,8 @@
   {
     "slug": "coffee-cherry",
     "name": "Coffee Cherry",
-    "summary": "Coffee Cherry is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coffee Cherry is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+    "description": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
     "effects": [
       "antioxidant"
     ],
@@ -8973,8 +8973,8 @@
   {
     "slug": "coleus-forskohlii",
     "name": "Coleus Forskohlii",
-    "summary": "Coleus Forskohlii is a botanical studied in connection with cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coleus Forskohlii is a botanical studied in connection with cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+    "description": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
     "effects": [
       "cognitive"
     ],
@@ -9080,8 +9080,8 @@
   {
     "slug": "commiphora-mukul",
     "name": "Commiphora Mukul",
-    "summary": "Commiphora Mukul is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Commiphora Mukul is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Commiphora mukul contains Guggulsterone and is linked here to FXR antagonism.",
+    "description": "Commiphora mukul contains Guggulsterone and is linked here to FXR antagonism.",
     "effects": [
       "anti-inflammatory",
       "hormonal"
@@ -9208,8 +9208,8 @@
   {
     "slug": "coptis",
     "name": "Coptis",
-    "summary": "Coptis is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coptis is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine.",
+    "description": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -9333,8 +9333,8 @@
   {
     "slug": "coptis-chinensis",
     "name": "Coptis Chinensis",
-    "summary": "Coptis Chinensis is a botanical studied in connection with antimicrobial and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coptis Chinensis is a botanical studied in connection with antimicrobial and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Coptis chinensis lean herb row for high-speed phytochemical ingestion.",
+    "description": "Coptis chinensis lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "antimicrobial",
       "digestive"
@@ -9568,8 +9568,8 @@
   {
     "slug": "coriandrum-sativum",
     "name": "Coriandrum Sativum",
-    "summary": "Coriandrum Sativum is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Coriandrum Sativum is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Coriandrum sativum lean monograph row enriched in bulk mode.",
+    "description": "Coriandrum sativum lean monograph row enriched in bulk mode.",
     "effects": [
       "sleep"
     ],
@@ -9693,8 +9693,8 @@
   {
     "slug": "cornus-officinalis",
     "name": "Cornus Officinalis",
-    "summary": "Cornus Officinalis is a botanical studied in connection with reproductive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cornus Officinalis is a botanical studied in connection with reproductive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Cornus officinalis contains Loganin and is linked here to PI3K/Akt modulation.",
+    "description": "Cornus officinalis contains Loganin and is linked here to PI3K/Akt modulation.",
     "effects": [
       "reproductive",
       "hormonal"
@@ -9813,8 +9813,8 @@
   {
     "slug": "corydalis",
     "name": "Corydalis",
-    "summary": "Corydalis is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Corydalis is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
+    "description": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
     "effects": [
       "sleep"
     ],
@@ -9917,8 +9917,8 @@
   {
     "slug": "cranberry",
     "name": "Cranberry (Vaccinium macrocarpon)",
-    "summary": "Cranberry centers on proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
-    "description": "Cranberry centers on proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+    "summary": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+    "description": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
     "effects": [
       "antimicrobial"
     ],
@@ -10136,8 +10136,8 @@
   {
     "slug": "curcuma-wenyujin",
     "name": "Curcuma Wenyujin",
-    "summary": "Curcuma Wenyujin is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Curcuma Wenyujin is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Curcuma wenyujin contains Beta-elemene and is linked here to PI3K/Akt modulation.",
+    "description": "Curcuma wenyujin contains Beta-elemene and is linked here to PI3K/Akt modulation.",
     "effects": [
       "anti-inflammatory",
       "digestive"
@@ -10241,8 +10241,8 @@
   {
     "slug": "curcuma-zedoaria",
     "name": "Curcuma Zedoaria",
-    "summary": "Curcuma Zedoaria is a botanical studied in connection with digestive and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Curcuma Zedoaria is a botanical studied in connection with digestive and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Curcuma zedoaria contains Curcumol and is linked here to NF-κB inhibition.",
+    "description": "Curcuma zedoaria contains Curcumol and is linked here to NF-κB inhibition.",
     "effects": [
       "digestive",
       "anti-inflammatory"
@@ -10351,8 +10351,8 @@
   {
     "slug": "curcumin",
     "name": "Curcumin",
-    "summary": "Curcumin is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Curcumin is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "analgesic"
@@ -10463,8 +10463,8 @@
   {
     "slug": "curry-leaf",
     "name": "Curry Leaf",
-    "summary": "Curry Leaf is a culinary-medicinal leaf with food-form relevance.",
-    "description": "Curry Leaf is a culinary-medicinal leaf with food-form relevance.",
+    "summary": "It is best framed as a culinary-medicinal leaf with food-form relevance.",
+    "description": "It is best framed as a culinary-medicinal leaf with food-form relevance.",
     "effects": [
       "antioxidant",
       "metabolic"
@@ -10572,8 +10572,8 @@
   {
     "slug": "cyclea-peltata",
     "name": "Cyclea Peltata",
-    "summary": "Cyclea Peltata is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cyclea Peltata is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Cyclea peltata lean monograph row enriched in bulk mode.",
+    "description": "Cyclea peltata lean monograph row enriched in bulk mode.",
     "effects": [
       "anti-inflammatory",
       "digestive"
@@ -10682,8 +10682,8 @@
   {
     "slug": "cymbopogon-citratus",
     "name": "Cymbopogon Citratus",
-    "summary": "Cymbopogon Citratus is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cymbopogon Citratus is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
+    "description": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
     "effects": [
       "sleep"
     ],
@@ -10799,8 +10799,8 @@
   {
     "slug": "damiana",
     "name": "Damiana",
-    "summary": "Damiana is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Damiana is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "damiana is tracked for stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Damiana is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "stress"
     ],
@@ -10907,8 +10907,8 @@
   {
     "slug": "dandelion",
     "name": "Dandelion",
-    "summary": "Dandelion is a traditional food-like bitter herb rather than a strong cleansing intervention.",
-    "description": "Dandelion is a traditional food-like bitter herb rather than a strong cleansing intervention.",
+    "summary": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+    "description": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
     "effects": [
       "digestive",
       "diuretic"
@@ -11022,8 +11022,8 @@
   {
     "slug": "danshen",
     "name": "Danshen",
-    "summary": "Danshen centers on tanshinones and salvianolic acids with specific vascular-support positioning.",
-    "description": "Danshen centers on tanshinones and salvianolic acids with specific vascular-support positioning.",
+    "summary": "It is best framed around tanshinones and salvianolic acids with specific vascular-support positioning.",
+    "description": "It is best framed around tanshinones and salvianolic acids with specific vascular-support positioning.",
     "effects": [
       "cardiovascular"
     ],
@@ -11129,8 +11129,8 @@
   {
     "slug": "daphne-odora",
     "name": "Daphne Odora",
-    "summary": "Daphne Odora is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Daphne Odora is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Daphne odora lean monograph row enriched in bulk mode.",
+    "description": "Daphne odora lean monograph row enriched in bulk mode.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -11340,8 +11340,8 @@
   {
     "slug": "dong-quai",
     "name": "Dong Quai",
-    "summary": "Dong Quai is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Dong Quai is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "dong quai is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Dong Quai is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "hormonal",
@@ -11573,8 +11573,8 @@
   {
     "slug": "elderberry",
     "name": "Elderberry",
-    "summary": "Elderberry is a botanical studied in connection with antiviral and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Elderberry is a botanical studied in connection with antiviral and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+    "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
     "effects": [
       "antiviral",
       "respiratory"
@@ -11687,8 +11687,8 @@
   {
     "slug": "elecampane",
     "name": "Elecampane",
-    "summary": "Elecampane is a bitter aromatic root with traditional bronchial relevance.",
-    "description": "Elecampane is a bitter aromatic root with traditional bronchial relevance.",
+    "summary": "It is best framed as a bitter aromatic root with traditional bronchial relevance.",
+    "description": "It is best framed as a bitter aromatic root with traditional bronchial relevance.",
     "effects": [
       "digestive",
       "respiratory"
@@ -11789,8 +11789,8 @@
   {
     "slug": "elephantopus-scaber",
     "name": "Elephantopus Scaber",
-    "summary": "Elephantopus Scaber is a botanical studied in connection with anti-inflammatory and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Elephantopus Scaber is a botanical studied in connection with anti-inflammatory and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Elephantopus scaber contains Deoxyelephantopin and is linked here to NF-κB inhibition.",
+    "description": "Elephantopus scaber contains Deoxyelephantopin and is linked here to NF-κB inhibition.",
     "effects": [
       "anti-inflammatory",
       "liver-protective"
@@ -12020,8 +12020,8 @@
   {
     "slug": "embelia-ribes",
     "name": "Embelia Ribes",
-    "summary": "Embelia Ribes is a botanical studied in connection with antimicrobial and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Embelia Ribes is a botanical studied in connection with antimicrobial and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Embelia ribes contains Embelin and is linked here to XIAP inhibition.",
+    "description": "Embelia ribes contains Embelin and is linked here to XIAP inhibition.",
     "effects": [
       "antimicrobial",
       "digestive"
@@ -12357,8 +12357,8 @@
   {
     "slug": "eucalyptus",
     "name": "Eucalyptus",
-    "summary": "Eucalyptus is a botanical studied in connection with anti-inflammatory, antimicrobial and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Eucalyptus is a botanical studied in connection with anti-inflammatory, antimicrobial and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "eucalyptus is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Eucalyptus is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -12573,8 +12573,8 @@
   {
     "slug": "evening-primrose",
     "name": "Evening Primrose (Oenothera biennis)",
-    "summary": "Evening Primrose (Oenothera biennis) is a botanical studied in connection with skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Evening Primrose (Oenothera biennis) is a botanical studied in connection with skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Evening Primrose (Oenothera biennis) is tracked for mechanism-informed herb research in the workbook. Human-outcome claims should remain gated until source and dosage review are complete.",
+    "description": "Evening Primrose (Oenothera biennis) is tracked for mechanism-informed herb research in the workbook. Human-outcome claims should remain gated until source and dosage review are complete.",
     "effects": [
       "skin-support"
     ],
@@ -12890,8 +12890,8 @@
   {
     "slug": "feverfew",
     "name": "Feverfew",
-    "summary": "Feverfew is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Feverfew is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "feverfew is tracked for inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Feverfew is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "analgesic"
@@ -13006,8 +13006,8 @@
   {
     "slug": "ficus-carica",
     "name": "Ficus Carica",
-    "summary": "Ficus Carica is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ficus Carica is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Ficus carica lean monograph row enriched in bulk mode.",
+    "description": "Ficus carica lean monograph row enriched in bulk mode.",
     "effects": [
       "antioxidant",
       "hormonal"
@@ -13123,8 +13123,8 @@
   {
     "slug": "fingerroot",
     "name": "Fingerroot",
-    "summary": "Fingerroot is a botanical studied in connection with anti-inflammatory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Fingerroot is a botanical studied in connection with anti-inflammatory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
+    "description": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
     "effects": [
       "anti-inflammatory",
       "antimicrobial"
@@ -13237,8 +13237,8 @@
   {
     "slug": "fraxinus-rhynchophylla",
     "name": "Fraxinus Rhynchophylla",
-    "summary": "Fraxinus Rhynchophylla is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Fraxinus Rhynchophylla is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Fraxinus rhynchophylla lean monograph row enriched in bulk mode.",
+    "description": "Fraxinus rhynchophylla lean monograph row enriched in bulk mode.",
     "effects": [
       "anti-inflammatory",
       "cardiovascular"
@@ -13358,8 +13358,8 @@
   {
     "slug": "galangal",
     "name": "Galangal",
-    "summary": "Galangal is a culinary-medicinal rhizome with traditional GI relevance.",
-    "description": "Galangal is a culinary-medicinal rhizome with traditional GI relevance.",
+    "summary": "It is best framed as a culinary-medicinal rhizome with traditional GI relevance.",
+    "description": "It is best framed as a culinary-medicinal rhizome with traditional GI relevance.",
     "effects": [
       "digestive"
     ],
@@ -13461,8 +13461,8 @@
   {
     "slug": "garcinia-indica",
     "name": "Garcinia Indica",
-    "summary": "Garcinia Indica is a botanical studied in connection with antioxidant and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Garcinia Indica is a botanical studied in connection with antioxidant and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
+    "description": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
     "effects": [
       "antioxidant",
       "metabolic"
@@ -13577,8 +13577,8 @@
   {
     "slug": "garcinia-mangostana",
     "name": "Garcinia Mangostana",
-    "summary": "Garcinia Mangostana is a botanical studied in connection with antioxidant and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Garcinia Mangostana is a botanical studied in connection with antioxidant and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
+    "description": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
     "effects": [
       "antioxidant",
       "anti-inflammatory"
@@ -13691,8 +13691,8 @@
   {
     "slug": "allium-sativum",
     "name": "Garlic",
-    "summary": "Garlic is a botanical studied in connection with cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Garlic is a botanical studied in connection with cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "cardiovascular"
     ],
@@ -14384,8 +14384,8 @@
   {
     "slug": "goldenseal",
     "name": "Goldenseal",
-    "summary": "Goldenseal is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Goldenseal is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine.",
+    "description": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -14508,8 +14508,8 @@
   {
     "slug": "gotu-kola",
     "name": "Gotu Kola (Centella asiatica)",
-    "summary": "Gotu Kola (Centella asiatica) is a botanical studied in connection with cognitive support, circulation and calm focus activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Gotu Kola (Centella asiatica) is a botanical studied in connection with cognitive support, circulation and calm focus activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+    "description": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
     "effects": [
       "cognitive_support",
       "circulation",
@@ -14629,8 +14629,8 @@
   {
     "slug": "vitis-vinifera",
     "name": "Grape",
-    "summary": "Grape is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Grape is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Grape is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Grape is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "stress"
     ],
@@ -14751,8 +14751,8 @@
   {
     "slug": "grapefruit",
     "name": "Grapefruit",
-    "summary": "Grapefruit is a botanical studied in connection with digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Grapefruit is a botanical studied in connection with digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "grapefruit is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Grapefruit is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "digestive"
     ],
@@ -14857,8 +14857,8 @@
   {
     "slug": "camellia-sinensis",
     "name": "Green Tea",
-    "summary": "Green Tea is a botanical studied in connection with antioxidant, metabolic and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Green Tea is a botanical studied in connection with antioxidant, metabolic and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+    "description": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
     "effects": [
       "antioxidant",
       "metabolic",
@@ -14978,8 +14978,8 @@
   {
     "slug": "green-tea-extract",
     "name": "Green Tea Extract",
-    "summary": "Green Tea Extract is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Green Tea Extract is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Green Tea Extract is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Green Tea Extract is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "metabolic"
     ],
@@ -15085,8 +15085,8 @@
   {
     "slug": "guarana",
     "name": "Guarana",
-    "summary": "Guarana is a botanical studied in connection with anti-inflammatory, antioxidant and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Guarana is a botanical studied in connection with anti-inflammatory, antioxidant and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Guarana is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -15203,8 +15203,8 @@
   {
     "slug": "guayusa",
     "name": "Guayusa",
-    "summary": "Guayusa is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Guayusa is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+    "description": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
     "effects": [
       "antioxidant"
     ],
@@ -15533,8 +15533,8 @@
   {
     "slug": "harpagophytum-procumbens",
     "name": "Harpagophytum Procumbens",
-    "summary": "Harpagophytum Procumbens is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Harpagophytum Procumbens is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Harpagophytum procumbens contains Harpagoside and is linked here to COX inhibition.",
+    "description": "Harpagophytum procumbens contains Harpagoside and is linked here to COX inhibition.",
     "effects": [
       "anti-inflammatory",
       "analgesic"
@@ -15643,8 +15643,8 @@
   {
     "slug": "crataegus-monogyna",
     "name": "Hawthorn",
-    "summary": "Hawthorn centers on procyanidins and flavonoids.",
-    "description": "Hawthorn centers on procyanidins and flavonoids.",
+    "summary": "It is best framed around procyanidins and flavonoids.",
+    "description": "It is best framed around procyanidins and flavonoids.",
     "effects": [
       "cardiovascular"
     ],
@@ -15744,8 +15744,8 @@
   {
     "slug": "hibiscus-sabdariffa",
     "name": "Hibiscus",
-    "summary": "Hibiscus is a botanical studied in connection with stress-relief, cardiovascular and diuretic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Hibiscus is a botanical studied in connection with stress-relief, cardiovascular and diuretic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Hibiscus is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Hibiscus is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "stress-relief",
       "cardiovascular",
@@ -15855,8 +15855,8 @@
   {
     "slug": "holy-basil",
     "name": "Holy Basil / Tulsi (Ocimum tenuiflorum)",
-    "summary": "Holy Basil / Tulsi (Ocimum tenuiflorum) is a botanical studied in connection with stress adaptation, cortisol modulation and metabolic support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Holy Basil / Tulsi (Ocimum tenuiflorum) is a botanical studied in connection with stress adaptation, cortisol modulation and metabolic support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Holy basil is best framed for stress adaptation over time, not acute anxiety relief.",
+    "description": "Stress adaptation and recovery support; effects are preparation- and duration-dependent.",
     "effects": [
       "stress_adaptation",
       "cortisol_modulation",
@@ -16203,8 +16203,8 @@
   {
     "slug": "honeysuckle",
     "name": "Honeysuckle",
-    "summary": "Honeysuckle is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Honeysuckle is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid.",
+    "description": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -16316,8 +16316,8 @@
   {
     "slug": "hops",
     "name": "Hops",
-    "summary": "Hops centers on bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
-    "description": "Hops centers on bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+    "summary": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+    "description": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
     "effects": [
       "sleep",
       "stress"
@@ -16423,8 +16423,8 @@
   {
     "slug": "horse-chestnut",
     "name": "Horse Chestnut",
-    "summary": "Horse Chestnut is a botanical studied in connection with anti-inflammatory and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Horse Chestnut is a botanical studied in connection with anti-inflammatory and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin.",
+    "description": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin.",
     "effects": [
       "anti-inflammatory",
       "tonic"
@@ -16645,8 +16645,8 @@
   {
     "slug": "huperzia-serrata",
     "name": "Huperzia Serrata",
-    "summary": "Huperzia Serrata is a botanical studied in connection with cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Huperzia Serrata is a botanical studied in connection with cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
+    "description": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
     "effects": [
       "cognitive"
     ],
@@ -16752,8 +16752,8 @@
   {
     "slug": "hypericum-perforatum",
     "name": "Hypericum Perforatum",
-    "summary": "Hypericum Perforatum is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Hypericum Perforatum is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
+    "description": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
     "effects": [
       "stress"
     ],
@@ -16861,8 +16861,8 @@
   {
     "slug": "berberis-aristata",
     "name": "Indian Barberry",
-    "summary": "Indian Barberry is a botanical studied in connection with digestive, liver-protective and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Indian Barberry is a botanical studied in connection with digestive, liver-protective and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Indian Barberry is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Indian Barberry is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "digestive",
       "liver-protective",
@@ -16981,8 +16981,8 @@
   {
     "slug": "isatis",
     "name": "Isatis",
-    "summary": "Isatis is a traditional-use herb with limited modern clinical depth.",
-    "description": "Isatis is a traditional-use herb with limited modern clinical depth.",
+    "summary": "It is best framed as a traditional-use herb with limited modern clinical depth.",
+    "description": "It is best framed as a traditional-use herb with limited modern clinical depth.",
     "effects": [
       "immune"
     ],
@@ -17327,8 +17327,8 @@
   {
     "slug": "jujube",
     "name": "Jujube",
-    "summary": "Jujube is a food-like fruit/seed botanical with gentle traditional positioning.",
-    "description": "Jujube is a food-like fruit/seed botanical with gentle traditional positioning.",
+    "summary": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
+    "description": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
     "effects": [
       "sleep",
       "stress"
@@ -17542,8 +17542,8 @@
   {
     "slug": "kanna",
     "name": "Kanna",
-    "summary": "Kanna is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Kanna is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
+    "description": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
     "effects": [
       "stress"
     ],
@@ -17881,8 +17881,8 @@
   {
     "slug": "kudzu",
     "name": "Kudzu",
-    "summary": "Kudzu is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Kudzu is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "kudzu is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Kudzu is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -18005,8 +18005,8 @@
   {
     "slug": "tyrosine",
     "name": "L-Tyrosine",
-    "summary": "L-Tyrosine is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "L-Tyrosine is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "stress"
     ],
@@ -18223,8 +18223,8 @@
   {
     "slug": "lawsonia-inermis",
     "name": "Lawsonia Inermis",
-    "summary": "Lawsonia Inermis is a botanical studied in connection with skin-support and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Lawsonia Inermis is a botanical studied in connection with skin-support and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Lawsonia inermis contains Lawsone and is linked here to MAPK pathway modulation.",
+    "description": "Lawsonia inermis contains Lawsone and is linked here to MAPK pathway modulation.",
     "effects": [
       "skin-support",
       "antimicrobial"
@@ -18452,8 +18452,8 @@
   {
     "slug": "lemon-verbena",
     "name": "Lemon Verbena",
-    "summary": "Lemon Verbena is a gentle aromatic botanical with modest evidence and pleasant tolerability.",
-    "description": "Lemon Verbena is a gentle aromatic botanical with modest evidence and pleasant tolerability.",
+    "summary": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability.",
+    "description": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability.",
     "effects": [
       "sleep",
       "stress"
@@ -18562,8 +18562,8 @@
   {
     "slug": "lemongrass",
     "name": "Lemongrass",
-    "summary": "Lemongrass is an aromatic culinary-medicinal grass with modest clinical depth.",
-    "description": "Lemongrass is an aromatic culinary-medicinal grass with modest clinical depth.",
+    "summary": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth.",
+    "description": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth.",
     "effects": [
       "stress"
     ],
@@ -18676,8 +18676,8 @@
   {
     "slug": "licorice",
     "name": "Licorice",
-    "summary": "Licorice is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Licorice is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
+    "description": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -18792,8 +18792,8 @@
   {
     "slug": "ligusticum-chuanxiong",
     "name": "Ligusticum Chuanxiong",
-    "summary": "Ligusticum Chuanxiong is a botanical studied in connection with cardiovascular and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ligusticum Chuanxiong is a botanical studied in connection with cardiovascular and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Ligusticum chuanxiong lean monograph row enriched in bulk mode.",
+    "description": "Ligusticum chuanxiong lean monograph row enriched in bulk mode.",
     "effects": [
       "cardiovascular",
       "anti-inflammatory"
@@ -19016,8 +19016,8 @@
   {
     "slug": "lithospermum-erythrorhizon",
     "name": "Lithospermum Erythrorhizon",
-    "summary": "Lithospermum Erythrorhizon is a botanical studied in connection with skin-support and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Lithospermum Erythrorhizon is a botanical studied in connection with skin-support and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Lithospermum erythrorhizon contains Shikonin and is linked here to PKM2 inhibition.",
+    "description": "Lithospermum erythrorhizon contains Shikonin and is linked here to PKM2 inhibition.",
     "effects": [
       "skin-support",
       "anti-inflammatory"
@@ -19236,8 +19236,8 @@
   {
     "slug": "luo-han-guo",
     "name": "Luo Han Guo",
-    "summary": "Luo Han Guo is a fruit botanical with sweet mogrosides and soothing traditional use.",
-    "description": "Luo Han Guo is a fruit botanical with sweet mogrosides and soothing traditional use.",
+    "summary": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+    "description": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
     "effects": [
       "respiratory",
       "antioxidant"
@@ -19457,8 +19457,8 @@
   {
     "slug": "magnolia-officinalis",
     "name": "Magnolia",
-    "summary": "Magnolia is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Magnolia is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Magnolia is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Magnolia is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "sleep",
       "stress"
@@ -19684,8 +19684,8 @@
   {
     "slug": "mangifera-indica",
     "name": "Mangifera Indica",
-    "summary": "Mangifera Indica is a botanical studied in connection with antioxidant and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Mangifera Indica is a botanical studied in connection with antioxidant and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
+    "description": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
     "effects": [
       "antioxidant",
       "metabolic"
@@ -20023,8 +20023,8 @@
   {
     "slug": "marshmallow",
     "name": "Marshmallow",
-    "summary": "Marshmallow is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Marshmallow is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
+    "description": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -20127,8 +20127,8 @@
   {
     "slug": "milk-oats",
     "name": "Milk Oats",
-    "summary": "Milk Oats is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Milk Oats is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "They are best framed as a gentle traditional tonic rather than a strong acute intervention.",
+    "description": "They are best framed as a gentle traditional tonic rather than a strong acute intervention.",
     "effects": [
       "sleep",
       "stress"
@@ -20469,8 +20469,8 @@
   {
     "slug": "morinda-citrifolia",
     "name": "Morinda Citrifolia",
-    "summary": "Morinda Citrifolia is a botanical studied in connection with anti-inflammatory, antioxidant and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Morinda Citrifolia is a botanical studied in connection with anti-inflammatory, antioxidant and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Morinda citrifolia lean monograph row enriched in bulk mode.",
+    "description": "Morinda citrifolia lean monograph row enriched in bulk mode.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -20601,8 +20601,8 @@
   {
     "slug": "moringa",
     "name": "Moringa",
-    "summary": "Moringa is a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood -all.",
-    "description": "Moringa is a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
+    "summary": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood -all.",
+    "description": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all.",
     "effects": [
       "antioxidant",
       "metabolic"
@@ -20732,8 +20732,8 @@
   {
     "slug": "morus-alba",
     "name": "Morus Alba",
-    "summary": "Morus Alba is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Morus Alba is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation.",
+    "description": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation.",
     "effects": [
       "metabolic"
     ],
@@ -20850,8 +20850,8 @@
   {
     "slug": "mucuna",
     "name": "Mucuna",
-    "summary": "Mucuna centers on L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
-    "description": "Mucuna centers on L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+    "summary": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+    "description": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
     "effects": [
       "stress"
     ],
@@ -21078,8 +21078,8 @@
   {
     "slug": "muira-puama",
     "name": "Muira Puama",
-    "summary": "Muira Puama is a traditional Amazonian botanical with modest modern evidence.",
-    "description": "Muira Puama is a traditional Amazonian botanical with modest modern evidence.",
+    "summary": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
+    "description": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
     "effects": [
       "stress"
     ],
@@ -21182,8 +21182,8 @@
   {
     "slug": "mulberry-leaf",
     "name": "Mulberry Leaf",
-    "summary": "Mulberry Leaf centers on alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
-    "description": "Mulberry Leaf centers on alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
+    "summary": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
+    "description": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
     "effects": [
       "metabolic"
     ],
@@ -21300,8 +21300,8 @@
   {
     "slug": "myristica-fragrans",
     "name": "Myristica Fragrans",
-    "summary": "Myristica Fragrans is a botanical studied in connection with digestive and sedative activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Myristica Fragrans is a botanical studied in connection with digestive and sedative activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition.",
+    "description": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition.",
     "effects": [
       "digestive",
       "sedative"
@@ -21400,8 +21400,8 @@
   {
     "slug": "myrtle",
     "name": "Myrtle",
-    "summary": "Myrtle is an aromatic Mediterranean leaf botanical with modest modern evidence.",
-    "description": "Myrtle is an aromatic Mediterranean leaf botanical with modest modern evidence.",
+    "summary": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
+    "description": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
     "effects": [
       "stress"
     ],
@@ -21628,8 +21628,8 @@
   {
     "slug": "nelumbo-nucifera",
     "name": "Nelumbo Nucifera",
-    "summary": "Nelumbo Nucifera is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Nelumbo Nucifera is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
+    "description": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
     "effects": [
       "stress"
     ],
@@ -22102,8 +22102,8 @@
   {
     "slug": "notoginseng",
     "name": "Notoginseng",
-    "summary": "Notoginseng is a saponin-rich Panax relative with specific vascular-support positioning.",
-    "description": "Notoginseng is a saponin-rich Panax relative with specific vascular-support positioning.",
+    "summary": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+    "description": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
     "effects": [
       "cardiovascular",
       "anti-inflammatory",
@@ -22220,8 +22220,8 @@
   {
     "slug": "oatstraw",
     "name": "Oatstraw",
-    "summary": "Oatstraw is a gentle nutritive herb with limited high-signal clinical depth.",
-    "description": "Oatstraw is a gentle nutritive herb with limited high-signal clinical depth.",
+    "summary": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
+    "description": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
     "effects": [
       "stress"
     ],
@@ -22324,8 +22324,8 @@
   {
     "slug": "ocimum-basilicum",
     "name": "Ocimum Basilicum",
-    "summary": "Ocimum Basilicum is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ocimum Basilicum is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
+    "description": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
     "effects": [
       "sleep",
       "stress"
@@ -22456,8 +22456,8 @@
   {
     "slug": "ocotea-odorifera",
     "name": "Ocotea Odorifera",
-    "summary": "Ocotea Odorifera is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ocotea Odorifera is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
+    "description": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -22688,8 +22688,8 @@
   {
     "slug": "ophiopogon",
     "name": "Ophiopogon",
-    "summary": "Ophiopogon is a moistening tonic-style root with traditional-system relevance.",
-    "description": "Ophiopogon is a moistening tonic-style root with traditional-system relevance.",
+    "summary": "It is best framed as a moistening tonic-style root with traditional-system relevance.",
+    "description": "It is best framed as a moistening tonic-style root with traditional-system relevance.",
     "effects": [
       "respiratory",
       "tonic"
@@ -22908,8 +22908,8 @@
   {
     "slug": "oregano",
     "name": "Oregano",
-    "summary": "Oregano is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Oregano is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "oregano is tracked for sleep with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Oregano is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep"
     ],
@@ -23016,8 +23016,8 @@
   {
     "slug": "paeonia-lactiflora",
     "name": "Paeonia Lactiflora",
-    "summary": "Paeonia Lactiflora is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Paeonia Lactiflora is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Paeonia lactiflora contains Paeoniflorin and is linked here to PI3K/Akt modulation.",
+    "description": "Paeonia lactiflora contains Paeoniflorin and is linked here to PI3K/Akt modulation.",
     "effects": [
       "anti-inflammatory",
       "hormonal",
@@ -23137,8 +23137,8 @@
   {
     "slug": "paeonia-suffruticosa",
     "name": "Paeonia Suffruticosa",
-    "summary": "Paeonia Suffruticosa is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Paeonia Suffruticosa is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+    "description": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
     "effects": [
       "anti-inflammatory",
       "cardiovascular"
@@ -23262,8 +23262,8 @@
   {
     "slug": "papaya-leaf",
     "name": "Papaya Leaf",
-    "summary": "Papaya Leaf is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Papaya Leaf is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate.",
+    "description": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -23375,8 +23375,8 @@
   {
     "slug": "parsley",
     "name": "Parsley",
-    "summary": "Parsley is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Parsley is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "parsley is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Parsley is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep"
     ],
@@ -23603,8 +23603,8 @@
   {
     "slug": "pastinaca-sativa",
     "name": "Pastinaca Sativa",
-    "summary": "Pastinaca Sativa is a botanical studied in connection with digestive and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Pastinaca Sativa is a botanical studied in connection with digestive and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Pastinaca sativa lean monograph row enriched in bulk mode.",
+    "description": "Pastinaca sativa lean monograph row enriched in bulk mode.",
     "effects": [
       "digestive",
       "antioxidant"
@@ -23927,8 +23927,8 @@
   {
     "slug": "perilla",
     "name": "Perilla",
-    "summary": "Perilla is a culinary-medicinal herb with modest but relevant translational evidence.",
-    "description": "Perilla is a culinary-medicinal herb with modest but relevant translational evidence.",
+    "summary": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
+    "description": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
     "effects": [
       "antioxidant"
     ],
@@ -24030,8 +24030,8 @@
   {
     "slug": "phellodendron",
     "name": "Phellodendron",
-    "summary": "Phellodendron is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Phellodendron is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
+    "description": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -24154,8 +24154,8 @@
   {
     "slug": "phellodendron-amurense",
     "name": "Phellodendron Amurense",
-    "summary": "Phellodendron Amurense is a botanical studied in connection with antimicrobial, anti-inflammatory and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Phellodendron Amurense is a botanical studied in connection with antimicrobial, anti-inflammatory and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion.",
+    "description": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "antimicrobial",
       "anti-inflammatory",
@@ -24277,8 +24277,8 @@
   {
     "slug": "phosphatidylserine",
     "name": "Phosphatidylserine",
-    "summary": "Phosphatidylserine is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Phosphatidylserine is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "stress"
     ],
@@ -24513,8 +24513,8 @@
   {
     "slug": "plantago-lanceolata",
     "name": "Plantago Lanceolata",
-    "summary": "Plantago Lanceolata is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Plantago Lanceolata is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Plantago lanceolata contains Verbascoside and is linked here to NF-κB inhibition.",
+    "description": "Plantago lanceolata contains Verbascoside and is linked here to NF-κB inhibition.",
     "effects": [
       "research-pending"
     ],
@@ -24622,8 +24622,8 @@
   {
     "slug": "plantago-major",
     "name": "Plantago Major",
-    "summary": "Plantago Major is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Plantago Major is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
+    "description": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
     "effects": [
       "research-pending"
     ],
@@ -24731,8 +24731,8 @@
   {
     "slug": "plumbago-zeylanica",
     "name": "Plumbago Zeylanica",
-    "summary": "Plumbago Zeylanica is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Plumbago Zeylanica is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Plumbago zeylanica contains Plumbagin and is linked here to NF-κB inhibition.",
+    "description": "Plumbago zeylanica contains Plumbagin and is linked here to NF-κB inhibition.",
     "effects": [
       "research-pending"
     ],
@@ -24841,8 +24841,8 @@
   {
     "slug": "polygala",
     "name": "Polygala",
-    "summary": "Polygala is a traditional nootropic-style root with limited modern clinical depth.",
-    "description": "Polygala is a traditional nootropic-style root with limited modern clinical depth.",
+    "summary": "It is best framed as a traditional nootropic-style root with limited modern clinical depth.",
+    "description": "It is best framed as a traditional nootropic-style root with limited modern clinical depth.",
     "effects": [
       "stress"
     ],
@@ -24951,8 +24951,8 @@
   {
     "slug": "pomegranate",
     "name": "Pomegranate",
-    "summary": "Pomegranate is a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
-    "description": "Pomegranate is a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+    "summary": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+    "description": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
     "effects": [
       "antioxidant"
     ],
@@ -25071,8 +25071,8 @@
   {
     "slug": "poria",
     "name": "Poria",
-    "summary": "Poria is a traditional medicinal fungus with modest modern clinical depth.",
-    "description": "Poria is a traditional medicinal fungus with modest modern clinical depth.",
+    "summary": "It is best framed as a traditional medicinal fungus with modest modern clinical depth.",
+    "description": "It is best framed as a traditional medicinal fungus with modest modern clinical depth.",
     "effects": [
       "stress"
     ],
@@ -25189,8 +25189,8 @@
   {
     "slug": "psoralea-corylifolia",
     "name": "Psoralea Corylifolia",
-    "summary": "Psoralea Corylifolia is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Psoralea Corylifolia is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
+    "description": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
     "effects": [
       "stress"
     ],
@@ -25435,8 +25435,8 @@
   {
     "slug": "pueraria-lobata",
     "name": "Pueraria Lobata",
-    "summary": "Pueraria Lobata is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Pueraria Lobata is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Pueraria lobata contains Puerarin and is linked here to PI3K/Akt modulation.",
+    "description": "Pueraria lobata contains Puerarin and is linked here to PI3K/Akt modulation.",
     "effects": [
       "hormonal",
       "metabolic"
@@ -25661,8 +25661,8 @@
   {
     "slug": "punarnava",
     "name": "Punarnava",
-    "summary": "Punarnava is a botanical studied in connection with anti-inflammatory and diuretic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Punarnava is a botanical studied in connection with anti-inflammatory and diuretic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Punarnava through compounds such as punarnavine.",
+    "description": "Internal cross-linking supports Punarnava through compounds such as punarnavine.",
     "effects": [
       "anti-inflammatory",
       "diuretic"
@@ -25767,8 +25767,8 @@
   {
     "slug": "quercetin",
     "name": "Quercetin",
-    "summary": "Quercetin is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Quercetin is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Quercetin is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Quercetin is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "stress"
     ],
@@ -25889,8 +25889,8 @@
   {
     "slug": "raspberry-leaf",
     "name": "Raspberry Leaf",
-    "summary": "Raspberry Leaf is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Raspberry Leaf is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "raspberry leaf is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Raspberry Leaf is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -26120,8 +26120,8 @@
   {
     "slug": "rehmannia-glutinosa",
     "name": "Rehmannia Glutinosa",
-    "summary": "Rehmannia Glutinosa is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Rehmannia Glutinosa is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
+    "description": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
     "effects": [
       "research-pending"
     ],
@@ -26345,8 +26345,8 @@
   {
     "slug": "ganoderma-lucidum",
     "name": "Reishi",
-    "summary": "Reishi is a botanical studied in connection with anti-inflammatory and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Reishi is a botanical studied in connection with anti-inflammatory and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Reishi is tracked for energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Reishi is tracked for energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "energy"
@@ -26574,8 +26574,8 @@
   {
     "slug": "resveratrol",
     "name": "Resveratrol",
-    "summary": "Resveratrol is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Resveratrol is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Resveratrol is tracked for fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Resveratrol is tracked for fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "anti-inflammatory",
       "antioxidant"
@@ -26915,8 +26915,8 @@
   {
     "slug": "rice-bran",
     "name": "Rice Bran",
-    "summary": "Rice Bran is a botanical studied in connection with anti-inflammatory, antioxidant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Rice Bran is a botanical studied in connection with anti-inflammatory, antioxidant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "rice bran is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Rice Bran is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -27045,8 +27045,8 @@
   {
     "slug": "rooibos",
     "name": "Rooibos",
-    "summary": "Rooibos is a mild tea herb with low-intensity wellness positioning.",
-    "description": "Rooibos is a mild tea herb with low-intensity wellness positioning.",
+    "summary": "It is best framed as a mild tea herb with low-intensity wellness positioning.",
+    "description": "It is best framed as a mild tea herb with low-intensity wellness positioning.",
     "effects": [
       "antioxidant"
     ],
@@ -27159,8 +27159,8 @@
   {
     "slug": "rose-hips",
     "name": "Rose Hips",
-    "summary": "Rose Hips is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Rose Hips is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence.",
+    "description": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -27386,8 +27386,8 @@
   {
     "slug": "rosemary",
     "name": "Rosemary",
-    "summary": "Rosemary is a botanical studied in connection with anti-inflammatory, antioxidant and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Rosemary is a botanical studied in connection with anti-inflammatory, antioxidant and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "rosemary is tracked for cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Rosemary (Rosmarinus officinalis) is a traditional herb containing carnosic acid and rosmarinic acid. It is studied for antioxidant defense, acetylcholine preservation, and memory enhancement.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -27515,8 +27515,8 @@
   {
     "slug": "saffron",
     "name": "Saffron",
-    "summary": "Saffron is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Saffron is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
+    "description": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
     "effects": [
       "stress"
     ],
@@ -27632,8 +27632,8 @@
   {
     "slug": "sage",
     "name": "Sage",
-    "summary": "Sage is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Sage is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "sage is tracked for stress,cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Sage (Salvia officinalis) contains rosmarinic acid and terpenes. Clinical studies suggest support for cognitive processing speed, memory recall, and mood regulation via acetylcholinesterase inhibition.",
     "effects": [
       "stress"
     ],
@@ -27764,8 +27764,8 @@
   {
     "slug": "salacia-reticulata",
     "name": "Salacia",
-    "summary": "Salacia is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Salacia is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
+    "description": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
     "effects": [
       "metabolic"
     ],
@@ -28673,8 +28673,8 @@
   {
     "slug": "serenoa-repens",
     "name": "Serenoa Repens",
-    "summary": "Serenoa Repens is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Serenoa Repens is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+    "description": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
     "effects": [
       "stress"
     ],
@@ -28795,8 +28795,8 @@
   {
     "slug": "shankhpushpi",
     "name": "Shankhpushpi",
-    "summary": "Shankhpushpi is a traditional cognitive-support herb with limited modern clinical depth.",
-    "description": "Shankhpushpi is a traditional cognitive-support herb with limited modern clinical depth.",
+    "summary": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
+    "description": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
     "effects": [
       "stress"
     ],
@@ -28905,8 +28905,8 @@
   {
     "slug": "shatavari",
     "name": "Shatavari",
-    "summary": "Shatavari centers on steroidal saponins with hormonal-context caution.",
-    "description": "Shatavari centers on steroidal saponins with hormonal-context caution.",
+    "summary": "It is best framed around steroidal saponins with hormonal-context caution.",
+    "description": "It is best framed around steroidal saponins with hormonal-context caution.",
     "effects": [
       "stress"
     ],
@@ -29125,8 +29125,8 @@
   {
     "slug": "sophora-alopecuroides",
     "name": "Sophora Alopecuroides",
-    "summary": "Sophora Alopecuroides is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Sophora Alopecuroides is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Sophora alopecuroides lean monograph row enriched in bulk mode.",
+    "description": "Sophora alopecuroides lean monograph row enriched in bulk mode.",
     "effects": [
       "research-pending"
     ],
@@ -29229,8 +29229,8 @@
   {
     "slug": "sophora-flavescens",
     "name": "Sophora Flavescens",
-    "summary": "Sophora Flavescens is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Sophora Flavescens is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
+    "description": "Sophora flavescens lean monograph row enriched in bulk mode.",
     "effects": [
       "research-pending"
     ],
@@ -29450,8 +29450,8 @@
   {
     "slug": "soybean",
     "name": "Soybean",
-    "summary": "Soybean is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Soybean is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "soybean is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Soybean is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -29686,8 +29686,8 @@
   {
     "slug": "stellera-chamaejasme",
     "name": "Stellera Chamaejasme",
-    "summary": "Stellera Chamaejasme is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Stellera Chamaejasme is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
+    "description": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
     "effects": [
       "research-pending"
     ],
@@ -29790,8 +29790,8 @@
   {
     "slug": "stephania-cepharantha",
     "name": "Stephania Cepharantha",
-    "summary": "Stephania Cepharantha is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Stephania Cepharantha is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Stephania cepharantha lean monograph row enriched in bulk mode.",
+    "description": "Stephania cepharantha lean monograph row enriched in bulk mode.",
     "effects": [
       "research-pending"
     ],
@@ -29894,8 +29894,8 @@
   {
     "slug": "stephania-japonica",
     "name": "Stephania Japonica",
-    "summary": "Stephania Japonica is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Stephania Japonica is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Stephania japonica lean monograph row enriched in bulk mode.",
+    "description": "Stephania japonica lean monograph row enriched in bulk mode.",
     "effects": [
       "research-pending"
     ],
@@ -30003,8 +30003,8 @@
   {
     "slug": "stephania-tetrandra",
     "name": "Stephania Tetrandra",
-    "summary": "Stephania Tetrandra is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Stephania Tetrandra is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Stephania tetrandra lean monograph row enriched in bulk mode.",
+    "description": "Stephania tetrandra lean monograph row enriched in bulk mode.",
     "effects": [
       "research-pending"
     ],
@@ -30223,7 +30223,7 @@
     "slug": "lions-mane",
     "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
     "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
-    "description": "Supports Nerve Growth Factor (NGF) Synthesis, Cognitive Function, And Mild Mood Regulation. Promotes Neurogenesis And Neuroprotection In Preclinical Models. Human Evidence Is Moderate And Emerging, With The Strongest Signals For Mild Cognitive Support And Emotional Well-Being In Aging Or Stressed Adults. Effects Are Generally Subtle And Cumulative Rather Than Acute. is a botanical studied in connection with cognitive, neuroprotective and mood activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "description": "Lion’s Mane is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Neurobiology. Current workbook signals support mechanistic context around Neuroprotective Activity, not treatment claims.",
     "effects": [
       "cognitive",
       "neuroprotective",
@@ -30444,8 +30444,8 @@
   {
     "slug": "tamarind",
     "name": "Tamarind",
-    "summary": "Tamarind is a food-form fruit with digestive and polyphenol relevance.",
-    "description": "Tamarind is a food-form fruit with digestive and polyphenol relevance.",
+    "summary": "It is best framed as a food-form fruit with digestive and polyphenol relevance.",
+    "description": "It is best framed as a food-form fruit with digestive and polyphenol relevance.",
     "effects": [
       "antioxidant",
       "digestive"
@@ -30553,8 +30553,8 @@
   {
     "slug": "artemisia-dracunculus",
     "name": "Tarragon",
-    "summary": "Tarragon is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Tarragon is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Tarragon is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Tarragon is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "effects": [
       "metabolic"
     ],
@@ -30892,8 +30892,8 @@
   {
     "slug": "thyme",
     "name": "Thyme",
-    "summary": "Thyme is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Thyme is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "thyme is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Thyme is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "sleep"
     ],
@@ -31009,8 +31009,8 @@
   {
     "slug": "tongkat-ali",
     "name": "Tongkat Ali",
-    "summary": "Tongkat Ali is a bitter root extract with endocrine and stimulation-related caution.",
-    "description": "Tongkat Ali is a bitter root extract with endocrine and stimulation-related caution.",
+    "summary": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
+    "description": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
     "effects": [
       "stress"
     ],
@@ -31119,8 +31119,8 @@
   {
     "slug": "tribulus-terrestris",
     "name": "Tribulus (Tribulus terrestris)",
-    "summary": "Tribulus (Tribulus terrestris) is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Tribulus (Tribulus terrestris) is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Tribulus terrestris lean herb row for high-speed phytochemical ingestion.",
+    "description": "Tribulus terrestris lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "sleep"
     ],
@@ -31456,8 +31456,8 @@
   {
     "slug": "turmeric",
     "name": "Turmeric (Curcuma longa)",
-    "summary": "Turmeric (Curcuma longa) is a botanical studied in connection with inflammation, joint support and antioxidant support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Turmeric (Curcuma longa) is a botanical studied in connection with inflammation, joint support and antioxidant support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+    "description": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
     "effects": [
       "inflammation",
       "joint_support",
@@ -31803,8 +31803,8 @@
   {
     "slug": "verbena-officinalis",
     "name": "Verbena Officinalis",
-    "summary": "Verbena Officinalis is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Verbena Officinalis is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
+    "description": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
     "effects": [
       "stress"
     ],
@@ -31914,8 +31914,8 @@
   {
     "slug": "white-peony",
     "name": "White Peony",
-    "summary": "White Peony is a paeoniflorin-rich root with traditional-system relevance.",
-    "description": "White Peony is a paeoniflorin-rich root with traditional-system relevance.",
+    "summary": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
+    "description": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
     "effects": [
       "stress"
     ],
@@ -32029,8 +32029,8 @@
   {
     "slug": "wild-yam",
     "name": "Wild Yam",
-    "summary": "Wild Yam is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Wild Yam is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Wild Yam lean herb row for high-speed phytochemical ingestion.",
+    "description": "Wild Yam lean herb row for high-speed phytochemical ingestion.",
     "effects": [
       "research-pending"
     ],
@@ -32137,8 +32137,8 @@
   {
     "slug": "wormwood",
     "name": "Wormwood",
-    "summary": "Wormwood is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Wormwood is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+    "description": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
     "effects": [
       "sleep"
     ],
@@ -32249,8 +32249,8 @@
   {
     "slug": "yarrow",
     "name": "Yarrow",
-    "summary": "Yarrow is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Yarrow is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "yarrow is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Yarrow is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "digestive"
@@ -32355,8 +32355,8 @@
   {
     "slug": "yerba-mate",
     "name": "Yerba Mate",
-    "summary": "Yerba Mate is a botanical studied in connection with anti-inflammatory, antioxidant and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Yerba Mate is a botanical studied in connection with anti-inflammatory, antioxidant and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
+    "summary": "yerba mate is tracked for fat_loss,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "description": "Yerba Mate is tracked for safety, evidence, and practical use contexts under conservative evidence framing.",
     "effects": [
       "anti-inflammatory",
       "antioxidant",

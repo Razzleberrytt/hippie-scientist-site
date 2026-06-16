@@ -338,7 +338,7 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
     return { index: false, follow: true, reason: 'generated-compound-quality-gate-failed', priority: 0 }
   }
 
-  if (/^\/(learn|education|compare|stacks|psychoactive)\/[^/]+$/.test(normalizedPath)) {
+  if (/^\/(learn|education|compare|stacks|psychoactive|novel-psychoactive-substances)\/[^/]+$/.test(normalizedPath)) {
     return { index: true, follow: true, reason: 'supporting-detail-route', priority: 0.6 }
   }
 

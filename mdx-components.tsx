@@ -4,6 +4,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import { NPSDisclaimer } from '@/components/NPSDisclaimer'
 
 type MDXComponents = Record<string, ComponentType<Record<string, unknown>>>
 
@@ -27,6 +28,7 @@ const evidenceComponents = {
   ResearchLimitations,
   MisconceptionCallout,
   SafetyNotice,
+  NPSDisclaimer,
 } as unknown as MDXComponents
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

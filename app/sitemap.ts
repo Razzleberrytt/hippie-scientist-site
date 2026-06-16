@@ -194,6 +194,13 @@ function checkRouteFileEligibility(normalizedRoute: string): boolean {
     path.join(process.cwd(), 'app', clean, 'layout.tsx'),
     path.join(process.cwd(), 'app', clean, 'layout.ts'),
   ];
+  const segments = clean.split('/').filter(Boolean);
+  if (segments.length > 1) {
+    possiblePaths.push(
+      path.join(process.cwd(), 'app', ...segments.slice(0, -1), '[slug]', 'page.tsx'),
+      path.join(process.cwd(), 'app', ...segments.slice(0, -1), '[slug]', 'page.ts'),
+    );
+  }
   for (const filePath of possiblePaths) {
     if (existsSync(filePath)) {
       try {
@@ -339,6 +346,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
   const guidesData = readMdxRecords('content/guides');
   const educationMdx = readMdxRecords('content/education');
+  const npsMdx = readMdxRecords('novel-psychoactive-substances');
+  const npsIndex = npsMdx.find((page) => page.slug === 'index');
 
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(normalizeSitemapUrl('/'), currentDate, 'weekly', 1.0),
@@ -355,6 +364,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(normalizeSitemapUrl('/goals'), currentDate, 'monthly', 0.8),
     route(normalizeSitemapUrl('/stacks'), currentDate, 'monthly', 0.7),
     route(normalizeSitemapUrl('/guides'), currentDate, 'monthly', 0.85),
+    route(normalizeSitemapUrl('/novel-psychoactive-substances'), currentDate, 'monthly', 0.7, npsIndex?.lastUpdated),
     route(normalizeSitemapUrl('/compare'), currentDate, 'monthly', 0.7),
     route(normalizeSitemapUrl('/tools'), currentDate, 'monthly', 0.6),
     route(normalizeSitemapUrl('/dosing'), currentDate, 'monthly', 0.6),
@@ -532,6 +542,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   educationMdx.forEach((edu) => {
     if (!edu.slug) return;
     addRoute(`/education/${edu.slug}`, 'monthly', 0.6, undefined, edu);
+  });
+
+  npsMdx.forEach((page) => {
+    if (!page.slug || page.slug === 'index') return;
+    addRoute(`/novel-psychoactive-substances/${page.slug}`, 'monthly', 0.65, page.lastUpdated, page);
   });
 
   // Add compare detail routes (data-driven + custom directories)
