@@ -23,31 +23,28 @@ export const metadata: Metadata = {
 
 export default function SearchPage() {
   const popularSearches = [
-    { name: 'Ashwagandha', href: '/herbs/ashwagandha/' },
-    { name: "Lion's Mane", href: '/herbs/lions-mane/' },
-    { name: 'Magnesium', href: '/compounds/magnesium-glycinate/' },
-    { name: 'Creatine', href: '/compounds/creatine/' },
-    { name: 'Turmeric/Curcumin', href: '/herbs/turmeric/' },
-    { name: 'Melatonin', href: '/compounds/melatonin/' },
-    { name: 'L-Theanine', href: '/compounds/l-theanine/' },
-    { name: 'Rhodiola', href: '/herbs/rhodiola/' },
-    { name: 'Bacopa', href: '/herbs/bacopa/' },
-    { name: 'Berberine', href: '/compounds/berberine/' },
-    { name: 'NMN', href: '/compounds/nmn/' },
-    { name: 'Tongkat Ali', href: '/herbs/tongkat-ali/' },
-    { name: 'Fadogia Agrestis', href: '/compounds/fadogia-agrestis/' },
-    { name: 'Black Seed Oil', href: '/compounds/black-seed-oil/' },
-    { name: 'Boron', href: '/compounds/boron/' },
-    { name: 'Apigenin', href: '/compounds/apigenin/' },
+    { name: 'Ashwagandha', href: '/herbs/ashwagandha' },
+    { name: 'Magnesium Glycinate', href: '/compounds/magnesium-glycinate' },
+    { name: 'Creatine', href: '/compounds/creatine' },
+    { name: 'Melatonin', href: '/compounds/melatonin' },
+    { name: 'L-Theanine', href: '/compounds/l-theanine' },
+    { name: 'Bacopa', href: '/herbs/bacopa' },
+    { name: 'Berberine', href: '/compounds/berberine' },
+    { name: 'Black Seed Oil', href: '/compounds/black-seed-oil' },
+    { name: 'Caffeine', href: '/compounds/caffeine' },
+    { name: 'Alpha-GPC', href: '/compounds/alpha-gpc' },
+    { name: 'Omega-3', href: '/compounds/omega-3' },
+    { name: 'Quercetin', href: '/compounds/quercetin' },
+    { name: 'Panax Ginseng', href: '/herbs/panax-ginseng' },
   ]
 
   const popularGoals = [
-    { name: 'Sleep Support', href: '/goals/sleep/' },
-    { name: 'Stress Resilience', href: '/goals/stress/' },
-    { name: 'Focus & Cognition', href: '/goals/focus/' },
-    { name: 'Fat Loss', href: '/goals/fat-loss/' },
-    { name: 'Gut Health', href: '/goals/gut-health/' },
-    { name: 'Joint Support', href: '/goals/joint-support/' },
+    { name: 'Sleep Support', href: '/goals/sleep' },
+    { name: 'Stress Resilience', href: '/goals/stress' },
+    { name: 'Focus & Cognition', href: '/goals/focus' },
+    { name: 'Fat Loss', href: '/goals/fat-loss' },
+    { name: 'Gut Health', href: '/goals/gut-health' },
+    { name: 'Joint Support', href: '/goals/joint-support' },
   ]
 
   return (
@@ -99,12 +96,12 @@ export default function SearchPage() {
             <h2 className="text-xs font-bold uppercase tracking-wider text-muted font-semibold">Browse by Category</h2>
             <ul className="space-y-1">
               <li>
-                <Link href="/herbs/" className="text-sm font-semibold text-brand-800 hover:underline">
+                <Link href="/herbs" className="text-sm font-semibold text-brand-800 hover:underline">
                   Herb & Botanical Library ({HERB_COUNT} Profiles)
                 </Link>
               </li>
               <li>
-                <Link href="/compounds/" className="text-sm font-semibold text-brand-800 hover:underline">
+                <Link href="/compounds" className="text-sm font-semibold text-brand-800 hover:underline">
                   Compound & Nootropic Library ({COMPOUND_COUNT} Profiles)
                 </Link>
               </li>

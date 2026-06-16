@@ -5,27 +5,28 @@ import { goals } from '../../data/goals'
 
 describe('Route Integrity Test', () => {
   it('verifies all popular search and popular goal links in app/search/page.tsx are valid active routes or redirect targets', () => {
-    // 1. Read app/search/page.tsx
+    // 1. Read app/search/page.tsx and extract all hrefs
     const searchPagePath = path.resolve(__dirname, '../search/page.tsx')
     const searchPageContent = fs.readFileSync(searchPagePath, 'utf8')
 
-    // Extract hrefs using regex matching href: '/...'
     const hrefRegex = /href:\s*['"]([^'"]+)['"]/g
     const hrefs: string[] = []
     let match
     while ((match = hrefRegex.exec(searchPageContent)) !== null) {
       hrefs.push(match[1])
     }
-
     expect(hrefs.length).toBeGreaterThan(0)
 
-    // 2. Load route-manifest.json to get canonical routes
-    const routeManifestPath = path.resolve(__dirname, '../../public/data/runtime-manifests/route-manifest.json')
+    // 2. Build a set of known-valid canonical routes
+    const canonicalRoutes = new Set<string>()
+
+    // 2a. Route manifest (workbook-generated subset)
+    const routeManifestPath = path.resolve(
+      __dirname,
+      '../../public/data/runtime-manifests/route-manifest.json',
+    )
     expect(fs.existsSync(routeManifestPath)).toBe(true)
     const routeManifest = JSON.parse(fs.readFileSync(routeManifestPath, 'utf8'))
-    
-    // Canonical routes set
-    const canonicalRoutes = new Set<string>()
     for (const entry of routeManifest) {
       if (entry.route) {
         canonicalRoutes.add(entry.route)
@@ -33,44 +34,60 @@ describe('Route Integrity Test', () => {
       }
     }
 
-    // Add static app routes
+    // 2b. Well-known static app routes
     const staticAppRoutes = [
       '/',
-      '/search',
-      '/search/',
-      '/guides',
-      '/guides/',
-      '/herbs',
-      '/herbs/',
-      '/compounds',
-      '/compounds/',
-      '/articles',
-      '/articles/',
-      '/compare',
-      '/compare/',
-      '/stacks',
-      '/stacks/',
-      '/goals',
-      '/goals/',
+      '/search', '/search/',
+      '/guides', '/guides/',
+      '/herbs', '/herbs/',
+      '/compounds', '/compounds/',
+      '/articles', '/articles/',
+      '/compare', '/compare/',
+      '/stacks', '/stacks/',
+      '/goals', '/goals/',
     ]
     for (const route of staticAppRoutes) {
       canonicalRoutes.add(route)
     }
 
-    // Add generated goal routes from goals data
+    // 2c. Goal routes from goals data
     for (const goal of goals) {
       canonicalRoutes.add(`/goals/${goal.slug}`)
       canonicalRoutes.add(`/goals/${goal.slug}/`)
     }
 
-    // 3. Load public/_redirects to get redirect sources
+    // 2d. Herb routes: enumerate public/data/herb-detail/*.json slugs.
+    //     These are the actual source of truth served by app/herbs/[slug]/page.tsx.
+    //     The route-manifest is a workbook-derived subset and does not list every herb.
+    const herbDetailDir = path.resolve(__dirname, '../../public/data/herb-detail')
+    if (fs.existsSync(herbDetailDir)) {
+      for (const fileName of fs.readdirSync(herbDetailDir)) {
+        if (fileName.endsWith('.json')) {
+          const slug = fileName.replace(/\.json$/, '')
+          canonicalRoutes.add(`/herbs/${slug}`)
+          canonicalRoutes.add(`/herbs/${slug}/`)
+        }
+      }
+    }
+
+    // 2e. Compound routes: enumerate public/data/compound-detail/*.json slugs.
+    const compoundDetailDir = path.resolve(__dirname, '../../public/data/compound-detail')
+    if (fs.existsSync(compoundDetailDir)) {
+      for (const fileName of fs.readdirSync(compoundDetailDir)) {
+        if (fileName.endsWith('.json')) {
+          const slug = fileName.replace(/\.json$/, '')
+          canonicalRoutes.add(`/compounds/${slug}`)
+          canonicalRoutes.add(`/compounds/${slug}/`)
+        }
+      }
+    }
+
+    // 3. Load redirect sources from public/_redirects
     const redirectsPath = path.resolve(__dirname, '../../public/_redirects')
     expect(fs.existsSync(redirectsPath)).toBe(true)
     const redirectsContent = fs.readFileSync(redirectsPath, 'utf8')
-    const redirectLines = redirectsContent.split('\n')
     const redirectSources = new Set<string>()
-    
-    for (const line of redirectLines) {
+    for (const line of redirectsContent.split('\n')) {
       const trimmed = line.trim()
       if (!trimmed || trimmed.startsWith('#')) continue
       const parts = trimmed.split(/\s+/)
@@ -80,12 +97,11 @@ describe('Route Integrity Test', () => {
       }
     }
 
-    // 4. Assert that each href exists in canonicalRoutes OR redirectSources
+    // 4. Assert every href is valid (canonical route OR redirect source)
     const invalidHrefs: string[] = []
     for (const href of hrefs) {
       const normalizedHref = href.split('?')[0]
-      const isValid = canonicalRoutes.has(normalizedHref) || redirectSources.has(normalizedHref)
-      if (!isValid) {
+      if (!canonicalRoutes.has(normalizedHref) && !redirectSources.has(normalizedHref)) {
         invalidHrefs.push(href)
       }
     }
@@ -93,7 +109,6 @@ describe('Route Integrity Test', () => {
     if (invalidHrefs.length > 0) {
       console.error('Found invalid or unmapped search popular links:', invalidHrefs)
     }
-
     expect(invalidHrefs).toEqual([])
   })
 })
