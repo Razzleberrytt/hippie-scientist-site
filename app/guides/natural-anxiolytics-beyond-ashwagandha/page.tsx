@@ -48,7 +48,7 @@ export default function NaturalAnxiolyticsPage() {
     },
     {
       name: 'Lemon Balm (Melissa officinalis)',
-      href: '/herbs/lemon-balm',
+      href: '/herbs/melissa-officinalis',
       type: 'Botanical Leaf Extract',
       onset: '30 to 90 minutes',
       mechanism: 'Inhibits GABA transaminase, preserving synaptic GABA levels.',

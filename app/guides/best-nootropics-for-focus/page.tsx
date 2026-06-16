@@ -38,7 +38,7 @@ const FOCUS_NOOTROPICS = [
     dose: '250–500 mg once or twice daily; effects build over 2–4 weeks',
     safety: 'Excellent safety profile; minor GI effects at high doses; potential insomnia if taken late',
     bestFor: 'Sustained cognitive support; choline-deficient individuals; longer-term cognitive enhancement',
-    href: '/compounds/citicoline',
+    href: '/compounds/cdp-choline',
     badge: 'Moderate',
     timeframe: '2–4 weeks for full benefit',
   },

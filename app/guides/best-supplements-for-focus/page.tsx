@@ -37,7 +37,7 @@ const FOCUS_SUPPLEMENTS = [
     dose: '250–500 mg once or twice daily; best taken in the morning',
     safety: 'Excellent; minor GI effects at high doses; possible insomnia late in day',
     bestFor: 'Sustained attention; choline-deficient individuals; cognitive support building over weeks',
-    href: '/compounds/citicoline',
+    href: '/compounds/cdp-choline',
     badge: 'Moderate',
   },
   {
@@ -77,7 +77,7 @@ const FOCUS_SUPPLEMENTS = [
     dose: '1500–2000 mg Magtein® (providing ~144 mg elemental Mg) daily, often split doses',
     safety: 'Well-tolerated; expensive relative to glycinate; use glycinate for sleep/relaxation (cheaper)',
     bestFor: 'Cognitive optimization; anxiety-impaired focus; brain-specific magnesium support',
-    href: '/compounds/magnesium-l-threonate',
+    href: '/compounds/magnesium-threonate',
     badge: 'Emerging–Moderate',
   },
 ]

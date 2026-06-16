@@ -22,7 +22,7 @@ const picks = [
   {
     name: 'Lemon balm',
     why: 'Traditional calming herb commonly used at night.',
-    href: '/herbs/lemon-balm',
+    href: '/herbs/melissa-officinalis',
   },
 ]
 
