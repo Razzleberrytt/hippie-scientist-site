@@ -34,7 +34,7 @@ duplicating it:
 | `/goals`, `/goals/:slug` | Decision entry | `data/goals.ts` |
 | `/education`, `/education/:slug` | Foundational explainers (how/why) | `lib/education` + `content/education` |
 | `/guides`, `/guides/:slug` | Practical guides & stacks (what to do) | `lib/guides` + `content/guides` + curated static pages |
-| `/articles`, `/articles/:slug` | Long-form research monographs | `content/articles/*.mdx` (preferred) + `data/articles/articles.json` |
+| `/articles`, `/articles/:slug` | Long-form research monographs | `content/articles/*.mdx` (preferred) + `content/articles/*.md` generated into `data/articles/articles.json` |
 | `/herbs`, `/herbs/:slug` | Herb reference profiles | workbook (`herb_monograph_master.xlsx`) |
 | `/compounds`, `/compounds/:slug` | Compound reference profiles | workbook — **workbook-only**, no injected MDX |
 | `/stacks`, `/stacks/:slug` | Pre-built stacks | `public/data/stacks.json` |
@@ -48,9 +48,11 @@ duplicating it:
 
 A given URL has exactly one source. Notable rules learned the hard way:
 
-- **Articles:** when a slug exists as both `content/articles/*.mdx` and an entry in
-  `data/articles/articles.json`, the MDX wins at render and the JSON entry is dead.
-  Keep the monograph in **one** place (prefer MDX) — do not author the same article twice.
+- **Articles:** `content/articles/*.mdx` is rendered directly by content collections.
+  Legacy `content/articles/*.md` files are generated into `data/articles/articles.json`.
+  When a slug exists as both MDX and JSON, the MDX wins at render and the JSON entry
+  is dead. Keep the monograph in **one** place (prefer MDX) — do not author the same
+  article twice.
 - **Compounds are workbook-only.** Do not add `content/compounds/*.mdx`; isolated
   alkaloids that warrant a deep dive belong in `/articles`, and their reference card
   (if they are a real workbook compound) lives at `/compounds/:slug`.
