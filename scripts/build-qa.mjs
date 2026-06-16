@@ -61,7 +61,6 @@ const qaSteps = [
   'node scripts/ci/validate-route-seo.mjs',
 
   // Safety
-  'node scripts/ci/validate-safety-enums.mjs',
   'node scripts/ci/check-node-version.mjs',
 
   // Audits

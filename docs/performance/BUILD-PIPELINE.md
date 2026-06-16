@@ -92,7 +92,6 @@ npm run build:qa (runs in parallel, up to 8 concurrent)
   ├─ validate-security-headers
   ├─ validate-build-seo-metadata
   ├─ validate-route-seo
-  ├─ validate-safety-enums
   ├─ audit-metadata-duplicates
   ├─ audit-internal-links
   ├─ audit-structured-data
