@@ -403,6 +403,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'boswellia-carterii',
     'morus-alba',
     'phellodendron',
+    'astragalus-membranaceus',
+    'atractylodes-macrocephala',
+    'angelica-sinensis',
+    'angelica-root',
   ]);
 
   const DEPRECATED_COMPOUNDS = new Set([

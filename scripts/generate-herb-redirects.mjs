@@ -42,6 +42,10 @@ const CANONICAL_MAP = {
   'boswellia-carterii': 'boswellia-serrata',
   'morus-alba': 'mulberry-leaf',
   phellodendron: 'phellodendron-amurense',
+  'astragalus-membranaceus': 'astragalus',
+  'atractylodes-macrocephala': 'atractylodes',
+  'angelica-sinensis': 'dong-quai',
+  'angelica-root': 'angelica-archangelica',
 }
 
 const REDIRECTS_PATH = path.resolve('public/_redirects')

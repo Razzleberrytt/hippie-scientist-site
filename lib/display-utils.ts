@@ -96,6 +96,7 @@ export function hideInternalValue(value: unknown): boolean {
 
   const internalPhrases = [
     'internal cross linking',
+    'is linked here to',
     'workbook readiness pass',
     'added as site safe referenced entity during workbook readiness pass',
     'scispace evidence pass',

@@ -16,7 +16,17 @@ const LEAK_PATTERNS = [
   { regex: /\bFIXME\b/i, name: 'FIXME' },
   { regex: /\bPLACEHOLDER\b/i, name: 'PLACEHOLDER' },
   { regex: /\btest entry\b/i, name: 'test entry' },
-  { regex: /\bdummy\b/i, name: 'dummy' }
+  { regex: /\bdummy\b/i, name: 'dummy' },
+  { regex: /is linked here to/i, name: 'mechanism-link template' },
+  { regex: /lean herb row|lean monograph row/i, name: 'lean row template' },
+  { regex: /high.speed phytochemical/i, name: 'phytochemical ingestion template' },
+  { regex: /internal cross-linking supports/i, name: 'cross-linking template' },
+  { regex: /\bis tracked for\b/i, name: 'tracked-for template' },
+  { regex: /it is best framed (as|around|for)/i, name: 'best-framed template' },
+  { regex: /decision-ready summary/i, name: 'decision-ready summary prefix' },
+  { regex: /evidence level:/i, name: 'evidence-level template' },
+  { regex: /scispace evidence pass|evidence pass/i, name: 'evidence-pass template' },
+  { regex: /enriched in bulk|bulk mode/i, name: 'bulk-enrichment template' }
 ];
 
 // Fields that are displayed on the frontend to users
