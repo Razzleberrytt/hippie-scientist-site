@@ -47,5 +47,25 @@
       "year": 2009,
       "url": "https://pubmed.ncbi.nlm.nih.gov/19912732/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": false,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "33917843",
+      "35878793",
+      "19912732"
+    ]
+  },
+  "claimMap": []
 }

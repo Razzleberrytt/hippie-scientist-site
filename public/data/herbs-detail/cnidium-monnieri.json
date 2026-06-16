@@ -49,5 +49,25 @@
       "year": 2025,
       "url": "https://pubmed.ncbi.nlm.nih.gov/40256714/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "26243582",
+      "32028721",
+      "40256714"
+    ]
+  },
+  "claimMap": []
 }

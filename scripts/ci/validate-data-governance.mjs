@@ -80,14 +80,33 @@ function hasAnyKeyDeep(value, keys) {
   return Object.entries(value).some(([key, child]) => keys.includes(key) || hasAnyKeyDeep(child, keys))
 }
 
+// Detects REAL record-level evidence. An empty `evidence` wrapper (the scaffolding the
+// governance overlay attaches to every record) must NOT count as sourced — otherwise the
+// gate could be passed by adding empty objects. Only genuine source ids / non-empty
+// evidence buckets / source-backed claims qualify.
 function hasNonEmptyEvidence(value) {
   if (!value || typeof value !== 'object') return false
 
-  for (const key of sourceKeys) {
+  // Flat source arrays / id lists.
+  for (const key of ['sources', 'references', 'citations', 'studies', 'sourceIds', 'source_ids', 'pmids', 'pubmedIds']) {
     const child = value[key]
     if (Array.isArray(child) && child.length > 0) return true
-    if (child && typeof child === 'object' && Object.keys(child).length > 0) return true
     if (typeof child === 'string' && child.trim()) return true
+  }
+
+  // Structured evidence wrapper: only real content counts.
+  const evidence = value.evidence
+  if (evidence && typeof evidence === 'object') {
+    if (Array.isArray(evidence.sourceIds) && evidence.sourceIds.length > 0) return true
+    if (Number(evidence.sourceCount) > 0) return true
+    for (const bucket of ['human', 'mechanistic', 'safety', 'traditional']) {
+      if (Array.isArray(evidence[bucket]) && evidence[bucket].length > 0) return true
+    }
+  }
+
+  // Claim map entries that trace back to at least one source id.
+  if (Array.isArray(value.claimMap) && value.claimMap.some((claim) => Array.isArray(claim?.sourceIds) && claim.sourceIds.length > 0)) {
+    return true
   }
 
   return false
@@ -186,41 +205,54 @@ if (restrictedFindings.length > 0) {
   ))
 }
 
+// A record is treated as indexable when governance explicitly allows it, falling back to
+// the legacy indexability fields for records that predate the governance overlay.
+function isIndexableRecord(record) {
+  if (record?.governance && typeof record.governance.indexingAllowed === 'boolean') {
+    return record.governance.indexingAllowed
+  }
+  if (String(record?.indexability_status || '').toUpperCase() === 'PUBLISH') return true
+  return record?.sitemap_included === true
+}
+
+// Governance invariant: every INDEXABLE profile must be source-backed. Non-indexable
+// records (needs_review / noindex reference pages) are allowed to lack record-level
+// sources — they are not exposed to search and carry requiresHumanReview.
 function sourceCoverage(dirPath) {
   const files = listJsonFiles(dirPath)
   let withSources = 0
-  const withoutSources = []
+  let indexable = 0
+  const indexableWithoutSources = []
 
   for (const name of files) {
     const record = readJson(path.join(dirPath, name))
-    if (hasNonEmptyEvidence(record)) {
-      withSources += 1
-    } else {
-      withoutSources.push(name.replace(/\.json$/, ''))
+    const sourced = hasNonEmptyEvidence(record)
+    if (sourced) withSources += 1
+    if (isIndexableRecord(record)) {
+      indexable += 1
+      if (!sourced) indexableWithoutSources.push(name.replace(/\.json$/, ''))
     }
   }
 
   return {
     total: files.length,
     withSources,
-    withoutSources: withoutSources.length,
-    sampleWithoutSources: withoutSources.slice(0, 25),
+    withoutSources: files.length - withSources,
+    indexable,
+    indexableWithoutSources: indexableWithoutSources.length,
+    sampleIndexableWithoutSources: indexableWithoutSources.slice(0, 25),
   }
 }
 
 const herbCoverage = sourceCoverage(canonicalHerbDir)
 const compoundCoverage = sourceCoverage(canonicalCompoundDir)
 
-if (herbCoverage.total > 0 && herbCoverage.withSources === 0) {
-  findings.push(issue('medium', 'HERBS_WITHOUT_RECORD_LEVEL_SOURCES', 'No canonical herb detail records expose direct source/evidence fields.', herbCoverage))
-} else if (herbCoverage.withoutSources > 0) {
-  findings.push(issue('medium', 'SOME_HERBS_WITHOUT_RECORD_LEVEL_SOURCES', 'Some canonical herb detail records lack direct source/evidence fields.', herbCoverage))
+if (herbCoverage.indexableWithoutSources > 0) {
+  findings.push(issue('high', 'INDEXABLE_HERBS_WITHOUT_SOURCES', 'Indexable herb profiles must be source-backed. Add sources or mark them non-indexable (needs_review).', herbCoverage))
 }
 
-if (compoundCoverage.total > 0 && compoundCoverage.withSources === 0) {
-  findings.push(issue('high', 'COMPOUNDS_WITHOUT_RECORD_LEVEL_SOURCES', 'No canonical compound detail records expose direct source/evidence fields.', compoundCoverage))
-} else if (compoundCoverage.withoutSources > 0) {
-  findings.push(issue('medium', 'SOME_COMPOUNDS_WITHOUT_RECORD_LEVEL_SOURCES', 'Some canonical compound detail records lack direct source/evidence fields.', compoundCoverage))
+if (compoundCoverage.indexableWithoutSources > 0) {
+  findings.push(issue('high', 'INDEXABLE_COMPOUNDS_WITHOUT_SOURCES', 'Indexable compound profiles must be source-backed. Add sources or mark them non-indexable (needs_review).', compoundCoverage))
 }
 
 const summary = {

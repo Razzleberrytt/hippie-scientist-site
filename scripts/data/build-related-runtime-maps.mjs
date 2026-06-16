@@ -638,6 +638,10 @@ async function main() {
     ...herbs.map((record) => ({ ...record, entityType: 'herb' })),
     ...compounds.map((record) => ({ ...record, entityType: 'compound' })),
   ]
+    // Governance gate: records explicitly marked recommendationAllowed=false (restricted /
+    // high-risk profiles) are excluded from every recommendation/related map so they are
+    // neither recommended to other pages nor surfaced as recommendation hubs themselves.
+    .filter((record) => record?.governance?.recommendationAllowed !== false)
   const index = buildIndex(records)
   const comparisonMap = buildCandidateMap(records, index, 'comparison')
   const conditionMaps = buildConditionMaps(records)

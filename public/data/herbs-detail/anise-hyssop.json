@@ -41,5 +41,24 @@
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/34439010/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 2,
+    "sourceIds": [
+      "33391017",
+      "34439010"
+    ]
+  },
+  "claimMap": []
 }

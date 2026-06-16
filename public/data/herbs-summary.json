@@ -5852,39 +5852,6 @@
     "region": ""
   },
   {
-    "id": "lobelia-inflata",
-    "slug": "lobelia-inflata",
-    "name": "Lobelia Inflata",
-    "common": "Lobelia Inflata",
-    "scientific": "",
-    "summary": "Lobelia Inflata is a botanical studied in connection with respiratory and stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Lobelia Inflata is a botanical studied in connection with respiratory and stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "primaryActions": [
-      "respiratory",
-      "stimulant"
-    ],
-    "mechanisms": [
-      "Neurotransmitter Modulation"
-    ],
-    "confidence": "low",
-    "activeCompounds": [],
-    "safetyNotes": "Generally well tolerated for most users.",
-    "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "seizure disorder or sedative/alcohol use"
-    ],
-    "interactions": [
-      "Potential interaction concern with antihypertensives/diuretics",
-      "use clinician review for high-dose extracts or chronic use."
-    ],
-    "preparation": "",
-    "traditionalUses": [],
-    "evidenceLevel": "",
-    "relatedHerbs": [],
-    "region": ""
-  },
-  {
     "id": "longan",
     "slug": "longan",
     "name": "Longan",
@@ -6697,72 +6664,6 @@
     "interactions": [
       "Potential additive effects with medications affecting the same body system",
       "review high-dose extracts with a clinician."
-    ],
-    "preparation": "",
-    "traditionalUses": [],
-    "evidenceLevel": "",
-    "relatedHerbs": [],
-    "region": ""
-  },
-  {
-    "id": "nicotiana-glauca",
-    "slug": "nicotiana-glauca",
-    "name": "Nicotiana Glauca",
-    "common": "Nicotiana Glauca",
-    "scientific": "",
-    "summary": "Nicotiana Glauca is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Nicotiana Glauca is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "primaryActions": [
-      "stimulant"
-    ],
-    "mechanisms": [
-      "Neurotransmitter Modulation"
-    ],
-    "confidence": "low",
-    "activeCompounds": [],
-    "safetyNotes": "Generally well tolerated for most users.",
-    "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "seizure disorder or sedative/alcohol use"
-    ],
-    "interactions": [
-      "Potential interaction concern with antihypertensives/diuretics",
-      "use clinician review for high-dose extracts or chronic use."
-    ],
-    "preparation": "",
-    "traditionalUses": [],
-    "evidenceLevel": "",
-    "relatedHerbs": [],
-    "region": ""
-  },
-  {
-    "id": "nicotiana-tabacum",
-    "slug": "nicotiana-tabacum",
-    "name": "Nicotiana Tabacum",
-    "common": "Nicotiana Tabacum",
-    "scientific": "",
-    "summary": "Nicotiana Tabacum is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Nicotiana Tabacum is a botanical studied in connection with stimulant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "primaryActions": [
-      "stimulant"
-    ],
-    "mechanisms": [
-      "Neurotransmitter Modulation",
-      "NF-kB Modulation"
-    ],
-    "confidence": "low",
-    "activeCompounds": [],
-    "safetyNotes": "Generally well tolerated for most users.",
-    "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "seizure disorder or sedative/alcohol use"
-    ],
-    "interactions": [
-      "Potential interaction concern with antihypertensives/diuretics",
-      "immunosuppressants",
-      "use clinician review for high-dose extracts or chronic use."
     ],
     "preparation": "",
     "traditionalUses": [],

@@ -47,5 +47,25 @@
       "year": 2017,
       "url": "https://pubmed.ncbi.nlm.nih.gov/28289385/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "27984799",
+      "35883850",
+      "28289385"
+    ]
+  },
+  "claimMap": []
 }

@@ -824,6 +824,21 @@ async function main() {
     ])
   )
   writeJson(path.join(outDir, 'build-report.json'), { buildReportVersion: 1, workbook: path.basename(workbookPath), counts: { herbs: herbs.length, compounds: compounds.length, claims: claims.length, herbCompoundMap: herbCompoundMap.length, canonicalMechanisms: taxonomy.mechanisms.length, topics: (graph.topics || []).length, pathways: (graph.pathways || []).length, supernodes: (graph.supernodes || []).length, ...evidenceEngineCounts } })
+  // Canonical build manifest. Emitted from the SAME herb/compound arrays as build-report.json
+  // so the two manifests can never drift (enforced by validate-data-governance.mjs).
+  writeJson(path.join(outDir, '_meta', 'build-info.json'), {
+    generatedAt: new Date().toISOString(),
+    source: { workbookPath, workbook: path.basename(workbookPath) },
+    output: path.relative(repoRoot, outDir),
+    counts: {
+      herbs: herbs.length,
+      compounds: compounds.length,
+      herbsSummary: herbs.length,
+      compoundsSummary: compounds.length,
+      herbDetails: herbs.length,
+      compoundDetails: compounds.length,
+    },
+  })
   console.log(`[data] wrote ${herbs.length} herbs, ${compounds.length} compounds, ${claims.length} claims`)
   for (const [goal, payload] of Object.entries(evidenceEngines)) {
     console.log(`[data] ${goal} evidence engine: ${payload.claims.length} claims, ${payload.safetyNotes.length} safety notes`)

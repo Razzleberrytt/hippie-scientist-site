@@ -250,6 +250,81 @@ describe('/api/subscribe Endpoint', () => {
     expect(data.error).toBe('Could not subscribe this email right now. Please try again.')
   })
 
+  it('fails closed with 503 in production when TURNSTILE_SECRET_KEY is missing', async () => {
+    const env = { ...mockEnv, ENVIRONMENT: 'production' } as MockEnv & { ENVIRONMENT: string }
+    delete (env as { TURNSTILE_SECRET_KEY?: string }).TURNSTILE_SECRET_KEY
+    const fetchSpy = vi.fn()
+    globalThis.fetch = fetchSpy as unknown as typeof fetch
+
+    const request = makeJsonRequest({ email: 'valid@example.com' })
+    const response = await onRequest({ request, env })
+    expect(response.status).toBe(503)
+    const data = await response.json()
+    expect(data.error).toBe('Security verification is not configured.')
+    // Must not reach Mailchimp when security is not configured.
+    expect(fetchSpy).not.toHaveBeenCalled()
+  })
+
+  it('fails closed with 429 in production when RATE_LIMIT_KV is not bound', async () => {
+    const env = { ...mockEnv, ENVIRONMENT: 'production', TURNSTILE_SECRET_KEY: 'x' } as MockEnv
+    delete (env as { RATE_LIMIT_KV?: unknown }).RATE_LIMIT_KV
+
+    const request = makeJsonRequest(
+      { email: 'valid@example.com' },
+      { headers: { 'CF-Connecting-IP': '9.9.9.9' } }
+    )
+    const response = await onRequest({ request, env })
+    expect(response.status).toBe(429)
+    const data = await response.json()
+    expect(data.error).toContain('Too many requests')
+  })
+
+  it('stays permissive in local dev when RATE_LIMIT_KV is not bound', async () => {
+    // No ENVIRONMENT (treated as non-production) and no KV binding.
+    const env = { ...mockEnv } as MockEnv
+    delete (env as { RATE_LIMIT_KV?: unknown }).RATE_LIMIT_KV
+    globalThis.fetch = vi.fn(async () => new Response(JSON.stringify({ ok: true }), { status: 200 })) as typeof fetch
+
+    const request = makeJsonRequest({ email: 'valid@example.com' })
+    const response = await onRequest({ request, env })
+    expect(response.status).toBe(200)
+  })
+
+  it('fails closed with 429 in production when the KV read throws', async () => {
+    const failingKv = {
+      get: vi.fn(async () => {
+        throw new Error('KV unavailable')
+      }),
+      put: vi.fn(async () => {}),
+      delete: vi.fn(async () => {}),
+    } as MockKV
+    const env = { ...mockEnv, ENVIRONMENT: 'production', TURNSTILE_SECRET_KEY: 'x', RATE_LIMIT_KV: failingKv } as MockEnv
+
+    const request = makeJsonRequest(
+      { email: 'valid@example.com' },
+      { headers: { 'CF-Connecting-IP': '8.8.8.8' } }
+    )
+    const response = await onRequest({ request, env })
+    expect(response.status).toBe(429)
+  })
+
+  it('hashes the client IP before using it as a rate-limit KV key', async () => {
+    const kv = createMockKV()
+    const env = { ...mockEnv, RATE_LIMIT_KV: kv, RATE_LIMIT_IP_HASH_SALT: 'unit-test-salt' } as MockEnv
+    globalThis.fetch = vi.fn(async () => new Response(JSON.stringify({ ok: true }), { status: 200 })) as typeof fetch
+
+    const request = makeJsonRequest(
+      { email: 'hash@example.com' },
+      { headers: { 'CF-Connecting-IP': '203.0.113.7' } }
+    )
+    await onRequest({ request, env })
+
+    const putKey = (kv.put as ReturnType<typeof vi.fn>).mock.calls[0]?.[0] as string
+    expect(putKey).toMatch(/^rate-limit:[0-9a-f]{64}$/)
+    // The raw IP must never appear in the KV key.
+    expect(putKey).not.toContain('203.0.113.7')
+  })
+
   it('processes subscription and tagging successfully', async () => {
     const fetchCalls: string[] = []
     globalThis.fetch = vi.fn(async (input: RequestInfo | URL) => {

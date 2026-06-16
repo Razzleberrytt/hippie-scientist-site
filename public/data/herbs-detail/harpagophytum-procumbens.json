@@ -48,5 +48,25 @@
       "year": 2007,
       "url": "https://pubmed.ncbi.nlm.nih.gov/17128436/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "28275210",
+      "23472485",
+      "17128436"
+    ]
+  },
+  "claimMap": []
 }

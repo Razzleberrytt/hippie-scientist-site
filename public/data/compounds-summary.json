@@ -57,24 +57,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "5-meo-dmt",
-    "slug": "5-meo-dmt",
-    "name": "5-MeO-DMT",
-    "summary": "5-MeO-DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "5-MeO-DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "7-hydroxymitragynine",
     "slug": "7-hydroxymitragynine",
     "name": "7-Hydroxymitragynine",
@@ -570,26 +552,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "amanita-muscaria",
-    "slug": "amanita-muscaria",
-    "name": "Amanita muscaria",
-    "summary": "Amanita muscaria is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Amanita muscaria is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation",
-      "Stress Response Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "american-ginseng-extract",
     "slug": "american-ginseng-extract",
     "name": "American Ginseng Extract",
@@ -609,25 +571,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "anabasine",
-    "slug": "anabasine",
-    "name": "anabasine",
-    "summary": "Pyridine alkaloid associated with nicotinic receptor activity.",
-    "description": "Pyridine alkaloid associated with nicotinic receptor activity.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Neurotransmitter Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "anandamide",
     "slug": "anandamide",
     "name": "Anandamide",
@@ -637,26 +580,6 @@
     "mechanisms": [
       "endogenous CB1 agonism",
       "FAAH degradation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "anatabine",
-    "slug": "anatabine",
-    "name": "anatabine",
-    "summary": "Minor tobacco alkaloid associated with nicotinic signaling and inflammatory pathway effects.",
-    "description": "Minor tobacco alkaloid associated with nicotinic signaling and inflammatory pathway effects.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Neurotransmitter Modulation",
-      "NF-kB Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -3995,25 +3918,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "dmt",
-    "slug": "dmt",
-    "name": "DMT",
-    "summary": "DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "DMT is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "5-HT2A receptor agonism",
-      "sigma-1 receptor activity proposed"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "eaa-blend",
     "slug": "eaa-blend",
     "name": "EAA Blend",
@@ -5813,43 +5717,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "harmaline",
-    "slug": "harmaline",
-    "name": "Harmaline",
-    "summary": "Harmaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Harmaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "harmine",
-    "slug": "harmine",
-    "name": "Harmine",
-    "summary": "Harmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Harmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "harpagoside",
     "slug": "harpagoside",
     "name": "harpagoside",
@@ -5862,24 +5729,6 @@
       "Metabolic Regulation",
       "Immune Signaling Modulation",
       "NF-kB Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "hawaiian-baby-woodrose",
-    "slug": "hawaiian-baby-woodrose",
-    "name": "Hawaiian Baby Woodrose Argyreia nervosa",
-    "summary": "Hawaiian baby woodrose contains ergoline alkaloids including LSA, but lacks controlled therapeutic human evidence.",
-    "description": "Ethnobotanical/psychoactive seed source with variable alkaloid content and mainly pharmacological inference.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -6198,24 +6047,6 @@
     "compoundClass": "",
     "mechanisms": [
       "general phytochemical signaling"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "ibogaine",
-    "slug": "ibogaine",
-    "name": "Ibogaine",
-    "summary": "Ibogaine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ibogaine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neuroprotective Activity"
     ],
     "targets": [],
     "pathways": [],
@@ -6604,25 +6435,6 @@
       "Neurotransmitter Modulation",
       "Stress Response Modulation",
       "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "ketamine",
-    "slug": "ketamine",
-    "name": "Ketamine",
-    "summary": "Ketamine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ketamine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neuroprotective Activity",
-      "mTOR Signaling"
     ],
     "targets": [],
     "pathways": [],
@@ -7098,25 +6910,6 @@
     "mechanisms": [
       "Hormonal Signaling Context",
       "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "lobeline",
-    "slug": "lobeline",
-    "name": "lobeline",
-    "summary": "Piperidine alkaloid from Lobelia linked to nicotinic receptor and catecholamine signaling.",
-    "description": "Piperidine alkaloid from Lobelia linked to nicotinic receptor and catecholamine signaling.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Neurotransmitter Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -7668,25 +7461,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "mescaline",
-    "slug": "mescaline",
-    "name": "Mescaline",
-    "summary": "Mescaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Mescaline is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Vascular Function Support",
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "mesembrenone",
     "slug": "mesembrenone",
     "name": "mesembrenone",
@@ -7938,24 +7712,6 @@
       "Metabolic Regulation",
       "Vascular Function Support",
       "Immune Signaling Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "morning-glory-seed",
-    "slug": "morning-glory-seed",
-    "name": "Morning Glory Seeds Ipomoea spp.",
-    "summary": "Morning glory seeds may contain LSA-related ergoline alkaloids, but clinical evidence is absent and toxicity concerns dominate.",
-    "description": "Ipomoea seed material associated with ergoline alkaloid exposure and toxicology reports rather than validated therapeutic use.",
-    "compoundClass": "",
-    "mechanisms": [
-      "LSA-related serotonergic receptor agonism (preclinical/pharmacological inference)"
     ],
     "targets": [],
     "pathways": [],
@@ -8430,24 +8186,6 @@
       "Vascular Function Support",
       "Stress Response Modulation",
       "Lipid Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "noopept",
-    "slug": "noopept",
-    "name": "Noopept",
-    "summary": "Synthetic peptide-like nootropic with insufficient reliable human evidence.",
-    "description": "Synthetic nootropic compound proposed to affect glutamatergic signaling and neurotrophic pathways.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neuroprotective Activity"
     ],
     "targets": [],
     "pathways": [],
@@ -9618,24 +9356,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "psilocybin",
-    "slug": "psilocybin",
-    "name": "Psilocybin",
-    "summary": "Psilocybin is a tryptamine prodrug converted to psilocin, with promising psychiatric evidence only in controlled clinical settings.",
-    "description": "Psychedelic tryptamine compound acting through serotonergic signaling, especially 5-HT2A receptor agonism after conversion to psilocin.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "psoralen",
     "slug": "psoralen",
     "name": "psoralen",
@@ -10286,24 +10006,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "salvinorin-a",
-    "slug": "salvinorin-a",
-    "name": "Salvinorin A",
-    "summary": "Salvinorin A is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Salvinorin A is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "potent kappa-opioid receptor agonism"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "sam-e",
     "slug": "sam-e",
     "name": "SAM-e",
@@ -10770,25 +10472,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "sinicuichi",
-    "slug": "sinicuichi",
-    "name": "Sinicuichi Heimia salicifolia",
-    "summary": "Sinicuichi lacks clinical evidence and is best handled as an ethnobotanical/toxicology entry with uncertain CNS mechanisms.",
-    "description": "Heimia salicifolia contains alkaloids such as cryogenine, but mechanisms and safety remain poorly characterized.",
-    "compoundClass": "",
-    "mechanisms": [
-      "unclear CNS effects",
-      "cryogenine/vertine-related pharmacology (limited)"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "skullcap",
     "slug": "skullcap",
     "name": "Skullcap",
@@ -11100,25 +10783,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "tetrahydroharmine",
-    "slug": "tetrahydroharmine",
-    "name": "Tetrahydroharmine",
-    "summary": "Tetrahydroharmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Tetrahydroharmine is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "tetrandrine",
     "slug": "tetrandrine",
     "name": "tetrandrine",
@@ -11128,46 +10792,6 @@
     "mechanisms": [
       "Inflammatory Signaling Modulation",
       "NF-kB Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "thc",
-    "slug": "thc",
-    "name": "THC",
-    "summary": "THC is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "THC is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Metabolic Regulation",
-      "Neurotransmitter Modulation",
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "thcv",
-    "slug": "thcv",
-    "name": "THCV",
-    "summary": "THCV is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "THCV is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Metabolic Regulation",
-      "Glucose Metabolism Support"
     ],
     "targets": [],
     "pathways": [],

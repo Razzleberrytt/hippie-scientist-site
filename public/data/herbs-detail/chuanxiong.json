@@ -53,5 +53,25 @@
       "year": 2022,
       "url": "https://pubmed.ncbi.nlm.nih.gov/35483189/"
     }
-  ]
+  ],
+  "governance": {
+    "reviewStatus": "approved",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": true,
+    "requiresHumanReview": false,
+    "reason": ""
+  },
+  "evidence": {
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "40235541",
+      "39180449",
+      "35483189"
+    ]
+  },
+  "claimMap": []
 }
