@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { learnPosts } from '../learn/data'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -28,6 +28,7 @@ const CONDITIONS = [
     label: 'Anxiety',
     slug: 'anxiety',
     guides: [
+      { href: '/guides/best-herbs-for-anxiety', title: 'Best Herbs for Anxiety', readingTime: '8 min', evidenceStrength: 'Moderate-Strong' },
       { href: '/guides/natural-anxiolytics-beyond-ashwagandha', title: 'Natural Anxiolytics Beyond Ashwagandha', readingTime: '7 min', evidenceStrength: 'Moderate' },
       { href: '/guides/natural-alternatives-to-anxiety-medication', title: 'Natural Alternatives to Anxiety Medication', readingTime: '9 min', evidenceStrength: 'Moderate' },
       { href: '/guides/best-supplements-for-overthinking', title: 'Best Supplements for Overthinking', readingTime: '6 min', evidenceStrength: 'Emerging' },
@@ -37,6 +38,7 @@ const CONDITIONS = [
     label: 'Sleep',
     slug: 'sleep',
     guides: [
+      { href: '/guides/best-supplements-for-sleep', title: 'Best Supplements for Sleep', readingTime: '10 min', evidenceStrength: 'Strong' },
       { href: '/guides/best-natural-sleep-aids-that-work', title: 'Best Natural Sleep Aids That Work', readingTime: '8 min', evidenceStrength: 'Moderate–Strong' },
       { href: '/guides/sleep-herbs-vs-melatonin', title: 'Sleep Herbs vs Melatonin', readingTime: '7 min', evidenceStrength: 'Moderate' },
       { href: '/guides/magnesium-vs-melatonin', title: 'Magnesium vs Melatonin', readingTime: '6 min', evidenceStrength: 'Moderate' },
@@ -47,6 +49,7 @@ const CONDITIONS = [
     label: 'Focus & Cognition',
     slug: 'focus',
     guides: [
+      { href: '/guides/best-nootropics-for-focus', title: 'Best Nootropics for Focus', readingTime: '9 min', evidenceStrength: 'Moderate' },
       { href: '/guides/adhd-supplements', title: 'ADHD Supplements Hub', readingTime: '10 min', evidenceStrength: 'Moderate' },
       { href: '/guides/focus-without-caffeine-crash', title: 'Focus Without the Caffeine Crash', readingTime: '7 min', evidenceStrength: 'Moderate' },
       { href: '/guides/supplements-for-brain-fog-and-fatigue', title: 'Supplements for Brain Fog and Fatigue', readingTime: '8 min', evidenceStrength: 'Emerging–Moderate' },
@@ -56,6 +59,7 @@ const CONDITIONS = [
     label: 'Stress',
     slug: 'stress',
     guides: [
+      { href: '/guides/best-supplements-for-stress', title: 'Best Supplements for Stress', readingTime: '9 min', evidenceStrength: 'Strong' },
       { href: '/guides/how-to-lower-cortisol-naturally', title: 'How to Lower Cortisol Naturally', readingTime: '8 min', evidenceStrength: 'Moderate' },
     ],
   },
