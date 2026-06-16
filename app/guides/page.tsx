@@ -158,6 +158,12 @@ export default function GuidesPage() {
           >
             Head-to-head comparisons
           </Link>
+          <Link
+            href="/education"
+            className="rounded-full border border-brand-900/15 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-white"
+          >
+            Learn the underlying science
+          </Link>
         </div>
       </section>
 

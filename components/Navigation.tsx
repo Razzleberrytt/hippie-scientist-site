@@ -11,6 +11,7 @@ const desktopLinks = [
   { href: '/', label: 'Home' },
   { href: '/herbs', label: 'Database' },
   { href: '/compounds', label: 'Compounds' },
+  { href: '/stacks', label: 'Stacks' },
   { href: '/guides', label: 'Guides' },
   { href: '/evidence-digest', label: 'Digest' },
   { href: '/safety-checker', label: 'Safety' },
