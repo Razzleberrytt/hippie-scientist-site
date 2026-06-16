@@ -61,6 +61,72 @@
       "expiresOn": "2026-09-13",
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20content-collections%2Fesbuild%20to%20resolve%20high-severity%20advisories",
       "rationale": "@content-collections/next is build tooling for integrating generated content collections into Next.js. It is flagged through @content-collections/core/integrations, whose high finding is the same esbuild advisory chain covered by esbuild-build-tooling-only-2026-06. It is not shipped to users in the static export, and npm reports no fixAvailable for this package. Interim allowlist until content-collections can consume a patched esbuild release."
+    },
+    {
+      "id": "miniflare-deploy-tooling-only-2026-06",
+      "package": "miniflare",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20wrangler%2Fminiflare%20to%20resolve%20high-severity%20advisories",
+      "rationale": "miniflare is Cloudflare's local Workers simulator, pulled transitively by wrangler and used only in trusted CI/local contexts for deploy/test tooling. It is flagged because it depends on a vulnerable ws version (GHSA-96hv-2xvq-fx4p, see ws-deploy-tooling-only-2026-06). The npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the Cloudflare Pages deploy pipeline. miniflare is never shipped to users in the static export. Interim allowlist tied to the wrangler follow-up."
+    },
+    {
+      "id": "ws-deploy-tooling-only-2026-06",
+      "package": "ws",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-96hv-2xvq-fx4p"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20wrangler%2Fminiflare%20to%20resolve%20high-severity%20advisories",
+      "rationale": "ws (GHSA-96hv-2xvq-fx4p, memory-exhaustion DoS from many tiny fragments) is pulled transitively by miniflare/wrangler deploy tooling. The only npm-offered fix downgrades wrangler to 3.6.0 (breaking) and would regress the Cloudflare Pages deploy pipeline. ws is used solely by trusted local/CI deploy tooling, accepts no untrusted WebSocket traffic, and is not shipped to users in the static export. Interim allowlist tied to the wrangler follow-up."
+    },
+    {
+      "id": "vite-test-tooling-only-2026-06",
+      "package": "vite",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-v6wh-96g9-6wx3",
+        "https://github.com/advisories/GHSA-fx2h-pf6j-xcff"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20vite%2Fvitest%20to%20resolve%20high-severity%20advisories",
+      "rationale": "vite is transitive test tooling (pulled by vitest); the production build uses Next.js (webpack/turbopack), not vite. Both findings are Windows- and dev-server-specific: GHSA-fx2h-pf6j-xcff is a server.fs.deny bypass on Windows alternate paths and GHSA-v6wh-96g9-6wx3 is an NTLMv2 hash disclosure via launch-editor on Windows. The vite dev server is never started in CI builds or the static-export production pipeline and is never exposed to untrusted networks. Interim allowlist until vitest can consume a patched vite release."
+    },
+    {
+      "id": "form-data-tooling-only-2026-06",
+      "package": "form-data",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-hmw2-7cc7-3qxx"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20form-data%20to%20resolve%20high-severity%20advisory",
+      "rationale": "form-data (GHSA-hmw2-7cc7-3qxx, CRLF injection via unescaped multipart field names/filenames) is a transitive dependency of local/CI tooling only. The static-export site ships no server code and constructs no multipart requests from user-controlled field names at runtime, so the advisory is not reachable in shipped output. Interim allowlist until the parent tooling pulls a patched form-data release."
+    },
+    {
+      "id": "next-bundle-analyzer-tooling-only-2026-06",
+      "package": "@next/bundle-analyzer",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20%40next%2Fbundle-analyzer%20to%20resolve%20high-severity%20advisories",
+      "rationale": "@next/bundle-analyzer is dev-only bundle-inspection tooling that runs exclusively under the opt-in ANALYZE=true flag (npm run analyze). It is never invoked in the CI production build or the static-export pipeline and is not shipped to users. It is flagged through its transitive webpack-bundle-analyzer/ws chain. The npm-offered fix is a breaking major downgrade to 14.0.4. Interim allowlist until the analyzer can be bumped without breaking the Next.js 15 toolchain."
+    },
+    {
+      "id": "webpack-bundle-analyzer-tooling-only-2026-06",
+      "package": "webpack-bundle-analyzer",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20%40next%2Fbundle-analyzer%20to%20resolve%20high-severity%20advisories",
+      "rationale": "webpack-bundle-analyzer is transitive dev tooling pulled by @next/bundle-analyzer (see next-bundle-analyzer-tooling-only-2026-06) and runs only under the opt-in ANALYZE=true flag. It is never invoked in the CI production build or static-export pipeline and is not shipped to users. Interim allowlist tied to the @next/bundle-analyzer follow-up."
+    },
+    {
+      "id": "openai-agent-tooling-only-2026-06",
+      "package": "openai",
+      "severity": "high",
+      "expiresOn": "2026-09-13",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20openai%20to%20resolve%20high-severity%20advisory",
+      "rationale": "openai is used only by the separate AI enrichment agent pipeline (npm run agent:run), which is run manually/offline to generate patch files and is never part of the site build, the static-export output, or any shipped runtime code path. It is flagged through a transitive dependency. Interim allowlist until openai can be bumped in the agent tooling."
     }
   ],
   "_informational": {
