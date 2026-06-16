@@ -12,9 +12,11 @@ import NewsletterSignup from '../../components/NewsletterSignup'
 const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
+  { href: '/stacks', label: 'Stacks' },
   { href: '/compare', label: 'Compare' },
   { href: PUBLIC_ROUTES.guides, label: 'Guides' },
   { href: PUBLIC_ROUTES.articles, label: 'Articles' },
+  { href: '/education', label: 'Learn the Science' },
   { href: '/search', label: 'Search' },
   { href: '/goals', label: 'Goals' },
 ]

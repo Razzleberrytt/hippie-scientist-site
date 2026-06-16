@@ -186,12 +186,12 @@ export default function MagnesiumGlycinateVsLThreonateForSleepPage() {
           L-Theanine vs Magnesium
         </Link>
 
-        <Link href="/guides/deep-sleep-support" className="chip-readable">
-          Deep Sleep Support
+        <Link href="/guides/best-natural-sleep-aids-that-work" className="chip-readable">
+          Best Natural Sleep Aids
         </Link>
 
-        <Link href="/articles/sleep-recovery" className="chip-readable">
-          Sleep Recovery Hub
+        <Link href="/articles/sleep-stack-guide" className="chip-readable">
+          Sleep Stack Guide
         </Link>
       </div>
     </div>
