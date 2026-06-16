@@ -1,5 +1,6 @@
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
+import { allCompoundMdxPages } from 'content-collections'
 import { getCompoundBySlug } from '@/lib/runtime-data'
 import { getCompoundMetadataRecord } from '@/lib/runtime-metadata-cache'
 import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
@@ -46,6 +47,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 import PathwayDiagram from '@/components/PathwayDiagram'
 import { generatePathwayDiagram } from '@/lib/generate-pathway'
+import ArticleMdx from '@/components/articles/ArticleMdx'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -195,6 +197,7 @@ export async function generateStaticParams() {
   const legacyRedirectParams = Object.keys(DEPRECATED_COMPOUND_CANONICALS).map((slug) => ({ slug }))
 
   return [
+    ...allCompoundMdxPages.map((page) => ({ slug: page.slug })),
     ...dynamicParams,
     ...legacyRedirectParams,
   ]
@@ -213,6 +216,22 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   const canonicalSlug = redirectedCanonical || normalizedSlug
+  const mdxPage = allCompoundMdxPages.find((page) => page.slug === canonicalSlug)
+  if (mdxPage) {
+    return {
+      title: mdxPage.title,
+      description: mdxPage.metaDescription,
+      keywords: mdxPage.keywords,
+      alternates: { canonical: `${SITE_URL}/compounds/${mdxPage.slug}/` },
+      openGraph: {
+        title: mdxPage.title,
+        description: mdxPage.metaDescription,
+        type: 'article',
+        url: `${SITE_URL}/compounds/${mdxPage.slug}/`,
+      },
+    }
+  }
+
   const compound = await getCompoundMetadataRecord(canonicalSlug)
 
   if (!compound) return {}
@@ -228,6 +247,111 @@ export async function generateMetadata({ params }: PageProps) {
   }
 
   return metadata
+}
+
+function CompoundMdxPage({ page }: { page: (typeof allCompoundMdxPages)[number] }) {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Compounds',
+        item: `${SITE_URL}/compounds/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: page.title,
+        item: `${SITE_URL}/compounds/${page.slug}/`,
+      },
+    ],
+  }
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: page.title,
+    description: page.metaDescription,
+    dateModified: page.lastUpdated,
+    datePublished: page.lastUpdated,
+    mainEntityOfPage: `${SITE_URL}/compounds/${page.slug}/`,
+    keywords: page.keywords,
+    additionalProperty: [
+      { '@type': 'PropertyValue', name: 'evidenceGrade', value: page.evidenceGrade },
+    ],
+    citation: page.references.map((ref) => ({
+      '@type': 'ScholarlyArticle',
+      headline: ref.title,
+      author: ref.authors,
+      datePublished: ref.year,
+      identifier: ref.pmid ? `PMID:${ref.pmid}` : undefined,
+      url: ref.url || (ref.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/` : undefined),
+    })),
+  }
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <ReadingProgress />
+
+      <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[
+            { href: '/compounds', label: 'Compounds' },
+            { label: page.title },
+          ]}
+        />
+
+        <header className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
+          <div className="flex flex-wrap items-center gap-2 text-xs">
+            <span className="rounded-full border border-red-700/20 bg-red-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-red-900">
+              Harm reduction
+            </span>
+            <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+              Evidence: {page.evidenceGrade}
+            </span>
+            <time dateTime={page.lastUpdated} className="text-muted">
+              Updated {page.lastUpdated}
+            </time>
+            <span className="text-muted">·</span>
+            <span className="text-muted">{page.readingTime}</span>
+          </div>
+
+          <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
+            {page.title}
+          </h1>
+
+          <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">
+            {page.metaDescription}
+          </p>
+        </header>
+
+        <div className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <div className="content-prose max-w-none [&>*]:max-w-reading [&_blockquote]:max-w-reading [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-red-700/40 [&_blockquote]:bg-red-50/60 [&_blockquote]:py-3 [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_h2]:mt-10 [&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-xl [&_ol]:list-decimal [&_table]:w-full [&_table]:text-sm [&_td]:border-t [&_td]:border-brand-900/10 [&_td]:py-3 [&_td]:pr-4 [&_th]:border-b [&_th]:border-brand-900/10 [&_th]:pb-2 [&_th]:pr-4 [&_th]:text-left [&_ul]:list-disc">
+            <ArticleMdx code={page.body} />
+          </div>
+        </div>
+
+        <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
+          Educational disclaimer: this page is for evidence review and harm-reduction context only. It is not medical advice, legal advice, sourcing guidance, or a recommendation to use any opioid-acting kratom derivative.
+          <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
+            <Link href="/compounds" className="hover:underline">Compounds library</Link>
+            <Link href="/articles/7-hydroxymitragynine" className="hover:underline">7-OH article</Link>
+            <Link href="/safety-checker" className="hover:underline">Safety checker</Link>
+          </div>
+        </footer>
+      </article>
+    </>
+  )
 }
 
 
@@ -472,6 +596,9 @@ export default async function CompoundPage({ params }: PageProps) {
   if (canonicalSlug) {
     redirect(canonicalSlug.startsWith('/') ? `${canonicalSlug}/` : `/compounds/${canonicalSlug}/`)
   }
+
+  const mdxPage = allCompoundMdxPages.find((page) => page.slug === normalizedSlug)
+  if (mdxPage) return <CompoundMdxPage page={mdxPage} />
 
   const compound = await getCompoundBySlug(normalizedSlug)
   const freshness = getProfileFreshness(normalizedSlug)

@@ -45,6 +45,38 @@ const articleMonographs = defineCollection({
   },
 })
 
+const compoundMdxPages = defineCollection({
+  name: 'compoundMdxPages',
+  directory: 'content/compounds',
+  include: '**/*.mdx',
+  schema: z.object({
+    title: z.string().min(1),
+    slug: z.string().regex(slugPattern),
+    metaDescription: z.string().min(1),
+    keywords: z.array(z.string()).default([]),
+    lastUpdated: z.string().regex(isoDatePattern),
+    evidenceGrade: z.string().min(1),
+    readingTime: z.union([z.string().min(1), z.number().int().positive()]).default(6),
+    references: z.array(articleReferenceSchema).default([]),
+    content: z.string(),
+  }),
+  transform: async (document, context) => {
+    const body = await compileMDX(context, document)
+    const readingTime =
+      typeof document.readingTime === 'number'
+        ? `${document.readingTime} min read`
+        : document.readingTime
+
+    return {
+      ...document,
+      description: document.metaDescription,
+      readingTime,
+      body,
+      url: `/compounds/${document.slug}`,
+    }
+  },
+})
+
 export default defineConfig({
-  content: [articleMonographs],
+  content: [articleMonographs, compoundMdxPages],
 })
