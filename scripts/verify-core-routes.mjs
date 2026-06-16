@@ -118,13 +118,19 @@ if (!sitemapContent || !sitemapContent.includes('<urlset')) {
   console.error('[verify:core-routes] sitemap.xml missing, empty, or invalid (no urlset)')
   contentFailures++
 }
+// Mirror src/lib/site.ts: NEXT_PUBLIC_SITE_URL=https://www.thehippiescientist.net
+// is normalized to the non-www apex, which is the canonical production host.
+const rawSiteUrl = (process.env.NEXT_PUBLIC_SITE_URL || '').replace(/\/$/, '')
+const SITE_HOST = rawSiteUrl === 'https://www.thehippiescientist.net'
+  ? 'https://thehippiescientist.net'
+  : (rawSiteUrl || 'https://thehippiescientist.net')
 const requiredSitemapUrls = [
-  'https://www.thehippiescientist.net/',
-  'https://www.thehippiescientist.net/about/',
-  'https://www.thehippiescientist.net/articles/',
-  'https://www.thehippiescientist.net/herbs/',
-  'https://www.thehippiescientist.net/compounds/',
-  'https://www.thehippiescientist.net/compare/',
+  `${SITE_HOST}/`,
+  `${SITE_HOST}/about/`,
+  `${SITE_HOST}/articles/`,
+  `${SITE_HOST}/herbs/`,
+  `${SITE_HOST}/compounds/`,
+  `${SITE_HOST}/compare/`,
   '/articles/', // at least some article or research note
   '/herbs/', // detail
   '/compounds/', // detail
