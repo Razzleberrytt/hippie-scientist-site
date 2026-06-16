@@ -18,7 +18,8 @@
  * 5. build-related-runtime-maps (relationship maps)
  * 6. build-runtime-summary-indexes (search indexes)
  * 7. build-route-manifest (route discovery)
- * 8. build-sitemap-manifest (SEO sitemap)
+ * 8. build-internal-link-engine (semantic internal links)
+ * 9. build-sitemap-manifest (SEO sitemap)
  * 9. build-export-batches (batch optimization)
  * 10. build-semantic-snapshots (snapshot generation)
  * 11. build-production (next build)
@@ -84,6 +85,12 @@ const steps = [
     cmd: 'node scripts/data/build-route-manifest.mjs --data-dir=public/data',
     inputs: ['public/data/**/*', 'src/**/*.{ts,tsx}'],
     outputs: ['public/data/route-manifest.json'],
+  },
+  {
+    name: 'build-internal-link-engine',
+    cmd: 'node scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
+    inputs: ['public/data/**/*', 'app/**/*.{ts,tsx}', 'data/goals.ts'],
+    outputs: ['public/data/runtime-maps/internal-link-map.json', 'public/data/runtime-maps/topic-clusters.json', 'docs/internal-link-map.md', 'docs/topic-clusters.md', 'docs/pages-needing-links.md'],
   },
   {
     name: 'build-sitemap-manifest',

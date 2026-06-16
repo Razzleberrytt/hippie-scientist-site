@@ -8,6 +8,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import ReadingProgress from '@/components/ui/ReadingProgress'
 import EvidenceSnapshotCard from '@/components/ui/EvidenceSnapshotCard'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
+import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
@@ -22,7 +23,7 @@ import { getProfileFreshness } from '@/lib/freshness'
 import ScrollEngagementPrompt from '@/components/monetization/ScrollEngagementPrompt'
 import { getEvidenceSnapshot } from '@/lib/semantic-runtime'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
-import { getConditionHerbEntries, getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
+import { getConditionHerbEntries, getEntityConditionEntries, getRouteInternalLinkGroups, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords, mergeEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
@@ -648,12 +649,14 @@ export default async function CompoundPage({ params }: PageProps) {
     _stackBySlug,
     ecosystemContinuityRecords,
     conditionLinks,
+    internalLinkGroups,
   ] = await Promise.all([
     getBatchedRuntimeRecords('related', [compound], allRecords, 8),
     getBatchedRuntimeRecords('comparison', [compound], allRecords, 8),
     getBatchedRuntimeRecords('stack', [compound], allRecords, 6),
     getEcosystemContinuityRecords(compound, allRecords, 6),
     getEntityConditionEntries(sourceSlug),
+    getRouteInternalLinkGroups(`/compounds/${normalizedSlug}`),
   ])
 
   const conditionHerbEntries = conditionLinks[0]?.slug
@@ -819,6 +822,11 @@ export default async function CompoundPage({ params }: PageProps) {
         ) : null}
 
         <SeeAlsoCluster slug={normalizedSlug} kind="compound" limit={6} />
+
+        <RelatedDiscoveryGroups
+          title="Related research paths"
+          groups={internalLinkGroups}
+        />
 
         {conditionLinks.length > 0 ? (
           <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">

@@ -9,7 +9,7 @@ import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@
 import { normalizeSlug } from '@/lib/slug-utils'
 import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { getBatchedRuntimeRecords } from '@/lib/related-runtime'
-import { getEntityConditionEntries, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
+import { getEntityConditionEntries, getRouteInternalLinkGroups, type RuntimeMapEntry } from '@/lib/runtime-related-maps'
 import { getEcosystemContinuityRecords } from '@/lib/ecosystem-continuity'
 import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '@/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
@@ -35,6 +35,7 @@ import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
+import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { extractCitationsFromRecord } from '@/lib/citations'
@@ -335,12 +336,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
     _stackBySlug,
     ecosystemContinuityRecords,
     conditionLinks,
+    internalLinkGroups,
   ] = await Promise.all([
     getBatchedRuntimeRecords('related', [herb], allRecords, 8),
     getBatchedRuntimeRecords('comparison', [herb], allRecords, 8),
     getBatchedRuntimeRecords('stack', [herb], allRecords, 6),
     getEcosystemContinuityRecords(herb, allRecords, 6),
     getEntityConditionEntries(sourceRecordSlug),
+    getRouteInternalLinkGroups(`/herbs/${normalizedSlug}`),
   ])
 
   const relatedCandidates = ((relatedBySlug[sourceRecordSlug] || []) as unknown as RuntimeRecord[])
@@ -539,6 +542,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
       ) : null}
 
       <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
+
+      <RelatedDiscoveryGroups
+        title="Related research paths"
+        groups={internalLinkGroups}
+      />
 
       {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
       <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">

@@ -81,6 +81,11 @@ const steps = [
     description: 'Generate route manifest for sitemaps/SEO',
   },
   {
+    name: 'build-internal-link-engine',
+    cmd: 'node scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
+    description: 'Generate semantic internal link maps, topic clusters, and link audit docs',
+  },
+  {
     name: 'build-sitemap-manifest',
     cmd: 'node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data',
     description: 'Generate sitemap manifest data',

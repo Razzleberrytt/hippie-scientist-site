@@ -27,6 +27,28 @@ export type RuntimeMapEntry = {
 
 type RuntimeMap = Record<string, RuntimeMapEntry[]>
 
+export type InternalLinkGroup = {
+  title: string
+  links: Array<{
+    href: string
+    label: string
+    score?: number
+    type?: string
+    clusters?: string[]
+  }>
+}
+
+type InternalLinkMapEntry = {
+  route: string
+  label?: string
+  type?: string
+  clusters?: string[]
+  totalLinks?: number
+  groups?: InternalLinkGroup[]
+}
+
+type InternalLinkMap = Record<string, InternalLinkMapEntry>
+
 function text(value: unknown) {
   return String(value ?? '').trim()
 }
@@ -114,6 +136,53 @@ async function readMap(fileName: string): Promise<RuntimeMap> {
 
 const getRuntimeMapByFile = cache(async (fileName: string) => readMap(fileName))
 
+function sanitizeInternalLinkGroup(group: any): InternalLinkGroup | null {
+  const title = text(group?.title)
+  const links = Array.isArray(group?.links)
+    ? group.links
+        .map((link: any) => ({
+          href: text(link?.href),
+          label: text(link?.label),
+          score: Number.isFinite(Number(link?.score)) ? Number(link.score) : 0,
+          type: text(link?.type) || undefined,
+          clusters: Array.isArray(link?.clusters) ? link.clusters.map(text).filter(Boolean).slice(0, 8) : [],
+        }))
+        .filter((link: { href: string; label: string }) => link.href && link.label)
+        .slice(0, 4)
+    : []
+
+  if (!title || links.length === 0) return null
+  return { title, links }
+}
+
+async function readInternalLinkMap(): Promise<InternalLinkMap> {
+  try {
+    const raw = await fs.readFile(path.join(MAP_DIR, 'internal-link-map.json'), 'utf8')
+    const parsed = JSON.parse(raw)
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {}
+
+    return Object.fromEntries(
+      Object.entries(parsed)
+        .map(([route, entry]: [string, any]) => [
+          text(route),
+          {
+            route: text(entry?.route || route),
+            label: text(entry?.label) || undefined,
+            type: text(entry?.type) || undefined,
+            clusters: Array.isArray(entry?.clusters) ? entry.clusters.map(text).filter(Boolean).slice(0, 12) : [],
+            totalLinks: Number.isFinite(Number(entry?.totalLinks)) ? Number(entry.totalLinks) : 0,
+            groups: Array.isArray(entry?.groups) ? entry.groups.map(sanitizeInternalLinkGroup).filter(Boolean) : [],
+          },
+        ])
+        .filter(([route]) => Boolean(route)),
+    ) as InternalLinkMap
+  } catch {
+    return {}
+  }
+}
+
+const getInternalLinkMap = cache(async () => readInternalLinkMap())
+
 export const getRelatedProfilesMap = cache(async () => getRuntimeMapByFile('related-profiles.json'))
 export const getComparisonMap = cache(async () => getRuntimeMapByFile('comparison-map.json'))
 export const getStackMap = cache(async () => getRuntimeMapByFile('stack-map.json'))
@@ -122,6 +191,11 @@ export const getAuthorityHubsMap = cache(async () => getRuntimeMapByFile('author
 export const getEntityConditionMap = cache(async () => getRuntimeMapByFile('entity-to-conditions.json'))
 export const getConditionHerbMap = cache(async () => getRuntimeMapByFile('condition-to-herbs.json'))
 export const getComparisonRecommendationsMap = cache(async () => getRuntimeMapByFile('comparison-recommendations.json'))
+export const getRouteInternalLinkGroups = cache(async (route: string): Promise<InternalLinkGroup[]> => {
+  const normalizedRoute = text(route).replace(/\/+$/, '') || '/'
+  const map = await getInternalLinkMap()
+  return (map[normalizedRoute]?.groups || []).slice(0, 5)
+})
 
 export const getRuntimeMapEntries = cache(async (
   kind: RuntimeMapKind,
