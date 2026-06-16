@@ -49,6 +49,7 @@ const CONDITIONS = [
     label: 'Focus & Cognition',
     slug: 'focus',
     guides: [
+      { href: '/guides/best-supplements-for-focus', title: 'Best Supplements for Focus', readingTime: '8 min', evidenceStrength: 'Moderate' },
       { href: '/guides/best-nootropics-for-focus', title: 'Best Nootropics for Focus', readingTime: '9 min', evidenceStrength: 'Moderate' },
       { href: '/guides/adhd-supplements', title: 'ADHD Supplements Hub', readingTime: '10 min', evidenceStrength: 'Moderate' },
       { href: '/guides/focus-without-caffeine-crash', title: 'Focus Without the Caffeine Crash', readingTime: '7 min', evidenceStrength: 'Moderate' },
@@ -59,6 +60,7 @@ const CONDITIONS = [
     label: 'Stress',
     slug: 'stress',
     guides: [
+      { href: '/guides/best-adaptogens-for-stress', title: 'Best Adaptogens for Stress', readingTime: '8 min', evidenceStrength: 'Moderate-Strong' },
       { href: '/guides/best-supplements-for-stress', title: 'Best Supplements for Stress', readingTime: '9 min', evidenceStrength: 'Strong' },
       { href: '/guides/how-to-lower-cortisol-naturally', title: 'How to Lower Cortisol Naturally', readingTime: '8 min', evidenceStrength: 'Moderate' },
     ],

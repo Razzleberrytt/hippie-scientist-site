@@ -1,5 +1,5 @@
 # Next Actions
-Last updated: June 14, 2026
+Last updated: June 16, 2026
 
 This is a flat, prioritized task list containing all pending operational and verification items.
 
@@ -87,20 +87,24 @@ Verify the following environment variables are correctly set in the **Cloudflare
 
 ## 5. SEO Content Calendar (Weeks 1-8 Calendar)
 
-Write and publish high-commercial-intent blog articles according to the following schedule (2,000+ words, detailed comparison tables, and outbound affiliate links):
+Write and publish high-commercial-intent guide pages according to the following schedule:
 
-- [ ] **Week 1-2: Sleep Foundations**
-  - *Article 1:* "Best Magnesium Supplement for Sleep" (Target: Magnesium Glycinate vs. L-Threonate).
-  - *Article 2:* "L-Theanine vs Magnesium for Sleep" (Leverages Article 1).
-- [ ] **Week 3-4: Stress & Trust Pillars**
-  - *Article 3:* "Best Ashwagandha Supplement Brands" (High volume product review).
-  - *Article 4:* "How to Choose Supplements: Complete Guide" (Focuses on purity, testing, and third-party certifications).
-- [ ] **Week 5-6: Anxiety & Comparison Bridges**
-  - *Article 5:* "Best Sleep Supplements (Natural Alternatives)" (Compilation guide).
-  - *Article 6:* "Ashwagandha vs Rhodiola for Stress" (Head-to-head adaptogen compare).
-- [ ] **Week 7-8: Focus & Ingredient Depth**
-  - *Article 7:* "L-Theanine Benefits (Dosage, Side Effects)" (Depth monograph article).
-  - *Article 8:* "Best Nootropics for Focus (2026 Guide)" (High intent focus stack review).
+- [x] **Week 1-2: Sleep Foundations**
+  - *Guide 1:* `/guides/best-supplements-for-sleep` — Magnesium, L-Theanine, Melatonin, Ashwagandha, Valerian ✅
+  - *Guide 2:* `/guides/magnesium-vs-melatonin` — already live ✅
+  - [ ] *Article:* "Best Magnesium Supplement for Sleep" with Amazon affiliate links (Glycinate vs L-Threonate buying guide)
+- [x] **Week 3-4: Stress & Adaptogen Pillars**
+  - *Guide 3:* `/guides/best-supplements-for-stress` — Ashwagandha, Rhodiola, PS, Magnesium, L-Theanine ✅
+  - *Guide 4:* `/guides/best-adaptogens-for-stress` — Ashwagandha, Rhodiola, Eleuthero, Schisandra, Tulsi ✅
+  - [ ] *Article:* "Best Ashwagandha Supplement Brands" (branded product review with affiliate links)
+- [x] **Week 5-6: Anxiety & Herb Guides**
+  - *Guide 5:* `/guides/best-herbs-for-anxiety` — Ashwagandha, Kava, Passionflower, Lemon Balm, Lavender ✅
+  - *Guide 6:* `/guides/best-natural-sleep-aids-that-work` — already live ✅
+  - [ ] *Article:* "Ashwagandha vs Rhodiola for Stress" — link to /compare/rhodiola-vs-ashwagandha
+- [x] **Week 7-8: Focus & Nootropics**
+  - *Guide 7:* `/guides/best-nootropics-for-focus` — L-Theanine+Caffeine, Citicoline, Bacopa, Rhodiola, PS ✅
+  - *Guide 8:* `/guides/best-supplements-for-focus` — L-Theanine, Citicoline, Bacopa, Rhodiola, Creatine, MgT ✅
+  - [ ] *Article:* "L-Theanine Benefits (Dosage, Side Effects)" (depth monograph with affiliate links)
 
 ---
 
