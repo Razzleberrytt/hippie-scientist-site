@@ -198,7 +198,7 @@ const main = () => {
     console.log('[build-articles] Created content/articles directory.')
   }
 
-  const files = fs.readdirSync(ARTICLES_DIR).filter(f => /\.(md|mdx)$/i.test(f))
+  const files = fs.readdirSync(ARTICLES_DIR).filter(f => /\.md$/i.test(f))
 
   const articles = []
   for (const file of files) {

@@ -283,3 +283,10 @@
 /herbs/angelica-sinensis/ /herbs/dong-quai/ 301
 /herbs/angelica-root /herbs/angelica-archangelica 301
 /herbs/angelica-root/ /herbs/angelica-archangelica/ 301
+# Kratom-derivative cluster: canonical deep-dive lives at /articles; comparison at /novel-psychoactive-substances (editorial consolidation)
+/compounds/dihydro-7-hydroxy-mitragynine-mgm-15 /articles/dihydro-7-hydroxy-mitragynine-mgm-15 301
+/compounds/dihydro-7-hydroxy-mitragynine-mgm-15/ /articles/dihydro-7-hydroxy-mitragynine-mgm-15/ 301
+/compounds/mitragynine-pseudoindoxyl /articles/mitragynine-pseudoindoxyl 301
+/compounds/mitragynine-pseudoindoxyl/ /articles/mitragynine-pseudoindoxyl/ 301
+/compounds/7-oh-vs-mgm-15-vs-mitragynine-pseudoindoxyl /novel-psychoactive-substances/7-hydroxymitragynine-vs-mgm-15-vs-mitragynine-pseudoindoxyl 301
+/compounds/7-oh-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ /novel-psychoactive-substances/7-hydroxymitragynine-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ 301
