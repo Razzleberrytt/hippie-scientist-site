@@ -60,7 +60,7 @@ const ANXIETY_HERBS = [
     dose: '300–600 mg standardized extract (≥5% rosmarinic acid); often combined with valerian',
     safety: 'Very safe; mild sedation at high doses; may alter thyroid hormone levels with high long-term use',
     bestFor: 'Mild anxiety; anxiety + cognitive fog overlap; combination with valerian for sleep-anxiety',
-    href: '/herbs/lemon-balm',
+    href: '/herbs/melissa-officinalis',
     badge: 'Emerging',
     interactions: 'Thyroid medications (theoretical at high doses)',
   },

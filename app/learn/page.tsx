@@ -26,7 +26,7 @@ import EducationSupernodeGrid from '@/components/education/education-supernode-g
 const educationHubs = [
   {
     title: 'Product quality before buying',
-    href: '/education/product-quality',
+    href: '/learn/product-quality',
   },
   {
     title: 'Adaptogens without hype',

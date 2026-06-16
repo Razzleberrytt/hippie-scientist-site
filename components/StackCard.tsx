@@ -27,6 +27,8 @@ const formatCompoundName = (compound: string) =>
 const SLUG_MAPPING: Record<string, string> = {
   'citicoline': 'cdp-choline',
   'collagen': 'collagen-peptides',
+  'green-tea-extract-egcg': 'green-tea-extract',
+  'rhodiola-rosea': 'rhodiola',
 }
 
 export default function StackCard({

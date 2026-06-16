@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { getStacks } from '@/lib/runtime-data'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
-import { bestPages } from '@/data/best'
+import { bestPageHref, bestPages } from '@/data/best'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import PathwayVisualChip from '@/components/pathway-visual-chip'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
@@ -440,7 +440,7 @@ export default async function Page({ params }: Params) {
             <h3 className="font-bold text-ink">Best-of guides</h3>
             <div className="flex flex-col gap-2">
               {relatedBestPages.map(page => (
-                <Link key={page.slug} href={`/best/${page.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
+                <Link key={page.slug} href={bestPageHref(page.slug)} className="text-sm font-semibold text-brand-850 hover:underline">
                   {page.title} →
                 </Link>
               ))}

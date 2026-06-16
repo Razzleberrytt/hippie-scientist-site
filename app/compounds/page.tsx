@@ -309,8 +309,8 @@ export default async function CompoundsPage({
 
   const basePath = '/compounds'
 
-  // Server-rendered crawlable index (first 200)
-  const indexLinks = allCompounds.slice(0, 200)
+  // Server-rendered crawlable index for all renderable compound profiles.
+  const indexLinks = allCompounds
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:py-8">

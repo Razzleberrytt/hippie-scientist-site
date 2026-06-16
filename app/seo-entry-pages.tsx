@@ -207,12 +207,14 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
 ]
 
 const canonicalGuideRouteOverrides: Record<string, string> = {
-  'best-supplements-for-blood-pressure': 'guides/best-supplements-for-blood-pressure-support',
+  'best-supplements-for-blood-pressure': 'best-supplements-for-blood-pressure',
+  'herbs-for-sleep': 'articles/best-herbs-for-sleep',
 }
 
 const manualGuideSeoEntryPages: SeoEntryConfig[] = manualSeoEntryPages.map((page) => ({
   ...page,
-  route: canonicalGuideRouteOverrides[page.route] || `guides/${page.route}`,
+  route: canonicalGuideRouteOverrides[page.route]
+    || (page.route.startsWith('guides/') ? page.route : `guides/${page.route}`),
 }))
 
 const guideTopics = [
@@ -439,7 +441,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
   const cleanRoute = (r: string) => r.replace(/^guides\//, '')
   const currentCleanRoute = cleanRoute(page.route)
 
-  const relatedGuides = seoEntryPages
+  const relatedGuides = indexableGuidePages
     .filter((item) => {
       const itemCleanRoute = cleanRoute(item.route)
       if (itemCleanRoute === currentCleanRoute) return false

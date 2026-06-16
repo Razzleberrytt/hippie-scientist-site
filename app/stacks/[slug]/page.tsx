@@ -85,6 +85,7 @@ const SLUG_MAPPING: Record<string, string> = {
   'collagen': 'collagen-peptides',
   'coq10': 'coenzyme-q10',
   'green-tea-extract-egcg': 'green-tea-extract',
+  'rhodiola-rosea': 'rhodiola',
 }
 
 function resolveStackItemSlug(item: StackItemRecord) {

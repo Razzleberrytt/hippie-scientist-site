@@ -68,12 +68,7 @@ export const SITE_URL = 'https://thehippiescientist.net'
  */
 export const mainNavigation: NavigationItem[] = [
   {
-    label: 'Home',
-    href: '/',
-    description: 'The Hippie Scientist – evidence-first supplement research',
-  },
-  {
-    label: 'Database',
+    label: 'Herbs',
     href: '/herbs',
     description: 'Browse the full herb database with evidence-graded profiles',
   },
@@ -83,14 +78,24 @@ export const mainNavigation: NavigationItem[] = [
     description: 'Active compounds, mechanisms, and evidence summaries',
   },
   {
+    label: 'Goals',
+    href: '/goals',
+    description: 'Goal-based decision guides for sleep, stress, focus, anxiety, and more',
+  },
+  {
     label: 'Guides',
     href: '/guides',
     description: 'Problem-solving, high-intent, evergreen supplement guides with internal linking and evidence summaries',
   },
   {
-    label: 'Articles',
-    href: '/articles',
-    description: 'Educational and research content: pharmacology, mechanisms, historical medicine, safety discussions',
+    label: 'Compare',
+    href: '/compare',
+    description: 'Side-by-side supplement comparisons by evidence, safety, and practical fit',
+  },
+  {
+    label: 'Stacks',
+    href: '/stacks',
+    description: 'Curated supplement stacks by goal, timing, and safety context',
   },
   {
     label: 'Safety',
@@ -320,6 +325,11 @@ export function generateDynamicBreadcrumbs(
   for (let i = 0; i < segments.length; i++) {
     currentPath += `/${segments[i]}`
     const isLast = i === segments.length - 1
+    const isStructuralSegment = segments[i] === 'page' || segments[i] === 'style'
+
+    if (!isLast && isStructuralSegment) {
+      continue
+    }
 
     // Try exact match first
     const metadata = routeLabels[currentPath]
@@ -355,7 +365,9 @@ export function generateDynamicBreadcrumbs(
       }
     } else {
       // No match found — use segment as label
-      const displayLabel = segmentToLabel(segments[i])
+      const displayLabel = segments[i - 1] === 'page'
+        ? `Page ${segments[i]}`
+        : segmentToLabel(segments[i])
 
       breadcrumbs.push({
         label: displayLabel,

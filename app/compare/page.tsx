@@ -140,7 +140,7 @@ export default async function ComparePage() {
           <Link href="/safety-checker" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
             Check safety context
           </Link>
-          <Link href="/education/product-quality" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
+          <Link href="/learn/product-quality" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
             Review product quality
           </Link>
         </div>

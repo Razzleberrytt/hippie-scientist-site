@@ -107,6 +107,10 @@ const compoundSlugAliases: Record<string, string> = {
   psyllium: 'psyllium-husk',
 }
 
+const evidenceItemHrefOverrides: Record<string, string> = {
+  'tart-cherry': '/goals/recovery',
+}
+
 function trimRepeatedAdjacentTokens(value: string) {
   const tokens = value.split(/\s+/).filter(Boolean)
   return tokens.filter((token, index) => index === 0 || token.toLowerCase() !== tokens[index - 1].toLowerCase()).join(' ')
@@ -121,6 +125,7 @@ function getProductDisplayName(product: { brand?: string; title?: string }) {
 }
 
 function getEvidenceItemHref(slug: string) {
+  if (evidenceItemHrefOverrides[slug]) return evidenceItemHrefOverrides[slug]
   return `/compounds/${compoundSlugAliases[slug] || slug}`
 }
 

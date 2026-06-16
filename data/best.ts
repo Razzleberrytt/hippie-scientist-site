@@ -5,6 +5,40 @@ export type BestPageConfig = {
   compoundCandidates: string[]
 }
 
+const bestPageHrefOverrides: Record<string, string> = {
+  sleep: '/guides/best-supplements-for-sleep',
+  stress: '/guides/best-supplements-for-stress',
+  focus: '/guides/best-supplements-for-focus',
+  'fat-loss': '/best-supplements-for-fat-loss',
+  'gut-health': '/best-supplements-for-gut-health',
+  'joint-support': '/best-supplements-for-joint-support',
+  'blood-pressure': '/best-supplements-for-blood-pressure',
+  anxiety: '/guides/best-herbs-for-anxiety',
+  adaptogens: '/guides/best-adaptogens-for-stress',
+  'brain-fog': '/guides/supplements-for-brain-fog-and-fatigue',
+  'non-melatonin-sleep': '/guides/best-supplements-for-sleep',
+  'falling-asleep': '/guides/best-supplements-for-sleep',
+  'staying-asleep': '/guides/best-supplements-for-sleep',
+  overstimulation: '/guides/best-supplements-for-overthinking',
+  energy: '/goals/energy',
+  'mitochondrial-support': '/goals/energy',
+  'workout-performance': '/goals/energy',
+  memory: '/goals/cognition',
+  productivity: '/goals/focus',
+  motivation: '/goals/focus',
+  'calm-focus': '/goals/focus',
+  inflammation: '/goals/inflammation',
+  'oxidative-stress': '/goals/inflammation',
+  muscle: '/goals/recovery',
+  recovery: '/goals/recovery',
+  testosterone: '/goals/testosterone-support',
+  'healthy-aging': '/goals/longevity',
+}
+
+export function bestPageHref(slug: string): string {
+  return bestPageHrefOverrides[slug] || '/goals'
+}
+
 export const bestPages: BestPageConfig[] = [
   { slug: 'sleep', title: 'Best Supplements for Sleep', description: 'Sleep-support options ranked by usefulness, timing, and safety fit.', compoundCandidates: ['melatonin','magnesium','magnesium-glycinate','l-theanine','glycine','apigenin'] },
   { slug: 'stress', title: 'Best Supplements for Stress', description: 'Calm and stress-support options compared by fit, safety, and practical use.', compoundCandidates: ['ashwagandha','rhodiola-rosea','l-theanine','magnesium','holy-basil'] },

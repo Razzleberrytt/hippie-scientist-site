@@ -30,7 +30,7 @@ const safetyLinks = [
 const legalLinks = [
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
   { href: '/affiliate-disclosure', label: 'Affiliate Disclosure' },
-  { href: '/sitemap', label: 'Sitemap' },
+  { href: '/sitemap.xml', label: 'Sitemap' },
 ]
 
 function formatBuildDate(isoDate: string) {

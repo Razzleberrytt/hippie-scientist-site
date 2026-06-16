@@ -6,16 +6,9 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { GlobalSearchModal } from './search/GlobalSearchModal'
 import DarkModeToggle from './DarkModeToggle'
+import { mainNavigation } from '@/lib/navigation-config'
 
-const desktopLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/herbs', label: 'Database' },
-  { href: '/compounds', label: 'Compounds' },
-  { href: '/stacks', label: 'Stacks' },
-  { href: '/guides', label: 'Guides' },
-  { href: '/evidence-digest', label: 'Digest' },
-  { href: '/safety-checker', label: 'Safety' },
-]
+const primaryLinks = mainNavigation.map(({ href, label }) => ({ href, label }))
 
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -43,8 +36,7 @@ export function Navigation() {
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
-    if (href === '/articles') return pathname === '/articles' || pathname.startsWith('/articles/') || pathname === '/learn' || pathname.startsWith('/learn/') || pathname === '/research-notes' || pathname.startsWith('/research-notes/') || pathname === '/blog' || pathname.startsWith('/blog/')
-    if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/')
+    if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/') || pathname === '/learn' || pathname.startsWith('/learn/')
     return pathname === href || pathname.startsWith(href + '/')
   }
 
@@ -70,7 +62,7 @@ export function Navigation() {
 
           {/* Desktop nav links */}
           <div className="hidden items-center gap-5 text-sm md:flex lg:gap-6">
-            {desktopLinks.map((link) => (
+            {primaryLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -132,7 +124,7 @@ export function Navigation() {
             </div>
 
             <nav className="flex flex-col gap-1 text-base">
-              {desktopLinks.map((link) => (
+              {primaryLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

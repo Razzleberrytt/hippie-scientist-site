@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-16T02:36:00.653Z",
+  "generatedAt": "2026-06-16T16:00:09.722Z",
   "source": {
-    "workbookPath": "C:\\Users\\Will\\Documents\\hippie-scientist-site\\.claude\\worktrees\\mystifying-sanderson-039a96\\data-sources\\herb_monograph_master.xlsx",
+    "workbookPath": "C:\\Users\\Will\\Documents\\hippie-scientist-site\\data-sources\\herb_monograph_master.xlsx",
     "workbook": "herb_monograph_master.xlsx"
   },
   "output": "public\\data",
