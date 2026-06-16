@@ -8,6 +8,7 @@ import { getRuntimeVisibility } from '@/lib/runtime-visibility'
 import { HERBS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import { buildPageMetadata } from '@/lib/seo'
 import { formatDisplayLabel } from '@/lib/display-utils'
+import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
 import HerbsIndexClient from './HerbsIndexClient'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -39,8 +40,15 @@ function HerbsLoadingSkeleton() {
 }
 
 export default async function HerbsPage() {
-  const herbs = ((await getHerbSummaryIndex()) as RuntimeRecord[])
-    .filter((herb) => herb.slug && getRuntimeVisibility(herb).canRender)
+  const allHerbs = (await getHerbSummaryIndex()) as RuntimeRecord[]
+  const presentSlugs = new Set(allHerbs.map((herb) => String(herb.slug || '')))
+  const herbs = allHerbs
+    .filter(
+      (herb) =>
+        herb.slug &&
+        getRuntimeVisibility(herb).canRender &&
+        !isRedirectedDuplicate(String(herb.slug), presentSlugs),
+    )
     .sort((a, b) => getHerbName(a).localeCompare(getHerbName(b)))
   const pageData = paginateItems(herbs, 1, HERBS_PAGE_SIZE)
 

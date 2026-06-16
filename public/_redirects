@@ -274,3 +274,12 @@
 # Duplicate article consolidated to the comprehensive guide (audit dedup)
 /articles/ashwagandha-complete-guide-benefits-dosage-evidence /articles/ashwagandha 301
 /articles/ashwagandha-complete-guide-benefits-dosage-evidence/ /articles/ashwagandha/ 301
+# More duplicate herb profiles consolidated (audit re-crawl dedup)
+/herbs/astragalus-membranaceus /herbs/astragalus 301
+/herbs/astragalus-membranaceus/ /herbs/astragalus/ 301
+/herbs/atractylodes-macrocephala /herbs/atractylodes 301
+/herbs/atractylodes-macrocephala/ /herbs/atractylodes/ 301
+/herbs/angelica-sinensis /herbs/dong-quai 301
+/herbs/angelica-sinensis/ /herbs/dong-quai/ 301
+/herbs/angelica-root /herbs/angelica-archangelica 301
+/herbs/angelica-root/ /herbs/angelica-archangelica/ 301

@@ -132,9 +132,9 @@ function getBestFor(item: RuntimeRecord) {
   const effects = getEffects(item)
   if (effects.length > 0) return effects.join(' • ')
 
-  const mechanisms = getMechanismSignals(item)
-  if (mechanisms.length > 0) return mechanisms.join(' • ')
-
+  // Do not surface raw mechanism text (e.g. "Mechanism Unclear", "Potent
+  // Mu-Opioid Receptor Agonism") as a "best for" use-case — mechanisms render
+  // separately as labeled chips. Fall back to a neutral label instead.
   return 'Research context'
 }
 
