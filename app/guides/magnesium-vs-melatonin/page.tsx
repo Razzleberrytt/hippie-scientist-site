@@ -1,29 +1,166 @@
-import { buildPageMetadata } from '@/lib/seo'
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from 'next/link';
+import Image from 'next/image';
+import { SeoEntryPage, generateSeoEntryMetadata } from '../../seo-entry-pages';
+import StructuredData from '@/components/StructuredData';
 
-export const metadata: Metadata = buildPageMetadata({
-  title: 'Magnesium vs Melatonin | Guide',
-  description: 'Educational comparison of magnesium and melatonin for sleep routines, timing, and practical selection.',
-  path: '/guides/magnesium-vs-melatonin/',
-})
+const route = 'guides/magnesium-vs-melatonin';
+const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-vs-melatonin';
 
-export default function Page() {
+export const metadata = {
+  ...generateSeoEntryMetadata(route),
+  robots: { index: true, follow: true },
+};
+
+export default function MagnesiumVsMelatoninGuidePage() {
   return (
-    <main className="container-page py-10 space-y-8">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-        <p className="eyebrow-label">Sleep comparison</p>
-        <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">Magnesium vs Melatonin</h1>
-        <p className="detail-reading mt-4 text-muted">These are different tools: magnesium is often part of nightly relaxation routines, while melatonin is usually framed around sleep timing and schedule shifts.</p>
-      </section>
-      <section className="grid gap-4 sm:grid-cols-2">
-        <article className="card-premium p-5"><h2 className="text-xl font-semibold text-ink">Magnesium</h2><p className="mt-2 text-sm text-muted">Commonly explored for relaxation support and muscle tension context.</p></article>
-        <article className="card-premium p-5"><h2 className="text-xl font-semibold text-ink">Melatonin</h2><p className="mt-2 text-sm text-muted">Often used for sleep schedule alignment rather than broad stress support.</p></article>
-      </section>
-      <div className="flex gap-4">
-        <Link href="/guides/best-supplements-for-sleep" className="text-sm font-medium text-emerald-700 hover:underline">Top sleep aids</Link>
-        <Link href="/compare/magnesium-vs-melatonin" className="text-sm font-medium text-emerald-700 hover:underline">Full comparison</Link>
+    <>
+      <StructuredData
+        pageUrl={PAGE_URL}
+        headline="Magnesium vs Melatonin for Sleep: Evidence-Based Comparison"
+        description="Nuanced comparison of magnesium and melatonin for sleep support. Mechanisms, timing, dosing, safety, decision framework, and when stacking makes sense."
+        datePublished="2026-06-14"
+        dateModified="2026-06-14"
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'Guides', href: '/guides' },
+          { label: 'Magnesium vs Melatonin', href: '/guides/magnesium-vs-melatonin' },
+        ]}
+      />
+
+      <SeoEntryPage route={route} />
+
+      <div className="mx-auto max-w-4xl space-y-12 px-4 pb-16 sm:px-6 lg:px-8">
+
+        {/* Quick Comparison Table */}
+        <section>
+          <h2 className="text-2xl font-semibold text-ink mb-4">Quick Comparison at a Glance</h2>
+          <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
+            <table className="min-w-[720px] w-full text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-brand-900/10 bg-brand-50/50">
+                  <th className="text-left p-4 font-semibold text-ink">Aspect</th>
+                  <th className="text-left p-4 font-semibold text-ink">Magnesium</th>
+                  <th className="text-left p-4 font-semibold text-ink">Melatonin</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10">
+                <tr>
+                  <td className="p-4 font-medium text-ink">Primary mechanisms</td>
+                  <td className="p-4 text-muted">NMDA receptor antagonism + GABA support, muscle relaxation</td>
+                  <td className="p-4 text-muted">MT1/MT2 receptor activation in SCN for circadian signaling</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-medium text-ink">Best suited for</td>
+                  <td className="p-4 text-muted">Relaxation, muscle tension, possible deficiency, sleep quality</td>
+                  <td className="p-4 text-muted">Sleep onset latency, jet lag, delayed sleep phase, schedule shifts</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-medium text-ink">Evidence context</td>
+                  <td className="p-4 text-muted">B-C overall; stronger in deficient or older adults</td>
+                  <td className="p-4 text-muted">B for specific circadian/onset uses</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-medium text-ink">Typical timing</td>
+                  <td className="p-4 text-muted">Evening use; benefits often build over days to weeks</td>
+                  <td className="p-4 text-muted">30–120 min before desired bedtime (timing is critical)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Mechanisms + Visual */}
+        <section>
+          <h2 className="text-2xl font-semibold text-ink mb-4">How They Work</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="card-premium p-6">
+              <h3 className="font-semibold text-xl mb-3">Magnesium</h3>
+              <p className="text-muted">Acts as an NMDA receptor antagonist and supports GABAergic tone. This helps reduce neuronal excitability while promoting muscle relaxation. Benefits are often more noticeable when addressing suboptimal magnesium status.</p>
+            </div>
+            <div className="card-premium p-6">
+              <h3 className="font-semibold text-xl mb-3">Melatonin</h3>
+              <p className="text-muted">Activates MT1 and MT2 receptors in the suprachiasmatic nucleus (SCN). It primarily helps align circadian timing and reduce the time it takes to fall asleep.</p>
+            </div>
+          </div>
+
+          <figure className="my-8">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/magnesium-melatonin-mechanisms.jpg"
+                alt="Diagram comparing magnesium and melatonin mechanisms for sleep support"
+                width={1176}
+                height={784}
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Magnesium primarily supports relaxation and sleep quality. Melatonin primarily aids sleep timing and onset via circadian signaling.
+            </figcaption>
+          </figure>
+        </section>
+
+        {/* Decision Framework + Visual */}
+        <section>
+          <h2 className="text-2xl font-semibold text-ink mb-4">Decision Framework</h2>
+          <div className="space-y-4 text-muted">
+            <div className="card-premium p-5">
+              <p><strong>Lean toward magnesium first if:</strong> Muscle tension, difficulty winding down, or possible low magnesium status is the main issue.</p>
+            </div>
+            <div className="card-premium p-5">
+              <p><strong>Lean toward melatonin first if:</strong> Clear circadian or timing problems (jet lag, delayed sleep phase, or difficulty falling asleep at the desired hour).</p>
+            </div>
+            <div className="card-premium p-5">
+              <p><strong>Consider both / thoughtful stacking if:</strong> Overlapping factors exist. Many people combine them successfully when attention is paid to timing and dose.</p>
+            </div>
+          </div>
+
+          <figure className="my-8 max-w-2xl mx-auto">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/magnesium-melatonin-decision.jpg"
+                alt="Decision flowchart for choosing magnesium vs melatonin"
+                width={784}
+                height={1176}
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Use the compare tool for deeper evidence context.
+            </figcaption>
+          </figure>
+        </section>
+
+        {/* Evening Routine Visual */}
+        <section>
+          <h2 className="text-2xl font-semibold text-ink mb-4">Example Evening Routine</h2>
+          <figure>
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/evening-sleep-routine.jpg"
+                alt="Sample evening timeline for magnesium and melatonin"
+                width={1176}
+                height={784}
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Adjust timing and doses based on your personal response.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6">
+          <h2 className="text-xl font-semibold text-ink mb-3">Bottom Line</h2>
+          <p className="text-muted">
+            Magnesium and melatonin are complementary tools. Choose emphasis based on whether your main need is relaxation/quality support or circadian timing/onset. Thoughtful stacking is common. Prioritize sleep hygiene and use the compare tool for deeper evidence views.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-4 text-sm">
+            <Link href="/compare/magnesium-vs-melatonin" className="font-semibold text-emerald-700 hover:underline">Open side-by-side compare →</Link>
+            <Link href="/compounds/magnesium" className="font-semibold text-emerald-700 hover:underline">Magnesium profile →</Link>
+            <Link href="/compounds/melatonin" className="font-semibold text-emerald-700 hover:underline">Melatonin profile →</Link>
+          </div>
+        </section>
       </div>
-    </main>
-  )
+    </>
+  );
 }
