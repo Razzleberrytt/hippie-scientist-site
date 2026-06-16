@@ -5,6 +5,7 @@ import { allNovelPsychoactiveSubstancePages } from 'content-collections'
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL } from '@/lib/seo'
 
 type PageProps = {
@@ -62,10 +63,7 @@ export default async function NovelPsychoactiveSubstanceArticlePage({ params }: 
 
   return (
     <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
+      <JsonLd schema={articleSchema} />
 
       <Breadcrumbs
         items={[
