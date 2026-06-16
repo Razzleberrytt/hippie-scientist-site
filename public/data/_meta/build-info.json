@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-06-16T02:28:49.086Z",
+  "generatedAt": "2026-06-16T02:36:00.653Z",
   "source": {
+    "workbookPath": "C:\\Users\\Will\\Documents\\hippie-scientist-site\\.claude\\worktrees\\mystifying-sanderson-039a96\\data-sources\\herb_monograph_master.xlsx",
     "workbook": "herb_monograph_master.xlsx"
   },
-  "output": "public/data",
+  "output": "public\\data",
   "counts": {
     "herbs": 287,
     "compounds": 597,
