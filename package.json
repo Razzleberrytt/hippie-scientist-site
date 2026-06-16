@@ -119,7 +119,11 @@
     "validate:code": "npm run typecheck && npm run lint",
     "validate:release": "npm run typecheck && npm run lint && npm run build && node scripts/ci/validate-indexability-metadata.mjs && npm run validate:evidence-language",
     "validate:release:full": "node -e \"process.env.FULL_HTML_AUDIT='1'; require('child_process').execSync('npm run validate:release', { stdio: 'inherit' })\"",
-    "benchmark:validation": "node scripts/benchmark-validation.mjs"
+    "benchmark:validation": "node scripts/benchmark-validation.mjs",
+    "audit:data-governance": "node scripts/ci/validate-data-governance.mjs",
+    "audit:data-governance:json": "node scripts/ci/validate-data-governance.mjs --json",
+    "audit:data-governance:strict": "node scripts/ci/validate-data-governance.mjs --strict",
+    "validate:audit-hardening": "npm run audit:high && npm run audit:data-governance && npm run validate:security-headers"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",
