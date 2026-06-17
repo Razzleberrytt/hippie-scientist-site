@@ -63,6 +63,12 @@ npm run create:page
          │  (review findings; audit never blocks the build)
          │
          ▼
+    Linking audit (warning-only, exit 0)
+      npm run audit:links
+         │  → ops/reports/internal-linking-report.json
+         │  (review suggestions for internal link gaps; never blocks the build)
+         │
+         ▼
     Build
       npm run build
          │
@@ -114,6 +120,7 @@ Before committing:
 - [ ] `npm run lint` passes (zero warnings)
 - [ ] `npm run typecheck` passes
 - [ ] `npm run audit:content` reviewed (exit 0; check ops/reports/ for findings)
+- [ ] `npm run audit:links` reviewed (exit 0; check ops/reports/internal-linking-report.json)
 - [ ] `npm run build` passes
 
 ---
@@ -160,5 +167,8 @@ See `docs/workbook-only-data-contract.md` for the full workbook edit policy.
 - `config/affiliate.ts` — affiliate tag constants
 - `scripts/create-content-page.mjs` — the generator source
 - `scripts/content-audit.mjs` — the content audit script
+- `scripts/internal-linking-audit.mjs` — the internal linking audit script
+- `lib/content-linking.ts` — relationship engine (deterministic matching)
 - `ops/reports/content-audit.json` — per-page audit findings (generated)
 - `ops/reports/site-health.json` — summary health report (generated)
+- `ops/reports/internal-linking-report.json` — linking suggestions per page (generated)
