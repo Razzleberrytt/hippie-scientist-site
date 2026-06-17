@@ -368,4 +368,40 @@ export const herbProfileExpansions: Record<string, CuratedExpansion> = {
       { label: 'Curcumin in osteoarthritis scoping review (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11959387/' },
     ],
   },
+  rhodiola: {
+    intent: 'Informational to commercial: understand what Rhodiola rosea can plausibly support — stress-related fatigue, burnout, and mental/physical endurance — while choosing a standardized extract and respecting an activating, evidence-limited profile.',
+    methodology: [
+      'Keep fatigue, stress/burnout, mood, and endurance claims separate instead of merging them into one adaptogen promise.',
+      'Weight the evidence honestly: most human trials are small, short, and at high risk of bias, and results are contradictory.',
+      'Prefer extracts standardized to rosavins and salidroside, and flag the activating profile (timing, stimulant and bipolar cautions) before product guidance.',
+    ],
+    evidenceRows: [
+      { name: 'Stress-related fatigue and burnout', tier: 'Preliminary to moderate', bestFor: 'Adults with low-drive, stress-linked tiredness rather than a sleep or medical cause', dose: '200-400 mg/day standardized extract, usually earlier in the day', safety: 'Can feel activating; avoid late dosing and review stimulant and bipolar context.' },
+      { name: 'Mental fatigue and endurance', tier: 'Preliminary / mixed', bestFor: 'Short-term mental stamina under stress or fatigue', dose: 'Study doses commonly 200-600 mg/day standardized extract', safety: 'Trials are small and inconsistent; expect a subtle effect, not stimulation.' },
+      { name: 'Physical/endurance performance', tier: 'Preliminary', bestFor: 'Training-adjacent fatigue experiments', dose: 'Acute and short-term dosing varies by study', safety: 'Evidence is limited and not a substitute for training, sleep, or recovery.' },
+      { name: 'Mood and low-mood symptoms', tier: 'Preliminary', bestFor: 'Mild stress-linked low mood, not a treatment for depression', dose: 'Trial-specific extracts over weeks', safety: 'Not a replacement for mental-health care; seek evaluation for persistent symptoms.' },
+    ],
+    comparisonRows: [
+      { scenario: 'Standardized 3% rosavins / 1% salidroside extract', firstChoice: 'Best default', why: 'Matches the marker profile used in most human trials.' },
+      { scenario: 'Plain root powder', firstChoice: 'Use caution', why: 'Active content is unclear without standardization; harder to dose consistently.' },
+      { scenario: 'Rhodiola vs ashwagandha', firstChoice: 'Depends on the goal', why: 'Rhodiola skews activating for fatigue; ashwagandha skews calming for stress and sleep.' },
+      { scenario: 'Stacked in a proprietary "energy" blend', firstChoice: 'Skip if doses are hidden', why: 'Blends often bury rhodiola dose and add stimulants.' },
+    ],
+    safetyNotes: [
+      'Rhodiola can feel stimulating — take it earlier in the day and start low to avoid jitteriness, irritability, or sleep disruption.',
+      'Use clinician guidance with bipolar history, stimulant or antidepressant medication, and during pregnancy or breastfeeding, where data are limited.',
+      'It is a stress-and-fatigue adjunct, not a treatment for depression, an anxiety disorder, thyroid disease, anemia, or sleep apnea — persistent fatigue deserves evaluation.',
+    ],
+    buyerChecklist: [
+      'Look for Rhodiola rosea standardized to rosavins and salidroside, with the marker percentages disclosed.',
+      'Match timing to the goal: morning or early afternoon, not evening.',
+      'Start at the lower end of the range and assess over 1-4 weeks rather than chasing a same-day hit.',
+      'Avoid proprietary energy blends that hide the rhodiola dose or add undisclosed stimulants.',
+    ],
+    references: [
+      { label: 'Rhodiola rosea for physical and mental fatigue: systematic review (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3541197/' },
+      { label: 'Effectiveness and efficacy of Rhodiola rosea: systematic review of RCTs (PubMed)', href: 'https://pubmed.ncbi.nlm.nih.gov/21036578/' },
+      { label: 'Rhodiola rosea extract in burnout: open-label exploratory trial (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5370380/' },
+    ],
+  },
 }
