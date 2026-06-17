@@ -1,7 +1,4 @@
-import {
-  buildHerbProductSchema,
-  buildHerbArticleSchema,
-} from '@/lib/schema-injector'
+import { buildHerbArticleSchema } from '@/lib/schema-injector'
 import JsonLd from '@/components/seo/JsonLd'
 
 export type HerbSchemaGeneratorProps = {
@@ -19,50 +16,28 @@ export type HerbSchemaGeneratorProps = {
   dateReviewed?: string
   /** Evidence grade string, e.g. "B — Moderate" */
   evidenceGrade?: string
-  /** Product category label, defaults to "Herbal Supplement" */
-  category?: string
-  /** Optional affiliate/purchase offer to include in the Product node */
-  offer?: {
-    price: number
-    priceCurrency: string
-    availability?: string
-    offerUrl?: string
-  }
 }
 
 /**
- * Renders supplementary Product and Article JSON-LD script tags for a herb
- * profile page. These nodes are additive — they sit alongside the existing
- * MedicalWebPage/@graph emitted by SchemaGraphScript and do not replace it.
+ * Renders a supplementary Article JSON-LD script tag for a herb profile page.
+ * This node is additive — it sits alongside the existing MedicalWebPage/@graph
+ * emitted by SchemaGraphScript and does not replace it.
  *
- * Product schema is emitted only when a real offer is supplied. Educational
- * herb profiles without offers should not advertise Product rich-result data.
- * Article schema remains eligible for article rich results.
+ * Informational herb profiles are educational references, not commercial
+ * product listings, so no Product JSON-LD is emitted here. Article schema
+ * remains eligible for article rich results.
  *
- * The component is a pure server component: it emits only static <script>
- * tags and performs no client-side work, so it has zero hydration cost.
+ * The component is a pure server component: it emits only a static <script>
+ * tag and performs no client-side work, so it has zero hydration cost.
  */
 export default function HerbSchemaGenerator({
   name,
-  slug,
   description,
   url,
   image,
   dateReviewed,
   evidenceGrade,
-  category = 'Herbal Supplement',
-  offer,
 }: HerbSchemaGeneratorProps) {
-  const productSchema = buildHerbProductSchema({
-    name,
-    description,
-    url,
-    image,
-    sku: slug,
-    category,
-    ...(offer ? { offers: offer } : {}),
-  })
-
   const articleSchema = buildHerbArticleSchema({
     headline: `${name} Benefits, Dosage & Safety`,
     description,
@@ -73,10 +48,5 @@ export default function HerbSchemaGenerator({
     evidenceGrade,
   })
 
-  return (
-    <>
-      {offer ? <JsonLd schema={productSchema} /> : null}
-      <JsonLd schema={articleSchema} />
-    </>
-  )
+  return <JsonLd schema={articleSchema} />
 }

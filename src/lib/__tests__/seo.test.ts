@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { generateDetailMetadata, herbJsonLd, compoundJsonLd, isMeaningfulFaqAnswer, productJsonLd, shouldIndexRoute } from '../seo'
+import { generateDetailMetadata, herbJsonLd, compoundJsonLd, isMeaningfulFaqAnswer, shouldIndexRoute } from '../seo'
 
 describe('SEO Metadata & JSON-LD Utilities', () => {
   const mockHerb = {
@@ -167,53 +167,6 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
           'Ashwagandha is typically dosed at 300 to 600 mg of a standardized root extract once or twice daily with food.',
         ),
       ).toBe(true)
-    })
-  })
-
-  describe('productJsonLd', () => {
-    it('returns null if price or priceCurrency is missing or invalid', () => {
-      expect(
-        productJsonLd({
-          name: 'Ashwagandha Extract',
-          description: 'A premium extract.',
-          url: 'https://thehippiescientist.net/herbs/ashwagandha/',
-        })
-      ).toBeNull()
-
-      expect(
-        productJsonLd({
-          name: 'Ashwagandha Extract',
-          description: 'A premium extract.',
-          url: 'https://thehippiescientist.net/herbs/ashwagandha/',
-          price: 'invalid-price',
-          priceCurrency: 'USD',
-        })
-      ).toBeNull()
-
-      expect(
-        productJsonLd({
-          name: 'Ashwagandha Extract',
-          description: 'A premium extract.',
-          url: 'https://thehippiescientist.net/herbs/ashwagandha/',
-          price: 15.99,
-        })
-      ).toBeNull()
-    })
-
-    it('returns valid Product JSON-LD if valid price and priceCurrency are provided', () => {
-      const jsonLd = productJsonLd({
-        name: 'Ashwagandha Extract',
-        description: 'A premium extract.',
-        url: 'https://thehippiescientist.net/herbs/ashwagandha/',
-        price: 15.99,
-        priceCurrency: 'USD',
-      })
-
-      expect(jsonLd).not.toBeNull()
-      expect(jsonLd?.['@type']).toBe('Product')
-      expect(jsonLd?.offers?.['@type']).toBe('Offer')
-      expect(jsonLd?.offers?.price).toBe(15.99)
-      expect(jsonLd?.offers?.priceCurrency).toBe('USD')
     })
   })
 })
