@@ -44,7 +44,8 @@ const SLEEP_SUPPLEMENTS = [
     name: 'Melatonin',
     mechanism: 'MT1/MT2 receptor agonist in the suprachiasmatic nucleus; signals circadian "sleep phase" onset',
     evidence: 'A for jet lag and delayed sleep phase; B for general sleep onset latency',
-    dose: '0.5–1 mg for circadian support; up to 3–5 mg for general onset (lower doses often equally effective)',
+    dose: '0.5–1 mg for circadian support; up to 3 mg for general onset — doses above 1 mg show diminishing returns in most studies',
+
     safety: 'Short-term: excellent. Long-term high-dose: caution; potential endogenous suppression at high doses',
     bestFor: 'Jet lag, shift work, delayed sleep phase, trouble falling asleep',
     href: '/compounds/melatonin',
@@ -55,7 +56,8 @@ const SLEEP_SUPPLEMENTS = [
     mechanism: 'HPA axis modulation; cortisol reduction; GABAergic activity via withanolides',
     evidence: 'B – clinically studied extract KSM-66 shows improvements in sleep quality and anxiety in stressed populations',
     dose: '300–600 mg standardized extract (≥5% withanolides) in the evening',
-    safety: 'Generally safe; rare reports of liver issues at very high doses; avoid in thyroid conditions without supervision',
+    safety: 'Generally safe; rare hepatotoxicity at very high doses; caution in thyroid disorders — may raise T3/T4 levels; consult a clinician if on thyroid medication',
+
     bestFor: 'Stress-driven sleep problems; "wired but tired" pattern; cortisol-driven waking',
     href: '/herbs/ashwagandha',
     badge: 'Moderate',
@@ -65,7 +67,8 @@ const SLEEP_SUPPLEMENTS = [
     mechanism: 'GABA-A receptor modulation via valerenic acid; mild sedative effect',
     evidence: 'C–B – mixed RCT results; preparation and standardization heavily affect outcomes',
     dose: '300–600 mg of standardized extract (0.8% valerenic acid) 30–60 min before bed',
-    safety: 'Generally safe; occasional paradoxical stimulation; not for use with sedatives/alcohol',
+    safety: 'Generally safe; occasional paradoxical stimulation; not for use with sedatives or alcohol; not recommended during pregnancy or for children',
+
     bestFor: 'Sleep onset difficulty; works best in combination with hops or lemon balm',
     href: '/herbs/valerian',
     badge: 'Emerging–Moderate',
@@ -77,7 +80,8 @@ const SLEEP_SUPPLEMENTS = [
     dose: '250–500 mg extract or 1–2 cups passionflower tea before bed',
     safety: 'Well-tolerated; use caution with sedative medications',
     bestFor: 'Anxiety-related sleep disruption; mild insomnia; relaxation before bed',
-    href: '/herbs/passionflower',
+    href: '/guides/passionflower',
+
     badge: 'Emerging',
   },
 ]
@@ -129,6 +133,11 @@ export default function BestSupplementsForSleepPage() {
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Best Supplements for Sleep
           </h1>
+          <p className="mt-2 text-xs text-muted">
+            Written and reviewed by{' '}
+            <Link href="/author" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
+            {' '}· Last updated June 2026
+          </p>
           <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
             Most sleep supplements are oversold. A small number have credible evidence behind them —
             and which one is right depends heavily on <em>why</em> you can't sleep. This guide covers
@@ -260,7 +269,7 @@ export default function BestSupplementsForSleepPage() {
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
-          <Link href="/guides/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
+          <Link href="/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
           <Link href="/guides/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>
           <Link href="/compare/magnesium-glycinate-vs-l-threonate-for-sleep" className="hover:text-brand-800">Glycinate vs L-Threonate →</Link>
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
