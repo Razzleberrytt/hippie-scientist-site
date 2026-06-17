@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
+import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL } from '@/lib/navigation-config'
 
 const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-anxiety`
@@ -150,10 +151,7 @@ export default function BestHerbsForAnxietyPage() {
           { label: 'Best Herbs for Anxiety', href: '/guides/best-herbs-for-anxiety' },
         ]}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd schema={faqSchema} />
 
       <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
 
