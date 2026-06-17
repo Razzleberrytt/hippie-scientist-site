@@ -216,6 +216,49 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       { label: 'Berberine randomized-trial meta-analysis (PubMed)', href: 'https://pubmed.ncbi.nlm.nih.gov/32690176/' },
     ],
   },
+  'best-supplements-for-blood-pressure': {
+    intent: 'High-scrutiny commercial investigation: compare blood-pressure-support supplements by realistic effect size, evidence quality, and medication/kidney context — without treating them as a substitute for prescribed treatment, monitoring, or lifestyle change.',
+    methodology: [
+      'Put diet and lifestyle first (DASH-style eating, sodium reduction, activity, weight, alcohol, sleep) and rank supplements only as small adjuncts.',
+      'Prefer systematic reviews, meta-analyses, and official NIH/NCCIH summaries over single trials or mechanism claims.',
+      'Down-rank anything that hides doses, promises to "replace" medication, or ignores kidney function and drug interactions.',
+    ],
+    evidenceRows: [
+      { name: 'Dietary potassium (DASH pattern)', tier: 'Moderate to strong (dietary)', bestFor: 'People with low potassium intake and high sodium diets', dose: 'Food-first via DASH-style eating; potassium supplements only with clinician oversight', safety: 'Potassium supplements can be dangerous with kidney disease, ACE inhibitors, ARBs, or potassium-sparing diuretics — do not self-prescribe.', href: '/compounds/potassium' },
+      { name: 'Magnesium', tier: 'Low to moderate', bestFor: 'Low intake and a small, gradual reduction in blood pressure', dose: '200-400 mg elemental magnesium/day in trials', safety: 'Avoid unsupervised use with kidney disease; space from some antibiotics; GI loosening at higher doses.', href: '/compounds/magnesium' },
+      { name: 'Omega-3 (EPA/DHA)', tier: 'Low to moderate', bestFor: 'Modest effect, generally clearer at higher doses', dose: 'Studied effects often appear around ~2-3 g/day EPA+DHA', safety: 'Higher doses may increase bleeding risk and interact with anticoagulants; discuss before combining.', href: '/compounds/omega-3' },
+      { name: 'Garlic (aged/standardized extract)', tier: 'Preliminary to moderate', bestFor: 'People with elevated readings wanting a small adjunct', dose: 'Aged garlic extract roughly 600-1,200 mg/day in trials', safety: 'Can add to anticoagulants/antiplatelets and matters around surgery; odor and GI upset are common.', href: '/herbs/garlic' },
+      { name: 'Hibiscus (Hibiscus sabdariffa)', tier: 'Preliminary', bestFor: 'Traditional tea users wanting a low-risk experiment', dose: 'Tea or extract per product; trial doses vary widely', safety: 'May add to blood-pressure or diuretic medication effects; limited pregnancy data.' },
+      { name: 'Beetroot / dietary nitrate', tier: 'Preliminary (mostly short-term)', bestFor: 'Short-term, modest reductions in some studies', dose: 'Nitrate-rich beet juice; durability beyond weeks is unclear', safety: 'Harmless beeturia (red urine) is common; GI upset possible.' },
+      { name: 'Coenzyme Q10 (CoQ10)', tier: 'Insufficient / mixed', bestFor: 'Often marketed for blood pressure, but high-quality evidence is weak', dose: '100-200 mg/day in studies', safety: 'May interact with warfarin and add to blood-pressure medication; treat efficacy claims skeptically.', href: '/compounds/coenzyme-q10' },
+    ],
+    comparisonRows: [
+      { scenario: 'Biggest realistic lever', firstChoice: 'DASH-style diet, sodium reduction, and potassium from food', why: 'Dietary pattern change outperforms any single supplement in the evidence.' },
+      { scenario: 'Low magnesium intake', firstChoice: 'Magnesium', why: 'Best fit when intake is genuinely low; expect a small, gradual change.' },
+      { scenario: 'Already taking BP or kidney-relevant medication', firstChoice: 'Talk to your prescriber before any supplement', why: 'Potassium, CoQ10, garlic, and omega-3 all carry interaction or kidney concerns.' },
+      { scenario: 'Product promises to replace medication', firstChoice: 'Skip the claim', why: 'No supplement matches prescribed antihypertensive therapy, and stopping medication can be dangerous.' },
+    ],
+    safetyNotes: [
+      'Supplements are not a substitute for prescribed blood-pressure treatment, monitoring, or evaluation of underlying causes — never stop or change medication on your own. See /disclaimer.',
+      'Potassium supplements can cause dangerous high potassium with kidney disease, ACE inhibitors, ARBs, or potassium-sparing diuretics; get potassium from food unless a clinician directs otherwise.',
+      'Very high (≥180/120) or symptomatic blood pressure — chest pain, severe headache, vision changes, shortness of breath — is a medical emergency, not a supplement decision.',
+      'Garlic and omega-3 can add to bleeding risk; CoQ10 may affect warfarin; tell your clinician and pharmacist about every supplement before combining.',
+      'Pregnancy, kidney disease, heart disease, and complex medication regimens change the risk calculation — use clinician guidance.',
+    ],
+    buyerChecklist: [
+      'Confirm you are already covering the basics: home blood-pressure monitoring, DASH-style diet, sodium, activity, alcohol, sleep, and weight.',
+      'Bring any supplement to your prescriber or pharmacist for an interaction check, especially with BP, kidney, or anticoagulant medications.',
+      'Prefer single-ingredient, third-party-tested products with disclosed doses over proprietary "cardio" or "BP" blends.',
+      'Set a realistic expectation: small adjunct effects at best, and re-measure blood pressure over weeks rather than chasing day-to-day numbers.',
+    ],
+    references: [
+      { label: 'NHLBI — DASH Eating Plan', href: 'https://www.nhlbi.nih.gov/education/dash-eating-plan' },
+      { label: 'MedlinePlus — High Blood Pressure (health topic)', href: 'https://medlineplus.gov/highbloodpressure.html' },
+      { label: 'NIH ODS — Potassium fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/' },
+      { label: 'NIH ODS — Magnesium fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/' },
+      { label: 'NIH ODS — Omega-3 fatty acids fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/' },
+    ],
+  },
 }
 
 export const herbProfileExpansions: Record<string, CuratedExpansion> = {
