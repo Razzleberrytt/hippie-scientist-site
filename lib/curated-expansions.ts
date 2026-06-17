@@ -259,6 +259,48 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       { label: 'NIH ODS — Omega-3 fatty acids fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/' },
     ],
   },
+  'best-nootropics-for-focus': {
+    intent: 'Commercial investigation: choose a focus nootropic by separating fast stimulant effects from calm-focus and slow cognitive-support options, weighing evidence strength, tolerance/cycling, and sleep and anxiety tradeoffs.',
+    methodology: [
+      'Sort options into three jobs — same-day stimulation, calm-focus, and weeks-long cognitive support — instead of treating "nootropic" as one category.',
+      'Prefer ingredients with human attention or memory outcomes over broad neuro-hype, and read effect sizes as small.',
+      'Penalize proprietary blends that hide caffeine, stack multiple cholinergics, or ignore anxiety and sleep cost.',
+    ],
+    evidenceRows: [
+      { name: 'Caffeine + L-theanine', tier: 'Moderate for acute attention', bestFor: 'Fast, same-day focus with fewer jitters than caffeine alone', dose: '50-100 mg caffeine + 100-200 mg L-theanine', safety: 'Avoid late-day dosing; caution with anxiety, blood pressure, and other stimulants.', href: '/articles/l-theanine-vs-caffeine-for-focus' },
+      { name: 'L-theanine (alone)', tier: 'Preliminary to moderate', bestFor: 'Calm-focus and taking the edge off caffeine or stress', dose: '100-200 mg as needed', safety: 'Usually gentle; can add to sedating effects in sensitive users.', href: '/compounds/l-theanine' },
+      { name: 'Citicoline (CDP-choline)', tier: 'Preliminary to moderate', bestFor: 'Choline support, attention, and mental effort', dose: '250-500 mg/day', safety: 'Headache or GI effects in some users; do not stack multiple cholinergics aggressively.', href: '/articles/citicoline-vs-alpha-gpc' },
+      { name: 'Alpha-GPC', tier: 'Preliminary', bestFor: 'Choline-focused stacks and effort-based tasks', dose: '300-600 mg/day', safety: 'Avoid combining several high-dose choline sources at once.', href: '/compounds/alpha-gpc' },
+      { name: 'Bacopa monnieri', tier: 'Moderate for memory, not acute focus', bestFor: 'Memory and speed-of-attention over 8-12 weeks', dose: '300 mg/day standardized bacosides', safety: 'GI upset and mild sedation are common deal-breakers; effects build slowly.' },
+      { name: "Lion's mane", tier: 'Preliminary', bestFor: 'Longer-horizon cognition experiments, not acute stimulation', dose: '500-1,000 mg extract/day or label-standardized equivalent', safety: 'Mushroom allergy and product quality matter; expect subtle effects.', href: '/herbs/lions-mane' },
+      { name: 'Rhodiola', tier: 'Preliminary to moderate', bestFor: 'Stress-fatigue and mental endurance rather than raw focus', dose: '200-400 mg/day standardized extract, earlier in the day', safety: 'Activating; caution with bipolar history and stimulants.', href: '/herbs/rhodiola' },
+      { name: 'L-tyrosine', tier: 'Situational', bestFor: 'Acute stress, sleep loss, or multitasking demands, not everyday focus', dose: 'Study doses vary widely; commonly grams before a stressor', safety: 'Caution with thyroid conditions, MAOIs, and stimulant medication.', href: '/compounds/l-tyrosine' },
+    ],
+    comparisonRows: [
+      { scenario: 'Need focus in the next hour', firstChoice: 'Caffeine + L-theanine', why: 'Most reliable same-day option, but it has a sleep cost if taken late.' },
+      { scenario: 'Caffeine-sensitive or anxious', firstChoice: 'L-theanine or citicoline', why: 'Less likely to add jitter, racing heart, or anxiety.' },
+      { scenario: 'Brain fog from stress fatigue', firstChoice: 'Rhodiola', why: 'Targets fatigue and endurance more than acute stimulation.' },
+      { scenario: 'Long-term memory and learning', firstChoice: "Bacopa or lion's mane", why: 'Evaluate over weeks; these are not acute nootropics.' },
+    ],
+    safetyNotes: [
+      'Nootropics can worsen insomnia, anxiety, blood pressure, or stimulant side effects — do not use them to paper over poor sleep.',
+      'Avoid stacking multiple stimulants or multiple cholinergics (citicoline + Alpha-GPC + high-dose choline) without a clear reason.',
+      'New, severe, or worsening focus problems — especially with low mood, sleep apnea, anemia, thyroid symptoms, or medication changes — deserve evaluation, not just a bigger stack.',
+      'Be cautious with ADHD or psychiatric medication, pregnancy, and heart-rhythm or blood-pressure conditions; check interactions before combining.',
+    ],
+    buyerChecklist: [
+      'Decide which job you are buying for: same-day stimulation, calm-focus, or weeks-long cognitive support.',
+      'Check the caffeine amount per serving and across the day before adding any stimulant nootropic.',
+      'Prefer single-ingredient products with disclosed doses over proprietary "focus" or "smart" blends.',
+      'Track sleep, anxiety, heart rate, and timing — not just perceived focus — and trial one ingredient at a time.',
+    ],
+    references: [
+      { label: 'L-theanine + caffeine on cognition, sleep, and mood: systematic review and meta-analysis (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12422004/' },
+      { label: 'Cognitive effects of Bacopa monnieri: meta-analysis of RCTs (PubMed)', href: 'https://pubmed.ncbi.nlm.nih.gov/24252493/' },
+      { label: 'Citicoline and memory function in healthy older adults: RCT (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8349115/' },
+      { label: "Lion's mane (Hericium erinaceus) neurotrophic review (PubMed)", href: 'https://pubmed.ncbi.nlm.nih.gov/37958943/' },
+    ],
+  },
 }
 
 export const herbProfileExpansions: Record<string, CuratedExpansion> = {
