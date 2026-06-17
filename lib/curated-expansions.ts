@@ -301,6 +301,121 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       { label: "Lion's mane (Hericium erinaceus) neurotrophic review (PubMed)", href: 'https://pubmed.ncbi.nlm.nih.gov/37958943/' },
     ],
   },
+  'best-supplements-for-joint-support': {
+    intent: 'Commercial investigation: compare joint-support supplements by realistic effect size, evidence quality, and what they actually target (pain vs structure vs inflammation) — without treating slow, modest options as quick fixes.',
+    methodology: [
+      'Put the foundations first (movement, strength, weight, and clinician evaluation) and rank supplements as modest adjuncts.',
+      'Prefer systematic reviews and meta-analyses, and separate osteoarthritis pain from rheumatoid/inflammatory contexts.',
+      'Down-rank proprietary "joint complex" blends that hide doses, and read most effects as small and slow.',
+    ],
+    evidenceRows: [
+      { name: 'Curcumin / turmeric extract', tier: 'Moderate for knee OA pain', bestFor: 'Adults wanting a non-NSAID option for osteoarthritis discomfort', dose: 'Often 500-1,000 mg/day curcuminoids or a formulated bioavailable equivalent', safety: 'Caution with anticoagulants, gallbladder disease, and reflux; check piperine interactions.', href: '/herbs/turmeric' },
+      { name: 'Omega-3 (EPA/DHA)', tier: 'Moderate for inflammatory joints, limited for OA', bestFor: 'Stiffness in rheumatoid/inflammatory contexts more than wear-and-tear OA', dose: 'Studied effects often appear around ~2-3 g/day EPA+DHA', safety: 'Higher doses may increase bleeding risk; discuss with anticoagulants.', href: '/compounds/omega-3' },
+      { name: 'Glucosamine + chondroitin', tier: 'Mixed / small', bestFor: 'A low-risk multi-week trial for knee OA when expectations are modest', dose: 'Glucosamine sulfate 1,500 mg/day; chondroitin 800-1,200 mg/day', safety: 'Generally well tolerated; shellfish-derived glucosamine matters for allergies.', href: '/compounds/glucosamine' },
+      { name: 'Boswellia serrata', tier: 'Preliminary to moderate', bestFor: 'OA pain and stiffness experiments', dose: 'Standardized extract per label (often boswellic-acid standardized)', safety: 'GI upset possible; data are shorter-term and smaller than for curcumin.' },
+      { name: 'Collagen peptides', tier: 'Preliminary / mixed', bestFor: 'Activity-related joint discomfort experiments', dose: 'Commonly 10-15 g/day in trials', safety: 'Generally well tolerated; evidence is thinner than marketing suggests.' },
+    ],
+    comparisonRows: [
+      { scenario: 'Biggest realistic lever', firstChoice: 'Exercise, strength, and weight management', why: 'These outperform any supplement for joint pain and function.' },
+      { scenario: 'Osteoarthritis pain, non-NSAID interest', firstChoice: 'Curcumin extract', why: 'Best supplement-level evidence for OA pain; expect modest, gradual relief.' },
+      { scenario: 'Inflammatory/rheumatoid stiffness', firstChoice: 'Omega-3', why: 'Better evidence in inflammatory joint contexts than in wear-and-tear OA.' },
+      { scenario: 'Low-risk multi-week trial', firstChoice: 'Glucosamine + chondroitin', why: 'Mixed evidence and small effects, but low risk if expectations stay modest.' },
+    ],
+    safetyNotes: [
+      'Supplements do not replace evaluation for joint injury, autoimmune arthritis, or infection — new, severe, hot, swollen, or locking joints need a clinician.',
+      'Curcumin, boswellia, and omega-3 can add to bleeding risk; review anticoagulants, antiplatelets, and upcoming surgery.',
+      'Joint supplements work slowly — give a trial 8-12 weeks before judging, and stop if symptoms worsen.',
+      'Pregnancy, shellfish allergy (glucosamine), gallbladder disease (curcumin), and diabetes context change the risk calculation.',
+    ],
+    buyerChecklist: [
+      'Confirm you are already moving, strengthening, and managing weight — the supplement is the adjunct, not the plan.',
+      'Match the option to the problem: curcumin/boswellia for OA pain, omega-3 for inflammatory stiffness.',
+      'Choose single-ingredient, dose-disclosed, third-party-tested products over proprietary joint blends.',
+      'Track pain, stiffness, and function over 8-12 weeks rather than expecting same-week relief.',
+    ],
+    references: [
+      { label: 'Glucosamine, chondroitin, or placebo in hip/knee OA: network meta-analysis (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC2941572/' },
+      { label: 'Curcuminoids for knee osteoarthritis pain and function: systematic review and meta-analysis (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9580113/' },
+      { label: 'NIH ODS — Omega-3 fatty acids fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Omega3FattyAcids-HealthProfessional/' },
+    ],
+  },
+  'natural-testosterone-boosters': {
+    intent: 'Skeptical commercial investigation: separate the few supplements with any testosterone or deficiency-correction evidence from the large category of over-marketed "test boosters," with sleep, weight, and clinician evaluation first.',
+    methodology: [
+      'Address the basics first — sleep, body composition, training, alcohol, and screening for actual low testosterone — and treat supplements as minor.',
+      'Distinguish correcting a real deficiency (zinc, vitamin D) from raising testosterone in already-replete men, where effects are small or absent.',
+      'Penalize proprietary booster blends and ingredients (e.g. tribulus) whose libido marketing outruns their hormone data.',
+    ],
+    evidenceRows: [
+      { name: 'Zinc', tier: 'Deficiency-dependent', bestFor: 'Men with low zinc status, not those already replete', dose: 'Correct intake toward the RDA; avoid high-dose self-stacking', safety: 'High-dose zinc impairs copper status and can cause GI effects.', href: '/compounds/zinc' },
+      { name: 'Vitamin D', tier: 'Deficiency-dependent', bestFor: 'Men with low vitamin D status', dose: 'Replace to a normal level based on testing, not megadosing', safety: 'Excess can cause hypercalcemia; dose to lab status.', href: '/compounds/vitamin-d' },
+      { name: 'Ashwagandha', tier: 'Preliminary / mixed', bestFor: 'Stress- and sleep-linked context; some small trials show modest testosterone changes', dose: '300-600 mg/day standardized root extract', safety: 'Avoid in pregnancy; review thyroid, autoimmune, liver, and sedative context.', href: '/herbs/ashwagandha' },
+      { name: 'Magnesium', tier: 'Context dependent', bestFor: 'Low intake and active men, mostly an indirect/supportive role', dose: '200-400 mg elemental magnesium/day', safety: 'Kidney disease and medication spacing matter.', href: '/compounds/magnesium' },
+      { name: 'Maca', tier: 'Libido, not testosterone', bestFor: 'Subjective libido experiments — it does not reliably raise testosterone', dose: 'Commonly 1.5-3 g/day', safety: 'Generally well tolerated; quality and processing vary.', href: '/herbs/maca' },
+      { name: 'Fenugreek / "test booster" blends', tier: 'Weak / inconsistent', bestFor: 'Skip until doses and evidence are clear', dose: 'Proprietary blends hide doses', safety: 'Mostly libido or perception effects; not a substitute for evaluation.' },
+    ],
+    comparisonRows: [
+      { scenario: 'Symptoms of low testosterone', firstChoice: 'Get evaluated and tested first', why: 'Real hypogonadism needs medical diagnosis, not a booster supplement.' },
+      { scenario: 'Confirmed nutrient deficiency', firstChoice: 'Correct zinc or vitamin D to normal', why: 'Benefits concentrate in deficiency correction, not in already-replete men.' },
+      { scenario: 'Stress, poor sleep, high load', firstChoice: 'Ashwagandha plus sleep and training fixes', why: 'Modest, mixed hormone signal; the lifestyle levers matter more.' },
+      { scenario: 'Product promises big T gains', firstChoice: 'Skip the claim', why: 'No OTC supplement matches prescribed testosterone therapy.' },
+    ],
+    safetyNotes: [
+      'Symptoms like low libido, fatigue, or mood changes warrant medical evaluation and lab testing, not self-treatment with boosters.',
+      'Supplements are not a substitute for prescribed testosterone therapy or for diagnosing the cause of low testosterone.',
+      'Avoid high-dose zinc (copper depletion) and high-dose vitamin D (hypercalcemia); dose to actual status.',
+      'Ashwagandha is not for pregnancy and needs thyroid, autoimmune, and liver context; hormone-sensitive conditions change the calculus.',
+    ],
+    buyerChecklist: [
+      'Fix sleep, training, alcohol, and body composition before buying anything.',
+      'Test for zinc/vitamin D status and low testosterone rather than guessing.',
+      'Prefer single-ingredient, dose-disclosed products over proprietary booster blends.',
+      'Treat libido effects (maca, fenugreek) as separate from actual testosterone changes.',
+    ],
+    references: [
+      { label: 'Effects of herbs on testosterone concentrations in men: systematic review (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8166567/' },
+      { label: 'Zinc supplementation in men with hypogonadotropic hypogonadism (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5427781/' },
+      { label: 'NIH ODS — Zinc fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Zinc-HealthProfessional/' },
+    ],
+  },
+  'best-adaptogens-for-stress': {
+    intent: 'Commercial investigation: choose a stress adaptogen by use case (calming vs activating), evidence strength, and safety context, rather than assuming every adaptogen is interchangeable or risk-free.',
+    methodology: [
+      'Separate calming adaptogens from activating ones, and keep multi-week adaptogen support distinct from same-day calm.',
+      'Prioritize human stress outcomes and systematic reviews over traditional-use claims and broad "balance" marketing.',
+      'Require clear pregnancy, thyroid, liver, bipolar, and medication cautions before product guidance.',
+    ],
+    evidenceRows: [
+      { name: 'Ashwagandha', tier: 'Moderate', bestFor: 'Chronic perceived stress and cortisol-pattern support (calming)', dose: '300-600 mg/day standardized root extract', safety: 'Avoid in pregnancy; review thyroid, autoimmune, liver, and sedative context.', href: '/herbs/ashwagandha' },
+      { name: 'Rhodiola', tier: 'Preliminary to moderate', bestFor: 'Stress-fatigue and low-drive burnout (activating)', dose: '200-400 mg/day standardized extract, earlier in the day', safety: 'Can feel activating; caution with bipolar history and stimulants.', href: '/herbs/rhodiola' },
+      { name: 'Holy basil (tulsi)', tier: 'Preliminary', bestFor: 'Traditional adaptogen users wanting a milder option', dose: '300-600 mg/day extract', safety: 'Caution with anticoagulants, hypoglycemics, and fertility/pregnancy context.', href: '/herbs/holy-basil' },
+      { name: 'Eleuthero (Siberian ginseng)', tier: 'Limited', bestFor: 'Mild fatigue/endurance experiments', dose: 'Extract per label', safety: 'Can be activating; limited modern human stress data.' },
+      { name: 'Cordyceps', tier: 'Limited for stress', bestFor: 'Energy/endurance interest more than stress relief', dose: 'Product dependent', safety: 'Evidence for stress specifically is thin; choose tested products.' },
+    ],
+    comparisonRows: [
+      { scenario: 'Chronic perceived stress', firstChoice: 'Ashwagandha', why: 'Best human stress/cortisol signal among adaptogens (calming).' },
+      { scenario: 'Stress plus fatigue or low drive', firstChoice: 'Rhodiola', why: 'More activating; take earlier in the day.' },
+      { scenario: 'Wanting a milder daily option', firstChoice: 'Holy basil', why: 'Gentler profile, but weaker evidence than ashwagandha.' },
+      { scenario: 'Need same-day calm', firstChoice: 'A faster calming option, not an adaptogen', why: 'Adaptogens are multi-week tools, not acute anxiolytics.' },
+    ],
+    safetyNotes: [
+      'Adaptogens do not treat anxiety disorders, depression, trauma, or burnout on their own — persistent symptoms deserve evaluation.',
+      'Avoid combining multiple adaptogens, sedatives, alcohol, and sleep aids without clinician guidance.',
+      'Pregnancy, thyroid disease, bipolar history, liver disease, and complex medications change the risk calculation.',
+      'Give adaptogens several weeks; do not chase same-day effects or escalate doses to feel something.',
+    ],
+    buyerChecklist: [
+      'Decide whether you want a calming (ashwagandha) or activating (rhodiola) profile.',
+      'Choose standardized extracts with marker compounds disclosed, not proprietary cortisol blends.',
+      'Start one adaptogen at a time and reassess after the expected multi-week window.',
+      'Match timing to the profile: ashwagandha can suit evenings; rhodiola suits mornings.',
+    ],
+    references: [
+      { label: 'Ashwagandha stress RCT (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6750292/' },
+      { label: 'Rhodiola rosea for physical and mental fatigue: systematic review (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC3541197/' },
+      { label: 'Ashwagandha for stress and anxiety: review (PubMed)', href: 'https://pubmed.ncbi.nlm.nih.gov/39348746/' },
+    ],
+  },
 }
 
 export const herbProfileExpansions: Record<string, CuratedExpansion> = {
