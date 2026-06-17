@@ -48,7 +48,7 @@ Priority clusters used by the internal link engine.
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 772
+- Pages: 773
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
@@ -224,7 +224,8 @@ Priority clusters used by the internal link engine.
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 509
+- Pages: 510
+- [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Berberine vs Metformin](/compare/berberine-vs-metformin) (guide)
 - [Caffeine vs L-Theanine vs Bacopa for Focus & Attention](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
 - [Rhodiola vs Ashwagandha](/compare/rhodiola-vs-ashwagandha) (guide)
@@ -264,7 +265,6 @@ Priority clusters used by the internal link engine.
 - [baicalein](/compounds/baicalein) (compound)
 - [baicalin](/compounds/baicalin) (compound)
 - [Banaba Leaf Extract](/compounds/banaba-leaf-extract) (compound)
-- [BCAA](/compounds/bcaa) (compound)
 
 ## Gut Health
 - Signals: gut, digestive, microbiome, probiotic, prebiotic, fiber, bloating
@@ -312,7 +312,7 @@ Priority clusters used by the internal link engine.
 
 ## Longevity
 - Signals: longevity, aging, nad, sirtuin, mitochondrial, cellular health
-- Pages: 150
+- Pages: 149
 - [Berberine vs Metformin](/compare/berberine-vs-metformin) (guide)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
