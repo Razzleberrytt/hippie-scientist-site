@@ -136,6 +136,86 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       { label: 'Iron and zinc ADHD systematic review (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8618748/' },
     ],
   },
+  'best-supplements-for-gut-health': {
+    intent: 'Commercial investigation: compare gut-health supplements by symptom fit, evidence quality, strain/form specificity, tolerability, and medication timing.',
+    methodology: [
+      'Rank by human GI outcomes first, not broad microbiome marketing.',
+      'Separate regularity, IBS-style bloating, gut-barrier claims, and digestive-enzyme use cases.',
+      'Down-rank products that hide strains, fiber type, enzyme units, or dose.',
+    ],
+    evidenceRows: [
+      { name: 'Psyllium / soluble fiber', tier: 'Moderate', bestFor: 'Regularity, stool form, and cardiometabolic overlap', dose: 'Start 3-5 g/day with water; titrate slowly', safety: 'Separate from medications; avoid with swallowing difficulty or bowel obstruction risk.' },
+      { name: 'Probiotics', tier: 'Strain-specific / mixed', bestFor: 'Some IBS and antibiotic-associated contexts', dose: 'Use studied strain and CFU from the product label', safety: 'Avoid self-directed use if immunocompromised or critically ill.' },
+      { name: 'Prebiotic fiber', tier: 'Context dependent', bestFor: 'Microbiome support when fermentable fibers are tolerated', dose: 'Start low, often 1-3 g/day', safety: 'Can worsen gas/bloating in IBS or FODMAP sensitivity.' },
+      { name: 'Peppermint oil', tier: 'Moderate for IBS symptoms', bestFor: 'IBS-style cramping, bloating, and discomfort', dose: 'Enteric-coated capsules per label before meals', safety: 'Can worsen reflux; avoid with gallbladder disease unless cleared.' },
+      { name: 'Digestive enzymes', tier: 'Specific-use only', bestFor: 'Lactase for lactose or targeted enzymes for known triggers', dose: 'Taken with the trigger meal', safety: 'Broad enzyme blends are often over-marketed.' },
+      { name: 'Ginger', tier: 'Preliminary to moderate', bestFor: 'Nausea or motility-adjacent discomfort', dose: '500-1,000 mg/day or food/tea equivalent', safety: 'Caution with anticoagulants or surgery context.', href: '/herbs/ginger' },
+      { name: 'Zinc carnosine / L-glutamine', tier: 'Preliminary', bestFor: 'Barrier-support interest, not general gut-health claims', dose: 'Product and context dependent', safety: 'Use clinician guidance for IBD, ulcers, or complex GI disease.', href: '/compounds/l-glutamine' },
+    ],
+    comparisonRows: [
+      { scenario: 'Constipation or irregularity', firstChoice: 'Psyllium or another soluble fiber', why: 'Most practical first-line supplement category when tolerated.' },
+      { scenario: 'Bloating after fermentable foods', firstChoice: 'Targeted enzyme or lower-FODMAP review', why: 'Prebiotics may worsen symptoms if fermentable fiber is the trigger.' },
+      { scenario: 'IBS-style cramps', firstChoice: 'Enteric-coated peppermint oil', why: 'More targeted evidence than generic gut blends.' },
+      { scenario: 'After antibiotics', firstChoice: 'Specific probiotic strain', why: 'Benefits are strain- and situation-specific, not guaranteed by high CFU alone.' },
+    ],
+    safetyNotes: [
+      'New, severe, bloody, unexplained, or persistent GI symptoms need medical evaluation.',
+      'Fiber can reduce absorption of medications and should be separated from drugs and minerals when advised.',
+      'Probiotics are not automatically safe for immunocompromised, critically ill, or central-line patients.',
+      'Peppermint oil can worsen reflux and is not the same as peppermint tea.',
+    ],
+    buyerChecklist: [
+      'Choose by symptom: regularity, bloating, cramping, diarrhea, constipation, or post-antibiotic context.',
+      'For probiotics, verify full strain names, CFU at expiration, and storage requirements.',
+      'For fiber, check soluble versus fermentable type and start with a small dose.',
+      'For enzymes, match the enzyme to the food trigger instead of buying a broad blend first.',
+    ],
+    references: [
+      { label: 'Prebiotics and probiotics for gastrointestinal disorders (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10975713/' },
+      { label: 'NCCIH IBS complementary approaches digest', href: 'https://www.nccih.nih.gov/health/providers/digest/irritable-bowel-syndrome-and-complementary-health-approaches-science' },
+      { label: 'Probiotics, fibre, and herbal products for functional bowel symptoms (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC5429330/' },
+    ],
+  },
+  'best-supplements-for-fat-loss': {
+    intent: 'High-scrutiny commercial investigation: compare fat-loss supplements by realistic effect size, safety, diet/training dependence, and medical context.',
+    methodology: [
+      'Rank supplements only as adjuncts to diet, protein adequacy, activity, sleep, and medical care.',
+      'Prefer systematic reviews, official NIH safety summaries, and human body-composition outcomes.',
+      'Penalize stimulant blends, GLP-1 replacement claims, and products that hide caffeine or botanical doses.',
+    ],
+    evidenceRows: [
+      { name: 'Protein powder', tier: 'Moderate as diet support', bestFor: 'Satiety and preserving lean mass during calorie deficit', dose: 'Use to meet daily protein target, not as a fat burner', safety: 'Kidney disease or medically restricted diets need clinician guidance.' },
+      { name: 'Soluble fiber / psyllium', tier: 'Mixed to moderate', bestFor: 'Fullness, regularity, and glycemic context', dose: '3-10 g/day, titrated with water', safety: 'Separate from medications; GI bloating can limit use.' },
+      { name: 'Caffeine', tier: 'Modest acute effect', bestFor: 'Short-term energy expenditure and training support', dose: 'Keep total daily caffeine visible', safety: 'Can worsen anxiety, insomnia, BP, palpitations, and stimulant interactions.', href: '/compounds/caffeine' },
+      { name: 'Green tea extract / EGCG', tier: 'Small effect, safety-limited', bestFor: 'People tolerating caffeine/catechins and avoiding empty-stomach extracts', dose: 'Varies widely; avoid high-dose EGCG self-experiments', safety: 'Liver injury reports exist, especially concentrated extracts.' },
+      { name: 'Berberine', tier: 'Preliminary to moderate metabolic signal', bestFor: 'Metabolic-health context with clinician awareness', dose: 'Often >1 g/day in studies, split doses', safety: 'GI effects; medication, pregnancy, diabetes-drug, and bilirubin context matter.', href: '/compounds/berberine' },
+      { name: 'L-carnitine', tier: 'Mixed', bestFor: 'Specific deficiency or training contexts, not broad fat loss', dose: 'Study-dependent; often grams/day', safety: 'GI effects and odor are common; evidence is not magic.' },
+    ],
+    comparisonRows: [
+      { scenario: 'Best first purchase', firstChoice: 'Protein or fiber if they fix a real diet gap', why: 'They support adherence; they do not override calorie balance.' },
+      { scenario: 'Stimulant-sensitive', firstChoice: 'Avoid caffeine-heavy fat burners', why: 'Sleep and anxiety costs can erase any tiny thermogenic benefit.' },
+      { scenario: 'Metabolic labs are abnormal', firstChoice: 'Clinician-guided plan before berberine', why: 'Medication and glucose-lowering overlap matter.' },
+      { scenario: 'Product says natural Ozempic', firstChoice: 'Skip the claim', why: 'Supplements do not match GLP-1 medication effect sizes.' },
+    ],
+    safetyNotes: [
+      'Supplements do not replace medical obesity care, prescribed medication, nutrition therapy, or evaluation for endocrine causes.',
+      'Avoid stimulant blends if you have uncontrolled blood pressure, arrhythmia, panic/anxiety, insomnia, pregnancy, or stimulant medication use.',
+      'Green tea extract and some fat-loss botanicals have liver-safety concerns; stop for jaundice, dark urine, severe abdominal pain, or unusual fatigue.',
+      'Berberine can interact with glucose-lowering drugs and is not appropriate for pregnancy or breastfeeding without medical guidance.',
+    ],
+    buyerChecklist: [
+      'Reject proprietary blends that hide caffeine, synephrine, yohimbine, EGCG, or berberine dose.',
+      'Ask what behavior the supplement helps: protein target, fullness, training energy, or metabolic-lab discussion.',
+      'Track waist, weight trend, sleep, blood pressure, and side effects over weeks, not day-to-day noise.',
+      'Choose third-party tested products and avoid products promising rapid or medication-like weight loss.',
+    ],
+    references: [
+      { label: 'NIH ODS weight-loss supplement fact sheet', href: 'https://ods.od.nih.gov/factsheets/WeightLoss-HealthProfessional/' },
+      { label: 'NCCIH berberine and weight loss evidence summary', href: 'https://www.nccih.nih.gov/health/berberine-and-weight-loss-what-you-need-to-know' },
+      { label: 'Dietary supplements for weight management narrative review (PMC)', href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9099655/' },
+      { label: 'Berberine randomized-trial meta-analysis (PubMed)', href: 'https://pubmed.ncbi.nlm.nih.gov/32690176/' },
+    ],
+  },
 }
 
 export const herbProfileExpansions: Record<string, CuratedExpansion> = {

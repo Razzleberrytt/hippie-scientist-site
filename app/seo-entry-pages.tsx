@@ -270,6 +270,8 @@ const revenueProductSlugs: Record<string, string[]> = {
   'best-supplements-for-stress': ['ashwagandha', 'rhodiola', 'l-theanine'],
   'best-supplements-for-focus': ['l-theanine', 'lions-mane'],
   'best-nootropics-for-focus': ['l-theanine', 'lions-mane'],
+  'best-supplements-for-gut-health': ['probiotics', 'ginger', 'glutamine'],
+  'best-supplements-for-fat-loss': ['berberine', 'green-tea-extract', 'caffeine'],
   'guides/best-supplements-for-sleep': ['magnesium', 'l-theanine'],
   'guides/best-supplements-for-stress': ['ashwagandha', 'rhodiola', 'l-theanine'],
   'guides/best-supplements-for-focus': ['l-theanine', 'lions-mane'],
