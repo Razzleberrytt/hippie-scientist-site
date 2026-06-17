@@ -75,6 +75,17 @@ const ANXIETY_HERBS = [
     badge: 'Moderate',
     interactions: 'Sedatives (additive effect)',
   },
+  {
+    name: 'Chamomile',
+    mechanism: 'Apigenin-containing flower preparation with mild GABAergic and calming plausibility',
+    evidence: 'C — small anxiety trials and traditional use; not as strong as Silexan or ashwagandha',
+    dose: 'Tea or standardized extract per label; clinical extract doses vary by preparation',
+    safety: 'Generally gentle; avoid with ragweed allergy and use caution with sedatives or anticoagulants',
+    bestFor: 'Mild situational anxiety, evening ritual, anxiety + sleep overlap',
+    href: '/compounds/apigenin',
+    badge: 'Preliminary',
+    interactions: 'Sedatives, anticoagulants, ragweed allergy',
+  },
 ]
 
 const HERB_CHOICE_FRAMEWORK = [
@@ -85,7 +96,46 @@ const HERB_CHOICE_FRAMEWORK = [
   { scenario: 'Mild anxiety + brain fog', recommendation: 'Lemon Balm + Ashwagandha', note: 'Lemon balm offers mild cognitive support alongside anxiolysis' },
 ]
 
+const ANXIETY_FAQS = [
+  {
+    question: 'What is the fastest-acting herb for anxiety?',
+    answer: 'Passionflower, lavender/Silexan, or carefully selected kava may feel more acute than ashwagandha, but fast-acting does not mean risk-free. Kava has important liver, alcohol, and medication cautions.',
+  },
+  {
+    question: 'Can herbs replace anxiety medication?',
+    answer: 'No. Herbs should not replace prescribed anxiety medication or therapy. Discuss any supplement plan with a healthcare professional, especially before changing SSRIs, benzodiazepines, or other psychiatric medications.',
+  },
+  {
+    question: 'Can I take anxiety herbs with SSRIs?',
+    answer: 'Do not stack serotonergic, sedating, or liver-active herbs with SSRIs without clinician guidance. Interaction risk depends on the herb, dose, medication, liver function, and personal history.',
+  },
+  {
+    question: 'Which anxiety herb is best for daily use?',
+    answer: 'Ashwagandha or lavender/Silexan are more often studied over multi-week daily windows, while kava is better treated as short-term and safety-limited. Individual fit and contraindications matter more than a universal winner.',
+  },
+]
+
+const ANXIETY_REFERENCES = [
+  ['Silexan anxiety meta-analysis', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10465640/'],
+  ['Silexan anxiety meta-analysis on PubMed', 'https://pubmed.ncbi.nlm.nih.gov/36717399/'],
+  ['Ashwagandha stress RCT', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6750292/'],
+  ['Ashwagandha adaptogenic and anxiolytic trial', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6979308/'],
+] as const
+
 export default function BestHerbsForAnxietyPage() {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: ANXIETY_FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+
   return (
     <>
       <StructuredData
@@ -99,6 +149,10 @@ export default function BestHerbsForAnxietyPage() {
           { label: 'Guides', href: '/guides' },
           { label: 'Best Herbs for Anxiety', href: '/guides/best-herbs-for-anxiety' },
         ]}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
@@ -148,6 +202,27 @@ export default function BestHerbsForAnxietyPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <p className="eyebrow-label">Fast acting vs daily</p>
+            <h2 className="mt-1 text-xl font-semibold text-ink">Choose by time horizon</h2>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
+              <li><strong>Same-day calming:</strong> passionflower, lavender/Silexan, or kava with strict safety limits.</li>
+              <li><strong>Multi-week stress pattern:</strong> ashwagandha is a better fit than expecting immediate sedation.</li>
+              <li><strong>Mild evening ritual:</strong> chamomile or lemon balm may fit better than stronger anxiolytic herbs.</li>
+            </ul>
+          </div>
+          <div className="rounded-[1.65rem] border border-red-200 bg-red-50 p-6 shadow-sm">
+            <p className="eyebrow-label text-red-900">Medication safety</p>
+            <h2 className="mt-1 text-xl font-semibold text-red-950">SSRI and sedative stacking risk</h2>
+            <p className="mt-3 text-sm leading-6 text-red-900/90">
+              Do not stop, reduce, or combine prescribed anxiety medication with herbs based on this guide.
+              SSRIs, benzodiazepines, sleep medications, alcohol, kava, sedating herbs, and liver-active
+              products can create additive or unpredictable risks. Use clinician guidance before combining.
+            </p>
           </div>
         </section>
 
@@ -212,6 +287,57 @@ export default function BestHerbsForAnxietyPage() {
             <li>• Standardization varies wildly between products. A 300 mg ashwagandha capsule with 1% withanolides is not the same as KSM-66 with 5%.</li>
             <li>• Kava's safety data is heavily preparation-dependent. The Cochrane review supporting its use was on aqueous extracts; most of the hepatotoxicity reports involve ethanolic or acetone extracts.</li>
             <li>• Individual response varies substantially. Someone with HPA dysregulation may see dramatic benefit from ashwagandha; someone with pure GABA dysregulation may not.</li>
+          </ul>
+        </section>
+
+        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Dosing and timing snapshot</h2>
+          <div className="mt-4 overflow-x-auto rounded-[1rem] border border-brand-900/10 bg-white">
+            <table className="min-w-[640px] w-full text-left text-sm">
+              <thead className="bg-brand-50/60 text-xs font-bold uppercase tracking-wider text-muted">
+                <tr>
+                  <th className="p-4">Herb</th>
+                  <th className="p-4">Time horizon</th>
+                  <th className="p-4">Typical range</th>
+                  <th className="p-4">Main caution</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10">
+                {ANXIETY_HERBS.map((h) => (
+                  <tr key={h.name}>
+                    <td className="p-4 font-semibold text-ink">{h.name}</td>
+                    <td className="p-4 text-muted">{/Ashwagandha|Lavender/.test(h.name) ? 'Daily / multi-week' : 'Situational or evening'}</td>
+                    <td className="p-4 text-muted">{h.dose}</td>
+                    <td className="p-4 text-muted">{h.interactions}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Frequently asked questions</h2>
+          <div className="mt-4 divide-y divide-brand-900/10">
+            {ANXIETY_FAQS.map((faq) => (
+              <div key={faq.question} className="py-4 first:pt-0 last:pb-0">
+                <h3 className="font-semibold text-ink">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">References</h2>
+          <ul className="mt-4 space-y-2 text-sm leading-6">
+            {ANXIETY_REFERENCES.map(([label, href]) => (
+              <li key={href}>
+                <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
+                  {label}
+                </a>
+              </li>
+            ))}
           </ul>
         </section>
 

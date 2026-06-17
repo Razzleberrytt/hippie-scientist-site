@@ -48,6 +48,7 @@ import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 import PathwayDiagram from '@/components/PathwayDiagram'
 import { generatePathwayDiagram } from '@/lib/generate-pathway'
+import { herbProfileExpansions } from '@/lib/curated-expansions'
 
 
 type PageProps = {
@@ -386,6 +387,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const citations = extractCitationsFromRecord(herb)
   const pathwayDiagram = generatePathwayDiagram({ ...(herb as unknown as Record<string, unknown>), name: displayName })
+  const expansion = herbProfileExpansions[normalizedSlug]
 
   const goalLinks = getGoalsForEntity(normalizedSlug)
 
@@ -601,6 +603,83 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </section>
 
       {normalizedSlug === 'ashwagandha' && <AshwagandhaStressClaim />}
+
+      {expansion ? (
+        <section className="card-premium p-4 sm:p-5 space-y-5">
+          <div className="space-y-2">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Expanded editorial review</p>
+            <h2 className="text-lg font-bold text-ink">What this profile is built to answer</h2>
+            <p className="text-sm leading-6 text-muted">{expansion.intent}</p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-3">
+            {expansion.methodology.map((item) => (
+              <div key={item} className="rounded-xl border border-brand-900/10 bg-white/90 p-3 text-xs leading-5 text-muted">{item}</div>
+            ))}
+          </div>
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white">
+            <table className="min-w-[760px] w-full text-left text-sm">
+              <thead className="bg-brand-50/60 text-xs font-bold uppercase tracking-wider text-muted">
+                <tr>
+                  <th className="px-4 py-3">Use case</th>
+                  <th className="px-4 py-3">Evidence</th>
+                  <th className="px-4 py-3">Best fit</th>
+                  <th className="px-4 py-3">Typical range</th>
+                  <th className="px-4 py-3">Safety context</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/5">
+                {expansion.evidenceRows.map((row) => (
+                  <tr key={row.name}>
+                    <td className="px-4 py-3 font-semibold text-ink">{row.name}</td>
+                    <td className="px-4 py-3 text-muted">{row.tier}</td>
+                    <td className="px-4 py-3 text-muted">{row.bestFor}</td>
+                    <td className="px-4 py-3 text-muted">{row.dose}</td>
+                    <td className="px-4 py-3 text-muted">{row.safety}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+              <h3 className="font-bold text-ink">Product and form choices</h3>
+              <div className="mt-3 space-y-3">
+                {expansion.comparisonRows.map((row) => (
+                  <div key={row.scenario} className="border-t border-brand-900/10 pt-3 first:border-t-0 first:pt-0">
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted">{row.scenario}</p>
+                    <p className="mt-1 text-sm font-semibold text-ink">{row.firstChoice}</p>
+                    <p className="mt-1 text-xs leading-5 text-muted">{row.why}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-amber-900/10 bg-amber-50/70 p-4">
+              <h3 className="font-bold text-amber-950">Safety checks</h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-xs leading-5 text-amber-900/90">
+                {expansion.safetyNotes.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+              <h3 className="font-bold text-ink">How to choose a product</h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-xs leading-5 text-muted">
+                {expansion.buyerChecklist.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+              <h3 className="font-bold text-ink">References</h3>
+              <ul className="mt-3 space-y-2 text-xs leading-5">
+                {expansion.references.map((ref) => (
+                  <li key={ref.href}>
+                    <a href={ref.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:underline">{ref.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* Section 2: Safety */}
       <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">

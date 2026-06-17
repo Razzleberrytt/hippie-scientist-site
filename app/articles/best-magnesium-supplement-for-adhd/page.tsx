@@ -61,6 +61,20 @@ const FAQS = [
   },
 ]
 
+const MAGNESIUM_EVIDENCE_ROWS = [
+  ['Glycinate / bisglycinate', 'Best first choice', 'Well tolerated; useful when sleep tension or low intake is part of the picture', '100-300 mg elemental magnesium, often evening', 'Separate from some antibiotics and thyroid medication; avoid unsupervised use with kidney disease'],
+  ['Citrate', 'Budget alternative', 'Reasonable absorption and cost, but more laxative at higher doses', '100-200 mg elemental to start', 'Loose stools are the main limiting factor'],
+  ['L-threonate', 'Premium / not first-line', 'Interesting brain-bioavailability marketing, but limited ADHD-specific comparative evidence', 'Use label dosing; elemental magnesium is usually lower', 'High cost and limited direct evidence'],
+  ['Malate', 'Daytime option', 'Sometimes used when fatigue is prominent; less calming than glycinate', '100-300 mg elemental, often earlier in the day', 'Can feel less sleep-oriented for sensitive users'],
+  ['Oxide', 'Not recommended for ADHD goals', 'High elemental percentage but poor practical absorption and more laxative effect', 'Do not use as the primary form for ADHD sleep/calm goals', 'Often appears in cheap formulas'],
+] as const
+
+const MAGNESIUM_REFERENCES = [
+  ['Nutrition in ADHD review', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10444659/'],
+  ['Mineral status in ADHD review', 'https://www.mdpi.com/1420-3049/25/19/4440'],
+  ['Iron and zinc ADHD systematic review context', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8618748/'],
+] as const
+
 export default function BestMagnesiumForAdhdPage() {
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
@@ -165,6 +179,68 @@ export default function BestMagnesiumForAdhdPage() {
                 evidence-backed reasons to use magnesium in ADHD.
               </p>
               <EvidenceLegend highlightTier="moderate" className="mt-4" />
+            </div>
+
+            <hr className="border-brand-900/10" />
+
+            <div id="evidence-synthesis">
+              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
+                Magnesium + ADHD Evidence: What This Buying Guide Assumes
+              </h2>
+              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                Magnesium makes the most sense when there is low intake, a documented low level, sleep disruption,
+                muscle tension, or evening hyperarousal. It should not be framed as a standalone ADHD treatment.
+                Human ADHD research is mixed and often confounded by baseline nutrient status, so product choice
+                matters less than choosing a tolerable form, checking elemental dose, and avoiding broad claims.
+              </p>
+              <ResponsiveTable label="Magnesium form evidence and safety comparison" className="mt-4">
+                <table className="min-w-[760px] w-full text-sm">
+                  <thead>
+                    <tr className="border-b border-brand-900/10">
+                      {['Form', 'Verdict', 'Best fit', 'Dose range', 'Safety note'].map((h) => (
+                        <th key={h} className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-brand-900/5">
+                    {MAGNESIUM_EVIDENCE_ROWS.map(([form, verdict, fit, dose, safety]) => (
+                      <tr key={form} className="align-top">
+                        <td className="py-3 pr-4 font-semibold text-ink">{form}</td>
+                        <td className="py-3 pr-4 text-[#46574d]">{verdict}</td>
+                        <td className="py-3 pr-4 text-[#46574d]">{fit}</td>
+                        <td className="py-3 pr-4 text-[#46574d]">{dose}</td>
+                        <td className="py-3 text-[#46574d]">{safety}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </ResponsiveTable>
+            </div>
+
+            <hr className="border-brand-900/10" />
+
+            <div id="deficiency-and-dosing">
+              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
+                Deficiency Clues, Age Context, and Timing
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/50 p-5">
+                  <h3 className="font-semibold text-ink">Signs to discuss with a clinician</h3>
+                  <ul className="mt-2 ml-5 list-disc space-y-1.5 text-sm leading-6 text-[#46574d]">
+                    <li>Low dietary magnesium intake, restrictive diet, or frequent GI losses.</li>
+                    <li>Muscle cramps, restless sleep, or tension that overlaps with low intake.</li>
+                    <li>Medication, kidney, or GI history that changes mineral handling.</li>
+                  </ul>
+                </div>
+                <div className="rounded-[1rem] border border-amber-900/10 bg-amber-50/70 p-5">
+                  <h3 className="font-semibold text-amber-950">Children and teens</h3>
+                  <p className="mt-2 text-sm leading-6 text-amber-900/90">
+                    Pediatric magnesium dosing should be individualized by a pediatrician. Do not copy adult
+                    doses for children, and do not use magnesium to replace behavioral care, school support,
+                    sleep evaluation, or prescribed ADHD treatment.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <hr className="border-brand-900/10" />
@@ -369,6 +445,21 @@ export default function BestMagnesiumForAdhdPage() {
                   ))}
                 </ul>
               </SafetyNotice>
+            </div>
+
+            <hr className="border-brand-900/10" />
+
+            <div id="references">
+              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">References</h2>
+              <ul className="space-y-2 text-sm leading-6">
+                {MAGNESIUM_REFERENCES.map(([label, href]) => (
+                  <li key={href}>
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
 
             <hr className="border-brand-900/10" />

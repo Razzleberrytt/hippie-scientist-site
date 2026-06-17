@@ -15,6 +15,7 @@ import { buildPageMetadata } from '@/lib/seo'
 import { isRestrictedRecord } from '@/lib/restricted-ingredients'
 import { buildSeoEntrySchemaGraph } from '@/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { seoEntryExpansions } from '@/lib/curated-expansions'
 
 type SeoEntryConfig = {
   route: string
@@ -436,6 +437,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
 
   const pageSections = sectionFor(goal.slug)
   const faqs = buildFaqs(page, goal.title)
+  const expansion = seoEntryExpansions[page.route]
 
   const seenRoutes = new Set<string>()
   const cleanRoute = (r: string) => r.replace(/^guides\//, '')
@@ -506,6 +508,93 @@ export async function SeoEntryPage({ route }: { route: string }) {
           <div key={bullet} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 text-sm leading-6 text-muted">{bullet}</div>
         ))}
       </section>
+
+      {expansion ? (
+        <>
+          <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800/80">Evidence-first ranking</p>
+            <h2 className="text-2xl font-bold text-ink">How we ranked these options</h2>
+            <p className="max-w-3xl text-sm leading-6 text-muted">{expansion.intent}</p>
+            <ul className="grid gap-3 md:grid-cols-3">
+              {expansion.methodology.map((item) => (
+                <li key={item} className="rounded-2xl border border-brand-900/10 bg-brand-50/50 p-4 text-sm leading-6 text-muted">{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <h2 className="text-2xl font-bold text-ink">Evidence, dose, and safety snapshot</h2>
+            <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white">
+              <table className="min-w-[760px] w-full text-left text-sm">
+                <thead className="bg-brand-50/60 text-xs font-bold uppercase tracking-wider text-muted">
+                  <tr>
+                    <th className="px-4 py-3">Option</th>
+                    <th className="px-4 py-3">Evidence</th>
+                    <th className="px-4 py-3">Best fit</th>
+                    <th className="px-4 py-3">Typical range</th>
+                    <th className="px-4 py-3">Safety context</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-900/5">
+                  {expansion.evidenceRows.map((row) => (
+                    <tr key={row.name}>
+                      <td className="px-4 py-3 font-semibold text-ink">
+                        {row.href ? <Link href={row.href} className="text-brand-700 hover:underline">{row.name}</Link> : row.name}
+                      </td>
+                      <td className="px-4 py-3 text-muted">{row.tier}</td>
+                      <td className="px-4 py-3 text-muted">{row.bestFor}</td>
+                      <td className="px-4 py-3 text-muted">{row.dose}</td>
+                      <td className="px-4 py-3 text-muted">{row.safety}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className="grid gap-4 lg:grid-cols-2">
+            <div className="rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+              <h2 className="text-xl font-bold text-ink">Which to try first</h2>
+              <div className="mt-4 space-y-3">
+                {expansion.comparisonRows.map((row) => (
+                  <div key={row.scenario} className="rounded-2xl border border-brand-900/10 bg-white p-4">
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted">{row.scenario}</p>
+                    <p className="mt-1 font-semibold text-ink">{row.firstChoice}</p>
+                    <p className="mt-1 text-sm leading-6 text-muted">{row.why}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-4">
+              <section className="rounded-3xl border border-amber-300/40 bg-amber-50 p-6">
+                <h2 className="text-xl font-bold text-amber-950">Safety checks before buying</h2>
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-amber-900/85">
+                  {expansion.safetyNotes.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </section>
+              <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+                <h2 className="text-xl font-bold text-ink">Buyer checklist</h2>
+                <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+                  {expansion.buyerChecklist.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </section>
+            </div>
+          </section>
+
+          <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <h2 className="text-2xl font-bold text-ink">References</h2>
+            <ul className="mt-3 space-y-2 text-sm leading-6">
+              {expansion.references.map((ref) => (
+                <li key={ref.href}>
+                  <a href={ref.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
+                    {ref.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </>
+      ) : null}
 
       <ConversionAffiliateCard name={page.h1} intent={page.searchIntent} variant="dark" />
 

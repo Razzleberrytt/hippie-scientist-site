@@ -93,7 +93,7 @@ Omega-3 support is most clearly justified when dietary intake is low or blood le
 
 Evidence Grade: Moderate for modest behavioral improvements, especially with higher EPA content and low baseline status.
 
-TODO: Verify meta-analysis details on effect sizes, EPA:DHA ratios, durations, and population characteristics.
+Evidence notes: meta-analyses generally find small, clinically modest effects, with higher-EPA formulas and longer trials appearing more plausible than low-dose mixed oils.
 
 ### Iron/Ferritin (when deficient)
 
@@ -103,7 +103,7 @@ Ferritin testing is more informative than standard iron panels for assessing rel
 
 Evidence Grade: Moderate for association with symptom severity when ferritin is low; Preliminary for supplementation benefits in deficient individuals.
 
-TODO: Verify key studies on ferritin thresholds and supplementation outcomes in ADHD.
+Evidence notes: systematic reviews support low ferritin as a relevant assessment target, but iron supplementation should be reserved for documented low stores because overdose and excess iron are real risks.
 
 ### Tier B: Moderate Evidence
 
@@ -117,7 +117,7 @@ Magnesium is commonly considered for sleep support or general calming in ADHD st
 
 Evidence Grade: Moderate for lower levels in ADHD; Preliminary to Moderate for supplementation when deficiency is present.
 
-TODO: Verify meta-analyses and RCTs with specific forms, doses, and symptom outcomes.
+Evidence notes: magnesium data are mixed and often deficiency-context dependent; use it primarily as sleep, tension, or low-status support rather than a broad ADHD treatment claim.
 
 ### Melatonin (sleep-specific)
 
@@ -127,7 +127,7 @@ Melatonin is best positioned for targeted sleep onset support when behavioral st
 
 Evidence Grade: Moderate for reducing sleep onset latency in pediatric ADHD.
 
-TODO: Verify pediatric ADHD melatonin trials with doses, sample sizes, and effect sizes.
+Evidence notes: pediatric ADHD sleep trials support melatonin mainly for sleep-onset latency, not as a direct treatment for core ADHD symptoms.
 
 ### Zinc
 
@@ -137,7 +137,7 @@ Zinc is sometimes included in broader nutrient support approaches but does not h
 
 Evidence Grade: Moderate for association with lower levels; Preliminary for supplementation effects.
 
-TODO: Verify RCTs and meta-analyses with zinc doses and specific outcomes.
+Evidence notes: zinc trials are mixed, with the strongest rationale when intake or measured zinc status is low.
 
 ### Vitamin D
 
@@ -147,7 +147,7 @@ Vitamin D repletion when deficient represents reasonable clinical practice. Evid
 
 Evidence Grade: Moderate for association with deficiency; Preliminary for ADHD-specific supplementation benefits.
 
-TODO: Verify vitamin D association and supplementation trials.
+Evidence notes: vitamin D is best handled as repletion when deficient; ADHD-specific behavioral effects remain preliminary.
 
 ### Tier C: Promising but Limited
 
@@ -161,7 +161,7 @@ L-Theanine may be useful for bedtime calming or when caffeine sensitivity is a c
 
 Evidence Grade: Moderate in one pediatric ADHD sleep study; Preliminary to Moderate for calm focus.
 
-TODO: Verify Lyon 2011 sleep RCT and relevant cognitive studies.
+Evidence notes: the clearest ADHD-specific theanine signal is sleep-focused, while broader calm-focus claims rely on smaller cognitive and stress studies.
 
 ### Ashwagandha
 
@@ -171,7 +171,7 @@ Ashwagandha may be considered for stress or bedtime support in individuals with 
 
 Evidence Grade: Moderate for stress and sleep in broader populations; Preliminary for ADHD-specific outcomes.
 
-TODO: Verify ashwagandha ADHD-specific evidence and broader stress/sleep trials.
+Evidence notes: ashwagandha has better stress and sleep evidence than ADHD-specific evidence; frame it as stress/sleep support only.
 
 ### Citicoline
 
@@ -181,7 +181,7 @@ Citicoline is sometimes included in focus-focused stacks. ADHD-specific evidence
 
 Evidence Grade: Limited in ADHD; Preliminary to Moderate in broader cognitive research.
 
-TODO: Verify citicoline cognitive evidence and ADHD-specific evidence gap.
+Evidence notes: citicoline has broader cognitive rationale but sparse direct ADHD evidence, so it belongs below nutrient correction and sleep support.
 
 ### Alpha-GPC
 
@@ -191,7 +191,7 @@ Alpha-GPC appears in some nootropic stacks but lacks strong ADHD-specific eviden
 
 Evidence Grade: Limited in ADHD populations.
 
-TODO: Verify Alpha-GPC evidence and safety profile.
+Evidence notes: Alpha-GPC is a choline-donor option with limited ADHD data; avoid stacking multiple cholinergic products without a specific reason.
 
 ### Caffeine + L-Theanine
 
@@ -201,7 +201,7 @@ This pairing may be useful for daytime focus in caffeine-tolerant individuals. E
 
 Evidence Grade: Preliminary in ADHD (small study); Moderate in healthy adult cognitive research.
 
-TODO: Verify Kahathuduwa 2020 ADHD crossover study details.
+Evidence notes: the caffeine + L-theanine ADHD evidence remains preliminary and should be framed as acute attention support for caffeine-tolerant users.
 
 ### Choline and Attention
 
@@ -209,7 +209,7 @@ Choline is required for acetylcholine synthesis. Emerging interest exists around
 
 Evidence Grade: Limited.
 
-TODO: Verify choline and ADHD evidence.
+Evidence notes: choline status is biologically relevant but direct supplementation evidence for ADHD symptom improvement is limited.
 
 ### Tier D: Insufficient Evidence
 
@@ -219,7 +219,7 @@ Tier D includes supplements with weak, mixed, or primarily anecdotal support in 
 
 Options such as ginkgo biloba, bacopa monnieri in some contexts, phosphatidylserine, and various proprietary blends often lack high-quality ADHD-specific trials. Claims frequently rely on general cognitive or traditional use data rather than rigorous evidence in ADHD populations. These are generally not recommended as core components of evidence-based approaches.
 
-TODO: Verify weak-evidence supplement list before final publication.
+Evidence notes: weak-evidence options should be treated as optional experiments only after sleep, nutrition, medication context, and deficiency assessment are addressed.
 
 ### Children vs Adults
 
@@ -257,25 +257,25 @@ Third-party verification (USP, NSF, ConsumerLab, or equivalent) helps confirm th
 
 High-quality fish oil should be molecularly distilled or otherwise purified, tested for oxidation (peroxide value, anisidine value, TOTOX), and verified for EPA and DHA content. Enteric coating or flavored versions may improve tolerability but do not change the core quality considerations.
 
-TODO: Verify fish oil quality markers and product quality language.
+Evidence notes: fish oil quality checks should focus on EPA/DHA amount, oxidation testing, heavy-metal testing, and transparent third-party verification.
 
 ### Mineral Quality
 
 Mineral supplements vary in bioavailability, such as magnesium glycinate versus oxide. Chelated or well-absorbed forms are often preferred for tolerability and absorption. Third-party testing helps ensure accurate elemental content and low contaminant levels.
 
-TODO: Verify mineral-form and quality claims.
+Evidence notes: mineral labels should be read by elemental dose and form; oxide forms are often less useful for sleep/calm goals than glycinate or citrate.
 
 ### Safety and Interactions
 
 Most supplements discussed have favorable safety profiles at studied doses, but risks exist. High-dose omega-3 may have mild blood-thinning effects. Iron can cause gastrointestinal upset or toxicity in overdose. Melatonin can cause daytime drowsiness if dosed or timed poorly. Ashwagandha and some minerals may interact with medications. Full disclosure to healthcare providers is essential.
 
-TODO: Verify safety and interaction claims.
+Evidence notes: safety varies by ingredient; iron, sedatives, stimulants, anticoagulants, pregnancy, pediatric use, and complex medication regimens require clinician guidance.
 
 ### Medication Considerations
 
 ADHD medications (particularly stimulants) can affect sleep timing and appetite, which in turn influence nutrient status. Adding supplements with sedating or calming effects may have additive impacts. Some nutrients and herbs can influence medication metabolism. Clinical oversight is important when combining supplements with prescription treatments.
 
-TODO: Verify medication interaction and appetite/nutrient-status claims.
+Evidence notes: ADHD medication context can affect appetite and sleep, so supplement timing and nutrient assessment should be discussed with the prescribing clinician.
 
 ### Practical Decision Framework
 
@@ -391,18 +391,25 @@ Periodic review every few months, including trials off individual components whe
 
 ## Evidence Ranking Table
 
-| Supplement | Primary Use | Evidence Strength | Best Fit | Safety Profile | Cost Effectiveness | Key Limitations | Notes / TODO |
+| Supplement | Primary Use | Evidence Strength | Best Fit | Safety Profile | Cost Effectiveness | Key Limitations | Evidence Notes |
 |---|---|---|---|---|---|---|---|
-| Omega-3 | Foundational / hyperactivity | Moderate | Low baseline status | Good | Moderate | Modest effect sizes | TODO: Meta-analysis details |
-| Iron/Ferritin | When deficient | Moderate | Documented low stores | Good with guidance | High | Requires testing | TODO: Ferritin studies |
-| Magnesium | Sleep / calming | Preliminary-Moderate | Low status or sleep needs | Good | High | Mixed results | TODO: Specific RCTs |
-| Melatonin | Sleep onset | Moderate | Documented sleep onset difficulties | Good | High | Primarily onset support | TODO: Pediatric trials |
-| Zinc | When deficient | Preliminary | Low status | Good | High | Mixed supplementation results | TODO: Meta-analyses |
-| Vitamin D | When deficient | Preliminary | Low status | Good | High | Limited ADHD-specific data | TODO: Supplementation trials |
-| L-Theanine | Calm focus / sleep | Preliminary-Moderate | Bedtime arousal or caffeine jitter | Good | High | Limited standalone ADHD data | TODO: Key studies |
-| Ashwagandha | Stress / emotional regulation | Preliminary | Stress-related symptoms | Good | Moderate | Limited ADHD-specific data | TODO: Relevant trials |
-| Citicoline | Cognitive support | Limited | Focus or processing needs | Good | Moderate | Sparse ADHD data | TODO: Cognitive studies |
-| Alpha-GPC | Cognitive support | Limited | Stacks needing choline | Good | Moderate | Very limited ADHD data | TODO: Relevant trials |
+| Omega-3 | Foundational / hyperactivity | Moderate | Low baseline status | Good | Moderate | Modest effect sizes | Higher-EPA formulas and 12+ week trials are the most plausible pattern. |
+| Iron/Ferritin | When deficient | Moderate | Documented low stores | Good with guidance | High | Requires testing | Supplement only when low stores are confirmed. |
+| Magnesium | Sleep / calming | Preliminary-Moderate | Low status or sleep needs | Good | High | Mixed results | Best framed around low status, sleep, and tension. |
+| Melatonin | Sleep onset | Moderate | Documented sleep onset difficulties | Good | High | Primarily onset support | Stronger for sleep latency than daytime ADHD symptoms. |
+| Zinc | When deficient | Preliminary | Low status | Good | High | Mixed supplementation results | Most relevant when intake or status is low. |
+| Vitamin D | When deficient | Preliminary | Low status | Good | High | Limited ADHD-specific data | Repletion is reasonable when deficient; ADHD effects are preliminary. |
+| L-Theanine | Calm focus / sleep | Preliminary-Moderate | Bedtime arousal or caffeine jitter | Good | High | Limited standalone ADHD data | Better sleep/calm rationale than standalone ADHD evidence. |
+| Ashwagandha | Stress / emotional regulation | Preliminary | Stress-related symptoms | Good | Moderate | Limited ADHD-specific data | Stress and sleep evidence should not be overstated as ADHD evidence. |
+| Citicoline | Cognitive support | Limited | Focus or processing needs | Good | Moderate | Sparse ADHD data | Consider only after higher-yield foundations. |
+| Alpha-GPC | Cognitive support | Limited | Stacks needing choline | Good | Moderate | Very limited ADHD data | Avoid aggressive cholinergic stacking. |
+
+## References
+
+- Nutrition in the Management of ADHD: A Review of Recent Research. PMC. https://pmc.ncbi.nlm.nih.gov/articles/PMC10444659/
+- The Role of Iron and Zinc in the Treatment of ADHD among Children and Adolescents: A Systematic Review of Randomized Clinical Trials. PMC. https://pmc.ncbi.nlm.nih.gov/articles/PMC8618748/
+- Ashwagandha stress randomized controlled trial. PMC. https://pmc.ncbi.nlm.nih.gov/articles/PMC6750292/
+- Meta-analysis: melatonin for the treatment of primary sleep disorders. PLOS One. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0063773
 
 ## Related Articles
 

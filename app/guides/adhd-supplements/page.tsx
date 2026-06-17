@@ -34,6 +34,22 @@ const FAQS = [
   },
 ]
 
+const NUTRIENT_GUIDE = [
+  ['Omega-3', 'Tier A / Moderate', 'Low fish intake or low omega-3 status; modest hyperactivity signal', '/articles/omega-3-and-adhd'],
+  ['Iron / ferritin', 'Tier A when deficient', 'Low ferritin or iron stores confirmed by testing', '/articles/iron-ferritin-and-adhd'],
+  ['Magnesium', 'Tier B / context-dependent', 'Sleep, tension, low intake, or documented low status', '/articles/best-magnesium-supplement-for-adhd'],
+  ['Zinc', 'Tier B-C', 'Low intake or measured low status; mixed supplementation trials', '/articles/zinc-and-adhd'],
+  ['L-theanine', 'Tier C', 'Calm focus, caffeine sensitivity, or bedtime arousal', '/articles/l-theanine-for-adhd'],
+  ['Saffron', 'Tier C / promising', 'Interesting early trials, but not first-line and quality varies', '/articles/best-supplements-for-adhd'],
+  ['Bacopa', 'Tier D for ADHD', 'Memory evidence does not automatically translate to ADHD', '/articles/best-supplements-for-adhd'],
+] as const
+
+const GUIDE_REFERENCES = [
+  ['Nutrition in the Management of ADHD: review of recent research', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10444659/'],
+  ['Iron and zinc in ADHD systematic review', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8618748/'],
+  ['Mineral status in ADHD review', 'https://www.mdpi.com/1420-3049/25/19/4440'],
+] as const
+
 export default function AdhdSupplementsHub() {
   const collectionSchema = {
     '@context': 'https://schema.org',
@@ -154,6 +170,65 @@ export default function AdhdSupplementsHub() {
 
       <AdhdInlineCta type="safety" />
 
+      <section className="space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+        <h2 className="text-2xl font-bold tracking-tight text-ink">Ranked Nutrient Cards</h2>
+        <p className="max-w-3xl text-sm leading-relaxed text-muted">
+          The safest ADHD supplement sequence is usually deficiency correction first, sleep support second,
+          and optional focus experiments last. Supplements are adjunctive tools; they do not replace diagnosis,
+          medication, therapy, coaching, sleep evaluation, or school/work accommodations.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2">
+          {NUTRIENT_GUIDE.map(([name, tier, fit, href]) => (
+            <Link key={name} href={href} className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm transition hover:border-brand-700/30">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">{tier}</p>
+              <h3 className="mt-2 text-lg font-semibold text-ink">{name}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">{fit}</p>
+              <span className="mt-3 inline-block text-xs font-bold text-brand-700">Read evidence review →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="grid gap-4 lg:grid-cols-3">
+        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+          <h2 className="text-lg font-bold text-ink">Adjunct vs deficiency</h2>
+          <p className="mt-2 text-sm leading-6 text-muted">
+            Correcting a documented nutrient gap is a different decision from adding a nootropic.
+            Start with diet, sleep, medication appetite effects, and testing when clinically appropriate.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+          <h2 className="text-lg font-bold text-ink">Kids vs adults</h2>
+          <p className="mt-2 text-sm leading-6 text-muted">
+            Pediatric evidence is stronger for several nutrients, but children need pediatric dosing and supervision.
+            Adult evidence is thinner, so adult stacks should be simpler and more carefully tracked.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+          <h2 className="text-lg font-bold text-ink">What not to expect</h2>
+          <p className="mt-2 text-sm leading-6 text-muted">
+            Do not expect supplements to produce medication-like effects, fix sleep debt, overcome under-eating,
+            or work reliably when baseline nutrient status is already adequate.
+          </p>
+        </div>
+      </section>
+
+      <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+        <h2 className="text-2xl font-bold tracking-tight text-ink">Conservative Stack Examples</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          {[
+            ['Sleep-first', 'Melatonin for true sleep-onset problems, or magnesium/theanine when tension and arousal dominate.'],
+            ['Deficiency-first', 'Omega-3, iron/ferritin, zinc, vitamin D, or magnesium only when intake, testing, or clinician context supports it.'],
+            ['Calm-focus', 'L-theanine alone or with modest caffeine for adults who tolerate caffeine and have protected sleep.'],
+          ].map(([name, copy]) => (
+            <div key={name} className="rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">{name}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">{copy}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Article Grid */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold tracking-tight text-ink">Explore the ADHD Content Cluster</h2>
@@ -233,6 +308,19 @@ export default function AdhdSupplementsHub() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">
+        <h2 className="text-xl font-bold text-ink">References</h2>
+        <ul className="space-y-2 text-sm leading-6">
+          {GUIDE_REFERENCES.map(([label, href]) => (
+            <li key={href}>
+              <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Safety Cautions Block */}
