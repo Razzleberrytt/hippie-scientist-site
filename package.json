@@ -7,6 +7,7 @@
     "node": ">=20 <23"
   },
   "scripts": {
+    "create:page": "node scripts/create-content-page.mjs",
     "dev": "next dev --turbo",
     "dev:watch": "nodemon --watch . --exec \"npm run dev\"",
     "start": "next start",
