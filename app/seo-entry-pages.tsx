@@ -272,6 +272,7 @@ const revenueProductSlugs: Record<string, string[]> = {
   'best-nootropics-for-focus': ['l-theanine', 'lions-mane'],
   'best-supplements-for-gut-health': ['probiotics', 'ginger', 'glutamine'],
   'best-supplements-for-fat-loss': ['berberine', 'green-tea-extract', 'caffeine'],
+  'best-supplements-for-blood-pressure': ['magnesium', 'coenzyme-q10', 'omega-3', 'garlic'],
   'guides/best-supplements-for-sleep': ['magnesium', 'l-theanine'],
   'guides/best-supplements-for-stress': ['ashwagandha', 'rhodiola', 'l-theanine'],
   'guides/best-supplements-for-focus': ['l-theanine', 'lions-mane'],
