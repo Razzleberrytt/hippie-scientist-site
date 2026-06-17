@@ -1,10 +1,13 @@
 /**
- * JSON-LD injection utilities for Product and Article schema types.
+ * JSON-LD injection utilities for Article schema.
  *
- * These builders complement the MedicalWebPage/@graph system in schema-graph.ts
- * by producing standalone Product and Article nodes suitable for Google Rich Results.
- * They are deliberately separate from the @graph to avoid type conflicts with
+ * This builder complements the MedicalWebPage/@graph system in schema-graph.ts
+ * by producing a standalone Article node suitable for Google Rich Results.
+ * It is deliberately separate from the @graph to avoid type conflicts with
  * MedicalWebPage nodes and to allow per-section injection.
+ *
+ * Informational herb profiles are not commercial product listings, so no
+ * Product node is emitted here — Product schema was intentionally removed.
  *
  * Serialization: serializeJsonLd() centralises the HTML-safe escaping used when
  * writing JSON-LD script payloads.
@@ -26,78 +29,6 @@ export function serializeJsonLd(node: JsonLdNode): string {
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
     .replace(/&/g, '\\u0026')
-}
-
-// ---------------------------------------------------------------------------
-// Product schema
-// ---------------------------------------------------------------------------
-
-export type HerbProductSchemaArgs = {
-  /** Common display name, e.g. "Ashwagandha" */
-  name: string
-  /** One-sentence description used as schema description */
-  description: string
-  /** Absolute canonical URL for the profile page */
-  url: string
-  /** Absolute URL of the representative image (OG image is fine) */
-  image?: string
-  /** Brand name; defaults to site name */
-  brand?: string
-  /** Value used as schema `sku` — the herb slug works well */
-  sku?: string
-  /** Product category label, e.g. "Herbal Supplement" */
-  category?: string
-  /** Optional pricing information for Offer node */
-  offers?: {
-    price: number
-    priceCurrency: string
-    /** Defaults to https://schema.org/InStock */
-    availability?: string
-    /** Defaults to `url` */
-    offerUrl?: string
-  }
-}
-
-/**
- * Builds a Schema.org Product node for a herb supplement profile.
- *
- * Unlike the existing productJsonLd() in src/lib/seo.ts, this function does
- * not require a price: it emits a valid Product node that satisfies Google's
- * minimum requirements for basic product appearance (name + description +
- * brand). An Offer sub-node is added only when price data is supplied.
- *
- * Google Rich Results minimum required fields satisfied here:
- *   - name (required)
- *   - description (one of the qualifying additional properties)
- */
-export function buildHerbProductSchema(args: HerbProductSchemaArgs): JsonLdNode {
-  const node: JsonLdNode = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: args.name,
-    description: args.description,
-    url: args.url,
-    brand: {
-      '@type': 'Brand',
-      name: args.brand ?? 'The Hippie Scientist',
-    },
-  }
-
-  if (args.image) node.image = args.image
-  if (args.sku) node.sku = args.sku
-  if (args.category) node.category = args.category
-
-  if (args.offers) {
-    node.offers = {
-      '@type': 'Offer',
-      price: args.offers.price,
-      priceCurrency: args.offers.priceCurrency,
-      availability: args.offers.availability ?? 'https://schema.org/InStock',
-      url: args.offers.offerUrl ?? args.url,
-    }
-  }
-
-  return node
 }
 
 // ---------------------------------------------------------------------------

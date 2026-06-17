@@ -22,7 +22,7 @@ function getScripts(c: HTMLElement): { product?: Record<string, unknown>; articl
 }
 
 describe('HerbSchemaGenerator', () => {
-  it('renders Article JSON-LD by default', () => {
+  it('renders only Article JSON-LD and never a Product node', () => {
     const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
     const scripts = c.querySelectorAll('script[type="application/ld+json"]')
     expect(scripts.length).toBe(1)
@@ -31,71 +31,10 @@ describe('HerbSchemaGenerator', () => {
     expect(product).toBeUndefined()
   })
 
-  // ----- Product schema -----
-
-  it('Product node has correct @context and @type', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
-    const { product } = getScripts(c)
-    expect(product?.['@context']).toBe('https://schema.org')
-    expect(product?.['@type']).toBe('Product')
-  })
-
-  it('Product node contains the herb name', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
-    const { product } = getScripts(c)
-    expect(product?.name).toBe('Ashwagandha')
-  })
-
-  it('Product node contains the description', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
-    const { product } = getScripts(c)
-    expect(product?.description).toBe(BASE_PROPS.description)
-  })
-
-  it('Product node uses slug as sku', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
-    const { product } = getScripts(c)
-    expect(product?.sku).toBe('ashwagandha')
-  })
-
-  it('Product node defaults category to Herbal Supplement', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
-    const { product } = getScripts(c)
-    expect(product?.category).toBe('Herbal Supplement')
-  })
-
-  it('Product node accepts a custom category', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} category="Adaptogen" offer={{ price: 19.99, priceCurrency: 'USD' }} />)
-    const { product } = getScripts(c)
-    expect(product?.category).toBe('Adaptogen')
-  })
-
-  it('Product node brand is The Hippie Scientist', () => {
-    const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} offer={{ price: 19.99, priceCurrency: 'USD' }} />)
-    const { product } = getScripts(c)
-    const brand = product?.brand as Record<string, unknown>
-    expect(brand.name).toBe('The Hippie Scientist')
-  })
-
-  it('Product node is omitted when no offer prop is given', () => {
+  it('emits no Product node for an informational herb profile', () => {
     const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
     const { product } = getScripts(c)
     expect(product).toBeUndefined()
-  })
-
-  it('Product node includes offers when offer prop is provided', () => {
-    const { container: c } = render(
-      <HerbSchemaGenerator
-        {...BASE_PROPS}
-        offer={{ price: 19.99, priceCurrency: 'USD' }}
-      />
-    )
-    const { product } = getScripts(c)
-    const offers = product?.offers as Record<string, unknown>
-    expect(offers['@type']).toBe('Offer')
-    expect(offers.price).toBe(19.99)
-    expect(offers.priceCurrency).toBe('USD')
-    expect(offers.availability).toBe('https://schema.org/InStock')
   })
 
   // ----- Article schema -----

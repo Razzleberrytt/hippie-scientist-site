@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
   serializeJsonLd,
-  buildHerbProductSchema,
   buildHerbArticleSchema,
 } from '../schema-injector'
 
@@ -11,7 +10,7 @@ import {
 
 describe('serializeJsonLd', () => {
   it('produces valid JSON', () => {
-    const result = serializeJsonLd({ '@type': 'Product', name: 'Ashwagandha' })
+    const result = serializeJsonLd({ '@type': 'Article', name: 'Ashwagandha' })
     expect(() => JSON.parse(result)).not.toThrow()
   })
 
@@ -40,112 +39,6 @@ describe('serializeJsonLd', () => {
     const parsed = JSON.parse(serialized)
     expect(parsed['@type']).toBe('Article')
     expect(parsed.headline).toBe('A & B < C > D')
-  })
-})
-
-// ---------------------------------------------------------------------------
-// buildHerbProductSchema — Google Rich Results compliance
-// ---------------------------------------------------------------------------
-
-describe('buildHerbProductSchema', () => {
-  const base = {
-    name: 'Ashwagandha',
-    description: 'An adaptogenic herb used to reduce stress and anxiety.',
-    url: 'https://thehippiescientist.net/herbs/ashwagandha/',
-  }
-
-  it('emits required @context and @type', () => {
-    const schema = buildHerbProductSchema(base)
-    expect(schema['@context']).toBe('https://schema.org')
-    expect(schema['@type']).toBe('Product')
-  })
-
-  it('includes the required name field (Google Rich Results)', () => {
-    const schema = buildHerbProductSchema(base)
-    expect(schema.name).toBe('Ashwagandha')
-  })
-
-  it('includes description as a qualifying additional property', () => {
-    const schema = buildHerbProductSchema(base)
-    expect(schema.description).toBe(base.description)
-  })
-
-  it('includes url', () => {
-    const schema = buildHerbProductSchema(base)
-    expect(schema.url).toBe(base.url)
-  })
-
-  it('defaults brand to The Hippie Scientist', () => {
-    const schema = buildHerbProductSchema(base)
-    expect(schema.brand).toEqual({ '@type': 'Brand', name: 'The Hippie Scientist' })
-  })
-
-  it('accepts a custom brand name', () => {
-    const schema = buildHerbProductSchema({ ...base, brand: 'Custom Brand' })
-    const brand = schema.brand as Record<string, unknown>
-    expect(brand.name).toBe('Custom Brand')
-  })
-
-  it('omits image when not provided', () => {
-    const schema = buildHerbProductSchema(base)
-    expect(schema.image).toBeUndefined()
-  })
-
-  it('includes image when provided', () => {
-    const schema = buildHerbProductSchema({ ...base, image: 'https://thehippiescientist.net/og-ashwagandha.jpg' })
-    expect(schema.image).toBe('https://thehippiescientist.net/og-ashwagandha.jpg')
-  })
-
-  it('includes sku when provided', () => {
-    const schema = buildHerbProductSchema({ ...base, sku: 'ashwagandha' })
-    expect(schema.sku).toBe('ashwagandha')
-  })
-
-  it('includes category when provided', () => {
-    const schema = buildHerbProductSchema({ ...base, category: 'Herbal Supplement' })
-    expect(schema.category).toBe('Herbal Supplement')
-  })
-
-  it('omits offers node when no price is supplied', () => {
-    const schema = buildHerbProductSchema(base)
-    expect(schema.offers).toBeUndefined()
-  })
-
-  it('emits a valid Offer node when price is supplied', () => {
-    const schema = buildHerbProductSchema({
-      ...base,
-      offers: { price: 19.99, priceCurrency: 'USD' },
-    })
-    const offers = schema.offers as Record<string, unknown>
-    expect(offers['@type']).toBe('Offer')
-    expect(offers.price).toBe(19.99)
-    expect(offers.priceCurrency).toBe('USD')
-    expect(offers.availability).toBe('https://schema.org/InStock')
-    expect(offers.url).toBe(base.url)
-  })
-
-  it('uses custom offerUrl when supplied in offers', () => {
-    const schema = buildHerbProductSchema({
-      ...base,
-      offers: { price: 24.99, priceCurrency: 'USD', offerUrl: 'https://amazon.com/dp/B000X' },
-    })
-    const offers = schema.offers as Record<string, unknown>
-    expect(offers.url).toBe('https://amazon.com/dp/B000X')
-  })
-
-  it('uses custom availability when supplied', () => {
-    const schema = buildHerbProductSchema({
-      ...base,
-      offers: { price: 24.99, priceCurrency: 'USD', availability: 'https://schema.org/OnlineOnly' },
-    })
-    const offers = schema.offers as Record<string, unknown>
-    expect(offers.availability).toBe('https://schema.org/OnlineOnly')
-  })
-
-  it('serializes without XSS vectors', () => {
-    const schema = buildHerbProductSchema({ ...base, description: '<script>alert(1)</script>' })
-    const serialized = serializeJsonLd(schema)
-    expect(serialized).not.toContain('<script>')
   })
 })
 
