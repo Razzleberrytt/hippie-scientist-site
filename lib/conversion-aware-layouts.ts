@@ -1,4 +1,5 @@
 import { text } from '@/lib/display-utils'
+import { isBuiltComparisonSlug } from '@/lib/comparison-utils'
 import { buildMonetizationOpportunity } from '@/lib/monetization-intelligence-layer'
 import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
 
@@ -45,10 +46,15 @@ export function buildPrimaryCTA(record: Record<string, unknown>): ConversionCTA 
 
 export function buildCompareCTA(record: Record<string, unknown>): ConversionCTA {
   const topic = title(record?.displayName || record?.name || record?.slug)
+  const topicSlug = slug(topic)
+
+  // A topic name is not a comparison slug, so only deep-link when a built page
+  // exists; otherwise route to the comparison hub instead of a 404.
+  const href = isBuiltComparisonSlug(topicSlug) ? `/compare/${topicSlug}` : '/compare'
 
   return {
     label: `Compare ${topic} alternatives`,
-    href: `/compare/${slug(topic)}`,
+    href,
     description: 'Review adjacent compounds, mechanisms, and evidence context side-by-side.',
     tone: 'compare',
   }

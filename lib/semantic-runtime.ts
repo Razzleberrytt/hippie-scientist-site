@@ -1,5 +1,6 @@
 import compoundsData from '../public/data/compounds.json'
 import { cleanSummary, formatDisplayLabel, isClean, list as cleanList } from './display-utils'
+import { getValidComparisonSlug } from './comparison-utils'
 
 export type RuntimeCompoundInput = {
   slug?: string
@@ -228,11 +229,20 @@ export function getStackCandidates(compound: RuntimeCompoundInput, limit = 4) {
 export function getComparisonCandidates(compound: RuntimeCompoundInput, limit = 4) {
   const normalized = normalizeCompound(compound)
 
-  return getRelatedCompounds(normalized, limit).map((candidate) => ({
-    slug: `${normalized.slug}-vs-${candidate.slug}`,
-    href: `/compare/${normalized.slug}-vs-${candidate.slug}`,
-    label: `${normalized.name} vs ${candidate.name}`,
-  }))
+  return getRelatedCompounds(normalized, limit)
+    .map((candidate) => {
+      // Only emit links to comparison pages that are actually built; an
+      // arbitrary related-compound pair is usually not a real /compare/ route
+      // and would 404 under static export.
+      const validSlug = getValidComparisonSlug(normalized.slug, candidate.slug)
+      if (!validSlug) return null
+      return {
+        slug: validSlug,
+        href: `/compare/${validSlug}`,
+        label: `${normalized.name} vs ${candidate.name}`,
+      }
+    })
+    .filter((item): item is { slug: string; href: string; label: string } => item !== null)
 }
 
 export function getEvidenceSnapshot(compound: RuntimeCompoundInput) {

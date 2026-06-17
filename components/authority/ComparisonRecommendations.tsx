@@ -1,5 +1,15 @@
 import Link from 'next/link'
 import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
+import { isBuiltComparisonSlug } from '@/lib/comparison-utils'
+
+// A href is safe to render only if it is a non-compare link, or a /compare/
+// link whose target page is actually built. This prevents the component from
+// ever emitting a phantom comparison URL that 404s the moment it is crawled.
+function isRenderableHref(href: string): boolean {
+  if (!href) return false
+  if (!href.startsWith('/compare/')) return true
+  return isBuiltComparisonSlug(href.replace(/^\/compare\//, '').replace(/\/$/, ''))
+}
 
 type DiscoveryItem = {
   href: string
@@ -30,7 +40,7 @@ export default function ComparisonRecommendations({
         overlap: dedupeEditorialItems(item.overlap || [], 4),
       }
     })
-    .filter((item) => item.href && shouldRenderCard(item.title, item.rationale))
+    .filter((item) => isRenderableHref(item.href) && shouldRenderCard(item.title, item.rationale))
 
   if (!renderableItems.length) {
     return null

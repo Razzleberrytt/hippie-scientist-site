@@ -1,4 +1,5 @@
 import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
+import { isBuiltComparisonSlug } from '@/lib/comparison-utils'
 type RuntimeRecord = Record<string, unknown>
 
 function asList(value: unknown): string[] {
@@ -32,12 +33,21 @@ export function buildComparisonRecommendations(record: RuntimeRecord) {
 
   if (!isRenderableText(name) || !isRenderableText(slug)) return []
 
-  return signals.slice(0, 6).map((signal) => ({
-    href: `/compare/${slug}-vs-${signal
-      .toLowerCase()
-      .replace(/\s+/g, '-')}`,
-    title: cleanEditorialText(`${name} vs ${signal}`),
-    rationale: cleanEditorialText(`Semantic comparison generated through overlap in ${signal}.`),
-    overlap: [signal],
-  })).filter((item) => shouldRenderCard(item.title, item.rationale))
+  return signals
+    .slice(0, 6)
+    .map((signal) => {
+      const comparisonSlug = `${slug}-vs-${signal.toLowerCase().replace(/\s+/g, '-')}`
+      return {
+        comparisonSlug,
+        href: `/compare/${comparisonSlug}`,
+        title: cleanEditorialText(`${name} vs ${signal}`),
+        rationale: cleanEditorialText(`Semantic comparison generated through overlap in ${signal}.`),
+        overlap: [signal],
+      }
+    })
+    // Only surface comparisons that are actually built. Signals (mechanisms,
+    // pathways, effects) are not comparison pages, so these would 404 — the
+    // historical source of the "/compare/*" not-found cluster in Search Console.
+    .filter((item) => isBuiltComparisonSlug(item.comparisonSlug))
+    .filter((item) => shouldRenderCard(item.title, item.rationale))
 }
