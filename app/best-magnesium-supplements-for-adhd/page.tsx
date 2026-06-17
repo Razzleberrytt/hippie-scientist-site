@@ -5,6 +5,7 @@ import NewsletterSignup from '../../components/NewsletterSignup'
 import RecommendedProduct from '@/components/RecommendedProduct'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { buildPageMetadata, faqPageJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide',
@@ -108,8 +109,8 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-10 sm:px-6 lg:px-8'>
-      {faqLd && <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
-      <script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
+      <JsonLd schema={faqLd} />
+      <JsonLd schema={itemListLd} />
 
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10'>
         <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Buying guide</p>
