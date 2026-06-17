@@ -56,6 +56,13 @@ npm run create:page
       npm run lint && npm run typecheck
          │
          ▼
+    Content audit (warning-only, exit 0)
+      npm run audit:content
+         │  → ops/reports/content-audit.json
+         │  → ops/reports/site-health.json
+         │  (review findings; audit never blocks the build)
+         │
+         ▼
     Build
       npm run build
          │
@@ -106,6 +113,7 @@ Before committing:
 - [ ] No `force-dynamic`, `revalidate`, `cookies()`, `headers()` (breaks static export)
 - [ ] `npm run lint` passes (zero warnings)
 - [ ] `npm run typecheck` passes
+- [ ] `npm run audit:content` reviewed (exit 0; check ops/reports/ for findings)
 - [ ] `npm run build` passes
 
 ---
@@ -151,3 +159,6 @@ See `docs/workbook-only-data-contract.md` for the full workbook edit policy.
 - `docs/workbook-only-data-contract.md` — herb/compound data pipeline rules
 - `config/affiliate.ts` — affiliate tag constants
 - `scripts/create-content-page.mjs` — the generator source
+- `scripts/content-audit.mjs` — the content audit script
+- `ops/reports/content-audit.json` — per-page audit findings (generated)
+- `ops/reports/site-health.json` — summary health report (generated)
