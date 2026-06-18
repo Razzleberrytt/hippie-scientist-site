@@ -244,16 +244,16 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               </div>
               <div className='mt-6 grid w-full max-w-lg gap-2.5 sm:grid-cols-2'>
                 <Link
-                  href='/goals/focus/'
+                  href='/goals'
                   className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none text-center'
                 >
-                  Take the ADHD Focus Quiz
+                  Browse by Health Goal
                 </Link>
                 <Link
-                  href='/goals'
+                  href='/articles'
                   className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink shadow-sm transition hover:-translate-y-0.5 hover:border-brand-900/20 hover:bg-brand-50/70 focus:outline-none text-center'
                 >
-                  Browse by Health Goal
+                  Explore Evidence Guides
                 </Link>
               </div>
               <div className='mt-6 flex flex-wrap justify-center lg:justify-start gap-2' aria-label='Trust signals'>
@@ -364,7 +364,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         <section className='space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
-              title='Focus &amp; ADHD Evidence Guides'
+              title='Focus Evidence Guides'
               subtitle='Conservative articles on focus, sleep, nutrient status, and adjunctive supplement evidence. Informational only; not treatment advice.'
               as='h2'
             />
