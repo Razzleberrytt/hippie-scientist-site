@@ -9,6 +9,7 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphType: 'article',
 })
 
+import Image from 'next/image'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -316,15 +317,18 @@ export default function MelatoninVsMagnesiumPage() {
           Using magnesium alone when circadian misalignment is dominant may produce only partial benefit.
         </p>
 
-        {/*
-          VISUAL PLACEHOLDER — Decision flowchart.
-          Suggested asset: a branching decision tree starting from "What's the dominant sleep issue?"
-          → branch 1 "Timing / schedule drift" → Melatonin
-          → branch 2 "Tension / low intake" → Magnesium
-          → branch 3 "Both" → Conservative combination
-          → branch 4 "Neither clear / chronic" → CBT-I + medical screening.
-          Should be SVG, dark-mode friendly, with text labels (not text-in-image only) for a11y.
-        */}
+        <figure className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <Image
+            src="/images/guides/magnesium-melatonin-decision.jpg"
+            alt="Decision flowchart for choosing between melatonin and magnesium based on sleep challenge type"
+            width={784}
+            height={1168}
+            className="w-full h-auto"
+          />
+          <figcaption className="px-4 py-3 text-center text-sm text-muted">
+            Match the tool to your dominant sleep challenge: timing (melatonin) vs tension/quality (magnesium) vs both.
+          </figcaption>
+        </figure>
 
         <div className="card-premium p-6 space-y-3">
           <h3 className="text-xl font-semibold text-ink">Common real-world scenarios</h3>
@@ -387,6 +391,19 @@ export default function MelatoninVsMagnesiumPage() {
           rows={evidenceRows}
         />
 
+        <figure className="max-w-4xl overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <Image
+            src="/images/guides/melatonin-vs-magnesium-evidence-grading.jpg"
+            alt="Visual guide to evidence grading levels: Strong, Moderate, Limited to Moderate, Limited, Mixed"
+            width={1168}
+            height={784}
+            className="w-full h-auto"
+          />
+          <figcaption className="px-4 py-3 text-center text-sm text-muted">
+            Evidence grades are conservative and reflect the strength and consistency of available human data, not marketing claims.
+          </figcaption>
+        </figure>
+
         {/* "How to read this matrix" callout — verbatim */}
         <div className="max-w-4xl rounded-2xl border-l-4 border-brand-500 bg-brand-50/60 p-5 text-sm leading-7 text-[#46574d] dark:bg-brand-500/10 dark:border-brand-400">
           <p className="font-semibold text-ink">How to read this matrix</p>
@@ -405,13 +422,18 @@ export default function MelatoninVsMagnesiumPage() {
         <p className="eyebrow-label">Mechanism</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">How They Work (Mechanisms Overview)</h2>
 
-        {/*
-          VISUAL PLACEHOLDER — Mechanisms comparison diagram.
-          Suggested asset: side-by-side panels. Left (Melatonin): pineal gland → MT1/MT2 receptors in the
-          suprachiasmatic nucleus → circadian timing/onset signal. Right (Magnesium): cofactor → GABA
-          support + neuromuscular relaxation + possible support of endogenous melatonin synthesis.
-          Center overlap zone labeled "Complementary, largely distinct pathways."
-        */}
+        <figure className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <Image
+            src="/images/guides/melatonin-vs-magnesium-mechanisms-v2.jpg"
+            alt="Side-by-side diagram comparing melatonin and magnesium mechanisms: circadian signaling vs GABA support and neuromuscular relaxation"
+            width={1168}
+            height={784}
+            className="w-full h-auto"
+          />
+          <figcaption className="px-4 py-3 text-center text-sm text-muted">
+            Melatonin acts via MT1/MT2 receptors to reinforce circadian timing. Magnesium supports GABAergic pathways and neuromuscular relaxation — largely distinct, often complementary.
+          </figcaption>
+        </figure>
 
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card-premium p-6 space-y-3">
@@ -574,12 +596,18 @@ export default function MelatoninVsMagnesiumPage() {
           </p>
         </div>
 
-        {/*
-          VISUAL PLACEHOLDER — Dosing timeline infographic.
-          Suggested asset: an evening timeline (e.g., 6pm → bedtime). Magnesium glycinate placed 1–2 hours
-          before bed; melatonin placed 30–60 minutes before bed. Annotate "start low", titration arrows,
-          and a note that magnesium sits earlier than melatonin in the wind-down.
-        */}
+        <figure className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+          <Image
+            src="/images/guides/melatonin-vs-magnesium-dosing-timeline.jpg"
+            alt="Evening dosing timeline: magnesium glycinate 1-2 hours before bed, melatonin 30-60 minutes before bed"
+            width={1168}
+            height={784}
+            className="w-full h-auto"
+          />
+          <figcaption className="px-4 py-3 text-center text-sm text-muted">
+            Stagger timing: magnesium earlier in the evening wind-down, melatonin closer to desired bedtime.
+          </figcaption>
+        </figure>
 
         <div className="card-premium p-6 space-y-3">
           <h3 className="text-2xl font-semibold text-ink">Melatonin Dosing &amp; Timing</h3>
