@@ -1,117 +1,128 @@
-# THE HIPPIE SCIENTIST — MASTER BACKLOG (v3)
+# THE HIPPIE SCIENTIST — MASTER BACKLOG
 
-**Purpose**
+Last Updated: 2026-06-17
 
-This document is the operating system for The Hippie Scientist.
+Purpose:
+
+This document is the single source of truth for all work on The Hippie Scientist.
 
 Every work session starts here.
 
-Do not create new projects.
+Never ask:
 
-Do not create new systems.
+> What should I work on today?
 
-Do not redesign architecture.
-
-Execute the highest unfinished priority.
+Open this file and execute the highest unfinished priority.
 
 ---
 
-# NORTH STAR
+# 🎯 NORTH STAR
 
-The Hippie Scientist is an evidence-based supplement publishing platform.
+Build the most useful evidence-based herbal and supplement resource on the internet.
 
-The goals are:
+Primary objectives:
 
-1. Build topical authority
-2. Improve existing content
+1. Improve existing content
+2. Build topical authority
 3. Publish consistently
 4. Maintain technical health
+5. Grow organic traffic
+6. Build sustainable affiliate revenue
 
-Complexity is no longer the objective.
+Execution > complexity
 
-Consistency is the objective.
+Consistency > perfection
 
 ---
 
-# TIER 0 — PROTECT THE FOUNDATION
+# 🛑 FROZEN SYSTEMS
 
-Infrastructure is COMPLETE.
+Infrastructure is considered COMPLETE.
 
-Do not work on:
+Do NOT work on:
 
-- architecture
-- navigation
+- architecture redesigns
 - route restructuring
-- folder organization
+- navigation redesigns
+- folder reorganizations
 - additional infrastructure phases
 - unnecessary refactors
 
-Only touch these if something breaks.
+Only modify infrastructure if something is broken.
 
 ---
 
-# TIER 1 — FIX EXISTING PROBLEMS (ALWAYS FIRST)
+# 📚 DATA ARCHITECTURE RULES
 
-## Priority order
+Source of truth:
 
-### 1. Broken internal links
+```text
+herb_monograph_master.xlsx
+```
 
-Goal:
+Data flow:
 
-0
+```text
+Workbook
+↓
+npm run data:build
+↓
+public/data/*
+↓
+Site pages
+```
+
+Rules:
+
+- Never manually edit generated JSON
+- Never manually create herb pages
+- Never manually create compound pages
+- Preserve stable URLs
+- Add redirects if routes ever change
 
 ---
 
-### 2. Metadata issues
+# 🔥 ACTIVE SPRINT — ONLY WORK HERE
 
-Goal:
+Priority order:
 
-0
+1. Audit issues
+2. Thin pages
+3. Authority clusters
+4. New content
+5. Revenue improvements
 
-Verify:
-
-- title
-- description
-- canonical URL
+Never skip ahead.
 
 ---
 
-### 3. Duplicate slugs
+# 📋 TECHNICAL HEALTH
 
-Goal:
+Run weekly:
 
-0
+```bash
+npm run audit:content
+npm run audit:links
+npm run build
+```
 
 Resolve:
 
-- keep one
-- redirect one if necessary
-
----
-
-### 4. Orphaned pages
-
-Goal:
-
-0
-
----
-
-### 5. Thin pages
+- broken links
+- metadata issues
+- duplicate slugs
+- orphaned pages
+- thin pages
 
 Goal:
 
-0
-
-These become content expansion projects.
+Zero regressions.
 
 ---
 
-# TIER 2 — THIN PAGE EXPANSION (HIGHEST ROI)
+# 📈 CONTENT UPGRADE QUEUE — HIGHEST ROI
 
-Before creating a new page:
-
-Ask:
+Before creating a new page ask:
 
 > Can I improve an existing page instead?
 
@@ -119,62 +130,67 @@ If yes:
 
 Improve the existing page.
 
-Every upgraded page should contain:
+Every upgraded page should include:
 
-## Structure
+## Required sections
 
 - Introduction
-- Quick answer
-- Evidence section
+- Quick Answer
+- Evidence Overview
 - Benefits
-- Risks and safety
-- Who should use it
-- Who should avoid it
+- Risks & Safety
+- Who Should Use It
+- Who Should Avoid It
 - FAQs
-- Internal links
-- Related comparisons
+- Related Guides
+- Related Comparisons
 
-Target:
+Targets:
 
 - 1,500–2,500 words
-- Evidence-based
-- Human-readable
-
-Work in batches of 3–5 pages.
-
-Never attempt everything at once.
+- evidence-based
+- easy to scan
+- internal links
 
 ---
 
-# TIER 3 — AUTHORITY CLUSTERS
+# 🧠 AUTHORITY CLUSTERS
 
-Only build these four topics until they're strong.
+Current focus:
 
 ## 😴 Sleep
 
-Core pages:
+Priority: ⭐⭐⭐⭐⭐
+
+Core work:
 
 - Best Supplements for Sleep
 - Magnesium for Sleep
 - Magnesium vs Melatonin
 - Ashwagandha vs Magnesium
+- Best Herbs for Staying Asleep
 
 ---
 
 ## 😌 Stress
 
-Core pages:
+Priority: ⭐⭐⭐⭐⭐
+
+Core work:
 
 - Best Supplements for Stress
 - Signs of High Cortisol
 - Best Adaptogens for Stress
+- How to Lower Cortisol Naturally
 - Ashwagandha Alternatives
 
 ---
 
 ## 😟 Anxiety
 
-Core pages:
+Priority: ⭐⭐⭐⭐
+
+Core work:
 
 - Best Herbs for Anxiety
 - Natural Anxiolytics
@@ -185,7 +201,9 @@ Core pages:
 
 ## 🧠 Focus
 
-Core pages:
+Priority: ⭐⭐⭐⭐
+
+Core work:
 
 - Best Supplements for Focus
 - Citicoline vs Alpha-GPC
@@ -194,162 +212,145 @@ Core pages:
 
 ---
 
-# TIER 4 — CONTENT CREATION RULES
+## Future clusters
 
-Every new page must satisfy one of these:
+Do not expand into these until the current clusters are strong.
 
-## Guide
+- Gut Health
+- Longevity
+- Women's Health
+- Men's Health
+- Metabolic Health
 
-Goal-based decision page
+---
+
+# 📰 CONTENT RULES
+
+Every page must belong to ONE category.
+
+## Goals
+
+Outcome pages.
 
 Examples:
 
 - Best Supplements for Sleep
 - Best Herbs for Anxiety
 
----
+## Guides
 
-## Article
-
-Specific question page
+Decision pages.
 
 Examples:
 
-- How Long Does Ashwagandha Take to Work?
-- Can You Take Magnesium Every Night?
+- Ashwagandha for Stress
+- Magnesium for Sleep
 
----
+## Articles
+
+Question pages.
+
+Examples:
+
+- Can You Take Magnesium Every Night?
+- How Long Does Ashwagandha Take to Work?
 
 ## Compare
 
-Head-to-head comparison
+Head-to-head pages.
 
 Examples:
 
-- Rhodiola vs Ashwagandha
 - Magnesium vs Melatonin
+- Rhodiola vs Ashwagandha
 
----
+## Herbs
 
-## Herb
+Workbook only.
 
-Workbook only
+Never manually create.
+
+## Compounds
+
+Workbook only.
 
 Never manually create.
 
 ---
 
-## Compound
+# 🔄 DAILY WORKFLOW
 
-Workbook only
-
-Never manually create.
-
----
-
-# DAILY WORKFLOW
-
-## If you have 30 minutes
-
-Fix:
-
-- broken links
-- metadata
-- duplicate slugs
+1. Open `docs/MASTER_BACKLOG.md`
+2. Check Active Sprint
+3. Run audits if necessary
+4. Upgrade one existing page
+5. Publish one new page only if existing issues are under control
+6. Build
+7. Push
 
 ---
 
-## If you have 60 minutes
-
-Upgrade one thin page.
-
----
-
-## If you have 2 hours
-
-Upgrade two thin pages.
-
----
-
-## If you have 3+ hours
-
-Upgrade three thin pages.
-
-Then publish one new page.
-
----
-
-# WEEKLY WORKFLOW
+# 🔁 WEEKLY WORKFLOW
 
 Run:
 
 ```bash
 npm run audit:content
-
 npm run audit:links
-
 npm run build
 ```
 
 Review:
 
-- regressions
 - broken links
-- thin pages
+- metadata
 - duplicate slugs
-- metadata issues
+- orphaned pages
+- thin pages
 
 ---
 
-# NEW PAGE PIPELINE
+# 🚀 PUBLISHING PIPELINE
 
 ```text
-Choose keyword
-
+Choose topic
 ↓
-
 npm run create:page
-
 ↓
-
 1st Builder
-
 ↓
-
 2nd Gatekeeper
-
 ↓
-
 3rd Publisher
-
 ↓
-
 npm run audit:content
-
 ↓
-
 npm run audit:links
-
 ↓
-
 npm run build
-
 ↓
-
 Commit
-
 ↓
-
 Push
-
 ↓
-
 Cloudflare deploys
 ```
 
 ---
 
-# SCOREBOARD
+# 💰 REVENUE TASKS
+
+Review monthly:
+
+- Affiliate placements
+- Product cards
+- Email capture opportunities
+- Comparison pages
+- Buyer's guides
+
+---
+
+# 📊 SCOREBOARD
 
 Technical Health
 
@@ -369,9 +370,14 @@ Authority
 - [ ] Anxiety established
 - [ ] Focus established
 
+Business
+
+- [ ] Affiliate optimization complete
+- [ ] Email capture system optimized
+
 ---
 
-# RULE OF THUMB
+# GOLDEN RULE
 
 Never ask:
 
