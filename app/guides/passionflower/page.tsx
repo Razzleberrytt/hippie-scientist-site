@@ -9,6 +9,8 @@ import SafetyBox from '@/components/SafetyBox'
 import MechanismBox from '@/components/MechanismBox'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
 import { revenueProductSets } from '@/config/revenue-products'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const SLUG = 'passionflower'
 const PAGE_URL = 'https://thehippiescientist.net/guides/passionflower'
@@ -24,6 +26,14 @@ export const metadata: Metadata = buildPageMetadata({
   path: `/guides/${SLUG}`,
   openGraphType: 'article',
 })
+
+const HEADINGS: Heading[] = [
+  { id: 'research', text: 'What the Research Shows', level: 2 },
+  { id: 'mechanism', text: 'How It Works', level: 2 },
+  { id: 'dosage', text: 'Dosage & Forms', level: 2 },
+  { id: 'safety', text: 'Safety & Precautions', level: 2 },
+  { id: 'faq', text: 'Common Questions', level: 2 },
+]
 
 const FAQS = [
   {
@@ -99,9 +109,10 @@ const MECHANISM_POINTS = [
 
 export default function PassionflowerGuidePage() {
   const passionflowerProducts = revenueProductSets['passionflower']
+  const toc = <TableOfContents headings={HEADINGS} />
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline={TITLE}
@@ -115,6 +126,7 @@ export default function PassionflowerGuidePage() {
           { label: 'Passionflower', href: `/guides/${SLUG}` },
         ]}
       />
+      <div className="space-y-8">
 
       {/* Hero */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -136,7 +148,7 @@ export default function PassionflowerGuidePage() {
       </section>
 
       {/* Evidence */}
-      <section className="space-y-4">
+      <section id="research" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What the Research Shows</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           <EvidenceSummaryBox
@@ -167,7 +179,7 @@ export default function PassionflowerGuidePage() {
       </section>
 
       {/* Mechanism */}
-      <section className="space-y-4">
+      <section id="mechanism" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">How It Works</h2>
         <MechanismBox
           summary="Passionflower is thought to exert anxiolytic effects primarily through modulation of the GABA system, supported by mild anti-inflammatory and antioxidant actions and possible effects on serotonin and dopamine. Human mechanistic data remain limited."
@@ -176,7 +188,7 @@ export default function PassionflowerGuidePage() {
       </section>
 
       {/* Dosage */}
-      <section className="space-y-4" id="dosage">
+      <section id="dosage" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosage &amp; Forms</h2>
         <DosageBox
           rows={DOSAGE_ROWS}
@@ -185,7 +197,7 @@ export default function PassionflowerGuidePage() {
       </section>
 
       {/* Safety */}
-      <section className="space-y-4" id="safety">
+      <section id="safety" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety &amp; Precautions</h2>
         <SafetyBox notes={SAFETY_NOTES} />
       </section>
@@ -200,7 +212,9 @@ export default function PassionflowerGuidePage() {
       )}
 
       {/* FAQ */}
-      <FAQAccordion faqs={FAQS} heading="Common Questions About Passionflower" />
+      <div id="faq" className="scroll-mt-20">
+        <FAQAccordion faqs={FAQS} heading="Common Questions About Passionflower" />
+      </div>
 
       {/* Related */}
       <section className="space-y-3">
@@ -229,6 +243,8 @@ export default function PassionflowerGuidePage() {
         <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
         <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
-    </div>
+
+      </div>{/* end space-y-8 */}
+    </ArticleLayout>
   )
 }
