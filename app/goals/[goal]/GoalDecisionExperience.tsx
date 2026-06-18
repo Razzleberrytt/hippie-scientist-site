@@ -3,7 +3,6 @@ import Link from 'next/link'
 import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
 import type { Goal } from '@/data/goals'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
-import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
 import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
 import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
 import { getGoalFreshness } from '@/lib/freshness'
@@ -119,7 +118,6 @@ export default function GoalDecisionExperience({
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
       {structuredData}
-      <StickyChecklistBar storageKey={`goal-engine-sticky-${goal.slug}`} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -291,8 +289,6 @@ export default function GoalDecisionExperience({
           seoEntry={hubLinks.seoEntry}
         />
       ) : null}
-
-      <SafetyChecklistPromo goal={captureGoal} variant="compact" />
 
       <AuthorCredentials />
 

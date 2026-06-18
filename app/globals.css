@@ -745,6 +745,20 @@ html.dark :where(.button-primary, [class~="bg-brand-700"], [class~="bg-brand-800
   color: #07150c;
 }
 
+html.dark :where(
+  [class~="text-emerald-800"],
+  [class~="text-emerald-900"]
+) {
+  color: #6ee7b7;
+}
+
+html.dark :where(
+  [class~="text-amber-900"],
+  [class~="text-amber-950"]
+) {
+  color: #fcd34d;
+}
+
 @layer utilities {
   .text-display {
     @apply font-display font-semibold leading-display tracking-tighter text-ink;

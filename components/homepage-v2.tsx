@@ -5,10 +5,7 @@ import { HERB_COUNT, COMPOUND_COUNT } from '@/lib/profile-counts'
 import { goals } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
-import NewsletterCtaBlock from './NewsletterCtaBlock'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
-import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
-import ExitIntentModal from '@/components/ExitIntentModal'
 import { getHomepageFreshness } from '@/lib/freshness'
 
 type RuntimeFeature = Record<string, unknown>
@@ -218,8 +215,6 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
   return (
     <div className='overflow-x-clip bg-site-bg'>
-      <StickyChecklistBar storageKey='homepage-sticky-checklist' />
-      <ExitIntentModal />
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
@@ -532,12 +527,6 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
         </section>
 
         <SafetyChecklistPromo goal='default' variant='hero' />
-
-        <NewsletterCtaBlock
-          title='Browse evidence-first newsletter notes'
-          description='Use the archive for concise supplement safety and sourcing updates.'
-          location='homepage-newsletter'
-        />
 
         {/* ── Disclaimer ───────────────────────────────────────── */}
         <section className='rounded-[0.85rem] border border-amber-200/80 bg-amber-50/50 p-4'>
