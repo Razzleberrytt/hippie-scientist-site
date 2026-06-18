@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArticleLayout } from '@/components/articles'
 
 export const metadata: Metadata = {
   title: 'Natural Alternatives to Anxiety Medication | Educational Guide',
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container-page py-10 space-y-8">
+    <ArticleLayout>
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <p className="eyebrow-label">Educational only</p>
         <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">Natural Alternatives to Anxiety Medication</h1>
@@ -27,6 +28,6 @@ export default function Page() {
         <Link href="/guides/best-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
         <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
       </div>
-    </main>
+    </ArticleLayout>
   )
 }

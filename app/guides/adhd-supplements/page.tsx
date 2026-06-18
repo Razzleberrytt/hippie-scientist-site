@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { buildPageMetadata } from '@/lib/seo'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import { AdhdInlineCta } from '@/components/articles/AdhdMonetizationWidgets'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const SLUG = 'adhd-supplements'
 const TITLE = 'ADHD Supplements Guide: Evidence, Safety, Testing, and Practical Use'
@@ -50,6 +52,13 @@ const GUIDE_REFERENCES = [
   ['Mineral status in ADHD review', 'https://www.mdpi.com/1420-3049/25/19/4440'],
 ] as const
 
+const HEADINGS: Heading[] = [
+  { id: 'evidence-hierarchy', text: 'The Evidence Hierarchy', level: 2 },
+  { id: 'ranked-nutrients', text: 'Ranked Nutrient Cards', level: 2 },
+  { id: 'sleep-calm', text: 'Sleep & Calm Focus Connection', level: 2 },
+  { id: 'faq', text: 'Frequently Asked Questions', level: 2 },
+]
+
 export default function AdhdSupplementsHub() {
   const collectionSchema = {
     '@context': 'https://schema.org',
@@ -90,8 +99,11 @@ export default function AdhdSupplementsHub() {
     })),
   }
 
+  const toc = <TableOfContents headings={HEADINGS} />
+
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-10">
+    <ArticleLayout toc={toc} zone="supplement">
+    <div className="space-y-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
@@ -123,7 +135,7 @@ export default function AdhdSupplementsHub() {
       <AdhdInlineCta type="checklist" />
 
       {/* Evidence Hierarchy */}
-      <section className="space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+      <section id="evidence-hierarchy" className="scroll-mt-20 space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <h2 className="text-2xl font-bold tracking-tight text-ink">The Evidence Hierarchy</h2>
         <p className="text-sm leading-relaxed text-muted">
           We categorize supplements into tiers based on the volume and consistency of human randomized controlled trials (RCTs) conducted in ADHD populations.
@@ -170,7 +182,7 @@ export default function AdhdSupplementsHub() {
 
       <AdhdInlineCta type="safety" />
 
-      <section className="space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+      <section id="ranked-nutrients" className="scroll-mt-20 space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <h2 className="text-2xl font-bold tracking-tight text-ink">Ranked Nutrient Cards</h2>
         <p className="max-w-3xl text-sm leading-relaxed text-muted">
           The safest ADHD supplement sequence is usually deficiency correction first, sleep support second,
@@ -267,7 +279,7 @@ export default function AdhdSupplementsHub() {
       <AdhdInlineCta type="stack" />
 
       {/* Sleep & Calm Focus Section */}
-      <section className="space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+      <section id="sleep-calm" className="scroll-mt-20 space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <h2 className="text-2xl font-bold tracking-tight text-ink">Sleep &amp; Calm Focus Connection</h2>
         <p className="text-sm leading-relaxed text-muted">
           Sleep disturbances are highly prevalent in individuals with ADHD, often compounding challenges with daytime focus, emotional regulation, and executive function. While targeted sleep support can reduce daytime symptom burden by improving sleep quality and duration, it does not treat or cure ADHD itself and does not replace professional care.
@@ -298,7 +310,7 @@ export default function AdhdSupplementsHub() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">
+      <section id="faq" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">
         <h2 className="text-xl font-bold text-ink">Frequently Asked Questions</h2>
         <div className="divide-y divide-brand-900/5 space-y-4">
           {FAQS.map((faq, index) => (
@@ -339,5 +351,6 @@ export default function AdhdSupplementsHub() {
         </div>
       </section>
     </div>
+    </ArticleLayout>
   )
 }

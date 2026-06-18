@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-focus`
 
@@ -82,7 +84,13 @@ const FOCUS_SUPPLEMENTS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'root-cause', text: 'Choose by root cause', level: 2 },
+  { id: 'profiles', text: 'Supplement profiles', level: 2 },
+]
+
 export default function BestSupplementsForFocusPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
   return (
     <>
       <StructuredData
@@ -98,7 +106,8 @@ export default function BestSupplementsForFocusPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <ArticleLayout toc={toc} zone="supplement">
+      <div className="space-y-14">
 
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Focus supplements guide</p>
@@ -114,7 +123,7 @@ export default function BestSupplementsForFocusPage() {
         </section>
 
         {/* Decision table */}
-        <section className="space-y-4">
+        <section id="root-cause" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">What's blocking your focus?</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Choose by root cause</h2>
           <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
@@ -145,7 +154,7 @@ export default function BestSupplementsForFocusPage() {
         </section>
 
         {/* Profiles */}
-        <section className="space-y-6">
+        <section id="profiles" className="scroll-mt-20 space-y-6">
           <div>
             <p className="eyebrow-label">Evidence profiles</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Supplement profiles</h2>
@@ -179,6 +188,7 @@ export default function BestSupplementsForFocusPage() {
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
+      </ArticleLayout>
     </>
   )
 }

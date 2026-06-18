@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-overthinking`
 
@@ -42,9 +44,20 @@ const FAQS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'quick-answer', text: 'Quick answer', level: 2 },
+  { id: 'takeaways', text: 'Key takeaways', level: 2 },
+  { id: 'match', text: 'Match the supplement to why your mind races', level: 2 },
+  { id: 'options', text: 'The options worth trying', level: 2 },
+  { id: 'basics', text: 'The basics that beat any supplement', level: 2 },
+  { id: 'risks', text: 'Risks & safety', level: 2 },
+  { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
 export default function Page() {
+  const toc = <TableOfContents headings={HEADINGS} />
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Supplements for Overthinking"
@@ -59,7 +72,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="container-page space-y-12 py-10">
+      <div className="space-y-12">
         {/* Hero */}
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
           <p className="eyebrow-label">Decision guide</p>
@@ -81,7 +94,7 @@ export default function Page() {
         </section>
 
         {/* Quick Answer */}
-        <section className="card-premium space-y-3 p-6">
+        <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
           <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
           <p className="text-muted">
             Start with <strong className="text-ink">L-theanine</strong> (100–200&nbsp;mg) — it is the most
@@ -97,7 +110,7 @@ export default function Page() {
         </section>
 
         {/* Key Takeaways */}
-        <section className="space-y-4">
+        <section id="takeaways" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Key takeaways</h2>
           <ul className="space-y-2 text-muted">
             <li>• <strong className="text-ink">L-theanine is the default</strong> — fast, calming, non-sedating and very safe for daily use.</li>
@@ -109,7 +122,7 @@ export default function Page() {
         </section>
 
         {/* Match driver */}
-        <section className="space-y-4">
+        <section id="match" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Find your driver</p>
           <h2 className="text-2xl font-semibold text-ink">Match the supplement to why your mind races</h2>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -129,7 +142,7 @@ export default function Page() {
         </section>
 
         {/* Evidence overview */}
-        <section className="space-y-5">
+        <section id="options" className="scroll-mt-20 space-y-5">
           <p className="eyebrow-label">Evidence overview</p>
           <h2 className="text-2xl font-semibold text-ink">The options worth trying</h2>
 
@@ -186,7 +199,7 @@ export default function Page() {
         </section>
 
         {/* Behavioral basics */}
-        <section className="space-y-3 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
+        <section id="basics" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
           <h2 className="text-xl font-semibold text-ink">The basics that beat any supplement</h2>
           <ul className="space-y-2 text-sm text-muted">
             <li>• <strong className="text-ink">Brain dump:</strong> write the loop down for two minutes — externalizing a worry reliably loosens its grip.</li>
@@ -197,7 +210,7 @@ export default function Page() {
         </section>
 
         {/* Risks & safety */}
-        <section className="space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
+        <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
           <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
           <ul className="space-y-2 text-sm text-amber-900">
             <li>• This is educational guidance, not treatment. Persistent rumination, intrusive thoughts or low mood deserve a clinician&rsquo;s input.</li>
@@ -208,7 +221,7 @@ export default function Page() {
         </section>
 
         {/* FAQs */}
-        <section className="space-y-4">
+        <section id="faq" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
           <div className="space-y-3">
             {FAQS.map((faq) => (
@@ -233,6 +246,6 @@ export default function Page() {
           </div>
         </section>
       </div>
-    </>
+    </ArticleLayout>
   )
 }

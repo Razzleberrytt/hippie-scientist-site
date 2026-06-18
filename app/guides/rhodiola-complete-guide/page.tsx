@@ -10,6 +10,8 @@ import MechanismBox from '@/components/MechanismBox'
 import ComparisonTable from '@/components/ComparisonTable'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
 import { revenueProductSets } from '@/config/revenue-products'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const SLUG = 'rhodiola-complete-guide'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-complete-guide'
@@ -107,11 +109,22 @@ const MECHANISM_POINTS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'summary', text: 'Quick Summary', level: 2 },
+  { id: 'evidence', text: 'The Evidence by Outcome', level: 2 },
+  { id: 'mechanism', text: 'What Is Rhodiola & How It Works', level: 2 },
+  { id: 'forms', text: 'Forms of Rhodiola', level: 2 },
+  { id: 'dosage', text: 'Dosage & Timing', level: 2 },
+  { id: 'safety', text: 'Safety & Who Should Avoid It', level: 2 },
+  { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
 export default function RhodiolaCompleteGuidePage() {
   const rhodiolaProducts = revenueProductSets['rhodiola']
+  const toc = <TableOfContents headings={HEADINGS} />
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline={TITLE}
@@ -125,6 +138,7 @@ export default function RhodiolaCompleteGuidePage() {
           { label: 'Complete Rhodiola Guide', href: `/guides/${SLUG}` },
         ]}
       />
+      <div className="space-y-8">
 
       {/* Hero */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -154,13 +168,13 @@ export default function RhodiolaCompleteGuidePage() {
       </section>
 
       {/* Quick summary */}
-      <section className="space-y-4">
+      <section id="summary" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Quick Summary</h2>
         <ComparisonTable headers={QUICK_HEADERS} rows={QUICK_ROWS} caption="Match the form and dose to your goal. All timelines assume consistent daily use." />
       </section>
 
       {/* Evidence */}
-      <section className="space-y-4">
+      <section id="evidence" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">The Evidence by Outcome</h2>
         <p className="text-sm leading-6 text-muted">
           Evidence quality varies by outcome. The strongest support is for stress-related fatigue; benefits are
@@ -195,7 +209,7 @@ export default function RhodiolaCompleteGuidePage() {
       </section>
 
       {/* What it is / mechanism */}
-      <section className="space-y-4">
+      <section id="mechanism" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What Is Rhodiola &amp; How It Works</h2>
         <p className="text-sm leading-6 text-muted">
           Rhodiola rosea is a perennial plant native to Siberia and Scandinavia, used in traditional medicine for
@@ -209,7 +223,7 @@ export default function RhodiolaCompleteGuidePage() {
       </section>
 
       {/* Forms summary + satellite links */}
-      <section className="space-y-4">
+      <section id="forms" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Forms of Rhodiola</h2>
         <p className="text-sm leading-6 text-muted">
           Form matters significantly for rhodiola — more than for many herbs. The <strong>SHR-5 standardized
@@ -226,7 +240,7 @@ export default function RhodiolaCompleteGuidePage() {
       </section>
 
       {/* Dosage */}
-      <section className="space-y-4" id="dosage">
+      <section className="scroll-mt-20 space-y-4" id="dosage">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosage &amp; Timing</h2>
         <DosageBox
           rows={DOSAGE_ROWS}
@@ -235,7 +249,7 @@ export default function RhodiolaCompleteGuidePage() {
       </section>
 
       {/* Safety */}
-      <section className="space-y-4" id="safety">
+      <section className="scroll-mt-20 space-y-4" id="safety">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety &amp; Who Should Avoid It</h2>
         <SafetyBox notes={SAFETY_NOTES} />
       </section>
@@ -250,7 +264,9 @@ export default function RhodiolaCompleteGuidePage() {
       )}
 
       {/* FAQ */}
-      <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola" />
+      <div id="faq" className="scroll-mt-20">
+        <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola" />
+      </div>
 
       {/* Hub: links to all 3 satellites */}
       <section className="space-y-3">
@@ -279,6 +295,7 @@ export default function RhodiolaCompleteGuidePage() {
         <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
         <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
-    </div>
+      </div>
+    </ArticleLayout>
   )
 }

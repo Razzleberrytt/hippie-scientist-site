@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-stress-and-anxiety-at-night`
 
@@ -42,9 +44,20 @@ const FAQS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'quick-answer', text: 'Quick answer', level: 2 },
+  { id: 'takeaways', text: 'Key takeaways', level: 2 },
+  { id: 'choose', text: 'Choose by how anxiety shows up at night', level: 2 },
+  { id: 'herbs', text: 'The calming herbs worth knowing', level: 2 },
+  { id: 'routine', text: 'A simple evening wind-down', level: 2 },
+  { id: 'risks', text: 'Risks & safety', level: 2 },
+  { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
 export default function Page() {
+  const toc = <TableOfContents headings={HEADINGS} />
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Herbs for Stress and Anxiety at Night"
@@ -59,7 +72,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="container-page space-y-12 py-10">
+      <div className="space-y-12">
         {/* Hero */}
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
           <p className="eyebrow-label">Night routine guide</p>
@@ -81,7 +94,7 @@ export default function Page() {
         </section>
 
         {/* Quick Answer */}
-        <section className="card-premium space-y-3 p-6">
+        <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
           <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
           <p className="text-muted">
             For racing thoughts at bedtime, start with{' '}
@@ -97,7 +110,7 @@ export default function Page() {
         </section>
 
         {/* Key Takeaways */}
-        <section className="space-y-4">
+        <section id="takeaways" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Key takeaways</h2>
           <ul className="space-y-2 text-muted">
             <li>• <strong className="text-ink">Identify the pattern first:</strong> racing mind, physical tension, or stress-hormone &ldquo;wired but tired.&rdquo; Each responds to a different herb.</li>
@@ -109,13 +122,13 @@ export default function Page() {
         </section>
 
         {/* Match pattern */}
-        <section className="space-y-4">
+        <section id="choose" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Match to your pattern</p>
           <h2 className="text-2xl font-semibold text-ink">Choose by how anxiety shows up at night</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               { pattern: 'Racing thoughts you cannot switch off', pick: 'L-theanine, then passionflower', href: '/compounds/l-theanine' },
-              { pattern: '“Wired but tired” — stress hormones high', pick: 'Ashwagandha in the evening', href: '/herbs/ashwagandha' },
+              { pattern: '"Wired but tired" — stress hormones high', pick: 'Ashwagandha in the evening', href: '/herbs/ashwagandha' },
               { pattern: 'Restless, tense, mild worry', pick: 'Lemon balm or magnolia bark', href: '/herbs/melissa-officinalis' },
               { pattern: 'Anxiety plus trouble staying asleep', pick: 'Passionflower + magnesium', href: '/herbs/passiflora-incarnata' },
               { pattern: 'Occasional, situational restlessness', pick: 'Valerian (short course)', href: '/herbs/valerian' },
@@ -132,7 +145,7 @@ export default function Page() {
         </section>
 
         {/* Evidence overview */}
-        <section className="space-y-5">
+        <section id="herbs" className="scroll-mt-20 space-y-5">
           <p className="eyebrow-label">Evidence overview</p>
           <h2 className="text-2xl font-semibold text-ink">The calming herbs worth knowing</h2>
 
@@ -203,7 +216,7 @@ export default function Page() {
         </section>
 
         {/* Wind-down routine */}
-        <section className="space-y-3 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
+        <section id="routine" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
           <h2 className="text-xl font-semibold text-ink">A simple evening wind-down</h2>
           <ol className="list-decimal space-y-2 pl-5 text-sm text-muted">
             <li>Set a caffeine curfew — nothing after early afternoon if evenings are when anxiety peaks.</li>
@@ -215,7 +228,7 @@ export default function Page() {
         </section>
 
         {/* Risks & safety */}
-        <section className="space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
+        <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
           <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
           <ul className="space-y-2 text-sm text-amber-900">
             <li>• Do not combine sedating herbs with alcohol, benzodiazepines, sleep medication or opioids.</li>
@@ -226,7 +239,7 @@ export default function Page() {
         </section>
 
         {/* FAQs */}
-        <section className="space-y-4">
+        <section id="faq" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
           <div className="space-y-3">
             {FAQS.map((faq) => (
@@ -251,6 +264,6 @@ export default function Page() {
           </div>
         </section>
       </div>
-    </>
+    </ArticleLayout>
   )
 }

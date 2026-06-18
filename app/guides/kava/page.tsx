@@ -6,6 +6,8 @@ import FAQAccordion from '@/components/FAQAccordion'
 import EvidenceSummaryBox from '@/components/EvidenceSummaryBox'
 import SafetyBox from '@/components/SafetyBox'
 import MechanismBox from '@/components/MechanismBox'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 // NOTE: This is intentionally a HARM-REDUCTION / educational guide, not a supplement
 // recommendation. The source content explicitly does not recommend or endorse kava use
@@ -96,9 +98,20 @@ const MECHANISM_POINTS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'evidence', text: 'Clinical Evidence', level: 2 },
+  { id: 'mechanism', text: 'Mechanisms & Pharmacokinetics', level: 2 },
+  { id: 'liver-risk', text: 'Factors That Influence Liver Risk', level: 2 },
+  { id: 'safety', text: 'Safety & Harm Reduction', level: 2 },
+  { id: 'faq', text: 'Common Questions', level: 2 },
+  { id: 'alternatives', text: 'Better-Studied Alternatives', level: 2 },
+]
+
 export default function KavaGuidePage() {
+  const toc = <TableOfContents headings={HEADINGS} />
+
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <ArticleLayout toc={toc} zone="harm-reduction">
       <StructuredData
         pageUrl={PAGE_URL}
         headline={TITLE}
@@ -113,6 +126,7 @@ export default function KavaGuidePage() {
         ]}
       />
 
+      <div className="space-y-8">
       {/* Hero */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
         <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
@@ -145,7 +159,7 @@ export default function KavaGuidePage() {
       </div>
 
       {/* Evidence */}
-      <section className="space-y-4">
+      <section id="evidence" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Clinical Evidence</h2>
         <p className="text-sm leading-6 text-muted">
           Kava is one of the more extensively researched herbal options for anxiety, but the evidence is mixed
@@ -180,7 +194,7 @@ export default function KavaGuidePage() {
       </section>
 
       {/* Mechanism */}
-      <section className="space-y-4">
+      <section id="mechanism" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Mechanisms &amp; Pharmacokinetics</h2>
         <MechanismBox
           summary="The six major kavalactones — kavain, dihydrokavain, methysticin, dihydromethysticin, yangonin, and desmethoxyyangonin — are concentrated in the root and lower stem and drive most of kava's pharmacology. Quality and preparation method are among the most important variables affecting both efficacy and safety."
@@ -189,7 +203,7 @@ export default function KavaGuidePage() {
       </section>
 
       {/* Risk factors */}
-      <section className="space-y-4">
+      <section id="liver-risk" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Factors That Influence Liver Risk</h2>
         <ul className="space-y-2 text-sm leading-6 text-muted">
           <li><strong className="text-ink">Preparation method:</strong> traditional water-based extracts of noble cultivars appear lower-risk than many commercial acetone/ethanol extracts.</li>
@@ -201,16 +215,18 @@ export default function KavaGuidePage() {
       </section>
 
       {/* Safety */}
-      <section className="space-y-4" id="safety">
+      <section id="safety" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety &amp; Harm Reduction</h2>
         <SafetyBox notes={SAFETY_NOTES} />
       </section>
 
       {/* FAQ */}
-      <FAQAccordion faqs={FAQS} heading="Common Questions About Kava" />
+      <div id="faq" className="scroll-mt-20">
+        <FAQAccordion faqs={FAQS} heading="Common Questions About Kava" />
+      </div>
 
       {/* Related — safer alternatives, no affiliate */}
-      <section className="space-y-3">
+      <section id="alternatives" className="scroll-mt-20 space-y-4">
         <h2 className="text-xl font-semibold text-ink">Better-Studied, Lower-Risk Alternatives</h2>
         <p className="text-sm text-muted">
           For most people managing anxiety, the options below have more favorable risk profiles than kava.
@@ -239,6 +255,7 @@ export default function KavaGuidePage() {
         <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
         <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
-    </div>
+      </div>{/* end space-y-8 */}
+    </ArticleLayout>
   )
 }

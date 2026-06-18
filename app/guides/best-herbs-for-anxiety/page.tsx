@@ -3,6 +3,8 @@ import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-anxiety`
 
@@ -123,6 +125,16 @@ const ANXIETY_REFERENCES = [
   ['Ashwagandha adaptogenic and anxiolytic trial', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC6979308/'],
 ] as const
 
+const HEADINGS: Heading[] = [
+  { id: 'match', text: 'Match herb to anxiety pattern', level: 2 },
+  { id: 'time-horizon', text: 'Choose by time horizon', level: 2 },
+  { id: 'risks', text: 'SSRI and sedative stacking risk', level: 2 },
+  { id: 'evidence', text: 'Herb-by-herb evidence review', level: 2 },
+  { id: 'limits', text: "What the evidence can't tell you", level: 2 },
+  { id: 'dosing', text: 'Dosing and timing snapshot', level: 2 },
+  { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
 export default function BestHerbsForAnxietyPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -137,8 +149,10 @@ export default function BestHerbsForAnxietyPage() {
     })),
   }
 
+  const toc = <TableOfContents headings={HEADINGS} />
+
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Herbs for Anxiety — Evidence-Based Guide"
@@ -153,7 +167,7 @@ export default function BestHerbsForAnxietyPage() {
       />
       <JsonLd schema={faqSchema} />
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <div className="space-y-14">
 
         {/* Hero */}
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -176,7 +190,7 @@ export default function BestHerbsForAnxietyPage() {
         </section>
 
         {/* Decision framework */}
-        <section className="space-y-4">
+        <section id="match" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Start here</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">
             Match herb to anxiety pattern
@@ -204,7 +218,7 @@ export default function BestHerbsForAnxietyPage() {
         </section>
 
         <section className="grid gap-4 md:grid-cols-2">
-          <div className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <div id="time-horizon" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
             <p className="eyebrow-label">Fast acting vs daily</p>
             <h2 className="mt-1 text-xl font-semibold text-ink">Choose by time horizon</h2>
             <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
@@ -213,7 +227,7 @@ export default function BestHerbsForAnxietyPage() {
               <li><strong>Mild evening ritual:</strong> chamomile or lemon balm may fit better than stronger anxiolytic herbs.</li>
             </ul>
           </div>
-          <div className="rounded-[1.65rem] border border-red-200 bg-red-50 p-6 shadow-sm">
+          <div id="risks" className="scroll-mt-20 rounded-[1.65rem] border border-red-200 bg-red-50 p-6 shadow-sm">
             <p className="eyebrow-label text-red-900">Medication safety</p>
             <h2 className="mt-1 text-xl font-semibold text-red-950">SSRI and sedative stacking risk</h2>
             <p className="mt-3 text-sm leading-6 text-red-900/90">
@@ -225,7 +239,7 @@ export default function BestHerbsForAnxietyPage() {
         </section>
 
         {/* Herb profiles */}
-        <section className="space-y-6">
+        <section id="evidence" className="scroll-mt-20 space-y-6">
           <div>
             <p className="eyebrow-label">Evidence profiles</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
@@ -278,7 +292,7 @@ export default function BestHerbsForAnxietyPage() {
         </section>
 
         {/* What evidence can't tell you */}
-        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm space-y-3">
+        <section id="limits" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm space-y-3">
           <h2 className="text-xl font-semibold text-ink">What the evidence can't tell you</h2>
           <ul className="space-y-2 text-sm text-muted list-none">
             <li>• Most herb anxiety trials last 4–12 weeks on non-clinical (subclinical) populations. Effects in clinical anxiety disorders may differ significantly.</li>
@@ -288,7 +302,7 @@ export default function BestHerbsForAnxietyPage() {
           </ul>
         </section>
 
-        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+        <section id="dosing" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-ink">Dosing and timing snapshot</h2>
           <div className="mt-4 overflow-x-auto rounded-[1rem] border border-brand-900/10 bg-white">
             <table className="min-w-[640px] w-full text-left text-sm">
@@ -314,7 +328,7 @@ export default function BestHerbsForAnxietyPage() {
           </div>
         </section>
 
-        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+        <section id="faq" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-ink">Frequently asked questions</h2>
           <div className="mt-4 divide-y divide-brand-900/10">
             {ANXIETY_FAQS.map((faq) => (
@@ -348,6 +362,6 @@ export default function BestHerbsForAnxietyPage() {
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
-    </>
+    </ArticleLayout>
   )
 }

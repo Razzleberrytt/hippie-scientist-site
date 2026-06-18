@@ -8,6 +8,8 @@ import DosageBox from '@/components/DosageBox'
 import ComparisonTable from '@/components/ComparisonTable'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
 import { revenueProductSets } from '@/config/revenue-products'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const SLUG = 'rhodiola-extract-vs-powder'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-extract-vs-powder'
@@ -68,11 +70,21 @@ const DOSAGE_ROWS = [
   { form: 'Root powder', range: '1–2 g/day', notes: '3–5× more by weight; potency varies by batch' },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'comparison', text: 'Quick Comparison', level: 2 },
+  { id: 'research', text: 'What the Research Actually Used', level: 2 },
+  { id: 'dosage', text: 'Dosing by Form', level: 2 },
+  { id: 'quality', text: 'How to Verify Extract Quality', level: 2 },
+  { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
 export default function RhodiolaExtractVsPowderGuidePage() {
   const rhodiolaProducts = revenueProductSets['rhodiola']
+  const toc = <TableOfContents headings={HEADINGS} />
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <ArticleLayout toc={toc} zone="supplement">
+      <div className="space-y-8">
       <StructuredData
         pageUrl={PAGE_URL}
         headline={TITLE}
@@ -114,13 +126,13 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       </section>
 
       {/* Quick comparison */}
-      <section className="space-y-4">
+      <section id="comparison" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Quick Comparison</h2>
         <ComparisonTable headers={COMPARISON_HEADERS} rows={COMPARISON_ROWS} />
       </section>
 
       {/* Evidence */}
-      <section className="space-y-4">
+      <section id="research" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What the Research Actually Used</h2>
         <p className="text-sm leading-6 text-muted">
           This is the critical point most buying guides miss. Every major positive trial used SHR-5 or a similar
@@ -144,7 +156,7 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       </section>
 
       {/* Dosage */}
-      <section className="space-y-4" id="dosage">
+      <section id="dosage" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosing by Form</h2>
         <DosageBox
           rows={DOSAGE_ROWS}
@@ -153,7 +165,7 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       </section>
 
       {/* How to verify */}
-      <section className="space-y-4">
+      <section id="quality" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">How to Verify Extract Quality</h2>
         <ul className="space-y-2 text-sm leading-6 text-muted">
           <li><strong className="text-ink">Check the label</strong> — it should list &quot;standardized to 3% rosavins, 1% salidroside.&quot;</li>
@@ -179,7 +191,9 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       )}
 
       {/* FAQ */}
-      <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola Forms" />
+      <div id="faq" className="scroll-mt-20">
+        <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola Forms" />
+      </div>
 
       {/* Related (hub) */}
       <section className="space-y-3">
@@ -208,6 +222,7 @@ export default function RhodiolaExtractVsPowderGuidePage() {
         <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
         <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
-    </div>
+      </div>
+    </ArticleLayout>
   )
 }

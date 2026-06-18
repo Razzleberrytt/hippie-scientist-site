@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArticleLayout } from '@/components/articles'
 
 export const metadata: Metadata = {
   title: 'Supplements for Brain Fog and Fatigue',
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className='container-page py-10 space-y-8 max-w-3xl'>
+    <ArticleLayout>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Guide</p>
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Supplements for Brain Fog and Fatigue</h1>
@@ -33,7 +34,7 @@ export default function Page() {
           <Link href='/compare/creatine-vs-caffeine' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
         </div>
       </section>
-    </div>
+    </ArticleLayout>
   )
 }
 
