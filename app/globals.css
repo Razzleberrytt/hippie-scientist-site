@@ -945,3 +945,81 @@ html.dark :where(
     }
   }
 }
+
+/* Article layout typography — scoped to .article-body, inside @layer components
+   so Tailwind utility classes (in @layer utilities) always take precedence. */
+@layer components {
+  .article-body {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .article-body p {
+    margin-top: 1.25em;
+    line-height: 1.72;
+  }
+
+  .article-body p:first-child {
+    margin-top: 0;
+  }
+
+  .article-body ul,
+  .article-body ol {
+    padding-left: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  .article-body li + li {
+    margin-top: 0.375em;
+  }
+
+  .article-body blockquote {
+    border-left: 3px solid var(--color-brand-300);
+    padding-left: 1.25em;
+    margin: 1.5em 0;
+    font-style: italic;
+  }
+
+  .article-body pre {
+    overflow-x: auto;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin: 1.5em 0;
+    background: var(--surface);
+  }
+
+  .article-body code:not(pre code) {
+    font-size: 0.875em;
+    background: var(--surface);
+    padding: 0.125em 0.35em;
+    border-radius: 0.25rem;
+  }
+
+  .article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.875rem;
+  }
+
+  .article-body th,
+  .article-body td {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .article-body th {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .article-body img {
+    border-radius: 0.75rem;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5em auto;
+    display: block;
+  }
+}
