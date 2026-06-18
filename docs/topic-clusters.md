@@ -4,7 +4,7 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 196
+- Pages: 195
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
@@ -136,7 +136,7 @@ Priority clusters used by the internal link engine.
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 523
+- Pages: 524
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
@@ -180,7 +180,7 @@ Priority clusters used by the internal link engine.
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 642
+- Pages: 645
 - [Home](/) (static)
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
@@ -224,7 +224,7 @@ Priority clusters used by the internal link engine.
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 511
+- Pages: 513
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Berberine vs Metformin](/compare/berberine-vs-metformin) (guide)
 - [Caffeine vs L-Theanine vs Bacopa for Focus & Attention](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
@@ -400,7 +400,7 @@ Priority clusters used by the internal link engine.
 
 ## Metabolic Health
 - Signals: metabolic, glucose, insulin, blood sugar, lipid, weight, berberine
-- Pages: 339
+- Pages: 341
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Magnesium Glycinate Vs Citrate For Adhd](/articles/magnesium-glycinate-vs-citrate-for-adhd) (article)
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
