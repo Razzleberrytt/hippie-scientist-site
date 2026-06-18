@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { SeoEntryPage, generateSeoEntryMetadata } from '../../seo-entry-pages'
 import StructuredData from '@/components/StructuredData'
+import { ArticleLayout, RelatedArticles } from '@/components/articles'
 
 const route = 'guides/magnesium-for-sleep'
 const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-for-sleep'
@@ -41,24 +41,27 @@ const FAQS = [
 const RELATED_GUIDES = [
   {
     href: '/guides/turmeric-curcumin',
-    label: 'Turmeric & Curcumin Guide',
+    title: 'Turmeric & Curcumin Guide',
     description: 'Anti-inflammatory evidence, bioavailability forms, and dosage comparison.',
+    category: 'stress' as const,
   },
   {
     href: '/guides/ashwagandha',
-    label: 'Ashwagandha Guide',
+    title: 'Ashwagandha Guide',
     description: 'Cortisol modulation, stress adaptation, and sleep quality evidence.',
+    category: 'stress' as const,
   },
   {
     href: '/guides/lions-mane',
-    label: "Lion's Mane Guide",
+    title: "Lion's Mane Guide",
     description: 'Cognitive support, NGF synthesis, and neuroregeneration evidence.',
+    category: 'focus' as const,
   },
 ]
 
 export default function MagnesiumForSleepGuidePage() {
   return (
-    <>
+    <ArticleLayout zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Magnesium for Sleep and Anxiety: Evidence, Forms, and Dosage Guide"
@@ -73,28 +76,7 @@ export default function MagnesiumForSleepGuidePage() {
         ]}
       />
       <SeoEntryPage route={route} />
-      <div className="mx-auto max-w-4xl space-y-6 px-4 pb-12 sm:px-6 lg:px-8">
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold text-ink">Related Guides</h2>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {RELATED_GUIDES.map((guide) => (
-              <Link
-                key={guide.href}
-                href={guide.href}
-                className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
-              >
-                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
-                  Guide
-                </p>
-                <p className="mt-1 text-sm font-semibold text-ink">{guide.label}</p>
-                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">
-                  {guide.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-      </div>
-    </>
+      <RelatedArticles articles={RELATED_GUIDES} />
+    </ArticleLayout>
   )
 }

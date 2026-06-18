@@ -9,6 +9,8 @@ import SafetyBox from '@/components/SafetyBox'
 import MechanismBox from '@/components/MechanismBox'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
 import { revenueProductSets } from '@/config/revenue-products'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const SLUG = 'rhodiola-sleep-stack'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-sleep-stack'
@@ -97,12 +99,23 @@ const MECHANISM_POINTS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'problem', text: 'The Root Problem: Wired But Tired', level: 2 },
+  { id: 'evidence', text: 'What the Evidence Supports', level: 2 },
+  { id: 'combination', text: 'Why the Combination Makes Sense', level: 2 },
+  { id: 'dosage', text: 'Dosing & Timing Protocol', level: 2 },
+  { id: 'safety', text: 'Safety & Who Should Avoid It', level: 2 },
+  { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
 export default function RhodiolaSleepStackGuidePage() {
   const rhodiolaProducts = revenueProductSets['rhodiola']
   const magnesiumProducts = revenueProductSets['magnesium']
+  const toc = <TableOfContents headings={HEADINGS} />
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <ArticleLayout toc={toc} zone="supplement">
+      <div className="space-y-8">
       <StructuredData
         pageUrl={PAGE_URL}
         headline={TITLE}
@@ -145,7 +158,7 @@ export default function RhodiolaSleepStackGuidePage() {
       </section>
 
       {/* The problem */}
-      <section className="space-y-4">
+      <section id="problem" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">The Root Problem: Wired But Tired</h2>
         <p className="text-sm leading-6 text-muted">
           The most common complaint is &quot;I&apos;m exhausted but can&apos;t fall asleep&quot; — racing thoughts,
@@ -156,7 +169,7 @@ export default function RhodiolaSleepStackGuidePage() {
       </section>
 
       {/* Evidence */}
-      <section className="space-y-4">
+      <section id="evidence" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What the Evidence Supports</h2>
         <div className="grid gap-3 sm:grid-cols-2">
           <EvidenceSummaryBox
@@ -187,7 +200,7 @@ export default function RhodiolaSleepStackGuidePage() {
       </section>
 
       {/* Mechanism */}
-      <section className="space-y-4">
+      <section id="combination" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Why the Combination Makes Sense</h2>
         <MechanismBox
           summary="These two supplements target different problems. Rhodiola reduces the stress loading your system during the day; magnesium helps your nervous system relax at night. Because the mechanisms do not overlap, the pairing is more rational than stacks that double up on the same pathway."
@@ -196,7 +209,7 @@ export default function RhodiolaSleepStackGuidePage() {
       </section>
 
       {/* Dosage */}
-      <section className="space-y-4" id="dosage">
+      <section id="dosage" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosing &amp; Timing Protocol</h2>
         <DosageBox
           rows={DOSAGE_ROWS}
@@ -211,7 +224,7 @@ export default function RhodiolaSleepStackGuidePage() {
       </section>
 
       {/* Safety */}
-      <section className="space-y-4" id="safety">
+      <section id="safety" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety &amp; Who Should Avoid It</h2>
         <SafetyBox notes={SAFETY_NOTES} />
       </section>
@@ -233,7 +246,9 @@ export default function RhodiolaSleepStackGuidePage() {
       )}
 
       {/* FAQ */}
-      <FAQAccordion faqs={FAQS} heading="Common Questions About the Rhodiola + Magnesium Stack" />
+      <div id="faq" className="scroll-mt-20">
+        <FAQAccordion faqs={FAQS} heading="Common Questions About the Rhodiola + Magnesium Stack" />
+      </div>
 
       {/* Related */}
       <section className="space-y-3">
@@ -262,6 +277,7 @@ export default function RhodiolaSleepStackGuidePage() {
         <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
         <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
-    </div>
+      </div>
+    </ArticleLayout>
   )
 }

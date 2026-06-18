@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-adaptogens-for-stress`
 
@@ -87,7 +89,14 @@ const ADAPTOGENS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'glance', text: 'Adaptogen at a glance', level: 2 },
+  { id: 'profiles', text: 'Adaptogen profiles', level: 2 },
+  { id: 'stacking', text: 'Stacking adaptogens', level: 2 },
+]
+
 export default function BestAdaptogensForStressPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
   return (
     <>
       <StructuredData
@@ -103,7 +112,8 @@ export default function BestAdaptogensForStressPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <ArticleLayout toc={toc} zone="supplement">
+      <div className="space-y-14">
 
         {/* Hero */}
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -126,7 +136,7 @@ export default function BestAdaptogensForStressPage() {
         </section>
 
         {/* Quick comparison */}
-        <section className="space-y-4">
+        <section id="glance" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Quick comparison</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Adaptogen at a glance</h2>
           <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
@@ -156,7 +166,7 @@ export default function BestAdaptogensForStressPage() {
         </section>
 
         {/* Detailed profiles */}
-        <section className="space-y-6">
+        <section id="profiles" className="scroll-mt-20 space-y-6">
           <div>
             <p className="eyebrow-label">Evidence profiles</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Adaptogen profiles</h2>
@@ -185,7 +195,7 @@ export default function BestAdaptogensForStressPage() {
         </section>
 
         {/* Combination guidance */}
-        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm space-y-4">
+        <section id="stacking" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm space-y-4">
           <h2 className="text-xl font-semibold text-ink">Stacking adaptogens: principles</h2>
           <ul className="space-y-2 text-sm text-muted">
             <li>• <strong>Don't stack without a reason:</strong> Ashwagandha alone is often sufficient for chronic stress; adding rhodiola is only additive if there's also acute fatigue or performance stress.</li>
@@ -204,6 +214,7 @@ export default function BestAdaptogensForStressPage() {
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
+      </ArticleLayout>
     </>
   )
 }

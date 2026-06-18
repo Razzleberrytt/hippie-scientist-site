@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/focus-without-caffeine-crash`
 
@@ -42,9 +44,20 @@ const FAQS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'quick-answer', text: 'Quick answer', level: 2 },
+  { id: 'takeaways', text: 'Key takeaways', level: 2 },
+  { id: 'caffeine-theanine', text: 'Caffeine + L-theanine', level: 2 },
+  { id: 'nootropics', text: 'Calmer nootropics that do not crash', level: 2 },
+  { id: 'habits', text: 'Habits that prevent the crash', level: 2 },
+  { id: 'risks', text: 'Risks & safety', level: 2 },
+  { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
 export default function Page() {
+  const toc = <TableOfContents headings={HEADINGS} />
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Focus Without the Caffeine Crash"
@@ -59,7 +72,7 @@ export default function Page() {
         ]}
       />
 
-      <div className="container-page space-y-12 py-10">
+      <div className="space-y-12">
         {/* Hero */}
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
           <p className="eyebrow-label">Focus framework</p>
@@ -81,7 +94,7 @@ export default function Page() {
         </section>
 
         {/* Quick Answer */}
-        <section className="card-premium space-y-3 p-6">
+        <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
           <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
           <p className="text-muted">
             Pair <strong className="text-ink">caffeine with L-theanine</strong> (roughly 100&nbsp;mg
@@ -96,7 +109,7 @@ export default function Page() {
         </section>
 
         {/* Key Takeaways */}
-        <section className="space-y-4">
+        <section id="takeaways" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Key takeaways</h2>
           <ul className="space-y-2 text-muted">
             <li>• <strong className="text-ink">The crash is rebound adenosine</strong> plus a blood-sugar dip and the tail of a stress response — bigger, later doses make it worse.</li>
@@ -108,7 +121,7 @@ export default function Page() {
         </section>
 
         {/* The stack */}
-        <section className="space-y-4">
+        <section id="caffeine-theanine" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">The core stack</p>
           <h2 className="text-2xl font-semibold text-ink">Caffeine + L-theanine, done right</h2>
           <p className="text-muted">
@@ -145,7 +158,7 @@ export default function Page() {
         </section>
 
         {/* Calmer nootropics */}
-        <section className="space-y-5">
+        <section id="nootropics" className="scroll-mt-20 space-y-5">
           <p className="eyebrow-label">Beyond caffeine</p>
           <h2 className="text-2xl font-semibold text-ink">Calmer nootropics that do not crash</h2>
 
@@ -187,7 +200,7 @@ export default function Page() {
         </section>
 
         {/* Habits */}
-        <section className="space-y-3 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
+        <section id="habits" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
           <h2 className="text-xl font-semibold text-ink">Habits that prevent the crash</h2>
           <ol className="list-decimal space-y-2 pl-5 text-sm text-muted">
             <li>Cap caffeine earlier in the day and skip late &ldquo;rescue&rdquo; doses that wreck the next night&rsquo;s sleep.</li>
@@ -199,7 +212,7 @@ export default function Page() {
         </section>
 
         {/* Risks & safety */}
-        <section className="space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
+        <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
           <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
           <ul className="space-y-2 text-sm text-amber-900">
             <li>• Keep total daily caffeine moderate (most healthy adults tolerate up to ~400&nbsp;mg); reduce it if you have anxiety, palpitations or high blood pressure.</li>
@@ -210,7 +223,7 @@ export default function Page() {
         </section>
 
         {/* FAQs */}
-        <section className="space-y-4">
+        <section id="faq" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
           <div className="space-y-3">
             {FAQS.map((faq) => (
@@ -235,6 +248,6 @@ export default function Page() {
           </div>
         </section>
       </div>
-    </>
+    </ArticleLayout>
   )
 }

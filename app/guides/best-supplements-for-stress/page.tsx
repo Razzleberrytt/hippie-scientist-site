@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-stress`
 
@@ -72,7 +74,14 @@ const STRESS_SUPPLEMENTS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'stress-pattern', text: 'Choose by stress pattern', level: 2 },
+  { id: 'profiles', text: 'Supplement profiles', level: 2 },
+  { id: 'stacks', text: 'Recommended stacks', level: 2 },
+]
+
 export default function BestSupplementsForStressPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
   return (
     <>
       <StructuredData
@@ -88,7 +97,8 @@ export default function BestSupplementsForStressPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <ArticleLayout toc={toc} zone="supplement">
+      <div className="space-y-14">
 
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Stress supplements guide</p>
@@ -105,7 +115,7 @@ export default function BestSupplementsForStressPage() {
         </section>
 
         {/* Type of stress framework */}
-        <section className="space-y-4">
+        <section id="stress-pattern" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Match to stress type</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Choose by stress pattern</h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -128,7 +138,7 @@ export default function BestSupplementsForStressPage() {
         </section>
 
         {/* Profiles */}
-        <section className="space-y-6">
+        <section id="profiles" className="scroll-mt-20 space-y-6">
           <div>
             <p className="eyebrow-label">Evidence profiles</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Supplement profiles</h2>
@@ -154,7 +164,7 @@ export default function BestSupplementsForStressPage() {
         </section>
 
         {/* Key stacks */}
-        <section className="space-y-4">
+        <section id="stacks" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Combinations</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Recommended stacks</h2>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -180,6 +190,7 @@ export default function BestSupplementsForStressPage() {
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
+      </ArticleLayout>
     </>
   )
 }

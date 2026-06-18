@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 export const metadata: Metadata = {
   title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
@@ -17,7 +19,15 @@ export const metadata: Metadata = {
   },
 }
 
+const HEADINGS: Heading[] = [
+  { id: 'profiles', text: 'Monitored Botanical Profiles', level: 2 },
+  { id: 'harm-reduction', text: 'Core Harm Reduction Checkpoints', level: 2 },
+  { id: 'disclaimer', text: 'Legal & Health Disclaimer', level: 2 },
+]
+
 export default function PsychedelicAdjacentHerbsPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
+
   const botanicals = [
     {
       name: 'Blue Lotus (Nymphaea caerulea)',
@@ -38,7 +48,8 @@ export default function PsychedelicAdjacentHerbsPage() {
   ]
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+    <ArticleLayout toc={toc} zone="harm-reduction">
+    <div className="space-y-8">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">Safety-Led Discovery</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -62,7 +73,7 @@ export default function PsychedelicAdjacentHerbsPage() {
       </section>
 
       {/* Botanical Profiles */}
-      <section className="space-y-4">
+      <section id="profiles" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold text-ink">Monitored Botanical Profiles</h2>
         <p className="text-sm text-muted">Review traditional uses, chemical constituents, and safety limits for these herbs.</p>
         
@@ -93,7 +104,7 @@ export default function PsychedelicAdjacentHerbsPage() {
       </section>
 
       {/* Harm Reduction Principles */}
-      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 sm:p-6 space-y-4 shadow-sm">
+      <section id="harm-reduction" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-5 sm:p-6 space-y-4 shadow-sm">
         <h2 className="text-xl font-semibold text-ink">Core Harm Reduction Checkpoints</h2>
         <div className="grid gap-4 sm:grid-cols-3 text-sm">
           <div className="space-y-2">
@@ -118,7 +129,7 @@ export default function PsychedelicAdjacentHerbsPage() {
       </section>
 
       {/* Safety Layer */}
-      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
+      <section id="disclaimer" className="scroll-mt-20 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
         <h2 className="font-semibold text-amber-950">Legal & Health Disclaimer</h2>
         <p className="mt-2 text-xs">
           These pages are for educational and harm reduction purposes only. The Hippie Scientist does not advocate for the use of unregulated or illegal substances. Always review clinical contraindications and consult with a licensed physician before introducing any botanical supplements into your lifestyle.
@@ -132,6 +143,7 @@ export default function PsychedelicAdjacentHerbsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
+    </ArticleLayout>
   )
 }

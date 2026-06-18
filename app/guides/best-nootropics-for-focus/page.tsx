@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-nootropics-for-focus`
 
@@ -111,9 +113,17 @@ const STACKS = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'acute-vs-long-term', text: 'Acute vs long-term nootropics', level: 2 },
+  { id: 'profiles', text: 'Nootropic-by-nootropic review', level: 2 },
+  { id: 'stacking', text: 'Evidence-informed stacking guide', level: 2 },
+]
+
 export default function BestNootropicsForFocusPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
+
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Nootropics for Focus — Evidence-Based Guide"
@@ -127,7 +137,7 @@ export default function BestNootropicsForFocusPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <div className="space-y-14">
 
         {/* Hero */}
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -149,7 +159,7 @@ export default function BestNootropicsForFocusPage() {
         </section>
 
         {/* Timescale comparison */}
-        <section className="space-y-4">
+        <section id="acute-vs-long-term" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Timescale matters</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">
             Acute vs long-term nootropics
@@ -177,7 +187,7 @@ export default function BestNootropicsForFocusPage() {
         </section>
 
         {/* Profiles */}
-        <section className="space-y-6">
+        <section id="profiles" className="scroll-mt-20 space-y-6">
           <div>
             <p className="eyebrow-label">Evidence profiles</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
@@ -226,7 +236,7 @@ export default function BestNootropicsForFocusPage() {
         </section>
 
         {/* Stacking */}
-        <section className="space-y-5">
+        <section id="stacking" className="scroll-mt-20 space-y-5">
           <div>
             <p className="eyebrow-label">Combinations</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
@@ -253,6 +263,6 @@ export default function BestNootropicsForFocusPage() {
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
-    </>
+    </ArticleLayout>
   )
 }

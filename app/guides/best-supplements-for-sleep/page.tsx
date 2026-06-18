@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-sleep`
 
@@ -109,7 +111,15 @@ const STACKING_GUIDE = [
   },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'match', text: 'Match supplement to sleep problem', level: 2 },
+  { id: 'profiles', text: 'Sleep supplement profiles', level: 2 },
+  { id: 'stacking', text: 'Evidence-informed stacking guide', level: 2 },
+  { id: 'mistakes', text: 'Common mistakes to avoid', level: 2 },
+]
+
 export default function BestSupplementsForSleepPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
   return (
     <>
       <StructuredData
@@ -125,7 +135,8 @@ export default function BestSupplementsForSleepPage() {
         ]}
       />
 
-      <div className="mx-auto max-w-4xl space-y-14 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <ArticleLayout toc={toc} zone="supplement">
+      <div className="space-y-14">
 
         {/* Hero */}
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -152,7 +163,7 @@ export default function BestSupplementsForSleepPage() {
         </section>
 
         {/* Decision Framework */}
-        <section className="space-y-4">
+        <section id="match" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Start here</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">
             Match supplement to sleep problem
@@ -183,7 +194,7 @@ export default function BestSupplementsForSleepPage() {
         </section>
 
         {/* Individual profiles */}
-        <section className="space-y-6">
+        <section id="profiles" className="scroll-mt-20 space-y-6">
           <div>
             <p className="eyebrow-label">Evidence profiles</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
@@ -232,7 +243,7 @@ export default function BestSupplementsForSleepPage() {
         </section>
 
         {/* Stacking guide */}
-        <section className="space-y-5">
+        <section id="stacking" className="scroll-mt-20 space-y-5">
           <div>
             <p className="eyebrow-label">Combinations</p>
             <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
@@ -255,7 +266,7 @@ export default function BestSupplementsForSleepPage() {
         </section>
 
         {/* What NOT to do */}
-        <section className="rounded-[1.65rem] border border-red-100 bg-red-50/60 p-6 space-y-3">
+        <section id="mistakes" className="scroll-mt-20 rounded-[1.65rem] border border-red-100 bg-red-50/60 p-6 space-y-3">
           <h2 className="text-xl font-semibold text-red-900">Common mistakes to avoid</h2>
           <ul className="space-y-2 text-sm text-red-800">
             <li>• <strong>High-dose melatonin:</strong> More is not better — 0.5 mg is often as effective as 10 mg for circadian support with fewer side effects.</li>
@@ -275,6 +286,7 @@ export default function BestSupplementsForSleepPage() {
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
+      </ArticleLayout>
     </>
   )
 }

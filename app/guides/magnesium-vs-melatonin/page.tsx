@@ -2,6 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SeoEntryPage, generateSeoEntryMetadata } from '../../seo-entry-pages';
 import StructuredData from '@/components/StructuredData';
+import { ArticleLayout, TableOfContents } from '@/components/articles';
+import type { Heading } from '@/components/articles';
 
 const route = 'guides/magnesium-vs-melatonin';
 const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-vs-melatonin';
@@ -11,9 +13,19 @@ export const metadata = {
   robots: { index: true, follow: true },
 };
 
+const HEADINGS: Heading[] = [
+  { id: 'comparison', text: 'Quick Comparison at a Glance', level: 2 },
+  { id: 'mechanism', text: 'How They Work', level: 2 },
+  { id: 'decision', text: 'Decision Framework', level: 2 },
+  { id: 'routine', text: 'Example Evening Routine', level: 2 },
+  { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
 export default function MagnesiumVsMelatoninGuidePage() {
+  const toc = <TableOfContents headings={HEADINGS} />
+
   return (
-    <>
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Magnesium vs Melatonin for Sleep: Evidence-Based Comparison"
@@ -29,10 +41,10 @@ export default function MagnesiumVsMelatoninGuidePage() {
 
       <SeoEntryPage route={route} />
 
-      <div className="mx-auto max-w-4xl space-y-12 px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="space-y-12">
 
         {/* Quick Comparison Table */}
-        <section>
+        <section id="comparison" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mb-4">Quick Comparison at a Glance</h2>
           <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
             <table className="min-w-[720px] w-full text-sm border-collapse">
@@ -70,7 +82,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
         </section>
 
         {/* Mechanisms + Visual */}
-        <section>
+        <section id="mechanism" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mb-4">How They Work</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="card-premium p-6">
@@ -100,7 +112,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
         </section>
 
         {/* Decision Framework + Visual */}
-        <section>
+        <section id="decision" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mb-4">Decision Framework</h2>
           <div className="space-y-4 text-muted">
             <div className="card-premium p-5">
@@ -131,7 +143,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
         </section>
 
         {/* Evening Routine Visual */}
-        <section>
+        <section id="routine" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mb-4">Example Evening Routine</h2>
           <figure>
             <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
@@ -149,7 +161,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
           </figure>
         </section>
 
-        <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6">
+        <section id="bottom-line" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-6">
           <h2 className="text-xl font-semibold text-ink mb-3">Bottom Line</h2>
           <p className="text-muted">
             Magnesium and melatonin are complementary tools. Choose emphasis based on whether your main need is relaxation/quality support or circadian timing/onset. Thoughtful stacking is common. Prioritize sleep hygiene and use the compare tool for deeper evidence views.
@@ -161,6 +173,6 @@ export default function MagnesiumVsMelatoninGuidePage() {
           </div>
         </section>
       </div>
-    </>
+    </ArticleLayout>
   );
 }

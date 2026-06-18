@@ -3,6 +3,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kratom 7-OH Withdrawal Management | Evidence-Informed Harm Reduction Guide',
@@ -10,7 +12,19 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/guides/kratom-7oh-withdrawal-management/',
 })
 
+const HEADINGS: Heading[] = [
+  { id: 'understanding', text: 'Understanding 7-OH and Withdrawal', level: 2 },
+  { id: 'timeline', text: 'Withdrawal Timeline', level: 2 },
+  { id: 'symptoms', text: 'Common Withdrawal Symptoms', level: 2 },
+  { id: 'strategies', text: 'Harm Reduction Strategies', level: 2 },
+  { id: 'relapse', text: 'Relapse Prevention', level: 2 },
+  { id: 'emergency', text: 'When to Seek Emergency Care', level: 2 },
+  { id: 'takeaways', text: 'Key Takeaways', level: 2 },
+]
+
 export default function Page() {
+  const toc = <TableOfContents headings={HEADINGS} />
+
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Guides', href: '/guides' },
@@ -18,7 +32,8 @@ export default function Page() {
   ]
 
   return (
-    <div className="container-page py-10 space-y-8">
+    <ArticleLayout toc={toc} zone="harm-reduction">
+    <div className="space-y-8">
       <AuthorityBreadcrumbs items={breadcrumbs} />
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
@@ -44,14 +59,14 @@ export default function Page() {
           <p className="mt-3 text-sm text-muted">This guide is educational only and does not constitute medical advice. Withdrawal symptoms can vary significantly by individual, dose history, duration of use, and underlying health status. Always consult a healthcare provider before changing kratom use, especially if you have medical conditions, take medications, or experience severe withdrawal symptoms. This guide is intended for harm reduction and evidence-informed decision-making, not as a replacement for professional medical care.</p>
         </div>
 
-        <div>
+        <div id="understanding" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-6 mb-4">Understanding 7-OH and Withdrawal</h2>
           <p className="text-muted leading-relaxed">
             7-Hydroxymitragynine (7-OH) is a kratom alkaloid with mu-opioid receptor activity, similar in mechanism to pharmaceutical opioids but occurring naturally in Mitragyna speciosa leaves. Chronic 7-OH use can lead to physical dependence, resulting in withdrawal symptoms when discontinuing or reducing dosage. The intensity and duration of withdrawal depend on dose, frequency, duration of use, individual metabolism, and co-occurring conditions. For pharmacology and regulatory context, read the <Link href="/articles/7-hydroxymitragynine" className="font-semibold text-brand-800 hover:underline">full 7-OH evidence monograph</Link>.
           </p>
         </div>
 
-        <div>
+        <div id="timeline" className="scroll-mt-20">
           <h3 className="text-xl font-semibold text-ink mt-6 mb-3">Withdrawal Timeline</h3>
           <p className="text-sm text-muted mb-4">Typical progression (varies significantly by individual):</p>
           <ul className="space-y-3 text-muted pl-5">
@@ -82,7 +97,7 @@ export default function Page() {
           </ul>
         </div>
 
-        <div>
+        <div id="symptoms" className="scroll-mt-20">
           <h3 className="text-xl font-semibold text-ink mt-6 mb-3">Common Withdrawal Symptoms</h3>
           <p className="text-sm text-muted mb-4">Physical and psychological effects typically observed:</p>
           <div className="grid gap-3 grid-cols-1 md:grid-cols-2">
@@ -117,7 +132,7 @@ export default function Page() {
           </div>
         </div>
 
-        <div>
+        <div id="strategies" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-8 mb-4">Harm Reduction Strategies</h2>
 
           <h3 className="text-xl font-semibold text-ink mt-6 mb-3">Tapering Approaches</h3>
@@ -207,7 +222,7 @@ export default function Page() {
           </ul>
         </div>
 
-        <div>
+        <div id="relapse" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-8 mb-4">Relapse Prevention</h2>
           <p className="text-muted mb-4">After completing withdrawal, preventing return to kratom use is critical:</p>
 
@@ -235,7 +250,7 @@ export default function Page() {
           </ul>
         </div>
 
-        <div>
+        <div id="emergency" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-8 mb-4">When to Seek Emergency Care</h2>
           <p className="text-muted mb-4">Contact emergency services or go to an emergency department if you experience:</p>
 
@@ -253,7 +268,7 @@ export default function Page() {
           <p className="text-muted mt-4 text-sm">These complications are rare but require immediate medical attention. Do not delay seeking emergency care due to stigma or fear of legal consequences—emergency providers are present to help, not judge.</p>
         </div>
 
-        <div>
+        <div id="takeaways" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-8 mb-4">Key Takeaways</h2>
           <div className="space-y-3 text-muted pl-5">
             <p>• 7-OH withdrawal is a real physical and psychological process requiring patience and support, not willpower alone.</p>
@@ -298,5 +313,6 @@ export default function Page() {
         <Link href="/compounds/7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">View 7-OH compound profile →</Link>
       </div>
     </div>
+    </ArticleLayout>
   )
 }

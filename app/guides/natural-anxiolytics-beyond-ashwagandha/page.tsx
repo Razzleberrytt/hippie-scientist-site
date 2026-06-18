@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 export const metadata: Metadata = {
   title: 'Natural Anxiolytics Beyond Ashwagandha',
@@ -17,7 +19,15 @@ export const metadata: Metadata = {
   },
 }
 
+const HEADINGS: Heading[] = [
+  { id: 'compared', text: 'Four Calming Alternatives Compared', level: 2 },
+  { id: 'evaluation', text: 'How to Structure Your Calm Evaluation', level: 2 },
+  { id: 'summary', text: 'Evidence and Precaution Summary', level: 2 },
+]
+
 export default function NaturalAnxiolyticsPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
+
   const alternatives = [
     {
       name: 'L-Theanine',
@@ -58,7 +68,8 @@ export default function NaturalAnxiolyticsPage() {
   ]
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+    <ArticleLayout toc={toc} zone="supplement">
+    <div className="space-y-8">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">Discovery Guide</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -85,7 +96,7 @@ export default function NaturalAnxiolyticsPage() {
       </section>
 
       {/* Alternatives Grid */}
-      <section className="space-y-4">
+      <section id="compared" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold text-ink">Four Calming Alternatives Compared</h2>
         <p className="text-sm text-muted">Contrast these options based on their speed of effect, chemical pathways, and safety profiles.</p>
         
@@ -121,7 +132,7 @@ export default function NaturalAnxiolyticsPage() {
       </section>
 
       {/* Decision Guidance */}
-      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 sm:p-6 space-y-4 shadow-sm">
+      <section id="evaluation" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-5 sm:p-6 space-y-4 shadow-sm">
         <h2 className="text-xl font-semibold text-ink">How to Structure Your Calm Evaluation</h2>
         <div className="grid gap-4 sm:grid-cols-3 text-sm">
           <div className="space-y-2">
@@ -146,7 +157,7 @@ export default function NaturalAnxiolyticsPage() {
       </section>
 
       {/* Safety Layer */}
-      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
+      <section id="summary" className="scroll-mt-20 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
         <h2 className="font-semibold text-amber-950">Evidence and Precaution Summary</h2>
         <p className="mt-2 text-xs">
           Calming supplements have varying degrees of clinical backing. While L-Theanine has moderate trial validation for acute stress relief, botanical profiles like Kanna and traditional Lemon Balm preparations rely on smaller human cohorts or mechanistic models.
@@ -164,5 +175,6 @@ export default function NaturalAnxiolyticsPage() {
         </div>
       </section>
     </div>
+    </ArticleLayout>
   )
 }

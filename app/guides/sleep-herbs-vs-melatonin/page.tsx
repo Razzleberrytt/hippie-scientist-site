@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 export const metadata: Metadata = {
   title: 'Sleep Herbs vs Melatonin',
@@ -17,7 +19,15 @@ export const metadata: Metadata = {
   },
 }
 
+const HEADINGS: Heading[] = [
+  { id: 'comparison', text: 'Comparing Roles, Onsets, and Precautions', level: 2 },
+  { id: 'choice', text: 'Which Sleep Tool Fits Your Bedtime Need?', level: 2 },
+  { id: 'evidence', text: 'Evidence-Driven Precaution', level: 2 },
+]
+
 export default function SleepHerbsVsMelatoninPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
+
   const options = [
     {
       name: 'Melatonin',
@@ -58,7 +68,8 @@ export default function SleepHerbsVsMelatoninPage() {
   ]
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+    <ArticleLayout toc={toc} zone="supplement">
+    <div className="space-y-8">
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">Comparison Guide</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -85,7 +96,7 @@ export default function SleepHerbsVsMelatoninPage() {
       </section>
 
       {/* Comparison Grid */}
-      <section className="space-y-4">
+      <section id="comparison" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold text-ink">Comparing Roles, Onsets, and Precautions</h2>
         <p className="text-sm text-muted">A structured breakdown of hormone-based circadian shifting versus botanical relaxation tools.</p>
         
@@ -119,7 +130,7 @@ export default function SleepHerbsVsMelatoninPage() {
       </section>
 
       {/* Sleep Hygiene Context */}
-      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 sm:p-6 space-y-4 shadow-sm">
+      <section id="choice" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-5 sm:p-6 space-y-4 shadow-sm">
         <h2 className="text-xl font-semibold text-ink">Which Sleep Tool Fits Your Bedtime Need?</h2>
         <div className="grid gap-4 sm:grid-cols-3 text-sm">
           <div className="space-y-2">
@@ -144,7 +155,7 @@ export default function SleepHerbsVsMelatoninPage() {
       </section>
 
       {/* Safety Notice */}
-      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
+      <section id="evidence" className="scroll-mt-20 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
         <h2 className="font-semibold text-amber-950">Evidence-Driven Precaution</h2>
         <p className="mt-2 text-xs">
           Hormones and sedating botanicals interact with your nervous system. Melatonin should be kept at physiological doses (0.3mg to 1mg) to prevent receptor desensitization and grogginess. Botanical options like Valerian or Lemon Balm should be evaluated for potential polypharmacy interactions if you are already taking clinical sleep medications.
@@ -159,5 +170,6 @@ export default function SleepHerbsVsMelatoninPage() {
         </div>
       </section>
     </div>
+    </ArticleLayout>
   )
 }

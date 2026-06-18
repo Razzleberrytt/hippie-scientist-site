@@ -10,6 +10,8 @@ import MechanismBox from '@/components/MechanismBox'
 import ComparisonTable from '@/components/ComparisonTable'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
 import { revenueProductSets } from '@/config/revenue-products'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 
 const SLUG = 'rhodiola-energy'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-energy'
@@ -106,11 +108,21 @@ const COMPARISON_ROWS = [
   { attribute: 'Sleep disruption risk', values: ['Low–Moderate', 'High', 'Moderate', 'Low'] },
 ]
 
+const HEADINGS: Heading[] = [
+  { id: 'research', text: 'What the Research Shows', level: 2 },
+  { id: 'mechanism', text: 'How Rhodiola Supports Energy', level: 2 },
+  { id: 'comparison', text: 'Rhodiola vs Other Options', level: 2 },
+  { id: 'dosage', text: 'Dosing Protocol', level: 2 },
+  { id: 'safety', text: 'Safety & Precautions', level: 2 },
+  { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
 export default function RhodiolaEnergyGuidePage() {
   const rhodiolaProducts = revenueProductSets['rhodiola']
+  const toc = <TableOfContents headings={HEADINGS} />
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+    <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline={TITLE}
@@ -124,6 +136,7 @@ export default function RhodiolaEnergyGuidePage() {
           { label: 'Rhodiola for Energy', href: `/guides/${SLUG}` },
         ]}
       />
+      <div className="space-y-8">
 
       {/* Hero */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -153,7 +166,7 @@ export default function RhodiolaEnergyGuidePage() {
       </section>
 
       {/* Evidence */}
-      <section className="space-y-4">
+      <section id="research" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What the Research Shows</h2>
         <p className="text-sm leading-6 text-muted">
           The strongest signal is for stress-related (mental) fatigue. Benefits are modest — roughly a 20–30%
@@ -188,7 +201,7 @@ export default function RhodiolaEnergyGuidePage() {
       </section>
 
       {/* Mechanism */}
-      <section className="space-y-4">
+      <section id="mechanism" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">How Rhodiola Supports Energy</h2>
         <MechanismBox
           summary="Many forms of fatigue are stress-driven — burnout, overtraining, chronic stress, poor recovery. When fatigue is stress-driven, more stimulation masks symptoms while worsening the root cause. Rhodiola operates through a different mechanism: supporting the body's stress-response physiology rather than blocking fatigue signals."
@@ -197,7 +210,7 @@ export default function RhodiolaEnergyGuidePage() {
       </section>
 
       {/* Comparison */}
-      <section className="space-y-4">
+      <section id="comparison" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Rhodiola vs Other Options</h2>
         <p className="text-sm leading-6 text-muted">
           Coffee wins for immediate energy; rhodiola wins for addressing chronic fatigue patterns. Ginseng feels
@@ -208,7 +221,7 @@ export default function RhodiolaEnergyGuidePage() {
       </section>
 
       {/* Dosage */}
-      <section className="space-y-4" id="dosage">
+      <section className="scroll-mt-20 space-y-4" id="dosage">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosing Protocol</h2>
         <DosageBox
           rows={DOSAGE_ROWS}
@@ -222,7 +235,7 @@ export default function RhodiolaEnergyGuidePage() {
       </section>
 
       {/* Safety */}
-      <section className="space-y-4" id="safety">
+      <section className="scroll-mt-20 space-y-4" id="safety">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Safety &amp; Precautions</h2>
         <SafetyBox notes={SAFETY_NOTES} />
       </section>
@@ -237,7 +250,9 @@ export default function RhodiolaEnergyGuidePage() {
       )}
 
       {/* FAQ */}
-      <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola for Energy" />
+      <div id="faq" className="scroll-mt-20">
+        <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola for Energy" />
+      </div>
 
       {/* Related (hub) */}
       <section className="space-y-3">
@@ -266,6 +281,7 @@ export default function RhodiolaEnergyGuidePage() {
         <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
         <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
-    </div>
+      </div>
+    </ArticleLayout>
   )
 }
