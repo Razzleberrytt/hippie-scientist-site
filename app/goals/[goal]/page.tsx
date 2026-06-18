@@ -15,7 +15,6 @@ import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '@/lib/affiliate'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
-import StickyChecklistBar from '@/components/monetization/StickyChecklistBar'
 import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
 import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffiliate'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
@@ -319,7 +318,6 @@ export default async function GoalDecisionPage({
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
       {structuredData}
-      <StickyChecklistBar storageKey={`goal-sticky-${goal.slug}`} />
       <Breadcrumbs
         items={[
           { label: 'Home', href: '/' },
@@ -660,8 +658,6 @@ export default async function GoalDecisionPage({
           })}
         </div>
       </section>
-
-      <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="compact" />
 
       <AuthorCredentials />
 

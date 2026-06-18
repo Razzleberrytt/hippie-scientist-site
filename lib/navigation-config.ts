@@ -88,16 +88,6 @@ export const mainNavigation: NavigationItem[] = [
     description: 'Problem-solving, high-intent, evergreen supplement guides with internal linking and evidence summaries',
   },
   {
-    label: 'Compare',
-    href: '/compare',
-    description: 'Side-by-side supplement comparisons by evidence, safety, and practical fit',
-  },
-  {
-    label: 'Stacks',
-    href: '/stacks',
-    description: 'Curated supplement stacks by goal, timing, and safety context',
-  },
-  {
     label: 'Safety',
     href: '/safety-checker',
     description: 'Interaction checker and safety context for herbs and supplements',
