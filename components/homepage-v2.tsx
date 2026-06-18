@@ -233,7 +233,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 Supplement Science Without the&nbsp;Hype
               </h1>
               <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
-                {HERB_COUNT} herb profiles and {COMPOUND_COUNT} compound reviews — each one separating what the clinical trials actually show from mechanism-only marketing claims. See our <Link href='/methodology' className='text-brand-700 font-semibold underline decoration-dotted underline-offset-4 hover:text-brand-800'>Evidence Grading Methodology</Link>.
+                Evidence-based herbs and supplements for <strong className='text-ink'>sleep, stress, anxiety, and focus</strong> — {HERB_COUNT} herb profiles and {COMPOUND_COUNT} compound reviews, each separating what clinical trials actually show from mechanism-only marketing claims. See our <Link href='/methodology' className='text-brand-700 font-semibold underline decoration-dotted underline-offset-4 hover:text-brand-800'>Evidence Grading Methodology</Link>.
               </p>
               
               <div className='mt-4 inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1 text-xs font-semibold text-brand-800 self-center lg:self-start' aria-label={`Last reviewed: ${formattedDate}. ${citationCount} peer-reviewed studies cited.`}>
@@ -360,7 +360,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
         </section>
 
-        {/* ── Focus / ADHD Guides ───────────────────────────────── */}
+        {/* ── Focus Evidence Guides ────────────────────────────── */}
         <section className='space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
