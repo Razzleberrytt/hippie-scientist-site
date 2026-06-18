@@ -1,6 +1,8 @@
 export const generatedComparisons = [
   'magnesium-vs-l-theanine',
-  'melatonin-vs-magnesium',
+  // 'melatonin-vs-magnesium' is served by a dedicated static page at
+  // app/compare/melatonin-vs-magnesium/page.tsx, so it is excluded here to avoid
+  // a conflicting route in the [slug] generateStaticParams output.
   'caffeine-vs-l-theanine',
   'ashwagandha-vs-rhodiola',
   'green-tea-extract-vs-caffeine',
