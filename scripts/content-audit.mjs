@@ -116,8 +116,16 @@ function checkMetadata(source, route) {
     return issues
   }
 
-  // Check title presence (inside buildPageMetadata call or metadata object)
-  const titleMatch = /title\s*:\s*(['"`]|TITLE|[A-Z_]+)/.test(source)
+  // Metadata supplied by a helper provides title + description for us.
+  // Recognize both `buildPageMetadata({...})` and a spread of any `*Metadata()`
+  // generator (e.g. `{ ...generateSeoEntryMetadata(route) }`). When present, the
+  // literal title/description sub-checks below would false-positive, so skip them.
+  const hasSpreadMetadataHelper = /\.\.\.\s*[A-Za-z_$][\w$]*[Mm]etadata\w*\s*\(/.test(source)
+  if (hasBuildPageMetadata || hasSpreadMetadataHelper) return issues
+
+  // For inline plain-object metadata, accept any non-empty value (quoted string,
+  // template literal, or an identifier/variable like `title: articleTitle`).
+  const titleMatch = /title\s*:\s*['"`A-Za-z_$]/.test(source)
   if (!titleMatch) {
     issues.push({
       type: 'missing_metadata',
@@ -127,8 +135,7 @@ function checkMetadata(source, route) {
     })
   }
 
-  // Check description presence
-  const descMatch = /description\s*:\s*(['"`]|DESCRIPTION|[A-Z_]+)/.test(source)
+  const descMatch = /description\s*:\s*['"`A-Za-z_$]/.test(source)
   if (!descMatch) {
     issues.push({
       type: 'missing_metadata',
@@ -196,12 +203,45 @@ function checkAffiliateHardcoding(source, route) {
 
 // ─── Build route set ─────────────────────────────────────────────────────────
 
+/**
+ * Collect the actual built routes from a static-export `out/` directory.
+ * Each `out/<path>/index.html` corresponds to the route `/<path>`.
+ *
+ * This is the authoritative source of truth for which routes exist, including
+ * dynamically-generated `[slug]` routes (compare/guides/articles) that cannot be
+ * enumerated from `app/**` source alone. It is additive and gated on `out/`
+ * existing, so pre-build runs keep their previous (source-only) behavior.
+ */
+function collectBuiltRoutes() {
+  const routes = new Set()
+  const outDir = path.join(ROOT, 'out')
+  if (!fs.existsSync(outDir)) return routes
+
+  function walk(dir, prefix) {
+    let entries
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }) } catch { return }
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        if (entry.name === '_next') continue
+        walk(path.join(dir, entry.name), `${prefix}/${entry.name}`)
+      } else if (entry.name === 'index.html') {
+        routes.add(prefix || '/')
+      }
+    }
+  }
+  walk(outDir, '')
+  return routes
+}
+
 function buildKnownRouteSet(pages) {
   // Static routes from app/ directory structure
   const routes = new Set()
 
   // Add our audited pages
   for (const p of pages) routes.add(p.route)
+
+  // Union in real built routes (recognizes dynamic [slug] routes when out/ exists)
+  for (const r of collectBuiltRoutes()) routes.add(r)
 
   // Scan all app/ directories for additional routes
   function walkApp(dir, prefix) {
@@ -295,10 +335,16 @@ function buildBacklinkSet() {
       let src
       try { src = fs.readFileSync(filePath, 'utf-8') } catch { continue }
 
-      // href="/..." patterns
+      // href="/..." JSX attribute patterns
       const hrefPattern = /href=["'](\/[^"'#\s?]+)["']/g
       let m
       while ((m = hrefPattern.exec(src)) !== null) {
+        links.add(m[1].replace(/\/$/, '') || '/')
+      }
+      // href: '/...' object-property patterns (link data in arrays/config, e.g.
+      // `{ href: '/guides/elderberry', title: '...' }`) — single or double quoted.
+      const hrefPropPattern = /href\s*:\s*["'](\/[^"'#\s?]+)["']/g
+      while ((m = hrefPropPattern.exec(src)) !== null) {
         links.add(m[1].replace(/\/$/, '') || '/')
       }
       // Markdown link patterns [text](/path)
