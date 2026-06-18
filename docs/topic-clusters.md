@@ -4,7 +4,7 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 195
+- Pages: 196
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
@@ -36,6 +36,7 @@ Priority clusters used by the internal link engine.
 - [Caffeine vs L-Theanine vs Bacopa for Focus & Attention](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
 - [L-Theanine vs Magnesium for Calm and Focus](/compare/l-theanine-vs-magnesium) (guide)
 - [Magnesium Glycinate vs L-Threonate for Sleep](/compare/magnesium-glycinate-vs-l-threonate-for-sleep) (guide)
+- [Melatonin vs Magnesium for Sleep: Evidence Comparison](/compare/melatonin-vs-magnesium) (guide)
 - [${TITLE}: Risk, Potency, and Pharmacology](/compare/mitragynine-vs-7-hydroxymitragynine) (guide)
 - [Compound Library](/compounds) (static)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
@@ -44,11 +45,10 @@ Priority clusters used by the internal link engine.
 - [American Ginseng Extract](/compounds/american-ginseng-extract) (compound)
 - [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
 - [bacopaside ii](/compounds/bacopaside-ii) (compound)
-- [bacoside a](/compounds/bacoside-a) (compound)
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 773
+- Pages: 774
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
@@ -73,6 +73,7 @@ Priority clusters used by the internal link engine.
 - [L-Theanine vs Magnesium for Calm and Focus](/compare/l-theanine-vs-magnesium) (guide)
 - [Magnesium Glycinate vs L-Threonate for Sleep](/compare/magnesium-glycinate-vs-l-threonate-for-sleep) (guide)
 - [Magnesium Glycinate vs Magnesium Oxide](/compare/magnesium-glycinate-vs-magnesium-oxide) (guide)
+- [Melatonin vs Magnesium for Sleep: Evidence Comparison](/compare/melatonin-vs-magnesium) (guide)
 - [Melatonin vs Valerian vs Magnesium for Sleep Support](/compare/melatonin-vs-valerian-vs-magnesium-for-sleep) (guide)
 - [Rhodiola vs Ashwagandha](/compare/rhodiola-vs-ashwagandha) (guide)
 - [Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared](/compare/sleep-herbs-vs-melatonin) (guide)
@@ -88,11 +89,10 @@ Priority clusters used by the internal link engine.
 - [Actein](/compounds/actein) (compound)
 - [Adenosine](/compounds/adenosine) (compound)
 - [aescin](/compounds/aescin) (compound)
-- [Agaricus blazei](/compounds/agaricus-blazei) (compound)
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 219
+- Pages: 220
 - [Home](/) (static)
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
@@ -124,6 +124,7 @@ Priority clusters used by the internal link engine.
 - [L-Theanine vs Magnesium for Calm and Focus](/compare/l-theanine-vs-magnesium) (guide)
 - [Magnesium Glycinate vs L-Threonate for Sleep](/compare/magnesium-glycinate-vs-l-threonate-for-sleep) (guide)
 - [Magnesium Glycinate vs Magnesium Oxide](/compare/magnesium-glycinate-vs-magnesium-oxide) (guide)
+- [Melatonin vs Magnesium for Sleep: Evidence Comparison](/compare/melatonin-vs-magnesium) (guide)
 - [Melatonin vs Valerian vs Magnesium for Sleep Support](/compare/melatonin-vs-valerian-vs-magnesium-for-sleep) (guide)
 - [Rhodiola vs Ashwagandha](/compare/rhodiola-vs-ashwagandha) (guide)
 - [Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared](/compare/sleep-herbs-vs-melatonin) (guide)
@@ -132,11 +133,10 @@ Priority clusters used by the internal link engine.
 - [Apigenin](/compounds/apigenin) (compound)
 - [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
 - [baicalin](/compounds/baicalin) (compound)
-- [Beta-Alanine](/compounds/beta-alanine) (compound)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 522
+- Pages: 523
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
@@ -156,6 +156,7 @@ Priority clusters used by the internal link engine.
 - [Kanna vs SSRIs](/compare/kanna-vs-ssris) (guide)
 - [Kava vs Alcohol](/compare/kava-vs-alcohol) (guide)
 - [L-Theanine vs Magnesium for Calm and Focus](/compare/l-theanine-vs-magnesium) (guide)
+- [Melatonin vs Magnesium for Sleep: Evidence Comparison](/compare/melatonin-vs-magnesium) (guide)
 - [${TITLE}: Risk, Potency, and Pharmacology](/compare/mitragynine-vs-7-hydroxymitragynine) (guide)
 - [Rhodiola vs Ashwagandha](/compare/rhodiola-vs-ashwagandha) (guide)
 - [Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared](/compare/sleep-herbs-vs-melatonin) (guide)
@@ -176,11 +177,10 @@ Priority clusters used by the internal link engine.
 - [artesunate](/compounds/artesunate) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
 - [Ashitaba Angelica keiskei](/compounds/ashitaba) (compound)
-- [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 641
+- Pages: 642
 - [Home](/) (static)
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
@@ -216,18 +216,19 @@ Priority clusters used by the internal link engine.
 - [Kava vs Alcohol](/compare/kava-vs-alcohol) (guide)
 - [L-Theanine vs Magnesium for Calm and Focus](/compare/l-theanine-vs-magnesium) (guide)
 - [Magnesium Glycinate vs L-Threonate for Sleep](/compare/magnesium-glycinate-vs-l-threonate-for-sleep) (guide)
+- [Melatonin vs Magnesium for Sleep: Evidence Comparison](/compare/melatonin-vs-magnesium) (guide)
 - [${TITLE}: Risk, Potency, and Pharmacology](/compare/mitragynine-vs-7-hydroxymitragynine) (guide)
 - [Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared](/compare/sleep-herbs-vs-melatonin) (guide)
 - [Compound Library](/compounds) (static)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
-- [5-HTP](/compounds/5-htp) (compound)
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 510
+- Pages: 511
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Berberine vs Metformin](/compare/berberine-vs-metformin) (guide)
 - [Caffeine vs L-Theanine vs Bacopa for Focus & Attention](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
+- [Melatonin vs Magnesium for Sleep: Evidence Comparison](/compare/melatonin-vs-magnesium) (guide)
 - [Rhodiola vs Ashwagandha](/compare/rhodiola-vs-ashwagandha) (guide)
 - [Compound Library](/compounds) (static)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
@@ -264,7 +265,6 @@ Priority clusters used by the internal link engine.
 - [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
 - [baicalein](/compounds/baicalein) (compound)
 - [baicalin](/compounds/baicalin) (compound)
-- [Banaba Leaf Extract](/compounds/banaba-leaf-extract) (compound)
 
 ## Gut Health
 - Signals: gut, digestive, microbiome, probiotic, prebiotic, fiber, bloating
@@ -312,8 +312,9 @@ Priority clusters used by the internal link engine.
 
 ## Longevity
 - Signals: longevity, aging, nad, sirtuin, mitochondrial, cellular health
-- Pages: 149
+- Pages: 150
 - [Berberine vs Metformin](/compare/berberine-vs-metformin) (guide)
+- [Melatonin vs Magnesium for Sleep: Evidence Comparison](/compare/melatonin-vs-magnesium) (guide)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [acteoside](/compounds/acteoside) (compound)
@@ -352,7 +353,6 @@ Priority clusters used by the internal link engine.
 - [Creatine HCl](/compounds/creatine-hcl) (compound)
 - [Creatine monohydrate](/compounds/creatine-monohydrate) (compound)
 - [crocetin](/compounds/crocetin) (compound)
-- [crocin](/compounds/crocin) (compound)
 
 ## Inflammation
 - Signals: inflammation, anti-inflammatory, nf-kb, cox, oxidative, immune
