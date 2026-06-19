@@ -122,13 +122,13 @@ export function GlobalSearchModal() {
         ref={triggerRef}
         type="button"
         onClick={() => setOpen(true)}
-        className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-900/20 bg-white px-3 py-2.5 text-sm text-ink transition hover:border-brand-700/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 md:min-h-[auto] md:py-1.5"
+        className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-900/20 bg-white px-3 py-2.5 text-sm text-ink transition hover:border-brand-700/25 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] md:min-h-[auto] md:py-1.5"
         aria-label="Open search"
         aria-keyshortcuts="Meta+K Control+K"
       >
         <Search className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline">Search</span>
-        <kbd className="hidden rounded border border-brand-900/15 bg-stone-50 px-1.5 py-0.5 text-[10px] font-semibold text-ink/50 md:inline">
+        <kbd className="hidden rounded border border-brand-900/15 bg-stone-50 px-1.5 py-0.5 text-[10px] font-semibold text-ink/50 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] md:inline">
           ⌘K
         </kbd>
       </button>
@@ -150,7 +150,7 @@ export function GlobalSearchModal() {
             aria-modal="true"
             aria-label="Site search"
             onKeyDown={onDialogKeyDown}
-            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-2xl"
+            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-2xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)]"
           >
             {/* Search input (combobox) */}
             <div className="flex items-center gap-2.5 border-b border-brand-900/10 px-4">
@@ -172,7 +172,7 @@ export function GlobalSearchModal() {
                 placeholder="Search herbs, compounds, and education…"
                 className="min-h-14 w-full bg-transparent py-3 text-base text-ink outline-none placeholder:text-[#7b887f]"
               />
-              <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-stone-50 px-1.5 py-0.5 text-[10px] font-semibold text-ink/40 sm:inline">
+              <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-stone-50 px-1.5 py-0.5 text-[10px] font-semibold text-ink/40 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] sm:inline">
                 Esc
               </kbd>
             </div>

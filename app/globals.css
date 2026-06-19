@@ -112,8 +112,11 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
 
   --border-soft: rgba(29, 74, 47, 0.1);
   --border-strong: rgba(29, 74, 47, 0.18);
+  --border-default: var(--border-soft);
   --surface-card: rgba(255, 255, 255, 0.86);
   --surface-card-strong: rgba(255, 255, 255, 0.94);
+  --surface-1: var(--surface);
+  --surface-2: var(--surface-card);
   --surface-subtle: rgba(238, 248, 241, 0.68);
   --surface-code: #eef8f1;
   --surface-warning: rgba(255, 251, 235, 0.82);
@@ -121,6 +124,16 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --surface-info: rgba(239, 246, 255, 0.82);
   --surface-neutral: rgba(248, 250, 252, 0.86);
   --ring-brand: rgba(53, 143, 82, 0.35);
+  --accent-primary: #358f52;
+  --accent-secondary: #6d5bd0;
+  --accent-teal: #358f52;
+  --accent-warning: #b45309;
+  --accent-danger: #b91c1c;
+  --bg-c: var(--bg);
+  --surface-c: var(--surface-card);
+  --text-c: var(--text-primary);
+  --border-c: var(--border-soft);
+  --radius-lg: var(--radius-card-premium);
   --radius-card-premium: 0.9rem;
   --radius-card-compact: 0.75rem;
   --shadow-card-calm: 0 1px 3px rgba(16, 32, 24, 0.045);
@@ -141,10 +154,10 @@ html {
 
 /* Dark mode variable overrides — applied when <html class="dark"> is set by DarkModeProvider */
 html.dark {
-  --color-background: #111a14;
-  --color-surface: #162019;
+  --color-background: #101812;
+  --color-surface: #17221a;
   --color-ink: #eef7ef;
-  --color-muted: #bdd0c2;
+  --color-muted: #afc2b5;
   --color-brand-50: #112318;
   --color-brand-100: #183320;
   --color-brand-200: #24472d;
@@ -156,32 +169,42 @@ html.dark {
   --color-brand-800: #c0ebc8;
   --color-brand-900: #dcf5df;
   --color-brand-950: #effbf0;
-  --bg: #111a14;
-  --surface: #162019;
-  --surface-elevated: rgba(24, 34, 27, 0.88);
-  --text-primary: #eef7ef;
-  --text-secondary: #d5e4d8;
-  --text-muted: #bdd0c2;
-  --border-soft: rgba(196, 222, 203, 0.16);
-  --border-strong: rgba(196, 222, 203, 0.26);
-  --surface-card: rgba(24, 34, 27, 0.86);
-  --surface-card-strong: rgba(29, 42, 33, 0.94);
-  --surface-subtle: rgba(36, 71, 45, 0.34);
-  --surface-code: rgba(33, 64, 42, 0.76);
+  --bg: #101812;
+  --surface: #17221a;
+  --surface-elevated: #1f2d23;
+  --text-primary: #f1f8f2;
+  --text-secondary: #d4e1d7;
+  --text-muted: #afc2b5;
+  --border-soft: rgba(199, 224, 206, 0.22);
+  --border-strong: rgba(199, 224, 206, 0.34);
+  --border-default: var(--border-soft);
+  --surface-card: rgba(27, 40, 31, 0.96);
+  --surface-card-strong: rgba(34, 50, 38, 0.98);
+  --surface-1: var(--surface);
+  --surface-2: var(--surface-card);
+  --surface-subtle: rgba(47, 86, 57, 0.42);
+  --surface-code: rgba(38, 70, 47, 0.8);
   --surface-warning: rgba(69, 49, 20, 0.72);
   --surface-danger: rgba(70, 28, 35, 0.72);
   --surface-info: rgba(25, 45, 73, 0.72);
-  --surface-neutral: rgba(32, 41, 38, 0.82);
+  --surface-neutral: rgba(37, 47, 42, 0.9);
+  --ring-brand: rgba(126, 208, 145, 0.4);
+  --accent-primary: #7ed091;
+  --accent-secondary: #c4b5fd;
+  --accent-teal: #7ed091;
+  --accent-warning: #fbbf24;
+  --accent-danger: #fca5a5;
+  --bg-c: var(--bg);
+  --surface-c: var(--surface-card);
+  --text-c: var(--text-primary);
+  --border-c: var(--border-soft);
   --shadow-card-calm: 0 1px 3px rgba(0, 0, 0, 0.22);
   --shadow-card-calm-hover: 0 8px 22px rgba(0, 0, 0, 0.24);
   color-scheme: dark;
 }
 
 html.dark body {
-  background:
-    radial-gradient(circle at 10% 20%, rgba(53, 143, 82, 0.06), transparent 45%),
-    radial-gradient(circle at 90% 10%, rgba(29, 74, 47, 0.08), transparent 40%),
-    linear-gradient(180deg, #111a14 0%, #1a2a1f 100%);
+  background: var(--bg);
 }
 
 body {
@@ -288,7 +311,7 @@ body * {
   }
 
   :where(a, button, summary, input, textarea, select):focus-visible {
-    outline: 2px solid #1d4a2f;
+    outline: 2px solid var(--accent-primary);
     outline-offset: 4px;
   }
 
@@ -364,19 +387,23 @@ html.dark ::selection {
   }
 
   .glass-card {
-    @apply border border-white/50 bg-white/85 backdrop-blur-xl;
+    border: 1px solid var(--border-soft);
+    background-color: var(--surface-card);
+    @apply backdrop-blur-xl;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
 
   .card-premium {
-    @apply border border-brand-900/10 bg-white/85 backdrop-blur-xl transition-all duration-300;
+    border: 1px solid var(--border-soft);
+    background-color: var(--surface-card);
+    @apply backdrop-blur-xl transition-all duration-300;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
 
   .card-premium:hover {
-    @apply border-brand-900/15;
+    border-color: var(--border-strong);
     box-shadow: var(--shadow-card-calm-hover);
   }
 
@@ -447,7 +474,9 @@ html.dark ::selection {
   }
 
   .section-frame {
-    @apply border border-brand-900/10 bg-white/80 p-4 backdrop-blur sm:p-5;
+    border: 1px solid var(--border-soft);
+    background-color: var(--surface-card);
+    @apply p-4 backdrop-blur sm:p-5;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
@@ -468,12 +497,16 @@ html.dark ::selection {
   }
 
   .surface-subtle {
-    @apply border border-brand-900/10 bg-white/75 shadow-sm backdrop-blur-xl;
+    border: 1px solid var(--border-soft);
+    background-color: var(--surface);
+    @apply shadow-sm backdrop-blur-xl;
     border-radius: var(--radius-card-premium);
   }
 
   .surface-depth {
-    @apply border border-white/60 bg-white/85 backdrop-blur-xl;
+    border: 1px solid var(--border-soft);
+    background-color: var(--surface-elevated);
+    @apply backdrop-blur-xl;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
@@ -559,8 +592,7 @@ html.dark :where(
   [class~="bg-white/90"],
   [class~="bg-white/95"]
 ) {
-  background:
-    linear-gradient(180deg, var(--surface-card-strong), rgba(17, 26, 20, 0.9));
+  background: var(--surface-card-strong);
 }
 
 html.dark :where(
@@ -618,9 +650,16 @@ html.dark :where(
 
 html.dark :where(
   [class~="bg-blue-50"],
+  [class~="bg-blue-50/60"],
   [class~="bg-blue-50/70"],
   [class~="bg-blue-50/80"],
-  [class~="bg-blue-100"]
+  [class~="bg-blue-100"],
+  [class~="bg-teal-50"],
+  [class~="bg-teal-50/80"],
+  [class~="bg-teal-100"],
+  [class~="bg-violet-50"],
+  [class~="bg-violet-50/80"],
+  [class~="bg-violet-100"]
 ) {
   background-color: var(--surface-info);
 }
@@ -639,7 +678,13 @@ html.dark :where(
   [class~="bg-slate-50"],
   [class~="bg-slate-50/80"],
   [class~="bg-slate-100"],
+  [class~="bg-stone-50"],
+  [class~="bg-stone-50/60"],
+  [class~="bg-stone-100"],
+  [class~="bg-zinc-50"],
+  [class~="bg-zinc-100"],
   [class~="bg-neutral-100"],
+  [class~="bg-neutral-200/80"],
   [class~="bg-[#fbfaf6]"]
 ) {
   background-color: var(--surface-neutral);
@@ -660,7 +705,14 @@ html.dark :where(
   [class~="text-[#526359]"],
   [class~="text-[#33443a]"],
   [class~="text-[#5c6b63]"],
-  [class~="text-[#64766b]"]
+  [class~="text-[#64766b]"],
+  [class~="text-[#5f6f66]"],
+  [class~="text-[#7b887f]"],
+  [class~="text-slate-700"],
+  [class~="text-slate-800"],
+  [class~="text-stone-700"],
+  [class~="text-zinc-700"],
+  [class~="text-neutral-700"]
 ) {
   color: var(--text-muted);
 }
@@ -672,6 +724,9 @@ html.dark :where(
   [class~="text-brand-900"],
   [class~="text-brand-900/80"],
   [class~="text-brand-950"],
+  [class~="text-slate-900"],
+  [class~="text-stone-900"],
+  [class~="text-zinc-900"],
   strong,
   th
 ) {
@@ -699,7 +754,17 @@ html.dark :where(
 html.dark :where(
   [class*="border-brand-900"],
   [class~="border-black/5"],
+  [class~="border-slate-200"],
+  [class~="border-stone-200"],
+  [class~="border-zinc-200"],
+  [class*="border-blue-200"],
+  [class*="border-emerald-200"],
+  [class*="border-amber-200"],
+  [class*="border-red-200"],
+  [class*="border-violet-200"],
+  [class*="border-slate-200"],
   [class~="border-white/10"],
+  [class~="border-white/12"],
   [class~="border-white/50"],
   [class~="border-white/60"]
 ) {
@@ -731,32 +796,76 @@ html.dark :where(.prose h1, .prose h2, .prose h3, .prose h4, .prose strong) {
 }
 
 html.dark :where(.identity-herb, .identity-compound, .identity-article, .identity-path) {
-  background:
-    linear-gradient(180deg, rgba(24, 34, 27, 0.9), rgba(22, 40, 28, 0.72));
+  background: var(--surface-card);
 }
 
 html.dark :where(.button-secondary) {
   background-color: var(--surface-card);
   color: var(--text-primary);
+  border-color: var(--border-soft);
 }
 
 html.dark :where(.button-primary, [class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]) {
-  background-color: #69c280;
+  background-color: #7ed091;
   color: #07150c;
+}
+
+html.dark :where(
+  .btn-primary,
+  .btn-secondary,
+  .ds-card,
+  .ds-card-lg,
+  .ds-pill
+) {
+  border-color: var(--border-soft);
+}
+
+html.dark :where(.btn-primary) {
+  background-color: #7ed091;
+  color: #07150c;
+}
+
+html.dark :where(.btn-secondary, .ds-card, .ds-card-lg, .ds-pill) {
+  background-color: var(--surface-card);
+  color: var(--text-primary);
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder,
+html.dark [class*="placeholder:text"]::placeholder {
+  color: #91a397;
 }
 
 html.dark :where(
   [class~="text-emerald-800"],
   [class~="text-emerald-900"]
 ) {
-  color: #6ee7b7;
+  color: #9bddaa;
+}
+
+html.dark :where(
+  [class~="text-blue-800"],
+  [class~="text-blue-900"],
+  [class~="text-teal-800"],
+  [class~="text-violet-800"],
+  [class~="text-violet-900"]
+) {
+  color: #c7d2fe;
 }
 
 html.dark :where(
   [class~="text-amber-900"],
   [class~="text-amber-950"]
 ) {
-  color: #fcd34d;
+  color: #f8d98b;
+}
+
+html.dark :where(
+  [class~="text-red-700/80"],
+  [class~="text-red-950"],
+  [class~="text-rose-800"]
+) {
+  color: #f5b7ba;
 }
 
 @layer utilities {

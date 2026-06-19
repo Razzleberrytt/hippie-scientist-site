@@ -64,8 +64,8 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
       className={clsx(
         'inline-flex min-h-9 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40',
         active
-          ? 'border-brand-800 bg-brand-800 text-white shadow-sm'
-          : 'border-brand-900/10 bg-white text-[#33443a] hover:border-brand-700/25 hover:text-brand-800',
+          ? 'border-brand-800 bg-brand-800 text-white shadow-sm dark:border-brand-600 dark:bg-brand-600 dark:text-[#07150c]'
+          : 'border-brand-900/10 bg-white text-[#33443a] hover:border-brand-700/25 hover:text-brand-800 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]',
       )}
     >
       <span>{label}</span>
@@ -73,7 +73,7 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
         <span
           className={clsx(
             'rounded-full px-1.5 text-[10px] font-bold tabular-nums',
-            active ? 'bg-white/20 text-white' : 'bg-brand-50 text-brand-700',
+            active ? 'bg-white/20 text-white dark:text-[#07150c]' : 'bg-brand-50 text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-brand-700',
           )}
         >
           {count}
@@ -103,8 +103,8 @@ export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps
         className={clsx(
           'flex w-full flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition',
           active
-            ? 'border-brand-700/30 bg-brand-50/70'
-            : 'border-transparent hover:bg-stone-50',
+            ? 'border-brand-700/30 bg-brand-50/70 dark:border-brand-600/40 dark:bg-[var(--surface-subtle)]'
+            : 'border-transparent hover:bg-stone-50 dark:hover:bg-[var(--surface-card)]',
         )}
       >
         <span className="flex items-center gap-2">

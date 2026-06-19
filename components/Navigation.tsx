@@ -44,8 +44,8 @@ export function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-brand-900/10 transition-all ${
-        scrolled ? 'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80' : 'bg-white'
+      className={`sticky top-0 z-50 border-b border-brand-900/10 transition-all dark:border-[var(--border-strong)] ${
+        scrolled ? 'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:bg-[var(--surface-card-strong)] dark:supports-[backdrop-filter]:bg-[var(--surface-card-strong)]' : 'bg-white dark:bg-[var(--surface)]'
       }`}
       aria-label="Primary"
     >
@@ -68,8 +68,8 @@ export function Navigation() {
                 href={link.href}
                 className={`font-medium transition-colors ${
                   isActive(link.href)
-                    ? 'text-brand-800'
-                    : 'text-ink/80 hover:text-ink'
+                    ? 'text-brand-800 dark:text-brand-700'
+                    : 'text-ink/80 hover:text-ink dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
                 }`}
               >
                 {link.label}
@@ -86,7 +86,7 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-ink/70 transition hover:bg-brand-50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 md:hidden"
+              className="inline-flex items-center justify-center rounded-md p-2 text-ink/70 transition hover:bg-brand-50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)] md:hidden"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -108,7 +108,7 @@ export function Navigation() {
           />
 
           {/* Slide-in panel */}
-          <div className="fixed inset-y-0 right-0 z-50 w-72 overflow-y-auto border-l border-brand-900/10 bg-white px-4 py-6 shadow-xl">
+          <div className="fixed inset-y-0 right-0 z-50 w-72 overflow-y-auto border-l border-brand-900/10 bg-white px-4 py-6 shadow-xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)]">
             <div className="mb-6 flex items-center justify-between">
               <Link href="/" onClick={closeMobile} className="font-display text-lg font-semibold text-ink">
                 The Hippie Scientist
@@ -116,7 +116,7 @@ export function Navigation() {
               <button
                 type="button"
                 onClick={closeMobile}
-                className="rounded p-2 text-ink/70 hover:bg-brand-50"
+                className="rounded p-2 text-ink/70 hover:bg-brand-50 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
@@ -139,7 +139,7 @@ export function Navigation() {
                 </Link>
               ))}
 
-              <div className="my-2 h-px bg-brand-900/10" />
+              <div className="my-2 h-px bg-brand-900/10 dark:bg-[var(--border-soft)]" />
 
               <div className="flex items-center justify-between rounded-lg px-3 py-2.5">
                 <span className="text-sm font-medium text-ink/70">Theme</span>

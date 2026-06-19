@@ -259,6 +259,58 @@
     );
 }
 
+html.dark .library-card-premium,
+html.dark .card-premium,
+html.dark .scientific-card,
+html.dark .surface-depth,
+html.dark .surface-subtle,
+html.dark .section-frame,
+html.dark .glass-card {
+  background: var(--surface-card);
+  border-color: var(--border-soft);
+  box-shadow: var(--shadow-card-calm);
+}
+
+html.dark .library-card-premium:hover,
+html.dark .card-premium:hover,
+html.dark .scientific-card:hover,
+html.dark .surface-depth:hover,
+html.dark .section-frame:hover,
+html.dark .glass-card:hover {
+  background: var(--surface-card-strong);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card-calm-hover);
+}
+
+html.dark .library-card-premium h2,
+html.dark .library-card-premium h3,
+html.dark .card-premium h2,
+html.dark .card-premium h3,
+html.dark .scientific-card h2,
+html.dark .scientific-card h3 {
+  color: var(--text-primary);
+}
+
+html.dark .library-card-premium p,
+html.dark .card-premium p,
+html.dark .scientific-card p,
+html.dark .surface-depth p,
+html.dark .section-frame p,
+html.dark .glass-card p,
+html.dark .identity-meta,
+html.dark .pull-quote-science {
+  color: var(--text-muted);
+}
+
+html.dark .identity-kicker,
+html.dark .chip-readable,
+html.dark .evidence-pill-strong,
+html.dark .evidence-pill-moderate {
+  background: var(--surface-subtle);
+  border-color: var(--border-soft);
+  color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
   .library-card-premium,
   .card-premium,
