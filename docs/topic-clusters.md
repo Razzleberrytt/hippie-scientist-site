@@ -92,8 +92,7 @@ Priority clusters used by the internal link engine.
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 220
-- [Home](/) (static)
+- Pages: 219
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
@@ -133,6 +132,7 @@ Priority clusters used by the internal link engine.
 - [Apigenin](/compounds/apigenin) (compound)
 - [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
 - [baicalin](/compounds/baicalin) (compound)
+- [Beta-Alanine](/compounds/beta-alanine) (compound)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
@@ -180,8 +180,7 @@ Priority clusters used by the internal link engine.
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 646
-- [Home](/) (static)
+- Pages: 645
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
@@ -221,6 +220,7 @@ Priority clusters used by the internal link engine.
 - [Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared](/compare/sleep-herbs-vs-melatonin) (guide)
 - [Compound Library](/compounds) (static)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
+- [5-HTP](/compounds/5-htp) (compound)
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
