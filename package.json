@@ -189,6 +189,7 @@
   },
   "overrides": {
     "postcss": "^8.5.15",
+    "undici": "7.28.0",
     "ws": "8.20.1"
   },
   "lint-staged": {
