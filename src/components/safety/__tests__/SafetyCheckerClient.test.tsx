@@ -46,30 +46,26 @@ const mockCompounds = [
 ]
 
 describe('SafetyCheckerClient', () => {
-  it('renders default empty state and disclaimers', () => {
+  it('renders default empty state and compact disclaimer', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-    
+
     expect(screen.getByText(/Search Ingredients/i)).toBeInTheDocument()
     expect(screen.getByText(/Add items/i)).toBeInTheDocument()
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    expect(screen.getByText(/Educational safety screen only/i)).toBeInTheDocument()
   })
 
-  it('disables interactions and search input by default when disclaimer is unchecked', () => {
+  it('keeps interactions available on first render', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-    
-    const input = screen.getByPlaceholderText(/Please acknowledge disclaimer first/i)
-    expect(input).toBeDisabled()
+
+    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    expect(input).not.toBeDisabled()
 
     const ssriBtn = screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })
-    expect(ssriBtn).toBeDisabled()
+    expect(ssriBtn).not.toBeDisabled()
   })
 
-  it('scans and alerts for CNS Depressant / GABAergic overlap after checking disclaimer', async () => {
+  it('scans and alerts for CNS Depressant / GABAergic overlap', async () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-    
-    // Acknowledge disclaimer
-    const checkbox = screen.getByRole('checkbox')
-    fireEvent.click(checkbox)
 
     // Add Kava
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
@@ -89,12 +85,8 @@ describe('SafetyCheckerClient', () => {
     expect(screen.getByText(/Risk Level: medium/i)).toBeInTheDocument()
   })
 
-  it('scans and alerts for MAOI + Serotonergic/Stimulant contraindications after checking disclaimer', () => {
+  it('scans and alerts for MAOI + Serotonergic/Stimulant contraindications', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-    
-    // Acknowledge disclaimer
-    const checkbox = screen.getByRole('checkbox')
-    fireEvent.click(checkbox)
 
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     fireEvent.focus(input)
@@ -115,10 +107,6 @@ describe('SafetyCheckerClient', () => {
 
   it('clears list when clear button is clicked', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-    
-    // Acknowledge disclaimer
-    const checkbox = screen.getByRole('checkbox')
-    fireEvent.click(checkbox)
 
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     fireEvent.focus(input)
@@ -135,10 +123,6 @@ describe('SafetyCheckerClient', () => {
 
   it('scans and alerts for Drug-Supplement SSRI + serotonergic danger overlap', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-    
-    // Acknowledge disclaimer
-    const checkbox = screen.getByRole('checkbox')
-    fireEvent.click(checkbox)
 
     // Add Kanna Extract (serotonergic supplement)
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
@@ -156,44 +140,32 @@ describe('SafetyCheckerClient', () => {
     expect(screen.getByText(/Risk Level: high/i)).toBeInTheDocument()
   })
 
-  it('action buttons/search should be disabled until user acknowledges the medical disclaimer', () => {
+  it('action buttons/search are immediately available with disclaimer visible', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    const input = screen.getByPlaceholderText(/Please acknowledge disclaimer first/i)
-    expect(input).toBeDisabled()
+    const input = screen.getByPlaceholderText(/Type herb or compound/i)
+    expect(input).not.toBeDisabled()
 
     const ssriBtn = screen.getByRole('button', { name: /SSRI \/ SNRI Antidepressants/i })
-    expect(ssriBtn).toBeDisabled()
+    expect(ssriBtn).not.toBeDisabled()
 
     const maoiBtn = screen.getByRole('button', { name: /MAO Inhibitors \(MAOIs\)/i })
-    expect(maoiBtn).toBeDisabled()
+    expect(maoiBtn).not.toBeDisabled()
 
     const anticoagulantBtn = screen.getByRole('button', { name: /Blood Thinners \/ Anticoagulants/i })
-    expect(anticoagulantBtn).toBeDisabled()
+    expect(anticoagulantBtn).not.toBeDisabled()
   })
 
-  it('disclaimer acknowledgement panel remains visible until user explicitly accepts', () => {
+  it('compact disclaimer remains visible without an acknowledgement checkbox', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
 
-    // Panel and disclaimer text visible before acknowledgement
-    expect(screen.getByText(/Medical Disclaimer & Safety Acknowledgment/i)).toBeInTheDocument()
-    expect(screen.getByText(/This safety checker is an educational reference tool/i)).toBeInTheDocument()
-    expect(screen.getByRole('checkbox')).not.toBeChecked()
-
-    // Panel remains visible after acknowledgement
-    fireEvent.click(screen.getByRole('checkbox'))
-    expect(screen.getByText(/Medical Disclaimer & Safety Acknowledgment/i)).toBeInTheDocument()
-    expect(screen.getByRole('checkbox')).toBeChecked()
+    expect(screen.getByText(/Educational safety screen only/i)).toBeInTheDocument()
+    expect(screen.getByText(/not medical advice/i)).toBeInTheDocument()
+    expect(screen.queryByRole('checkbox')).not.toBeInTheDocument()
   })
 
-  it('after acknowledgement, the search input and medication buttons become interactive', () => {
+  it('search input and medication buttons are interactive', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-
-    const checkbox = screen.getByRole('checkbox')
-    expect(checkbox).not.toBeChecked()
-
-    fireEvent.click(checkbox)
-    expect(checkbox).toBeChecked()
 
     const input = screen.getByPlaceholderText(/Type herb or compound/i)
     expect(input).not.toBeDisabled()
@@ -207,10 +179,6 @@ describe('SafetyCheckerClient', () => {
 
   it('scans and alerts for Drug-Supplement MAOI + serotonergic danger overlap', () => {
     render(<SafetyCheckerClient herbs={mockHerbs} compounds={mockCompounds} />)
-    
-    // Acknowledge disclaimer
-    const checkbox = screen.getByRole('checkbox')
-    fireEvent.click(checkbox)
 
     // Add Kanna Extract (serotonergic supplement)
     const input = screen.getByPlaceholderText(/Type herb or compound/i)

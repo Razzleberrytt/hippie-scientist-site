@@ -112,7 +112,6 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
   const listboxId = useId()
   const selectionStatusId = useId()
   const riskStatusId = useId()
-  const [acknowledged, setAcknowledged] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedItems, setSelectedItems] = useState<SafetyItem[]>([])
   const [selectedMeds, setSelectedMeds] = useState<PharmaceuticalMedication[]>([])
@@ -413,29 +412,11 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
 
   return (
     <div className='space-y-6'>
-      {/* Disclaimer Acknowledgment Gate */}
-      <div className={`rounded-3xl border p-6 transition-all ${
-        acknowledged 
-          ? 'border-emerald-900/10 bg-emerald-50/10' 
-          : 'border-rose-900/20 bg-rose-50/20 shadow-sm'
-      }`}>
-        <h2 className='text-base font-bold text-slate-800 flex items-center gap-2'>
-          <span aria-hidden="true">⚠️</span>
-          Medical Disclaimer & Safety Acknowledgment
-        </h2>
-        <p className='mt-2 text-xs text-slate-600 leading-relaxed'>
-          This safety checker is an educational reference tool built on general biomedical pathways and public databases. It is <strong>not</strong> medical advice, is not monitored by doctors, and cannot replace personalized guidance from a qualified health professional. Stacking supplements, especially alongside prescription drugs, carries inherent physiological risks.
+      <div className='rounded-2xl border border-amber-700/20 bg-amber-50/50 p-4 text-xs leading-relaxed text-amber-950 shadow-sm'>
+        <p className='font-semibold'>Educational safety screen only</p>
+        <p className='mt-1'>
+          This checker highlights possible supplement and medication overlap patterns. It is not medical advice and cannot replace guidance from a qualified clinician or pharmacist.
         </p>
-        <label className='mt-4 flex items-start gap-3 cursor-pointer select-none text-xs font-semibold text-slate-700'>
-          <input
-            type='checkbox'
-            id='safety-disclaimer-checkbox'
-            checked={acknowledged}
-            onChange={e => setAcknowledged(e.target.checked)}
-            className='mt-0.5 h-5 w-5 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 cursor-pointer transition'
-          />
-          <span>I acknowledge that this tool is for educational purposes only and agree to consult a clinical professional before starting or changing any supplement regimen.</span>
-        </label>
       </div>
 
       <p id={selectionStatusId} className="sr-only" aria-live="polite">
@@ -444,7 +425,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
 
       <div className='grid grid-cols-1 gap-6 lg:gap-8 lg:grid-cols-3'>
         {/* Selection Column */}
-        <div className={`lg:col-span-1 space-y-6 ${!acknowledged ? 'opacity-70 select-none' : ''}`} aria-disabled={!acknowledged}>
+        <div className='lg:col-span-1 space-y-6'>
           {/* Search Ingredients */}
           <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm space-y-4' ref={dropdownRef} aria-labelledby="ingredient-search-heading">
             <h2 id="ingredient-search-heading" className='text-lg font-bold text-slate-800'>Search Ingredients</h2>
@@ -458,7 +439,6 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 id={searchInputId}
                 type='text'
                 value={searchQuery}
-                disabled={!acknowledged}
                 onChange={e => {
                   setSearchQuery(e.target.value)
                   setIsOpen(true)
@@ -466,7 +446,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 }}
                 onFocus={() => setIsOpen(true)}
                 onKeyDown={handleKeyDown}
-                placeholder={acknowledged ? 'Type herb or compound...' : 'Please acknowledge disclaimer first...'}
+                placeholder='Type herb or compound...'
                 role='combobox'
                 aria-autocomplete='list'
                 aria-expanded={isOpen && filteredItems.length > 0}
@@ -519,7 +499,6 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 <button
                   key={med.id}
                   type='button'
-                  disabled={!acknowledged}
                   aria-pressed={isSelected}
                   onClick={() => {
                     if (isSelected) {
@@ -618,7 +597,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
       </div>
 
       {/* Interaction Reports */}
-      <div className={`lg:col-span-2 space-y-6 ${!acknowledged ? 'opacity-70 select-none' : ''}`} aria-disabled={!acknowledged}>
+      <div className='lg:col-span-2 space-y-6'>
         <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-6' aria-labelledby="interactive-safety-audit-heading">
           <div className='border-b border-slate-100 pb-4 flex items-center justify-between'>
             <h2 id="interactive-safety-audit-heading" className='text-xl font-bold text-slate-800'>Interactive Safety Audit</h2>

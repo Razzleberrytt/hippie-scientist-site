@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react'
 import clsx from 'clsx'
-import Magnetic from './Magnetic'
 import { Button } from '@/components/ui/Button'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 
@@ -68,16 +67,14 @@ export default function NewsletterSignup({ compact = false, className }: Newslet
           className='sr-only'
           aria-hidden='true'
         />
-        <Magnetic strength={12}>
-          <Button
-            variant='primary'
-            className='whitespace-nowrap'
-            type='submit'
-            disabled={status === 'pending'}
-          >
-            {status === 'pending' ? 'Submitting…' : 'Subscribe'}
-          </Button>
-        </Magnetic>
+        <Button
+          variant='primary'
+          className='whitespace-nowrap'
+          type='submit'
+          disabled={status === 'pending'}
+        >
+          {status === 'pending' ? 'Submitting…' : 'Subscribe'}
+        </Button>
       </div>
       <p
         id={statusId}

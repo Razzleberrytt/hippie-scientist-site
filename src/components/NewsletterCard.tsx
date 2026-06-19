@@ -1,5 +1,4 @@
 import { FormEvent, useState } from 'react'
-import Magnetic from './Magnetic'
 import { Button } from '@/components/ui/Button'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 
@@ -63,16 +62,14 @@ export default function NewsletterCard() {
             className='sr-only'
             aria-hidden='true'
           />
-          <Magnetic strength={12}>
-            <Button
-              type='submit'
-              variant='primary'
-              className='rounded-2xl px-6 py-3'
-              disabled={status === 'pending'}
-            >
-              {status === 'pending' ? 'Submitting…' : 'Join the newsletter'}
-            </Button>
-          </Magnetic>
+          <Button
+            type='submit'
+            variant='primary'
+            className='rounded-2xl px-6 py-3'
+            disabled={status === 'pending'}
+          >
+            {status === 'pending' ? 'Submitting…' : 'Join the newsletter'}
+          </Button>
         </form>
         <p
           id='newsletter-card-status'

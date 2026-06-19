@@ -14,10 +14,10 @@ type SemanticOperatingSystemProps = {
 function fallbackSource() {
   return {
     slug: 'semantic-operating-system',
-    name: 'Semantic Exploration',
-    displayName: 'Semantic Exploration',
+    name: 'Related Topic Exploration',
+    displayName: 'Related Topic Exploration',
     effects: ['discovery', 'evidence', 'pathways', 'ecosystems'],
-    mechanisms: ['semantic traversal', 'graph continuity'],
+    mechanisms: ['related topics', 'topic continuity'],
     pathways: ['sleep', 'stress', 'focus', 'energy', 'inflammation'],
   }
 }
@@ -25,7 +25,7 @@ function fallbackSource() {
 export default function SemanticOperatingSystem({
   source,
   candidates = [],
-  title = 'Semantic exploration command center',
+  title = 'Related topic explorer',
   description = 'A unified layer for continuing research threads, following adjacent pathways, comparing related profiles, and moving through research ecosystems.',
 }: SemanticOperatingSystemProps) {
   const current = source || fallbackSource()
@@ -39,8 +39,8 @@ export default function SemanticOperatingSystem({
         <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2">
-              <p className="eyebrow-label">Semantic OS</p>
-              <span className="chip-readable">Exploration command center</span>
+              <p className="eyebrow-label">Related Topics</p>
+              <span className="chip-readable">Explore next</span>
             </div>
 
             <h2 className="compact-heading">{title}</h2>
@@ -54,7 +54,7 @@ export default function SemanticOperatingSystem({
           </div>
 
           <article className="compact-card section-rhythm-compact bg-brand-50/40">
-            <p className="eyebrow-label">Current semantic thread</p>
+            <p className="eyebrow-label">Current topic thread</p>
             <h3 className="max-w-none text-2xl font-semibold tracking-tight text-ink">
               {curiosity.headline}
             </h3>
@@ -74,7 +74,7 @@ export default function SemanticOperatingSystem({
       <section className="grid gap-4 lg:grid-cols-2">
         <article className="compact-section section-rhythm-compact">
           <div className="space-y-2">
-            <p className="eyebrow-label">Adaptive traversal</p>
+            <p className="eyebrow-label">Related branches</p>
             <h3 className="compact-heading">Recommended next branches.</h3>
           </div>
 
