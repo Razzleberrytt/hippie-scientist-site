@@ -1,5 +1,6 @@
 export { default as ArticleLayout } from './ArticleLayout'
 export { default as TableOfContents } from './TableOfContents'
+export { default as TableOfContentsAuto } from './TableOfContentsAuto'
 export { default as KeyDetailsBox } from './KeyDetailsBox'
 export { default as RelatedArticles } from './RelatedArticles'
 export type { Heading } from './extractHeadings'

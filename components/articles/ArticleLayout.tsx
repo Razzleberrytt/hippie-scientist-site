@@ -1,12 +1,28 @@
 import type { ReactNode } from 'react'
+import KeyDetailsBox from './KeyDetailsBox'
+import RelatedArticles from './RelatedArticles'
+import type { KeyDetailsBoxProps } from './KeyDetailsBox'
+import type { RelatedArticle } from './RelatedArticles'
 
 interface ArticleLayoutProps {
   children: ReactNode;
+  /** Explicit TOC node (e.g. <TableOfContents headings={…} /> or <TableOfContentsAuto />).
+   *  Omit to render the article full-width with no sidebar. */
   toc?: ReactNode;
   zone?: 'supplement' | 'harm-reduction';
+  /** Renders a KeyDetailsBox above the article body when provided. */
+  keyDetails?: KeyDetailsBoxProps;
+  /** Renders a RelatedArticles section below the article body when provided. */
+  relatedArticles?: RelatedArticle[];
 }
 
-export default function ArticleLayout({ children, toc, zone }: ArticleLayoutProps) {
+export default function ArticleLayout({
+  children,
+  toc,
+  zone,
+  keyDetails,
+  relatedArticles,
+}: ArticleLayoutProps) {
   return (
     <div
       className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-10"
@@ -18,12 +34,24 @@ export default function ArticleLayout({ children, toc, zone }: ArticleLayoutProp
         </div>
       )}
       <div className={toc ? 'lg:grid lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start lg:gap-10' : undefined}>
-        <article className="article-body min-w-0">
-          {children}
-        </article>
+        <div className="min-w-0">
+          {keyDetails && (
+            <div className="mb-6">
+              <KeyDetailsBox {...keyDetails} zone={zone} />
+            </div>
+          )}
+          <article className="article-body">
+            {children}
+          </article>
+          {relatedArticles && relatedArticles.length > 0 && (
+            <div className="mt-10">
+              <RelatedArticles articles={relatedArticles} />
+            </div>
+          )}
+        </div>
         {toc && (
           <aside aria-label="Page navigation" className="hidden lg:block">
-            <div className="sticky top-20 rounded-xl border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+            <div className="sticky top-20 rounded-xl border border-brand-900/10 bg-white/90 p-4 shadow-sm dark:border-brand-900/20 dark:bg-brand-950/60">
               {toc}
             </div>
           </aside>
