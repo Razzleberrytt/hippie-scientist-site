@@ -2,6 +2,16 @@
 
 Generated from `npm run check` + `npx tsc --noEmit --pretty false` TS2307 set, then reachability scan from `app/**` import graph.
 
+## Phase 2B cleanup status
+
+- Phase 1 alias cleanup is complete.
+- Phase 2 moved 49 confirmed-dead `src/components` files into `legacy-quarantine/src/components/`.
+- 36 active `src/components` files remain reachable from active app roots.
+- `src/components/TagBadge.tsx` was restored and kept because `src/components/CompoundBadge.tsx` still imports it.
+- 144 inactive-but-uncertain files were intentionally left in place.
+- Empty legacy directories under `src/components/` were removed after confirming they were empty.
+- `src/lib` and some `src/components` files are still active and must not be deleted wholesale.
+
 | File | Imported by active app? | Missing imports | Classification | Action |
 |---|---|---|---|---|
 | `src/components/CuratedProductModule.tsx` | no | `@/data/curatedProducts` | `LEGACY_UNUSED_QUARANTINE` | Do not restore deleted duplicate data files. Keep quarantined; if later reactivated, route through workbook-generated `public/data` accessors. |
@@ -18,7 +28,7 @@ Generated from `npm run check` + `npx tsc --noEmit --pretty false` TS2307 set, t
 | `src/components/RotatingHerbHero.tsx` | no | `../utils/format, ../utils/herb, ../utils/images, ../utils/slugify` | `LEGACY_UNUSED_QUARANTINE` | Leave quarantined. If reactivated, implement minimal pure utilities/hooks in active tree instead of reviving legacy scaffolding. |
 | `src/components/SearchFilter.tsx` | no | `../utils/format` | `LEGACY_UNUSED_QUARANTINE` | Leave quarantined. If reactivated, implement minimal pure utilities/hooks in active tree instead of reviving legacy scaffolding. |
 | `src/components/StatsCounters.tsx` | no | `../data/blog/posts.json, ../data/compounds/compoundData` | `LEGACY_UNUSED_QUARANTINE` | Do not restore deleted duplicate data files. Keep quarantined; if later reactivated, route through workbook-generated `public/data` accessors. |
-| `src/components/TagBadge.tsx` | no | `../utils/tagUtils` | `LEGACY_UNUSED_QUARANTINE` | Leave quarantined. If reactivated, implement minimal pure utilities/hooks in active tree instead of reviving legacy scaffolding. |
+| `src/components/TagBadge.tsx` | yes | none | `ACTIVE_KEEP` | Restored and kept because `src/components/CompoundBadge.tsx` imports it. Do not quarantine or delete while that dependency remains. |
 | `src/components/TagFilterBar.tsx` | no | `../utils/format` | `LEGACY_UNUSED_QUARANTINE` | Leave quarantined. If reactivated, implement minimal pure utilities/hooks in active tree instead of reviving legacy scaffolding. |
 | `src/components/cta/CtaVariantLayout.tsx` | no | `@/config/ctaExperiments` | `LEGACY_UNUSED_QUARANTINE` | Leave quarantined. If reactivated, implement minimal pure utilities/hooks in active tree instead of reviving legacy scaffolding. |
 | `src/components/detail/GovernedResearchSections.tsx` | no | `@/types/researchEnrichment` | `TYPE_ONLY_RESTORE_SAFE` | If reactivated later, restore as type-only declarations/interfaces from canonical workbook-driven schemas; do not add runtime data modules. |
