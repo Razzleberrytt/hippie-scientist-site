@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import type { GoalHubLink } from '@/lib/goal-hub-links'
+import type { GoalHubLink } from '../../lib/goal-hub-links'
 
 type GoalHubSectionsProps = {
   goalSlug: string

@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getBeginnerPathways } from '@/lib/beginner-pathways'
-import DecisionVisualGrid from '@/components/decision-visual-grid'
-import WhyThisInsteadPanel from '@/components/why-this-instead-panel'
+import { getBeginnerPathways } from '../../../src/lib/beginner-pathways'
+import DecisionVisualGrid from '../../../src/components/decision-visual-grid'
+import WhyThisInsteadPanel from '../../../src/components/why-this-instead-panel'
 
 function getPathway(slug: string) {
   return getBeginnerPathways().find((pathway) => pathway.slug === slug)

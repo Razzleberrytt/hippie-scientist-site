@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { blogJsonLd, breadcrumbJsonLd, buildPageMetadata, faqPageJsonLd, SITE_URL } from '@/lib/seo'
+import { blogJsonLd, breadcrumbJsonLd, buildPageMetadata, faqPageJsonLd, SITE_URL } from '../../src/lib/seo'
 import { getGoalArticle, getGoalCluster, getRelatedGoalArticles } from '@/lib/goal-clusters'
 import { getSleepArticleContent } from '@/lib/sleep-cluster-content'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'

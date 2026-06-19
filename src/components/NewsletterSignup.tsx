@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react'
 import clsx from 'clsx'
-import { Button } from '@/components/ui/Button'
+import { Button } from './ui/Button'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 
 type NewsletterSignupProps = {

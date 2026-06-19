@@ -1,15 +1,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { allArticleMonographs } from 'content-collections'
+import { allArticleMonographs } from '../../../.content-collections/generated'
 import rawArticles from '../../../data/articles/articles.json'
 import BlogPostPage, {
   generateMetadata as generateBlogMetadata,
   generateStaticParams as generateBlogStaticParams,
 } from '@/components/blog/BlogPostPage'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, SITE_URL } from '@/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, SITE_URL } from '../../../src/lib/seo'
 import { formatDate } from '@/lib/blog-index'
-import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import ArticleMdx from '@/components/articles/ArticleMdx'
 

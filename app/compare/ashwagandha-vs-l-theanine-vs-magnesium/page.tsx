@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Ashwagandha vs L-Theanine vs Magnesium for Stress & Anxiety',
@@ -10,7 +10,7 @@ export const metadata: Metadata = buildPageMetadata({
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
@@ -45,8 +45,8 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           Ashwagandha vs L-Theanine vs Magnesium: Which Fits Your Stress Pattern?
         </h1>
         <p className="text-lg leading-8 text-[#46574d]">
-          Choosing between these three popular options depends on your specific stress presentation. 
-          Ashwagandha is an adaptogen suited for chronic, daily tension. L-Theanine is an amino acid that excels at acute, situational stress. 
+          Choosing between these three popular options depends on your specific stress presentation.
+          Ashwagandha is an adaptogen suited for chronic, daily tension. L-Theanine is an amino acid that excels at acute, situational stress.
           Magnesium glycinate is a mineral that addresses baseline physical relaxation and evening recovery.
         </p>
       </section>
@@ -179,8 +179,8 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           <p className="eyebrow-label">Scenario 1</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Wired-Tired Pattern</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If your stress manifests as ongoing, physical and mental exhaustion paired with high evening tension, 
-            <strong> Ashwagandha</strong> is generally the more targeted option. It aims to support baseline adaptation, 
+            If your stress manifests as ongoing, physical and mental exhaustion paired with high evening tension,
+            <strong> Ashwagandha</strong> is generally the more targeted option. It aims to support baseline adaptation,
             but you must monitor for rare side effects like emotional blunting (anhedonia).
           </p>
         </div>
@@ -188,8 +188,8 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           <p className="eyebrow-label">Scenario 2</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Acute Performance Jitters</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If you need calm focus during a demanding meeting or to take the edge off caffeine consumption, 
-            <strong> L-Theanine</strong> is the ideal choice. It crosses the blood-brain barrier rapidly to 
+            If you need calm focus during a demanding meeting or to take the edge off caffeine consumption,
+            <strong> L-Theanine</strong> is the ideal choice. It crosses the blood-brain barrier rapidly to
             increase alpha-wave activity without inducing grogginess.
           </p>
         </div>
@@ -197,8 +197,8 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           <p className="eyebrow-label">Scenario 3</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Physical &amp; Evening Tension</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If your stress triggers muscle tightness, jaw-clenching, or sleep-onset disruption, 
-            <strong> Magnesium glycinate</strong> provides the double benefit of glycine (a calming neurotransmitter) 
+            If your stress triggers muscle tightness, jaw-clenching, or sleep-onset disruption,
+            <strong> Magnesium glycinate</strong> provides the double benefit of glycine (a calming neurotransmitter)
             paired with highly absorbable elemental magnesium.
           </p>
         </div>

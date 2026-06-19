@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildRevenueEvent, normalizeRevenueEventKind } from '@/lib/revenue-tracking'
+import { buildRevenueEvent, normalizeRevenueEventKind } from '../revenue-tracking'
 
 describe('revenue tracking', () => {
   it('normalizes supported revenue event kinds', () => {

@@ -2,7 +2,7 @@ import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '@/lib/governedResearch'
+} from './governedResearch'
 import type { EvidenceLabel, ResearchClaim, ResearchEnrichment } from '@/types/researchEnrichment'
 
 export type RecommendationSignalType =

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 
 // Regression coverage for the recurring string-vs-boolean sitemap_included bug:
 // generated data must gate identically whether booleans survive the pipeline

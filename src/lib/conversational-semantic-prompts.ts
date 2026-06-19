@@ -1,5 +1,5 @@
 import { text, unique } from '@/lib/display-utils'
-import { buildAdaptiveTraversal } from '@/lib/adaptive-semantic-traversal'
+import { buildAdaptiveTraversal } from './adaptive-semantic-traversal'
 
 export type ConversationalSemanticPrompt = {
   question: string

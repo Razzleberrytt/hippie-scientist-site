@@ -1,4 +1,4 @@
-import { getSemanticArtwork, type SemanticArtworkKind } from '@/lib/semantic-artwork-registry'
+import { getSemanticArtwork, type SemanticArtworkKind } from '../lib/semantic-artwork-registry'
 
 type SemanticArtworkPanelProps = {
   slug?: string | null

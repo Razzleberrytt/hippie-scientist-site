@@ -1,16 +1,16 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import EvidenceClaimCard from '@/components/evidence-engine/EvidenceClaimCard'
+import EvidenceClaimCard from '../../../src/components/evidence-engine/EvidenceClaimCard'
 import type { Goal } from '@/data/goals'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
-import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import { getGoalFreshness } from '@/lib/freshness'
 import type { GoalContentExtension } from '@/data/goal-content'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
-import GoalHubSections from '@/components/goals/GoalHubSections'
-import GoalContentDepth from '@/components/goals/GoalContentDepth'
-import type { getGoalHubLinks } from '@/lib/goal-hub-links'
+import GoalHubSections from '../../../src/components/goals/GoalHubSections'
+import GoalContentDepth from '../../../src/components/goals/GoalContentDepth'
+import type { getGoalHubLinks } from '../../../src/lib/goal-hub-links'
 
 type GoalHubBundle = ReturnType<typeof getGoalHubLinks>
 import {
@@ -21,7 +21,7 @@ import {
   getSafetySeverityTone,
   groupClaimsByDecisionGroup,
   groupSafetyNotesByIngredient,
-} from '@/lib/evidence-engine'
+} from '../../../src/lib/evidence-engine'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'

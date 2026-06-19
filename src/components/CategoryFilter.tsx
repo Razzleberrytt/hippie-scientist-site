@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHerbData } from '@/lib/herb-data'
+import { useHerbData } from '../lib/herb-data'
 
 interface Props {
   selected: string[]

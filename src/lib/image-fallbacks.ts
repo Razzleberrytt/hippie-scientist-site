@@ -1,4 +1,4 @@
-import { getSemanticImage } from '@/lib/image-registry'
+import { getSemanticImage } from './image-registry'
 
 export function getHerbFallbackImage(slug?: string) {
   return getSemanticImage(slug, 'herb')

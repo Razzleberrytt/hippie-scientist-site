@@ -1,9 +1,9 @@
 import { calculateDiscoveryScore } from '@/lib/discovery-score'
 import { getEvidenceMaturity, getMechanismDepth, getProfileCompleteness } from '@/lib/semantic-trust-badges'
 import { getSafetySensitivity } from '@/lib/safety-classification'
-import { scoreSemanticRecommendation } from '@/lib/semantic-orchestration'
+import { scoreSemanticRecommendation } from '../src/lib/semantic-orchestration'
 
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../src/types/content'
 
 type DiscoveryGroup = {
   title: string

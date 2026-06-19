@@ -1,6 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
-import { mechanismEcosystems } from '@/lib/mechanism-ecosystems'
-import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
+import { mechanismEcosystems } from './mechanism-ecosystems'
+import { buildSemanticIntelligenceReport } from './semantic-intelligence-layer'
 
 export type EcosystemHotspot = {
   slug: string

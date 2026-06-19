@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildRuntimeAuthorityNavigation } from '@/lib/runtime-authority-navigation'
+import { buildRuntimeAuthorityNavigation } from '../../lib/runtime-authority-navigation'
 
 function formatLabel(value: string) {
   return value

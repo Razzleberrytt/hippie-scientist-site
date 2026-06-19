@@ -8,7 +8,7 @@ import {
   toAbsoluteUrl,
   type CompoundJsonLdArgs,
   type HerbJsonLdArgs,
-} from '@/lib/seo'
+} from './seo'
 import {
   buildFAQPageFromComparisonRows,
   buildFocusClusterBreadcrumb,

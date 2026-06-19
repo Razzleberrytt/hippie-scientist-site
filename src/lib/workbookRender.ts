@@ -1,4 +1,4 @@
-import { cleanEffectChips, isJunk, isLowQualityProse, sanitizeSummaryText, splitClean } from '@/lib/sanitize'
+import { cleanEffectChips, isJunk, isLowQualityProse, sanitizeSummaryText, splitClean } from './sanitize'
 
 export type ProfileStatus = 'complete' | 'partial' | 'minimal'
 export type SummaryQuality = 'strong' | 'weak' | 'none'

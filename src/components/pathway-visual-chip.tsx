@@ -1,4 +1,4 @@
-import { getPathwayVisual } from '@/lib/pathway-visuals'
+import { getPathwayVisual } from '../lib/pathway-visuals'
 
 type PathwayVisualChipProps = {
   pathway: string

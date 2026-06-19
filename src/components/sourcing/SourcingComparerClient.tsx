@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { isRestrictedIngredient, isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient, isRestrictedRecord } from '../../lib/restricted-ingredients'
 
 interface SourcingItem {
   slug: string
@@ -61,7 +61,7 @@ export default function SourcingComparerClient({ herbs, compounds }: SourcingCom
 
   // State for sourcing cart
   const [cartSlugs, setCartSlugs] = useState<string[]>([])
-  
+
   // Checklist verification states per cart item
   const [checklist, setChecklist] = useState<Record<string, { coa: boolean; testing: boolean; metals: boolean }>>({})
 
@@ -72,7 +72,7 @@ export default function SourcingComparerClient({ herbs, compounds }: SourcingCom
   const handleAddCompared = (candidate: { slug: string; name: string; type: 'herb' | 'compound' }) => {
     // Check if already compared
     if (comparedItems.some(i => i.slug === candidate.slug)) return
-    
+
     // Find if it has default data, otherwise initialize mock data
     const matchedDefault = DEFAULT_ITEMS.find(i => i.slug === candidate.slug)
     const newItem: SourcingItem = matchedDefault || {
@@ -163,7 +163,7 @@ export default function SourcingComparerClient({ herbs, compounds }: SourcingCom
     return comparedItems.map(item => {
       const costPerServing = item.standardPrice / (item.servings || 1)
       const costPerMgActive = costPerServing / ((item.doseMg * item.standardizationPct) || 1)
-      
+
       // Calculate active compound yield per $1.00 spent:
       // Active yield (mg) per dose = doseMg * standardizationPct
       // Yield per $1.00 = Active yield / costPerServing
@@ -474,7 +474,7 @@ export default function SourcingComparerClient({ herbs, compounds }: SourcingCom
             <div className='space-y-5'>
               {cartItems.map(item => {
                 const itemCheck = checklist[item.slug] || { coa: false, testing: false, metals: false }
-                
+
                 return (
                   <div
                     key={item.slug}
@@ -498,7 +498,7 @@ export default function SourcingComparerClient({ herbs, compounds }: SourcingCom
                     {/* Quality standards checkboxes (Task 3.3) */}
                     <div className='space-y-1.5 text-[11px] text-slate-600'>
                       <span className='block text-[9px] uppercase font-bold text-slate-400 mb-1'>Required Quality Checks</span>
-                      
+
                       <label className='flex items-center gap-2 cursor-pointer'>
                         <input
                           type='checkbox'

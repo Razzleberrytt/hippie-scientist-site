@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Herb } from '../types'
 import TagBadge from './TagBadge'
-import { Button } from '@/components/ui/Button'
+import { Button } from './ui/Button'
 
 interface Props {
   herbs: Herb[]

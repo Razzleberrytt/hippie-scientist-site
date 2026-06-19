@@ -5,11 +5,11 @@ import {
   getGovernedResearchEnrichment,
   getPublishableGovernedEntries,
   type GovernedEntityType,
-} from '@/lib/governedResearch'
+} from './governedResearch'
 import {
   buildEnrichmentRecommendations,
   type EnrichmentRecommendation,
-} from '@/lib/enrichmentRecommendations'
+} from './enrichmentRecommendations'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
 
 export type GovernedQuickCompareDimension =

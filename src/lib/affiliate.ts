@@ -1,5 +1,5 @@
 import { isClean, list, text } from '@/lib/display-utils'
-import { isRestrictedIngredient, isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient, isRestrictedRecord } from './restricted-ingredients'
 
 export const AMAZON_ASSOCIATE_ID = 'razzleberry02-20'
 
@@ -19,7 +19,7 @@ export function ensureAmazonAffiliateTag(url: string): string {
   if (!url.includes('amazon.com') && !url.includes('amazon.co.uk')) {
     return url
   }
-  
+
   try {
     const urlObj = new URL(url)
     const tag = urlObj.searchParams.get('tag')

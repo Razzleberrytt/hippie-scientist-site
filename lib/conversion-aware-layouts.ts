@@ -1,7 +1,7 @@
 import { text } from '@/lib/display-utils'
 import { isBuiltComparisonSlug } from '@/lib/comparison-utils'
-import { buildMonetizationOpportunity } from '@/lib/monetization-intelligence-layer'
-import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
+import { buildMonetizationOpportunity } from '../src/lib/monetization-intelligence-layer'
+import { buildSemanticIntelligenceReport } from '../src/lib/semantic-intelligence-layer'
 
 export type ConversionCTA = {
   label: string

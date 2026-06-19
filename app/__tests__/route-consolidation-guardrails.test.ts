@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { authorityHomeLinks, bestForSlugs } from '@/app/authority-links'
-import { SEO_GUIDE_ROUTES } from '@/lib/canonical-routes'
+import { SEO_GUIDE_ROUTES } from '../../src/lib/canonical-routes'
 
 const rootDir = process.cwd()
 const redirectsPath = path.join(rootDir, 'public', '_redirects')

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { getBeginnerPathways } from '@/lib/beginner-pathways'
+import { getBeginnerPathways } from '../lib/beginner-pathways'
 
 export default function BeginnerPathwayHub() {
   const pathways = getBeginnerPathways()

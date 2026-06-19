@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { semanticCollections } from '@/lib/semantic-collections'
-import { getEcosystemVisual } from '@/lib/ecosystem-visuals'
+import { semanticCollections } from '../lib/semantic-collections'
+import { getEcosystemVisual } from '../lib/ecosystem-visuals'
 
 export default function SemanticCollectionGrid() {
   return (

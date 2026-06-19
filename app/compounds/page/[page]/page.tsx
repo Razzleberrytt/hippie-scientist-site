@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { getAllCompounds } from '@/lib/server/runtime-data'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { COMPOUNDS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../../../../src/types/content'
 
 type P={params:Promise<{page:string}>}
 export async function generateStaticParams(){ const compounds=((await getAllCompounds()) as unknown as RuntimeRecord[]).filter((c)=>getRuntimeVisibility(c).canRender); const total=Math.max(1,Math.ceil(compounds.length/COMPOUNDS_PAGE_SIZE)); return Array.from({length:Math.max(total-1,0)},(_,i)=>({page:String(i+2)})) }

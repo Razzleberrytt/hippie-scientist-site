@@ -3,7 +3,7 @@ import {
   rankSemanticRecommendations,
   type SemanticRuntimeRecord,
   type SemanticRecommendationCandidate,
-} from '@/lib/semantic-orchestration'
+} from './semantic-orchestration'
 
 export type SemanticNavigationLink = {
   label: string

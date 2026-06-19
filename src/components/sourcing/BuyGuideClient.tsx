@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { canRenderAffiliateLinks } from '@/lib/affiliate'
+import { canRenderAffiliateLinks } from '../../lib/affiliate'
 
 interface GuideItem {
   slug: string
@@ -42,7 +42,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
       } else if (typeof item.buying_criteria === 'string' && item.buying_criteria.trim()) {
         criteria = item.buying_criteria.split(/[;,\n]+/).map((s: string) => s.trim()).filter(Boolean)
       } else if (item.buyingCriteria) {
-        criteria = Array.isArray(item.buyingCriteria) 
+        criteria = Array.isArray(item.buyingCriteria)
           ? item.buyingCriteria.filter(Boolean)
           : String(item.buyingCriteria).split(/[;,\n]+/).map((s: string) => s.trim()).filter(Boolean)
       }
@@ -99,7 +99,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
   // Filter items by search query
   const filteredItems = useMemo(() => {
     if (!searchQuery) return allItems
-    return allItems.filter(item => 
+    return allItems.filter(item =>
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (item.standardization && item.standardization.toLowerCase().includes(searchQuery.toLowerCase()))

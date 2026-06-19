@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { buildEditorialProfile, type EditorialEntityType } from '@/lib/editorial-runtime'
+import { buildEditorialProfile, type EditorialEntityType } from '../../lib/editorial-runtime'
 
 type Props = {
   record: any

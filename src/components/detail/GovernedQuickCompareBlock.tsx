@@ -1,10 +1,10 @@
-import { Link } from '@/lib/router-compat'
+import { Link } from '../../lib/router-compat'
 import { useEffect } from 'react'
 import type {
   GovernedQuickCompareDimension,
   GovernedQuickCompareSection,
-} from '@/lib/governedQuickCompare'
-import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
+} from '../../lib/governedQuickCompare'
+import { trackGovernedEvent, type GovernedPageType } from '../../lib/governedAnalytics'
 
 const DIMENSION_LABELS: Record<GovernedQuickCompareDimension, string> = {
   evidence_strength: 'Evidence strength',

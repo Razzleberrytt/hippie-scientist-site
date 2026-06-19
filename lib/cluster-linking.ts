@@ -13,11 +13,11 @@
  *  buildProfileSchemaGraphWithCluster() — extends buildProfileSchemaGraph with relatedLink
  */
 
-import { SITE_URL } from '@/lib/site'
+import { SITE_URL } from '../src/lib/site'
 import type { ClusterDefinition, ClusterId, EntityKind, SeeAlsoEntry } from '@/lib/schema'
 import { buildRelatedLinksSchema } from '@/lib/schema'
-import { buildProfileSchemaGraph, buildSchemaGraph } from '@/lib/schema-graph'
-import type { ProfileSchemaGraphArgs } from '@/lib/schema-graph'
+import { buildProfileSchemaGraph, buildSchemaGraph } from '../src/lib/schema-graph'
+import type { ProfileSchemaGraphArgs } from '../src/lib/schema-graph'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Static cluster definitions

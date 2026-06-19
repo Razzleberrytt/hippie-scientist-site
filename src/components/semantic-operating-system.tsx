@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
-import SemanticSessionContinuity from '@/components/semantic-session-continuity'
-import { buildAdaptiveTraversal, buildCuriosityLoop } from '@/lib/adaptive-semantic-traversal'
-import { buildConversationalSemanticPrompts } from '@/lib/conversational-semantic-prompts'
+import PathwayVisualChip from './pathway-visual-chip'
+import SemanticSessionContinuity from './semantic-session-continuity'
+import { buildAdaptiveTraversal, buildCuriosityLoop } from '../lib/adaptive-semantic-traversal'
+import { buildConversationalSemanticPrompts } from '../lib/conversational-semantic-prompts'
 
 type SemanticOperatingSystemProps = {
   source?: any

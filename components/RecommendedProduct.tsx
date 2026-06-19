@@ -1,4 +1,4 @@
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from './AffiliateDisclosure'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
 type RecommendedProductProps = {

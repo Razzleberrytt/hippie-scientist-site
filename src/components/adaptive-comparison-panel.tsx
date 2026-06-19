@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { buildAdaptiveComparisons } from '@/lib/adaptive-comparisons'
+import { buildAdaptiveComparisons } from '../lib/adaptive-comparisons'
 
 type EntityType = 'herb' | 'compound'
 

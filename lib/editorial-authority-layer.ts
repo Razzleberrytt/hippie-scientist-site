@@ -1,7 +1,7 @@
 import { list, text } from '@/lib/display-utils'
 import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
-import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
-import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
+import { buildResearchKnowledgeReport } from '../src/lib/research-knowledge-layer'
+import { buildSemanticIntelligenceReport } from '../src/lib/semantic-intelligence-layer'
 
 export type EditorialAuthorityNote = {
   label: string

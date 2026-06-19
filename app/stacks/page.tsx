@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import LibraryEmptyState from '@/components/decision/LibraryEmptyState'
-import { buildPageMetadata } from '@/lib/seo'
+import LibraryEmptyState from '../../src/components/decision/LibraryEmptyState'
+import { buildPageMetadata } from '../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Evidence-Based Supplement Stacks',

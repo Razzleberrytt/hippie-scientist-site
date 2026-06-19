@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from '@/lib/router-compat'
-import { slugify } from '@/lib/slug'
+import { Link } from '../lib/router-compat'
+import { slugify } from '../lib/slug'
 import TagBadge from './TagBadge'
 
 export default function CompoundBadge({ name }: { name: string }) {

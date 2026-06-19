@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodologyCallout'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { buildToolPageSchemaGraph } from '@/lib/schema-graph'
-import { SITE_URL } from '@/lib/seo'
+import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
+import { SITE_URL } from '../../src/lib/seo'
 
 export const metadata: Metadata = {
   title: 'How We Grade Evidence & Methodology',

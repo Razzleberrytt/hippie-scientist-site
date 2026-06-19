@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
+import PathwayVisualChip from './pathway-visual-chip'
 import {
   getSemanticSessionMemory,
   getSemanticSessionSummary,
   clearSemanticSessionMemory,
   type SemanticSessionItem,
-} from '@/lib/semantic-session-memory'
+} from '../lib/semantic-session-memory'
 
 export default function SemanticSessionContinuity() {
   const [items, setItems] = useState<SemanticSessionItem[]>([])

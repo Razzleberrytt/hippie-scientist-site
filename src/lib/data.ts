@@ -1,7 +1,7 @@
 import type { Herb } from '@/types/herb'
 import type { Compound } from '../types/compound'
-import { loadHerbData } from '@/lib/herb-data'
-import { loadCompoundSummaryData } from '@/lib/compound-data'
+import { loadHerbData } from './herb-data'
+import { loadCompoundSummaryData } from './compound-data'
 import { asStringArray } from '@/utils/asStringArray'
 import { isNonEmptyString } from '@/utils/isNonEmptyString'
 

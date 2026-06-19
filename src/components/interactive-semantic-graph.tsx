@@ -2,8 +2,8 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
-import { graphNodeColor, type SemanticGraphEdge, type SemanticGraphNode } from '@/lib/semantic-graph-visuals'
+import PathwayVisualChip from './pathway-visual-chip'
+import { graphNodeColor, type SemanticGraphEdge, type SemanticGraphNode } from '../lib/semantic-graph-visuals'
 
 type InteractiveSemanticGraphProps = {
   title?: string

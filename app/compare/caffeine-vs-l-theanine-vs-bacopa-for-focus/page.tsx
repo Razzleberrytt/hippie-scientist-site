@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Caffeine vs L-Theanine vs Bacopa for Focus & Attention',
@@ -10,7 +10,7 @@ export const metadata: Metadata = buildPageMetadata({
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
@@ -45,9 +45,9 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
           Caffeine vs L-Theanine vs Bacopa: Which Supports Your Cognitive Pattern?
         </h1>
         <p className="text-lg leading-8 text-[#46574d]">
-          If you are looking to boost focus, these three options work on completely different timelines. 
-          <strong> Caffeine</strong> provides rapid, stimulating alertness but can trigger jitters. 
-          <strong> L-Theanine</strong> promotes calm concentration and is commonly paired with caffeine to smooth its stimulant side effects. 
+          If you are looking to boost focus, these three options work on completely different timelines.
+          <strong> Caffeine</strong> provides rapid, stimulating alertness but can trigger jitters.
+          <strong> L-Theanine</strong> promotes calm concentration and is commonly paired with caffeine to smooth its stimulant side effects.
           <strong> Bacopa Monnieri</strong> is a cumulative, non-stimulant adaptogen that supports long-term memory retention over several weeks.
         </p>
       </section>
@@ -180,8 +180,8 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
           <p className="eyebrow-label">Scenario 1</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Acute Deadline</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If you need to stay alert for an immediate exam or task under mild sleep debt, 
-            <strong> Caffeine</strong> provides the strongest and fastest boost. Keep in mind that 
+            If you need to stay alert for an immediate exam or task under mild sleep debt,
+            <strong> Caffeine</strong> provides the strongest and fastest boost. Keep in mind that
             overuse or late-day consumption can ruin subsequent recovery cycles, creating a fatigue loop.
           </p>
         </div>
@@ -189,8 +189,8 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
           <p className="eyebrow-label">Scenario 2</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Focused Synergy</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If you love the focus caffeine provides but hate the racing heart rate and physical jitters, 
-            <strong> L-Theanine</strong> is the perfect partner. Studies suggest a 2:1 ratio (e.g. 200 mg L-theanine 
+            If you love the focus caffeine provides but hate the racing heart rate and physical jitters,
+            <strong> L-Theanine</strong> is the perfect partner. Studies suggest a 2:1 ratio (e.g. 200 mg L-theanine
             to 100 mg caffeine) optimizes attention while buffering stimulant side effects.
           </p>
         </div>
@@ -198,8 +198,8 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
           <p className="eyebrow-label">Scenario 3</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Steady Memory Building</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If you want to boost learning rate or recall over a long-term project (such as learning a language 
-            or studying for licensing exams), <strong> Bacopa Monnieri</strong> is the target. It will not give 
+            If you want to boost learning rate or recall over a long-term project (such as learning a language
+            or studying for licensing exams), <strong> Bacopa Monnieri</strong> is the target. It will not give
             immediate stimulation, so do not expect it to act like caffeine.
           </p>
         </div>

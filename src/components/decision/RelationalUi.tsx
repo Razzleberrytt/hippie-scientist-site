@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { scoreRelatedProfile, getOverlap } from '@/lib/semantic-relationships'
-import { normalizeEvidence } from '@/lib/evidence-mapping'
+import { scoreRelatedProfile, getOverlap } from '../../lib/semantic-relationships'
+import { normalizeEvidence } from '../../lib/evidence-mapping'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 

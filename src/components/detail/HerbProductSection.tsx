@@ -1,7 +1,7 @@
 import type { HerbProduct } from '@/data/herbProducts'
 import { DEFAULT_AMAZON_AFFILIATE_TAG } from '@/data/curatedProducts'
-import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
-import { trackAffiliateLinkClick } from '@/lib/affiliateClickTracking'
+import type { AffiliateUseCaseAnchor } from '../../lib/affiliateClickTracking'
+import { trackAffiliateLinkClick } from '../../lib/affiliateClickTracking'
 import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
 
 const bestForByForm: Record<string, string> = {

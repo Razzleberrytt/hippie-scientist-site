@@ -3,7 +3,7 @@ import {
   safeNumber,
   safeObject,
   safeText,
-} from '@/lib/runtime-render-guards'
+} from './runtime-render-guards'
 
 function calculateEvidenceDepth(record: any) {
   const evidence = safeNumber(record?.human_studies_count)

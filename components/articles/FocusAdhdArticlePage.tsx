@@ -3,11 +3,11 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import React from 'react'
 
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
-import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '../../src/lib/seo'
+import LastUpdatedBadge from '../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getFocusAdhdArticle, focusAdhdArticles } from '@/lib/focus-adhd-articles'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../AffiliateDisclosure'
 import { StartHereBox, AdhdCtaDashboard, AdhdComparisonCard, AdhdInlineCta, getAdhdCtasForSlug } from './AdhdMonetizationWidgets'
 import EmailCapture from '@/components/EmailCapture'
 
@@ -356,19 +356,19 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
         <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
         <div className="mt-3"><LastUpdatedBadge date={article.date} label="Last updated" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{article.description}</p>
-        
+
         <StartHereBox currentSlug={slug} />
       </section>
 
       <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
         <AffiliateDisclosure variant="compact" className="mb-6" />
-        
+
         <MarkdownBody body={article.body} slug={slug} />
-        
+
         <AdhdComparisonCard slug={slug} />
-        
+
         <AdhdCtaDashboard currentSlug={slug} />
-        
+
         <EmailCapture
           headline="Get the ADHD supplement checklist"
           description="Receive our evidence-first supplement checklist, safety reminders, and updates on ADHD nutrient research. No medical claims or personalized advice."
@@ -376,7 +376,7 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
           location="adhd-articles"
           className="mt-8"
         />
-        
+
         <AffiliateDisclosure variant="full" className="mt-8" />
       </section>
 

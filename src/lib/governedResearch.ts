@@ -1,6 +1,6 @@
 import governedRollup from '../../public/data/enrichment-governed.json'
 import sourceRegistry from '../../public/data/source-registry.json'
-import { buildPublishSafeEnrichmentSummary } from '@/lib/enrichmentDiscovery'
+import { buildPublishSafeEnrichmentSummary } from './enrichmentDiscovery'
 import type {
   EvidenceJudgment,
   EvidenceLabel,

@@ -1,6 +1,6 @@
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
-import type { CuratedData } from '@/lib/semanticCompression'
+import type { CuratedData } from './lib/semanticCompression'
 
 export type Herb = {
   slug: string

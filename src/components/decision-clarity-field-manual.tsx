@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { buildDecisionClarity } from '@/lib/decision-clarity'
+import { buildDecisionClarity } from '../lib/decision-clarity'
 import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText } from '@/lib/editorial-rendering'
 
 type EntityType = 'herb' | 'compound'

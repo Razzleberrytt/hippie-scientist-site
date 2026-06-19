@@ -1,4 +1,4 @@
-import homepageData from '@/generated/homepage-data.json'
+import homepageData from '../generated/homepage-data.json'
 
 type HomepageHerb = {
   slug?: string

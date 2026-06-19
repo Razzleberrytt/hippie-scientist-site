@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "@/lib/router-compat";
+import { Link } from "../lib/router-compat";
 import { getConsent, setConsent, getSystemNoTracking } from "../lib/consent";
 
 type Props = { open: boolean; onClose: () => void };

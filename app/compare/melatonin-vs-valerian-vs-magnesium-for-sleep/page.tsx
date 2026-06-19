@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Melatonin vs Valerian vs Magnesium for Sleep Support',
@@ -10,7 +10,7 @@ export const metadata: Metadata = buildPageMetadata({
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
@@ -45,9 +45,9 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
           Melatonin vs Valerian vs Magnesium: Which Supports Your Sleep Pattern?
         </h1>
         <p className="text-lg leading-8 text-[#46574d]">
-          If you struggle to fall asleep, these three common bedtime choices target entirely different aspects of sleep. 
-          <strong> Melatonin</strong> acts as a circadian timing signal to shift when you feel tired. 
-          <strong> Valerian root</strong> is a traditional herb targeting GABA pathways to reduce sleep latency over weeks. 
+          If you struggle to fall asleep, these three common bedtime choices target entirely different aspects of sleep.
+          <strong> Melatonin</strong> acts as a circadian timing signal to shift when you feel tired.
+          <strong> Valerian root</strong> is a traditional herb targeting GABA pathways to reduce sleep latency over weeks.
           <strong> Magnesium glycinate</strong> provides foundational mineral support for baseline physical muscle relaxation.
         </p>
       </section>
@@ -180,8 +180,8 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
           <p className="eyebrow-label">Scenario 1</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Circadian Desync</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If you lie awake for hours staring at the ceiling because you are simply not tired until 3:00 AM, 
-            <strong> Melatonin</strong> is the primary intervention. Start with low, physiological doses (e.g. 0.3 mg) 
+            If you lie awake for hours staring at the ceiling because you are simply not tired until 3:00 AM,
+            <strong> Melatonin</strong> is the primary intervention. Start with low, physiological doses (e.g. 0.3 mg)
             to avoid the heavy morning grogginess caused by typical megadose retail tablets.
           </p>
         </div>
@@ -189,8 +189,8 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
           <p className="eyebrow-label">Scenario 2</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Traditional Herbal Sleep</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If you want a natural herbal alternative to pharmaceutical sleep aids, <strong> Valerian root</strong> 
-            has long historical usage. Keep in mind that clinical trials show its benefits are cumulative; 
+            If you want a natural herbal alternative to pharmaceutical sleep aids, <strong> Valerian root</strong>
+            has long historical usage. Keep in mind that clinical trials show its benefits are cumulative;
             taking a single dose on an irregular basis is unlikely to provide significant relief.
           </p>
         </div>
@@ -198,8 +198,8 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
           <p className="eyebrow-label">Scenario 3</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Physical &amp; Tension Wind-Down</h2>
           <p className="text-sm leading-7 text-[#46574d]">
-            If you struggle to fall asleep because your body feels tense, tight, or you experience evening muscle soreness, 
-            <strong> Magnesium glycinate</strong> supports natural muscle relaxation and baseline GABA levels 
+            If you struggle to fall asleep because your body feels tense, tight, or you experience evening muscle soreness,
+            <strong> Magnesium glycinate</strong> supports natural muscle relaxation and baseline GABA levels
             without altering your sleep hormones directly.
           </p>
         </div>

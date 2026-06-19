@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import posts from '../../public/blogdata/index.json'
-import { getAllCompounds } from '@/lib/compounds'
-import type { Herb } from '@/types'
-import { loadHerbData } from '@/lib/herb-data'
+import { getAllCompounds } from './compounds'
+import type { Herb } from '../types'
+import { loadHerbData } from './herb-data'
 
 type HerbEntry = {
   active_compounds?: unknown

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
-import { trackAffiliateLinkClick, type AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
-import type { RenderableCuratedProduct } from '@/lib/curatedProducts'
+import { appendAnalyticsEvent } from '../lib/analyticsEventStorage'
+import { trackAffiliateLinkClick, type AffiliateUseCaseAnchor } from '../lib/affiliateClickTracking'
+import type { RenderableCuratedProduct } from '../lib/curatedProducts'
 
 type CuratedProductEntityType = 'herb' | 'compound' | 'goal'
 

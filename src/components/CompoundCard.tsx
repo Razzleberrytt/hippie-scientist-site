@@ -1,9 +1,9 @@
-import { motion } from '@/lib/motion'
-import { buildCardSummary } from '@/lib/summary'
-import { cleanEffectChips, sanitizeSummaryText } from '@/lib/sanitize'
-import { normalizeTagList } from '@/lib/tagNormalization'
-import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveHeroSummary, shouldRenderSummary } from '@/lib/workbookRender'
-import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
+import { motion } from '../lib/motion'
+import { buildCardSummary } from '../lib/summary'
+import { cleanEffectChips, sanitizeSummaryText } from '../lib/sanitize'
+import { normalizeTagList } from '../lib/tagNormalization'
+import { getPrimaryEffects, getProfileStatus, getSummaryQuality, resolveHeroSummary, shouldRenderSummary } from '../lib/workbookRender'
+import { hasPlaceholderText, sanitizeSurfaceText } from '../lib/summary'
 
 interface HerbRef {
   name: string

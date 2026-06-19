@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '@/lib/seo'
+import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'FAQ',

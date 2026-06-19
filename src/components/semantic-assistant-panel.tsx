@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
-import type { SemanticNavigationSuggestion } from '@/lib/ai-semantic-navigation'
+import PathwayVisualChip from './pathway-visual-chip'
+import type { SemanticNavigationSuggestion } from '../lib/ai-semantic-navigation'
 
 type SemanticAssistantPanelProps = {
   headline: string

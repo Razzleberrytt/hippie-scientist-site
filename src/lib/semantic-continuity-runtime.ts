@@ -4,7 +4,7 @@ import {
   stableSemanticKey,
 } from '@/src/lib/semantic-expansion-budget'
 import { stableRelationshipRanking } from '@/src/lib/semantic-sort-runtime'
-import { safeArray, safeText } from '@/lib/runtime-render-guards'
+import { safeArray, safeText } from './runtime-render-guards'
 
 export type SemanticContinuityNode = {
   label: string

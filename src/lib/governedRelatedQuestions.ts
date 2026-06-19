@@ -1,5 +1,5 @@
-import type { GovernedFaqSectionContent } from '@/lib/governedFaq'
-import { getEvidenceLabelMeta, type GovernedEntityType } from '@/lib/governedResearch'
+import type { GovernedFaqSectionContent } from './governedFaq'
+import { getEvidenceLabelMeta, type GovernedEntityType } from './governedResearch'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
 
 export type GovernedRelatedQuestionType =

@@ -1,8 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { isOptimizableRemoteImage } from '@/lib/image-hosts'
-import { trackRevenueEvent } from '@/lib/revenue-tracking'
+import { isOptimizableRemoteImage } from '../src/lib/image-hosts'
+import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 export type AffiliateProduct = {
   asin?: string

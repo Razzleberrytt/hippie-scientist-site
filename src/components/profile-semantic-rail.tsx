@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
-import { rankSemanticRecommendations } from '@/lib/semantic-orchestration'
-import type { RuntimeRecord } from '@/types/content'
+import { rankSemanticRecommendations } from '../lib/semantic-orchestration'
+import type { RuntimeRecord } from '../types/content'
 
 type EntityType = 'herb' | 'compound'
 

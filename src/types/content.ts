@@ -1,4 +1,4 @@
-import type { CuratedData } from '@/lib/semanticCompression'
+import type { CuratedData } from '../lib/semanticCompression'
 
 export type ResearchEnrichment = unknown
 export type PublishSafeEnrichmentSummary = unknown

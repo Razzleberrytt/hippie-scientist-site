@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import { buildPageMetadata, SITE_URL } from '@/lib/seo'
+import { buildPageMetadata, SITE_URL } from '../../../src/lib/seo'
 
 const TITLE = 'Mitragynine vs 7-Hydroxymitragynine'
 const DESCRIPTION =

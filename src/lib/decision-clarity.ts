@@ -1,6 +1,6 @@
 import { cleanSummary, formatDisplayLabel, list, text } from '@/lib/display-utils'
 import { cleanEditorialText, dedupeEditorialItems, isRenderableText } from '@/lib/editorial-rendering'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../types/content'
 
 type EntityType = 'herb' | 'compound'
 

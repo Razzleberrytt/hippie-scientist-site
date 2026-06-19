@@ -1,5 +1,5 @@
-import type { Herb } from '@/types'
-import { getHerbProducts } from '@/lib/herbProducts'
+import type { Herb } from '../types'
+import { getHerbProducts } from '../lib/herbProducts'
 
 type RecommendedProductsProps = {
   herb: Herb

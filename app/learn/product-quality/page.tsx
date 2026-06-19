@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import { getHerbs, getCompounds } from '@/lib/runtime-data'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import BuyGuideClient from '@/components/sourcing/BuyGuideClient'
+import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
+import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 
 export const metadata: Metadata = {
   title: 'Supplement Product Quality Guide',

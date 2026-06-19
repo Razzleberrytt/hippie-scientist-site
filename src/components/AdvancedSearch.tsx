@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useHerbData } from '@/lib/herb-data'
+import { useHerbData } from '../lib/herb-data'
 
 export type AdvancedHerb = {
   common?: string

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { motion, type HTMLMotionProps } from '@/lib/motion'
+import { motion, type HTMLMotionProps } from '../../lib/motion'
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'default'
 type ButtonSize = 'sm' | 'md' | 'lg'

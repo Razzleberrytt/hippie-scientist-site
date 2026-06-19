@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kanna vs SSRIs',
@@ -10,8 +10,8 @@ export const metadata: Metadata = buildPageMetadata({
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import COAList from '@/components/coa/COAList'
-import type { COADocument } from '@/types/coa'
+import COAList from '../../../src/components/coa/COAList'
+import type { COADocument } from '../../../src/types/coa'
 
 const exampleCOAEntries: COADocument[] = [
   {

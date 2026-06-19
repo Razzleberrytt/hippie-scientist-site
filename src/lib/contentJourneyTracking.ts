@@ -1,5 +1,5 @@
 import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
-import { trackGovernedEvent } from '@/lib/governedAnalytics'
+import { trackGovernedEvent } from './governedAnalytics'
 
 type EntityType = 'herb' | 'compound' | 'collection'
 type DetailType = 'herb' | 'compound'

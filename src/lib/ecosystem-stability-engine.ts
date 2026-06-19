@@ -7,7 +7,7 @@ import {
   safeArray,
   safeObject,
   safeText,
-} from '@/lib/runtime-render-guards'
+} from './runtime-render-guards'
 
 export type EcosystemStabilitySignal = {
   ecosystem: string

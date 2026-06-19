@@ -1,6 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
-import { mechanismEcosystems } from '@/lib/mechanism-ecosystems'
-import { buildAdaptiveTraversal } from '@/lib/adaptive-semantic-traversal'
+import { mechanismEcosystems } from './mechanism-ecosystems'
+import { buildAdaptiveTraversal } from './adaptive-semantic-traversal'
 
 export type SemanticIntelligenceSignal = {
   label: string

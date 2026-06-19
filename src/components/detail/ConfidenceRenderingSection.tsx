@@ -1,4 +1,4 @@
-import { buildRuntimeComponentIntegration } from '@/lib/runtime-component-integration'
+import { buildRuntimeComponentIntegration } from '../../lib/runtime-component-integration'
 
 function confidenceLabel(value: number) {
   if (value >= 85) {

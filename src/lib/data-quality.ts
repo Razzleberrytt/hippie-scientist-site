@@ -1,5 +1,5 @@
-import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
-import { splitClean } from '@/lib/sanitize'
+import { hasPlaceholderText, sanitizeSurfaceText } from './summary'
+import { splitClean } from './sanitize'
 
 type SourceLike = { title?: string; url?: string } | string
 

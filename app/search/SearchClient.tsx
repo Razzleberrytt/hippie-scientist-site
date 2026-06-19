@@ -9,7 +9,7 @@ import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique
 import dynamic from 'next/dynamic'
 
 const DosingSafetyChecker = dynamic(
-  () => import('@/components/search/DosingSafetyChecker'),
+  () => import('../../src/components/search/DosingSafetyChecker'),
   { ssr: false }
 )
 import { ShieldAlert } from 'lucide-react'
@@ -24,8 +24,8 @@ import {
   normalizeDecisionSafety,
   publicSafetyLabel,
 } from '@/lib/decision-primitives'
-import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
-import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { getSemanticOrchestrationSignals } from '../../src/lib/semantic-orchestration'
+import { isRestrictedRecord } from '../../src/lib/restricted-ingredients'
 
 type SearchType = 'Herb' | 'Compound'
 type FilterType = 'All' | 'Herb' | 'Compound'
@@ -474,7 +474,7 @@ function expandQuery(query: string): string {
   if (!normalized) return ''
   const words = normalized.split(/\s+/)
   const expandedWords = new Set<string>(words)
-  
+
   words.forEach(word => {
     if (LAYPERSON_SYNONYMS[word]) {
       LAYPERSON_SYNONYMS[word].forEach(syn => expandedWords.add(syn))
@@ -485,7 +485,7 @@ function expandQuery(query: string): string {
       }
     })
   })
-  
+
   return Array.from(expandedWords).join(' ')
 }
 

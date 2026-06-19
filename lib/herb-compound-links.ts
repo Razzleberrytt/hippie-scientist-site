@@ -2,8 +2,8 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { cache } from 'react'
 import { formatDisplayLabel } from '@/lib/display-utils'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import { getCompoundSummaryIndex, getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
+import { getRuntimeVisibility } from './runtime-visibility'
+import { getCompoundSummaryIndex, getHerbSummaryIndex } from '../src/lib/runtime-summary-indexes'
 
 /**
  * Renders the curated herb <-> compound relationship graph

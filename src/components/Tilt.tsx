@@ -1,6 +1,6 @@
 'use client'
 import clsx from 'clsx'
-import { motion, useMotionValue, useTransform, animate } from '@/lib/motion'
+import { motion, useMotionValue, useTransform, animate } from '../lib/motion'
 import { useEffect, useRef, type CSSProperties } from 'react'
 
 type Props = React.ComponentProps<typeof motion.div> & {

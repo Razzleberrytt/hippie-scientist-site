@@ -1,5 +1,5 @@
 import { list, text, unique } from '@/lib/display-utils'
-import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
+import { buildResearchKnowledgeReport } from '../src/lib/research-knowledge-layer'
 
 function title(value: unknown) {
   return text(value)

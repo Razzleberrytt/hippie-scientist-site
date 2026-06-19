@@ -3,7 +3,7 @@ import { getEvidenceStrengthData } from './evidence-strength'
 import { rankEntitiesForGoal } from './goal-matching-engine'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient } from '../src/lib/restricted-ingredients'
 
 export type PriceTier = 'budget' | 'mid' | 'premium' | 'unknown'
 

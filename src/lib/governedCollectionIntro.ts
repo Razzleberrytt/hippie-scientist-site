@@ -1,5 +1,5 @@
-import type { GovernedCollectionSummary } from '@/lib/collectionEnrichment'
-import { hasPlaceholderText } from '@/lib/summary'
+import type { GovernedCollectionSummary } from './collectionEnrichment'
+import { hasPlaceholderText } from './summary'
 
 export type GovernedCollectionIntroSignal =
   | 'association_theme'

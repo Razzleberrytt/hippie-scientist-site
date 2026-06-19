@@ -2,7 +2,7 @@ import {
   formatEvidenceLabel,
   getSafetySeverityTone,
   type EvidenceEngineSafetyNote,
-} from '@/lib/evidence-engine'
+} from '../../lib/evidence-engine'
 
 type EvidenceSafetyNotesProps = {
   notes: EvidenceEngineSafetyNote[]

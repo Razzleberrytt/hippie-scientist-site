@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildProtocolOrchestration } from '@/lib/protocol-orchestration'
+import { buildProtocolOrchestration } from '../../lib/protocol-orchestration'
 
 function formatLabel(value: string) {
   return value

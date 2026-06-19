@@ -1,11 +1,11 @@
 import Link from 'next/link'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
-import SemanticGraphMap from '@/components/semantic-graph-map'
-import SemanticVisibilityGate from '@/components/semantic-visibility-gate'
-import SemanticCopilotCard from '@/components/semantic-copilot-card'
-import { buildAdaptiveTraversal, buildCuriosityLoop } from '@/lib/adaptive-semantic-traversal'
-import { buildSemanticGraphVisual } from '@/lib/semantic-graph-visuals'
-import { buildConversationalSemanticPrompts } from '@/lib/conversational-semantic-prompts'
+import PathwayVisualChip from './pathway-visual-chip'
+import SemanticGraphMap from './semantic-graph-map'
+import SemanticVisibilityGate from './semantic-visibility-gate'
+import SemanticCopilotCard from './semantic-copilot-card'
+import { buildAdaptiveTraversal, buildCuriosityLoop } from '../lib/adaptive-semantic-traversal'
+import { buildSemanticGraphVisual } from '../lib/semantic-graph-visuals'
+import { buildConversationalSemanticPrompts } from '../lib/conversational-semantic-prompts'
 
 type DynamicSemanticDashboardProps = {
   source: any

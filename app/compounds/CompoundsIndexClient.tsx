@@ -5,7 +5,7 @@ import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import '@/styles/premium-cards.css'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../../src/types/content'
 
 type FilterOption = {
   label: string

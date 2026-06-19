@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildRuntimeHomepageOrchestration } from '@/lib/runtime-homepage-orchestrator'
+import { buildRuntimeHomepageOrchestration } from '../../lib/runtime-homepage-orchestrator'
 
 function formatLabel(value: string) {
   return value

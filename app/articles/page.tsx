@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { allArticleMonographs } from 'content-collections'
+import { allArticleMonographs } from '../../.content-collections/generated'
 import rawPosts from '@/data/blog/posts.json'
 import rawArticles from '@/data/articles/articles.json'
 import {
@@ -11,7 +11,7 @@ import {
   truncateText,
   type BlogPost,
 } from '@/lib/blog-index'
-import { buildPageMetadata, SITE_URL } from '@/lib/seo'
+import { buildPageMetadata, SITE_URL } from '../../src/lib/seo'
 import { clampPositiveInt } from '@/lib/pagination'
 import { focusAdhdArticleSummaries } from '@/lib/focus-adhd-articles'
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown'

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import DecisionVisualGrid from '@/components/decision-visual-grid'
-import WhyThisInsteadPanel from '@/components/why-this-instead-panel'
+import DecisionVisualGrid from './decision-visual-grid'
+import WhyThisInsteadPanel from './why-this-instead-panel'
 import { formatDisplayLabel } from '@/lib/display-utils'
 
 type EcosystemSupernodeProps = {

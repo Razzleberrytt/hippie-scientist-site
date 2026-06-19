@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildRuntimeHomepageModules } from '@/lib/runtime-homepage-adapter'
+import { buildRuntimeHomepageModules } from '../../lib/runtime-homepage-adapter'
 
 function formatLabel(value: string) {
   return value

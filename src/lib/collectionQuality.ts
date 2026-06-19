@@ -1,5 +1,5 @@
-import type { SeoCollection, SeoCollectionFilters } from '@/data/seoCollections'
-import { splitClean } from '@/lib/sanitize'
+import type { SeoCollection, SeoCollectionFilters } from '../data/seoCollections'
+import { splitClean } from './sanitize'
 import { type PrebuiltCombo } from '@/types/combos'
 
 type CollectionRecord = Record<string, unknown>

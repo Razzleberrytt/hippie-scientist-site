@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import {
   RuntimeAnalyticsEvent,
   trackRuntimeEvent,
-} from '@/lib/runtime-analytics'
+} from '../lib/runtime-analytics'
 
 export function useRuntimeAnalytics() {
   const track = useCallback((event: RuntimeAnalyticsEvent) => {

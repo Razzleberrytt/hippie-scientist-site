@@ -1,5 +1,5 @@
-import Badge from '@/components/ui/Badge'
-import type { COAVerificationConfidence } from '@/types/coa'
+import Badge from '../ui/Badge'
+import type { COAVerificationConfidence } from '../../types/coa'
 
 type COAVerificationBadgeProps = {
   confidence: COAVerificationConfidence

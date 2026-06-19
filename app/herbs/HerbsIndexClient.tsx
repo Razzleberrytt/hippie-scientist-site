@@ -6,7 +6,7 @@ import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import '@/styles/premium-cards.css'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../../src/types/content'
 
 type FilterOption = {
   label: string
@@ -348,7 +348,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
   const pageSize = 36
   const showingFrom = paginated && totalProfiles > 0 ? (page - 1) * pageSize + 1 : 1
   const showingTo = paginated ? Math.min(page * pageSize, totalProfiles) : totalProfiles
-  
+
   const countLabel = hasActiveFilters
     ? `Showing ${visibleHerbs.length} of ${totalProfiles}`
     : paginated

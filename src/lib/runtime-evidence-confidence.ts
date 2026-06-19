@@ -3,7 +3,7 @@ import {
   safeNumber,
   safeObject,
   safeText,
-} from '@/lib/runtime-render-guards'
+} from './runtime-render-guards'
 
 function normalizeTier(value: string) {
   return value.trim().toLowerCase()

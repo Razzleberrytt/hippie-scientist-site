@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react'
 import RelationalUi from '../RelationalUi'
 
 // Mock semantic-relationships
-vi.mock('@/lib/semantic-relationships', () => ({
+vi.mock('../../../lib/semantic-relationships', () => ({
   scoreRelatedProfile: vi.fn((left, right) => ({
     slug: right.slug,
     name: right.name,
@@ -22,7 +22,7 @@ vi.mock('@/lib/semantic-relationships', () => ({
 }))
 
 // Mock evidence-mapping
-vi.mock('@/lib/evidence-mapping', () => ({
+vi.mock('../../../lib/evidence-mapping', () => ({
   normalizeEvidence: vi.fn((entity) => ({
     score: 75,
     grade: 'B',

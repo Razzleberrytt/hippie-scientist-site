@@ -1,5 +1,5 @@
-import { buildDecisionVisualProfile } from '@/lib/decision-visuals'
-import { getAffiliateSourcingContext } from '@/lib/monetization-context'
+import { buildDecisionVisualProfile } from '../lib/decision-visuals'
+import { getAffiliateSourcingContext } from '../lib/monetization-context'
 
 type EvidenceAwareCTAProps = {
   title?: string
@@ -82,7 +82,7 @@ export default function EvidenceAwareCTA({
         <p className="compact-copy">
           {description}
         </p>
-      
+
 
       {showAffiliateButton ? (
         <div className="rounded-[0.9rem] border border-brand-900/10 bg-white/85 p-3 shadow-sm">

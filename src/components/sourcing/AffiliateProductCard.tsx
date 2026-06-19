@@ -1,7 +1,7 @@
 'use client'
 
 import { ExternalLink, Award, CheckCircle2, ShieldCheck } from 'lucide-react'
-import type { ResolvedProductRoute } from '@/lib/affiliate-intelligence-routing'
+import type { ResolvedProductRoute } from '../../lib/affiliate-intelligence-routing'
 
 interface AffiliateProductCardProps {
   route: ResolvedProductRoute

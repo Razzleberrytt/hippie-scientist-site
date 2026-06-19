@@ -1,4 +1,4 @@
-import { EvidenceMetrics } from '@/types/relational'
+import { EvidenceMetrics } from '../types/relational'
 
 export interface NormalizedEvidence {
   score: number // 0 - 100

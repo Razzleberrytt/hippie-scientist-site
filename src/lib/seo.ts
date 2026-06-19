@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
-import { getRuntimeVisibility } from './runtime-visibility'
+import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { formatDisplayLabel, list } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
-import { SITE_URL, SITE_NAME } from '@/lib/site'
+import { SITE_URL, SITE_NAME } from './site'
 import {
   CORE_INDEXABLE_ROUTES,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
   CURATED_INDEXABLE_HERB_SLUGS,
   MONEY_ENTRY_ROUTES,
-} from '@/lib/index-allowlist'
+} from './index-allowlist'
 
 import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
 

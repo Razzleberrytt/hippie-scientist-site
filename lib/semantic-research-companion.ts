@@ -1,4 +1,4 @@
-import { buildAdaptiveSemanticFeed } from '@/lib/adaptive-semantic-feed'
+import { buildAdaptiveSemanticFeed } from '../src/lib/adaptive-semantic-feed'
 
 export function buildResearchCompanionExperience(source: Record<string, unknown>, candidates: Record<string, unknown>[] = []) {
   return {

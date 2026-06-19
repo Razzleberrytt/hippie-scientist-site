@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from '@/lib/motion'
+import { motion } from '../lib/motion'
 import { decodeTag } from '../utils/format'
 
 interface Props {

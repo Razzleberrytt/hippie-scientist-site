@@ -1,6 +1,6 @@
 import { text, unique } from '@/lib/display-utils'
-import { buildAdaptiveTraversal } from '@/lib/adaptive-semantic-traversal'
-import { buildSemanticIntelligenceReport, rankSemanticCandidates } from '@/lib/semantic-intelligence-layer'
+import { buildAdaptiveTraversal } from './adaptive-semantic-traversal'
+import { buildSemanticIntelligenceReport, rankSemanticCandidates } from './semantic-intelligence-layer'
 
 export type AdaptiveSemanticFeedItem = {
   title: string

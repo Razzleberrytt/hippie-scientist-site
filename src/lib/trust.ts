@@ -1,5 +1,5 @@
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
-import { hasPlaceholderText } from '@/lib/summary'
+import { hasPlaceholderText } from './summary'
 
 type EvidenceTier = 'strong' | 'moderate' | 'limited'
 

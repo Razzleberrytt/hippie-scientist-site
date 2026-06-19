@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import EvidenceSafetyNotes from '@/components/evidence-engine/EvidenceSafetyNotes'
-import EvidenceSourceList from '@/components/evidence-engine/EvidenceSourceList'
+import EvidenceSafetyNotes from './EvidenceSafetyNotes'
+import EvidenceSourceList from './EvidenceSourceList'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import {
   getConfidenceDisplay,
   type EvidenceEngineClaim,
   type EvidenceEngineSafetyNote,
   type EvidenceEngineSource,
-} from '@/lib/evidence-engine'
+} from '../../lib/evidence-engine'
 
 type EvidenceClaimCardProps = {
   claim: EvidenceEngineClaim

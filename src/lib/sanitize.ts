@@ -1,4 +1,4 @@
-import { normalizeTagList } from '@/lib/tagNormalization'
+import { normalizeTagList } from './tagNormalization'
 
 /**
  * Sanitization layer for messy raw data.

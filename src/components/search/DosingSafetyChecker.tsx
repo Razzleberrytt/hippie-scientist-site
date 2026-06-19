@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { AlertTriangle, Info, Weight, ShieldAlert } from 'lucide-react'
-import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedRecord } from '../../lib/restricted-ingredients'
 
 type SubstanceItem = {
   slug: string

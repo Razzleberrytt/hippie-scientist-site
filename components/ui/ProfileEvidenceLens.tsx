@@ -6,7 +6,7 @@ import {
   hasMechanismEvidence,
   isPreliminaryResearch,
 } from '@/lib/evidence'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../../src/types/content'
 
 type ProfileEvidenceLensProps = {
   record: RuntimeRecord | Record<string, unknown>

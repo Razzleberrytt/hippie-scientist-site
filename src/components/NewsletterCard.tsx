@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { Button } from '@/components/ui/Button'
+import { Button } from './ui/Button'
 import { useSubmissionForm } from '@/hooks/useSubmissionForm'
 
 export default function NewsletterCard() {

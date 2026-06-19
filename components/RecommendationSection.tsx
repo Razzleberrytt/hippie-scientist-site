@@ -1,6 +1,6 @@
 import AffiliateDisclosure from './AffiliateDisclosure'
 import AffiliateProductCard, { type AffiliateProduct } from './AffiliateProductCard'
-import WhyWeRecommend from '@/components/monetization/WhyWeRecommend'
+import WhyWeRecommend from '../src/components/monetization/WhyWeRecommend'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 

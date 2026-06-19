@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Shield, GitCompare, Target, Search, Calculator, AlertTriangle, BookOpen } from 'lucide-react'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Research Tools',

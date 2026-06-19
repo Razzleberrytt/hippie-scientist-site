@@ -5,7 +5,7 @@ import {
   type RecoveryOrientation,
   type StimulationProfile,
   type TimelineProfile,
-} from '@/lib/decision-visuals'
+} from './decision-visuals'
 
 export type AlternativeReasoning = {
   source: {

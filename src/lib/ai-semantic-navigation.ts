@@ -1,5 +1,5 @@
 import { list, text, unique } from '@/lib/display-utils'
-import { mechanismEcosystems } from '@/lib/mechanism-ecosystems'
+import { mechanismEcosystems } from './mechanism-ecosystems'
 
 export type SemanticNavigationIntent =
   | 'compare'

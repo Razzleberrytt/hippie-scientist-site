@@ -1,4 +1,4 @@
-import { cleanText, sanitizeSummaryText, splitClean } from '@/lib/sanitize'
+import { cleanText, sanitizeSummaryText, splitClean } from './sanitize'
 
 export type CuratedData = {
   name: string
