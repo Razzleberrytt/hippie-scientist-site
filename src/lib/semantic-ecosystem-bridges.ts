@@ -5,7 +5,7 @@ import {
   safeArray,
   safeObject,
   safeText,
-} from '@/lib/runtime-render-guards'
+} from './runtime-render-guards'
 import {
   SEMANTIC_EXPANSION_LIMITS,
   cappedExpansion,

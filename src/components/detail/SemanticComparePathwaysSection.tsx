@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildRuntimeRecommendations } from '@/lib/runtime-recommendation-adapter'
+import { buildRuntimeRecommendations } from '../../lib/runtime-recommendation-adapter'
 
 function formatLabel(value: string) {
   return value

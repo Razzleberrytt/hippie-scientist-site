@@ -1,8 +1,8 @@
 import { text, unique } from '@/lib/display-utils'
-import { buildAdaptiveSemanticFeed } from '@/lib/adaptive-semantic-feed'
-import { buildConversationalSemanticPrompts } from '@/lib/conversational-semantic-prompts'
-import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
-import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
+import { buildAdaptiveSemanticFeed } from './adaptive-semantic-feed'
+import { buildConversationalSemanticPrompts } from './conversational-semantic-prompts'
+import { buildSemanticIntelligenceReport } from './semantic-intelligence-layer'
+import { buildResearchKnowledgeReport } from './research-knowledge-layer'
 
 export type SemanticResearchResponse = {
   query: string

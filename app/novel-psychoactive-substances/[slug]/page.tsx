@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { allNovelPsychoactiveSubstancePages } from 'content-collections'
+import { allNovelPsychoactiveSubstancePages } from '../../../.content-collections/generated'
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
-import { SITE_URL } from '@/lib/seo'
+import { SITE_URL } from '../../../src/lib/seo'
 
 type PageProps = {
   params: Promise<{ slug: string }>

@@ -1,5 +1,5 @@
-import COACard from '@/components/coa/COACard'
-import type { COADocument } from '@/types/coa'
+import COACard from './COACard'
+import type { COADocument } from '../../types/coa'
 
 type COAListProps = {
   entries: COADocument[]

@@ -4,7 +4,7 @@ import { buildSemanticMomentum } from '@/src/lib/semantic-momentum-engine'
 import { buildSemanticEcosystemBridges } from '@/src/lib/semantic-ecosystem-bridges'
 import { buildEcosystemStability } from '@/src/lib/ecosystem-stability-engine'
 import { buildSemanticGovernanceRuntime } from '@/src/lib/semantic-governance-runtime'
-import { clampScore, safeArray, safeText } from '@/lib/runtime-render-guards'
+import { clampScore, safeArray, safeText } from './runtime-render-guards'
 import {
   SEMANTIC_EXPANSION_LIMITS,
   cappedExpansion,

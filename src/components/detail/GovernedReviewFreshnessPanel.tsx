@@ -1,7 +1,7 @@
-import Collapse from '@/components/ui/Collapse'
+import Collapse from '../ui/Collapse'
 import { useEffect } from 'react'
-import type { GovernedReviewFreshnessDecision } from '@/lib/governedReviewFreshness'
-import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
+import type { GovernedReviewFreshnessDecision } from '../../lib/governedReviewFreshness'
+import { trackGovernedEvent, type GovernedPageType } from '../../lib/governedAnalytics'
 
 function toneClass(tone: GovernedReviewFreshnessDecision['statusTone']) {
   if (tone === 'positive') return 'border-emerald-300/35 bg-emerald-500/10 text-emerald-100'

@@ -3,7 +3,7 @@ import { safeArray, safeScore, safeSlug } from '@/lib/search-safe'
 import {
   getRuntimeMapEntries,
   getRuntimeMapEntriesForSlugs,
-} from '@/lib/runtime-related-maps'
+} from '../src/lib/runtime-related-maps'
 
 const MAX_RELATED_PROFILES = 12
 const MAX_COMPARISON_CANDIDATES = 8

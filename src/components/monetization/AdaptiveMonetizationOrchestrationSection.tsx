@@ -1,4 +1,4 @@
-import { buildRuntimeHomepageOrchestration } from '@/lib/runtime-homepage-orchestrator'
+import { buildRuntimeHomepageOrchestration } from '../../lib/runtime-homepage-orchestrator'
 
 function normalize(value: number) {
   return Math.max(0, Math.min(100, value))

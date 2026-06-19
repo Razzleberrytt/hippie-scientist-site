@@ -1,5 +1,5 @@
-import { getGovernedResearchEnrichment, type GovernedEntityType } from '@/lib/governedResearch'
-import { buildEnrichmentRecommendations } from '@/lib/enrichmentRecommendations'
+import { getGovernedResearchEnrichment, type GovernedEntityType } from './governedResearch'
+import { buildEnrichmentRecommendations } from './enrichmentRecommendations'
 import type { EvidenceLabel, ResearchEnrichment } from '@/types/researchEnrichment'
 
 export type EnrichmentComparableEntity = {

@@ -1,4 +1,4 @@
-import generatedCounts from '@/generated/site-counts.json'
+import generatedCounts from '../generated/site-counts.json'
 
 export type SiteCounts = {
   herbs: number

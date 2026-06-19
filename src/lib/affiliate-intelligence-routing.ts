@@ -1,6 +1,6 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import { list, text, unique } from '@/lib/display-utils'
-import { buildMonetizationOpportunity } from '@/lib/monetization-intelligence-layer'
+import { buildMonetizationOpportunity } from './monetization-intelligence-layer'
 import {
   type AffiliateProduct,
   getProductsBySlug,

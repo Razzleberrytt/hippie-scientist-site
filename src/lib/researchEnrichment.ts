@@ -1,4 +1,4 @@
-import { cleanText } from '@/lib/sanitize'
+import { cleanText } from './sanitize'
 import type {
   ConflictState,
   EvidenceJudgment,

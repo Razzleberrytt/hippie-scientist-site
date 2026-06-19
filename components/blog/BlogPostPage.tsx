@@ -10,8 +10,8 @@ import {
   shouldNoindexBlogPost,
   type BlogPost,
 } from '@/lib/blog-index'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '@/lib/seo'
-import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '../../src/lib/seo'
+import LastUpdatedBadge from '../../src/components/editorial/LastUpdatedBadge'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import JsonLd from '@/components/seo/JsonLd'

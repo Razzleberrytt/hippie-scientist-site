@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import { getHerbs, getCompounds } from '@/lib/runtime-data'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
+import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
-import { buildToolPageSchemaGraph } from '@/lib/schema-graph'
-import { buildPageMetadata, SITE_URL } from '@/lib/seo'
+import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
+import { buildPageMetadata, SITE_URL } from '../../src/lib/seo'
 
 const SafetyCheckerClient = dynamic(
-  () => import('@/components/safety/SafetyCheckerClient'),
+  () => import('../../src/components/safety/SafetyCheckerClient'),
   { loading: () => <WizardSkeleton /> },
 )
 

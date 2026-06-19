@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 
-const CitationDrawer = dynamic(() => import('@/components/education/CitationDrawer'), {
+const CitationDrawer = dynamic(() => import('../../src/components/education/CitationDrawer'), {
   ssr: false,
 })
 

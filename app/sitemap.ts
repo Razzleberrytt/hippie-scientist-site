@@ -3,8 +3,8 @@ import path from 'node:path';
 import { MetadataRoute } from 'next';
 import matter from 'gray-matter';
 
-import { SITE_URL } from '@/lib/site';
-import { shouldIndexRoute } from '@/lib/seo';
+import { SITE_URL } from '../src/lib/site';
+import { shouldIndexRoute } from '../src/lib/seo';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 

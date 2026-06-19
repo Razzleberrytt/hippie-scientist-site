@@ -1,4 +1,4 @@
-import type { RuntimeAnalyticsEvent } from '@/lib/runtime-analytics'
+import type { RuntimeAnalyticsEvent } from './runtime-analytics'
 
 export type AnalyticsInsight = {
   label: string

@@ -1,4 +1,4 @@
-import { buildHerbArticleSchema } from '@/lib/schema-injector'
+import { buildHerbArticleSchema } from '../../lib/schema-injector'
 import JsonLd from '@/components/seo/JsonLd'
 
 export type HerbSchemaGeneratorProps = {

@@ -1,5 +1,5 @@
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
-import type { GovernedEntityType } from '@/lib/governedResearch'
+import type { GovernedEntityType } from './governedResearch'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
 import type { CtaSlotType } from '@/config/ctaExperiments'
 

@@ -1,4 +1,4 @@
-import { buildRuntimeHomepageOrchestration } from '@/lib/runtime-homepage-orchestrator'
+import { buildRuntimeHomepageOrchestration } from '../../lib/runtime-homepage-orchestrator'
 
 function percentage(value: number) {
   return `${Math.min(Math.max(value, 0), 100)}%`

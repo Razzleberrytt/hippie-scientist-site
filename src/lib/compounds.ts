@@ -1,6 +1,6 @@
 import { compounds } from "@/data/compounds/compounds";
-import type { Herb } from "@/types";
-import { titleCase } from "@/lib/text";
+import type { Herb } from "../types";
+import { titleCase } from "./text";
 import { safeArray, safeLower, safeSlug, safeTrim } from "@/lib/search-safe";
 
 const INTENSITY_MAP: Record<string, Herb["intensityLevel"]> = {

@@ -1,4 +1,4 @@
-import { getReviewFreshnessState } from '@/lib/enrichmentDiscovery'
+import { getReviewFreshnessState } from './enrichmentDiscovery'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
 
 export type GovernedFreshnessState = 'fresh' | 'aging' | 'review_due' | 'partial'

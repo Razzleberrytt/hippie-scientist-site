@@ -1,6 +1,6 @@
 import { list, text } from '@/lib/display-utils'
 import { cleanEditorialText, dedupeEditorialItems, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
-import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
+import { buildResearchKnowledgeReport } from '../src/lib/research-knowledge-layer'
 
 function title(value: unknown) {
   return text(value)

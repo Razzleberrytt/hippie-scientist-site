@@ -1,9 +1,9 @@
-import { Link } from '@/lib/router-compat'
+import { Link } from '../../lib/router-compat'
 import type {
   EnrichmentRecommendation,
   EnrichmentRecommendationBundle,
   RecommendationSignalType,
-} from '@/lib/enrichmentRecommendations'
+} from '../../lib/enrichmentRecommendations'
 
 type EntityNameLookup = {
   herb: Map<string, string>

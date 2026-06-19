@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from 'react'
 import { HelpCircle, RefreshCw, AlertTriangle, ArrowRight, ShieldCheck } from 'lucide-react'
-import { resolveBestProduct } from '@/lib/affiliate-intelligence-routing'
-import AffiliateProductCard from '@/components/sourcing/AffiliateProductCard'
+import { resolveBestProduct } from '../../lib/affiliate-intelligence-routing'
+import AffiliateProductCard from './AffiliateProductCard'
 
 interface SwapReason {
   id: string

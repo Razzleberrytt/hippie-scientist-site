@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildGoalSchemaGraph, buildProfileSchemaGraph, buildSchemaGraph, buildSeoEntrySchemaGraph, buildCompareHubSchemaGraph, buildCompareDetailSchemaGraph } from '@/lib/schema-graph'
+import { buildGoalSchemaGraph, buildProfileSchemaGraph, buildSchemaGraph, buildSeoEntrySchemaGraph, buildCompareHubSchemaGraph, buildCompareDetailSchemaGraph } from '../schema-graph'
 
 describe('schema-graph', () => {
   it('builds a single @context graph without nested contexts', () => {

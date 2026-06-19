@@ -1,5 +1,5 @@
-import { getEvidenceLabelMeta } from '@/lib/governedResearch'
-import { hasPlaceholderText } from '@/lib/summary'
+import { getEvidenceLabelMeta } from './governedResearch'
+import { hasPlaceholderText } from './summary'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 

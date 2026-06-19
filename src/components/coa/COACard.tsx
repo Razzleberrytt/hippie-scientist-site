@@ -1,6 +1,6 @@
-import Card from '@/components/ui/Card'
-import COAVerificationBadge from '@/components/coa/COAVerificationBadge'
-import type { COADocument, COATestResult } from '@/types/coa'
+import Card from '../ui/Card'
+import COAVerificationBadge from './COAVerificationBadge'
+import type { COADocument, COATestResult } from '../../types/coa'
 
 type COACardProps = {
   coa: COADocument

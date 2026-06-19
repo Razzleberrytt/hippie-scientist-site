@@ -1,4 +1,4 @@
-import { safeText } from '@/lib/runtime-render-guards'
+import { safeText } from './runtime-render-guards'
 
 export function deterministicTieBreak(
   left: unknown,

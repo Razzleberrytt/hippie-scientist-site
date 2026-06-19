@@ -1,5 +1,5 @@
-import type { Entity } from '@/lib/data'
-import { buildCardSummary } from '@/lib/summary'
+import type { Entity } from '../lib/data'
+import { buildCardSummary } from '../lib/summary'
 
 export default function EntityCard({ e }: { e: Entity }) {
   const summary = buildCardSummary({

@@ -1,4 +1,4 @@
-import { Link } from '@/lib/router-compat'
+import { Link } from '../lib/router-compat'
 import { type BotanicalCardProps } from '../types/botanical'
 
 export default function BotanicalCard({ data }: BotanicalCardProps) {

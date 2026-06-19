@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Melatonin vs Magnesium for Sleep: Evidence Comparison',
@@ -13,7 +13,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'

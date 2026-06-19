@@ -1,7 +1,7 @@
 'use client'
 
 import type { FormEvent } from 'react'
-import { trackRevenueEvent } from '@/lib/revenue-tracking'
+import { trackRevenueEvent } from '../../src/lib/revenue-tracking'
 
 export type EnhancedEmailCaptureProps = {
   headline: string

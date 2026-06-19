@@ -1,5 +1,5 @@
-import { sanitizeSurfaceText } from '@/lib/summary'
-import { splitClean } from '@/lib/sanitize'
+import { sanitizeSurfaceText } from './summary'
+import { splitClean } from './sanitize'
 
 export type ConfidenceLevel = 'High' | 'Medium' | 'Low'
 

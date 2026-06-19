@@ -1,5 +1,5 @@
-import { buildSchemaGraph } from '@/lib/schema-graph'
-import { SITE_URL } from '@/lib/seo'
+import { buildSchemaGraph } from '../../src/lib/schema-graph'
+import { SITE_URL } from '../../src/lib/seo'
 
 type FaqItem = { question: string; answer: string }
 

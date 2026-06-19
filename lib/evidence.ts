@@ -1,4 +1,4 @@
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../src/types/content'
 
 type EvidenceTier = 'strong' | 'moderate' | 'limited' | 'preliminary' | 'traditional' | 'mixed' | 'insufficient' | 'review'
 

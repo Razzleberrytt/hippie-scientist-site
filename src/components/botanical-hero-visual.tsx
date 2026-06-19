@@ -1,4 +1,4 @@
-import { getBotanicalVisual } from '@/lib/botanical-visual-system'
+import { getBotanicalVisual } from '../lib/botanical-visual-system'
 
 type BotanicalHeroVisualProps = {
   slug?: string | null

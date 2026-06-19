@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { INTENT_STORAGE_KEY } from '@/lib/intent-memory'
+import { INTENT_STORAGE_KEY } from '../lib/intent-memory'
 
 export default function IntentBridge({ intent }: { intent: string }) {
   useEffect(() => {

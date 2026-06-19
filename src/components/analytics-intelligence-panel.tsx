@@ -1,13 +1,13 @@
 'use client'
 
 import { useMemo } from 'react'
-import { getRuntimeAnalyticsEvents } from '@/lib/runtime-analytics'
+import { getRuntimeAnalyticsEvents } from '../lib/runtime-analytics'
 import {
   getAnalyticsInsights,
   getAuthorityClusterSignals,
   getFailedSearchCandidates,
   getTraversalDepth,
-} from '@/lib/analytics-intelligence'
+} from '../lib/analytics-intelligence'
 
 function labelForType(type: string) {
   switch (type) {

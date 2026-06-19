@@ -2,18 +2,18 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { goalConfigs } from '@/data/goals'
-import { getCompounds } from '@/lib/runtime-data'
+import { getCompounds } from '../src/lib/runtime-data'
 import ConversionAffiliateCard from '@/components/conversion-affiliate-card'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import { isClean } from '@/lib/display-utils'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { EvidenceBadge } from '@/components/ui'
-import { buildPageMetadata } from '@/lib/seo'
-import { isRestrictedRecord } from '@/lib/restricted-ingredients'
-import { buildSeoEntrySchemaGraph } from '@/lib/schema-graph'
+import { buildPageMetadata } from '../src/lib/seo'
+import { isRestrictedRecord } from '../src/lib/restricted-ingredients'
+import { buildSeoEntrySchemaGraph } from '../src/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { seoEntryExpansions } from '@/lib/curated-expansions'
 
@@ -624,7 +624,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
           <p className="text-xs font-black uppercase tracking-[0.18em] text-emerald-800/80">Sourcing &amp; Comparison Matrix</p>
           <h2 className="text-2xl font-black text-ink">Commercial Decision Table</h2>
           <p className="max-w-3xl text-sm leading-relaxed text-muted">Compare candidate compounds by role, evidence strength, caution markers, and standardized active form before you click through to check top-rated products.</p>
-          
+
           <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white shadow-sm">
             <table className="min-w-full divide-y divide-brand-900/10 text-left text-sm">
               <thead className="bg-brand-50/50 text-xs font-bold uppercase tracking-wider text-muted">
@@ -648,7 +648,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
                   const primaryFit = compound.bestFor || (compound.summary ? firstSentences(compound.summary, 1) : 'Targeted support')
                   const caution = compound.safety || 'Standard'
                   const qualityForm = compound.form || 'Standard extract'
-                  
+
                   return (
                     <tr key={compound.slug} className="hover:bg-brand-50/20 transition-colors">
                       <td className="px-4 py-4 whitespace-nowrap font-bold text-ink">

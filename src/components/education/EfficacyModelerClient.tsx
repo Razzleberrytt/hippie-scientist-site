@@ -2,8 +2,8 @@
 
 import { useState, useMemo } from 'react'
 import { Activity, Info, Clock, AlertTriangle, ArrowRight } from 'lucide-react'
-import { resolveBestProduct, type ResolvedProductRoute } from '@/lib/affiliate-intelligence-routing'
-import AffiliateProductCard from '@/components/sourcing/AffiliateProductCard'
+import { resolveBestProduct, type ResolvedProductRoute } from '../../lib/affiliate-intelligence-routing'
+import AffiliateProductCard from '../sourcing/AffiliateProductCard'
 
 interface IngredientModel {
   slug: string

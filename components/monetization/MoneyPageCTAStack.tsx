@@ -1,5 +1,5 @@
 import type { EmailCaptureGoal } from '@/content/emailCapture'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../AffiliateDisclosure'
 import { EmailCaptureBox } from './EmailCaptureBox'
 import { SafetyDisclaimerBox } from './SafetyDisclaimerBox'
 import { TrustMethodologyCallout } from './TrustMethodologyCallout'

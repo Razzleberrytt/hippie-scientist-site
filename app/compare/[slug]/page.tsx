@@ -1,20 +1,20 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getStacks } from '@/lib/runtime-data'
+import { getStacks } from '../../../src/lib/runtime-data'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { bestPageHref, bestPages } from '@/data/best'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
+import PathwayVisualChip from '../../../src/components/pathway-visual-chip'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
-import { getAffiliateShopLinks } from '@/lib/affiliate'
-import { getUnifiedRuntimeRecords } from '@/lib/runtime-record-index'
-import { buildPageMetadata, SITE_URL } from '@/lib/seo'
-import { isFlagshipCompareSlug } from '@/lib/goal-hub-links'
-import { buildCompareDetailSchemaGraph } from '@/lib/schema-graph'
+import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
+import { getUnifiedRuntimeRecords } from '../../../src/lib/runtime-record-index'
+import { buildPageMetadata, SITE_URL } from '../../../src/lib/seo'
+import { isFlagshipCompareSlug } from '../../../src/lib/goal-hub-links'
+import { buildCompareDetailSchemaGraph } from '../../../src/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { getComparisonRecommendationEntries } from '@/lib/runtime-related-maps'
+import { getComparisonRecommendationEntries } from '../../../src/lib/runtime-related-maps'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 
 type Params = { params: Promise<{ slug: string }> }
@@ -142,7 +142,7 @@ export default async function Page({ params }: Params) {
   const { slug } = await params
   const config = getComparisonConfig(slug)
   const [aSlug, bSlug] = slug.split('-vs-')
-  
+
   // Load unified records (handles both herbs and compounds)
   const { allRecords } = await getUnifiedRuntimeRecords()
   const stacks = await getStacks()
@@ -323,10 +323,10 @@ export default async function Page({ params }: Params) {
         </div>
 
         <div className="flex flex-col">
-          {renderRow('Evidence Level', 
+          {renderRow('Evidence Level',
             <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
               {evidenceLabel(evidenceA)} ({evidenceA}/5)
-            </span>, 
+            </span>,
             <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
               {evidenceLabel(evidenceB)} ({evidenceB}/5)
             </span>
@@ -345,29 +345,29 @@ export default async function Page({ params }: Params) {
             b?.time_to_effect || b?.onset
           )}
 
-          {renderRow('Safety', 
-            <p>{a.safetyNotes || (cautionA.length > 0 ? cautionA.join(', ') : null)}</p>, 
+          {renderRow('Safety',
+            <p>{a.safetyNotes || (cautionA.length > 0 ? cautionA.join(', ') : null)}</p>,
             <p>{b.safetyNotes || (cautionB.length > 0 ? cautionB.join(', ') : null)}</p>,
             a.safetyNotes || (cautionA.length > 0 ? cautionA.join(', ') : null),
             b.safetyNotes || (cautionB.length > 0 ? cautionB.join(', ') : null)
           )}
 
-          {renderRow('Best For', 
-            <p>{a.best_for || a.summary}</p>, 
+          {renderRow('Best For',
+            <p>{a.best_for || a.summary}</p>,
             <p>{b.best_for || b.summary}</p>,
             a.best_for || a.summary,
             b.best_for || b.summary
           )}
 
-          {renderRow('Cost Tier', 
-            <p>{costA}</p>, 
+          {renderRow('Cost Tier',
+            <p>{costA}</p>,
             <p>{costB}</p>,
             a?.cost,
             b?.cost
           )}
 
-          {renderRow('Stimulation Profile', 
-            <p className="font-semibold text-emerald-700">{profileLabel(a)}</p>, 
+          {renderRow('Stimulation Profile',
+            <p className="font-semibold text-emerald-700">{profileLabel(a)}</p>,
             <p className="font-semibold text-emerald-700">{profileLabel(b)}</p>
           )}
 

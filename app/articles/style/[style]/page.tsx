@@ -13,7 +13,7 @@ import {
   truncateText,
   type BlogPost,
 } from '@/lib/blog-index'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const dynamic = 'force-static'
 

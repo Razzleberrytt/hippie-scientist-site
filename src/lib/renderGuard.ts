@@ -1,5 +1,5 @@
-import { dedupePresentationList, normalizePresentationLabel, sanitizeReadableText, splitClean } from '@/lib/sanitize'
-import { normalizeTagList } from '@/lib/tagNormalization'
+import { dedupePresentationList, normalizePresentationLabel, sanitizeReadableText, splitClean } from './sanitize'
+import { normalizeTagList } from './tagNormalization'
 
 type UniqueCopyInput = {
   hero?: unknown

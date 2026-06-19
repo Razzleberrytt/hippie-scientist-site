@@ -1,10 +1,10 @@
 import { memo } from 'react'
-import { Link } from '@/lib/router-compat'
+import { Link } from '../lib/router-compat'
 import Card from './ui/Card'
 import { formatBrowseTitle } from '@/utils/titleDisplay'
-import { normalizeTagList } from '@/lib/tagNormalization'
-import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '@/lib/workbookRender'
-import { hasPlaceholderText, sanitizeSurfaceText } from '@/lib/summary'
+import { normalizeTagList } from '../lib/tagNormalization'
+import { getProfileStatus, getSummaryQuality, shouldRenderSummary } from '../lib/workbookRender'
+import { hasPlaceholderText, sanitizeSurfaceText } from '../lib/summary'
 
 const FALLBACK = 'Traditionally used with growing research interest.'
 

@@ -1,4 +1,4 @@
-import { safeArray, safeText } from '@/lib/runtime-render-guards'
+import { safeArray, safeText } from './runtime-render-guards'
 
 export const SEMANTIC_EXPANSION_LIMITS = {
   maxDiscoverySignals: 24,

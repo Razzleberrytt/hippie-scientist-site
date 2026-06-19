@@ -1,4 +1,4 @@
-import { clampScore } from '@/lib/runtime-render-guards'
+import { clampScore } from '../../lib/runtime-render-guards'
 
 type ContinuityMap = {
   cluster: string

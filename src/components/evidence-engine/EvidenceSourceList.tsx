@@ -1,4 +1,4 @@
-import type { EvidenceEngineSource } from '@/lib/evidence-engine'
+import type { EvidenceEngineSource } from '../../lib/evidence-engine'
 
 type EvidenceSourceListProps = {
   sources: EvidenceEngineSource[]

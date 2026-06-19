@@ -1,7 +1,7 @@
 import React, { type CSSProperties } from 'react'
 import clsx from 'clsx'
-import { motion } from '@/lib/motion'
-import { useNavigate } from '@/lib/router-compat'
+import { motion } from '../lib/motion'
+import { useNavigate } from '../lib/router-compat'
 
 interface Node {
   id: string

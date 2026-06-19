@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { getSemanticFallbackImage } from '@/lib/image-fallbacks'
+import { getSemanticFallbackImage } from '../lib/image-fallbacks'
 
 type SemanticImageProps = {
   slug?: string

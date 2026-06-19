@@ -1,5 +1,5 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient } from '../src/lib/restricted-ingredients'
 
 export function generateAmazonProductPicks(slug: string) {
   if (isRestrictedIngredient(slug)) {

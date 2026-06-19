@@ -2,7 +2,7 @@ import { getEvidenceTier, hasHumanEvidence, hasMechanismEvidence } from '@/lib/e
 import { cleanSummary, formatDisplayLabel, isClean, text, unique } from '@/lib/display-utils'
 import { getPathwayLabel, getSupportedPathways } from '@/lib/pathways'
 import { collectRuntimeSignals, asList, asLowerText, asText } from '@/lib/runtime-normalize'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../src/lib/seo'
 import type { RuntimeRecord } from '@/src/types/content'
 
 export type CollectionKind = 'sleep' | 'stress' | 'cholinergic' | 'inflammation' | 'gaba' | 'recovery' | 'relaxation'

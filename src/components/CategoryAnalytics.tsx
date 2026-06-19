@@ -1,6 +1,6 @@
 import React, { type CSSProperties } from 'react'
-import { motion } from '@/lib/motion'
-import { useHerbData } from '@/lib/herb-data'
+import { motion } from '../lib/motion'
+import { useHerbData } from '../lib/herb-data'
 
 const TOP_N = 5
 

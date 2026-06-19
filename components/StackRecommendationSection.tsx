@@ -1,6 +1,6 @@
 import AffiliateDisclosure from './AffiliateDisclosure'
 import AffiliateProductCard from './AffiliateProductCard'
-import type { StackRecommendation } from '@/lib/recommendation-engine'
+import type { StackRecommendation } from '../src/lib/recommendation-engine'
 
 interface StackRecommendationSectionProps {
   productName: string

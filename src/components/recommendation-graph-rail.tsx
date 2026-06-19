@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
+import PathwayVisualChip from './pathway-visual-chip'
 import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
-import type { RecommendationGraphEdge } from '@/lib/recommendation-graph'
+import type { RecommendationGraphEdge } from '../lib/recommendation-graph'
 
 type RecommendationRailItem = {
   edge: RecommendationGraphEdge

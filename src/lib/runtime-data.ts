@@ -8,8 +8,8 @@ import type {
   EvidenceProblemLabel,
   EvidenceEngineSafetyNote,
   EvidenceEngineSource,
-} from '@/lib/evidence-engine'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+} from './evidence-engine'
+import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 

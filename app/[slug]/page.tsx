@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../../components/AffiliateDisclosure'
 import EmailCapture from '@/components/articles/EmailCapture'
 import ProductCriteriaBox from '@/components/articles/ProductCriteriaBox'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
@@ -13,7 +13,7 @@ import {
   focusClusterArticleSources,
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '@/lib/seo'
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '../../src/lib/seo'
 const ADHD_CHECKLIST_CAPTURE = {
   title: 'Get the ADHD Supplement Starter Checklist',
   description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',

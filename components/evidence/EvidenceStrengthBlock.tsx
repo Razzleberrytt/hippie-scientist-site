@@ -1,4 +1,4 @@
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../../src/types/content'
 import { getEvidenceStrengthData } from '@/lib/evidence-strength'
 
 interface EvidenceStrengthBlockProps {

@@ -1,5 +1,5 @@
-import type { Herb } from '@/types'
-import type { CompoundRecord } from '@/lib/compound-data'
+import type { Herb } from '../types'
+import type { CompoundRecord } from './compound-data'
 import { safeArray, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
 
 export type RelatedHerb = {

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { isRestrictedIngredient, isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient, isRestrictedRecord } from '../../lib/restricted-ingredients'
 
 function buildStackAmazonUrl(name: string) {
   if (isRestrictedIngredient(name)) return ''

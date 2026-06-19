@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildMultiHopTraversal } from '@/lib/multi-hop-traversal'
+import { buildMultiHopTraversal } from '../../lib/multi-hop-traversal'
 
 function formatLabel(value: string) {
   return value

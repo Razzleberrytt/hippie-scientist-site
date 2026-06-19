@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation } from "@/lib/router-compat";
+import { useLocation } from "./router-compat";
 import { CONSENT_GRANTED_EVENT, CONSENT_STORAGE_KEY, getConsent } from "./consent";
 import { loadAnalytics } from "./loadAnalytics";
 

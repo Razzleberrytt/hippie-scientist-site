@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { buildRuntimePathwayContinuity } from '@/lib/runtime-pathway-continuity'
+import { buildRuntimePathwayContinuity } from '../../lib/runtime-pathway-continuity'
 
 function formatLabel(value: string) {
   return value

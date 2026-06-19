@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getCompounds, getHerbs } from '@/lib/runtime-data'
+import { getCompounds, getHerbs } from '../../src/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { notFound } from 'next/navigation'
 import {
   getPathwayLabel,
@@ -12,7 +12,7 @@ import {
   normalizePathway,
   type PathwaySlug,
 } from '@/lib/pathways'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../src/lib/seo'
 import { EvidenceBadgeGroup } from '@/components/evidence/evidence-badge'
 import { EcosystemPanelGrid, KnowledgeGraphLinks, SemanticHubIntro, SignalPanel } from '@/components/semantic-hubs/semantic-hub-sections'
 import { getAdjacentEcosystemPanels } from '@/lib/ecosystem-context'
@@ -89,7 +89,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
   },
 }
 
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../../src/types/content'
 
 function getRecordName(record: RuntimeRecord) {
   const raw = record as Record<string, unknown>

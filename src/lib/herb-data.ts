@@ -1,12 +1,12 @@
 // UPDATED: Added safety note normalization for clean deduplicated herb safety arrays.
 import { useEffect, useState } from 'react'
-import type { Herb } from '@/types'
+import type { Herb } from '../types'
 import { calculateHerbConfidence } from '@/utils/calculateConfidence'
-import { cleanText, splitClean } from '@/lib/sanitize'
-import { getHerbSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
+import { cleanText, splitClean } from './sanitize'
+import { getHerbSeedInteractionData, mergeInteractionData } from './interactionSeed'
 import { hasInvalidEntityName, sanitizeHerbRecord } from '@/utils/sanitizeData'
-import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
-import { getCuratedData, type CuratedData } from '@/lib/semanticCompression'
+import { normalizeResearchEnrichment } from './researchEnrichment'
+import { getCuratedData, type CuratedData } from './semanticCompression'
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
 import { safeArray, safeLower, safeNumber, safeObject, safeRelatedList, safeSlug, safeTrim } from '@/lib/search-safe'
 

@@ -1,7 +1,7 @@
 import { topicClusters } from '@/lib/ecosystem-context'
 import { getSemanticDiscoveryCache } from '@/src/lib/semantic-discovery-cache'
 import { sortGraphLinksBySemanticDiscovery } from '@/src/lib/semantic-discovery-orchestrator'
-import { safeArray } from '@/lib/runtime-render-guards'
+import { safeArray } from './runtime-render-guards'
 import {
   SEMANTIC_EXPANSION_LIMITS,
   cappedExpansion,

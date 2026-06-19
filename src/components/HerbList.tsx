@@ -1,10 +1,10 @@
 import React from 'react'
-import { AnimatePresence, motion } from '@/lib/motion'
+import { AnimatePresence, motion } from '../lib/motion'
 import type { Herb } from '../types'
 import HerbCard from './HerbCard'
-import { buildCardSummary } from '@/lib/summary'
-import { hasVal } from '@/lib/pretty'
-import { slugify } from '@/lib/slug'
+import { buildCardSummary } from '../lib/summary'
+import { hasVal } from '../lib/pretty'
+import { slugify } from '../lib/slug'
 import { validateHerb } from '@/utils/validate'
 
 const containerVariants = {

@@ -1,6 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
-import { getRuntimeMapEntries } from '@/lib/runtime-related-maps'
+import { getRuntimeMapEntries } from '../src/lib/runtime-related-maps'
 
 const MAX_ECOSYSTEM_CONTINUITY_RECORDS = 6
 

@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../../components/AffiliateDisclosure'
 import NewsletterSignup from '../../components/NewsletterSignup'
 import RecommendedProduct from '@/components/RecommendedProduct'
 import { getRevenueProductSet } from '@/config/revenue-products'
-import { buildPageMetadata, faqPageJsonLd } from '@/lib/seo'
+import { buildPageMetadata, faqPageJsonLd } from '../../src/lib/seo'
 import JsonLd from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = buildPageMetadata({

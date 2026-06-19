@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import { motion } from '@/lib/motion'
+import { motion } from '../lib/motion'
 import { safeArray, safeIncludes, safeJoin, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
 
 type CompoundItem = {

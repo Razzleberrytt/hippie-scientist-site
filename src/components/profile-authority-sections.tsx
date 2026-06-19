@@ -27,7 +27,7 @@ import {
   buildPracticalRelevance,
   buildScientificSummary,
 } from '@/lib/profile-synthesis'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../types/content'
 
 type EntityType = 'herb' | 'compound'
 

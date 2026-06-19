@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, AnimatePresence } from '@/lib/motion'
+import { motion, AnimatePresence } from '../lib/motion'
 
 interface Props {
   text: string

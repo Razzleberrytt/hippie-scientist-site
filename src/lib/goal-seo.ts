@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { formatMetaDescription, buildPageMetadata, SEO_YEAR } from '@/lib/seo'
+import { formatMetaDescription, buildPageMetadata, SEO_YEAR } from './seo'
 import type { Goal } from '@/data/goals'
 
 const GOAL_SEO_TITLES: Record<string, string> = {

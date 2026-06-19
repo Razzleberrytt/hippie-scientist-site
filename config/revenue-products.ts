@@ -1,6 +1,6 @@
 import { AFFILIATE_TAGS } from './affiliate'
 import type { RecommendationProduct } from '@/components/RecommendationSection'
-import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient } from '../src/lib/restricted-ingredients'
 
 export type RevenueProductSet = {
   slug: string

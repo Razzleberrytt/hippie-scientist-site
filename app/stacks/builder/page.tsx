@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { getHerbs, getCompounds } from '@/lib/runtime-data'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
-import StackBuilderClient from '@/components/stacks/StackBuilderClient'
+import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
+import StackBuilderClient from '../../../src/components/stacks/StackBuilderClient'
 
 export const metadata: Metadata = {
   title: 'Interactive Supplement Stack Builder',

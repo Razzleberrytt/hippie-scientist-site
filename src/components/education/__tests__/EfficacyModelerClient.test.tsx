@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import EfficacyModelerClient from '../EfficacyModelerClient'
 
 // Mock AffiliateProductCard since we just want to verify it renders with correct routes
-vi.mock('@/components/sourcing/AffiliateProductCard', () => ({
+vi.mock('../../sourcing/AffiliateProductCard', () => ({
   default: ({ route }: any) => (
     <div data-testid='affiliate-card'>
       <span>{route.product.brand}</span>

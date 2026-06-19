@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { buildAlternativeReasoningSet, type AlternativeReasoning } from '@/lib/why-this-instead'
+import { buildAlternativeReasoningSet, type AlternativeReasoning } from '../lib/why-this-instead'
 import { formatDisplayLabel } from '@/lib/display-utils'
 
 type WhyThisInsteadPanelProps = {

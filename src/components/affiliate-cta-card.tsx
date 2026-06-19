@@ -1,7 +1,7 @@
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { canRenderAffiliateLinks, extractUrlString, ensureAmazonAffiliateTag } from '@/lib/affiliate'
+import { canRenderAffiliateLinks, extractUrlString, ensureAmazonAffiliateTag } from '../lib/affiliate'
 import { list, text } from '@/lib/display-utils'
-import { isRestrictedIngredient } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient } from '../lib/restricted-ingredients'
 
 type AffiliateCTACardProps = {
   record: any

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
-import { slugify } from '@/lib/slug'
+import { slugify } from './slug'
 import { calculateCompoundConfidence, type ConfidenceLevel } from '@/utils/calculateConfidence'
-import { cleanText, splitClean } from '@/lib/sanitize'
-import { getCompoundSeedInteractionData, mergeInteractionData } from '@/lib/interactionSeed'
+import { cleanText, splitClean } from './sanitize'
+import { getCompoundSeedInteractionData, mergeInteractionData } from './interactionSeed'
 import { hasInvalidEntityName, sanitizeCompoundRecord } from '@/utils/sanitizeData'
-import { normalizeResearchEnrichment } from '@/lib/researchEnrichment'
+import { normalizeResearchEnrichment } from './researchEnrichment'
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
-import { getCuratedData, type CuratedData } from '@/lib/semanticCompression'
+import { getCuratedData, type CuratedData } from './semanticCompression'
 
 export type SourceRef = { title: string; url: string; note?: string }
 

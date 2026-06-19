@@ -1,7 +1,7 @@
-import { Link } from '@/lib/router-compat'
+import { Link } from '../../lib/router-compat'
 import { useEffect } from 'react'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
-import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
+import { trackGovernedEvent, type GovernedPageType } from '../../lib/governedAnalytics'
 
 type IntroLink = {
   label: string

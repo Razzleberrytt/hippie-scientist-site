@@ -1,4 +1,4 @@
-import { Link } from '@/lib/router-compat'
+import { Link } from '../../lib/router-compat'
 import type { ConfidenceLevel } from '@/utils/calculateConfidence'
 import type { CompoundCompleteness, HerbCompleteness } from '@/utils/getDataCompleteness'
 import {
@@ -7,7 +7,7 @@ import {
   getEvidenceTierClass,
   getEvidenceTierLabel,
   getTrustNote,
-} from '@/lib/trust'
+} from '../../lib/trust'
 
 type Entity = 'herb' | 'compound'
 

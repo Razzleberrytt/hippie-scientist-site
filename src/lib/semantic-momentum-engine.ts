@@ -1,14 +1,14 @@
 import { topicClusters } from '@/lib/ecosystem-context'
 import { buildAdaptiveEcosystemPriorities } from '@/src/lib/adaptive-ecosystem-prioritization'
-import { buildAuthorityHierarchy } from '@/lib/runtime-authority-hierarchy'
-import { buildEvidenceConfidence } from '@/lib/runtime-evidence-confidence'
-import { buildRuntimeGovernance } from '@/lib/runtime-governance'
+import { buildAuthorityHierarchy } from './runtime-authority-hierarchy'
+import { buildEvidenceConfidence } from './runtime-evidence-confidence'
+import { buildRuntimeGovernance } from './runtime-governance'
 import {
   clampScore,
   safeArray,
   safeObject,
   safeText,
-} from '@/lib/runtime-render-guards'
+} from './runtime-render-guards'
 
 export type SemanticMomentumSignal = {
   ecosystem: string

@@ -1,4 +1,4 @@
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import AffiliateDisclosure from '../AffiliateDisclosure'
 import type { RecommendationItem } from '@/content/recommendations'
 import { EvidenceConfidenceBadge } from './EvidenceConfidenceBadge'
 import { RecommendedSourcingPaths } from './RecommendedSourcingPaths'

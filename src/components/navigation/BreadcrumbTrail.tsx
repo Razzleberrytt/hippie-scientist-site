@@ -1,4 +1,4 @@
-import { Link } from '@/lib/router-compat'
+import { Link } from '../../lib/router-compat'
 
 type BreadcrumbItem = {
   label: string

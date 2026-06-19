@@ -41,7 +41,7 @@ vi.mock('@/public/data/compounds-summary.json', () => ({
   ]
 }))
 
-vi.mock('@/lib/semantic-orchestration', () => ({
+vi.mock('../../../src/lib/semantic-orchestration', () => ({
   getSemanticOrchestrationSignals: vi.fn(() => ({
     authorityScore: 0.8,
     discoveryScore: 0.8,
@@ -54,14 +54,14 @@ vi.mock('@/lib/semantic-orchestration', () => ({
   }))
 }))
 
-vi.mock('@/components/search/DosingSafetyChecker', () => ({
+vi.mock('../../../src/components/search/DosingSafetyChecker', () => ({
   default: () => <div>Mocked DosingSafetyChecker</div>
 }))
 
 describe('SearchClient Component', () => {
   it('renders default search interface successfully', () => {
     render(<SearchClient />)
-    
+
     // Check title and input placeholder
     expect(screen.getByRole('heading', { name: /Search the library/i })).toBeInTheDocument()
     expect(screen.getByPlaceholderText(/Try sleep, magnesium, stress/i)).toBeInTheDocument()
@@ -70,23 +70,23 @@ describe('SearchClient Component', () => {
 
   it('filters and expands search queries using synonyms', async () => {
     render(<SearchClient />)
-    
+
     const input = screen.getByPlaceholderText(/Try sleep, magnesium, stress/i)
-    
+
     // Type layperson term "sleep"
     fireEvent.change(input, { target: { value: 'sleep' } })
-    
+
     // Check that Ashwagandha (which matches 'sleep') is rendered
     expect(screen.getByText('Ashwagandha')).toBeInTheDocument()
   })
 
   it('provides auto-suggestions when typing in the input', () => {
     render(<SearchClient />)
-    
+
     const input = screen.getByPlaceholderText(/Try sleep, magnesium, stress/i)
-    
+
     fireEvent.change(input, { target: { value: 'Ash' } })
-    
+
     // Auto suggestion dropdown should render suggestion
     expect(screen.getByText('Quick match suggestions')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Ashwagandha/i })).toBeInTheDocument()
@@ -94,12 +94,12 @@ describe('SearchClient Component', () => {
 
   it('excludes restricted substances (e.g. DMT, 5-MeO-DMT, kratom, ibogaine, ketamine, fadogia) from search results and dosing options', () => {
     render(<SearchClient />)
-    
+
     const input = screen.getByPlaceholderText(/Try sleep, magnesium, stress/i)
-    
+
     // Query for safe compound to surface results
     fireEvent.change(input, { target: { value: 'theanine' } })
-    
+
     // DMT (restricted) should never appear
     expect(screen.queryByText(/DMT/i)).not.toBeInTheDocument()
     // L-Theanine (safe, after filter) surfaces in results/suggestions; multiple nodes ok.

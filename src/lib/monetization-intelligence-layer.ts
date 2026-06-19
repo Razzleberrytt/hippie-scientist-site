@@ -1,6 +1,6 @@
 import { list, text, unique } from '@/lib/display-utils'
-import { buildSemanticIntelligenceReport } from '@/lib/semantic-intelligence-layer'
-import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
+import { buildSemanticIntelligenceReport } from './semantic-intelligence-layer'
+import { buildResearchKnowledgeReport } from './research-knowledge-layer'
 
 export type MonetizationOpportunity = {
   slug?: string

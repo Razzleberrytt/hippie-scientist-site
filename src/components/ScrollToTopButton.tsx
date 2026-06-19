@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from '@/lib/motion'
+import { motion } from '../lib/motion'
 import { ArrowUp } from 'lucide-react'
 
 export default function ScrollToTopButton() {

@@ -8,8 +8,8 @@ import {
 } from '@/data/curatedProducts'
 import { normalizeAmazonAffiliateUrl } from '@/utils/affiliateUrls'
 import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
-import type { AffiliateUseCaseAnchor } from '@/lib/affiliateClickTracking'
-import { RANKING_CONFIG } from '@/lib/rankingConfig'
+import type { AffiliateUseCaseAnchor } from './affiliateClickTracking'
+import { RANKING_CONFIG } from './rankingConfig'
 
 type CuratedProductPageContext = {
   entityType: CuratedProductEntityType

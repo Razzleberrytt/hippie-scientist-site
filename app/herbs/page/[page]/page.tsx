@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
-import { getHerbSummaryIndex } from '@/lib/runtime-summary-indexes'
-import { getRuntimeVisibility } from '@/lib/runtime-visibility'
+import { getHerbSummaryIndex } from '../../../../src/lib/runtime-summary-indexes'
+import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { HERBS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
 import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
 import HerbsIndexClient from '../../HerbsIndexClient'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../../../../src/types/content'
 
 type P={params:Promise<{page:string}>}
 async function loadBrowseHerbs(): Promise<RuntimeRecord[]> {

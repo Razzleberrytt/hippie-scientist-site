@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { trackRevenueEvent } from '@/lib/revenue-tracking'
+import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 type NewsletterCtaBlockProps = {
   title?: string

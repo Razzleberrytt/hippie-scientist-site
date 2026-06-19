@@ -5,7 +5,7 @@ import {
   safeObject,
   safeText,
   shouldRenderSemanticSection,
-} from '@/lib/runtime-render-guards'
+} from '../../lib/runtime-render-guards'
 
 type SemanticSectionBoundaryProps = {
   source: unknown

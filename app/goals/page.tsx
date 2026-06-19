@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { goals } from '@/data/goals'
-import DecisionCtaGroup from '@/components/decision/DecisionCtaGroup'
+import DecisionCtaGroup from '../../src/components/decision/DecisionCtaGroup'
 
-import { buildPageMetadata, SEO_YEAR } from '@/lib/seo'
+import { buildPageMetadata, SEO_YEAR } from '../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: `Supplement Goal Guides ${SEO_YEAR} – Evidence, Safety & Comparisons`,

@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from 'react'
 import Link from 'next/link'
-import { isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedRecord } from '../../lib/restricted-ingredients'
 
 interface DosageItem {
   slug: string
@@ -94,11 +94,11 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
   // Parse dosage string to extract base bounds
   const baseRange = useMemo(() => {
     if (!selectedItem) return { min: 100, max: 500 }
-    
+
     const doseStr = selectedItem.dosage || selectedItem.dose || ''
     // Regex to match numbers in strings (e.g. "300 - 600", "500mg", "1.5g")
     const matches = doseStr.match(/(\d+(?:\.\d+)?)/g)
-    
+
     if (matches && matches.length >= 2) {
       let min = parseFloat(matches[0])
       let max = parseFloat(matches[1])
@@ -115,7 +115,7 @@ export default function DosageCalculatorClient({ herbs, compounds }: DosageCalcu
       }
       return { min: val * 0.8, max: val * 1.2 }
     }
-    
+
     return { min: 300, max: 600 }
   }, [selectedItem])
 

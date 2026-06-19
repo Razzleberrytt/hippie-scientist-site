@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import NewsletterSignup from '../../components/NewsletterSignup'
 import NewsletterCtaBlock from '../../components/NewsletterCtaBlock'
 
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Free Evidence-Based Supplement Safety Checklist (PDF)',

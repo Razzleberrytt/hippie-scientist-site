@@ -1,6 +1,6 @@
 import React from 'react'
-import { useHerbData } from '@/lib/herb-data'
-import { useCountUp } from '@/hooks/useCountUp'
+import { useHerbData } from '../lib/herb-data'
+import { useCountUp } from '../hooks/useCountUp'
 import { baseCompounds } from '../data/compounds/compoundData'
 import posts from '../data/blog/posts.json'
 import { formatKpis } from '../lib/stats'

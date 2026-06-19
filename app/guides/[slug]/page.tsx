@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
-import { buildPageMetadata, SITE_URL } from "@/lib/seo";
+import { buildPageMetadata, SITE_URL } from "../../../src/lib/seo";
 import { ArticleLayout, RelatedArticles } from "@/components/articles";
 import type { RelatedArticle } from "@/components/articles";
 

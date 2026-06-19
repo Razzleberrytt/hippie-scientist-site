@@ -1,8 +1,8 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { buildSemanticLinkSuggestions } from '@/lib/semantic-internal-linking'
-import { buildResearchKnowledgeReport } from '@/lib/research-knowledge-layer'
+import { buildResearchKnowledgeReport } from '../src/lib/research-knowledge-layer'
 import { buildProgrammaticTopicClusters } from '@/lib/programmatic-topic-clusters'
-import type { RuntimeRecord } from '@/types/content'
+import type { RuntimeRecord } from '../src/types/content'
 
 export type EcosystemAuthorityPage = {
   slug: string

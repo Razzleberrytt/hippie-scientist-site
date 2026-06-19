@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from '@/lib/motion'
+import { motion } from '../lib/motion'
 
 interface Props {
   children: React.ReactNode

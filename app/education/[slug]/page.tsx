@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { getEducationArticleBySlug, getAllEducationArticles, parseMdxBlocks } from '@/lib/education'
-import { buildPageMetadata } from '@/lib/seo'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import LastUpdatedBadge from '@/components/editorial/LastUpdatedBadge'
+import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
@@ -107,7 +107,7 @@ export default async function EducationArticlePage({ params }: Props) {
               />
             )
           }
-          
+
           if (block.type === 'h3') {
             return (
               <h3

@@ -1,6 +1,6 @@
-import { slugify } from '@/lib/slug'
-import { getCommonName } from '@/lib/herbName'
-import { normalizeScientificTags } from '@/lib/tags'
+import { slugify } from './slug'
+import { getCommonName } from './herbName'
+import { normalizeScientificTags } from './tags'
 
 type DiscoveryEntity = {
   slug?: string

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { Search, X, SlidersHorizontal, Info, RefreshCw } from 'lucide-react'
-import { graphNodeColor, type SemanticGraphEdge, type SemanticGraphNode } from '@/lib/semantic-graph-visuals'
+import { graphNodeColor, type SemanticGraphEdge, type SemanticGraphNode } from '../lib/semantic-graph-visuals'
 
 type SemanticGraphMapProps = {
   title?: string
@@ -31,7 +31,7 @@ export default function SemanticGraphMap({
   const [searchQuery, setSearchQuery] = useState('')
   const [minWeight, setMinWeight] = useState<number>(1)
   const [hoveredNodeId, setHoveredNodeId] = useState<string | null>(null)
-  
+
   // Set of active node types to display
   const [visibleTypes, setVisibleTypes] = useState<Set<string>>(
     new Set(['source', 'mechanism', 'pathway', 'effect', 'evidence', 'ecosystem'])
@@ -140,10 +140,10 @@ export default function SemanticGraphMap({
       </div>
 
       <div className="relative overflow-hidden rounded-[2rem] border border-brand-900/10 bg-white/[0.82] p-4 shadow-sm backdrop-blur-xl sm:p-6 space-y-6">
-        
+
         {/* Dynamic Controls Dashboard */}
         <div className="grid gap-4 md:grid-cols-3 border-b border-brand-900/5 pb-5">
-          
+
           {/* Node Search Bar */}
           <div className="space-y-2">
             <label htmlFor="node-search" className="text-xs font-bold uppercase tracking-wider text-muted flex items-center gap-1">
@@ -290,10 +290,10 @@ export default function SemanticGraphMap({
                 const isHovered = hoveredNodeId === node.id
                 const isConnected = connectedNodeIds ? connectedNodeIds.has(node.id) : true
                 const isDimmed = hoveredNodeId !== null && !isConnected
-                
+
                 return (
-                  <g 
-                    key={node.id} 
+                  <g
+                    key={node.id}
                     className="cursor-pointer group"
                     onMouseEnter={() => setHoveredNodeId(node.id)}
                     onMouseLeave={() => setHoveredNodeId(null)}
@@ -315,7 +315,7 @@ export default function SemanticGraphMap({
                       textAnchor="middle"
                       fontSize="2.2"
                       fill={isHovered ? '#0f172a' : '#344256'}
-                      style={{ 
+                      style={{
                         letterSpacing: '0.02em',
                         fontWeight: isHovered || (connectedNodeIds && node.id === hoveredNodeId) ? 'bold' : 'normal'
                       }}

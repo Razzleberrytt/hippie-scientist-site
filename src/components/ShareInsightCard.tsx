@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { trackEvent } from '@/lib/growth'
-import { Button } from '@/components/ui/Button'
+import { trackEvent } from '../lib/growth'
+import { Button } from './ui/Button'
 
 type ShareInsightCardProps = {
   title: string

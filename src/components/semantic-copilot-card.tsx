@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import PathwayVisualChip from '@/components/pathway-visual-chip'
+import PathwayVisualChip from './pathway-visual-chip'
 import {
   explainDecisionContext,
   explainSemanticRecommendation,
   explainTraversalChoice,
-} from '@/lib/semantic-recommendation-reasoning'
+} from '../lib/semantic-recommendation-reasoning'
 
 type SemanticCopilotCardProps = {
   source?: any

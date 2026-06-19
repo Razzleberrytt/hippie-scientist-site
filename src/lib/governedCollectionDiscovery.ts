@@ -1,5 +1,5 @@
 import type { PublishSafeEnrichmentSummary } from '@/types/enrichmentDiscovery'
-import { getReviewFreshnessState } from '@/lib/enrichmentDiscovery'
+import { getReviewFreshnessState } from './enrichmentDiscovery'
 
 export type GovernedDiscoveryFilter =
   | 'all'

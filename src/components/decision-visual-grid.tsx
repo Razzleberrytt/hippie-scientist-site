@@ -3,7 +3,7 @@ import {
   type DecisionVisualProfile,
   type StimulationProfile,
   type TimelineProfile,
-} from '@/lib/decision-visuals'
+} from '../lib/decision-visuals'
 import { formatDisplayLabel } from '@/lib/display-utils'
 import { cleanEditorialText, dedupeEditorialItems, isRenderableText } from '@/lib/editorial-rendering'
 

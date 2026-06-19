@@ -1,10 +1,10 @@
-import Collapse from '@/components/ui/Collapse'
+import Collapse from '../ui/Collapse'
 import { useEffect } from 'react'
-import type { GovernedFaqSectionContent } from '@/lib/governedFaq'
-import type { GovernedRelatedQuestionsSection } from '@/lib/governedRelatedQuestions'
-import { trackGovernedEvent, type GovernedPageType } from '@/lib/governedAnalytics'
+import type { GovernedFaqSectionContent } from '../../lib/governedFaq'
+import type { GovernedRelatedQuestionsSection } from '../../lib/governedRelatedQuestions'
+import { trackGovernedEvent, type GovernedPageType } from '../../lib/governedAnalytics'
 import type { ResearchClaim, ResearchEnrichment } from '@/types/researchEnrichment'
-import { getEvidenceLabelMeta, getTopicJudgment } from '@/lib/governedResearch'
+import { getEvidenceLabelMeta, getTopicJudgment } from '../../lib/governedResearch'
 
 type ClaimSectionConfig = {
   key: string

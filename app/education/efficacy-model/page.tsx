@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import EfficacyModelerClient from '@/components/education/EfficacyModelerClient'
+import EfficacyModelerClient from '../../../src/components/education/EfficacyModelerClient'
 
 export const metadata: Metadata = {
   title: 'Interactive Supplement Efficacy Modeler & Pharmacokinetics Visualizer',

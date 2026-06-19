@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, list, text } from '@/lib/display-utils'
 import { cleanEditorialText, dedupeEditorialItems, isDuplicateTitleBody, isRenderableText, shouldRenderCard } from '@/lib/editorial-rendering'
-import { getSemanticOrchestrationSignals } from '@/lib/semantic-orchestration'
-import type { RuntimeRecord } from '@/types/content'
+import { getSemanticOrchestrationSignals } from '../lib/semantic-orchestration'
+import type { RuntimeRecord } from '../types/content'
 
 type EntityType = 'herb' | 'compound'
 

@@ -1,12 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Link } from '@/lib/router-compat'
+import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
 import NonEmpty from './NonEmpty'
-import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
-import { PUBLIC_ROUTES } from '@/lib/public-routes'
+import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
+import { PUBLIC_ROUTES } from '../lib/public-routes'
 
 const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },

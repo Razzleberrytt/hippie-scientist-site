@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
-import { isRestrictedIngredient, isRestrictedRecord } from '@/lib/restricted-ingredients'
+import { isRestrictedIngredient, isRestrictedRecord } from '../../lib/restricted-ingredients'
 
 interface GraphItem {
   slug: string
@@ -262,7 +262,7 @@ export default function RelationalGraphClient({ herbs, compounds }: RelationalGr
     if (!selectedIngredient) return null
 
     const tier = String(selectedIngredient.evidence_tier || selectedIngredient.evidenceLevel || '').toLowerCase()
-    
+
     let gradeLabel: 'High' | 'Moderate' | 'Low / Preclinical' = 'Moderate'
     let studiesCount = '8+ Clinical Trials'
     let sampleSize = 'n=450+ patients'
