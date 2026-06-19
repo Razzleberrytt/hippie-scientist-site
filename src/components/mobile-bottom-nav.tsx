@@ -36,8 +36,8 @@ export default function MobileBottomNav() {
   const pathname = usePathname() || '/'
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/10 bg-white/[0.92] shadow-[0_-10px_30px_rgba(17,24,39,0.08)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/80 md:hidden">
-      <div className="mx-auto flex max-w-2xl items-stretch gap-1 px-2 pb-[calc(env(safe-area-inset-bottom)+0.65rem)] pt-2">
+    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t-2 border-brand-900/20 bg-white/95 shadow-[0_-12px_32px_rgba(16,32,24,0.14)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/90 dark:border-white/15 dark:bg-[#111a14]/95 dark:supports-[backdrop-filter]:bg-[#111a14]/90 md:hidden">
+      <div className="mx-auto flex max-w-2xl items-stretch gap-1.5 px-2 pb-[calc(env(safe-area-inset-bottom)+0.7rem)] pt-2.5">
         {navItems.map((item) => {
           const active = pathname === item.href || pathname?.startsWith(`${item.href}/`)
           const Icon = item.Icon
@@ -47,14 +47,14 @@ export default function MobileBottomNav() {
               key={item.href}
               href={item.href}
               aria-current={active ? 'page' : undefined}
-              className={`flex min-h-[3.25rem] min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-2xl px-1.5 py-2 text-center transition-all duration-200 ${
+              className={`flex min-h-[3.45rem] min-w-0 flex-1 flex-col items-center justify-center gap-1.5 rounded-2xl px-0.5 py-2 text-center ${
                 active
-                  ? 'bg-brand-100 border-b-2 border-brand-700 text-brand-700 shadow-md font-bold'
-                  : 'text-[#5c6d63] hover:bg-black/[0.03] hover:text-ink'
+                  ? 'border-b-2 border-brand-700 bg-brand-100 text-brand-700 opacity-100 shadow-sm dark:text-brand-700'
+                  : 'text-[#33443a] opacity-70 hover:bg-brand-50/60 hover:text-ink hover:opacity-100 dark:text-[#bdd0c2] dark:hover:bg-white/10 dark:hover:text-white'
               }`}
             >
-              <Icon aria-hidden="true" className={`h-[1.05rem] w-[1.05rem] transition-all ${active ? 'fill-current' : ''}`} strokeWidth={active ? 2.5 : 2.2} />
-              <span className="max-w-full truncate text-xs font-semibold leading-none tracking-tight">
+              <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={active ? 2.5 : 2.2} />
+              <span className={`max-w-full whitespace-nowrap text-[0.76rem] leading-none ${active ? 'font-semibold' : 'font-medium'}`}>
                 {item.label}
               </span>
             </Link>
