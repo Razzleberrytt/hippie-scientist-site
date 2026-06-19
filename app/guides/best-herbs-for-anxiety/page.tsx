@@ -355,6 +355,7 @@ export default function BestHerbsForAnxietyPage() {
 
         {/* Related guides */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
+          <Link href="/goals/anxiety" className="hover:text-brand-800">Anxiety goal hub →</Link>
           <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="hover:text-brand-800">Anxiolytics Beyond Ashwagandha →</Link>
           <Link href="/guides/natural-alternatives-to-anxiety-medication" className="hover:text-brand-800">Natural Alternatives to Anxiety Meds →</Link>
           <Link href="/guides/kava" className="hover:text-brand-800">Kava Safety Guide →</Link>

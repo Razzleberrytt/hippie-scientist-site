@@ -207,6 +207,7 @@ export default function BestAdaptogensForStressPage() {
 
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
+          <Link href="/goals/stress" className="hover:text-brand-800">Stress goal hub →</Link>
           <Link href="/guides/best-supplements-for-stress" className="hover:text-brand-800">Best Supplements for Stress →</Link>
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
           <Link href="/compare/rhodiola-vs-ashwagandha" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>

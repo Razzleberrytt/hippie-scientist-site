@@ -10,6 +10,8 @@ import type { GoalContentExtension } from '@/data/goal-content'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 import GoalHubSections from '../../../src/components/goals/GoalHubSections'
 import GoalContentDepth from '../../../src/components/goals/GoalContentDepth'
+import GoalStartHereLinks from '@/components/goals/GoalStartHereLinks'
+import type { GoalStartHereLink } from '@/lib/goal-start-here-links'
 import type { getGoalHubLinks } from '../../../src/lib/goal-hub-links'
 
 type GoalHubBundle = ReturnType<typeof getGoalHubLinks>
@@ -50,6 +52,7 @@ type GoalDecisionExperienceProps = {
   evidence: EvidenceEnginePayload
   structuredData?: ReactNode
   hubLinks?: GoalHubBundle
+  startHereLinks?: GoalStartHereLink[]
   goalContent?: GoalContentExtension | null
   captureGoal?: EmailCaptureGoal
 }
@@ -94,6 +97,7 @@ export default function GoalDecisionExperience({
   evidence,
   structuredData,
   hubLinks,
+  startHereLinks = [],
   goalContent = null,
   captureGoal = 'default',
 }: GoalDecisionExperienceProps) {
@@ -168,6 +172,8 @@ export default function GoalDecisionExperience({
       </section>
 
       <SafetyChecklistPromo goal={captureGoal} variant="hero" />
+
+      <GoalStartHereLinks links={startHereLinks} />
 
       {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
 

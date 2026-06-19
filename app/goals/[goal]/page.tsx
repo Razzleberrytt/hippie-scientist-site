@@ -10,6 +10,7 @@ import { buildGoalSchemaGraph } from '../../../src/lib/schema-graph'
 import { buildGoalClusterGraph } from '@/lib/cluster-linking'
 import { buildGoalPageMetadata } from '../../../src/lib/goal-seo'
 import { getGoalHubLinks } from '../../../src/lib/goal-hub-links'
+import { getGoalStartHereLinks } from '@/lib/goal-start-here-links'
 import { getGoalContentExtension, getGoalFaqItems } from '@/data/goal-content'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
@@ -25,6 +26,7 @@ import { getGoalCluster } from '@/lib/goal-clusters'
 import GoalDecisionExperience from './GoalDecisionExperience'
 import GoalHubSections from '../../../src/components/goals/GoalHubSections'
 import GoalContentDepth from '../../../src/components/goals/GoalContentDepth'
+import GoalStartHereLinks from '@/components/goals/GoalStartHereLinks'
 import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
 import { getGoalPivotalStudy } from '@/data/goal-pivotal-studies'
 
@@ -300,6 +302,7 @@ export default async function GoalDecisionPage({
   )
 
   const hubLinks = getGoalHubLinks(goal.slug)
+  const startHereLinks = getGoalStartHereLinks(goal.slug)
   const goalEvidence = await getGoalEvidenceEngine(goal.slug)
   if (goalEvidence) {
     return (
@@ -309,6 +312,7 @@ export default async function GoalDecisionPage({
         evidence={goalEvidence}
         structuredData={structuredData}
         hubLinks={hubLinks}
+        startHereLinks={startHereLinks}
         goalContent={goalContent}
         captureGoal={goalCaptureGoal(goal.slug)}
       />
@@ -337,6 +341,8 @@ export default async function GoalDecisionPage({
       </section>
 
       <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="hero" />
+
+      <GoalStartHereLinks links={startHereLinks} />
 
       {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
 

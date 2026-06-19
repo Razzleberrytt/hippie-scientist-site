@@ -256,6 +256,7 @@ export default function BestNootropicsForFocusPage() {
 
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
+          <Link href="/goals/focus" className="hover:text-brand-800">Focus goal hub →</Link>
           <Link href="/guides/focus-without-caffeine-crash" className="hover:text-brand-800">Focus Without the Caffeine Crash →</Link>
           <Link href="/guides/adhd-supplements" className="hover:text-brand-800">ADHD Supplements Hub →</Link>
           <Link href="/guides/supplements-for-brain-fog-and-fatigue" className="hover:text-brand-800">Brain Fog & Fatigue →</Link>

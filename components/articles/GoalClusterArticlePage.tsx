@@ -232,6 +232,9 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
             ))}
           </div>
           <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold">
+            <Link href="/goals/sleep/" className="text-brand-800 hover:text-brand-700 hover:underline">
+              Sleep goal hub →
+            </Link>
             <Link href="/articles/magnesium-for-adhd/" className="text-brand-800 hover:text-brand-700 hover:underline">
               ADHD-adjacent magnesium guide →
             </Link>
