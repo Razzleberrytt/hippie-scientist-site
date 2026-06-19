@@ -137,15 +137,15 @@ const featuredFallbacks: LandingCard[] = [
 ]
 
 const heroGoals = [
-  { slug: 'sleep', title: 'Sleep Support', bg: 'bg-gradient-to-br from-[hsl(220,60%,97%)] to-[hsl(240,60%,94%)] border-[hsl(220,50%,85%)]', desc: 'Quieting bedtime worry & support for natural onset.' },
-  { slug: 'stress', title: 'Stress & Fatigue', bg: 'bg-gradient-to-br from-[hsl(30,70%,97%)] to-[hsl(15,70%,95%)] border-[hsl(30,50%,85%)]', desc: 'Adaptogens for cortisol regulation & mental burnout.' },
-  { slug: 'anxiety', title: 'Anxiety & Calm', bg: 'bg-gradient-to-br from-[hsl(160,50%,96%)] to-[hsl(180,50%,94%)] border-[hsl(160,40%,85%)]', desc: 'Promoting daytime peace without heavy daytime sedation.' },
-  { slug: 'focus', title: 'Focus & Alertness', bg: 'bg-gradient-to-br from-[hsl(280,50%,97%)] to-[hsl(260,50%,94%)] border-[hsl(280,40%,85%)]', desc: 'Alertness support & smoothing stimulant jitters.' },
-  { slug: 'gut-health', title: 'Gut Health', bg: 'bg-gradient-to-br from-[hsl(100,40%,96%)] to-[hsl(120,40%,94%)] border-[hsl(100,30%,85%)]', desc: 'Evaluating enzymes, prebiotic fibers, & regularity aids.' },
-  { slug: 'pain', title: 'Pain Support', bg: 'bg-gradient-to-br from-[hsl(45,60%,96%)] to-[hsl(35,60%,94%)] border-[hsl(45,50%,85%)]', desc: 'Addressing joint stiffness & chronic inflammatory pain.' },
-  { slug: 'longevity', title: 'Longevity & Cellular', bg: 'bg-gradient-to-br from-[hsl(140,40%,96%)] to-[hsl(150,40%,94%)] border-[hsl(140,30%,85%)]', desc: 'NAD+ synthesis precursors & mitochondrial health.' },
-  { slug: 'joint-support', title: 'Joint & Mobility', bg: 'bg-gradient-to-br from-[hsl(200,60%,96%)] to-[hsl(190,60%,94%)] border-[hsl(200,40%,85%)]', desc: 'Cartilage support & systemic joint integrity.' },
-  { slug: 'recovery', title: 'Exercise Recovery', bg: 'bg-gradient-to-br from-[hsl(310,40%,97%)] to-[hsl(290,40%,94%)] border-[hsl(310,30%,85%)]', desc: 'Energy buffering, soreness reduction, & cell recovery.' },
+  { slug: 'sleep', title: 'Sleep Support', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#f4f1e8] border-[#cbd8c0]', desc: 'Quieting bedtime worry & support for natural onset.' },
+  { slug: 'stress', title: 'Stress & Fatigue', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#f3f5ee] border-[#c6d0bd]', desc: 'Adaptogens for cortisol regulation & mental burnout.' },
+  { slug: 'anxiety', title: 'Anxiety & Calm', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#eef2e8] border-[#c3d0bc]', desc: 'Promoting daytime peace without heavy daytime sedation.' },
+  { slug: 'focus', title: 'Focus & Alertness', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#f1f3ed] border-[#c7d0c2]', desc: 'Alertness support & smoothing stimulant jitters.' },
+  { slug: 'gut-health', title: 'Gut Health', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#f4f1e8] border-[#c9d3bf]', desc: 'Evaluating enzymes, prebiotic fibers, & regularity aids.' },
+  { slug: 'pain', title: 'Pain Support', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#f5efe3] border-[#d6c8ad]', desc: 'Addressing joint stiffness & chronic inflammatory pain.' },
+  { slug: 'longevity', title: 'Longevity & Cellular', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#eef2e8] border-[#c3cfbc]', desc: 'NAD+ synthesis precursors & mitochondrial health.' },
+  { slug: 'joint-support', title: 'Joint & Mobility', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#f1f3ed] border-[#c7d0c2]', desc: 'Cartilage support & systemic joint integrity.' },
+  { slug: 'recovery', title: 'Exercise Recovery', bg: 'bg-gradient-to-br from-[#fffdf7] to-[#f5efe3] border-[#d3c5ac]', desc: 'Energy buffering, soreness reduction, & cell recovery.' },
 ]
 
 function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
@@ -202,7 +202,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
               </p>
               
               <div className='mt-4 inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1 text-xs font-semibold text-brand-800 self-center' aria-label={`Last reviewed: ${formattedDate}. ${citationCount} peer-reviewed studies cited.`}>
-                <span className='h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse' aria-hidden='true' />
+                <span className='h-1.5 w-1.5 rounded-full bg-brand-700 animate-pulse' aria-hidden='true' />
                 <span>Last reviewed: {formattedDate}</span>
                 <span className='text-brand-900/10'>•</span>
                 <span>{citationCount} peer-reviewed studies cited</span>
@@ -253,15 +253,15 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 >
                   <div>
                     <Link href={`/goals/${hGoal.slug}`} className='group block'>
-                      <h3 className='text-lg font-bold tracking-tight text-[#102018] transition group-hover:text-brand-800'>
+                      <h3 className='text-lg font-bold tracking-tight text-[#111a16] transition group-hover:text-brand-900'>
                         {hGoal.title}
                       </h3>
-                      <p className='mt-1.5 text-sm font-medium leading-relaxed text-[#33443a]'>{hGoal.desc}</p>
+                      <p className='mt-1.5 text-sm font-medium leading-relaxed text-[#405047]'>{hGoal.desc}</p>
                     </Link>
                   </div>
 
                   <div className='mt-4 pt-2 border-t border-brand-900/5'>
-                    <Link href={`/goals/${hGoal.slug}`} className='text-xs font-bold text-brand-800 transition hover:text-brand-900'>
+                    <Link href={`/goals/${hGoal.slug}`} className='text-xs font-bold text-brand-900 transition hover:text-brand-950'>
                       Compare all candidates
                     </Link>
                   </div>

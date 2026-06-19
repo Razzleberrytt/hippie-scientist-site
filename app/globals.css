@@ -12,18 +12,18 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --font-display: var(--font-fraunces), Fraunces, ui-serif, Georgia;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-brand-50: #eef8f1;
-  --color-brand-100: #d9f0df;
-  --color-brand-200: #b7dfc2;
-  --color-brand-300: #8ac89c;
-  --color-brand-400: #5dae73;
-  --color-brand-500: #358f52;
-  --color-brand-600: #277441;
-  --color-brand-700: #215d36;
-  --color-brand-800: #1d4a2f;
-  --color-brand-900: #183d28;
-  --color-brand-950: #092417;
-  --color-brand: #1d4a2f;
+  --color-brand-50: #f3f5ee;
+  --color-brand-100: #e4eadc;
+  --color-brand-200: #cbd8c0;
+  --color-brand-300: #a7ba98;
+  --color-brand-400: #78956b;
+  --color-brand-500: #536f49;
+  --color-brand-600: #3f5c3c;
+  --color-brand-700: #314b33;
+  --color-brand-800: #243d2b;
+  --color-brand-900: #182f22;
+  --color-brand-950: #0b1d14;
+  --color-brand: #243d2b;
 
   --color-sage-50: #f4f7f1;
   --color-sage-100: #e7eee0;
@@ -48,7 +48,7 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --color-earth-moss: #667a3f;
   --color-earth-bark: #3e2f25;
 
-  --color-evidence-strong: #047857;
+  --color-evidence-strong: #2f5f3a;
   --color-evidence-moderate: #2563eb;
   --color-evidence-limited: #b45309;
   --color-evidence-theoretical: #64748b;
@@ -57,12 +57,12 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --color-safety-info: #2563eb;
   --color-safety-caution: #b45309;
   --color-safety-avoid: #b91c1c;
-  --color-safety-ok: #047857;
+  --color-safety-ok: #2f5f3a;
 
   --color-background: #fffdf7;
   --color-surface: #fbf6e9;
-  --color-ink: #102018;
-  --color-muted: #58665d;
+  --color-ink: #111a16;
+  --color-muted: #4f5b56;
 
   --shadow-card: 0 18px 45px rgba(16, 32, 24, 0.08);
   --shadow-soft: 0 24px 70px rgba(16, 32, 24, 0.12);
@@ -96,19 +96,19 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --surface-elevated: rgba(255, 255, 255, 0.72);
   
   --text-primary-h: 150;
-  --text-primary-s: 33%;
-  --text-primary-l: 9.8%;
-  --text-primary: hsl(var(--text-primary-h), var(--text-primary-s), var(--text-primary-l)); /* #102018 */
+  --text-primary-s: 21%;
+  --text-primary-l: 8.4%;
+  --text-primary: hsl(var(--text-primary-h), var(--text-primary-s), var(--text-primary-l)); /* #111a16 */
   
-  --text-secondary-h: 139;
-  --text-secondary-s: 11%;
-  --text-secondary-l: 27.8%;
-  --text-secondary: hsl(var(--text-secondary-h), var(--text-secondary-s), var(--text-secondary-l)); /* #3f4f44 */
+  --text-secondary-h: 150;
+  --text-secondary-s: 9%;
+  --text-secondary-l: 27.5%;
+  --text-secondary: hsl(var(--text-secondary-h), var(--text-secondary-s), var(--text-secondary-l)); /* #405047 */
   
-  --text-muted-h: 152;
-  --text-muted-s: 10%;
-  --text-muted-l: 34.3%;
-  --text-muted: hsl(var(--text-muted-h), var(--text-muted-s), var(--text-muted-l)); /* #4f6057 */
+  --text-muted-h: 155;
+  --text-muted-s: 7%;
+  --text-muted-l: 33.3%;
+  --text-muted: hsl(var(--text-muted-h), var(--text-muted-s), var(--text-muted-l)); /* #4f5b56 */
 
   --border-soft: rgba(29, 74, 47, 0.1);
   --border-strong: rgba(29, 74, 47, 0.18);
@@ -117,16 +117,16 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --surface-card-strong: rgba(255, 255, 255, 0.94);
   --surface-1: var(--surface);
   --surface-2: var(--surface-card);
-  --surface-subtle: rgba(238, 248, 241, 0.68);
-  --surface-code: #eef8f1;
+  --surface-subtle: rgba(243, 245, 238, 0.76);
+  --surface-code: #f3f5ee;
   --surface-warning: rgba(255, 251, 235, 0.82);
   --surface-danger: rgba(255, 241, 242, 0.82);
   --surface-info: rgba(239, 246, 255, 0.82);
   --surface-neutral: rgba(248, 250, 252, 0.86);
-  --ring-brand: rgba(53, 143, 82, 0.35);
-  --accent-primary: #358f52;
+  --ring-brand: rgba(49, 75, 51, 0.32);
+  --accent-primary: #314b33;
   --accent-secondary: #6d5bd0;
-  --accent-teal: #358f52;
+  --accent-teal: #536f49;
   --accent-warning: #b45309;
   --accent-danger: #b91c1c;
   --bg-c: var(--bg);
@@ -138,7 +138,7 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --radius-card-compact: 0.75rem;
   --shadow-card-calm: 0 1px 3px rgba(16, 32, 24, 0.045);
   --shadow-card-calm-hover: 0 4px 12px rgba(16, 32, 24, 0.06);
-  --shadow-button-primary: 0 4px 12px rgba(29, 74, 47, 0.14);
+  --shadow-button-primary: 0 4px 12px rgba(11, 29, 20, 0.14);
   --shadow-button-secondary: 0 1px 3px rgba(16, 32, 24, 0.04);
 }
 
@@ -158,17 +158,17 @@ html.dark {
   --color-surface: #17221a;
   --color-ink: #eef7ef;
   --color-muted: #afc2b5;
-  --color-brand-50: #112318;
-  --color-brand-100: #183320;
-  --color-brand-200: #24472d;
-  --color-brand-300: #32633f;
-  --color-brand-400: #4f9b64;
-  --color-brand-500: #69c280;
-  --color-brand-600: #7ed091;
-  --color-brand-700: #9bddaa;
-  --color-brand-800: #c0ebc8;
-  --color-brand-900: #dcf5df;
-  --color-brand-950: #effbf0;
+  --color-brand-50: #111f17;
+  --color-brand-100: #182a1f;
+  --color-brand-200: #24382b;
+  --color-brand-300: #314b37;
+  --color-brand-400: #4f6b55;
+  --color-brand-500: #6f8a73;
+  --color-brand-600: #8da892;
+  --color-brand-700: #a8bda9;
+  --color-brand-800: #c7d5c5;
+  --color-brand-900: #e0eadc;
+  --color-brand-950: #f2f6ee;
   --bg: #101812;
   --surface: #17221a;
   --surface-elevated: #1f2d23;
@@ -188,10 +188,10 @@ html.dark {
   --surface-danger: rgba(70, 28, 35, 0.72);
   --surface-info: rgba(25, 45, 73, 0.72);
   --surface-neutral: rgba(37, 47, 42, 0.9);
-  --ring-brand: rgba(126, 208, 145, 0.4);
-  --accent-primary: #7ed091;
-  --accent-secondary: #c4b5fd;
-  --accent-teal: #7ed091;
+  --ring-brand: rgba(168, 189, 169, 0.38);
+  --accent-primary: #a8bda9;
+  --accent-secondary: #b8aecf;
+  --accent-teal: #8da892;
   --accent-warning: #fbbf24;
   --accent-danger: #fca5a5;
   --bg-c: var(--bg);
@@ -210,9 +210,9 @@ html.dark body {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 10% 20%, rgba(168, 104, 220, 0.11), transparent 45%),
-    radial-gradient(circle at 90% 10%, rgba(53, 143, 180, 0.09), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(240, 120, 160, 0.07), transparent 50%),
+    radial-gradient(circle at 10% 20%, rgba(83, 111, 73, 0.08), transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(96, 116, 126, 0.07), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(192, 138, 53, 0.06), transparent 50%),
     linear-gradient(180deg, #fffdf7 0%, #fbf6e9 100%);
   color: var(--text-primary);
   font-family: var(--font-inter), Inter, system-ui, sans-serif;
@@ -230,8 +230,8 @@ body * {
 }
 
 ::selection {
-  background: rgba(53,143,82,.18);
-  color: #102018;
+  background: rgba(49, 75, 51, .18);
+  color: #111a16;
 }
 
 @layer base {
@@ -409,8 +409,8 @@ html.dark ::selection {
 
   .hero-shell {
     background:
-      radial-gradient(circle at 12% 8%, rgba(141,170,120,.18), transparent 30%),
-      radial-gradient(circle at 88% 12%, rgba(221,193,127,.14), transparent 24%),
+      radial-gradient(circle at 12% 8%, rgba(83, 111, 73, .12), transparent 30%),
+      radial-gradient(circle at 88% 12%, rgba(192, 138, 53, .10), transparent 24%),
       linear-gradient(180deg, rgba(255,255,255,.84), rgba(251,246,233,.9));
   }
 
@@ -458,7 +458,7 @@ html.dark ::selection {
   }
 
   .content-prose a {
-    @apply font-semibold text-brand-800 underline decoration-brand-700/25 underline-offset-4 hover:decoration-brand-700/60;
+    @apply font-semibold text-brand-800 underline decoration-brand-800/25 underline-offset-4 hover:text-brand-900 hover:decoration-brand-900/55;
   }
 
   .detail-reading {
@@ -554,6 +554,69 @@ html.dark ::selection {
     @apply inline-flex items-center justify-center rounded-full border border-brand-900/10 bg-white/85 px-4 py-2 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand-700/20 hover:bg-white hover:text-brand-800;
     box-shadow: var(--shadow-button-secondary);
   }
+}
+
+/* Legacy emerald utility compatibility: keep older components from reading mint/neon. */
+:where(
+  [class~="text-emerald-600"],
+  [class~="text-emerald-700"],
+  [class~="text-emerald-800"],
+  [class~="text-emerald-900"]
+) {
+  color: #2f5f3a;
+}
+
+:where(
+  [class~="hover:text-emerald-700"]:hover,
+  [class~="hover:text-emerald-800"]:hover,
+  [class~="hover:text-emerald-900"]:hover
+) {
+  color: #243d2b;
+}
+
+:where(
+  [class~="bg-emerald-50"],
+  [class~="bg-emerald-50/30"],
+  [class~="bg-emerald-50/40"],
+  [class~="bg-emerald-50/50"],
+  [class~="bg-emerald-50/60"],
+  [class~="bg-emerald-50/70"],
+  [class~="bg-emerald-50/80"],
+  [class~="bg-emerald-100"]
+) {
+  background-color: rgba(243, 245, 238, 0.86);
+}
+
+:where(
+  [class~="bg-emerald-300"],
+  [class~="bg-emerald-400"]
+) {
+  background-color: #a8bda9;
+}
+
+:where(
+  [class~="bg-emerald-500"],
+  [class~="bg-emerald-600"]
+) {
+  background-color: #536f49;
+}
+
+:where(
+  [class~="hover:bg-emerald-50"]:hover,
+  [class~="hover:bg-emerald-100"]:hover,
+  [class~="hover:bg-emerald-200"]:hover
+) {
+  background-color: #cbd8c0;
+}
+
+:where(
+  [class*="border-emerald-100"],
+  [class*="border-emerald-200"],
+  [class*="border-emerald-300"],
+  [class*="border-emerald-700"],
+  [class*="border-emerald-800"]
+) {
+  border-color: rgba(49, 75, 51, 0.18);
 }
 
 /* Dark-mode compatibility for legacy utility-heavy pages.
@@ -739,7 +802,7 @@ html.dark :where(
   [class~="text-brand-800"],
   [class~="text-brand-850"]
 ) {
-  color: #9bddaa;
+  color: #a8bda9;
 }
 
 html.dark :where(
@@ -748,7 +811,7 @@ html.dark :where(
   [class~="hover:text-brand-800"]:hover,
   [class~="hover:text-ink"]:hover
 ) {
-  color: #c0ebc8;
+  color: #c7d5c5;
 }
 
 html.dark :where(
@@ -806,7 +869,7 @@ html.dark :where(.button-secondary) {
 }
 
 html.dark :where(.button-primary, [class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]) {
-  background-color: #7ed091;
+  background-color: #a8bda9;
   color: #07150c;
 }
 
@@ -821,7 +884,7 @@ html.dark :where(
 }
 
 html.dark :where(.btn-primary) {
-  background-color: #7ed091;
+  background-color: #a8bda9;
   color: #07150c;
 }
 
@@ -840,7 +903,7 @@ html.dark :where(
   [class~="text-emerald-800"],
   [class~="text-emerald-900"]
 ) {
-  color: #9bddaa;
+  color: #a8bda9;
 }
 
 html.dark :where(

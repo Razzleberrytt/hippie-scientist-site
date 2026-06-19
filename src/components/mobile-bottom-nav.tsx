@@ -36,7 +36,7 @@ export default function MobileBottomNav() {
   const pathname = usePathname() || '/'
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t-2 border-brand-900/20 bg-white/95 shadow-[0_-12px_32px_rgba(16,32,24,0.14)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/90 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:shadow-[0_-12px_32px_rgba(0,0,0,0.34)] dark:supports-[backdrop-filter]:bg-[var(--surface-card-strong)] md:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t-2 border-brand-900/15 bg-white/95 shadow-[0_-12px_32px_rgba(16,32,24,0.12)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/90 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:shadow-[0_-12px_32px_rgba(0,0,0,0.34)] dark:supports-[backdrop-filter]:bg-[var(--surface-card-strong)] md:hidden">
       <div className="mx-auto flex max-w-2xl items-stretch gap-1.5 px-2 pb-[calc(env(safe-area-inset-bottom)+0.7rem)] pt-2.5">
         {navItems.map((item) => {
           const active = pathname === item.href || pathname?.startsWith(`${item.href}/`)
@@ -49,8 +49,8 @@ export default function MobileBottomNav() {
               aria-current={active ? 'page' : undefined}
               className={`flex min-h-[3.45rem] min-w-0 flex-1 flex-col items-center justify-center gap-1.5 rounded-2xl px-0.5 py-2 text-center ${
                 active
-                  ? 'border-b-2 border-brand-700 bg-brand-100 text-brand-700 opacity-100 shadow-sm dark:border-brand-600 dark:bg-[var(--surface-subtle)] dark:text-brand-700'
-                  : 'text-[#33443a] opacity-80 hover:bg-brand-50/60 hover:text-ink hover:opacity-100 dark:text-[var(--text-secondary)] dark:opacity-90 dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
+                  ? 'border-b-2 border-brand-800 bg-brand-50 text-brand-900 opacity-100 shadow-sm dark:border-brand-700 dark:bg-[var(--surface-subtle)] dark:text-brand-800'
+                  : 'text-[#405047] opacity-85 hover:bg-brand-50/60 hover:text-ink hover:opacity-100 dark:text-[var(--text-secondary)] dark:opacity-90 dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
               }`}
             >
               <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={active ? 2.5 : 2.2} />
