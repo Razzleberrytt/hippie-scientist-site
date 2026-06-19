@@ -7,7 +7,6 @@ import { onOpenConsent } from '../lib/consentBus'
 import NonEmpty from './NonEmpty'
 import { isAnalyticsRouteEnabled } from '@/lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '@/lib/public-routes'
-import NewsletterSignup from '../../components/NewsletterSignup'
 
 const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
@@ -64,18 +63,6 @@ export default function Footer() {
   return (
     <footer className='mt-8 w-full border-t border-white/8 bg-[#07080F] px-4 py-12'>
       <div className='mx-auto w-full max-w-screen-lg'>
-        <div className='mb-10 border-b border-white/8 pb-8'>
-          <div className='max-w-3xl'>
-            <NewsletterSignup
-              title='Get the supplement safety checklist'
-              description='Weekly evidence updates plus the printable checklist: meds, dose, form, and stacking risk before you buy.'
-              ctaLabel='Join the list'
-              location='footer'
-              variant='footer'
-            />
-          </div>
-        </div>
-
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           <div>
             <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>

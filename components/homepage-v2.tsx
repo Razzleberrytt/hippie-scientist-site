@@ -2,7 +2,6 @@ import Link from 'next/link'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
 import { HERB_COUNT, COMPOUND_COUNT } from '@/lib/profile-counts'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
-import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import { getHomepageFreshness } from '@/lib/freshness'
 
 type RuntimeFeature = Record<string, unknown>
@@ -138,15 +137,15 @@ const featuredFallbacks: LandingCard[] = [
 ]
 
 const heroGoals = [
-  { slug: 'sleep', title: 'Sleep Support', bg: 'bg-gradient-to-br from-[hsl(220,60%,97%)] to-[hsl(240,60%,94%)] border-[hsl(220,50%,85%)]', text: 'text-[hsl(220,60%,35%)]', desc: 'Quieting bedtime worry & support for natural onset.' },
-  { slug: 'stress', title: 'Stress & Fatigue', bg: 'bg-gradient-to-br from-[hsl(30,70%,97%)] to-[hsl(15,70%,95%)] border-[hsl(30,50%,85%)]', text: 'text-[hsl(30,70%,35%)]', desc: 'Adaptogens for cortisol regulation & mental burnout.' },
-  { slug: 'anxiety', title: 'Anxiety & Calm', bg: 'bg-gradient-to-br from-[hsl(160,50%,96%)] to-[hsl(180,50%,94%)] border-[hsl(160,40%,85%)]', text: 'text-[hsl(160,60%,30%)]', desc: 'Promoting daytime peace without heavy daytime sedation.' },
-  { slug: 'focus', title: 'Focus & Alertness', bg: 'bg-gradient-to-br from-[hsl(280,50%,97%)] to-[hsl(260,50%,94%)] border-[hsl(280,40%,85%)]', text: 'text-[hsl(280,60%,35%)]', desc: 'Alertness support & smoothing stimulant jitters.' },
-  { slug: 'gut-health', title: 'Gut Health', bg: 'bg-gradient-to-br from-[hsl(100,40%,96%)] to-[hsl(120,40%,94%)] border-[hsl(100,30%,85%)]', text: 'text-[hsl(100,50%,30%)]', desc: 'Evaluating enzymes, prebiotic fibers, & regularity aids.' },
-  { slug: 'pain', title: 'Pain Support', bg: 'bg-gradient-to-br from-[hsl(45,60%,96%)] to-[hsl(35,60%,94%)] border-[hsl(45,50%,85%)]', text: 'text-[hsl(45,60%,30%)]', desc: 'Addressing joint stiffness & chronic inflammatory pain.' },
-  { slug: 'longevity', title: 'Longevity & Cellular', bg: 'bg-gradient-to-br from-[hsl(140,40%,96%)] to-[hsl(150,40%,94%)] border-[hsl(140,30%,85%)]', text: 'text-[hsl(140,50%,30%)]', desc: 'NAD+ synthesis precursors & mitochondrial health.' },
-  { slug: 'joint-support', title: 'Joint & Mobility', bg: 'bg-gradient-to-br from-[hsl(200,60%,96%)] to-[hsl(190,60%,94%)] border-[hsl(200,40%,85%)]', text: 'text-[hsl(200,60%,35%)]', desc: 'Cartilage support & systemic joint integrity.' },
-  { slug: 'recovery', title: 'Exercise Recovery', bg: 'bg-gradient-to-br from-[hsl(310,40%,97%)] to-[hsl(290,40%,94%)] border-[hsl(310,30%,85%)]', text: 'text-[hsl(310,50%,35%)]', desc: 'Energy buffering, soreness reduction, & cell recovery.' },
+  { slug: 'sleep', title: 'Sleep Support', bg: 'bg-gradient-to-br from-[hsl(220,60%,97%)] to-[hsl(240,60%,94%)] border-[hsl(220,50%,85%)]', desc: 'Quieting bedtime worry & support for natural onset.' },
+  { slug: 'stress', title: 'Stress & Fatigue', bg: 'bg-gradient-to-br from-[hsl(30,70%,97%)] to-[hsl(15,70%,95%)] border-[hsl(30,50%,85%)]', desc: 'Adaptogens for cortisol regulation & mental burnout.' },
+  { slug: 'anxiety', title: 'Anxiety & Calm', bg: 'bg-gradient-to-br from-[hsl(160,50%,96%)] to-[hsl(180,50%,94%)] border-[hsl(160,40%,85%)]', desc: 'Promoting daytime peace without heavy daytime sedation.' },
+  { slug: 'focus', title: 'Focus & Alertness', bg: 'bg-gradient-to-br from-[hsl(280,50%,97%)] to-[hsl(260,50%,94%)] border-[hsl(280,40%,85%)]', desc: 'Alertness support & smoothing stimulant jitters.' },
+  { slug: 'gut-health', title: 'Gut Health', bg: 'bg-gradient-to-br from-[hsl(100,40%,96%)] to-[hsl(120,40%,94%)] border-[hsl(100,30%,85%)]', desc: 'Evaluating enzymes, prebiotic fibers, & regularity aids.' },
+  { slug: 'pain', title: 'Pain Support', bg: 'bg-gradient-to-br from-[hsl(45,60%,96%)] to-[hsl(35,60%,94%)] border-[hsl(45,50%,85%)]', desc: 'Addressing joint stiffness & chronic inflammatory pain.' },
+  { slug: 'longevity', title: 'Longevity & Cellular', bg: 'bg-gradient-to-br from-[hsl(140,40%,96%)] to-[hsl(150,40%,94%)] border-[hsl(140,30%,85%)]', desc: 'NAD+ synthesis precursors & mitochondrial health.' },
+  { slug: 'joint-support', title: 'Joint & Mobility', bg: 'bg-gradient-to-br from-[hsl(200,60%,96%)] to-[hsl(190,60%,94%)] border-[hsl(200,40%,85%)]', desc: 'Cartilage support & systemic joint integrity.' },
+  { slug: 'recovery', title: 'Exercise Recovery', bg: 'bg-gradient-to-br from-[hsl(310,40%,97%)] to-[hsl(290,40%,94%)] border-[hsl(310,30%,85%)]', desc: 'Energy buffering, soreness reduction, & cell recovery.' },
 ]
 
 function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
@@ -253,21 +252,17 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                   className={`flex flex-col justify-between rounded-[1rem] border ${hGoal.bg} p-4 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.01]`}
                 >
                   <div>
-                    <div className='flex items-center justify-between'>
-                      <span className='text-[10px] font-bold uppercase tracking-wider text-muted'>Evidence Review</span>
-                      <span className='h-2 w-2 rounded-full bg-brand-700' />
-                    </div>
-                    <Link href={`/goals/${hGoal.slug}`} className='group mt-2 block'>
-                      <h3 className={`text-lg font-bold text-ink transition group-hover:text-brand-700`}>
+                    <Link href={`/goals/${hGoal.slug}`} className='group block'>
+                      <h3 className='text-lg font-bold tracking-tight text-[#102018] transition group-hover:text-brand-800'>
                         {hGoal.title}
                       </h3>
-                      <p className='mt-1 text-xs leading-relaxed text-muted'>{hGoal.desc}</p>
+                      <p className='mt-1.5 text-sm font-medium leading-relaxed text-[#33443a]'>{hGoal.desc}</p>
                     </Link>
                   </div>
 
                   <div className='mt-4 pt-2 border-t border-brand-900/5'>
-                    <Link href={`/goals/${hGoal.slug}`} className='group block'>
-                      <ActionCue>Compare all candidates</ActionCue>
+                    <Link href={`/goals/${hGoal.slug}`} className='text-xs font-bold text-brand-800 transition hover:text-brand-900'>
+                      Compare all candidates
                     </Link>
                   </div>
                 </div>
@@ -445,8 +440,6 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
             </Link>
           </div>
         </section>
-
-        <SafetyChecklistPromo goal='default' variant='hero' />
 
         {/* ── Disclaimer ───────────────────────────────────────── */}
         <section className='rounded-[0.85rem] border border-amber-200/80 bg-amber-50/50 p-4'>
