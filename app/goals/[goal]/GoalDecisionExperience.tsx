@@ -145,7 +145,7 @@ export default function GoalDecisionExperience({
           </div>
 
           <div className="rounded-3xl border border-brand-900/10 bg-white/70 p-5 shadow-sm">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Proof of concept</p>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Evidence snapshot</p>
             <dl className="mt-4 space-y-3 text-sm leading-6 text-muted">
               <div>
                 <dt className="font-semibold text-ink">Workbook claims</dt>
@@ -156,8 +156,8 @@ export default function GoalDecisionExperience({
                 <dd>{evidence.safetyNotes.length} ingredient warnings</dd>
               </div>
               <div>
-                <dt className="font-semibold text-ink">Last generated</dt>
-                <dd>{evidence.updatedAt ? new Date(evidence.updatedAt).toLocaleDateString('en-US') : 'Awaiting workbook rows'}</dd>
+                <dt className="font-semibold text-ink">Last reviewed</dt>
+                <dd>{evidence.updatedAt ? new Date(evidence.updatedAt).toLocaleDateString('en-US') : 'Review pending'}</dd>
               </div>
             </dl>
           </div>
@@ -168,8 +168,6 @@ export default function GoalDecisionExperience({
       </section>
 
       <SafetyChecklistPromo goal={captureGoal} variant="hero" />
-
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
 
       {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
 
@@ -278,6 +276,8 @@ export default function GoalDecisionExperience({
           ))}
         </div>
       </section>
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
 
       {goalContent ? <GoalContentDepth content={goalContent} /> : null}
 

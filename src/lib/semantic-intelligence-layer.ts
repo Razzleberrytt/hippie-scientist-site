@@ -74,7 +74,7 @@ function mechanismScore(record: any): SemanticIntelligenceSignal {
     label: 'Mechanism density',
     score: Math.min(10, mechanisms.length * 2),
     reason: mechanisms.length >= 4
-      ? 'Profile has enough mapped mechanism/pathway signals for stronger semantic traversal.'
+      ? 'Profile has enough mapped mechanism/pathway signals for stronger related-topic discovery.'
       : 'Profile has limited mechanism density and should be routed cautiously.',
     type: 'mechanism',
   }

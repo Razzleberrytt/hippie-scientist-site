@@ -30,7 +30,7 @@ export function EcosystemContinuityVisualizationSection({
       color: 'bg-cyan-500',
     },
     {
-      label: 'Traversal continuity',
+      label: 'Topic continuity',
       value: orchestration.continuityPriority,
       color: 'bg-indigo-500',
     },
@@ -40,7 +40,7 @@ export function EcosystemContinuityVisualizationSection({
       color: 'bg-rose-500',
     },
     {
-      label: 'Supernode orchestration',
+      label: 'Hub priority',
       value: orchestration.supernodePriority,
       color: 'bg-amber-500',
     },
@@ -54,13 +54,12 @@ export function EcosystemContinuityVisualizationSection({
         </p>
 
         <h2 className="text-3xl font-semibold tracking-tight text-ink">
-          Visualize semantic ecosystem continuity
+          Visualize related topic continuity
         </h2>
 
         <p className="max-w-3xl text-base leading-7 text-muted">
-          Explore continuity density, adaptive ecosystem
-          relationships, semantic traversal intensity, and
-          educational orchestration structure.
+          Explore topic density, related evidence themes, and
+          educational pathway structure.
         </p>
       </div>
 

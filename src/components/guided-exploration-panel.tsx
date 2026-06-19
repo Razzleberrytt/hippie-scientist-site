@@ -16,7 +16,7 @@ export default function GuidedExplorationPanel({
       <div className="space-y-2">
         <div className="flex flex-wrap items-center gap-2">
           <p className="eyebrow-label">Guided Exploration</p>
-          <span className="chip-readable">AI-assisted semantic traversal</span>
+          <span className="chip-readable">Related topics</span>
         </div>
 
         <h2 className="compact-heading">
@@ -24,7 +24,7 @@ export default function GuidedExplorationPanel({
         </h2>
 
         <p className="compact-copy">
-          Semantic traversal synthesizes pathway continuity, mechanism overlap, evidence maturity, and ecosystem relationships to guide deeper exploration.
+          Follow related pathways, mechanism overlap, evidence maturity, and topic relationships for deeper reading.
         </p>
       </div>
 

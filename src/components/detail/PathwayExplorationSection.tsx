@@ -37,13 +37,12 @@ export function PathwayExplorationSection({
         </p>
 
         <h2 className="text-2xl font-semibold tracking-tight text-ink">
-          Follow adaptive educational traversal pathways
+          Follow related educational pathways
         </h2>
 
         <p className="max-w-3xl text-sm leading-7 text-muted">
-          Explore multi-step semantic traversal systems,
-          continuity-aware educational pathways, and connected
-          ecosystem progression.
+          Explore connected topics, related mechanisms, and
+          educational pathways that build on this profile.
         </p>
       </div>
 
@@ -66,7 +65,7 @@ export function PathwayExplorationSection({
                   </span>
 
                   <span className="rounded-full bg-indigo-100 px-3 py-1 text-[11px] font-medium text-indigo-800">
-                    traversal {traversal.traversalScore}
+                    relevance {traversal.traversalScore}
                   </span>
                 </div>
 
@@ -76,9 +75,8 @@ export function PathwayExplorationSection({
                   </h3>
 
                   <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
-                    Continue exploring semantic traversal systems,
-                    adaptive educational progression, and connected
-                    ecosystem pathways.
+                    Continue with related topics, educational
+                    context, and connected pathway reading.
                   </p>
                 </div>
               </div>
@@ -87,7 +85,7 @@ export function PathwayExplorationSection({
             <div className="flex items-center gap-4 lg:flex-col lg:items-end">
               <div className="rounded-2xl bg-indigo-50 px-4 py-3 text-right">
                 <p className="text-[11px] uppercase tracking-[0.18em] text-muted">
-                  Traversal
+                  Relevance
                 </p>
 
                 <p className="text-2xl font-semibold text-indigo-900">

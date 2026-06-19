@@ -1,9 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { cleanSummary, formatDisplayLabel, isClean } from '@/lib/display-utils'
 import { HERB_COUNT, COMPOUND_COUNT } from '@/lib/profile-counts'
-import { goals } from '@/data/goals'
-import { getRevenueProductSet } from '@/config/revenue-products'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import { getHomepageFreshness } from '@/lib/freshness'
@@ -100,32 +97,6 @@ const featuredArticles = [
   },
 ]
 
-const compoundSlugAliases: Record<string, string> = {
-  psyllium: 'psyllium-husk',
-}
-
-const evidenceItemHrefOverrides: Record<string, string> = {
-  'tart-cherry': '/goals/recovery',
-}
-
-function trimRepeatedAdjacentTokens(value: string) {
-  const tokens = value.split(/\s+/).filter(Boolean)
-  return tokens.filter((token, index) => index === 0 || token.toLowerCase() !== tokens[index - 1].toLowerCase()).join(' ')
-}
-
-function getProductDisplayName(product: { brand?: string; title?: string }) {
-  const brand = (product.brand || '').trim()
-  const title = (product.title || '').replace(/^[^a-zA-Z]+/g, '').trim()
-  if (!brand) return trimRepeatedAdjacentTokens(title)
-  if (!title) return brand
-  return trimRepeatedAdjacentTokens(title.toLowerCase().startsWith(brand.toLowerCase()) ? title : `${brand} ${title}`)
-}
-
-function getEvidenceItemHref(slug: string) {
-  if (evidenceItemHrefOverrides[slug]) return evidenceItemHrefOverrides[slug]
-  return `/compounds/${compoundSlugAliases[slug] || slug}`
-}
-
 // Fallbacks / curated popular starting points
 const featuredFallbacks: LandingCard[] = [
   {
@@ -219,8 +190,8 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-6 py-8 shadow-sm sm:px-10 sm:py-12'>
-          <div className='grid gap-8 lg:grid-cols-[1.14fr_0.86fr] lg:items-center'>
-            <div className='flex flex-col items-center text-center lg:items-start lg:text-left'>
+          <div className='mx-auto max-w-4xl'>
+            <div className='flex flex-col items-center text-center'>
               <p role='doc-subtitle' className='mb-3 inline-flex text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-700'>
                 Evidence-first supplement decisions
               </p>
@@ -231,7 +202,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 Evidence-based herbs and supplements for <strong className='text-ink'>sleep, stress, anxiety, and focus</strong> — {HERB_COUNT} herb profiles and {COMPOUND_COUNT} compound reviews, each separating what clinical trials actually show from mechanism-only marketing claims. See our <Link href='/methodology' className='text-brand-700 font-semibold underline decoration-dotted underline-offset-4 hover:text-brand-800'>Evidence Grading Methodology</Link>.
               </p>
               
-              <div className='mt-4 inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1 text-xs font-semibold text-brand-800 self-center lg:self-start' aria-label={`Last reviewed: ${formattedDate}. ${citationCount} peer-reviewed studies cited.`}>
+              <div className='mt-4 inline-flex items-center gap-2 rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1 text-xs font-semibold text-brand-800 self-center' aria-label={`Last reviewed: ${formattedDate}. ${citationCount} peer-reviewed studies cited.`}>
                 <span className='h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse' aria-hidden='true' />
                 <span>Last reviewed: {formattedDate}</span>
                 <span className='text-brand-900/10'>•</span>
@@ -259,20 +230,6 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                 ))}
               </div>
             </div>
-
-            {/* Hero image */}
-            <div className='relative overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-md transition-all duration-500 hover:shadow-xl hover:scale-[1.01]'>
-              <div className='relative w-full h-[200px] sm:h-[240px] lg:h-[380px]'>
-                <Image
-                  src='/hero-illustration.jpg'
-                  alt='The Hippie Scientist Botanical Research Lab'
-                  fill
-                  priority
-                  className='object-cover'
-                />
-                <div className='absolute inset-0 bg-gradient-to-t from-black/10 to-transparent' />
-              </div>
-            </div>
           </div>
         </section>
 
@@ -290,11 +247,7 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
           </div>
 
           <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-            {heroGoals.map((hGoal) => {
-              const fullGoal = goals.find((g) => g.slug === hGoal.slug)
-              const quickPicks = fullGoal?.quickPicks.slice(0, 3) || []
-
-              return (
+            {heroGoals.map((hGoal) => (
                 <div
                   key={hGoal.slug}
                   className={`flex flex-col justify-between rounded-[1rem] border ${hGoal.bg} p-4 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.01]`}
@@ -312,46 +265,13 @@ export default function HomepageV2({ featuredHerbs = [], featuredCompounds = [] 
                     </Link>
                   </div>
 
-                  <div className='mt-4 border-t border-brand-900/10 pt-3 space-y-2.5'>
-                    <p className='text-[10px] font-bold uppercase tracking-wider text-muted'>Top Sourcing Picks</p>
-                    <div className='space-y-1.5'>
-                      {quickPicks.map((pick) => {
-                        const productSet = getRevenueProductSet(pick.slug)
-                        const overallProduct = productSet?.products.find((p) => p.slot === 'overall')
-                        return (
-                          <div key={pick.slug} className='flex items-baseline justify-between gap-2 text-xs min-w-0'>
-                            <span className='text-muted shrink-0 max-w-[120px] truncate'>{pick.need}:</span>
-                            {overallProduct ? (
-                              <a
-                                href={overallProduct.affiliateUrl}
-                                target='_blank'
-                                rel='nofollow sponsored noopener noreferrer'
-                                className='font-bold text-brand-700 hover:text-brand-800 hover:underline text-right break-words min-w-0'
-                              >
-                                {getProductDisplayName(overallProduct)} →
-                              </a>
-                            ) : (
-                              <Link
-                                href={getEvidenceItemHref(pick.slug)}
-                                className='font-bold text-brand-700 hover:text-brand-800 hover:underline text-right break-words min-w-0'
-                              >
-                                {pick.option} →
-                              </Link>
-                            )}
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-
                   <div className='mt-4 pt-2 border-t border-brand-900/5'>
                     <Link href={`/goals/${hGoal.slug}`} className='group block'>
                       <ActionCue>Compare all candidates</ActionCue>
                     </Link>
                   </div>
                 </div>
-              )
-            })}
+              ))}
           </div>
         </section>
 

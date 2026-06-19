@@ -46,13 +46,12 @@ export function ContinuityMapSection({
         </p>
 
         <h2 className="text-3xl font-semibold tracking-tight text-ink">
-          Explore semantic continuity relationships
+          Explore related topic relationships
         </h2>
 
         <p className="max-w-3xl text-base leading-7 text-muted">
-          Navigate continuity density, adaptive ecosystem overlap,
-          and semantic traversal relationships across educational
-          pathways.
+          Navigate topic overlap, connected evidence themes, and
+          educational pathways.
         </p>
       </div>
 
