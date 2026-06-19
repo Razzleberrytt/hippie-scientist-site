@@ -132,6 +132,16 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Search all herbs and compounds',
     parent: '/',
   },
+  '/safety': {
+    label: 'Safety',
+    description: 'Safety checker redirect',
+    parent: '/',
+  },
+  '/safety-checker': {
+    label: 'Safety',
+    description: 'Interaction checker and safety context',
+    parent: '/',
+  },
   '/goals': {
     label: 'Goals',
     description: 'Find remedies by health goals',

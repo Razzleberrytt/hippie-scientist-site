@@ -24,13 +24,11 @@ export const metadata: Metadata = buildPageMetadata({
 
 
 const popularComparisonPairs = [
-  { label: 'Mitragynine vs 7-Hydroxymitragynine', href: '/compare/mitragynine-vs-7-hydroxymitragynine' },
-  { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha' },
-  { label: 'Kava vs Alcohol', href: '/compare/kava-vs-alcohol' },
-  { label: 'Kanna vs SSRIs', href: '/compare/kanna-vs-ssris' },
-  { label: 'L-Theanine vs Magnesium', href: '/compare/l-theanine-vs-magnesium' },
+  { label: 'Melatonin vs Magnesium', href: '/compare/melatonin-vs-magnesium' },
   { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin' },
-  { label: 'Curcumin vs Boswellia vs Omega-3', href: '/compare/curcumin-vs-boswellia-vs-omega-3' },
+  { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha' },
+  { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium' },
+  { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus' },
 ]
 
 const guidanceCards = [
