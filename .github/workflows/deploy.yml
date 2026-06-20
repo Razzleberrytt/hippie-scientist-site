@@ -78,7 +78,7 @@ jobs:
           COMMIT_HASH: ${{ env.DEPLOY_SHA }}
         run: npm run build:deploy
 
-      - name: Verify build
+      - name: Verify build output
         run: npm run verify:output
 
       - name: Validate deployment secrets
