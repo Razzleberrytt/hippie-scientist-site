@@ -73,10 +73,12 @@ export async function generateMetadata({ params }: { params: ArticleRouteParams 
   const { slug } = await params
   const mdxArticle = mdxArticles.find((a) => a.slug === slug)
   if (mdxArticle) {
+    const title = (mdxArticle as any).seoTitle || (mdxArticle as any).metaTitle || mdxArticle.title
+    const description = (mdxArticle as any).seoDescription || (mdxArticle as any).metaDescription || mdxArticle.description
     return buildPageMetadata({
-      title: mdxArticle.title,
-      description: mdxArticle.description,
-      path: `/articles/${slug}`,
+      title,
+      description,
+      path: `/articles/${slug}/`,
       openGraphType: 'article',
     })
   }
@@ -84,10 +86,13 @@ export async function generateMetadata({ params }: { params: ArticleRouteParams 
   const article = allArticles.find((a) => a.slug === slug)
   if (!article) return generateBlogMetadata({ params: Promise.resolve({ slug }) })
 
+  const title = (article as any).seoTitle || (article as any).metaTitle || article.title
+  const description = (article as any).seoDescription || (article as any).metaDescription || article.description
+
   return buildPageMetadata({
-    title: article.title,
-    description: article.description,
-    path: `/articles/${slug}`,
+    title,
+    description,
+    path: `/articles/${slug}/`,
     openGraphType: 'article',
   })
 }

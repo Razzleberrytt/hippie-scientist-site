@@ -34,10 +34,13 @@ export async function generateMetadata({ params }: BlogRouteProps) {
 
   if (!post) return {}
 
-  const path = `/articles/${resolvedParams.slug}`
+  const path = `/articles/${resolvedParams.slug}/`
+  const title = (post as any).seoTitle || (post as any).metaTitle || post.title
+  const description = (post as any).seoDescription || (post as any).metaDescription || post.excerpt || 'Research note with mechanisms, evidence, and safety context.'
+
   const base = {
-    title: post.title,
-    description: post.excerpt || 'Research note with mechanisms, evidence, and safety context.',
+    title,
+    description,
     path,
     openGraphType: 'article' as const,
   }

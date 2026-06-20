@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
 import AuthorCredentials from '@/components/AuthorCredentials'
+import JsonLd from '@/components/seo/JsonLd'
 
 export default function AboutClient() {
   const [name, setName] = useState('')
@@ -24,7 +25,7 @@ export default function AboutClient() {
   const personJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Will',
+    name: 'Will Thomas',
     url: 'https://thehippiescientist.net/about/',
     jobTitle: 'Founder & Head Researcher',
     worksFor: {
@@ -40,10 +41,7 @@ export default function AboutClient() {
 
   return (
     <div className="mx-auto max-w-5xl space-y-12 px-4 py-8 sm:py-12">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
-      />
+      <JsonLd schema={personJsonLd} />
       {/* Hero / Vision Section */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">

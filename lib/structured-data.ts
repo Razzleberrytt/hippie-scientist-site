@@ -48,8 +48,9 @@ export function buildArticleSchema(post: Record<string, unknown>) {
     mainEntityOfPage: url,
     url: url,
     author: {
-      '@type': 'Organization',
-      name: 'The Hippie Scientist'
+      '@type': 'Person',
+      name: 'Will Thomas',
+      url: 'https://thehippiescientist.net/about/'
     },
     publisher: {
       '@type': 'Organization',

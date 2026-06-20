@@ -11,6 +11,7 @@ import {
 } from './index-allowlist'
 
 import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
+import { getProfileFreshness } from '@/lib/freshness'
 
 export { SITE_URL, SITE_NAME }
 export const SEO_YEAR = '2026'
@@ -204,6 +205,14 @@ function recordText(record: Record<string, unknown>, fields: string[]): string {
     .trim()
 }
 
+export const QUALITY_GATE_THRESHOLDS = {
+  MIN_SUMMARY_LENGTH: 500,
+  MIN_BODY_LENGTH: 800,
+  REQUIRE_SAFETY: true,
+  REQUIRE_EVIDENCE_GRADE_OR_RATIONALE: true,
+  REQUIRE_CITATIONS: true,
+}
+
 export function passesGeneratedProfileQualityGate(record: Record<string, unknown> | null | undefined): boolean {
   if (!record) return false
   if (hasNoindexSignal(record)) return false
@@ -227,7 +236,6 @@ export function passesGeneratedProfileQualityGate(record: Record<string, unknown
     'short_earthy_summary',
     'meta_description',
   ])
-  if (summary.length < 250) return false
 
   const supportingContext = recordText(record, [
     'safety',
@@ -249,8 +257,38 @@ export function passesGeneratedProfileQualityGate(record: Record<string, unknown
     'primary_effects',
     'effects',
     'useContexts',
+    'evidence_rationale',
+    'trial_design_insight',
   ])
-  if (!supportingContext) return false
+
+  if (summary.length < QUALITY_GATE_THRESHOLDS.MIN_SUMMARY_LENGTH && supportingContext.length < QUALITY_GATE_THRESHOLDS.MIN_BODY_LENGTH) {
+    return false
+  }
+
+  if (QUALITY_GATE_THRESHOLDS.REQUIRE_SAFETY) {
+    const safety = recordText(record, [
+      'safety',
+      'safetyNotes',
+      'safety_notes',
+      'interactions',
+      'drug_interactions',
+      'contraindications'
+    ])
+    if (!safety.trim()) return false
+  }
+
+  if (QUALITY_GATE_THRESHOLDS.REQUIRE_EVIDENCE_GRADE_OR_RATIONALE) {
+    const evidenceGrade = String(record.evidence_grade || record.evidence_tier || record.evidenceTier || '').trim()
+    const evidenceRationale = String(record.evidence_rationale || record.rationale || record.evidence_summary || '').trim()
+    if (!evidenceGrade && !evidenceRationale) return false
+  }
+
+  if (QUALITY_GATE_THRESHOLDS.REQUIRE_CITATIONS) {
+    const slug = String(record.slug || '')
+    const freshness = slug ? getProfileFreshness(slug) : null
+    const citationCount = freshness ? freshness.citationCount : 0
+    if (citationCount <= 0) return false
+  }
 
   const internalLinkSignals = recordText(record, [
     'related',
@@ -313,30 +351,44 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
 
   if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
+    // 1. Curated list is a priority index route and always overrides quality gate
+    const isCurated = (CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)
+    if (isCurated) {
+      return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.7 }
+    }
+
+    // 2. Quality gate applies to all non-curated profiles
+    if (!passesGeneratedProfileQualityGate(pageData)) {
+      return { index: false, follow: true, reason: 'generated-herb-quality-gate-failed', priority: 0 }
+    }
+
+    // 3. Otherwise, check explicit publish signal
     if (hasExplicitPublishSignal(pageData)) {
       return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
     }
-    if ((CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)) {
-      return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.7 }
-    }
-    if (passesGeneratedProfileQualityGate(pageData)) {
-      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
-    }
-    return { index: false, follow: true, reason: 'generated-herb-quality-gate-failed', priority: 0 }
+    
+    return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
   }
 
   if (/^\/compounds\/[^/]+$/.test(normalizedPath)) {
     const slug = normalizedPath.split('/').pop() || ''
+    // 1. Curated list is a priority index route and always overrides quality gate
+    const isCurated = (CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)
+    if (isCurated) {
+      return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.7 }
+    }
+
+    // 2. Quality gate applies to all non-curated profiles
+    if (!passesGeneratedProfileQualityGate(pageData)) {
+      return { index: false, follow: true, reason: 'generated-compound-quality-gate-failed', priority: 0 }
+    }
+
+    // 3. Otherwise, check explicit publish signal
     if (hasExplicitPublishSignal(pageData)) {
       return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
     }
-    if ((CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)) {
-      return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.7 }
-    }
-    if (passesGeneratedProfileQualityGate(pageData)) {
-      return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
-    }
-    return { index: false, follow: true, reason: 'generated-compound-quality-gate-failed', priority: 0 }
+    
+    return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
   }
 
   if (/^\/(learn|education|compare|stacks|psychoactive|novel-psychoactive-substances)\/[^/]+$/.test(normalizedPath)) {
@@ -518,6 +570,11 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
     mainEntityOfPage: url,
     url,
     image: imageUrl,
+    author: {
+      '@type': 'Person',
+      name: 'Will Thomas',
+      url: `${SITE_URL}/about/`,
+    },
     publisher: {
       '@type': 'Organization',
       name: SITE_NAME,

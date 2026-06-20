@@ -55,7 +55,7 @@ export default function StructuredData({
       author: {
         '@type': 'Person',
         name: authorName,
-        url: SITE_URL,
+        url: `${SITE_URL}/about/`,
       },
       publisher: {
         '@type': 'Organization',
@@ -85,7 +85,7 @@ export default function StructuredData({
       author: {
         '@type': 'Person',
         name: authorName,
-        url: SITE_URL,
+        url: `${SITE_URL}/about/`,
       },
       publisher: {
         '@type': 'Organization',
