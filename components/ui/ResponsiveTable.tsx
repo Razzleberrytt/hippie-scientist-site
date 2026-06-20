@@ -15,7 +15,7 @@ export default function ResponsiveTable({
     <div
       role="region"
       aria-label={label}
-      className={`overflow-x-auto rounded-xl border border-brand-900/10 bg-white focus:outline-none focus:ring-2 focus:ring-brand-700/30 ${className}`}
+      className={`overflow-x-auto rounded-xl border border-brand-900/10 bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-700/30 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card-strong)] ${className}`}
     >
       {children}
     </div>

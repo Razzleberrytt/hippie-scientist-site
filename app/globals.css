@@ -157,7 +157,7 @@ html.dark {
   --color-background: #0f2419;
   --color-surface: #1a3028;
   --color-ink: #f5f0e6;
-  --color-muted: #9aab9e;
+  --color-muted: #c2d0c6;
   --color-brand-50: #111f17;
   --color-brand-100: #182a1f;
   --color-brand-200: #24382b;
@@ -173,8 +173,8 @@ html.dark {
   --surface: #1a3028;
   --surface-elevated: #243d32;
   --text-primary: #f5f0e6;
-  --text-secondary: #d4cfc4;
-  --text-muted: #9aab9e;
+  --text-secondary: #e0dcd2;
+  --text-muted: #c2d0c6;
   --border-soft: rgba(180, 210, 190, 0.18);
   --border-strong: rgba(180, 210, 190, 0.30);
   --border-default: var(--border-soft);
@@ -272,11 +272,11 @@ body * {
   }
 
   h1 {
-    @apply font-display text-[2rem] font-semibold leading-[1.06] tracking-tighter text-ink sm:text-4xl lg:text-[2.75rem];
+    @apply font-display text-[2rem] font-semibold leading-[1.12] tracking-normal text-ink sm:text-4xl lg:text-[2.75rem];
   }
 
   h2 {
-    @apply font-display text-[1.55rem] font-semibold leading-[1.14] tracking-tight text-ink sm:text-2xl;
+    @apply font-display text-[1.55rem] font-semibold leading-[1.16] tracking-normal text-ink sm:text-2xl;
   }
 
   h3 {
@@ -293,7 +293,7 @@ body * {
   }
 
   p {
-    @apply max-w-reading text-[0.95rem] leading-[1.55] text-muted;
+    @apply max-w-reading text-[0.97rem] leading-[1.68] text-muted;
   }
 
   p + p {
@@ -434,7 +434,7 @@ html.dark ::selection {
   }
 
   .content-prose {
-    @apply max-w-reading space-y-3 text-[0.95rem] leading-[1.6] text-[#46574d];
+    @apply max-w-reading space-y-4 text-[1rem] leading-[1.72] text-[#36483e];
   }
 
   .content-prose > * {
@@ -448,7 +448,7 @@ html.dark ::selection {
   }
 
   .content-prose p {
-    @apply max-w-reading leading-[1.62] text-[#46574d];
+    @apply max-w-reading leading-[1.74] text-[#36483e];
   }
 
   .content-prose ul,
@@ -457,7 +457,7 @@ html.dark ::selection {
   }
 
   .content-prose li {
-    @apply pl-1 leading-6 text-[#46574d];
+    @apply pl-1 leading-7 text-[#36483e];
   }
 
   .content-prose li + li {
@@ -465,7 +465,31 @@ html.dark ::selection {
   }
 
   .content-prose a {
-    @apply font-semibold text-brand-800 underline decoration-brand-800/25 underline-offset-4 hover:text-brand-900 hover:decoration-brand-900/55;
+    @apply font-semibold text-brand-800 underline decoration-brand-800/35 underline-offset-4 hover:text-brand-900 hover:decoration-brand-900/60;
+  }
+
+  .content-prose blockquote {
+    @apply rounded-r-xl border-l-4 border-brand-700/45 bg-brand-50/80 px-4 py-3 text-[#26382f];
+  }
+
+  .content-prose table {
+    @apply min-w-[680px] w-full border-collapse text-left text-sm;
+  }
+
+  .content-prose th {
+    @apply bg-brand-50/80 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-900;
+  }
+
+  .content-prose td {
+    @apply border-t border-brand-900/10 px-4 py-3 align-top leading-6 text-[#36483e];
+  }
+
+  .content-prose tbody tr:nth-child(even) {
+    background-color: rgba(243, 245, 238, 0.46);
+  }
+
+  .content-prose .article-table {
+    @apply my-6 max-w-full bg-white/90;
   }
 
   .detail-reading {
@@ -489,7 +513,7 @@ html.dark ::selection {
   }
 
   .muted-readable {
-    @apply text-[#46574d];
+    @apply text-[#36483e];
   }
 
   .eyebrow,
@@ -821,6 +845,28 @@ html.dark :is(
   color: #c7d5c5;
 }
 
+html.dark .content-prose blockquote {
+  background-color: rgba(49, 75, 51, 0.44);
+  color: var(--text-secondary);
+}
+
+html.dark .content-prose th {
+  background-color: rgba(168, 189, 169, 0.14);
+  color: var(--text-primary);
+}
+
+html.dark .content-prose td {
+  color: var(--text-muted);
+}
+
+html.dark .content-prose tbody tr:nth-child(even) {
+  background-color: rgba(168, 189, 169, 0.07);
+}
+
+html.dark .content-prose .article-table {
+  background-color: var(--surface-card-strong);
+}
+
 html.dark :is(
   [class*="border-brand-900"],
   [class~="border-black/5"],
@@ -940,7 +986,7 @@ html.dark :is(
 
 @layer utilities {
   .text-display {
-    @apply font-display font-semibold leading-display tracking-tighter text-ink;
+    @apply font-display font-semibold leading-[1.08] tracking-normal text-ink;
   }
 
   .text-reading {
@@ -952,7 +998,7 @@ html.dark :is(
   }
 
   .heading-premium {
-    @apply font-display text-[2rem] font-semibold leading-[1.06] tracking-tighter text-ink sm:text-4xl lg:text-[2.75rem];
+    @apply font-display text-[2rem] font-semibold leading-[1.12] tracking-normal text-ink sm:text-4xl lg:text-[2.75rem];
   }
 
   .eyebrow {
@@ -1111,7 +1157,7 @@ html.dark :is(
     }
 
     .heading-premium {
-      @apply text-[2.35rem] leading-[1];
+      @apply text-[2rem] leading-[1.12];
     }
 
     .eyebrow-label {

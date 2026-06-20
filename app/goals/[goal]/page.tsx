@@ -320,7 +320,7 @@ export default async function GoalDecisionPage({
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-10">
+    <div className="mx-auto max-w-6xl space-y-10 px-4 pb-28 pt-8 sm:px-6 sm:py-10 lg:px-8">
       {structuredData}
       <Breadcrumbs
         items={[
@@ -329,17 +329,17 @@ export default async function GoalDecisionPage({
           { label: goal.title },
         ]}
       />
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-7 sm:p-12 shadow-sm">
+      <section className="hero-shell rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:rounded-[2rem] sm:p-12">
         <p className="eyebrow-label">{goal.eyebrow}</p>
         <h1 className="heading-premium mt-3 text-ink">
           {goal.title.replace(/ decisions$/, '')}: What does the evidence actually support?
         </h1>
-        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">{goal.description}</p>
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-[#36483e] sm:text-base dark:text-[var(--text-muted)]">{goal.description}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a href="#decision-orientation" className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
             Start with the {goal.slug} decisions
           </a>
-          <a href="#safety-first" className="inline-flex min-h-11 items-center justify-center rounded-full border border-brand-900/10 bg-white/70 px-5 py-2.5 text-sm font-semibold text-brand-900 transition hover:border-brand-700/30 hover:bg-white">
+          <a href="#safety-first" className="inline-flex min-h-11 items-center justify-center rounded-full border border-brand-900/15 bg-white/90 px-5 py-2.5 text-sm font-bold text-brand-900 shadow-sm transition hover:border-brand-700/30 hover:bg-white dark:bg-[var(--surface-card-strong)] dark:!text-[var(--text-primary)]">
             Review safety warnings
           </a>
         </div>
@@ -352,7 +352,7 @@ export default async function GoalDecisionPage({
         <div className="max-w-3xl">
           <p className="eyebrow-label">{goal.title} orientation</p>
           <h2 className="mt-2 text-2xl font-semibold text-ink">Start by naming your target need</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
+          <p className="mt-3 text-sm leading-7 text-[#36483e] dark:text-[var(--text-muted)]">
             Compare quick starting points by target need before reading the detailed evidence and caution levels below.
           </p>
         </div>
@@ -361,7 +361,7 @@ export default async function GoalDecisionPage({
             const opt = enrichedOptions.find((o) => o.option.slug === pick.slug)
             const href = opt?.profileHref
             return (
-              <article key={pick.slug} className="rounded-2xl border border-brand-900/10 bg-white/70 p-5 flex flex-col justify-between">
+              <article key={pick.slug} className="flex flex-col justify-between rounded-2xl border border-brand-900/12 bg-white/90 p-5 shadow-sm dark:bg-[var(--surface-card-strong)]">
                 <div>
                   <p className="eyebrow-label">Use-case fit</p>
                   <h3 className="mt-2 text-base font-semibold text-ink">
@@ -373,7 +373,7 @@ export default async function GoalDecisionPage({
                       <span>{pick.option}</span>
                     )}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{pick.need}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#36483e] dark:text-[var(--text-muted)]">{pick.need}</p>
                 </div>
               </article>
             )
@@ -383,7 +383,7 @@ export default async function GoalDecisionPage({
 
       <section id='comparison-table' className="card-premium scroll-mt-24 p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-ink">Comparison Table</h2>
-        <p className="mt-2 text-sm leading-6 text-muted">
+        <p className="mt-2 text-sm leading-6 text-[#36483e] dark:text-[var(--text-muted)]">
           These are starting points for comparison, not recommendations, prescriptions, or guaranteed outcomes.
         </p>
         <div className="mt-6 overflow-x-auto">
@@ -410,15 +410,15 @@ export default async function GoalDecisionPage({
                       <span>{option.name}</span>
                     )}
                   </td>
-                  <td className="py-3 pr-4 text-muted">{option.bestFor}</td>
-                  <td className="py-3 pr-4 text-muted">{option.speed}</td>
-                  <td className="py-3 pr-4 text-muted">{option.form}</td>
+                  <td className="py-3 pr-4 text-[#36483e] dark:text-[var(--text-muted)]">{option.bestFor}</td>
+                  <td className="py-3 pr-4 text-[#36483e] dark:text-[var(--text-muted)]">{option.speed}</td>
+                  <td className="py-3 pr-4 text-[#36483e] dark:text-[var(--text-muted)]">{option.form}</td>
                   <td className="py-3 pr-4">
                     <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
                       {evidenceLabel}
                     </span>
                   </td>
-                  <td className="py-3 text-muted">{safetyLabel}</td>
+                  <td className="py-3 text-[#36483e] dark:text-[var(--text-muted)]">{safetyLabel}</td>
                 </tr>
               ))}
             </tbody>
@@ -428,13 +428,13 @@ export default async function GoalDecisionPage({
 
       <section className="card-premium p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-ink">Runtime Profile Signals</h2>
-        <p className="mt-2 text-sm leading-6 text-muted">
+        <p className="mt-2 text-sm leading-6 text-[#36483e] dark:text-[var(--text-muted)]">
           These badges are pulled from existing compound runtime profiles when available. Empty or pending fields
           stay conservative rather than inventing missing evidence, mechanism, or safety details.
         </p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {enrichedOptions.map(({ option, evidenceLabel, safetyLabel, mechanismTags, mechanismCategoryTags, pathwayTags, compound }) => (
-            <article key={`${option.slug}-runtime-signals`} className="rounded-2xl border border-brand-900/10 bg-white/60 p-5 backdrop-blur-sm flex flex-col justify-between">
+            <article key={`${option.slug}-runtime-signals`} className="flex flex-col justify-between rounded-2xl border border-brand-900/12 bg-white/90 p-5 shadow-sm backdrop-blur-sm dark:bg-[var(--surface-card-strong)]">
               <div>
                 <h3 className="text-base font-semibold text-ink">{option.name}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">

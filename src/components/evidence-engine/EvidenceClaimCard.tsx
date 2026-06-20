@@ -27,11 +27,11 @@ export default function EvidenceClaimCard({
   const confidence = getConfidenceDisplay(claim.confidence_tier)
 
   return (
-    <article className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm">
+    <article className="rounded-2xl border border-brand-900/12 bg-white/95 p-5 shadow-sm dark:bg-[var(--surface-card-strong)]">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h4 className="text-xl font-semibold text-ink">{claim.ingredient_name}</h4>
-          <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">
+          <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-brand-700">
             {problemLabel}
           </p>
         </div>
@@ -44,20 +44,20 @@ export default function EvidenceClaimCard({
       <dl className="mt-4 space-y-3 text-sm leading-6">
         <div>
           <dt className="font-semibold text-ink">Evidence summary</dt>
-          <dd className="text-muted">{claim.evidence_summary}</dd>
+          <dd className="text-[#36483e] dark:text-[var(--text-muted)]">{claim.evidence_summary}</dd>
         </div>
         <div>
           <dt className="font-semibold text-ink">Limitations</dt>
-          <dd className="text-muted">{claim.limitations}</dd>
+          <dd className="text-[#36483e] dark:text-[var(--text-muted)]">{claim.limitations}</dd>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-xl bg-brand-50/50 p-3 ring-1 ring-brand-900/5">
+          <div className="rounded-xl bg-brand-50/80 p-3 ring-1 ring-brand-900/8 dark:bg-[var(--surface-subtle)]">
             <dt className="font-semibold text-ink">Best fit</dt>
-            <dd className="mt-1 text-muted">{claim.best_fit}</dd>
+            <dd className="mt-1 text-[#36483e] dark:text-[var(--text-muted)]">{claim.best_fit}</dd>
           </div>
-          <div className="rounded-xl bg-zinc-50 p-3 ring-1 ring-zinc-200">
+          <div className="rounded-xl bg-zinc-50 p-3 ring-1 ring-zinc-200 dark:bg-[var(--surface-neutral)] dark:ring-[var(--border-soft)]">
             <dt className="font-semibold text-ink">Not best fit</dt>
-            <dd className="mt-1 text-muted">{claim.not_best_fit}</dd>
+            <dd className="mt-1 text-[#36483e] dark:text-[var(--text-muted)]">{claim.not_best_fit}</dd>
           </div>
         </div>
       </dl>
@@ -75,7 +75,7 @@ export default function EvidenceClaimCard({
         </TrialDesignInsight>
       )}
 
-      <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-700 ring-1 ring-slate-200">
+      <div className="mt-4 rounded-xl bg-slate-50 p-3 text-xs leading-5 text-slate-800 ring-1 ring-slate-200 dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] dark:ring-[var(--border-soft)]">
         <strong>{confidence.label}:</strong> {confidence.description}
       </div>
 

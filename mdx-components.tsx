@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react'
+import type { ComponentType, ReactNode } from 'react'
 import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
@@ -8,8 +8,18 @@ import { ComparisonTable } from '@/components/ComparisonTable'
 import { EvidenceNote } from '@/components/EvidenceNote'
 import { HarmReductionCallout } from '@/components/HarmReductionCallout'
 import { NPSDisclaimer } from '@/components/NPSDisclaimer'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 type MDXComponents = Record<string, ComponentType<Record<string, unknown>>>
+type MdxTableProps = Record<string, unknown> & { children?: ReactNode }
+
+function MdxTable({ children, ...props }: MdxTableProps) {
+  return (
+    <ResponsiveTable label="Article table" className="article-table">
+      <table {...props}>{children}</table>
+    </ResponsiveTable>
+  )
+}
 
 /**
  * MDX component registry.
@@ -35,6 +45,7 @@ const evidenceComponents = {
   NPSDisclaimer,
   EvidenceNote,
   HarmReductionCallout,
+  table: MdxTable,
 } as unknown as MDXComponents
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

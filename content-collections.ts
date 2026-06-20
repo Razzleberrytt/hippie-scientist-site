@@ -1,5 +1,6 @@
 import { defineCollection, defineConfig } from '@content-collections/core'
 import { compileMDX } from '@content-collections/mdx'
+import remarkGfm from 'remark-gfm'
 import { z } from 'zod/v4'
 
 const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -11,6 +12,10 @@ const articleReferenceSchema = z.object({
   pmid: z.string().default(''),
   url: z.string().default(''),
 })
+
+const mdxOptions = {
+  remarkPlugins: [remarkGfm],
+}
 
 const articleMonographs = defineCollection({
   name: 'articleMonographs',
@@ -30,7 +35,7 @@ const articleMonographs = defineCollection({
     content: z.string(),
   }),
   transform: async (document, context) => {
-    const body = await compileMDX(context, document)
+    const body = await compileMDX(context, document, mdxOptions)
     const readingTime =
       typeof document.readingTime === 'number'
         ? `${document.readingTime} min read`
@@ -61,7 +66,7 @@ const compoundMdxPages = defineCollection({
     content: z.string(),
   }),
   transform: async (document, context) => {
-    const body = await compileMDX(context, document)
+    const body = await compileMDX(context, document, mdxOptions)
     const readingTime =
       typeof document.readingTime === 'number'
         ? `${document.readingTime} min read`
@@ -92,7 +97,7 @@ const novelPsychoactiveSubstancePages = defineCollection({
     content: z.string(),
   }),
   transform: async (document, context) => {
-    const body = await compileMDX(context, document)
+    const body = await compileMDX(context, document, mdxOptions)
     const slug = document._meta.path
 
     return {

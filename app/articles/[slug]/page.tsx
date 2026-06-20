@@ -123,7 +123,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
   }
 
   return (
-    <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+    <article className="mx-auto max-w-5xl px-4 pb-28 pt-6 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(enrichedArticleLd) }}
@@ -154,7 +154,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
           <span className="text-muted">{article.readingTime}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        <h1 className="mt-4 font-display text-[2rem] font-bold leading-[1.12] tracking-normal text-ink sm:text-4xl lg:text-5xl">
           {article.title}
         </h1>
 
@@ -373,8 +373,8 @@ function ArticleBody({ content }: { content: string }) {
         if (block.type === 'table') {
           return (
             <div key={i} className="my-6">
-              <ResponsiveTable label="Article comparison table">
-                <table className="min-w-[760px] w-full text-sm">
+              <ResponsiveTable label="Article comparison table" className="article-table">
+                <table className="min-w-[680px] w-full text-sm">
                   <thead>
                     <tr className="border-b border-brand-900/10">
                       {block.headers.map((header, j) => (
@@ -424,7 +424,7 @@ function ReferencesTable({ refs }: { refs: ArticleReference[] }) {
   return (
     <section className="mt-10 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6">
       <h2 className="mb-4 text-lg font-semibold tracking-tight text-ink">References</h2>
-      <ResponsiveTable label="Article references table">
+      <ResponsiveTable label="Article references table" className="article-table">
         <table className="min-w-[760px] w-full text-sm">
           <caption className="sr-only">References cited in this article</caption>
           <thead>
@@ -534,7 +534,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
   const headings = articleHeadings(article.content)
 
   return (
-    <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+    <article className="mx-auto max-w-5xl space-y-0 px-4 pb-28 pt-6 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(enrichedArticleLd) }}
@@ -573,7 +573,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
           <span className="text-muted">{article.readingTime}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        <h1 className="mt-4 font-display text-[2rem] font-bold leading-[1.12] tracking-normal text-ink sm:text-4xl lg:text-5xl">
           {article.title}
         </h1>
 
