@@ -4,6 +4,8 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-stress-and-anxiety-at-night`
 
@@ -56,6 +58,7 @@ const HEADINGS: Heading[] = [
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const passionflowerProducts = getRevenueProductSet('passionflower')
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
@@ -237,6 +240,10 @@ export default function Page() {
             <li>• If nighttime anxiety is frequent, intense, or paired with low mood, talk to a clinician about evidence-based care.</li>
           </ul>
         </section>
+
+        {passionflowerProducts && (
+          <RecommendationSection products={passionflowerProducts.products} />
+        )}
 
         {/* FAQs */}
         <section id="faq" className="scroll-mt-20 space-y-4">

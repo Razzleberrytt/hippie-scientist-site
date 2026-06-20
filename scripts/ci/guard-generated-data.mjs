@@ -148,12 +148,22 @@ function hasPrefixInList(files, prefixes) {
   return files.some((f) => prefixes.some((p) => f === p || f.startsWith(p)))
 }
 
+// Files the build pipeline regenerates on every run (commit hash, link maps, etc.).
+// These are always "dirty" after a build so they must never trigger the guard.
+const PIPELINE_GENERATED_FILES = new Set([
+  'public/data/_meta/build-info.json',
+  'public/data/runtime-maps/internal-link-map.json',
+])
+
 function main() {
   const base = getBaseRef()
   const changed = getChangedFiles(base)
 
   const dataFiles = changed.filter(
-    (f) => f.startsWith('public/data/') && (f.endsWith('.json') || f.endsWith('.json.gz'))
+    (f) =>
+      f.startsWith('public/data/') &&
+      (f.endsWith('.json') || f.endsWith('.json.gz')) &&
+      !PIPELINE_GENERATED_FILES.has(f)
   )
 
   if (dataFiles.length === 0) {

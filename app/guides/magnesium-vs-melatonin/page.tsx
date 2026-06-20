@@ -4,6 +4,8 @@ import { SeoEntryPage, generateSeoEntryMetadata } from '../../seo-entry-pages';
 import StructuredData from '@/components/StructuredData';
 import { ArticleLayout, TableOfContents } from '@/components/articles';
 import type { Heading } from '@/components/articles';
+import { getRevenueProductSet } from '@/config/revenue-products';
+import RecommendationSection from '@/components/RecommendationSection';
 
 const route = 'guides/magnesium-vs-melatonin';
 const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-vs-melatonin';
@@ -23,6 +25,7 @@ const HEADINGS: Heading[] = [
 
 export default function MagnesiumVsMelatoninGuidePage() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const magnesiumProducts = getRevenueProductSet('magnesium')
 
   return (
     <ArticleLayout toc={toc} zone="supplement">
@@ -40,6 +43,10 @@ export default function MagnesiumVsMelatoninGuidePage() {
       />
 
       <SeoEntryPage route={route} />
+
+      {magnesiumProducts && (
+        <RecommendationSection products={magnesiumProducts.products} />
+      )}
 
       <div className="space-y-12">
 

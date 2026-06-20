@@ -1,6 +1,8 @@
 import { SeoEntryPage, generateSeoEntryMetadata } from '../../seo-entry-pages'
 import StructuredData from '@/components/StructuredData'
 import { ArticleLayout, RelatedArticles } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const route = 'guides/magnesium-for-sleep'
 const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-for-sleep'
@@ -60,6 +62,7 @@ const RELATED_GUIDES = [
 ]
 
 export default function MagnesiumForSleepGuidePage() {
+  const magnesiumProducts = getRevenueProductSet('magnesium')
   return (
     <ArticleLayout zone="supplement">
       <StructuredData
@@ -76,6 +79,9 @@ export default function MagnesiumForSleepGuidePage() {
         ]}
       />
       <SeoEntryPage route={route} />
+      {magnesiumProducts && (
+        <RecommendationSection products={magnesiumProducts.products} />
+      )}
       <RelatedArticles articles={RELATED_GUIDES} />
     </ArticleLayout>
   )

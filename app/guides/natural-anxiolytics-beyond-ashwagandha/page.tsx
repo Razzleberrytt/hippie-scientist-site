@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 export const metadata: Metadata = {
   title: 'Natural Anxiolytics Beyond Ashwagandha',
@@ -27,6 +29,7 @@ const HEADINGS: Heading[] = [
 
 export default function NaturalAnxiolyticsPage() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const lTheanineProducts = getRevenueProductSet('l-theanine')
 
   const alternatives = [
     {
@@ -155,6 +158,10 @@ export default function NaturalAnxiolyticsPage() {
           </div>
         </div>
       </section>
+
+      {lTheanineProducts && (
+        <RecommendationSection products={lTheanineProducts.products} />
+      )}
 
       {/* Safety Layer */}
       <section id="summary" className="scroll-mt-20 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">

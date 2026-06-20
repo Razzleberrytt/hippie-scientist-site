@@ -4,6 +4,8 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const PAGE_URL = `${SITE_URL}/guides/best-natural-sleep-aids-that-work`
 
@@ -56,6 +58,7 @@ const HEADINGS: Heading[] = [
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const magnesiumProducts = getRevenueProductSet('magnesium')
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
@@ -256,6 +259,10 @@ export default function Page() {
             <li>• <strong>Ignoring the foundations.</strong> No capsule offsets a 4&nbsp;pm coffee, a midnight screen and a different bedtime every day.</li>
           </ul>
         </section>
+
+        {magnesiumProducts && (
+          <RecommendationSection products={magnesiumProducts.products} />
+        )}
 
         {/* FAQs */}
         <section id="faq" className="scroll-mt-20 space-y-4">
