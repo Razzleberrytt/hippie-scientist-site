@@ -233,7 +233,7 @@ export default async function Page({ params }: Params) {
     const cta = shopLinks.find(l => l.url)
     return (
       <div className="space-y-4">
-        <p className="leading-relaxed text-[#35453d] bg-emerald-50/50 p-4 rounded-xl border border-emerald-900/5 text-sm">
+        <p className="leading-relaxed text-ink bg-surface-subtle p-4 rounded-xl border border-brand-900/5 text-sm">
           {verdictText}
         </p>
         {cta ? (
@@ -274,12 +274,12 @@ export default async function Page({ params }: Params) {
   })
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 space-y-10">
+    <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
       <SchemaGraphScript graph={schemaGraph} />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <p className="eyebrow-label">Semantic Comparison</p>
         <h1 className="heading-premium mt-3 text-ink">{title}</h1>
-        <p className="detail-reading mt-5 text-base text-[#46574d] sm:text-lg">{pageSummary}</p>
+        <p className="detail-reading mt-5 text-base text-muted sm:text-lg">{pageSummary}</p>
         <div className="mt-5 flex flex-wrap gap-2">
           <span className="chip-readable">Decision guide</span>
           <span className="chip-readable">Evidence signals compared</span>
@@ -300,7 +300,7 @@ export default async function Page({ params }: Params) {
               ))}
             </div>
             <div className="pt-2">
-              <Link href={compound.entityType === 'herb' ? `/herbs/${asString(compound.slug)}` : `/compounds/${asString(compound.slug)}`} className="text-sm font-bold text-teal-700 hover:text-teal-900">
+              <Link href={compound.entityType === 'herb' ? `/herbs/${asString(compound.slug)}` : `/compounds/${asString(compound.slug)}`} className="text-sm font-bold text-brand-700 hover:text-brand-900">
                 Open full profile →
               </Link>
             </div>
@@ -403,7 +403,7 @@ export default async function Page({ params }: Params) {
           <article className="card-premium p-5 space-y-2">
             <h3 className="font-bold text-ink">Use in a routine</h3>
             <p className="text-sm text-muted">These options can be stacked for goal-based synergy.</p>
-            <Link href={`/stacks/${relatedStack.slug}`} className="inline-block text-sm font-bold text-teal-700 hover:text-teal-900">
+            <Link href={`/stacks/${relatedStack.slug}`} className="inline-block text-sm font-bold text-brand-700 hover:text-brand-900">
               View stack →
             </Link>
           </article>
