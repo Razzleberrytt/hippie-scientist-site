@@ -546,10 +546,10 @@ function RegulatoryStatusSection({ compound }: { compound: Record<string, unknow
                 {stateRows.map((row) => (
                   <tr key={row.state} className="align-top">
                     <th scope="row" className="px-3 py-3 font-semibold text-red-950">{row.state}</th>
-                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.naturalKratom}</td>
-                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.concentrated7oh}</td>
-                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.keyDetails}</td>
-                    <td className="px-3 py-3 leading-6 text-[#5f382f]">{row.notes}</td>
+                    <td className="px-3 py-3 leading-6 text-amber-900">{row.naturalKratom}</td>
+                    <td className="px-3 py-3 leading-6 text-amber-900">{row.concentrated7oh}</td>
+                    <td className="px-3 py-3 leading-6 text-amber-900">{row.keyDetails}</td>
+                    <td className="px-3 py-3 leading-6 text-amber-900">{row.notes}</td>
                   </tr>
                 ))}
               </tbody>
@@ -776,7 +776,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
       <ReadingProgress />
 
-      <div className="mx-auto max-w-4xl space-y-8 px-4 py-6 pb-20">
+      <div className="mx-auto max-w-4xl space-y-10 px-4 py-6 pb-20">
         <ScrollEngagementPrompt storageKey={`compound-prompt-${normalizedSlug}`} />
         <Breadcrumbs
           items={[
@@ -787,63 +787,43 @@ export default async function CompoundPage({ params }: PageProps) {
         />
 
         {/* Title Header */}
-        <header className="space-y-3">
-          <div className="space-y-1">
-            <p className="eyebrow-label">Compound Profile</p>
-            <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              {displayName}
-            </h1>
-            {compound.compoundClass || compound.class ? (
-              <p className="text-sm italic text-muted">{compound.compoundClass || compound.class}</p>
-            ) : null}
-          </div>
-          <p className="text-base leading-7 text-[#46574d]">{quickSummary}</p>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
-            <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
-            <EvidenceScoreBadge record={compound} />
-          </div>
-        </header>
-
-        {goalLinks.length > 0 ? (
-          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {goalLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
-                >
-                  {link.label}
-                </Link>
-              ))}
+        <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
+          <header className="space-y-3">
+            <div className="space-y-1">
+              <p className="eyebrow-label">Compound Profile</p>
+              <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                {displayName}
+              </h1>
+              {compound.compoundClass || compound.class ? (
+                <p className="text-sm italic text-muted">{compound.compoundClass || compound.class}</p>
+              ) : null}
             </div>
-          </section>
-        ) : null}
-
-        <SeeAlsoCluster slug={normalizedSlug} kind="compound" limit={6} />
-
-        <RelatedDiscoveryGroups
-          title="Related research paths"
-          groups={internalLinkGroups}
-        />
-
-        {conditionLinks.length > 0 ? (
-          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
-                <Link
-                  key={link.slug}
-                  href={link.href || `/goals/${link.slug}`}
-                  className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
-                >
-                  {link.label || formatDisplayLabel(link.slug)}
-                </Link>
-              ))}
+            <p className="text-base leading-7 text-muted">{quickSummary}</p>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
+              <EvidenceScoreBadge record={compound} />
             </div>
-          </section>
-        ) : null}
+          </header>
+        </div>
+
+        {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
+        <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
+          {[
+            { label: 'Quick Stats', href: '#quick-stats' },
+            { label: 'Safety', href: '#safety' },
+            { label: 'Evidence', href: '#evidence-summary' },
+            ...(mechanismHints.length > 0 ? [{ label: 'Mechanisms', href: '#mechanisms' }] : []),
+            { label: 'Compare', href: '#compare' },
+          ].map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              className="rounded-full border border-brand-900/10 bg-white/70 px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
 
         {legalStatusWarning ? (
           <section className="rounded-2xl border border-red-200 bg-red-50 p-4 sm:p-5 space-y-3">
@@ -920,7 +900,7 @@ export default async function CompoundPage({ params }: PageProps) {
         <RegulatoryStatusSection compound={compound} />
 
         {/* Section 1: Quick Stats */}
-        <section className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">
+        <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-5 sm:p-6 space-y-4">
           <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
@@ -946,7 +926,7 @@ export default async function CompoundPage({ params }: PageProps) {
             {avoidIf.length > 0 && (
               <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
-                <p className="mt-1 text-sm text-[#5f4a24]">{avoidIf.slice(0, 3).join(', ')}</p>
+                <p className="mt-1 text-sm text-amber-900">{avoidIf.slice(0, 3).join(', ')}</p>
               </div>
             )}
           </div>
@@ -954,25 +934,6 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {/* Source herbs — internal links from the curated relationship map */}
         <CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} />
-
-        {/* Affiliate CTA right after Quick Stats */}
-        {affiliateCtaLink && !suppressAffiliate && (
-          <section className="bg-emerald-50/50 border border-emerald-700/10 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="space-y-1">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800">Sourcing Options</h4>
-              <p className="text-sm text-emerald-900/80">Compare options and check trusted third-party tested formats.</p>
-              <AffiliateDisclosure variant="compact" />
-            </div>
-            <a
-              href={affiliateCtaLink.url}
-              target="_blank"
-              rel="nofollow sponsored noopener noreferrer"
-              className="button-primary w-full sm:w-auto text-center font-bold px-5 py-2.5 rounded-full"
-            >
-              {affiliateCtaLink.label} →
-            </a>
-          </section>
-        )}
 
         {canonicalNote ? (
           <section className="card-premium p-4 sm:p-5 space-y-3">
@@ -987,9 +948,9 @@ export default async function CompoundPage({ params }: PageProps) {
         ) : null}
 
         {/* Section 2: Safety */}
-        <section className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">
+        <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
           <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
-          <p className="text-sm leading-6 text-[#5f4a24]">{safetySummary}</p>
+          <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
         </section>
 
         {/* Section 3: Evidence Summary */}
@@ -1005,7 +966,7 @@ export default async function CompoundPage({ params }: PageProps) {
             citationsCount={freshness.citationCount}
           />
           <EvidenceMeter level={evidenceLevel || 'moderate'} />
-          <div className="space-y-3 text-sm leading-6 text-[#46574d]">
+          <div className="space-y-3 text-sm leading-6 text-muted">
             <p>
               {displayName} has a <strong>{evidenceLevel?.toLowerCase() || 'mixed or uncertain'}</strong> evidence rating.
             </p>
@@ -1036,50 +997,6 @@ export default async function CompoundPage({ params }: PageProps) {
           <ShowMeTheStudies citations={citations} />
         </section>
 
-        <EmailCapture
-          headline={`Get the ${displayName} evidence notes`}
-          description="Occasional research updates, safety context, and product-quality checks for supplement decisions."
-          location={`compound-${normalizedSlug}`}
-        />
-
-        {suppressAffiliate ? (
-          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 space-y-3">
-            <h3 className="text-lg font-bold text-red-950 flex items-center gap-2">
-              <span role="img" aria-label="Warning">⚠️</span> Sourcing Options Disabled for Safety
-            </h3>
-            <p className="text-sm leading-relaxed text-red-900">
-              Direct product recommendations and affiliate links are suppressed for this compound due to its high caution or needs-review safety classification.
-            </p>
-            <p className="text-xs text-red-800">
-              Evaluate the safety checks, contraindications, and potential medication interactions below under clinician supervision before use.
-            </p>
-          </div>
-        ) : revenueProducts ? (
-          <div className="space-y-6">
-            <RecommendationSection
-              title={revenueProducts.title}
-              description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
-              products={revenueProducts.products}
-            />
-            <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-5 space-y-3 shadow-sm">
-              <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Product Form &amp; Quality Guidelines</h4>
-              <p className="text-xs leading-relaxed text-muted">
-                When sourcing {displayName}, verify the label for:
-              </p>
-              <ul className="list-disc pl-5 text-xs text-muted space-y-1">
-                <li><strong>Standardized Extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
-                <li><strong>Third-Party Testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
-                <li><strong>Form Bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. chelated bisglycinate/glycinate for magnesium, micronized monohydrate for creatine) for optimal onset and digestion tolerance.</li>
-              </ul>
-            </div>
-          </div>
-        ) : null}
-
-        <StackRecommendationSection
-          productName={displayName}
-          recommendations={stackRecommendations}
-        />
-
         {/* Section 3b: Mechanism Pathway Diagram */}
         {pathwayDiagram && (
           <section className="card-premium p-4 sm:p-5 space-y-3">
@@ -1093,7 +1010,7 @@ export default async function CompoundPage({ params }: PageProps) {
 
         {/* Section 4: Mechanisms (Collapsible) */}
         {mechanismHints.length > 0 && (
-          <section className="card-premium p-4 sm:p-5">
+          <section id="mechanisms" className="card-premium p-4 sm:p-5">
             <details className="group">
               <summary className="flex cursor-pointer items-center justify-between font-bold text-ink text-lg select-none">
                 <span>Mechanisms &amp; Biological Pathways</span>
@@ -1113,8 +1030,49 @@ export default async function CompoundPage({ params }: PageProps) {
           </section>
         )}
 
+        {goalLinks.length > 0 ? (
+          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {goalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {conditionLinks.length > 0 ? (
+          <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
+                <Link
+                  key={link.slug}
+                  href={link.href || `/goals/${link.slug}`}
+                  className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+                >
+                  {link.label || formatDisplayLabel(link.slug)}
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <SeeAlsoCluster slug={normalizedSlug} kind="compound" limit={6} />
+
+        <RelatedDiscoveryGroups
+          title="Related research paths"
+          groups={internalLinkGroups}
+        />
+
         {/* Section 5: Compare Nearby + CTA */}
-        <section className="card-premium p-4 sm:p-5 space-y-4">
+        <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
           <div className="space-y-1">
             <h2 className="text-lg font-bold text-ink">Compare &amp; Sourcing</h2>
             <p className="text-sm text-muted">Compare side-by-side tradeoffs or verify active marker guidelines.</p>
@@ -1169,6 +1127,69 @@ export default async function CompoundPage({ params }: PageProps) {
             )}
           </div>
         </section>
+
+        <StackRecommendationSection
+          productName={displayName}
+          recommendations={stackRecommendations}
+        />
+
+        {/* Affiliate CTA right after StackRecommendationSection */}
+        {affiliateCtaLink && !suppressAffiliate && (
+          <section className="bg-emerald-50/50 border border-emerald-700/10 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-800">Sourcing Options</h4>
+              <p className="text-sm text-emerald-900/80">Compare options and check trusted third-party tested formats.</p>
+              <AffiliateDisclosure variant="compact" />
+            </div>
+            <a
+              href={affiliateCtaLink.url}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              className="button-primary w-full sm:w-auto text-center font-bold px-5 py-2.5 rounded-full"
+            >
+              {affiliateCtaLink.label} →
+            </a>
+          </section>
+        )}
+
+        {suppressAffiliate ? (
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-5 space-y-3">
+            <h3 className="text-lg font-bold text-red-950 flex items-center gap-2">
+              <span role="img" aria-label="Warning">⚠️</span> Sourcing Options Disabled for Safety
+            </h3>
+            <p className="text-sm leading-relaxed text-red-900">
+              Direct product recommendations and affiliate links are suppressed for this compound due to its high caution or needs-review safety classification.
+            </p>
+            <p className="text-xs text-red-800">
+              Evaluate the safety checks, contraindications, and potential medication interactions below under clinician supervision before use.
+            </p>
+          </div>
+        ) : revenueProducts ? (
+          <div className="space-y-6">
+            <RecommendationSection
+              title={revenueProducts.title}
+              description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
+              products={revenueProducts.products}
+            />
+            <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-5 space-y-3 shadow-sm">
+              <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Product Form &amp; Quality Guidelines</h4>
+              <p className="text-xs leading-relaxed text-muted">
+                When sourcing {displayName}, verify the label for:
+              </p>
+              <ul className="list-disc pl-5 text-xs text-muted space-y-1">
+                <li><strong>Standardized Extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
+                <li><strong>Third-Party Testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
+                <li><strong>Form Bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. chelated bisglycinate/glycinate for magnesium, micronized monohydrate for creatine) for optimal onset and digestion tolerance.</li>
+              </ul>
+            </div>
+          </div>
+        ) : null}
+
+        <EmailCapture
+          headline={`Get the ${displayName} evidence notes`}
+          description="Occasional research updates, safety context, and product-quality checks for supplement decisions."
+          location={`compound-${normalizedSlug}`}
+        />
 
         <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
         <AuthorCredentials />

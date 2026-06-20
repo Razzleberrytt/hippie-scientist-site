@@ -459,7 +459,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-4 py-6">
+    <div className="mx-auto max-w-4xl space-y-10 px-4 py-6">
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
       <HerbSchemaGenerator
@@ -486,69 +486,22 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </nav>
 
       {/* Title Header */}
-      <header className="space-y-3">
-        <div className="space-y-1">
-          <p className="eyebrow-label">Herb Profile</p>
-          <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-            {displayName}
-          </h1>
-          {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
-        </div>
-        <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
-        <div className="mt-3 flex flex-wrap items-center gap-3">
-          <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
-          <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} />
-        </div>
-      </header>
-
-      {goalLinks.length > 0 ? (
-        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {goalLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
-              >
-                {link.label}
-              </Link>
-            ))}
+      <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
+        <header className="space-y-3">
+          <div className="space-y-1">
+            <p className="eyebrow-label">Herb Profile</p>
+            <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+              {displayName}
+            </h1>
+            {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
           </div>
-        </section>
-      ) : null}
-
-      {!suppressAffiliate && revenueProducts ? (
-        <RecommendedProduct
-          slug={normalizedSlug}
-          title={`Ready to try this? See top ${displayName} brands`}
-          compact
-        />
-      ) : null}
-
-      {conditionLinks.length > 0 ? (
-        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
-              <Link
-                key={link.slug}
-                href={link.href || `/goals/${link.slug}`}
-                className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
-              >
-                {link.label || formatDisplayLabel(link.slug)}
-              </Link>
-            ))}
+          <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
+          <div className="mt-3 flex flex-wrap items-center gap-3">
+            <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
+            <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} />
           </div>
-        </section>
-      ) : null}
-
-      <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
-
-      <RelatedDiscoveryGroups
-        title="Related research paths"
-        groups={internalLinkGroups}
-      />
+        </header>
+      </div>
 
       {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
       <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
@@ -570,7 +523,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </nav>
 
       {/* Section 1: Quick Stats */}
-      <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-4 sm:p-5 space-y-4">
+      <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-5 sm:p-6 space-y-4">
         <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
@@ -596,7 +549,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           {avoidIf.length > 0 && (
             <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
               <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
-              <p className="mt-1 text-sm text-[#5f4a24]">{avoidIf.slice(0, 3).join(', ')}</p>
+              <p className="mt-1 text-sm text-amber-900">{avoidIf.slice(0, 3).join(', ')}</p>
             </div>
           )}
         </div>
@@ -682,15 +635,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
       ) : null}
 
       {/* Section 2: Safety */}
-      <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 p-4 sm:p-5 space-y-3">
+      <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
         <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
-        <p className="text-sm leading-6 text-[#5f4a24]">{safetySummary}</p>
+        <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
         {safetyGroups.length > 0 && (
           <div className="mt-4 grid gap-4 pt-3 border-t border-amber-900/10 sm:grid-cols-2">
             {safetyGroups.map(group => (
               <div key={group.title} className="space-y-1.5">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#5f4a24] font-semibold">{group.title}</h3>
-                <ul className="space-y-1 text-xs text-[#5f4a24]">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900 font-semibold">{group.title}</h3>
+                <ul className="space-y-1 text-xs text-amber-900">
                   {group.items.map(item => <li key={item}>• {item}</li>)}
                 </ul>
               </div>
@@ -778,6 +731,47 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {/* Active compounds — internal links from the curated relationship map */}
       <HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} />
 
+      {goalLinks.length > 0 ? (
+        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {goalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {conditionLinks.length > 0 ? (
+        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
+              <Link
+                key={link.slug}
+                href={link.href || `/goals/${link.slug}`}
+                className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+              >
+                {link.label || formatDisplayLabel(link.slug)}
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
+
+      <RelatedDiscoveryGroups
+        title="Related research paths"
+        groups={internalLinkGroups}
+      />
+
       {/* Section 5: Compare Nearby + CTA */}
       <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
         <div className="space-y-1">
@@ -847,6 +841,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
           )}
         </div>
       </section>
+
+      {!suppressAffiliate && revenueProducts ? (
+        <RecommendedProduct
+          slug={normalizedSlug}
+          title={`Ready to try this? See top ${displayName} brands`}
+          compact
+        />
+      ) : null}
 
       <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
       <AuthorCredentials />
