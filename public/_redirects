@@ -1,4 +1,19 @@
 /atom.xml /feed.xml 301
+# GSC redirect cleanup: exact non-slash variants for active static-export pages.
+/articles/omega-3-and-adhd /articles/omega-3-and-adhd/ 301
+/articles/magnesium-for-adhd /articles/magnesium-for-adhd/ 301
+/articles/adhd-blood-tests /articles/adhd-blood-tests/ 301
+/articles/vitamin-d-and-adhd /articles/vitamin-d-and-adhd/ 301
+/articles/zinc-and-adhd /articles/zinc-and-adhd/ 301
+/articles/adhd-stack-guide /articles/adhd-stack-guide/ 301
+/articles/best-supplements-for-adhd /articles/best-supplements-for-adhd/ 301
+/articles/nutrient-deficiencies-and-adhd /articles/nutrient-deficiencies-and-adhd/ 301
+/guides/adhd-supplements /guides/adhd-supplements/ 301
+/articles/anxiety-stack-guide /articles/anxiety-stack-guide/ 301
+/articles/sleep-stack-guide /articles/sleep-stack-guide/ 301
+/articles/l-theanine-for-sleep /articles/l-theanine-for-sleep/ 301
+/articles/magnesium-for-sleep /articles/magnesium-for-sleep/ 301
+/articles/ashwagandha-for-sleep /articles/ashwagandha-for-sleep/ 301
 # CONTENT TAXONOMY MIGRATION: Learn content is now surfaced from /guides;
 # keep /learn/ live for existing static learning-path content and sitemap hygiene.
 # Articles style category legacy redirect (field-notes → nootropics)
