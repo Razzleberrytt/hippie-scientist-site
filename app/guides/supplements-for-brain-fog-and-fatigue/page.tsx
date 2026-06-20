@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArticleLayout } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 export const metadata: Metadata = {
   title: 'Supplements for Brain Fog and Fatigue',
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
+  const rhodiolaProducts = getRevenueProductSet('rhodiola')
   return (
     <ArticleLayout>
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
@@ -25,6 +28,10 @@ export default function Page() {
           <li><strong className='text-ink'>Caffeine + L-theanine</strong> is a popular focus stack when stimulation needs smoothing.</li>
         </ul>
       </section>
+
+      {rhodiolaProducts && (
+        <RecommendationSection products={rhodiolaProducts.products} />
+      )}
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Where to go next</h2>

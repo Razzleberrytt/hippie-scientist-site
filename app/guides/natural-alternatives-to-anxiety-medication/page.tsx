@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArticleLayout } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 export const metadata: Metadata = {
   title: 'Natural Alternatives to Anxiety Medication | Educational Guide',
@@ -9,6 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
+  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
   return (
     <ArticleLayout>
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
@@ -24,6 +27,9 @@ export default function Page() {
           <li>Structured therapy, breathwork, and exercise for longer-term resilience.</li>
         </ul>
       </section>
+      {ashwagandhaProducts && (
+        <RecommendationSection products={ashwagandhaProducts.products} />
+      )}
       <div className="flex flex-wrap gap-4">
         <Link href="/guides/best-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
         <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>

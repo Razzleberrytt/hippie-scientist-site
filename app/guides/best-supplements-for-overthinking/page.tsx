@@ -4,6 +4,8 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-overthinking`
 
@@ -56,6 +58,7 @@ const HEADINGS: Heading[] = [
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const lTheanineProducts = getRevenueProductSet('l-theanine')
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
@@ -219,6 +222,10 @@ export default function Page() {
             <li>• If you take medication for anxiety, mood or sleep, confirm compatibility before adding supplements.</li>
           </ul>
         </section>
+
+        {lTheanineProducts && (
+          <RecommendationSection products={lTheanineProducts.products} />
+        )}
 
         {/* FAQs */}
         <section id="faq" className="scroll-mt-20 space-y-4">

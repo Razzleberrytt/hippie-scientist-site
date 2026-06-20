@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 export const metadata: Metadata = {
   title: 'Sleep Herbs vs Melatonin',
@@ -27,6 +29,7 @@ const HEADINGS: Heading[] = [
 
 export default function SleepHerbsVsMelatoninPage() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const magnesiumProducts = getRevenueProductSet('magnesium')
 
   const options = [
     {
@@ -153,6 +156,10 @@ export default function SleepHerbsVsMelatoninPage() {
           </div>
         </div>
       </section>
+
+      {magnesiumProducts && (
+        <RecommendationSection products={magnesiumProducts.products} />
+      )}
 
       {/* Safety Notice */}
       <section id="evidence" className="scroll-mt-20 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">

@@ -4,6 +4,8 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const PAGE_URL = `${SITE_URL}/guides/how-to-lower-cortisol-naturally`
 
@@ -55,6 +57,7 @@ const HEADINGS: Heading[] = [
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
@@ -219,6 +222,10 @@ export default function Page() {
             <li>• If you take medication for blood pressure, mood, sleep or a hormonal condition, confirm compatibility before adding herbs.</li>
           </ul>
         </section>
+
+        {ashwagandhaProducts && (
+          <RecommendationSection products={ashwagandhaProducts.products} />
+        )}
 
         {/* FAQs */}
         <section id="faq" className="scroll-mt-20 space-y-4">

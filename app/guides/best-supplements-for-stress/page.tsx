@@ -4,6 +4,8 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-stress`
 
@@ -82,6 +84,7 @@ const HEADINGS: Heading[] = [
 
 export default function BestSupplementsForStressPage() {
   const toc = <TableOfContents headings={HEADINGS} />
+  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
   return (
     <>
       <StructuredData
@@ -182,6 +185,10 @@ export default function BestSupplementsForStressPage() {
             ))}
           </div>
         </section>
+
+        {ashwagandhaProducts && (
+          <RecommendationSection products={ashwagandhaProducts.products} />
+        )}
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
