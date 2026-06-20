@@ -36,7 +36,7 @@ export default function EmailCapture({
   }
 
   return (
-    <section className={`rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 ${className}`}>
+    <section className={`rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 mb-20 md:mb-0 ${className}`}>
       <div className='grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
         <div>
           <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Email updates</p>

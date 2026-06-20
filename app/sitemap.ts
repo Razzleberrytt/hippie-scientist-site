@@ -469,6 +469,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!herb.slug) return;
     if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
     if (!indexableHerbsSlugs.has(herb.slug)) return;
+    // Only include herbs explicitly approved for indexing.
+    if (herb.indexability_status !== 'PUBLISH') return;
 
     addRoute(`/herbs/${herb.slug}`, 'monthly', 0.7, herb.lastUpdated || herb.updatedAt, herb);
   });
@@ -477,6 +479,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!compound.slug) return;
     if (DEPRECATED_COMPOUNDS.has(compound.slug.toLowerCase())) return;
     if (!indexableCompoundsSlugs.has(compound.slug)) return;
+    // Only include compounds explicitly approved for indexing.
+    if (compound.indexability_status !== 'PUBLISH') return;
 
     addRoute(`/compounds/${compound.slug}`, 'monthly', 0.7, compound.lastUpdated || compound.updatedAt, compound);
   });

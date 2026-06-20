@@ -4,6 +4,8 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-focus`
 
@@ -90,6 +92,7 @@ const HEADINGS: Heading[] = [
 ]
 
 export default function BestSupplementsForFocusPage() {
+  const lTheanineProducts = getRevenueProductSet('l-theanine')
   const toc = <TableOfContents headings={HEADINGS} />
   return (
     <>
@@ -178,6 +181,10 @@ export default function BestSupplementsForFocusPage() {
             ))}
           </div>
         </section>
+
+        {lTheanineProducts && (
+          <RecommendationSection products={lTheanineProducts.products} />
+        )}
 
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">

@@ -5,6 +5,8 @@ import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import { AdhdInlineCta } from '@/components/articles/AdhdMonetizationWidgets'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const SLUG = 'adhd-supplements'
 const TITLE = 'ADHD Supplements Guide: Evidence, Safety, Testing, and Practical Use'
@@ -60,6 +62,7 @@ const HEADINGS: Heading[] = [
 ]
 
 export default function AdhdSupplementsHub() {
+  const magnesiumProducts = getRevenueProductSet('magnesium')
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -308,6 +311,10 @@ export default function AdhdSupplementsHub() {
           </div>
         </div>
       </section>
+
+      {magnesiumProducts && (
+        <RecommendationSection products={magnesiumProducts.products} />
+      )}
 
       {/* FAQ Accordion */}
       <section id="faq" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">
