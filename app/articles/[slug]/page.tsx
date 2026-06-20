@@ -12,6 +12,8 @@ import { formatDate } from '@/lib/blog-index'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import ArticleMdx from '@/components/articles/ArticleMdx'
+import TableOfContents from '@/components/articles/TableOfContents'
+import type { Heading } from '@/components/articles'
 
 export type ArticleReference = {
   title: string
@@ -270,8 +272,46 @@ function inlineFormat(text: string): string {
     .replace(/`(.+?)`/g, '<code class="rounded bg-brand-50 px-1 py-0.5 font-mono text-sm text-brand-800">$1</code>')
 }
 
+function slugifyHeading(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+function buildHeadingIds(blocks: Block[]): Map<number, string> {
+  const seen = new Map<string, number>()
+  const ids = new Map<number, string>()
+
+  blocks.forEach((block, index) => {
+    if (block.type !== 'h2' && block.type !== 'h3') return
+
+    const base = slugifyHeading(block.text) || 'section'
+    const count = (seen.get(base) ?? 0) + 1
+    seen.set(base, count)
+    ids.set(index, count === 1 ? base : `${base}-${count}`)
+  })
+
+  return ids
+}
+
+function articleHeadings(content: string): Heading[] {
+  const blocks = parseBlocks(content)
+  const headingIds = buildHeadingIds(blocks)
+
+  return blocks.flatMap((block, index) => {
+    if (block.type !== 'h2' && block.type !== 'h3') return []
+    return [{
+      id: headingIds.get(index) ?? (slugifyHeading(block.text) || 'section'),
+      text: block.text,
+      level: block.type === 'h2' ? 2 : 3,
+    }]
+  })
+}
+
 function ArticleBody({ content }: { content: string }) {
   const blocks = parseBlocks(content)
+  const headingIds = buildHeadingIds(blocks)
 
   return (
     <div className="space-y-4">
@@ -280,7 +320,7 @@ function ArticleBody({ content }: { content: string }) {
           return (
             <h2
               key={i}
-              id={block.text.toLowerCase().replace(/[^a-z0-9]+/g, '-')}
+              id={headingIds.get(i)}
               className="mt-10 mb-2 max-w-2xl text-2xl font-semibold tracking-tight text-ink first:mt-0"
               dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }}
             />
@@ -290,6 +330,7 @@ function ArticleBody({ content }: { content: string }) {
           return (
             <h3
               key={i}
+              id={headingIds.get(i)}
               className="mt-6 mb-1 text-xl font-semibold tracking-tight text-ink"
               dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }}
             />
@@ -490,6 +531,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
         questions: article.faqs,
       })
     : null
+  const headings = articleHeadings(article.content)
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
@@ -565,6 +607,12 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
         )}
       </section>
 
+      {headings.length > 0 && (
+        <div className="mt-6 lg:hidden">
+          <TableOfContents headings={headings} />
+        </div>
+      )}
+
       {/* Body + sidebar */}
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
         <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
@@ -574,6 +622,12 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
 
         {/* Sidebar */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
+          {headings.length > 0 && (
+            <div className="hidden rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm lg:block">
+              <TableOfContents headings={headings} />
+            </div>
+          )}
+
           {article.references.length > 0 && (
             <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
