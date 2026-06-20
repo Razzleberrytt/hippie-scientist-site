@@ -24,7 +24,7 @@ export function buildMedicalWebPageSchema(entity: Record<string, unknown>, type:
       url: 'https://thehippiescientist.net',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://thehippiescientist.net/logo.png'
+        url: 'https://thehippiescientist.net/logo.svg'
       }
     }
   }
@@ -56,7 +56,7 @@ export function buildArticleSchema(post: Record<string, unknown>) {
       name: 'The Hippie Scientist',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://thehippiescientist.net/logo.png'
+        url: 'https://thehippiescientist.net/logo.svg'
       }
     }
   }

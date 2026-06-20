@@ -15,6 +15,7 @@ import { TOTAL_PROFILE_COUNT } from '@/lib/profile-counts'
 export { SITE_URL, SITE_NAME }
 export const SEO_YEAR = '2026'
 export const DEFAULT_OG_IMAGE = '/og-default.jpg'
+export const LOGO_PATH = '/logo.svg'
 export const TWITTER_HANDLE = '@HippieScientist'
 export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
 export const DEFAULT_DESCRIPTION = `The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for ${TOTAL_PROFILE_COUNT}+ profiles.`
@@ -471,7 +472,7 @@ export function organizationJsonLd() {
     description: DEFAULT_DESCRIPTION,
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/logo.png`,
+      url: toAbsoluteUrl(LOGO_PATH),
       width: 512,
       height: 512,
     },
@@ -523,7 +524,7 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
-        url: new URL('/logo.svg', SITE_URL).toString(),
+        url: toAbsoluteUrl(LOGO_PATH),
       },
     },
   }
