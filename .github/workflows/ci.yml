@@ -76,7 +76,7 @@ jobs:
         run: npm run build:deploy
 
       - name: Verify build output
-        run: npm run verify:build
+        run: npm run verify:output
 
       - name: Validate route SEO coverage
         run: npm run validate:route-seo

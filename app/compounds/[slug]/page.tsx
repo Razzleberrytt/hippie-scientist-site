@@ -1128,6 +1128,12 @@ export default async function CompoundPage({ params }: PageProps) {
           </div>
         </section>
 
+        <EmailCapture
+          headline={`Get the ${displayName} evidence notes`}
+          description="Occasional research updates, safety context, and product-quality checks for supplement decisions."
+          location={`compound-${normalizedSlug}`}
+        />
+
         <StackRecommendationSection
           productName={displayName}
           recommendations={stackRecommendations}
@@ -1184,12 +1190,6 @@ export default async function CompoundPage({ params }: PageProps) {
             </div>
           </div>
         ) : null}
-
-        <EmailCapture
-          headline={`Get the ${displayName} evidence notes`}
-          description="Occasional research updates, safety context, and product-quality checks for supplement decisions."
-          location={`compound-${normalizedSlug}`}
-        />
 
         <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
         <AuthorCredentials />

@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import data from '@/public/data/affiliate-products.json'
+const data: { compound: string; products?: any[] }[] = []
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import AffiliateProductCard from './AffiliateProductCard'
 

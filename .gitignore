@@ -113,3 +113,6 @@ ops/state.db
 
 # Internal planning / audit docs (kept local, not committed)
 docs/internal/
+
+# Build cache directory
+.build-cache/

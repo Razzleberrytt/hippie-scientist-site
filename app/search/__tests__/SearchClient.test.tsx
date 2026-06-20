@@ -3,43 +3,53 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import SearchClient from '../SearchClient'
 
-// Mock dependencies
-vi.mock('@/public/data/herbs-summary.json', () => ({
-  default: [
-    {
-      slug: 'ashwagandha',
-      name: 'Ashwagandha',
-      displayName: 'Ashwagandha',
-      summary: 'A root for stress and sleep.',
-      primary_effects: ['stress', 'sleep'],
-      evidence_tier: 'Strong Human Evidence',
-      safety_level: 'Generally well tolerated',
-    }
-  ]
-}))
+const mockHerbs = [
+  {
+    slug: 'ashwagandha',
+    name: 'Ashwagandha',
+    displayName: 'Ashwagandha',
+    summary: 'A root for stress and sleep.',
+    primary_effects: ['stress', 'sleep'],
+    evidence_tier: 'Strong Human Evidence',
+    safety_level: 'Generally well tolerated',
+  }
+]
 
-vi.mock('@/public/data/compounds-summary.json', () => ({
-  default: [
-    {
-      slug: 'l-theanine',
-      name: 'L-Theanine',
-      displayName: 'L-Theanine',
-      summary: 'An amino acid for calm focus.',
-      primary_effects: ['focus', 'calm'],
-      evidence_tier: 'Strong Human Evidence',
-      safety_level: 'Generally well tolerated',
-    },
-    {
-      slug: 'dmt',
-      name: 'DMT',
-      displayName: 'DMT',
-      summary: 'A controlled substance for educational context only.',
-      primary_effects: ['psychoactive'],
-      evidence_tier: 'Limited Human Evidence',
-      safety_level: 'Controlled substance',
+const mockCompounds = [
+  {
+    slug: 'l-theanine',
+    name: 'L-Theanine',
+    displayName: 'L-Theanine',
+    summary: 'An amino acid for calm focus.',
+    primary_effects: ['focus', 'calm'],
+    evidence_tier: 'Strong Human Evidence',
+    safety_level: 'Generally well tolerated',
+  },
+  {
+    slug: 'dmt',
+    name: 'DMT',
+    displayName: 'DMT',
+    summary: 'A controlled substance for educational context only.',
+    primary_effects: ['psychoactive'],
+    evidence_tier: 'Limited Human Evidence',
+    safety_level: 'Controlled substance',
+  }
+]
+
+// Mock global.fetch synchronously to avoid async timing issues in tests
+global.fetch = vi.fn((url: string) => {
+  const data = url.includes('herbs-summary') ? mockHerbs : mockCompounds
+  return {
+    then: (cb: any) => {
+      const res = cb({
+        json: () => ({
+          then: (cb2: any) => cb2(data)
+        })
+      })
+      return res
     }
-  ]
-}))
+  } as any
+}) as any
 
 vi.mock('../../../src/lib/semantic-orchestration', () => ({
   getSemanticOrchestrationSignals: vi.fn(() => ({

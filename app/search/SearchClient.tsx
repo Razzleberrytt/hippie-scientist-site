@@ -1,10 +1,8 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import Link from 'next/link'
 import Fuse from 'fuse.js'
-import compoundsSummaryData from '@/public/data/compounds-summary.json'
-import herbsSummaryData from '@/public/data/herbs-summary.json'
 import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
 import dynamic from 'next/dynamic'
 
@@ -490,6 +488,14 @@ function expandQuery(query: string): string {
 }
 
 export default function SearchClient() {
+  const [compoundsSummary, setCompoundsSummary] = useState<Record<string, unknown>[]>([])
+  const [herbsSummary, setHerbsSummary] = useState<Record<string, unknown>[]>([])
+
+  useEffect(() => {
+    fetch('/data/compounds-summary.json').then(r => r.json()).then(data => setCompoundsSummary(data as Record<string, unknown>[]))
+    fetch('/data/herbs-summary.json').then(r => r.json()).then(data => setHerbsSummary(data as Record<string, unknown>[]))
+  }, [])
+
   const [query, setQuery] = useState('')
   const [activeFilter, setActiveFilter] = useState<FilterType>('All')
   const [trialsFilter, setTrialsFilter] = useState(false)
@@ -500,16 +506,16 @@ export default function SearchClient() {
   const searchIntent = getSearchIntent(normalizedQuery)
 
   const searchItems = useMemo(() => {
-    const herbs = (herbsSummaryData as Record<string, unknown>[])
+    const herbs = herbsSummary
       .filter((item: Record<string, unknown>) => !isRestrictedRecord(item))
       .map(item => normalizeItem(item, 'Herb'))
       .filter(Boolean) as SearchItem[]
-    const compounds = (compoundsSummaryData as Record<string, unknown>[])
+    const compounds = compoundsSummary
       .filter((item: Record<string, unknown>) => !isRestrictedRecord(item))
       .map(item => normalizeItem(item, 'Compound'))
       .filter(Boolean) as SearchItem[]
     return [...herbs, ...compounds].sort(compareAuthority)
-  }, [])
+  }, [herbsSummary, compoundsSummary])
 
   const expandedQueryText = useMemo(() => {
     return expandQuery(normalizedQuery)

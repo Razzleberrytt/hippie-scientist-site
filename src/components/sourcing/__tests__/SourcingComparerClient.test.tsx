@@ -90,6 +90,6 @@ describe('SourcingComparerClient', () => {
     
     // Caffeine link
     const shopLink = screen.getAllByRole('link', { name: /Amazon Shop/i })[1]
-    expect(shopLink.getAttribute('href')).toContain('tag=razzleberry02-20')
+    expect(shopLink.getAttribute('href')).toContain('tag=dev-affiliate-00')
   })
 })

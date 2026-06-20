@@ -179,8 +179,8 @@ function main() {
     console.warn('  2. Edit the build scripts under scripts/data/, THEN')
     console.warn('  3. Run npm run data:build to regenerate outputs.')
     console.warn('')
-    console.warn('[guard-generated-data] Non-blocking notice only. OK.')
-    process.exit(0)
+    console.error('[guard-generated-data] BLOCKED: direct edit to generated data detected without accompanying source/build changes.')
+    process.exit(1)
   }
 
   console.log(`[guard-generated-data] ${dataFiles.length} public/data file(s) changed, accompanied by source/build changes. OK.`)

@@ -72,11 +72,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Script>
           </>
         )}
-        {/* Pagefind Component UI JavaScript - loads after interactive */}
-        <Script
-          src='/pagefind/pagefind-ui.js'
-          strategy='afterInteractive'
-        />
+
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteWebsiteLd) }}

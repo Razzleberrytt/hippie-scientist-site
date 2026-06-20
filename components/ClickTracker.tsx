@@ -21,8 +21,7 @@ export default function ClickTracker() {
       const isAffiliate = 
         href.includes('amazon.com') || 
         href.includes('amzn.to') || 
-        link.getAttribute('rel')?.includes('sponsored') ||
-        link.getAttribute('rel')?.includes('nofollow')
+        link.getAttribute('rel')?.includes('sponsored')
 
       if (isAffiliate) {
         const cta = link.innerText.trim() || 'CTA'

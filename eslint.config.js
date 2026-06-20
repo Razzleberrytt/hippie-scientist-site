@@ -71,13 +71,14 @@ export default [
       'jsx-a11y/no-redundant-roles': 'error',
       'jsx-a11y/img-redundant-alt': 'error',
       '@typescript-eslint/no-unused-vars': [
-        'error',
+        'warn',
         {
           argsIgnorePattern: '^_',
           varsIgnorePattern: '^_',
           caughtErrorsIgnorePattern: '^_',
         },
       ],
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
   {

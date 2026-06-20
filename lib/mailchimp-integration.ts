@@ -1,4 +1,4 @@
-const fallbackAction = 'https://thehippiescientist.us19.list-manage.com/subscribe/post?u=53d99eeb1e24e9f8e13274fc0&id=51110da513&f_id=00b998e4f0'
+const fallbackAction = '/api/subscribe'
 
 function getMailchimpHoneypotName(action: string): string {
   try {

@@ -1,7 +1,8 @@
 import { isClean, list, text } from '@/lib/display-utils'
 import { isRestrictedIngredient, isRestrictedRecord } from './restricted-ingredients'
+import { AFFILIATE_TAGS } from '@/config/affiliate'
 
-export const AMAZON_ASSOCIATE_ID = 'razzleberry02-20'
+export const AMAZON_ASSOCIATE_ID = AFFILIATE_TAGS.amazon
 
 export function extractUrlString(value: unknown): string {
   if (!value) return ''

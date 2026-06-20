@@ -118,7 +118,6 @@ export class CacheManager {
   async shouldRunStep(stepName, inputPatterns = [], config = {}) {
     const currentInputHash = await hashFiles(inputPatterns)
     const currentConfigHash = hashConfig(config)
-    const combinedHash = `${currentInputHash}:${currentConfigHash}`
 
     const cached = this.manifest[stepName]
 
@@ -127,7 +126,10 @@ export class CacheManager {
       return true
     }
 
-    const isCacheValid = cached.inputHash === combinedHash && cached.outputHash
+    const isCacheValid =
+      cached.inputHash === currentInputHash &&
+      cached.configHash === currentConfigHash &&
+      cached.outputHash
 
     if (isCacheValid) {
       console.log(`✓ [CACHE HIT] ${stepName}`)

@@ -23,6 +23,15 @@ type PagesFunctionContext = {
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+function isAllowedOrigin(hostname: string): boolean {
+  return (
+    hostname === 'thehippiescientist.net' ||
+    hostname === 'www.thehippiescientist.net' ||
+    hostname === 'hippie-scientist-site.pages.dev' ||
+    hostname.endsWith('.hippie-scientist-site.pages.dev')
+  )
+}
 const MD5_SHIFT_AMOUNTS = [
   7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
   5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
@@ -261,7 +270,7 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     if (origin) {
       try {
         const originUrl = new URL(origin)
-        if (originUrl.hostname !== 'thehippiescientist.net' && originUrl.hostname !== 'www.thehippiescientist.net') {
+        if (!isAllowedOrigin(originUrl.hostname)) {
           return jsonResponse({ ok: false, error: 'Invalid origin.' }, 403)
         }
       } catch {
@@ -270,7 +279,7 @@ export const onRequest = async ({ request, env }: PagesFunctionContext): Promise
     } else if (referer) {
       try {
         const refererUrl = new URL(referer)
-        if (refererUrl.hostname !== 'thehippiescientist.net' && refererUrl.hostname !== 'www.thehippiescientist.net') {
+        if (!isAllowedOrigin(refererUrl.hostname)) {
           return jsonResponse({ ok: false, error: 'Invalid referer.' }, 403)
         }
       } catch {

@@ -97,14 +97,4 @@ export function trackRevenueEvent(input: RevenueEventInput) {
     })
   }
 
-  try {
-    const existing = window.localStorage.getItem('ths_revenue_events')
-    const queue = existing ? JSON.parse(existing) : []
-    if (Array.isArray(queue)) {
-      queue.push(event)
-      window.localStorage.setItem('ths_revenue_events', JSON.stringify(queue.slice(-50)))
-    }
-  } catch {
-    // localStorage unavailable in privacy modes; custom event + GA4 dispatch still fires.
-  }
 }

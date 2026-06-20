@@ -20,7 +20,7 @@
 /articles/style/field-notes /articles/style/nootropics 301
 /articles/style/field-notes/ /articles/style/nootropics/ 301
 /best-herbs-for-anxiety /guides/best-herbs-for-anxiety 301
-/herbs-for-sleep /guides/herbs-for-sleep 301
+/herbs-for-sleep /articles/best-herbs-for-sleep 301
 /best-nootropics-for-focus /guides/best-nootropics-for-focus 301
 /best-adaptogens-for-stress /guides/best-adaptogens-for-stress 301
 /natural-testosterone-boosters /guides/natural-testosterone-boosters 301
@@ -42,7 +42,6 @@
 /education/product-quality /learn/product-quality 301
 /education/product-quality/ /learn/product-quality/ 301
 /safety-checker /safety-checker/ 301
-/safety-checker/ /safety-checker/ 200
 /sleep-supplements /goals/sleep 301
 /stress-supplements /goals/stress 301
 /cognition-supplements /goals/cognition 301
@@ -115,7 +114,6 @@
 /guides/herbs-for-sleep/ /articles/best-herbs-for-sleep/ 301
 /guides/best-supplements-for-blood-pressure-support /best-supplements-for-blood-pressure 301
 /guides/best-supplements-for-blood-pressure-support/ /best-supplements-for-blood-pressure/ 301
-/compare/ashwagandha-vs-rhodiola-for-stress /compare/rhodiola-vs-ashwagandha 301
 /compare/ashwagandha-vs-rhodiola-for-stress/ /compare/rhodiola-vs-ashwagandha/ 301
 /compounds/coq10 /compounds/coenzyme-q10 301
 /compounds/coq10/ /compounds/coenzyme-q10/ 301
@@ -166,8 +164,8 @@
 /compounds/elderberry /herbs/elderberry 301
 /compounds/resveratrol /herbs/resveratrol 301
 /compounds/trans-resveratrol /herbs/resveratrol 301
-/safety /safety-checker 301
-/safety/ /safety-checker 301
+/safety /safety-checker/ 301
+/safety/ /safety-checker/ 301
 /blog/2026-06-03-2c-b-mechanism-effects-and-harm-reduction /articles/2c-b-effects 301
 /blog/2026-06-03-2c-b-mechanism-effects-and-harm-reduction/ /articles/2c-b-effects/ 301
 /blog /articles 301
@@ -239,8 +237,8 @@
 /herbs/holy-basil-tulsi/ /herbs/holy-basil/ 301
 /herbs/hypericum-perforatum /herbs/st-johns-wort 301
 /herbs/hypericum-perforatum/ /herbs/st-johns-wort/ 301
-/herbs/indian-barberry /herbs/berberis-aristata 301
-/herbs/indian-barberry/ /herbs/berberis-aristata/ 301
+/herbs/indian-barberry /herbs/berberis 301
+/herbs/indian-barberry/ /herbs/berberis/ 301
 /herbs/l-tyrosine /herbs/tyrosine 301
 /herbs/l-tyrosine/ /herbs/tyrosine/ 301
 /herbs/lavender /herbs/lavandula-angustifolia 301

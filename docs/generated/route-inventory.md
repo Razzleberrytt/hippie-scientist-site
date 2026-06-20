@@ -1,6 +1,6 @@
 # Route Inventory
 
-Generated on 2026-06-15T13:56:51.849Z
+Generated on 2026-06-20T04:45:44.117Z
 
 This file lists all active Page Router routes compiled by Next.js static export.
 
@@ -69,6 +69,7 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/compare/l-theanine-vs-magnesium` | static | [`app/compare/l-theanine-vs-magnesium/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/l-theanine-vs-magnesium/page.tsx) |
 | `/compare/magnesium-glycinate-vs-l-threonate-for-sleep` | static | [`app/compare/magnesium-glycinate-vs-l-threonate-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/magnesium-glycinate-vs-l-threonate-for-sleep/page.tsx) |
 | `/compare/magnesium-glycinate-vs-magnesium-oxide` | static | [`app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/magnesium-glycinate-vs-magnesium-oxide/page.tsx) |
+| `/compare/melatonin-vs-magnesium` | static | [`app/compare/melatonin-vs-magnesium/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/melatonin-vs-magnesium/page.tsx) |
 | `/compare/melatonin-vs-valerian-vs-magnesium-for-sleep` | static | [`app/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/page.tsx) |
 | `/compare/mitragynine-vs-7-hydroxymitragynine` | static | [`app/compare/mitragynine-vs-7-hydroxymitragynine/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/mitragynine-vs-7-hydroxymitragynine/page.tsx) |
 | `/compare` | static | [`app/compare/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/compare/page.tsx) |
@@ -147,9 +148,15 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/goals` | static | [`app/goals/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/goals/page.tsx) |
 | `/goals/[goal]` | dynamic | [`app/goals/[goal]/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/goals/[goal]/page.tsx) |
 | `/guides/adhd-supplements` | static | [`app/guides/adhd-supplements/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/adhd-supplements/page.tsx) |
+| `/guides/best-adaptogens-for-stress` | static | [`app/guides/best-adaptogens-for-stress/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-adaptogens-for-stress/page.tsx) |
+| `/guides/best-herbs-for-anxiety` | static | [`app/guides/best-herbs-for-anxiety/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-herbs-for-anxiety/page.tsx) |
 | `/guides/best-herbs-for-stress-and-anxiety-at-night` | static | [`app/guides/best-herbs-for-stress-and-anxiety-at-night/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-herbs-for-stress-and-anxiety-at-night/page.tsx) |
 | `/guides/best-natural-sleep-aids-that-work` | static | [`app/guides/best-natural-sleep-aids-that-work/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-natural-sleep-aids-that-work/page.tsx) |
+| `/guides/best-nootropics-for-focus` | static | [`app/guides/best-nootropics-for-focus/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-nootropics-for-focus/page.tsx) |
+| `/guides/best-supplements-for-focus` | static | [`app/guides/best-supplements-for-focus/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-supplements-for-focus/page.tsx) |
 | `/guides/best-supplements-for-overthinking` | static | [`app/guides/best-supplements-for-overthinking/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-supplements-for-overthinking/page.tsx) |
+| `/guides/best-supplements-for-sleep` | static | [`app/guides/best-supplements-for-sleep/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-supplements-for-sleep/page.tsx) |
+| `/guides/best-supplements-for-stress` | static | [`app/guides/best-supplements-for-stress/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/best-supplements-for-stress/page.tsx) |
 | `/guides/elderberry` | static | [`app/guides/elderberry/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/elderberry/page.tsx) |
 | `/guides/focus-without-caffeine-crash` | static | [`app/guides/focus-without-caffeine-crash/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/focus-without-caffeine-crash/page.tsx) |
 | `/guides/how-to-lower-cortisol-naturally` | static | [`app/guides/how-to-lower-cortisol-naturally/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/guides/how-to-lower-cortisol-naturally/page.tsx) |
@@ -179,6 +186,8 @@ This file lists all active Page Router routes compiled by Next.js static export.
 | `/methodology` | static | [`app/methodology/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/methodology/page.tsx) |
 | `/newsletter/confirmed` | static | [`app/newsletter/confirmed/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/newsletter/confirmed/page.tsx) |
 | `/newsletter` | static | [`app/newsletter/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/newsletter/page.tsx) |
+| `/novel-psychoactive-substances` | static | [`app/novel-psychoactive-substances/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/novel-psychoactive-substances/page.tsx) |
+| `/novel-psychoactive-substances/[slug]` | dynamic | [`app/novel-psychoactive-substances/[slug]/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/novel-psychoactive-substances/[slug]/page.tsx) |
 | `/` | static | [`app/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/page.tsx) |
 | `/privacy` | static | [`app/privacy/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/privacy/page.tsx) |
 | `/psychoactive/calming` | static | [`app/psychoactive/calming/page.tsx`](file:///C:/Users/Will/Documents/hippie-scientist-site/app/psychoactive/calming/page.tsx) |

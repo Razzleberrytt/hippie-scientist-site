@@ -1,6 +1,6 @@
 import { getConsent } from './consent'
 
-const GA_ID = 'G-7DFJL2FC6F'
+const GA_ID = process.env.NEXT_PUBLIC_GA4_ID ?? ''
 const PLAUSIBLE_DOMAIN = 'thehippiescientist.net'
 // Preserve the Plausible domain for future use without triggering unused variable warnings.
 void PLAUSIBLE_DOMAIN
@@ -17,6 +17,7 @@ function injectScript(src: string, attrs: Record<string, string> = {}) {
 }
 
 export function loadAnalytics() {
+  if (!GA_ID) return
   if (loaded) return
   if (typeof window === 'undefined') return
 

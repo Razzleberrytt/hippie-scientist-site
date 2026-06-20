@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
+import Script from 'next/script'
 import { SearchSkeleton } from '@/components/skeletons'
 import { HERB_COUNT, COMPOUND_COUNT } from '@/lib/profile-counts'
 
@@ -49,6 +50,10 @@ export default function SearchPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
+      <Script
+        src='/pagefind/pagefind-ui.js'
+        strategy='afterInteractive'
+      />
       <div className="mb-6 space-y-2">
         <p className="eyebrow-label">Evidence discovery</p>
         <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-5xl">
