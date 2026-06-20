@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -5,6 +7,12 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Why Individual Variability Matters",
+  description: "Educational exploration of contextual neurobiology, human variability, stress physiology, recovery biology, and scientific uncertainty.",
+  path: "/education/why-individual-variability-matters/",
+})
+
 
 const systems = [
   {

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'Get in touch with The Hippie Scientist — submit corrections, feedback, partnership inquiries, or research questions for our evidence-focused site.',
   alternates: {
-    canonical: '/contact',
+    canonical: '/contact/',
   },
   robots: {
     index: true,

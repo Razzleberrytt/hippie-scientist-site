@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "What Is Neuropharmacology?",
+  description: "Educational introduction to neuropharmacology, psychoactive mechanisms, signaling pathways, and ethnobotanical neurochemistry.",
+  path: "/education/what-is-neuropharmacology/",
+})
+
 
 const systems = [
   {

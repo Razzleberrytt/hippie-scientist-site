@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -6,6 +8,12 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+export const metadata: Metadata = buildPageMetadata({
+  title: "How Memory Formation Works",
+  description: "Educational exploration of memory formation, cognition continuity, sleep-dependent consolidation, emotional salience, and neuropharmacology.",
+  path: "/education/how-memory-formation-works/",
+})
+
 
 const mechanisms = [
   {

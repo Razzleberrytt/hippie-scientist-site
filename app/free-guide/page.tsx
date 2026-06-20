@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Free Supplement Decision Guide',
   description:
     'Get a free evidence-aware supplement decision guide for sleep, stress, focus, brain fog, fatigue, and calming support.',
-  alternates: { canonical: '/free-guide' },
+  alternates: { canonical: '/free-guide/' },
 }
 
 export default function FreeGuidePage() {

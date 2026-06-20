@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Dissociative Mechanisms",
+  description: "Educational exploration of dissociative neuropharmacology, glutamatergic signaling, altered-state mechanisms, and psychoactive ethnobotany.",
+  path: "/psychoactive/dissociative-mechanisms/",
+})
+
 
 const systems = [
   {

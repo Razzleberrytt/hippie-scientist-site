@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Supplements for Sleep — Evidence-Based Guide',
   description:
     'Evidence-graded review of the best sleep supplements: magnesium glycinate, L-theanine, melatonin, valerian, ashwagandha, and more. Mechanisms, dosing, safety, and decision framework.',
-  alternates: { canonical: '/guides/best-supplements-for-sleep' },
+  alternates: { canonical: '/guides/best-supplements-for-sleep/' },
   openGraph: {
     title: 'Best Supplements for Sleep — Evidence-Based Guide',
     description:

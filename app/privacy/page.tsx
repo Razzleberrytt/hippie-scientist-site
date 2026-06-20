@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'Privacy policy for The Hippie Scientist — how we handle data, cookies, and any affiliate links on this site, written in clear plain English.',
   alternates: {
-    canonical: '/privacy',
+    canonical: '/privacy/',
   },
   robots: {
     index: true,

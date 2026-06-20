@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Evidence Hierarchy",
+  description: "Educational overview of evidence hierarchy, clinical trials, mechanistic evidence, ethnobotanical context, and scientific interpretation systems.",
+  path: "/education/evidence-hierarchy/",
+})
+
 
 export default function EvidenceHierarchyPage() {
   return (

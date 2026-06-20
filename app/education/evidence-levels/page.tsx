@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceBadge from '@/components/evidence/EvidenceBadge'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Understanding Evidence Levels",
+  description: "Educational overview of evidence strength systems, human evidence prioritization, mechanistic evidence, and scientific interpretation methodology.",
+  path: "/education/evidence-levels/",
+})
+
 
 const levels = [
   {

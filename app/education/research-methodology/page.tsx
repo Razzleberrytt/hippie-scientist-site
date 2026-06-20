@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Research Methodology",
+  description: "Educational overview of evidence standards, human trials, mechanistic evidence, neuropharmacology interpretation, and scientific methodology.",
+  path: "/education/research-methodology/",
+})
+
 
 export default function ResearchMethodologyPage() {
   return (

@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -5,6 +7,12 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Why Studies Conflict",
+  description: "Educational exploration of scientific uncertainty, human variability, study design differences, and biological complexity in neuroscience and health research.",
+  path: "/education/why-studies-conflict/",
+})
+
 
 const systems = [
   {

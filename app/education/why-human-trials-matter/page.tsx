@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Why Human Trials Matter",
+  description: "Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-informed scientific interpretation.",
+  path: "/education/why-human-trials-matter/",
+})
+
 
 export default function HumanTrialsMatterPage() {
   return (

@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Understanding Placebo and Expectancy",
+  description: "Educational exploration of placebo effects, expectancy systems, perception, neurochemistry, and scientific interpretation.",
+  path: "/education/understanding-placebo-and-expectancy/",
+})
+
 
 export default function PlaceboExpectancyPage() {
   return (

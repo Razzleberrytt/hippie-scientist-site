@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Psychoactive Harm Reduction",
+  description: "Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and educational guidance.",
+  path: "/psychoactive/harm-reduction/",
+})
+
 
 const topics = [
   {

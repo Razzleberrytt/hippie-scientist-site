@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Common Neurochemistry Myths",
+  description: "Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-informed scientific interpretation.",
+  path: "/education/common-neurochemistry-myths/",
+})
+
 
 const myths = [
   {

@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import MechanismCard from '@/components/evidence/MechanismCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Understanding Individual Variability",
+  description: "Educational overview of individual variability, neurochemical diversity, stress systems, psychoactive responses, and systems biology.",
+  path: "/education/understanding-individual-variability/",
+})
+
 
 export default function IndividualVariabilityPage() {
   return (

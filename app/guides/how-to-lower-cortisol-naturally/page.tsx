@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'How to Lower Cortisol Naturally — Evidence-Based Guide',
   description:
     'A practical, evidence-based guide to lowering cortisol naturally: how the stress hormone works, the lifestyle levers that move it most, and the herbs — ashwagandha, rhodiola, holy basil, magnesium — with the best support.',
-  alternates: { canonical: '/guides/how-to-lower-cortisol-naturally' },
+  alternates: { canonical: '/guides/how-to-lower-cortisol-naturally/' },
   openGraph: {
     title: 'How to Lower Cortisol Naturally — Evidence-Based Guide',
     description:

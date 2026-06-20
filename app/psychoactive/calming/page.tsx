@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Calming Psychoactives",
+  description: "Educational exploration of calming psychoactive herbs, inhibitory neuropharmacology, stress regulation, and GABAergic systems.",
+  path: "/psychoactive/calming/",
+})
+
 
 const profiles = [
   {

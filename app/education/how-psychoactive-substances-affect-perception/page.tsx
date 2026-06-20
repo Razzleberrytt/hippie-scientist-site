@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import MechanismCard from '@/components/evidence/MechanismCard'
@@ -6,6 +8,12 @@ import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+export const metadata: Metadata = buildPageMetadata({
+  title: "How Psychoactive Substances Affect Perception",
+  description: "Educational exploration of psychoactive perception, neurochemical signaling, altered states, sensory processing, and neuropharmacology.",
+  path: "/education/how-psychoactive-substances-affect-perception/",
+})
+
 
 export default function PsychoactivePerceptionPage() {
   return (

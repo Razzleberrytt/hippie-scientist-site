@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "How Herbal Psychoactives Differ From Pharmaceuticals",
+  description: "Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and careful comparison.",
+  path: "/education/how-herbal-psychoactives-differ-from-pharmaceuticals/",
+})
+
 
 const systems = [
   {

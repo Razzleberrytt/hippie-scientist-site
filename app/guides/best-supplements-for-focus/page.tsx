@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Supplements for Focus — Evidence-Based Guide',
   description:
     'Evidence-graded guide to the best supplements for focus: L-theanine, citicoline, bacopa, rhodiola, creatine, and magnesium. Mechanisms, dosing, safety, and practical stacking guide.',
-  alternates: { canonical: '/guides/best-supplements-for-focus' },
+  alternates: { canonical: '/guides/best-supplements-for-focus/' },
   openGraph: {
     title: 'Best Supplements for Focus — Evidence-Based Guide',
     description:

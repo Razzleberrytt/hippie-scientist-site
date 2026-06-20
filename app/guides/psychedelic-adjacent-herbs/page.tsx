@@ -6,7 +6,7 @@ import type { Heading } from '@/components/articles'
 export const metadata: Metadata = {
   title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
   description: 'Evidence-informed harm reduction guide for traditional, ritual, and dream-adjacent botanicals like Blue Lotus and Kanna.',
-  alternates: { canonical: '/guides/psychedelic-adjacent-herbs' },
+  alternates: { canonical: '/guides/psychedelic-adjacent-herbs/' },
   openGraph: {
     title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
     description: 'Evidence-informed harm reduction guide for traditional, ritual, and dream-adjacent botanicals like Blue Lotus and Kanna.',

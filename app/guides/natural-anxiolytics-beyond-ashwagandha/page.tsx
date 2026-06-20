@@ -8,7 +8,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 export const metadata: Metadata = {
   title: 'Natural Anxiolytics Beyond Ashwagandha',
   description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
-  alternates: { canonical: '/guides/best-herbs-for-anxiety' },
+  alternates: { canonical: '/guides/best-herbs-for-anxiety/' },
   openGraph: {
     title: 'Natural Anxiolytics Beyond Ashwagandha',
     description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',

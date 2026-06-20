@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Adaptogens for Stress — Evidence-Based Guide',
   description:
     'Evidence-graded guide to the best adaptogens for stress: ashwagandha, rhodiola, eleuthero, schisandra, and holy basil. How adaptogens work, key differences, dosing, and safety.',
-  alternates: { canonical: '/guides/best-adaptogens-for-stress' },
+  alternates: { canonical: '/guides/best-adaptogens-for-stress/' },
   openGraph: {
     title: 'Best Adaptogens for Stress — Evidence-Based Guide',
     description:

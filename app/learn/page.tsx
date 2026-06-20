@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Supplement Guides — Stack Guides and Education',
   description:
     'No hype, no marketing. Practical supplement stack guides for cognition, stress, sleep, and inflammation. Evidence-informed, safety-first.',
-  alternates: { canonical: '/guides' },
+  alternates: { canonical: '/guides/' },
   openGraph: {
     title: 'Supplement Stack Guides — The Hippie Scientist',
     description:

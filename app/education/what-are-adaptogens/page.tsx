@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -6,6 +8,12 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import RelatedEducationSystems from '@/components/education/related-education-systems'
+export const metadata: Metadata = buildPageMetadata({
+  title: "What Are Adaptogens?",
+  description: "Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-informed adaptogenic neuropharmacology.",
+  path: "/education/what-are-adaptogens/",
+})
+
 
 const systems = [
   {

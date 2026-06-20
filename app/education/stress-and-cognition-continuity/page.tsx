@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -5,6 +7,12 @@ import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanistic
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import RelatedEducationSystems from '@/components/education/related-education-systems'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Stress and Cognition Continuity",
+  description: "Educational exploration of stress physiology, recovery continuity, attentional resilience, and sustainable cognition systems.",
+  path: "/education/stress-and-cognition-continuity/",
+})
+
 
 const systems = [
   {

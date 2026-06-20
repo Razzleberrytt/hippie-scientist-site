@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Nootropics for Focus — Evidence-Based Guide (2026)',
   description:
     'Evidence-graded guide to the best nootropics for focus: L-theanine + caffeine, citicoline, bacopa, lion\'s mane, rhodiola, and phosphatidylserine. Mechanisms, dosing, safety, and stacking notes.',
-  alternates: { canonical: '/guides/best-nootropics-for-focus' },
+  alternates: { canonical: '/guides/best-nootropics-for-focus/' },
   openGraph: {
     title: 'Best Nootropics for Focus — Evidence-Based Guide (2026)',
     description:

@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+export const metadata: Metadata = buildPageMetadata({
+  title: "How to Read Scientific Studies",
+  description: "Educational overview of scientific interpretation, evidence quality, human trials, mechanistic evidence, and research limitations.",
+  path: "/education/how-to-read-scientific-studies/",
+})
+
 
 export default function ReadScientificStudiesPage() {
   return (

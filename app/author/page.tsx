@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'The Hippie Scientist is an independent evidence-first botanical research project. Learn about the editorial philosophy, methodology, and the person behind the database.',
   alternates: {
-    canonical: '/author',
+    canonical: '/author/',
   },
 }
 

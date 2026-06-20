@@ -12,6 +12,11 @@ type SitemapSourceItem = {
   slug?: string;
   lastUpdated?: string;
   updatedAt?: string;
+  last_updated?: string;
+  last_reviewed?: string;
+  updated_at?: string;
+  reviewedAt?: string;
+  dateModified?: string;
   date?: string;
   sitemap_included?: boolean | string;
   robots?: string;
@@ -306,23 +311,78 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
   return false;
 }
 
+const LAST_MODIFIED_FIELDS = [
+  'lastUpdated',
+  'updatedAt',
+  'last_updated',
+  'last_reviewed',
+  'updated_at',
+  'reviewedAt',
+] as const;
+
+function isValidDateOnly(year: number, month: number, day: number): boolean {
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return (
+    date.getUTCFullYear() === year &&
+    date.getUTCMonth() === month - 1 &&
+    date.getUTCDate() === day
+  );
+}
+
+export function normalizeSitemapDate(value: unknown): string | undefined {
+  if (value instanceof Date) {
+    if (Number.isNaN(value.getTime())) return undefined;
+    return value.toISOString().slice(0, 10);
+  }
+
+  const raw = String(value ?? '').trim();
+  if (!raw) return undefined;
+
+  const dateOnly = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (dateOnly) {
+    const [, yearRaw, monthRaw, dayRaw] = dateOnly;
+    const year = Number(yearRaw);
+    const month = Number(monthRaw);
+    const day = Number(dayRaw);
+    return isValidDateOnly(year, month, day) ? raw : undefined;
+  }
+
+  const timestamp = Date.parse(raw);
+  if (!Number.isFinite(timestamp)) return undefined;
+
+  return new Date(timestamp).toISOString().slice(0, 10);
+}
+
+export function getSitemapLastModified(
+  item: Record<string, unknown> | null | undefined,
+  extraFields: readonly string[] = [],
+): string | undefined {
+  if (!item) return undefined;
+
+  for (const field of [...LAST_MODIFIED_FIELDS, ...extraFields]) {
+    const normalized = normalizeSitemapDate(item[field]);
+    if (normalized) return normalized;
+  }
+
+  return undefined;
+}
+
 function route(
   url: string,
-  currentDate: string,
   changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'],
   priority: number,
   lastModified?: string,
 ): MetadataRoute.Sitemap[number] {
+  const normalizedLastModified = normalizeSitemapDate(lastModified);
   return {
     url,
-    lastModified: lastModified || currentDate,
+    ...(normalizedLastModified ? { lastModified: normalizedLastModified } : {}),
     changeFrequency,
     priority,
   };
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const currentDate = new Date().toISOString().split('T')[0];
   const redirectSources = readRedirectSources();
 
   const herbsData = readJsonArray<SitemapSourceItem>('public/data/herbs.json');
@@ -350,27 +410,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const npsIndex = npsMdx.find((page) => page.slug === 'index');
 
   const sitemapEntries: MetadataRoute.Sitemap = [
-    route(normalizeSitemapUrl('/'), currentDate, 'weekly', 1.0),
-    route(normalizeSitemapUrl('/about'), currentDate, 'yearly', 0.6),
-    route(normalizeSitemapUrl('/contact'), currentDate, 'yearly', 0.5),
-    route(normalizeSitemapUrl('/faq'), currentDate, 'monthly', 0.7),
-    route(normalizeSitemapUrl('/methodology'), currentDate, 'yearly', 0.6),
-    route(normalizeSitemapUrl('/evidence-digest'), currentDate, 'weekly', 0.85),
-    route(normalizeSitemapUrl('/safety-checker'), currentDate, 'monthly', 0.8),
-    route(normalizeSitemapUrl('/supplement-safety-checklist'), currentDate, 'monthly', 0.8),
-    route(normalizeSitemapUrl('/herbs'), currentDate, 'weekly', 0.8),
-    route(normalizeSitemapUrl('/compounds'), currentDate, 'weekly', 0.8),
-    route(normalizeSitemapUrl('/articles'), currentDate, 'daily', 0.8),
-    route(normalizeSitemapUrl('/goals'), currentDate, 'monthly', 0.8),
-    route(normalizeSitemapUrl('/stacks'), currentDate, 'monthly', 0.7),
-    route(normalizeSitemapUrl('/guides'), currentDate, 'monthly', 0.85),
-    route(normalizeSitemapUrl('/novel-psychoactive-substances'), currentDate, 'monthly', 0.7, npsIndex?.lastUpdated),
-    route(normalizeSitemapUrl('/compare'), currentDate, 'monthly', 0.7),
-    route(normalizeSitemapUrl('/tools'), currentDate, 'monthly', 0.6),
-    route(normalizeSitemapUrl('/dosing'), currentDate, 'monthly', 0.6),
-    route(normalizeSitemapUrl('/affiliate-disclosure'), currentDate, 'yearly', 0.5),
-    route(normalizeSitemapUrl('/privacy'), currentDate, 'yearly', 0.4),
-    route(normalizeSitemapUrl('/disclaimer'), currentDate, 'yearly', 0.4),
+    route(normalizeSitemapUrl('/'), 'weekly', 1.0),
+    route(normalizeSitemapUrl('/about'), 'yearly', 0.6),
+    route(normalizeSitemapUrl('/contact'), 'yearly', 0.5),
+    route(normalizeSitemapUrl('/faq'), 'monthly', 0.7),
+    route(normalizeSitemapUrl('/methodology'), 'yearly', 0.6),
+    route(normalizeSitemapUrl('/evidence-digest'), 'weekly', 0.85),
+    route(normalizeSitemapUrl('/safety-checker'), 'monthly', 0.8),
+    route(normalizeSitemapUrl('/supplement-safety-checklist'), 'monthly', 0.8),
+    route(normalizeSitemapUrl('/herbs'), 'weekly', 0.8),
+    route(normalizeSitemapUrl('/compounds'), 'weekly', 0.8),
+    route(normalizeSitemapUrl('/articles'), 'daily', 0.8),
+    route(normalizeSitemapUrl('/goals'), 'monthly', 0.8),
+    route(normalizeSitemapUrl('/stacks'), 'monthly', 0.7),
+    route(normalizeSitemapUrl('/guides'), 'monthly', 0.85),
+    route(normalizeSitemapUrl('/novel-psychoactive-substances'), 'monthly', 0.7, getSitemapLastModified(npsIndex)),
+    route(normalizeSitemapUrl('/compare'), 'monthly', 0.7),
+    route(normalizeSitemapUrl('/tools'), 'monthly', 0.6),
+    route(normalizeSitemapUrl('/dosing'), 'monthly', 0.6),
+    route(normalizeSitemapUrl('/affiliate-disclosure'), 'yearly', 0.5),
+    route(normalizeSitemapUrl('/privacy'), 'yearly', 0.4),
+    route(normalizeSitemapUrl('/disclaimer'), 'yearly', 0.4),
   ];
 
   const addRoute = (
@@ -384,7 +444,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (redirectSources.has(normalized)) return;
     const indexDecision = shouldIndexRoute(normalized, pageData);
     if (!indexDecision.index) return;
-    sitemapEntries.push(route(normalizeSitemapUrl(normalized), currentDate, changeFrequency, Math.min(priority, indexDecision.priority || priority), lastModified));
+    sitemapEntries.push(route(normalizeSitemapUrl(normalized), changeFrequency, Math.min(priority, indexDecision.priority || priority), lastModified));
   };
 
   const addFocusClusterRoute = (
@@ -395,7 +455,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (redirectSources.has(normalized)) return;
     const indexDecision = shouldIndexRoute(normalized);
     if (!indexDecision.index) return;
-    sitemapEntries.push(route(normalizeSitemapUrl(normalized), currentDate, 'monthly', 0.75, lastModified));
+    sitemapEntries.push(route(normalizeSitemapUrl(normalized), 'monthly', 0.75, lastModified));
   };
 
   const DEPRECATED_HERBS = new Set([
@@ -472,7 +532,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Only include herbs explicitly approved for indexing.
     if (herb.indexability_status !== 'PUBLISH') return;
 
-    addRoute(`/herbs/${herb.slug}`, 'monthly', 0.7, herb.lastUpdated || herb.updatedAt, herb);
+    addRoute(`/herbs/${herb.slug}`, 'monthly', 0.7, getSitemapLastModified(herb), herb);
   });
 
   compoundsData.forEach((compound) => {
@@ -482,7 +542,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Only include compounds explicitly approved for indexing.
     if (compound.indexability_status !== 'PUBLISH') return;
 
-    addRoute(`/compounds/${compound.slug}`, 'monthly', 0.7, compound.lastUpdated || compound.updatedAt, compound);
+    addRoute(`/compounds/${compound.slug}`, 'monthly', 0.7, getSitemapLastModified(compound), compound);
   });
 
   const articleSlugs = new Set<string>();
@@ -491,18 +551,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (!article.slug) return;
     articleSlugs.add(article.slug);
 
-    addRoute(`/articles/${article.slug}`, 'monthly', 0.75, article.updatedAt || article.date || article.lastUpdated, article);
+    addRoute(`/articles/${article.slug}`, 'monthly', 0.75, getSitemapLastModified(article, ['date']), article);
   });
 
   blogPosts.forEach((post) => {
     if (!post.slug) return;
     if (articleSlugs.has(post.slug)) return;
 
-    addRoute(`/articles/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || post.updatedAt, post);
+    addRoute(`/articles/${post.slug}`, 'monthly', 0.75, getSitemapLastModified(post, ['date']), post);
   });
 
   getAllFocusClusterArticles().forEach((article) => {
-    addFocusClusterRoute(`/${article.slug}`, article.dateModified);
+    addFocusClusterRoute(`/${article.slug}`, getSitemapLastModified(article, ['dateModified']));
   });
 
   // Add App Router article pages not covered by articles.json or blog posts.json
@@ -550,7 +610,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   npsMdx.forEach((page) => {
     if (!page.slug || page.slug === 'index') return;
-    addRoute(`/novel-psychoactive-substances/${page.slug}`, 'monthly', 0.65, page.lastUpdated, page);
+    addRoute(`/novel-psychoactive-substances/${page.slug}`, 'monthly', 0.65, getSitemapLastModified(page), page);
   });
 
   // Add compare detail routes (data-driven + custom directories)

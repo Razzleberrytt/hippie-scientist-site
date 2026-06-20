@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -5,6 +7,12 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
+export const metadata: Metadata = buildPageMetadata({
+  title: "How Neurotransmitters Work",
+  description: "Educational overview of neurotransmitters, signaling systems, neuropharmacology, pathway interactions, and nervous-system communication.",
+  path: "/education/how-neurotransmitters-work/",
+})
+
 
 const pathways = [
   {

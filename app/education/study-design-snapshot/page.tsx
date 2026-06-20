@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Study Design Snapshots: Reading an Evidence Grade',
   description:
     'How evidence grades are assigned and which clinical trial design factors matter — shown through embeddable Study Design Snapshots that keep the practical takeaway prominent.',
-  alternates: { canonical: '/education/study-design-snapshot' },
+  alternates: { canonical: '/education/study-design-snapshot/' },
   openGraph: {
     title: 'Study Design Snapshots: Reading an Evidence Grade',
     description:

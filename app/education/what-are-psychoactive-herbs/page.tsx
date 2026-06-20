@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
+export const metadata: Metadata = buildPageMetadata({
+  title: "What Are Psychoactive Herbs?",
+  description: "Educational overview of psychoactive herbs, neuropharmacology, mechanisms, pathways, and harm reduction.",
+  path: "/education/what-are-psychoactive-herbs/",
+})
+
 
 const faqItems = [
   {

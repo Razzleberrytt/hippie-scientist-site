@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Neuroscience and Neuropharmacology Education',
   description:
     'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
-  alternates: { canonical: '/education' },
+  alternates: { canonical: '/education/' },
   openGraph: {
     title: 'Neuroscience and Neuropharmacology Education',
     description:

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Supplement Guides — Problem-Solving Evidence-Informed Content',
   description:
     'Evidence-aware guides for sleep, stress, anxiety, focus, ADHD, depression, and cognitive performance. Comparisons, dosing context, and safety tradeoffs included.',
-  alternates: { canonical: '/guides' },
+  alternates: { canonical: '/guides/' },
   openGraph: {
     title: 'Supplement Guides — The Hippie Scientist',
     description:

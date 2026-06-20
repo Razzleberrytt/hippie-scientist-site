@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Latest Human Evidence Updates | Evidence Digest',
   description:
     'Weekly summaries of new human clinical trials on adaptogens, biological compounds, and minerals, graded for evidence strength.',
-  alternates: { canonical: '/evidence-digest' },
+  alternates: { canonical: '/evidence-digest/' },
 }
 
 type StudyUpdate = {

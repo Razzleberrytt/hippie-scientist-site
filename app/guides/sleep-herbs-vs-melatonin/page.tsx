@@ -8,7 +8,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 export const metadata: Metadata = {
   title: 'Sleep Herbs vs Melatonin',
   description: 'Understand the difference between melatonin (circadian timing) and calming sleep herbs (Magnesium, L-Theanine, Valerian) for sleep routines.',
-  alternates: { canonical: '/guides/sleep-herbs-vs-melatonin' },
+  alternates: { canonical: '/guides/sleep-herbs-vs-melatonin/' },
   openGraph: {
     title: 'Sleep Herbs vs Melatonin',
     description: 'Understand the difference between melatonin (circadian timing) and calming sleep herbs (Magnesium, L-Theanine, Valerian) for sleep routines.',

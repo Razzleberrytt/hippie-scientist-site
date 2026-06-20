@@ -1,7 +1,15 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Safety and Educational Disclaimers",
+  description: "Educational overview of safety considerations, psychoactive risks, evidence limitations, and responsible interpretation principles.",
+  path: "/education/safety-and-disclaimers/",
+})
+
 
 export default function SafetyAndDisclaimersPage() {
   return (

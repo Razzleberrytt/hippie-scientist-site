@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Natural Sleep Aids That Actually Work (Evidence-Based)',
   description:
     'Which natural sleep aids actually work? An evidence-graded guide to magnesium, valerian, melatonin, L-theanine, passionflower and lemon balm — matched to why you cannot sleep, with dosing, safety and what to avoid.',
-  alternates: { canonical: '/guides/best-natural-sleep-aids-that-work' },
+  alternates: { canonical: '/guides/best-natural-sleep-aids-that-work/' },
   openGraph: {
     title: 'Best Natural Sleep Aids That Actually Work (Evidence-Based)',
     description:

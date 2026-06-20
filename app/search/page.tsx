@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Search Herbs & Supplements',
   description: `Search ${HERB_COUNT} herb profiles and ${COMPOUND_COUNT} compound profiles by name, goal, mechanism, or safety context. Evidence-weighted results with conservative safety labels.`,
   alternates: {
-    canonical: '/search',
+    canonical: '/search/',
   },
   robots: {
     index: true,

@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "How Psychoactive Plants Affect the Brain",
+  description: "Educational exploration of psychoactive neuropharmacology, signaling systems, pathways, and ethnobotanical mechanisms.",
+  path: "/education/how-psychoactive-plants-affect-the-brain/",
+})
+
 
 const systems = [
   {

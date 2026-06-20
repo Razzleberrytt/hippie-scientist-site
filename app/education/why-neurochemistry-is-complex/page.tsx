@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
@@ -5,6 +7,12 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MechanismCard from '@/components/evidence/MechanismCard'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Why Neurochemistry Is Complex",
+  description: "Educational overview of systems biology, pathway interaction, receptor complexity, neuropharmacology, and scientific uncertainty.",
+  path: "/education/why-neurochemistry-is-complex/",
+})
+
 
 export default function NeurochemistryComplexityPage() {
   return (

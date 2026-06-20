@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Supplement Product Quality Guide',
   description:
     'Learn how to evaluate supplement labels, standardized extracts, third-party testing, certificates of analysis, and product-quality tradeoffs before buying.',
-  alternates: { canonical: '/learn/product-quality' },
+  alternates: { canonical: '/learn/product-quality/' },
 }
 
 export default async function ProductQualityPage() {

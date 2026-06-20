@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Herbs for Stress and Anxiety at Night — Calm-Down Guide',
   description:
     'Evening stress and anxiety keeping you awake? An evidence-informed guide to calming herbs for nighttime — passionflower, lemon balm, ashwagandha, magnolia, valerian and L-theanine — with a wind-down routine, dosing and safety.',
-  alternates: { canonical: '/guides/best-herbs-for-stress-and-anxiety-at-night' },
+  alternates: { canonical: '/guides/best-herbs-for-stress-and-anxiety-at-night/' },
   openGraph: {
     title: 'Best Herbs for Stress and Anxiety at Night — Calm-Down Guide',
     description:

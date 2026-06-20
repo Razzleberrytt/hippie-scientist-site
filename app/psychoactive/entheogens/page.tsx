@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "Entheogens",
+  description: "Educational exploration of entheogenic ethnobotany, psychoactive mechanisms, ceremonial traditions, and consciousness-oriented neuropharmacology.",
+  path: "/psychoactive/entheogens/",
+})
+
 
 const profiles = [
   {

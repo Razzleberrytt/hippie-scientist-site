@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Supplements for Overthinking & a Racing Mind',
   description:
     'Stuck in mental loops? An evidence-informed guide to supplements for overthinking — L-theanine, magnesium, lemon balm, ashwagandha and saffron — matched to whether your overthinking is anxious, stress-driven or sleep-deprived.',
-  alternates: { canonical: '/guides/best-supplements-for-overthinking' },
+  alternates: { canonical: '/guides/best-supplements-for-overthinking/' },
   openGraph: {
     title: 'Best Supplements for Overthinking & a Racing Mind',
     description:

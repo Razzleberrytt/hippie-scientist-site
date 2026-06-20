@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Focus Without the Caffeine Crash — A Practical Guide',
   description:
     'Want steady focus without the afternoon crash? An evidence-informed guide to smoother cognition: the caffeine + L-theanine stack, calmer nootropics like rhodiola and bacopa, and the timing habits that prevent the slump in the first place.',
-  alternates: { canonical: '/guides/focus-without-caffeine-crash' },
+  alternates: { canonical: '/guides/focus-without-caffeine-crash/' },
   openGraph: {
     title: 'Focus Without the Caffeine Crash — A Practical Guide',
     description:

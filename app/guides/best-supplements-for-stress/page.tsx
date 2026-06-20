@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Best Supplements for Stress — Evidence-Based Guide',
   description:
     'Evidence-graded review of the best stress supplements: ashwagandha, rhodiola, phosphatidylserine, magnesium, and L-theanine. Mechanisms, dosing, safety, and when each works.',
-  alternates: { canonical: '/guides/best-supplements-for-stress' },
+  alternates: { canonical: '/guides/best-supplements-for-stress/' },
   openGraph: {
     title: 'Best Supplements for Stress — Evidence-Based Guide',
     description:

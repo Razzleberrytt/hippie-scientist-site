@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Best Herbs for Anxiety — Evidence-Based Guide',
   description:
     'Evidence-graded review of the best herbs for anxiety: ashwagandha, kava, passionflower, lemon balm, valerian, and lavender. Mechanisms, dosing, safety, drug interactions, and decision framework.',
-  alternates: { canonical: '/guides/best-herbs-for-anxiety' },
+  alternates: { canonical: '/guides/best-herbs-for-anxiety/' },
   openGraph: {
     title: 'Best Herbs for Anxiety — Evidence-Based Guide',
     description:

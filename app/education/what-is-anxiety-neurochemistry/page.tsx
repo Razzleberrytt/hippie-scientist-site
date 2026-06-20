@@ -1,6 +1,14 @@
+import type { Metadata } from 'next'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+export const metadata: Metadata = buildPageMetadata({
+  title: "What Is Anxiety Neurochemistry?",
+  description: "Educational overview of anxiety-related neurochemistry, stress signaling, calming systems, emotional processing, and nervous-system regulation.",
+  path: "/education/what-is-anxiety-neurochemistry/",
+})
+
 
 const systems = [
   {
