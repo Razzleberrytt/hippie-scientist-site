@@ -5,23 +5,9 @@ updates:
     schedule:
       interval: "weekly"
     ignore:
-      # Keep major framework/runtime upgrades out of routine Dependabot PRs.
-      # Upgrade these manually after a dedicated migration pass.
-      - dependency-name: "next"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@next/*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "react"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "react-dom"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@types/react*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "eslint"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@eslint/*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "typescript"
+      # Major dependency upgrades are migration projects, not routine maintenance.
+      # Keep Dependabot focused on safer patch/minor updates.
+      - dependency-name: "*"
         update-types: ["version-update:semver-major"]
     groups:
       next-react:
