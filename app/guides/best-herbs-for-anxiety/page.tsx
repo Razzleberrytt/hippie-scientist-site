@@ -5,6 +5,8 @@ import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-anxiety`
 
@@ -136,6 +138,8 @@ const HEADINGS: Heading[] = [
 ]
 
 export default function BestHerbsForAnxietyPage() {
+  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
+
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -327,6 +331,10 @@ export default function BestHerbsForAnxietyPage() {
             </table>
           </div>
         </section>
+
+        {ashwagandhaProducts && (
+          <RecommendationSection products={ashwagandhaProducts.products} />
+        )}
 
         <section id="faq" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
           <h2 className="text-xl font-semibold text-ink">Frequently asked questions</h2>
