@@ -459,7 +459,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
 
   return (
-    <div className="mx-auto max-w-4xl space-y-10 px-4 py-6">
+    <div className="mx-auto max-w-4xl space-y-10 px-4 pb-28 pt-6">
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
       <HerbSchemaGenerator

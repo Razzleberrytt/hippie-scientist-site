@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import '@/styles/premium-cards.css'
@@ -150,19 +150,6 @@ function getBestFor(item: RuntimeRecord) {
   return traditionalUses.length > 0 ? text(traditionalUses.join(' • ')) : 'Research context'
 }
 
-function getTimeToEffect(item: RuntimeRecord) {
-  const value = labelize(
-    item?.time_to_effect ||
-      item?.timeToEffect ||
-      item?.onset ||
-      (item?.practical as Record<string, unknown>)?.timeToEffect ||
-      item?.timeline,
-    ''
-  )
-
-  return value && isClean(value) ? value : ''
-}
-
 function scoreHerb(item: RuntimeRecord) {
   let score = 0
 
@@ -302,9 +289,6 @@ function HerbCard({ herb, featured = false }: { herb: RuntimeRecord; featured?: 
       name={getName(herb)}
       summary={getSummary(herb)}
       bestFor={getBestFor(herb)}
-      evidence={getEvidence(herb)}
-      safety={getSafety(herb)}
-      timeToEffect={getTimeToEffect(herb)}
       mechanisms={getMechanisms(herb)}
       featured={featured}
       fallbackSummary={`${getName(herb)} profile summarizing available evidence, mechanisms, safety context, and practical research notes.`}
@@ -371,7 +355,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
   const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
 
   return (
-    <div className="px-2 py-2 text-ink sm:px-3 sm:py-3">
+    <div className="px-2 pb-28 pt-2 text-ink sm:px-3 sm:pt-3">
       <div className="mx-auto max-w-7xl space-y-4 sm:space-y-4">
         <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
           <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
