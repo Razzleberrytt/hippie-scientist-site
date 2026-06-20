@@ -4,7 +4,8 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 195
+- Pages: 196
+- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
@@ -44,11 +45,11 @@ Priority clusters used by the internal link engine.
 - [Alpha-GPC](/compounds/alpha-gpc) (compound)
 - [American Ginseng Extract](/compounds/american-ginseng-extract) (compound)
 - [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
-- [bacopaside ii](/compounds/bacopaside-ii) (compound)
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 774
+- Pages: 775
+- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
@@ -88,11 +89,11 @@ Priority clusters used by the internal link engine.
 - [acetyl-beta-boswellic acid](/compounds/acetyl-beta-boswellic-acid) (compound)
 - [Actein](/compounds/actein) (compound)
 - [Adenosine](/compounds/adenosine) (compound)
-- [aescin](/compounds/aescin) (compound)
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 219
+- Pages: 220
+- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
@@ -132,11 +133,11 @@ Priority clusters used by the internal link engine.
 - [Apigenin](/compounds/apigenin) (compound)
 - [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
 - [baicalin](/compounds/baicalin) (compound)
-- [Beta-Alanine](/compounds/beta-alanine) (compound)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 523
+- Pages: 524
+- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
@@ -176,11 +177,11 @@ Priority clusters used by the internal link engine.
 - [artemisinin b](/compounds/artemisinin-b) (compound)
 - [artesunate](/compounds/artesunate) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
-- [Ashitaba Angelica keiskei](/compounds/ashitaba) (compound)
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 645
+- Pages: 646
+- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
@@ -220,7 +221,6 @@ Priority clusters used by the internal link engine.
 - [Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared](/compare/sleep-herbs-vs-melatonin) (guide)
 - [Compound Library](/compounds) (static)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
-- [5-HTP](/compounds/5-htp) (compound)
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance

@@ -320,7 +320,7 @@ export default async function GoalDecisionPage({
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 space-y-10">
       {structuredData}
       <Breadcrumbs
         items={[
@@ -329,89 +329,63 @@ export default async function GoalDecisionPage({
           { label: goal.title },
         ]}
       />
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-7 sm:p-12 shadow-sm">
         <p className="eyebrow-label">{goal.eyebrow}</p>
         <h1 className="heading-premium mt-3 text-ink">
-          {goal.title}
+          {goal.title.replace(/ decisions$/, '')}: What does the evidence actually support?
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">{goal.description}</p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href="#decision-orientation" className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
+            Start with the {goal.slug} decisions
+          </a>
+          <a href="#safety-first" className="inline-flex min-h-11 items-center justify-center rounded-full border border-brand-900/10 bg-white/70 px-5 py-2.5 text-sm font-semibold text-brand-900 transition hover:border-brand-700/30 hover:bg-white">
+            Review safety warnings
+          </a>
+        </div>
         <div className="mt-4">
           <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
         </div>
       </section>
 
-      <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="hero" />
-
-      <GoalStartHereLinks links={startHereLinks} />
-
-      {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
-
-      {goal.slug === 'focus' ? (
-        <SeeAlsoInCluster currentPath="/goals/focus" />
-      ) : null}
-
-      <section className="rounded-2xl border border-amber-600/10 bg-amber-50/50 p-6 text-sm leading-7 text-amber-950 shadow-sm">
-        <h2 className="text-base font-bold text-amber-950">How to read this guide</h2>
-        <p className="mt-2 text-amber-900">
-          These comparisons are educational triage notes, not treatment instructions. They are meant to
-          help you compare evidence strength, tolerance issues, and practical tradeoffs before reading the
-          full profile or speaking with a qualified clinician.
-        </p>
-        <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/methodology" className="text-brand-800 hover:text-brand-700 hover:underline">
-            Research methodology →
-          </Link>
-          <Link href="/education/evidence-hierarchy" className="text-brand-800 hover:text-brand-700 hover:underline">
-            Evidence hierarchy →
-          </Link>
-          <Link href="/disclaimer" className="text-brand-800 hover:text-brand-700 hover:underline">
-            Disclaimer →
-          </Link>
+      <section id="decision-orientation" className="card-premium p-6 sm:p-8">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">{goal.title} orientation</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">Start by naming your target need</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Compare quick starting points by target need before reading the detailed evidence and caution levels below.
+          </p>
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {goal.quickPicks.map((pick) => {
+            const opt = enrichedOptions.find((o) => o.option.slug === pick.slug)
+            const href = opt?.profileHref
+            return (
+              <article key={pick.slug} className="rounded-2xl border border-brand-900/10 bg-white/70 p-5 flex flex-col justify-between">
+                <div>
+                  <p className="eyebrow-label">Use-case fit</p>
+                  <h3 className="mt-2 text-base font-semibold text-ink">
+                    {href ? (
+                      <Link href={href} className="text-brand-800 hover:text-brand-700 hover:underline transition">
+                        {pick.option}
+                      </Link>
+                    ) : (
+                      <span>{pick.option}</span>
+                    )}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{pick.need}</p>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </section>
 
       <section id='comparison-table' className="card-premium scroll-mt-24 p-6 sm:p-8">
-        <h2 className="text-xl font-semibold text-ink">Quick Comparison Notes</h2>
+        <h2 className="text-xl font-semibold text-ink">Comparison Table</h2>
         <p className="mt-2 text-sm leading-6 text-muted">
           These are starting points for comparison, not recommendations, prescriptions, or guaranteed outcomes.
         </p>
-        <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full text-left text-sm border-collapse">
-            <thead>
-              <tr className="border-b border-brand-900/10">
-                <th className="py-3 pr-4 font-bold text-ink uppercase tracking-wider text-xs">Use-case context</th>
-                <th className="py-3 font-bold text-ink uppercase tracking-wider text-xs">Option to review</th>
-              </tr>
-            </thead>
-            <tbody>
-              {goal.quickPicks.map((pick) => (
-                <tr key={pick.need} className="border-b border-brand-900/5 last:border-0">
-                  <td className="py-3 pr-4 text-muted">{pick.need}</td>
-                  <td className="py-3 font-semibold text-brand-850">{pick.option}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
-
-      <section className='rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6'>
-        <h2 className='text-xl font-semibold text-ink'>Ready to start?</h2>
-        <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
-          Which supplement should you start with? Review the ranked options, then open the product-quality notes before buying.
-        </p>
-        <Link
-          href={goal.slug === 'focus' ? '/best-magnesium-supplements-for-adhd/' : `/goals/${goal.slug}/#comparison-table`}
-          className='mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900'
-        >
-          See ranked options
-        </Link>
-      </section>
-
-      <section className="card-premium p-6 sm:p-8">
-        <h2 className="text-xl font-semibold text-ink">Comparison Table</h2>
         <div className="mt-6 overflow-x-auto">
           <table className="min-w-full text-left text-sm border-collapse">
             <thead>
@@ -571,8 +545,6 @@ export default async function GoalDecisionPage({
         </div>
       </section>
 
-      {goalContent ? <GoalContentDepth content={goalContent} /> : null}
-
       {pivotalStudy ? (
         <section className="card-premium p-6 sm:p-8" aria-labelledby="pivotal-evidence-heading">
           <div className="mb-4 space-y-2">
@@ -603,22 +575,6 @@ export default async function GoalDecisionPage({
         </section>
       ) : null}
 
-      <GoalHubSections
-        goalSlug={goal.slug}
-        stack={hubLinks.stack}
-        compares={hubLinks.compares}
-        seoEntry={hubLinks.seoEntry}
-      />
-
-      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {enrichedOptions.map(({ option }) => (
-          <article key={`${option.slug}-avoid`} className="rounded-2xl border border-rose-600/10 bg-rose-50/50 p-5 shadow-sm">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-rose-900">Review Carefully — {option.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-rose-800">{option.avoidIf}</p>
-          </article>
-        ))}
-      </section>
-
       <section className="grid gap-4 sm:grid-cols-2">
         <article className="card-premium p-6 sm:p-8">
           <h2 className="text-xl font-semibold text-ink">Common Reasons People Stop</h2>
@@ -643,6 +599,58 @@ export default async function GoalDecisionPage({
         </article>
       </section>
 
+      <section id="safety-first" className="rounded-[2rem] border border-amber-600/10 bg-amber-50/50 p-7 sm:p-9 shadow-sm">
+        <h2 className="text-base font-bold text-amber-950">How to read this guide</h2>
+        <p className="mt-2 text-sm leading-7 text-amber-900">
+          These comparisons are educational triage notes, not treatment instructions. They are meant to
+          help you compare evidence strength, tolerance issues, and practical tradeoffs before reading the
+          full profile or speaking with a qualified clinician.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
+          <Link href="/methodology" className="text-brand-800 hover:text-brand-700 hover:underline">
+            Research methodology →
+          </Link>
+          <Link href="/education/evidence-hierarchy" className="text-brand-800 hover:text-brand-700 hover:underline">
+            Evidence hierarchy →
+          </Link>
+          <Link href="/disclaimer" className="text-brand-800 hover:text-brand-700 hover:underline">
+            Disclaimer →
+          </Link>
+        </div>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {enrichedOptions.map(({ option }) => (
+            <article key={`${option.slug}-avoid`} className="rounded-2xl border border-rose-600/10 bg-rose-50/50 p-5 shadow-sm">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-rose-900">Review Carefully — {option.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-rose-800">{option.avoidIf}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
+
+      <GoalStartHereLinks links={startHereLinks} />
+
+      {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
+
+      {goal.slug === 'focus' ? (
+        <SeeAlsoInCluster currentPath="/goals/focus" />
+      ) : null}
+
+      <section className='rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6'>
+        <h2 className='text-xl font-semibold text-ink'>Ready to start?</h2>
+        <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
+          Which supplement should you start with? Review the ranked options, then open the product-quality notes before buying.
+        </p>
+        <Link
+          href={goal.slug === 'focus' ? '/best-magnesium-supplements-for-adhd/' : `/goals/${goal.slug}/#comparison-table`}
+          className='mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900'
+        >
+          See ranked options
+        </Link>
+      </section>
+
       <section className="card-premium p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-ink">Related Goals</h2>
         <div className="mt-4 flex flex-wrap gap-2">
@@ -664,6 +672,17 @@ export default async function GoalDecisionPage({
           })}
         </div>
       </section>
+
+      <SafetyChecklistPromo goal={goalCaptureGoal(goal.slug)} variant="hero" />
+
+      {goalContent ? <GoalContentDepth content={goalContent} /> : null}
+
+      <GoalHubSections
+        goalSlug={goal.slug}
+        stack={hubLinks.stack}
+        compares={hubLinks.compares}
+        seoEntry={hubLinks.seoEntry}
+      />
 
       <AuthorCredentials />
 

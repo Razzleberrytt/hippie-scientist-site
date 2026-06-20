@@ -111,7 +111,7 @@ export default function GoalDecisionExperience({
 
   const problemField = config.problemField ?? `${goal.slug}_problem`
   const orientationId = `${goal.slug}-orientation`
-  const heroHeadline = config.heroHeadline ?? `${goal.title}: What does the evidence actually support?`
+  const heroHeadline = config.heroHeadline ?? `${goal.title.replace(/ decisions$/, '')}: What does the evidence actually support?`
   const heroDescription = `A workbook-backed ${goal.slug} decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.`
   const heroCta = config.heroCta ?? `Start with the ${goal.slug} problem`
   const orientationHeading = config.orientationHeading ?? `Start by naming the ${goal.slug} problem`
@@ -120,7 +120,7 @@ export default function GoalDecisionExperience({
   const safetyBody = config.safetyBody ?? `Do not use supplements to manage complex clinical situations without professional guidance.`
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
+    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-10">
       {structuredData}
       <Breadcrumbs
         items={[
@@ -130,7 +130,7 @@ export default function GoalDecisionExperience({
         ]}
       />
 
-      <section className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
+      <section className="hero-shell overflow-hidden rounded-[2rem] border border-brand-900/10 p-7 sm:p-12 shadow-card">
         <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
             <p className="eyebrow-label">{goal.title} evidence engine</p>
@@ -170,32 +170,6 @@ export default function GoalDecisionExperience({
           <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
         </div>
       </section>
-
-      <SafetyChecklistPromo goal={captureGoal} variant="hero" />
-
-      <GoalStartHereLinks links={startHereLinks} />
-
-      {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
-
-      {goal.slug === 'focus' ? (
-        <SeeAlsoInCluster currentPath="/goals/focus" />
-      ) : null}
-
-      {goal.slug === 'anxiety' ? (
-        <section className="rounded-2xl border border-emerald-700/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
-          <p className="eyebrow-label">Decision guide</p>
-          <h2 className="mt-2 text-xl font-semibold text-ink">Need the broader anxiety herb shortlist?</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            The anxiety goal page keeps the evidence engine separate from the canonical decision guide.
-          </p>
-          <Link
-            href="/guides/best-herbs-for-anxiety"
-            className="mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900"
-          >
-            See our full evidence-based guide - Best Herbs for Anxiety
-          </Link>
-        </section>
-      ) : null}
 
       <section id={orientationId} className="card-premium p-6 sm:p-8">
         <div className="max-w-3xl">
@@ -264,7 +238,7 @@ export default function GoalDecisionExperience({
         </section>
       )}
 
-      <section id="safety-first" className="rounded-[2rem] border border-rose-700/15 bg-rose-50/70 p-6 shadow-sm sm:p-8">
+      <section id="safety-first" className="rounded-[2rem] border border-rose-700/15 bg-rose-50/70 p-7 sm:p-9 shadow-sm">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-rose-800">Safety first</p>
           <h2 className="mt-2 text-2xl font-semibold text-rose-950">{safetyHeading}</h2>
@@ -284,6 +258,32 @@ export default function GoalDecisionExperience({
       </section>
 
       <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
+
+      <GoalStartHereLinks links={startHereLinks} />
+
+      {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
+
+      {goal.slug === 'focus' ? (
+        <SeeAlsoInCluster currentPath="/goals/focus" />
+      ) : null}
+
+      {goal.slug === 'anxiety' ? (
+        <section className="rounded-2xl border border-emerald-700/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
+          <p className="eyebrow-label">Decision guide</p>
+          <h2 className="mt-2 text-xl font-semibold text-ink">Need the broader anxiety herb shortlist?</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The anxiety goal page keeps the evidence engine separate from the canonical decision guide.
+          </p>
+          <Link
+            href="/guides/best-herbs-for-anxiety"
+            className="mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900"
+          >
+            See our full evidence-based guide - Best Herbs for Anxiety
+          </Link>
+        </section>
+      ) : null}
+
+      <SafetyChecklistPromo goal={captureGoal} variant="hero" />
 
       {goalContent ? <GoalContentDepth content={goalContent} /> : null}
 
