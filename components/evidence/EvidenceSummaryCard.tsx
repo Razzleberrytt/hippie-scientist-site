@@ -29,36 +29,36 @@ export default function EvidenceSummaryCard({
 
       <div className="grid gap-4 lg:grid-cols-3">
         {humanEvidence ? (
-          <div className="rounded-2xl bg-[#f5f3ec] p-4 space-y-2">
-            <p className="text-xs font-semibold tracking-wide uppercase text-[#5c6b63]">
+          <div className="rounded-2xl bg-[var(--surface-subtle)] p-4 space-y-2">
+            <p className="text-xs font-semibold tracking-wide uppercase text-[var(--text-muted)]">
               Human evidence
             </p>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-[var(--text-secondary)]">
               {humanEvidence}
             </p>
           </div>
         ) : null}
 
         {mechanisticEvidence ? (
-          <div className="rounded-2xl bg-[#f5f3ec] p-4 space-y-2">
-            <p className="text-xs font-semibold tracking-wide uppercase text-[#5c6b63]">
+          <div className="rounded-2xl bg-[var(--surface-subtle)] p-4 space-y-2">
+            <p className="text-xs font-semibold tracking-wide uppercase text-[var(--text-muted)]">
               Research signal
             </p>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-[var(--text-secondary)]">
               {mechanisticEvidence}
             </p>
           </div>
         ) : null}
 
         {safetyProfile ? (
-          <div className="rounded-2xl bg-[#f5f3ec] p-4 space-y-2">
-            <p className="text-xs font-semibold tracking-wide uppercase text-[#5c6b63]">
+          <div className="rounded-2xl bg-[var(--surface-subtle)] p-4 space-y-2">
+            <p className="text-xs font-semibold tracking-wide uppercase text-[var(--text-muted)]">
               Safety profile
             </p>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-[var(--text-secondary)]">
               {safetyProfile}
             </p>
           </div>

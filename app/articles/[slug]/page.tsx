@@ -144,7 +144,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
           <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
             {article.category}
           </span>
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+          <span className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-2.5 py-0.5 font-semibold text-muted">
             Evidence: {article.evidenceGrade}
           </span>
           <time dateTime={article.lastUpdated} className="text-muted">
@@ -564,7 +564,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
             Deep Dive
           </span>
           {article.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize">
+            <span key={tag} className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-2.5 py-0.5 font-semibold text-muted capitalize">
               {tag}
             </span>
           ))}

@@ -515,7 +515,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <a
             key={href}
             href={href}
-            className="rounded-full border border-brand-900/10 bg-white/70 px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
+            className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
           >
             {label}
           </a>
@@ -526,28 +526,28 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-5 sm:p-6 space-y-4">
         <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
         <div className="grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+          <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence level</p>
             <p className="mt-1 text-sm font-semibold text-ink">{evidenceStrength || 'Mixed or uncertain'}</p>
           </div>
-          <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+          <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</p>
             <p className="mt-1 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</p>
           </div>
-          <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+          <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</p>
             <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {formatDisplayLabel(safetySensitivity)} caution</p>
           </div>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           {topUses.length > 0 && (
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+            <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted font-semibold">Best for</p>
               <p className="mt-1 text-sm text-ink">{topUses.slice(0, 3).join(', ')}</p>
             </div>
           )}
           {avoidIf.length > 0 && (
-            <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
+            <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
               <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
               <p className="mt-1 text-sm text-amber-900">{avoidIf.slice(0, 3).join(', ')}</p>
             </div>
@@ -566,10 +566,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
           </div>
           <div className="grid gap-3 md:grid-cols-3">
             {expansion.methodology.map((item) => (
-              <div key={item} className="rounded-xl border border-brand-900/10 bg-white/90 p-3 text-xs leading-5 text-muted">{item}</div>
+              <div key={item} className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3 text-xs leading-5 text-muted">{item}</div>
             ))}
           </div>
-          <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-white">
+          <div className="overflow-x-auto rounded-2xl border border-brand-900/10 bg-[var(--surface-card)]">
             <table className="min-w-[760px] w-full text-left text-sm">
               <thead className="bg-brand-50/60 text-xs font-bold uppercase tracking-wider text-muted">
                 <tr>
@@ -594,7 +594,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </table>
           </div>
           <div className="grid gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
               <h3 className="font-bold text-ink">Product and form choices</h3>
               <div className="mt-3 space-y-3">
                 {expansion.comparisonRows.map((row) => (
@@ -614,13 +614,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </div>
           </div>
           <div className="grid gap-4 lg:grid-cols-2">
-            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
               <h3 className="font-bold text-ink">How to choose a product</h3>
               <ul className="mt-3 list-disc space-y-2 pl-5 text-xs leading-5 text-muted">
                 {expansion.buyerChecklist.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
-            <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-4">
+            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
               <h3 className="font-bold text-ink">References</h3>
               <ul className="mt-3 space-y-2 text-xs leading-5">
                 {expansion.references.map((ref) => (
@@ -732,7 +732,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} />
 
       {goalLinks.length > 0 ? (
-        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+        <section className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {goalLinks.map((link) => (
@@ -749,14 +749,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
       ) : null}
 
       {conditionLinks.length > 0 ? (
-        <section className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5">
+        <section className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
               <Link
                 key={link.slug}
                 href={link.href || `/goals/${link.slug}`}
-                className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+                className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
               >
                 {link.label || formatDisplayLabel(link.slug)}
               </Link>
@@ -799,7 +799,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
               description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
               products={revenueProducts.products}
             />
-            <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-5 space-y-3 shadow-sm">
+            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 space-y-3 shadow-sm">
               <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Product Form &amp; Quality Guidelines</h4>
               <p className="text-xs leading-relaxed text-muted">
                 When sourcing {displayName}, verify the label for:
@@ -854,7 +854,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <AuthorCredentials />
 
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
-        <Link href="/herbs" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
+        <Link href="/herbs" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">
           ← Back to herbs library
         </Link>
         <Link href="/safety-checker" className="text-sm font-bold text-brand-800 hover:underline">
