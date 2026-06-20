@@ -154,10 +154,10 @@ html {
 
 /* Dark mode variable overrides — applied when <html class="dark"> is set by DarkModeProvider */
 html.dark {
-  --color-background: #101812;
-  --color-surface: #17221a;
-  --color-ink: #eef7ef;
-  --color-muted: #afc2b5;
+  --color-background: #0f2419;
+  --color-surface: #1a3028;
+  --color-ink: #f5f0e6;
+  --color-muted: #9aab9e;
   --color-brand-50: #111f17;
   --color-brand-100: #182a1f;
   --color-brand-200: #24382b;
@@ -169,30 +169,30 @@ html.dark {
   --color-brand-800: #c7d5c5;
   --color-brand-900: #e0eadc;
   --color-brand-950: #f2f6ee;
-  --bg: #101812;
-  --surface: #17221a;
-  --surface-elevated: #1f2d23;
-  --text-primary: #f1f8f2;
-  --text-secondary: #d4e1d7;
-  --text-muted: #afc2b5;
-  --border-soft: rgba(199, 224, 206, 0.22);
-  --border-strong: rgba(199, 224, 206, 0.34);
+  --bg: #0f2419;
+  --surface: #1a3028;
+  --surface-elevated: #243d32;
+  --text-primary: #f5f0e6;
+  --text-secondary: #d4cfc4;
+  --text-muted: #9aab9e;
+  --border-soft: rgba(180, 210, 190, 0.18);
+  --border-strong: rgba(180, 210, 190, 0.30);
   --border-default: var(--border-soft);
-  --surface-card: rgba(27, 40, 31, 0.96);
-  --surface-card-strong: rgba(34, 50, 38, 0.98);
+  --surface-card: rgba(36, 61, 50, 0.97);
+  --surface-card-strong: rgba(42, 69, 56, 0.99);
   --surface-1: var(--surface);
   --surface-2: var(--surface-card);
-  --surface-subtle: rgba(47, 86, 57, 0.42);
-  --surface-code: rgba(38, 70, 47, 0.8);
-  --surface-warning: rgba(69, 49, 20, 0.72);
-  --surface-danger: rgba(70, 28, 35, 0.72);
-  --surface-info: rgba(25, 45, 73, 0.72);
+  --surface-subtle: rgba(36, 61, 50, 0.55);
+  --surface-code: rgba(26, 48, 40, 0.90);
+  --surface-warning: rgba(61, 42, 20, 0.92);
+  --surface-danger: rgba(58, 22, 28, 0.88);
+  --surface-info: rgba(18, 38, 64, 0.88);
   --surface-neutral: rgba(37, 47, 42, 0.9);
   --ring-brand: rgba(168, 189, 169, 0.38);
-  --accent-primary: #a8bda9;
+  --accent-primary: #c47d2e;
   --accent-secondary: #b8aecf;
   --accent-teal: #8da892;
-  --accent-warning: #fbbf24;
+  --accent-warning: #c47d2e;
   --accent-danger: #fca5a5;
   --bg-c: var(--bg);
   --surface-c: var(--surface-card);
@@ -204,7 +204,14 @@ html.dark {
 }
 
 html.dark body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(196, 125, 46, 0.07), transparent 45%),
+    radial-gradient(ellipse at 10% 60%, rgba(36, 61, 50, 0.6), transparent 50%),
+    linear-gradient(180deg, #0f2419 0%, #0c1e13 100%);
+}
+
+html.dark .hero-shell {
+  background: var(--surface-card-strong);
 }
 
 body {
@@ -621,7 +628,7 @@ html.dark ::selection {
 
 /* Dark-mode compatibility for legacy utility-heavy pages.
    Keep this centralized so page contracts and generated content stay untouched. */
-html.dark :where(
+html.dark :is(
   .card-premium,
   .glass-card,
   .section-frame,
@@ -647,7 +654,7 @@ html.dark :where(
   color: var(--text-primary);
 }
 
-html.dark :where(
+html.dark :is(
   .surface-depth,
   .section-frame,
   .glass-card,
@@ -658,7 +665,7 @@ html.dark :where(
   background: var(--surface-card-strong);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="hover:bg-white"]:hover,
   [class~="hover:bg-white/90"]:hover,
   [class~="hover:bg-brand-50"]:hover,
@@ -670,7 +677,7 @@ html.dark :where(
   background-color: rgba(36, 71, 45, 0.46);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="bg-brand-50"],
   [class~="bg-brand-50/10"],
   [class~="bg-brand-50/20"],
@@ -684,7 +691,7 @@ html.dark :where(
   background-color: var(--surface-subtle);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="bg-emerald-50"],
   [class~="bg-emerald-50/30"],
   [class~="bg-emerald-50/40"],
@@ -698,7 +705,7 @@ html.dark :where(
   background-color: rgba(22, 101, 52, 0.28);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="bg-amber-50"],
   [class~="bg-amber-50/10"],
   [class~="bg-amber-50/40"],
@@ -711,7 +718,7 @@ html.dark :where(
   background-color: var(--surface-warning);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="bg-blue-50"],
   [class~="bg-blue-50/60"],
   [class~="bg-blue-50/70"],
@@ -727,7 +734,7 @@ html.dark :where(
   background-color: var(--surface-info);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="bg-red-50"],
   [class~="bg-red-50/70"],
   [class~="bg-rose-50"],
@@ -737,7 +744,7 @@ html.dark :where(
   background-color: var(--surface-danger);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="bg-slate-50"],
   [class~="bg-slate-50/80"],
   [class~="bg-slate-100"],
@@ -753,7 +760,7 @@ html.dark :where(
   background-color: var(--surface-neutral);
 }
 
-html.dark :where(
+html.dark :is(
   .content-prose,
   .content-prose p,
   .content-prose li,
@@ -780,7 +787,7 @@ html.dark :where(
   color: var(--text-muted);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="text-ink"],
   [class~="text-ink/70"],
   [class~="text-ink/80"],
@@ -796,7 +803,7 @@ html.dark :where(
   color: var(--text-primary);
 }
 
-html.dark :where(
+html.dark :is(
   a,
   [class~="text-brand-700"],
   [class~="text-brand-800"],
@@ -805,7 +812,7 @@ html.dark :where(
   color: #a8bda9;
 }
 
-html.dark :where(
+html.dark :is(
   a:hover,
   [class~="hover:text-brand-700"]:hover,
   [class~="hover:text-brand-800"]:hover,
@@ -814,7 +821,7 @@ html.dark :where(
   color: #c7d5c5;
 }
 
-html.dark :where(
+html.dark :is(
   [class*="border-brand-900"],
   [class~="border-black/5"],
   [class~="border-slate-200"],
@@ -834,7 +841,7 @@ html.dark :where(
   border-color: var(--border-soft);
 }
 
-html.dark :where(
+html.dark :is(
   input,
   textarea,
   select,
@@ -846,34 +853,34 @@ html.dark :where(
   color: var(--text-primary);
 }
 
-html.dark :where(table, thead, tbody, tr, td, th) {
+html.dark :is(table, thead, tbody, tr, td, th) {
   border-color: var(--border-soft);
 }
 
-html.dark :where(.prose, .prose p, .prose li, .prose td) {
+html.dark :is(.prose, .prose p, .prose li, .prose td) {
   color: var(--text-muted);
 }
 
-html.dark :where(.prose h1, .prose h2, .prose h3, .prose h4, .prose strong) {
+html.dark :is(.prose h1, .prose h2, .prose h3, .prose h4, .prose strong) {
   color: var(--text-primary);
 }
 
-html.dark :where(.identity-herb, .identity-compound, .identity-article, .identity-path) {
+html.dark :is(.identity-herb, .identity-compound, .identity-article, .identity-path) {
   background: var(--surface-card);
 }
 
-html.dark :where(.button-secondary) {
+html.dark :is(.button-secondary) {
   background-color: var(--surface-card);
   color: var(--text-primary);
   border-color: var(--border-soft);
 }
 
-html.dark :where(.button-primary, [class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]) {
+html.dark :is(.button-primary, [class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]) {
   background-color: #a8bda9;
   color: #07150c;
 }
 
-html.dark :where(
+html.dark :is(
   .btn-primary,
   .btn-secondary,
   .ds-card,
@@ -883,12 +890,12 @@ html.dark :where(
   border-color: var(--border-soft);
 }
 
-html.dark :where(.btn-primary) {
+html.dark :is(.btn-primary) {
   background-color: #a8bda9;
   color: #07150c;
 }
 
-html.dark :where(.btn-secondary, .ds-card, .ds-card-lg, .ds-pill) {
+html.dark :is(.btn-secondary, .ds-card, .ds-card-lg, .ds-pill) {
   background-color: var(--surface-card);
   color: var(--text-primary);
 }
@@ -899,14 +906,14 @@ html.dark [class*="placeholder:text"]::placeholder {
   color: #91a397;
 }
 
-html.dark :where(
+html.dark :is(
   [class~="text-emerald-800"],
   [class~="text-emerald-900"]
 ) {
   color: #a8bda9;
 }
 
-html.dark :where(
+html.dark :is(
   [class~="text-blue-800"],
   [class~="text-blue-900"],
   [class~="text-teal-800"],
@@ -916,14 +923,14 @@ html.dark :where(
   color: #c7d2fe;
 }
 
-html.dark :where(
+html.dark :is(
   [class~="text-amber-900"],
   [class~="text-amber-950"]
 ) {
-  color: #f8d98b;
+  color: var(--text-primary);
 }
 
-html.dark :where(
+html.dark :is(
   [class~="text-red-700/80"],
   [class~="text-red-950"],
   [class~="text-rose-800"]
