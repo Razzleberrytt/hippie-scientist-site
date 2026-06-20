@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   // ensure template wins for children
   openGraph: rootMetadata.openGraph,
   twitter: rootMetadata.twitter,
+  robots: { index: true, follow: true },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
