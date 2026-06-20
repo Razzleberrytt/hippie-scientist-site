@@ -473,46 +473,26 @@ export async function SeoEntryPage({ route }: { route: string }) {
   })
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       <SchemaGraphScript graph={schemaGraph} />
 
-      <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Supplement guide</p>
-        <h1 className="mt-3 text-4xl font-black text-ink">{page.h1}</h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{page.intro}</p>
-        <p className="mt-3 text-xs text-muted">Search intent: {page.searchIntent}</p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link href={`/goals/${goal.slug}`} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">View ranked picks</Link>
-          <Link href="/compounds" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-ink hover:bg-brand-50">Browse compounds</Link>
-        </div>
-      </section>
+      <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
+        <section>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">Supplement guide</p>
+          <h1 className="mt-3 text-4xl font-black text-ink">{page.h1}</h1>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{page.intro}</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href={`/goals/${goal.slug}`} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">View ranked picks</Link>
+            <Link href="/compounds" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-ink hover:bg-brand-50">Browse compounds</Link>
+          </div>
+        </section>
+      </div>
 
       <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
         <h2 className="text-xl font-black text-ink">Quick answer</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
           {pageSections.quick.map((item) => <li key={item}>{item}</li>)}
         </ul>
-      </section>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5">
-          <h2 className="text-xl font-bold text-ink">Who this guide is for</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
-            {pageSections.forWho.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </section>
-        <section className="rounded-2xl border border-amber-300/40 bg-amber-50 p-5">
-          <h2 className="text-xl font-bold text-amber-900">Who should be careful</h2>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-amber-900/80">
-            {pageSections.careful.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </section>
-      </div>
-
-      <section className="grid gap-4 md:grid-cols-3">
-        {page.bullets.map((bullet) => (
-          <div key={bullet} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 text-sm leading-6 text-muted">{bullet}</div>
-        ))}
       </section>
 
       {expansion ? (
@@ -602,7 +582,55 @@ export async function SeoEntryPage({ route }: { route: string }) {
         </>
       ) : null}
 
-      <ConversionAffiliateCard name={page.h1} intent={page.searchIntent} variant="dark" />
+      <section className="rounded-3xl border border-amber-300/40 bg-amber-50 p-5">
+        <h2 className="font-bold text-amber-900">Safety considerations</h2>
+        <p className="mt-2 text-sm leading-6 text-amber-900/85">{sentence(goal.safetyNote)} Supplements are not risk-free, especially when combined with medications, medical conditions, pregnancy, surgery, sedatives, stimulants, or blood-pressure concerns.</p>
+        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Review full safety guidance →</Link>
+      </section>
+
+      <section className="rounded-2xl border border-red-300/40 bg-red-50 p-5">
+        <h2 className="text-xl font-bold text-red-900">Common mistakes</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-red-900/80">
+          {pageSections.mistakes.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      </section>
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5">
+          <h2 className="text-xl font-bold text-ink">Who this guide is for</h2>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+            {pageSections.forWho.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </section>
+        <section className="rounded-2xl border border-amber-300/40 bg-amber-50 p-5">
+          <h2 className="text-xl font-bold text-amber-900">Who should be careful</h2>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-amber-900/80">
+            {pageSections.careful.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </section>
+      </div>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        {page.bullets.map((bullet) => (
+          <div key={bullet} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 text-sm leading-6 text-muted">{bullet}</div>
+        ))}
+      </section>
+
+      <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-6">
+        <h2 className="text-2xl font-bold text-ink">How to choose supplements for {goal.title.toLowerCase()}</h2>
+        <p className="max-w-3xl leading-7 text-muted">Not all supplements targeting {goal.title.toLowerCase()} work the same way. Some are designed for short-term support, some require consistent use, and some only make sense for specific situations or populations. Match the compound, timing, and safety profile to the problem you are actually trying to solve.</p>
+        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
+          <li>Check whether the expected effect is acute, gradual, or dependent on baseline deficiency.</li>
+          <li>Compare stimulant, calming, fiber, adaptogen, or nutrient-style approaches before stacking products.</li>
+          <li>Look at interaction risks, medical context, and safety notes before combining multiple compounds.</li>
+        </ul>
+      </section>
+
+      <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6">
+        <h2 className="text-2xl font-bold text-ink">Comparison context</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">{pageSections.comparison}</p>
+        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Compare ranked options →</Link>
+      </section>
 
       {linkedCompounds.length > 0 ? (
         <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-6">
@@ -691,35 +719,6 @@ export async function SeoEntryPage({ route }: { route: string }) {
           </div>
         </section>
       ) : null}
-
-      <section className="space-y-4 rounded-3xl border border-brand-900/10 bg-white/90 p-6">
-        <h2 className="text-2xl font-bold text-ink">How to choose supplements for {goal.title.toLowerCase()}</h2>
-        <p className="max-w-3xl leading-7 text-muted">Not all supplements targeting {goal.title.toLowerCase()} work the same way. Some are designed for short-term support, some require consistent use, and some only make sense for specific situations or populations. Match the compound, timing, and safety profile to the problem you are actually trying to solve.</p>
-        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-muted">
-          <li>Check whether the expected effect is acute, gradual, or dependent on baseline deficiency.</li>
-          <li>Compare stimulant, calming, fiber, adaptogen, or nutrient-style approaches before stacking products.</li>
-          <li>Look at interaction risks, medical context, and safety notes before combining multiple compounds.</li>
-        </ul>
-      </section>
-
-      <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6">
-        <h2 className="text-2xl font-bold text-ink">Comparison context</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">{pageSections.comparison}</p>
-        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Compare ranked options →</Link>
-      </section>
-
-      <section className="rounded-2xl border border-red-300/40 bg-red-50 p-5">
-        <h2 className="text-xl font-bold text-red-900">Common mistakes</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-red-900/80">
-          {pageSections.mistakes.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      </section>
-
-      <section className="rounded-3xl border border-amber-300/40 bg-amber-50 p-5">
-        <h2 className="font-bold text-amber-900">Safety considerations</h2>
-        <p className="mt-2 text-sm leading-6 text-amber-900/85">{sentence(goal.safetyNote)} Supplements are not risk-free, especially when combined with medications, medical conditions, pregnancy, surgery, sedatives, stimulants, or blood-pressure concerns.</p>
-        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Review full safety guidance →</Link>
-      </section>
 
       {revenueProducts.length > 0 ? (
         <>

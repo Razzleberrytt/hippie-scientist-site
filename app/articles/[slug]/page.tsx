@@ -139,7 +139,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
         <span className="line-clamp-1 text-ink">{article.title}</span>
       </nav>
 
-      <header className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
+      <header className="hero-shell rounded-[1rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
             {article.category}
@@ -180,7 +180,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
       </div>
       <ReferencesTable refs={article.references} />
 
-      <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
+      <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-amber-900">
         Educational disclaimer: this monograph is for research literacy and harm-reduction context only. It is not medical advice, diagnosis, or a recommendation to use any substance. Talk with a licensed clinician about personal risks, medications, dependence, withdrawal, or urgent symptoms.
         <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
           <Link href="/articles" className="hover:underline">All articles</Link>
@@ -363,7 +363,7 @@ function ArticleBody({ content }: { content: string }) {
               {block.items.map((item, j) => (
                 <li
                   key={j}
-                  className="text-[1.01rem] leading-7 text-[#46574d]"
+                  className="text-[1.01rem] leading-7 text-muted"
                   dangerouslySetInnerHTML={{ __html: inlineFormat(item) }}
                 />
               ))}
@@ -392,7 +392,7 @@ function ArticleBody({ content }: { content: string }) {
                         {row.map((cell, cellIndex) => (
                           <td
                             key={cellIndex}
-                            className="py-3 pr-4 leading-6 text-[#46574d]"
+                            className="py-3 pr-4 leading-6 text-muted"
                             dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }}
                           />
                         ))}
@@ -407,7 +407,7 @@ function ArticleBody({ content }: { content: string }) {
         return (
           <p
             key={i}
-            className="text-[1.01rem] leading-[1.85] text-[#46574d]"
+            className="text-[1.01rem] leading-[1.85] text-muted"
             dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }}
           />
         )
@@ -558,7 +558,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
       </nav>
 
       {/* Hero */}
-      <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
+      <section className="hero-shell rounded-[1.5rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
             Deep Dive
@@ -588,7 +588,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
         </div>
 
         {article.description && (
-          <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">
+          <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
             {article.description}
           </p>
         )}
@@ -642,12 +642,12 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
                         href={ref.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#46574d] hover:text-brand-700 hover:underline"
+                        className="text-muted hover:text-brand-700 hover:underline"
                       >
                         {ref.title.length > 60 ? `${ref.title.slice(0, 60)}…` : ref.title}
                       </a>
                     ) : (
-                      <span className="text-[#46574d]">{ref.title.length > 60 ? `${ref.title.slice(0, 60)}…` : ref.title}</span>
+                      <span className="text-muted">{ref.title.length > 60 ? `${ref.title.slice(0, 60)}…` : ref.title}</span>
                     )}
                     {ref.year && <span className="ml-1 text-muted">({ref.year})</span>}
                   </li>
