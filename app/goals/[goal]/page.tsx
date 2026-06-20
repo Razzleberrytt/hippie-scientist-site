@@ -14,7 +14,8 @@ import { getGoalStartHereLinks } from '@/lib/goal-start-here-links'
 import { getGoalContentExtension, getGoalFaqItems } from '@/data/goal-content'
 import { rankEntitiesForGoal } from '@/lib/goal-matching-engine'
 import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
-import { getRevenueProductSet } from '@/config/revenue-products'
+import { getRevenueProductSet, revenueProductSets } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
 import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffiliate'
@@ -151,6 +152,22 @@ function buildDynamicEnrichedOption(
     mechanismCategoryTags,
     pathwayTags,
   }
+}
+
+// Product set keys per goal — kava excluded from anxiety (harm-reduction zone)
+const GOAL_PRODUCT_SETS: Record<string, string[]> = {
+  sleep: ['magnesium', 'melatonin', 'valerian'],
+  anxiety: ['ashwagandha', 'passionflower'],
+  focus: ['bacopa', 'caffeine'],
+  stress: ['ashwagandha', 'rhodiola'],
+  energy: ['rhodiola', 'maca'],
+  inflammation: ['turmeric', 'boswellia', 'quercetin'],
+  cognition: ['bacopa', 'reishi'],
+}
+
+function getGoalProducts(goalSlug: string) {
+  const keys = GOAL_PRODUCT_SETS[goalSlug] ?? []
+  return keys.flatMap((key) => revenueProductSets[key]?.products ?? [])
 }
 
 export const dynamicParams = false
@@ -303,19 +320,31 @@ export default async function GoalDecisionPage({
 
   const hubLinks = getGoalHubLinks(goal.slug)
   const startHereLinks = getGoalStartHereLinks(goal.slug)
+  const goalProducts = getGoalProducts(goal.slug)
+
   const goalEvidence = await getGoalEvidenceEngine(goal.slug)
   if (goalEvidence) {
     return (
-      <GoalDecisionExperience
-        goal={goal}
-        enrichedOptions={enrichedOptions}
-        evidence={goalEvidence}
-        structuredData={structuredData}
-        hubLinks={hubLinks}
-        startHereLinks={startHereLinks}
-        goalContent={goalContent}
-        captureGoal={goalCaptureGoal(goal.slug)}
-      />
+      <>
+        <GoalDecisionExperience
+          goal={goal}
+          enrichedOptions={enrichedOptions}
+          evidence={goalEvidence}
+          structuredData={structuredData}
+          hubLinks={hubLinks}
+          startHereLinks={startHereLinks}
+          goalContent={goalContent}
+          captureGoal={goalCaptureGoal(goal.slug)}
+        />
+        {goalProducts.length > 0 && (
+          <div className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 lg:px-8">
+            <RecommendationSection
+              title={`${goal.title} product picks`}
+              products={goalProducts}
+            />
+          </div>
+        )}
+      </>
     )
   }
 
@@ -685,6 +714,13 @@ export default async function GoalDecisionPage({
       />
 
       <AuthorCredentials />
+
+      {goalProducts.length > 0 && (
+        <RecommendationSection
+          title={`${goal.title} product picks`}
+          products={goalProducts}
+        />
+      )}
 
       <footer className="rounded-2xl border border-brand-900/10 bg-brand-950/[0.02] p-5 text-xs leading-6 text-muted">
         Educational only. Not medical advice. Evidence varies by population, preparation, and study design.

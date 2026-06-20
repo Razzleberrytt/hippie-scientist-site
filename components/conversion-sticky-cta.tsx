@@ -26,8 +26,8 @@ export default function ConversionStickyCTA({ brand, name, href }: Props) {
   return (
     <>
       {visible ? (
-        <div className="fixed bottom-20 left-1/2 z-40 w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 rounded-2xl bg-ink px-4 py-3 text-white shadow-2xl ring-1 ring-black/10">
-          <div className="flex items-center justify-between gap-3">
+        <div className="pointer-events-none fixed bottom-20 left-1/2 z-40 w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 rounded-2xl bg-ink px-4 py-3 text-white shadow-2xl ring-1 ring-black/10">
+          <div className="pointer-events-auto flex items-center justify-between gap-3">
             <div className="min-w-0">
               <p className="text-xs font-semibold uppercase tracking-wide text-white/60">Popular choice</p>
               <p className="truncate text-sm font-bold">{brand}{name ? ` — ${name}` : ''}</p>
@@ -39,8 +39,8 @@ export default function ConversionStickyCTA({ brand, name, href }: Props) {
         </div>
       ) : null}
 
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-neutral-200 bg-white/95 p-3 shadow-[0_-10px_30px_rgba(0,0,0,0.08)] backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3">
+      <div className="pointer-events-none fixed bottom-0 left-0 right-0 z-40 border-t border-neutral-200 bg-white/95 p-3 shadow-[0_-10px_30px_rgba(0,0,0,0.08)] backdrop-blur">
+        <div className="pointer-events-auto mx-auto flex min-h-14 max-w-5xl items-center justify-between gap-3">
           <div className="min-w-0 text-sm">
             <p className="font-bold text-ink">Top pick</p>
             <p className="truncate text-muted">{brand}{name ? ` — ${name}` : ''}</p>
