@@ -489,7 +489,7 @@ html.dark ::selection {
   }
 
   .content-prose .article-table {
-    @apply my-6 max-w-full bg-white/90;
+    @apply my-6 max-w-full bg-[var(--surface-card)];
   }
 
   .detail-reading {
@@ -585,6 +585,31 @@ html.dark ::selection {
     @apply inline-flex items-center justify-center rounded-full border border-brand-900/10 bg-white/85 px-4 py-2 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand-700/20 hover:bg-white hover:text-brand-800;
     box-shadow: var(--shadow-button-secondary);
   }
+}
+
+/* Dark mode overrides for hardcoded light-mode text colors in prose/content components */
+html.dark .content-prose {
+  color: var(--text-primary);
+}
+
+html.dark .content-prose p,
+html.dark .content-prose li,
+html.dark .content-prose td {
+  color: var(--text-muted);
+}
+
+html.dark .content-prose th {
+  color: var(--text-primary);
+  background-color: rgba(36, 61, 50, 0.8);
+}
+
+html.dark .content-prose tbody tr:nth-child(even) {
+  background-color: rgba(36, 61, 50, 0.4);
+}
+
+html.dark .content-prose blockquote {
+  background-color: rgba(36, 61, 50, 0.6);
+  color: var(--text-primary);
 }
 
 /* Legacy emerald utility compatibility: keep older components from reading mint/neon. */

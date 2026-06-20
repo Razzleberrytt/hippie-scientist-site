@@ -3,27 +3,9 @@ import { formatDisplayLabel } from '@/lib/display-utils'
 import {
   decisionChipClass,
   decisionMetadataClusterClass,
-  decisionMetricShellClass,
   decisionMicroLabelClass,
   decisionStatusBadgeClass,
-  publicSafetyLabel,
 } from '@/lib/decision-primitives'
-
-type DecisionMetricProps = {
-  label: string
-  value?: string
-}
-
-export function DecisionMetric({ label, value }: DecisionMetricProps) {
-  if (!value) return null
-
-  return (
-    <div className={decisionMetricShellClass}>
-      <p className={`${decisionMicroLabelClass} text-[#68786f]`}>{label}</p>
-      <p className="mt-1 line-clamp-2 text-sm font-semibold leading-5 text-[#26382f]">{value}</p>
-    </div>
-  )
-}
 
 type DecisionEmptyStateAction = {
   href: string
@@ -117,9 +99,6 @@ export function DecisionProfileCard({
   name,
   summary,
   bestFor,
-  evidence,
-  safety,
-  timeToEffect,
   mechanisms = [],
   featured = false,
   fallbackSummary,
@@ -128,20 +107,18 @@ export function DecisionProfileCard({
   name: string
   summary?: string
   bestFor: string
-  evidence: string
-  safety: string
-  timeToEffect?: string
   mechanisms?: string[]
   featured?: boolean
   fallbackSummary: string
 }) {
   const visibleMechanisms = mechanisms.map(formatDisplayLabel).filter(Boolean).slice(0, 2)
-  const visibleSafety = publicSafetyLabel(safety)
+  const hasBestFor = bestFor && bestFor !== 'Research context'
+  const bestForItems = hasBestFor ? bestFor.split(' • ').filter(Boolean) : []
 
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/90 p-3 shadow-sm transition-colors duration-200 hover:border-brand-700/20 hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
+      className="group flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm transition-colors duration-200 hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
     >
       <div className="flex flex-1 flex-col">
         <div className="flex min-w-0 items-start justify-between gap-3">
@@ -155,20 +132,20 @@ export function DecisionProfileCard({
           ) : null}
         </div>
 
-        <p className="mt-1.5 line-clamp-2 text-sm leading-5 text-[#46574d]">
+        <p className="mt-1.5 line-clamp-2 text-sm leading-5 text-[var(--text-secondary)]">
           {summary || fallbackSummary}
         </p>
 
-        <div className="mt-2 rounded-[0.75rem] border border-brand-900/10 bg-brand-50/45 p-2.5">
-          <p className={`${decisionMicroLabelClass} text-brand-800`}>Best-for context</p>
-          <p className="mt-1 text-sm font-semibold leading-5 text-[#203329]">{bestFor}</p>
-        </div>
-
-        <div className="mt-2 grid gap-2 sm:grid-cols-3">
-          <DecisionMetric label="Evidence" value={evidence} />
-          <DecisionMetric label="Safety" value={visibleSafety} />
-          <DecisionMetric label="Time" value={timeToEffect} />
-        </div>
+        {bestForItems.length > 0 ? (
+          <div className="mt-2">
+            <p className={`${decisionMicroLabelClass} mb-1.5 text-[var(--text-muted)]`}>Best for</p>
+            <div className={decisionMetadataClusterClass}>
+              {bestForItems.map((item, idx) => (
+                <span key={idx} className={decisionChipClass}>{item}</span>
+              ))}
+            </div>
+          </div>
+        ) : null}
 
         {visibleMechanisms.length > 0 ? (
           <div className={`${decisionMetadataClusterClass} mt-2 border-t border-brand-900/10 pt-2`}>
@@ -181,7 +158,7 @@ export function DecisionProfileCard({
         ) : null}
       </div>
 
-      <div className="mt-2 text-sm font-bold text-brand-800 transition group-hover:text-brand-900">
+      <div className="mt-3 text-sm font-bold text-brand-800 transition group-hover:text-brand-900">
         View profile <span aria-hidden="true">→</span>
       </div>
     </Link>

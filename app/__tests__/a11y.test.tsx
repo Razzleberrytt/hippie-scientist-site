@@ -36,9 +36,6 @@ describe('a11y (axe-core)', () => {
         name="Ashwagandha"
         summary="Evidence summary for stress."
         bestFor="Stress support"
-        evidence="Strong evidence"
-        safety="Generally well tolerated"
-        timeToEffect="2-4 weeks"
         mechanisms={['GABA', 'Cortisol']}
         fallbackSummary="Ashwagandha profile summarizing available evidence, mechanisms, safety context, and practical research notes."
       />
@@ -50,22 +47,17 @@ describe('a11y (axe-core)', () => {
     await checkA11y(container)
   })
 
-  it('Safety pending in profile card context does not hide status (visible label)', async () => {
+  it('Profile card renders without evidence/safety boxes', async () => {
     const { container } = render(
       <DecisionProfileCard
         href="/herbs/unknown"
         name="Unknown Herb"
         summary="Profile summary."
         bestFor="General"
-        evidence="Limited evidence"
-        safety="Safety review pending"
-        timeToEffect="—"
         mechanisms={[]}
         fallbackSummary="Unknown Herb profile summarizing available evidence, mechanisms, safety context, and practical research notes."
       />
     )
-    // Now visible per publicSafetyLabel change + metric render
-    // (the metric itself may be present with value)
     await checkA11y(container)
   })
 

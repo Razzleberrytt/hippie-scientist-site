@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import '@/styles/premium-cards.css'
@@ -150,19 +150,6 @@ function getBestFor(item: RuntimeRecord) {
   return traditionalUses.length > 0 ? text(traditionalUses.join(' • ')) : 'Research context'
 }
 
-function getTimeToEffect(item: RuntimeRecord) {
-  const value = labelize(
-    item?.time_to_effect ||
-      item?.timeToEffect ||
-      item?.onset ||
-      (item?.practical as Record<string, unknown>)?.timeToEffect ||
-      item?.timeline,
-    ''
-  )
-
-  return value && isClean(value) ? value : ''
-}
-
 function scoreHerb(item: RuntimeRecord) {
   let score = 0
 
@@ -253,9 +240,9 @@ function buildEvidenceHref(evidenceValue: string, query: string, context: string
 
 function StatCard({ value, label }: { value: number; label: string }) {
   return (
-    <div className="min-w-0 rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm sm:p-3">
+    <div className="min-w-0 rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm sm:p-3">
       <p className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">{value}</p>
-      <p className="mt-0.5 text-[0.62rem] font-bold uppercase leading-snug tracking-[0.1em] text-[#5f6f66]">{label}</p>
+      <p className="mt-0.5 text-[0.62rem] font-bold uppercase leading-snug tracking-[0.1em] text-[var(--text-muted)]">{label}</p>
     </div>
   )
 }
@@ -302,9 +289,6 @@ function HerbCard({ herb, featured = false }: { herb: RuntimeRecord; featured?: 
       name={getName(herb)}
       summary={getSummary(herb)}
       bestFor={getBestFor(herb)}
-      evidence={getEvidence(herb)}
-      safety={getSafety(herb)}
-      timeToEffect={getTimeToEffect(herb)}
       mechanisms={getMechanisms(herb)}
       featured={featured}
       fallbackSummary={`${getName(herb)} profile summarizing available evidence, mechanisms, safety context, and practical research notes.`}
@@ -371,7 +355,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
   const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
 
   return (
-    <div className="px-2 py-2 text-ink sm:px-3 sm:py-3">
+    <div className="px-2 pb-28 pt-2 text-ink sm:px-3 sm:pt-3">
       <div className="mx-auto max-w-7xl space-y-4 sm:space-y-4">
         <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
           <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
@@ -385,7 +369,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               </p>
             </div>
 
-            <div className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm">
+            <div className="rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">Library signal</p>
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
@@ -396,7 +380,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
           </div>
         </section>
 
-        <section className="rounded-[0.85rem] border border-brand-900/10 bg-white/85 p-3 shadow-sm sm:p-4" aria-labelledby="herb-search-heading">
+        <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:p-4" aria-labelledby="herb-search-heading">
           <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Search and filter</p>
@@ -413,7 +397,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               type="search"
               defaultValue={query}
               placeholder="Search herb, effect, mechanism, or safety note"
-              className="min-h-10 w-full rounded-full border border-brand-900/10 bg-white px-4 text-sm text-ink shadow-sm placeholder:text-[#7b8a81]"
+              className="min-h-10 w-full rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 text-sm text-ink shadow-sm placeholder:text-[#7b8a81]"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
             {activeEvidence !== 'all' ? <input type="hidden" name="evidence" value={activeEvidence} /> : null}
@@ -440,7 +424,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                   <Link
                     key={opt.value}
                     href={href}
-                    className={`rounded-full border px-2.5 py-1 text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+                    className={`rounded-full border px-2.5 py-1 text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[#33443a] hover:border-brand-700/20'}`}
                   >
                     {opt.label}
                   </Link>
@@ -458,7 +442,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
           )}
         </section>
 
-        <section className="rounded-[0.85rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm">
+        <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Common starting points</p>
@@ -471,7 +455,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               <Link
                 key={path.label}
                 href={path.href}
-                className="group rounded-[0.75rem] border border-brand-900/10 bg-white/85 p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
+                className="group rounded-[0.75rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)]"
               >
                 <h3 className="text-base font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
                 <p className="mt-1 text-sm leading-5 text-[#46574d]">{path.description}</p>
@@ -515,7 +499,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                       {hasActiveFilters ? 'Profiles matching your scan.' : 'Browse every published herb profile.'}
                     </h2>
                   </div>
-                  <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
+                  <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[var(--text-muted)]">
                     {countLabel} profiles
                   </span>
                 </div>

@@ -220,7 +220,7 @@ function SleepClusterLinks() {
           <Link
             key={article.slug}
             href={`/articles/${article.slug}/`}
-            className="rounded-2xl border border-brand-900/10 bg-white/75 p-4 text-sm transition hover:border-brand-700/20 hover:bg-white"
+            className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 text-sm transition hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)]"
           >
             <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-brand-700">
               {article.kind.replace('-', ' ')}
@@ -530,13 +530,13 @@ export default async function GoalDecisionPage({
               <Link
                 key={`${option.slug}-profile-link`}
                 href={profileHref}
-                className="rounded-2xl border border-brand-900/10 bg-white/60 p-5 text-sm text-muted transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm"
+                className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 text-sm text-muted transition hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] hover:shadow-sm"
               >
                 <span className="block font-semibold text-ink">{option.name}</span>
                 <span className="mt-2 block text-xs leading-relaxed">Open the profile for sourcing, safety context, and mechanism notes →</span>
               </Link>
             ) : (
-              <article key={`${option.slug}-profile-pending`} className="rounded-2xl border border-brand-900/10 bg-white/60 p-5 text-sm text-muted">
+              <article key={`${option.slug}-profile-pending`} className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 text-sm text-muted">
                 <span className="block font-semibold text-ink">{option.name}</span>
                 <span className="mt-2 block text-xs leading-relaxed">Canonical profile pending; no profile link is shown until a static route exists.</span>
               </article>
@@ -664,7 +664,7 @@ export default async function GoalDecisionPage({
               <Link
                 key={related.slug}
                 href={`/goals/${related.slug}`}
-                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-xs font-semibold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50/50"
+                className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-xs font-semibold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50/50"
               >
                 {related.title}
               </Link>

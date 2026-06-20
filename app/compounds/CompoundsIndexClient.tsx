@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { cleanSummary, formatDisplayLabel, isClean, labelize, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
 import '@/styles/premium-cards.css'
@@ -138,19 +138,6 @@ function getBestFor(item: RuntimeRecord) {
   return 'Research context'
 }
 
-function getTimeToEffect(item: RuntimeRecord) {
-  const value = labelize(
-    item?.time_to_effect ||
-      item?.timeToEffect ||
-      item?.onset ||
-      (item?.practical as Record<string, unknown>)?.timeToEffect ||
-      item?.timeline,
-    ''
-  )
-
-  return value && isClean(value) ? value : ''
-}
-
 function scoreCompound(item: RuntimeRecord) {
   let score = 0
   const profile = text(item?.profile_status || item?.summary_quality || item?.status).toLowerCase()
@@ -261,9 +248,6 @@ function CompoundCard({ compound, featured = false }: { compound: RuntimeRecord;
       name={getName(compound)}
       summary={getSummary(compound)}
       bestFor={getBestFor(compound)}
-      evidence={getEvidence(compound)}
-      safety={getSafety(compound)}
-      timeToEffect={getTimeToEffect(compound)}
       mechanisms={getMechanismSignals(compound)}
       featured={featured}
       fallbackSummary="A conservative compound profile with mechanism, evidence, and safety context."

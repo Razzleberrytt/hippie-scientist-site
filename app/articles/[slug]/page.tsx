@@ -144,7 +144,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
           <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
             {article.category}
           </span>
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+          <span className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-2.5 py-0.5 font-semibold text-muted">
             Evidence: {article.evidenceGrade}
           </span>
           <time dateTime={article.lastUpdated} className="text-muted">
@@ -173,7 +173,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
         ) : null}
       </header>
 
-      <div className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+      <div className="mt-6 rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-6 shadow-sm sm:p-8">
         <div className="content-prose max-w-none [&>*]:max-w-reading [&_blockquote]:max-w-reading [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-brand-700/40 [&_blockquote]:bg-brand-50/60 [&_blockquote]:py-3 [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_h2]:mt-10 [&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-xl [&_ol]:list-decimal [&_table]:w-full [&_table]:text-sm [&_td]:border-t [&_td]:border-brand-900/10 [&_td]:py-3 [&_td]:pr-4 [&_th]:border-b [&_th]:border-brand-900/10 [&_th]:pb-2 [&_th]:pr-4 [&_th]:text-left [&_ul]:list-disc">
           <ArticleMdx code={article.body} />
         </div>
@@ -422,7 +422,7 @@ function ReferencesTable({ refs }: { refs: ArticleReference[] }) {
   if (!refs.length) return null
 
   return (
-    <section className="mt-10 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6">
+    <section className="mt-10 rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm sm:p-6">
       <h2 className="mb-4 text-lg font-semibold tracking-tight text-ink">References</h2>
       <ResponsiveTable label="Article references table" className="article-table">
         <table className="min-w-[760px] w-full text-sm">
@@ -564,7 +564,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
             Deep Dive
           </span>
           {article.tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize">
+            <span key={tag} className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-2.5 py-0.5 font-semibold text-muted capitalize">
               {tag}
             </span>
           ))}
@@ -615,7 +615,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
 
       {/* Body + sidebar */}
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
-        <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+        <section className="rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-6 shadow-sm sm:p-8">
           <ArticleBody content={article.content} />
           <ReferencesTable refs={article.references} />
         </section>
@@ -623,13 +623,13 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
         {/* Sidebar */}
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
           {headings.length > 0 && (
-            <div className="hidden rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm lg:block">
+            <div className="hidden rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-4 shadow-sm lg:block">
               <TableOfContents headings={headings} />
             </div>
           )}
 
           {article.references.length > 0 && (
-            <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+            <div className="rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-4 shadow-sm">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
                 {article.references.length} reference{article.references.length !== 1 ? 's' : ''}
               </p>
@@ -656,7 +656,7 @@ export default async function ArticlePage({ params }: { params: ArticleRoutePara
             </div>
           )}
 
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
+          <div className="rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-4 shadow-sm">
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Explore more</p>
             <div className="mt-3 space-y-2">
               <Link href="/safety-checker" className="block text-sm font-medium text-brand-700 hover:text-brand-800">
