@@ -444,6 +444,7 @@ function profile(row, type, taxonomy) {
     name: clean(first(row, ['name', `${type}_name`, `${type} name`])),
     scientific_name: clean(first(row, ['scientific_name', 'scientific name', 'latin_name'])),
     summary: compact(first(row, ['summary', 'description', 'overview'])),
+    summary_quality: clean(first(row, ['summary_quality', 'summary quality'])),
     description: compact(first(row, ['description', 'overview', 'summary'])),
     primary_effects: firstList(row, ['primary_effects', 'primary effects', 'effects']),
     effects: firstList(row, ['effects', 'primary_effects', 'primary effects']),
