@@ -127,6 +127,27 @@ function readAppComparePageSlugs(relativePath: string): SitemapSourceItem[] {
   }
 }
 
+// Parses data/goals.ts and extracts top-level goal slugs from the `goals` array.
+// Top-level goal objects are formatted as two-space-indented `{` on their own line
+// followed by a four-space-indented `slug:` property. Nested option slugs are on a
+// single line with their opening brace and therefore do not match this pattern.
+function readTsGoalSlugs(relativePath: string): SitemapSourceItem[] {
+  const filePath = path.join(process.cwd(), relativePath);
+  if (!existsSync(filePath)) return [];
+  try {
+    const src = readFileSync(filePath, 'utf8');
+    const results: SitemapSourceItem[] = [];
+    const re = /\n {2}\{\s*\n {4}slug:\s*['"]([^'"]+)['"]/g;
+    let m;
+    while ((m = re.exec(src)) !== null) {
+      if (m[1]) results.push({ slug: m[1] });
+    }
+    return results;
+  } catch {
+    return [];
+  }
+}
+
 function readTsStringArray(relativePath: string, varName: string): string[] {
   const filePath = path.join(process.cwd(), relativePath);
   if (!existsSync(filePath)) return [];
@@ -406,7 +427,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts = readJsonArray<SitemapSourceItem>('data/blog/posts.json');
   const articlesData = readJsonArray<SitemapSourceItem>('data/articles/articles.json');
   const routeManifest = readJsonArray<SitemapSourceItem & { route?: string; segment?: string }>('public/data/runtime-manifests/route-manifest.json');
-  const goalsData = readJsonArray<SitemapSourceItem>('public/data/goals.json');
+  const goalsJson = readJsonArray<SitemapSourceItem>('public/data/goals.json');
+  const goalsData = goalsJson.length > 0 ? goalsJson : readTsGoalSlugs('data/goals.ts');
   const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
   const guidesData = readMdxRecords('content/guides');
   const educationMdx = readMdxRecords('content/education');
