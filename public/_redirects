@@ -14,6 +14,15 @@
 /articles/l-theanine-for-sleep /articles/l-theanine-for-sleep/ 301
 /articles/magnesium-for-sleep /articles/magnesium-for-sleep/ 301
 /articles/ashwagandha-for-sleep /articles/ashwagandha-for-sleep/ 301
+# Focus/ADHD route consolidation: keep canonical article URLs under /articles/.
+/best-supplements-for-adhd /articles/best-supplements-for-adhd/ 301
+/best-supplements-for-adhd/ /articles/best-supplements-for-adhd/ 301
+/magnesium-for-adhd /articles/magnesium-for-adhd/ 301
+/magnesium-for-adhd/ /articles/magnesium-for-adhd/ 301
+/l-theanine-for-adhd /articles/l-theanine-for-adhd/ 301
+/l-theanine-for-adhd/ /articles/l-theanine-for-adhd/ 301
+/citicoline-vs-alpha-gpc /articles/citicoline-vs-alpha-gpc/ 301
+/citicoline-vs-alpha-gpc/ /articles/citicoline-vs-alpha-gpc/ 301
 # CONTENT TAXONOMY MIGRATION: Learn content is now surfaced from /guides;
 # keep /learn/ live for existing static learning-path content and sitemap hygiene.
 # Articles style category legacy redirect (field-notes → nootropics)
