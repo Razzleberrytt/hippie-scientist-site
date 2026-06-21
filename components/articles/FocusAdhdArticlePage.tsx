@@ -10,6 +10,7 @@ import { getFocusAdhdArticle, focusAdhdArticles } from '@/lib/focus-adhd-article
 import AffiliateDisclosure from '../AffiliateDisclosure'
 import { StartHereBox, AdhdCtaDashboard, AdhdComparisonCard, AdhdInlineCta, getAdhdCtasForSlug } from './AdhdMonetizationWidgets'
 import EmailCapture from '@/components/EmailCapture'
+import RecommendedProduct from '../RecommendedProduct'
 
 type Block =
   | { type: 'h2' | 'h3' | 'h4'; text: string }
@@ -22,6 +23,18 @@ type RelatedLink = {
   href: string
   label: string
   eyebrow: string
+}
+
+const ADHD_ARTICLE_PRODUCTS: Record<string, string> = {
+  'adhd-stack-guide': 'magnesium',
+  'ashwagandha-for-adhd': 'ashwagandha',
+  'best-supplements-for-adhd': 'magnesium',
+  'citicoline-vs-alpha-gpc': 'lions-mane',
+  'l-theanine-for-adhd': 'l-theanine',
+  'l-theanine-vs-caffeine-for-focus': 'l-theanine',
+  'magnesium-for-adhd': 'magnesium',
+  'melatonin-for-adhd-sleep': 'magnesium',
+  'sleep-and-adhd': 'magnesium',
 }
 
 const focusArticleSlugs = new Set(focusAdhdArticles.map((article) => article.slug))
@@ -368,6 +381,16 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
         <AdhdComparisonCard slug={slug} />
 
         <AdhdCtaDashboard currentSlug={slug} />
+
+        {ADHD_ARTICLE_PRODUCTS[slug] && (
+          <div className="mt-6">
+            <RecommendedProduct
+              slug={ADHD_ARTICLE_PRODUCTS[slug]}
+              title="Evidence-based starting points"
+              limit={2}
+            />
+          </div>
+        )}
 
         <EmailCapture
           headline="Get the ADHD supplement checklist"

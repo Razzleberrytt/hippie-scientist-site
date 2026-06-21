@@ -289,6 +289,7 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
       { label: 'Oral magnesium supplementation for insomnia in older adults, PubMed', href: 'https://pubmed.ncbi.nlm.nih.gov/33865376/' },
       { label: 'Valerian evidence overview, PubMed', href: 'https://pubmed.ncbi.nlm.nih.gov/38359657/' },
     ],
+    productSlug: 'magnesium',
   },
   'magnesium-for-sleep': {
     slug: 'magnesium-for-sleep',

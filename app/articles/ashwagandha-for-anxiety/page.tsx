@@ -3,6 +3,8 @@ import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
@@ -447,6 +449,8 @@ export default function AshwagandhaForAnxietyPage() {
             </ul>
           </div>
         </section>
+
+        <RecommendationSection products={getRevenueProductSet('ashwagandha')?.products ?? []} />
 
         {/* Email Capture / Newsletter */}
         <div className="my-12">

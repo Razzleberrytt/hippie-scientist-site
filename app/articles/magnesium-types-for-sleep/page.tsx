@@ -3,6 +3,8 @@ import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
@@ -1076,6 +1078,8 @@ export default function MagnesiumTypesForSleepPage() {
             </div>
 
           </section>
+
+          <RecommendationSection products={getRevenueProductSet('magnesium')?.products ?? []} />
 
           {/* Email capture */}
           <EmailCapture
