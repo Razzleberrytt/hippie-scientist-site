@@ -40,6 +40,54 @@ const trustSignals = [
   'Guides are reviewed and linked to the site evidence methodology.',
 ]
 
+const popularGuides = [
+  {
+    href: '/guides/best-supplements-for-sleep/',
+    title: 'Best supplements for sleep',
+    description: 'Compare sleep aids by timing, grogginess risk, evidence, and safety.',
+  },
+  {
+    href: '/guides/best-supplements-for-stress/',
+    title: 'Best supplements for stress',
+    description: 'Separate acute calm support from longer-term adaptogen routines.',
+  },
+  {
+    href: '/guides/best-herbs-for-anxiety/',
+    title: 'Best herbs for anxiety',
+    description: 'Review calming herbs with interaction cautions and evidence limits visible.',
+  },
+  {
+    href: '/best-magnesium-supplements-for-adhd/',
+    title: 'Best magnesium for ADHD',
+    description: 'Compare magnesium forms for focus, sleep, and practical product fit.',
+  },
+]
+
+const comparisonLinks = [
+  { href: '/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
+  { href: '/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
+  { href: '/compare/l-theanine-vs-magnesium/', title: 'L-theanine vs magnesium' },
+  { href: '/compare/berberine-vs-metformin/', title: 'Berberine vs metformin' },
+]
+
+const toolLinks = [
+  {
+    href: '/safety-checker/',
+    title: 'Safety interaction checker',
+    description: 'Screen supplement combinations for overlapping cautions before stacking.',
+  },
+  {
+    href: '/supplement-safety-checklist/',
+    title: 'Supplement safety checklist',
+    description: 'Use five safety questions before comparing products or buying.',
+  },
+  {
+    href: '/tools/',
+    title: 'Decision tools',
+    description: 'Open the site tools built for safety, dosing, and practical comparison.',
+  },
+]
+
 function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
   return (
     <div className='max-w-3xl space-y-2'>
@@ -90,6 +138,83 @@ export default function HomepageV2() {
                   Choose your goal
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* High-intent guides */}
+        <section className='space-y-4'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+            <SectionHeader
+              title='Popular evidence guides'
+              subtitle='Start with the most common supplement decisions, then move into goals, comparisons, and profiles.'
+              as='h2'
+            />
+            <Link href='/guides' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              View all guides →
+            </Link>
+          </div>
+
+          <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+            {popularGuides.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className='group flex min-h-40 flex-col justify-between rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:shadow-md dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'
+              >
+                <div>
+                  <h3 className='text-lg font-bold tracking-tight text-ink group-hover:text-brand-800'>{guide.title}</h3>
+                  <p className='mt-3 text-sm font-medium leading-6 text-muted'>{guide.description}</p>
+                </div>
+                <span className='mt-5 text-sm font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800'>
+                  Read guide <span aria-hidden='true'>→</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Comparisons and tools */}
+        <section className='grid gap-4 lg:grid-cols-[1fr_0.9fr]'>
+          <div className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+            <SectionHeader
+              title='Compare before you choose'
+              subtitle='Side-by-side pages help answer the high-intent questions people search before buying or stacking.'
+              as='h2'
+            />
+            <div className='mt-5 grid gap-2 sm:grid-cols-2'>
+              {comparisonLinks.map((comparison) => (
+                <Link
+                  key={comparison.href}
+                  href={comparison.href}
+                  className='rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 px-4 py-3 text-sm font-bold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'
+                >
+                  {comparison.title} →
+                </Link>
+              ))}
+            </div>
+            <Link href='/compare' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
+              Browse all comparisons →
+            </Link>
+          </div>
+
+          <div className='rounded-[1rem] border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+            <SectionHeader
+              title='Use the safety tools'
+              subtitle='The fastest win is avoiding mismatched products, risky stacks, and unclear supplement forms.'
+              as='h2'
+            />
+            <div className='mt-5 space-y-3'>
+              {toolLinks.map((tool) => (
+                <Link
+                  key={tool.href}
+                  href={tool.href}
+                  className='block rounded-[0.75rem] border border-emerald-900/10 bg-white/80 p-4 transition hover:border-emerald-700/20 hover:bg-white dark:bg-[var(--surface-subtle)]'
+                >
+                  <h3 className='text-sm font-bold text-ink'>{tool.title}</h3>
+                  <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
