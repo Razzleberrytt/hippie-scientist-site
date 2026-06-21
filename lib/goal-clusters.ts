@@ -114,9 +114,55 @@ export const goalClusters: GoalCluster[] = [
   {
     category: 'mood',
     title: 'Mood and Anxiety Supplement Guides',
-    description: 'Future evidence-first guides for stress, mood support, and calm without treatment claims.',
+    description: 'Evidence-first guides for everyday anxiety support, calming stacks, and stress-adjacent supplement decisions.',
     goalHref: '/goals/anxiety/',
-    articles: [],
+    articles: [
+      makeArticle(
+        'mood',
+        'cornerstone',
+        'natural-anxiety-relief',
+        'Natural Anxiety Relief: Evidence-Based Supplement Guide',
+        'A cautious guide to everyday anxiety support options, safety context, and when supplement self-experimentation is the wrong tool.',
+        ['anxiety', 'stress', 'calm', 'safety'],
+        '14 min read',
+      ),
+      makeArticle(
+        'mood',
+        'satellite',
+        'anxiety-stack-guide',
+        'Anxiety Stack Guide: Simple, Safer Combinations',
+        'How to think about magnesium, L-theanine, ashwagandha, and sleep-linked anxiety without overstacking calming products.',
+        ['anxiety', 'stacks', 'magnesium', 'l-theanine'],
+        '12 min read',
+      ),
+      makeArticle(
+        'mood',
+        'satellite',
+        'l-theanine-for-anxiety',
+        'L-Theanine for Anxiety: Calm Without Heavy Sedation',
+        'Where L-theanine fits for acute stress, anxious overthinking, caffeine smoothing, and low-sedation calm.',
+        ['anxiety', 'l-theanine', 'calm'],
+        '8 min read',
+      ),
+      makeArticle(
+        'mood',
+        'satellite',
+        'ashwagandha-for-anxiety',
+        'Ashwagandha for Anxiety: Evidence, Dose, and Safety',
+        'A practical look at ashwagandha anxiety evidence, thyroid and pregnancy cautions, and delayed-onset expectations.',
+        ['anxiety', 'ashwagandha', 'adaptogen'],
+        '9 min read',
+      ),
+      makeArticle(
+        'mood',
+        'satellite',
+        'cbd-vs-ashwagandha-for-anxiety',
+        'CBD vs Ashwagandha for Anxiety',
+        'Compare two popular anxiety-support options by evidence maturity, interaction risk, onset, and real-world fit.',
+        ['anxiety', 'cbd', 'ashwagandha', 'comparison'],
+        '10 min read',
+      ),
+    ],
   },
   {
     category: 'immune',
@@ -127,10 +173,56 @@ export const goalClusters: GoalCluster[] = [
   },
   {
     category: 'memory',
-    title: 'Memory and Cognition Supplement Guides',
-    description: 'Future evidence-first guides for memory, cognitive aging, and nootropic decision-making.',
+    title: 'Focus and Cognition Supplement Guides',
+    description: 'Evidence-first guides for focus, ADHD-adjacent support, calm stimulation, and nootropic decision-making.',
     goalHref: '/goals/focus/',
-    articles: [],
+    articles: [
+      makeArticle(
+        'memory',
+        'cornerstone',
+        'best-supplements-for-adhd',
+        'Best Supplements for ADHD: Evidence-Based Guide',
+        'A conservative ADHD-adjacent supplement guide focused on nutrients, sleep, focus support, and what evidence can and cannot show.',
+        ['adhd', 'focus', 'nootropics', 'safety'],
+        '15 min read',
+      ),
+      makeArticle(
+        'memory',
+        'satellite',
+        'l-theanine-for-adhd',
+        'L-Theanine for ADHD: Calm Focus Context',
+        'How L-theanine may fit calm-focus routines, caffeine pairing, and stimulant-sensitivity decisions.',
+        ['adhd', 'focus', 'l-theanine'],
+        '8 min read',
+      ),
+      makeArticle(
+        'memory',
+        'satellite',
+        'citicoline-vs-alpha-gpc',
+        'Citicoline vs Alpha-GPC',
+        'Compare two choline donors by mechanism, tolerance, evidence maturity, and practical nootropic use.',
+        ['focus', 'choline', 'comparison'],
+        '9 min read',
+      ),
+      makeArticle(
+        'memory',
+        'satellite',
+        'l-theanine-vs-caffeine-for-focus',
+        'L-Theanine vs Caffeine for Focus',
+        'A practical comparison of fast stimulation, calmer attention, tolerance, sleep tradeoffs, and stacking logic.',
+        ['focus', 'caffeine', 'l-theanine', 'comparison'],
+        '9 min read',
+      ),
+      makeArticle(
+        'memory',
+        'satellite',
+        'l-theanine-without-caffeine',
+        'L-Theanine Without Caffeine',
+        'When a non-stimulant calm-focus option may fit better than another caffeine-centered stack.',
+        ['focus', 'l-theanine', 'non-stimulant'],
+        '8 min read',
+      ),
+    ],
   },
 ]
 
@@ -170,4 +262,3 @@ export function getRelatedGoalArticles(slug: string, limit = 4): GoalArticle[] {
   ]
   return ordered.slice(0, limit)
 }
-

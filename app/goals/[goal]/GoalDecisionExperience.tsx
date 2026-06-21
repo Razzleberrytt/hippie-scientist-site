@@ -27,7 +27,7 @@ import {
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
-import { getGoalCluster } from '@/lib/goal-clusters'
+import { getGoalCluster, type GoalCategory } from '@/lib/goal-clusters'
 
 type GoalOption = {
   option: {
@@ -62,19 +62,25 @@ function profileHrefFor(claim: EvidenceEngineClaim, enrichedOptions: GoalOption[
   return option?.profileHref || `/compounds/${claim.ingredient_slug}`
 }
 
-function SleepClusterLinks() {
-  const sleepCluster = getGoalCluster('sleep')
-  if (!sleepCluster) return null
+function ArticleClusterLinks({
+  category,
+  eyebrow = 'Article cluster',
+}: {
+  category: GoalCategory
+  eyebrow?: string
+}) {
+  const cluster = getGoalCluster(category)
+  if (!cluster || cluster.articles.length === 0) return null
 
   return (
     <section className="rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
-      <p className="eyebrow-label">Sleep article cluster</p>
-      <h2 className="mt-2 text-xl font-semibold text-ink">Need the practical sleep supplement guide?</h2>
+      <p className="eyebrow-label">{eyebrow}</p>
+      <h2 className="mt-2 text-xl font-semibold text-ink">{cluster.title}</h2>
       <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
-        Start with the cornerstone, then open the specific magnesium, melatonin, L-theanine, or stacking guide that matches the problem.
+        {cluster.description}
       </p>
       <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {sleepCluster.articles.map((article) => (
+        {cluster.articles.map((article) => (
           <Link
             key={article.slug}
             href={`/articles/${article.slug}/`}
@@ -87,8 +93,15 @@ function SleepClusterLinks() {
           </Link>
         ))}
       </div>
-    </section>
+      </section>
   )
+}
+
+function clusterForGoal(slug: string): GoalCategory | null {
+  if (slug === 'sleep') return 'sleep'
+  if (slug === 'anxiety' || slug === 'stress') return 'mood'
+  if (slug === 'focus') return 'memory'
+  return null
 }
 
 export default function GoalDecisionExperience({
@@ -261,7 +274,7 @@ export default function GoalDecisionExperience({
 
       <GoalStartHereLinks links={startHereLinks} />
 
-      {goal.slug === 'sleep' ? <SleepClusterLinks /> : null}
+      {clusterForGoal(goal.slug) ? <ArticleClusterLinks category={clusterForGoal(goal.slug)!} /> : null}
 
       {goal.slug === 'focus' ? (
         <SeeAlsoInCluster currentPath="/goals/focus" />
