@@ -96,32 +96,17 @@ function run() {
   const previousHerbs = Array.isArray(previousManifest?.entities?.herbs) ? previousManifest.entities.herbs : []
   const previousCompounds = Array.isArray(previousManifest?.entities?.compounds) ? previousManifest.entities.compounds : []
 
-  const workbookHerbs = readJson('workbook-herbs.json', [])
   const workbookCompounds = readJson('compounds.json', [])
   const herbSummaryIndex = readJson('summary-indexes/herbs-summary.json', [])
-  const mapData = readJson('workbook-herb-compound-map.json', [])
-
-  const herbCounts = {}
-  for (const entry of mapData) {
-    const cid = String(entry.canonicalCompoundId || entry.compoundSlug || '').trim()
-    if (cid) {
-      herbCounts[cid] = (herbCounts[cid] || 0) + 1
-    }
-  }
-
-  const workbookHerbSlugSet = new Set((Array.isArray(workbookHerbs) ? workbookHerbs : []).map((row) => text(row?.slug)).filter(Boolean))
 
   const eligibleHerbs = (Array.isArray(herbSummaryIndex) ? herbSummaryIndex : [])
-    .filter((h) => workbookHerbSlugSet.has(text(h?.slug)) && canIndex(h))
+    .filter((h) => canIndex(h))
     .map((h) => ({ slug: text(h.slug), name: text(h?.name || h?.displayName || h?.slug) }))
     .filter((h) => h.slug)
     .sort((a, b) => a.slug.localeCompare(b.slug))
 
   const eligibleCompounds = (Array.isArray(workbookCompounds) ? workbookCompounds : [])
-    .filter((compound) => {
-      const slug = text(compound?.slug ?? compound?.id ?? compound?.canonicalCompoundId)
-      return isCompoundEligible(compound, herbCounts) || (CURATED_REFERENCE_COMPOUND_SLUGS.has(slug) && canIndex(compound))
-    })
+    .filter((compound) => canIndex(compound))
     .map((compound) => String(compound?.slug ?? compound?.id ?? compound?.canonicalCompoundId ?? '').trim())
     .filter(Boolean)
   const uniqueEligibleCompounds = [...new Set(eligibleCompounds)].sort((a, b) => a.localeCompare(b))
@@ -134,7 +119,7 @@ function run() {
       compounds: uniqueEligibleCompounds,
     },
     counts: {
-      herbs_total: workbookHerbSlugSet.size,
+      herbs_total: Array.isArray(herbSummaryIndex) ? herbSummaryIndex.length : 0,
       herbs_eligible: eligibleHerbs.length,
       compounds_total: Array.isArray(workbookCompounds) ? workbookCompounds.length : 0,
       compounds_eligible: uniqueEligibleCompounds.length,

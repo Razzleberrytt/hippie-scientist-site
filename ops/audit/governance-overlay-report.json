@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-20T23:09:39.678Z",
+  "generatedAt": "2026-06-21T10:33:06.159Z",
   "dataDir": "public\\data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
@@ -41,7 +41,6 @@
     ],
     "compounds": [
       "aged-garlic-extract",
-      "alpha-gpc",
       "american-ginseng-extract",
       "artichoke-extract",
       "ashwagandha-extract-ksm-66",
@@ -51,7 +50,6 @@
       "bacopaside-ii",
       "beetroot-extract",
       "beetroot-nitrate",
-      "berberine",
       "berberine-hcl",
       "beta-alanine",
       "bisdemethoxycurcumin",
@@ -59,7 +57,6 @@
       "black-seed-oil",
       "boswellia",
       "boswellia-akba-standardized",
-      "caffeine",
       "caffeine-l-theanine",
       "cinnamon-extract",
       "collagen-peptides",
@@ -69,7 +66,6 @@
       "creatine-beta-alanine",
       "creatine-hcl",
       "creatine-monohydrate",
-      "curcumin",
       "curcumin-phytosome",
       "curcumin-piperine",
       "d-chiro-inositol",
@@ -110,20 +106,17 @@
       "inositol-hexanicotinate",
       "inositol-sleep",
       "l-carnitine",
-      "l-theanine",
       "l-theanine-sleep",
       "lutein",
       "maca",
       "maca-root-extract",
       "macamides",
-      "magnesium",
       "magnesium-glycinate",
       "magnesium-oxide",
       "magnesium-threonate",
       "melatonin",
       "melatonin-extended-release",
       "milk-thistle",
-      "omega-3",
       "omega-3-dha-dominant",
       "omega-3-epa",
       "omega-3-epa-dominant",
@@ -131,7 +124,6 @@
       "panax-ginseng",
       "panax-ginseng-extract",
       "peppermint-oil",
-      "phosphatidylserine",
       "pomegranate-extract",
       "probiotic-strain-bifidobacterium",
       "probiotic-strain-lactobacillus",
@@ -181,8 +173,8 @@
     "compounds": {
       "records": 597,
       "detailFiles": 597,
-      "indexable": 0,
-      "needsReview": 124
+      "indexable": 15,
+      "needsReview": 116
     }
   },
   "skipped": []

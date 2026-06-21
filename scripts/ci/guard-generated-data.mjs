@@ -64,6 +64,7 @@ const SOURCE_PATHS = [
   'src/types/',
   'src/lib/',
   'lib/',
+  'app/',
 ]
 
 function getBaseRef() {

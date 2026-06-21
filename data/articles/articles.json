@@ -171,9 +171,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Adaptogenic Compounds: Evidence & Stress Resilience",
-    "seoDescription": "An evidence-graded clinical review of adaptogenic compounds like Ashwagandha and Rhodiola for HPA axis regulation and cortisol reduction."
+    "ai_assisted": false
   },
   {
     "slug": "entourage-effect-herbal-supplements",
@@ -403,9 +401,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": true,
-    "seoTitle": "The Entourage Effect in Herbs: Synergy & Safety",
-    "seoDescription": "An evidence-based review of phytochemical synergy and stacking logic in herbal supplements, from full-spectrum extracts to safety limits."
+    "ai_assisted": true
   },
   {
     "slug": "natural-compounds-research-clusters",
@@ -589,9 +585,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Natural Compound Research Clusters & Genome Mining",
-    "seoDescription": "A research deep-dive into biosynthetic gene clusters and cheminformatic space mapping for supplement discovery."
+    "ai_assisted": false
   },
   {
     "slug": "elderberry",
@@ -681,9 +675,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Elderberry for Colds & Flu: Clinical Evidence",
-    "seoDescription": "An evidence-graded review of elderberry for upper respiratory infections, covering clinical trials, safety, and dosage."
+    "ai_assisted": false
   },
   {
     "slug": "kava",
@@ -838,9 +830,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Kava Review: Anxiety, Sleep, and Liver Safety",
-    "seoDescription": "A research-graded review of kava kavalactones, covering anxiety clinical trials, sleep benefits, and liver safety."
+    "ai_assisted": false
   },
   {
     "slug": "lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide",
@@ -973,9 +963,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": true,
-    "seoTitle": "Lion's Mane Mushroom: Benefits, Dosage & Safety",
-    "seoDescription": "An evidence-based guide to Lion's Mane mushroom, covering cognitive benefits, nerve growth factors, and dosage."
+    "ai_assisted": true
   },
   {
     "slug": "peptides-research-guide",
@@ -1139,9 +1127,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Bioactive Peptides: Clinical Evidence & Safety",
-    "seoDescription": "A comprehensive, evidence-graded review of bioactive peptides covering BPC-157, collagen, and growth hormone secretagogues."
+    "ai_assisted": false
   },
   {
     "slug": "ashwagandha",
@@ -1356,9 +1342,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Ashwagandha Guide: Stress, Cortisol & Anxiety",
-    "seoDescription": "An evidence-graded review of Ashwagandha's HPA axis modulation, cortisol reduction, and anxiety clinical trials."
+    "ai_assisted": false
   },
   {
     "slug": "bacopa-monnieri",
@@ -1481,9 +1465,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Bacopa Monnieri: Memory RCTs & Brain Support",
-    "seoDescription": "A research-graded review of Bacopa monnieri memory trials, bacoside mechanisms, and cognitive benefits."
+    "ai_assisted": false
   },
   {
     "slug": "ginkgo-biloba",
@@ -1669,9 +1651,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Ginkgo Biloba: Brain Flow & Cognition Trials",
-    "seoDescription": "A research-graded review of Ginkgo biloba cerebrovascular effects and cognitive clinical trials."
+    "ai_assisted": false
   },
   {
     "slug": "l-theanine",
@@ -1857,9 +1837,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "L-Theanine: Alpha Waves & Caffeine Synergy",
-    "seoDescription": "A research-graded review of L-theanine's alpha wave induction, GABA modulation, and caffeine synergy."
+    "ai_assisted": false
   },
   {
     "slug": "lions-mane",
@@ -1996,9 +1974,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Lion's Mane: NGF, BDNF & Cognitive Evidence",
-    "seoDescription": "An evidence-graded review of Hericium erinaceus (Lion's Mane) NGF pathways, cognitive trials, and safety."
+    "ai_assisted": false
   },
   {
     "slug": "magnesium-glycinate",
@@ -2169,9 +2145,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Magnesium Glycinate: Sleep, Stress & Anxiety",
-    "seoDescription": "An evidence-graded review of Magnesium Glycinate for sleep latency, GABA modulation, and anxiety."
+    "ai_assisted": false
   },
   {
     "slug": "nac",
@@ -2294,9 +2268,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "NAC (N-Acetyl Cysteine): Glutathione & Lung health",
-    "seoDescription": "A research-graded review of N-Acetyl Cysteine glutathione pathways, lung function, and clinical trials."
+    "ai_assisted": false
   },
   {
     "slug": "passionflower",
@@ -2418,9 +2390,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Passionflower: GABAergic Action & Anxiety RCTs",
-    "seoDescription": "A research-graded review of Passionflower GABA-A activity, anxiety clinical trials, and sleep quality."
+    "ai_assisted": false
   },
   {
     "slug": "rhodiola-rosea",
@@ -2592,9 +2562,7 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Rhodiola Rosea: Burnout & Fatigue Trials",
-    "seoDescription": "A research-graded review of Rhodiola rosea adaptogenic mechanisms, fatigue trials, and dosage."
+    "ai_assisted": false
   },
   {
     "slug": "valerian-root",
@@ -2758,8 +2726,6 @@
     ],
     "profile_status": "published",
     "sitemap_included": true,
-    "ai_assisted": false,
-    "seoTitle": "Valerian Root: Sleep Quality & Interactions",
-    "seoDescription": "An evidence-graded review of valerian root GABA-A activity, sleep trials, and drug interactions."
+    "ai_assisted": false
   }
 ]

@@ -73,7 +73,7 @@ for (const file of pageFiles) {
 
 // 2. Validate canonical URLs in page metadata (should end with trailing slash)
 console.log('Checking canonical URLs in page.tsx files...');
-const canonicalRegex = /canonical\s*:\s*(['"`])([^'"`\s\+]+)(['"`])/g;
+const canonicalRegex = /canonical\s*:\s*(['"`])([^'"`\s+]+)(['"`])/g;
 
 for (const file of pageFiles) {
   if (isExemptRoute(file)) continue;

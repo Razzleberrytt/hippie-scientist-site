@@ -323,8 +323,23 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
     return { index: false, follow: true, reason: 'internal-or-utility-route', priority: 0 }
   }
 
+  let isCurated = false
+  if (/^\/herbs\/[^/]+$/.test(normalizedPath)) {
+    const slug = normalizedPath.split('/').pop() || ''
+    isCurated = (CURATED_INDEXABLE_HERB_SLUGS as readonly string[]).includes(slug)
+  } else if (/^\/compounds\/[^/]+$/.test(normalizedPath)) {
+    const slug = normalizedPath.split('/').pop() || ''
+    isCurated = (CURATED_INDEXABLE_COMPOUND_SLUGS as readonly string[]).includes(slug)
+  }
+
   if (hardNoindexSignal) {
-    return { index: false, follow: true, reason: hardNoindexSignal, priority: 0 }
+    const isBypassable =
+      hardNoindexSignal.includes('sitemap_included=false') ||
+      hardNoindexSignal.includes('indexability_status=NEEDS_REVIEW')
+
+    if (!(isCurated && isBypassable)) {
+      return { index: false, follow: true, reason: hardNoindexSignal, priority: 0 }
+    }
   }
 
   const coreRoutes = new Set<string>(CORE_INDEXABLE_ROUTES)

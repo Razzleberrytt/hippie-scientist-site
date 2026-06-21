@@ -3,7 +3,7 @@
     "slug": "acerola",
     "name": "Acerola",
     "title": "Acerola | The Hippie Scientist",
-    "description": "Acerola is a vitamin-C-rich fruit botanical with food/supplement relevance."
+    "description": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance."
   },
   {
     "slug": "agarikon",
@@ -15,55 +15,43 @@
     "slug": "ajwain",
     "name": "Ajwain",
     "title": "Ajwain | The Hippie Scientist",
-    "description": "Ajwain is a culinary-medicinal seed with strong traditional GI positioning."
+    "description": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning."
   },
   {
     "slug": "aloe-vera",
     "name": "Aloe Vera",
     "title": "Aloe Vera | The Hippie Scientist",
-    "description": "Aloe Vera is a botanical studied in connection with immune, metabolic and skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Aloe Vera through compounds such as aloin."
   },
   {
     "slug": "panax-quinquefolius",
     "name": "American Ginseng",
     "title": "American Ginseng | The Hippie Scientist",
-    "description": "American Ginseng is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "american-yellow-lotus",
-    "name": "American Yellow Lotus",
-    "title": "American Yellow Lotus | The Hippie Scientist",
-    "description": "American Yellow Lotus is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2."
   },
   {
     "slug": "andrographis-paniculata",
     "name": "Andrographis Paniculata",
     "title": "Andrographis Paniculata | The Hippie Scientist",
-    "description": "Andrographis Paniculata is a botanical studied in connection with respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Andrographis paniculata lean herb row for high-speed phytochemical ingestion."
   },
   {
     "slug": "anemarrhena-asphodeloides",
     "name": "Anemarrhena Asphodeloides",
     "title": "Anemarrhena Asphodeloides | The Hippie Scientist",
-    "description": "Anemarrhena Asphodeloides is a botanical studied in connection with anti-inflammatory, metabolic and neuroprotective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Anemarrhena asphodeloides contains Timosaponin AIII and is linked here to PI3K/Akt modulation."
   },
   {
     "slug": "angelica-archangelica",
     "name": "Angelica Archangelica",
     "title": "Angelica Archangelica | The Hippie Scientist",
-    "description": "Angelica Archangelica is a botanical studied in connection with digestive, respiratory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Angelica archangelica lean monograph row enriched in bulk mode."
   },
   {
     "slug": "angelica-dahurica",
     "name": "Angelica Dahurica",
     "title": "Angelica Dahurica | The Hippie Scientist",
-    "description": "Angelica Dahurica is a botanical studied in connection with anti-inflammatory and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "angelica-pubescens",
-    "name": "Angelica Pubescens",
-    "title": "Angelica Pubescens | The Hippie Scientist",
-    "description": "Angelica Pubescens is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Angelica dahurica lean monograph row enriched in bulk mode."
   },
   {
     "slug": "angelica-root",
@@ -75,49 +63,49 @@
     "slug": "angelica-sinensis",
     "name": "Angelica Sinensis",
     "title": "Angelica Sinensis | The Hippie Scientist",
-    "description": "Angelica Sinensis is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "angelica sinensis is tracked for inflammation,cardiovascular,hormone with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "anise-hyssop",
     "name": "Anise Hyssop",
     "title": "Anise Hyssop | The Hippie Scientist",
-    "description": "Anise Hyssop is a botanical studied in connection with digestive, respiratory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole."
   },
   {
     "slug": "arjuna",
     "name": "Arjuna",
     "title": "Arjuna | The Hippie Scientist",
-    "description": "Arjuna centers on bark polyphenols and triterpenes with specific cardiotonic-support positioning."
+    "description": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning."
   },
   {
     "slug": "artemisia-absinthium",
     "name": "Artemisia Absinthium",
     "title": "Artemisia Absinthium | The Hippie Scientist",
-    "description": "Artemisia Absinthium is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism."
   },
   {
     "slug": "artemisia-annua",
     "name": "Artemisia Annua",
     "title": "Artemisia Annua | The Hippie Scientist",
-    "description": "Artemisia Annua is a botanical studied in connection with antiviral, immune and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation."
   },
   {
     "slug": "artemisia-capillaris",
     "name": "Artemisia Capillaris",
     "title": "Artemisia Capillaris | The Hippie Scientist",
-    "description": "Artemisia Capillaris is a botanical studied in connection with liver-protective and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Artemisia capillaris lean monograph row enriched in bulk mode."
   },
   {
     "slug": "artichoke",
     "name": "Artichoke",
     "title": "Artichoke | The Hippie Scientist",
-    "description": "Artichoke centers on bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims."
+    "description": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims."
   },
   {
     "slug": "ashitaba",
     "name": "Ashitaba",
     "title": "Ashitaba | The Hippie Scientist",
-    "description": "Ashitaba centers on chalcone-rich chemistry with modest translational evidence."
+    "description": "It is best framed around chalcone-rich chemistry with modest translational evidence."
   },
   {
     "slug": "ashoka",
@@ -129,98 +117,61 @@
     "slug": "ashwagandha",
     "name": "Ashwagandha (Withania somnifera)",
     "title": "Ashwagandha (Withania somnifera) | The Hippie Scientist",
-    "description": "Ashwagandha (Withania somnifera) is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "sources": [
-      { "title": "Ashwagandha — NCCIH Health Information", "url": "https://www.nccih.nih.gov/health/ashwagandha", "publisher": "NIH/NCCIH", "type": "overview" },
-      { "title": "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of Ashwagandha root (KSM-66)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3252722/", "publisher": "PubMed Central / Indian J Psychol Med", "type": "rct" },
-      { "title": "Adaptogenic and Anxiolytic Effects of Ashwagandha Root Extract (Withania somnifera): A Double-Blind, Randomized, Placebo-Controlled Clinical Trial", "url": "https://pubmed.ncbi.nlm.nih.gov/32818573/", "publisher": "PubMed / Medicine", "type": "rct" },
-      { "title": "Ashwagandha — Examine.com Research Summary", "url": "https://examine.com/supplements/ashwagandha/", "publisher": "Examine.com", "type": "review" },
-      { "title": "Ashwagandha — Mayo Clinic Drugs & Supplements", "url": "https://www.mayoclinic.org/drugs-supplements/ashwagandha/art-20047852", "publisher": "Mayo Clinic", "type": "clinical-reference" }
-    ]
-  },
-  {
-    "slug": "panax-ginseng",
-    "name": "Asian Ginseng",
-    "title": "Asian Ginseng | The Hippie Scientist",
-    "description": "Asian Ginseng is a botanical studied in connection with cognitive and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "astragalus",
-    "name": "Astragalus",
-    "title": "Astragalus | The Hippie Scientist",
-    "description": "Astragalus centers on astragalosides and polysaccharides."
-  },
-  {
-    "slug": "astragalus-membranaceus",
-    "name": "Astragalus Membranaceus",
-    "title": "Astragalus Membranaceus | The Hippie Scientist",
-    "description": "Astragalus Membranaceus is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "atractylodes",
     "name": "Atractylodes",
     "title": "Atractylodes | The Hippie Scientist",
-    "description": "Atractylodes is a digestive-tonic rhizome with traditional-system relevance."
+    "description": "It is best framed as a digestive-tonic rhizome with traditional-system relevance."
   },
   {
     "slug": "atractylodes-macrocephala",
     "name": "Atractylodes Macrocephala",
     "title": "Atractylodes Macrocephala | The Hippie Scientist",
-    "description": "Atractylodes Macrocephala is a botanical studied in connection with digestive, immune and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation."
   },
   {
     "slug": "bacopa",
     "name": "Bacopa",
     "title": "Bacopa | The Hippie Scientist",
-    "description": "Bacopa is a botanical studied in connection with antioxidant, cognitive and neuroprotective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion."
   },
   {
     "slug": "bael",
     "name": "Bael",
     "title": "Bael | The Hippie Scientist",
-    "description": "Bael is a botanical studied in connection with antioxidant and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin."
   },
   {
     "slug": "lagerstroemia-speciosa",
     "name": "Banaba",
     "title": "Banaba | The Hippie Scientist",
-    "description": "Banaba is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Lagerstroemia speciosa contains Corosolic acid and is linked here to AMPK activation."
   },
   {
     "slug": "bayberry",
     "name": "Bayberry",
     "title": "Bayberry | The Hippie Scientist",
-    "description": "Bayberry is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "bayberry is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "berberis",
     "name": "Berberis",
     "title": "Berberis | The Hippie Scientist",
-    "description": "Evidence-aware guide to Berberis (barberry) and its berberine content — metabolic and digestive uses, dosing context, and important medication interactions."
+    "description": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution."
   },
   {
     "slug": "berberis-vulgaris",
     "name": "Berberis Vulgaris",
     "title": "Berberis Vulgaris | The Hippie Scientist",
-    "description": "Berberis Vulgaris is a botanical studied in connection with digestive and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Berberis vulgaris lean herb row for high-speed phytochemical ingestion."
   },
   {
     "slug": "momordica-charantia",
     "name": "Bitter Melon",
     "title": "Bitter Melon | The Hippie Scientist",
     "description": "Contains charantin and polypeptide-p which lower blood glucose."
-  },
-  {
-    "slug": "black-cohosh",
-    "name": "Black Cohosh (Actaea racemosa)",
-    "title": "Black Cohosh (Actaea racemosa) | The Hippie Scientist",
-    "description": "Black Cohosh centers on the root; rhizome."
-  },
-  {
-    "slug": "piper-nigrum",
-    "name": "Black Pepper",
-    "title": "Black Pepper | The Hippie Scientist",
-    "description": "Black Pepper is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
   },
   {
     "slug": "black-seed",
@@ -232,37 +183,25 @@
     "slug": "black-tea",
     "name": "Black Tea",
     "title": "Black Tea | The Hippie Scientist",
-    "description": "Black Tea is a botanical studied in connection with anti-inflammatory, antioxidant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "black tea is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "blue-lotus",
     "name": "Blue Lotus",
     "title": "Blue Lotus | The Hippie Scientist",
-    "description": "Blue Lotus is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "blueberry",
-    "name": "Blueberry",
-    "title": "Blueberry | The Hippie Scientist",
-    "description": "Blueberry is a botanical studied in connection with anti-inflammatory, antioxidant and cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "blue lotus is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "boldo",
     "name": "Boldo",
     "title": "Boldo | The Hippie Scientist",
-    "description": "Boldo is an aromatic bitter leaf botanical with modest human evidence."
+    "description": "It is best framed as an aromatic bitter leaf botanical with modest human evidence."
   },
   {
     "slug": "boswellia-serrata",
     "name": "Boswellia",
     "title": "Boswellia | The Hippie Scientist",
-    "description": "Evidence-aware guide to Boswellia serrata — AKBA and boswellic acids, 5-LOX activity, joint and mobility research, dosing context, and safety."
-  },
-  {
-    "slug": "boswellia-carterii",
-    "name": "Boswellia Carterii",
-    "title": "Boswellia Carterii | The Hippie Scientist",
-    "description": "Boswellia Carterii centers on boswellic acids with 5-lipoxygenase relevance."
+    "description": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition."
   },
   {
     "slug": "brassica-juncea",
@@ -280,13 +219,7 @@
     "slug": "buckwheat",
     "name": "Buckwheat",
     "title": "Buckwheat | The Hippie Scientist",
-    "description": "Buckwheat is a botanical studied in connection with anti-inflammatory, cardiovascular and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "bupleurum",
-    "name": "Bupleurum",
-    "title": "Bupleurum | The Hippie Scientist",
-    "description": "It should be framed conservatively because traditional-system context matters more than casual wellness claims."
+    "description": "buckwheat is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "bupleurum-falcatum",
@@ -298,37 +231,31 @@
     "slug": "burdock",
     "name": "Burdock",
     "title": "Burdock | The Hippie Scientist",
-    "description": "Burdock is a traditional root botanical with modest modern evidence rather than a definitive detox herb."
-  },
-  {
-    "slug": "butterbur",
-    "name": "Butterbur",
-    "title": "Butterbur | The Hippie Scientist",
-    "description": "Butterbur is a sesquiterpene-rich herb usually discussed around standardized root extracts."
+    "description": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb."
   },
   {
     "slug": "theobroma-cacao",
     "name": "Cacao",
     "title": "Cacao | The Hippie Scientist",
-    "description": "Cacao centers on flavanols and methylxanthines with stimulant awareness."
+    "description": "It is best framed around flavanols and methylxanthines with stimulant awareness."
   },
   {
     "slug": "calamus",
     "name": "Calamus",
     "title": "Calamus | The Hippie Scientist",
-    "description": "Calamus is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone."
   },
   {
     "slug": "calendula",
     "name": "Calendula",
     "title": "Calendula | The Hippie Scientist",
-    "description": "Calendula centers on topical and tissue-soothing use rather than overextended systemic claims."
+    "description": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims."
   },
   {
     "slug": "eschscholzia-californica",
     "name": "California Poppy",
     "title": "California Poppy | The Hippie Scientist",
-    "description": "California Poppy is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "California Poppy is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "capsicum-annuum",
@@ -340,55 +267,25 @@
     "slug": "caraway",
     "name": "Caraway",
     "title": "Caraway | The Hippie Scientist",
-    "description": "Caraway is an aromatic seed with traditional GI relevance."
+    "description": "It is best framed as an aromatic seed with traditional GI relevance."
   },
   {
     "slug": "elettaria-cardamomum",
     "name": "Cardamom",
     "title": "Cardamom | The Hippie Scientist",
-    "description": "Cardamom is an aromatic culinary seed with modest translational evidence."
+    "description": "It is best framed as an aromatic culinary seed with modest translational evidence."
   },
   {
     "slug": "carob",
     "name": "Carob",
     "title": "Carob | The Hippie Scientist",
-    "description": "Carob is a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action."
-  },
-  {
-    "slug": "cassia-alata",
-    "name": "Cassia Alata",
-    "title": "Cassia Alata | The Hippie Scientist",
-    "description": "Cassia Alata is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action."
   },
   {
     "slug": "cat-s-claw",
     "name": "Cat's Claw",
     "title": "Cat's Claw | The Hippie Scientist",
-    "description": "Cat'S Claw centers on oxindole alkaloids with autoimmune and transplant-related caution."
-  },
-  {
-    "slug": "catuba",
-    "name": "Catuba",
-    "title": "Catuba | The Hippie Scientist",
-    "description": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth."
-  },
-  {
-    "slug": "cayenne",
-    "name": "Cayenne",
-    "title": "Cayenne | The Hippie Scientist",
-    "description": "Cayenne is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "celastrus-paniculatus",
-    "name": "Celastrus Paniculatus",
-    "title": "Celastrus Paniculatus | The Hippie Scientist",
-    "description": "Celastrus Paniculatus is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "chaga",
-    "name": "Chaga",
-    "title": "Chaga | The Hippie Scientist",
-    "description": "A medicinal mushroom widely used in traditional medicine, best known for its rich antioxidant content and potential to support immune function, modulate inflammation, and manage cellular stress."
+    "description": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution."
   },
   {
     "slug": "matricaria-chamomilla",
@@ -400,19 +297,19 @@
     "slug": "chinese-skullcap",
     "name": "Chinese Skullcap",
     "title": "Chinese Skullcap | The Hippie Scientist",
-    "description": "Chinese Skullcap is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin."
   },
   {
     "slug": "chuanxiong",
     "name": "Chuanxiong",
     "title": "Chuanxiong | The Hippie Scientist",
-    "description": "Chuanxiong is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine."
   },
   {
     "slug": "cichorium-intybus",
     "name": "Cichorium Intybus",
     "title": "Cichorium Intybus | The Hippie Scientist",
-    "description": "Cichorium Intybus is a botanical studied in connection with anti-inflammatory and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Cichorium intybus lean monograph row enriched in bulk mode."
   },
   {
     "slug": "cinnamomum-verum",
@@ -436,13 +333,13 @@
     "slug": "cistanche-deserticola",
     "name": "Cistanche Deserticola",
     "title": "Cistanche Deserticola | The Hippie Scientist",
-    "description": "Cistanche Deserticola is a botanical studied in connection with energy, reproductive and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation."
   },
   {
     "slug": "citrus-bergamia",
     "name": "Citrus Bergamia",
     "title": "Citrus Bergamia | The Hippie Scientist",
-    "description": "Citrus Bergamia is a botanical studied in connection with cardiovascular and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Citrus bergamia lean monograph row enriched in bulk mode."
   },
   {
     "slug": "citrus-sinensis",
@@ -460,49 +357,37 @@
     "slug": "cnidium-monnieri",
     "name": "Cnidium Monnieri",
     "title": "Cnidium Monnieri | The Hippie Scientist",
-    "description": "Cnidium Monnieri is a botanical studied in connection with reproductive and skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "codonopsis",
-    "name": "Codonopsis",
-    "title": "Codonopsis | The Hippie Scientist",
-    "description": "Codonopsis is a gentler tonic-style root with modest modern evidence."
+    "description": "Cnidium monnieri lean monograph row enriched in bulk mode."
   },
   {
     "slug": "coffea-arabica",
     "name": "Coffee",
     "title": "Coffee | The Hippie Scientist",
-    "description": "Coffee is a botanical studied in connection with energy, stimulant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Coffee is tracked for cognition,energy,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "coffee-cherry",
     "name": "Coffee Cherry",
     "title": "Coffee Cherry | The Hippie Scientist",
-    "description": "Coffee Cherry is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "coleus-forskohlii",
-    "name": "Coleus Forskohlii",
-    "title": "Coleus Forskohlii | The Hippie Scientist",
-    "description": "Coleus Forskohlii is a botanical studied in connection with cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol."
   },
   {
     "slug": "commiphora-mukul",
     "name": "Commiphora Mukul",
     "title": "Commiphora Mukul | The Hippie Scientist",
-    "description": "Commiphora Mukul is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Commiphora mukul contains Guggulsterone and is linked here to FXR antagonism."
   },
   {
     "slug": "coptis",
     "name": "Coptis",
     "title": "Coptis | The Hippie Scientist",
-    "description": "Evidence-aware guide to Coptis chinensis (goldthread) — its berberine alkaloids, traditional and metabolic uses, and medication-interaction cautions."
+    "description": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine."
   },
   {
     "slug": "coptis-chinensis",
     "name": "Coptis Chinensis",
     "title": "Coptis Chinensis | The Hippie Scientist",
-    "description": "Coptis Chinensis is a botanical studied in connection with antimicrobial and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Coptis chinensis lean herb row for high-speed phytochemical ingestion."
   },
   {
     "slug": "cordyceps-sinensis",
@@ -514,91 +399,79 @@
     "slug": "coriandrum-sativum",
     "name": "Coriandrum Sativum",
     "title": "Coriandrum Sativum | The Hippie Scientist",
-    "description": "Coriandrum Sativum is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Coriandrum sativum lean monograph row enriched in bulk mode."
   },
   {
     "slug": "cornus-officinalis",
     "name": "Cornus Officinalis",
     "title": "Cornus Officinalis | The Hippie Scientist",
-    "description": "Cornus Officinalis is a botanical studied in connection with reproductive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Cornus officinalis contains Loganin and is linked here to PI3K/Akt modulation."
   },
   {
     "slug": "corydalis",
     "name": "Corydalis",
     "title": "Corydalis | The Hippie Scientist",
-    "description": "Corydalis is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine."
   },
   {
     "slug": "cranberry",
     "name": "Cranberry (Vaccinium macrocarpon)",
     "title": "Cranberry (Vaccinium macrocarpon) | The Hippie Scientist",
-    "description": "Cranberry centers on proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims."
-  },
-  {
-    "slug": "crocus-sativus",
-    "name": "Crocus Sativus",
-    "title": "Crocus Sativus | The Hippie Scientist",
-    "description": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support."
+    "description": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims."
   },
   {
     "slug": "curcuma-wenyujin",
     "name": "Curcuma Wenyujin",
     "title": "Curcuma Wenyujin | The Hippie Scientist",
-    "description": "Curcuma Wenyujin is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Curcuma wenyujin contains Beta-elemene and is linked here to PI3K/Akt modulation."
   },
   {
     "slug": "curcuma-zedoaria",
     "name": "Curcuma Zedoaria",
     "title": "Curcuma Zedoaria | The Hippie Scientist",
-    "description": "Curcuma Zedoaria is a botanical studied in connection with digestive and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Curcuma zedoaria contains Curcumol and is linked here to NF-κB inhibition."
   },
   {
     "slug": "curcumin",
     "name": "Curcumin",
     "title": "Curcumin | The Hippie Scientist",
-    "description": "Curcumin is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "curry-leaf",
     "name": "Curry Leaf",
     "title": "Curry Leaf | The Hippie Scientist",
-    "description": "Curry Leaf is a culinary-medicinal leaf with food-form relevance."
+    "description": "It is best framed as a culinary-medicinal leaf with food-form relevance."
   },
   {
     "slug": "cyclea-peltata",
     "name": "Cyclea Peltata",
     "title": "Cyclea Peltata | The Hippie Scientist",
-    "description": "Cyclea Peltata is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Cyclea peltata lean monograph row enriched in bulk mode."
   },
   {
     "slug": "cymbopogon-citratus",
     "name": "Cymbopogon Citratus",
     "title": "Cymbopogon Citratus | The Hippie Scientist",
-    "description": "Cymbopogon Citratus is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "damiana",
-    "name": "Damiana",
-    "title": "Damiana | The Hippie Scientist",
-    "description": "Damiana is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation."
   },
   {
     "slug": "dandelion",
     "name": "Dandelion",
     "title": "Dandelion | The Hippie Scientist",
-    "description": "Dandelion is a traditional food-like bitter herb rather than a strong cleansing intervention."
+    "description": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention."
   },
   {
     "slug": "danshen",
     "name": "Danshen",
     "title": "Danshen | The Hippie Scientist",
-    "description": "Danshen centers on tanshinones and salvianolic acids with specific vascular-support positioning."
+    "description": "It is best framed around tanshinones and salvianolic acids with specific vascular-support positioning."
   },
   {
     "slug": "daphne-odora",
     "name": "Daphne Odora",
     "title": "Daphne Odora | The Hippie Scientist",
-    "description": "Daphne Odora is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Daphne odora lean monograph row enriched in bulk mode."
   },
   {
     "slug": "dendrobium",
@@ -610,43 +483,25 @@
     "slug": "dong-quai",
     "name": "Dong Quai",
     "title": "Dong Quai | The Hippie Scientist",
-    "description": "Dong Quai is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "echinacea-purpurea",
-    "name": "Echinacea (Echinacea purpurea)",
-    "title": "Echinacea (Echinacea purpurea) | The Hippie Scientist",
-    "description": "Echinacea Purpurea centers on the unspecified."
+    "description": "dong quai is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "elderberry",
     "name": "Elderberry",
     "title": "Elderberry | The Hippie Scientist",
-    "description": "Elderberry is a botanical studied in connection with antiviral and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin."
   },
   {
     "slug": "elecampane",
     "name": "Elecampane",
     "title": "Elecampane | The Hippie Scientist",
-    "description": "Elecampane is a bitter aromatic root with traditional bronchial relevance."
-  },
-  {
-    "slug": "elephantopus-scaber",
-    "name": "Elephantopus Scaber",
-    "title": "Elephantopus Scaber | The Hippie Scientist",
-    "description": "Elephantopus Scaber is a botanical studied in connection with anti-inflammatory and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "eleuthero",
-    "name": "Eleuthero",
-    "title": "Eleuthero | The Hippie Scientist",
-    "description": "Eleuthero (Siberian ginseng) is an adaptogenic root used to support stress resilience and physical endurance. It modulates HPA axis activity and influences cortisol and catecholamine signaling. Human trials report reduced fatigue and improved cognitive performance under stress conditions, particularly in shift workers and athletes."
+    "description": "It is best framed as a bitter aromatic root with traditional bronchial relevance."
   },
   {
     "slug": "embelia-ribes",
     "name": "Embelia Ribes",
     "title": "Embelia Ribes | The Hippie Scientist",
-    "description": "Embelia Ribes is a botanical studied in connection with antimicrobial and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Embelia ribes contains Embelin and is linked here to XIAP inhibition."
   },
   {
     "slug": "epimedium",
@@ -664,7 +519,7 @@
     "slug": "eucalyptus",
     "name": "Eucalyptus",
     "title": "Eucalyptus | The Hippie Scientist",
-    "description": "Eucalyptus is a botanical studied in connection with anti-inflammatory, antimicrobial and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "eucalyptus is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "eucommia",
@@ -676,13 +531,7 @@
     "slug": "evening-primrose",
     "name": "Evening Primrose (Oenothera biennis)",
     "title": "Evening Primrose (Oenothera biennis) | The Hippie Scientist",
-    "description": "Evening Primrose (Oenothera biennis) is a botanical studied in connection with skin-support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "fennel",
-    "name": "Fennel",
-    "title": "Fennel | The Hippie Scientist",
-    "description": "It is best handled as an aromatic seed botanical with traditional GI-support use and modest mechanistic confidence."
+    "description": "Evening Primrose (Oenothera biennis) is tracked for mechanism-informed herb research in the workbook. Human-outcome claims should remain gated until source and dosage review are complete."
   },
   {
     "slug": "trigonella-foenum-graecum",
@@ -694,67 +543,49 @@
     "slug": "feverfew",
     "name": "Feverfew",
     "title": "Feverfew | The Hippie Scientist",
-    "description": "Feverfew is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "feverfew is tracked for inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "ficus-carica",
     "name": "Ficus Carica",
     "title": "Ficus Carica | The Hippie Scientist",
-    "description": "Ficus Carica is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Ficus carica lean monograph row enriched in bulk mode."
   },
   {
     "slug": "fingerroot",
     "name": "Fingerroot",
     "title": "Fingerroot | The Hippie Scientist",
-    "description": "Fingerroot is a botanical studied in connection with anti-inflammatory and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a."
   },
   {
     "slug": "fraxinus-rhynchophylla",
     "name": "Fraxinus Rhynchophylla",
     "title": "Fraxinus Rhynchophylla | The Hippie Scientist",
-    "description": "Fraxinus Rhynchophylla is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Fraxinus rhynchophylla lean monograph row enriched in bulk mode."
   },
   {
     "slug": "galangal",
     "name": "Galangal",
     "title": "Galangal | The Hippie Scientist",
-    "description": "Galangal is a culinary-medicinal rhizome with traditional GI relevance."
+    "description": "It is best framed as a culinary-medicinal rhizome with traditional GI relevance."
   },
   {
     "slug": "garcinia-indica",
     "name": "Garcinia Indica",
     "title": "Garcinia Indica | The Hippie Scientist",
-    "description": "Garcinia Indica is a botanical studied in connection with antioxidant and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition."
   },
   {
     "slug": "garcinia-mangostana",
     "name": "Garcinia Mangostana",
     "title": "Garcinia Mangostana | The Hippie Scientist",
-    "description": "Garcinia Mangostana is a botanical studied in connection with antioxidant and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition."
   },
   {
     "slug": "allium-sativum",
     "name": "Garlic",
     "title": "Garlic | The Hippie Scientist",
-    "description": "Garlic is a botanical studied in connection with cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "garlic",
-    "name": "Garlic (Allium sativum)",
-    "title": "Garlic (Allium sativum) | The Hippie Scientist",
-    "description": "Garlic centers on the unspecified."
-  },
-  {
-    "slug": "gastrodia",
-    "name": "Gastrodia",
-    "title": "Gastrodia | The Hippie Scientist",
-    "description": "It should be framed conservatively because traditional neurologic use is broader than modern evidence."
-  },
-  {
-    "slug": "ginger",
-    "name": "Ginger (Zingiber officinale)",
-    "title": "Ginger (Zingiber officinale) | The Hippie Scientist",
-    "description": "Ginger centers on the unspecified."
+    "description": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "ginkgo-biloba",
@@ -772,49 +603,31 @@
     "slug": "goldenseal",
     "name": "Goldenseal",
     "title": "Goldenseal | The Hippie Scientist",
-    "description": "Goldenseal is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "gotu-kola",
-    "name": "Gotu Kola (Centella asiatica)",
-    "title": "Gotu Kola (Centella asiatica) | The Hippie Scientist",
-    "description": "Gotu Kola (Centella asiatica) is a botanical studied in connection with cognitive support, circulation and calm focus activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "vitis-vinifera",
-    "name": "Grape",
-    "title": "Grape | The Hippie Scientist",
-    "description": "Grape is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "grapefruit",
-    "name": "Grapefruit",
-    "title": "Grapefruit | The Hippie Scientist",
-    "description": "Grapefruit is a botanical studied in connection with digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine."
   },
   {
     "slug": "camellia-sinensis",
     "name": "Green Tea",
     "title": "Green Tea | The Hippie Scientist",
-    "description": "Green Tea is a botanical studied in connection with antioxidant, metabolic and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg)."
   },
   {
     "slug": "green-tea-extract",
     "name": "Green Tea Extract",
     "title": "Green Tea Extract | The Hippie Scientist",
-    "description": "Green Tea Extract is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Green Tea Extract is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "guarana",
     "name": "Guarana",
     "title": "Guarana | The Hippie Scientist",
-    "description": "Guarana is a botanical studied in connection with anti-inflammatory, antioxidant and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "guayusa",
     "name": "Guayusa",
     "title": "Guayusa | The Hippie Scientist",
-    "description": "Guayusa is a botanical studied in connection with antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine."
   },
   {
     "slug": "gudmar",
@@ -832,55 +645,31 @@
     "slug": "harpagophytum-procumbens",
     "name": "Harpagophytum Procumbens",
     "title": "Harpagophytum Procumbens | The Hippie Scientist",
-    "description": "Harpagophytum Procumbens is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Harpagophytum procumbens contains Harpagoside and is linked here to COX inhibition."
   },
   {
     "slug": "crataegus-monogyna",
     "name": "Hawthorn",
     "title": "Hawthorn | The Hippie Scientist",
-    "description": "Hawthorn centers on procyanidins and flavonoids."
-  },
-  {
-    "slug": "hibiscus-sabdariffa",
-    "name": "Hibiscus",
-    "title": "Hibiscus | The Hippie Scientist",
-    "description": "Hibiscus is a botanical studied in connection with stress-relief, cardiovascular and diuretic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "holy-basil",
-    "name": "Holy Basil / Tulsi (Ocimum tenuiflorum)",
-    "title": "Holy Basil / Tulsi (Ocimum tenuiflorum) | The Hippie Scientist",
-    "description": "Holy Basil / Tulsi (Ocimum tenuiflorum) is a botanical studied in connection with stress adaptation, cortisol modulation and metabolic support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "holy-basil-purple",
-    "name": "Holy Basil Purple",
-    "title": "Holy Basil Purple | The Hippie Scientist",
-    "description": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability."
-  },
-  {
-    "slug": "holy-basil-seed",
-    "name": "Holy Basil Seed",
-    "title": "Holy Basil Seed | The Hippie Scientist",
-    "description": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases."
+    "description": "It is best framed around procyanidins and flavonoids."
   },
   {
     "slug": "honeysuckle",
     "name": "Honeysuckle",
     "title": "Honeysuckle | The Hippie Scientist",
-    "description": "Honeysuckle is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid."
   },
   {
     "slug": "hops",
     "name": "Hops",
     "title": "Hops | The Hippie Scientist",
-    "description": "Hops centers on bitter-resin and prenylflavonoid chemistry with modest selected human evidence."
+    "description": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence."
   },
   {
     "slug": "horse-chestnut",
     "name": "Horse Chestnut",
     "title": "Horse Chestnut | The Hippie Scientist",
-    "description": "Horse Chestnut is a botanical studied in connection with anti-inflammatory and tonic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin."
   },
   {
     "slug": "houttuynia",
@@ -892,25 +681,13 @@
     "slug": "huperzia-serrata",
     "name": "Huperzia Serrata",
     "title": "Huperzia Serrata | The Hippie Scientist",
-    "description": "Huperzia Serrata is a botanical studied in connection with cognitive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "hypericum-perforatum",
-    "name": "Hypericum Perforatum",
-    "title": "Hypericum Perforatum | The Hippie Scientist",
-    "description": "Hypericum Perforatum is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "berberis-aristata",
-    "name": "Indian Barberry",
-    "title": "Indian Barberry | The Hippie Scientist",
-    "description": "Indian Barberry is a botanical studied in connection with digestive, liver-protective and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition."
   },
   {
     "slug": "isatis",
     "name": "Isatis",
     "title": "Isatis | The Hippie Scientist",
-    "description": "Isatis is a traditional-use herb with limited modern clinical depth."
+    "description": "It is best framed as a traditional-use herb with limited modern clinical depth."
   },
   {
     "slug": "japanese-knotweed",
@@ -928,7 +705,7 @@
     "slug": "jujube",
     "name": "Jujube",
     "title": "Jujube | The Hippie Scientist",
-    "description": "Jujube is a food-like fruit/seed botanical with gentle traditional positioning."
+    "description": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning."
   },
   {
     "slug": "juniper",
@@ -937,34 +714,16 @@
     "description": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance."
   },
   {
-    "slug": "kanna",
-    "name": "Kanna",
-    "title": "Kanna | The Hippie Scientist",
-    "description": "Kanna is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
     "slug": "piper-methysticum",
     "name": "Kava",
     "title": "Kava | The Hippie Scientist",
     "description": "Kavalactones modulate GABA and ion channels producing anxiolytic effects."
   },
   {
-    "slug": "kuding-tea",
-    "name": "Kuding Tea",
-    "title": "Kuding Tea | The Hippie Scientist",
-    "description": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence."
-  },
-  {
     "slug": "kudzu",
     "name": "Kudzu",
     "title": "Kudzu | The Hippie Scientist",
-    "description": "Kudzu is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "tyrosine",
-    "name": "L-Tyrosine",
-    "title": "L-Tyrosine | The Hippie Scientist",
-    "description": "L-Tyrosine is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "kudzu is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "lavandula-angustifolia",
@@ -976,7 +735,7 @@
     "slug": "lawsonia-inermis",
     "name": "Lawsonia Inermis",
     "title": "Lawsonia Inermis | The Hippie Scientist",
-    "description": "Lawsonia Inermis is a botanical studied in connection with skin-support and antimicrobial activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Lawsonia inermis contains Lawsone and is linked here to MAPK pathway modulation."
   },
   {
     "slug": "melissa-officinalis",
@@ -988,25 +747,19 @@
     "slug": "lemon-verbena",
     "name": "Lemon Verbena",
     "title": "Lemon Verbena | The Hippie Scientist",
-    "description": "Lemon Verbena is a gentle aromatic botanical with modest evidence and pleasant tolerability."
-  },
-  {
-    "slug": "lemongrass",
-    "name": "Lemongrass",
-    "title": "Lemongrass | The Hippie Scientist",
-    "description": "Lemongrass is an aromatic culinary-medicinal grass with modest clinical depth."
+    "description": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability."
   },
   {
     "slug": "licorice",
     "name": "Licorice",
     "title": "Licorice | The Hippie Scientist",
-    "description": "Licorice is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin."
   },
   {
     "slug": "ligusticum-chuanxiong",
     "name": "Ligusticum Chuanxiong",
     "title": "Ligusticum Chuanxiong | The Hippie Scientist",
-    "description": "Ligusticum Chuanxiong is a botanical studied in connection with cardiovascular and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Ligusticum chuanxiong lean monograph row enriched in bulk mode."
   },
   {
     "slug": "hericium-erinaceus",
@@ -1018,7 +771,7 @@
     "slug": "lithospermum-erythrorhizon",
     "name": "Lithospermum Erythrorhizon",
     "title": "Lithospermum Erythrorhizon | The Hippie Scientist",
-    "description": "Lithospermum Erythrorhizon is a botanical studied in connection with skin-support and anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Lithospermum erythrorhizon contains Shikonin and is linked here to PKM2 inhibition."
   },
   {
     "slug": "longan",
@@ -1030,19 +783,13 @@
     "slug": "luo-han-guo",
     "name": "Luo Han Guo",
     "title": "Luo Han Guo | The Hippie Scientist",
-    "description": "Luo Han Guo is a fruit botanical with sweet mogrosides and soothing traditional use."
-  },
-  {
-    "slug": "maca",
-    "name": "Maca (Lepidium meyenii)",
-    "title": "Maca (Lepidium meyenii) | The Hippie Scientist",
-    "description": "Maca centers on the root; hypocotyl."
+    "description": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use."
   },
   {
     "slug": "magnolia-officinalis",
     "name": "Magnolia",
     "title": "Magnolia | The Hippie Scientist",
-    "description": "Magnolia is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Magnolia is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "maitake-d-fraction",
@@ -1054,31 +801,13 @@
     "slug": "mangifera-indica",
     "name": "Mangifera Indica",
     "title": "Mangifera Indica | The Hippie Scientist",
-    "description": "Mangifera Indica is a botanical studied in connection with antioxidant and metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Mangifera indica contains Mangiferin and is linked here to AMPK activation."
   },
   {
     "slug": "mangosteen",
     "name": "Mangosteen",
     "title": "Mangosteen | The Hippie Scientist",
     "description": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence."
-  },
-  {
-    "slug": "maral-root",
-    "name": "Maral Root",
-    "title": "Maral Root | The Hippie Scientist",
-    "description": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality."
-  },
-  {
-    "slug": "marshmallow",
-    "name": "Marshmallow",
-    "title": "Marshmallow | The Hippie Scientist",
-    "description": "Marshmallow is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "milk-oats",
-    "name": "Milk Oats",
-    "title": "Milk Oats | The Hippie Scientist",
-    "description": "Milk Oats is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
   },
   {
     "slug": "silybum-marianum",
@@ -1096,25 +825,19 @@
     "slug": "morinda-citrifolia",
     "name": "Morinda Citrifolia",
     "title": "Morinda Citrifolia | The Hippie Scientist",
-    "description": "Morinda Citrifolia is a botanical studied in connection with anti-inflammatory, antioxidant and liver-protective activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Morinda citrifolia lean monograph row enriched in bulk mode."
   },
   {
     "slug": "moringa",
     "name": "Moringa",
     "title": "Moringa | The Hippie Scientist",
-    "description": "Moringa is a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood cure-all."
+    "description": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood -all."
   },
   {
     "slug": "morus-alba",
     "name": "Morus Alba",
     "title": "Morus Alba | The Hippie Scientist",
-    "description": "Morus Alba is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "mucuna",
-    "name": "Mucuna",
-    "title": "Mucuna | The Hippie Scientist",
-    "description": "Mucuna centers on L-DOPA-rich seeds with clear neurologic and stimulation-related caution."
+    "description": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation."
   },
   {
     "slug": "mugwort",
@@ -1123,40 +846,22 @@
     "description": "It is best framed conservatively because strong folklore and ritual associations often outrun clinical evidence."
   },
   {
-    "slug": "muira-puama",
-    "name": "Muira Puama",
-    "title": "Muira Puama | The Hippie Scientist",
-    "description": "Muira Puama is a traditional Amazonian botanical with modest modern evidence."
-  },
-  {
     "slug": "mulberry-leaf",
     "name": "Mulberry Leaf",
     "title": "Mulberry Leaf | The Hippie Scientist",
-    "description": "Evidence-aware guide to mulberry leaf (Morus alba) — DNJ, alpha-glucosidase activity, post-meal blood sugar research, forms, and safety."
+    "description": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language."
   },
   {
     "slug": "myristica-fragrans",
     "name": "Myristica Fragrans",
     "title": "Myristica Fragrans | The Hippie Scientist",
-    "description": "Myristica Fragrans is a botanical studied in connection with digestive and sedative activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "myrtle",
-    "name": "Myrtle",
-    "title": "Myrtle | The Hippie Scientist",
-    "description": "Myrtle is an aromatic Mediterranean leaf botanical with modest modern evidence."
+    "description": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition."
   },
   {
     "slug": "neem",
     "name": "Neem",
     "title": "Neem | The Hippie Scientist",
     "description": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance."
-  },
-  {
-    "slug": "nelumbo-nucifera",
-    "name": "Nelumbo Nucifera",
-    "title": "Nelumbo Nucifera | The Hippie Scientist",
-    "description": "Nelumbo Nucifera is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
   },
   {
     "slug": "nettle-root",
@@ -1180,25 +885,19 @@
     "slug": "notoginseng",
     "name": "Notoginseng",
     "title": "Notoginseng | The Hippie Scientist",
-    "description": "Notoginseng is a saponin-rich Panax relative with specific vascular-support positioning."
-  },
-  {
-    "slug": "oatstraw",
-    "name": "Oatstraw",
-    "title": "Oatstraw | The Hippie Scientist",
-    "description": "Oatstraw is a gentle nutritive herb with limited high-signal clinical depth."
+    "description": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning."
   },
   {
     "slug": "ocimum-basilicum",
     "name": "Ocimum Basilicum",
     "title": "Ocimum Basilicum | The Hippie Scientist",
-    "description": "Ocimum Basilicum is a botanical studied in connection with sleep and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation."
   },
   {
     "slug": "ocotea-odorifera",
     "name": "Ocotea Odorifera",
     "title": "Ocotea Odorifera | The Hippie Scientist",
-    "description": "Ocotea Odorifera is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation."
   },
   {
     "slug": "olea-europaea",
@@ -1210,7 +909,7 @@
     "slug": "ophiopogon",
     "name": "Ophiopogon",
     "title": "Ophiopogon | The Hippie Scientist",
-    "description": "Ophiopogon is a moistening tonic-style root with traditional-system relevance."
+    "description": "It is best framed as a moistening tonic-style root with traditional-system relevance."
   },
   {
     "slug": "orange-peel",
@@ -1222,31 +921,31 @@
     "slug": "oregano",
     "name": "Oregano",
     "title": "Oregano | The Hippie Scientist",
-    "description": "Oregano is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "oregano is tracked for sleep with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "paeonia-lactiflora",
     "name": "Paeonia Lactiflora",
     "title": "Paeonia Lactiflora | The Hippie Scientist",
-    "description": "Paeonia Lactiflora is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Paeonia lactiflora contains Paeoniflorin and is linked here to PI3K/Akt modulation."
   },
   {
     "slug": "paeonia-suffruticosa",
     "name": "Paeonia Suffruticosa",
     "title": "Paeonia Suffruticosa | The Hippie Scientist",
-    "description": "Paeonia Suffruticosa is a botanical studied in connection with anti-inflammatory and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition."
   },
   {
     "slug": "papaya-leaf",
     "name": "Papaya Leaf",
     "title": "Papaya Leaf | The Hippie Scientist",
-    "description": "Papaya Leaf is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate."
   },
   {
     "slug": "parsley",
     "name": "Parsley",
     "title": "Parsley | The Hippie Scientist",
-    "description": "Parsley is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "parsley is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "passiflora-incarnata",
@@ -1258,7 +957,7 @@
     "slug": "pastinaca-sativa",
     "name": "Pastinaca Sativa",
     "title": "Pastinaca Sativa | The Hippie Scientist",
-    "description": "Pastinaca Sativa is a botanical studied in connection with digestive and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Pastinaca sativa lean monograph row enriched in bulk mode."
   },
   {
     "slug": "pau-d-arco",
@@ -1267,82 +966,28 @@
     "description": "It should be framed conservatively because popular claims often exceed the evidence and preparation differences matter."
   },
   {
-    "slug": "peppermint",
-    "name": "Peppermint (Mentha × piperita)",
-    "title": "Peppermint (Mentha × piperita) | The Hippie Scientist",
-    "description": "Peppermint centers on the unspecified."
-  },
-  {
     "slug": "perilla",
     "name": "Perilla",
     "title": "Perilla | The Hippie Scientist",
-    "description": "Perilla is a culinary-medicinal herb with modest but relevant translational evidence."
+    "description": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence."
   },
   {
     "slug": "phellodendron",
     "name": "Phellodendron",
     "title": "Phellodendron | The Hippie Scientist",
-    "description": "Phellodendron is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine."
   },
   {
     "slug": "phellodendron-amurense",
     "name": "Phellodendron Amurense",
     "title": "Phellodendron Amurense | The Hippie Scientist",
-    "description": "Evidence-aware guide to Phellodendron amurense (Huang Bai) — berberine bark, magnolia-bark stress/sleep blends, dosing context, and safety."
-  },
-  {
-    "slug": "phosphatidylserine",
-    "name": "Phosphatidylserine",
-    "title": "Phosphatidylserine | The Hippie Scientist",
-    "description": "Phosphatidylserine is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "piper-longum",
-    "name": "Piper Longum",
-    "title": "Piper Longum | The Hippie Scientist",
-    "description": "Minimum source-backed intake for Piper longum."
-  },
-  {
-    "slug": "plantago-lanceolata",
-    "name": "Plantago Lanceolata",
-    "title": "Plantago Lanceolata | The Hippie Scientist",
-    "description": "Plantago Lanceolata is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "plantago-major",
-    "name": "Plantago Major",
-    "title": "Plantago Major | The Hippie Scientist",
-    "description": "Plantago Major is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "plumbago-zeylanica",
-    "name": "Plumbago Zeylanica",
-    "title": "Plumbago Zeylanica | The Hippie Scientist",
-    "description": "Plumbago Zeylanica is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "polygala",
-    "name": "Polygala",
-    "title": "Polygala | The Hippie Scientist",
-    "description": "Polygala is a traditional nootropic-style root with limited modern clinical depth."
+    "description": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion."
   },
   {
     "slug": "pomegranate",
     "name": "Pomegranate",
     "title": "Pomegranate | The Hippie Scientist",
-    "description": "Pomegranate is a polyphenol-rich fruit botanical with food-form relevance and moderate evidence."
-  },
-  {
-    "slug": "poria",
-    "name": "Poria",
-    "title": "Poria | The Hippie Scientist",
-    "description": "Poria is a traditional medicinal fungus with modest modern clinical depth."
-  },
-  {
-    "slug": "psoralea-corylifolia",
-    "name": "Psoralea Corylifolia",
-    "title": "Psoralea Corylifolia | The Hippie Scientist",
-    "description": "Psoralea Corylifolia is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence."
   },
   {
     "slug": "psyllium",
@@ -1354,7 +999,7 @@
     "slug": "pueraria-lobata",
     "name": "Pueraria Lobata",
     "title": "Pueraria Lobata | The Hippie Scientist",
-    "description": "Pueraria Lobata is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Pueraria lobata contains Puerarin and is linked here to PI3K/Akt modulation."
   },
   {
     "slug": "pueraria-mirifica",
@@ -1366,19 +1011,13 @@
     "slug": "punarnava",
     "name": "Punarnava",
     "title": "Punarnava | The Hippie Scientist",
-    "description": "Punarnava is a botanical studied in connection with anti-inflammatory and diuretic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "quercetin",
-    "name": "Quercetin",
-    "title": "Quercetin | The Hippie Scientist",
-    "description": "Quercetin is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "Internal cross-linking supports Punarnava through compounds such as punarnavine."
   },
   {
     "slug": "raspberry-leaf",
     "name": "Raspberry Leaf",
     "title": "Raspberry Leaf | The Hippie Scientist",
-    "description": "Raspberry Leaf is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "raspberry leaf is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "red-clover",
@@ -1387,64 +1026,34 @@
     "description": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts."
   },
   {
-    "slug": "rehmannia-glutinosa",
-    "name": "Rehmannia Glutinosa",
-    "title": "Rehmannia Glutinosa | The Hippie Scientist",
-    "description": "Rehmannia Glutinosa is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "rehmannia-prepared",
-    "name": "Rehmannia Prepared",
-    "title": "Rehmannia Prepared | The Hippie Scientist",
-    "description": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially."
-  },
-  {
     "slug": "ganoderma-lucidum",
     "name": "Reishi",
     "title": "Reishi | The Hippie Scientist",
-    "description": "Reishi is a botanical studied in connection with anti-inflammatory and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "reishi",
-    "name": "Reishi (Ganoderma lucidum)",
-    "title": "Reishi (Ganoderma lucidum) | The Hippie Scientist",
-    "description": "Reishi (Ganoderma lucidum) is a medicinal mushroom used across East Asian traditions for immune regulation and adaptogenic support. Its beta-glucan polysaccharides and triterpenes (ganoderic acids) modulate innate and adaptive immunity, NK cell activity, and inflammatory signaling. Clinical evidence supports immunomodulatory effects; sleep and fatigue data are emerging."
+    "description": "Reishi is tracked for energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "resveratrol",
     "name": "Resveratrol",
     "title": "Resveratrol | The Hippie Scientist",
-    "description": "Resveratrol is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "rheum-palmatum",
-    "name": "Rheum Palmatum",
-    "title": "Rheum Palmatum | The Hippie Scientist",
-    "description": "Rheum palmatum (Turkish Rhubarb) is a root botanical containing emodin and rhein, used traditionally for digestive health."
-  },
-  {
-    "slug": "rhodiola",
-    "name": "Rhodiola",
-    "title": "Rhodiola | The Hippie Scientist",
-    "description": "Rhodiola may support stress-related fatigue and mental stamina; avoid framing it as a bedtime calming herb."
+    "description": "Resveratrol is tracked for fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "rice-bran",
     "name": "Rice Bran",
     "title": "Rice Bran | The Hippie Scientist",
-    "description": "Rice Bran is a botanical studied in connection with anti-inflammatory, antioxidant and cardiovascular activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "rice bran is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "rooibos",
     "name": "Rooibos",
     "title": "Rooibos | The Hippie Scientist",
-    "description": "Rooibos is a mild tea herb with low-intensity wellness positioning."
+    "description": "It is best framed as a mild tea herb with low-intensity wellness positioning."
   },
   {
     "slug": "rose-hips",
     "name": "Rose Hips",
     "title": "Rose Hips | The Hippie Scientist",
-    "description": "Rose Hips is a botanical studied in connection with anti-inflammatory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "They are best framed as polyphenol- and vitamin-rich fruit material with modest but relevant human evidence."
   },
   {
     "slug": "roselle-seed",
@@ -1456,103 +1065,19 @@
     "slug": "rosemary",
     "name": "Rosemary",
     "title": "Rosemary | The Hippie Scientist",
-    "description": "Rosemary is a botanical studied in connection with anti-inflammatory, antioxidant and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "saffron",
-    "name": "Saffron",
-    "title": "Saffron | The Hippie Scientist",
-    "description": "Saffron is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "sage",
-    "name": "Sage",
-    "title": "Sage | The Hippie Scientist",
-    "description": "Sage is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "rosemary is tracked for cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "salacia-reticulata",
     "name": "Salacia",
     "title": "Salacia | The Hippie Scientist",
-    "description": "Salacia is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "salvia-miltiorrhiza",
-    "name": "Salvia miltiorrhiza",
-    "title": "Salvia miltiorrhiza | The Hippie Scientist",
-    "description": "Danshen/Salvia miltiorrhiza has pharmacology and clinical literature in cardiovascular contexts, but product and preparation differences require conservative interpretation."
-  },
-  {
-    "slug": "saw-palmetto",
-    "name": "Saw Palmetto (Serenoa repens)",
-    "title": "Saw Palmetto (Serenoa repens) | The Hippie Scientist",
-    "description": "Saw Palmetto centers on the berry."
-  },
-  {
-    "slug": "schisandra",
-    "name": "Schisandra (Schisandra chinensis)",
-    "title": "Schisandra (Schisandra chinensis) | The Hippie Scientist",
-    "description": "Schisandra (Schisandra chinensis) is a five-flavor berry used in TCM as an adaptogen and liver tonic. Its primary lignans (schisandrin A/B/C) support hepatocyte detoxification via CYP450 modulation and exhibit antioxidant activity. Human data support mild stress reduction and liver enzyme normalization in hepatitis populations."
-  },
-  {
-    "slug": "schisandra-berry",
-    "name": "Schisandra Berry",
-    "title": "Schisandra Berry | The Hippie Scientist",
-    "description": "It is best framed specifically around berry lignans and traditional stress-support positioning."
-  },
-  {
-    "slug": "schisandra-chinensis",
-    "name": "Schisandra Chinensis",
-    "title": "Schisandra Chinensis | The Hippie Scientist",
-    "description": "Schisandra chinensis is an adaptogenic berry botanical rich in schisandrins, used to support stress resilience and cognitive focus."
-  },
-  {
-    "slug": "scutellaria-baicalensis",
-    "name": "Scutellaria Baicalensis",
-    "title": "Scutellaria Baicalensis | The Hippie Scientist",
-    "description": "Scutellaria baicalensis (Baical Skullcap) is a root botanical containing baicalin and baicalein, studied for sleep and relaxation."
-  },
-  {
-    "slug": "selaginella-tamariscina",
-    "name": "Selaginella Tamariscina",
-    "title": "Selaginella Tamariscina | The Hippie Scientist",
-    "description": "Minimum source-backed intake for ginkgetin and 5-lipoxygenase inhibition cluster completion."
-  },
-  {
-    "slug": "serenoa-repens",
-    "name": "Serenoa Repens",
-    "title": "Serenoa Repens | The Hippie Scientist",
-    "description": "Serenoa Repens is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "shankhpushpi",
-    "name": "Shankhpushpi",
-    "title": "Shankhpushpi | The Hippie Scientist",
-    "description": "Shankhpushpi is a traditional cognitive-support herb with limited modern clinical depth."
-  },
-  {
-    "slug": "shatavari",
-    "name": "Shatavari",
-    "title": "Shatavari | The Hippie Scientist",
-    "description": "Shatavari centers on steroidal saponins with hormonal-context caution."
+    "description": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol."
   },
   {
     "slug": "scutellaria-lateriflora",
     "name": "Skullcap",
     "title": "Skullcap | The Hippie Scientist",
     "description": "Scutellaria lateriflora (American Skullcap) is an herb traditionally used for nervous tension, anxiety, and sleep support."
-  },
-  {
-    "slug": "sophora-alopecuroides",
-    "name": "Sophora Alopecuroides",
-    "title": "Sophora Alopecuroides | The Hippie Scientist",
-    "description": "Sophora Alopecuroides is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "sophora-flavescens",
-    "name": "Sophora Flavescens",
-    "title": "Sophora Flavescens | The Hippie Scientist",
-    "description": "Sophora Flavescens is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
   },
   {
     "slug": "soursop",
@@ -1564,37 +1089,7 @@
     "slug": "soybean",
     "name": "Soybean",
     "title": "Soybean | The Hippie Scientist",
-    "description": "Soybean is a botanical studied in connection with anti-inflammatory and antioxidant activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "st-johns-wort",
-    "name": "St. John's Wort (Hypericum perforatum)",
-    "title": "St. John's Wort (Hypericum perforatum) | The Hippie Scientist",
-    "description": "St. John's Wort (Hypericum perforatum) is a yellow-flowered herb with well-studied antidepressant effects for mild-to-moderate depression. Its active constituents (hypericin, hyperforin) inhibit reuptake of serotonin, dopamine, and norepinephrine. Multiple meta-analyses confirm efficacy comparable to low-dose SSRIs for mild depression, with fewer side effects in that population."
-  },
-  {
-    "slug": "stellera-chamaejasme",
-    "name": "Stellera Chamaejasme",
-    "title": "Stellera Chamaejasme | The Hippie Scientist",
-    "description": "Stellera Chamaejasme is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "stephania-cepharantha",
-    "name": "Stephania Cepharantha",
-    "title": "Stephania Cepharantha | The Hippie Scientist",
-    "description": "Stephania Cepharantha is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "stephania-japonica",
-    "name": "Stephania Japonica",
-    "title": "Stephania Japonica | The Hippie Scientist",
-    "description": "Stephania Japonica is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "stephania-tetrandra",
-    "name": "Stephania Tetrandra",
-    "title": "Stephania Tetrandra | The Hippie Scientist",
-    "description": "Stephania Tetrandra is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "soybean is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "suma",
@@ -1603,34 +1098,16 @@
     "description": "It should be framed conservatively because traditional-use breadth exceeds evidence depth."
   },
   {
-    "slug": "lions-mane",
-    "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
-    "title": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute. | The Hippie Scientist",
-    "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications."
-  },
-  {
-    "slug": "syzygium-aromaticum",
-    "name": "Syzygium Aromaticum",
-    "title": "Syzygium Aromaticum | The Hippie Scientist",
-    "description": "Syzygium aromaticum (Clove) is an aromatic spice botanical rich in eugenol, studied for antioxidant and dental health support."
-  },
-  {
     "slug": "tamarind",
     "name": "Tamarind",
     "title": "Tamarind | The Hippie Scientist",
-    "description": "Tamarind is a food-form fruit with digestive and polyphenol relevance."
+    "description": "It is best framed as a food-form fruit with digestive and polyphenol relevance."
   },
   {
     "slug": "artemisia-dracunculus",
     "name": "Tarragon",
     "title": "Tarragon | The Hippie Scientist",
-    "description": "Tarragon is a botanical studied in connection with metabolic activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "terminalia-arjuna",
-    "name": "Terminalia arjuna",
-    "title": "Terminalia arjuna | The Hippie Scientist",
-    "description": "Terminalia arjuna bark extract has limited human cardiac-patient evidence and should remain conservative pending stronger replication."
+    "description": "Tarragon is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "thunder-god-vine",
@@ -1642,19 +1119,7 @@
     "slug": "thyme",
     "name": "Thyme",
     "title": "Thyme | The Hippie Scientist",
-    "description": "Thyme is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "tongkat-ali",
-    "name": "Tongkat Ali",
-    "title": "Tongkat Ali | The Hippie Scientist",
-    "description": "Tongkat Ali is a bitter root extract with endocrine and stimulation-related caution."
-  },
-  {
-    "slug": "tribulus-terrestris",
-    "name": "Tribulus (Tribulus terrestris)",
-    "title": "Tribulus (Tribulus terrestris) | The Hippie Scientist",
-    "description": "Tribulus (Tribulus terrestris) is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
+    "description": "thyme is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "tripterygium-wilfordii",
@@ -1669,19 +1134,6 @@
     "description": "Turkey Tail (Trametes versicolor) is a shelf mushroom yielding two extensively studied polysaccharopeptides: PSK (krestin) and PSP. These compounds stimulate NK cells, macrophages, and T-cell activity, and PSK is approved in Japan as an adjunct cancer immunotherapy. Human evidence for standalone immune support in healthy populations is limited but supportive."
   },
   {
-    "slug": "turmeric",
-    "name": "Turmeric (Curcuma longa)",
-    "title": "Turmeric (Curcuma longa) | The Hippie Scientist",
-    "description": "Turmeric (Curcuma longa) is a botanical studied in connection with inflammation, joint support and antioxidant support activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "sources": [
-      { "title": "Turmeric — NCCIH Health Information", "url": "https://www.nccih.nih.gov/health/turmeric", "publisher": "NIH/NCCIH", "type": "overview" },
-      { "title": "Turmeric — Mayo Clinic Drugs & Supplements", "url": "https://www.mayoclinic.org/drugs-supplements/turmeric/art-20048621", "publisher": "Mayo Clinic", "type": "clinical-reference" },
-      { "title": "Curcumin: A Review of Its Effects on Human Health (Hewlings & Kalman, 2017)", "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5664031/", "publisher": "PubMed Central / Foods", "type": "review" },
-      { "title": "Curcumin — Examine.com Research Summary", "url": "https://examine.com/supplements/curcumin/", "publisher": "Examine.com", "type": "review" },
-      { "title": "Efficacy of Turmeric Extracts and Curcumin for Alleviating Symptoms of Joint Arthritis (Daily et al., 2016)", "url": "https://pubmed.ncbi.nlm.nih.gov/27533649/", "publisher": "PubMed / J Med Food", "type": "meta-analysis" }
-    ]
-  },
-  {
     "slug": "valeriana-officinalis",
     "name": "Valerian",
     "title": "Valerian | The Hippie Scientist",
@@ -1692,42 +1144,6 @@
     "name": "Valeriana officinalis",
     "title": "Valeriana officinalis | The Hippie Scientist",
     "description": "Valerian may support sleep onset and nighttime relaxation, with results varying by root preparation."
-  },
-  {
-    "slug": "verbena-officinalis",
-    "name": "Verbena Officinalis",
-    "title": "Verbena Officinalis | The Hippie Scientist",
-    "description": "Verbena Officinalis is a botanical studied in connection with stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "white-peony",
-    "name": "White Peony",
-    "title": "White Peony | The Hippie Scientist",
-    "description": "White Peony is a paeoniflorin-rich root with traditional-system relevance."
-  },
-  {
-    "slug": "wild-yam",
-    "name": "Wild Yam",
-    "title": "Wild Yam | The Hippie Scientist",
-    "description": "Wild Yam is a botanical with traditional and emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "wormwood",
-    "name": "Wormwood",
-    "title": "Wormwood | The Hippie Scientist",
-    "description": "Wormwood is a botanical studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "yarrow",
-    "name": "Yarrow",
-    "title": "Yarrow | The Hippie Scientist",
-    "description": "Yarrow is a botanical studied in connection with anti-inflammatory and digestive activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
-  },
-  {
-    "slug": "yerba-mate",
-    "name": "Yerba Mate",
-    "title": "Yerba Mate | The Hippie Scientist",
-    "description": "Yerba Mate is a botanical studied in connection with anti-inflammatory, antioxidant and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations."
   },
   {
     "slug": "yohimbe",

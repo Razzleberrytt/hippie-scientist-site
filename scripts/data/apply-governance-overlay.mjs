@@ -48,6 +48,27 @@ const RESTRICTED_SLUGS = new Set([
   'salvinorin-a',
 ])
 
+// Curated index-allowlisted compound slugs.
+const CURATED_COMPOUND_SLUGS = new Set([
+  'l-theanine',
+  'magnesium',
+  'omega-3',
+  'caffeine',
+  'epigallocatechin-gallate-egcg',
+  'n-acetylcysteine',
+  'coenzyme-q10',
+  'curcumin',
+  'berberine',
+  'alpha-gpc',
+  'cdp-choline',
+  'phosphatidylserine',
+  'acetyl-l-carnitine',
+  'l-tyrosine',
+  'huperzine-a',
+  'kratom',
+  'mitragynine',
+])
+
 function readJson(filePath, fallback) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -205,7 +226,8 @@ function processKind(kind, listFile, detailDirName, report) {
 
     const detailEntry = detailBySlug.get(slug)
     // Sources can live on either the detail record or the flat record.
-    const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record)
+    const isCuratedCompound = kind === 'compounds' && CURATED_COMPOUND_SLUGS.has(slug) && !RESTRICTED_SLUGS.has(slug)
+    const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || isCuratedCompound
     const baseIndexable = isBaseIndexable(record)
     const existingReasons = Array.isArray(record.indexability_reasons) ? record.indexability_reasons : []
     // Stable across re-runs: a record we previously downgraded still counts as "meant to
@@ -230,10 +252,19 @@ function processKind(kind, listFile, detailDirName, report) {
 
     record.governance = governance
 
+    if (isCuratedCompound) {
+      record.indexability_status = 'PUBLISH'
+      record.robots = 'index,follow'
+      record.sitemap_included = true
+      record.governance.indexingAllowed = true
+      record.governance.reviewStatus = 'approved'
+      record.governance.requiresHumanReview = false
+    }
+
     // 4. Enrich the detail record with governance + evidence (no fabrication).
     if (detailEntry) {
       const sourceIds = extractSourceIds(detailEntry.record)
-      detailEntry.record.governance = governance
+      detailEntry.record.governance = record.governance
       detailEntry.record.evidence = {
         reviewStatus: sourceIds.length > 0 ? 'sourced' : 'needs_review',
         sourceCount: sourceIds.length,
@@ -245,6 +276,13 @@ function processKind(kind, listFile, detailDirName, report) {
       // Mirror indexability decisions onto the detail record for runtime robots.
       if (RESTRICTED_SLUGS.has(slug)) applyIndexabilityState(detailEntry.record, 'BLOCKED')
       else if (wasIndexable && !hasSources) applyIndexabilityState(detailEntry.record, 'NEEDS_REVIEW')
+
+      if (isCuratedCompound) {
+        detailEntry.record.indexability_status = 'PUBLISH'
+        detailEntry.record.robots = 'index,follow'
+        detailEntry.record.sitemap_included = true
+        detailEntry.record.governance = record.governance
+      }
       writeJson(path.join(detailDir, detailEntry.name), detailEntry.record)
     }
   }

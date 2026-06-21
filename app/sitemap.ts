@@ -5,6 +5,10 @@ import matter from 'gray-matter';
 
 import { SITE_URL } from '../src/lib/site';
 import { shouldIndexRoute } from '../src/lib/seo';
+import {
+  CURATED_INDEXABLE_HERB_SLUGS,
+  CURATED_INDEXABLE_COMPOUND_SLUGS,
+} from '../src/lib/index-allowlist';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
 
@@ -304,7 +308,7 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
     return true;
   }
 
-  if (normalized.startsWith('/goals/') || normalized.startsWith('/stacks/') || normalized.startsWith('/guides/') || normalized.startsWith('/education/')) {
+  if (normalized.startsWith('/goals/') || normalized.startsWith('/stacks/') || normalized.startsWith('/guides/') || normalized.startsWith('/education/') || normalized.startsWith('/psychoactive/')) {
     return true;
   }
 
@@ -525,12 +529,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'trans-resveratrol',
   ]);
 
+  const curatedHerbs = new Set<string>(CURATED_INDEXABLE_HERB_SLUGS);
+  const curatedCompounds = new Set<string>(CURATED_INDEXABLE_COMPOUND_SLUGS);
+
   herbsData.forEach((herb) => {
     if (!herb.slug) return;
     if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
-    if (!indexableHerbsSlugs.has(herb.slug)) return;
-    // Only include herbs explicitly approved for indexing.
-    if (herb.indexability_status !== 'PUBLISH') return;
+
+    const isCurated = curatedHerbs.has(herb.slug);
+    if (!isCurated) {
+      if (!indexableHerbsSlugs.has(herb.slug)) return;
+      if (herb.indexability_status !== 'PUBLISH') return;
+    }
 
     addRoute(`/herbs/${herb.slug}`, 'monthly', 0.7, getSitemapLastModified(herb), herb);
   });
@@ -538,9 +548,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   compoundsData.forEach((compound) => {
     if (!compound.slug) return;
     if (DEPRECATED_COMPOUNDS.has(compound.slug.toLowerCase())) return;
-    if (!indexableCompoundsSlugs.has(compound.slug)) return;
-    // Only include compounds explicitly approved for indexing.
-    if (compound.indexability_status !== 'PUBLISH') return;
+
+    const isCurated = curatedCompounds.has(compound.slug);
+    if (!isCurated) {
+      if (!indexableCompoundsSlugs.has(compound.slug)) return;
+      if (compound.indexability_status !== 'PUBLISH') return;
+    }
 
     addRoute(`/compounds/${compound.slug}`, 'monthly', 0.7, getSitemapLastModified(compound), compound);
   });
@@ -603,9 +616,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addRoute(`/learn/${post.slug}`, 'monthly', 0.6, undefined, post);
   });
 
+  const educationSlugs = new Set<string>();
   educationMdx.forEach((edu) => {
     if (!edu.slug) return;
+    educationSlugs.add(edu.slug);
     addRoute(`/education/${edu.slug}`, 'monthly', 0.6, undefined, edu);
+  });
+
+  // Add App Router education pages not covered by MDX
+  readAppGuidePageSlugs('app/education').forEach((edu) => {
+    if (!edu.slug || educationSlugs.has(edu.slug)) return;
+    educationSlugs.add(edu.slug);
+    addRoute(`/education/${edu.slug}`, 'monthly', 0.6, undefined, edu);
+  });
+
+  // Add App Router psychoactive pages
+  readAppGuidePageSlugs('app/psychoactive').forEach((page) => {
+    if (!page.slug) return;
+    addRoute(`/psychoactive/${page.slug}`, 'monthly', 0.65, undefined, page);
   });
 
   npsMdx.forEach((page) => {
