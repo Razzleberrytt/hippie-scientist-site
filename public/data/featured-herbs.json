@@ -93,6 +93,7 @@
     "dea_watchlist_status": "",
     "regulatory_status": "",
     "profile_status": "top50_authority_patched",
+    "summary_quality": "strong",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
     "robots": "index,follow",
@@ -108,7 +109,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Ashwagandha for sleep support: evidence and safety",
     "meta_description": "Evidence-aware guide to Ashwagandha, including main use cases, safety notes, and how strong the current human evidence appears.",
@@ -196,6 +197,7 @@
     "dea_watchlist_status": "",
     "regulatory_status": "",
     "profile_status": "minimal",
+    "summary_quality": "Lion's Mane (Hericium erinaceus) is a medicinal mushroom traditionally used in East Asian cultures for supporting brain and nerve health. Modern interest centers on its unique ability to stimulate nerve growth factor (NGF), making it one of the few natural compounds studied for neurogenesis and neuroprotection. While preclinical research is strong, human clinical evidence remains moderate and emerging, with the greatest potential currently seen for cognitive function and mild mood support in aging or stressed populations.",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
     "robots": "noindex,follow",
@@ -212,7 +214,7 @@
       "profile-status:minimal",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:lion's mane (hericium erinaceus) is a medicinal mushroom traditionally used in east asian cultures for supporting brain and nerve health. modern interest centers on its unique ability to stimulate nerve growth factor (ngf), making it one of the few natural compounds studied for neurogenesis and neuroprotection. while preclinical research is strong, human clinical evidence remains moderate and emerging, with the greatest potential currently seen for cognitive function and mild mood support in aging or stressed populations."
     ],
     "meta_title": "",
     "meta_description": "",
@@ -323,6 +325,7 @@
     "dea_watchlist_status": "",
     "regulatory_status": "",
     "profile_status": "near_complete",
+    "summary_quality": "strong",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
     "robots": "noindex,follow",
@@ -339,7 +342,7 @@
       "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Turmeric for stress support: evidence and safety",
     "meta_description": "Evidence-aware guide to Turmeric, including main use cases, safety notes, and how strong the current human evidence appears.",

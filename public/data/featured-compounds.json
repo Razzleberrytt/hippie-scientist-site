@@ -99,6 +99,7 @@
     "regulatory_changelog": "",
     "regulatory_sources": [],
     "profile_status": "commercial_ready",
+    "summary_quality": "strong",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
     "robots": "index,follow",
@@ -114,7 +115,7 @@
       "profile-status:commercial_ready",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Creatine: evidence, uses, and safety",
     "meta_description": "Evidence-aware notes for Creatine, including likely uses, safety context, and source-backed limitations.",
@@ -221,6 +222,7 @@
     "regulatory_changelog": "",
     "regulatory_sources": [],
     "profile_status": "commercial_ready",
+    "summary_quality": "strong",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
     "robots": "index,follow",
@@ -236,7 +238,7 @@
       "profile-status:commercial_ready",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Creatine monohydrate: evidence, uses, and safety",
     "meta_description": "Evidence-aware notes for Creatine monohydrate, including likely uses, safety context, and source-backed limitations.",
@@ -348,6 +350,7 @@
     "regulatory_changelog": "",
     "regulatory_sources": [],
     "profile_status": "commercial_ready",
+    "summary_quality": "strong",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
     "robots": "index,follow",
@@ -363,7 +366,7 @@
       "profile-status:commercial_ready",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Magnesium for sleep quality: evidence and safety",
     "meta_description": "See what human evidence suggests about Magnesium for sleep quality, including RCT/meta-analysis signals, confidence level, and practical safety notes.",
@@ -468,6 +471,7 @@
     "regulatory_changelog": "",
     "regulatory_sources": [],
     "profile_status": "commercial_ready",
+    "summary_quality": "strong",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
     "robots": "index,follow",
@@ -483,7 +487,7 @@
       "profile-status:commercial_ready",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Magnesium glycinate: evidence, uses, and safety",
     "meta_description": "Evidence-aware notes for Magnesium glycinate, including likely uses, safety context, and source-backed limitations.",
@@ -584,6 +588,7 @@
     "regulatory_changelog": "",
     "regulatory_sources": [],
     "profile_status": "commercial_ready",
+    "summary_quality": "strong",
     "runtime_export_decision": "primary_runtime_priority",
     "visibility_tier": "public",
     "robots": "index,follow",
@@ -599,7 +604,7 @@
       "profile-status:commercial_ready",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Melatonin for falling asleep: evidence and safety",
     "meta_description": "See what human evidence suggests about Melatonin for falling asleep, including RCT/meta-analysis signals, confidence level, and practical safety notes.",
