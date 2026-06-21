@@ -9,6 +9,8 @@ import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge
 import ResponsiveTable from '@/components/ui/ResponsiveTable';
 import SafetyNotice from '@/components/evidence/SafetyNotice';
 import EmailCapture from '@/components/EmailCapture';
+import { getRevenueProductSet } from '@/config/revenue-products';
+import RecommendationSection from '@/components/RecommendationSection';
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock';
 import { AFFILIATE_TAGS } from '@/config/affiliate';
 
@@ -440,6 +442,8 @@ export default function AnxietyStackGuidePage() {
             </ul>
           </div>
         </section>
+
+        <RecommendationSection products={getRevenueProductSet('ashwagandha')?.products ?? []} />
 
         <div className="my-12">
           <NewsletterCtaBlock />
