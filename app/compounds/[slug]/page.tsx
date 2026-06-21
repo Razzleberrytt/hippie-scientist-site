@@ -472,7 +472,7 @@ function getRegulatorySummaryCards(rows: RegulatoryStateRow[]) {
   const ageLimits = rows.filter((row) => /\b(18|21|age|minor|adult)\b/i.test(`${row.keyDetails} ${row.notes}`)).length
 
   return [
-    { label: 'Rows tracked', value: rows.length, detail: 'State-level entries in the workbook table.' },
+    { label: 'Rows tracked', value: rows.length, detail: 'State-level entries in the regulatory table.' },
     { label: 'Restriction signals', value: restricted, detail: 'Rows with ban, scheduling, prohibition, or controlled-status language.' },
     { label: '7-OH-specific signals', value: concentratedWarnings, detail: 'Rows calling out concentrated, synthetic, isolated, or pending 7-OH action.' },
     { label: 'Age-limit signals', value: ageLimits, detail: 'Rows with age or minor-access language.' },
@@ -842,7 +842,7 @@ export default async function CompoundPage({ params }: PageProps) {
             <p className="text-[10px] font-bold uppercase tracking-wider text-red-800">7-OH evidence hub</p>
             <h2 className="mt-1 text-lg font-bold text-red-950">Read the full 7-OH monograph before interpreting this profile</h2>
             <p className="mt-2 text-sm leading-6 text-red-900">
-              The workbook profile stays intentionally scannable. For the broader evidence review, including whole-leaf kratom context, human pharmacokinetics, concentrated-product safety signals, and regulatory caveats, use the long-form monograph.
+              This profile is intentionally scannable. For the broader evidence review, including whole-leaf kratom context, human pharmacokinetics, concentrated-product safety signals, and regulatory caveats, use the long-form monograph.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
@@ -872,7 +872,7 @@ export default async function CompoundPage({ params }: PageProps) {
             <p className="text-[10px] font-bold uppercase tracking-wider text-amber-800">Kratom alkaloid evidence hub</p>
             <h2 className="mt-1 text-lg font-bold text-amber-950">Use the long-form evidence pages for context</h2>
             <p className="mt-2 text-sm leading-6 text-amber-900">
-              This workbook-backed profile is intentionally reference-only. Read the monograph and comparison page for human pharmacokinetic context, 7-OH metabolism, concentrated-product risk, and regulatory caveats.
+              This profile is a reference overview only. Read the monograph and comparison page for human pharmacokinetic context, 7-OH metabolism, concentrated-product risk, and regulatory caveats.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link

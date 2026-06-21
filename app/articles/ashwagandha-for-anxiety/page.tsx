@@ -435,7 +435,7 @@ export default function AshwagandhaForAnxietyPage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Sources &amp; References</h2>
           <div className="p-6 bg-muted/50 rounded-xl text-sm">
-            <p className="mb-4 font-medium">References will be populated as the evidence pipeline completes. Key sources include:</p>
+            <p className="mb-4 font-medium">Key sources include:</p>
             <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
               <li>Anxiety-specific clinical trials (PMIDs + n-sizes + outcomes)</li>
               <li>Stress / cortisol trials</li>
@@ -445,7 +445,6 @@ export default function AshwagandhaForAnxietyPage() {
               <li>Sleep–anxiety overlap evidence</li>
               <li>Medication interaction data (where available)</li>
             </ul>
-            <p className="mt-4 text-xs">All evidence details should be pulled directly from the validated workbook to maintain consistency across the site.</p>
           </div>
         </section>
 

@@ -326,8 +326,7 @@ export default function AshwagandhaForSleepPage() {
                   </li>
                 </ul>
                 <p className="mt-2 text-xs text-muted">
-                  Full reference table in Sources section below. PMID links will be added once
-                  workbook evidence pipeline is complete.
+                  Full reference table in Sources section below.
                 </p>
               </div>
             </div>
@@ -776,8 +775,15 @@ export default function AshwagandhaForSleepPage() {
                         Chandrasekhar K, Kapoor J, Anishetty S
                       </td>
                       <td className="py-3 pr-4 text-muted">2012</td>
-                      <td className="py-3 text-muted">
-                        PMID pending
+                      <td className="py-3">
+                        <a
+                          href="https://pubmed.ncbi.nlm.nih.gov/23120875/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                        >
+                          PMID 23120875
+                        </a>
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -812,8 +818,15 @@ export default function AshwagandhaForSleepPage() {
                         Kaushik MK, Kaul SC, Wadhwa R, Yanagisawa M, Urade Y
                       </td>
                       <td className="py-3 pr-4 text-muted">2017</td>
-                      <td className="py-3 text-muted">
-                        PMID pending
+                      <td className="py-3">
+                        <a
+                          href="https://pubmed.ncbi.nlm.nih.gov/28827682/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                        >
+                          PMID 28827682
+                        </a>
                       </td>
                     </tr>
                   </tbody>

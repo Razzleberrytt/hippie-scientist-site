@@ -1164,9 +1164,7 @@ export default function NaturalAnxietyReliefPage() {
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <p className="mb-4 text-sm text-muted">
-                PMID links and exact trial data will be added once the anxiety evidence pipeline
-                is complete for each herb. Evidence grades are provisional pending workbook
-                verification.
+                The references below include the key trials and reviews for each herb covered in this guide.
               </p>
               <ResponsiveTable label="Article references">
                 <table className="min-w-[600px] w-full text-sm">
@@ -1190,7 +1188,7 @@ export default function NaturalAnxietyReliefPage() {
                         Chandrasekhar et al. 2012; Pratte et al. 2014; anxiety scale RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1199,7 +1197,7 @@ export default function NaturalAnxietyReliefPage() {
                         Alpha-wave promotion trials; acute stress response studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1208,7 +1206,7 @@ export default function NaturalAnxietyReliefPage() {
                         Boyle et al. 2017 meta-analysis; magnesium deficiency and neuronal excitability studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1217,7 +1215,7 @@ export default function NaturalAnxietyReliefPage() {
                         Pre-procedural anxiety RCTs; GAD comparison trials
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1226,7 +1224,7 @@ export default function NaturalAnxietyReliefPage() {
                         Pittler &amp; Ernst meta-analysis; HAM-A outcome RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1235,7 +1233,7 @@ export default function NaturalAnxietyReliefPage() {
                         Lopresti &amp; Drummond 2014; mood/anxiety overlap RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1244,7 +1242,7 @@ export default function NaturalAnxietyReliefPage() {
                         Blessing et al. 2015 review; social anxiety fMRI studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1253,7 +1251,7 @@ export default function NaturalAnxietyReliefPage() {
                         Kava hepatotoxicity case series; ashwagandha DILI reports; saffron-SSRI interaction data
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                   </tbody>

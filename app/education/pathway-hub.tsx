@@ -39,11 +39,11 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     slug: 'gaba',
     title: 'GABA Pathway Hub',
     eyebrow: 'Neurotransmitter cluster',
-    summary: 'Explore herbs and compounds with workbook signals around GABA, calming, inhibitory tone, relaxation, and sleep-adjacent mechanisms.',
+    summary: 'Explore herbs and compounds with evidence signals around GABA, calming, inhibitory tone, relaxation, and sleep-adjacent mechanisms.',
     clusters: ['GABAergic signaling', 'Inhibitory tone', 'Relaxation and sleep context', 'Calming botanicals and compounds'],
     introSections: [
       { title: 'Biological context', body: 'GABA is an inhibitory neurotransmitter system commonly used to frame calming, relaxation, arousal, and sleep-support research.' },
-      { title: 'Research focus', body: 'This hub surfaces records with clean workbook signals for GABA, inhibitory tone, calming botanicals, relaxation, or sleep-adjacent mechanisms.' },
+      { title: 'Research focus', body: 'This hub surfaces records with evidence signals for GABA, inhibitory tone, calming botanicals, relaxation, or sleep-adjacent mechanisms.' },
       { title: 'Mechanism overlap', body: 'GABA labels are discovery signals; profile evidence and safety details remain necessary for interpreting any specific herb or compound.' },
     ],
     related: [
@@ -61,7 +61,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     clusters: ['Dopaminergic signaling', 'Reward and motivation', 'Cognitive performance', 'Focus and attention context'],
     introSections: [
       { title: 'Biological context', body: 'Dopamine-related research often intersects with reward, motivation, attention, movement, and cognitive-performance signaling.' },
-      { title: 'Research focus', body: 'This hub groups records that expose dopamine, focus, cognition, motivation, nootropic, or attention-adjacent workbook signals.' },
+      { title: 'Research focus', body: 'This hub groups records that expose dopamine, focus, cognition, motivation, nootropic, or attention-adjacent evidence signals.' },
       { title: 'Mechanism overlap', body: 'The page is a relationship map, not a claim that every associated profile changes dopamine in humans.' },
     ],
     related: [
@@ -74,11 +74,11 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     slug: 'inflammation',
     title: 'Inflammation Pathway Hub',
     eyebrow: 'Inflammatory systems cluster',
-    summary: 'Explore records with workbook signals around inflammatory tone, cytokines, immune activity, oxidative stress, and antioxidant mechanisms.',
+    summary: 'Explore records with evidence signals around inflammatory tone, cytokines, immune activity, oxidative stress, and antioxidant mechanisms.',
     clusters: ['Inflammatory signaling', 'Cytokine and immune context', 'Oxidative stress', 'Antioxidant-response mechanisms'],
     introSections: [
       { title: 'Biological context', body: 'Inflammation research connects immune signaling, cytokine language, oxidative stress, tissue recovery, and mobility outcomes.' },
-      { title: 'Research focus', body: 'Records appear here when workbook signals mention inflammatory tone, antioxidant response, immune activity, cytokines, or recovery-adjacent effects.' },
+      { title: 'Research focus', body: 'Records appear here when evidence signals mention inflammatory tone, antioxidant response, immune activity, cytokines, or recovery-adjacent effects.' },
       { title: 'Mechanism overlap', body: 'Inflammatory-pathway labels support discovery and comparison; clinical relevance depends on each profile’s evidence maturity.' },
     ],
     related: [
@@ -226,7 +226,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           <div className="mt-4 flex flex-wrap gap-2">
             {mechanisms.length > 0 ? mechanisms.map((mechanism) => (
               <span key={mechanism} className="chip-readable">{mechanism}</span>
-            )) : <p className="text-sm leading-7 text-[#46574d]">Mechanism chips appear when matching workbook records expose clean pathway signals.</p>}
+            )) : <p className="text-sm leading-7 text-[#46574d]">Mechanism chips appear when matching records expose pathway signals.</p>}
           </div>
         </div>
 
@@ -235,7 +235,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           <div className="mt-4 flex flex-wrap gap-2">
             {effects.length > 0 ? effects.map((effect) => (
               <span key={effect} className="chip-readable">{effect}</span>
-            )) : <p className="text-sm leading-7 text-[#46574d]">Effect chips appear when matching workbook records expose clean associated-effect signals.</p>}
+            )) : <p className="text-sm leading-7 text-[#46574d]">Effect chips appear when matching records expose associated-effect signals.</p>}
           </div>
         </div>
       </section>

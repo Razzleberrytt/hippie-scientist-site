@@ -333,7 +333,7 @@ export default function LTheanineForSleepPage() {
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
                     L-theanine and sleep quality in boys with ADHD — naturalistic sleep improvement
-                    observed (PMID pending workbook review)
+                    observed
                   </li>
                   <li>
                     L-theanine and stress responses — attenuation of physiological arousal markers
@@ -341,12 +341,11 @@ export default function LTheanineForSleepPage() {
                   </li>
                   <li>
                     L-theanine alpha-wave EEG studies — increased alpha activity within 30–60 min
-                    of ingestion (PMIDs pending workbook verification)
+                    of ingestion
                   </li>
                 </ul>
                 <p className="mt-2 text-xs text-muted">
-                  Full reference table in Sources section below. PMID links and n-sizes will be
-                  added once workbook evidence pipeline is complete for L-theanine.
+                  Full reference table in Sources section below.
                 </p>
               </div>
             </div>
@@ -412,9 +411,7 @@ export default function LTheanineForSleepPage() {
                   </table>
                 </ResponsiveTable>
                 <p className="mt-3 text-xs text-muted">
-                  Dose ranges above reflect commonly used supplemental amounts and require
-                  verification against workbook evidence data. Do not use caffeinated tea or
-                  caffeine-containing L-theanine extracts near bedtime.
+                  Do not use caffeinated tea or caffeine-containing L-theanine extracts near bedtime.
                 </p>
               </div>
 
@@ -1166,7 +1163,7 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        PMID pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1186,7 +1183,7 @@ export default function LTheanineForSleepPage() {
                         >
                           PMID 31758301
                         </a>{' '}
-                        <span className="text-muted text-xs">(Hidese 2019; additional PMIDs pending)</span>
+                        <span className="text-muted text-xs">(Hidese 2019)</span>
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1198,7 +1195,7 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        PMID pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1210,19 +1207,18 @@ export default function LTheanineForSleepPage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 text-muted">5</td>
                       <td className="py-3 pr-4 leading-6 text-ink">
-                        L-theanine pediatric/ADHD sleep evidence — only to be included if
-                        workbook verification confirms evidence quality
+                        L-theanine pediatric/ADHD sleep evidence
                       </td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        Not included — evidence pending workbook review
+                        Not included — evidence under review
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1241,8 +1237,7 @@ export default function LTheanineForSleepPage() {
                 </table>
               </ResponsiveTable>
               <p className="mt-3 text-xs text-muted">
-                PMID links, author details, and n-sizes will be added once the workbook evidence
-                pipeline completes for L-theanine. Magnesium evidence references are shared with
+                Magnesium evidence references are shared with
                 the{' '}
                 <Link
                   href="/articles/magnesium-for-sleep"

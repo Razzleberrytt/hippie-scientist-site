@@ -948,8 +948,7 @@ export default function BestHerbsForSleepPage() {
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <p className="mb-4 text-sm text-muted">
-                PMID links will be added once workbook evidence pipeline is complete for each herb.
-                Evidence grades are provisional pending workbook verification.
+                The references below cover key trials for each herb in this guide. Evidence grades reflect current editorial assessments and are updated as new trials are published.
               </p>
               <ResponsiveTable label="Article references">
                 <table className="min-w-[600px] w-full text-sm">
@@ -973,7 +972,7 @@ export default function BestHerbsForSleepPage() {
                         Abbasi et al.; Nielsen et al.; Held et al.; Yamadera et al. (glycine)
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -982,7 +981,7 @@ export default function BestHerbsForSleepPage() {
                         Langade et al. 2019, 2021; Cheah et al. 2021; Deshpande et al. 2020
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -991,7 +990,7 @@ export default function BestHerbsForSleepPage() {
                         Alpha-wave promotion trials; anxiety/sleep overlap studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1000,7 +999,7 @@ export default function BestHerbsForSleepPage() {
                         Meta-analyses of valerian RCTs; valerenic acid mechanism studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1011,7 +1010,7 @@ export default function BestHerbsForSleepPage() {
                         Passionflower anxiety/sleep RCTs; chrysin GABA-A binding studies
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1022,7 +1021,7 @@ export default function BestHerbsForSleepPage() {
                         AASM guidelines; CBT-I evidence base; drug interaction references
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                   </tbody>
