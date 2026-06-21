@@ -114,6 +114,7 @@ export function normalizeCanonicalPath(path: string, keepQueryParams: string[] =
 export type BuildPageMetadataArgs = BuildMetaArgs & {
   openGraphType?: 'website' | 'article'
   robots?: Metadata['robots']
+  keywords?: string[] | string
 }
 
 export function buildPageMetadata({
@@ -124,6 +125,7 @@ export function buildPageMetadata({
   keepQueryParams = [],
   openGraphType = 'website',
   robots,
+  keywords,
 }: BuildPageMetadataArgs): Metadata {
   const meta = buildMeta({ title, description, path, image, keepQueryParams })
   const fullTitle = title || DEFAULT_TITLE
@@ -131,6 +133,7 @@ export function buildPageMetadata({
   return {
     title: fullTitle,
     description: fullDesc,
+    keywords,
     alternates: { canonical: meta.url },
     openGraph: {
       title: fullTitle,

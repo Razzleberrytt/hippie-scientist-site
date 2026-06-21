@@ -5,7 +5,7 @@ Priority clusters used by the internal link engine.
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
 - Pages: 196
-- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
+- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
@@ -49,7 +49,7 @@ Priority clusters used by the internal link engine.
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
 - Pages: 775
-- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
+- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
@@ -93,7 +93,7 @@ Priority clusters used by the internal link engine.
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
 - Pages: 220
-- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
+- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
 - [Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
@@ -137,7 +137,7 @@ Priority clusters used by the internal link engine.
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
 - Pages: 524
-- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
+- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
@@ -181,7 +181,7 @@ Priority clusters used by the internal link engine.
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
 - Pages: 646
-- [The Hippie Scientist - Supplement Guides for Sleep, Stress, Anxiety, and Focus](/) (static)
+- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
 - [Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
