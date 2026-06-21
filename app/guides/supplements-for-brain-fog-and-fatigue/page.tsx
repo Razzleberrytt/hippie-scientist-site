@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { ArticleLayout } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 export const metadata: Metadata = {
   title: 'Supplements for Brain Fog and Fatigue',
@@ -11,9 +13,10 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  const rhodiolaProducts = getRevenueProductSet('rhodiola')
+  const lionsManeProducts = getRevenueProductSet('lions-mane')
   return (
     <ArticleLayout>
+      <AffiliateDisclosure variant="compact" className="mb-6" />
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Guide</p>
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Supplements for Brain Fog and Fatigue</h1>
@@ -29,9 +32,10 @@ export default function Page() {
         </ul>
       </section>
 
-      {rhodiolaProducts && (
-        <RecommendationSection products={rhodiolaProducts.products} />
+      {lionsManeProducts && (
+        <RecommendationSection products={lionsManeProducts.products} />
       )}
+      <EmailCapture location="guides-supplements-for-brain-fog-and-fatigue" className="mt-6" />
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Where to go next</h2>

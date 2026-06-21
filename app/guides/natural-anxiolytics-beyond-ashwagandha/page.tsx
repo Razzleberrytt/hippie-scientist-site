@@ -4,6 +4,8 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 export const metadata: Metadata = {
   title: 'Natural Anxiolytics Beyond Ashwagandha',
@@ -29,7 +31,7 @@ const HEADINGS: Heading[] = [
 
 export default function NaturalAnxiolyticsPage() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const lTheanineProducts = getRevenueProductSet('l-theanine')
+  const valerianProducts = getRevenueProductSet('valerian')
 
   const alternatives = [
     {
@@ -73,6 +75,7 @@ export default function NaturalAnxiolyticsPage() {
   return (
     <ArticleLayout toc={toc} zone="supplement">
     <div className="space-y-8">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">Discovery Guide</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -159,9 +162,11 @@ export default function NaturalAnxiolyticsPage() {
         </div>
       </section>
 
-      {lTheanineProducts && (
-        <RecommendationSection products={lTheanineProducts.products} />
+      {valerianProducts && (
+        <RecommendationSection products={valerianProducts.products} />
       )}
+
+      <EmailCapture location="guides-natural-anxiolytics-beyond-ashwagandha" className="mt-6" />
 
       {/* Safety Layer */}
       <section id="summary" className="scroll-mt-20 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">

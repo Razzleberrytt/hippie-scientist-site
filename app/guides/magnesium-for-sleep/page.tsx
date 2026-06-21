@@ -3,6 +3,8 @@ import StructuredData from '@/components/StructuredData'
 import { ArticleLayout, RelatedArticles } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 const route = 'guides/magnesium-for-sleep'
 const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-for-sleep'
@@ -65,6 +67,7 @@ export default function MagnesiumForSleepGuidePage() {
   const magnesiumProducts = getRevenueProductSet('magnesium')
   return (
     <ArticleLayout zone="supplement">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Magnesium for Sleep and Anxiety: Evidence, Forms, and Dosage Guide"
@@ -82,6 +85,7 @@ export default function MagnesiumForSleepGuidePage() {
       {magnesiumProducts && (
         <RecommendationSection products={magnesiumProducts.products} />
       )}
+      <EmailCapture location="guides-magnesium-for-sleep" className="mt-6" />
       <RelatedArticles articles={RELATED_GUIDES} />
     </ArticleLayout>
   )

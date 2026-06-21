@@ -6,6 +6,8 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 const PAGE_URL = `${SITE_URL}/guides/how-to-lower-cortisol-naturally`
 
@@ -75,6 +77,7 @@ export default function Page() {
       />
 
       <div className="space-y-12">
+        <AffiliateDisclosure variant="compact" className="mb-6" />
         {/* Hero */}
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
           <p className="eyebrow-label">Stress education</p>
@@ -239,6 +242,8 @@ export default function Page() {
             ))}
           </div>
         </section>
+
+        <EmailCapture location="guides-how-to-lower-cortisol-naturally" className="mt-6" />
 
         {/* Related */}
         <section className="space-y-4">

@@ -6,6 +6,8 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-stress`
 
@@ -102,6 +104,7 @@ export default function BestSupplementsForStressPage() {
 
       <ArticleLayout toc={toc} zone="supplement">
       <div className="space-y-14">
+        <AffiliateDisclosure variant="compact" className="mb-6" />
 
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Stress supplements guide</p>
@@ -189,6 +192,8 @@ export default function BestSupplementsForStressPage() {
         {ashwagandhaProducts && (
           <RecommendationSection products={ashwagandhaProducts.products} />
         )}
+
+        <EmailCapture location="guides-best-supplements-for-stress" className="mt-6" />
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>

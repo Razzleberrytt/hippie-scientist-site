@@ -6,6 +6,8 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-overthinking`
 
@@ -58,7 +60,7 @@ const HEADINGS: Heading[] = [
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const lTheanineProducts = getRevenueProductSet('l-theanine')
+  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
@@ -76,6 +78,7 @@ export default function Page() {
       />
 
       <div className="space-y-12">
+        <AffiliateDisclosure variant="compact" className="mb-6" />
         {/* Hero */}
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
           <p className="eyebrow-label">Decision guide</p>
@@ -223,8 +226,8 @@ export default function Page() {
           </ul>
         </section>
 
-        {lTheanineProducts && (
-          <RecommendationSection products={lTheanineProducts.products} />
+        {ashwagandhaProducts && (
+          <RecommendationSection products={ashwagandhaProducts.products} />
         )}
 
         {/* FAQs */}
@@ -239,6 +242,8 @@ export default function Page() {
             ))}
           </div>
         </section>
+
+        <EmailCapture location="guides-best-supplements-for-overthinking" className="mt-6" />
 
         {/* Related */}
         <section className="space-y-4">
