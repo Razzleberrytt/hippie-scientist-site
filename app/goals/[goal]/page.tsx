@@ -156,13 +156,21 @@ function buildDynamicEnrichedOption(
 
 // Product set keys per goal — kava excluded from anxiety (harm-reduction zone)
 const GOAL_PRODUCT_SETS: Record<string, string[]> = {
-  sleep: ['magnesium', 'melatonin', 'valerian'],
-  anxiety: ['ashwagandha', 'passionflower'],
-  focus: ['bacopa', 'caffeine'],
-  stress: ['ashwagandha', 'rhodiola'],
-  energy: ['rhodiola', 'maca'],
-  inflammation: ['turmeric', 'boswellia', 'quercetin'],
-  cognition: ['bacopa', 'reishi'],
+  pain: ['turmeric', 'boswellia', 'palmitoylethanolamide'],
+  inflammation: ['turmeric', 'boswellia', 'omega-3'],
+  focus: ['l-theanine', 'rhodiola', 'caffeine'],
+  sleep: ['magnesium', 'l-theanine', 'melatonin'],
+  stress: ['ashwagandha', 'rhodiola', 'l-theanine'],
+  anxiety: ['l-theanine', 'ashwagandha', 'passionflower'],
+  energy: ['caffeine', 'panax-ginseng', 'coenzyme-q10'],
+  cognition: ['bacopa', 'lions-mane'],
+  longevity: ['resveratrol', 'coenzyme-q10', 'quercetin'],
+  'gut-health': ['ginger', 'probiotics', 'glutamine'],
+  'joint-support': ['glucosamine', 'chondroitin', 'boswellia'],
+  recovery: ['creatine', 'magnesium', 'omega-3'],
+  'fat-loss': ['caffeine', 'green-tea-extract', 'berberine'],
+  'blood-pressure': ['magnesium', 'coenzyme-q10', 'omega-3'],
+  'testosterone-support': ['ashwagandha', 'zinc', 'magnesium'],
 }
 
 function getGoalProducts(goalSlug: string) {
