@@ -4,6 +4,8 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 export const metadata: Metadata = {
   title: 'Sleep Herbs vs Melatonin',
@@ -29,7 +31,7 @@ const HEADINGS: Heading[] = [
 
 export default function SleepHerbsVsMelatoninPage() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const magnesiumProducts = getRevenueProductSet('magnesium')
+  const valerianProducts = getRevenueProductSet('valerian')
 
   const options = [
     {
@@ -73,6 +75,7 @@ export default function SleepHerbsVsMelatoninPage() {
   return (
     <ArticleLayout toc={toc} zone="supplement">
     <div className="space-y-8">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <p className="eyebrow-label">Comparison Guide</p>
         <h1 className="heading-premium mt-3 text-ink">
@@ -157,9 +160,11 @@ export default function SleepHerbsVsMelatoninPage() {
         </div>
       </section>
 
-      {magnesiumProducts && (
-        <RecommendationSection products={magnesiumProducts.products} />
+      {valerianProducts && (
+        <RecommendationSection products={valerianProducts.products} />
       )}
+
+      <EmailCapture location="guides-sleep-herbs-vs-melatonin" className="mt-6" />
 
       {/* Safety Notice */}
       <section id="evidence" className="scroll-mt-20 rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">

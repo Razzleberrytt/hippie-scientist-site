@@ -6,6 +6,8 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 
 const PAGE_URL = `${SITE_URL}/guides/best-nootropics-for-focus`
 
@@ -141,6 +143,7 @@ export default function BestNootropicsForFocusPage() {
       />
 
       <div className="space-y-14">
+        <AffiliateDisclosure variant="compact" className="mb-6" />
 
         {/* Hero */}
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -260,6 +263,8 @@ export default function BestNootropicsForFocusPage() {
         {lTheanineProducts && (
           <RecommendationSection products={lTheanineProducts.products} />
         )}
+
+        <EmailCapture location="guides-best-nootropics-for-focus" className="mt-6" />
 
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">

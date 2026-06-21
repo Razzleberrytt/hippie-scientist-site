@@ -6,6 +6,8 @@ import { ArticleLayout, TableOfContents } from '@/components/articles';
 import type { Heading } from '@/components/articles';
 import { getRevenueProductSet } from '@/config/revenue-products';
 import RecommendationSection from '@/components/RecommendationSection';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import EmailCapture from '@/components/EmailCapture';
 
 const route = 'guides/magnesium-vs-melatonin';
 const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-vs-melatonin';
@@ -29,6 +31,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
 
   return (
     <ArticleLayout toc={toc} zone="supplement">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Magnesium vs Melatonin for Sleep: Evidence-Based Comparison"
@@ -47,6 +50,8 @@ export default function MagnesiumVsMelatoninGuidePage() {
       {magnesiumProducts && (
         <RecommendationSection products={magnesiumProducts.products} />
       )}
+
+      <EmailCapture location="guides-magnesium-vs-melatonin" className="mt-6" />
 
       <div className="space-y-12">
 

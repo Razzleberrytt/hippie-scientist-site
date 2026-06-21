@@ -9,7 +9,10 @@ import SafetyBox from '@/components/SafetyBox'
 import MechanismBox from '@/components/MechanismBox'
 import ComparisonTable from '@/components/ComparisonTable'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
-import { revenueProductSets } from '@/config/revenue-products'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 
@@ -118,7 +121,7 @@ const HEADINGS: Heading[] = [
 ]
 
 export default function RhodiolaEnergyGuidePage() {
-  const rhodiolaProducts = revenueProductSets['rhodiola']
+  const rhodiolaProducts = getRevenueProductSet('rhodiola')
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
@@ -137,6 +140,7 @@ export default function RhodiolaEnergyGuidePage() {
         ]}
       />
       <div className="space-y-8">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
 
       {/* Hero */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -249,10 +253,16 @@ export default function RhodiolaEnergyGuidePage() {
         />
       )}
 
+      {rhodiolaProducts && (
+        <RecommendationSection products={rhodiolaProducts.products} />
+      )}
+
       {/* FAQ */}
       <div id="faq" className="scroll-mt-20">
         <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola for Energy" />
       </div>
+
+      <EmailCapture location="guides-rhodiola-energy" className="mt-6" />
 
       {/* Related (hub) */}
       <section className="space-y-3">

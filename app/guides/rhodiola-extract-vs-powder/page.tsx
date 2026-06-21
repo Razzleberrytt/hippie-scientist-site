@@ -7,7 +7,10 @@ import EvidenceSummaryBox from '@/components/EvidenceSummaryBox'
 import DosageBox from '@/components/DosageBox'
 import ComparisonTable from '@/components/ComparisonTable'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
-import { revenueProductSets } from '@/config/revenue-products'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 
@@ -79,12 +82,13 @@ const HEADINGS: Heading[] = [
 ]
 
 export default function RhodiolaExtractVsPowderGuidePage() {
-  const rhodiolaProducts = revenueProductSets['rhodiola']
+  const rhodiolaProducts = getRevenueProductSet('rhodiola')
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <div className="space-y-8">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
       <StructuredData
         pageUrl={PAGE_URL}
         headline={TITLE}
@@ -190,10 +194,16 @@ export default function RhodiolaExtractVsPowderGuidePage() {
         />
       )}
 
+      {rhodiolaProducts && (
+        <RecommendationSection products={rhodiolaProducts.products} />
+      )}
+
       {/* FAQ */}
       <div id="faq" className="scroll-mt-20">
         <FAQAccordion faqs={FAQS} heading="Common Questions About Rhodiola Forms" />
       </div>
+
+      <EmailCapture location="guides-rhodiola-extract-vs-powder" className="mt-6" />
 
       {/* Related (hub) */}
       <section className="space-y-3">

@@ -8,7 +8,10 @@ import DosageBox from '@/components/DosageBox'
 import SafetyBox from '@/components/SafetyBox'
 import MechanismBox from '@/components/MechanismBox'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
-import { revenueProductSets } from '@/config/revenue-products'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 
@@ -109,7 +112,7 @@ const HEADINGS: Heading[] = [
 ]
 
 export default function ElderberryGuidePage() {
-  const elderberryProducts = revenueProductSets['elderberry']
+  const elderberryProducts = getRevenueProductSet('elderberry')
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
@@ -129,6 +132,7 @@ export default function ElderberryGuidePage() {
       />
 
       <div className="space-y-8">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
       {/* Hero */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
         <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
@@ -223,10 +227,16 @@ export default function ElderberryGuidePage() {
         />
       )}
 
+      {elderberryProducts && (
+        <RecommendationSection products={elderberryProducts.products} />
+      )}
+
       {/* FAQ */}
       <div id="faq" className="scroll-mt-20">
         <FAQAccordion faqs={FAQS} heading="Common Questions About Elderberry" />
       </div>
+
+      <EmailCapture location="guides-elderberry" className="mt-6" />
 
       {/* Related */}
       <section className="space-y-3">

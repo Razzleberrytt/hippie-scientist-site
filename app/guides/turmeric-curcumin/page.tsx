@@ -8,7 +8,10 @@ import DosageBox from '@/components/DosageBox'
 import SafetyBox from '@/components/SafetyBox'
 import MechanismBox from '@/components/MechanismBox'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
-import { revenueProductSets } from '@/config/revenue-products'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 
@@ -156,7 +159,7 @@ const HEADINGS: Heading[] = [
 ]
 
 export default function TurmericCurcuminGuidePage() {
-  const turmericProducts = revenueProductSets['turmeric']
+  const turmericProducts = getRevenueProductSet('turmeric')
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
@@ -175,6 +178,7 @@ export default function TurmericCurcuminGuidePage() {
         ]}
       />
       <div className="space-y-8">
+      <AffiliateDisclosure variant="compact" className="mb-6" />
 
       {/* Hero */}
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
@@ -305,10 +309,16 @@ export default function TurmericCurcuminGuidePage() {
         />
       )}
 
+      {turmericProducts && (
+        <RecommendationSection products={turmericProducts.products} />
+      )}
+
       {/* FAQ */}
       <div id="faq" className="scroll-mt-20">
         <FAQAccordion faqs={FAQS} heading="Common Questions About Turmeric &amp; Curcumin" />
       </div>
+
+      <EmailCapture location="guides-turmeric-curcumin" className="mt-6" />
 
       {/* Internal links to related herb/compound pages */}
       <section className="space-y-3">
