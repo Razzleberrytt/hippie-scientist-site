@@ -46,17 +46,17 @@ export default function NewsletterSignup({
   const [confirmEmail, setConfirmEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
-  const usesMailchimpForm = mailchimpSignupConfig.isMailchimpAction
+  const usesClientPost = mailchimpSignupConfig.isApiAction
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    if (usesMailchimpForm) return
+    if (!usesClientPost) return
 
     event.preventDefault()
     setStatus('submitting')
     setMessage('')
 
     try {
-      const response = await fetch('/api/subscribe', {
+      const response = await fetch(mailchimpSignupConfig.action, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

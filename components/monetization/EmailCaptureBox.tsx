@@ -51,9 +51,8 @@ export function EmailCaptureBox({
       return
     }
 
-    // If using dynamic submission to external Mailchimp
-    if (emailCaptureProviderAction.includes('list-manage.com')) {
-      // Let standard mailchimp form action handle it
+    // Let external form providers handle their own submission flow.
+    if (!emailCaptureProviderAction.startsWith('/api/')) {
       return
     }
 
@@ -66,7 +65,7 @@ export function EmailCaptureBox({
       const res = await fetch(emailCaptureProviderAction, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, magnet: leadMagnet.goal, source: `email-capture-${goal}` }),
       })
       if (res.ok) {
         setStatus('success')

@@ -17,6 +17,7 @@ const rawAction =
   fallbackAction
 
 const isMailchimpAction = rawAction.includes('list-manage.com')
+const isApiAction = rawAction.startsWith('/api/')
 
 export const mailchimpSignupConfig = {
   action: rawAction,
@@ -24,6 +25,7 @@ export const mailchimpSignupConfig = {
   emailFieldName: isMailchimpAction ? 'EMAIL' : 'email',
   honeypotName: getMailchimpHoneypotName(rawAction),
   isMailchimpAction,
+  isApiAction,
   isConfigured: true,
   fallbackAction,
 } as const
@@ -36,10 +38,17 @@ export function validateMailchimpConfig() {
     }
   }
 
+  if (mailchimpSignupConfig.isApiAction) {
+    return {
+      ok: true,
+      message: 'Using Cloudflare Pages Function newsletter endpoint.',
+    }
+  }
+
   if (!mailchimpSignupConfig.isMailchimpAction) {
     return {
       ok: true,
-      message: 'Using static local newsletter confirmation fallback.',
+      message: 'Using configured external newsletter form endpoint.',
     }
   }
 
