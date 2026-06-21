@@ -404,7 +404,7 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Sources &amp; References</h2>
           <div className="p-6 bg-muted/50 rounded-xl text-sm">
             <p className="mb-4 font-medium">
-              References will be populated as the evidence pipeline completes. Key sources include:
+              Key sources include:
             </p>
             <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
               <li>L-theanine anxiety and stress clinical trials (PMIDs, n-sizes, outcomes)</li>

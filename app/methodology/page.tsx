@@ -168,7 +168,7 @@ export default function MethodologyPage() {
           <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
             <h4 className='font-bold text-ink text-sm'>Will R.</h4>
             <p className='text-brand-700 font-medium mb-1'>Chief Content Systems Architect</p>
-            <p>Directs the static data pipeline and checks Excel monographs against active clinical trial endpoints on ClinicalTrials.gov and PubMed.</p>
+            <p>Directs the content architecture and cross-references ingredient profiles against active clinical trial endpoints on ClinicalTrials.gov and PubMed.</p>
           </div>
           <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
             <h4 className='font-bold text-ink text-sm'>Research Team</h4>

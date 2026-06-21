@@ -112,7 +112,7 @@ export default function GoalDecisionExperience({
   const problemField = config.problemField ?? `${goal.slug}_problem`
   const orientationId = `${goal.slug}-orientation`
   const heroHeadline = config.heroHeadline ?? `${goal.title.replace(/ decisions$/, '')}: What does the evidence actually support?`
-  const heroDescription = `A workbook-backed ${goal.slug} decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.`
+  const heroDescription = `An evidence-reviewed ${goal.slug} decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.`
   const heroCta = config.heroCta ?? `Start with the ${goal.slug} problem`
   const orientationHeading = config.orientationHeading ?? `Start by naming the ${goal.slug} problem`
   const orientationSubtext = config.orientationSubtext ?? `The same ingredient can look useful or weak depending on which ${goal.slug} problem you are targeting.`
@@ -152,7 +152,7 @@ export default function GoalDecisionExperience({
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Evidence snapshot</p>
             <dl className="mt-4 space-y-3 text-sm leading-6 text-[#36483e] dark:text-[var(--text-muted)]">
               <div>
-                <dt className="font-semibold text-ink">Workbook claims</dt>
+                <dt className="font-semibold text-ink">Reviewed evidence</dt>
                 <dd>{claims.length} published {goal.slug} claims</dd>
               </div>
               <div>
@@ -197,7 +197,7 @@ export default function GoalDecisionExperience({
         <section id="shortlist" className="card-premium p-6 sm:p-8">
           <div className="max-w-3xl">
             <p className="eyebrow-label">Claim-backed shortlist</p>
-            <h2 className="mt-2 text-2xl font-semibold text-ink">Published workbook claims, grouped by decision role</h2>
+            <h2 className="mt-2 text-2xl font-semibold text-ink">Source-backed evidence, grouped by decision role</h2>
             <p className="mt-3 text-sm leading-7 text-muted">
               These are not rankings or personalized recommendations. Each card shows the claim, evidence summary, limitation, source trail, and ingredient-specific safety notes.
             </p>
@@ -230,10 +230,10 @@ export default function GoalDecisionExperience({
         </section>
       ) : (
         <section className="card-premium p-6 sm:p-8">
-          <p className="eyebrow-label">Awaiting workbook rows</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">The {goal.slug} Evidence Engine payload is ready, but no claims are published yet</h2>
+          <p className="eyebrow-label">Evidence page</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">No evidence claims are currently published for this topic</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            Add published rows to the {goal.title} Evidence Claims, {goal.title} Evidence Sources, and {goal.title} Safety Notes workbook sheets, then rebuild the static data.
+            We are still compiling the evidence for {goal.title}. Check back soon for reviewed claims, source trails, and safety notes.
           </p>
         </section>
       )}

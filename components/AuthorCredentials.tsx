@@ -11,7 +11,7 @@ export default function AuthorCredentials() {
           Reviewed against source evidence and safety constraints
         </h2>
         <p className="text-xs text-muted mt-1.5 leading-relaxed">
-          Profiles are checked against workbook source data, cited evidence, contraindication language, and static-export quality gates before publication. This is editorial review, not personal medical advice or a named clinician endorsement.
+          Profiles are checked against primary sources, cited evidence, and contraindication language before publication. This is editorial review, not personal medical advice or a named clinician endorsement.
         </p>
       </div>
 

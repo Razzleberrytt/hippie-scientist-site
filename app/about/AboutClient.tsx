@@ -122,7 +122,7 @@ export default function AboutClient() {
           <p className="text-sm text-muted mt-2 max-w-2xl">
             We use a documented editorial process to audit monograph data, evidence language, safety cautions, and affiliate separation before publication.
           </p>
-          <p className="text-xs text-muted mt-1">Last reviewed: June 2026 (post-audit pipeline + hygiene updates per plan)</p>
+          <p className="text-xs text-muted mt-1">Last reviewed: June 2026</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -141,7 +141,7 @@ export default function AboutClient() {
               </div>
             </div>
             <p className="text-sm leading-6 text-muted">
-              Evidence claims are checked against the source workbook, cited studies, and study-design context so preclinical mechanisms are not presented as proven human outcomes.
+              Evidence claims are checked against primary sources, cited studies, and study-design context so preclinical mechanisms are not presented as proven human outcomes.
             </p>
           </div>
 
@@ -198,7 +198,7 @@ export default function AboutClient() {
             </p>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong className="font-semibold text-ink">Workbook Sourcing:</strong> All ingredient entries originate in our master spreadsheet data pipeline, ensuring uniform metrics.
+                <strong className="font-semibold text-ink">Source Review:</strong> All ingredient entries are sourced from our structured evidence database, ensuring uniform metrics.
               </li>
               <li>
                 <strong className="font-semibold text-ink">Evidence Grading:</strong> We grade evidence strictly according to study design: double-blind human RCTs and meta-analyses score highest.

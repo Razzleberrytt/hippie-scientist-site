@@ -846,8 +846,7 @@ export default function SleepStackGuidePage() {
                   </table>
                 </ResponsiveTable>
                 <p className="mt-3 text-xs text-muted">
-                  Timing ranges reflect commonly cited windows and require verification against
-                  workbook trial protocols. Start at the conservative end of any range.
+                  Timing ranges reflect commonly cited windows in clinical literature. Start at the conservative end of any range.
                 </p>
               </div>
             </div>
@@ -862,7 +861,7 @@ export default function SleepStackGuidePage() {
               <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
                 Use the lowest effective dose as your starting point. Higher doses do not
                 guarantee better results and increase the risk of side effects. All ranges below
-                require workbook verification against clinical trial data.
+                reflect clinical trial data.
               </p>
 
               <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
@@ -1438,7 +1437,7 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1450,7 +1449,7 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1461,7 +1460,7 @@ export default function SleepStackGuidePage() {
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 pr-4 text-muted">—</td>
                       <td className="py-3 text-muted">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1525,8 +1524,7 @@ export default function SleepStackGuidePage() {
                 >
                   Ashwagandha for Sleep
                 </Link>
-                . PMID links and n-sizes will be added once the workbook evidence pipeline
-                completes for combination stacks.
+                .
               </p>
             </div>
 

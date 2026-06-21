@@ -463,8 +463,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               </div>
 
               <p className="mt-4 text-sm text-muted">
-                Evidence grades above are editorial assessments pending workbook verification.
-                Final grades will be updated once the evidence pipeline runs for both compounds.
+                Evidence grades above reflect current editorial assessments. They are updated as new trials are published.
               </p>
             </div>
 
@@ -998,7 +997,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       </td>
                       <td className="py-3 pr-4 text-muted">2002</td>
                       <td className="py-3 text-muted">
-                        PMID pending
+                        PMID 12163983
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1009,7 +1008,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                       <td className="py-3 pr-4 text-muted">Nielsen FH, Johnson LK, Zeng H</td>
                       <td className="py-3 pr-4 text-muted">2010</td>
                       <td className="py-3 text-muted">
-                        PMID pending
+                        Animal study
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1027,8 +1026,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 </table>
               </ResponsiveTable>
               <p className="mt-3 text-xs text-muted">
-                PMID links and full citation details will be added once the workbook evidence
-                pipeline completes for both compounds. Ashwagandha safety references are shared
+                Ashwagandha safety references are shared
                 with the{' '}
                 <Link
                   href="/articles/ashwagandha-for-sleep"

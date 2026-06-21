@@ -110,7 +110,7 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
             <p className="eyebrow-label">Authority Profile</p>
             <h2 className="compact-heading">Research-grade decision context.</h2>
             <p className="compact-copy">
-              Practical interpretation, evidence context, safety framing, mechanisms, timing, and real-world expectations from the workbook-driven profile data.
+              Practical interpretation, evidence context, safety framing, mechanisms, timing, and real-world expectations from the reviewed profile data.
             </p>
           </div>
           <div className="rounded-2xl border border-brand-900/10 bg-white/80 px-4 py-3 text-sm font-semibold text-ink shadow-sm">

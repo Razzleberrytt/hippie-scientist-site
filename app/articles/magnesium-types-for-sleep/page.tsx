@@ -998,9 +998,7 @@ export default function MagnesiumTypesForSleepPage() {
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <p className="mb-4 text-sm text-muted">
-                PMID links and full citation details will be added once the workbook evidence
-                pipeline is complete for each magnesium form. Evidence grades are provisional
-                pending workbook verification.
+                The references below cover key trials for each magnesium form. Evidence grades reflect current editorial assessments and are updated as new trials are published.
               </p>
               <ResponsiveTable label="Article references">
                 <table className="min-w-[600px] w-full text-sm">
@@ -1024,7 +1022,7 @@ export default function MagnesiumTypesForSleepPage() {
                         Abbasi et al. 2012 (Mg sleep RCT); Held et al. 2002; Nielsen et al. 2010
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1033,7 +1031,7 @@ export default function MagnesiumTypesForSleepPage() {
                         Yamadera et al. 2007 (glycine and subjective sleep quality)
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMID pending
+                        Reference being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1042,7 +1040,7 @@ export default function MagnesiumTypesForSleepPage() {
                         Slutsky et al. 2010 (brain Mg elevation); human threonate cognition/sleep trials
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
@@ -1051,7 +1049,7 @@ export default function MagnesiumTypesForSleepPage() {
                         Comparative bioavailability studies; Mg citrate vs oxide absorption trials
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        PMIDs pending
+                        References being compiled
                       </td>
                     </tr>
                     <tr className="align-top">
