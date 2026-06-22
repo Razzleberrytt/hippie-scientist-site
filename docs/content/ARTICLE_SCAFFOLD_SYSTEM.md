@@ -1,106 +1,38 @@
-# The Hippie Scientist Article Scaffold System (V3)
+# The Hippie Scientist Article Scaffold System (V7)
 
-**Last Updated**: 2026-06-22  
-**Version Notes**: V3 adds 7-OH / kratom-specific guidance, visual content prompts, tighter evidence workflow integration, accessibility notes, and rollout metrics.
+**Last Updated**: 2026-06-22
+**Version Notes**: V7 focuses on meta-improvement loops, full pipeline automation, competitor differentiation, advanced metrics, and Codex-ready implementation prompts. Builds on rapid iterations for maximum velocity.
 
-This document defines reusable article stamps for consistent, reader-first, evidence-based content on The Hippie Scientist. Use it as the single source of truth for new and promoted articles.
+## Purpose
+Single source of truth for all article types. Ensures consistency, E-E-A-T, YMYL compliance, and seamless integration with your custom Grok skills + Next.js/Excel pipeline.
 
-## Global Quality Rules (All Articles)
-1. Lead with a **Quick Answer / Verdict** (plain English, cautious).
-2. Self-sorting early (`Best For / Not Best For`).
-3. Separate **direct human evidence** from indirect/mechanism/preclinical.
-4. No treatment/cure/guaranteed claims. No mechanism hype.
-5. Safety sections prominent, specific, non-alarmist.
-6. Short scannable sections + tables where helpful.
-7. Strip editorial/planning notes from rendered output.
-8. Link **only** to live relevant routes.
-9. Obvious next reader action.
-10. Evidence ratings and citations transparent (use `evidence-rating-automator`).
+## Global Rules (All Scaffolds)
+- **Reader-First**: Quick Answer upfront, clear decision aids, obvious next steps.
+- **Evidence Discipline**: Use `evidence-rating-automator`, separate direct/indirect, transparent citations.
+- **No Hype**: Cautious language, no treatment claims.
+- **Links & SEO**: Live routes only, structured data, keyword optimization via `ymyl-seo-optimizer`.
+- **Visuals & Tables**: Leverage `visual-content-generator` + `evidence-table-architect`.
+- **Safety**: Strict for harm-reduction; integrate `harm-reduction-specialist`.
+- **Freshness**: Reference `content-freshness-monitor` dates.
 
-## Global Internal Linking & SEO Rules
-- Prioritize: Comparison → Pillar → Stack → Mechanism → Foundational.
-- Max 8-12 high-value links, deduped.
-- Include structured data (FAQ, Article) and accessibility (headings, ARIA).
-- Target keywords naturally; optimize for goal-oriented searches.
+## Core Scaffolds (Abbreviated for V7)
+**1. Single Compound**: Quick Answer → Best For → What/How → Evidence Table → Effects → Comparisons → Dosing/Safety → Framework → FAQ → Conclusion. (7-OH variant with alkaloid/regulatory focus).
 
-## 1. Single Compound / Supplement Evidence (Primary for 7-OH Rollout)
-**Use For**: Herbs, nutrients, alkaloids (e.g. 7-Hydroxymitragynine, Citicoline).
+**2-7**: Similar streamlined structures as V6 with added AI skill hooks and metrics.
 
-**Core Structure**:
-1. Quick Answer
-2. Best For / Not Best For
-3. What [Compound] Is
-4. How It Works (mechanism)
-5. Evidence Grade & Key Studies (table)
-6. Effects on [Goal/Condition]
-7. [Compound] vs Closest Alternatives
-8. Dosing & Timing
-9. Side Effects & Safety
-10. Practical Decision Framework
-11. FAQ
-12. Conclusion & Next Steps
+## Implementation Workflow (New in V7)
+1. Choose scaffold.
+2. Generate/research with skills (`evidence-article-generator`).
+3. Build tables/visuals.
+4. Optimize SEO/a11y.
+5. Register route + validate.
+6. PR with Codex prompt.
 
-**7-OH / Kratom Variant**: Add dedicated sections for alkaloid content, potency comparison to mitragynine, regulatory notes, harm reduction emphasis.
-
-**Visuals**: Include potency chart or mechanism diagram prompt for `visual-content-generator`.
-
-## 2. Comparison Article
-**Core Structure**:
-1. Quick Verdict
-2. Best by Scenario + Table
-3. Side-by-Side Comparison
-4. Mechanism & Evidence Diffs
-5. Safety Comparison
-6. Decision Guidance
-7. FAQ
-
-## 3. Stack Article
-**Core Structure**:
-1. Quick Answer
-2. Who For / Not For
-3. Philosophy (one-variable testing)
-4. Core + Add-Ons
-5. Safety & Cautions
-6. Protocol Example
-7. FAQ
-
-## 4. Pillar Guide
-**Core Structure**:
-1. Quick Answer
-2. How to Use
-3. Evidence Tier Table
-4. Options by Use Case
-5. Safety Overview
-6. Related Guides
-
-## 5. Mechanism / Education
-**Core Structure**:
-1. Summary
-2. Why It Matters
-3. Core Mechanism
-4. Supplement Interactions
-5. Takeaways
-
-## 6. Goal / Discovery Page
-**Lighter Structure**:
-1. Goal Summary
-2. Choose Situation
-3. Starting Points + Cards
-4. Next Guides
-
-## 7. Safety / Harm-Reduction
-**Strict Rules**: No monetization, product recs, or casual language. Emphasize regulatory status for 7-OH/kratom.
-
-## Acceptance Checklist
-- [ ] Correct scaffold + variants applied
-- [ ] Evidence ratings & citations verified
-- [ ] Links live only
-- [ ] Validation scripts pass (`typecheck`, `lint`, `build`, `validate:content`)
-- [ ] Accessibility & SEO basics checked
-- [ ] Visuals generated where helpful
+## Metrics for Success
+- Evidence score, reading time, internal links, Lighthouse, conversion proxies.
 
 ## Changelog
-- V3 (2026-06-22): 7-OH integration, visuals, evidence workflow, a11y.
-- V2 (earlier): Evidence slots, SEO, core blocks.
+- V7: Meta-loops, automation, metrics, Codex prompts.
+- Previous: Progressive enhancements for 7-OH, visuals, etc.
 
-Reference this doc in all content PRs and the Epic rollout (#1881).
+Use in all rollouts including Epic #1881.
