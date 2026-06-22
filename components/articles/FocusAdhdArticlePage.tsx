@@ -160,6 +160,7 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('citicoline-for-adhd', 'Citicoline for ADHD', 'Choline guide'),
       articleLink('citicoline-vs-alpha-gpc', 'Citicoline vs Alpha-GPC', 'Choline comparison'),
       articleLink('l-tyrosine-and-adhd', 'L-Tyrosine for ADHD', 'Stress focus'),
+      articleLink('rhodiola-rosea-and-adhd', 'Rhodiola Rosea for ADHD', 'Stress fatigue'),
       articleLink('l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine for Focus', 'Focus comparison'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Fatty acids'),

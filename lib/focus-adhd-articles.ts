@@ -203,6 +203,17 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     readingTime: '10 min read',
   },
   {
+    slug: 'rhodiola-rosea-and-adhd',
+    source: 'docs/content/focus-cluster/rhodiola-rosea-and-adhd.md',
+    title: 'Rhodiola Rosea for ADHD: Evidence, Stress, Fatigue, Focus, and Safety',
+    seoTitle: 'Rhodiola Rosea for ADHD: Evidence, Stress, Fatigue, Focus, and Safety',
+    description: 'Evidence-based guide to Rhodiola rosea for ADHD, stress, fatigue, and focus. Covers adaptogen research, mental performance, dosing, safety, medication cautions, and realistic expectations.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Supplement Evidence'],
+    date: '2026-06-22',
+    readingTime: '10 min read',
+  },
+  {
     slug: 'l-theanine-vs-caffeine-for-focus',
     source: 'docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md',
     title: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
