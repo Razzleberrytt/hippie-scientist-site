@@ -77,15 +77,19 @@ const findCompound = (compounds: Record<string, unknown>[], candidates: string[]
 
 const getComparisonConfig = (slug: string) => supplementComparisons.find(item => item.slug === slug)
 
-// Static pages with their own routes — must be excluded from the dynamic [slug] route
+// Static pages with their own routes — must be excluded from the dynamic [slug] route.
+// Only pages that genuinely can't be served dynamically belong here:
+// three-way comparisons (dynamic route is two-item only) and pages whose
+// slugs can't be resolved by parseCompareSlug (missing data entries).
 const STATIC_COMPARE_PAGES = new Set([
-  'ashwagandha-vs-rhodiola', 'ashwagandha-vs-l-theanine-vs-magnesium',
-  'berberine-vs-metformin', 'caffeine-vs-l-theanine-vs-bacopa-for-focus',
-  'curcumin-vs-boswellia-vs-omega-3', 'kanna-vs-ssris', 'kava-vs-alcohol',
-  'l-theanine-vs-magnesium', 'magnesium-glycinate-vs-l-threonate-for-sleep',
-  'magnesium-glycinate-vs-magnesium-oxide', 'melatonin-vs-magnesium',
-  'melatonin-vs-valerian-vs-magnesium-for-sleep', 'mitragynine-vs-7-hydroxymitragynine',
-  'rhodiola-vs-ashwagandha', 'sleep-herbs-vs-melatonin',
+  'ashwagandha-vs-l-theanine-vs-magnesium',
+  'caffeine-vs-l-theanine-vs-bacopa-for-focus',
+  'curcumin-vs-boswellia-vs-omega-3',
+  'melatonin-vs-valerian-vs-magnesium-for-sleep',
+  'berberine-vs-metformin',
+  'kanna-vs-ssris',
+  'kava-vs-alcohol',
+  'sleep-herbs-vs-melatonin',
 ])
 
 const allComparisonSlugs = Array.from(new Set([
@@ -116,6 +120,13 @@ const allComparisonSlugs = Array.from(new Set([
   'asiatic-acid-vs-asiaticoside',
   'asiaticoside-vs-aspalathin',
   'aspalathin-vs-astragalin',
+  // Formerly static pages now served by the dynamic route
+  'rhodiola-vs-ashwagandha',
+  'l-theanine-vs-magnesium',
+  'magnesium-glycinate-vs-magnesium-oxide',
+  'melatonin-vs-magnesium',
+  'mitragynine-vs-7-hydroxymitragynine',
+  'magnesium-glycinate-vs-magnesium-threonate',
 ])).filter(slug => !STATIC_COMPARE_PAGES.has(slug))
 
 function getSignals(compound: Record<string, unknown>) {
