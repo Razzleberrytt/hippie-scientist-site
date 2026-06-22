@@ -170,6 +170,17 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     readingTime: '13 min read',
   },
   {
+    slug: 'citicoline-for-adhd',
+    source: 'docs/content/focus-cluster/citicoline-for-adhd.md',
+    title: 'Citicoline for ADHD: Evidence, Focus Benefits, Dosing, and Safety',
+    seoTitle: 'Citicoline for ADHD: Evidence, Focus Benefits, Dosing, and Safety',
+    description: 'Evidence-based guide to citicoline for ADHD and focus. Covers CDP-choline, attention research, Alpha-GPC comparison, dosing, safety, and realistic expectations.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Supplement Evidence'],
+    date: '2026-06-22',
+    readingTime: '11 min read',
+  },
+  {
     slug: 'l-theanine-vs-caffeine-for-focus',
     source: 'docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md',
     title: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
