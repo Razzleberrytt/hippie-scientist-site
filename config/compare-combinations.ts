@@ -590,6 +590,13 @@ export const COMPARE_COMBINATIONS: readonly string[] = [
   'niacin-vs-red-yeast-rice',
   'niacinamide-vs-red-yeast-rice',
   'salidroside-vs-cobalamin',
+  // Formerly static pages migrated to the dynamic route
+  'rhodiola-vs-ashwagandha',
+  'l-theanine-vs-magnesium',
+  'magnesium-glycinate-vs-magnesium-oxide',
+  'melatonin-vs-magnesium',
+  'mitragynine-vs-7-hydroxymitragynine',
+  'magnesium-glycinate-vs-magnesium-threonate',
 ] as const
 
-// 591 unique pairs generated 2026-06-22
+// 591 unique pairs generated 2026-06-22; 6 formerly-static slugs added 2026-06-22
