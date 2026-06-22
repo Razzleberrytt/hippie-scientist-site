@@ -22,6 +22,7 @@ import {
   getRelatedComparisons,
   buildFAQs,
 } from '@/lib/compare'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import CompareHero from '@/components/compare/CompareHero'
 import CompareDecisionWidget from '@/components/compare/CompareDecisionWidget'
 import CompareSummaryTable from '@/components/compare/CompareSummaryTable'
@@ -341,6 +342,14 @@ export default async function Page({ params }: Params) {
     <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
       <SchemaGraphScript graph={schemaGraph} />
       <CompareSchema item1={item1} item2={item2} slug={slug} faqs={faqs} />
+
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Compare', href: '/compare' },
+          { label: title },
+        ]}
+      />
 
       {/* Hero */}
       <CompareHero item1={item1} item2={item2} />
