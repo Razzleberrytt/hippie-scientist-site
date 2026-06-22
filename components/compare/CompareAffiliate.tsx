@@ -1,4 +1,5 @@
 import type { CompareItem } from '@/lib/compare'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
@@ -35,9 +36,10 @@ export default function CompareAffiliate({ item1, item2 }: CompareAffiliateProps
     <div className="space-y-4">
       <RecommendationSection
         title={`${item1.name} and ${item2.name} Sourcing Options`}
-        description="Here are reputable single-ingredient product picks for sourcing standardized formulations. Confirm with your doctor before purchase."
+        description="Existing configured product picks for these two non-harm-reduction profiles. Use them as sourcing starting points, not medical recommendations."
         products={products}
       />
+      <AffiliateDisclosure variant="compact" />
     </div>
   )
 }

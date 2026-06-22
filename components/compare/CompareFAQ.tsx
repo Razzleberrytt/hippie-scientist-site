@@ -5,83 +5,62 @@ interface CompareFAQProps {
   item2: CompareItem
 }
 
-type FAQItem = {
+export type FAQItem = {
   question: string
   answer: string
 }
 
-export default function CompareFAQ({ item1, item2 }: CompareFAQProps) {
-  const isAshwagandhaRhodiola =
-    (item1.slug === 'ashwagandha' && item2.slug === 'rhodiola') ||
-    (item1.slug === 'rhodiola' && item2.slug === 'ashwagandha')
+export function getCompareFaqs(item1: CompareItem, item2: CompareItem): FAQItem[] {
+  const ashwagandha = item1.slug === 'ashwagandha' ? item1 : item2
+  const rhodiola = item1.slug === 'rhodiola' ? item1 : item2
 
-  const faqs: FAQItem[] = [
+  return [
     {
       question: 'Which is better, ashwagandha or rhodiola?',
-      answer: 'Neither is universally better; they target different stress presentations. Ashwagandha is usually better suited for calming tense, overactive stress patterns and supporting sleep. Rhodiola is better suited for fatigue-heavy stress, burnout, and mental stamina.',
+      answer: `${ashwagandha.name} is usually the calmer fit for stress and relaxation based on the current profile framing, while ${rhodiola.name} is usually the more energizing fit for stress resilience, fatigue, and focus. Neither is universally better.`,
     },
     {
       question: 'Can you take ashwagandha and rhodiola together?',
-      answer: 'Yes, some users combine them since their mechanisms do not directly overlap. However, taking them together makes it harder to identify which supplement is causing specific benefits or side effects. It is generally recommended to test each adaptogen individually first before stacking them, and to consult with a healthcare professional.',
+      answer: 'The current source data does not provide a combination protocol. Because both have active safety and interaction fields, it is more cautious to evaluate each one separately and ask a qualified clinician if you are pregnant, on medication, sensitive to supplements, or managing a medical condition.',
     },
     {
       question: 'Which works faster?',
-      answer: 'Rhodiola is typically faster-acting, with acute cognitive and physical effects (such as fatigue resistance and focus) felt within 30 to 60 minutes. Ashwagandha generally requires daily, consistent use for 2 to 8 weeks to build systemic support and modulate baseline cortisol levels.',
+      answer: 'The current herb records do not include onset-time fields, so this comparison does not claim which works faster.',
     },
     {
       question: 'Which is better for stress?',
-      answer: 'Ashwagandha is better for stress that manifests as anxiety, tension, and evening racing thoughts. Rhodiola is better for stress that results in exhaustion, physical lethargy, or cognitive burnout.',
+      answer: `${ashwagandha.name} and ${rhodiola.name} both include stress in the source data. ${ashwagandha.name} also includes sleep support, while ${rhodiola.name} is framed around stress-related fatigue and mental stamina. The better fit depends on whether your stress feels more tense and calming-oriented or more fatigue-oriented.`,
     },
     {
       question: 'Which is better for energy and focus?',
-      answer: 'Rhodiola is the superior choice for energy and focus. It acts as an acute stimulant-free adaptogen to reduce fatigue. Ashwagandha is relaxing rather than energizing and is better suited for restorative recovery.',
+      answer: `${rhodiola.name} is the more energy-oriented fit because its source record includes fatigue reduction and mental stamina language. The current data does not support a firm focus effect or a head-to-head performance claim.`,
     },
   ]
+}
 
-  const activeFaqs = isAshwagandhaRhodiola
-    ? faqs
-    : [
-        {
-          question: `How do ${item1.name} and ${item2.name} differ?`,
-          answer: `They are distinct classes of supplements. ${item1.name} has evidence for ${item1.primaryBenefits.join(', ') || 'general recovery'}, whereas ${item2.name} is studied for ${item2.primaryBenefits.join(', ') || 'general performance'}.`,
-        },
-        {
-          question: `Can I take ${item1.name} and ${item2.name} on the same day?`,
-          answer: `Co-administration depends on your specific goals and safety constraints. Review their respective cautions, interactions, and consult a doctor first.`,
-        },
-      ]
+export default function CompareFAQ({ item1, item2 }: CompareFAQProps) {
+  const faqs = getCompareFaqs(item1, item2)
 
   return (
-    <section className="space-y-6 max-w-4xl">
+    <section className="max-w-4xl space-y-6">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">FAQ</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
-          Common Questions
-        </h2>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">FAQ</p>
+        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Common questions</h2>
       </div>
 
       <div className="space-y-4">
-        {activeFaqs.map((faq, index) => (
-          <details key={index} className="accordion-readable group">
+        {faqs.map((faq) => (
+          <details key={faq.question} className="accordion-readable group">
             <summary className="cursor-pointer select-none">
               <span>{faq.question}</span>
-              <svg
-                className="h-5 w-5 text-brand-700 transform transition-transform duration-200 group-open:rotate-180"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
+              <span className="text-brand-700 transition-transform duration-200 group-open:rotate-180" aria-hidden="true">
+                v
+              </span>
             </summary>
-            <p className="mt-3 text-sm leading-relaxed text-muted whitespace-pre-wrap">
-              {faq.answer}
-            </p>
+            <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-muted">{faq.answer}</p>
           </details>
         ))}
       </div>
     </section>
   )
 }
-export type { FAQItem }

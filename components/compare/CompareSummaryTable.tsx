@@ -75,7 +75,7 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
   return (
     <section className="card-premium p-6 space-y-5 max-w-5xl">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Quick Reference</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Quick reference</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
           Comparison Summary
         </h2>
@@ -87,8 +87,8 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
           <thead>
             <tr className="border-b border-brand-900/10 text-ink">
               <th className="py-3 px-4 font-semibold w-1/4">Factor</th>
-              <th className="py-3 px-4 font-semibold w-3/8">{item1.name}</th>
-              <th className="py-3 px-4 font-semibold w-3/8">{item2.name}</th>
+              <th className="py-3 px-4 font-semibold">{item1.name}</th>
+              <th className="py-3 px-4 font-semibold">{item2.name}</th>
             </tr>
           </thead>
           <tbody className="text-muted divide-y divide-brand-900/10">

@@ -5,79 +5,42 @@ interface CompareMechanismsProps {
   item2: CompareItem
 }
 
-export default function CompareMechanisms({ item1, item2 }: CompareMechanismsProps) {
-  // Description mapper for standard canonical mechanisms to keep it cautious and source-aligned
-  const getMechanismExplanation = (mechanism: string): string => {
-    const term = mechanism.toLowerCase()
-    if (term.includes('hpa-axis') || term.includes('stress response')) {
-      return 'Regulates the hypothalamic-pituitary-adrenal axis to modulate the body\'s physiological stress response and cortisol release.'
-    }
-    if (term.includes('anti-inflammatory') || term.includes('inflammatory')) {
-      return 'Modulates inflammatory signaling pathways (such as cytokine levels) during periods of physical stress.'
-    }
-    if (term.includes('hormonal')) {
-      return 'Interacts with neuroendocrine systems to support hormone balance under chronic stress.'
-    }
-    if (term.includes('ampk')) {
-      return 'Activates adenosine monophosphate-activated protein kinase (AMPK), a master regulator of cellular energy homeostasis.'
-    }
-    if (term.includes('neurotransmitter')) {
-      return 'Modulates activity of brain neurotransmitters (such as GABA, dopamine, or serotonin).'
-    }
-    return 'Observed in laboratory models to support cellular resilience and stress adaptability.'
-  }
+function MechanismCard({ item }: { item: CompareItem }) {
+  if (item.mechanisms.length === 0) return null
 
   return (
-    <section className="space-y-6 max-w-4xl">
+    <article className="card-premium p-6">
+      <h3 className="border-b border-brand-900/10 pb-2 text-xl font-semibold text-ink">
+        How {item.name} may work
+      </h3>
+      <ul className="mt-4 space-y-2 text-sm leading-6 text-muted">
+        {item.mechanisms.map((mechanism) => (
+          <li key={mechanism}>
+            <span className="font-semibold text-ink">{mechanism}</span>
+            <span> is listed in the source mechanism fields for this profile.</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  )
+}
+
+export default function CompareMechanisms({ item1, item2 }: CompareMechanismsProps) {
+  if (item1.mechanisms.length === 0 && item2.mechanisms.length === 0) return null
+
+  return (
+    <section className="max-w-4xl space-y-6">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Mechanism of Action</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
-          How They Work
-        </h2>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Mechanisms</p>
+        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">How they may work</h2>
+        <p className="mt-2 text-sm leading-6 text-muted">
+          These are source-derived mechanism labels, not a full molecular pathway map.
+        </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {/* Item 1 Mechanisms */}
-        <div className="card-premium p-6 space-y-4">
-          <h3 className="text-xl font-semibold text-ink border-b border-brand-900/10 pb-2">
-            {item1.name} Mechanisms
-          </h3>
-          {item1.mechanisms.length > 0 ? (
-            <ul className="space-y-3">
-              {item1.mechanisms.map((mech) => (
-                <li key={mech} className="text-sm">
-                  <strong className="text-ink block">{mech}</strong>
-                  <span className="text-muted leading-relaxed mt-1 block">
-                    {getMechanismExplanation(mech)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-sm text-muted">No specific canonical mechanisms registered in current database.</p>
-          )}
-        </div>
-
-        {/* Item 2 Mechanisms */}
-        <div className="card-premium p-6 space-y-4">
-          <h3 className="text-xl font-semibold text-ink border-b border-brand-900/10 pb-2">
-            {item2.name} Mechanisms
-          </h3>
-          {item2.mechanisms.length > 0 ? (
-            <ul className="space-y-3">
-              {item2.mechanisms.map((mech) => (
-                <li key={mech} className="text-sm">
-                  <strong className="text-ink block">{mech}</strong>
-                  <span className="text-muted leading-relaxed mt-1 block">
-                    {getMechanismExplanation(mech)}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-sm text-muted">No specific canonical mechanisms registered in current database.</p>
-          )}
-        </div>
+        <MechanismCard item={item1} />
+        <MechanismCard item={item2} />
       </div>
     </section>
   )

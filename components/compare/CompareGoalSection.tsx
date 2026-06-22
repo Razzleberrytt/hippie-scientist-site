@@ -7,77 +7,74 @@ interface CompareGoalSectionProps {
 
 type GoalCard = {
   goal: string
-  winner: string
-  rationale: string
-  details: string
+  betterFit: string
+  why: string
+  unclear?: string
+}
+
+function hasBenefit(item: CompareItem, terms: string[]) {
+  const text = [...item.primaryBenefits, item.description].join(' ').toLowerCase()
+  return terms.some((term) => text.includes(term))
 }
 
 export default function CompareGoalSection({ item1, item2 }: CompareGoalSectionProps) {
-  const isAshwagandhaRhodiola =
-    (item1.slug === 'ashwagandha' && item2.slug === 'rhodiola') ||
-    (item1.slug === 'rhodiola' && item2.slug === 'ashwagandha')
+  const ashwagandha = item1.slug === 'ashwagandha' ? item1 : item2.slug === 'ashwagandha' ? item2 : null
+  const rhodiola = item1.slug === 'rhodiola' ? item1 : item2.slug === 'rhodiola' ? item2 : null
 
-  if (!isAshwagandhaRhodiola) return null
+  if (!ashwagandha || !rhodiola) return null
 
-  // Custom goal comparisons for Ashwagandha vs Rhodiola
   const goals: GoalCard[] = [
     {
-      goal: 'Stress Response',
-      winner: 'Tie (Depends on stress pattern)',
-      rationale: 'Ashwagandha is better for "wired" stress (nervous tension). Rhodiola is better for "tired" stress (burnout and fatigue).',
-      details: 'Ashwagandha modulates the HPA axis to reduce baseline cortisol levels, helping you feel more grounded. Rhodiola supports stress resilience by modulating neurotransmitters and cellular energy, helping you power through stressors without depleting your stamina.',
+      goal: 'Stress',
+      betterFit: 'Tie, depending on stress pattern',
+      why: `${ashwagandha.name} is listed for stress with sleep also present in its source effects. ${rhodiola.name} is listed for stress with stress resilience and fatigue reduction in its primary effects.`,
+      unclear: 'The source data does not provide head-to-head trials, effect sizes, or a single winner for all stress patterns.',
     },
     {
-      goal: 'Anxiety & Calming',
-      winner: 'Ashwagandha',
-      rationale: 'Ashwagandha shows stronger human trial evidence for reducing perceived anxiety scores.',
-      details: 'Clinical trials demonstrate significant, replicable reductions in salivary cortisol and anxiety rating scales (such as HAM-A) with standardized root extracts. Rhodiola is not primarily a calming agent and can occasionally feel mildly stimulating to sensitive individuals.',
+      goal: 'Anxiety / calm',
+      betterFit: ashwagandha.name,
+      why: `${ashwagandha.name} has source-backed stress and sleep positioning, while ${rhodiola.name} is described in the source data as fatigue support with activation or insomnia caution in sensitive users.`,
+      unclear: 'The current comparison data does not include anxiety-specific trial counts or effect sizes.',
     },
     {
-      goal: 'Sleep Support',
-      winner: 'Ashwagandha',
-      rationale: 'Ashwagandha is clinically tracked for improving sleep efficiency and sleep quality.',
-      details: 'Ashwagandha acts as a GABA facilitator to calm the nervous system in the evening, making it ideal for individuals whose stress keeps them awake. Rhodiola has no direct clinical support for sleep promotion and should be taken in the morning to avoid sleep disruption.',
+      goal: 'Energy',
+      betterFit: rhodiola.name,
+      why: `${rhodiola.name} lists fatigue reduction and stress resilience as primary effects. ${ashwagandha.name} is primarily listed for sleep in the source record.`,
     },
     {
-      goal: 'Energy & Fatigue',
-      winner: 'Rhodiola',
-      rationale: 'Rhodiola (specifically SHR-5 extract) has robust evidence for alleviating stress-induced fatigue.',
-      details: 'Multiple trials show Rhodiola helps prevent burnout and fatigue in students, physicians, and military personnel under high stress. It works by supporting cellular energy production (AMPK/mitochondria), whereas Ashwagandha acts more as a calming recovery agent.',
+      goal: 'Focus',
+      betterFit: hasBenefit(ashwagandha, ['cognition']) || hasBenefit(rhodiola, ['focus', 'mental stamina']) ? 'Unclear' : 'Unclear',
+      why: `${ashwagandha.name} mentions cognition in its summary, and ${rhodiola.name} mentions mental stamina in its summary. The available fields do not support a firm focus winner.`,
     },
     {
-      goal: 'Focus & Cognition',
-      winner: 'Rhodiola',
-      rationale: 'Rhodiola is superior for acute cognitive stamina and mental performance under pressure.',
-      details: 'Rhodiola is a fast-acting adaptogen that modulates dopamine and norepinephrine, leading to rapid improvements in attention, processing speed, and mental accuracy. Ashwagandha requires weeks of daily dosing to build systemic cognitive support.',
+      goal: 'Sleep support',
+      betterFit: ashwagandha.name,
+      why: `${ashwagandha.name} includes sleep in source effects and primary effects. ${rhodiola.name} is not framed as a bedtime calming herb in the available source description.`,
+    },
+    {
+      goal: 'Exercise / fatigue',
+      betterFit: rhodiola.name,
+      why: `${rhodiola.name} includes fatigue reduction in primary effects. The current ${ashwagandha.name} herb record does not list fatigue as a primary effect.`,
+      unclear: 'Exercise-specific outcomes are not available in these herb records.',
     },
   ]
 
   return (
-    <section className="space-y-6 max-w-5xl">
+    <section className="max-w-5xl space-y-6">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Goal Matcher</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
-          Goal-by-Goal Breakdown
-        </h2>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Goal matcher</p>
+        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Goal-by-goal fit</h2>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {goals.map((item) => (
-          <div key={item.goal} className="card-premium p-5 flex flex-col justify-between space-y-4">
-            <div className="space-y-2">
-              <h3 className="text-lg font-semibold text-ink border-b border-brand-900/10 pb-2">{item.goal}</h3>
-              <p className="text-xs font-bold text-brand-700">
-                Better fit: <span className="text-ink font-medium">{item.winner}</span>
-              </p>
-              <p className="text-xs font-semibold text-ink leading-relaxed">
-                {item.rationale}
-              </p>
-              <p className="text-xs leading-relaxed text-muted">
-                {item.details}
-              </p>
-            </div>
-          </div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {goals.map((goal) => (
+          <article key={goal.goal} className="card-premium flex flex-col gap-3 p-5">
+            <h3 className="border-b border-brand-900/10 pb-2 text-lg font-semibold text-ink">{goal.goal}</h3>
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Better fit</p>
+            <p className="text-sm font-semibold text-ink">{goal.betterFit}</p>
+            <p className="text-sm leading-6 text-muted">{goal.why}</p>
+            {goal.unclear ? <p className="text-xs leading-5 text-muted">{goal.unclear}</p> : null}
+          </article>
         ))}
       </div>
     </section>

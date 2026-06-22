@@ -28,7 +28,7 @@ export default function CompareSafety({ item1, item2 }: CompareSafetyProps) {
   return (
     <section className="space-y-6 max-w-4xl">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Safety Profile</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Safety profile</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
           Cautions & Contraindications
         </h2>

@@ -13,7 +13,7 @@ export default function CompareDecisionSection({ item1, item2 }: CompareDecision
   return (
     <section className="card-premium p-6 space-y-6 max-w-4xl">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Decision Guide</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Decision guide</p>
         <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
           How to Choose Between Them
         </h2>
@@ -25,9 +25,9 @@ export default function CompareDecisionSection({ item1, item2 }: CompareDecision
           <ul className="list-disc pl-5 text-sm leading-relaxed text-muted space-y-2">
             {isAshwagandhaRhodiola ? (
               <>
-                <li>Your stress feels like tension, nervousness, or an overactive mind.</li>
-                <li>Your stress interferes with sleep onset or sleep quality.</li>
-                <li>You prefer a more relaxing, grounding effect during times of stress.</li>
+                <li>You want calmer stress support.</li>
+                <li>Sleep support is part of your goal.</li>
+                <li>You want the option with the stronger source evidence tier in this comparison.</li>
               </>
             ) : (
               <>
@@ -43,9 +43,9 @@ export default function CompareDecisionSection({ item1, item2 }: CompareDecision
           <ul className="list-disc pl-5 text-sm leading-relaxed text-muted space-y-2">
             {isAshwagandhaRhodiola ? (
               <>
-                <li>Your stress is accompanied by physical or mental fatigue, brain fog, or burnout.</li>
-                <li>You need to maintain focus, alertness, and stamina during cognitive tasks.</li>
-                <li>You prefer an adaptogen that supports work performance without causing drowsiness.</li>
+                <li>Your stress support goal is paired with fatigue reduction.</li>
+                <li>You want the more energy- and stamina-oriented profile.</li>
+                <li>You are avoiding bedtime-oriented calming support.</li>
               </>
             ) : (
               <>
@@ -61,7 +61,7 @@ export default function CompareDecisionSection({ item1, item2 }: CompareDecision
       <div className="border-t border-brand-900/10 pt-4 space-y-2">
         <h4 className="text-xs font-bold uppercase tracking-wider text-ink">General Safety Warnings</h4>
         <p className="text-xs leading-relaxed text-muted">
-          Be more cautious if you are pregnant or breastfeeding, taking prescription medications (especially thyroid medications, antidepressants/SSRIs, or sedatives), managing an autoimmune disease, or have a history of liver conditions. Always consult a healthcare professional before adding new supplements to your routine.
+          Be more cautious if you are pregnant, on medication, sensitive to supplements, or managing a medical condition. The source records specifically flag thyroid and sedative cautions for ashwagandha and SSRI cautions for rhodiola.
         </p>
       </div>
     </section>
