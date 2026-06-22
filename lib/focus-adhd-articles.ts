@@ -181,6 +181,17 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     readingTime: '11 min read',
   },
   {
+    slug: 'alpha-gpc-and-adhd',
+    source: 'docs/content/focus-cluster/alpha-gpc-and-adhd.md',
+    title: 'Alpha-GPC for ADHD: Evidence, Focus Benefits, Dosing, and Safety',
+    seoTitle: 'Alpha-GPC for ADHD: Evidence, Focus Benefits, Dosing, and Safety',
+    description: 'Evidence-based guide to Alpha-GPC for ADHD and focus. Covers choline, acetylcholine, attention research, citicoline comparison, dosing, safety, and realistic expectations.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Supplement Evidence'],
+    date: '2026-06-22',
+    readingTime: '11 min read',
+  },
+  {
     slug: 'l-theanine-vs-caffeine-for-focus',
     source: 'docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md',
     title: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
