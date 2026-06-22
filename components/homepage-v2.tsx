@@ -135,7 +135,7 @@ export default function HomepageV2() {
                   href='#choose-a-path'
                   className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none text-center'
                 >
-                  Choose your goal
+                  Browse by Health Goal
                 </Link>
               </div>
             </div>
