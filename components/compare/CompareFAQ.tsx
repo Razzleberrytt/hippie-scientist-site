@@ -1,66 +1,52 @@
-import type { CompareItem } from '@/lib/compare'
-
-interface CompareFAQProps {
-  item1: CompareItem
-  item2: CompareItem
-}
-
-export type FAQItem = {
+interface FAQItem {
   question: string
   answer: string
 }
 
-export function getCompareFaqs(item1: CompareItem, item2: CompareItem): FAQItem[] {
-  const ashwagandha = item1.slug === 'ashwagandha' ? item1 : item2
-  const rhodiola = item1.slug === 'rhodiola' ? item1 : item2
-
-  return [
-    {
-      question: 'Which is better, ashwagandha or rhodiola?',
-      answer: `${ashwagandha.name} is usually the calmer fit for stress and relaxation based on the current profile framing, while ${rhodiola.name} is usually the more energizing fit for stress resilience, fatigue, and focus. Neither is universally better.`,
-    },
-    {
-      question: 'Can you take ashwagandha and rhodiola together?',
-      answer: 'The current source data does not provide a combination protocol. Because both have active safety and interaction fields, it is more cautious to evaluate each one separately and ask a qualified clinician if you are pregnant, on medication, sensitive to supplements, or managing a medical condition.',
-    },
-    {
-      question: 'Which works faster?',
-      answer: 'The current herb records do not include onset-time fields, so this comparison does not claim which works faster.',
-    },
-    {
-      question: 'Which is better for stress?',
-      answer: `${ashwagandha.name} and ${rhodiola.name} both include stress in the source data. ${ashwagandha.name} also includes sleep support, while ${rhodiola.name} is framed around stress-related fatigue and mental stamina. The better fit depends on whether your stress feels more tense and calming-oriented or more fatigue-oriented.`,
-    },
-    {
-      question: 'Which is better for energy and focus?',
-      answer: `${rhodiola.name} is the more energy-oriented fit because its source record includes fatigue reduction and mental stamina language. The current data does not support a firm focus effect or a head-to-head performance claim.`,
-    },
-  ]
+interface CompareFAQProps {
+  faqs: FAQItem[]
 }
 
-export default function CompareFAQ({ item1, item2 }: CompareFAQProps) {
-  const faqs = getCompareFaqs(item1, item2)
+export default function CompareFAQ({ faqs }: CompareFAQProps) {
+  if (faqs.length === 0) return null
 
   return (
     <section className="max-w-4xl space-y-6">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">FAQ</p>
-        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Common questions</h2>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">FAQ</p>
+        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+          Common Questions
+        </h2>
       </div>
 
-      <div className="space-y-4">
-        {faqs.map((faq) => (
-          <details key={faq.question} className="accordion-readable group">
-            <summary className="cursor-pointer select-none">
+      <div className="space-y-3">
+        {faqs.map((faq, index) => (
+          <details
+            key={index}
+            open={index === 0}
+            className="group rounded-2xl border border-brand-900/10 bg-white/80"
+          >
+            <summary className="flex cursor-pointer select-none items-center justify-between gap-4 px-5 py-4 text-sm font-medium text-ink marker:content-none">
               <span>{faq.question}</span>
-              <span className="text-brand-700 transition-transform duration-200 group-open:rotate-180" aria-hidden="true">
-                v
-              </span>
+              <svg
+                className="h-4 w-4 shrink-0 text-brand-700 transition-transform duration-200 group-open:rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </summary>
-            <p className="mt-3 whitespace-pre-wrap text-sm leading-7 text-muted">{faq.answer}</p>
+            <div className="px-5 pb-5">
+              <p className="text-sm leading-relaxed text-muted">{faq.answer}</p>
+            </div>
           </details>
         ))}
       </div>
     </section>
   )
 }
+
+export type { FAQItem }

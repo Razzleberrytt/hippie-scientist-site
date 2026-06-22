@@ -664,13 +664,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addRoute(`/novel-psychoactive-substances/${page.slug}`, 'monthly', 0.65, getSitemapLastModified(page), page);
   });
 
-  // Add compare detail routes (data-driven + custom directories)
+  // Add compare detail routes (data-driven + custom directories + generated combinations)
   const compareFromGen = readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons');
   const compareFromData = readTsStringArray('data/comparisons.ts', 'supplementComparisons')
     .map((s: string) => s)
     .filter(Boolean);
+  const compareFromCombinations = readTsStringArray('config/compare-combinations.ts', 'COMPARE_COMBINATIONS');
   const compareFromDirs = readAppComparePageSlugs('app/compare').map(item => item.slug).filter((s): s is string => Boolean(s));
-  Array.from(new Set([...compareFromGen, ...compareFromData, ...compareFromDirs])).forEach((slug) => {
+  Array.from(new Set([...compareFromGen, ...compareFromData, ...compareFromCombinations, ...compareFromDirs])).forEach((slug) => {
     if (slug) addRoute(`/compare/${slug}`, 'monthly', 0.6);
   });
 

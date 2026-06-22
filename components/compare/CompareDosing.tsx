@@ -5,47 +5,74 @@ interface CompareDosingProps {
   item2: CompareItem
 }
 
-function DosingCard({ item }: { item: CompareItem }) {
-  const rows = [
-    { label: 'Typical dose', value: item.typicalDose },
-    { label: 'Best timing', value: item.bestTiming },
-    { label: 'Onset', value: item.onsetTime },
-  ].filter((row) => row.value)
+function deriveFormNote(item: CompareItem): string {
+  if (item.type === 'herb') {
+    return `Available as capsules, powder, tincture, or tea. Look for standardised root or aerial-part extracts with clearly labelled active constituents and third-party testing.`
+  }
+  return `Typically available as capsules or powder. Look for products with third-party purity verification and clearly labelled active constituent percentages.`
+}
 
-  if (rows.length === 0) return null
+function DosingCard({ item }: { item: CompareItem }) {
+  const dose = item.typicalDose || '—'
+  const timing = item.bestTiming || 'With or without food'
+  const onset = item.onsetTime || 'Varies — often 2–4 weeks for adaptogens'
+  const formNote = deriveFormNote(item)
 
   return (
-    <article className="card-premium p-6">
-      <h3 className="border-b border-brand-900/10 pb-2 text-xl font-semibold text-ink">{item.name}</h3>
-      <dl className="mt-4 space-y-4 text-sm">
-        {rows.map((row) => (
-          <div key={row.label}>
-            <dt className="font-bold text-ink">{row.label}</dt>
-            <dd className="mt-1 leading-6 text-muted">{row.value}</dd>
-          </div>
-        ))}
-      </dl>
-    </article>
+    <div className="card-premium p-6 space-y-4">
+      <h3 className="text-xl font-semibold text-ink border-b border-brand-900/10 pb-2">
+        {item.name}
+      </h3>
+
+      <div className="space-y-3 text-sm">
+        <div>
+          <p className="font-semibold text-ink">Effective Dose</p>
+          <p className="text-muted leading-relaxed mt-0.5">{dose}</p>
+        </div>
+
+        <div>
+          <p className="font-semibold text-ink">Form / Extract</p>
+          <p className="text-muted leading-relaxed mt-0.5">{formNote}</p>
+        </div>
+
+        <div>
+          <p className="font-semibold text-ink">Best Timing</p>
+          <p className="text-muted leading-relaxed mt-0.5">{timing}</p>
+        </div>
+
+        <div>
+          <p className="font-semibold text-ink">Time to Effects</p>
+          <p className="text-muted leading-relaxed mt-0.5">{onset}</p>
+        </div>
+
+        <div>
+          <p className="font-semibold text-ink">Approximate Cost</p>
+          <p className="text-muted leading-relaxed mt-0.5">Check current pricing</p>
+        </div>
+      </div>
+    </div>
   )
 }
 
 export default function CompareDosing({ item1, item2 }: CompareDosingProps) {
-  const hasDosing = Boolean(item1.typicalDose || item1.bestTiming || item1.onsetTime || item2.typicalDose || item2.bestTiming || item2.onsetTime)
-  if (!hasDosing) return null
-
   return (
     <section className="max-w-4xl space-y-6">
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-brand-700">Dosing</p>
-        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Dose and timing</h2>
-        <p className="mt-2 text-sm leading-6 text-muted">
-          Timing, onset, and extract-form details are shown only when they exist in the source mapping.
-        </p>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Dosing &amp; Timing</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
+          Dosage and Usage Guidelines
+        </h2>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         <DosingCard item={item1} />
         <DosingCard item={item2} />
+      </div>
+
+      <div className="rounded-xl border border-brand-900/10 bg-brand-50/50 p-4">
+        <p className="text-xs leading-relaxed text-muted">
+          Cost estimates vary by brand, form, and dose. Standardised extracts typically cost more than raw powder. Always verify dose and extract concentration on the product label before purchasing.
+        </p>
       </div>
     </section>
   )

@@ -5,8 +5,7 @@ import { getStacks } from '../../../src/lib/runtime-data'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { bestPageHref, bestPages } from '@/data/best'
-import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
-import PathwayVisualChip from '../../../src/components/pathway-visual-chip'
+import { formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
 import { getUnifiedRuntimeRecords } from '../../../src/lib/runtime-record-index'
@@ -16,6 +15,27 @@ import { buildCompareDetailSchemaGraph } from '../../../src/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { getComparisonRecommendationEntries } from '../../../src/lib/runtime-related-maps'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
+import { COMPARE_COMBINATIONS } from '@/config/compare-combinations'
+import {
+  recordToCompareItem,
+  parseCompareSlug,
+  getRelatedComparisons,
+  buildFAQs,
+} from '@/lib/compare'
+import CompareHero from '@/components/compare/CompareHero'
+import CompareDecisionWidget from '@/components/compare/CompareDecisionWidget'
+import CompareSummaryTable from '@/components/compare/CompareSummaryTable'
+import CompareMechanisms from '@/components/compare/CompareMechanisms'
+import CompareEvidenceMatrix from '@/components/compare/CompareEvidenceMatrix'
+import CompareGoalRouting from '@/components/compare/CompareGoalRouting'
+import CompareSynergy from '@/components/compare/CompareSynergy'
+import CompareSafety from '@/components/compare/CompareSafety'
+import CompareDosing from '@/components/compare/CompareDosing'
+import CompareAffiliate from '@/components/compare/CompareAffiliate'
+import CompareRelated from '@/components/compare/CompareRelated'
+import CompareFAQ from '@/components/compare/CompareFAQ'
+import CompareCitations from '@/components/compare/CompareCitations'
+import CompareSchema from '@/components/compare/CompareSchema'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -30,8 +50,8 @@ const formatSlug = (value: string) =>
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 const asString = (value: unknown, fallback = '') => typeof value === 'string' ? value : fallback
 
-const displayName = (compound: Record<string, unknown>) => asString(compound?.displayName) || asString(compound?.name) || formatSlug(asString(compound?.slug, 'Compound'))
-const summary = (compound: Record<string, unknown>) => cleanSummary(compound?.summary || compound?.description, 'compound') || 'Open the profile for more detail.'
+const displayName = (compound: Record<string, unknown>) =>
+  asString(compound?.displayName) || asString(compound?.name) || formatSlug(asString(compound?.slug, 'Compound'))
 
 const evidenceScore = (compound: Record<string, unknown>) => {
   const text = `${compound?.evidence_grade ?? ''} ${compound?.evidenceTier ?? ''} ${compound?.tier_level ?? ''} ${compound?.evidence ?? ''} ${compound?.summary_quality ?? ''}`.toLowerCase()
@@ -56,9 +76,21 @@ const findCompound = (compounds: Record<string, unknown>[], candidates: string[]
 
 const getComparisonConfig = (slug: string) => supplementComparisons.find(item => item.slug === slug)
 
+// Static pages with their own routes — must be excluded from the dynamic [slug] route
+const STATIC_COMPARE_PAGES = new Set([
+  'ashwagandha-vs-rhodiola', 'ashwagandha-vs-l-theanine-vs-magnesium',
+  'berberine-vs-metformin', 'caffeine-vs-l-theanine-vs-bacopa-for-focus',
+  'curcumin-vs-boswellia-vs-omega-3', 'kanna-vs-ssris', 'kava-vs-alcohol',
+  'l-theanine-vs-magnesium', 'magnesium-glycinate-vs-l-threonate-for-sleep',
+  'magnesium-glycinate-vs-magnesium-oxide', 'melatonin-vs-magnesium',
+  'melatonin-vs-valerian-vs-magnesium-for-sleep', 'mitragynine-vs-7-hydroxymitragynine',
+  'rhodiola-vs-ashwagandha', 'sleep-herbs-vs-melatonin',
+])
+
 const allComparisonSlugs = Array.from(new Set([
   ...generatedComparisons,
   ...supplementComparisons.map(item => item.slug),
+  ...COMPARE_COMBINATIONS,
   '11-keto-beta-boswellic-acid-vs-acemannan',
   'acemannan-vs-acetyl-11-keto-beta-boswellic-acid',
   'acetyl-11-keto-beta-boswellic-acid-vs-acetyl-beta-boswellic-acid',
@@ -83,7 +115,7 @@ const allComparisonSlugs = Array.from(new Set([
   'asiatic-acid-vs-asiaticoside',
   'asiaticoside-vs-aspalathin',
   'aspalathin-vs-astragalin',
-])).filter(slug => slug !== 'berberine-vs-metformin')
+])).filter(slug => !STATIC_COMPARE_PAGES.has(slug))
 
 function getSignals(compound: Record<string, unknown>) {
   return unique([
@@ -110,6 +142,12 @@ const profileLabel = (compound: Record<string, unknown>) => {
 
 const firstItems = (values: string[], fallback: string) => (values.length > 0 ? values.slice(0, 3) : [fallback])
 
+function isFieldEmpty(val: unknown): boolean {
+  if (val === null || val === undefined) return true
+  const str = String(val).trim().toLowerCase()
+  return str === '' || str === 'nan' || str === 'null' || str === 'undefined'
+}
+
 export function generateStaticParams() {
   return allComparisonSlugs.map(slug => ({ slug }))
 }
@@ -117,8 +155,26 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const config = getComparisonConfig(slug)
-  const title = config?.title ? `${config.title}: Which Is Better?` : `${formatSlug(slug)}: Which Is Better?`
-  const description = config?.summary || `Compare ${formatSlug(slug)} for benefits, safety, evidence, best use cases, and supplement buying options.`
+  const parsed = parseCompareSlug(slug)
+
+  let title: string
+  let description: string
+
+  if (config?.title) {
+    title = `${config.title}: Which Is Better?`
+    description = config.summary || `Compare ${config.title} for benefits, safety, evidence, and best use cases.`
+  } else if (parsed) {
+    const { allRecords } = await getUnifiedRuntimeRecords()
+    const a = allRecords.find((c: Record<string, unknown>) => c.slug === parsed.item1Slug)
+    const b = allRecords.find((c: Record<string, unknown>) => c.slug === parsed.item2Slug)
+    const n1 = a ? displayName(a) : formatSlug(parsed.item1Slug)
+    const n2 = b ? displayName(b) : formatSlug(parsed.item2Slug)
+    title = `${n1} vs ${n2}: Complete Comparison | The Hippie Scientist`
+    description = `Evidence-based comparison of ${n1} and ${n2}. Compare mechanisms, dosing, safety, and which is right for your goals.`
+  } else {
+    title = `${formatSlug(slug)}: Which Is Better?`
+    description = `Compare ${formatSlug(slug)} for benefits, safety, evidence, best use cases, and supplement buying options.`
+  }
 
   const indexable = isFlagshipCompareSlug(slug) || allComparisonSlugs.includes(slug)
   return buildPageMetadata({
@@ -126,30 +182,33 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description,
     path: `/compare/${slug}`,
     openGraphType: 'article',
-    robots: indexable
-      ? undefined
-      : { index: false, follow: true },
+    robots: indexable ? undefined : { index: false, follow: true },
+    alternates: { canonical: `${SITE_URL}/compare/${slug}/` },
   })
-}
-
-function isFieldEmpty(val: unknown): boolean {
-  if (val === null || val === undefined) return true
-  const str = String(val).trim().toLowerCase()
-  return str === '' || str === 'nan' || str === 'null' || str === 'undefined'
 }
 
 export default async function Page({ params }: Params) {
   const { slug } = await params
   const config = getComparisonConfig(slug)
+  const parsed = parseCompareSlug(slug)
   const [aSlug, bSlug] = slug.split('-vs-')
 
-  // Load unified records (handles both herbs and compounds)
   const { allRecords } = await getUnifiedRuntimeRecords()
   const stacks = await getStacks()
 
-  const a = config ? findCompound(allRecords, config.a.candidates) : allRecords.find((c: Record<string, unknown>) => c.slug === aSlug)
-  const b = config ? findCompound(allRecords, config.b.candidates) : allRecords.find((c: Record<string, unknown>) => c.slug === bSlug)
+  const a = config
+    ? findCompound(allRecords, config.a.candidates)
+    : allRecords.find((c: Record<string, unknown>) => c.slug === (parsed?.item1Slug ?? aSlug))
+  const b = config
+    ? findCompound(allRecords, config.b.candidates)
+    : allRecords.find((c: Record<string, unknown>) => c.slug === (parsed?.item2Slug ?? bSlug))
+
   if (!a || !b) return notFound()
+
+  // Build typed CompareItem objects for new components
+  const item1 = recordToCompareItem(a as Record<string, unknown>)
+  const item2 = recordToCompareItem(b as Record<string, unknown>)
+  const isHR = item1.isHarmReduction || item2.isHarmReduction
 
   const winner = evidenceScore(a) >= evidenceScore(b) ? a : b
   const loser = winner.slug === a.slug ? b : a
@@ -236,7 +295,7 @@ export default async function Page({ params }: Params) {
         <p className="leading-relaxed text-ink bg-surface-subtle p-4 rounded-xl border border-brand-900/5 text-sm">
           {verdictText}
         </p>
-        {cta ? (
+        {cta && !isHR ? (
           <a
             href={cta.url}
             target="_blank"
@@ -273,55 +332,58 @@ export default async function Page({ params }: Params) {
     ],
   })
 
+  const faqs = buildFAQs(item1, item2)
+  const relatedPairs = getRelatedComparisons(item1.slug, item2.slug, COMPARE_COMBINATIONS)
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
       <SchemaGraphScript graph={schemaGraph} />
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-        <p className="eyebrow-label">Semantic Comparison</p>
-        <h1 className="heading-premium mt-3 text-ink">{title}</h1>
-        <p className="detail-reading mt-5 text-base text-muted sm:text-lg">{pageSummary}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
-          <span className="chip-readable">Decision guide</span>
-          <span className="chip-readable">Evidence signals compared</span>
-          <span className="chip-readable">Mechanism contrast</span>
-        </div>
+      <CompareSchema item1={item1} item2={item2} slug={slug} faqs={faqs} />
+
+      {/* Hero */}
+      <CompareHero item1={item1} item2={item2} />
+
+      {/* Interactive decision widget — client component */}
+      <section>
+        <CompareDecisionWidget item1={item1} item2={item2} isHarmReduction={isHR} />
       </section>
 
-      {/* Side-by-Side Quick Cards */}
-      <section className="grid gap-6 sm:grid-cols-2">
-        {[a, b].map((compound: Record<string, unknown>) => (
-          <article key={asString(compound.slug)} className="card-premium p-6 space-y-3">
-            <span className="identity-kicker">Evidence signal: {evidenceScore(compound)}/5</span>
-            <h2 className="text-xl font-bold text-ink">{displayName(compound)}</h2>
-            <p className="text-sm leading-relaxed text-muted">{summary(compound)}</p>
-            <div className="flex flex-wrap gap-2 pt-2 border-t border-brand-900/5">
-              {getSignals(compound).slice(0, 4).map((signal) => (
-                <PathwayVisualChip key={signal} pathway={signal} />
-              ))}
-            </div>
-            <div className="pt-2">
-              <Link href={compound.entityType === 'herb' ? `/herbs/${asString(compound.slug)}` : `/compounds/${asString(compound.slug)}`} className="text-sm font-bold text-brand-700 hover:text-brand-900">
-                Open full profile →
-              </Link>
-            </div>
-          </article>
-        ))}
-      </section>
+      {/* Quick summary table */}
+      <CompareSummaryTable item1={item1} item2={item2} />
 
-      {/* Comparison Table */}
+      {/* Mechanism comparison at molecular level */}
+      <CompareMechanisms item1={item1} item2={item2} />
+
+      {/* Evidence quality matrix */}
+      <CompareEvidenceMatrix item1={item1} item2={item2} />
+
+      {/* Goal-based routing */}
+      <CompareGoalRouting item1={item1} item2={item2} />
+
+      {/* Stack / synergy section */}
+      <CompareSynergy item1={item1} item2={item2} />
+
+      {/* Safety comparison */}
+      <CompareSafety item1={item1} item2={item2} />
+
+      {/* Dosing + cost-per-effective-dose */}
+      <CompareDosing item1={item1} item2={item2} />
+
+      {/* Affiliate (zone-gated) */}
+      {!isHR && <CompareAffiliate item1={item1} item2={item2} isHR={isHR} />}
+
+      {/* Original comparison table — preserved for detail */}
       <section className="card-premium p-6 sm:p-8 space-y-6">
         <div>
-          <h2 className="text-xl font-bold text-ink">Comparison Table</h2>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Side-by-Side</p>
+          <h2 className="text-xl font-bold text-ink mt-2">Detailed Comparison</h2>
           <p className="text-sm text-muted mt-1">Tradeoffs, timing, safety, and evidence signals compared.</p>
         </div>
-
-        {/* Table Headers */}
         <div className="grid gap-4 pb-4 border-b border-brand-900/15 sm:grid-cols-[180px_1fr_1fr] font-bold text-xs uppercase tracking-wider text-brand-900/70">
           <div>Attribute</div>
           <div>{displayName(a)}</div>
           <div>{displayName(b)}</div>
         </div>
-
         <div className="flex flex-col">
           {renderRow('Evidence Level',
             <span className="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-800 border border-emerald-100/50">
@@ -331,7 +393,6 @@ export default async function Page({ params }: Params) {
               {evidenceLabel(evidenceB)} ({evidenceB}/5)
             </span>
           )}
-
           {renderRow('Onset & Duration',
             <div>
               <p className="font-semibold">{timingA}</p>
@@ -344,33 +405,28 @@ export default async function Page({ params }: Params) {
             a?.time_to_effect || a?.onset,
             b?.time_to_effect || b?.onset
           )}
-
           {renderRow('Safety',
             <p>{a.safetyNotes || (cautionA.length > 0 ? cautionA.join(', ') : null)}</p>,
             <p>{b.safetyNotes || (cautionB.length > 0 ? cautionB.join(', ') : null)}</p>,
             a.safetyNotes || (cautionA.length > 0 ? cautionA.join(', ') : null),
             b.safetyNotes || (cautionB.length > 0 ? cautionB.join(', ') : null)
           )}
-
           {renderRow('Best For',
             <p>{a.best_for || a.summary}</p>,
             <p>{b.best_for || b.summary}</p>,
             a.best_for || a.summary,
             b.best_for || b.summary
           )}
-
           {renderRow('Cost Tier',
             <p>{costA}</p>,
             <p>{costB}</p>,
             a?.cost,
             b?.cost
           )}
-
           {renderRow('Stimulation Profile',
             <p className="font-semibold text-emerald-700">{profileLabel(a)}</p>,
             <p className="font-semibold text-emerald-700">{profileLabel(b)}</p>
           )}
-
           {renderRow('Interactions',
             <div>
               {list(a.interactions).length > 0 ? (
@@ -389,15 +445,23 @@ export default async function Page({ params }: Params) {
             list(a.interactions).length > 0 ? 'available' : null,
             list(b.interactions).length > 0 ? 'available' : null
           )}
-
-          {renderRow('Verdict & Sourcing',
+          {!isHR && renderRow('Verdict & Sourcing',
             renderVerdictCell(a, winner.slug === a.slug ? chooseWinnerIf : chooseLoserIf),
             renderVerdictCell(b, winner.slug === b.slug ? chooseWinnerIf : chooseLoserIf)
           )}
         </div>
       </section>
 
-      {/* Routine Integration & Navigation */}
+      {/* Related comparisons */}
+      <CompareRelated comparisons={relatedPairs} currentSlug={slug} />
+
+      {/* FAQ */}
+      <CompareFAQ faqs={faqs} />
+
+      {/* Citations */}
+      <CompareCitations item1={item1} item2={item2} />
+
+      {/* Navigation cards */}
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {relatedStack && (
           <article className="card-premium p-5 space-y-2">
@@ -408,7 +472,6 @@ export default async function Page({ params }: Params) {
             </Link>
           </article>
         )}
-
         {relatedComparisons.length > 0 && (
           <article className="card-premium p-5 space-y-2">
             <h3 className="font-bold text-ink">Related comparisons</h3>
@@ -421,7 +484,6 @@ export default async function Page({ params }: Params) {
             </div>
           </article>
         )}
-
         {runtimeComparisonLinks.length > 0 && (
           <article className="card-premium p-5 space-y-2">
             <h3 className="font-bold text-ink">More comparison paths</h3>
@@ -434,7 +496,6 @@ export default async function Page({ params }: Params) {
             </div>
           </article>
         )}
-
         {relatedBestPages.length > 0 && (
           <article className="card-premium p-5 space-y-2">
             <h3 className="font-bold text-ink">Best-of guides</h3>
@@ -477,9 +538,7 @@ export default async function Page({ params }: Params) {
           {
             title: 'Related goals pages',
             description: 'Use goal pages when choosing by outcome instead of ingredient.',
-            links: [
-              { href: '/goals', label: 'Browse goal guides' },
-            ],
+            links: [{ href: '/goals', label: 'Browse goal guides' }],
           },
         ]}
       />

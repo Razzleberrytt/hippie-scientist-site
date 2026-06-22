@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { buildPageMetadata } from '@/src/lib/seo'
-import { getItemBySlug } from '@/lib/compare'
+import { getItemBySlug, buildFAQs } from '@/lib/compare'
 
 // Page components
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: canonicalUrl },
 }
 
-export default async function AshwagandhaVsRhodiolaPage() {
+export default function AshwagandhaVsRhodiolaPage() {
   const item1 = getItemBySlug('ashwagandha')
   const item2 = getItemBySlug('rhodiola')
 
@@ -37,15 +37,12 @@ export default async function AshwagandhaVsRhodiolaPage() {
     notFound()
   }
 
+  const isHR = item1.isHarmReduction || item2.isHarmReduction
+  const faqs = buildFAQs(item1, item2)
+
   return (
     <div className="container-page py-10 space-y-12">
-      <CompareSchema
-        item1={item1}
-        item2={item2}
-        title="Ashwagandha vs Rhodiola: Complete Comparison | The Hippie Scientist"
-        description="Compare ashwagandha and rhodiola for stress, energy, focus, dosing, safety, and which supplement better fits your goal."
-        canonicalUrl={canonicalUrl}
-      />
+      <CompareSchema item1={item1} item2={item2} slug="ashwagandha-vs-rhodiola" faqs={faqs} />
 
       <AuthorityBreadcrumbs
         items={[
@@ -55,32 +52,15 @@ export default async function AshwagandhaVsRhodiolaPage() {
         ]}
       />
 
-      {/* Hero Header Section */}
       <CompareHero item1={item1} item2={item2} />
-
-      {/* Quick Summary Reference */}
       <CompareSummaryTable item1={item1} item2={item2} />
-
-      {/* Detailed Goal Breakdown */}
       <CompareGoalSection item1={item1} item2={item2} />
-
-      {/* Decision Guidance */}
       <CompareDecisionSection item1={item1} item2={item2} />
-
-      {/* Mechanism Comparison */}
       <CompareMechanisms item1={item1} item2={item2} />
-
-      {/* Dosing and Standardization */}
       <CompareDosing item1={item1} item2={item2} />
-
-      {/* Safety, Contraindications and Warnings */}
       <CompareSafety item1={item1} item2={item2} />
-
-      {/* Affiliate Product Recommendations */}
-      <CompareAffiliate item1={item1} item2={item2} />
-
-      {/* FAQ Accordion Section */}
-      <CompareFAQ item1={item1} item2={item2} />
+      {!isHR && <CompareAffiliate item1={item1} item2={item2} isHR={isHR} />}
+      <CompareFAQ faqs={faqs} />
     </div>
   )
 }
