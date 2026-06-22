@@ -452,7 +452,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(normalizeSitemapUrl('/guides'), 'monthly', 0.85),
     route(normalizeSitemapUrl('/novel-psychoactive-substances'), 'monthly', 0.7, getSitemapLastModified(npsIndex)),
     route(normalizeSitemapUrl('/compare'), 'monthly', 0.7),
-    route(normalizeSitemapUrl('/compare/ashwagandha-vs-rhodiola'), 'monthly', 0.7),
     route(normalizeSitemapUrl('/tools'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/dosing'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/affiliate-disclosure'), 'yearly', 0.5),
