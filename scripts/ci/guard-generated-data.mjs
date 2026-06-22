@@ -188,6 +188,7 @@ function hasPrefixInList(files, prefixes) {
 const PIPELINE_GENERATED_FILES = new Set([
   'public/data/_meta/build-info.json',
   'public/data/runtime-maps/internal-link-map.json',
+  'public/data/runtime-maps/topic-clusters.json',
 ])
 
 function main() {
