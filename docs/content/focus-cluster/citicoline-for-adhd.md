@@ -44,9 +44,9 @@ Citicoline is not the best fit for people who:
 
 ## What Citicoline Is
 
-Citicoline is a naturally occurring compound involved in the synthesis of phosphatidylcholine, a major component of cell membranes. As a supplement, it provides choline and cytidine. Cytidine can convert into uridine in the body, which is one reason citicoline is discussed differently from basic choline salts.
+Citicoline is a naturally occurring compound involved in the synthesis of phosphatidylcholine, a major component of cell membranes. As a supplement, it provides choline and cytidine. Cytidine can convert into uridine in the body, which is one reason citicoline is discussed differently from basic choline salts and other supports for the [cholinergic system](/education/cholinergic-system).
 
-Standard choline supplements mainly supply choline. Citicoline supplies choline plus cytidine, giving it a broader proposed role in membrane synthesis, cellular energy, and cognitive support. That does not make it automatically better for ADHD, but it explains why it appears often in nootropic and cognitive-performance research.
+Standard choline supplements mainly supply choline. Citicoline supplies choline plus cytidine, giving it a broader proposed role in membrane synthesis, cellular energy, and cognitive support. That does not make it automatically better for ADHD, but it explains why it appears often in nootropic and cognitive-performance research and why readers often compare [citicoline vs Alpha-GPC](/articles/citicoline-vs-alpha-gpc/).
 
 ## How Citicoline Works
 
@@ -61,7 +61,7 @@ These mechanisms are plausible, but mechanisms are not the same as clinical outc
 
 ## What the Evidence Says About ADHD
 
-The direct ADHD evidence for citicoline is limited. High-quality randomized controlled trials in diagnosed ADHD populations are scarce, and the available evidence is not strong enough to claim that citicoline reliably improves core ADHD symptoms.
+The direct ADHD evidence for citicoline is limited. High-quality randomized controlled trials in diagnosed ADHD populations are scarce, and the available evidence is not strong enough to claim that citicoline reliably improves core ADHD symptoms. For a broader evidence map, see the site guide to [best supplements for ADHD](/articles/best-supplements-for-adhd/).
 
 Most of the discussion around citicoline and ADHD comes from indirect evidence:
 
@@ -70,11 +70,11 @@ Most of the discussion around citicoline and ADHD comes from indirect evidence:
 - Neuropsychiatric and neurological studies, including stroke and vascular cognitive impairment.
 - Mechanistic research involving acetylcholine, dopamine, membrane repair, and energy metabolism.
 
-That indirect evidence may justify interest, but it should not be overstated. A practical evidence grade for ADHD symptom improvement is limited to preliminary. Benefits, if present, are likely modest and variable.
+That indirect evidence may justify interest, but it should not be overstated. A practical evidence grade for ADHD symptom improvement is limited to preliminary. Benefits, if present, are likely modest and variable, especially compared with better-established foundations like [omega-3 and ADHD](/articles/omega-3-and-adhd/) evidence or correcting confirmed [nutrient deficiencies and ADHD](/articles/nutrient-deficiencies-and-adhd/).
 
 ## Citicoline for Focus, Attention, and Executive Function
 
-Citicoline has shown modest cognitive signals in some non-ADHD studies. Attention, memory, and processing-speed outcomes are the most relevant areas for readers comparing focus supports.
+Citicoline has shown modest cognitive signals in some non-ADHD studies. Attention, memory, and processing-speed outcomes are the most relevant areas for readers comparing focus supports, especially alongside broader explanations of [how focus and motivation work](/education/how-focus-and-motivation-work).
 
 For attention and focus, some studies report improvement on attention measures, particularly in cognitive-demand or fatigue contexts. The applicability to ADHD is uncertain because ADHD involves a broader pattern of attention regulation, impulsivity, executive function, emotional regulation, and daily impairment.
 
@@ -105,13 +105,13 @@ Citicoline differs from other focus supports because it is not primarily a calmi
 
 Compared with omega-3, citicoline has weaker ADHD-specific evidence. Omega-3 fatty acids have more consistent meta-analysis support for modest behavioral improvements, especially when EPA intake is meaningful. Citicoline is more focused on choline, attention, and cognitive-performance pathways.
 
-Compared with L-theanine, citicoline is less about calm focus and more about cholinergic and membrane support. L-theanine may be a better fit for people whose focus problems are tied to tension, caffeine sensitivity, or overactivation.
+Compared with L-theanine, citicoline is less about calm focus and more about cholinergic and membrane support. [L-theanine for ADHD](/articles/l-theanine-for-adhd/) may be a better fit for people whose focus problems are tied to tension, caffeine sensitivity, or overactivation.
 
-Compared with caffeine, citicoline is not an acute stimulant. Caffeine can improve alertness quickly through adenosine blockade, but it can worsen anxiety or sleep. Citicoline is usually evaluated over days to weeks.
+Compared with caffeine, citicoline is not an acute stimulant. Caffeine can improve alertness quickly through adenosine blockade, but it can worsen anxiety or sleep. Citicoline is usually evaluated over days to weeks. Readers considering that route should compare [L-theanine vs caffeine for focus](/articles/l-theanine-vs-caffeine-for-focus/) separately.
 
 Compared with L-tyrosine, citicoline is broader and less directly tied to catecholamine precursor logic. L-tyrosine is often discussed for stress-demand or dopamine/norepinephrine support, while citicoline is usually discussed for choline, acetylcholine, membrane function, and cognitive energy.
 
-Compared with correcting nutrient deficiencies, citicoline is usually secondary. Low ferritin, vitamin D deficiency, inadequate magnesium, zinc issues, sleep deprivation, and other foundations can worsen attention and should not be skipped in favor of a nootropic.
+Compared with correcting nutrient deficiencies, citicoline is usually secondary. Low ferritin, vitamin D deficiency, inadequate magnesium, zinc issues, sleep deprivation, and other foundations can worsen attention and should not be skipped in favor of a nootropic. The [ADHD blood tests guide](/articles/adhd-blood-tests/) covers labs that may be worth discussing with a clinician.
 
 ## Dosing and Timing
 
@@ -151,6 +151,8 @@ Use citicoline only if the decision can be made conservatively and evaluated cle
 5. Avoid complex stacks: do not add citicoline on top of multiple new nootropics at once.
 6. Track for 4-8 weeks: continue only if there is a clear, practical benefit.
 7. Stop or reduce if side effects appear: anxiety, insomnia, irritability, headache, or GI symptoms are reasons to reassess.
+
+If citicoline is being considered as part of a broader supplement plan, use the [ADHD stack guide](/articles/adhd-stack-guide/) to avoid overlapping ingredients and make each change measurable.
 
 The main question is not "does citicoline sound mechanistically interesting?" It is "does this produce a noticeable, tolerable, repeatable improvement in the specific problem I am tracking?"
 

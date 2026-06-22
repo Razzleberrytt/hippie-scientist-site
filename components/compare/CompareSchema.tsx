@@ -1,4 +1,5 @@
 import type { CompareItem } from '@/lib/compare'
+import JsonLd from '@/components/seo/JsonLd'
 
 const SITE_URL = 'https://thehippiescientist.net'
 
@@ -67,10 +68,5 @@ export default function CompareSchema({ item1, item2, slug, faqs }: CompareSchem
     ],
   }
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  )
+  return <JsonLd schema={schema} />
 }

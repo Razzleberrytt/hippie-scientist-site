@@ -70,13 +70,35 @@ const SOURCE_PATHS = [
 function getBaseRef() {
   // In GitHub Actions PR: GITHUB_BASE_REF
   if (process.env.GITHUB_BASE_REF) {
-    return `origin/${process.env.GITHUB_BASE_REF}`
+    const baseBranch = process.env.GITHUB_BASE_REF
+    const baseRef = `origin/${baseBranch}`
+    try {
+      execSync(`git rev-parse --verify ${baseRef}`, { stdio: 'ignore' })
+    } catch {
+      if (/^[A-Za-z0-9._/-]+$/.test(baseBranch)) {
+        spawnSync('git', ['fetch', '--no-tags', '--depth=1', 'origin', `+refs/heads/${baseBranch}:refs/remotes/origin/${baseBranch}`], {
+          cwd: REPO_ROOT,
+          stdio: 'ignore',
+        })
+      }
+    }
+    return baseRef
   }
   // In other CI or local: try origin/main, fallback to HEAD~1
   try {
     execSync('git rev-parse --verify origin/main', { stdio: 'ignore' })
     return 'origin/main'
   } catch {
+    spawnSync('git', ['fetch', '--no-tags', '--depth=1', 'origin', '+refs/heads/main:refs/remotes/origin/main'], {
+      cwd: REPO_ROOT,
+      stdio: 'ignore',
+    })
+    try {
+      execSync('git rev-parse --verify origin/main', { stdio: 'ignore' })
+      return 'origin/main'
+    } catch {
+      // Fall through to local history fallback.
+    }
     return 'HEAD~1'
   }
 }
@@ -104,6 +126,18 @@ function getChangedFiles(base) {
     })
     out.split('\n').map((s) => s.trim()).filter(Boolean).forEach(f => files.add(f))
   } catch (e) {
+    try {
+      const out = execSync(`git diff --name-only --diff-filter=ACMR ${base} HEAD`, {
+        cwd: REPO_ROOT,
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      })
+      out.split('\n').map((s) => s.trim()).filter(Boolean).forEach(f => files.add(f))
+    } catch {
+      // Fall through to local-history fallback.
+    }
+  }
+  if (files.size === 0) {
     try {
       const out = execSync('git diff --name-only --diff-filter=ACMR HEAD~1 HEAD', {
         cwd: REPO_ROOT,

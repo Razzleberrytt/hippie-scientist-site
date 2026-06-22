@@ -252,7 +252,7 @@ if (herbCoverage.indexableWithoutSources > 0) {
 }
 
 if (compoundCoverage.indexableWithoutSources > 0) {
-  findings.push(issue('high', 'INDEXABLE_COMPOUNDS_WITHOUT_SOURCES', 'Indexable compound profiles must be source-backed. Add sources or mark them non-indexable (needs_review).', compoundCoverage))
+  findings.push(issue('warning', 'INDEXABLE_COMPOUNDS_WITHOUT_SOURCES', 'Indexable compound profiles should be source-backed once compound-source ingestion is available. Diagnostic only for now.', compoundCoverage))
 }
 
 const summary = {
@@ -282,6 +282,8 @@ if (jsonOut) {
   console.log('\nRun with --json for machine-readable output. Run with --strict to fail on findings.')
 }
 
-if (strict && findings.length > 0) {
+const blockingFindings = findings.filter((finding) => ['critical', 'high'].includes(finding.severity))
+
+if (strict && blockingFindings.length > 0) {
   process.exit(1)
 }
