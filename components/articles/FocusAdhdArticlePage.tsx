@@ -98,6 +98,25 @@ const cognitiveFocusArticleSlugs = new Set([
 ])
 
 function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
+  if (slug === 'citicoline-vs-alpha-gpc') {
+    const curatedLinks: RelatedLink[] = [
+      routeLink('/guides/adhd-supplements/', 'ADHD Supplements Guide', 'Start here'),
+    ]
+
+    addRelatedLinks(
+      curatedLinks,
+      articleLink('best-supplements-for-adhd', 'Best Supplements for ADHD', 'Core guide'),
+      articleLink('adhd-stack-guide', 'ADHD Stack Guide', 'Stack guide'),
+      articleLink('l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine for Focus', 'Focus comparison'),
+      articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
+      articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Evidence guide'),
+      articleLink('nutrient-deficiencies-and-adhd', 'Nutrient Deficiencies and ADHD', 'Foundation guide'),
+      routeLink('/education/cholinergic-system', 'Cholinergic System', 'Mechanism guide'),
+    )
+
+    return dedupeRelatedLinks(curatedLinks, `/articles/${slug}/`)
+  }
+
   const links: RelatedLink[] = [routeLink('/guides/adhd-supplements/', 'ADHD Supplements Guide', 'Start here')]
 
   addRelatedLinks(
